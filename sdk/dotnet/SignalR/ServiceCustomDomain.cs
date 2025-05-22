@@ -129,6 +129,13 @@ namespace Pulumi.Azure.SignalR
     /// });
     /// ```
     /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.SignalRService`: 2024-03-01
+    /// 
     /// ## Import
     /// 
     /// Custom Domain for a SignalR service can be imported using the `resource id`, e.g.
@@ -143,7 +150,7 @@ namespace Pulumi.Azure.SignalR
         /// <summary>
         /// Specifies the custom domain name of the SignalR Custom Domain. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** Please ensure the custom domain name is included in the Subject Alternative Names of the selected SignalR Custom Certificate.
+        /// &gt; **Note:** Please ensure the custom domain name is included in the Subject Alternative Names of the selected SignalR Custom Certificate.
         /// </summary>
         [Output("domainName")]
         public Output<string> DomainName { get; private set; } = null!;
@@ -215,7 +222,7 @@ namespace Pulumi.Azure.SignalR
         /// <summary>
         /// Specifies the custom domain name of the SignalR Custom Domain. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** Please ensure the custom domain name is included in the Subject Alternative Names of the selected SignalR Custom Certificate.
+        /// &gt; **Note:** Please ensure the custom domain name is included in the Subject Alternative Names of the selected SignalR Custom Certificate.
         /// </summary>
         [Input("domainName", required: true)]
         public Input<string> DomainName { get; set; } = null!;
@@ -249,7 +256,7 @@ namespace Pulumi.Azure.SignalR
         /// <summary>
         /// Specifies the custom domain name of the SignalR Custom Domain. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** Please ensure the custom domain name is included in the Subject Alternative Names of the selected SignalR Custom Certificate.
+        /// &gt; **Note:** Please ensure the custom domain name is included in the Subject Alternative Names of the selected SignalR Custom Certificate.
         /// </summary>
         [Input("domainName")]
         public Input<string>? DomainName { get; set; }

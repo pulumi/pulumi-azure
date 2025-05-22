@@ -126,6 +126,13 @@ class GatewayApi(pulumi.CustomResource):
             api_id=example_get_api.id)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ApiManagement`: 2022-08-01
+
         ## Import
 
         API Management Gateway APIs can be imported using the `resource id`, e.g.
@@ -166,6 +173,13 @@ class GatewayApi(pulumi.CustomResource):
             gateway_id=example_get_gateway.id,
             api_id=example_get_api.id)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ApiManagement`: 2022-08-01
 
         ## Import
 

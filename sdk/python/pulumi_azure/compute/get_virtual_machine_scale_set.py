@@ -137,6 +137,13 @@ def get_virtual_machine_scale_set(name: Optional[builtins.str] = None,
     pulumi.export("id", example.id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Compute`: 2024-07-01, 2024-03-01, 2023-09-01
+
 
     :param builtins.str name: The name of this Virtual Machine Scale Set.
     :param builtins.str resource_group_name: The name of the Resource Group where the Virtual Machine Scale Set exists.
@@ -171,6 +178,13 @@ def get_virtual_machine_scale_set_output(name: Optional[pulumi.Input[builtins.st
         resource_group_name="existing")
     pulumi.export("id", example.id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Compute`: 2024-07-01, 2024-03-01, 2023-09-01
 
 
     :param builtins.str name: The name of this Virtual Machine Scale Set.

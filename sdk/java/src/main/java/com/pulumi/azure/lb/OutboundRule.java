@@ -21,7 +21,7 @@ import javax.annotation.Nullable;
 /**
  * Manages a Load Balancer Outbound Rule.
  * 
- * &gt; **NOTE** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration and a Backend Address Pool Attached.
+ * &gt; **Note:** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration and a Backend Address Pool Attached.
  * 
  * ## Example Usage
  * 
@@ -100,6 +100,13 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.Network`: 2023-09-01
  * 
  * ## Import
  * 

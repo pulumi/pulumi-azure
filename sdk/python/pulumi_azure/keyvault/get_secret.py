@@ -196,7 +196,7 @@ def get_secret(key_vault_id: Optional[builtins.str] = None,
     :param builtins.str name: Specifies the name of the Key Vault Secret.
     :param builtins.str version: Specifies the version of the Key Vault Secret. Defaults to the current version of the Key Vault Secret.
            
-           **NOTE:** The vault must be in the same subscription as the provider. If the vault is in another subscription, you must create an aliased provider for that subscription.
+           > **Note:** The vault must be in the same subscription as the provider. If the vault is in another subscription, you must create an aliased provider for that subscription.
     """
     __args__ = dict()
     __args__['keyVaultId'] = key_vault_id
@@ -241,7 +241,7 @@ def get_secret_output(key_vault_id: Optional[pulumi.Input[builtins.str]] = None,
     :param builtins.str name: Specifies the name of the Key Vault Secret.
     :param builtins.str version: Specifies the version of the Key Vault Secret. Defaults to the current version of the Key Vault Secret.
            
-           **NOTE:** The vault must be in the same subscription as the provider. If the vault is in another subscription, you must create an aliased provider for that subscription.
+           > **Note:** The vault must be in the same subscription as the provider. If the vault is in another subscription, you must create an aliased provider for that subscription.
     """
     __args__ = dict()
     __args__['keyVaultId'] = key_vault_id

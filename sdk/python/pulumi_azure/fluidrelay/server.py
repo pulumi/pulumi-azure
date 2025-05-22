@@ -386,6 +386,13 @@ class Server(pulumi.CustomResource):
             location=example.location)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.FluidRelay`: 2022-05-26
+
         ## Import
 
         Fluid Relay Servers can be imported using the `resource id`, e.g.
@@ -427,6 +434,13 @@ class Server(pulumi.CustomResource):
             resource_group_name=example.name,
             location=example.location)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.FluidRelay`: 2022-05-26
 
         ## Import
 

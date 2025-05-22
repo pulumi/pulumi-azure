@@ -24,7 +24,7 @@ namespace Pulumi.Azure.ManagedApplication.Outputs
         /// <summary>
         /// Specifies the promotion code to use with the plan. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** When `plan` is specified, legal terms must be accepted for this item on this subscription before creating the Managed Application. The `azure.marketplace.Agreement` resource or AZ CLI tool can be used to do this.
+        /// &gt; **Note:** When `plan` is specified, legal terms must be accepted for this item on this subscription before creating the Managed Application. The `azure.marketplace.Agreement` resource or AZ CLI tool can be used to do this.
         /// </summary>
         public readonly string? PromotionCode;
         /// <summary>

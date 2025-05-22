@@ -60,6 +60,13 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.Automation`: 2019-06-01
+ *
  * ## Import
  *
  * Automations Software Update Configuration can be imported using the `resource id`, e.g.
@@ -147,7 +154,7 @@ export class SoftwareUpdateConfiguration extends pulumi.CustomResource {
     /**
      * A `windows` block as defined below.
      *
-     * > **NOTE:** One of `linux` or `windows` must be specified.
+     * > **Note:** One of `linux` or `windows` must be specified.
      */
     public readonly windows!: pulumi.Output<outputs.automation.SoftwareUpdateConfigurationWindows | undefined>;
 
@@ -259,7 +266,7 @@ export interface SoftwareUpdateConfigurationState {
     /**
      * A `windows` block as defined below.
      *
-     * > **NOTE:** One of `linux` or `windows` must be specified.
+     * > **Note:** One of `linux` or `windows` must be specified.
      */
     windows?: pulumi.Input<inputs.automation.SoftwareUpdateConfigurationWindows>;
 }
@@ -311,7 +318,7 @@ export interface SoftwareUpdateConfigurationArgs {
     /**
      * A `windows` block as defined below.
      *
-     * > **NOTE:** One of `linux` or `windows` must be specified.
+     * > **Note:** One of `linux` or `windows` must be specified.
      */
     windows?: pulumi.Input<inputs.automation.SoftwareUpdateConfigurationWindows>;
 }

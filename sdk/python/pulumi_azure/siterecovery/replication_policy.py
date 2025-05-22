@@ -234,6 +234,13 @@ class ReplicationPolicy(pulumi.CustomResource):
             application_consistent_snapshot_frequency_in_minutes=4 * 60)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.RecoveryServices`: 2024-04-01
+
         ## Import
 
         Site Recovery Replication Policies can be imported using the `resource id`, e.g.
@@ -282,6 +289,13 @@ class ReplicationPolicy(pulumi.CustomResource):
             recovery_point_retention_in_minutes=24 * 60,
             application_consistent_snapshot_frequency_in_minutes=4 * 60)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.RecoveryServices`: 2024-04-01
 
         ## Import
 

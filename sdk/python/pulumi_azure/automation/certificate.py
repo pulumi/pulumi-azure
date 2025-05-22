@@ -278,6 +278,13 @@ class Certificate(pulumi.CustomResource):
             exportable=True)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Automation`: 2023-11-01
+
         ## Import
 
         Automation Certificates can be imported using the `resource id`, e.g.
@@ -327,6 +334,13 @@ class Certificate(pulumi.CustomResource):
             base64=std.filebase64(input="certificate.pfx").result,
             exportable=True)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Automation`: 2023-11-01
 
         ## Import
 

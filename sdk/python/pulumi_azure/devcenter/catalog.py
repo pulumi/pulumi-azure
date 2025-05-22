@@ -29,6 +29,11 @@ class CatalogArgs:
                  name: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a Catalog resource.
+        :param pulumi.Input[builtins.str] dev_center_id: Specifies the Dev Center Id within which this Dev Center Catalog should exist. Changing this forces a new Dev Center Catalog to be created.
+        :param pulumi.Input[builtins.str] resource_group_name: Specifies the name of the Resource Group within which this Dev Center Catalog should exist. Changing this forces a new Dev Center to be created.
+        :param pulumi.Input['CatalogCatalogAdogitArgs'] catalog_adogit: A `catalog_adogit` block as defined below.
+        :param pulumi.Input['CatalogCatalogGithubArgs'] catalog_github: A `catalog_github` block as defined below.
+        :param pulumi.Input[builtins.str] name: Specifies the name of this Dev Center Catalog. Changing this forces a new Dev Center to be created.
         """
         pulumi.set(__self__, "dev_center_id", dev_center_id)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -42,6 +47,9 @@ class CatalogArgs:
     @property
     @pulumi.getter(name="devCenterId")
     def dev_center_id(self) -> pulumi.Input[builtins.str]:
+        """
+        Specifies the Dev Center Id within which this Dev Center Catalog should exist. Changing this forces a new Dev Center Catalog to be created.
+        """
         return pulumi.get(self, "dev_center_id")
 
     @dev_center_id.setter
@@ -51,6 +59,9 @@ class CatalogArgs:
     @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[builtins.str]:
+        """
+        Specifies the name of the Resource Group within which this Dev Center Catalog should exist. Changing this forces a new Dev Center to be created.
+        """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
@@ -60,6 +71,9 @@ class CatalogArgs:
     @property
     @pulumi.getter(name="catalogAdogit")
     def catalog_adogit(self) -> Optional[pulumi.Input['CatalogCatalogAdogitArgs']]:
+        """
+        A `catalog_adogit` block as defined below.
+        """
         return pulumi.get(self, "catalog_adogit")
 
     @catalog_adogit.setter
@@ -69,6 +83,9 @@ class CatalogArgs:
     @property
     @pulumi.getter(name="catalogGithub")
     def catalog_github(self) -> Optional[pulumi.Input['CatalogCatalogGithubArgs']]:
+        """
+        A `catalog_github` block as defined below.
+        """
         return pulumi.get(self, "catalog_github")
 
     @catalog_github.setter
@@ -78,6 +95,9 @@ class CatalogArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Specifies the name of this Dev Center Catalog. Changing this forces a new Dev Center to be created.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -95,6 +115,11 @@ class _CatalogState:
                  resource_group_name: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering Catalog resources.
+        :param pulumi.Input['CatalogCatalogAdogitArgs'] catalog_adogit: A `catalog_adogit` block as defined below.
+        :param pulumi.Input['CatalogCatalogGithubArgs'] catalog_github: A `catalog_github` block as defined below.
+        :param pulumi.Input[builtins.str] dev_center_id: Specifies the Dev Center Id within which this Dev Center Catalog should exist. Changing this forces a new Dev Center Catalog to be created.
+        :param pulumi.Input[builtins.str] name: Specifies the name of this Dev Center Catalog. Changing this forces a new Dev Center to be created.
+        :param pulumi.Input[builtins.str] resource_group_name: Specifies the name of the Resource Group within which this Dev Center Catalog should exist. Changing this forces a new Dev Center to be created.
         """
         if catalog_adogit is not None:
             pulumi.set(__self__, "catalog_adogit", catalog_adogit)
@@ -110,6 +135,9 @@ class _CatalogState:
     @property
     @pulumi.getter(name="catalogAdogit")
     def catalog_adogit(self) -> Optional[pulumi.Input['CatalogCatalogAdogitArgs']]:
+        """
+        A `catalog_adogit` block as defined below.
+        """
         return pulumi.get(self, "catalog_adogit")
 
     @catalog_adogit.setter
@@ -119,6 +147,9 @@ class _CatalogState:
     @property
     @pulumi.getter(name="catalogGithub")
     def catalog_github(self) -> Optional[pulumi.Input['CatalogCatalogGithubArgs']]:
+        """
+        A `catalog_github` block as defined below.
+        """
         return pulumi.get(self, "catalog_github")
 
     @catalog_github.setter
@@ -128,6 +159,9 @@ class _CatalogState:
     @property
     @pulumi.getter(name="devCenterId")
     def dev_center_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Specifies the Dev Center Id within which this Dev Center Catalog should exist. Changing this forces a new Dev Center Catalog to be created.
+        """
         return pulumi.get(self, "dev_center_id")
 
     @dev_center_id.setter
@@ -137,6 +171,9 @@ class _CatalogState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Specifies the name of this Dev Center Catalog. Changing this forces a new Dev Center to be created.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -146,6 +183,9 @@ class _CatalogState:
     @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Specifies the name of the Resource Group within which this Dev Center Catalog should exist. Changing this forces a new Dev Center to be created.
+        """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
@@ -166,9 +206,66 @@ class Catalog(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
-        Create a Catalog resource with the given unique name, props, and options.
+        Manages a Dev Center Catalog.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_dev_center = azure.devcenter.DevCenter("example",
+            location=example.location,
+            name="example",
+            resource_group_name=example.name,
+            identity={
+                "type": "SystemAssigned",
+            })
+        example_catalog = azure.devcenter.Catalog("example",
+            name="example",
+            resource_group_name=test_azurerm_resource_group["name"],
+            dev_center_id=test["id"],
+            catalog_github={
+                "branch": "foo",
+                "path": "",
+                "uri": "example URI",
+                "key_vault_key_url": "secret",
+            })
+        ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DevCenter`: 2025-02-01
+
+        ## Import
+
+        An existing Dev Center Catalog can be imported into Pulumi using the `resource id`, e.g.
+
+        ```sh
+        $ pulumi import azure:devcenter/catalog:Catalog example /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevCenter/devCenters/{devCenterName}/catalogs/{catalogName}
+        ```
+
+        * Where `{subscriptionId}` is the ID of the Azure Subscription where the Dev Center exists. For example `12345678-1234-9876-4563-123456789012`.
+
+        * Where `{resourceGroupName}` is the name of Resource Group where this Dev Center exists. For example `example-resource-group`.
+
+        * Where `{devCenterName}` is the name of the Dev Center. For example `devCenterValue`.
+
+        * Where `{catalogName}` is the name of the Dev Center Catalog. For example `catalogValue`.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Union['CatalogCatalogAdogitArgs', 'CatalogCatalogAdogitArgsDict']] catalog_adogit: A `catalog_adogit` block as defined below.
+        :param pulumi.Input[Union['CatalogCatalogGithubArgs', 'CatalogCatalogGithubArgsDict']] catalog_github: A `catalog_github` block as defined below.
+        :param pulumi.Input[builtins.str] dev_center_id: Specifies the Dev Center Id within which this Dev Center Catalog should exist. Changing this forces a new Dev Center Catalog to be created.
+        :param pulumi.Input[builtins.str] name: Specifies the name of this Dev Center Catalog. Changing this forces a new Dev Center to be created.
+        :param pulumi.Input[builtins.str] resource_group_name: Specifies the name of the Resource Group within which this Dev Center Catalog should exist. Changing this forces a new Dev Center to be created.
         """
         ...
     @overload
@@ -177,7 +274,59 @@ class Catalog(pulumi.CustomResource):
                  args: CatalogArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a Catalog resource with the given unique name, props, and options.
+        Manages a Dev Center Catalog.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_dev_center = azure.devcenter.DevCenter("example",
+            location=example.location,
+            name="example",
+            resource_group_name=example.name,
+            identity={
+                "type": "SystemAssigned",
+            })
+        example_catalog = azure.devcenter.Catalog("example",
+            name="example",
+            resource_group_name=test_azurerm_resource_group["name"],
+            dev_center_id=test["id"],
+            catalog_github={
+                "branch": "foo",
+                "path": "",
+                "uri": "example URI",
+                "key_vault_key_url": "secret",
+            })
+        ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DevCenter`: 2025-02-01
+
+        ## Import
+
+        An existing Dev Center Catalog can be imported into Pulumi using the `resource id`, e.g.
+
+        ```sh
+        $ pulumi import azure:devcenter/catalog:Catalog example /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevCenter/devCenters/{devCenterName}/catalogs/{catalogName}
+        ```
+
+        * Where `{subscriptionId}` is the ID of the Azure Subscription where the Dev Center exists. For example `12345678-1234-9876-4563-123456789012`.
+
+        * Where `{resourceGroupName}` is the name of Resource Group where this Dev Center exists. For example `example-resource-group`.
+
+        * Where `{devCenterName}` is the name of the Dev Center. For example `devCenterValue`.
+
+        * Where `{catalogName}` is the name of the Dev Center Catalog. For example `catalogValue`.
+
         :param str resource_name: The name of the resource.
         :param CatalogArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -238,6 +387,11 @@ class Catalog(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Union['CatalogCatalogAdogitArgs', 'CatalogCatalogAdogitArgsDict']] catalog_adogit: A `catalog_adogit` block as defined below.
+        :param pulumi.Input[Union['CatalogCatalogGithubArgs', 'CatalogCatalogGithubArgsDict']] catalog_github: A `catalog_github` block as defined below.
+        :param pulumi.Input[builtins.str] dev_center_id: Specifies the Dev Center Id within which this Dev Center Catalog should exist. Changing this forces a new Dev Center Catalog to be created.
+        :param pulumi.Input[builtins.str] name: Specifies the name of this Dev Center Catalog. Changing this forces a new Dev Center to be created.
+        :param pulumi.Input[builtins.str] resource_group_name: Specifies the name of the Resource Group within which this Dev Center Catalog should exist. Changing this forces a new Dev Center to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -253,25 +407,40 @@ class Catalog(pulumi.CustomResource):
     @property
     @pulumi.getter(name="catalogAdogit")
     def catalog_adogit(self) -> pulumi.Output[Optional['outputs.CatalogCatalogAdogit']]:
+        """
+        A `catalog_adogit` block as defined below.
+        """
         return pulumi.get(self, "catalog_adogit")
 
     @property
     @pulumi.getter(name="catalogGithub")
     def catalog_github(self) -> pulumi.Output[Optional['outputs.CatalogCatalogGithub']]:
+        """
+        A `catalog_github` block as defined below.
+        """
         return pulumi.get(self, "catalog_github")
 
     @property
     @pulumi.getter(name="devCenterId")
     def dev_center_id(self) -> pulumi.Output[builtins.str]:
+        """
+        Specifies the Dev Center Id within which this Dev Center Catalog should exist. Changing this forces a new Dev Center Catalog to be created.
+        """
         return pulumi.get(self, "dev_center_id")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[builtins.str]:
+        """
+        Specifies the name of this Dev Center Catalog. Changing this forces a new Dev Center to be created.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Output[builtins.str]:
+        """
+        Specifies the name of the Resource Group within which this Dev Center Catalog should exist. Changing this forces a new Dev Center to be created.
+        """
         return pulumi.get(self, "resource_group_name")
 

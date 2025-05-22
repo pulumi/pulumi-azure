@@ -181,6 +181,10 @@ export class OrchestratedVirtualMachineScaleSet extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
+     * A `rollingUpgradePolicy` block as defined below. This is Required when `upgradeMode` is set to `Rolling` and cannot be specified when `upgradeMode` is set to `Manual`. Changing this forces a new resource to be created.
+     */
+    public readonly rollingUpgradePolicy!: pulumi.Output<outputs.compute.OrchestratedVirtualMachineScaleSetRollingUpgradePolicy | undefined>;
+    /**
      * Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Possible values are `true` or `false`.
      *
      * > **Note:** `singlePlacementGroup` behaves differently for Flexible orchestration Virtual Machine Scale Sets than it does for Uniform orchestration Virtual Machine Scale Sets. It is recommended that you do not define the `singlePlacementGroup` field in your configuration file as the service will determine what this value should be based off of the value contained within the `skuName` field of your configuration file. You may set the `singlePlacementGroup` field to `true`, however once you set it to `false` you will not be able to revert it back to `true`.
@@ -216,6 +220,10 @@ export class OrchestratedVirtualMachineScaleSet extends pulumi.CustomResource {
      * The Unique ID for the Virtual Machine Scale Set.
      */
     public /*out*/ readonly uniqueId!: pulumi.Output<string>;
+    /**
+     * Specifies how upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`. Changing this forces a new resource to be created.
+     */
+    public readonly upgradeMode!: pulumi.Output<string | undefined>;
     /**
      * The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
      */
@@ -273,6 +281,7 @@ export class OrchestratedVirtualMachineScaleSet extends pulumi.CustomResource {
             resourceInputs["priorityMix"] = state ? state.priorityMix : undefined;
             resourceInputs["proximityPlacementGroupId"] = state ? state.proximityPlacementGroupId : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["rollingUpgradePolicy"] = state ? state.rollingUpgradePolicy : undefined;
             resourceInputs["singlePlacementGroup"] = state ? state.singlePlacementGroup : undefined;
             resourceInputs["skuName"] = state ? state.skuName : undefined;
             resourceInputs["skuProfile"] = state ? state.skuProfile : undefined;
@@ -281,6 +290,7 @@ export class OrchestratedVirtualMachineScaleSet extends pulumi.CustomResource {
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["terminationNotification"] = state ? state.terminationNotification : undefined;
             resourceInputs["uniqueId"] = state ? state.uniqueId : undefined;
+            resourceInputs["upgradeMode"] = state ? state.upgradeMode : undefined;
             resourceInputs["userDataBase64"] = state ? state.userDataBase64 : undefined;
             resourceInputs["zoneBalance"] = state ? state.zoneBalance : undefined;
             resourceInputs["zones"] = state ? state.zones : undefined;
@@ -317,6 +327,7 @@ export class OrchestratedVirtualMachineScaleSet extends pulumi.CustomResource {
             resourceInputs["priorityMix"] = args ? args.priorityMix : undefined;
             resourceInputs["proximityPlacementGroupId"] = args ? args.proximityPlacementGroupId : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["rollingUpgradePolicy"] = args ? args.rollingUpgradePolicy : undefined;
             resourceInputs["singlePlacementGroup"] = args ? args.singlePlacementGroup : undefined;
             resourceInputs["skuName"] = args ? args.skuName : undefined;
             resourceInputs["skuProfile"] = args ? args.skuProfile : undefined;
@@ -324,6 +335,7 @@ export class OrchestratedVirtualMachineScaleSet extends pulumi.CustomResource {
             resourceInputs["sourceImageReference"] = args ? args.sourceImageReference : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["terminationNotification"] = args ? args.terminationNotification : undefined;
+            resourceInputs["upgradeMode"] = args ? args.upgradeMode : undefined;
             resourceInputs["userDataBase64"] = args?.userDataBase64 ? pulumi.secret(args.userDataBase64) : undefined;
             resourceInputs["zoneBalance"] = args ? args.zoneBalance : undefined;
             resourceInputs["zones"] = args ? args.zones : undefined;
@@ -451,6 +463,10 @@ export interface OrchestratedVirtualMachineScaleSetState {
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
+     * A `rollingUpgradePolicy` block as defined below. This is Required when `upgradeMode` is set to `Rolling` and cannot be specified when `upgradeMode` is set to `Manual`. Changing this forces a new resource to be created.
+     */
+    rollingUpgradePolicy?: pulumi.Input<inputs.compute.OrchestratedVirtualMachineScaleSetRollingUpgradePolicy>;
+    /**
      * Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Possible values are `true` or `false`.
      *
      * > **Note:** `singlePlacementGroup` behaves differently for Flexible orchestration Virtual Machine Scale Sets than it does for Uniform orchestration Virtual Machine Scale Sets. It is recommended that you do not define the `singlePlacementGroup` field in your configuration file as the service will determine what this value should be based off of the value contained within the `skuName` field of your configuration file. You may set the `singlePlacementGroup` field to `true`, however once you set it to `false` you will not be able to revert it back to `true`.
@@ -486,6 +502,10 @@ export interface OrchestratedVirtualMachineScaleSetState {
      * The Unique ID for the Virtual Machine Scale Set.
      */
     uniqueId?: pulumi.Input<string>;
+    /**
+     * Specifies how upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`. Changing this forces a new resource to be created.
+     */
+    upgradeMode?: pulumi.Input<string>;
     /**
      * The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
      */
@@ -621,6 +641,10 @@ export interface OrchestratedVirtualMachineScaleSetArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
+     * A `rollingUpgradePolicy` block as defined below. This is Required when `upgradeMode` is set to `Rolling` and cannot be specified when `upgradeMode` is set to `Manual`. Changing this forces a new resource to be created.
+     */
+    rollingUpgradePolicy?: pulumi.Input<inputs.compute.OrchestratedVirtualMachineScaleSetRollingUpgradePolicy>;
+    /**
      * Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Possible values are `true` or `false`.
      *
      * > **Note:** `singlePlacementGroup` behaves differently for Flexible orchestration Virtual Machine Scale Sets than it does for Uniform orchestration Virtual Machine Scale Sets. It is recommended that you do not define the `singlePlacementGroup` field in your configuration file as the service will determine what this value should be based off of the value contained within the `skuName` field of your configuration file. You may set the `singlePlacementGroup` field to `true`, however once you set it to `false` you will not be able to revert it back to `true`.
@@ -652,6 +676,10 @@ export interface OrchestratedVirtualMachineScaleSetArgs {
      * A `terminationNotification` block as defined below.
      */
     terminationNotification?: pulumi.Input<inputs.compute.OrchestratedVirtualMachineScaleSetTerminationNotification>;
+    /**
+     * Specifies how upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`. Changing this forces a new resource to be created.
+     */
+    upgradeMode?: pulumi.Input<string>;
     /**
      * The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
      */

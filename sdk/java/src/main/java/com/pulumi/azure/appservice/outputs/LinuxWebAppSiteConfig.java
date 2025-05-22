@@ -22,7 +22,7 @@ public final class LinuxWebAppSiteConfig {
     /**
      * @return If this Linux Web App is Always On enabled. Defaults to `true`.
      * 
-     * &gt; **NOTE:** `always_on` must be explicitly set to `false` when using `Free`, `F1`, `D1`, or `Shared` Service Plans.
+     * &gt; **Note:** `always_on` must be explicitly set to `false` when using `Free`, `F1`, `D1`, or `Shared` Service Plans.
      * 
      */
     private @Nullable Boolean alwaysOn;
@@ -175,7 +175,7 @@ public final class LinuxWebAppSiteConfig {
     /**
      * @return If this Linux Web App is Always On enabled. Defaults to `true`.
      * 
-     * &gt; **NOTE:** `always_on` must be explicitly set to `false` when using `Free`, `F1`, `D1`, or `Shared` Service Plans.
+     * &gt; **Note:** `always_on` must be explicitly set to `false` when using `Free`, `F1`, `D1`, or `Shared` Service Plans.
      * 
      */
     public Optional<Boolean> alwaysOn() {

@@ -127,6 +127,13 @@ def get_ip_groups(name: Optional[builtins.str] = None,
     pulumi.export("ids", example.ids)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Network`: 2024-05-01
+
 
     :param builtins.str name: A substring to match some number of IP Groups.
     :param builtins.str resource_group_name: The name of the Resource Group where the IP Groups exist.
@@ -161,6 +168,13 @@ def get_ip_groups_output(name: Optional[pulumi.Input[builtins.str]] = None,
         resource_group_name="existing")
     pulumi.export("ids", example.ids)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Network`: 2024-05-01
 
 
     :param builtins.str name: A substring to match some number of IP Groups.

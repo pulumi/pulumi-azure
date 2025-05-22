@@ -156,6 +156,13 @@ import (
 //
 // ```
 //
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.Compute`: 2024-03-01, 2023-04-02
+//
 // ## Import
 //
 // The implicit Data Disk of the Virtual Machine can be imported using the `resource id`, e.g.
@@ -170,8 +177,7 @@ type ImplicitDataDiskFromSource struct {
 	Caching pulumi.StringPtrOutput `pulumi:"caching"`
 	// Specifies the Create Option of the Data Disk. The only possible value is `Copy`. Changing this forces a new resource to be created.
 	CreateOption pulumi.StringOutput `pulumi:"createOption"`
-	// Specifies the size of the Data Disk in gigabytes. Changing this forces a new resource to be created.
-	DiskSizeGb pulumi.IntOutput `pulumi:"diskSizeGb"`
+	DiskSizeGb   pulumi.IntOutput    `pulumi:"diskSizeGb"`
 	// The Logical Unit Number of the Data Disk, which needs to be unique within the Virtual Machine. Changing this forces a new resource to be created.
 	Lun pulumi.IntOutput `pulumi:"lun"`
 	// Specifies the name of this Data Disk. Changing this forces a new resource to be created.
@@ -233,8 +239,7 @@ type implicitDataDiskFromSourceState struct {
 	Caching *string `pulumi:"caching"`
 	// Specifies the Create Option of the Data Disk. The only possible value is `Copy`. Changing this forces a new resource to be created.
 	CreateOption *string `pulumi:"createOption"`
-	// Specifies the size of the Data Disk in gigabytes. Changing this forces a new resource to be created.
-	DiskSizeGb *int `pulumi:"diskSizeGb"`
+	DiskSizeGb   *int    `pulumi:"diskSizeGb"`
 	// The Logical Unit Number of the Data Disk, which needs to be unique within the Virtual Machine. Changing this forces a new resource to be created.
 	Lun *int `pulumi:"lun"`
 	// Specifies the name of this Data Disk. Changing this forces a new resource to be created.
@@ -252,8 +257,7 @@ type ImplicitDataDiskFromSourceState struct {
 	Caching pulumi.StringPtrInput
 	// Specifies the Create Option of the Data Disk. The only possible value is `Copy`. Changing this forces a new resource to be created.
 	CreateOption pulumi.StringPtrInput
-	// Specifies the size of the Data Disk in gigabytes. Changing this forces a new resource to be created.
-	DiskSizeGb pulumi.IntPtrInput
+	DiskSizeGb   pulumi.IntPtrInput
 	// The Logical Unit Number of the Data Disk, which needs to be unique within the Virtual Machine. Changing this forces a new resource to be created.
 	Lun pulumi.IntPtrInput
 	// Specifies the name of this Data Disk. Changing this forces a new resource to be created.
@@ -275,8 +279,7 @@ type implicitDataDiskFromSourceArgs struct {
 	Caching *string `pulumi:"caching"`
 	// Specifies the Create Option of the Data Disk. The only possible value is `Copy`. Changing this forces a new resource to be created.
 	CreateOption string `pulumi:"createOption"`
-	// Specifies the size of the Data Disk in gigabytes. Changing this forces a new resource to be created.
-	DiskSizeGb int `pulumi:"diskSizeGb"`
+	DiskSizeGb   int    `pulumi:"diskSizeGb"`
 	// The Logical Unit Number of the Data Disk, which needs to be unique within the Virtual Machine. Changing this forces a new resource to be created.
 	Lun int `pulumi:"lun"`
 	// Specifies the name of this Data Disk. Changing this forces a new resource to be created.
@@ -295,8 +298,7 @@ type ImplicitDataDiskFromSourceArgs struct {
 	Caching pulumi.StringPtrInput
 	// Specifies the Create Option of the Data Disk. The only possible value is `Copy`. Changing this forces a new resource to be created.
 	CreateOption pulumi.StringInput
-	// Specifies the size of the Data Disk in gigabytes. Changing this forces a new resource to be created.
-	DiskSizeGb pulumi.IntInput
+	DiskSizeGb   pulumi.IntInput
 	// The Logical Unit Number of the Data Disk, which needs to be unique within the Virtual Machine. Changing this forces a new resource to be created.
 	Lun pulumi.IntInput
 	// Specifies the name of this Data Disk. Changing this forces a new resource to be created.
@@ -406,7 +408,6 @@ func (o ImplicitDataDiskFromSourceOutput) CreateOption() pulumi.StringOutput {
 	return o.ApplyT(func(v *ImplicitDataDiskFromSource) pulumi.StringOutput { return v.CreateOption }).(pulumi.StringOutput)
 }
 
-// Specifies the size of the Data Disk in gigabytes. Changing this forces a new resource to be created.
 func (o ImplicitDataDiskFromSourceOutput) DiskSizeGb() pulumi.IntOutput {
 	return o.ApplyT(func(v *ImplicitDataDiskFromSource) pulumi.IntOutput { return v.DiskSizeGb }).(pulumi.IntOutput)
 }

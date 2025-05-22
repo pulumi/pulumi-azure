@@ -47,7 +47,7 @@ class SoftwareUpdateConfigurationArgs:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] virtual_machine_ids: Specifies a list of Azure Resource IDs of azure virtual machines.
         :param pulumi.Input['SoftwareUpdateConfigurationWindowsArgs'] windows: A `windows` block as defined below.
                
-               > **NOTE:** One of `linux` or `windows` must be specified.
+               > **Note:** One of `linux` or `windows` must be specified.
         """
         pulumi.set(__self__, "automation_account_id", automation_account_id)
         pulumi.set(__self__, "schedule", schedule)
@@ -196,7 +196,7 @@ class SoftwareUpdateConfigurationArgs:
         """
         A `windows` block as defined below.
 
-        > **NOTE:** One of `linux` or `windows` must be specified.
+        > **Note:** One of `linux` or `windows` must be specified.
         """
         return pulumi.get(self, "windows")
 
@@ -237,7 +237,7 @@ class _SoftwareUpdateConfigurationState:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] virtual_machine_ids: Specifies a list of Azure Resource IDs of azure virtual machines.
         :param pulumi.Input['SoftwareUpdateConfigurationWindowsArgs'] windows: A `windows` block as defined below.
                
-               > **NOTE:** One of `linux` or `windows` must be specified.
+               > **Note:** One of `linux` or `windows` must be specified.
         """
         if automation_account_id is not None:
             pulumi.set(__self__, "automation_account_id", automation_account_id)
@@ -416,7 +416,7 @@ class _SoftwareUpdateConfigurationState:
         """
         A `windows` block as defined below.
 
-        > **NOTE:** One of `linux` or `windows` must be specified.
+        > **Note:** One of `linux` or `windows` must be specified.
         """
         return pulumi.get(self, "windows")
 
@@ -493,6 +493,13 @@ class SoftwareUpdateConfiguration(pulumi.CustomResource):
             duration="PT2H2M2S")
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Automation`: 2019-06-01
+
         ## Import
 
         Automations Software Update Configuration can be imported using the `resource id`, e.g.
@@ -515,7 +522,7 @@ class SoftwareUpdateConfiguration(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] virtual_machine_ids: Specifies a list of Azure Resource IDs of azure virtual machines.
         :param pulumi.Input[Union['SoftwareUpdateConfigurationWindowsArgs', 'SoftwareUpdateConfigurationWindowsArgsDict']] windows: A `windows` block as defined below.
                
-               > **NOTE:** One of `linux` or `windows` must be specified.
+               > **Note:** One of `linux` or `windows` must be specified.
         """
         ...
     @overload
@@ -572,6 +579,13 @@ class SoftwareUpdateConfiguration(pulumi.CustomResource):
             },
             duration="PT2H2M2S")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Automation`: 2019-06-01
 
         ## Import
 
@@ -677,7 +691,7 @@ class SoftwareUpdateConfiguration(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] virtual_machine_ids: Specifies a list of Azure Resource IDs of azure virtual machines.
         :param pulumi.Input[Union['SoftwareUpdateConfigurationWindowsArgs', 'SoftwareUpdateConfigurationWindowsArgsDict']] windows: A `windows` block as defined below.
                
-               > **NOTE:** One of `linux` or `windows` must be specified.
+               > **Note:** One of `linux` or `windows` must be specified.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -800,7 +814,7 @@ class SoftwareUpdateConfiguration(pulumi.CustomResource):
         """
         A `windows` block as defined below.
 
-        > **NOTE:** One of `linux` or `windows` must be specified.
+        > **Note:** One of `linux` or `windows` must be specified.
         """
         return pulumi.get(self, "windows")
 

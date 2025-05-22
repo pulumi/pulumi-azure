@@ -17,7 +17,13 @@ namespace Pulumi.Azure.ContainerApp.Outputs
         /// A list of Managed Identity IDs to assign to the Container App Job.
         /// </summary>
         public readonly ImmutableArray<string> IdentityIds;
+        /// <summary>
+        /// The Principal ID associated with this Managed Service Identity.
+        /// </summary>
         public readonly string? PrincipalId;
+        /// <summary>
+        /// The Tenant ID associated with this Managed Service Identity.
+        /// </summary>
         public readonly string? TenantId;
         /// <summary>
         /// The type of identity used for the Container App Job. Possible values are `SystemAssigned`, `UserAssigned` and `None`. Defaults to `None`.

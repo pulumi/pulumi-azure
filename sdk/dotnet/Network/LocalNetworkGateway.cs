@@ -75,7 +75,7 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// The gateway FQDN to connect with.
         /// 
-        /// &gt; **NOTE:** Either `gateway_address` or `gateway_fqdn` should be specified.
+        /// &gt; **Note:** Either `gateway_address` or `gateway_fqdn` should be specified.
         /// </summary>
         [Output("gatewayFqdn")]
         public Output<string?> GatewayFqdn { get; private set; } = null!;
@@ -177,7 +177,7 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// The gateway FQDN to connect with.
         /// 
-        /// &gt; **NOTE:** Either `gateway_address` or `gateway_fqdn` should be specified.
+        /// &gt; **Note:** Either `gateway_address` or `gateway_fqdn` should be specified.
         /// </summary>
         [Input("gatewayFqdn")]
         public Input<string>? GatewayFqdn { get; set; }
@@ -247,7 +247,7 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// The gateway FQDN to connect with.
         /// 
-        /// &gt; **NOTE:** Either `gateway_address` or `gateway_fqdn` should be specified.
+        /// &gt; **Note:** Either `gateway_address` or `gateway_fqdn` should be specified.
         /// </summary>
         [Input("gatewayFqdn")]
         public Input<string>? GatewayFqdn { get; set; }

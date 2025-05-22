@@ -179,15 +179,15 @@ export class ConfigurationKey extends pulumi.CustomResource {
     /**
      * The value of the App Configuration Key. This should only be set when type is set to `kv`.
      *
-     * > **NOTE:** `value` and `vaultKeyReference` are mutually exclusive.
+     * > **Note:** `value` and `vaultKeyReference` are mutually exclusive.
      */
     public readonly value!: pulumi.Output<string | undefined>;
     /**
      * The ID of the vault secret this App Configuration Key refers to. This should only be set when `type` is set to `vault`.
      *
-     * > **NOTE:** `vaultKeyReference` and `value` are mutually exclusive.
+     * > **Note:** `vaultKeyReference` and `value` are mutually exclusive.
      *
-     * > **NOTE:** When setting the `vaultKeyReference` using the `id` will pin the value to specific version of the secret, to reference latest secret value use `versionlessId`
+     * > **Note:** When setting the `vaultKeyReference` using the `id` will pin the value to specific version of the secret, to reference latest secret value use `versionlessId`
      */
     public readonly vaultKeyReference!: pulumi.Output<string | undefined>;
 
@@ -277,15 +277,15 @@ export interface ConfigurationKeyState {
     /**
      * The value of the App Configuration Key. This should only be set when type is set to `kv`.
      *
-     * > **NOTE:** `value` and `vaultKeyReference` are mutually exclusive.
+     * > **Note:** `value` and `vaultKeyReference` are mutually exclusive.
      */
     value?: pulumi.Input<string>;
     /**
      * The ID of the vault secret this App Configuration Key refers to. This should only be set when `type` is set to `vault`.
      *
-     * > **NOTE:** `vaultKeyReference` and `value` are mutually exclusive.
+     * > **Note:** `vaultKeyReference` and `value` are mutually exclusive.
      *
-     * > **NOTE:** When setting the `vaultKeyReference` using the `id` will pin the value to specific version of the secret, to reference latest secret value use `versionlessId`
+     * > **Note:** When setting the `vaultKeyReference` using the `id` will pin the value to specific version of the secret, to reference latest secret value use `versionlessId`
      */
     vaultKeyReference?: pulumi.Input<string>;
 }
@@ -329,15 +329,15 @@ export interface ConfigurationKeyArgs {
     /**
      * The value of the App Configuration Key. This should only be set when type is set to `kv`.
      *
-     * > **NOTE:** `value` and `vaultKeyReference` are mutually exclusive.
+     * > **Note:** `value` and `vaultKeyReference` are mutually exclusive.
      */
     value?: pulumi.Input<string>;
     /**
      * The ID of the vault secret this App Configuration Key refers to. This should only be set when `type` is set to `vault`.
      *
-     * > **NOTE:** `vaultKeyReference` and `value` are mutually exclusive.
+     * > **Note:** `vaultKeyReference` and `value` are mutually exclusive.
      *
-     * > **NOTE:** When setting the `vaultKeyReference` using the `id` will pin the value to specific version of the secret, to reference latest secret value use `versionlessId`
+     * > **Note:** When setting the `vaultKeyReference` using the `id` will pin the value to specific version of the secret, to reference latest secret value use `versionlessId`
      */
     vaultKeyReference?: pulumi.Input<string>;
 }

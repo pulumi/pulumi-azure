@@ -226,7 +226,7 @@ func (o VaultEncryptionPtrOutput) UserAssignedIdentityId() pulumi.StringPtrOutpu
 type VaultIdentity struct {
 	// A list of User Assigned Managed Identity IDs to be assigned to this App Configuration.
 	//
-	// > **NOTE:** `identityIds` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+	// > **Note:** `identityIds` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId *string `pulumi:"principalId"`
@@ -250,7 +250,7 @@ type VaultIdentityInput interface {
 type VaultIdentityArgs struct {
 	// A list of User Assigned Managed Identity IDs to be assigned to this App Configuration.
 	//
-	// > **NOTE:** `identityIds` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+	// > **Note:** `identityIds` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
@@ -339,7 +339,7 @@ func (o VaultIdentityOutput) ToVaultIdentityPtrOutputWithContext(ctx context.Con
 
 // A list of User Assigned Managed Identity IDs to be assigned to this App Configuration.
 //
-// > **NOTE:** `identityIds` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+// > **Note:** `identityIds` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 func (o VaultIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v VaultIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
@@ -385,7 +385,7 @@ func (o VaultIdentityPtrOutput) Elem() VaultIdentityOutput {
 
 // A list of User Assigned Managed Identity IDs to be assigned to this App Configuration.
 //
-// > **NOTE:** `identityIds` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+// > **Note:** `identityIds` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 func (o VaultIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VaultIdentity) []string {
 		if v == nil {

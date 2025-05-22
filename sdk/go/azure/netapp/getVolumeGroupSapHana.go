@@ -41,6 +41,13 @@ import (
 //	}
 //
 // ```
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This data source uses the following Azure API Providers:
+//
+// * `Microsoft.NetApp`: 2025-01-01
 func LookupVolumeGroupSapHana(ctx *pulumi.Context, args *LookupVolumeGroupSapHanaArgs, opts ...pulumi.InvokeOption) (*LookupVolumeGroupSapHanaResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupVolumeGroupSapHanaResult

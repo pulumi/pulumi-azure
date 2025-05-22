@@ -16,7 +16,7 @@ namespace Pulumi.Azure.SiteRecovery.Outputs
         /// <summary>
         /// The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
         /// 
-        /// &gt; **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
+        /// &gt; **Note:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
         /// </summary>
         public readonly string? FabricLocation;
         /// <summary>
@@ -30,7 +30,7 @@ namespace Pulumi.Azure.SiteRecovery.Outputs
         /// <summary>
         /// Instructions of manual action.
         /// 
-        /// &gt; **NOTE:** This property is required when `type` is set to `ManualActionDetails`.
+        /// &gt; **Note:** This property is required when `type` is set to `ManualActionDetails`.
         /// </summary>
         public readonly string? ManualActionInstruction;
         /// <summary>
@@ -40,13 +40,13 @@ namespace Pulumi.Azure.SiteRecovery.Outputs
         /// <summary>
         /// Id of runbook.
         /// 
-        /// &gt; **NOTE:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
+        /// &gt; **Note:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
         /// </summary>
         public readonly string? RunbookId;
         /// <summary>
         /// Path of action script.
         /// 
-        /// &gt; **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
+        /// &gt; **Note:** This property is required when `type` is set to `ScriptActionDetails`.
         /// </summary>
         public readonly string? ScriptPath;
         /// <summary>

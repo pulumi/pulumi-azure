@@ -24,7 +24,7 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
- * &gt; **NOTE :**  Normal `pulumi up` could ignore this note. Please disable correlation request id for continuous operations in one build (like acctest). The continuous operations like `update` or `delete` could not be triggered when it shares the same `correlation-id` with its previous operation.
+ * &gt; **Note:** Normal `pulumi up` could ignore this note. Please disable correlation request id for continuous operations in one build (like acctest). The continuous operations like `update` or `delete` could not be triggered when it shares the same `correlation-id` with its previous operation.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
@@ -77,6 +77,13 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.AVS`: 2022-05-01
+ * 
  * ## Import
  * 
  * Azure VMware Solution Private Clouds can be imported using the `resource id`, e.g.
@@ -118,7 +125,7 @@ public class PrivateCloud extends com.pulumi.resources.CustomResource {
     }
     /**
      * Is the Azure VMware Solution Private Cloud connected to the internet? This field can not be updated with `management_cluster[0].size` together.
-     * &gt; **NOTE :** `internet_connection_enabled` and `management_cluster[0].size` cannot be updated at the same time.
+     * &gt; **Note:** `internet_connection_enabled` and `management_cluster[0].size` cannot be updated at the same time.
      * 
      */
     @Export(name="internetConnectionEnabled", refs={Boolean.class}, tree="[0]")
@@ -126,7 +133,7 @@ public class PrivateCloud extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Is the Azure VMware Solution Private Cloud connected to the internet? This field can not be updated with `management_cluster[0].size` together.
-     * &gt; **NOTE :** `internet_connection_enabled` and `management_cluster[0].size` cannot be updated at the same time.
+     * &gt; **Note:** `internet_connection_enabled` and `management_cluster[0].size` cannot be updated at the same time.
      * 
      */
     public Output<Optional<Boolean>> internetConnectionEnabled() {
@@ -148,7 +155,7 @@ public class PrivateCloud extends com.pulumi.resources.CustomResource {
     }
     /**
      * A `management_cluster` block as defined below.
-     * &gt; **NOTE :** `internet_connection_enabled` and `management_cluster[0].size` cannot be updated at the same time.
+     * &gt; **Note:** `internet_connection_enabled` and `management_cluster[0].size` cannot be updated at the same time.
      * 
      */
     @Export(name="managementCluster", refs={PrivateCloudManagementCluster.class}, tree="[0]")
@@ -156,7 +163,7 @@ public class PrivateCloud extends com.pulumi.resources.CustomResource {
 
     /**
      * @return A `management_cluster` block as defined below.
-     * &gt; **NOTE :** `internet_connection_enabled` and `management_cluster[0].size` cannot be updated at the same time.
+     * &gt; **Note:** `internet_connection_enabled` and `management_cluster[0].size` cannot be updated at the same time.
      * 
      */
     public Output<PrivateCloudManagementCluster> managementCluster() {

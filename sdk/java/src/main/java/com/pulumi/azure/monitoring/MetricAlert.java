@@ -138,7 +138,7 @@ public class MetricAlert extends com.pulumi.resources.CustomResource {
     /**
      * A `application_insights_web_test_location_availability_criteria` block as defined below.
      * 
-     * &gt; **NOTE** One of either `criteria`, `dynamic_criteria` or `application_insights_web_test_location_availability_criteria` must be specified.
+     * &gt; **Note:** One of either `criteria`, `dynamic_criteria` or `application_insights_web_test_location_availability_criteria` must be specified.
      * 
      */
     @Export(name="applicationInsightsWebTestLocationAvailabilityCriteria", refs={MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteria.class}, tree="[0]")
@@ -147,7 +147,7 @@ public class MetricAlert extends com.pulumi.resources.CustomResource {
     /**
      * @return A `application_insights_web_test_location_availability_criteria` block as defined below.
      * 
-     * &gt; **NOTE** One of either `criteria`, `dynamic_criteria` or `application_insights_web_test_location_availability_criteria` must be specified.
+     * &gt; **Note:** One of either `criteria`, `dynamic_criteria` or `application_insights_web_test_location_availability_criteria` must be specified.
      * 
      */
     public Output<Optional<MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteria>> applicationInsightsWebTestLocationAvailabilityCriteria() {
@@ -170,7 +170,7 @@ public class MetricAlert extends com.pulumi.resources.CustomResource {
     /**
      * One or more (static) `criteria` blocks as defined below.
      * 
-     * &gt; **NOTE** One of either `criteria`, `dynamic_criteria` or `application_insights_web_test_location_availability_criteria` must be specified.
+     * &gt; **Note:** One of either `criteria`, `dynamic_criteria` or `application_insights_web_test_location_availability_criteria` must be specified.
      * 
      */
     @Export(name="criterias", refs={List.class,MetricAlertCriteria.class}, tree="[0,1]")
@@ -179,7 +179,7 @@ public class MetricAlert extends com.pulumi.resources.CustomResource {
     /**
      * @return One or more (static) `criteria` blocks as defined below.
      * 
-     * &gt; **NOTE** One of either `criteria`, `dynamic_criteria` or `application_insights_web_test_location_availability_criteria` must be specified.
+     * &gt; **Note:** One of either `criteria`, `dynamic_criteria` or `application_insights_web_test_location_availability_criteria` must be specified.
      * 
      */
     public Output<Optional<List<MetricAlertCriteria>>> criterias() {
@@ -202,7 +202,7 @@ public class MetricAlert extends com.pulumi.resources.CustomResource {
     /**
      * A `dynamic_criteria` block as defined below.
      * 
-     * &gt; **NOTE** One of either `criteria`, `dynamic_criteria` or `application_insights_web_test_location_availability_criteria` must be specified.
+     * &gt; **Note:** One of either `criteria`, `dynamic_criteria` or `application_insights_web_test_location_availability_criteria` must be specified.
      * 
      */
     @Export(name="dynamicCriteria", refs={MetricAlertDynamicCriteria.class}, tree="[0]")
@@ -211,7 +211,7 @@ public class MetricAlert extends com.pulumi.resources.CustomResource {
     /**
      * @return A `dynamic_criteria` block as defined below.
      * 
-     * &gt; **NOTE** One of either `criteria`, `dynamic_criteria` or `application_insights_web_test_location_availability_criteria` must be specified.
+     * &gt; **Note:** One of either `criteria`, `dynamic_criteria` or `application_insights_web_test_location_availability_criteria` must be specified.
      * 
      */
     public Output<Optional<MetricAlertDynamicCriteria>> dynamicCriteria() {
@@ -318,7 +318,7 @@ public class MetricAlert extends com.pulumi.resources.CustomResource {
     /**
      * The location of the target resource.
      * 
-     * &gt; This is Required when using a Subscription as scope, a Resource Group as scope or Multiple Scopes.
+     * &gt; **Note:** This is Required when using a Subscription as scope, a Resource Group as scope or Multiple Scopes.
      * 
      */
     @Export(name="targetResourceLocation", refs={String.class}, tree="[0]")
@@ -327,7 +327,7 @@ public class MetricAlert extends com.pulumi.resources.CustomResource {
     /**
      * @return The location of the target resource.
      * 
-     * &gt; This is Required when using a Subscription as scope, a Resource Group as scope or Multiple Scopes.
+     * &gt; **Note:** This is Required when using a Subscription as scope, a Resource Group as scope or Multiple Scopes.
      * 
      */
     public Output<String> targetResourceLocation() {
@@ -336,7 +336,7 @@ public class MetricAlert extends com.pulumi.resources.CustomResource {
     /**
      * The resource type (e.g. `Microsoft.Compute/virtualMachines`) of the target resource.
      * 
-     * &gt; This is Required when using a Subscription as scope, a Resource Group as scope or Multiple Scopes.
+     * &gt; **Note:** This is Required when using a Subscription as scope, a Resource Group as scope or Multiple Scopes.
      * 
      */
     @Export(name="targetResourceType", refs={String.class}, tree="[0]")
@@ -345,7 +345,7 @@ public class MetricAlert extends com.pulumi.resources.CustomResource {
     /**
      * @return The resource type (e.g. `Microsoft.Compute/virtualMachines`) of the target resource.
      * 
-     * &gt; This is Required when using a Subscription as scope, a Resource Group as scope or Multiple Scopes.
+     * &gt; **Note:** This is Required when using a Subscription as scope, a Resource Group as scope or Multiple Scopes.
      * 
      */
     public Output<String> targetResourceType() {

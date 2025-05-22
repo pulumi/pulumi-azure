@@ -77,6 +77,13 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.EventHub`: 2024-01-01
+ * 
  * ## Import
  * 
  * EventHub Namespace Authorization Rules can be imported using the `resource id`, e.g.
@@ -189,7 +196,7 @@ public class EventHubNamespaceAuthorizationRule extends com.pulumi.resources.Cus
     /**
      * The name of the resource group in which the EventHub Namespace exists. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE** At least one of the 3 permissions below needs to be set.
+     * &gt; **Note:** At least one of the 3 permissions below needs to be set.
      * 
      */
     @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
@@ -198,7 +205,7 @@ public class EventHubNamespaceAuthorizationRule extends com.pulumi.resources.Cus
     /**
      * @return The name of the resource group in which the EventHub Namespace exists. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE** At least one of the 3 permissions below needs to be set.
+     * &gt; **Note:** At least one of the 3 permissions below needs to be set.
      * 
      */
     public Output<String> resourceGroupName() {

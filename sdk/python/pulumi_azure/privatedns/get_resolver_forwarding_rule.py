@@ -133,6 +133,13 @@ def get_resolver_forwarding_rule(dns_forwarding_ruleset_id: Optional[builtins.st
         dns_forwarding_ruleset_id="example-forwarding-rulset-id")
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Network`: 2022-07-01
+
 
     :param builtins.str dns_forwarding_ruleset_id: ID of the Private DNS Resolver Forwarding Ruleset.
     :param builtins.str name: Name of the Private DNS Resolver Forwarding Rule.
@@ -166,6 +173,13 @@ def get_resolver_forwarding_rule_output(dns_forwarding_ruleset_id: Optional[pulu
     example = azure.privatedns.get_resolver_forwarding_rule(name="example-rule",
         dns_forwarding_ruleset_id="example-forwarding-rulset-id")
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Network`: 2022-07-01
 
 
     :param builtins.str dns_forwarding_ruleset_id: ID of the Private DNS Resolver Forwarding Ruleset.

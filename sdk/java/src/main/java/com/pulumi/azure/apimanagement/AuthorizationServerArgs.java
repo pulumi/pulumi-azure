@@ -52,7 +52,7 @@ public final class AuthorizationServerArgs extends com.pulumi.resources.Resource
     /**
      * The HTTP Verbs supported by the Authorization Endpoint. Possible values are `DELETE`, `GET`, `HEAD`, `OPTIONS`, `PATCH`, `POST`, `PUT` and `TRACE`.
      * 
-     * &gt; **NOTE:** `GET` must always be present.
+     * &gt; **Note:** `GET` must always be present.
      * 
      */
     @Import(name="authorizationMethods", required=true)
@@ -61,7 +61,7 @@ public final class AuthorizationServerArgs extends com.pulumi.resources.Resource
     /**
      * @return The HTTP Verbs supported by the Authorization Endpoint. Possible values are `DELETE`, `GET`, `HEAD`, `OPTIONS`, `PATCH`, `POST`, `PUT` and `TRACE`.
      * 
-     * &gt; **NOTE:** `GET` must always be present.
+     * &gt; **Note:** `GET` must always be present.
      * 
      */
     public Output<List<String>> authorizationMethods() {
@@ -236,7 +236,7 @@ public final class AuthorizationServerArgs extends com.pulumi.resources.Resource
     /**
      * The password associated with the Resource Owner.
      * 
-     * &gt; **NOTE:** This can only be specified when `grant_type` includes `resourceOwnerPassword`.
+     * &gt; **Note:** This can only be specified when `grant_type` includes `resourceOwnerPassword`.
      * 
      */
     @Import(name="resourceOwnerPassword")
@@ -245,7 +245,7 @@ public final class AuthorizationServerArgs extends com.pulumi.resources.Resource
     /**
      * @return The password associated with the Resource Owner.
      * 
-     * &gt; **NOTE:** This can only be specified when `grant_type` includes `resourceOwnerPassword`.
+     * &gt; **Note:** This can only be specified when `grant_type` includes `resourceOwnerPassword`.
      * 
      */
     public Optional<Output<String>> resourceOwnerPassword() {
@@ -255,7 +255,7 @@ public final class AuthorizationServerArgs extends com.pulumi.resources.Resource
     /**
      * The username associated with the Resource Owner.
      * 
-     * &gt; **NOTE:** This can only be specified when `grant_type` includes `resourceOwnerPassword`.
+     * &gt; **Note:** This can only be specified when `grant_type` includes `resourceOwnerPassword`.
      * 
      */
     @Import(name="resourceOwnerUsername")
@@ -264,7 +264,7 @@ public final class AuthorizationServerArgs extends com.pulumi.resources.Resource
     /**
      * @return The username associated with the Resource Owner.
      * 
-     * &gt; **NOTE:** This can only be specified when `grant_type` includes `resourceOwnerPassword`.
+     * &gt; **Note:** This can only be specified when `grant_type` includes `resourceOwnerPassword`.
      * 
      */
     public Optional<Output<String>> resourceOwnerUsername() {
@@ -403,7 +403,7 @@ public final class AuthorizationServerArgs extends com.pulumi.resources.Resource
         /**
          * @param authorizationMethods The HTTP Verbs supported by the Authorization Endpoint. Possible values are `DELETE`, `GET`, `HEAD`, `OPTIONS`, `PATCH`, `POST`, `PUT` and `TRACE`.
          * 
-         * &gt; **NOTE:** `GET` must always be present.
+         * &gt; **Note:** `GET` must always be present.
          * 
          * @return builder
          * 
@@ -416,7 +416,7 @@ public final class AuthorizationServerArgs extends com.pulumi.resources.Resource
         /**
          * @param authorizationMethods The HTTP Verbs supported by the Authorization Endpoint. Possible values are `DELETE`, `GET`, `HEAD`, `OPTIONS`, `PATCH`, `POST`, `PUT` and `TRACE`.
          * 
-         * &gt; **NOTE:** `GET` must always be present.
+         * &gt; **Note:** `GET` must always be present.
          * 
          * @return builder
          * 
@@ -428,7 +428,7 @@ public final class AuthorizationServerArgs extends com.pulumi.resources.Resource
         /**
          * @param authorizationMethods The HTTP Verbs supported by the Authorization Endpoint. Possible values are `DELETE`, `GET`, `HEAD`, `OPTIONS`, `PATCH`, `POST`, `PUT` and `TRACE`.
          * 
-         * &gt; **NOTE:** `GET` must always be present.
+         * &gt; **Note:** `GET` must always be present.
          * 
          * @return builder
          * 
@@ -701,7 +701,7 @@ public final class AuthorizationServerArgs extends com.pulumi.resources.Resource
         /**
          * @param resourceOwnerPassword The password associated with the Resource Owner.
          * 
-         * &gt; **NOTE:** This can only be specified when `grant_type` includes `resourceOwnerPassword`.
+         * &gt; **Note:** This can only be specified when `grant_type` includes `resourceOwnerPassword`.
          * 
          * @return builder
          * 
@@ -714,7 +714,7 @@ public final class AuthorizationServerArgs extends com.pulumi.resources.Resource
         /**
          * @param resourceOwnerPassword The password associated with the Resource Owner.
          * 
-         * &gt; **NOTE:** This can only be specified when `grant_type` includes `resourceOwnerPassword`.
+         * &gt; **Note:** This can only be specified when `grant_type` includes `resourceOwnerPassword`.
          * 
          * @return builder
          * 
@@ -726,7 +726,7 @@ public final class AuthorizationServerArgs extends com.pulumi.resources.Resource
         /**
          * @param resourceOwnerUsername The username associated with the Resource Owner.
          * 
-         * &gt; **NOTE:** This can only be specified when `grant_type` includes `resourceOwnerPassword`.
+         * &gt; **Note:** This can only be specified when `grant_type` includes `resourceOwnerPassword`.
          * 
          * @return builder
          * 
@@ -739,7 +739,7 @@ public final class AuthorizationServerArgs extends com.pulumi.resources.Resource
         /**
          * @param resourceOwnerUsername The username associated with the Resource Owner.
          * 
-         * &gt; **NOTE:** This can only be specified when `grant_type` includes `resourceOwnerPassword`.
+         * &gt; **Note:** This can only be specified when `grant_type` includes `resourceOwnerPassword`.
          * 
          * @return builder
          * 

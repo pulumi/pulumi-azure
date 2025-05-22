@@ -91,6 +91,13 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.SignalRService`: 2024-03-01
+ *
  * ## Import
  *
  * Custom Domain for a SignalR service can be imported using the `resource id`, e.g.
@@ -130,7 +137,7 @@ export class ServiceCustomDomain extends pulumi.CustomResource {
     /**
      * Specifies the custom domain name of the SignalR Custom Domain. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** Please ensure the custom domain name is included in the Subject Alternative Names of the selected SignalR Custom Certificate.
+     * > **Note:** Please ensure the custom domain name is included in the Subject Alternative Names of the selected SignalR Custom Certificate.
      */
     public readonly domainName!: pulumi.Output<string>;
     /**
@@ -191,7 +198,7 @@ export interface ServiceCustomDomainState {
     /**
      * Specifies the custom domain name of the SignalR Custom Domain. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** Please ensure the custom domain name is included in the Subject Alternative Names of the selected SignalR Custom Certificate.
+     * > **Note:** Please ensure the custom domain name is included in the Subject Alternative Names of the selected SignalR Custom Certificate.
      */
     domainName?: pulumi.Input<string>;
     /**
@@ -215,7 +222,7 @@ export interface ServiceCustomDomainArgs {
     /**
      * Specifies the custom domain name of the SignalR Custom Domain. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** Please ensure the custom domain name is included in the Subject Alternative Names of the selected SignalR Custom Certificate.
+     * > **Note:** Please ensure the custom domain name is included in the Subject Alternative Names of the selected SignalR Custom Certificate.
      */
     domainName: pulumi.Input<string>;
     /**

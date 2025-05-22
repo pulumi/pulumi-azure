@@ -104,6 +104,13 @@ class RegistryTaskScheduleRunNow(pulumi.CustomResource):
         example_registry_task_schedule_run_now = azure.containerservice.RegistryTaskScheduleRunNow("example", container_registry_task_id=example_registry_task.id)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ContainerRegistry`: 2019-06-01-preview
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] container_registry_task_id: The ID of the Container Registry Task that to be scheduled. Changing this forces a new Container Registry Task Schedule to be created.
@@ -145,6 +152,13 @@ class RegistryTaskScheduleRunNow(pulumi.CustomResource):
             })
         example_registry_task_schedule_run_now = azure.containerservice.RegistryTaskScheduleRunNow("example", container_registry_task_id=example_registry_task.id)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ContainerRegistry`: 2019-06-01-preview
 
         :param str resource_name: The name of the resource.
         :param RegistryTaskScheduleRunNowArgs args: The arguments to use to populate this resource's properties.

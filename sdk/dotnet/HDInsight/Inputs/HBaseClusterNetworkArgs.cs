@@ -15,7 +15,7 @@ namespace Pulumi.Azure.HDInsight.Inputs
         /// <summary>
         /// The direction of the resource provider connection. Possible values include `Inbound` or `Outbound`. Defaults to `Inbound`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** To enable the private link the `connection_direction` must be set to `Outbound`.
+        /// &gt; **Note:** To enable the private link the `connection_direction` must be set to `Outbound`.
         /// </summary>
         [Input("connectionDirection")]
         public Input<string>? ConnectionDirection { get; set; }

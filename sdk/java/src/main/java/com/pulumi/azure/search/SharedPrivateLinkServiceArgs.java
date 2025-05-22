@@ -79,7 +79,7 @@ public final class SharedPrivateLinkServiceArgs extends com.pulumi.resources.Res
     /**
      * Specify the ID of the Shared Private Link Enabled Remote Resource which this Azure Search Private Endpoint should be connected to. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** The sub resource name should match with the type of the target resource id that&#39;s being specified.
+     * &gt; **Note:** The sub resource name should match with the type of the target resource id that&#39;s being specified.
      * 
      */
     @Import(name="targetResourceId", required=true)
@@ -88,7 +88,7 @@ public final class SharedPrivateLinkServiceArgs extends com.pulumi.resources.Res
     /**
      * @return Specify the ID of the Shared Private Link Enabled Remote Resource which this Azure Search Private Endpoint should be connected to. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** The sub resource name should match with the type of the target resource id that&#39;s being specified.
+     * &gt; **Note:** The sub resource name should match with the type of the target resource id that&#39;s being specified.
      * 
      */
     public Output<String> targetResourceId() {
@@ -210,7 +210,7 @@ public final class SharedPrivateLinkServiceArgs extends com.pulumi.resources.Res
         /**
          * @param targetResourceId Specify the ID of the Shared Private Link Enabled Remote Resource which this Azure Search Private Endpoint should be connected to. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** The sub resource name should match with the type of the target resource id that&#39;s being specified.
+         * &gt; **Note:** The sub resource name should match with the type of the target resource id that&#39;s being specified.
          * 
          * @return builder
          * 
@@ -223,7 +223,7 @@ public final class SharedPrivateLinkServiceArgs extends com.pulumi.resources.Res
         /**
          * @param targetResourceId Specify the ID of the Shared Private Link Enabled Remote Resource which this Azure Search Private Endpoint should be connected to. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** The sub resource name should match with the type of the target resource id that&#39;s being specified.
+         * &gt; **Note:** The sub resource name should match with the type of the target resource id that&#39;s being specified.
          * 
          * @return builder
          * 

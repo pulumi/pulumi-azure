@@ -37,7 +37,7 @@ public final class ConfigurationArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * An `install_patches` block as defined below.
      * 
-     * &gt; **NOTE:** `install_patches` must be specified when `scope` is `InGuestPatch`.
+     * &gt; **Note:** `install_patches` must be specified when `scope` is `InGuestPatch`.
      * 
      */
     @Import(name="installPatches")
@@ -46,7 +46,7 @@ public final class ConfigurationArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return An `install_patches` block as defined below.
      * 
-     * &gt; **NOTE:** `install_patches` must be specified when `scope` is `InGuestPatch`.
+     * &gt; **Note:** `install_patches` must be specified when `scope` is `InGuestPatch`.
      * 
      */
     public Optional<Output<ConfigurationInstallPatchesArgs>> installPatches() {
@@ -230,7 +230,7 @@ public final class ConfigurationArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param installPatches An `install_patches` block as defined below.
          * 
-         * &gt; **NOTE:** `install_patches` must be specified when `scope` is `InGuestPatch`.
+         * &gt; **Note:** `install_patches` must be specified when `scope` is `InGuestPatch`.
          * 
          * @return builder
          * 
@@ -243,7 +243,7 @@ public final class ConfigurationArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param installPatches An `install_patches` block as defined below.
          * 
-         * &gt; **NOTE:** `install_patches` must be specified when `scope` is `InGuestPatch`.
+         * &gt; **Note:** `install_patches` must be specified when `scope` is `InGuestPatch`.
          * 
          * @return builder
          * 

@@ -231,6 +231,13 @@ def get_firewall(dns_proxy_enabled: Optional[builtins.bool] = None,
     pulumi.export("firewallPrivateIp", example.ip_configurations[0].private_ip_address)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Network`: 2024-05-01
+
 
     :param builtins.bool dns_proxy_enabled: Whether DNS proxy is enabled. It will forward DNS requests to the DNS servers when it is `true`.
     :param builtins.str name: The name of the Azure Firewall.
@@ -276,6 +283,13 @@ def get_firewall_output(dns_proxy_enabled: Optional[pulumi.Input[Optional[builti
         resource_group_name="firewall-RG")
     pulumi.export("firewallPrivateIp", example.ip_configurations[0].private_ip_address)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Network`: 2024-05-01
 
 
     :param builtins.bool dns_proxy_enabled: Whether DNS proxy is enabled. It will forward DNS requests to the DNS servers when it is `true`.

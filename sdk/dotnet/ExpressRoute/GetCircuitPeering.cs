@@ -33,6 +33,13 @@ namespace Pulumi.Azure.ExpressRoute
         /// 
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Network`: 2024-05-01
         /// </summary>
         public static Task<GetCircuitPeeringResult> InvokeAsync(GetCircuitPeeringArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCircuitPeeringResult>("azure:expressroute/getCircuitPeering:getCircuitPeering", args ?? new GetCircuitPeeringArgs(), options.WithDefaults());
@@ -59,6 +66,13 @@ namespace Pulumi.Azure.ExpressRoute
         /// 
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Network`: 2024-05-01
         /// </summary>
         public static Output<GetCircuitPeeringResult> Invoke(GetCircuitPeeringInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCircuitPeeringResult>("azure:expressroute/getCircuitPeering:getCircuitPeering", args ?? new GetCircuitPeeringInvokeArgs(), options.WithDefaults());
@@ -85,6 +99,13 @@ namespace Pulumi.Azure.ExpressRoute
         /// 
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Network`: 2024-05-01
         /// </summary>
         public static Output<GetCircuitPeeringResult> Invoke(GetCircuitPeeringInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetCircuitPeeringResult>("azure:expressroute/getCircuitPeering:getCircuitPeering", args ?? new GetCircuitPeeringInvokeArgs(), options.WithDefaults());

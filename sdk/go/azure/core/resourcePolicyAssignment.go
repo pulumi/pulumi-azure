@@ -74,6 +74,13 @@ import (
 //
 // ```
 //
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.Authorization`: 2022-06-01
+//
 // ## Import
 //
 // Resource Policy Assignments can be imported using the `resource id`, e.g.
@@ -114,7 +121,7 @@ type ResourcePolicyAssignment struct {
 	PolicyDefinitionId pulumi.StringOutput `pulumi:"policyDefinitionId"`
 	// The ID of the Resource (or Resource Scope) where this should be applied. Changing this forces a new Resource Policy Assignment to be created.
 	//
-	// > To create a Policy Assignment at a Management Group use the `management.GroupPolicyAssignment` resource, for a Resource Group use the `core.ResourceGroupPolicyAssignment` and for a Subscription use the `core.SubscriptionPolicyAssignment` resource.
+	// > **Note:** To create a Policy Assignment at a Management Group use the `management.GroupPolicyAssignment` resource, for a Resource Group use the `core.ResourceGroupPolicyAssignment` and for a Subscription use the `core.SubscriptionPolicyAssignment` resource.
 	ResourceId pulumi.StringOutput `pulumi:"resourceId"`
 	// One or more `resourceSelectors` blocks as defined below to filter polices by resource properties.
 	ResourceSelectors ResourcePolicyAssignmentResourceSelectorArrayOutput `pulumi:"resourceSelectors"`
@@ -184,7 +191,7 @@ type resourcePolicyAssignmentState struct {
 	PolicyDefinitionId *string `pulumi:"policyDefinitionId"`
 	// The ID of the Resource (or Resource Scope) where this should be applied. Changing this forces a new Resource Policy Assignment to be created.
 	//
-	// > To create a Policy Assignment at a Management Group use the `management.GroupPolicyAssignment` resource, for a Resource Group use the `core.ResourceGroupPolicyAssignment` and for a Subscription use the `core.SubscriptionPolicyAssignment` resource.
+	// > **Note:** To create a Policy Assignment at a Management Group use the `management.GroupPolicyAssignment` resource, for a Resource Group use the `core.ResourceGroupPolicyAssignment` and for a Subscription use the `core.SubscriptionPolicyAssignment` resource.
 	ResourceId *string `pulumi:"resourceId"`
 	// One or more `resourceSelectors` blocks as defined below to filter polices by resource properties.
 	ResourceSelectors []ResourcePolicyAssignmentResourceSelector `pulumi:"resourceSelectors"`
@@ -219,7 +226,7 @@ type ResourcePolicyAssignmentState struct {
 	PolicyDefinitionId pulumi.StringPtrInput
 	// The ID of the Resource (or Resource Scope) where this should be applied. Changing this forces a new Resource Policy Assignment to be created.
 	//
-	// > To create a Policy Assignment at a Management Group use the `management.GroupPolicyAssignment` resource, for a Resource Group use the `core.ResourceGroupPolicyAssignment` and for a Subscription use the `core.SubscriptionPolicyAssignment` resource.
+	// > **Note:** To create a Policy Assignment at a Management Group use the `management.GroupPolicyAssignment` resource, for a Resource Group use the `core.ResourceGroupPolicyAssignment` and for a Subscription use the `core.SubscriptionPolicyAssignment` resource.
 	ResourceId pulumi.StringPtrInput
 	// One or more `resourceSelectors` blocks as defined below to filter polices by resource properties.
 	ResourceSelectors ResourcePolicyAssignmentResourceSelectorArrayInput
@@ -258,7 +265,7 @@ type resourcePolicyAssignmentArgs struct {
 	PolicyDefinitionId string `pulumi:"policyDefinitionId"`
 	// The ID of the Resource (or Resource Scope) where this should be applied. Changing this forces a new Resource Policy Assignment to be created.
 	//
-	// > To create a Policy Assignment at a Management Group use the `management.GroupPolicyAssignment` resource, for a Resource Group use the `core.ResourceGroupPolicyAssignment` and for a Subscription use the `core.SubscriptionPolicyAssignment` resource.
+	// > **Note:** To create a Policy Assignment at a Management Group use the `management.GroupPolicyAssignment` resource, for a Resource Group use the `core.ResourceGroupPolicyAssignment` and for a Subscription use the `core.SubscriptionPolicyAssignment` resource.
 	ResourceId string `pulumi:"resourceId"`
 	// One or more `resourceSelectors` blocks as defined below to filter polices by resource properties.
 	ResourceSelectors []ResourcePolicyAssignmentResourceSelector `pulumi:"resourceSelectors"`
@@ -294,7 +301,7 @@ type ResourcePolicyAssignmentArgs struct {
 	PolicyDefinitionId pulumi.StringInput
 	// The ID of the Resource (or Resource Scope) where this should be applied. Changing this forces a new Resource Policy Assignment to be created.
 	//
-	// > To create a Policy Assignment at a Management Group use the `management.GroupPolicyAssignment` resource, for a Resource Group use the `core.ResourceGroupPolicyAssignment` and for a Subscription use the `core.SubscriptionPolicyAssignment` resource.
+	// > **Note:** To create a Policy Assignment at a Management Group use the `management.GroupPolicyAssignment` resource, for a Resource Group use the `core.ResourceGroupPolicyAssignment` and for a Subscription use the `core.SubscriptionPolicyAssignment` resource.
 	ResourceId pulumi.StringInput
 	// One or more `resourceSelectors` blocks as defined below to filter polices by resource properties.
 	ResourceSelectors ResourcePolicyAssignmentResourceSelectorArrayInput
@@ -453,7 +460,7 @@ func (o ResourcePolicyAssignmentOutput) PolicyDefinitionId() pulumi.StringOutput
 
 // The ID of the Resource (or Resource Scope) where this should be applied. Changing this forces a new Resource Policy Assignment to be created.
 //
-// > To create a Policy Assignment at a Management Group use the `management.GroupPolicyAssignment` resource, for a Resource Group use the `core.ResourceGroupPolicyAssignment` and for a Subscription use the `core.SubscriptionPolicyAssignment` resource.
+// > **Note:** To create a Policy Assignment at a Management Group use the `management.GroupPolicyAssignment` resource, for a Resource Group use the `core.ResourceGroupPolicyAssignment` and for a Subscription use the `core.SubscriptionPolicyAssignment` resource.
 func (o ResourcePolicyAssignmentOutput) ResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourcePolicyAssignment) pulumi.StringOutput { return v.ResourceId }).(pulumi.StringOutput)
 }

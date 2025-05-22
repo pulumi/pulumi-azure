@@ -85,6 +85,13 @@ public final class MssqlFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Sql`: 2023-08-01-preview
+     * 
      */
     public static Output<GetDatabaseResult> getDatabase(GetDatabaseArgs args) {
         return getDatabase(args, InvokeOptions.Empty);
@@ -146,6 +153,13 @@ public final class MssqlFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Sql`: 2023-08-01-preview
      * 
      */
     public static CompletableFuture<GetDatabaseResult> getDatabasePlain(GetDatabasePlainArgs args) {
@@ -209,6 +223,13 @@ public final class MssqlFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Sql`: 2023-08-01-preview
+     * 
      */
     public static Output<GetDatabaseResult> getDatabase(GetDatabaseArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:mssql/getDatabase:getDatabase", TypeShape.of(GetDatabaseResult.class), args, Utilities.withVersion(options));
@@ -270,6 +291,13 @@ public final class MssqlFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Sql`: 2023-08-01-preview
      * 
      */
     public static Output<GetDatabaseResult> getDatabase(GetDatabaseArgs args, InvokeOutputOptions options) {
@@ -333,6 +361,13 @@ public final class MssqlFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Sql`: 2023-08-01-preview
+     * 
      */
     public static CompletableFuture<GetDatabaseResult> getDatabasePlain(GetDatabasePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:mssql/getDatabase:getDatabase", TypeShape.of(GetDatabaseResult.class), args, Utilities.withVersion(options));
@@ -377,6 +412,13 @@ public final class MssqlFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Sql`: 2023-08-01-preview
      * 
      */
     public static Output<GetElasticPoolResult> getElasticPool(GetElasticPoolArgs args) {
@@ -423,6 +465,13 @@ public final class MssqlFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Sql`: 2023-08-01-preview
+     * 
      */
     public static CompletableFuture<GetElasticPoolResult> getElasticPoolPlain(GetElasticPoolPlainArgs args) {
         return getElasticPoolPlain(args, InvokeOptions.Empty);
@@ -467,6 +516,13 @@ public final class MssqlFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Sql`: 2023-08-01-preview
      * 
      */
     public static Output<GetElasticPoolResult> getElasticPool(GetElasticPoolArgs args, InvokeOptions options) {
@@ -513,6 +569,13 @@ public final class MssqlFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Sql`: 2023-08-01-preview
+     * 
      */
     public static Output<GetElasticPoolResult> getElasticPool(GetElasticPoolArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:mssql/getElasticPool:getElasticPool", TypeShape.of(GetElasticPoolResult.class), args, Utilities.withVersion(options));
@@ -558,6 +621,13 @@ public final class MssqlFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Sql`: 2023-08-01-preview
+     * 
      */
     public static CompletableFuture<GetElasticPoolResult> getElasticPoolPlain(GetElasticPoolPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:mssql/getElasticPool:getElasticPool", TypeShape.of(GetElasticPoolResult.class), args, Utilities.withVersion(options));
@@ -569,6 +639,13 @@ public final class MssqlFunctions {
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Sql`: 2023-08-01-preview
      * 
      */
     public static Output<GetManagedDatabaseResult> getManagedDatabase(GetManagedDatabaseArgs args) {
@@ -582,6 +659,13 @@ public final class MssqlFunctions {
      * &lt;!--Start PulumiCodeChooser --&gt;
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Sql`: 2023-08-01-preview
+     * 
      */
     public static CompletableFuture<GetManagedDatabaseResult> getManagedDatabasePlain(GetManagedDatabasePlainArgs args) {
         return getManagedDatabasePlain(args, InvokeOptions.Empty);
@@ -593,6 +677,13 @@ public final class MssqlFunctions {
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Sql`: 2023-08-01-preview
      * 
      */
     public static Output<GetManagedDatabaseResult> getManagedDatabase(GetManagedDatabaseArgs args, InvokeOptions options) {
@@ -606,6 +697,13 @@ public final class MssqlFunctions {
      * &lt;!--Start PulumiCodeChooser --&gt;
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Sql`: 2023-08-01-preview
+     * 
      */
     public static Output<GetManagedDatabaseResult> getManagedDatabase(GetManagedDatabaseArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:mssql/getManagedDatabase:getManagedDatabase", TypeShape.of(GetManagedDatabaseResult.class), args, Utilities.withVersion(options));
@@ -617,6 +715,13 @@ public final class MssqlFunctions {
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Sql`: 2023-08-01-preview
      * 
      */
     public static CompletableFuture<GetManagedDatabaseResult> getManagedDatabasePlain(GetManagedDatabasePlainArgs args, InvokeOptions options) {
@@ -661,6 +766,13 @@ public final class MssqlFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Sql`: 2023-08-01-preview
+     * 
      */
     public static Output<GetManagedInstanceResult> getManagedInstance(GetManagedInstanceArgs args) {
         return getManagedInstance(args, InvokeOptions.Empty);
@@ -703,6 +815,13 @@ public final class MssqlFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Sql`: 2023-08-01-preview
      * 
      */
     public static CompletableFuture<GetManagedInstanceResult> getManagedInstancePlain(GetManagedInstancePlainArgs args) {
@@ -747,6 +866,13 @@ public final class MssqlFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Sql`: 2023-08-01-preview
+     * 
      */
     public static Output<GetManagedInstanceResult> getManagedInstance(GetManagedInstanceArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:mssql/getManagedInstance:getManagedInstance", TypeShape.of(GetManagedInstanceResult.class), args, Utilities.withVersion(options));
@@ -790,6 +916,13 @@ public final class MssqlFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Sql`: 2023-08-01-preview
+     * 
      */
     public static Output<GetManagedInstanceResult> getManagedInstance(GetManagedInstanceArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:mssql/getManagedInstance:getManagedInstance", TypeShape.of(GetManagedInstanceResult.class), args, Utilities.withVersion(options));
@@ -832,6 +965,13 @@ public final class MssqlFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Sql`: 2023-08-01-preview
      * 
      */
     public static CompletableFuture<GetManagedInstanceResult> getManagedInstancePlain(GetManagedInstancePlainArgs args, InvokeOptions options) {
@@ -877,6 +1017,13 @@ public final class MssqlFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Sql`: 2023-08-01-preview
+     * 
      */
     public static Output<GetServerResult> getServer(GetServerArgs args) {
         return getServer(args, InvokeOptions.Empty);
@@ -920,6 +1067,13 @@ public final class MssqlFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Sql`: 2023-08-01-preview
      * 
      */
     public static CompletableFuture<GetServerResult> getServerPlain(GetServerPlainArgs args) {
@@ -965,6 +1119,13 @@ public final class MssqlFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Sql`: 2023-08-01-preview
+     * 
      */
     public static Output<GetServerResult> getServer(GetServerArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:mssql/getServer:getServer", TypeShape.of(GetServerResult.class), args, Utilities.withVersion(options));
@@ -1009,6 +1170,13 @@ public final class MssqlFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Sql`: 2023-08-01-preview
+     * 
      */
     public static Output<GetServerResult> getServer(GetServerArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:mssql/getServer:getServer", TypeShape.of(GetServerResult.class), args, Utilities.withVersion(options));
@@ -1052,6 +1220,13 @@ public final class MssqlFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Sql`: 2023-08-01-preview
      * 
      */
     public static CompletableFuture<GetServerResult> getServerPlain(GetServerPlainArgs args, InvokeOptions options) {

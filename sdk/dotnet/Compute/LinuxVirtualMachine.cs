@@ -478,7 +478,7 @@ namespace Pulumi.Azure.Compute
         /// Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.
         /// </summary>
         [Output("vmAgentPlatformUpdatesEnabled")]
-        public Output<bool?> VmAgentPlatformUpdatesEnabled { get; private set; } = null!;
+        public Output<bool> VmAgentPlatformUpdatesEnabled { get; private set; } = null!;
 
         /// <summary>
         /// Specifies whether vTPM should be enabled on the virtual machine. Changing this forces a new resource to be created.

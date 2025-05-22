@@ -45,7 +45,7 @@ class LinkServiceArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] visibility_subscription_ids: A list of Subscription UUID/GUID's that will be able to see this Private Link Service.
                
-               > **NOTE:** If no Subscription IDs are specified then Azure allows every Subscription to see this Private Link Service.
+               > **Note:** If no Subscription IDs are specified then Azure allows every Subscription to see this Private Link Service.
         """
         pulumi.set(__self__, "load_balancer_frontend_ip_configuration_ids", load_balancer_frontend_ip_configuration_ids)
         pulumi.set(__self__, "nat_ip_configurations", nat_ip_configurations)
@@ -179,7 +179,7 @@ class LinkServiceArgs:
         """
         A list of Subscription UUID/GUID's that will be able to see this Private Link Service.
 
-        > **NOTE:** If no Subscription IDs are specified then Azure allows every Subscription to see this Private Link Service.
+        > **Note:** If no Subscription IDs are specified then Azure allows every Subscription to see this Private Link Service.
         """
         return pulumi.get(self, "visibility_subscription_ids")
 
@@ -216,7 +216,7 @@ class _LinkServiceState:
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] visibility_subscription_ids: A list of Subscription UUID/GUID's that will be able to see this Private Link Service.
                
-               > **NOTE:** If no Subscription IDs are specified then Azure allows every Subscription to see this Private Link Service.
+               > **Note:** If no Subscription IDs are specified then Azure allows every Subscription to see this Private Link Service.
         """
         if alias is not None:
             pulumi.set(__self__, "alias", alias)
@@ -367,7 +367,7 @@ class _LinkServiceState:
         """
         A list of Subscription UUID/GUID's that will be able to see this Private Link Service.
 
-        > **NOTE:** If no Subscription IDs are specified then Azure allows every Subscription to see this Private Link Service.
+        > **Note:** If no Subscription IDs are specified then Azure allows every Subscription to see this Private Link Service.
         """
         return pulumi.get(self, "visibility_subscription_ids")
 
@@ -396,7 +396,7 @@ class LinkService(pulumi.CustomResource):
         """
         Manages a Private Link Service.
 
-        > **NOTE** Private Link is now in [GA](https://docs.microsoft.com/en-gb/azure/private-link/).
+        > **Note:** Private Link is now in [GA](https://docs.microsoft.com/en-gb/azure/private-link/).
 
         ## Import
 
@@ -419,7 +419,7 @@ class LinkService(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] visibility_subscription_ids: A list of Subscription UUID/GUID's that will be able to see this Private Link Service.
                
-               > **NOTE:** If no Subscription IDs are specified then Azure allows every Subscription to see this Private Link Service.
+               > **Note:** If no Subscription IDs are specified then Azure allows every Subscription to see this Private Link Service.
         """
         ...
     @overload
@@ -430,7 +430,7 @@ class LinkService(pulumi.CustomResource):
         """
         Manages a Private Link Service.
 
-        > **NOTE** Private Link is now in [GA](https://docs.microsoft.com/en-gb/azure/private-link/).
+        > **Note:** Private Link is now in [GA](https://docs.microsoft.com/en-gb/azure/private-link/).
 
         ## Import
 
@@ -531,7 +531,7 @@ class LinkService(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] visibility_subscription_ids: A list of Subscription UUID/GUID's that will be able to see this Private Link Service.
                
-               > **NOTE:** If no Subscription IDs are specified then Azure allows every Subscription to see this Private Link Service.
+               > **Note:** If no Subscription IDs are specified then Azure allows every Subscription to see this Private Link Service.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -636,7 +636,7 @@ class LinkService(pulumi.CustomResource):
         """
         A list of Subscription UUID/GUID's that will be able to see this Private Link Service.
 
-        > **NOTE:** If no Subscription IDs are specified then Azure allows every Subscription to see this Private Link Service.
+        > **Note:** If no Subscription IDs are specified then Azure allows every Subscription to see this Private Link Service.
         """
         return pulumi.get(self, "visibility_subscription_ids")
 

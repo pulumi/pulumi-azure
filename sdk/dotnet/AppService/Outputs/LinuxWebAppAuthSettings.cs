@@ -28,7 +28,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// <summary>
         /// The default authentication provider to use when multiple providers are configured. Possible values include: `BuiltInAuthenticationProviderAzureActiveDirectory`, `BuiltInAuthenticationProviderFacebook`, `BuiltInAuthenticationProviderGoogle`, `BuiltInAuthenticationProviderMicrosoftAccount`, `BuiltInAuthenticationProviderTwitter`, `BuiltInAuthenticationProviderGithub`
         /// 
-        /// &gt; **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to "RedirectToLoginPage".
+        /// &gt; **Note:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to "RedirectToLoginPage".
         /// </summary>
         public readonly string? DefaultProvider;
         /// <summary>
@@ -50,7 +50,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// <summary>
         /// The OpenID Connect Issuer URI that represents the entity that issues access tokens for this Linux Web App.
         /// 
-        /// &gt; **NOTE:** When using Azure Active Directory, this value is the URI of the directory tenant, e.g. &lt;https://sts.windows.net/{tenant-guid}/&gt;.
+        /// &gt; **Note:** When using Azure Active Directory, this value is the URI of the directory tenant, e.g. &lt;https://sts.windows.net/{tenant-guid}/&gt;.
         /// </summary>
         public readonly string? Issuer;
         /// <summary>

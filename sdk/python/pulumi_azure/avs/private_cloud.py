@@ -35,12 +35,12 @@ class PrivateCloudArgs:
         """
         The set of arguments for constructing a PrivateCloud resource.
         :param pulumi.Input['PrivateCloudManagementClusterArgs'] management_cluster: A `management_cluster` block as defined below.
-               > **NOTE :** `internet_connection_enabled` and `management_cluster[0].size` cannot be updated at the same time.
+               > **Note:** `internet_connection_enabled` and `management_cluster[0].size` cannot be updated at the same time.
         :param pulumi.Input[builtins.str] network_subnet_cidr: The subnet which should be unique across virtual network in your subscription as well as on-premise. Changing this forces a new Azure VMware Solution Private Cloud to be created.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the Resource Group where the Azure VMware Solution Private Cloud should exist. Changing this forces a new Azure VMware Solution Private Cloud to be created.
         :param pulumi.Input[builtins.str] sku_name: The Name of the SKU used for this Azure VMware Solution Private Cloud. Possible values are `av20`, `av36`, `av36t`, `av36p`, `av36pt`, `av48`, `av48t`, `av52`, `av52t`, and `av64`. Changing this forces a new Azure VMware Solution Private Cloud to be created.
         :param pulumi.Input[builtins.bool] internet_connection_enabled: Is the Azure VMware Solution Private Cloud connected to the internet? This field can not be updated with `management_cluster[0].size` together.
-               > **NOTE :** `internet_connection_enabled` and `management_cluster[0].size` cannot be updated at the same time.
+               > **Note:** `internet_connection_enabled` and `management_cluster[0].size` cannot be updated at the same time.
         :param pulumi.Input[builtins.str] location: The Azure Region where the Azure VMware Solution Private Cloud should exist. Changing this forces a new Azure VMware Solution Private Cloud to be created.
         :param pulumi.Input[builtins.str] name: The name which should be used for this Azure VMware Solution Private Cloud. Changing this forces a new Azure VMware Solution Private Cloud to be created.
         :param pulumi.Input[builtins.str] nsxt_password: The password of the VMware NSX Manager cloudadmin. Changing this forces a new Azure VMware Solution Private Cloud to be created.
@@ -69,7 +69,7 @@ class PrivateCloudArgs:
     def management_cluster(self) -> pulumi.Input['PrivateCloudManagementClusterArgs']:
         """
         A `management_cluster` block as defined below.
-        > **NOTE :** `internet_connection_enabled` and `management_cluster[0].size` cannot be updated at the same time.
+        > **Note:** `internet_connection_enabled` and `management_cluster[0].size` cannot be updated at the same time.
         """
         return pulumi.get(self, "management_cluster")
 
@@ -118,7 +118,7 @@ class PrivateCloudArgs:
     def internet_connection_enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
         Is the Azure VMware Solution Private Cloud connected to the internet? This field can not be updated with `management_cluster[0].size` together.
-        > **NOTE :** `internet_connection_enabled` and `management_cluster[0].size` cannot be updated at the same time.
+        > **Note:** `internet_connection_enabled` and `management_cluster[0].size` cannot be updated at the same time.
         """
         return pulumi.get(self, "internet_connection_enabled")
 
@@ -214,10 +214,10 @@ class _PrivateCloudState:
         :param pulumi.Input[Sequence[pulumi.Input['PrivateCloudCircuitArgs']]] circuits: A `circuit` block as defined below.
         :param pulumi.Input[builtins.str] hcx_cloud_manager_endpoint: The endpoint for the VMware HCX Cloud Manager.
         :param pulumi.Input[builtins.bool] internet_connection_enabled: Is the Azure VMware Solution Private Cloud connected to the internet? This field can not be updated with `management_cluster[0].size` together.
-               > **NOTE :** `internet_connection_enabled` and `management_cluster[0].size` cannot be updated at the same time.
+               > **Note:** `internet_connection_enabled` and `management_cluster[0].size` cannot be updated at the same time.
         :param pulumi.Input[builtins.str] location: The Azure Region where the Azure VMware Solution Private Cloud should exist. Changing this forces a new Azure VMware Solution Private Cloud to be created.
         :param pulumi.Input['PrivateCloudManagementClusterArgs'] management_cluster: A `management_cluster` block as defined below.
-               > **NOTE :** `internet_connection_enabled` and `management_cluster[0].size` cannot be updated at the same time.
+               > **Note:** `internet_connection_enabled` and `management_cluster[0].size` cannot be updated at the same time.
         :param pulumi.Input[builtins.str] management_subnet_cidr: The network used to access VMware vCenter Server and NSX Manager.
         :param pulumi.Input[builtins.str] name: The name which should be used for this Azure VMware Solution Private Cloud. Changing this forces a new Azure VMware Solution Private Cloud to be created.
         :param pulumi.Input[builtins.str] network_subnet_cidr: The subnet which should be unique across virtual network in your subscription as well as on-premise. Changing this forces a new Azure VMware Solution Private Cloud to be created.
@@ -301,7 +301,7 @@ class _PrivateCloudState:
     def internet_connection_enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
         Is the Azure VMware Solution Private Cloud connected to the internet? This field can not be updated with `management_cluster[0].size` together.
-        > **NOTE :** `internet_connection_enabled` and `management_cluster[0].size` cannot be updated at the same time.
+        > **Note:** `internet_connection_enabled` and `management_cluster[0].size` cannot be updated at the same time.
         """
         return pulumi.get(self, "internet_connection_enabled")
 
@@ -326,7 +326,7 @@ class _PrivateCloudState:
     def management_cluster(self) -> Optional[pulumi.Input['PrivateCloudManagementClusterArgs']]:
         """
         A `management_cluster` block as defined below.
-        > **NOTE :** `internet_connection_enabled` and `management_cluster[0].size` cannot be updated at the same time.
+        > **Note:** `internet_connection_enabled` and `management_cluster[0].size` cannot be updated at the same time.
         """
         return pulumi.get(self, "management_cluster")
 
@@ -525,7 +525,7 @@ class PrivateCloud(pulumi.CustomResource):
 
         ## Example Usage
 
-        > **NOTE :**  Normal `pulumi up` could ignore this note. Please disable correlation request id for continuous operations in one build (like acctest). The continuous operations like `update` or `delete` could not be triggered when it shares the same `correlation-id` with its previous operation.
+        > **Note:** Normal `pulumi up` could ignore this note. Please disable correlation request id for continuous operations in one build (like acctest). The continuous operations like `update` or `delete` could not be triggered when it shares the same `correlation-id` with its previous operation.
 
         ```python
         import pulumi
@@ -548,6 +548,13 @@ class PrivateCloud(pulumi.CustomResource):
             vcenter_password="WsxEdc23$Rfv")
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.AVS`: 2022-05-01
+
         ## Import
 
         Azure VMware Solution Private Clouds can be imported using the `resource id`, e.g.
@@ -559,10 +566,10 @@ class PrivateCloud(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.bool] internet_connection_enabled: Is the Azure VMware Solution Private Cloud connected to the internet? This field can not be updated with `management_cluster[0].size` together.
-               > **NOTE :** `internet_connection_enabled` and `management_cluster[0].size` cannot be updated at the same time.
+               > **Note:** `internet_connection_enabled` and `management_cluster[0].size` cannot be updated at the same time.
         :param pulumi.Input[builtins.str] location: The Azure Region where the Azure VMware Solution Private Cloud should exist. Changing this forces a new Azure VMware Solution Private Cloud to be created.
         :param pulumi.Input[Union['PrivateCloudManagementClusterArgs', 'PrivateCloudManagementClusterArgsDict']] management_cluster: A `management_cluster` block as defined below.
-               > **NOTE :** `internet_connection_enabled` and `management_cluster[0].size` cannot be updated at the same time.
+               > **Note:** `internet_connection_enabled` and `management_cluster[0].size` cannot be updated at the same time.
         :param pulumi.Input[builtins.str] name: The name which should be used for this Azure VMware Solution Private Cloud. Changing this forces a new Azure VMware Solution Private Cloud to be created.
         :param pulumi.Input[builtins.str] network_subnet_cidr: The subnet which should be unique across virtual network in your subscription as well as on-premise. Changing this forces a new Azure VMware Solution Private Cloud to be created.
         :param pulumi.Input[builtins.str] nsxt_password: The password of the VMware NSX Manager cloudadmin. Changing this forces a new Azure VMware Solution Private Cloud to be created.
@@ -582,7 +589,7 @@ class PrivateCloud(pulumi.CustomResource):
 
         ## Example Usage
 
-        > **NOTE :**  Normal `pulumi up` could ignore this note. Please disable correlation request id for continuous operations in one build (like acctest). The continuous operations like `update` or `delete` could not be triggered when it shares the same `correlation-id` with its previous operation.
+        > **Note:** Normal `pulumi up` could ignore this note. Please disable correlation request id for continuous operations in one build (like acctest). The continuous operations like `update` or `delete` could not be triggered when it shares the same `correlation-id` with its previous operation.
 
         ```python
         import pulumi
@@ -604,6 +611,13 @@ class PrivateCloud(pulumi.CustomResource):
             nsxt_password="QazWsx13$Edc",
             vcenter_password="WsxEdc23$Rfv")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.AVS`: 2022-05-01
 
         ## Import
 
@@ -715,10 +729,10 @@ class PrivateCloud(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['PrivateCloudCircuitArgs', 'PrivateCloudCircuitArgsDict']]]] circuits: A `circuit` block as defined below.
         :param pulumi.Input[builtins.str] hcx_cloud_manager_endpoint: The endpoint for the VMware HCX Cloud Manager.
         :param pulumi.Input[builtins.bool] internet_connection_enabled: Is the Azure VMware Solution Private Cloud connected to the internet? This field can not be updated with `management_cluster[0].size` together.
-               > **NOTE :** `internet_connection_enabled` and `management_cluster[0].size` cannot be updated at the same time.
+               > **Note:** `internet_connection_enabled` and `management_cluster[0].size` cannot be updated at the same time.
         :param pulumi.Input[builtins.str] location: The Azure Region where the Azure VMware Solution Private Cloud should exist. Changing this forces a new Azure VMware Solution Private Cloud to be created.
         :param pulumi.Input[Union['PrivateCloudManagementClusterArgs', 'PrivateCloudManagementClusterArgsDict']] management_cluster: A `management_cluster` block as defined below.
-               > **NOTE :** `internet_connection_enabled` and `management_cluster[0].size` cannot be updated at the same time.
+               > **Note:** `internet_connection_enabled` and `management_cluster[0].size` cannot be updated at the same time.
         :param pulumi.Input[builtins.str] management_subnet_cidr: The network used to access VMware vCenter Server and NSX Manager.
         :param pulumi.Input[builtins.str] name: The name which should be used for this Azure VMware Solution Private Cloud. Changing this forces a new Azure VMware Solution Private Cloud to be created.
         :param pulumi.Input[builtins.str] network_subnet_cidr: The subnet which should be unique across virtual network in your subscription as well as on-premise. Changing this forces a new Azure VMware Solution Private Cloud to be created.
@@ -780,7 +794,7 @@ class PrivateCloud(pulumi.CustomResource):
     def internet_connection_enabled(self) -> pulumi.Output[Optional[builtins.bool]]:
         """
         Is the Azure VMware Solution Private Cloud connected to the internet? This field can not be updated with `management_cluster[0].size` together.
-        > **NOTE :** `internet_connection_enabled` and `management_cluster[0].size` cannot be updated at the same time.
+        > **Note:** `internet_connection_enabled` and `management_cluster[0].size` cannot be updated at the same time.
         """
         return pulumi.get(self, "internet_connection_enabled")
 
@@ -797,7 +811,7 @@ class PrivateCloud(pulumi.CustomResource):
     def management_cluster(self) -> pulumi.Output['outputs.PrivateCloudManagementCluster']:
         """
         A `management_cluster` block as defined below.
-        > **NOTE :** `internet_connection_enabled` and `management_cluster[0].size` cannot be updated at the same time.
+        > **Note:** `internet_connection_enabled` and `management_cluster[0].size` cannot be updated at the same time.
         """
         return pulumi.get(self, "management_cluster")
 

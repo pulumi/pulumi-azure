@@ -44,7 +44,7 @@ class FileSystemArgs:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] zones: A list of availability zones for the Azure Managed Lustre File System. Changing this forces a new resource to be created.
         :param pulumi.Input['FileSystemEncryptionKeyArgs'] encryption_key: An `encryption_key` block as defined below.
                
-               > **NOTE:** Removing `encryption_key` forces a new resource to be created.
+               > **Note:** Removing `encryption_key` forces a new resource to be created.
         :param pulumi.Input['FileSystemHsmSettingArgs'] hsm_setting: A `hsm_setting` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input['FileSystemIdentityArgs'] identity: An `identity` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] location: The Azure Region where the Azure Managed Lustre File System should exist. Changing this forces a new resource to be created.
@@ -148,7 +148,7 @@ class FileSystemArgs:
         """
         An `encryption_key` block as defined below.
 
-        > **NOTE:** Removing `encryption_key` forces a new resource to be created.
+        > **Note:** Removing `encryption_key` forces a new resource to be created.
         """
         return pulumi.get(self, "encryption_key")
 
@@ -237,7 +237,7 @@ class _FileSystemState:
         Input properties used for looking up and filtering FileSystem resources.
         :param pulumi.Input['FileSystemEncryptionKeyArgs'] encryption_key: An `encryption_key` block as defined below.
                
-               > **NOTE:** Removing `encryption_key` forces a new resource to be created.
+               > **Note:** Removing `encryption_key` forces a new resource to be created.
         :param pulumi.Input['FileSystemHsmSettingArgs'] hsm_setting: A `hsm_setting` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input['FileSystemIdentityArgs'] identity: An `identity` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] location: The Azure Region where the Azure Managed Lustre File System should exist. Changing this forces a new resource to be created.
@@ -284,7 +284,7 @@ class _FileSystemState:
         """
         An `encryption_key` block as defined below.
 
-        > **NOTE:** Removing `encryption_key` forces a new resource to be created.
+        > **Note:** Removing `encryption_key` forces a new resource to be created.
         """
         return pulumi.get(self, "encryption_key")
 
@@ -471,7 +471,7 @@ class FileSystem(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['FileSystemEncryptionKeyArgs', 'FileSystemEncryptionKeyArgsDict']] encryption_key: An `encryption_key` block as defined below.
                
-               > **NOTE:** Removing `encryption_key` forces a new resource to be created.
+               > **Note:** Removing `encryption_key` forces a new resource to be created.
         :param pulumi.Input[Union['FileSystemHsmSettingArgs', 'FileSystemHsmSettingArgsDict']] hsm_setting: A `hsm_setting` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['FileSystemIdentityArgs', 'FileSystemIdentityArgsDict']] identity: An `identity` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] location: The Azure Region where the Azure Managed Lustre File System should exist. Changing this forces a new resource to be created.
@@ -594,7 +594,7 @@ class FileSystem(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['FileSystemEncryptionKeyArgs', 'FileSystemEncryptionKeyArgsDict']] encryption_key: An `encryption_key` block as defined below.
                
-               > **NOTE:** Removing `encryption_key` forces a new resource to be created.
+               > **Note:** Removing `encryption_key` forces a new resource to be created.
         :param pulumi.Input[Union['FileSystemHsmSettingArgs', 'FileSystemHsmSettingArgsDict']] hsm_setting: A `hsm_setting` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['FileSystemIdentityArgs', 'FileSystemIdentityArgsDict']] identity: An `identity` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] location: The Azure Region where the Azure Managed Lustre File System should exist. Changing this forces a new resource to be created.
@@ -633,7 +633,7 @@ class FileSystem(pulumi.CustomResource):
         """
         An `encryption_key` block as defined below.
 
-        > **NOTE:** Removing `encryption_key` forces a new resource to be created.
+        > **Note:** Removing `encryption_key` forces a new resource to be created.
         """
         return pulumi.get(self, "encryption_key")
 

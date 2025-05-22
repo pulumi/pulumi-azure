@@ -42,16 +42,16 @@ class EndpointCosmosdbAccountArgs:
         :param pulumi.Input[builtins.str] authentication_type: The type used to authenticate against the Cosmos DB Account endpoint. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
         :param pulumi.Input[builtins.str] identity_id: The ID of the User Managed Identity used to authenticate against the Cosmos DB Account endpoint.
                
-               > **NOTE:** `identity_id` can only be specified when `authentication_type` is `identityBased`. It must be one of the `identity_ids` of the Iot Hub. If not specified when `authentication_type` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
+               > **Note:** `identity_id` can only be specified when `authentication_type` is `identityBased`. It must be one of the `identity_ids` of the Iot Hub. If not specified when `authentication_type` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
         :param pulumi.Input[builtins.str] name: The name of the endpoint. The name must be unique across endpoint types. The following names are reserved: `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] partition_key_name: The name of the partition key associated with the Cosmos DB Container.
         :param pulumi.Input[builtins.str] partition_key_template: The template for generating a synthetic partition key value for use within the Cosmos DB Container.
         :param pulumi.Input[builtins.str] primary_key: The primary key of the Cosmos DB Account.
                
-               > **NOTE:** `primary_key` must and can only be specified when `authentication_type` is `keyBased`.
+               > **Note:** `primary_key` must and can only be specified when `authentication_type` is `keyBased`.
         :param pulumi.Input[builtins.str] secondary_key: The secondary key of the Cosmos DB Account.
                
-               > **NOTE:** `secondary_key` must and can only be specified when `authentication_type` is `keyBased`.
+               > **Note:** `secondary_key` must and can only be specified when `authentication_type` is `keyBased`.
         """
         pulumi.set(__self__, "container_name", container_name)
         pulumi.set(__self__, "database_name", database_name)
@@ -151,7 +151,7 @@ class EndpointCosmosdbAccountArgs:
         """
         The ID of the User Managed Identity used to authenticate against the Cosmos DB Account endpoint.
 
-        > **NOTE:** `identity_id` can only be specified when `authentication_type` is `identityBased`. It must be one of the `identity_ids` of the Iot Hub. If not specified when `authentication_type` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
+        > **Note:** `identity_id` can only be specified when `authentication_type` is `identityBased`. It must be one of the `identity_ids` of the Iot Hub. If not specified when `authentication_type` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
         """
         return pulumi.get(self, "identity_id")
 
@@ -201,7 +201,7 @@ class EndpointCosmosdbAccountArgs:
         """
         The primary key of the Cosmos DB Account.
 
-        > **NOTE:** `primary_key` must and can only be specified when `authentication_type` is `keyBased`.
+        > **Note:** `primary_key` must and can only be specified when `authentication_type` is `keyBased`.
         """
         return pulumi.get(self, "primary_key")
 
@@ -215,7 +215,7 @@ class EndpointCosmosdbAccountArgs:
         """
         The secondary key of the Cosmos DB Account.
 
-        > **NOTE:** `secondary_key` must and can only be specified when `authentication_type` is `keyBased`.
+        > **Note:** `secondary_key` must and can only be specified when `authentication_type` is `keyBased`.
         """
         return pulumi.get(self, "secondary_key")
 
@@ -247,18 +247,18 @@ class _EndpointCosmosdbAccountState:
         :param pulumi.Input[builtins.str] endpoint_uri: The URI of the Cosmos DB Account. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] identity_id: The ID of the User Managed Identity used to authenticate against the Cosmos DB Account endpoint.
                
-               > **NOTE:** `identity_id` can only be specified when `authentication_type` is `identityBased`. It must be one of the `identity_ids` of the Iot Hub. If not specified when `authentication_type` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
+               > **Note:** `identity_id` can only be specified when `authentication_type` is `identityBased`. It must be one of the `identity_ids` of the Iot Hub. If not specified when `authentication_type` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
         :param pulumi.Input[builtins.str] iothub_id: The ID of the IoT Hub to create the endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] name: The name of the endpoint. The name must be unique across endpoint types. The following names are reserved: `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] partition_key_name: The name of the partition key associated with the Cosmos DB Container.
         :param pulumi.Input[builtins.str] partition_key_template: The template for generating a synthetic partition key value for use within the Cosmos DB Container.
         :param pulumi.Input[builtins.str] primary_key: The primary key of the Cosmos DB Account.
                
-               > **NOTE:** `primary_key` must and can only be specified when `authentication_type` is `keyBased`.
+               > **Note:** `primary_key` must and can only be specified when `authentication_type` is `keyBased`.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group under which the Cosmos DB Account has been created. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] secondary_key: The secondary key of the Cosmos DB Account.
                
-               > **NOTE:** `secondary_key` must and can only be specified when `authentication_type` is `keyBased`.
+               > **Note:** `secondary_key` must and can only be specified when `authentication_type` is `keyBased`.
         """
         if authentication_type is not None:
             pulumi.set(__self__, "authentication_type", authentication_type)
@@ -339,7 +339,7 @@ class _EndpointCosmosdbAccountState:
         """
         The ID of the User Managed Identity used to authenticate against the Cosmos DB Account endpoint.
 
-        > **NOTE:** `identity_id` can only be specified when `authentication_type` is `identityBased`. It must be one of the `identity_ids` of the Iot Hub. If not specified when `authentication_type` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
+        > **Note:** `identity_id` can only be specified when `authentication_type` is `identityBased`. It must be one of the `identity_ids` of the Iot Hub. If not specified when `authentication_type` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
         """
         return pulumi.get(self, "identity_id")
 
@@ -401,7 +401,7 @@ class _EndpointCosmosdbAccountState:
         """
         The primary key of the Cosmos DB Account.
 
-        > **NOTE:** `primary_key` must and can only be specified when `authentication_type` is `keyBased`.
+        > **Note:** `primary_key` must and can only be specified when `authentication_type` is `keyBased`.
         """
         return pulumi.get(self, "primary_key")
 
@@ -427,7 +427,7 @@ class _EndpointCosmosdbAccountState:
         """
         The secondary key of the Cosmos DB Account.
 
-        > **NOTE:** `secondary_key` must and can only be specified when `authentication_type` is `keyBased`.
+        > **Note:** `secondary_key` must and can only be specified when `authentication_type` is `keyBased`.
         """
         return pulumi.get(self, "secondary_key")
 
@@ -458,7 +458,7 @@ class EndpointCosmosdbAccount(pulumi.CustomResource):
         """
         Manages an IotHub Cosmos DB Account Endpoint
 
-        > **NOTE:** Endpoints can be defined either directly on the `iot.IoTHub` resource, or using the `azurerm_iothub_endpoint_*` resources - but the two ways of defining the endpoints cannot be used together. If both are used against the same IoTHub, spurious changes will occur. Also, defining a `azurerm_iothub_endpoint_*` resource and another endpoint of a different type directly on the `iot.IoTHub` resource is not supported.
+        > **Note:** Endpoints can be defined either directly on the `iot.IoTHub` resource, or using the `azurerm_iothub_endpoint_*` resources - but the two ways of defining the endpoints cannot be used together. If both are used against the same IoTHub, spurious changes will occur. Also, defining a `azurerm_iothub_endpoint_*` resource and another endpoint of a different type directly on the `iot.IoTHub` resource is not supported.
 
         ## Import
 
@@ -476,18 +476,18 @@ class EndpointCosmosdbAccount(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] endpoint_uri: The URI of the Cosmos DB Account. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] identity_id: The ID of the User Managed Identity used to authenticate against the Cosmos DB Account endpoint.
                
-               > **NOTE:** `identity_id` can only be specified when `authentication_type` is `identityBased`. It must be one of the `identity_ids` of the Iot Hub. If not specified when `authentication_type` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
+               > **Note:** `identity_id` can only be specified when `authentication_type` is `identityBased`. It must be one of the `identity_ids` of the Iot Hub. If not specified when `authentication_type` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
         :param pulumi.Input[builtins.str] iothub_id: The ID of the IoT Hub to create the endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] name: The name of the endpoint. The name must be unique across endpoint types. The following names are reserved: `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] partition_key_name: The name of the partition key associated with the Cosmos DB Container.
         :param pulumi.Input[builtins.str] partition_key_template: The template for generating a synthetic partition key value for use within the Cosmos DB Container.
         :param pulumi.Input[builtins.str] primary_key: The primary key of the Cosmos DB Account.
                
-               > **NOTE:** `primary_key` must and can only be specified when `authentication_type` is `keyBased`.
+               > **Note:** `primary_key` must and can only be specified when `authentication_type` is `keyBased`.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group under which the Cosmos DB Account has been created. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] secondary_key: The secondary key of the Cosmos DB Account.
                
-               > **NOTE:** `secondary_key` must and can only be specified when `authentication_type` is `keyBased`.
+               > **Note:** `secondary_key` must and can only be specified when `authentication_type` is `keyBased`.
         """
         ...
     @overload
@@ -498,7 +498,7 @@ class EndpointCosmosdbAccount(pulumi.CustomResource):
         """
         Manages an IotHub Cosmos DB Account Endpoint
 
-        > **NOTE:** Endpoints can be defined either directly on the `iot.IoTHub` resource, or using the `azurerm_iothub_endpoint_*` resources - but the two ways of defining the endpoints cannot be used together. If both are used against the same IoTHub, spurious changes will occur. Also, defining a `azurerm_iothub_endpoint_*` resource and another endpoint of a different type directly on the `iot.IoTHub` resource is not supported.
+        > **Note:** Endpoints can be defined either directly on the `iot.IoTHub` resource, or using the `azurerm_iothub_endpoint_*` resources - but the two ways of defining the endpoints cannot be used together. If both are used against the same IoTHub, spurious changes will occur. Also, defining a `azurerm_iothub_endpoint_*` resource and another endpoint of a different type directly on the `iot.IoTHub` resource is not supported.
 
         ## Import
 
@@ -603,18 +603,18 @@ class EndpointCosmosdbAccount(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] endpoint_uri: The URI of the Cosmos DB Account. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] identity_id: The ID of the User Managed Identity used to authenticate against the Cosmos DB Account endpoint.
                
-               > **NOTE:** `identity_id` can only be specified when `authentication_type` is `identityBased`. It must be one of the `identity_ids` of the Iot Hub. If not specified when `authentication_type` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
+               > **Note:** `identity_id` can only be specified when `authentication_type` is `identityBased`. It must be one of the `identity_ids` of the Iot Hub. If not specified when `authentication_type` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
         :param pulumi.Input[builtins.str] iothub_id: The ID of the IoT Hub to create the endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] name: The name of the endpoint. The name must be unique across endpoint types. The following names are reserved: `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] partition_key_name: The name of the partition key associated with the Cosmos DB Container.
         :param pulumi.Input[builtins.str] partition_key_template: The template for generating a synthetic partition key value for use within the Cosmos DB Container.
         :param pulumi.Input[builtins.str] primary_key: The primary key of the Cosmos DB Account.
                
-               > **NOTE:** `primary_key` must and can only be specified when `authentication_type` is `keyBased`.
+               > **Note:** `primary_key` must and can only be specified when `authentication_type` is `keyBased`.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group under which the Cosmos DB Account has been created. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] secondary_key: The secondary key of the Cosmos DB Account.
                
-               > **NOTE:** `secondary_key` must and can only be specified when `authentication_type` is `keyBased`.
+               > **Note:** `secondary_key` must and can only be specified when `authentication_type` is `keyBased`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -672,7 +672,7 @@ class EndpointCosmosdbAccount(pulumi.CustomResource):
         """
         The ID of the User Managed Identity used to authenticate against the Cosmos DB Account endpoint.
 
-        > **NOTE:** `identity_id` can only be specified when `authentication_type` is `identityBased`. It must be one of the `identity_ids` of the Iot Hub. If not specified when `authentication_type` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
+        > **Note:** `identity_id` can only be specified when `authentication_type` is `identityBased`. It must be one of the `identity_ids` of the Iot Hub. If not specified when `authentication_type` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
         """
         return pulumi.get(self, "identity_id")
 
@@ -714,7 +714,7 @@ class EndpointCosmosdbAccount(pulumi.CustomResource):
         """
         The primary key of the Cosmos DB Account.
 
-        > **NOTE:** `primary_key` must and can only be specified when `authentication_type` is `keyBased`.
+        > **Note:** `primary_key` must and can only be specified when `authentication_type` is `keyBased`.
         """
         return pulumi.get(self, "primary_key")
 
@@ -732,7 +732,7 @@ class EndpointCosmosdbAccount(pulumi.CustomResource):
         """
         The secondary key of the Cosmos DB Account.
 
-        > **NOTE:** `secondary_key` must and can only be specified when `authentication_type` is `keyBased`.
+        > **Note:** `secondary_key` must and can only be specified when `authentication_type` is `keyBased`.
         """
         return pulumi.get(self, "secondary_key")
 

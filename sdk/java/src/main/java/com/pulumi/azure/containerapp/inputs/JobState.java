@@ -208,7 +208,7 @@ public final class JobState extends com.pulumi.resources.ResourceArgs {
     /**
      * A `schedule_trigger_config` block as defined below.
      * 
-     * &gt; ** NOTE **: Only one of `manual_trigger_config`, `event_trigger_config` or `schedule_trigger_config` can be specified.
+     * &gt; **Note:** Only one of `manual_trigger_config`, `event_trigger_config` or `schedule_trigger_config` can be specified.
      * 
      */
     @Import(name="scheduleTriggerConfig")
@@ -217,7 +217,7 @@ public final class JobState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return A `schedule_trigger_config` block as defined below.
      * 
-     * &gt; ** NOTE **: Only one of `manual_trigger_config`, `event_trigger_config` or `schedule_trigger_config` can be specified.
+     * &gt; **Note:** Only one of `manual_trigger_config`, `event_trigger_config` or `schedule_trigger_config` can be specified.
      * 
      */
     public Optional<Output<JobScheduleTriggerConfigArgs>> scheduleTriggerConfig() {
@@ -599,7 +599,7 @@ public final class JobState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param scheduleTriggerConfig A `schedule_trigger_config` block as defined below.
          * 
-         * &gt; ** NOTE **: Only one of `manual_trigger_config`, `event_trigger_config` or `schedule_trigger_config` can be specified.
+         * &gt; **Note:** Only one of `manual_trigger_config`, `event_trigger_config` or `schedule_trigger_config` can be specified.
          * 
          * @return builder
          * 
@@ -612,7 +612,7 @@ public final class JobState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param scheduleTriggerConfig A `schedule_trigger_config` block as defined below.
          * 
-         * &gt; ** NOTE **: Only one of `manual_trigger_config`, `event_trigger_config` or `schedule_trigger_config` can be specified.
+         * &gt; **Note:** Only one of `manual_trigger_config`, `event_trigger_config` or `schedule_trigger_config` can be specified.
          * 
          * @return builder
          * 

@@ -380,6 +380,13 @@ class GatewayHostNameConfiguration(pulumi.CustomResource):
             tls11_enabled=False)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ApiManagement`: 2022-08-01
+
         ## Import
 
         API Management Gateway Host Name Configuration can be imported using the `resource id`, e.g.
@@ -452,6 +459,13 @@ class GatewayHostNameConfiguration(pulumi.CustomResource):
             tls10_enabled=True,
             tls11_enabled=False)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ApiManagement`: 2022-08-01
 
         ## Import
 

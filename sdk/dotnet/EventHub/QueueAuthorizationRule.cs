@@ -63,7 +63,7 @@ namespace Pulumi.Azure.EventHub
         /// <summary>
         /// Specifies the ID of the ServiceBus Queue. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE** At least one of the 3 permissions below needs to be set.
+        /// &gt; **Note:** At least one of the 3 permissions below needs to be set.
         /// </summary>
         [Output("queueId")]
         public Output<string> QueueId { get; private set; } = null!;
@@ -168,7 +168,7 @@ namespace Pulumi.Azure.EventHub
         /// <summary>
         /// Specifies the ID of the ServiceBus Queue. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE** At least one of the 3 permissions below needs to be set.
+        /// &gt; **Note:** At least one of the 3 permissions below needs to be set.
         /// </summary>
         [Input("queueId", required: true)]
         public Input<string> QueueId { get; set; } = null!;
@@ -256,7 +256,7 @@ namespace Pulumi.Azure.EventHub
         /// <summary>
         /// Specifies the ID of the ServiceBus Queue. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE** At least one of the 3 permissions below needs to be set.
+        /// &gt; **Note:** At least one of the 3 permissions below needs to be set.
         /// </summary>
         [Input("queueId")]
         public Input<string>? QueueId { get; set; }

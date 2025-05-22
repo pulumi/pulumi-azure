@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Use this data source to access information about an existing Blueprint Published Version
  *
- * > **NOTE:** Azure Blueprints are in Preview and potentially subject to breaking change without notice.
+ * > **Note:** Azure Blueprints are in Preview and potentially subject to breaking change without notice.
  *
  * ## Example Usage
  *
@@ -22,6 +22,13 @@ import * as utilities from "../utilities";
  *     version: "dev_v2.3",
  * }));
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.Blueprint`: 2018-11-01-preview
  */
 export function getPublishedVersion(args: GetPublishedVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetPublishedVersionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -83,7 +90,7 @@ export interface GetPublishedVersionResult {
 /**
  * Use this data source to access information about an existing Blueprint Published Version
  *
- * > **NOTE:** Azure Blueprints are in Preview and potentially subject to breaking change without notice.
+ * > **Note:** Azure Blueprints are in Preview and potentially subject to breaking change without notice.
  *
  * ## Example Usage
  *
@@ -98,6 +105,13 @@ export interface GetPublishedVersionResult {
  *     version: "dev_v2.3",
  * }));
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.Blueprint`: 2018-11-01-preview
  */
 export function getPublishedVersionOutput(args: GetPublishedVersionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPublishedVersionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

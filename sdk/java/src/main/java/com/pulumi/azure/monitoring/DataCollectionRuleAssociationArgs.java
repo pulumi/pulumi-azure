@@ -34,7 +34,7 @@ public final class DataCollectionRuleAssociationArgs extends com.pulumi.resource
     /**
      * The ID of the Data Collection Rule which will be associated to the target resource.
      * 
-     * &gt; **NOTE** Exactly one of `data_collection_endpoint_id` and `data_collection_rule_id` blocks must be specified.
+     * &gt; **Note:** Exactly one of `data_collection_endpoint_id` and `data_collection_rule_id` blocks must be specified.
      * 
      */
     @Import(name="dataCollectionRuleId")
@@ -43,7 +43,7 @@ public final class DataCollectionRuleAssociationArgs extends com.pulumi.resource
     /**
      * @return The ID of the Data Collection Rule which will be associated to the target resource.
      * 
-     * &gt; **NOTE** Exactly one of `data_collection_endpoint_id` and `data_collection_rule_id` blocks must be specified.
+     * &gt; **Note:** Exactly one of `data_collection_endpoint_id` and `data_collection_rule_id` blocks must be specified.
      * 
      */
     public Optional<Output<String>> dataCollectionRuleId() {
@@ -68,7 +68,7 @@ public final class DataCollectionRuleAssociationArgs extends com.pulumi.resource
     /**
      * The name which should be used for this Data Collection Rule Association. Changing this forces a new Data Collection Rule Association to be created. Defaults to `configurationAccessEndpoint`.
      * 
-     * &gt; **NOTE** `name` is required when `data_collection_rule_id` is specified. And when `data_collection_endpoint_id` is specified, the `name` is populated with `configurationAccessEndpoint`.
+     * &gt; **Note:** `name` is required when `data_collection_rule_id` is specified. And when `data_collection_endpoint_id` is specified, the `name` is populated with `configurationAccessEndpoint`.
      * 
      */
     @Import(name="name")
@@ -77,7 +77,7 @@ public final class DataCollectionRuleAssociationArgs extends com.pulumi.resource
     /**
      * @return The name which should be used for this Data Collection Rule Association. Changing this forces a new Data Collection Rule Association to be created. Defaults to `configurationAccessEndpoint`.
      * 
-     * &gt; **NOTE** `name` is required when `data_collection_rule_id` is specified. And when `data_collection_endpoint_id` is specified, the `name` is populated with `configurationAccessEndpoint`.
+     * &gt; **Note:** `name` is required when `data_collection_rule_id` is specified. And when `data_collection_endpoint_id` is specified, the `name` is populated with `configurationAccessEndpoint`.
      * 
      */
     public Optional<Output<String>> name() {
@@ -151,7 +151,7 @@ public final class DataCollectionRuleAssociationArgs extends com.pulumi.resource
         /**
          * @param dataCollectionRuleId The ID of the Data Collection Rule which will be associated to the target resource.
          * 
-         * &gt; **NOTE** Exactly one of `data_collection_endpoint_id` and `data_collection_rule_id` blocks must be specified.
+         * &gt; **Note:** Exactly one of `data_collection_endpoint_id` and `data_collection_rule_id` blocks must be specified.
          * 
          * @return builder
          * 
@@ -164,7 +164,7 @@ public final class DataCollectionRuleAssociationArgs extends com.pulumi.resource
         /**
          * @param dataCollectionRuleId The ID of the Data Collection Rule which will be associated to the target resource.
          * 
-         * &gt; **NOTE** Exactly one of `data_collection_endpoint_id` and `data_collection_rule_id` blocks must be specified.
+         * &gt; **Note:** Exactly one of `data_collection_endpoint_id` and `data_collection_rule_id` blocks must be specified.
          * 
          * @return builder
          * 
@@ -197,7 +197,7 @@ public final class DataCollectionRuleAssociationArgs extends com.pulumi.resource
         /**
          * @param name The name which should be used for this Data Collection Rule Association. Changing this forces a new Data Collection Rule Association to be created. Defaults to `configurationAccessEndpoint`.
          * 
-         * &gt; **NOTE** `name` is required when `data_collection_rule_id` is specified. And when `data_collection_endpoint_id` is specified, the `name` is populated with `configurationAccessEndpoint`.
+         * &gt; **Note:** `name` is required when `data_collection_rule_id` is specified. And when `data_collection_endpoint_id` is specified, the `name` is populated with `configurationAccessEndpoint`.
          * 
          * @return builder
          * 
@@ -210,7 +210,7 @@ public final class DataCollectionRuleAssociationArgs extends com.pulumi.resource
         /**
          * @param name The name which should be used for this Data Collection Rule Association. Changing this forces a new Data Collection Rule Association to be created. Defaults to `configurationAccessEndpoint`.
          * 
-         * &gt; **NOTE** `name` is required when `data_collection_rule_id` is specified. And when `data_collection_endpoint_id` is specified, the `name` is populated with `configurationAccessEndpoint`.
+         * &gt; **Note:** `name` is required when `data_collection_rule_id` is specified. And when `data_collection_endpoint_id` is specified, the `name` is populated with `configurationAccessEndpoint`.
          * 
          * @return builder
          * 

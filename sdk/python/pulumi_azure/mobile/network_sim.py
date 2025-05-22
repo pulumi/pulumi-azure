@@ -436,6 +436,13 @@ class NetworkSim(pulumi.CustomResource):
             }])
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.MobileNetwork`: 2022-11-01
+
         ## Import
 
         Mobile Network Sim can be imported using the `resource id`, e.g.
@@ -515,6 +522,13 @@ class NetworkSim(pulumi.CustomResource):
                 "static_ipv4_address": "2.4.0.1",
             }])
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.MobileNetwork`: 2022-11-01
 
         ## Import
 

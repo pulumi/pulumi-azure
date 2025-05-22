@@ -52,6 +52,13 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `NewRelic.Observability`: 2024-03-01
+ *
  * ## Import
  *
  * Azure Native New Relic Tag Rule can be imported using the `resource id`, e.g.

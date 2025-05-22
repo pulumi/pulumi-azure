@@ -52,6 +52,15 @@ namespace Pulumi.Azure.Stack
     /// });
     /// ```
     /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.AutoManage`: 2022-05-04
+    /// 
+    /// * `Microsoft.AzureStackHCI`: 2024-01-01, 2022-05-04
+    /// 
     /// ## Import
     /// 
     /// Azure Stack HCI Clusters can be imported using the `resource id`, e.g.
@@ -126,7 +135,7 @@ namespace Pulumi.Azure.Stack
         /// <summary>
         /// The Tenant ID of the Azure Active Directory which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE** If unspecified the Tenant ID of the Provider will be used.
+        /// &gt; **Note:** If unspecified the Tenant ID of the Provider will be used.
         /// </summary>
         [Output("tenantId")]
         public Output<string> TenantId { get; private set; } = null!;
@@ -228,7 +237,7 @@ namespace Pulumi.Azure.Stack
         /// <summary>
         /// The Tenant ID of the Azure Active Directory which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE** If unspecified the Tenant ID of the Provider will be used.
+        /// &gt; **Note:** If unspecified the Tenant ID of the Provider will be used.
         /// </summary>
         [Input("tenantId")]
         public Input<string>? TenantId { get; set; }
@@ -310,7 +319,7 @@ namespace Pulumi.Azure.Stack
         /// <summary>
         /// The Tenant ID of the Azure Active Directory which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE** If unspecified the Tenant ID of the Provider will be used.
+        /// &gt; **Note:** If unspecified the Tenant ID of the Provider will be used.
         /// </summary>
         [Input("tenantId")]
         public Input<string>? TenantId { get; set; }

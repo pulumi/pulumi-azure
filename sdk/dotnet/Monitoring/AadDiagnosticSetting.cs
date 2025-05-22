@@ -12,7 +12,7 @@ namespace Pulumi.Azure.Monitoring
     /// <summary>
     /// Manages an Azure Active Directory Diagnostic Setting for Azure Monitor.
     /// 
-    /// !&gt; **Authentication** The API for this resource does not support service principal authentication. This resource can only be used with Azure CLI authentication.
+    /// !&gt; **Note:** The API for this resource does not support service principal authentication. This resource can only be used with Azure CLI authentication.
     /// 
     /// ## Example Usage
     /// 
@@ -88,7 +88,7 @@ namespace Pulumi.Azure.Monitoring
         /// <summary>
         /// Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** This can be sourced from the `azure.eventhub.EventHubNamespaceAuthorizationRule` resource and is different from a `azure.eventhub.AuthorizationRule` resource.
+        /// &gt; **Note:** This can be sourced from the `azure.eventhub.EventHubNamespaceAuthorizationRule` resource and is different from a `azure.eventhub.AuthorizationRule` resource.
         /// </summary>
         [Output("eventhubAuthorizationRuleId")]
         public Output<string?> EventhubAuthorizationRuleId { get; private set; } = null!;
@@ -114,7 +114,7 @@ namespace Pulumi.Azure.Monitoring
         /// <summary>
         /// The ID of the Storage Account where logs should be sent. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** One of `eventhub_authorization_rule_id`, `log_analytics_workspace_id` and `storage_account_id` must be specified.
+        /// &gt; **Note:** One of `eventhub_authorization_rule_id`, `log_analytics_workspace_id` and `storage_account_id` must be specified.
         /// </summary>
         [Output("storageAccountId")]
         public Output<string?> StorageAccountId { get; private set; } = null!;
@@ -180,7 +180,7 @@ namespace Pulumi.Azure.Monitoring
         /// <summary>
         /// Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** This can be sourced from the `azure.eventhub.EventHubNamespaceAuthorizationRule` resource and is different from a `azure.eventhub.AuthorizationRule` resource.
+        /// &gt; **Note:** This can be sourced from the `azure.eventhub.EventHubNamespaceAuthorizationRule` resource and is different from a `azure.eventhub.AuthorizationRule` resource.
         /// </summary>
         [Input("eventhubAuthorizationRuleId")]
         public Input<string>? EventhubAuthorizationRuleId { get; set; }
@@ -206,7 +206,7 @@ namespace Pulumi.Azure.Monitoring
         /// <summary>
         /// The ID of the Storage Account where logs should be sent. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** One of `eventhub_authorization_rule_id`, `log_analytics_workspace_id` and `storage_account_id` must be specified.
+        /// &gt; **Note:** One of `eventhub_authorization_rule_id`, `log_analytics_workspace_id` and `storage_account_id` must be specified.
         /// </summary>
         [Input("storageAccountId")]
         public Input<string>? StorageAccountId { get; set; }
@@ -234,7 +234,7 @@ namespace Pulumi.Azure.Monitoring
         /// <summary>
         /// Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** This can be sourced from the `azure.eventhub.EventHubNamespaceAuthorizationRule` resource and is different from a `azure.eventhub.AuthorizationRule` resource.
+        /// &gt; **Note:** This can be sourced from the `azure.eventhub.EventHubNamespaceAuthorizationRule` resource and is different from a `azure.eventhub.AuthorizationRule` resource.
         /// </summary>
         [Input("eventhubAuthorizationRuleId")]
         public Input<string>? EventhubAuthorizationRuleId { get; set; }
@@ -260,7 +260,7 @@ namespace Pulumi.Azure.Monitoring
         /// <summary>
         /// The ID of the Storage Account where logs should be sent. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** One of `eventhub_authorization_rule_id`, `log_analytics_workspace_id` and `storage_account_id` must be specified.
+        /// &gt; **Note:** One of `eventhub_authorization_rule_id`, `log_analytics_workspace_id` and `storage_account_id` must be specified.
         /// </summary>
         [Input("storageAccountId")]
         public Input<string>? StorageAccountId { get; set; }

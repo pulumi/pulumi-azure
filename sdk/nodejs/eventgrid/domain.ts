@@ -29,6 +29,13 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.EventGrid`: 2022-06-15
+ *
  * ## Import
  *
  * EventGrid Domains can be imported using the `resource id`, e.g.

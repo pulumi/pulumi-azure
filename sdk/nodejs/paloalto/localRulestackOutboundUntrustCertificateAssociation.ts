@@ -29,6 +29,13 @@ import * as utilities from "../utilities";
  * });
  * const exampleLocalRulestackOutboundUntrustCertificateAssociation = new azure.paloalto.LocalRulestackOutboundUntrustCertificateAssociation("example", {certificateId: exampleLocalRulestackCertificate.id});
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `PaloAltoNetworks.Cloudngfw`: 2022-08-29
  */
 export class LocalRulestackOutboundUntrustCertificateAssociation extends pulumi.CustomResource {
     /**

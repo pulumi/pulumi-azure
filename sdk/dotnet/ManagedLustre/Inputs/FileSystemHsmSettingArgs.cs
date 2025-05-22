@@ -21,7 +21,7 @@ namespace Pulumi.Azure.ManagedLustre.Inputs
         /// <summary>
         /// The import prefix for the Azure Managed Lustre File System. Only blobs in the non-logging container that start with this path/prefix get hydrated into the cluster namespace. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** The roles `Contributor` and `Storage Blob Data Contributor` must be added to the Service Principal `HPC Cache Resource Provider` for the Storage Account. See official docs for more information.
+        /// &gt; **Note:** The roles `Contributor` and `Storage Blob Data Contributor` must be added to the Service Principal `HPC Cache Resource Provider` for the Storage Account. See official docs for more information.
         /// </summary>
         [Input("importPrefix")]
         public Input<string>? ImportPrefix { get; set; }

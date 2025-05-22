@@ -220,6 +220,13 @@ class MongoUserDefinition(pulumi.CustomResource):
             password="myPassword")
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DocumentDB`: 2022-11-15
+
         ## Import
 
         Cosmos DB Mongo User Definitions can be imported using the `resource id`, e.g.
@@ -285,6 +292,13 @@ class MongoUserDefinition(pulumi.CustomResource):
             username="myUserName",
             password="myPassword")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DocumentDB`: 2022-11-15
 
         ## Import
 

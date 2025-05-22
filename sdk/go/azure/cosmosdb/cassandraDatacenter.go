@@ -14,7 +14,7 @@ import (
 
 // Manages a Cassandra Datacenter.
 //
-// > **NOTE:** In order for the `Azure Managed Instances for Apache Cassandra` to work properly the product requires the `Azure Cosmos DB` Application ID to be present and working in your tenant. If the `Azure Cosmos DB` Application ID is missing in your environment you will need to have an administrator of your tenant run the following command to add the `Azure Cosmos DB` Application ID to your tenant:
+// > **Note:** In order for the `Azure Managed Instances for Apache Cassandra` to work properly the product requires the `Azure Cosmos DB` Application ID to be present and working in your tenant. If the `Azure Cosmos DB` Application ID is missing in your environment you will need to have an administrator of your tenant run the following command to add the `Azure Cosmos DB` Application ID to your tenant:
 //
 // ## Example Usage
 //
@@ -144,7 +144,7 @@ type CassandraDatacenter struct {
 	SeedNodeIpAddresses pulumi.StringArrayOutput `pulumi:"seedNodeIpAddresses"`
 	// Determines the selected sku.
 	//
-	// > **NOTE:** In v4.0 of the provider the `skuName` will have a default value of `Standard_E16s_v5`.
+	// > **Note:** In v4.0 of the provider the `skuName` will have a default value of `Standard_E16s_v5`.
 	SkuName pulumi.StringPtrOutput `pulumi:"skuName"`
 }
 
@@ -210,7 +210,7 @@ type cassandraDatacenterState struct {
 	SeedNodeIpAddresses []string `pulumi:"seedNodeIpAddresses"`
 	// Determines the selected sku.
 	//
-	// > **NOTE:** In v4.0 of the provider the `skuName` will have a default value of `Standard_E16s_v5`.
+	// > **Note:** In v4.0 of the provider the `skuName` will have a default value of `Standard_E16s_v5`.
 	SkuName *string `pulumi:"skuName"`
 }
 
@@ -241,7 +241,7 @@ type CassandraDatacenterState struct {
 	SeedNodeIpAddresses pulumi.StringArrayInput
 	// Determines the selected sku.
 	//
-	// > **NOTE:** In v4.0 of the provider the `skuName` will have a default value of `Standard_E16s_v5`.
+	// > **Note:** In v4.0 of the provider the `skuName` will have a default value of `Standard_E16s_v5`.
 	SkuName pulumi.StringPtrInput
 }
 
@@ -274,7 +274,7 @@ type cassandraDatacenterArgs struct {
 	NodeCount *int `pulumi:"nodeCount"`
 	// Determines the selected sku.
 	//
-	// > **NOTE:** In v4.0 of the provider the `skuName` will have a default value of `Standard_E16s_v5`.
+	// > **Note:** In v4.0 of the provider the `skuName` will have a default value of `Standard_E16s_v5`.
 	SkuName *string `pulumi:"skuName"`
 }
 
@@ -304,7 +304,7 @@ type CassandraDatacenterArgs struct {
 	NodeCount pulumi.IntPtrInput
 	// Determines the selected sku.
 	//
-	// > **NOTE:** In v4.0 of the provider the `skuName` will have a default value of `Standard_E16s_v5`.
+	// > **Note:** In v4.0 of the provider the `skuName` will have a default value of `Standard_E16s_v5`.
 	SkuName pulumi.StringPtrInput
 }
 
@@ -457,7 +457,7 @@ func (o CassandraDatacenterOutput) SeedNodeIpAddresses() pulumi.StringArrayOutpu
 
 // Determines the selected sku.
 //
-// > **NOTE:** In v4.0 of the provider the `skuName` will have a default value of `Standard_E16s_v5`.
+// > **Note:** In v4.0 of the provider the `skuName` will have a default value of `Standard_E16s_v5`.
 func (o CassandraDatacenterOutput) SkuName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CassandraDatacenter) pulumi.StringPtrOutput { return v.SkuName }).(pulumi.StringPtrOutput)
 }

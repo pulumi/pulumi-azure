@@ -199,7 +199,7 @@ func (o HubEncryptionPtrOutput) UserAssignedIdentityId() pulumi.StringPtrOutput 
 type HubIdentity struct {
 	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this AI Foundry Hub.
 	//
-	// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+	// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId *string `pulumi:"principalId"`
@@ -223,7 +223,7 @@ type HubIdentityInput interface {
 type HubIdentityArgs struct {
 	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this AI Foundry Hub.
 	//
-	// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+	// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
@@ -312,7 +312,7 @@ func (o HubIdentityOutput) ToHubIdentityPtrOutputWithContext(ctx context.Context
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this AI Foundry Hub.
 //
-// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 func (o HubIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v HubIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
@@ -358,7 +358,7 @@ func (o HubIdentityPtrOutput) Elem() HubIdentityOutput {
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this AI Foundry Hub.
 //
-// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 func (o HubIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *HubIdentity) []string {
 		if v == nil {
@@ -538,7 +538,7 @@ func (o HubManagedNetworkPtrOutput) IsolationMode() pulumi.StringPtrOutput {
 type ProjectIdentity struct {
 	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this AI Foundry Project.
 	//
-	// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+	// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId *string `pulumi:"principalId"`
@@ -562,7 +562,7 @@ type ProjectIdentityInput interface {
 type ProjectIdentityArgs struct {
 	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this AI Foundry Project.
 	//
-	// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+	// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
@@ -651,7 +651,7 @@ func (o ProjectIdentityOutput) ToProjectIdentityPtrOutputWithContext(ctx context
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this AI Foundry Project.
 //
-// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 func (o ProjectIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ProjectIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
@@ -697,7 +697,7 @@ func (o ProjectIdentityPtrOutput) Elem() ProjectIdentityOutput {
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this AI Foundry Project.
 //
-// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 func (o ProjectIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ProjectIdentity) []string {
 		if v == nil {

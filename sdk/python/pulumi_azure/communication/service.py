@@ -269,6 +269,13 @@ class Service(pulumi.CustomResource):
             data_location="United States")
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Communication`: 2023-03-31
+
         ## Import
 
         Communication Services can be imported using the `resource id`, e.g.
@@ -307,6 +314,13 @@ class Service(pulumi.CustomResource):
             resource_group_name=example.name,
             data_location="United States")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Communication`: 2023-03-31
 
         ## Import
 

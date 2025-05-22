@@ -15,6 +15,9 @@ namespace Pulumi.Azure.PaloAlto.Outputs
     {
         public readonly string? DeviceGroupName;
         public readonly string? HostName;
+        /// <summary>
+        /// The name which should be used for this Palo Alto Next Generation Firewall VHub Panorama. Changing this forces a new Palo Alto Next Generation Firewall VHub Panorama to be created.
+        /// </summary>
         public readonly string? Name;
         public readonly string? PanoramaServer1;
         public readonly string? PanoramaServer2;

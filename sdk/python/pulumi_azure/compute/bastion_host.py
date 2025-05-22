@@ -65,7 +65,7 @@ class BastionHostArgs:
                > **Note:** `shareable_link_enabled` is only supported when `sku` is `Standard` or `Premium`.
         :param pulumi.Input[builtins.str] sku: The SKU of the Bastion Host. Accepted values are `Developer`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
                
-               > **Note** Downgrading the SKU will force a new resource to be created.
+               > **Note:** Downgrading the SKU will force a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[builtins.bool] tunneling_enabled: Is Tunneling feature enabled for the Bastion Host. Defaults to `false`.
                
@@ -255,7 +255,7 @@ class BastionHostArgs:
         """
         The SKU of the Bastion Host. Accepted values are `Developer`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
 
-        > **Note** Downgrading the SKU will force a new resource to be created.
+        > **Note:** Downgrading the SKU will force a new resource to be created.
         """
         return pulumi.get(self, "sku")
 
@@ -362,7 +362,7 @@ class _BastionHostState:
                > **Note:** `shareable_link_enabled` is only supported when `sku` is `Standard` or `Premium`.
         :param pulumi.Input[builtins.str] sku: The SKU of the Bastion Host. Accepted values are `Developer`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
                
-               > **Note** Downgrading the SKU will force a new resource to be created.
+               > **Note:** Downgrading the SKU will force a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[builtins.bool] tunneling_enabled: Is Tunneling feature enabled for the Bastion Host. Defaults to `false`.
                
@@ -567,7 +567,7 @@ class _BastionHostState:
         """
         The SKU of the Bastion Host. Accepted values are `Developer`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
 
-        > **Note** Downgrading the SKU will force a new resource to be created.
+        > **Note:** Downgrading the SKU will force a new resource to be created.
         """
         return pulumi.get(self, "sku")
 
@@ -725,7 +725,7 @@ class BastionHost(pulumi.CustomResource):
                > **Note:** `shareable_link_enabled` is only supported when `sku` is `Standard` or `Premium`.
         :param pulumi.Input[builtins.str] sku: The SKU of the Bastion Host. Accepted values are `Developer`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
                
-               > **Note** Downgrading the SKU will force a new resource to be created.
+               > **Note:** Downgrading the SKU will force a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[builtins.bool] tunneling_enabled: Is Tunneling feature enabled for the Bastion Host. Defaults to `false`.
                
@@ -907,7 +907,7 @@ class BastionHost(pulumi.CustomResource):
                > **Note:** `shareable_link_enabled` is only supported when `sku` is `Standard` or `Premium`.
         :param pulumi.Input[builtins.str] sku: The SKU of the Bastion Host. Accepted values are `Developer`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
                
-               > **Note** Downgrading the SKU will force a new resource to be created.
+               > **Note:** Downgrading the SKU will force a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[builtins.bool] tunneling_enabled: Is Tunneling feature enabled for the Bastion Host. Defaults to `false`.
                
@@ -1052,7 +1052,7 @@ class BastionHost(pulumi.CustomResource):
         """
         The SKU of the Bastion Host. Accepted values are `Developer`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
 
-        > **Note** Downgrading the SKU will force a new resource to be created.
+        > **Note:** Downgrading the SKU will force a new resource to be created.
         """
         return pulumi.get(self, "sku")
 

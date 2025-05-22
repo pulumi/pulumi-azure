@@ -12,7 +12,7 @@ namespace Pulumi.Azure.Network
     /// <summary>
     /// Manages a Network Manager Deployment.
     /// 
-    /// &gt; **NOTE on Virtual Network Peering:** Using Network Manager Deployment to deploy Connectivity Configuration may modify or delete existing Virtual Network Peering. At this time you should not use Network Peering resource in conjunction with Network Manager Deployment. Doing so may cause a conflict of Peering configurations.
+    /// &gt; **Note:** Using Network Manager Deployment to deploy Connectivity Configuration may modify or delete existing Virtual Network Peering. At this time you should not use Network Peering resource in conjunction with Network Manager Deployment. Doing so may cause a conflict of Peering configurations.
     /// 
     /// ## Example Usage
     /// 
@@ -240,6 +240,13 @@ namespace Pulumi.Azure.Network
     /// });
     /// ```
     /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.Network`: 2024-05-01
+    /// 
     /// ## Import
     /// 
     /// Network Manager Deployment can be imported using the `resource id`, e.g.
@@ -270,7 +277,7 @@ namespace Pulumi.Azure.Network
         public Output<string> NetworkManagerId { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the configuration deployment type. Possible values are `Connectivity` and `SecurityAdmin`. Changing this forces a new Network Manager Deployment to be created.
+        /// Specifies the configuration deployment type. Possible values are `Connectivity`, `SecurityAdmin` and `Routing`. Changing this forces a new Network Manager Deployment to be created.
         /// </summary>
         [Output("scopeAccess")]
         public Output<string> ScopeAccess { get; private set; } = null!;
@@ -352,7 +359,7 @@ namespace Pulumi.Azure.Network
         public Input<string> NetworkManagerId { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the configuration deployment type. Possible values are `Connectivity` and `SecurityAdmin`. Changing this forces a new Network Manager Deployment to be created.
+        /// Specifies the configuration deployment type. Possible values are `Connectivity`, `SecurityAdmin` and `Routing`. Changing this forces a new Network Manager Deployment to be created.
         /// </summary>
         [Input("scopeAccess", required: true)]
         public Input<string> ScopeAccess { get; set; } = null!;
@@ -402,7 +409,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? NetworkManagerId { get; set; }
 
         /// <summary>
-        /// Specifies the configuration deployment type. Possible values are `Connectivity` and `SecurityAdmin`. Changing this forces a new Network Manager Deployment to be created.
+        /// Specifies the configuration deployment type. Possible values are `Connectivity`, `SecurityAdmin` and `Routing`. Changing this forces a new Network Manager Deployment to be created.
         /// </summary>
         [Input("scopeAccess")]
         public Input<string>? ScopeAccess { get; set; }

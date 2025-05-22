@@ -17,6 +17,13 @@ import * as utilities from "../utilities";
  * });
  * export const privateDnsSoaRecordId = exampleAzurermPrivateDnsSoaRecord.id;
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.Network`: 2024-06-01
  */
 export function getSoaRecord(args: GetSoaRecordArgs, opts?: pulumi.InvokeOptions): Promise<GetSoaRecordResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -113,6 +120,13 @@ export interface GetSoaRecordResult {
  * });
  * export const privateDnsSoaRecordId = exampleAzurermPrivateDnsSoaRecord.id;
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.Network`: 2024-06-01
  */
 export function getSoaRecordOutput(args: GetSoaRecordOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSoaRecordResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

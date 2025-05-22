@@ -14,6 +14,8 @@ import (
 
 // Manages a HPC Cache Access Policy.
 //
+// !> **Note:** The `hpc.CacheAccessPolicy` resource has been deprecated because the service is retiring on 2025-09-30. This resource will be removed in v5.0 of the AzureRM Provider. See https://aka.ms/hpccacheretirement for more information.
+//
 // ## Example Usage
 //
 // ```go
@@ -88,6 +90,13 @@ import (
 //	}
 //
 // ```
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.StorageCache`: 2023-05-01
 //
 // ## Import
 //

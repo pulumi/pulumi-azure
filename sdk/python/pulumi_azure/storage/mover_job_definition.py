@@ -389,6 +389,13 @@ class MoverJobDefinition(pulumi.CustomResource):
             description="Example Job Definition Description")
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.StorageMover`: 2023-03-01
+
         ## Import
 
         Storage Mover Job Definition can be imported using the `resource id`, e.g.
@@ -470,6 +477,13 @@ class MoverJobDefinition(pulumi.CustomResource):
             target_sub_path="/",
             description="Example Job Definition Description")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.StorageMover`: 2023-03-01
 
         ## Import
 

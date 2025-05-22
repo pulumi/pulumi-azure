@@ -89,12 +89,12 @@ class WindowsFunctionAppArgs:
         :param pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppStorageAccountArgs']]] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[builtins.str] storage_key_vault_secret_id: The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App.
                
-               > **NOTE:** `storage_key_vault_secret_id` cannot be used with `storage_account_name`.
+               > **Note:** `storage_key_vault_secret_id` cannot be used with `storage_account_name`.
                
-               > **NOTE:** `storage_key_vault_secret_id` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
+               > **Note:** `storage_key_vault_secret_id` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
         :param pulumi.Input[builtins.bool] storage_uses_managed_identity: Should the Function App use Managed Identity to access the storage account. Conflicts with `storage_account_access_key`.
                
-               > **NOTE:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
+               > **Note:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags which should be assigned to the Windows Function App.
         :param pulumi.Input[builtins.bool] virtual_network_backup_restore_enabled: Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
         :param pulumi.Input[builtins.bool] vnet_image_pull_enabled: Specifies whether traffic for the image pull should be routed over virtual network. Defaults to `false`.
@@ -102,7 +102,7 @@ class WindowsFunctionAppArgs:
                > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. The Setting is enabled by default for app running in the App Service Environment.
         :param pulumi.Input[builtins.bool] webdeploy_publish_basic_authentication_enabled: Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
                
-               > **NOTE:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
+               > **Note:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
         :param pulumi.Input[builtins.str] zip_deploy_file: The local path and filename of the Zip packaged application to deploy to this Windows Function App.
                
                > **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `app_settings`. Refer to the [Azure docs](https://learn.microsoft.com/en-us/azure/azure-functions/functions-deployment-technologies) for further details.
@@ -506,9 +506,9 @@ class WindowsFunctionAppArgs:
         """
         The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App.
 
-        > **NOTE:** `storage_key_vault_secret_id` cannot be used with `storage_account_name`.
+        > **Note:** `storage_key_vault_secret_id` cannot be used with `storage_account_name`.
 
-        > **NOTE:** `storage_key_vault_secret_id` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
+        > **Note:** `storage_key_vault_secret_id` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
         """
         return pulumi.get(self, "storage_key_vault_secret_id")
 
@@ -522,7 +522,7 @@ class WindowsFunctionAppArgs:
         """
         Should the Function App use Managed Identity to access the storage account. Conflicts with `storage_account_access_key`.
 
-        > **NOTE:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
+        > **Note:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
         """
         return pulumi.get(self, "storage_uses_managed_identity")
 
@@ -583,7 +583,7 @@ class WindowsFunctionAppArgs:
         """
         Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
 
-        > **NOTE:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
+        > **Note:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
         """
         return pulumi.get(self, "webdeploy_publish_basic_authentication_enabled")
 
@@ -694,12 +694,12 @@ class _WindowsFunctionAppState:
         :param pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppStorageAccountArgs']]] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[builtins.str] storage_key_vault_secret_id: The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App.
                
-               > **NOTE:** `storage_key_vault_secret_id` cannot be used with `storage_account_name`.
+               > **Note:** `storage_key_vault_secret_id` cannot be used with `storage_account_name`.
                
-               > **NOTE:** `storage_key_vault_secret_id` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
+               > **Note:** `storage_key_vault_secret_id` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
         :param pulumi.Input[builtins.bool] storage_uses_managed_identity: Should the Function App use Managed Identity to access the storage account. Conflicts with `storage_account_access_key`.
                
-               > **NOTE:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
+               > **Note:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags which should be assigned to the Windows Function App.
         :param pulumi.Input[builtins.bool] virtual_network_backup_restore_enabled: Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
         :param pulumi.Input[builtins.bool] vnet_image_pull_enabled: Specifies whether traffic for the image pull should be routed over virtual network. Defaults to `false`.
@@ -707,7 +707,7 @@ class _WindowsFunctionAppState:
                > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. The Setting is enabled by default for app running in the App Service Environment.
         :param pulumi.Input[builtins.bool] webdeploy_publish_basic_authentication_enabled: Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
                
-               > **NOTE:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
+               > **Note:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
         :param pulumi.Input[builtins.str] zip_deploy_file: The local path and filename of the Zip packaged application to deploy to this Windows Function App.
                
                > **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `app_settings`. Refer to the [Azure docs](https://learn.microsoft.com/en-us/azure/azure-functions/functions-deployment-technologies) for further details.
@@ -1240,9 +1240,9 @@ class _WindowsFunctionAppState:
         """
         The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App.
 
-        > **NOTE:** `storage_key_vault_secret_id` cannot be used with `storage_account_name`.
+        > **Note:** `storage_key_vault_secret_id` cannot be used with `storage_account_name`.
 
-        > **NOTE:** `storage_key_vault_secret_id` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
+        > **Note:** `storage_key_vault_secret_id` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
         """
         return pulumi.get(self, "storage_key_vault_secret_id")
 
@@ -1256,7 +1256,7 @@ class _WindowsFunctionAppState:
         """
         Should the Function App use Managed Identity to access the storage account. Conflicts with `storage_account_access_key`.
 
-        > **NOTE:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
+        > **Note:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
         """
         return pulumi.get(self, "storage_uses_managed_identity")
 
@@ -1317,7 +1317,7 @@ class _WindowsFunctionAppState:
         """
         Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
 
-        > **NOTE:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
+        > **Note:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
         """
         return pulumi.get(self, "webdeploy_publish_basic_authentication_enabled")
 
@@ -1416,6 +1416,13 @@ class WindowsFunctionApp(pulumi.CustomResource):
             site_config={})
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Web`: 2023-12-01, 2023-01-01
+
         ## Import
 
         Windows Function Apps can be imported using the `resource id`, e.g.
@@ -1456,12 +1463,12 @@ class WindowsFunctionApp(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['WindowsFunctionAppStorageAccountArgs', 'WindowsFunctionAppStorageAccountArgsDict']]]] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[builtins.str] storage_key_vault_secret_id: The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App.
                
-               > **NOTE:** `storage_key_vault_secret_id` cannot be used with `storage_account_name`.
+               > **Note:** `storage_key_vault_secret_id` cannot be used with `storage_account_name`.
                
-               > **NOTE:** `storage_key_vault_secret_id` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
+               > **Note:** `storage_key_vault_secret_id` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
         :param pulumi.Input[builtins.bool] storage_uses_managed_identity: Should the Function App use Managed Identity to access the storage account. Conflicts with `storage_account_access_key`.
                
-               > **NOTE:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
+               > **Note:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags which should be assigned to the Windows Function App.
         :param pulumi.Input[builtins.bool] virtual_network_backup_restore_enabled: Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
         :param pulumi.Input[builtins.bool] vnet_image_pull_enabled: Specifies whether traffic for the image pull should be routed over virtual network. Defaults to `false`.
@@ -1469,7 +1476,7 @@ class WindowsFunctionApp(pulumi.CustomResource):
                > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. The Setting is enabled by default for app running in the App Service Environment.
         :param pulumi.Input[builtins.bool] webdeploy_publish_basic_authentication_enabled: Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
                
-               > **NOTE:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
+               > **Note:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
         :param pulumi.Input[builtins.str] zip_deploy_file: The local path and filename of the Zip packaged application to deploy to this Windows Function App.
                
                > **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `app_settings`. Refer to the [Azure docs](https://learn.microsoft.com/en-us/azure/azure-functions/functions-deployment-technologies) for further details.
@@ -1513,6 +1520,13 @@ class WindowsFunctionApp(pulumi.CustomResource):
             service_plan_id=example_service_plan.id,
             site_config={})
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Web`: 2023-12-01, 2023-01-01
 
         ## Import
 
@@ -1581,7 +1595,7 @@ class WindowsFunctionApp(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = WindowsFunctionAppArgs.__new__(WindowsFunctionAppArgs)
 
-            __props__.__dict__["app_settings"] = app_settings
+            __props__.__dict__["app_settings"] = None if app_settings is None else pulumi.Output.secret(app_settings)
             __props__.__dict__["auth_settings"] = auth_settings
             __props__.__dict__["auth_settings_v2"] = auth_settings_v2
             __props__.__dict__["backup"] = backup
@@ -1631,7 +1645,7 @@ class WindowsFunctionApp(pulumi.CustomResource):
             __props__.__dict__["possible_outbound_ip_address_lists"] = None
             __props__.__dict__["possible_outbound_ip_addresses"] = None
             __props__.__dict__["site_credentials"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["customDomainVerificationId", "siteCredentials", "storageAccountAccessKey"])
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["appSettings", "customDomainVerificationId", "siteCredentials", "storageAccountAccessKey"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(WindowsFunctionApp, __self__).__init__(
             'azure:appservice/windowsFunctionApp:WindowsFunctionApp',
@@ -1733,12 +1747,12 @@ class WindowsFunctionApp(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['WindowsFunctionAppStorageAccountArgs', 'WindowsFunctionAppStorageAccountArgsDict']]]] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[builtins.str] storage_key_vault_secret_id: The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App.
                
-               > **NOTE:** `storage_key_vault_secret_id` cannot be used with `storage_account_name`.
+               > **Note:** `storage_key_vault_secret_id` cannot be used with `storage_account_name`.
                
-               > **NOTE:** `storage_key_vault_secret_id` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
+               > **Note:** `storage_key_vault_secret_id` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
         :param pulumi.Input[builtins.bool] storage_uses_managed_identity: Should the Function App use Managed Identity to access the storage account. Conflicts with `storage_account_access_key`.
                
-               > **NOTE:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
+               > **Note:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags which should be assigned to the Windows Function App.
         :param pulumi.Input[builtins.bool] virtual_network_backup_restore_enabled: Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
         :param pulumi.Input[builtins.bool] vnet_image_pull_enabled: Specifies whether traffic for the image pull should be routed over virtual network. Defaults to `false`.
@@ -1746,7 +1760,7 @@ class WindowsFunctionApp(pulumi.CustomResource):
                > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. The Setting is enabled by default for app running in the App Service Environment.
         :param pulumi.Input[builtins.bool] webdeploy_publish_basic_authentication_enabled: Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
                
-               > **NOTE:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
+               > **Note:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
         :param pulumi.Input[builtins.str] zip_deploy_file: The local path and filename of the Zip packaged application to deploy to this Windows Function App.
                
                > **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `app_settings`. Refer to the [Azure docs](https://learn.microsoft.com/en-us/azure/azure-functions/functions-deployment-technologies) for further details.
@@ -2096,9 +2110,9 @@ class WindowsFunctionApp(pulumi.CustomResource):
         """
         The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App.
 
-        > **NOTE:** `storage_key_vault_secret_id` cannot be used with `storage_account_name`.
+        > **Note:** `storage_key_vault_secret_id` cannot be used with `storage_account_name`.
 
-        > **NOTE:** `storage_key_vault_secret_id` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
+        > **Note:** `storage_key_vault_secret_id` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
         """
         return pulumi.get(self, "storage_key_vault_secret_id")
 
@@ -2108,7 +2122,7 @@ class WindowsFunctionApp(pulumi.CustomResource):
         """
         Should the Function App use Managed Identity to access the storage account. Conflicts with `storage_account_access_key`.
 
-        > **NOTE:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
+        > **Note:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
         """
         return pulumi.get(self, "storage_uses_managed_identity")
 
@@ -2149,7 +2163,7 @@ class WindowsFunctionApp(pulumi.CustomResource):
         """
         Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
 
-        > **NOTE:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
+        > **Note:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
         """
         return pulumi.get(self, "webdeploy_publish_basic_authentication_enabled")
 

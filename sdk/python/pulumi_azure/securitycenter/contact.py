@@ -205,7 +205,7 @@ class Contact(pulumi.CustomResource):
         """
         Manages the subscription's Security Center Contact.
 
-        > **NOTE:** Owner access permission is required.
+        > **Note:** Owner access permission is required.
 
         ## Example Usage
 
@@ -246,7 +246,7 @@ class Contact(pulumi.CustomResource):
         """
         Manages the subscription's Security Center Contact.
 
-        > **NOTE:** Owner access permission is required.
+        > **Note:** Owner access permission is required.
 
         ## Example Usage
 

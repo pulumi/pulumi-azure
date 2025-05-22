@@ -79,6 +79,13 @@ import * as utilities from "../utilities";
  * });
  * export const publicIpAddress = example.apply(example => example.ipAddress);
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.Network`: 2024-05-01
  */
 export function getPublicIP(args: GetPublicIPArgs, opts?: pulumi.InvokeOptions): Promise<GetPublicIPResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -244,6 +251,13 @@ export interface GetPublicIPResult {
  * });
  * export const publicIpAddress = example.apply(example => example.ipAddress);
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.Network`: 2024-05-01
  */
 export function getPublicIPOutput(args: GetPublicIPOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPublicIPResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

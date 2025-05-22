@@ -20,6 +20,13 @@ import * as utilities from "../utilities";
  * });
  * export const actions = example.then(example => example.actions);
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.ContainerRegistry`: 2023-11-01-preview
  */
 export function getRegistryScopeMap(args: GetRegistryScopeMapArgs, opts?: pulumi.InvokeOptions): Promise<GetRegistryScopeMapResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -81,6 +88,13 @@ export interface GetRegistryScopeMapResult {
  * });
  * export const actions = example.then(example => example.actions);
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.ContainerRegistry`: 2023-11-01-preview
  */
 export function getRegistryScopeMapOutput(args: GetRegistryScopeMapOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRegistryScopeMapResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

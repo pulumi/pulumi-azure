@@ -112,6 +112,13 @@ public final class ComputeFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Compute`: 2024-03-01
+     * 
      */
     public static Output<GetAvailabilitySetResult> getAvailabilitySet(GetAvailabilitySetArgs args) {
         return getAvailabilitySet(args, InvokeOptions.Empty);
@@ -155,6 +162,13 @@ public final class ComputeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Compute`: 2024-03-01
      * 
      */
     public static CompletableFuture<GetAvailabilitySetResult> getAvailabilitySetPlain(GetAvailabilitySetPlainArgs args) {
@@ -200,6 +214,13 @@ public final class ComputeFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Compute`: 2024-03-01
+     * 
      */
     public static Output<GetAvailabilitySetResult> getAvailabilitySet(GetAvailabilitySetArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:compute/getAvailabilitySet:getAvailabilitySet", TypeShape.of(GetAvailabilitySetResult.class), args, Utilities.withVersion(options));
@@ -243,6 +264,13 @@ public final class ComputeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Compute`: 2024-03-01
      * 
      */
     public static Output<GetAvailabilitySetResult> getAvailabilitySet(GetAvailabilitySetArgs args, InvokeOutputOptions options) {
@@ -288,6 +316,13 @@ public final class ComputeFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Compute`: 2024-03-01
+     * 
      */
     public static CompletableFuture<GetAvailabilitySetResult> getAvailabilitySetPlain(GetAvailabilitySetPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:compute/getAvailabilitySet:getAvailabilitySet", TypeShape.of(GetAvailabilitySetResult.class), args, Utilities.withVersion(options));
@@ -331,6 +366,13 @@ public final class ComputeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2024-01-01
      * 
      */
     public static Output<GetBastionHostResult> getBastionHost(GetBastionHostArgs args) {
@@ -376,6 +418,13 @@ public final class ComputeFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2024-01-01
+     * 
      */
     public static CompletableFuture<GetBastionHostResult> getBastionHostPlain(GetBastionHostPlainArgs args) {
         return getBastionHostPlain(args, InvokeOptions.Empty);
@@ -419,6 +468,13 @@ public final class ComputeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2024-01-01
      * 
      */
     public static Output<GetBastionHostResult> getBastionHost(GetBastionHostArgs args, InvokeOptions options) {
@@ -464,6 +520,13 @@ public final class ComputeFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2024-01-01
+     * 
      */
     public static Output<GetBastionHostResult> getBastionHost(GetBastionHostArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:compute/getBastionHost:getBastionHost", TypeShape.of(GetBastionHostResult.class), args, Utilities.withVersion(options));
@@ -507,6 +570,13 @@ public final class ComputeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2024-01-01
      * 
      */
     public static CompletableFuture<GetBastionHostResult> getBastionHostPlain(GetBastionHostPlainArgs args, InvokeOptions options) {
@@ -552,6 +622,13 @@ public final class ComputeFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ConfidentialLedger`: 2022-05-13
+     * 
      */
     public static Output<GetConfidentialLedgerResult> getConfidentialLedger(GetConfidentialLedgerArgs args) {
         return getConfidentialLedger(args, InvokeOptions.Empty);
@@ -595,6 +672,13 @@ public final class ComputeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ConfidentialLedger`: 2022-05-13
      * 
      */
     public static CompletableFuture<GetConfidentialLedgerResult> getConfidentialLedgerPlain(GetConfidentialLedgerPlainArgs args) {
@@ -640,6 +724,13 @@ public final class ComputeFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ConfidentialLedger`: 2022-05-13
+     * 
      */
     public static Output<GetConfidentialLedgerResult> getConfidentialLedger(GetConfidentialLedgerArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:compute/getConfidentialLedger:getConfidentialLedger", TypeShape.of(GetConfidentialLedgerResult.class), args, Utilities.withVersion(options));
@@ -684,6 +775,13 @@ public final class ComputeFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ConfidentialLedger`: 2022-05-13
+     * 
      */
     public static Output<GetConfidentialLedgerResult> getConfidentialLedger(GetConfidentialLedgerArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:compute/getConfidentialLedger:getConfidentialLedger", TypeShape.of(GetConfidentialLedgerResult.class), args, Utilities.withVersion(options));
@@ -727,6 +825,13 @@ public final class ComputeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ConfidentialLedger`: 2022-05-13
      * 
      */
     public static CompletableFuture<GetConfidentialLedgerResult> getConfidentialLedgerPlain(GetConfidentialLedgerPlainArgs args, InvokeOptions options) {
@@ -773,6 +878,13 @@ public final class ComputeFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Compute`: 2024-03-01
+     * 
      */
     public static Output<GetDedicatedHostResult> getDedicatedHost(GetDedicatedHostArgs args) {
         return getDedicatedHost(args, InvokeOptions.Empty);
@@ -817,6 +929,13 @@ public final class ComputeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Compute`: 2024-03-01
      * 
      */
     public static CompletableFuture<GetDedicatedHostResult> getDedicatedHostPlain(GetDedicatedHostPlainArgs args) {
@@ -863,6 +982,13 @@ public final class ComputeFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Compute`: 2024-03-01
+     * 
      */
     public static Output<GetDedicatedHostResult> getDedicatedHost(GetDedicatedHostArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:compute/getDedicatedHost:getDedicatedHost", TypeShape.of(GetDedicatedHostResult.class), args, Utilities.withVersion(options));
@@ -907,6 +1033,13 @@ public final class ComputeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Compute`: 2024-03-01
      * 
      */
     public static Output<GetDedicatedHostResult> getDedicatedHost(GetDedicatedHostArgs args, InvokeOutputOptions options) {
@@ -953,6 +1086,13 @@ public final class ComputeFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Compute`: 2024-03-01
+     * 
      */
     public static CompletableFuture<GetDedicatedHostResult> getDedicatedHostPlain(GetDedicatedHostPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:compute/getDedicatedHost:getDedicatedHost", TypeShape.of(GetDedicatedHostResult.class), args, Utilities.withVersion(options));
@@ -996,6 +1136,13 @@ public final class ComputeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Compute`: 2024-03-01
      * 
      */
     public static Output<GetDedicatedHostGroupResult> getDedicatedHostGroup(GetDedicatedHostGroupArgs args) {
@@ -1041,6 +1188,13 @@ public final class ComputeFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Compute`: 2024-03-01
+     * 
      */
     public static CompletableFuture<GetDedicatedHostGroupResult> getDedicatedHostGroupPlain(GetDedicatedHostGroupPlainArgs args) {
         return getDedicatedHostGroupPlain(args, InvokeOptions.Empty);
@@ -1084,6 +1238,13 @@ public final class ComputeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Compute`: 2024-03-01
      * 
      */
     public static Output<GetDedicatedHostGroupResult> getDedicatedHostGroup(GetDedicatedHostGroupArgs args, InvokeOptions options) {
@@ -1129,6 +1290,13 @@ public final class ComputeFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Compute`: 2024-03-01
+     * 
      */
     public static Output<GetDedicatedHostGroupResult> getDedicatedHostGroup(GetDedicatedHostGroupArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:compute/getDedicatedHostGroup:getDedicatedHostGroup", TypeShape.of(GetDedicatedHostGroupResult.class), args, Utilities.withVersion(options));
@@ -1172,6 +1340,13 @@ public final class ComputeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Compute`: 2024-03-01
      * 
      */
     public static CompletableFuture<GetDedicatedHostGroupResult> getDedicatedHostGroupPlain(GetDedicatedHostGroupPlainArgs args, InvokeOptions options) {
@@ -1217,6 +1392,13 @@ public final class ComputeFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Compute`: 2022-03-02
+     * 
      */
     public static Output<GetDiskAccessResult> getDiskAccess(GetDiskAccessArgs args) {
         return getDiskAccess(args, InvokeOptions.Empty);
@@ -1260,6 +1442,13 @@ public final class ComputeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Compute`: 2022-03-02
      * 
      */
     public static CompletableFuture<GetDiskAccessResult> getDiskAccessPlain(GetDiskAccessPlainArgs args) {
@@ -1305,6 +1494,13 @@ public final class ComputeFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Compute`: 2022-03-02
+     * 
      */
     public static Output<GetDiskAccessResult> getDiskAccess(GetDiskAccessArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:compute/getDiskAccess:getDiskAccess", TypeShape.of(GetDiskAccessResult.class), args, Utilities.withVersion(options));
@@ -1348,6 +1544,13 @@ public final class ComputeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Compute`: 2022-03-02
      * 
      */
     public static Output<GetDiskAccessResult> getDiskAccess(GetDiskAccessArgs args, InvokeOutputOptions options) {
@@ -1393,6 +1596,13 @@ public final class ComputeFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Compute`: 2022-03-02
+     * 
      */
     public static CompletableFuture<GetDiskAccessResult> getDiskAccessPlain(GetDiskAccessPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:compute/getDiskAccess:getDiskAccess", TypeShape.of(GetDiskAccessResult.class), args, Utilities.withVersion(options));
@@ -1436,6 +1646,13 @@ public final class ComputeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Compute`: 2022-03-02
      * 
      */
     public static Output<GetDiskEncryptionSetResult> getDiskEncryptionSet(GetDiskEncryptionSetArgs args) {
@@ -1481,6 +1698,13 @@ public final class ComputeFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Compute`: 2022-03-02
+     * 
      */
     public static CompletableFuture<GetDiskEncryptionSetResult> getDiskEncryptionSetPlain(GetDiskEncryptionSetPlainArgs args) {
         return getDiskEncryptionSetPlain(args, InvokeOptions.Empty);
@@ -1524,6 +1748,13 @@ public final class ComputeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Compute`: 2022-03-02
      * 
      */
     public static Output<GetDiskEncryptionSetResult> getDiskEncryptionSet(GetDiskEncryptionSetArgs args, InvokeOptions options) {
@@ -1569,6 +1800,13 @@ public final class ComputeFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Compute`: 2022-03-02
+     * 
      */
     public static Output<GetDiskEncryptionSetResult> getDiskEncryptionSet(GetDiskEncryptionSetArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:compute/getDiskEncryptionSet:getDiskEncryptionSet", TypeShape.of(GetDiskEncryptionSetResult.class), args, Utilities.withVersion(options));
@@ -1612,6 +1850,13 @@ public final class ComputeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Compute`: 2022-03-02
      * 
      */
     public static CompletableFuture<GetDiskEncryptionSetResult> getDiskEncryptionSetPlain(GetDiskEncryptionSetPlainArgs args, InvokeOptions options) {
@@ -1657,6 +1902,13 @@ public final class ComputeFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Compute`: 2022-03-01
+     * 
      */
     public static Output<GetImageResult> getImage(GetImageArgs args) {
         return getImage(args, InvokeOptions.Empty);
@@ -1700,6 +1952,13 @@ public final class ComputeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Compute`: 2022-03-01
      * 
      */
     public static CompletableFuture<GetImageResult> getImagePlain(GetImagePlainArgs args) {
@@ -1745,6 +2004,13 @@ public final class ComputeFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Compute`: 2022-03-01
+     * 
      */
     public static Output<GetImageResult> getImage(GetImageArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:compute/getImage:getImage", TypeShape.of(GetImageResult.class), args, Utilities.withVersion(options));
@@ -1788,6 +2054,13 @@ public final class ComputeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Compute`: 2022-03-01
      * 
      */
     public static Output<GetImageResult> getImage(GetImageArgs args, InvokeOutputOptions options) {
@@ -1833,6 +2106,13 @@ public final class ComputeFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Compute`: 2022-03-01
+     * 
      */
     public static CompletableFuture<GetImageResult> getImagePlain(GetImagePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:compute/getImage:getImage", TypeShape.of(GetImageResult.class), args, Utilities.withVersion(options));
@@ -1874,6 +2154,13 @@ public final class ComputeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Compute`: 2022-03-01
      * 
      */
     public static Output<GetImagesResult> getImages(GetImagesArgs args) {
@@ -1917,6 +2204,13 @@ public final class ComputeFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Compute`: 2022-03-01
+     * 
      */
     public static CompletableFuture<GetImagesResult> getImagesPlain(GetImagesPlainArgs args) {
         return getImagesPlain(args, InvokeOptions.Empty);
@@ -1958,6 +2252,13 @@ public final class ComputeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Compute`: 2022-03-01
      * 
      */
     public static Output<GetImagesResult> getImages(GetImagesArgs args, InvokeOptions options) {
@@ -2001,6 +2302,13 @@ public final class ComputeFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Compute`: 2022-03-01
+     * 
      */
     public static Output<GetImagesResult> getImages(GetImagesArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:compute/getImages:getImages", TypeShape.of(GetImagesResult.class), args, Utilities.withVersion(options));
@@ -2042,6 +2350,13 @@ public final class ComputeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Compute`: 2022-03-01
      * 
      */
     public static CompletableFuture<GetImagesResult> getImagesPlain(GetImagesPlainArgs args, InvokeOptions options) {
@@ -2087,6 +2402,13 @@ public final class ComputeFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Compute`: 2023-04-02
+     * 
      */
     public static Output<GetManagedDiskResult> getManagedDisk(GetManagedDiskArgs args) {
         return getManagedDisk(args, InvokeOptions.Empty);
@@ -2130,6 +2452,13 @@ public final class ComputeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Compute`: 2023-04-02
      * 
      */
     public static CompletableFuture<GetManagedDiskResult> getManagedDiskPlain(GetManagedDiskPlainArgs args) {
@@ -2175,6 +2504,13 @@ public final class ComputeFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Compute`: 2023-04-02
+     * 
      */
     public static Output<GetManagedDiskResult> getManagedDisk(GetManagedDiskArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:compute/getManagedDisk:getManagedDisk", TypeShape.of(GetManagedDiskResult.class), args, Utilities.withVersion(options));
@@ -2218,6 +2554,13 @@ public final class ComputeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Compute`: 2023-04-02
      * 
      */
     public static Output<GetManagedDiskResult> getManagedDisk(GetManagedDiskArgs args, InvokeOutputOptions options) {
@@ -2263,6 +2606,13 @@ public final class ComputeFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Compute`: 2023-04-02
+     * 
      */
     public static CompletableFuture<GetManagedDiskResult> getManagedDiskPlain(GetManagedDiskPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:compute/getManagedDisk:getManagedDisk", TypeShape.of(GetManagedDiskResult.class), args, Utilities.withVersion(options));
@@ -2306,6 +2656,13 @@ public final class ComputeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Compute`: 2024-07-01
      * 
      */
     public static Output<GetOrchestratedVirtualMachineScaleSetResult> getOrchestratedVirtualMachineScaleSet(GetOrchestratedVirtualMachineScaleSetArgs args) {
@@ -2351,6 +2708,13 @@ public final class ComputeFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Compute`: 2024-07-01
+     * 
      */
     public static CompletableFuture<GetOrchestratedVirtualMachineScaleSetResult> getOrchestratedVirtualMachineScaleSetPlain(GetOrchestratedVirtualMachineScaleSetPlainArgs args) {
         return getOrchestratedVirtualMachineScaleSetPlain(args, InvokeOptions.Empty);
@@ -2394,6 +2758,13 @@ public final class ComputeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Compute`: 2024-07-01
      * 
      */
     public static Output<GetOrchestratedVirtualMachineScaleSetResult> getOrchestratedVirtualMachineScaleSet(GetOrchestratedVirtualMachineScaleSetArgs args, InvokeOptions options) {
@@ -2439,6 +2810,13 @@ public final class ComputeFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Compute`: 2024-07-01
+     * 
      */
     public static Output<GetOrchestratedVirtualMachineScaleSetResult> getOrchestratedVirtualMachineScaleSet(GetOrchestratedVirtualMachineScaleSetArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:compute/getOrchestratedVirtualMachineScaleSet:getOrchestratedVirtualMachineScaleSet", TypeShape.of(GetOrchestratedVirtualMachineScaleSetResult.class), args, Utilities.withVersion(options));
@@ -2482,6 +2860,13 @@ public final class ComputeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Compute`: 2024-07-01
      * 
      */
     public static CompletableFuture<GetOrchestratedVirtualMachineScaleSetResult> getOrchestratedVirtualMachineScaleSetPlain(GetOrchestratedVirtualMachineScaleSetPlainArgs args, InvokeOptions options) {
@@ -2529,6 +2914,13 @@ public final class ComputeFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Compute`: 2024-03-01
+     * 
      */
     public static Output<GetPlatformImageResult> getPlatformImage(GetPlatformImageArgs args) {
         return getPlatformImage(args, InvokeOptions.Empty);
@@ -2574,6 +2966,13 @@ public final class ComputeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Compute`: 2024-03-01
      * 
      */
     public static CompletableFuture<GetPlatformImageResult> getPlatformImagePlain(GetPlatformImagePlainArgs args) {
@@ -2621,6 +3020,13 @@ public final class ComputeFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Compute`: 2024-03-01
+     * 
      */
     public static Output<GetPlatformImageResult> getPlatformImage(GetPlatformImageArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:compute/getPlatformImage:getPlatformImage", TypeShape.of(GetPlatformImageResult.class), args, Utilities.withVersion(options));
@@ -2666,6 +3072,13 @@ public final class ComputeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Compute`: 2024-03-01
      * 
      */
     public static Output<GetPlatformImageResult> getPlatformImage(GetPlatformImageArgs args, InvokeOutputOptions options) {
@@ -2713,6 +3126,13 @@ public final class ComputeFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Compute`: 2024-03-01
+     * 
      */
     public static CompletableFuture<GetPlatformImageResult> getPlatformImagePlain(GetPlatformImagePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:compute/getPlatformImage:getPlatformImage", TypeShape.of(GetPlatformImageResult.class), args, Utilities.withVersion(options));
@@ -2756,6 +3176,13 @@ public final class ComputeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Compute`: 2022-03-03
      * 
      */
     public static Output<GetSharedImageResult> getSharedImage(GetSharedImageArgs args) {
@@ -2801,6 +3228,13 @@ public final class ComputeFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Compute`: 2022-03-03
+     * 
      */
     public static CompletableFuture<GetSharedImageResult> getSharedImagePlain(GetSharedImagePlainArgs args) {
         return getSharedImagePlain(args, InvokeOptions.Empty);
@@ -2844,6 +3278,13 @@ public final class ComputeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Compute`: 2022-03-03
      * 
      */
     public static Output<GetSharedImageResult> getSharedImage(GetSharedImageArgs args, InvokeOptions options) {
@@ -2889,6 +3330,13 @@ public final class ComputeFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Compute`: 2022-03-03
+     * 
      */
     public static Output<GetSharedImageResult> getSharedImage(GetSharedImageArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:compute/getSharedImage:getSharedImage", TypeShape.of(GetSharedImageResult.class), args, Utilities.withVersion(options));
@@ -2933,6 +3381,13 @@ public final class ComputeFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Compute`: 2022-03-03
+     * 
      */
     public static CompletableFuture<GetSharedImageResult> getSharedImagePlain(GetSharedImagePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:compute/getSharedImage:getSharedImage", TypeShape.of(GetSharedImageResult.class), args, Utilities.withVersion(options));
@@ -2975,6 +3430,13 @@ public final class ComputeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Compute`: 2022-03-03
      * 
      */
     public static Output<GetSharedImageGalleryResult> getSharedImageGallery(GetSharedImageGalleryArgs args) {
@@ -3019,6 +3481,13 @@ public final class ComputeFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Compute`: 2022-03-03
+     * 
      */
     public static CompletableFuture<GetSharedImageGalleryResult> getSharedImageGalleryPlain(GetSharedImageGalleryPlainArgs args) {
         return getSharedImageGalleryPlain(args, InvokeOptions.Empty);
@@ -3061,6 +3530,13 @@ public final class ComputeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Compute`: 2022-03-03
      * 
      */
     public static Output<GetSharedImageGalleryResult> getSharedImageGallery(GetSharedImageGalleryArgs args, InvokeOptions options) {
@@ -3105,6 +3581,13 @@ public final class ComputeFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Compute`: 2022-03-03
+     * 
      */
     public static Output<GetSharedImageGalleryResult> getSharedImageGallery(GetSharedImageGalleryArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:compute/getSharedImageGallery:getSharedImageGallery", TypeShape.of(GetSharedImageGalleryResult.class), args, Utilities.withVersion(options));
@@ -3147,6 +3630,13 @@ public final class ComputeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Compute`: 2022-03-03
      * 
      */
     public static CompletableFuture<GetSharedImageGalleryResult> getSharedImageGalleryPlain(GetSharedImageGalleryPlainArgs args, InvokeOptions options) {
@@ -3193,6 +3683,13 @@ public final class ComputeFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Compute`: 2023-07-03
+     * 
      */
     public static Output<GetSharedImageVersionResult> getSharedImageVersion(GetSharedImageVersionArgs args) {
         return getSharedImageVersion(args, InvokeOptions.Empty);
@@ -3237,6 +3734,13 @@ public final class ComputeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Compute`: 2023-07-03
      * 
      */
     public static CompletableFuture<GetSharedImageVersionResult> getSharedImageVersionPlain(GetSharedImageVersionPlainArgs args) {
@@ -3283,6 +3787,13 @@ public final class ComputeFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Compute`: 2023-07-03
+     * 
      */
     public static Output<GetSharedImageVersionResult> getSharedImageVersion(GetSharedImageVersionArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:compute/getSharedImageVersion:getSharedImageVersion", TypeShape.of(GetSharedImageVersionResult.class), args, Utilities.withVersion(options));
@@ -3327,6 +3838,13 @@ public final class ComputeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Compute`: 2023-07-03
      * 
      */
     public static Output<GetSharedImageVersionResult> getSharedImageVersion(GetSharedImageVersionArgs args, InvokeOutputOptions options) {
@@ -3373,6 +3891,13 @@ public final class ComputeFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Compute`: 2023-07-03
+     * 
      */
     public static CompletableFuture<GetSharedImageVersionResult> getSharedImageVersionPlain(GetSharedImageVersionPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:compute/getSharedImageVersion:getSharedImageVersion", TypeShape.of(GetSharedImageVersionResult.class), args, Utilities.withVersion(options));
@@ -3416,6 +3941,13 @@ public final class ComputeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Compute`: 2023-07-03
      * 
      */
     public static Output<GetSharedImageVersionsResult> getSharedImageVersions(GetSharedImageVersionsArgs args) {
@@ -3461,6 +3993,13 @@ public final class ComputeFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Compute`: 2023-07-03
+     * 
      */
     public static CompletableFuture<GetSharedImageVersionsResult> getSharedImageVersionsPlain(GetSharedImageVersionsPlainArgs args) {
         return getSharedImageVersionsPlain(args, InvokeOptions.Empty);
@@ -3504,6 +4043,13 @@ public final class ComputeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Compute`: 2023-07-03
      * 
      */
     public static Output<GetSharedImageVersionsResult> getSharedImageVersions(GetSharedImageVersionsArgs args, InvokeOptions options) {
@@ -3549,6 +4095,13 @@ public final class ComputeFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Compute`: 2023-07-03
+     * 
      */
     public static Output<GetSharedImageVersionsResult> getSharedImageVersions(GetSharedImageVersionsArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:compute/getSharedImageVersions:getSharedImageVersions", TypeShape.of(GetSharedImageVersionsResult.class), args, Utilities.withVersion(options));
@@ -3593,6 +4146,13 @@ public final class ComputeFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Compute`: 2023-07-03
+     * 
      */
     public static CompletableFuture<GetSharedImageVersionsResult> getSharedImageVersionsPlain(GetSharedImageVersionsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:compute/getSharedImageVersions:getSharedImageVersions", TypeShape.of(GetSharedImageVersionsResult.class), args, Utilities.withVersion(options));
@@ -3635,6 +4195,13 @@ public final class ComputeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Compute`: 2022-03-02
      * 
      */
     public static Output<GetSnapshotResult> getSnapshot(GetSnapshotArgs args) {
@@ -3679,6 +4246,13 @@ public final class ComputeFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Compute`: 2022-03-02
+     * 
      */
     public static CompletableFuture<GetSnapshotResult> getSnapshotPlain(GetSnapshotPlainArgs args) {
         return getSnapshotPlain(args, InvokeOptions.Empty);
@@ -3721,6 +4295,13 @@ public final class ComputeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Compute`: 2022-03-02
      * 
      */
     public static Output<GetSnapshotResult> getSnapshot(GetSnapshotArgs args, InvokeOptions options) {
@@ -3765,6 +4346,13 @@ public final class ComputeFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Compute`: 2022-03-02
+     * 
      */
     public static Output<GetSnapshotResult> getSnapshot(GetSnapshotArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:compute/getSnapshot:getSnapshot", TypeShape.of(GetSnapshotResult.class), args, Utilities.withVersion(options));
@@ -3807,6 +4395,13 @@ public final class ComputeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Compute`: 2022-03-02
      * 
      */
     public static CompletableFuture<GetSnapshotResult> getSnapshotPlain(GetSnapshotPlainArgs args, InvokeOptions options) {
@@ -3852,6 +4447,13 @@ public final class ComputeFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Compute`: 2024-03-01
+     * 
      */
     public static Output<GetSshPublicKeyResult> getSshPublicKey(GetSshPublicKeyArgs args) {
         return getSshPublicKey(args, InvokeOptions.Empty);
@@ -3895,6 +4497,13 @@ public final class ComputeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Compute`: 2024-03-01
      * 
      */
     public static CompletableFuture<GetSshPublicKeyResult> getSshPublicKeyPlain(GetSshPublicKeyPlainArgs args) {
@@ -3940,6 +4549,13 @@ public final class ComputeFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Compute`: 2024-03-01
+     * 
      */
     public static Output<GetSshPublicKeyResult> getSshPublicKey(GetSshPublicKeyArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:compute/getSshPublicKey:getSshPublicKey", TypeShape.of(GetSshPublicKeyResult.class), args, Utilities.withVersion(options));
@@ -3983,6 +4599,13 @@ public final class ComputeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Compute`: 2024-03-01
      * 
      */
     public static Output<GetSshPublicKeyResult> getSshPublicKey(GetSshPublicKeyArgs args, InvokeOutputOptions options) {
@@ -4028,6 +4651,13 @@ public final class ComputeFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Compute`: 2024-03-01
+     * 
      */
     public static CompletableFuture<GetSshPublicKeyResult> getSshPublicKeyPlain(GetSshPublicKeyPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:compute/getSshPublicKey:getSshPublicKey", TypeShape.of(GetSshPublicKeyResult.class), args, Utilities.withVersion(options));
@@ -4071,6 +4701,13 @@ public final class ComputeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Compute`: 2024-03-01
      * 
      */
     public static Output<GetVirtualMachineResult> getVirtualMachine(GetVirtualMachineArgs args) {
@@ -4116,6 +4753,13 @@ public final class ComputeFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Compute`: 2024-03-01
+     * 
      */
     public static CompletableFuture<GetVirtualMachineResult> getVirtualMachinePlain(GetVirtualMachinePlainArgs args) {
         return getVirtualMachinePlain(args, InvokeOptions.Empty);
@@ -4159,6 +4803,13 @@ public final class ComputeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Compute`: 2024-03-01
      * 
      */
     public static Output<GetVirtualMachineResult> getVirtualMachine(GetVirtualMachineArgs args, InvokeOptions options) {
@@ -4204,6 +4855,13 @@ public final class ComputeFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Compute`: 2024-03-01
+     * 
      */
     public static Output<GetVirtualMachineResult> getVirtualMachine(GetVirtualMachineArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:compute/getVirtualMachine:getVirtualMachine", TypeShape.of(GetVirtualMachineResult.class), args, Utilities.withVersion(options));
@@ -4247,6 +4905,13 @@ public final class ComputeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Compute`: 2024-03-01
      * 
      */
     public static CompletableFuture<GetVirtualMachineResult> getVirtualMachinePlain(GetVirtualMachinePlainArgs args, InvokeOptions options) {
@@ -4292,6 +4957,13 @@ public final class ComputeFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Compute`: 2024-07-01, 2024-03-01, 2023-09-01
+     * 
      */
     public static Output<GetVirtualMachineScaleSetResult> getVirtualMachineScaleSet(GetVirtualMachineScaleSetArgs args) {
         return getVirtualMachineScaleSet(args, InvokeOptions.Empty);
@@ -4335,6 +5007,13 @@ public final class ComputeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Compute`: 2024-07-01, 2024-03-01, 2023-09-01
      * 
      */
     public static CompletableFuture<GetVirtualMachineScaleSetResult> getVirtualMachineScaleSetPlain(GetVirtualMachineScaleSetPlainArgs args) {
@@ -4380,6 +5059,13 @@ public final class ComputeFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Compute`: 2024-07-01, 2024-03-01, 2023-09-01
+     * 
      */
     public static Output<GetVirtualMachineScaleSetResult> getVirtualMachineScaleSet(GetVirtualMachineScaleSetArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:compute/getVirtualMachineScaleSet:getVirtualMachineScaleSet", TypeShape.of(GetVirtualMachineScaleSetResult.class), args, Utilities.withVersion(options));
@@ -4424,6 +5110,13 @@ public final class ComputeFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Compute`: 2024-07-01, 2024-03-01, 2023-09-01
+     * 
      */
     public static Output<GetVirtualMachineScaleSetResult> getVirtualMachineScaleSet(GetVirtualMachineScaleSetArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:compute/getVirtualMachineScaleSet:getVirtualMachineScaleSet", TypeShape.of(GetVirtualMachineScaleSetResult.class), args, Utilities.withVersion(options));
@@ -4467,6 +5160,13 @@ public final class ComputeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Compute`: 2024-07-01, 2024-03-01, 2023-09-01
      * 
      */
     public static CompletableFuture<GetVirtualMachineScaleSetResult> getVirtualMachineScaleSetPlain(GetVirtualMachineScaleSetPlainArgs args, InvokeOptions options) {

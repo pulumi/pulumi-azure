@@ -12,7 +12,7 @@ namespace Pulumi.Azure.CosmosDB
     /// <summary>
     /// Manages a Cassandra Datacenter.
     /// 
-    /// &gt; **NOTE:** In order for the `Azure Managed Instances for Apache Cassandra` to work properly the product requires the `Azure Cosmos DB` Application ID to be present and working in your tenant. If the `Azure Cosmos DB` Application ID is missing in your environment you will need to have an administrator of your tenant run the following command to add the `Azure Cosmos DB` Application ID to your tenant:
+    /// &gt; **Note:** In order for the `Azure Managed Instances for Apache Cassandra` to work properly the product requires the `Azure Cosmos DB` Application ID to be present and working in your tenant. If the `Azure Cosmos DB` Application ID is missing in your environment you will need to have an administrator of your tenant run the following command to add the `Azure Cosmos DB` Application ID to your tenant:
     /// 
     /// ## Example Usage
     /// 
@@ -181,7 +181,7 @@ namespace Pulumi.Azure.CosmosDB
         /// <summary>
         /// Determines the selected sku.
         /// 
-        /// &gt; **NOTE:** In v4.0 of the provider the `sku_name` will have a default value of `Standard_E16s_v5`.
+        /// &gt; **Note:** In v4.0 of the provider the `sku_name` will have a default value of `Standard_E16s_v5`.
         /// </summary>
         [Output("skuName")]
         public Output<string?> SkuName { get; private set; } = null!;
@@ -301,7 +301,7 @@ namespace Pulumi.Azure.CosmosDB
         /// <summary>
         /// Determines the selected sku.
         /// 
-        /// &gt; **NOTE:** In v4.0 of the provider the `sku_name` will have a default value of `Standard_E16s_v5`.
+        /// &gt; **Note:** In v4.0 of the provider the `sku_name` will have a default value of `Standard_E16s_v5`.
         /// </summary>
         [Input("skuName")]
         public Input<string>? SkuName { get; set; }
@@ -395,7 +395,7 @@ namespace Pulumi.Azure.CosmosDB
         /// <summary>
         /// Determines the selected sku.
         /// 
-        /// &gt; **NOTE:** In v4.0 of the provider the `sku_name` will have a default value of `Standard_E16s_v5`.
+        /// &gt; **Note:** In v4.0 of the provider the `sku_name` will have a default value of `Standard_E16s_v5`.
         /// </summary>
         [Input("skuName")]
         public Input<string>? SkuName { get; set; }

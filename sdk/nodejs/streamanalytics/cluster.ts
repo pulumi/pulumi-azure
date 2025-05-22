@@ -25,6 +25,13 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.StreamAnalytics`: 2020-03-01
+ *
  * ## Import
  *
  * Stream Analytics Clusters can be imported using the `resource id`, e.g.

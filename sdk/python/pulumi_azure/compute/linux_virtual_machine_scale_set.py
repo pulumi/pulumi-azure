@@ -107,7 +107,7 @@ class LinuxVirtualMachineScaleSetArgs:
         :param pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetDataDiskArgs']]] data_disks: One or more `data_disk` blocks as defined below.
         :param pulumi.Input[builtins.bool] disable_password_authentication: Should Password Authentication be disabled on this Virtual Machine Scale Set? Defaults to `true`.
                
-               > In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
+               > **Note:** In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
                
                > **Note:** When a `admin_password` is specified `disable_password_authentication` must be set to `false`.
         :param pulumi.Input[builtins.bool] do_not_run_extensions_on_overprovisioned_machines: Should Virtual Machine Extensions be run on Overprovisioned Virtual Machines in the Scale Set? Defaults to `false`.
@@ -466,7 +466,7 @@ class LinuxVirtualMachineScaleSetArgs:
         """
         Should Password Authentication be disabled on this Virtual Machine Scale Set? Defaults to `true`.
 
-        > In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
+        > **Note:** In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
 
         > **Note:** When a `admin_password` is specified `disable_password_authentication` must be set to `false`.
         """
@@ -1011,7 +1011,7 @@ class _LinuxVirtualMachineScaleSetState:
         :param pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetDataDiskArgs']]] data_disks: One or more `data_disk` blocks as defined below.
         :param pulumi.Input[builtins.bool] disable_password_authentication: Should Password Authentication be disabled on this Virtual Machine Scale Set? Defaults to `true`.
                
-               > In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
+               > **Note:** In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
                
                > **Note:** When a `admin_password` is specified `disable_password_authentication` must be set to `false`.
         :param pulumi.Input[builtins.bool] do_not_run_extensions_on_overprovisioned_machines: Should Virtual Machine Extensions be run on Overprovisioned Virtual Machines in the Scale Set? Defaults to `false`.
@@ -1334,7 +1334,7 @@ class _LinuxVirtualMachineScaleSetState:
         """
         Should Password Authentication be disabled on this Virtual Machine Scale Set? Defaults to `true`.
 
-        > In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
+        > **Note:** In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
 
         > **Note:** When a `admin_password` is specified `disable_password_authentication` must be set to `false`.
         """
@@ -2012,7 +2012,7 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['LinuxVirtualMachineScaleSetDataDiskArgs', 'LinuxVirtualMachineScaleSetDataDiskArgsDict']]]] data_disks: One or more `data_disk` blocks as defined below.
         :param pulumi.Input[builtins.bool] disable_password_authentication: Should Password Authentication be disabled on this Virtual Machine Scale Set? Defaults to `true`.
                
-               > In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
+               > **Note:** In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
                
                > **Note:** When a `admin_password` is specified `disable_password_authentication` must be set to `false`.
         :param pulumi.Input[builtins.bool] do_not_run_extensions_on_overprovisioned_machines: Should Virtual Machine Extensions be run on Overprovisioned Virtual Machines in the Scale Set? Defaults to `false`.
@@ -2389,7 +2389,7 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['LinuxVirtualMachineScaleSetDataDiskArgs', 'LinuxVirtualMachineScaleSetDataDiskArgsDict']]]] data_disks: One or more `data_disk` blocks as defined below.
         :param pulumi.Input[builtins.bool] disable_password_authentication: Should Password Authentication be disabled on this Virtual Machine Scale Set? Defaults to `true`.
                
-               > In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
+               > **Note:** In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
                
                > **Note:** When a `admin_password` is specified `disable_password_authentication` must be set to `false`.
         :param pulumi.Input[builtins.bool] do_not_run_extensions_on_overprovisioned_machines: Should Virtual Machine Extensions be run on Overprovisioned Virtual Machines in the Scale Set? Defaults to `false`.
@@ -2620,7 +2620,7 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
         """
         Should Password Authentication be disabled on this Virtual Machine Scale Set? Defaults to `true`.
 
-        > In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
+        > **Note:** In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
 
         > **Note:** When a `admin_password` is specified `disable_password_authentication` must be set to `false`.
         """

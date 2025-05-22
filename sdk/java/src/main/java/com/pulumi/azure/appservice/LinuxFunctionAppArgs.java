@@ -442,9 +442,9 @@ public final class LinuxFunctionAppArgs extends com.pulumi.resources.ResourceArg
     /**
      * The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App.
      * 
-     * &gt; **NOTE:** `storage_key_vault_secret_id` cannot be used with `storage_account_name`.
+     * &gt; **Note:** `storage_key_vault_secret_id` cannot be used with `storage_account_name`.
      * 
-     * &gt; **NOTE:** `storage_key_vault_secret_id` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
+     * &gt; **Note:** `storage_key_vault_secret_id` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
      * 
      */
     @Import(name="storageKeyVaultSecretId")
@@ -453,9 +453,9 @@ public final class LinuxFunctionAppArgs extends com.pulumi.resources.ResourceArg
     /**
      * @return The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App.
      * 
-     * &gt; **NOTE:** `storage_key_vault_secret_id` cannot be used with `storage_account_name`.
+     * &gt; **Note:** `storage_key_vault_secret_id` cannot be used with `storage_account_name`.
      * 
-     * &gt; **NOTE:** `storage_key_vault_secret_id` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
+     * &gt; **Note:** `storage_key_vault_secret_id` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
      * 
      */
     public Optional<Output<String>> storageKeyVaultSecretId() {
@@ -465,7 +465,7 @@ public final class LinuxFunctionAppArgs extends com.pulumi.resources.ResourceArg
     /**
      * Should the Function App use Managed Identity to access the storage account. Conflicts with `storage_account_access_key`.
      * 
-     * &gt; **NOTE:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
+     * &gt; **Note:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
      * 
      */
     @Import(name="storageUsesManagedIdentity")
@@ -474,7 +474,7 @@ public final class LinuxFunctionAppArgs extends com.pulumi.resources.ResourceArg
     /**
      * @return Should the Function App use Managed Identity to access the storage account. Conflicts with `storage_account_access_key`.
      * 
-     * &gt; **NOTE:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
+     * &gt; **Note:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
      * 
      */
     public Optional<Output<Boolean>> storageUsesManagedIdentity() {
@@ -540,7 +540,7 @@ public final class LinuxFunctionAppArgs extends com.pulumi.resources.ResourceArg
     /**
      * Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
      * 
-     * &gt; **NOTE:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
+     * &gt; **Note:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
      * 
      */
     @Import(name="webdeployPublishBasicAuthenticationEnabled")
@@ -549,7 +549,7 @@ public final class LinuxFunctionAppArgs extends com.pulumi.resources.ResourceArg
     /**
      * @return Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
      * 
-     * &gt; **NOTE:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
+     * &gt; **Note:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
      * 
      */
     public Optional<Output<Boolean>> webdeployPublishBasicAuthenticationEnabled() {
@@ -1229,9 +1229,9 @@ public final class LinuxFunctionAppArgs extends com.pulumi.resources.ResourceArg
         /**
          * @param storageKeyVaultSecretId The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App.
          * 
-         * &gt; **NOTE:** `storage_key_vault_secret_id` cannot be used with `storage_account_name`.
+         * &gt; **Note:** `storage_key_vault_secret_id` cannot be used with `storage_account_name`.
          * 
-         * &gt; **NOTE:** `storage_key_vault_secret_id` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
+         * &gt; **Note:** `storage_key_vault_secret_id` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
          * 
          * @return builder
          * 
@@ -1244,9 +1244,9 @@ public final class LinuxFunctionAppArgs extends com.pulumi.resources.ResourceArg
         /**
          * @param storageKeyVaultSecretId The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App.
          * 
-         * &gt; **NOTE:** `storage_key_vault_secret_id` cannot be used with `storage_account_name`.
+         * &gt; **Note:** `storage_key_vault_secret_id` cannot be used with `storage_account_name`.
          * 
-         * &gt; **NOTE:** `storage_key_vault_secret_id` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
+         * &gt; **Note:** `storage_key_vault_secret_id` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
          * 
          * @return builder
          * 
@@ -1258,7 +1258,7 @@ public final class LinuxFunctionAppArgs extends com.pulumi.resources.ResourceArg
         /**
          * @param storageUsesManagedIdentity Should the Function App use Managed Identity to access the storage account. Conflicts with `storage_account_access_key`.
          * 
-         * &gt; **NOTE:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
+         * &gt; **Note:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
          * 
          * @return builder
          * 
@@ -1271,7 +1271,7 @@ public final class LinuxFunctionAppArgs extends com.pulumi.resources.ResourceArg
         /**
          * @param storageUsesManagedIdentity Should the Function App use Managed Identity to access the storage account. Conflicts with `storage_account_access_key`.
          * 
-         * &gt; **NOTE:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
+         * &gt; **Note:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
          * 
          * @return builder
          * 
@@ -1359,7 +1359,7 @@ public final class LinuxFunctionAppArgs extends com.pulumi.resources.ResourceArg
         /**
          * @param webdeployPublishBasicAuthenticationEnabled Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
          * 
-         * &gt; **NOTE:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
+         * &gt; **Note:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
          * 
          * @return builder
          * 
@@ -1372,7 +1372,7 @@ public final class LinuxFunctionAppArgs extends com.pulumi.resources.ResourceArg
         /**
          * @param webdeployPublishBasicAuthenticationEnabled Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
          * 
-         * &gt; **NOTE:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
+         * &gt; **Note:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
          * 
          * @return builder
          * 

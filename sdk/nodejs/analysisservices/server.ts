@@ -37,7 +37,14 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * > **NOTE:** The server resource will automatically be started and stopped during an update if it is in `paused` state.
+ * > **Note:** The server resource will automatically be started and stopped during an update if it is in `paused` state.
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.AnalysisServices`: 2017-08-01
  *
  * ## Import
  *

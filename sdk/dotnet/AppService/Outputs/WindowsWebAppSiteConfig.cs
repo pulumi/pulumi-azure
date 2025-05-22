@@ -16,7 +16,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// <summary>
         /// If this Windows Web App is Always On enabled. Defaults to `true`.
         /// 
-        /// &gt; **NOTE:** `always_on` must be explicitly set to `false` when using `Free`, `F1`, `D1`, or `Shared` Service Plans.
+        /// &gt; **Note:** `always_on` must be explicitly set to `false` when using `Free`, `F1`, `D1`, or `Shared` Service Plans.
         /// </summary>
         public readonly bool? AlwaysOn;
         /// <summary>

@@ -117,6 +117,13 @@ def get_public_i_ps(allocation_type: Optional[builtins.str] = None,
         attachment_status="Attached")
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Network`: 2024-05-01
+
 
     :param builtins.str allocation_type: The Allocation Type for the Public IP Address. Possible values include `Static` or `Dynamic`.
     :param builtins.str attachment_status: Filter to include IP Addresses which are attached to a device, such as a VM/LB (`Attached`) or unattached (`Unattached`).
@@ -155,6 +162,13 @@ def get_public_i_ps_output(allocation_type: Optional[pulumi.Input[Optional[built
     example = azure.network.get_public_i_ps(resource_group_name="pip-test",
         attachment_status="Attached")
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Network`: 2024-05-01
 
 
     :param builtins.str allocation_type: The Allocation Type for the Public IP Address. Possible values include `Static` or `Dynamic`.

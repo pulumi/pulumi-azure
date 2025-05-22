@@ -31,7 +31,7 @@ public final class ReplicatedVMManagedDisk {
     /**
      * @return The Disk Encryption Set that the Managed Disk will be associated with. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** Creating replicated vm with `target_disk_encryption_set_id` wil take more time (up to 5 hours), please extend the `timeout` for `create`.
+     * &gt; **Note:** Creating replicated vm with `target_disk_encryption_set_id` wil take more time (up to 5 hours), please extend the `timeout` for `create`.
      * 
      */
     private @Nullable String targetDiskEncryptionSetId;
@@ -76,7 +76,7 @@ public final class ReplicatedVMManagedDisk {
     /**
      * @return The Disk Encryption Set that the Managed Disk will be associated with. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** Creating replicated vm with `target_disk_encryption_set_id` wil take more time (up to 5 hours), please extend the `timeout` for `create`.
+     * &gt; **Note:** Creating replicated vm with `target_disk_encryption_set_id` wil take more time (up to 5 hours), please extend the `timeout` for `create`.
      * 
      */
     public Optional<String> targetDiskEncryptionSetId() {

@@ -31,14 +31,14 @@ class ContainerArgs:
         The set of arguments for constructing a Container resource.
         :param pulumi.Input[builtins.str] container_access_type: The Access Level configured for this Container. Possible values are `blob`, `container` or `private`. Defaults to `private`.
                
-               > **Note** When updating `container_access_type` for an existing storage container resource, Shared Key authentication will always be used, as AzureAD authentication is not supported.
+               > **Note:** When updating `container_access_type` for an existing storage container resource, Shared Key authentication will always be used, as AzureAD authentication is not supported.
         :param pulumi.Input[builtins.str] default_encryption_scope: The default encryption scope to use for blobs uploaded to this container. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.bool] encryption_scope_override_enabled: Whether to allow blobs to override the default encryption scope for this container. Can only be set when specifying `default_encryption_scope`. Defaults to `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] metadata: A mapping of MetaData for this Container. All metadata keys should be lowercase.
         :param pulumi.Input[builtins.str] name: The name of the Container which should be created within the Storage Account. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] storage_account_id: The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created.
                
-               > **NOTE:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
+               > **Note:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
         :param pulumi.Input[builtins.str] storage_account_name: The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created. This property is deprecated in favour of `storage_account_id`.
                
                > **Note:** Migrating from the deprecated `storage_account_name` to `storage_account_id` is supported without recreation. Any other change to either property will result in the resource being recreated.
@@ -67,7 +67,7 @@ class ContainerArgs:
         """
         The Access Level configured for this Container. Possible values are `blob`, `container` or `private`. Defaults to `private`.
 
-        > **Note** When updating `container_access_type` for an existing storage container resource, Shared Key authentication will always be used, as AzureAD authentication is not supported.
+        > **Note:** When updating `container_access_type` for an existing storage container resource, Shared Key authentication will always be used, as AzureAD authentication is not supported.
         """
         return pulumi.get(self, "container_access_type")
 
@@ -129,7 +129,7 @@ class ContainerArgs:
         """
         The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created.
 
-        > **NOTE:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
+        > **Note:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
         """
         return pulumi.get(self, "storage_account_id")
 
@@ -170,7 +170,7 @@ class _ContainerState:
         Input properties used for looking up and filtering Container resources.
         :param pulumi.Input[builtins.str] container_access_type: The Access Level configured for this Container. Possible values are `blob`, `container` or `private`. Defaults to `private`.
                
-               > **Note** When updating `container_access_type` for an existing storage container resource, Shared Key authentication will always be used, as AzureAD authentication is not supported.
+               > **Note:** When updating `container_access_type` for an existing storage container resource, Shared Key authentication will always be used, as AzureAD authentication is not supported.
         :param pulumi.Input[builtins.str] default_encryption_scope: The default encryption scope to use for blobs uploaded to this container. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.bool] encryption_scope_override_enabled: Whether to allow blobs to override the default encryption scope for this container. Can only be set when specifying `default_encryption_scope`. Defaults to `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.bool] has_immutability_policy: Is there an Immutability Policy configured on this Storage Container?
@@ -180,7 +180,7 @@ class _ContainerState:
         :param pulumi.Input[builtins.str] resource_manager_id: The Resource Manager ID of this Storage Container.
         :param pulumi.Input[builtins.str] storage_account_id: The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created.
                
-               > **NOTE:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
+               > **Note:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
         :param pulumi.Input[builtins.str] storage_account_name: The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created. This property is deprecated in favour of `storage_account_id`.
                
                > **Note:** Migrating from the deprecated `storage_account_name` to `storage_account_id` is supported without recreation. Any other change to either property will result in the resource being recreated.
@@ -218,7 +218,7 @@ class _ContainerState:
         """
         The Access Level configured for this Container. Possible values are `blob`, `container` or `private`. Defaults to `private`.
 
-        > **Note** When updating `container_access_type` for an existing storage container resource, Shared Key authentication will always be used, as AzureAD authentication is not supported.
+        > **Note:** When updating `container_access_type` for an existing storage container resource, Shared Key authentication will always be used, as AzureAD authentication is not supported.
         """
         return pulumi.get(self, "container_access_type")
 
@@ -317,7 +317,7 @@ class _ContainerState:
         """
         The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created.
 
-        > **NOTE:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
+        > **Note:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
         """
         return pulumi.get(self, "storage_account_id")
 
@@ -382,6 +382,13 @@ class Container(pulumi.CustomResource):
             container_access_type="private")
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Storage`: 2023-05-01
+
         ## Import
 
         Storage Containers can be imported using the `resource manager id`, e.g.
@@ -394,14 +401,14 @@ class Container(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] container_access_type: The Access Level configured for this Container. Possible values are `blob`, `container` or `private`. Defaults to `private`.
                
-               > **Note** When updating `container_access_type` for an existing storage container resource, Shared Key authentication will always be used, as AzureAD authentication is not supported.
+               > **Note:** When updating `container_access_type` for an existing storage container resource, Shared Key authentication will always be used, as AzureAD authentication is not supported.
         :param pulumi.Input[builtins.str] default_encryption_scope: The default encryption scope to use for blobs uploaded to this container. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.bool] encryption_scope_override_enabled: Whether to allow blobs to override the default encryption scope for this container. Can only be set when specifying `default_encryption_scope`. Defaults to `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] metadata: A mapping of MetaData for this Container. All metadata keys should be lowercase.
         :param pulumi.Input[builtins.str] name: The name of the Container which should be created within the Storage Account. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] storage_account_id: The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created.
                
-               > **NOTE:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
+               > **Note:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
         :param pulumi.Input[builtins.str] storage_account_name: The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created. This property is deprecated in favour of `storage_account_id`.
                
                > **Note:** Migrating from the deprecated `storage_account_name` to `storage_account_id` is supported without recreation. Any other change to either property will result in the resource being recreated.
@@ -438,6 +445,13 @@ class Container(pulumi.CustomResource):
             storage_account_id=example_account.id,
             container_access_type="private")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Storage`: 2023-05-01
 
         ## Import
 
@@ -517,7 +531,7 @@ class Container(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] container_access_type: The Access Level configured for this Container. Possible values are `blob`, `container` or `private`. Defaults to `private`.
                
-               > **Note** When updating `container_access_type` for an existing storage container resource, Shared Key authentication will always be used, as AzureAD authentication is not supported.
+               > **Note:** When updating `container_access_type` for an existing storage container resource, Shared Key authentication will always be used, as AzureAD authentication is not supported.
         :param pulumi.Input[builtins.str] default_encryption_scope: The default encryption scope to use for blobs uploaded to this container. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.bool] encryption_scope_override_enabled: Whether to allow blobs to override the default encryption scope for this container. Can only be set when specifying `default_encryption_scope`. Defaults to `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.bool] has_immutability_policy: Is there an Immutability Policy configured on this Storage Container?
@@ -527,7 +541,7 @@ class Container(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] resource_manager_id: The Resource Manager ID of this Storage Container.
         :param pulumi.Input[builtins.str] storage_account_id: The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created.
                
-               > **NOTE:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
+               > **Note:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
         :param pulumi.Input[builtins.str] storage_account_name: The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created. This property is deprecated in favour of `storage_account_id`.
                
                > **Note:** Migrating from the deprecated `storage_account_name` to `storage_account_id` is supported without recreation. Any other change to either property will result in the resource being recreated.
@@ -554,7 +568,7 @@ class Container(pulumi.CustomResource):
         """
         The Access Level configured for this Container. Possible values are `blob`, `container` or `private`. Defaults to `private`.
 
-        > **Note** When updating `container_access_type` for an existing storage container resource, Shared Key authentication will always be used, as AzureAD authentication is not supported.
+        > **Note:** When updating `container_access_type` for an existing storage container resource, Shared Key authentication will always be used, as AzureAD authentication is not supported.
         """
         return pulumi.get(self, "container_access_type")
 
@@ -621,7 +635,7 @@ class Container(pulumi.CustomResource):
         """
         The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created.
 
-        > **NOTE:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
+        > **Note:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
         """
         return pulumi.get(self, "storage_account_id")
 

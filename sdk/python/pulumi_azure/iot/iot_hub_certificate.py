@@ -230,6 +230,13 @@ class IotHubCertificate(pulumi.CustomResource):
             certificate_content=std.filebase64(input="example.cer").result)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Devices`: 2022-02-05
+
         ## Import
 
         IoTHub Device Provisioning Service Certificates can be imported using the `resource id`, e.g.
@@ -279,6 +286,13 @@ class IotHubCertificate(pulumi.CustomResource):
             iot_dps_name=example_iot_hub_dps.name,
             certificate_content=std.filebase64(input="example.cer").result)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Devices`: 2022-02-05
 
         ## Import
 

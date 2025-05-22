@@ -13,7 +13,7 @@ import (
 )
 
 // Manages a Standby Pool for Virtual Machine Scale Sets.
-// > **NOTE :** please follow the prerequisites mentioned in this [article](https://learn.microsoft.com/azure/virtual-machine-scale-sets/standby-pools-create?tabs=portal#prerequisites) before using this resource.
+// > **Note:** please follow the prerequisites mentioned in this [article](https://learn.microsoft.com/azure/virtual-machine-scale-sets/standby-pools-create?tabs=portal#prerequisites) before using this resource.
 //
 // ## Example Usage
 //
@@ -71,6 +71,13 @@ import (
 //	}
 //
 // ```
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.StandbyPool`: 2024-03-01
 //
 // ## Import
 //

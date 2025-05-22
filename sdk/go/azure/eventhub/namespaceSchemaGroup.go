@@ -58,6 +58,13 @@ import (
 //
 // ```
 //
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.EventHub`: 2024-01-01
+//
 // ## Import
 //
 // Schema Group for a EventHub Namespace can be imported using the `resource id`, e.g.
@@ -74,7 +81,9 @@ type NamespaceSchemaGroup struct {
 	NamespaceId pulumi.StringOutput `pulumi:"namespaceId"`
 	// Specifies the compatibility of this schema group. Possible values are `None`, `Backward`, `Forward`. Changing this forces a new resource to be created.
 	SchemaCompatibility pulumi.StringOutput `pulumi:"schemaCompatibility"`
-	// Specifies the Type of this schema group. Possible values are `Avro`, `Unknown`. Changing this forces a new resource to be created.
+	// Specifies the Type of this schema group. Possible values are `Avro`, `Unknown` and `Json`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** When `schemaType` is specified as `Json`, `schemaCompatibility` must be set to `None`.
 	SchemaType pulumi.StringOutput `pulumi:"schemaType"`
 }
 
@@ -123,7 +132,9 @@ type namespaceSchemaGroupState struct {
 	NamespaceId *string `pulumi:"namespaceId"`
 	// Specifies the compatibility of this schema group. Possible values are `None`, `Backward`, `Forward`. Changing this forces a new resource to be created.
 	SchemaCompatibility *string `pulumi:"schemaCompatibility"`
-	// Specifies the Type of this schema group. Possible values are `Avro`, `Unknown`. Changing this forces a new resource to be created.
+	// Specifies the Type of this schema group. Possible values are `Avro`, `Unknown` and `Json`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** When `schemaType` is specified as `Json`, `schemaCompatibility` must be set to `None`.
 	SchemaType *string `pulumi:"schemaType"`
 }
 
@@ -134,7 +145,9 @@ type NamespaceSchemaGroupState struct {
 	NamespaceId pulumi.StringPtrInput
 	// Specifies the compatibility of this schema group. Possible values are `None`, `Backward`, `Forward`. Changing this forces a new resource to be created.
 	SchemaCompatibility pulumi.StringPtrInput
-	// Specifies the Type of this schema group. Possible values are `Avro`, `Unknown`. Changing this forces a new resource to be created.
+	// Specifies the Type of this schema group. Possible values are `Avro`, `Unknown` and `Json`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** When `schemaType` is specified as `Json`, `schemaCompatibility` must be set to `None`.
 	SchemaType pulumi.StringPtrInput
 }
 
@@ -149,7 +162,9 @@ type namespaceSchemaGroupArgs struct {
 	NamespaceId string `pulumi:"namespaceId"`
 	// Specifies the compatibility of this schema group. Possible values are `None`, `Backward`, `Forward`. Changing this forces a new resource to be created.
 	SchemaCompatibility string `pulumi:"schemaCompatibility"`
-	// Specifies the Type of this schema group. Possible values are `Avro`, `Unknown`. Changing this forces a new resource to be created.
+	// Specifies the Type of this schema group. Possible values are `Avro`, `Unknown` and `Json`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** When `schemaType` is specified as `Json`, `schemaCompatibility` must be set to `None`.
 	SchemaType string `pulumi:"schemaType"`
 }
 
@@ -161,7 +176,9 @@ type NamespaceSchemaGroupArgs struct {
 	NamespaceId pulumi.StringInput
 	// Specifies the compatibility of this schema group. Possible values are `None`, `Backward`, `Forward`. Changing this forces a new resource to be created.
 	SchemaCompatibility pulumi.StringInput
-	// Specifies the Type of this schema group. Possible values are `Avro`, `Unknown`. Changing this forces a new resource to be created.
+	// Specifies the Type of this schema group. Possible values are `Avro`, `Unknown` and `Json`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** When `schemaType` is specified as `Json`, `schemaCompatibility` must be set to `None`.
 	SchemaType pulumi.StringInput
 }
 
@@ -267,7 +284,9 @@ func (o NamespaceSchemaGroupOutput) SchemaCompatibility() pulumi.StringOutput {
 	return o.ApplyT(func(v *NamespaceSchemaGroup) pulumi.StringOutput { return v.SchemaCompatibility }).(pulumi.StringOutput)
 }
 
-// Specifies the Type of this schema group. Possible values are `Avro`, `Unknown`. Changing this forces a new resource to be created.
+// Specifies the Type of this schema group. Possible values are `Avro`, `Unknown` and `Json`. Changing this forces a new resource to be created.
+//
+// > **Note:** When `schemaType` is specified as `Json`, `schemaCompatibility` must be set to `None`.
 func (o NamespaceSchemaGroupOutput) SchemaType() pulumi.StringOutput {
 	return o.ApplyT(func(v *NamespaceSchemaGroup) pulumi.StringOutput { return v.SchemaType }).(pulumi.StringOutput)
 }

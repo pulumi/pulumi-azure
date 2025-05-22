@@ -45,7 +45,7 @@ namespace Pulumi.Azure.AppService.Inputs
         /// <summary>
         /// The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`
         /// 
-        /// &gt; **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to "RedirectToLoginPage".
+        /// &gt; **Note:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to "RedirectToLoginPage".
         /// </summary>
         [Input("defaultProvider")]
         public Input<string>? DefaultProvider { get; set; }
@@ -77,7 +77,7 @@ namespace Pulumi.Azure.AppService.Inputs
         /// <summary>
         /// The OpenID Connect Issuer URI that represents the entity which issues access tokens for this Windows Web App.
         /// 
-        /// &gt; **NOTE:** When using Azure Active Directory, this value is the URI of the directory tenant, e.g. &lt;https://sts.windows.net/{tenant-guid}/&gt;.
+        /// &gt; **Note:** When using Azure Active Directory, this value is the URI of the directory tenant, e.g. &lt;https://sts.windows.net/{tenant-guid}/&gt;.
         /// </summary>
         [Input("issuer")]
         public Input<string>? Issuer { get; set; }

@@ -30,7 +30,7 @@ namespace Pulumi.Azure.ContainerApp
     /// 
     ///     var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("example", new()
     ///     {
-    ///         Name = "acctest-01",
+    ///         Name = "example-workspace",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///         Sku = "PerGB2018",
@@ -48,6 +48,15 @@ namespace Pulumi.Azure.ContainerApp
     /// 
     /// });
     /// ```
+    /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.App`: 2025-01-01
+    /// 
+    /// * `Microsoft.OperationalInsights`: 2020-08-01
     /// 
     /// ## Import
     /// 

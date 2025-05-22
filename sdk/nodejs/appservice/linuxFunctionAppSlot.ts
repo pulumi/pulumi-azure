@@ -49,6 +49,13 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.Web`: 2023-12-01, 2023-01-01
+ *
  * ## Import
  *
  * A Linux Function App Slot can be imported using the `resource id`, e.g.
@@ -224,15 +231,15 @@ export class LinuxFunctionAppSlot extends pulumi.CustomResource {
     /**
      * The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App.
      *
-     * > **NOTE:** `storageKeyVaultSecretId` cannot be used with `storageAccountName`.
+     * > **Note:** `storageKeyVaultSecretId` cannot be used with `storageAccountName`.
      *
-     * > **NOTE:** `storageKeyVaultSecretId` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
+     * > **Note:** `storageKeyVaultSecretId` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
      */
     public readonly storageKeyVaultSecretId!: pulumi.Output<string | undefined>;
     /**
      * Should the Function App Slot use its Managed Identity to access storage.
      *
-     * > **NOTE:** One of `storageAccountAccessKey` or `storageUsesManagedIdentity` must be specified when using `storageAccountName`.
+     * > **Note:** One of `storageAccountAccessKey` or `storageUsesManagedIdentity` must be specified when using `storageAccountName`.
      */
     public readonly storageUsesManagedIdentity!: pulumi.Output<boolean | undefined>;
     /**
@@ -509,15 +516,15 @@ export interface LinuxFunctionAppSlotState {
     /**
      * The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App.
      *
-     * > **NOTE:** `storageKeyVaultSecretId` cannot be used with `storageAccountName`.
+     * > **Note:** `storageKeyVaultSecretId` cannot be used with `storageAccountName`.
      *
-     * > **NOTE:** `storageKeyVaultSecretId` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
+     * > **Note:** `storageKeyVaultSecretId` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
      */
     storageKeyVaultSecretId?: pulumi.Input<string>;
     /**
      * Should the Function App Slot use its Managed Identity to access storage.
      *
-     * > **NOTE:** One of `storageAccountAccessKey` or `storageUsesManagedIdentity` must be specified when using `storageAccountName`.
+     * > **Note:** One of `storageAccountAccessKey` or `storageUsesManagedIdentity` must be specified when using `storageAccountName`.
      */
     storageUsesManagedIdentity?: pulumi.Input<boolean>;
     /**
@@ -648,15 +655,15 @@ export interface LinuxFunctionAppSlotArgs {
     /**
      * The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App.
      *
-     * > **NOTE:** `storageKeyVaultSecretId` cannot be used with `storageAccountName`.
+     * > **Note:** `storageKeyVaultSecretId` cannot be used with `storageAccountName`.
      *
-     * > **NOTE:** `storageKeyVaultSecretId` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
+     * > **Note:** `storageKeyVaultSecretId` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
      */
     storageKeyVaultSecretId?: pulumi.Input<string>;
     /**
      * Should the Function App Slot use its Managed Identity to access storage.
      *
-     * > **NOTE:** One of `storageAccountAccessKey` or `storageUsesManagedIdentity` must be specified when using `storageAccountName`.
+     * > **Note:** One of `storageAccountAccessKey` or `storageUsesManagedIdentity` must be specified when using `storageAccountName`.
      */
     storageUsesManagedIdentity?: pulumi.Input<boolean>;
     /**

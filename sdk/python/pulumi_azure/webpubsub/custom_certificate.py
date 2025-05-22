@@ -243,6 +243,13 @@ class CustomCertificate(pulumi.CustomResource):
             opts = pulumi.ResourceOptions(depends_on=[example_azurerm_key_vault_access_policy]))
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.SignalRService`: 2024-03-01
+
         ## Import
 
         Custom Certificate for a Web PubSub service can be imported using the `resource id`, e.g.
@@ -340,6 +347,13 @@ class CustomCertificate(pulumi.CustomResource):
             custom_certificate_id=example_certificate.id,
             opts = pulumi.ResourceOptions(depends_on=[example_azurerm_key_vault_access_policy]))
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.SignalRService`: 2024-03-01
 
         ## Import
 

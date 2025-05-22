@@ -55,6 +55,13 @@ public final class ExtendedlocationFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ExtendedLocation`: 2021-08-15
+     * 
      */
     public static Output<GetCustomLocationResult> getCustomLocation(GetCustomLocationArgs args) {
         return getCustomLocation(args, InvokeOptions.Empty);
@@ -98,6 +105,13 @@ public final class ExtendedlocationFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ExtendedLocation`: 2021-08-15
      * 
      */
     public static CompletableFuture<GetCustomLocationResult> getCustomLocationPlain(GetCustomLocationPlainArgs args) {
@@ -143,6 +157,13 @@ public final class ExtendedlocationFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ExtendedLocation`: 2021-08-15
+     * 
      */
     public static Output<GetCustomLocationResult> getCustomLocation(GetCustomLocationArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:extendedlocation/getCustomLocation:getCustomLocation", TypeShape.of(GetCustomLocationResult.class), args, Utilities.withVersion(options));
@@ -187,6 +208,13 @@ public final class ExtendedlocationFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ExtendedLocation`: 2021-08-15
+     * 
      */
     public static Output<GetCustomLocationResult> getCustomLocation(GetCustomLocationArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:extendedlocation/getCustomLocation:getCustomLocation", TypeShape.of(GetCustomLocationResult.class), args, Utilities.withVersion(options));
@@ -230,6 +258,13 @@ public final class ExtendedlocationFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ExtendedLocation`: 2021-08-15
      * 
      */
     public static CompletableFuture<GetCustomLocationResult> getCustomLocationPlain(GetCustomLocationPlainArgs args, InvokeOptions options) {

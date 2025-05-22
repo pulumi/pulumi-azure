@@ -193,6 +193,13 @@ class HybridRunbookWorkerGroup(pulumi.CustomResource):
             automation_account_name=example_account.name)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Automation`: 2023-11-01
+
         ## Import
 
         Automations can be imported using the `resource id`, e.g.
@@ -236,6 +243,13 @@ class HybridRunbookWorkerGroup(pulumi.CustomResource):
             resource_group_name=example.name,
             automation_account_name=example_account.name)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Automation`: 2023-11-01
 
         ## Import
 

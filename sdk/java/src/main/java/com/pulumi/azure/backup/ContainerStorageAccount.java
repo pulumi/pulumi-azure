@@ -123,7 +123,7 @@ public class ContainerStorageAccount extends com.pulumi.resources.CustomResource
     /**
      * The ID of the Storage Account to be registered Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE** Azure Backup places a Resource Lock on the storage account that will cause deletion to fail until the account is unregistered from Azure Backup
+     * &gt; **Note:** Azure Backup places a Resource Lock on the storage account that will cause deletion to fail until the account is unregistered from Azure Backup
      * 
      */
     @Export(name="storageAccountId", refs={String.class}, tree="[0]")
@@ -132,7 +132,7 @@ public class ContainerStorageAccount extends com.pulumi.resources.CustomResource
     /**
      * @return The ID of the Storage Account to be registered Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE** Azure Backup places a Resource Lock on the storage account that will cause deletion to fail until the account is unregistered from Azure Backup
+     * &gt; **Note:** Azure Backup places a Resource Lock on the storage account that will cause deletion to fail until the account is unregistered from Azure Backup
      * 
      */
     public Output<String> storageAccountId() {

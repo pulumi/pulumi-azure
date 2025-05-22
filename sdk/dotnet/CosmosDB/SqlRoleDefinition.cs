@@ -96,7 +96,7 @@ namespace Pulumi.Azure.CosmosDB
         /// <summary>
         /// A list of fully qualified scopes at or below which Role Assignments may be created using this Cosmos DB SQL Role Definition. It will allow application of this Cosmos DB SQL Role Definition on the entire Database Account or any underlying Database/Collection. Scopes higher than Database Account are not enforceable as assignable scopes.
         /// 
-        /// &gt; **NOTE:** The resources referenced in assignable scopes need not exist.
+        /// &gt; **Note:** The resources referenced in assignable scopes need not exist.
         /// </summary>
         [Output("assignableScopes")]
         public Output<ImmutableArray<string>> AssignableScopes { get; private set; } = null!;
@@ -189,7 +189,7 @@ namespace Pulumi.Azure.CosmosDB
         /// <summary>
         /// A list of fully qualified scopes at or below which Role Assignments may be created using this Cosmos DB SQL Role Definition. It will allow application of this Cosmos DB SQL Role Definition on the entire Database Account or any underlying Database/Collection. Scopes higher than Database Account are not enforceable as assignable scopes.
         /// 
-        /// &gt; **NOTE:** The resources referenced in assignable scopes need not exist.
+        /// &gt; **Note:** The resources referenced in assignable scopes need not exist.
         /// </summary>
         public InputList<string> AssignableScopes
         {
@@ -253,7 +253,7 @@ namespace Pulumi.Azure.CosmosDB
         /// <summary>
         /// A list of fully qualified scopes at or below which Role Assignments may be created using this Cosmos DB SQL Role Definition. It will allow application of this Cosmos DB SQL Role Definition on the entire Database Account or any underlying Database/Collection. Scopes higher than Database Account are not enforceable as assignable scopes.
         /// 
-        /// &gt; **NOTE:** The resources referenced in assignable scopes need not exist.
+        /// &gt; **Note:** The resources referenced in assignable scopes need not exist.
         /// </summary>
         public InputList<string> AssignableScopes
         {

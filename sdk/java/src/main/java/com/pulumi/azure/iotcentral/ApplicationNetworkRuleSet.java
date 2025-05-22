@@ -84,6 +84,13 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.IoTCentral`: 2021-11-01-preview
+ * 
  * ## Import
  * 
  * IoT Central Application Network Rule Sets can be imported using the `resource id`, e.g.

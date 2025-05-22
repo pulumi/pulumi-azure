@@ -63,6 +63,13 @@ namespace Pulumi.Azure.Maintenance
     /// });
     /// ```
     /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.Maintenance`: 2023-04-01
+    /// 
     /// ## Import
     /// 
     /// Maintenance Assignment can be imported using the `resource id`, e.g.

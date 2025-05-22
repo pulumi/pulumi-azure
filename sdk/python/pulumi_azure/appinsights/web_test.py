@@ -524,6 +524,13 @@ class WebTest(pulumi.CustomResource):
         pulumi.export("webtestsSyntheticId", example_web_test.synthetic_monitor_id)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Insights`: 2022-06-15
+
         ## Import
 
         Application Insights Web Tests can be imported using the `resource id`, e.g.
@@ -595,6 +602,13 @@ class WebTest(pulumi.CustomResource):
         pulumi.export("webtestId", example_web_test.id)
         pulumi.export("webtestsSyntheticId", example_web_test.synthetic_monitor_id)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Insights`: 2022-06-15
 
         ## Import
 

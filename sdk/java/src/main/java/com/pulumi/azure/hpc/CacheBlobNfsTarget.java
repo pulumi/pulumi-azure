@@ -18,9 +18,11 @@ import javax.annotation.Nullable;
 /**
  * Manages a Blob NFSv3 Target within a HPC Cache.
  * 
- * &gt; **NOTE:**: By request of the service team the provider no longer automatically registering the `Microsoft.StorageCache` Resource Provider for this resource. To register it you can run `az provider register --namespace &#39;Microsoft.StorageCache&#39;`.
+ * !&gt; **Note:** The `azure.hpc.CacheBlobNfsTarget` resource has been deprecated because the service is retiring on 2025-09-30. This resource will be removed in v5.0 of the AzureRM Provider. See https://aka.ms/hpccacheretirement for more information.
  * 
- * &gt; **NOTE:**: This resource depends on the NFSv3 enabled Storage Account, which has some prerequisites need to meet. Please checkout: &lt;https://docs.microsoft.com/azure/storage/blobs/network-file-system-protocol-support-how-to?tabs=azure-powershell&gt;.
+ * &gt; **Note:** By request of the service team the provider no longer automatically registers the `Microsoft.StorageCache` Resource Provider for this resource. To register it you can run `az provider register --namespace &#39;Microsoft.StorageCache&#39;`.
+ * 
+ * &gt; **Note:** This resource depends on the NFSv3 enabled Storage Account, which has some prerequisites need to meet. Please checkout: &lt;https://docs.microsoft.com/azure/storage/blobs/network-file-system-protocol-support-how-to?tabs=azure-powershell&gt;.
  * 
  * ## Import
  * 

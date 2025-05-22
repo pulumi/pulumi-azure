@@ -336,6 +336,13 @@ class Certificate(pulumi.CustomResource):
             thumbprint_algorithm="SHA1")
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Batch`: 2024-07-01
+
         ## Import
 
         Batch Certificates can be imported using the `resource id`, e.g.
@@ -398,6 +405,13 @@ class Certificate(pulumi.CustomResource):
             thumbprint="42C107874FD0E4A9583292A2F1098E8FE4B2EDDA",
             thumbprint_algorithm="SHA1")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Batch`: 2024-07-01
 
         ## Import
 

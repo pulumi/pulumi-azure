@@ -203,6 +203,13 @@ class StaticWebAppCustomDomain(pulumi.CustomResource):
             }])
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Web`: 2023-01-01
+
         ## Import
 
         Static Site Custom Domains can be imported using the `resource id`, e.g.
@@ -280,6 +287,13 @@ class StaticWebAppCustomDomain(pulumi.CustomResource):
                 "value": example_static_web_app_custom_domain.validation_token,
             }])
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Web`: 2023-01-01
 
         ## Import
 

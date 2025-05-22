@@ -19,7 +19,7 @@ import javax.annotation.Nullable;
 /**
  * Manages the registration of a Resource Provider - which allows access to the API&#39;s supported by this Resource Provider.
  * 
- * &gt; The Azure Provider will automatically register all of the Resource Providers which it supports on launch (unless opted-out using the `skip_provider_registration` field within the provider block).
+ * &gt; **Note:** The Azure Provider will automatically register all of the Resource Providers which it supports on launch (unless opted-out using the `skip_provider_registration` field within the provider block).
  * 
  * !&gt; **Note:** The errors returned from the Azure API when a Resource Provider is unregistered are unclear (example `API version &#39;2019-01-01&#39; was not found for &#39;Microsoft.Foo&#39;`) - please ensure that all of the necessary Resource Providers you&#39;re using are registered - if in doubt **we strongly recommend letting the provider register these for you**.
  * 
@@ -99,6 +99,13 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.Features`: 2021-07-01
  * 
  * ## Import
  * 

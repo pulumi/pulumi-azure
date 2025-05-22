@@ -37,6 +37,13 @@ import (
 //	}
 //
 // ```
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This data source uses the following Azure API Providers:
+//
+// * `Microsoft.Web`: 2023-01-01
 func LookupSourceControlToken(ctx *pulumi.Context, args *LookupSourceControlTokenArgs, opts ...pulumi.InvokeOption) (*LookupSourceControlTokenResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSourceControlTokenResult

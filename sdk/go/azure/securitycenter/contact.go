@@ -14,7 +14,7 @@ import (
 
 // Manages the subscription's Security Center Contact.
 //
-// > **NOTE:** Owner access permission is required.
+// > **Note:** Owner access permission is required.
 //
 // ## Example Usage
 //

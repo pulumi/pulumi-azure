@@ -1038,7 +1038,7 @@ type ActionGroupItsmReceiver struct {
 	Name string `pulumi:"name"`
 	// The region of the workspace.
 	//
-	// > **NOTE** `ticketConfiguration` should be JSON blob with `PayloadRevision` and `WorkItemType` keys (e.g., `ticket_configuration="{\"PayloadRevision\":0,\"WorkItemType\":\"Incident\"}"`), and `ticket_configuration="{}"` will return an error, see more at this [REST API issue](https://github.com/Azure/azure-rest-api-specs/issues/20488)
+	// > **Note:** `ticketConfiguration` should be JSON blob with `PayloadRevision` and `WorkItemType` keys (e.g., `ticket_configuration="{\"PayloadRevision\":0,\"WorkItemType\":\"Incident\"}"`), and `ticket_configuration="{}"` will return an error, see more at this [REST API issue](https://github.com/Azure/azure-rest-api-specs/issues/20488)
 	Region string `pulumi:"region"`
 	// A JSON blob for the configurations of the ITSM action. CreateMultipleWorkItems option will be part of this blob as well.
 	TicketConfiguration string `pulumi:"ticketConfiguration"`
@@ -1064,7 +1064,7 @@ type ActionGroupItsmReceiverArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// The region of the workspace.
 	//
-	// > **NOTE** `ticketConfiguration` should be JSON blob with `PayloadRevision` and `WorkItemType` keys (e.g., `ticket_configuration="{\"PayloadRevision\":0,\"WorkItemType\":\"Incident\"}"`), and `ticket_configuration="{}"` will return an error, see more at this [REST API issue](https://github.com/Azure/azure-rest-api-specs/issues/20488)
+	// > **Note:** `ticketConfiguration` should be JSON blob with `PayloadRevision` and `WorkItemType` keys (e.g., `ticket_configuration="{\"PayloadRevision\":0,\"WorkItemType\":\"Incident\"}"`), and `ticket_configuration="{}"` will return an error, see more at this [REST API issue](https://github.com/Azure/azure-rest-api-specs/issues/20488)
 	Region pulumi.StringInput `pulumi:"region"`
 	// A JSON blob for the configurations of the ITSM action. CreateMultipleWorkItems option will be part of this blob as well.
 	TicketConfiguration pulumi.StringInput `pulumi:"ticketConfiguration"`
@@ -1135,7 +1135,7 @@ func (o ActionGroupItsmReceiverOutput) Name() pulumi.StringOutput {
 
 // The region of the workspace.
 //
-// > **NOTE** `ticketConfiguration` should be JSON blob with `PayloadRevision` and `WorkItemType` keys (e.g., `ticket_configuration="{\"PayloadRevision\":0,\"WorkItemType\":\"Incident\"}"`), and `ticket_configuration="{}"` will return an error, see more at this [REST API issue](https://github.com/Azure/azure-rest-api-specs/issues/20488)
+// > **Note:** `ticketConfiguration` should be JSON blob with `PayloadRevision` and `WorkItemType` keys (e.g., `ticket_configuration="{\"PayloadRevision\":0,\"WorkItemType\":\"Incident\"}"`), and `ticket_configuration="{}"` will return an error, see more at this [REST API issue](https://github.com/Azure/azure-rest-api-specs/issues/20488)
 func (o ActionGroupItsmReceiverOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v ActionGroupItsmReceiver) string { return v.Region }).(pulumi.StringOutput)
 }
@@ -1527,7 +1527,7 @@ func (o ActionGroupVoiceReceiverArrayOutput) Index(i pulumi.IntInput) ActionGrou
 type ActionGroupWebhookReceiver struct {
 	// The `aadAuth` block as defined below.
 	//
-	// > **NOTE:** Before adding a secure webhook receiver by setting `aadAuth`, please read [the configuration instruction of the AAD application](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups#secure-webhook).
+	// > **Note:** Before adding a secure webhook receiver by setting `aadAuth`, please read [the configuration instruction of the AAD application](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups#secure-webhook).
 	AadAuth *ActionGroupWebhookReceiverAadAuth `pulumi:"aadAuth"`
 	// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
 	Name string `pulumi:"name"`
@@ -1551,7 +1551,7 @@ type ActionGroupWebhookReceiverInput interface {
 type ActionGroupWebhookReceiverArgs struct {
 	// The `aadAuth` block as defined below.
 	//
-	// > **NOTE:** Before adding a secure webhook receiver by setting `aadAuth`, please read [the configuration instruction of the AAD application](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups#secure-webhook).
+	// > **Note:** Before adding a secure webhook receiver by setting `aadAuth`, please read [the configuration instruction of the AAD application](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups#secure-webhook).
 	AadAuth ActionGroupWebhookReceiverAadAuthPtrInput `pulumi:"aadAuth"`
 	// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -1614,7 +1614,7 @@ func (o ActionGroupWebhookReceiverOutput) ToActionGroupWebhookReceiverOutputWith
 
 // The `aadAuth` block as defined below.
 //
-// > **NOTE:** Before adding a secure webhook receiver by setting `aadAuth`, please read [the configuration instruction of the AAD application](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups#secure-webhook).
+// > **Note:** Before adding a secure webhook receiver by setting `aadAuth`, please read [the configuration instruction of the AAD application](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups#secure-webhook).
 func (o ActionGroupWebhookReceiverOutput) AadAuth() ActionGroupWebhookReceiverAadAuthPtrOutput {
 	return o.ApplyT(func(v ActionGroupWebhookReceiver) *ActionGroupWebhookReceiverAadAuth { return v.AadAuth }).(ActionGroupWebhookReceiverAadAuthPtrOutput)
 }
@@ -1944,7 +1944,7 @@ type ActivityLogAlertCriteria struct {
 	Level *string `pulumi:"level"`
 	// A list of severity level of the event. Possible values are `Verbose`, `Informational`, `Warning`, `Error`, and `Critical`.
 	//
-	// > **NOTE:** `level` and `levels` are mutually exclusive.
+	// > **Note:** `level` and `levels` are mutually exclusive.
 	Levels []string `pulumi:"levels"`
 	// The Resource Manager Role-Based Access Control operation name. Supported operation should be of the form: `<resourceProvider>/<resourceType>/<operation>`.
 	OperationName *string `pulumi:"operationName"`
@@ -1958,7 +1958,7 @@ type ActivityLogAlertCriteria struct {
 	ResourceGroup *string `pulumi:"resourceGroup"`
 	// A list of names of resource groups monitored by the activity log alert.
 	//
-	// > **NOTE:** `resourceGroup` and `resourceGroups` are mutually exclusive.
+	// > **Note:** `resourceGroup` and `resourceGroups` are mutually exclusive.
 	ResourceGroups []string `pulumi:"resourceGroups"`
 	// A block to define fine grain resource health settings.
 	ResourceHealth *ActivityLogAlertCriteriaResourceHealth `pulumi:"resourceHealth"`
@@ -1966,19 +1966,19 @@ type ActivityLogAlertCriteria struct {
 	ResourceId *string `pulumi:"resourceId"`
 	// A list of specific resources monitored by the activity log alert. It should be within one of the `scopes`.
 	//
-	// > **NOTE:** `resourceId` and `resourceIds` are mutually exclusive.
+	// > **Note:** `resourceId` and `resourceIds` are mutually exclusive.
 	ResourceIds []string `pulumi:"resourceIds"`
 	// The name of the resource provider monitored by the activity log alert.
 	ResourceProvider *string `pulumi:"resourceProvider"`
 	// A list of names of resource providers monitored by the activity log alert.
 	//
-	// > **NOTE:** `resourceProvider` and `resourceProviders` are mutually exclusive.
+	// > **Note:** `resourceProvider` and `resourceProviders` are mutually exclusive.
 	ResourceProviders []string `pulumi:"resourceProviders"`
 	// The resource type monitored by the activity log alert.
 	ResourceType *string `pulumi:"resourceType"`
 	// A list of resource types monitored by the activity log alert.
 	//
-	// > **NOTE:** `resourceType` and `resourceTypes` are mutually exclusive.
+	// > **Note:** `resourceType` and `resourceTypes` are mutually exclusive.
 	ResourceTypes []string `pulumi:"resourceTypes"`
 	// A block to define fine grain service health settings.
 	ServiceHealth *ActivityLogAlertCriteriaServiceHealth `pulumi:"serviceHealth"`
@@ -1986,13 +1986,13 @@ type ActivityLogAlertCriteria struct {
 	Status *string `pulumi:"status"`
 	// A list of status of the event. For example, `Started`, `Failed`, or `Succeeded`.
 	//
-	// > **NOTE:** `status` and `statuses` are mutually exclusive.
+	// > **Note:** `status` and `statuses` are mutually exclusive.
 	Statuses []string `pulumi:"statuses"`
 	// The sub status of the event.
 	SubStatus *string `pulumi:"subStatus"`
 	// A list of sub status of the event.
 	//
-	// > **NOTE:** `subStatus` and `subStatuses` are mutually exclusive.
+	// > **Note:** `subStatus` and `subStatuses` are mutually exclusive.
 	SubStatuses []string `pulumi:"subStatuses"`
 }
 
@@ -2016,7 +2016,7 @@ type ActivityLogAlertCriteriaArgs struct {
 	Level pulumi.StringPtrInput `pulumi:"level"`
 	// A list of severity level of the event. Possible values are `Verbose`, `Informational`, `Warning`, `Error`, and `Critical`.
 	//
-	// > **NOTE:** `level` and `levels` are mutually exclusive.
+	// > **Note:** `level` and `levels` are mutually exclusive.
 	Levels pulumi.StringArrayInput `pulumi:"levels"`
 	// The Resource Manager Role-Based Access Control operation name. Supported operation should be of the form: `<resourceProvider>/<resourceType>/<operation>`.
 	OperationName pulumi.StringPtrInput `pulumi:"operationName"`
@@ -2030,7 +2030,7 @@ type ActivityLogAlertCriteriaArgs struct {
 	ResourceGroup pulumi.StringPtrInput `pulumi:"resourceGroup"`
 	// A list of names of resource groups monitored by the activity log alert.
 	//
-	// > **NOTE:** `resourceGroup` and `resourceGroups` are mutually exclusive.
+	// > **Note:** `resourceGroup` and `resourceGroups` are mutually exclusive.
 	ResourceGroups pulumi.StringArrayInput `pulumi:"resourceGroups"`
 	// A block to define fine grain resource health settings.
 	ResourceHealth ActivityLogAlertCriteriaResourceHealthPtrInput `pulumi:"resourceHealth"`
@@ -2038,19 +2038,19 @@ type ActivityLogAlertCriteriaArgs struct {
 	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
 	// A list of specific resources monitored by the activity log alert. It should be within one of the `scopes`.
 	//
-	// > **NOTE:** `resourceId` and `resourceIds` are mutually exclusive.
+	// > **Note:** `resourceId` and `resourceIds` are mutually exclusive.
 	ResourceIds pulumi.StringArrayInput `pulumi:"resourceIds"`
 	// The name of the resource provider monitored by the activity log alert.
 	ResourceProvider pulumi.StringPtrInput `pulumi:"resourceProvider"`
 	// A list of names of resource providers monitored by the activity log alert.
 	//
-	// > **NOTE:** `resourceProvider` and `resourceProviders` are mutually exclusive.
+	// > **Note:** `resourceProvider` and `resourceProviders` are mutually exclusive.
 	ResourceProviders pulumi.StringArrayInput `pulumi:"resourceProviders"`
 	// The resource type monitored by the activity log alert.
 	ResourceType pulumi.StringPtrInput `pulumi:"resourceType"`
 	// A list of resource types monitored by the activity log alert.
 	//
-	// > **NOTE:** `resourceType` and `resourceTypes` are mutually exclusive.
+	// > **Note:** `resourceType` and `resourceTypes` are mutually exclusive.
 	ResourceTypes pulumi.StringArrayInput `pulumi:"resourceTypes"`
 	// A block to define fine grain service health settings.
 	ServiceHealth ActivityLogAlertCriteriaServiceHealthPtrInput `pulumi:"serviceHealth"`
@@ -2058,13 +2058,13 @@ type ActivityLogAlertCriteriaArgs struct {
 	Status pulumi.StringPtrInput `pulumi:"status"`
 	// A list of status of the event. For example, `Started`, `Failed`, or `Succeeded`.
 	//
-	// > **NOTE:** `status` and `statuses` are mutually exclusive.
+	// > **Note:** `status` and `statuses` are mutually exclusive.
 	Statuses pulumi.StringArrayInput `pulumi:"statuses"`
 	// The sub status of the event.
 	SubStatus pulumi.StringPtrInput `pulumi:"subStatus"`
 	// A list of sub status of the event.
 	//
-	// > **NOTE:** `subStatus` and `subStatuses` are mutually exclusive.
+	// > **Note:** `subStatus` and `subStatuses` are mutually exclusive.
 	SubStatuses pulumi.StringArrayInput `pulumi:"subStatuses"`
 }
 
@@ -2162,7 +2162,7 @@ func (o ActivityLogAlertCriteriaOutput) Level() pulumi.StringPtrOutput {
 
 // A list of severity level of the event. Possible values are `Verbose`, `Informational`, `Warning`, `Error`, and `Critical`.
 //
-// > **NOTE:** `level` and `levels` are mutually exclusive.
+// > **Note:** `level` and `levels` are mutually exclusive.
 func (o ActivityLogAlertCriteriaOutput) Levels() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ActivityLogAlertCriteria) []string { return v.Levels }).(pulumi.StringArrayOutput)
 }
@@ -2194,7 +2194,7 @@ func (o ActivityLogAlertCriteriaOutput) ResourceGroup() pulumi.StringPtrOutput {
 
 // A list of names of resource groups monitored by the activity log alert.
 //
-// > **NOTE:** `resourceGroup` and `resourceGroups` are mutually exclusive.
+// > **Note:** `resourceGroup` and `resourceGroups` are mutually exclusive.
 func (o ActivityLogAlertCriteriaOutput) ResourceGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ActivityLogAlertCriteria) []string { return v.ResourceGroups }).(pulumi.StringArrayOutput)
 }
@@ -2211,7 +2211,7 @@ func (o ActivityLogAlertCriteriaOutput) ResourceId() pulumi.StringPtrOutput {
 
 // A list of specific resources monitored by the activity log alert. It should be within one of the `scopes`.
 //
-// > **NOTE:** `resourceId` and `resourceIds` are mutually exclusive.
+// > **Note:** `resourceId` and `resourceIds` are mutually exclusive.
 func (o ActivityLogAlertCriteriaOutput) ResourceIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ActivityLogAlertCriteria) []string { return v.ResourceIds }).(pulumi.StringArrayOutput)
 }
@@ -2223,7 +2223,7 @@ func (o ActivityLogAlertCriteriaOutput) ResourceProvider() pulumi.StringPtrOutpu
 
 // A list of names of resource providers monitored by the activity log alert.
 //
-// > **NOTE:** `resourceProvider` and `resourceProviders` are mutually exclusive.
+// > **Note:** `resourceProvider` and `resourceProviders` are mutually exclusive.
 func (o ActivityLogAlertCriteriaOutput) ResourceProviders() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ActivityLogAlertCriteria) []string { return v.ResourceProviders }).(pulumi.StringArrayOutput)
 }
@@ -2235,7 +2235,7 @@ func (o ActivityLogAlertCriteriaOutput) ResourceType() pulumi.StringPtrOutput {
 
 // A list of resource types monitored by the activity log alert.
 //
-// > **NOTE:** `resourceType` and `resourceTypes` are mutually exclusive.
+// > **Note:** `resourceType` and `resourceTypes` are mutually exclusive.
 func (o ActivityLogAlertCriteriaOutput) ResourceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ActivityLogAlertCriteria) []string { return v.ResourceTypes }).(pulumi.StringArrayOutput)
 }
@@ -2252,7 +2252,7 @@ func (o ActivityLogAlertCriteriaOutput) Status() pulumi.StringPtrOutput {
 
 // A list of status of the event. For example, `Started`, `Failed`, or `Succeeded`.
 //
-// > **NOTE:** `status` and `statuses` are mutually exclusive.
+// > **Note:** `status` and `statuses` are mutually exclusive.
 func (o ActivityLogAlertCriteriaOutput) Statuses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ActivityLogAlertCriteria) []string { return v.Statuses }).(pulumi.StringArrayOutput)
 }
@@ -2264,7 +2264,7 @@ func (o ActivityLogAlertCriteriaOutput) SubStatus() pulumi.StringPtrOutput {
 
 // A list of sub status of the event.
 //
-// > **NOTE:** `subStatus` and `subStatuses` are mutually exclusive.
+// > **Note:** `subStatus` and `subStatuses` are mutually exclusive.
 func (o ActivityLogAlertCriteriaOutput) SubStatuses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ActivityLogAlertCriteria) []string { return v.SubStatuses }).(pulumi.StringArrayOutput)
 }
@@ -2325,7 +2325,7 @@ func (o ActivityLogAlertCriteriaPtrOutput) Level() pulumi.StringPtrOutput {
 
 // A list of severity level of the event. Possible values are `Verbose`, `Informational`, `Warning`, `Error`, and `Critical`.
 //
-// > **NOTE:** `level` and `levels` are mutually exclusive.
+// > **Note:** `level` and `levels` are mutually exclusive.
 func (o ActivityLogAlertCriteriaPtrOutput) Levels() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ActivityLogAlertCriteria) []string {
 		if v == nil {
@@ -2387,7 +2387,7 @@ func (o ActivityLogAlertCriteriaPtrOutput) ResourceGroup() pulumi.StringPtrOutpu
 
 // A list of names of resource groups monitored by the activity log alert.
 //
-// > **NOTE:** `resourceGroup` and `resourceGroups` are mutually exclusive.
+// > **Note:** `resourceGroup` and `resourceGroups` are mutually exclusive.
 func (o ActivityLogAlertCriteriaPtrOutput) ResourceGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ActivityLogAlertCriteria) []string {
 		if v == nil {
@@ -2419,7 +2419,7 @@ func (o ActivityLogAlertCriteriaPtrOutput) ResourceId() pulumi.StringPtrOutput {
 
 // A list of specific resources monitored by the activity log alert. It should be within one of the `scopes`.
 //
-// > **NOTE:** `resourceId` and `resourceIds` are mutually exclusive.
+// > **Note:** `resourceId` and `resourceIds` are mutually exclusive.
 func (o ActivityLogAlertCriteriaPtrOutput) ResourceIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ActivityLogAlertCriteria) []string {
 		if v == nil {
@@ -2441,7 +2441,7 @@ func (o ActivityLogAlertCriteriaPtrOutput) ResourceProvider() pulumi.StringPtrOu
 
 // A list of names of resource providers monitored by the activity log alert.
 //
-// > **NOTE:** `resourceProvider` and `resourceProviders` are mutually exclusive.
+// > **Note:** `resourceProvider` and `resourceProviders` are mutually exclusive.
 func (o ActivityLogAlertCriteriaPtrOutput) ResourceProviders() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ActivityLogAlertCriteria) []string {
 		if v == nil {
@@ -2463,7 +2463,7 @@ func (o ActivityLogAlertCriteriaPtrOutput) ResourceType() pulumi.StringPtrOutput
 
 // A list of resource types monitored by the activity log alert.
 //
-// > **NOTE:** `resourceType` and `resourceTypes` are mutually exclusive.
+// > **Note:** `resourceType` and `resourceTypes` are mutually exclusive.
 func (o ActivityLogAlertCriteriaPtrOutput) ResourceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ActivityLogAlertCriteria) []string {
 		if v == nil {
@@ -2495,7 +2495,7 @@ func (o ActivityLogAlertCriteriaPtrOutput) Status() pulumi.StringPtrOutput {
 
 // A list of status of the event. For example, `Started`, `Failed`, or `Succeeded`.
 //
-// > **NOTE:** `status` and `statuses` are mutually exclusive.
+// > **Note:** `status` and `statuses` are mutually exclusive.
 func (o ActivityLogAlertCriteriaPtrOutput) Statuses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ActivityLogAlertCriteria) []string {
 		if v == nil {
@@ -2517,7 +2517,7 @@ func (o ActivityLogAlertCriteriaPtrOutput) SubStatus() pulumi.StringPtrOutput {
 
 // A list of sub status of the event.
 //
-// > **NOTE:** `subStatus` and `subStatuses` are mutually exclusive.
+// > **Note:** `subStatus` and `subStatuses` are mutually exclusive.
 func (o ActivityLogAlertCriteriaPtrOutput) SubStatuses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ActivityLogAlertCriteria) []string {
 		if v == nil {
@@ -9620,7 +9620,7 @@ type AutoscaleSettingProfileCapacity struct {
 	Default int `pulumi:"default"`
 	// The maximum number of instances for this resource. Valid values are between `0` and `1000`.
 	//
-	// > **NOTE:** The maximum number of instances is also limited by the amount of Cores available in the subscription.
+	// > **Note:** The maximum number of instances is also limited by the amount of Cores available in the subscription.
 	Maximum int `pulumi:"maximum"`
 	// The minimum number of instances for this resource. Valid values are between `0` and `1000`.
 	Minimum int `pulumi:"minimum"`
@@ -9642,7 +9642,7 @@ type AutoscaleSettingProfileCapacityArgs struct {
 	Default pulumi.IntInput `pulumi:"default"`
 	// The maximum number of instances for this resource. Valid values are between `0` and `1000`.
 	//
-	// > **NOTE:** The maximum number of instances is also limited by the amount of Cores available in the subscription.
+	// > **Note:** The maximum number of instances is also limited by the amount of Cores available in the subscription.
 	Maximum pulumi.IntInput `pulumi:"maximum"`
 	// The minimum number of instances for this resource. Valid values are between `0` and `1000`.
 	Minimum pulumi.IntInput `pulumi:"minimum"`
@@ -9681,7 +9681,7 @@ func (o AutoscaleSettingProfileCapacityOutput) Default() pulumi.IntOutput {
 
 // The maximum number of instances for this resource. Valid values are between `0` and `1000`.
 //
-// > **NOTE:** The maximum number of instances is also limited by the amount of Cores available in the subscription.
+// > **Note:** The maximum number of instances is also limited by the amount of Cores available in the subscription.
 func (o AutoscaleSettingProfileCapacityOutput) Maximum() pulumi.IntOutput {
 	return o.ApplyT(func(v AutoscaleSettingProfileCapacity) int { return v.Maximum }).(pulumi.IntOutput)
 }
@@ -10173,7 +10173,7 @@ type AutoscaleSettingProfileRuleMetricTrigger struct {
 	DivideByInstanceCount *bool `pulumi:"divideByInstanceCount"`
 	// The name of the metric that defines what the rule monitors, such as `Percentage CPU` for `Virtual Machine Scale Sets` and `CpuPercentage` for `App Service Plan`.
 	//
-	// > **NOTE:** The allowed value of `metricName` highly depends on the targeting resource type, please visit [Supported metrics with Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported) for more details.
+	// > **Note:** The allowed value of `metricName` highly depends on the targeting resource type, please visit [Supported metrics with Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported) for more details.
 	MetricName string `pulumi:"metricName"`
 	// The namespace of the metric that defines what the rule monitors, such as `microsoft.compute/virtualmachinescalesets` for `Virtual Machine Scale Sets`.
 	MetricNamespace *string `pulumi:"metricNamespace"`
@@ -10211,7 +10211,7 @@ type AutoscaleSettingProfileRuleMetricTriggerArgs struct {
 	DivideByInstanceCount pulumi.BoolPtrInput `pulumi:"divideByInstanceCount"`
 	// The name of the metric that defines what the rule monitors, such as `Percentage CPU` for `Virtual Machine Scale Sets` and `CpuPercentage` for `App Service Plan`.
 	//
-	// > **NOTE:** The allowed value of `metricName` highly depends on the targeting resource type, please visit [Supported metrics with Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported) for more details.
+	// > **Note:** The allowed value of `metricName` highly depends on the targeting resource type, please visit [Supported metrics with Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported) for more details.
 	MetricName pulumi.StringInput `pulumi:"metricName"`
 	// The namespace of the metric that defines what the rule monitors, such as `microsoft.compute/virtualmachinescalesets` for `Virtual Machine Scale Sets`.
 	MetricNamespace pulumi.StringPtrInput `pulumi:"metricNamespace"`
@@ -10271,7 +10271,7 @@ func (o AutoscaleSettingProfileRuleMetricTriggerOutput) DivideByInstanceCount() 
 
 // The name of the metric that defines what the rule monitors, such as `Percentage CPU` for `Virtual Machine Scale Sets` and `CpuPercentage` for `App Service Plan`.
 //
-// > **NOTE:** The allowed value of `metricName` highly depends on the targeting resource type, please visit [Supported metrics with Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported) for more details.
+// > **Note:** The allowed value of `metricName` highly depends on the targeting resource type, please visit [Supported metrics with Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported) for more details.
 func (o AutoscaleSettingProfileRuleMetricTriggerOutput) MetricName() pulumi.StringOutput {
 	return o.ApplyT(func(v AutoscaleSettingProfileRuleMetricTrigger) string { return v.MetricName }).(pulumi.StringOutput)
 }
@@ -12689,9 +12689,9 @@ type DataCollectionRuleDestinations struct {
 	StorageBlobs []DataCollectionRuleDestinationsStorageBlob `pulumi:"storageBlobs"`
 	// One or more `storageTableDirect` blocks as defined below.
 	//
-	// > **NOTE** `eventHubDirect`, `storageBlobDirect`, and `storageTableDirect` are only available for rules of kind `AgentDirectToStore`.
+	// > **Note:** `eventHubDirect`, `storageBlobDirect`, and `storageTableDirect` are only available for rules of kind `AgentDirectToStore`.
 	//
-	// > **NOTE** At least one of `azureMonitorMetrics`, `eventHub`, `eventHubDirect`, `logAnalytics`, `monitorAccount`, `storageBlob`, `storageBlobDirect`,and `storageTableDirect` blocks must be specified.
+	// > **Note:** At least one of `azureMonitorMetrics`, `eventHub`, `eventHubDirect`, `logAnalytics`, `monitorAccount`, `storageBlob`, `storageBlobDirect`,and `storageTableDirect` blocks must be specified.
 	StorageTableDirects []DataCollectionRuleDestinationsStorageTableDirect `pulumi:"storageTableDirects"`
 }
 
@@ -12723,9 +12723,9 @@ type DataCollectionRuleDestinationsArgs struct {
 	StorageBlobs DataCollectionRuleDestinationsStorageBlobArrayInput `pulumi:"storageBlobs"`
 	// One or more `storageTableDirect` blocks as defined below.
 	//
-	// > **NOTE** `eventHubDirect`, `storageBlobDirect`, and `storageTableDirect` are only available for rules of kind `AgentDirectToStore`.
+	// > **Note:** `eventHubDirect`, `storageBlobDirect`, and `storageTableDirect` are only available for rules of kind `AgentDirectToStore`.
 	//
-	// > **NOTE** At least one of `azureMonitorMetrics`, `eventHub`, `eventHubDirect`, `logAnalytics`, `monitorAccount`, `storageBlob`, `storageBlobDirect`,and `storageTableDirect` blocks must be specified.
+	// > **Note:** At least one of `azureMonitorMetrics`, `eventHub`, `eventHubDirect`, `logAnalytics`, `monitorAccount`, `storageBlob`, `storageBlobDirect`,and `storageTableDirect` blocks must be specified.
 	StorageTableDirects DataCollectionRuleDestinationsStorageTableDirectArrayInput `pulumi:"storageTableDirects"`
 }
 
@@ -12855,9 +12855,9 @@ func (o DataCollectionRuleDestinationsOutput) StorageBlobs() DataCollectionRuleD
 
 // One or more `storageTableDirect` blocks as defined below.
 //
-// > **NOTE** `eventHubDirect`, `storageBlobDirect`, and `storageTableDirect` are only available for rules of kind `AgentDirectToStore`.
+// > **Note:** `eventHubDirect`, `storageBlobDirect`, and `storageTableDirect` are only available for rules of kind `AgentDirectToStore`.
 //
-// > **NOTE** At least one of `azureMonitorMetrics`, `eventHub`, `eventHubDirect`, `logAnalytics`, `monitorAccount`, `storageBlob`, `storageBlobDirect`,and `storageTableDirect` blocks must be specified.
+// > **Note:** At least one of `azureMonitorMetrics`, `eventHub`, `eventHubDirect`, `logAnalytics`, `monitorAccount`, `storageBlob`, `storageBlobDirect`,and `storageTableDirect` blocks must be specified.
 func (o DataCollectionRuleDestinationsOutput) StorageTableDirects() DataCollectionRuleDestinationsStorageTableDirectArrayOutput {
 	return o.ApplyT(func(v DataCollectionRuleDestinations) []DataCollectionRuleDestinationsStorageTableDirect {
 		return v.StorageTableDirects
@@ -12960,9 +12960,9 @@ func (o DataCollectionRuleDestinationsPtrOutput) StorageBlobs() DataCollectionRu
 
 // One or more `storageTableDirect` blocks as defined below.
 //
-// > **NOTE** `eventHubDirect`, `storageBlobDirect`, and `storageTableDirect` are only available for rules of kind `AgentDirectToStore`.
+// > **Note:** `eventHubDirect`, `storageBlobDirect`, and `storageTableDirect` are only available for rules of kind `AgentDirectToStore`.
 //
-// > **NOTE** At least one of `azureMonitorMetrics`, `eventHub`, `eventHubDirect`, `logAnalytics`, `monitorAccount`, `storageBlob`, `storageBlobDirect`,and `storageTableDirect` blocks must be specified.
+// > **Note:** At least one of `azureMonitorMetrics`, `eventHub`, `eventHubDirect`, `logAnalytics`, `monitorAccount`, `storageBlob`, `storageBlobDirect`,and `storageTableDirect` blocks must be specified.
 func (o DataCollectionRuleDestinationsPtrOutput) StorageTableDirects() DataCollectionRuleDestinationsStorageTableDirectArrayOutput {
 	return o.ApplyT(func(v *DataCollectionRuleDestinations) []DataCollectionRuleDestinationsStorageTableDirect {
 		if v == nil {
@@ -13981,7 +13981,7 @@ func (o DataCollectionRuleDestinationsStorageTableDirectArrayOutput) Index(i pul
 type DataCollectionRuleIdentity struct {
 	// A list of User Assigned Managed Identity IDs to be assigned to this Data Collection Rule. Currently, up to 1 identity is supported.
 	//
-	// > **NOTE:** This is required when `type` is set to `UserAssigned`.
+	// > **Note:** This is required when `type` is set to `UserAssigned`.
 	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId *string `pulumi:"principalId"`
@@ -14005,7 +14005,7 @@ type DataCollectionRuleIdentityInput interface {
 type DataCollectionRuleIdentityArgs struct {
 	// A list of User Assigned Managed Identity IDs to be assigned to this Data Collection Rule. Currently, up to 1 identity is supported.
 	//
-	// > **NOTE:** This is required when `type` is set to `UserAssigned`.
+	// > **Note:** This is required when `type` is set to `UserAssigned`.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
@@ -14094,7 +14094,7 @@ func (o DataCollectionRuleIdentityOutput) ToDataCollectionRuleIdentityPtrOutputW
 
 // A list of User Assigned Managed Identity IDs to be assigned to this Data Collection Rule. Currently, up to 1 identity is supported.
 //
-// > **NOTE:** This is required when `type` is set to `UserAssigned`.
+// > **Note:** This is required when `type` is set to `UserAssigned`.
 func (o DataCollectionRuleIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataCollectionRuleIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
@@ -14140,7 +14140,7 @@ func (o DataCollectionRuleIdentityPtrOutput) Elem() DataCollectionRuleIdentityOu
 
 // A list of User Assigned Managed Identity IDs to be assigned to this Data Collection Rule. Currently, up to 1 identity is supported.
 //
-// > **NOTE:** This is required when `type` is set to `UserAssigned`.
+// > **Note:** This is required when `type` is set to `UserAssigned`.
 func (o DataCollectionRuleIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DataCollectionRuleIdentity) []string {
 		if v == nil {
@@ -16635,7 +16635,7 @@ type ScheduledQueryRulesAlertV2Criteria struct {
 	FailingPeriods *ScheduledQueryRulesAlertV2CriteriaFailingPeriods `pulumi:"failingPeriods"`
 	// Specifies the column containing the metric measure number.
 	//
-	// > **Note** `metricMeasureColumn` is required if `timeAggregationMethod` is `Average`, `Maximum`, `Minimum`, or `Total`. And `metricMeasureColumn` can not be specified if `timeAggregationMethod` is `Count`.
+	// > **Note:** `metricMeasureColumn` is required if `timeAggregationMethod` is `Average`, `Maximum`, `Minimum`, or `Total`. And `metricMeasureColumn` can not be specified if `timeAggregationMethod` is `Count`.
 	MetricMeasureColumn *string `pulumi:"metricMeasureColumn"`
 	// Specifies the criteria operator. Possible values are `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan`,and `LessThanOrEqual`.
 	Operator string `pulumi:"operator"`
@@ -16667,7 +16667,7 @@ type ScheduledQueryRulesAlertV2CriteriaArgs struct {
 	FailingPeriods ScheduledQueryRulesAlertV2CriteriaFailingPeriodsPtrInput `pulumi:"failingPeriods"`
 	// Specifies the column containing the metric measure number.
 	//
-	// > **Note** `metricMeasureColumn` is required if `timeAggregationMethod` is `Average`, `Maximum`, `Minimum`, or `Total`. And `metricMeasureColumn` can not be specified if `timeAggregationMethod` is `Count`.
+	// > **Note:** `metricMeasureColumn` is required if `timeAggregationMethod` is `Average`, `Maximum`, `Minimum`, or `Total`. And `metricMeasureColumn` can not be specified if `timeAggregationMethod` is `Count`.
 	MetricMeasureColumn pulumi.StringPtrInput `pulumi:"metricMeasureColumn"`
 	// Specifies the criteria operator. Possible values are `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan`,and `LessThanOrEqual`.
 	Operator pulumi.StringInput `pulumi:"operator"`
@@ -16748,7 +16748,7 @@ func (o ScheduledQueryRulesAlertV2CriteriaOutput) FailingPeriods() ScheduledQuer
 
 // Specifies the column containing the metric measure number.
 //
-// > **Note** `metricMeasureColumn` is required if `timeAggregationMethod` is `Average`, `Maximum`, `Minimum`, or `Total`. And `metricMeasureColumn` can not be specified if `timeAggregationMethod` is `Count`.
+// > **Note:** `metricMeasureColumn` is required if `timeAggregationMethod` is `Average`, `Maximum`, `Minimum`, or `Total`. And `metricMeasureColumn` can not be specified if `timeAggregationMethod` is `Count`.
 func (o ScheduledQueryRulesAlertV2CriteriaOutput) MetricMeasureColumn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScheduledQueryRulesAlertV2Criteria) *string { return v.MetricMeasureColumn }).(pulumi.StringPtrOutput)
 }
@@ -16918,9 +16918,9 @@ type ScheduledQueryRulesAlertV2CriteriaFailingPeriods struct {
 	MinimumFailingPeriodsToTriggerAlert int `pulumi:"minimumFailingPeriodsToTriggerAlert"`
 	// Specifies the number of aggregated look-back points. The look-back time window is calculated based on the aggregation granularity `windowDuration` and the selected number of aggregated points. Possible value is integer between 1 and 6.
 	//
-	// > **Note** The query look back which is `windowDuration`*`numberOfEvaluationPeriods` cannot exceed 48 hours.
+	// > **Note:** The query look back which is `windowDuration`*`numberOfEvaluationPeriods` cannot exceed 48 hours.
 	//
-	// > **Note** `numberOfEvaluationPeriods` must be `1` for queries that do not project timestamp column
+	// > **Note:** `numberOfEvaluationPeriods` must be `1` for queries that do not project timestamp column
 	NumberOfEvaluationPeriods int `pulumi:"numberOfEvaluationPeriods"`
 }
 
@@ -16940,9 +16940,9 @@ type ScheduledQueryRulesAlertV2CriteriaFailingPeriodsArgs struct {
 	MinimumFailingPeriodsToTriggerAlert pulumi.IntInput `pulumi:"minimumFailingPeriodsToTriggerAlert"`
 	// Specifies the number of aggregated look-back points. The look-back time window is calculated based on the aggregation granularity `windowDuration` and the selected number of aggregated points. Possible value is integer between 1 and 6.
 	//
-	// > **Note** The query look back which is `windowDuration`*`numberOfEvaluationPeriods` cannot exceed 48 hours.
+	// > **Note:** The query look back which is `windowDuration`*`numberOfEvaluationPeriods` cannot exceed 48 hours.
 	//
-	// > **Note** `numberOfEvaluationPeriods` must be `1` for queries that do not project timestamp column
+	// > **Note:** `numberOfEvaluationPeriods` must be `1` for queries that do not project timestamp column
 	NumberOfEvaluationPeriods pulumi.IntInput `pulumi:"numberOfEvaluationPeriods"`
 }
 
@@ -17032,9 +17032,9 @@ func (o ScheduledQueryRulesAlertV2CriteriaFailingPeriodsOutput) MinimumFailingPe
 
 // Specifies the number of aggregated look-back points. The look-back time window is calculated based on the aggregation granularity `windowDuration` and the selected number of aggregated points. Possible value is integer between 1 and 6.
 //
-// > **Note** The query look back which is `windowDuration`*`numberOfEvaluationPeriods` cannot exceed 48 hours.
+// > **Note:** The query look back which is `windowDuration`*`numberOfEvaluationPeriods` cannot exceed 48 hours.
 //
-// > **Note** `numberOfEvaluationPeriods` must be `1` for queries that do not project timestamp column
+// > **Note:** `numberOfEvaluationPeriods` must be `1` for queries that do not project timestamp column
 func (o ScheduledQueryRulesAlertV2CriteriaFailingPeriodsOutput) NumberOfEvaluationPeriods() pulumi.IntOutput {
 	return o.ApplyT(func(v ScheduledQueryRulesAlertV2CriteriaFailingPeriods) int { return v.NumberOfEvaluationPeriods }).(pulumi.IntOutput)
 }
@@ -17075,9 +17075,9 @@ func (o ScheduledQueryRulesAlertV2CriteriaFailingPeriodsPtrOutput) MinimumFailin
 
 // Specifies the number of aggregated look-back points. The look-back time window is calculated based on the aggregation granularity `windowDuration` and the selected number of aggregated points. Possible value is integer between 1 and 6.
 //
-// > **Note** The query look back which is `windowDuration`*`numberOfEvaluationPeriods` cannot exceed 48 hours.
+// > **Note:** The query look back which is `windowDuration`*`numberOfEvaluationPeriods` cannot exceed 48 hours.
 //
-// > **Note** `numberOfEvaluationPeriods` must be `1` for queries that do not project timestamp column
+// > **Note:** `numberOfEvaluationPeriods` must be `1` for queries that do not project timestamp column
 func (o ScheduledQueryRulesAlertV2CriteriaFailingPeriodsPtrOutput) NumberOfEvaluationPeriods() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ScheduledQueryRulesAlertV2CriteriaFailingPeriods) *int {
 		if v == nil {
@@ -17090,7 +17090,7 @@ func (o ScheduledQueryRulesAlertV2CriteriaFailingPeriodsPtrOutput) NumberOfEvalu
 type ScheduledQueryRulesAlertV2Identity struct {
 	// A list of User Assigned Managed Identity IDs to be assigned to this Scheduled Query Rule.
 	//
-	// > **NOTE:** This is required when `type` is set to `UserAssigned`. The identity associated must have required roles, read the [Azure documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-create-log-alert-rule#configure-the-alert-rule-details) for more information.
+	// > **Note:** This is required when `type` is set to `UserAssigned`. The identity associated must have required roles, read the [Azure documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-create-log-alert-rule#configure-the-alert-rule-details) for more information.
 	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service slot.
 	PrincipalId *string `pulumi:"principalId"`
@@ -17114,7 +17114,7 @@ type ScheduledQueryRulesAlertV2IdentityInput interface {
 type ScheduledQueryRulesAlertV2IdentityArgs struct {
 	// A list of User Assigned Managed Identity IDs to be assigned to this Scheduled Query Rule.
 	//
-	// > **NOTE:** This is required when `type` is set to `UserAssigned`. The identity associated must have required roles, read the [Azure documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-create-log-alert-rule#configure-the-alert-rule-details) for more information.
+	// > **Note:** This is required when `type` is set to `UserAssigned`. The identity associated must have required roles, read the [Azure documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-create-log-alert-rule#configure-the-alert-rule-details) for more information.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service slot.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
@@ -17203,7 +17203,7 @@ func (o ScheduledQueryRulesAlertV2IdentityOutput) ToScheduledQueryRulesAlertV2Id
 
 // A list of User Assigned Managed Identity IDs to be assigned to this Scheduled Query Rule.
 //
-// > **NOTE:** This is required when `type` is set to `UserAssigned`. The identity associated must have required roles, read the [Azure documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-create-log-alert-rule#configure-the-alert-rule-details) for more information.
+// > **Note:** This is required when `type` is set to `UserAssigned`. The identity associated must have required roles, read the [Azure documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-create-log-alert-rule#configure-the-alert-rule-details) for more information.
 func (o ScheduledQueryRulesAlertV2IdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ScheduledQueryRulesAlertV2Identity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
@@ -17249,7 +17249,7 @@ func (o ScheduledQueryRulesAlertV2IdentityPtrOutput) Elem() ScheduledQueryRulesA
 
 // A list of User Assigned Managed Identity IDs to be assigned to this Scheduled Query Rule.
 //
-// > **NOTE:** This is required when `type` is set to `UserAssigned`. The identity associated must have required roles, read the [Azure documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-create-log-alert-rule#configure-the-alert-rule-details) for more information.
+// > **Note:** This is required when `type` is set to `UserAssigned`. The identity associated must have required roles, read the [Azure documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-create-log-alert-rule#configure-the-alert-rule-details) for more information.
 func (o ScheduledQueryRulesAlertV2IdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ScheduledQueryRulesAlertV2Identity) []string {
 		if v == nil {

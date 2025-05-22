@@ -88,6 +88,13 @@ import javax.annotation.Nullable;
  * &lt;!--Start PulumiCodeChooser --&gt;
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.Sql`: 2023-08-01-preview
+ * 
  * ## Import
  * 
  * MS SQL Server Microsoft Support Auditing Policies can be imported using the `resource id`, e.g.
@@ -116,7 +123,7 @@ public class ServerMicrosoftSupportAuditingPolicy extends com.pulumi.resources.C
     /**
      * Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
      * 
-     * -&gt;**NOTE:**  If `enabled` is `true`, `blob_storage_endpoint` or `log_monitoring_enabled` are required.
+     * &gt; **Note:** If `enabled` is `true`, `blob_storage_endpoint` or `log_monitoring_enabled` are required.
      * 
      */
     @Export(name="enabled", refs={Boolean.class}, tree="[0]")
@@ -125,7 +132,7 @@ public class ServerMicrosoftSupportAuditingPolicy extends com.pulumi.resources.C
     /**
      * @return Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
      * 
-     * -&gt;**NOTE:**  If `enabled` is `true`, `blob_storage_endpoint` or `log_monitoring_enabled` are required.
+     * &gt; **Note:** If `enabled` is `true`, `blob_storage_endpoint` or `log_monitoring_enabled` are required.
      * 
      */
     public Output<Optional<Boolean>> enabled() {

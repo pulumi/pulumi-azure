@@ -158,6 +158,13 @@ def get_local_network_gateway(name: Optional[builtins.str] = None,
     pulumi.export("id", example.id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Network`: 2024-05-01
+
 
     :param builtins.str name: The name of the Local Network Gateway.
     :param builtins.str resource_group_name: The name of the Resource Group where the Local Network Gateway exists.
@@ -194,6 +201,13 @@ def get_local_network_gateway_output(name: Optional[pulumi.Input[builtins.str]] 
         resource_group_name="existing-resources")
     pulumi.export("id", example.id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Network`: 2024-05-01
 
 
     :param builtins.str name: The name of the Local Network Gateway.

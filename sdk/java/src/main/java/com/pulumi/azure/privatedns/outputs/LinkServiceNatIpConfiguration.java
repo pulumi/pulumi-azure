@@ -36,7 +36,7 @@ public final class LinkServiceNatIpConfiguration {
     /**
      * @return Specifies the ID of the Subnet which should be used for the Private Link Service.
      * 
-     * &gt; **NOTE:** Verify that the Subnet&#39;s `enforce_private_link_service_network_policies` attribute is set to `true`.
+     * &gt; **Note:** Verify that the Subnet&#39;s `enforce_private_link_service_network_policies` attribute is set to `true`.
      * 
      */
     private String subnetId;
@@ -73,7 +73,7 @@ public final class LinkServiceNatIpConfiguration {
     /**
      * @return Specifies the ID of the Subnet which should be used for the Private Link Service.
      * 
-     * &gt; **NOTE:** Verify that the Subnet&#39;s `enforce_private_link_service_network_policies` attribute is set to `true`.
+     * &gt; **Note:** Verify that the Subnet&#39;s `enforce_private_link_service_network_policies` attribute is set to `true`.
      * 
      */
     public String subnetId() {

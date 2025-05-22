@@ -58,6 +58,13 @@ public final class ConsumptionFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Consumption`: 2019-10-01
+     * 
      */
     public static Output<GetBudgetResourceGroupResult> getBudgetResourceGroup(GetBudgetResourceGroupArgs args) {
         return getBudgetResourceGroup(args, InvokeOptions.Empty);
@@ -101,6 +108,13 @@ public final class ConsumptionFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Consumption`: 2019-10-01
      * 
      */
     public static CompletableFuture<GetBudgetResourceGroupResult> getBudgetResourceGroupPlain(GetBudgetResourceGroupPlainArgs args) {
@@ -146,6 +160,13 @@ public final class ConsumptionFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Consumption`: 2019-10-01
+     * 
      */
     public static Output<GetBudgetResourceGroupResult> getBudgetResourceGroup(GetBudgetResourceGroupArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:consumption/getBudgetResourceGroup:getBudgetResourceGroup", TypeShape.of(GetBudgetResourceGroupResult.class), args, Utilities.withVersion(options));
@@ -189,6 +210,13 @@ public final class ConsumptionFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Consumption`: 2019-10-01
      * 
      */
     public static Output<GetBudgetResourceGroupResult> getBudgetResourceGroup(GetBudgetResourceGroupArgs args, InvokeOutputOptions options) {
@@ -234,6 +262,13 @@ public final class ConsumptionFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Consumption`: 2019-10-01
+     * 
      */
     public static CompletableFuture<GetBudgetResourceGroupResult> getBudgetResourceGroupPlain(GetBudgetResourceGroupPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:consumption/getBudgetResourceGroup:getBudgetResourceGroup", TypeShape.of(GetBudgetResourceGroupResult.class), args, Utilities.withVersion(options));
@@ -277,6 +312,13 @@ public final class ConsumptionFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Consumption`: 2019-10-01
      * 
      */
     public static Output<GetBudgetSubscriptionResult> getBudgetSubscription(GetBudgetSubscriptionArgs args) {
@@ -322,6 +364,13 @@ public final class ConsumptionFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Consumption`: 2019-10-01
+     * 
      */
     public static CompletableFuture<GetBudgetSubscriptionResult> getBudgetSubscriptionPlain(GetBudgetSubscriptionPlainArgs args) {
         return getBudgetSubscriptionPlain(args, InvokeOptions.Empty);
@@ -365,6 +414,13 @@ public final class ConsumptionFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Consumption`: 2019-10-01
      * 
      */
     public static Output<GetBudgetSubscriptionResult> getBudgetSubscription(GetBudgetSubscriptionArgs args, InvokeOptions options) {
@@ -410,6 +466,13 @@ public final class ConsumptionFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Consumption`: 2019-10-01
+     * 
      */
     public static Output<GetBudgetSubscriptionResult> getBudgetSubscription(GetBudgetSubscriptionArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:consumption/getBudgetSubscription:getBudgetSubscription", TypeShape.of(GetBudgetSubscriptionResult.class), args, Utilities.withVersion(options));
@@ -453,6 +516,13 @@ public final class ConsumptionFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Consumption`: 2019-10-01
      * 
      */
     public static CompletableFuture<GetBudgetSubscriptionResult> getBudgetSubscriptionPlain(GetBudgetSubscriptionPlainArgs args, InvokeOptions options) {

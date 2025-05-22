@@ -12,14 +12,96 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Manages a Dev Center Catalog.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/devcenter"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = devcenter.NewDevCenter(ctx, "example", &devcenter.DevCenterArgs{
+//				Location:          example.Location,
+//				Name:              pulumi.String("example"),
+//				ResourceGroupName: example.Name,
+//				Identity: &devcenter.DevCenterIdentityArgs{
+//					Type: pulumi.String("SystemAssigned"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = devcenter.NewCatalog(ctx, "example", &devcenter.CatalogArgs{
+//				Name:              pulumi.String("example"),
+//				ResourceGroupName: pulumi.Any(testAzurermResourceGroup.Name),
+//				DevCenterId:       pulumi.Any(test.Id),
+//				CatalogGithub: &devcenter.CatalogCatalogGithubArgs{
+//					Branch:         pulumi.String("foo"),
+//					Path:           pulumi.String(""),
+//					Uri:            pulumi.String("example URI"),
+//					KeyVaultKeyUrl: pulumi.String("secret"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.DevCenter`: 2025-02-01
+//
+// ## Import
+//
+// An existing Dev Center Catalog can be imported into Pulumi using the `resource id`, e.g.
+//
+// ```sh
+// $ pulumi import azure:devcenter/catalog:Catalog example /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevCenter/devCenters/{devCenterName}/catalogs/{catalogName}
+// ```
+//
+// * Where `{subscriptionId}` is the ID of the Azure Subscription where the Dev Center exists. For example `12345678-1234-9876-4563-123456789012`.
+//
+// * Where `{resourceGroupName}` is the name of Resource Group where this Dev Center exists. For example `example-resource-group`.
+//
+// * Where `{devCenterName}` is the name of the Dev Center. For example `devCenterValue`.
+//
+// * Where `{catalogName}` is the name of the Dev Center Catalog. For example `catalogValue`.
 type Catalog struct {
 	pulumi.CustomResourceState
 
-	CatalogAdogit     CatalogCatalogAdogitPtrOutput `pulumi:"catalogAdogit"`
-	CatalogGithub     CatalogCatalogGithubPtrOutput `pulumi:"catalogGithub"`
-	DevCenterId       pulumi.StringOutput           `pulumi:"devCenterId"`
-	Name              pulumi.StringOutput           `pulumi:"name"`
-	ResourceGroupName pulumi.StringOutput           `pulumi:"resourceGroupName"`
+	// A `catalogAdogit` block as defined below.
+	CatalogAdogit CatalogCatalogAdogitPtrOutput `pulumi:"catalogAdogit"`
+	// A `catalogGithub` block as defined below.
+	CatalogGithub CatalogCatalogGithubPtrOutput `pulumi:"catalogGithub"`
+	// Specifies the Dev Center Id within which this Dev Center Catalog should exist. Changing this forces a new Dev Center Catalog to be created.
+	DevCenterId pulumi.StringOutput `pulumi:"devCenterId"`
+	// Specifies the name of this Dev Center Catalog. Changing this forces a new Dev Center to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// Specifies the name of the Resource Group within which this Dev Center Catalog should exist. Changing this forces a new Dev Center to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 }
 
 // NewCatalog registers a new resource with the given unique name, arguments, and options.
@@ -58,18 +140,28 @@ func GetCatalog(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Catalog resources.
 type catalogState struct {
-	CatalogAdogit     *CatalogCatalogAdogit `pulumi:"catalogAdogit"`
-	CatalogGithub     *CatalogCatalogGithub `pulumi:"catalogGithub"`
-	DevCenterId       *string               `pulumi:"devCenterId"`
-	Name              *string               `pulumi:"name"`
-	ResourceGroupName *string               `pulumi:"resourceGroupName"`
+	// A `catalogAdogit` block as defined below.
+	CatalogAdogit *CatalogCatalogAdogit `pulumi:"catalogAdogit"`
+	// A `catalogGithub` block as defined below.
+	CatalogGithub *CatalogCatalogGithub `pulumi:"catalogGithub"`
+	// Specifies the Dev Center Id within which this Dev Center Catalog should exist. Changing this forces a new Dev Center Catalog to be created.
+	DevCenterId *string `pulumi:"devCenterId"`
+	// Specifies the name of this Dev Center Catalog. Changing this forces a new Dev Center to be created.
+	Name *string `pulumi:"name"`
+	// Specifies the name of the Resource Group within which this Dev Center Catalog should exist. Changing this forces a new Dev Center to be created.
+	ResourceGroupName *string `pulumi:"resourceGroupName"`
 }
 
 type CatalogState struct {
-	CatalogAdogit     CatalogCatalogAdogitPtrInput
-	CatalogGithub     CatalogCatalogGithubPtrInput
-	DevCenterId       pulumi.StringPtrInput
-	Name              pulumi.StringPtrInput
+	// A `catalogAdogit` block as defined below.
+	CatalogAdogit CatalogCatalogAdogitPtrInput
+	// A `catalogGithub` block as defined below.
+	CatalogGithub CatalogCatalogGithubPtrInput
+	// Specifies the Dev Center Id within which this Dev Center Catalog should exist. Changing this forces a new Dev Center Catalog to be created.
+	DevCenterId pulumi.StringPtrInput
+	// Specifies the name of this Dev Center Catalog. Changing this forces a new Dev Center to be created.
+	Name pulumi.StringPtrInput
+	// Specifies the name of the Resource Group within which this Dev Center Catalog should exist. Changing this forces a new Dev Center to be created.
 	ResourceGroupName pulumi.StringPtrInput
 }
 
@@ -78,19 +170,29 @@ func (CatalogState) ElementType() reflect.Type {
 }
 
 type catalogArgs struct {
-	CatalogAdogit     *CatalogCatalogAdogit `pulumi:"catalogAdogit"`
-	CatalogGithub     *CatalogCatalogGithub `pulumi:"catalogGithub"`
-	DevCenterId       string                `pulumi:"devCenterId"`
-	Name              *string               `pulumi:"name"`
-	ResourceGroupName string                `pulumi:"resourceGroupName"`
+	// A `catalogAdogit` block as defined below.
+	CatalogAdogit *CatalogCatalogAdogit `pulumi:"catalogAdogit"`
+	// A `catalogGithub` block as defined below.
+	CatalogGithub *CatalogCatalogGithub `pulumi:"catalogGithub"`
+	// Specifies the Dev Center Id within which this Dev Center Catalog should exist. Changing this forces a new Dev Center Catalog to be created.
+	DevCenterId string `pulumi:"devCenterId"`
+	// Specifies the name of this Dev Center Catalog. Changing this forces a new Dev Center to be created.
+	Name *string `pulumi:"name"`
+	// Specifies the name of the Resource Group within which this Dev Center Catalog should exist. Changing this forces a new Dev Center to be created.
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a Catalog resource.
 type CatalogArgs struct {
-	CatalogAdogit     CatalogCatalogAdogitPtrInput
-	CatalogGithub     CatalogCatalogGithubPtrInput
-	DevCenterId       pulumi.StringInput
-	Name              pulumi.StringPtrInput
+	// A `catalogAdogit` block as defined below.
+	CatalogAdogit CatalogCatalogAdogitPtrInput
+	// A `catalogGithub` block as defined below.
+	CatalogGithub CatalogCatalogGithubPtrInput
+	// Specifies the Dev Center Id within which this Dev Center Catalog should exist. Changing this forces a new Dev Center Catalog to be created.
+	DevCenterId pulumi.StringInput
+	// Specifies the name of this Dev Center Catalog. Changing this forces a new Dev Center to be created.
+	Name pulumi.StringPtrInput
+	// Specifies the name of the Resource Group within which this Dev Center Catalog should exist. Changing this forces a new Dev Center to be created.
 	ResourceGroupName pulumi.StringInput
 }
 
@@ -181,22 +283,27 @@ func (o CatalogOutput) ToCatalogOutputWithContext(ctx context.Context) CatalogOu
 	return o
 }
 
+// A `catalogAdogit` block as defined below.
 func (o CatalogOutput) CatalogAdogit() CatalogCatalogAdogitPtrOutput {
 	return o.ApplyT(func(v *Catalog) CatalogCatalogAdogitPtrOutput { return v.CatalogAdogit }).(CatalogCatalogAdogitPtrOutput)
 }
 
+// A `catalogGithub` block as defined below.
 func (o CatalogOutput) CatalogGithub() CatalogCatalogGithubPtrOutput {
 	return o.ApplyT(func(v *Catalog) CatalogCatalogGithubPtrOutput { return v.CatalogGithub }).(CatalogCatalogGithubPtrOutput)
 }
 
+// Specifies the Dev Center Id within which this Dev Center Catalog should exist. Changing this forces a new Dev Center Catalog to be created.
 func (o CatalogOutput) DevCenterId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Catalog) pulumi.StringOutput { return v.DevCenterId }).(pulumi.StringOutput)
 }
 
+// Specifies the name of this Dev Center Catalog. Changing this forces a new Dev Center to be created.
 func (o CatalogOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Catalog) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// Specifies the name of the Resource Group within which this Dev Center Catalog should exist. Changing this forces a new Dev Center to be created.
 func (o CatalogOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Catalog) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }

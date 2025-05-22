@@ -82,6 +82,13 @@ import (
 //
 // ```
 //
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.Kusto`: 2024-04-13
+//
 // ## Import
 //
 // Kusto Database Principal Assignment can be imported using the `resource id`, e.g.

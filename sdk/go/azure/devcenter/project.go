@@ -12,8 +12,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// <!-- Note: This documentation is generated. Any manual changes will be overwritten -->
-//
 // Manages a Dev Center Project.
 //
 // ## Example Usage
@@ -64,6 +62,13 @@ import (
 //
 // ```
 //
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.DevCenter`: 2025-02-01
+//
 // ## Import
 //
 // An existing Dev Center Project can be imported into Pulumi using the `resource id`, e.g.
@@ -86,6 +91,8 @@ type Project struct {
 	DevCenterId pulumi.StringOutput `pulumi:"devCenterId"`
 	// The URI of the Dev Center resource this project is associated with.
 	DevCenterUri pulumi.StringOutput `pulumi:"devCenterUri"`
+	// An `identity` block as defined below.
+	Identity ProjectIdentityPtrOutput `pulumi:"identity"`
 	// The Azure Region where the Dev Center Project should exist. Changing this forces a new Dev Center Project to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// When specified, limits the maximum number of Dev Boxes a single user can create across all pools in the project.
@@ -140,6 +147,8 @@ type projectState struct {
 	DevCenterId *string `pulumi:"devCenterId"`
 	// The URI of the Dev Center resource this project is associated with.
 	DevCenterUri *string `pulumi:"devCenterUri"`
+	// An `identity` block as defined below.
+	Identity *ProjectIdentity `pulumi:"identity"`
 	// The Azure Region where the Dev Center Project should exist. Changing this forces a new Dev Center Project to be created.
 	Location *string `pulumi:"location"`
 	// When specified, limits the maximum number of Dev Boxes a single user can create across all pools in the project.
@@ -159,6 +168,8 @@ type ProjectState struct {
 	DevCenterId pulumi.StringPtrInput
 	// The URI of the Dev Center resource this project is associated with.
 	DevCenterUri pulumi.StringPtrInput
+	// An `identity` block as defined below.
+	Identity ProjectIdentityPtrInput
 	// The Azure Region where the Dev Center Project should exist. Changing this forces a new Dev Center Project to be created.
 	Location pulumi.StringPtrInput
 	// When specified, limits the maximum number of Dev Boxes a single user can create across all pools in the project.
@@ -180,6 +191,8 @@ type projectArgs struct {
 	Description *string `pulumi:"description"`
 	// Resource Id of an associated DevCenter. Changing this forces a new Dev Center Project to be created.
 	DevCenterId string `pulumi:"devCenterId"`
+	// An `identity` block as defined below.
+	Identity *ProjectIdentity `pulumi:"identity"`
 	// The Azure Region where the Dev Center Project should exist. Changing this forces a new Dev Center Project to be created.
 	Location *string `pulumi:"location"`
 	// When specified, limits the maximum number of Dev Boxes a single user can create across all pools in the project.
@@ -198,6 +211,8 @@ type ProjectArgs struct {
 	Description pulumi.StringPtrInput
 	// Resource Id of an associated DevCenter. Changing this forces a new Dev Center Project to be created.
 	DevCenterId pulumi.StringInput
+	// An `identity` block as defined below.
+	Identity ProjectIdentityPtrInput
 	// The Azure Region where the Dev Center Project should exist. Changing this forces a new Dev Center Project to be created.
 	Location pulumi.StringPtrInput
 	// When specified, limits the maximum number of Dev Boxes a single user can create across all pools in the project.
@@ -310,6 +325,11 @@ func (o ProjectOutput) DevCenterId() pulumi.StringOutput {
 // The URI of the Dev Center resource this project is associated with.
 func (o ProjectOutput) DevCenterUri() pulumi.StringOutput {
 	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.DevCenterUri }).(pulumi.StringOutput)
+}
+
+// An `identity` block as defined below.
+func (o ProjectOutput) Identity() ProjectIdentityPtrOutput {
+	return o.ApplyT(func(v *Project) ProjectIdentityPtrOutput { return v.Identity }).(ProjectIdentityPtrOutput)
 }
 
 // The Azure Region where the Dev Center Project should exist. Changing this forces a new Dev Center Project to be created.

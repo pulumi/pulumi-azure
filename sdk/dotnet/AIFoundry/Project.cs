@@ -40,7 +40,7 @@ namespace Pulumi.Azure.AIFoundry
     ///         PurgeProtectionEnabled = true,
     ///     });
     /// 
-    ///     var test = new Azure.KeyVault.AccessPolicy("test", new()
+    ///     var exampleAccessPolicy = new Azure.KeyVault.AccessPolicy("example", new()
     ///     {
     ///         KeyVaultId = exampleKeyVault.Id,
     ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
@@ -95,6 +95,13 @@ namespace Pulumi.Azure.AIFoundry
     /// });
     /// ```
     /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.MachineLearningServices`: 2024-04-01
+    /// 
     /// ## Import
     /// 
     /// AI Foundry Projects can be imported using the `resource id`, e.g.
@@ -147,6 +154,12 @@ namespace Pulumi.Azure.AIFoundry
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// The user assigned identity ID that represents the AI Foundry Hub identity. This must be set when enabling encryption with a user assigned identity.
+        /// </summary>
+        [Output("primaryUserAssignedIdentity")]
+        public Output<string?> PrimaryUserAssignedIdentity { get; private set; } = null!;
 
         /// <summary>
         /// The immutable project ID associated with this AI Foundry Project.
@@ -248,6 +261,12 @@ namespace Pulumi.Azure.AIFoundry
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The user assigned identity ID that represents the AI Foundry Hub identity. This must be set when enabling encryption with a user assigned identity.
+        /// </summary>
+        [Input("primaryUserAssignedIdentity")]
+        public Input<string>? PrimaryUserAssignedIdentity { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -309,6 +328,12 @@ namespace Pulumi.Azure.AIFoundry
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The user assigned identity ID that represents the AI Foundry Hub identity. This must be set when enabling encryption with a user assigned identity.
+        /// </summary>
+        [Input("primaryUserAssignedIdentity")]
+        public Input<string>? PrimaryUserAssignedIdentity { get; set; }
 
         /// <summary>
         /// The immutable project ID associated with this AI Foundry Project.

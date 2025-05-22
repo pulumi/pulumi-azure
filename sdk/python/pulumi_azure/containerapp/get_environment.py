@@ -216,6 +216,15 @@ def get_environment(name: Optional[builtins.str] = None,
         resource_group_name="example-resources")
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.App`: 2025-01-01
+
+    * `Microsoft.OperationalInsights`: 2020-08-01
+
 
     :param builtins.str name: The name of the Container Apps Managed Environment.
     :param builtins.str resource_group_name: The name of the Resource Group where this Container App Environment exists.
@@ -256,6 +265,15 @@ def get_environment_output(name: Optional[pulumi.Input[builtins.str]] = None,
     example = azure.containerapp.get_environment(name="example-environment",
         resource_group_name="example-resources")
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.App`: 2025-01-01
+
+    * `Microsoft.OperationalInsights`: 2020-08-01
 
 
     :param builtins.str name: The name of the Container Apps Managed Environment.

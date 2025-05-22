@@ -122,7 +122,7 @@ export class Automation extends pulumi.CustomResource {
     /**
      * The name which should be used for this Security Center Automation. Changing this forces a new Security Center Automation to be created.
      *
-     * > **NOTE:** For the automation to appear in Azure Portal correctly under Microsoft Defender for Cloud > Environment Settings > Account > Continuous Export, either `ExportToWorkspace` or `ExportToEventHub` must be used.
+     * > **Note:** For the automation to appear in Azure Portal correctly under Microsoft Defender for Cloud > Environment Settings > Account > Continuous Export, either `ExportToWorkspace` or `ExportToEventHub` must be used.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -216,7 +216,7 @@ export interface AutomationState {
     /**
      * The name which should be used for this Security Center Automation. Changing this forces a new Security Center Automation to be created.
      *
-     * > **NOTE:** For the automation to appear in Azure Portal correctly under Microsoft Defender for Cloud > Environment Settings > Account > Continuous Export, either `ExportToWorkspace` or `ExportToEventHub` must be used.
+     * > **Note:** For the automation to appear in Azure Portal correctly under Microsoft Defender for Cloud > Environment Settings > Account > Continuous Export, either `ExportToWorkspace` or `ExportToEventHub` must be used.
      */
     name?: pulumi.Input<string>;
     /**
@@ -260,7 +260,7 @@ export interface AutomationArgs {
     /**
      * The name which should be used for this Security Center Automation. Changing this forces a new Security Center Automation to be created.
      *
-     * > **NOTE:** For the automation to appear in Azure Portal correctly under Microsoft Defender for Cloud > Environment Settings > Account > Continuous Export, either `ExportToWorkspace` or `ExportToEventHub` must be used.
+     * > **Note:** For the automation to appear in Azure Portal correctly under Microsoft Defender for Cloud > Environment Settings > Account > Continuous Export, either `ExportToWorkspace` or `ExportToEventHub` must be used.
      */
     name?: pulumi.Input<string>;
     /**

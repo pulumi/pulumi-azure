@@ -24,9 +24,9 @@ import (
 type TagRules struct {
 	pulumi.CustomResourceState
 
-	// Set of rules for sending logs for the Monitor resource. Changing this forces a new resource to be created. A `logRule` block as defined below.
+	// Set of rules for sending logs for the Monitor resource. A `logRule` block as defined below.
 	LogRule TagRulesLogRulePtrOutput `pulumi:"logRule"`
-	// Set of rules for sending metrics for the Monitor resource. Changing this forces a new resource to be created. A `metricRule` block as defined below.
+	// Set of rules for sending metrics for the Monitor resource. A `metricRule` block as defined below.
 	MetricRule TagRulesMetricRulePtrOutput `pulumi:"metricRule"`
 	// Name of the Dynatrace monitor. Changing this forces a new resource to be created.
 	MonitorId pulumi.StringOutput `pulumi:"monitorId"`
@@ -67,9 +67,9 @@ func GetTagRules(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TagRules resources.
 type tagRulesState struct {
-	// Set of rules for sending logs for the Monitor resource. Changing this forces a new resource to be created. A `logRule` block as defined below.
+	// Set of rules for sending logs for the Monitor resource. A `logRule` block as defined below.
 	LogRule *TagRulesLogRule `pulumi:"logRule"`
-	// Set of rules for sending metrics for the Monitor resource. Changing this forces a new resource to be created. A `metricRule` block as defined below.
+	// Set of rules for sending metrics for the Monitor resource. A `metricRule` block as defined below.
 	MetricRule *TagRulesMetricRule `pulumi:"metricRule"`
 	// Name of the Dynatrace monitor. Changing this forces a new resource to be created.
 	MonitorId *string `pulumi:"monitorId"`
@@ -78,9 +78,9 @@ type tagRulesState struct {
 }
 
 type TagRulesState struct {
-	// Set of rules for sending logs for the Monitor resource. Changing this forces a new resource to be created. A `logRule` block as defined below.
+	// Set of rules for sending logs for the Monitor resource. A `logRule` block as defined below.
 	LogRule TagRulesLogRulePtrInput
-	// Set of rules for sending metrics for the Monitor resource. Changing this forces a new resource to be created. A `metricRule` block as defined below.
+	// Set of rules for sending metrics for the Monitor resource. A `metricRule` block as defined below.
 	MetricRule TagRulesMetricRulePtrInput
 	// Name of the Dynatrace monitor. Changing this forces a new resource to be created.
 	MonitorId pulumi.StringPtrInput
@@ -93,9 +93,9 @@ func (TagRulesState) ElementType() reflect.Type {
 }
 
 type tagRulesArgs struct {
-	// Set of rules for sending logs for the Monitor resource. Changing this forces a new resource to be created. A `logRule` block as defined below.
+	// Set of rules for sending logs for the Monitor resource. A `logRule` block as defined below.
 	LogRule *TagRulesLogRule `pulumi:"logRule"`
-	// Set of rules for sending metrics for the Monitor resource. Changing this forces a new resource to be created. A `metricRule` block as defined below.
+	// Set of rules for sending metrics for the Monitor resource. A `metricRule` block as defined below.
 	MetricRule *TagRulesMetricRule `pulumi:"metricRule"`
 	// Name of the Dynatrace monitor. Changing this forces a new resource to be created.
 	MonitorId string `pulumi:"monitorId"`
@@ -105,9 +105,9 @@ type tagRulesArgs struct {
 
 // The set of arguments for constructing a TagRules resource.
 type TagRulesArgs struct {
-	// Set of rules for sending logs for the Monitor resource. Changing this forces a new resource to be created. A `logRule` block as defined below.
+	// Set of rules for sending logs for the Monitor resource. A `logRule` block as defined below.
 	LogRule TagRulesLogRulePtrInput
-	// Set of rules for sending metrics for the Monitor resource. Changing this forces a new resource to be created. A `metricRule` block as defined below.
+	// Set of rules for sending metrics for the Monitor resource. A `metricRule` block as defined below.
 	MetricRule TagRulesMetricRulePtrInput
 	// Name of the Dynatrace monitor. Changing this forces a new resource to be created.
 	MonitorId pulumi.StringInput
@@ -202,12 +202,12 @@ func (o TagRulesOutput) ToTagRulesOutputWithContext(ctx context.Context) TagRule
 	return o
 }
 
-// Set of rules for sending logs for the Monitor resource. Changing this forces a new resource to be created. A `logRule` block as defined below.
+// Set of rules for sending logs for the Monitor resource. A `logRule` block as defined below.
 func (o TagRulesOutput) LogRule() TagRulesLogRulePtrOutput {
 	return o.ApplyT(func(v *TagRules) TagRulesLogRulePtrOutput { return v.LogRule }).(TagRulesLogRulePtrOutput)
 }
 
-// Set of rules for sending metrics for the Monitor resource. Changing this forces a new resource to be created. A `metricRule` block as defined below.
+// Set of rules for sending metrics for the Monitor resource. A `metricRule` block as defined below.
 func (o TagRulesOutput) MetricRule() TagRulesMetricRulePtrOutput {
 	return o.ApplyT(func(v *TagRules) TagRulesMetricRulePtrOutput { return v.MetricRule }).(TagRulesMetricRulePtrOutput)
 }

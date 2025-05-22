@@ -143,7 +143,7 @@ namespace Pulumi.Azure.SecurityCenter
         /// <summary>
         /// The name which should be used for this Security Center Automation. Changing this forces a new Security Center Automation to be created.
         /// 
-        /// &gt; **NOTE:** For the automation to appear in Azure Portal correctly under Microsoft Defender for Cloud &gt; Environment Settings &gt; Account &gt; Continuous Export, either `ExportToWorkspace` or `ExportToEventHub` must be used.
+        /// &gt; **Note:** For the automation to appear in Azure Portal correctly under Microsoft Defender for Cloud &gt; Environment Settings &gt; Account &gt; Continuous Export, either `ExportToWorkspace` or `ExportToEventHub` must be used.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -251,7 +251,7 @@ namespace Pulumi.Azure.SecurityCenter
         /// <summary>
         /// The name which should be used for this Security Center Automation. Changing this forces a new Security Center Automation to be created.
         /// 
-        /// &gt; **NOTE:** For the automation to appear in Azure Portal correctly under Microsoft Defender for Cloud &gt; Environment Settings &gt; Account &gt; Continuous Export, either `ExportToWorkspace` or `ExportToEventHub` must be used.
+        /// &gt; **Note:** For the automation to appear in Azure Portal correctly under Microsoft Defender for Cloud &gt; Environment Settings &gt; Account &gt; Continuous Export, either `ExportToWorkspace` or `ExportToEventHub` must be used.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -339,7 +339,7 @@ namespace Pulumi.Azure.SecurityCenter
         /// <summary>
         /// The name which should be used for this Security Center Automation. Changing this forces a new Security Center Automation to be created.
         /// 
-        /// &gt; **NOTE:** For the automation to appear in Azure Portal correctly under Microsoft Defender for Cloud &gt; Environment Settings &gt; Account &gt; Continuous Export, either `ExportToWorkspace` or `ExportToEventHub` must be used.
+        /// &gt; **Note:** For the automation to appear in Azure Portal correctly under Microsoft Defender for Cloud &gt; Environment Settings &gt; Account &gt; Continuous Export, either `ExportToWorkspace` or `ExportToEventHub` must be used.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

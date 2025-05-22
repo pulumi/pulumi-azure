@@ -159,6 +159,13 @@ def get_express_route_circuit(name: Optional[builtins.str] = None,
     pulumi.export("serviceKey", example.service_key)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Network`: 2024-05-01
+
 
     :param builtins.str name: The name of the ExpressRoute circuit.
     :param builtins.str resource_group_name: The Name of the Resource Group where the ExpressRoute circuit exists.
@@ -196,6 +203,13 @@ def get_express_route_circuit_output(name: Optional[pulumi.Input[builtins.str]] 
     pulumi.export("expressRouteCircuitId", example.id)
     pulumi.export("serviceKey", example.service_key)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Network`: 2024-05-01
 
 
     :param builtins.str name: The name of the ExpressRoute circuit.

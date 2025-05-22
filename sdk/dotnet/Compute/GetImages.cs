@@ -31,6 +31,13 @@ namespace Pulumi.Azure.Compute
         /// 
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Compute`: 2022-03-01
         /// </summary>
         public static Task<GetImagesResult> InvokeAsync(GetImagesArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetImagesResult>("azure:compute/getImages:getImages", args ?? new GetImagesArgs(), options.WithDefaults());
@@ -55,6 +62,13 @@ namespace Pulumi.Azure.Compute
         /// 
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Compute`: 2022-03-01
         /// </summary>
         public static Output<GetImagesResult> Invoke(GetImagesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetImagesResult>("azure:compute/getImages:getImages", args ?? new GetImagesInvokeArgs(), options.WithDefaults());
@@ -79,6 +93,13 @@ namespace Pulumi.Azure.Compute
         /// 
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Compute`: 2022-03-01
         /// </summary>
         public static Output<GetImagesResult> Invoke(GetImagesInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetImagesResult>("azure:compute/getImages:getImages", args ?? new GetImagesInvokeArgs(), options.WithDefaults());

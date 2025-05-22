@@ -86,7 +86,7 @@ type ManagedPrivateEndpoint struct {
 	DataFactoryId pulumi.StringOutput `pulumi:"dataFactoryId"`
 	// Fully qualified domain names. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Possible values are listed in [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration).
+	// > **Note:** Possible values are listed in [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration).
 	Fqdns pulumi.StringArrayOutput `pulumi:"fqdns"`
 	// Specifies the name which should be used for this Managed Private Endpoint. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -136,7 +136,7 @@ type managedPrivateEndpointState struct {
 	DataFactoryId *string `pulumi:"dataFactoryId"`
 	// Fully qualified domain names. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Possible values are listed in [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration).
+	// > **Note:** Possible values are listed in [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration).
 	Fqdns []string `pulumi:"fqdns"`
 	// Specifies the name which should be used for this Managed Private Endpoint. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -151,7 +151,7 @@ type ManagedPrivateEndpointState struct {
 	DataFactoryId pulumi.StringPtrInput
 	// Fully qualified domain names. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Possible values are listed in [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration).
+	// > **Note:** Possible values are listed in [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration).
 	Fqdns pulumi.StringArrayInput
 	// Specifies the name which should be used for this Managed Private Endpoint. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -170,7 +170,7 @@ type managedPrivateEndpointArgs struct {
 	DataFactoryId string `pulumi:"dataFactoryId"`
 	// Fully qualified domain names. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Possible values are listed in [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration).
+	// > **Note:** Possible values are listed in [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration).
 	Fqdns []string `pulumi:"fqdns"`
 	// Specifies the name which should be used for this Managed Private Endpoint. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -186,7 +186,7 @@ type ManagedPrivateEndpointArgs struct {
 	DataFactoryId pulumi.StringInput
 	// Fully qualified domain names. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Possible values are listed in [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration).
+	// > **Note:** Possible values are listed in [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration).
 	Fqdns pulumi.StringArrayInput
 	// Specifies the name which should be used for this Managed Private Endpoint. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -290,7 +290,7 @@ func (o ManagedPrivateEndpointOutput) DataFactoryId() pulumi.StringOutput {
 
 // Fully qualified domain names. Changing this forces a new resource to be created.
 //
-// > **NOTE:** Possible values are listed in [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration).
+// > **Note:** Possible values are listed in [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration).
 func (o ManagedPrivateEndpointOutput) Fqdns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ManagedPrivateEndpoint) pulumi.StringArrayOutput { return v.Fqdns }).(pulumi.StringArrayOutput)
 }

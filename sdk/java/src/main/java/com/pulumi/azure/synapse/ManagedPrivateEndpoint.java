@@ -145,7 +145,7 @@ public class ManagedPrivateEndpoint extends com.pulumi.resources.CustomResource 
     /**
      * Specifies the sub resource name which the Synapse Private Endpoint is able to connect to. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** Possible values are listed in [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration).
+     * &gt; **Note:** Possible values are listed in [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration).
      * 
      */
     @Export(name="subresourceName", refs={String.class}, tree="[0]")
@@ -154,7 +154,7 @@ public class ManagedPrivateEndpoint extends com.pulumi.resources.CustomResource 
     /**
      * @return Specifies the sub resource name which the Synapse Private Endpoint is able to connect to. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** Possible values are listed in [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration).
+     * &gt; **Note:** Possible values are listed in [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration).
      * 
      */
     public Output<String> subresourceName() {
@@ -163,7 +163,7 @@ public class ManagedPrivateEndpoint extends com.pulumi.resources.CustomResource 
     /**
      * The ID of the Synapse Workspace on which to create the Managed Private Endpoint. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** A Synapse firewall rule including local IP is needed for managing current resource.
+     * &gt; **Note:** A Synapse firewall rule including local IP is needed for managing current resource.
      * 
      */
     @Export(name="synapseWorkspaceId", refs={String.class}, tree="[0]")
@@ -172,7 +172,7 @@ public class ManagedPrivateEndpoint extends com.pulumi.resources.CustomResource 
     /**
      * @return The ID of the Synapse Workspace on which to create the Managed Private Endpoint. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** A Synapse firewall rule including local IP is needed for managing current resource.
+     * &gt; **Note:** A Synapse firewall rule including local IP is needed for managing current resource.
      * 
      */
     public Output<String> synapseWorkspaceId() {

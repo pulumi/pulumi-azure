@@ -528,6 +528,13 @@ class ManagedHardwareSecurityModule(pulumi.CustomResource):
             })
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.KeyVault`: 2023-07-01
+
         ## Import
 
         Key Vault Managed Hardware Security Module can be imported using the `resource id`, e.g.
@@ -586,6 +593,13 @@ class ManagedHardwareSecurityModule(pulumi.CustomResource):
                 "Env": "Test",
             })
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.KeyVault`: 2023-07-01
 
         ## Import
 

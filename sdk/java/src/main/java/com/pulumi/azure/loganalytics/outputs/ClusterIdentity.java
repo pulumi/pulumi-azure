@@ -16,7 +16,7 @@ public final class ClusterIdentity {
     /**
      * @return A list of User Assigned Managed Identity IDs to be assigned to this Windows Web App Slot.
      * 
-     * &gt; **NOTE:** This is required when `type` is set to `UserAssigned`.
+     * &gt; **Note:** This is required when `type` is set to `UserAssigned`.
      * 
      */
     private @Nullable List<String> identityIds;
@@ -33,7 +33,7 @@ public final class ClusterIdentity {
     /**
      * @return Specifies the type of Managed Service Identity that should be configured on this Log Analytics Cluster. Possible values are `SystemAssigned` and  `UserAssigned`. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** The assigned `principal_id` and `tenant_id` can be retrieved after the identity `type` has been set to `SystemAssigned` and the Log Analytics Cluster has been created. More details are available below.
+     * &gt; **Note:** The assigned `principal_id` and `tenant_id` can be retrieved after the identity `type` has been set to `SystemAssigned` and the Log Analytics Cluster has been created. More details are available below.
      * 
      */
     private String type;
@@ -42,7 +42,7 @@ public final class ClusterIdentity {
     /**
      * @return A list of User Assigned Managed Identity IDs to be assigned to this Windows Web App Slot.
      * 
-     * &gt; **NOTE:** This is required when `type` is set to `UserAssigned`.
+     * &gt; **Note:** This is required when `type` is set to `UserAssigned`.
      * 
      */
     public List<String> identityIds() {
@@ -65,7 +65,7 @@ public final class ClusterIdentity {
     /**
      * @return Specifies the type of Managed Service Identity that should be configured on this Log Analytics Cluster. Possible values are `SystemAssigned` and  `UserAssigned`. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** The assigned `principal_id` and `tenant_id` can be retrieved after the identity `type` has been set to `SystemAssigned` and the Log Analytics Cluster has been created. More details are available below.
+     * &gt; **Note:** The assigned `principal_id` and `tenant_id` can be retrieved after the identity `type` has been set to `SystemAssigned` and the Log Analytics Cluster has been created. More details are available below.
      * 
      */
     public String type() {

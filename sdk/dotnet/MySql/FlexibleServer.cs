@@ -145,9 +145,9 @@ namespace Pulumi.Azure.MySql
         /// <summary>
         /// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore`, `GeoRestore`, and `Replica`. Changing this forces a new MySQL Flexible Server to be created.
         /// 
-        /// &gt; **NOTE:** Creating a `GeoRestore` server requires the source server with `geo_redundant_backup_enabled` enabled.
+        /// &gt; **Note:** Creating a `GeoRestore` server requires the source server with `geo_redundant_backup_enabled` enabled.
         /// 
-        /// &gt; **NOTE:** When a server is first created it may not be immediately available for `geo restore` or `replica`. It may take a few minutes to several hours for the necessary metadata to be populated. Please see the [Geo Restore](https://learn.microsoft.com/azure/mysql/single-server/how-to-restore-server-portal#geo-restore) and the [Replica](https://learn.microsoft.com/azure/mysql/flexible-server/concepts-read-replicas#create-a-replica) for more information.
+        /// &gt; **Note:** When a server is first created it may not be immediately available for `geo restore` or `replica`. It may take a few minutes to several hours for the necessary metadata to be populated. Please see the [Geo Restore](https://learn.microsoft.com/azure/mysql/single-server/how-to-restore-server-portal#geo-restore) and the [Replica](https://learn.microsoft.com/azure/mysql/flexible-server/concepts-read-replicas#create-a-replica) for more information.
         /// </summary>
         [Output("createMode")]
         public Output<string?> CreateMode { get; private set; } = null!;
@@ -155,7 +155,7 @@ namespace Pulumi.Azure.MySql
         /// <summary>
         /// A `customer_managed_key` block as defined below.
         /// 
-        /// &gt; **NOTE:** `identity` is required when `customer_managed_key` is specified.
+        /// &gt; **Note:** `identity` is required when `customer_managed_key` is specified.
         /// </summary>
         [Output("customerManagedKey")]
         public Output<Outputs.FlexibleServerCustomerManagedKey?> CustomerManagedKey { get; private set; } = null!;
@@ -217,14 +217,19 @@ namespace Pulumi.Azure.MySql
         /// <summary>
         /// The ID of the private DNS zone to create the MySQL Flexible Server. Changing this forces a new MySQL Flexible Server to be created.
         /// 
-        /// &gt; **NOTE:** The `private_dns_zone_id` is required when setting a `delegated_subnet_id`. The `azure.privatedns.Zone` should end with suffix `.mysql.database.azure.com`.
+        /// &gt; **Note:** The `private_dns_zone_id` is required when setting a `delegated_subnet_id`. The `azure.privatedns.Zone` should end with suffix `.mysql.database.azure.com`.
         /// </summary>
         [Output("privateDnsZoneId")]
         public Output<string?> PrivateDnsZoneId { get; private set; } = null!;
 
         /// <summary>
-        /// Is the public network access enabled?
+        /// Whether approved public traffic is allowed through the firewall to this server. Possible values are `Enabled` and `Disabled`.
+        /// 
+        /// &gt; **Note:** `public_network_access` is automatically set to `Disabled` if the server is created with VNet Integration (i.e. values are provided for `delegated_subnet_id` and `private_dns_zone_id`").
         /// </summary>
+        [Output("publicNetworkAccess")]
+        public Output<string> PublicNetworkAccess { get; private set; } = null!;
+
         [Output("publicNetworkAccessEnabled")]
         public Output<bool> PublicNetworkAccessEnabled { get; private set; } = null!;
 
@@ -237,7 +242,7 @@ namespace Pulumi.Azure.MySql
         /// <summary>
         /// The replication role. Possible value is `None`.
         /// 
-        /// &gt; **NOTE:** The `replication_role` cannot be set while creating and only can be updated from `Replica` to `None`.
+        /// &gt; **Note:** The `replication_role` cannot be set while creating and only can be updated from `Replica` to `None`.
         /// </summary>
         [Output("replicationRole")]
         public Output<string> ReplicationRole { get; private set; } = null!;
@@ -251,7 +256,7 @@ namespace Pulumi.Azure.MySql
         /// <summary>
         /// The SKU Name for the MySQL Flexible Server.
         /// 
-        /// &gt; **NOTE:** `sku_name` should start with SKU tier `B (Burstable)`, `GP (General Purpose)`, `MO (Memory Optimized)` like `B_Standard_B1s`.
+        /// &gt; **Note:** `sku_name` should start with SKU tier `B (Burstable)`, `GP (General Purpose)`, `MO (Memory Optimized)` like `B_Standard_B1ms`.
         /// </summary>
         [Output("skuName")]
         public Output<string> SkuName { get; private set; } = null!;
@@ -283,7 +288,7 @@ namespace Pulumi.Azure.MySql
         public Output<string> Version { get; private set; } = null!;
 
         [Output("zone")]
-        public Output<string?> Zone { get; private set; } = null!;
+        public Output<string> Zone { get; private set; } = null!;
 
 
         /// <summary>
@@ -374,9 +379,9 @@ namespace Pulumi.Azure.MySql
         /// <summary>
         /// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore`, `GeoRestore`, and `Replica`. Changing this forces a new MySQL Flexible Server to be created.
         /// 
-        /// &gt; **NOTE:** Creating a `GeoRestore` server requires the source server with `geo_redundant_backup_enabled` enabled.
+        /// &gt; **Note:** Creating a `GeoRestore` server requires the source server with `geo_redundant_backup_enabled` enabled.
         /// 
-        /// &gt; **NOTE:** When a server is first created it may not be immediately available for `geo restore` or `replica`. It may take a few minutes to several hours for the necessary metadata to be populated. Please see the [Geo Restore](https://learn.microsoft.com/azure/mysql/single-server/how-to-restore-server-portal#geo-restore) and the [Replica](https://learn.microsoft.com/azure/mysql/flexible-server/concepts-read-replicas#create-a-replica) for more information.
+        /// &gt; **Note:** When a server is first created it may not be immediately available for `geo restore` or `replica`. It may take a few minutes to several hours for the necessary metadata to be populated. Please see the [Geo Restore](https://learn.microsoft.com/azure/mysql/single-server/how-to-restore-server-portal#geo-restore) and the [Replica](https://learn.microsoft.com/azure/mysql/flexible-server/concepts-read-replicas#create-a-replica) for more information.
         /// </summary>
         [Input("createMode")]
         public Input<string>? CreateMode { get; set; }
@@ -384,7 +389,7 @@ namespace Pulumi.Azure.MySql
         /// <summary>
         /// A `customer_managed_key` block as defined below.
         /// 
-        /// &gt; **NOTE:** `identity` is required when `customer_managed_key` is specified.
+        /// &gt; **Note:** `identity` is required when `customer_managed_key` is specified.
         /// </summary>
         [Input("customerManagedKey")]
         public Input<Inputs.FlexibleServerCustomerManagedKeyArgs>? CustomerManagedKey { get; set; }
@@ -440,15 +445,23 @@ namespace Pulumi.Azure.MySql
         /// <summary>
         /// The ID of the private DNS zone to create the MySQL Flexible Server. Changing this forces a new MySQL Flexible Server to be created.
         /// 
-        /// &gt; **NOTE:** The `private_dns_zone_id` is required when setting a `delegated_subnet_id`. The `azure.privatedns.Zone` should end with suffix `.mysql.database.azure.com`.
+        /// &gt; **Note:** The `private_dns_zone_id` is required when setting a `delegated_subnet_id`. The `azure.privatedns.Zone` should end with suffix `.mysql.database.azure.com`.
         /// </summary>
         [Input("privateDnsZoneId")]
         public Input<string>? PrivateDnsZoneId { get; set; }
 
         /// <summary>
+        /// Whether approved public traffic is allowed through the firewall to this server. Possible values are `Enabled` and `Disabled`.
+        /// 
+        /// &gt; **Note:** `public_network_access` is automatically set to `Disabled` if the server is created with VNet Integration (i.e. values are provided for `delegated_subnet_id` and `private_dns_zone_id`").
+        /// </summary>
+        [Input("publicNetworkAccess")]
+        public Input<string>? PublicNetworkAccess { get; set; }
+
+        /// <summary>
         /// The replication role. Possible value is `None`.
         /// 
-        /// &gt; **NOTE:** The `replication_role` cannot be set while creating and only can be updated from `Replica` to `None`.
+        /// &gt; **Note:** The `replication_role` cannot be set while creating and only can be updated from `Replica` to `None`.
         /// </summary>
         [Input("replicationRole")]
         public Input<string>? ReplicationRole { get; set; }
@@ -462,7 +475,7 @@ namespace Pulumi.Azure.MySql
         /// <summary>
         /// The SKU Name for the MySQL Flexible Server.
         /// 
-        /// &gt; **NOTE:** `sku_name` should start with SKU tier `B (Burstable)`, `GP (General Purpose)`, `MO (Memory Optimized)` like `B_Standard_B1s`.
+        /// &gt; **Note:** `sku_name` should start with SKU tier `B (Burstable)`, `GP (General Purpose)`, `MO (Memory Optimized)` like `B_Standard_B1ms`.
         /// </summary>
         [Input("skuName")]
         public Input<string>? SkuName { get; set; }
@@ -549,9 +562,9 @@ namespace Pulumi.Azure.MySql
         /// <summary>
         /// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore`, `GeoRestore`, and `Replica`. Changing this forces a new MySQL Flexible Server to be created.
         /// 
-        /// &gt; **NOTE:** Creating a `GeoRestore` server requires the source server with `geo_redundant_backup_enabled` enabled.
+        /// &gt; **Note:** Creating a `GeoRestore` server requires the source server with `geo_redundant_backup_enabled` enabled.
         /// 
-        /// &gt; **NOTE:** When a server is first created it may not be immediately available for `geo restore` or `replica`. It may take a few minutes to several hours for the necessary metadata to be populated. Please see the [Geo Restore](https://learn.microsoft.com/azure/mysql/single-server/how-to-restore-server-portal#geo-restore) and the [Replica](https://learn.microsoft.com/azure/mysql/flexible-server/concepts-read-replicas#create-a-replica) for more information.
+        /// &gt; **Note:** When a server is first created it may not be immediately available for `geo restore` or `replica`. It may take a few minutes to several hours for the necessary metadata to be populated. Please see the [Geo Restore](https://learn.microsoft.com/azure/mysql/single-server/how-to-restore-server-portal#geo-restore) and the [Replica](https://learn.microsoft.com/azure/mysql/flexible-server/concepts-read-replicas#create-a-replica) for more information.
         /// </summary>
         [Input("createMode")]
         public Input<string>? CreateMode { get; set; }
@@ -559,7 +572,7 @@ namespace Pulumi.Azure.MySql
         /// <summary>
         /// A `customer_managed_key` block as defined below.
         /// 
-        /// &gt; **NOTE:** `identity` is required when `customer_managed_key` is specified.
+        /// &gt; **Note:** `identity` is required when `customer_managed_key` is specified.
         /// </summary>
         [Input("customerManagedKey")]
         public Input<Inputs.FlexibleServerCustomerManagedKeyGetArgs>? CustomerManagedKey { get; set; }
@@ -621,14 +634,19 @@ namespace Pulumi.Azure.MySql
         /// <summary>
         /// The ID of the private DNS zone to create the MySQL Flexible Server. Changing this forces a new MySQL Flexible Server to be created.
         /// 
-        /// &gt; **NOTE:** The `private_dns_zone_id` is required when setting a `delegated_subnet_id`. The `azure.privatedns.Zone` should end with suffix `.mysql.database.azure.com`.
+        /// &gt; **Note:** The `private_dns_zone_id` is required when setting a `delegated_subnet_id`. The `azure.privatedns.Zone` should end with suffix `.mysql.database.azure.com`.
         /// </summary>
         [Input("privateDnsZoneId")]
         public Input<string>? PrivateDnsZoneId { get; set; }
 
         /// <summary>
-        /// Is the public network access enabled?
+        /// Whether approved public traffic is allowed through the firewall to this server. Possible values are `Enabled` and `Disabled`.
+        /// 
+        /// &gt; **Note:** `public_network_access` is automatically set to `Disabled` if the server is created with VNet Integration (i.e. values are provided for `delegated_subnet_id` and `private_dns_zone_id`").
         /// </summary>
+        [Input("publicNetworkAccess")]
+        public Input<string>? PublicNetworkAccess { get; set; }
+
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
 
@@ -641,7 +659,7 @@ namespace Pulumi.Azure.MySql
         /// <summary>
         /// The replication role. Possible value is `None`.
         /// 
-        /// &gt; **NOTE:** The `replication_role` cannot be set while creating and only can be updated from `Replica` to `None`.
+        /// &gt; **Note:** The `replication_role` cannot be set while creating and only can be updated from `Replica` to `None`.
         /// </summary>
         [Input("replicationRole")]
         public Input<string>? ReplicationRole { get; set; }
@@ -655,7 +673,7 @@ namespace Pulumi.Azure.MySql
         /// <summary>
         /// The SKU Name for the MySQL Flexible Server.
         /// 
-        /// &gt; **NOTE:** `sku_name` should start with SKU tier `B (Burstable)`, `GP (General Purpose)`, `MO (Memory Optimized)` like `B_Standard_B1s`.
+        /// &gt; **Note:** `sku_name` should start with SKU tier `B (Burstable)`, `GP (General Purpose)`, `MO (Memory Optimized)` like `B_Standard_B1ms`.
         /// </summary>
         [Input("skuName")]
         public Input<string>? SkuName { get; set; }

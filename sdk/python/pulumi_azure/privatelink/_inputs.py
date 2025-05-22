@@ -100,7 +100,7 @@ if not MYPY:
         """
         Specifies the member name this IP address applies to. If it is not specified, it will use the value of `subresource_name`. Changing this forces a new resource to be created.
 
-        > **NOTE:** `member_name` will be required and will not take the value of `subresource_name` in the next major version.
+        > **Note:** `member_name` will be required and will not take the value of `subresource_name` in the next major version.
         """
         subresource_name: NotRequired[pulumi.Input[builtins.str]]
         """
@@ -121,7 +121,7 @@ class EndpointIpConfigurationArgs:
         :param pulumi.Input[builtins.str] private_ip_address: Specifies the static IP address within the private endpoint's subnet to be used. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] member_name: Specifies the member name this IP address applies to. If it is not specified, it will use the value of `subresource_name`. Changing this forces a new resource to be created.
                
-               > **NOTE:** `member_name` will be required and will not take the value of `subresource_name` in the next major version.
+               > **Note:** `member_name` will be required and will not take the value of `subresource_name` in the next major version.
         :param pulumi.Input[builtins.str] subresource_name: Specifies the subresource this IP address applies to. `subresource_names` corresponds to `group_id`. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "name", name)
@@ -161,7 +161,7 @@ class EndpointIpConfigurationArgs:
         """
         Specifies the member name this IP address applies to. If it is not specified, it will use the value of `subresource_name`. Changing this forces a new resource to be created.
 
-        > **NOTE:** `member_name` will be required and will not take the value of `subresource_name` in the next major version.
+        > **Note:** `member_name` will be required and will not take the value of `subresource_name` in the next major version.
         """
         return pulumi.get(self, "member_name")
 
@@ -514,7 +514,7 @@ if not MYPY:
         """
         Does the Private Endpoint require Manual Approval from the remote resource owner? Changing this forces a new resource to be created.
 
-        > **NOTE:** If you are trying to connect the Private Endpoint to a remote resource without having the correct RBAC permissions on the remote resource set this value to `true`.
+        > **Note:** If you are trying to connect the Private Endpoint to a remote resource without having the correct RBAC permissions on the remote resource set this value to `true`.
         """
         name: pulumi.Input[builtins.str]
         """
@@ -536,15 +536,15 @@ if not MYPY:
         """
         A message passed to the owner of the remote resource when the private endpoint attempts to establish the connection to the remote resource. The provider allows a maximum request message length of `140` characters, however the request message maximum length is dependent on the service the private endpoint is connected to. Only valid if `is_manual_connection` is set to `true`.
 
-        > **NOTE:** When connected to an SQL resource the `request_message` maximum length is `128`.
+        > **Note:** When connected to an SQL resource the `request_message` maximum length is `128`.
         """
         subresource_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
         """
         A list of subresource names which the Private Endpoint is able to connect to. `subresource_names` corresponds to `group_id`. Possible values are detailed in the product [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#private-link-resource) in the `Subresources` column. Changing this forces a new resource to be created. 
 
-        > **NOTE:** Some resource types (such as Storage Account) only support 1 subresource per private endpoint.
+        > **Note:** Some resource types (such as Storage Account) only support 1 subresource per private endpoint.
 
-        > **NOTE:** For most Private Links one or more `subresource_names` will need to be specified, please see the linked documentation for details.
+        > **Note:** For most Private Links one or more `subresource_names` will need to be specified, please see the linked documentation for details.
         """
 elif False:
     EndpointPrivateServiceConnectionArgsDict: TypeAlias = Mapping[str, Any]
@@ -562,19 +562,19 @@ class EndpointPrivateServiceConnectionArgs:
         """
         :param pulumi.Input[builtins.bool] is_manual_connection: Does the Private Endpoint require Manual Approval from the remote resource owner? Changing this forces a new resource to be created.
                
-               > **NOTE:** If you are trying to connect the Private Endpoint to a remote resource without having the correct RBAC permissions on the remote resource set this value to `true`.
+               > **Note:** If you are trying to connect the Private Endpoint to a remote resource without having the correct RBAC permissions on the remote resource set this value to `true`.
         :param pulumi.Input[builtins.str] name: Specifies the Name of the Private Service Connection. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] private_connection_resource_alias: The Service Alias of the Private Link Enabled Remote Resource which this Private Endpoint should be connected to. One of `private_connection_resource_id` or `private_connection_resource_alias` must be specified. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] private_connection_resource_id: The ID of the Private Link Enabled Remote Resource which this Private Endpoint should be connected to. One of `private_connection_resource_id` or `private_connection_resource_alias` must be specified. Changing this forces a new resource to be created. For a web app or function app slot, the parent web app should be used in this field instead of a reference to the slot itself.
         :param pulumi.Input[builtins.str] private_ip_address: (Required) The static IP address set by this configuration. It is recommended to use the private IP address exported in the `private_service_connection` block to obtain the address associated with the private endpoint.
         :param pulumi.Input[builtins.str] request_message: A message passed to the owner of the remote resource when the private endpoint attempts to establish the connection to the remote resource. The provider allows a maximum request message length of `140` characters, however the request message maximum length is dependent on the service the private endpoint is connected to. Only valid if `is_manual_connection` is set to `true`.
                
-               > **NOTE:** When connected to an SQL resource the `request_message` maximum length is `128`.
+               > **Note:** When connected to an SQL resource the `request_message` maximum length is `128`.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] subresource_names: A list of subresource names which the Private Endpoint is able to connect to. `subresource_names` corresponds to `group_id`. Possible values are detailed in the product [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#private-link-resource) in the `Subresources` column. Changing this forces a new resource to be created. 
                
-               > **NOTE:** Some resource types (such as Storage Account) only support 1 subresource per private endpoint.
+               > **Note:** Some resource types (such as Storage Account) only support 1 subresource per private endpoint.
                
-               > **NOTE:** For most Private Links one or more `subresource_names` will need to be specified, please see the linked documentation for details.
+               > **Note:** For most Private Links one or more `subresource_names` will need to be specified, please see the linked documentation for details.
         """
         pulumi.set(__self__, "is_manual_connection", is_manual_connection)
         pulumi.set(__self__, "name", name)
@@ -595,7 +595,7 @@ class EndpointPrivateServiceConnectionArgs:
         """
         Does the Private Endpoint require Manual Approval from the remote resource owner? Changing this forces a new resource to be created.
 
-        > **NOTE:** If you are trying to connect the Private Endpoint to a remote resource without having the correct RBAC permissions on the remote resource set this value to `true`.
+        > **Note:** If you are trying to connect the Private Endpoint to a remote resource without having the correct RBAC permissions on the remote resource set this value to `true`.
         """
         return pulumi.get(self, "is_manual_connection")
 
@@ -657,7 +657,7 @@ class EndpointPrivateServiceConnectionArgs:
         """
         A message passed to the owner of the remote resource when the private endpoint attempts to establish the connection to the remote resource. The provider allows a maximum request message length of `140` characters, however the request message maximum length is dependent on the service the private endpoint is connected to. Only valid if `is_manual_connection` is set to `true`.
 
-        > **NOTE:** When connected to an SQL resource the `request_message` maximum length is `128`.
+        > **Note:** When connected to an SQL resource the `request_message` maximum length is `128`.
         """
         return pulumi.get(self, "request_message")
 
@@ -671,9 +671,9 @@ class EndpointPrivateServiceConnectionArgs:
         """
         A list of subresource names which the Private Endpoint is able to connect to. `subresource_names` corresponds to `group_id`. Possible values are detailed in the product [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#private-link-resource) in the `Subresources` column. Changing this forces a new resource to be created. 
 
-        > **NOTE:** Some resource types (such as Storage Account) only support 1 subresource per private endpoint.
+        > **Note:** Some resource types (such as Storage Account) only support 1 subresource per private endpoint.
 
-        > **NOTE:** For most Private Links one or more `subresource_names` will need to be specified, please see the linked documentation for details.
+        > **Note:** For most Private Links one or more `subresource_names` will need to be specified, please see the linked documentation for details.
         """
         return pulumi.get(self, "subresource_names")
 

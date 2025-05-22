@@ -47,6 +47,13 @@ namespace Pulumi.Azure.Storage
     /// });
     /// ```
     /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.StorageMover`: 2023-03-01
+    /// 
     /// ## Import
     /// 
     /// Storage Mover Source Endpoint can be imported using the `resource id`, e.g.

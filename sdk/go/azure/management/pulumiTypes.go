@@ -16,7 +16,7 @@ var _ = internal.GetEnvOrDefault
 type GroupPolicyAssignmentIdentity struct {
 	// A list of User Managed Identity IDs which should be assigned to the Policy Definition.
 	//
-	// > **NOTE:** This is required when `type` is set to `UserAssigned`.
+	// > **Note:** This is required when `type` is set to `UserAssigned`.
 	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID of the Policy Assignment for this Management Group.
 	PrincipalId *string `pulumi:"principalId"`
@@ -40,7 +40,7 @@ type GroupPolicyAssignmentIdentityInput interface {
 type GroupPolicyAssignmentIdentityArgs struct {
 	// A list of User Managed Identity IDs which should be assigned to the Policy Definition.
 	//
-	// > **NOTE:** This is required when `type` is set to `UserAssigned`.
+	// > **Note:** This is required when `type` is set to `UserAssigned`.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID of the Policy Assignment for this Management Group.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
@@ -129,7 +129,7 @@ func (o GroupPolicyAssignmentIdentityOutput) ToGroupPolicyAssignmentIdentityPtrO
 
 // A list of User Managed Identity IDs which should be assigned to the Policy Definition.
 //
-// > **NOTE:** This is required when `type` is set to `UserAssigned`.
+// > **Note:** This is required when `type` is set to `UserAssigned`.
 func (o GroupPolicyAssignmentIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GroupPolicyAssignmentIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
@@ -175,7 +175,7 @@ func (o GroupPolicyAssignmentIdentityPtrOutput) Elem() GroupPolicyAssignmentIden
 
 // A list of User Managed Identity IDs which should be assigned to the Policy Definition.
 //
-// > **NOTE:** This is required when `type` is set to `UserAssigned`.
+// > **Note:** This is required when `type` is set to `UserAssigned`.
 func (o GroupPolicyAssignmentIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *GroupPolicyAssignmentIdentity) []string {
 		if v == nil {

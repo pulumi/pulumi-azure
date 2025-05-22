@@ -206,6 +206,11 @@ class Profile(pulumi.CustomResource):
         """
         Manages a CDN Profile to create a collection of CDN Endpoints.
 
+        !> **Note:** Azure rolled out a breaking change on Friday 9th April 2021 which may cause issues with the CDN/FrontDoor resources. More information is available in this GitHub issue - unfortunately this may necessitate a breaking change to the CDN and FrontDoor resources, more information will be posted in the GitHub issue as the necessary changes are identified.
+
+        !> **Note:** The CDN services from Edgio(formerly Verizon) was shut down on 15 January 2025 and is no longer available.
+
+        !> **Note:** Support for CDN services from Akamai was removed on 31 October 2023.
         ## Example Usage
 
         ```python
@@ -219,7 +224,7 @@ class Profile(pulumi.CustomResource):
             name="exampleCdnProfile",
             location=example.location,
             resource_group_name=example.name,
-            sku="Standard_Verizon",
+            sku="Standard_Microsoft",
             tags={
                 "environment": "Production",
                 "cost_center": "MSFT",
@@ -251,6 +256,11 @@ class Profile(pulumi.CustomResource):
         """
         Manages a CDN Profile to create a collection of CDN Endpoints.
 
+        !> **Note:** Azure rolled out a breaking change on Friday 9th April 2021 which may cause issues with the CDN/FrontDoor resources. More information is available in this GitHub issue - unfortunately this may necessitate a breaking change to the CDN and FrontDoor resources, more information will be posted in the GitHub issue as the necessary changes are identified.
+
+        !> **Note:** The CDN services from Edgio(formerly Verizon) was shut down on 15 January 2025 and is no longer available.
+
+        !> **Note:** Support for CDN services from Akamai was removed on 31 October 2023.
         ## Example Usage
 
         ```python
@@ -264,7 +274,7 @@ class Profile(pulumi.CustomResource):
             name="exampleCdnProfile",
             location=example.location,
             resource_group_name=example.name,
-            sku="Standard_Verizon",
+            sku="Standard_Microsoft",
             tags={
                 "environment": "Production",
                 "cost_center": "MSFT",

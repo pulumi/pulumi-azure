@@ -116,6 +116,13 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.ContainerRegistry`: 2023-11-01-preview
+ *
  * ## Import
  *
  * Container Registries can be imported using the `resource id`, e.g.
@@ -179,17 +186,17 @@ export class Registry extends pulumi.CustomResource {
     /**
      * Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `publicNetworkAccessEnabled` is also set to `false`.
      *
-     * > **NOTE:** `quarantinePolicyEnabled`, `retentionPolicyInDays`, `trustPolicyEnabled`, `exportPolicyEnabled` and `zoneRedundancyEnabled` are only supported on resources with the `Premium` SKU.
+     * > **Note:** `quarantinePolicyEnabled`, `retentionPolicyInDays`, `trustPolicyEnabled`, `exportPolicyEnabled` and `zoneRedundancyEnabled` are only supported on resources with the `Premium` SKU.
      */
     public readonly exportPolicyEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * One or more `georeplications` blocks as documented below.
      *
-     * > **NOTE:** The `georeplications` is only supported on new resources with the `Premium` SKU.
+     * > **Note:** The `georeplications` is only supported on new resources with the `Premium` SKU.
      *
-     * > **NOTE:** The `georeplications` list cannot contain the location where the Container Registry exists.
+     * > **Note:** The `georeplications` list cannot contain the location where the Container Registry exists.
      *
-     * > **NOTE:** If more than one `georeplications` block is specified, they are expected to follow the alphabetic order on the `location` property.
+     * > **Note:** If more than one `georeplications` block is specified, they are expected to follow the alphabetic order on the `location` property.
      */
     public readonly georeplications!: pulumi.Output<outputs.containerservice.RegistryGeoreplication[] | undefined>;
     /**
@@ -353,17 +360,17 @@ export interface RegistryState {
     /**
      * Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `publicNetworkAccessEnabled` is also set to `false`.
      *
-     * > **NOTE:** `quarantinePolicyEnabled`, `retentionPolicyInDays`, `trustPolicyEnabled`, `exportPolicyEnabled` and `zoneRedundancyEnabled` are only supported on resources with the `Premium` SKU.
+     * > **Note:** `quarantinePolicyEnabled`, `retentionPolicyInDays`, `trustPolicyEnabled`, `exportPolicyEnabled` and `zoneRedundancyEnabled` are only supported on resources with the `Premium` SKU.
      */
     exportPolicyEnabled?: pulumi.Input<boolean>;
     /**
      * One or more `georeplications` blocks as documented below.
      *
-     * > **NOTE:** The `georeplications` is only supported on new resources with the `Premium` SKU.
+     * > **Note:** The `georeplications` is only supported on new resources with the `Premium` SKU.
      *
-     * > **NOTE:** The `georeplications` list cannot contain the location where the Container Registry exists.
+     * > **Note:** The `georeplications` list cannot contain the location where the Container Registry exists.
      *
-     * > **NOTE:** If more than one `georeplications` block is specified, they are expected to follow the alphabetic order on the `location` property.
+     * > **Note:** If more than one `georeplications` block is specified, they are expected to follow the alphabetic order on the `location` property.
      */
     georeplications?: pulumi.Input<pulumi.Input<inputs.containerservice.RegistryGeoreplication>[]>;
     /**
@@ -447,17 +454,17 @@ export interface RegistryArgs {
     /**
      * Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `publicNetworkAccessEnabled` is also set to `false`.
      *
-     * > **NOTE:** `quarantinePolicyEnabled`, `retentionPolicyInDays`, `trustPolicyEnabled`, `exportPolicyEnabled` and `zoneRedundancyEnabled` are only supported on resources with the `Premium` SKU.
+     * > **Note:** `quarantinePolicyEnabled`, `retentionPolicyInDays`, `trustPolicyEnabled`, `exportPolicyEnabled` and `zoneRedundancyEnabled` are only supported on resources with the `Premium` SKU.
      */
     exportPolicyEnabled?: pulumi.Input<boolean>;
     /**
      * One or more `georeplications` blocks as documented below.
      *
-     * > **NOTE:** The `georeplications` is only supported on new resources with the `Premium` SKU.
+     * > **Note:** The `georeplications` is only supported on new resources with the `Premium` SKU.
      *
-     * > **NOTE:** The `georeplications` list cannot contain the location where the Container Registry exists.
+     * > **Note:** The `georeplications` list cannot contain the location where the Container Registry exists.
      *
-     * > **NOTE:** If more than one `georeplications` block is specified, they are expected to follow the alphabetic order on the `location` property.
+     * > **Note:** If more than one `georeplications` block is specified, they are expected to follow the alphabetic order on the `location` property.
      */
     georeplications?: pulumi.Input<pulumi.Input<inputs.containerservice.RegistryGeoreplication>[]>;
     /**

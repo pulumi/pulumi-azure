@@ -14,7 +14,7 @@ import (
 
 // Manages a NetApp Volume.
 //
-// !>**IMPORTANT:** This resource uses a feature to prevent deletion called `preventVolumeDestruction`, defaulting to `true`. It is intentionally set to `true` to prevent the possibility of accidental data loss. The example in this page shows all possible protection options you can apply, it is using same values as the defaults.
+// !> **Note:** This resource uses a feature to prevent deletion called `preventVolumeDestruction`, defaulting to `true`. It is intentionally set to `true` to prevent the possibility of accidental data loss. The example in this page shows all possible protection options you can apply, it is using same values as the defaults.
 //
 // ## Import
 //
@@ -55,7 +55,7 @@ type Volume struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features).
 	NetworkFeatures pulumi.StringOutput `pulumi:"networkFeatures"`
-	// The name of the NetApp pool in which the NetApp Volume should be created. Changing this forces a new resource to be created.
+	// The name of the NetApp pool in which the NetApp Volume should be created.
 	PoolName pulumi.StringOutput `pulumi:"poolName"`
 	// The target volume protocol expressed as a list. Supported single value include `CIFS`, `NFSv3`, or `NFSv4.1`. If argument is not defined it will default to `NFSv3`. Changing this forces a new resource to be created and data will be lost. Dual protocol scenario is supported for CIFS and NFSv3, for more information, please refer to [Create a dual-protocol volume for Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/create-volumes-dual-protocol) document.
 	Protocols pulumi.StringArrayOutput `pulumi:"protocols"`
@@ -63,8 +63,7 @@ type Volume struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// Volume security style, accepted values are `unix` or `ntfs`. If not provided, single-protocol volume is created defaulting to `unix` if it is `NFSv3` or `NFSv4.1` volume, if `CIFS`, it will default to `ntfs`. In a dual-protocol volume, if not provided, its value will be `ntfs`. Changing this forces a new resource to be created.
 	SecurityStyle pulumi.StringOutput `pulumi:"securityStyle"`
-	// The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`. Changing this forces a new resource to be created.
-	ServiceLevel pulumi.StringOutput `pulumi:"serviceLevel"`
+	ServiceLevel  pulumi.StringOutput `pulumi:"serviceLevel"`
 	// Enable SMB encryption.
 	Smb3ProtocolEncryptionEnabled pulumi.BoolPtrOutput `pulumi:"smb3ProtocolEncryptionEnabled"`
 	// Limits enumeration of files and folders (that is, listing the contents) in SMB only to users with allowed access on the share. For instance, if a user doesn't have access to read a file or folder in a share with access-based enumeration enabled, then the file or folder doesn't show up in directory listings. Defaults to `false`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=security%20for%20administrators.-,Access%2Dbased%20enumeration,in%20an%20Azure%20NetApp%20Files%20SMB%20volume.%20Only%20contosoadmin%20has%20access.,-In%20the%20below)
@@ -171,7 +170,7 @@ type volumeState struct {
 	Name *string `pulumi:"name"`
 	// Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features).
 	NetworkFeatures *string `pulumi:"networkFeatures"`
-	// The name of the NetApp pool in which the NetApp Volume should be created. Changing this forces a new resource to be created.
+	// The name of the NetApp pool in which the NetApp Volume should be created.
 	PoolName *string `pulumi:"poolName"`
 	// The target volume protocol expressed as a list. Supported single value include `CIFS`, `NFSv3`, or `NFSv4.1`. If argument is not defined it will default to `NFSv3`. Changing this forces a new resource to be created and data will be lost. Dual protocol scenario is supported for CIFS and NFSv3, for more information, please refer to [Create a dual-protocol volume for Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/create-volumes-dual-protocol) document.
 	Protocols []string `pulumi:"protocols"`
@@ -179,8 +178,7 @@ type volumeState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// Volume security style, accepted values are `unix` or `ntfs`. If not provided, single-protocol volume is created defaulting to `unix` if it is `NFSv3` or `NFSv4.1` volume, if `CIFS`, it will default to `ntfs`. In a dual-protocol volume, if not provided, its value will be `ntfs`. Changing this forces a new resource to be created.
 	SecurityStyle *string `pulumi:"securityStyle"`
-	// The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`. Changing this forces a new resource to be created.
-	ServiceLevel *string `pulumi:"serviceLevel"`
+	ServiceLevel  *string `pulumi:"serviceLevel"`
 	// Enable SMB encryption.
 	Smb3ProtocolEncryptionEnabled *bool `pulumi:"smb3ProtocolEncryptionEnabled"`
 	// Limits enumeration of files and folders (that is, listing the contents) in SMB only to users with allowed access on the share. For instance, if a user doesn't have access to read a file or folder in a share with access-based enumeration enabled, then the file or folder doesn't show up in directory listings. Defaults to `false`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=security%20for%20administrators.-,Access%2Dbased%20enumeration,in%20an%20Azure%20NetApp%20Files%20SMB%20volume.%20Only%20contosoadmin%20has%20access.,-In%20the%20below)
@@ -237,7 +235,7 @@ type VolumeState struct {
 	Name pulumi.StringPtrInput
 	// Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features).
 	NetworkFeatures pulumi.StringPtrInput
-	// The name of the NetApp pool in which the NetApp Volume should be created. Changing this forces a new resource to be created.
+	// The name of the NetApp pool in which the NetApp Volume should be created.
 	PoolName pulumi.StringPtrInput
 	// The target volume protocol expressed as a list. Supported single value include `CIFS`, `NFSv3`, or `NFSv4.1`. If argument is not defined it will default to `NFSv3`. Changing this forces a new resource to be created and data will be lost. Dual protocol scenario is supported for CIFS and NFSv3, for more information, please refer to [Create a dual-protocol volume for Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/create-volumes-dual-protocol) document.
 	Protocols pulumi.StringArrayInput
@@ -245,8 +243,7 @@ type VolumeState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// Volume security style, accepted values are `unix` or `ntfs`. If not provided, single-protocol volume is created defaulting to `unix` if it is `NFSv3` or `NFSv4.1` volume, if `CIFS`, it will default to `ntfs`. In a dual-protocol volume, if not provided, its value will be `ntfs`. Changing this forces a new resource to be created.
 	SecurityStyle pulumi.StringPtrInput
-	// The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`. Changing this forces a new resource to be created.
-	ServiceLevel pulumi.StringPtrInput
+	ServiceLevel  pulumi.StringPtrInput
 	// Enable SMB encryption.
 	Smb3ProtocolEncryptionEnabled pulumi.BoolPtrInput
 	// Limits enumeration of files and folders (that is, listing the contents) in SMB only to users with allowed access on the share. For instance, if a user doesn't have access to read a file or folder in a share with access-based enumeration enabled, then the file or folder doesn't show up in directory listings. Defaults to `false`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=security%20for%20administrators.-,Access%2Dbased%20enumeration,in%20an%20Azure%20NetApp%20Files%20SMB%20volume.%20Only%20contosoadmin%20has%20access.,-In%20the%20below)
@@ -305,7 +302,7 @@ type volumeArgs struct {
 	Name *string `pulumi:"name"`
 	// Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features).
 	NetworkFeatures *string `pulumi:"networkFeatures"`
-	// The name of the NetApp pool in which the NetApp Volume should be created. Changing this forces a new resource to be created.
+	// The name of the NetApp pool in which the NetApp Volume should be created.
 	PoolName string `pulumi:"poolName"`
 	// The target volume protocol expressed as a list. Supported single value include `CIFS`, `NFSv3`, or `NFSv4.1`. If argument is not defined it will default to `NFSv3`. Changing this forces a new resource to be created and data will be lost. Dual protocol scenario is supported for CIFS and NFSv3, for more information, please refer to [Create a dual-protocol volume for Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/create-volumes-dual-protocol) document.
 	Protocols []string `pulumi:"protocols"`
@@ -313,8 +310,7 @@ type volumeArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Volume security style, accepted values are `unix` or `ntfs`. If not provided, single-protocol volume is created defaulting to `unix` if it is `NFSv3` or `NFSv4.1` volume, if `CIFS`, it will default to `ntfs`. In a dual-protocol volume, if not provided, its value will be `ntfs`. Changing this forces a new resource to be created.
 	SecurityStyle *string `pulumi:"securityStyle"`
-	// The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`. Changing this forces a new resource to be created.
-	ServiceLevel string `pulumi:"serviceLevel"`
+	ServiceLevel  string  `pulumi:"serviceLevel"`
 	// Enable SMB encryption.
 	Smb3ProtocolEncryptionEnabled *bool `pulumi:"smb3ProtocolEncryptionEnabled"`
 	// Limits enumeration of files and folders (that is, listing the contents) in SMB only to users with allowed access on the share. For instance, if a user doesn't have access to read a file or folder in a share with access-based enumeration enabled, then the file or folder doesn't show up in directory listings. Defaults to `false`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=security%20for%20administrators.-,Access%2Dbased%20enumeration,in%20an%20Azure%20NetApp%20Files%20SMB%20volume.%20Only%20contosoadmin%20has%20access.,-In%20the%20below)
@@ -370,7 +366,7 @@ type VolumeArgs struct {
 	Name pulumi.StringPtrInput
 	// Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features).
 	NetworkFeatures pulumi.StringPtrInput
-	// The name of the NetApp pool in which the NetApp Volume should be created. Changing this forces a new resource to be created.
+	// The name of the NetApp pool in which the NetApp Volume should be created.
 	PoolName pulumi.StringInput
 	// The target volume protocol expressed as a list. Supported single value include `CIFS`, `NFSv3`, or `NFSv4.1`. If argument is not defined it will default to `NFSv3`. Changing this forces a new resource to be created and data will be lost. Dual protocol scenario is supported for CIFS and NFSv3, for more information, please refer to [Create a dual-protocol volume for Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/create-volumes-dual-protocol) document.
 	Protocols pulumi.StringArrayInput
@@ -378,8 +374,7 @@ type VolumeArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// Volume security style, accepted values are `unix` or `ntfs`. If not provided, single-protocol volume is created defaulting to `unix` if it is `NFSv3` or `NFSv4.1` volume, if `CIFS`, it will default to `ntfs`. In a dual-protocol volume, if not provided, its value will be `ntfs`. Changing this forces a new resource to be created.
 	SecurityStyle pulumi.StringPtrInput
-	// The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`. Changing this forces a new resource to be created.
-	ServiceLevel pulumi.StringInput
+	ServiceLevel  pulumi.StringInput
 	// Enable SMB encryption.
 	Smb3ProtocolEncryptionEnabled pulumi.BoolPtrInput
 	// Limits enumeration of files and folders (that is, listing the contents) in SMB only to users with allowed access on the share. For instance, if a user doesn't have access to read a file or folder in a share with access-based enumeration enabled, then the file or folder doesn't show up in directory listings. Defaults to `false`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=security%20for%20administrators.-,Access%2Dbased%20enumeration,in%20an%20Azure%20NetApp%20Files%20SMB%20volume.%20Only%20contosoadmin%20has%20access.,-In%20the%20below)
@@ -564,7 +559,7 @@ func (o VolumeOutput) NetworkFeatures() pulumi.StringOutput {
 	return o.ApplyT(func(v *Volume) pulumi.StringOutput { return v.NetworkFeatures }).(pulumi.StringOutput)
 }
 
-// The name of the NetApp pool in which the NetApp Volume should be created. Changing this forces a new resource to be created.
+// The name of the NetApp pool in which the NetApp Volume should be created.
 func (o VolumeOutput) PoolName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Volume) pulumi.StringOutput { return v.PoolName }).(pulumi.StringOutput)
 }
@@ -584,7 +579,6 @@ func (o VolumeOutput) SecurityStyle() pulumi.StringOutput {
 	return o.ApplyT(func(v *Volume) pulumi.StringOutput { return v.SecurityStyle }).(pulumi.StringOutput)
 }
 
-// The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`. Changing this forces a new resource to be created.
 func (o VolumeOutput) ServiceLevel() pulumi.StringOutput {
 	return o.ApplyT(func(v *Volume) pulumi.StringOutput { return v.ServiceLevel }).(pulumi.StringOutput)
 }

@@ -35,23 +35,25 @@ class AssignmentArgs:
         The set of arguments for constructing a Assignment resource.
         :param pulumi.Input[builtins.str] principal_id: The ID of the Principal (User, Group or Service Principal) to assign the Role Definition to. Changing this forces a new resource to be created.
                
-               > **NOTE:** The Principal ID is also known as the Object ID (ie not the "Application ID" for applications).
+               > **Note:** The Principal ID is also known as the Object ID (i.e. not the "Application ID" for applications).
         :param pulumi.Input[builtins.str] scope: The scope at which the Role Assignment applies to, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`, or `/providers/Microsoft.Management/managementGroups/myMG`. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] condition: The condition that limits the resources that the role can be assigned to. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] condition_version: The version of the condition. Possible values are `1.0` or `2.0`. Changing this forces a new resource to be created.
+               
+               > **Note:** `condition` is required when `condition_version` is set.
         :param pulumi.Input[builtins.str] delegated_managed_identity_resource_id: The delegated Azure Resource Id which contains a Managed Identity. Changing this forces a new resource to be created.
                
-               > **NOTE:** this field is only used in cross tenant scenario.
+               > **Note:** This field is only used in cross tenant scenarios.
         :param pulumi.Input[builtins.str] description: The description for this Role Assignment. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] name: A unique UUID/GUID for this Role Assignment - one will be generated if not specified. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] principal_type: The type of the `principal_id`. Possible values are `User`, `Group` and `ServicePrincipal`. Changing this forces a new resource to be created. It is necessary to explicitly set this attribute when creating role assignments if the principal creating the assignment is constrained by ABAC rules that filters on the PrincipalType attribute.
+        :param pulumi.Input[builtins.str] role_definition_id: The Scoped-ID of the Role Definition. Changing this forces a new resource to be created.
+        :param pulumi.Input[builtins.str] role_definition_name: The name of a built-in Role. Changing this forces a new resource to be created.
                
-               > **NOTE:** If one of `condition` or `condition_version` is set both fields must be present.
-        :param pulumi.Input[builtins.str] role_definition_id: The Scoped-ID of the Role Definition. Changing this forces a new resource to be created. Conflicts with `role_definition_name`.
-        :param pulumi.Input[builtins.str] role_definition_name: The name of a built-in Role. Changing this forces a new resource to be created. Conflicts with `role_definition_id`.
+               > **Note:** Either `role_definition_id` or `role_definition_name` must be set.
         :param pulumi.Input[builtins.bool] skip_service_principal_aad_check: If the `principal_id` is a newly provisioned `Service Principal` set this value to `true` to skip the `Azure Active Directory` check which may fail due to replication lag. This argument is only valid if the `principal_id` is a `Service Principal` identity. Defaults to `false`.
                
-               > **NOTE:** If it is not a `Service Principal` identity it will cause the role assignment to fail.
+               > **Note:** If it is not a `Service Principal` identity it will cause the role assignment to fail.
         """
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "scope", scope)
@@ -80,7 +82,7 @@ class AssignmentArgs:
         """
         The ID of the Principal (User, Group or Service Principal) to assign the Role Definition to. Changing this forces a new resource to be created.
 
-        > **NOTE:** The Principal ID is also known as the Object ID (ie not the "Application ID" for applications).
+        > **Note:** The Principal ID is also known as the Object ID (i.e. not the "Application ID" for applications).
         """
         return pulumi.get(self, "principal_id")
 
@@ -117,6 +119,8 @@ class AssignmentArgs:
     def condition_version(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         The version of the condition. Possible values are `1.0` or `2.0`. Changing this forces a new resource to be created.
+
+        > **Note:** `condition` is required when `condition_version` is set.
         """
         return pulumi.get(self, "condition_version")
 
@@ -130,7 +134,7 @@ class AssignmentArgs:
         """
         The delegated Azure Resource Id which contains a Managed Identity. Changing this forces a new resource to be created.
 
-        > **NOTE:** this field is only used in cross tenant scenario.
+        > **Note:** This field is only used in cross tenant scenarios.
         """
         return pulumi.get(self, "delegated_managed_identity_resource_id")
 
@@ -167,8 +171,6 @@ class AssignmentArgs:
     def principal_type(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         The type of the `principal_id`. Possible values are `User`, `Group` and `ServicePrincipal`. Changing this forces a new resource to be created. It is necessary to explicitly set this attribute when creating role assignments if the principal creating the assignment is constrained by ABAC rules that filters on the PrincipalType attribute.
-
-        > **NOTE:** If one of `condition` or `condition_version` is set both fields must be present.
         """
         return pulumi.get(self, "principal_type")
 
@@ -180,7 +182,7 @@ class AssignmentArgs:
     @pulumi.getter(name="roleDefinitionId")
     def role_definition_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The Scoped-ID of the Role Definition. Changing this forces a new resource to be created. Conflicts with `role_definition_name`.
+        The Scoped-ID of the Role Definition. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "role_definition_id")
 
@@ -192,7 +194,9 @@ class AssignmentArgs:
     @pulumi.getter(name="roleDefinitionName")
     def role_definition_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The name of a built-in Role. Changing this forces a new resource to be created. Conflicts with `role_definition_id`.
+        The name of a built-in Role. Changing this forces a new resource to be created.
+
+        > **Note:** Either `role_definition_id` or `role_definition_name` must be set.
         """
         return pulumi.get(self, "role_definition_name")
 
@@ -206,7 +210,7 @@ class AssignmentArgs:
         """
         If the `principal_id` is a newly provisioned `Service Principal` set this value to `true` to skip the `Azure Active Directory` check which may fail due to replication lag. This argument is only valid if the `principal_id` is a `Service Principal` identity. Defaults to `false`.
 
-        > **NOTE:** If it is not a `Service Principal` identity it will cause the role assignment to fail.
+        > **Note:** If it is not a `Service Principal` identity it will cause the role assignment to fail.
         """
         return pulumi.get(self, "skip_service_principal_aad_check")
 
@@ -233,23 +237,25 @@ class _AssignmentState:
         Input properties used for looking up and filtering Assignment resources.
         :param pulumi.Input[builtins.str] condition: The condition that limits the resources that the role can be assigned to. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] condition_version: The version of the condition. Possible values are `1.0` or `2.0`. Changing this forces a new resource to be created.
+               
+               > **Note:** `condition` is required when `condition_version` is set.
         :param pulumi.Input[builtins.str] delegated_managed_identity_resource_id: The delegated Azure Resource Id which contains a Managed Identity. Changing this forces a new resource to be created.
                
-               > **NOTE:** this field is only used in cross tenant scenario.
+               > **Note:** This field is only used in cross tenant scenarios.
         :param pulumi.Input[builtins.str] description: The description for this Role Assignment. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] name: A unique UUID/GUID for this Role Assignment - one will be generated if not specified. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] principal_id: The ID of the Principal (User, Group or Service Principal) to assign the Role Definition to. Changing this forces a new resource to be created.
                
-               > **NOTE:** The Principal ID is also known as the Object ID (ie not the "Application ID" for applications).
+               > **Note:** The Principal ID is also known as the Object ID (i.e. not the "Application ID" for applications).
         :param pulumi.Input[builtins.str] principal_type: The type of the `principal_id`. Possible values are `User`, `Group` and `ServicePrincipal`. Changing this forces a new resource to be created. It is necessary to explicitly set this attribute when creating role assignments if the principal creating the assignment is constrained by ABAC rules that filters on the PrincipalType attribute.
+        :param pulumi.Input[builtins.str] role_definition_id: The Scoped-ID of the Role Definition. Changing this forces a new resource to be created.
+        :param pulumi.Input[builtins.str] role_definition_name: The name of a built-in Role. Changing this forces a new resource to be created.
                
-               > **NOTE:** If one of `condition` or `condition_version` is set both fields must be present.
-        :param pulumi.Input[builtins.str] role_definition_id: The Scoped-ID of the Role Definition. Changing this forces a new resource to be created. Conflicts with `role_definition_name`.
-        :param pulumi.Input[builtins.str] role_definition_name: The name of a built-in Role. Changing this forces a new resource to be created. Conflicts with `role_definition_id`.
+               > **Note:** Either `role_definition_id` or `role_definition_name` must be set.
         :param pulumi.Input[builtins.str] scope: The scope at which the Role Assignment applies to, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`, or `/providers/Microsoft.Management/managementGroups/myMG`. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.bool] skip_service_principal_aad_check: If the `principal_id` is a newly provisioned `Service Principal` set this value to `true` to skip the `Azure Active Directory` check which may fail due to replication lag. This argument is only valid if the `principal_id` is a `Service Principal` identity. Defaults to `false`.
                
-               > **NOTE:** If it is not a `Service Principal` identity it will cause the role assignment to fail.
+               > **Note:** If it is not a `Service Principal` identity it will cause the role assignment to fail.
         """
         if condition is not None:
             pulumi.set(__self__, "condition", condition)
@@ -291,6 +297,8 @@ class _AssignmentState:
     def condition_version(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         The version of the condition. Possible values are `1.0` or `2.0`. Changing this forces a new resource to be created.
+
+        > **Note:** `condition` is required when `condition_version` is set.
         """
         return pulumi.get(self, "condition_version")
 
@@ -304,7 +312,7 @@ class _AssignmentState:
         """
         The delegated Azure Resource Id which contains a Managed Identity. Changing this forces a new resource to be created.
 
-        > **NOTE:** this field is only used in cross tenant scenario.
+        > **Note:** This field is only used in cross tenant scenarios.
         """
         return pulumi.get(self, "delegated_managed_identity_resource_id")
 
@@ -342,7 +350,7 @@ class _AssignmentState:
         """
         The ID of the Principal (User, Group or Service Principal) to assign the Role Definition to. Changing this forces a new resource to be created.
 
-        > **NOTE:** The Principal ID is also known as the Object ID (ie not the "Application ID" for applications).
+        > **Note:** The Principal ID is also known as the Object ID (i.e. not the "Application ID" for applications).
         """
         return pulumi.get(self, "principal_id")
 
@@ -355,8 +363,6 @@ class _AssignmentState:
     def principal_type(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         The type of the `principal_id`. Possible values are `User`, `Group` and `ServicePrincipal`. Changing this forces a new resource to be created. It is necessary to explicitly set this attribute when creating role assignments if the principal creating the assignment is constrained by ABAC rules that filters on the PrincipalType attribute.
-
-        > **NOTE:** If one of `condition` or `condition_version` is set both fields must be present.
         """
         return pulumi.get(self, "principal_type")
 
@@ -368,7 +374,7 @@ class _AssignmentState:
     @pulumi.getter(name="roleDefinitionId")
     def role_definition_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The Scoped-ID of the Role Definition. Changing this forces a new resource to be created. Conflicts with `role_definition_name`.
+        The Scoped-ID of the Role Definition. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "role_definition_id")
 
@@ -380,7 +386,9 @@ class _AssignmentState:
     @pulumi.getter(name="roleDefinitionName")
     def role_definition_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The name of a built-in Role. Changing this forces a new resource to be created. Conflicts with `role_definition_id`.
+        The name of a built-in Role. Changing this forces a new resource to be created.
+
+        > **Note:** Either `role_definition_id` or `role_definition_name` must be set.
         """
         return pulumi.get(self, "role_definition_name")
 
@@ -406,7 +414,7 @@ class _AssignmentState:
         """
         If the `principal_id` is a newly provisioned `Service Principal` set this value to `true` to skip the `Azure Active Directory` check which may fail due to replication lag. This argument is only valid if the `principal_id` is a `Service Principal` identity. Defaults to `false`.
 
-        > **NOTE:** If it is not a `Service Principal` identity it will cause the role assignment to fail.
+        > **Note:** If it is not a `Service Principal` identity it will cause the role assignment to fail.
         """
         return pulumi.get(self, "skip_service_principal_aad_check")
 
@@ -564,6 +572,13 @@ class Assignment(pulumi.CustomResource):
         \"\"\")
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Authorization`: 2022-05-01-preview, 2022-04-01
+
         ## Import
 
         Role Assignments can be imported using the `resource id`, e.g.
@@ -588,23 +603,25 @@ class Assignment(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] condition: The condition that limits the resources that the role can be assigned to. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] condition_version: The version of the condition. Possible values are `1.0` or `2.0`. Changing this forces a new resource to be created.
+               
+               > **Note:** `condition` is required when `condition_version` is set.
         :param pulumi.Input[builtins.str] delegated_managed_identity_resource_id: The delegated Azure Resource Id which contains a Managed Identity. Changing this forces a new resource to be created.
                
-               > **NOTE:** this field is only used in cross tenant scenario.
+               > **Note:** This field is only used in cross tenant scenarios.
         :param pulumi.Input[builtins.str] description: The description for this Role Assignment. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] name: A unique UUID/GUID for this Role Assignment - one will be generated if not specified. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] principal_id: The ID of the Principal (User, Group or Service Principal) to assign the Role Definition to. Changing this forces a new resource to be created.
                
-               > **NOTE:** The Principal ID is also known as the Object ID (ie not the "Application ID" for applications).
+               > **Note:** The Principal ID is also known as the Object ID (i.e. not the "Application ID" for applications).
         :param pulumi.Input[builtins.str] principal_type: The type of the `principal_id`. Possible values are `User`, `Group` and `ServicePrincipal`. Changing this forces a new resource to be created. It is necessary to explicitly set this attribute when creating role assignments if the principal creating the assignment is constrained by ABAC rules that filters on the PrincipalType attribute.
+        :param pulumi.Input[builtins.str] role_definition_id: The Scoped-ID of the Role Definition. Changing this forces a new resource to be created.
+        :param pulumi.Input[builtins.str] role_definition_name: The name of a built-in Role. Changing this forces a new resource to be created.
                
-               > **NOTE:** If one of `condition` or `condition_version` is set both fields must be present.
-        :param pulumi.Input[builtins.str] role_definition_id: The Scoped-ID of the Role Definition. Changing this forces a new resource to be created. Conflicts with `role_definition_name`.
-        :param pulumi.Input[builtins.str] role_definition_name: The name of a built-in Role. Changing this forces a new resource to be created. Conflicts with `role_definition_id`.
+               > **Note:** Either `role_definition_id` or `role_definition_name` must be set.
         :param pulumi.Input[builtins.str] scope: The scope at which the Role Assignment applies to, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`, or `/providers/Microsoft.Management/managementGroups/myMG`. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.bool] skip_service_principal_aad_check: If the `principal_id` is a newly provisioned `Service Principal` set this value to `true` to skip the `Azure Active Directory` check which may fail due to replication lag. This argument is only valid if the `principal_id` is a `Service Principal` identity. Defaults to `false`.
                
-               > **NOTE:** If it is not a `Service Principal` identity it will cause the role assignment to fail.
+               > **Note:** If it is not a `Service Principal` identity it will cause the role assignment to fail.
         """
         ...
     @overload
@@ -743,6 +760,13 @@ class Assignment(pulumi.CustomResource):
         \"\"\")
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Authorization`: 2022-05-01-preview, 2022-04-01
+
         ## Import
 
         Role Assignments can be imported using the `resource id`, e.g.
@@ -845,23 +869,25 @@ class Assignment(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] condition: The condition that limits the resources that the role can be assigned to. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] condition_version: The version of the condition. Possible values are `1.0` or `2.0`. Changing this forces a new resource to be created.
+               
+               > **Note:** `condition` is required when `condition_version` is set.
         :param pulumi.Input[builtins.str] delegated_managed_identity_resource_id: The delegated Azure Resource Id which contains a Managed Identity. Changing this forces a new resource to be created.
                
-               > **NOTE:** this field is only used in cross tenant scenario.
+               > **Note:** This field is only used in cross tenant scenarios.
         :param pulumi.Input[builtins.str] description: The description for this Role Assignment. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] name: A unique UUID/GUID for this Role Assignment - one will be generated if not specified. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] principal_id: The ID of the Principal (User, Group or Service Principal) to assign the Role Definition to. Changing this forces a new resource to be created.
                
-               > **NOTE:** The Principal ID is also known as the Object ID (ie not the "Application ID" for applications).
+               > **Note:** The Principal ID is also known as the Object ID (i.e. not the "Application ID" for applications).
         :param pulumi.Input[builtins.str] principal_type: The type of the `principal_id`. Possible values are `User`, `Group` and `ServicePrincipal`. Changing this forces a new resource to be created. It is necessary to explicitly set this attribute when creating role assignments if the principal creating the assignment is constrained by ABAC rules that filters on the PrincipalType attribute.
+        :param pulumi.Input[builtins.str] role_definition_id: The Scoped-ID of the Role Definition. Changing this forces a new resource to be created.
+        :param pulumi.Input[builtins.str] role_definition_name: The name of a built-in Role. Changing this forces a new resource to be created.
                
-               > **NOTE:** If one of `condition` or `condition_version` is set both fields must be present.
-        :param pulumi.Input[builtins.str] role_definition_id: The Scoped-ID of the Role Definition. Changing this forces a new resource to be created. Conflicts with `role_definition_name`.
-        :param pulumi.Input[builtins.str] role_definition_name: The name of a built-in Role. Changing this forces a new resource to be created. Conflicts with `role_definition_id`.
+               > **Note:** Either `role_definition_id` or `role_definition_name` must be set.
         :param pulumi.Input[builtins.str] scope: The scope at which the Role Assignment applies to, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`, or `/providers/Microsoft.Management/managementGroups/myMG`. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.bool] skip_service_principal_aad_check: If the `principal_id` is a newly provisioned `Service Principal` set this value to `true` to skip the `Azure Active Directory` check which may fail due to replication lag. This argument is only valid if the `principal_id` is a `Service Principal` identity. Defaults to `false`.
                
-               > **NOTE:** If it is not a `Service Principal` identity it will cause the role assignment to fail.
+               > **Note:** If it is not a `Service Principal` identity it will cause the role assignment to fail.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -893,6 +919,8 @@ class Assignment(pulumi.CustomResource):
     def condition_version(self) -> pulumi.Output[builtins.str]:
         """
         The version of the condition. Possible values are `1.0` or `2.0`. Changing this forces a new resource to be created.
+
+        > **Note:** `condition` is required when `condition_version` is set.
         """
         return pulumi.get(self, "condition_version")
 
@@ -902,7 +930,7 @@ class Assignment(pulumi.CustomResource):
         """
         The delegated Azure Resource Id which contains a Managed Identity. Changing this forces a new resource to be created.
 
-        > **NOTE:** this field is only used in cross tenant scenario.
+        > **Note:** This field is only used in cross tenant scenarios.
         """
         return pulumi.get(self, "delegated_managed_identity_resource_id")
 
@@ -928,7 +956,7 @@ class Assignment(pulumi.CustomResource):
         """
         The ID of the Principal (User, Group or Service Principal) to assign the Role Definition to. Changing this forces a new resource to be created.
 
-        > **NOTE:** The Principal ID is also known as the Object ID (ie not the "Application ID" for applications).
+        > **Note:** The Principal ID is also known as the Object ID (i.e. not the "Application ID" for applications).
         """
         return pulumi.get(self, "principal_id")
 
@@ -937,8 +965,6 @@ class Assignment(pulumi.CustomResource):
     def principal_type(self) -> pulumi.Output[builtins.str]:
         """
         The type of the `principal_id`. Possible values are `User`, `Group` and `ServicePrincipal`. Changing this forces a new resource to be created. It is necessary to explicitly set this attribute when creating role assignments if the principal creating the assignment is constrained by ABAC rules that filters on the PrincipalType attribute.
-
-        > **NOTE:** If one of `condition` or `condition_version` is set both fields must be present.
         """
         return pulumi.get(self, "principal_type")
 
@@ -946,7 +972,7 @@ class Assignment(pulumi.CustomResource):
     @pulumi.getter(name="roleDefinitionId")
     def role_definition_id(self) -> pulumi.Output[builtins.str]:
         """
-        The Scoped-ID of the Role Definition. Changing this forces a new resource to be created. Conflicts with `role_definition_name`.
+        The Scoped-ID of the Role Definition. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "role_definition_id")
 
@@ -954,7 +980,9 @@ class Assignment(pulumi.CustomResource):
     @pulumi.getter(name="roleDefinitionName")
     def role_definition_name(self) -> pulumi.Output[builtins.str]:
         """
-        The name of a built-in Role. Changing this forces a new resource to be created. Conflicts with `role_definition_id`.
+        The name of a built-in Role. Changing this forces a new resource to be created.
+
+        > **Note:** Either `role_definition_id` or `role_definition_name` must be set.
         """
         return pulumi.get(self, "role_definition_name")
 
@@ -972,7 +1000,7 @@ class Assignment(pulumi.CustomResource):
         """
         If the `principal_id` is a newly provisioned `Service Principal` set this value to `true` to skip the `Azure Active Directory` check which may fail due to replication lag. This argument is only valid if the `principal_id` is a `Service Principal` identity. Defaults to `false`.
 
-        > **NOTE:** If it is not a `Service Principal` identity it will cause the role assignment to fail.
+        > **Note:** If it is not a `Service Principal` identity it will cause the role assignment to fail.
         """
         return pulumi.get(self, "skip_service_principal_aad_check")
 

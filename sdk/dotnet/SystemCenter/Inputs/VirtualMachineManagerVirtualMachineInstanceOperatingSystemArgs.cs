@@ -31,8 +31,8 @@ namespace Pulumi.Azure.SystemCenter.Inputs
         /// <summary>
         /// The computer name of the Virtual Machine. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("computerName", required: true)]
-        public Input<string> ComputerName { get; set; } = null!;
+        [Input("computerName")]
+        public Input<string>? ComputerName { get; set; }
 
         public VirtualMachineManagerVirtualMachineInstanceOperatingSystemArgs()
         {

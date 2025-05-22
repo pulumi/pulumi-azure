@@ -27,10 +27,13 @@ class GetPoolResult:
     """
     A collection of values returned by getPool.
     """
-    def __init__(__self__, account_name=None, encryption_type=None, id=None, location=None, name=None, resource_group_name=None, service_level=None, size_in_tb=None):
+    def __init__(__self__, account_name=None, cool_access_enabled=None, encryption_type=None, id=None, location=None, name=None, resource_group_name=None, service_level=None, size_in_tb=None):
         if account_name and not isinstance(account_name, str):
             raise TypeError("Expected argument 'account_name' to be a str")
         pulumi.set(__self__, "account_name", account_name)
+        if cool_access_enabled and not isinstance(cool_access_enabled, bool):
+            raise TypeError("Expected argument 'cool_access_enabled' to be a bool")
+        pulumi.set(__self__, "cool_access_enabled", cool_access_enabled)
         if encryption_type and not isinstance(encryption_type, str):
             raise TypeError("Expected argument 'encryption_type' to be a str")
         pulumi.set(__self__, "encryption_type", encryption_type)
@@ -57,6 +60,14 @@ class GetPoolResult:
     @pulumi.getter(name="accountName")
     def account_name(self) -> builtins.str:
         return pulumi.get(self, "account_name")
+
+    @property
+    @pulumi.getter(name="coolAccessEnabled")
+    def cool_access_enabled(self) -> builtins.bool:
+        """
+        Whether the NetApp Pool can hold cool access enabled volumes.
+        """
+        return pulumi.get(self, "cool_access_enabled")
 
     @property
     @pulumi.getter(name="encryptionType")
@@ -116,6 +127,7 @@ class AwaitableGetPoolResult(GetPoolResult):
             yield self
         return GetPoolResult(
             account_name=self.account_name,
+            cool_access_enabled=self.cool_access_enabled,
             encryption_type=self.encryption_type,
             id=self.id,
             location=self.location,
@@ -144,6 +156,13 @@ def get_pool(account_name: Optional[builtins.str] = None,
     pulumi.export("netappPoolId", example.id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.NetApp`: 2025-01-01
+
 
     :param builtins.str account_name: The name of the NetApp account where the NetApp pool exists.
     :param builtins.str name: The name of the NetApp Pool.
@@ -158,6 +177,7 @@ def get_pool(account_name: Optional[builtins.str] = None,
 
     return AwaitableGetPoolResult(
         account_name=pulumi.get(__ret__, 'account_name'),
+        cool_access_enabled=pulumi.get(__ret__, 'cool_access_enabled'),
         encryption_type=pulumi.get(__ret__, 'encryption_type'),
         id=pulumi.get(__ret__, 'id'),
         location=pulumi.get(__ret__, 'location'),
@@ -184,6 +204,13 @@ def get_pool_output(account_name: Optional[pulumi.Input[builtins.str]] = None,
     pulumi.export("netappPoolId", example.id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.NetApp`: 2025-01-01
+
 
     :param builtins.str account_name: The name of the NetApp account where the NetApp pool exists.
     :param builtins.str name: The name of the NetApp Pool.
@@ -197,6 +224,7 @@ def get_pool_output(account_name: Optional[pulumi.Input[builtins.str]] = None,
     __ret__ = pulumi.runtime.invoke_output('azure:netapp/getPool:getPool', __args__, opts=opts, typ=GetPoolResult)
     return __ret__.apply(lambda __response__: GetPoolResult(
         account_name=pulumi.get(__response__, 'account_name'),
+        cool_access_enabled=pulumi.get(__response__, 'cool_access_enabled'),
         encryption_type=pulumi.get(__response__, 'encryption_type'),
         id=pulumi.get(__response__, 'id'),
         location=pulumi.get(__response__, 'location'),

@@ -37,7 +37,7 @@ class AlertRuleMsSecurityIncidentArgs:
         :param pulumi.Input[builtins.str] product_filter: The Microsoft Security Service from where the alert will be generated. Possible values are `Azure Active Directory Identity Protection`, `Azure Advanced Threat Protection`, `Azure Security Center`, `Azure Security Center for IoT`, `Microsoft Cloud App Security`, `Microsoft Defender Advanced Threat Protection` and `Office 365 Advanced Threat Protection`.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] severity_filters: Only create incidents from alerts when alert severity level is contained in this list. Possible values are `High`, `Medium`, `Low` and `Informational`.
                
-               > **NOTE** At least one of the severity filters need to be set.
+               > **Note:** At least one of the severity filters need to be set.
         :param pulumi.Input[builtins.str] alert_rule_template_guid: The GUID of the alert rule template which is used to create this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel MS Security Incident Alert Rule to be created.
         :param pulumi.Input[builtins.str] description: The description of this Sentinel MS Security Incident Alert Rule.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] display_name_exclude_filters: Only create incidents when the alert display name doesn't contain text from this list.
@@ -104,7 +104,7 @@ class AlertRuleMsSecurityIncidentArgs:
         """
         Only create incidents from alerts when alert severity level is contained in this list. Possible values are `High`, `Medium`, `Low` and `Informational`.
 
-        > **NOTE** At least one of the severity filters need to be set.
+        > **Note:** At least one of the severity filters need to be set.
         """
         return pulumi.get(self, "severity_filters")
 
@@ -211,7 +211,7 @@ class _AlertRuleMsSecurityIncidentState:
         :param pulumi.Input[builtins.str] product_filter: The Microsoft Security Service from where the alert will be generated. Possible values are `Azure Active Directory Identity Protection`, `Azure Advanced Threat Protection`, `Azure Security Center`, `Azure Security Center for IoT`, `Microsoft Cloud App Security`, `Microsoft Defender Advanced Threat Protection` and `Office 365 Advanced Threat Protection`.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] severity_filters: Only create incidents from alerts when alert severity level is contained in this list. Possible values are `High`, `Medium`, `Low` and `Informational`.
                
-               > **NOTE** At least one of the severity filters need to be set.
+               > **Note:** At least one of the severity filters need to be set.
         """
         if alert_rule_template_guid is not None:
             pulumi.set(__self__, "alert_rule_template_guid", alert_rule_template_guid)
@@ -348,7 +348,7 @@ class _AlertRuleMsSecurityIncidentState:
         """
         Only create incidents from alerts when alert severity level is contained in this list. Possible values are `High`, `Medium`, `Low` and `Informational`.
 
-        > **NOTE** At least one of the severity filters need to be set.
+        > **Note:** At least one of the severity filters need to be set.
         """
         return pulumi.get(self, "severity_filters")
 
@@ -400,6 +400,13 @@ class AlertRuleMsSecurityIncident(pulumi.CustomResource):
             severity_filters=["High"])
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.OperationalInsights`: 2023-12-01-preview
+
         ## Import
 
         Sentinel MS Security Incident Alert Rules can be imported using the `resource id`, e.g.
@@ -421,7 +428,7 @@ class AlertRuleMsSecurityIncident(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] product_filter: The Microsoft Security Service from where the alert will be generated. Possible values are `Azure Active Directory Identity Protection`, `Azure Advanced Threat Protection`, `Azure Security Center`, `Azure Security Center for IoT`, `Microsoft Cloud App Security`, `Microsoft Defender Advanced Threat Protection` and `Office 365 Advanced Threat Protection`.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] severity_filters: Only create incidents from alerts when alert severity level is contained in this list. Possible values are `High`, `Medium`, `Low` and `Informational`.
                
-               > **NOTE** At least one of the severity filters need to be set.
+               > **Note:** At least one of the severity filters need to be set.
         """
         ...
     @overload
@@ -454,6 +461,13 @@ class AlertRuleMsSecurityIncident(pulumi.CustomResource):
             display_name="example rule",
             severity_filters=["High"])
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.OperationalInsights`: 2023-12-01-preview
 
         ## Import
 
@@ -553,7 +567,7 @@ class AlertRuleMsSecurityIncident(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] product_filter: The Microsoft Security Service from where the alert will be generated. Possible values are `Azure Active Directory Identity Protection`, `Azure Advanced Threat Protection`, `Azure Security Center`, `Azure Security Center for IoT`, `Microsoft Cloud App Security`, `Microsoft Defender Advanced Threat Protection` and `Office 365 Advanced Threat Protection`.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] severity_filters: Only create incidents from alerts when alert severity level is contained in this list. Possible values are `High`, `Medium`, `Low` and `Informational`.
                
-               > **NOTE** At least one of the severity filters need to be set.
+               > **Note:** At least one of the severity filters need to be set.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -649,7 +663,7 @@ class AlertRuleMsSecurityIncident(pulumi.CustomResource):
         """
         Only create incidents from alerts when alert severity level is contained in this list. Possible values are `High`, `Medium`, `Low` and `Informational`.
 
-        > **NOTE** At least one of the severity filters need to be set.
+        > **Note:** At least one of the severity filters need to be set.
         """
         return pulumi.get(self, "severity_filters")
 

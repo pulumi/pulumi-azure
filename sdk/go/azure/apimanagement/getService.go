@@ -40,6 +40,13 @@ import (
 //	}
 //
 // ```
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This data source uses the following Azure API Providers:
+//
+// * `Microsoft.ApiManagement`: 2022-08-01
 func LookupService(ctx *pulumi.Context, args *LookupServiceArgs, opts ...pulumi.InvokeOption) (*LookupServiceResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupServiceResult
@@ -74,7 +81,7 @@ type LookupServiceResult struct {
 	HostnameConfigurations []GetServiceHostnameConfiguration `pulumi:"hostnameConfigurations"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// (Optional) An `identity` block as defined below.
+	// An `identity` block as defined below.
 	Identities []GetServiceIdentity `pulumi:"identities"`
 	// The location name of the additional region among Azure Data center regions.
 	Location string `pulumi:"location"`
@@ -174,7 +181,7 @@ func (o LookupServiceResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServiceResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// (Optional) An `identity` block as defined below.
+// An `identity` block as defined below.
 func (o LookupServiceResultOutput) Identities() GetServiceIdentityArrayOutput {
 	return o.ApplyT(func(v LookupServiceResult) []GetServiceIdentity { return v.Identities }).(GetServiceIdentityArrayOutput)
 }

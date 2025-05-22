@@ -73,6 +73,13 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.Consumption`: 2019-10-01
+ *
  * ## Import
  *
  * Subscription Consumption Budgets can be imported using the `resource id`, e.g.
@@ -132,7 +139,7 @@ export class BudgetSubscription extends pulumi.CustomResource {
     /**
      * The ID of the Subscription for which to create a Consumption Budget. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** The `subscriptionId` property can accept a subscription ID e.g. `00000000-0000-0000-0000-000000000000` or the subscription resource ID e.g. `/subscriptions/00000000-0000-0000-0000-000000000000`. In version 3.0 this property will only accept the subscription resource ID.
+     * > **Note:** The `subscriptionId` property can accept a subscription ID e.g. `00000000-0000-0000-0000-000000000000` or the subscription resource ID e.g. `/subscriptions/00000000-0000-0000-0000-000000000000`. In version 3.0 this property will only accept the subscription resource ID.
      */
     public readonly subscriptionId!: pulumi.Output<string>;
     /**
@@ -220,7 +227,7 @@ export interface BudgetSubscriptionState {
     /**
      * The ID of the Subscription for which to create a Consumption Budget. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** The `subscriptionId` property can accept a subscription ID e.g. `00000000-0000-0000-0000-000000000000` or the subscription resource ID e.g. `/subscriptions/00000000-0000-0000-0000-000000000000`. In version 3.0 this property will only accept the subscription resource ID.
+     * > **Note:** The `subscriptionId` property can accept a subscription ID e.g. `00000000-0000-0000-0000-000000000000` or the subscription resource ID e.g. `/subscriptions/00000000-0000-0000-0000-000000000000`. In version 3.0 this property will only accept the subscription resource ID.
      */
     subscriptionId?: pulumi.Input<string>;
     /**
@@ -260,7 +267,7 @@ export interface BudgetSubscriptionArgs {
     /**
      * The ID of the Subscription for which to create a Consumption Budget. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** The `subscriptionId` property can accept a subscription ID e.g. `00000000-0000-0000-0000-000000000000` or the subscription resource ID e.g. `/subscriptions/00000000-0000-0000-0000-000000000000`. In version 3.0 this property will only accept the subscription resource ID.
+     * > **Note:** The `subscriptionId` property can accept a subscription ID e.g. `00000000-0000-0000-0000-000000000000` or the subscription resource ID e.g. `/subscriptions/00000000-0000-0000-0000-000000000000`. In version 3.0 this property will only accept the subscription resource ID.
      */
     subscriptionId: pulumi.Input<string>;
     /**

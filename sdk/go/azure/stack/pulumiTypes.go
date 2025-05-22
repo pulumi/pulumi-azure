@@ -18,7 +18,7 @@ type HciClusterIdentity struct {
 	PrincipalId *string `pulumi:"principalId"`
 	// The Tenant ID of the Azure Active Directory which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
 	//
-	// > **NOTE** If unspecified the Tenant ID of the Provider will be used.
+	// > **Note:** If unspecified the Tenant ID of the Provider will be used.
 	TenantId *string `pulumi:"tenantId"`
 	// Specifies the type of Managed Service Identity that should be configured on the Azure Stack HCI Cluster. Possible value is `SystemAssigned`.
 	Type string `pulumi:"type"`
@@ -40,7 +40,7 @@ type HciClusterIdentityArgs struct {
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
 	// The Tenant ID of the Azure Active Directory which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
 	//
-	// > **NOTE** If unspecified the Tenant ID of the Provider will be used.
+	// > **Note:** If unspecified the Tenant ID of the Provider will be used.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
 	// Specifies the type of Managed Service Identity that should be configured on the Azure Stack HCI Cluster. Possible value is `SystemAssigned`.
 	Type pulumi.StringInput `pulumi:"type"`
@@ -130,7 +130,7 @@ func (o HciClusterIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
 
 // The Tenant ID of the Azure Active Directory which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
 //
-// > **NOTE** If unspecified the Tenant ID of the Provider will be used.
+// > **Note:** If unspecified the Tenant ID of the Provider will be used.
 func (o HciClusterIdentityOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HciClusterIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
@@ -176,7 +176,7 @@ func (o HciClusterIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
 
 // The Tenant ID of the Azure Active Directory which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
 //
-// > **NOTE** If unspecified the Tenant ID of the Provider will be used.
+// > **Note:** If unspecified the Tenant ID of the Provider will be used.
 func (o HciClusterIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HciClusterIdentity) *string {
 		if v == nil {
@@ -1485,7 +1485,7 @@ func (o HciDeploymentSettingScaleUnitHostNetworkStorageNetworkArrayOutput) Index
 type HciDeploymentSettingScaleUnitInfrastructureNetwork struct {
 	// Whether DHCP is enabled for hosts and cluster IPs. Possible values are `true` and `false`. defaults to `false`. Changing this forces a new Stack HCI Deployment Setting to be created.
 	//
-	// > **NOTE:** If `dhcpEnabled` is set to `false`, the deployment will use static IPs. If set to `true`, the gateway and DNS servers are not required.
+	// > **Note:** If `dhcpEnabled` is set to `false`, the deployment will use static IPs. If set to `true`, the gateway and DNS servers are not required.
 	DhcpEnabled *bool `pulumi:"dhcpEnabled"`
 	// Specifies a list of IPv4 addresses of the DNS servers in your environment. Changing this forces a new Stack HCI Deployment Setting to be created.
 	DnsServers []string `pulumi:"dnsServers"`
@@ -1511,7 +1511,7 @@ type HciDeploymentSettingScaleUnitInfrastructureNetworkInput interface {
 type HciDeploymentSettingScaleUnitInfrastructureNetworkArgs struct {
 	// Whether DHCP is enabled for hosts and cluster IPs. Possible values are `true` and `false`. defaults to `false`. Changing this forces a new Stack HCI Deployment Setting to be created.
 	//
-	// > **NOTE:** If `dhcpEnabled` is set to `false`, the deployment will use static IPs. If set to `true`, the gateway and DNS servers are not required.
+	// > **Note:** If `dhcpEnabled` is set to `false`, the deployment will use static IPs. If set to `true`, the gateway and DNS servers are not required.
 	DhcpEnabled pulumi.BoolPtrInput `pulumi:"dhcpEnabled"`
 	// Specifies a list of IPv4 addresses of the DNS servers in your environment. Changing this forces a new Stack HCI Deployment Setting to be created.
 	DnsServers pulumi.StringArrayInput `pulumi:"dnsServers"`
@@ -1576,7 +1576,7 @@ func (o HciDeploymentSettingScaleUnitInfrastructureNetworkOutput) ToHciDeploymen
 
 // Whether DHCP is enabled for hosts and cluster IPs. Possible values are `true` and `false`. defaults to `false`. Changing this forces a new Stack HCI Deployment Setting to be created.
 //
-// > **NOTE:** If `dhcpEnabled` is set to `false`, the deployment will use static IPs. If set to `true`, the gateway and DNS servers are not required.
+// > **Note:** If `dhcpEnabled` is set to `false`, the deployment will use static IPs. If set to `true`, the gateway and DNS servers are not required.
 func (o HciDeploymentSettingScaleUnitInfrastructureNetworkOutput) DhcpEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v HciDeploymentSettingScaleUnitInfrastructureNetwork) *bool { return v.DhcpEnabled }).(pulumi.BoolPtrOutput)
 }

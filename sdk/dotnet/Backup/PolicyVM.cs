@@ -123,7 +123,7 @@ namespace Pulumi.Azure.Backup
         /// <summary>
         /// Specifies the instant restore retention range in days. Possible values are between `1` and `5` when `policy_type` is `V1`, and `1` to `30` when `policy_type` is `V2`.
         /// 
-        /// &gt; **NOTE:** `instant_restore_retention_days` **must** be set to `5` if the backup frequency is set to `Weekly`.
+        /// &gt; **Note:** `instant_restore_retention_days` **must** be set to `5` if the backup frequency is set to `Weekly`.
         /// </summary>
         [Output("instantRestoreRetentionDays")]
         public Output<int> InstantRestoreRetentionDays { get; private set; } = null!;
@@ -249,7 +249,7 @@ namespace Pulumi.Azure.Backup
         /// <summary>
         /// Specifies the instant restore retention range in days. Possible values are between `1` and `5` when `policy_type` is `V1`, and `1` to `30` when `policy_type` is `V2`.
         /// 
-        /// &gt; **NOTE:** `instant_restore_retention_days` **must** be set to `5` if the backup frequency is set to `Weekly`.
+        /// &gt; **Note:** `instant_restore_retention_days` **must** be set to `5` if the backup frequency is set to `Weekly`.
         /// </summary>
         [Input("instantRestoreRetentionDays")]
         public Input<int>? InstantRestoreRetentionDays { get; set; }
@@ -337,7 +337,7 @@ namespace Pulumi.Azure.Backup
         /// <summary>
         /// Specifies the instant restore retention range in days. Possible values are between `1` and `5` when `policy_type` is `V1`, and `1` to `30` when `policy_type` is `V2`.
         /// 
-        /// &gt; **NOTE:** `instant_restore_retention_days` **must** be set to `5` if the backup frequency is set to `Weekly`.
+        /// &gt; **Note:** `instant_restore_retention_days` **must** be set to `5` if the backup frequency is set to `Weekly`.
         /// </summary>
         [Input("instantRestoreRetentionDays")]
         public Input<int>? InstantRestoreRetentionDays { get; set; }

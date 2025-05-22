@@ -19,7 +19,7 @@ import javax.annotation.Nullable;
 /**
  * Manages an Azure Active Directory Diagnostic Setting for Azure Monitor.
  * 
- * !&gt; **Authentication** The API for this resource does not support service principal authentication. This resource can only be used with Azure CLI authentication.
+ * !&gt; **Note:** The API for this resource does not support service principal authentication. This resource can only be used with Azure CLI authentication.
  * 
  * ## Example Usage
  * 
@@ -117,7 +117,7 @@ public class AadDiagnosticSetting extends com.pulumi.resources.CustomResource {
     /**
      * Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** This can be sourced from the `azure.eventhub.EventHubNamespaceAuthorizationRule` resource and is different from a `azure.eventhub.AuthorizationRule` resource.
+     * &gt; **Note:** This can be sourced from the `azure.eventhub.EventHubNamespaceAuthorizationRule` resource and is different from a `azure.eventhub.AuthorizationRule` resource.
      * 
      */
     @Export(name="eventhubAuthorizationRuleId", refs={String.class}, tree="[0]")
@@ -126,7 +126,7 @@ public class AadDiagnosticSetting extends com.pulumi.resources.CustomResource {
     /**
      * @return Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** This can be sourced from the `azure.eventhub.EventHubNamespaceAuthorizationRule` resource and is different from a `azure.eventhub.AuthorizationRule` resource.
+     * &gt; **Note:** This can be sourced from the `azure.eventhub.EventHubNamespaceAuthorizationRule` resource and is different from a `azure.eventhub.AuthorizationRule` resource.
      * 
      */
     public Output<Optional<String>> eventhubAuthorizationRuleId() {
@@ -177,7 +177,7 @@ public class AadDiagnosticSetting extends com.pulumi.resources.CustomResource {
     /**
      * The ID of the Storage Account where logs should be sent. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** One of `eventhub_authorization_rule_id`, `log_analytics_workspace_id` and `storage_account_id` must be specified.
+     * &gt; **Note:** One of `eventhub_authorization_rule_id`, `log_analytics_workspace_id` and `storage_account_id` must be specified.
      * 
      */
     @Export(name="storageAccountId", refs={String.class}, tree="[0]")
@@ -186,7 +186,7 @@ public class AadDiagnosticSetting extends com.pulumi.resources.CustomResource {
     /**
      * @return The ID of the Storage Account where logs should be sent. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** One of `eventhub_authorization_rule_id`, `log_analytics_workspace_id` and `storage_account_id` must be specified.
+     * &gt; **Note:** One of `eventhub_authorization_rule_id`, `log_analytics_workspace_id` and `storage_account_id` must be specified.
      * 
      */
     public Output<Optional<String>> storageAccountId() {

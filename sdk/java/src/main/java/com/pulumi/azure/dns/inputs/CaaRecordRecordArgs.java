@@ -31,14 +31,14 @@ public final class CaaRecordRecordArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * A property tag, options are `issue`, `issuewild` and `iodef`.
+     * A property tag, options are `issue`, `issuewild`, `iodef`, and `contactemail`.
      * 
      */
     @Import(name="tag", required=true)
     private Output<String> tag;
 
     /**
-     * @return A property tag, options are `issue`, `issuewild` and `iodef`.
+     * @return A property tag, options are `issue`, `issuewild`, `iodef`, and `contactemail`.
      * 
      */
     public Output<String> tag() {
@@ -108,7 +108,7 @@ public final class CaaRecordRecordArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param tag A property tag, options are `issue`, `issuewild` and `iodef`.
+         * @param tag A property tag, options are `issue`, `issuewild`, `iodef`, and `contactemail`.
          * 
          * @return builder
          * 
@@ -119,7 +119,7 @@ public final class CaaRecordRecordArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param tag A property tag, options are `issue`, `issuewild` and `iodef`.
+         * @param tag A property tag, options are `issue`, `issuewild`, `iodef`, and `contactemail`.
          * 
          * @return builder
          * 

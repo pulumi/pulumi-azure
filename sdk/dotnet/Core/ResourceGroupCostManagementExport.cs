@@ -66,6 +66,13 @@ namespace Pulumi.Azure.Core
     /// });
     /// ```
     /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.CostManagement`: 2023-08-01
+    /// 
     /// ## Import
     /// 
     /// Cost Management Export for a Resource Group can be imported using the `resource id`, e.g.

@@ -100,6 +100,13 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.MobileNetwork`: 2022-11-01
+ * 
  * ## Import
  * 
  * Mobile Network Sim Groups can be imported using the `resource id`, e.g.
@@ -128,7 +135,7 @@ public class NetworkSimGroup extends com.pulumi.resources.CustomResource {
     /**
      * An `identity` block as defined below.
      * 
-     * &gt; **NOTE:** A `UserAssigned` identity must be specified when `encryption_key_url` is specified.
+     * &gt; **Note:** A `UserAssigned` identity must be specified when `encryption_key_url` is specified.
      * 
      */
     @Export(name="identity", refs={NetworkSimGroupIdentity.class}, tree="[0]")
@@ -137,7 +144,7 @@ public class NetworkSimGroup extends com.pulumi.resources.CustomResource {
     /**
      * @return An `identity` block as defined below.
      * 
-     * &gt; **NOTE:** A `UserAssigned` identity must be specified when `encryption_key_url` is specified.
+     * &gt; **Note:** A `UserAssigned` identity must be specified when `encryption_key_url` is specified.
      * 
      */
     public Output<Optional<NetworkSimGroupIdentity>> identity() {

@@ -19,7 +19,7 @@ public final class PacketCaptureStorageLocation {
     /**
      * @return The ID of the storage account where the packet capture sessions should be saved to.
      * 
-     * &gt; **NOTE:** At least one of `file_path` or `storage_account_id` must be specified.
+     * &gt; **Note:** At least one of `file_path` or `storage_account_id` must be specified.
      * 
      */
     private @Nullable String storageAccountId;
@@ -40,7 +40,7 @@ public final class PacketCaptureStorageLocation {
     /**
      * @return The ID of the storage account where the packet capture sessions should be saved to.
      * 
-     * &gt; **NOTE:** At least one of `file_path` or `storage_account_id` must be specified.
+     * &gt; **Note:** At least one of `file_path` or `storage_account_id` must be specified.
      * 
      */
     public Optional<String> storageAccountId() {

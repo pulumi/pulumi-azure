@@ -38,7 +38,7 @@ import (
 //				return err
 //			}
 //			exampleAnalyticsWorkspace, err := operationalinsights.NewAnalyticsWorkspace(ctx, "example", &operationalinsights.AnalyticsWorkspaceArgs{
-//				Name:              pulumi.String("acctest-01"),
+//				Name:              pulumi.String("example-workspace"),
 //				Location:          example.Location,
 //				ResourceGroupName: example.Name,
 //				Sku:               pulumi.String("PerGB2018"),
@@ -62,6 +62,15 @@ import (
 //	}
 //
 // ```
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.App`: 2025-01-01
+//
+// * `Microsoft.OperationalInsights`: 2020-08-01
 //
 // ## Import
 //

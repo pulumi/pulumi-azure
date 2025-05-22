@@ -50,7 +50,7 @@ if not MYPY:
     class PolicyCustomRuleArgsDict(TypedDict):
         action: pulumi.Input[builtins.str]
         """
-        Type of action. Possible values are `Allow`, `Block` and `Log`.
+        Type of action. Possible values are `Allow`, `Block`, `JSChallenge` and `Log`.
 
         > **Note:** If the `rule_type` is specified as `RateLimitRule`, the `Allow` is not supported.
         """
@@ -102,7 +102,7 @@ class PolicyCustomRuleArgs:
                  rate_limit_duration: Optional[pulumi.Input[builtins.str]] = None,
                  rate_limit_threshold: Optional[pulumi.Input[builtins.int]] = None):
         """
-        :param pulumi.Input[builtins.str] action: Type of action. Possible values are `Allow`, `Block` and `Log`.
+        :param pulumi.Input[builtins.str] action: Type of action. Possible values are `Allow`, `Block`, `JSChallenge` and `Log`.
                
                > **Note:** If the `rule_type` is specified as `RateLimitRule`, the `Allow` is not supported.
         :param pulumi.Input[Sequence[pulumi.Input['PolicyCustomRuleMatchConditionArgs']]] match_conditions: One or more `match_conditions` blocks as defined below.
@@ -133,7 +133,7 @@ class PolicyCustomRuleArgs:
     @pulumi.getter
     def action(self) -> pulumi.Input[builtins.str]:
         """
-        Type of action. Possible values are `Allow`, `Block` and `Log`.
+        Type of action. Possible values are `Allow`, `Block`, `JSChallenge` and `Log`.
 
         > **Note:** If the `rule_type` is specified as `RateLimitRule`, the `Allow` is not supported.
         """

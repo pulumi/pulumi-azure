@@ -32,6 +32,13 @@ namespace Pulumi.Azure.PrivateDns
         /// 
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Network`: 2022-07-01
         /// </summary>
         public static Task<GetResolverInboundEndpointResult> InvokeAsync(GetResolverInboundEndpointArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetResolverInboundEndpointResult>("azure:privatedns/getResolverInboundEndpoint:getResolverInboundEndpoint", args ?? new GetResolverInboundEndpointArgs(), options.WithDefaults());
@@ -57,6 +64,13 @@ namespace Pulumi.Azure.PrivateDns
         /// 
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Network`: 2022-07-01
         /// </summary>
         public static Output<GetResolverInboundEndpointResult> Invoke(GetResolverInboundEndpointInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetResolverInboundEndpointResult>("azure:privatedns/getResolverInboundEndpoint:getResolverInboundEndpoint", args ?? new GetResolverInboundEndpointInvokeArgs(), options.WithDefaults());
@@ -82,6 +96,13 @@ namespace Pulumi.Azure.PrivateDns
         /// 
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Network`: 2022-07-01
         /// </summary>
         public static Output<GetResolverInboundEndpointResult> Invoke(GetResolverInboundEndpointInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetResolverInboundEndpointResult>("azure:privatedns/getResolverInboundEndpoint:getResolverInboundEndpoint", args ?? new GetResolverInboundEndpointInvokeArgs(), options.WithDefaults());

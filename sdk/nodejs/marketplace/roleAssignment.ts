@@ -4,6 +4,59 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Assigns a given Principal (User or Group) to a given Role in a Private Azure Marketplace.
+ *
+ * ## Example Usage
+ *
+ * ### Using A Role Definition Name)
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.core.getClientConfig({});
+ * const exampleRoleAssignment = new azure.marketplace.RoleAssignment("example", {
+ *     roleDefinitionName: "Marketplace Admin",
+ *     principalId: example.then(example => example.objectId),
+ * });
+ * ```
+ *
+ * ### Using A Role Definition ID)
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.core.getClientConfig({});
+ * const exampleGetRoleDefinition = azure.authorization.getRoleDefinition({
+ *     name: "Log Analytics Reader",
+ * });
+ * const exampleRoleAssignment = new azure.marketplace.RoleAssignment("example", {
+ *     roleDefinitionId: exampleGetRoleDefinition.then(exampleGetRoleDefinition => exampleGetRoleDefinition.id),
+ *     principalId: example.then(example => example.objectId),
+ * });
+ * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.Authorization`: 2022-05-01-preview, 2022-04-01
+ *
+ * ## Import
+ *
+ * Role Assignments can be imported using the `resource id`, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure:marketplace/roleAssignment:RoleAssignment example /providers/Microsoft.Marketplace/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-0000-000000000000
+ * ```
+ *
+ * text
+ *
+ * /providers/Microsoft.Marketplace/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-0000-000000000000|00000000-0000-0000-0000-000000000000
+ */
 export class RoleAssignment extends pulumi.CustomResource {
     /**
      * Get an existing RoleAssignment resource's state with the given name, ID, and optional extra
@@ -32,15 +85,53 @@ export class RoleAssignment extends pulumi.CustomResource {
         return obj['__pulumiType'] === RoleAssignment.__pulumiType;
     }
 
+    /**
+     * The condition that limits the resources that the role can be assigned to. Changing this forces a new resource to be created.
+     */
     public readonly condition!: pulumi.Output<string | undefined>;
+    /**
+     * The version of the condition. Possible values are `1.0` or `2.0`. Changing this forces a new resource to be created.
+     */
     public readonly conditionVersion!: pulumi.Output<string | undefined>;
+    /**
+     * The delegated Azure Resource ID which contains a Managed Identity. Changing this forces a new resource to be created.
+     *
+     * > **Note:** This field is only used in cross tenant scenarios.
+     */
     public readonly delegatedManagedIdentityResourceId!: pulumi.Output<string | undefined>;
+    /**
+     * The description for this Role Assignment. Changing this forces a new resource to be created.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * A unique UUID/GUID for this Role Assignment - one will be generated if not specified. Changing this forces a new resource to be created.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * The ID of the Principal (User, Group or Service Principal) to assign the Role Definition to. Changing this forces a new resource to be created.
+     *
+     * > **Note:** The Principal ID is also known as the Object ID (i.e. not the "Application ID" for applications). To assign Azure roles, the Principal must have `Microsoft.Authorization/roleAssignments/write` permissions. See [documentation](https://learn.microsoft.com/en-us/azure/role-based-access-control/role-assignments-portal) for more information.
+     */
     public readonly principalId!: pulumi.Output<string>;
+    /**
+     * The type of the `principalId`, e.g. User, Group, Service Principal, Application, etc.
+     */
     public /*out*/ readonly principalType!: pulumi.Output<string>;
+    /**
+     * The Scoped-ID of the Role Definition. Changing this forces a new resource to be created. Conflicts with `roleDefinitionName`.
+     */
     public readonly roleDefinitionId!: pulumi.Output<string | undefined>;
+    /**
+     * The name of a built-in Role. Changing this forces a new resource to be created. Conflicts with `roleDefinitionId`.
+     *
+     * > **Note:** To assign `Marketplace Admin` role, the calling Principal must first be assigned Privileged Role Administrator (like `Owner` role) or Global Administrator. See [documentation](https://learn.microsoft.com/en-us/marketplace/create-manage-private-azure-marketplace-new#prerequisites) for more information.
+     */
     public readonly roleDefinitionName!: pulumi.Output<string | undefined>;
+    /**
+     * If the `principalId` is a newly provisioned `Service Principal` set this value to `true` to skip the `Azure Active Directory` check which may fail due to replication lag. This argument is only valid if the `principalId` is a `Service Principal` identity. Defaults to `false`. Changing this forces a new resource to be created.
+     *
+     * > **Note:** This field takes effect only when `principalId` is a `Service Principal` identity.
+     */
     public readonly skipServicePrincipalAadCheck!: pulumi.Output<boolean | undefined>;
 
     /**
@@ -91,15 +182,53 @@ export class RoleAssignment extends pulumi.CustomResource {
  * Input properties used for looking up and filtering RoleAssignment resources.
  */
 export interface RoleAssignmentState {
+    /**
+     * The condition that limits the resources that the role can be assigned to. Changing this forces a new resource to be created.
+     */
     condition?: pulumi.Input<string>;
+    /**
+     * The version of the condition. Possible values are `1.0` or `2.0`. Changing this forces a new resource to be created.
+     */
     conditionVersion?: pulumi.Input<string>;
+    /**
+     * The delegated Azure Resource ID which contains a Managed Identity. Changing this forces a new resource to be created.
+     *
+     * > **Note:** This field is only used in cross tenant scenarios.
+     */
     delegatedManagedIdentityResourceId?: pulumi.Input<string>;
+    /**
+     * The description for this Role Assignment. Changing this forces a new resource to be created.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * A unique UUID/GUID for this Role Assignment - one will be generated if not specified. Changing this forces a new resource to be created.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * The ID of the Principal (User, Group or Service Principal) to assign the Role Definition to. Changing this forces a new resource to be created.
+     *
+     * > **Note:** The Principal ID is also known as the Object ID (i.e. not the "Application ID" for applications). To assign Azure roles, the Principal must have `Microsoft.Authorization/roleAssignments/write` permissions. See [documentation](https://learn.microsoft.com/en-us/azure/role-based-access-control/role-assignments-portal) for more information.
+     */
     principalId?: pulumi.Input<string>;
+    /**
+     * The type of the `principalId`, e.g. User, Group, Service Principal, Application, etc.
+     */
     principalType?: pulumi.Input<string>;
+    /**
+     * The Scoped-ID of the Role Definition. Changing this forces a new resource to be created. Conflicts with `roleDefinitionName`.
+     */
     roleDefinitionId?: pulumi.Input<string>;
+    /**
+     * The name of a built-in Role. Changing this forces a new resource to be created. Conflicts with `roleDefinitionId`.
+     *
+     * > **Note:** To assign `Marketplace Admin` role, the calling Principal must first be assigned Privileged Role Administrator (like `Owner` role) or Global Administrator. See [documentation](https://learn.microsoft.com/en-us/marketplace/create-manage-private-azure-marketplace-new#prerequisites) for more information.
+     */
     roleDefinitionName?: pulumi.Input<string>;
+    /**
+     * If the `principalId` is a newly provisioned `Service Principal` set this value to `true` to skip the `Azure Active Directory` check which may fail due to replication lag. This argument is only valid if the `principalId` is a `Service Principal` identity. Defaults to `false`. Changing this forces a new resource to be created.
+     *
+     * > **Note:** This field takes effect only when `principalId` is a `Service Principal` identity.
+     */
     skipServicePrincipalAadCheck?: pulumi.Input<boolean>;
 }
 
@@ -107,13 +236,48 @@ export interface RoleAssignmentState {
  * The set of arguments for constructing a RoleAssignment resource.
  */
 export interface RoleAssignmentArgs {
+    /**
+     * The condition that limits the resources that the role can be assigned to. Changing this forces a new resource to be created.
+     */
     condition?: pulumi.Input<string>;
+    /**
+     * The version of the condition. Possible values are `1.0` or `2.0`. Changing this forces a new resource to be created.
+     */
     conditionVersion?: pulumi.Input<string>;
+    /**
+     * The delegated Azure Resource ID which contains a Managed Identity. Changing this forces a new resource to be created.
+     *
+     * > **Note:** This field is only used in cross tenant scenarios.
+     */
     delegatedManagedIdentityResourceId?: pulumi.Input<string>;
+    /**
+     * The description for this Role Assignment. Changing this forces a new resource to be created.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * A unique UUID/GUID for this Role Assignment - one will be generated if not specified. Changing this forces a new resource to be created.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * The ID of the Principal (User, Group or Service Principal) to assign the Role Definition to. Changing this forces a new resource to be created.
+     *
+     * > **Note:** The Principal ID is also known as the Object ID (i.e. not the "Application ID" for applications). To assign Azure roles, the Principal must have `Microsoft.Authorization/roleAssignments/write` permissions. See [documentation](https://learn.microsoft.com/en-us/azure/role-based-access-control/role-assignments-portal) for more information.
+     */
     principalId: pulumi.Input<string>;
+    /**
+     * The Scoped-ID of the Role Definition. Changing this forces a new resource to be created. Conflicts with `roleDefinitionName`.
+     */
     roleDefinitionId?: pulumi.Input<string>;
+    /**
+     * The name of a built-in Role. Changing this forces a new resource to be created. Conflicts with `roleDefinitionId`.
+     *
+     * > **Note:** To assign `Marketplace Admin` role, the calling Principal must first be assigned Privileged Role Administrator (like `Owner` role) or Global Administrator. See [documentation](https://learn.microsoft.com/en-us/marketplace/create-manage-private-azure-marketplace-new#prerequisites) for more information.
+     */
     roleDefinitionName?: pulumi.Input<string>;
+    /**
+     * If the `principalId` is a newly provisioned `Service Principal` set this value to `true` to skip the `Azure Active Directory` check which may fail due to replication lag. This argument is only valid if the `principalId` is a `Service Principal` identity. Defaults to `false`. Changing this forces a new resource to be created.
+     *
+     * > **Note:** This field takes effect only when `principalId` is a `Service Principal` identity.
+     */
     skipServicePrincipalAadCheck?: pulumi.Input<boolean>;
 }

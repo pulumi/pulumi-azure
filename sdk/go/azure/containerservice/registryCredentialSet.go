@@ -18,7 +18,7 @@ import (
 //
 // ### Minimal)
 //
-// > NOTE: Be aware that you will need to permit the Identity that is created for the Container Registry to have `get` on secrets to the Key Vault, e.g. using the `keyvault.AccessPolicy` resource.
+// > **Note:** Be aware that you will need to permit the Identity that is created for the Container Registry to have `get` on secrets to the Key Vault, e.g. using the `keyvault.AccessPolicy` resource.
 //
 // ```go
 // package main
@@ -184,6 +184,13 @@ import (
 //	}
 //
 // ```
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.ContainerRegistry`: 2023-07-01
 //
 // ## Import
 //

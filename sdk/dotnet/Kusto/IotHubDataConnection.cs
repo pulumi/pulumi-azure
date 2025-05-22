@@ -102,6 +102,13 @@ namespace Pulumi.Azure.Kusto
     /// });
     /// ```
     /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.Kusto`: 2024-04-13
+    /// 
     /// ## Import
     /// 
     /// Kusto IotHub Data Connections can be imported using the `resource id`, e.g.
@@ -144,7 +151,7 @@ namespace Pulumi.Azure.Kusto
         public Output<string?> DatabaseRoutingType { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the System Properties that each IoT Hub message should contain. Changing this forces a new resource to be created. Possible values are `message-id`, `sequence-number`, `to`, `absolute-expiry-time`, `iothub-enqueuedtime`, `correlation-id`, `user-id`, `iothub-ack`, `iothub-connection-device-id`, `iothub-connection-auth-generation-id` and `iothub-connection-auth-method`.
+        /// Specifies the System Properties that each IoT Hub message should contain. Changing this forces a new resource to be created.
         /// </summary>
         [Output("eventSystemProperties")]
         public Output<ImmutableArray<string>> EventSystemProperties { get; private set; } = null!;
@@ -271,7 +278,7 @@ namespace Pulumi.Azure.Kusto
         private InputList<string>? _eventSystemProperties;
 
         /// <summary>
-        /// Specifies the System Properties that each IoT Hub message should contain. Changing this forces a new resource to be created. Possible values are `message-id`, `sequence-number`, `to`, `absolute-expiry-time`, `iothub-enqueuedtime`, `correlation-id`, `user-id`, `iothub-ack`, `iothub-connection-device-id`, `iothub-connection-auth-generation-id` and `iothub-connection-auth-method`.
+        /// Specifies the System Properties that each IoT Hub message should contain. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<string> EventSystemProperties
         {
@@ -363,7 +370,7 @@ namespace Pulumi.Azure.Kusto
         private InputList<string>? _eventSystemProperties;
 
         /// <summary>
-        /// Specifies the System Properties that each IoT Hub message should contain. Changing this forces a new resource to be created. Possible values are `message-id`, `sequence-number`, `to`, `absolute-expiry-time`, `iothub-enqueuedtime`, `correlation-id`, `user-id`, `iothub-ack`, `iothub-connection-device-id`, `iothub-connection-auth-generation-id` and `iothub-connection-auth-method`.
+        /// Specifies the System Properties that each IoT Hub message should contain. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<string> EventSystemProperties
         {

@@ -55,6 +55,13 @@ public final class AppinsightsFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Insights`: 2020-02-02
+     * 
      */
     public static Output<GetInsightsResult> getInsights(GetInsightsArgs args) {
         return getInsights(args, InvokeOptions.Empty);
@@ -98,6 +105,13 @@ public final class AppinsightsFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Insights`: 2020-02-02
      * 
      */
     public static CompletableFuture<GetInsightsResult> getInsightsPlain(GetInsightsPlainArgs args) {
@@ -143,6 +157,13 @@ public final class AppinsightsFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Insights`: 2020-02-02
+     * 
      */
     public static Output<GetInsightsResult> getInsights(GetInsightsArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:appinsights/getInsights:getInsights", TypeShape.of(GetInsightsResult.class), args, Utilities.withVersion(options));
@@ -187,6 +208,13 @@ public final class AppinsightsFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Insights`: 2020-02-02
+     * 
      */
     public static Output<GetInsightsResult> getInsights(GetInsightsArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:appinsights/getInsights:getInsights", TypeShape.of(GetInsightsResult.class), args, Utilities.withVersion(options));
@@ -230,6 +258,13 @@ public final class AppinsightsFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Insights`: 2020-02-02
      * 
      */
     public static CompletableFuture<GetInsightsResult> getInsightsPlain(GetInsightsPlainArgs args, InvokeOptions options) {

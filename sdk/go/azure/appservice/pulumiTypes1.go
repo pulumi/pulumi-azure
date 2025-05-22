@@ -13,6 +13,231 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type GetLinuxWebAppAuthSetting struct {
+	// A `activeDirectory` block as defined above.
+	ActiveDirectories []GetLinuxWebAppAuthSettingActiveDirectory `pulumi:"activeDirectories"`
+	// A `additionalLoginParameters` block as defined above.
+	AdditionalLoginParameters map[string]string `pulumi:"additionalLoginParameters"`
+	// External URLs that can be redirected to as part of logging in or logging out of the app.
+	AllowedExternalRedirectUrls []string `pulumi:"allowedExternalRedirectUrls"`
+	// The Default Authentication Provider used when more than one Authentication Provider is configured and the `unauthenticatedAction` is set to `RedirectToLoginPage`.
+	DefaultProvider string `pulumi:"defaultProvider"`
+	// Is the Backup enabled?
+	Enabled bool `pulumi:"enabled"`
+	// A `facebook` block as defined below.
+	Facebooks []GetLinuxWebAppAuthSettingFacebook `pulumi:"facebooks"`
+	// A `github` block as defined below.
+	Githubs []GetLinuxWebAppAuthSettingGithub `pulumi:"githubs"`
+	// A `google` block as defined below.
+	Googles []GetLinuxWebAppAuthSettingGoogle `pulumi:"googles"`
+	// The OpenID Connect Issuer URI that represents the entity which issues access tokens for this Linux Web App.
+	Issuer string `pulumi:"issuer"`
+	// A `microsoft` block as defined below.
+	Microsofts []GetLinuxWebAppAuthSettingMicrosoft `pulumi:"microsofts"`
+	// The Runtime Version of the Authentication and Authorisation feature of this App.
+	RuntimeVersion string `pulumi:"runtimeVersion"`
+	// The number of hours after session token expiration that a session token can be used to call the token refresh API.
+	TokenRefreshExtensionHours float64 `pulumi:"tokenRefreshExtensionHours"`
+	// Is the Token Store configuration Enabled.
+	TokenStoreEnabled bool `pulumi:"tokenStoreEnabled"`
+	// A `twitter` block as defined below.
+	Twitters []GetLinuxWebAppAuthSettingTwitter `pulumi:"twitters"`
+	// The action to take when an unauthenticated client attempts to access the app.
+	UnauthenticatedClientAction string `pulumi:"unauthenticatedClientAction"`
+}
+
+// GetLinuxWebAppAuthSettingInput is an input type that accepts GetLinuxWebAppAuthSettingArgs and GetLinuxWebAppAuthSettingOutput values.
+// You can construct a concrete instance of `GetLinuxWebAppAuthSettingInput` via:
+//
+//	GetLinuxWebAppAuthSettingArgs{...}
+type GetLinuxWebAppAuthSettingInput interface {
+	pulumi.Input
+
+	ToGetLinuxWebAppAuthSettingOutput() GetLinuxWebAppAuthSettingOutput
+	ToGetLinuxWebAppAuthSettingOutputWithContext(context.Context) GetLinuxWebAppAuthSettingOutput
+}
+
+type GetLinuxWebAppAuthSettingArgs struct {
+	// A `activeDirectory` block as defined above.
+	ActiveDirectories GetLinuxWebAppAuthSettingActiveDirectoryArrayInput `pulumi:"activeDirectories"`
+	// A `additionalLoginParameters` block as defined above.
+	AdditionalLoginParameters pulumi.StringMapInput `pulumi:"additionalLoginParameters"`
+	// External URLs that can be redirected to as part of logging in or logging out of the app.
+	AllowedExternalRedirectUrls pulumi.StringArrayInput `pulumi:"allowedExternalRedirectUrls"`
+	// The Default Authentication Provider used when more than one Authentication Provider is configured and the `unauthenticatedAction` is set to `RedirectToLoginPage`.
+	DefaultProvider pulumi.StringInput `pulumi:"defaultProvider"`
+	// Is the Backup enabled?
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// A `facebook` block as defined below.
+	Facebooks GetLinuxWebAppAuthSettingFacebookArrayInput `pulumi:"facebooks"`
+	// A `github` block as defined below.
+	Githubs GetLinuxWebAppAuthSettingGithubArrayInput `pulumi:"githubs"`
+	// A `google` block as defined below.
+	Googles GetLinuxWebAppAuthSettingGoogleArrayInput `pulumi:"googles"`
+	// The OpenID Connect Issuer URI that represents the entity which issues access tokens for this Linux Web App.
+	Issuer pulumi.StringInput `pulumi:"issuer"`
+	// A `microsoft` block as defined below.
+	Microsofts GetLinuxWebAppAuthSettingMicrosoftArrayInput `pulumi:"microsofts"`
+	// The Runtime Version of the Authentication and Authorisation feature of this App.
+	RuntimeVersion pulumi.StringInput `pulumi:"runtimeVersion"`
+	// The number of hours after session token expiration that a session token can be used to call the token refresh API.
+	TokenRefreshExtensionHours pulumi.Float64Input `pulumi:"tokenRefreshExtensionHours"`
+	// Is the Token Store configuration Enabled.
+	TokenStoreEnabled pulumi.BoolInput `pulumi:"tokenStoreEnabled"`
+	// A `twitter` block as defined below.
+	Twitters GetLinuxWebAppAuthSettingTwitterArrayInput `pulumi:"twitters"`
+	// The action to take when an unauthenticated client attempts to access the app.
+	UnauthenticatedClientAction pulumi.StringInput `pulumi:"unauthenticatedClientAction"`
+}
+
+func (GetLinuxWebAppAuthSettingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLinuxWebAppAuthSetting)(nil)).Elem()
+}
+
+func (i GetLinuxWebAppAuthSettingArgs) ToGetLinuxWebAppAuthSettingOutput() GetLinuxWebAppAuthSettingOutput {
+	return i.ToGetLinuxWebAppAuthSettingOutputWithContext(context.Background())
+}
+
+func (i GetLinuxWebAppAuthSettingArgs) ToGetLinuxWebAppAuthSettingOutputWithContext(ctx context.Context) GetLinuxWebAppAuthSettingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLinuxWebAppAuthSettingOutput)
+}
+
+// GetLinuxWebAppAuthSettingArrayInput is an input type that accepts GetLinuxWebAppAuthSettingArray and GetLinuxWebAppAuthSettingArrayOutput values.
+// You can construct a concrete instance of `GetLinuxWebAppAuthSettingArrayInput` via:
+//
+//	GetLinuxWebAppAuthSettingArray{ GetLinuxWebAppAuthSettingArgs{...} }
+type GetLinuxWebAppAuthSettingArrayInput interface {
+	pulumi.Input
+
+	ToGetLinuxWebAppAuthSettingArrayOutput() GetLinuxWebAppAuthSettingArrayOutput
+	ToGetLinuxWebAppAuthSettingArrayOutputWithContext(context.Context) GetLinuxWebAppAuthSettingArrayOutput
+}
+
+type GetLinuxWebAppAuthSettingArray []GetLinuxWebAppAuthSettingInput
+
+func (GetLinuxWebAppAuthSettingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLinuxWebAppAuthSetting)(nil)).Elem()
+}
+
+func (i GetLinuxWebAppAuthSettingArray) ToGetLinuxWebAppAuthSettingArrayOutput() GetLinuxWebAppAuthSettingArrayOutput {
+	return i.ToGetLinuxWebAppAuthSettingArrayOutputWithContext(context.Background())
+}
+
+func (i GetLinuxWebAppAuthSettingArray) ToGetLinuxWebAppAuthSettingArrayOutputWithContext(ctx context.Context) GetLinuxWebAppAuthSettingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLinuxWebAppAuthSettingArrayOutput)
+}
+
+type GetLinuxWebAppAuthSettingOutput struct{ *pulumi.OutputState }
+
+func (GetLinuxWebAppAuthSettingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLinuxWebAppAuthSetting)(nil)).Elem()
+}
+
+func (o GetLinuxWebAppAuthSettingOutput) ToGetLinuxWebAppAuthSettingOutput() GetLinuxWebAppAuthSettingOutput {
+	return o
+}
+
+func (o GetLinuxWebAppAuthSettingOutput) ToGetLinuxWebAppAuthSettingOutputWithContext(ctx context.Context) GetLinuxWebAppAuthSettingOutput {
+	return o
+}
+
+// A `activeDirectory` block as defined above.
+func (o GetLinuxWebAppAuthSettingOutput) ActiveDirectories() GetLinuxWebAppAuthSettingActiveDirectoryArrayOutput {
+	return o.ApplyT(func(v GetLinuxWebAppAuthSetting) []GetLinuxWebAppAuthSettingActiveDirectory {
+		return v.ActiveDirectories
+	}).(GetLinuxWebAppAuthSettingActiveDirectoryArrayOutput)
+}
+
+// A `additionalLoginParameters` block as defined above.
+func (o GetLinuxWebAppAuthSettingOutput) AdditionalLoginParameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetLinuxWebAppAuthSetting) map[string]string { return v.AdditionalLoginParameters }).(pulumi.StringMapOutput)
+}
+
+// External URLs that can be redirected to as part of logging in or logging out of the app.
+func (o GetLinuxWebAppAuthSettingOutput) AllowedExternalRedirectUrls() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetLinuxWebAppAuthSetting) []string { return v.AllowedExternalRedirectUrls }).(pulumi.StringArrayOutput)
+}
+
+// The Default Authentication Provider used when more than one Authentication Provider is configured and the `unauthenticatedAction` is set to `RedirectToLoginPage`.
+func (o GetLinuxWebAppAuthSettingOutput) DefaultProvider() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppAuthSetting) string { return v.DefaultProvider }).(pulumi.StringOutput)
+}
+
+// Is the Backup enabled?
+func (o GetLinuxWebAppAuthSettingOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetLinuxWebAppAuthSetting) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// A `facebook` block as defined below.
+func (o GetLinuxWebAppAuthSettingOutput) Facebooks() GetLinuxWebAppAuthSettingFacebookArrayOutput {
+	return o.ApplyT(func(v GetLinuxWebAppAuthSetting) []GetLinuxWebAppAuthSettingFacebook { return v.Facebooks }).(GetLinuxWebAppAuthSettingFacebookArrayOutput)
+}
+
+// A `github` block as defined below.
+func (o GetLinuxWebAppAuthSettingOutput) Githubs() GetLinuxWebAppAuthSettingGithubArrayOutput {
+	return o.ApplyT(func(v GetLinuxWebAppAuthSetting) []GetLinuxWebAppAuthSettingGithub { return v.Githubs }).(GetLinuxWebAppAuthSettingGithubArrayOutput)
+}
+
+// A `google` block as defined below.
+func (o GetLinuxWebAppAuthSettingOutput) Googles() GetLinuxWebAppAuthSettingGoogleArrayOutput {
+	return o.ApplyT(func(v GetLinuxWebAppAuthSetting) []GetLinuxWebAppAuthSettingGoogle { return v.Googles }).(GetLinuxWebAppAuthSettingGoogleArrayOutput)
+}
+
+// The OpenID Connect Issuer URI that represents the entity which issues access tokens for this Linux Web App.
+func (o GetLinuxWebAppAuthSettingOutput) Issuer() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppAuthSetting) string { return v.Issuer }).(pulumi.StringOutput)
+}
+
+// A `microsoft` block as defined below.
+func (o GetLinuxWebAppAuthSettingOutput) Microsofts() GetLinuxWebAppAuthSettingMicrosoftArrayOutput {
+	return o.ApplyT(func(v GetLinuxWebAppAuthSetting) []GetLinuxWebAppAuthSettingMicrosoft { return v.Microsofts }).(GetLinuxWebAppAuthSettingMicrosoftArrayOutput)
+}
+
+// The Runtime Version of the Authentication and Authorisation feature of this App.
+func (o GetLinuxWebAppAuthSettingOutput) RuntimeVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppAuthSetting) string { return v.RuntimeVersion }).(pulumi.StringOutput)
+}
+
+// The number of hours after session token expiration that a session token can be used to call the token refresh API.
+func (o GetLinuxWebAppAuthSettingOutput) TokenRefreshExtensionHours() pulumi.Float64Output {
+	return o.ApplyT(func(v GetLinuxWebAppAuthSetting) float64 { return v.TokenRefreshExtensionHours }).(pulumi.Float64Output)
+}
+
+// Is the Token Store configuration Enabled.
+func (o GetLinuxWebAppAuthSettingOutput) TokenStoreEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetLinuxWebAppAuthSetting) bool { return v.TokenStoreEnabled }).(pulumi.BoolOutput)
+}
+
+// A `twitter` block as defined below.
+func (o GetLinuxWebAppAuthSettingOutput) Twitters() GetLinuxWebAppAuthSettingTwitterArrayOutput {
+	return o.ApplyT(func(v GetLinuxWebAppAuthSetting) []GetLinuxWebAppAuthSettingTwitter { return v.Twitters }).(GetLinuxWebAppAuthSettingTwitterArrayOutput)
+}
+
+// The action to take when an unauthenticated client attempts to access the app.
+func (o GetLinuxWebAppAuthSettingOutput) UnauthenticatedClientAction() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppAuthSetting) string { return v.UnauthenticatedClientAction }).(pulumi.StringOutput)
+}
+
+type GetLinuxWebAppAuthSettingArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLinuxWebAppAuthSettingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLinuxWebAppAuthSetting)(nil)).Elem()
+}
+
+func (o GetLinuxWebAppAuthSettingArrayOutput) ToGetLinuxWebAppAuthSettingArrayOutput() GetLinuxWebAppAuthSettingArrayOutput {
+	return o
+}
+
+func (o GetLinuxWebAppAuthSettingArrayOutput) ToGetLinuxWebAppAuthSettingArrayOutputWithContext(ctx context.Context) GetLinuxWebAppAuthSettingArrayOutput {
+	return o
+}
+
+func (o GetLinuxWebAppAuthSettingArrayOutput) Index(i pulumi.IntInput) GetLinuxWebAppAuthSettingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLinuxWebAppAuthSetting {
+		return vs[0].([]GetLinuxWebAppAuthSetting)[vs[1].(int)]
+	}).(GetLinuxWebAppAuthSettingOutput)
+}
+
 type GetLinuxWebAppAuthSettingActiveDirectory struct {
 	// The list of Allowed Audiences that are be requested as part of Microsoft Sign-In authentication.
 	AllowedAudiences []string `pulumi:"allowedAudiences"`
@@ -17733,6 +17958,8 @@ func (o GetWindowsWebAppStorageAccountArrayOutput) Index(i pulumi.IntInput) GetW
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLinuxWebAppAuthSettingInput)(nil)).Elem(), GetLinuxWebAppAuthSettingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLinuxWebAppAuthSettingArrayInput)(nil)).Elem(), GetLinuxWebAppAuthSettingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLinuxWebAppAuthSettingActiveDirectoryInput)(nil)).Elem(), GetLinuxWebAppAuthSettingActiveDirectoryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLinuxWebAppAuthSettingActiveDirectoryArrayInput)(nil)).Elem(), GetLinuxWebAppAuthSettingActiveDirectoryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLinuxWebAppAuthSettingFacebookInput)(nil)).Elem(), GetLinuxWebAppAuthSettingFacebookArgs{})
@@ -17987,6 +18214,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsWebAppStickySettingArrayInput)(nil)).Elem(), GetWindowsWebAppStickySettingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsWebAppStorageAccountInput)(nil)).Elem(), GetWindowsWebAppStorageAccountArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsWebAppStorageAccountArrayInput)(nil)).Elem(), GetWindowsWebAppStorageAccountArray{})
+	pulumi.RegisterOutputType(GetLinuxWebAppAuthSettingOutput{})
+	pulumi.RegisterOutputType(GetLinuxWebAppAuthSettingArrayOutput{})
 	pulumi.RegisterOutputType(GetLinuxWebAppAuthSettingActiveDirectoryOutput{})
 	pulumi.RegisterOutputType(GetLinuxWebAppAuthSettingActiveDirectoryArrayOutput{})
 	pulumi.RegisterOutputType(GetLinuxWebAppAuthSettingFacebookOutput{})

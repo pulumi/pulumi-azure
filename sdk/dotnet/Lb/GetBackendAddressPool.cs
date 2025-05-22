@@ -43,6 +43,13 @@ namespace Pulumi.Azure.Lb
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Network`: 2023-09-01
         /// </summary>
         public static Task<GetBackendAddressPoolResult> InvokeAsync(GetBackendAddressPoolArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBackendAddressPoolResult>("azure:lb/getBackendAddressPool:getBackendAddressPool", args ?? new GetBackendAddressPoolArgs(), options.WithDefaults());
@@ -79,6 +86,13 @@ namespace Pulumi.Azure.Lb
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Network`: 2023-09-01
         /// </summary>
         public static Output<GetBackendAddressPoolResult> Invoke(GetBackendAddressPoolInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBackendAddressPoolResult>("azure:lb/getBackendAddressPool:getBackendAddressPool", args ?? new GetBackendAddressPoolInvokeArgs(), options.WithDefaults());
@@ -115,6 +129,13 @@ namespace Pulumi.Azure.Lb
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Network`: 2023-09-01
         /// </summary>
         public static Output<GetBackendAddressPoolResult> Invoke(GetBackendAddressPoolInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetBackendAddressPoolResult>("azure:lb/getBackendAddressPool:getBackendAddressPool", args ?? new GetBackendAddressPoolInvokeArgs(), options.WithDefaults());

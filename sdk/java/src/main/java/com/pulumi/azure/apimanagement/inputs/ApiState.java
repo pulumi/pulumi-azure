@@ -101,7 +101,7 @@ public final class ApiState extends com.pulumi.resources.ResourceArgs {
     /**
      * A `import` block as documented below.
      * 
-     * &gt; **NOTE:** The `display_name`, `description`, `contact`, and `license` fields can be imported by the `import` block, which might cause a drift if these fields are set along with the `import` block.
+     * &gt; **Note:** The `display_name`, `description`, `contact`, and `license` fields can be imported by the `import` block, which might cause a drift if these fields are set along with the `import` block.
      * 
      */
     @Import(name="import")
@@ -110,7 +110,7 @@ public final class ApiState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return A `import` block as documented below.
      * 
-     * &gt; **NOTE:** The `display_name`, `description`, `contact`, and `license` fields can be imported by the `import` block, which might cause a drift if these fields are set along with the `import` block.
+     * &gt; **Note:** The `display_name`, `description`, `contact`, and `license` fields can be imported by the `import` block, which might cause a drift if these fields are set along with the `import` block.
      * 
      */
     public Optional<Output<ApiImportArgs>> import_() {
@@ -225,7 +225,7 @@ public final class ApiState extends com.pulumi.resources.ResourceArgs {
     /**
      * A list of protocols the operations in this API can be invoked. Possible values are `http`, `https`, `ws`, and `wss`.
      * 
-     * &gt; **NOTE:** `display_name`, `path` and `protocols` are required when `source_api_id` is not set.
+     * &gt; **Note:** `display_name`, `path` and `protocols` are required when `source_api_id` is not set.
      * 
      */
     @Import(name="protocols")
@@ -234,7 +234,7 @@ public final class ApiState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return A list of protocols the operations in this API can be invoked. Possible values are `http`, `https`, `ws`, and `wss`.
      * 
-     * &gt; **NOTE:** `display_name`, `path` and `protocols` are required when `source_api_id` is not set.
+     * &gt; **Note:** `display_name`, `path` and `protocols` are required when `source_api_id` is not set.
      * 
      */
     public Optional<Output<List<String>>> protocols() {
@@ -394,7 +394,7 @@ public final class ApiState extends com.pulumi.resources.ResourceArgs {
     /**
      * The ID of the Version Set which this API is associated with.
      * 
-     * &gt; **NOTE:** When `version` is set, `version_set_id` must also be specified
+     * &gt; **Note:** When `version` is set, `version_set_id` must also be specified
      * 
      */
     @Import(name="versionSetId")
@@ -403,7 +403,7 @@ public final class ApiState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return The ID of the Version Set which this API is associated with.
      * 
-     * &gt; **NOTE:** When `version` is set, `version_set_id` must also be specified
+     * &gt; **Note:** When `version` is set, `version_set_id` must also be specified
      * 
      */
     public Optional<Output<String>> versionSetId() {
@@ -566,7 +566,7 @@ public final class ApiState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param import_ A `import` block as documented below.
          * 
-         * &gt; **NOTE:** The `display_name`, `description`, `contact`, and `license` fields can be imported by the `import` block, which might cause a drift if these fields are set along with the `import` block.
+         * &gt; **Note:** The `display_name`, `description`, `contact`, and `license` fields can be imported by the `import` block, which might cause a drift if these fields are set along with the `import` block.
          * 
          * @return builder
          * 
@@ -579,7 +579,7 @@ public final class ApiState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param import_ A `import` block as documented below.
          * 
-         * &gt; **NOTE:** The `display_name`, `description`, `contact`, and `license` fields can be imported by the `import` block, which might cause a drift if these fields are set along with the `import` block.
+         * &gt; **Note:** The `display_name`, `description`, `contact`, and `license` fields can be imported by the `import` block, which might cause a drift if these fields are set along with the `import` block.
          * 
          * @return builder
          * 
@@ -738,7 +738,7 @@ public final class ApiState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param protocols A list of protocols the operations in this API can be invoked. Possible values are `http`, `https`, `ws`, and `wss`.
          * 
-         * &gt; **NOTE:** `display_name`, `path` and `protocols` are required when `source_api_id` is not set.
+         * &gt; **Note:** `display_name`, `path` and `protocols` are required when `source_api_id` is not set.
          * 
          * @return builder
          * 
@@ -751,7 +751,7 @@ public final class ApiState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param protocols A list of protocols the operations in this API can be invoked. Possible values are `http`, `https`, `ws`, and `wss`.
          * 
-         * &gt; **NOTE:** `display_name`, `path` and `protocols` are required when `source_api_id` is not set.
+         * &gt; **Note:** `display_name`, `path` and `protocols` are required when `source_api_id` is not set.
          * 
          * @return builder
          * 
@@ -763,7 +763,7 @@ public final class ApiState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param protocols A list of protocols the operations in this API can be invoked. Possible values are `http`, `https`, `ws`, and `wss`.
          * 
-         * &gt; **NOTE:** `display_name`, `path` and `protocols` are required when `source_api_id` is not set.
+         * &gt; **Note:** `display_name`, `path` and `protocols` are required when `source_api_id` is not set.
          * 
          * @return builder
          * 
@@ -985,7 +985,7 @@ public final class ApiState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param versionSetId The ID of the Version Set which this API is associated with.
          * 
-         * &gt; **NOTE:** When `version` is set, `version_set_id` must also be specified
+         * &gt; **Note:** When `version` is set, `version_set_id` must also be specified
          * 
          * @return builder
          * 
@@ -998,7 +998,7 @@ public final class ApiState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param versionSetId The ID of the Version Set which this API is associated with.
          * 
-         * &gt; **NOTE:** When `version` is set, `version_set_id` must also be specified
+         * &gt; **Note:** When `version` is set, `version_set_id` must also be specified
          * 
          * @return builder
          * 

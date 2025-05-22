@@ -597,6 +597,15 @@ class VirtualMachine(pulumi.CustomResource):
             })
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Compute`: 2024-03-01
+
+        * `Microsoft.SqlVirtualMachine`: 2023-10-01
+
         ## Import
 
         Microsoft SQL Virtual Machines can be imported using the `resource id`, e.g.
@@ -657,6 +666,15 @@ class VirtualMachine(pulumi.CustomResource):
                 "maintenance_window_starting_hour": 2,
             })
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Compute`: 2024-03-01
+
+        * `Microsoft.SqlVirtualMachine`: 2023-10-01
 
         ## Import
 

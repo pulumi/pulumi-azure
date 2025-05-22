@@ -94,7 +94,7 @@ public class VpnSite extends com.pulumi.resources.CustomResource {
     /**
      * Specifies a list of IP address CIDRs that are located on your on-premises site. Traffic destined for these address spaces is routed to your local site.
      * 
-     * &gt; **NOTE:** The `address_cidrs` has to be set when the `link.bgp` isn&#39;t specified.
+     * &gt; **Note:** The `address_cidrs` has to be set when the `link.bgp` isn&#39;t specified.
      * 
      */
     @Export(name="addressCidrs", refs={List.class,String.class}, tree="[0,1]")
@@ -103,7 +103,7 @@ public class VpnSite extends com.pulumi.resources.CustomResource {
     /**
      * @return Specifies a list of IP address CIDRs that are located on your on-premises site. Traffic destined for these address spaces is routed to your local site.
      * 
-     * &gt; **NOTE:** The `address_cidrs` has to be set when the `link.bgp` isn&#39;t specified.
+     * &gt; **Note:** The `address_cidrs` has to be set when the `link.bgp` isn&#39;t specified.
      * 
      */
     public Output<Optional<List<String>>> addressCidrs() {

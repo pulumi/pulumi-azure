@@ -12,7 +12,7 @@ namespace Pulumi.Azure.Storage
     /// <summary>
     /// Manages a Storage Sync Server Endpoint.
     /// 
-    /// &gt; **NOTE:** The parent `azure.storage.SyncGroup` must have an `azure.storage.SyncCloudEndpoint` available before an `azure.storage.SyncServerEndpoint` resource can be created.
+    /// &gt; **Note:** The parent `azure.storage.SyncGroup` must have an `azure.storage.SyncCloudEndpoint` available before an `azure.storage.SyncServerEndpoint` resource can be created.
     /// 
     /// ## Example Usage
     /// 
@@ -97,6 +97,13 @@ namespace Pulumi.Azure.Storage
     /// });
     /// ```
     /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.StorageSync`: 2020-03-01
+    /// 
     /// ## Import
     /// 
     /// Storage Sync Server Endpoints can be imported using the `resource id`, e.g.
@@ -135,7 +142,7 @@ namespace Pulumi.Azure.Storage
         /// <summary>
         /// The ID of the Registered Server that will be associate with the Storage Sync Server Endpoint. Changing this forces a new Storage Sync Server Endpoint to be created.
         /// 
-        /// &gt; **NOTE:** The target server must already be registered with the parent `azure.storage.Sync` prior to creating this endpoint. For more information on registering a server see the [Microsoft documentation](https://learn.microsoft.com/azure/storage/file-sync/file-sync-server-registration)
+        /// &gt; **Note:** The target server must already be registered with the parent `azure.storage.Sync` prior to creating this endpoint. For more information on registering a server see the [Microsoft documentation](https://learn.microsoft.com/azure/storage/file-sync/file-sync-server-registration)
         /// </summary>
         [Output("registeredServerId")]
         public Output<string> RegisteredServerId { get; private set; } = null!;
@@ -237,7 +244,7 @@ namespace Pulumi.Azure.Storage
         /// <summary>
         /// The ID of the Registered Server that will be associate with the Storage Sync Server Endpoint. Changing this forces a new Storage Sync Server Endpoint to be created.
         /// 
-        /// &gt; **NOTE:** The target server must already be registered with the parent `azure.storage.Sync` prior to creating this endpoint. For more information on registering a server see the [Microsoft documentation](https://learn.microsoft.com/azure/storage/file-sync/file-sync-server-registration)
+        /// &gt; **Note:** The target server must already be registered with the parent `azure.storage.Sync` prior to creating this endpoint. For more information on registering a server see the [Microsoft documentation](https://learn.microsoft.com/azure/storage/file-sync/file-sync-server-registration)
         /// </summary>
         [Input("registeredServerId", required: true)]
         public Input<string> RegisteredServerId { get; set; } = null!;
@@ -301,7 +308,7 @@ namespace Pulumi.Azure.Storage
         /// <summary>
         /// The ID of the Registered Server that will be associate with the Storage Sync Server Endpoint. Changing this forces a new Storage Sync Server Endpoint to be created.
         /// 
-        /// &gt; **NOTE:** The target server must already be registered with the parent `azure.storage.Sync` prior to creating this endpoint. For more information on registering a server see the [Microsoft documentation](https://learn.microsoft.com/azure/storage/file-sync/file-sync-server-registration)
+        /// &gt; **Note:** The target server must already be registered with the parent `azure.storage.Sync` prior to creating this endpoint. For more information on registering a server see the [Microsoft documentation](https://learn.microsoft.com/azure/storage/file-sync/file-sync-server-registration)
         /// </summary>
         [Input("registeredServerId")]
         public Input<string>? RegisteredServerId { get; set; }

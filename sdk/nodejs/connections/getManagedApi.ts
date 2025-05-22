@@ -19,6 +19,13 @@ import * as utilities from "../utilities";
  * });
  * export const id = example.then(example => example.id);
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.Web`: 2016-06-01
  */
 export function getManagedApi(args: GetManagedApiArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedApiResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -69,6 +76,13 @@ export interface GetManagedApiResult {
  * });
  * export const id = example.then(example => example.id);
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.Web`: 2016-06-01
  */
 export function getManagedApiOutput(args: GetManagedApiOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetManagedApiResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

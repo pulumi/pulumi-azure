@@ -200,6 +200,13 @@ def get_dicom_service(name: Optional[builtins.str] = None,
     pulumi.export("azurermHealthcareDicomService", example.id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.HealthcareApis`: 2024-03-31
+
 
     :param builtins.str name: The name of the Healthcare DICOM Service
     :param builtins.str workspace_id: The ID of the Healthcare Workspace in which the Healthcare DICOM Service exists.
@@ -240,6 +247,13 @@ def get_dicom_service_output(name: Optional[pulumi.Input[builtins.str]] = None,
         workspace_id=example_azurerm_healthcare_workspace["id"])
     pulumi.export("azurermHealthcareDicomService", example.id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.HealthcareApis`: 2024-03-31
 
 
     :param builtins.str name: The name of the Healthcare DICOM Service

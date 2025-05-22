@@ -42,6 +42,13 @@ import (
 //	}
 //
 // ```
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This data source uses the following Azure API Providers:
+//
+// * `Microsoft.AzureStackHCI`: 2024-01-01, 2022-05-04
 func LookupHciCluster(ctx *pulumi.Context, args *LookupHciClusterArgs, opts ...pulumi.InvokeOption) (*LookupHciClusterResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupHciClusterResult

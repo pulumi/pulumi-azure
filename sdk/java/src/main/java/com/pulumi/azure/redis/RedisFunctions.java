@@ -59,6 +59,13 @@ public final class RedisFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Cache`: 2024-11-01
+     * 
      */
     public static Output<GetCacheResult> getCache(GetCacheArgs args) {
         return getCache(args, InvokeOptions.Empty);
@@ -103,6 +110,13 @@ public final class RedisFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Cache`: 2024-11-01
      * 
      */
     public static CompletableFuture<GetCacheResult> getCachePlain(GetCachePlainArgs args) {
@@ -149,6 +163,13 @@ public final class RedisFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Cache`: 2024-11-01
+     * 
      */
     public static Output<GetCacheResult> getCache(GetCacheArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:redis/getCache:getCache", TypeShape.of(GetCacheResult.class), args, Utilities.withVersion(options));
@@ -193,6 +214,13 @@ public final class RedisFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Cache`: 2024-11-01
      * 
      */
     public static Output<GetCacheResult> getCache(GetCacheArgs args, InvokeOutputOptions options) {
@@ -239,6 +267,13 @@ public final class RedisFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Cache`: 2024-11-01
+     * 
      */
     public static CompletableFuture<GetCacheResult> getCachePlain(GetCachePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:redis/getCache:getCache", TypeShape.of(GetCacheResult.class), args, Utilities.withVersion(options));
@@ -250,6 +285,13 @@ public final class RedisFunctions {
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Cache`: 2024-10-01
      * 
      */
     public static Output<GetEnterpriseDatabaseResult> getEnterpriseDatabase(GetEnterpriseDatabaseArgs args) {
@@ -263,6 +305,13 @@ public final class RedisFunctions {
      * &lt;!--Start PulumiCodeChooser --&gt;
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Cache`: 2024-10-01
+     * 
      */
     public static CompletableFuture<GetEnterpriseDatabaseResult> getEnterpriseDatabasePlain(GetEnterpriseDatabasePlainArgs args) {
         return getEnterpriseDatabasePlain(args, InvokeOptions.Empty);
@@ -274,6 +323,13 @@ public final class RedisFunctions {
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Cache`: 2024-10-01
      * 
      */
     public static Output<GetEnterpriseDatabaseResult> getEnterpriseDatabase(GetEnterpriseDatabaseArgs args, InvokeOptions options) {
@@ -287,6 +343,13 @@ public final class RedisFunctions {
      * &lt;!--Start PulumiCodeChooser --&gt;
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Cache`: 2024-10-01
+     * 
      */
     public static Output<GetEnterpriseDatabaseResult> getEnterpriseDatabase(GetEnterpriseDatabaseArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:redis/getEnterpriseDatabase:getEnterpriseDatabase", TypeShape.of(GetEnterpriseDatabaseResult.class), args, Utilities.withVersion(options));
@@ -298,6 +361,13 @@ public final class RedisFunctions {
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Cache`: 2024-10-01
      * 
      */
     public static CompletableFuture<GetEnterpriseDatabaseResult> getEnterpriseDatabasePlain(GetEnterpriseDatabasePlainArgs args, InvokeOptions options) {

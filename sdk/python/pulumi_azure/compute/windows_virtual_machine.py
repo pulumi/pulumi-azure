@@ -250,6 +250,9 @@ class WindowsVirtualMachineArgs:
         if virtual_machine_scale_set_id is not None:
             pulumi.set(__self__, "virtual_machine_scale_set_id", virtual_machine_scale_set_id)
         if vm_agent_platform_updates_enabled is not None:
+            warnings.warn("""this property has been deprecated due to a breaking change introduced by the Service team, which redefined it as a read-only field within the API""", DeprecationWarning)
+            pulumi.log.warn("""vm_agent_platform_updates_enabled is deprecated: this property has been deprecated due to a breaking change introduced by the Service team, which redefined it as a read-only field within the API""")
+        if vm_agent_platform_updates_enabled is not None:
             pulumi.set(__self__, "vm_agent_platform_updates_enabled", vm_agent_platform_updates_enabled)
         if vtpm_enabled is not None:
             pulumi.set(__self__, "vtpm_enabled", vtpm_enabled)
@@ -866,6 +869,7 @@ class WindowsVirtualMachineArgs:
 
     @property
     @pulumi.getter(name="vmAgentPlatformUpdatesEnabled")
+    @_utilities.deprecated("""this property has been deprecated due to a breaking change introduced by the Service team, which redefined it as a read-only field within the API""")
     def vm_agent_platform_updates_enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
         Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.
@@ -1169,6 +1173,9 @@ class _WindowsVirtualMachineState:
             pulumi.set(__self__, "virtual_machine_id", virtual_machine_id)
         if virtual_machine_scale_set_id is not None:
             pulumi.set(__self__, "virtual_machine_scale_set_id", virtual_machine_scale_set_id)
+        if vm_agent_platform_updates_enabled is not None:
+            warnings.warn("""this property has been deprecated due to a breaking change introduced by the Service team, which redefined it as a read-only field within the API""", DeprecationWarning)
+            pulumi.log.warn("""vm_agent_platform_updates_enabled is deprecated: this property has been deprecated due to a breaking change introduced by the Service team, which redefined it as a read-only field within the API""")
         if vm_agent_platform_updates_enabled is not None:
             pulumi.set(__self__, "vm_agent_platform_updates_enabled", vm_agent_platform_updates_enabled)
         if vtpm_enabled is not None:
@@ -1846,6 +1853,7 @@ class _WindowsVirtualMachineState:
 
     @property
     @pulumi.getter(name="vmAgentPlatformUpdatesEnabled")
+    @_utilities.deprecated("""this property has been deprecated due to a breaking change introduced by the Service team, which redefined it as a read-only field within the API""")
     def vm_agent_platform_updates_enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
         Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.
@@ -3017,7 +3025,8 @@ class WindowsVirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vmAgentPlatformUpdatesEnabled")
-    def vm_agent_platform_updates_enabled(self) -> pulumi.Output[Optional[builtins.bool]]:
+    @_utilities.deprecated("""this property has been deprecated due to a breaking change introduced by the Service team, which redefined it as a read-only field within the API""")
+    def vm_agent_platform_updates_enabled(self) -> pulumi.Output[builtins.bool]:
         """
         Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.
         """

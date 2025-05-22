@@ -14,30 +14,62 @@ public final class CatalogCatalogGithubArgs extends com.pulumi.resources.Resourc
 
     public static final CatalogCatalogGithubArgs Empty = new CatalogCatalogGithubArgs();
 
+    /**
+     * The Git branch of the Dev Center Catalog.
+     * 
+     */
     @Import(name="branch", required=true)
     private Output<String> branch;
 
+    /**
+     * @return The Git branch of the Dev Center Catalog.
+     * 
+     */
     public Output<String> branch() {
         return this.branch;
     }
 
+    /**
+     * A reference to the Key Vault secret containing a security token to authenticate to a Git repository.
+     * 
+     */
     @Import(name="keyVaultKeyUrl", required=true)
     private Output<String> keyVaultKeyUrl;
 
+    /**
+     * @return A reference to the Key Vault secret containing a security token to authenticate to a Git repository.
+     * 
+     */
     public Output<String> keyVaultKeyUrl() {
         return this.keyVaultKeyUrl;
     }
 
+    /**
+     * The folder where the catalog items can be found inside the repository.
+     * 
+     */
     @Import(name="path", required=true)
     private Output<String> path;
 
+    /**
+     * @return The folder where the catalog items can be found inside the repository.
+     * 
+     */
     public Output<String> path() {
         return this.path;
     }
 
+    /**
+     * The Git URI of the Dev Center Catalog.
+     * 
+     */
     @Import(name="uri", required=true)
     private Output<String> uri;
 
+    /**
+     * @return The Git URI of the Dev Center Catalog.
+     * 
+     */
     public Output<String> uri() {
         return this.uri;
     }
@@ -69,38 +101,86 @@ public final class CatalogCatalogGithubArgs extends com.pulumi.resources.Resourc
             $ = new CatalogCatalogGithubArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param branch The Git branch of the Dev Center Catalog.
+         * 
+         * @return builder
+         * 
+         */
         public Builder branch(Output<String> branch) {
             $.branch = branch;
             return this;
         }
 
+        /**
+         * @param branch The Git branch of the Dev Center Catalog.
+         * 
+         * @return builder
+         * 
+         */
         public Builder branch(String branch) {
             return branch(Output.of(branch));
         }
 
+        /**
+         * @param keyVaultKeyUrl A reference to the Key Vault secret containing a security token to authenticate to a Git repository.
+         * 
+         * @return builder
+         * 
+         */
         public Builder keyVaultKeyUrl(Output<String> keyVaultKeyUrl) {
             $.keyVaultKeyUrl = keyVaultKeyUrl;
             return this;
         }
 
+        /**
+         * @param keyVaultKeyUrl A reference to the Key Vault secret containing a security token to authenticate to a Git repository.
+         * 
+         * @return builder
+         * 
+         */
         public Builder keyVaultKeyUrl(String keyVaultKeyUrl) {
             return keyVaultKeyUrl(Output.of(keyVaultKeyUrl));
         }
 
+        /**
+         * @param path The folder where the catalog items can be found inside the repository.
+         * 
+         * @return builder
+         * 
+         */
         public Builder path(Output<String> path) {
             $.path = path;
             return this;
         }
 
+        /**
+         * @param path The folder where the catalog items can be found inside the repository.
+         * 
+         * @return builder
+         * 
+         */
         public Builder path(String path) {
             return path(Output.of(path));
         }
 
+        /**
+         * @param uri The Git URI of the Dev Center Catalog.
+         * 
+         * @return builder
+         * 
+         */
         public Builder uri(Output<String> uri) {
             $.uri = uri;
             return this;
         }
 
+        /**
+         * @param uri The Git URI of the Dev Center Catalog.
+         * 
+         * @return builder
+         * 
+         */
         public Builder uri(String uri) {
             return uri(Output.of(uri));
         }

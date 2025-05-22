@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 /**
  * Manages the Pricing Tier for Azure Security Center in the current subscription.
  *
- * > **NOTE:** Deletion of this resource will reset the pricing tier to `Free`
+ * > **Note:** Deletion of this resource will reset the pricing tier to `Free`
  *
  * ## Example Usage
  *
@@ -95,7 +95,7 @@ export class SubscriptionPricing extends pulumi.CustomResource {
      */
     public readonly extensions!: pulumi.Output<outputs.securitycenter.SubscriptionPricingExtension[] | undefined>;
     /**
-     * The resource type this setting affects. Possible values are `Api`, `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, `VirtualMachines`, `Arm`, `Dns`, `OpenSourceRelationalDatabases`, `Containers`, `CosmosDbs` and `CloudPosture`. Defaults to `VirtualMachines`
+     * The resource type this setting affects. Possible values are `AI`, `Api`, `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, `VirtualMachines`, `Arm`, `Dns`, `OpenSourceRelationalDatabases`, `Containers`, `CosmosDbs` and `CloudPosture`. Defaults to `VirtualMachines`
      */
     public readonly resourceType!: pulumi.Output<string | undefined>;
     /**
@@ -148,7 +148,7 @@ export interface SubscriptionPricingState {
      */
     extensions?: pulumi.Input<pulumi.Input<inputs.securitycenter.SubscriptionPricingExtension>[]>;
     /**
-     * The resource type this setting affects. Possible values are `Api`, `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, `VirtualMachines`, `Arm`, `Dns`, `OpenSourceRelationalDatabases`, `Containers`, `CosmosDbs` and `CloudPosture`. Defaults to `VirtualMachines`
+     * The resource type this setting affects. Possible values are `AI`, `Api`, `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, `VirtualMachines`, `Arm`, `Dns`, `OpenSourceRelationalDatabases`, `Containers`, `CosmosDbs` and `CloudPosture`. Defaults to `VirtualMachines`
      */
     resourceType?: pulumi.Input<string>;
     /**
@@ -170,7 +170,7 @@ export interface SubscriptionPricingArgs {
      */
     extensions?: pulumi.Input<pulumi.Input<inputs.securitycenter.SubscriptionPricingExtension>[]>;
     /**
-     * The resource type this setting affects. Possible values are `Api`, `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, `VirtualMachines`, `Arm`, `Dns`, `OpenSourceRelationalDatabases`, `Containers`, `CosmosDbs` and `CloudPosture`. Defaults to `VirtualMachines`
+     * The resource type this setting affects. Possible values are `AI`, `Api`, `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, `VirtualMachines`, `Arm`, `Dns`, `OpenSourceRelationalDatabases`, `Containers`, `CosmosDbs` and `CloudPosture`. Defaults to `VirtualMachines`
      */
     resourceType?: pulumi.Input<string>;
     /**

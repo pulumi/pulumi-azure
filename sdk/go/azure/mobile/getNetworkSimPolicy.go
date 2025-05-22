@@ -46,6 +46,13 @@ import (
 //	}
 //
 // ```
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This data source uses the following Azure API Providers:
+//
+// * `Microsoft.MobileNetwork`: 2022-11-01
 func LookupNetworkSimPolicy(ctx *pulumi.Context, args *LookupNetworkSimPolicyArgs, opts ...pulumi.InvokeOption) (*LookupNetworkSimPolicyResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupNetworkSimPolicyResult

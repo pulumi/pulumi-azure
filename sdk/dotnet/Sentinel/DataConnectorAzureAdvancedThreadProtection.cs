@@ -12,7 +12,7 @@ namespace Pulumi.Azure.Sentinel
     /// <summary>
     /// Manages a Azure Advanced Threat Protection Data Connector.
     /// 
-    /// !&gt; **NOTE:** This resource requires that [Enterprise Mobility + Security E5](https://www.microsoft.com/en-us/microsoft-365/enterprise-mobility-security) is enabled on the tenant being connected to.
+    /// !&gt; **Note:** This resource requires that [Enterprise Mobility + Security E5](https://www.microsoft.com/en-us/microsoft-365/enterprise-mobility-security) is enabled on the tenant being connected to.
     /// 
     /// ## Example Usage
     /// 
@@ -78,7 +78,7 @@ namespace Pulumi.Azure.Sentinel
         /// <summary>
         /// The ID of the tenant that this Azure Advanced Threat Protection Data Connector connects to. Changing this forces a new Azure Advanced Threat Protection Data Connector to be created.
         /// 
-        /// &gt; **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
+        /// &gt; **Note:** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
         /// </summary>
         [Output("tenantId")]
         public Output<string> TenantId { get; private set; } = null!;
@@ -144,7 +144,7 @@ namespace Pulumi.Azure.Sentinel
         /// <summary>
         /// The ID of the tenant that this Azure Advanced Threat Protection Data Connector connects to. Changing this forces a new Azure Advanced Threat Protection Data Connector to be created.
         /// 
-        /// &gt; **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
+        /// &gt; **Note:** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
         /// </summary>
         [Input("tenantId")]
         public Input<string>? TenantId { get; set; }
@@ -172,7 +172,7 @@ namespace Pulumi.Azure.Sentinel
         /// <summary>
         /// The ID of the tenant that this Azure Advanced Threat Protection Data Connector connects to. Changing this forces a new Azure Advanced Threat Protection Data Connector to be created.
         /// 
-        /// &gt; **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
+        /// &gt; **Note:** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
         /// </summary>
         [Input("tenantId")]
         public Input<string>? TenantId { get; set; }

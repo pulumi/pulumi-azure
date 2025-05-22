@@ -90,7 +90,7 @@ type Subscription struct {
 	ClientScopedSubscription SubscriptionClientScopedSubscriptionPtrOutput `pulumi:"clientScopedSubscription"`
 	// whether the subscription is scoped to a client id. Defaults to `false`.
 	//
-	// > **NOTE:** Client Scoped Subscription can only be used for JMS subscription (Java Message Service).
+	// > **Note:** Client Scoped Subscription can only be used for JMS subscription (Java Message Service).
 	ClientScopedSubscriptionEnabled pulumi.BoolPtrOutput `pulumi:"clientScopedSubscriptionEnabled"`
 	// Boolean flag which controls whether the Subscription has dead letter support on filter evaluation exceptions. Defaults to `true`.
 	DeadLetteringOnFilterEvaluationError pulumi.BoolPtrOutput `pulumi:"deadLetteringOnFilterEvaluationError"`
@@ -160,7 +160,7 @@ type subscriptionState struct {
 	ClientScopedSubscription *SubscriptionClientScopedSubscription `pulumi:"clientScopedSubscription"`
 	// whether the subscription is scoped to a client id. Defaults to `false`.
 	//
-	// > **NOTE:** Client Scoped Subscription can only be used for JMS subscription (Java Message Service).
+	// > **Note:** Client Scoped Subscription can only be used for JMS subscription (Java Message Service).
 	ClientScopedSubscriptionEnabled *bool `pulumi:"clientScopedSubscriptionEnabled"`
 	// Boolean flag which controls whether the Subscription has dead letter support on filter evaluation exceptions. Defaults to `true`.
 	DeadLetteringOnFilterEvaluationError *bool `pulumi:"deadLetteringOnFilterEvaluationError"`
@@ -195,7 +195,7 @@ type SubscriptionState struct {
 	ClientScopedSubscription SubscriptionClientScopedSubscriptionPtrInput
 	// whether the subscription is scoped to a client id. Defaults to `false`.
 	//
-	// > **NOTE:** Client Scoped Subscription can only be used for JMS subscription (Java Message Service).
+	// > **Note:** Client Scoped Subscription can only be used for JMS subscription (Java Message Service).
 	ClientScopedSubscriptionEnabled pulumi.BoolPtrInput
 	// Boolean flag which controls whether the Subscription has dead letter support on filter evaluation exceptions. Defaults to `true`.
 	DeadLetteringOnFilterEvaluationError pulumi.BoolPtrInput
@@ -234,7 +234,7 @@ type subscriptionArgs struct {
 	ClientScopedSubscription *SubscriptionClientScopedSubscription `pulumi:"clientScopedSubscription"`
 	// whether the subscription is scoped to a client id. Defaults to `false`.
 	//
-	// > **NOTE:** Client Scoped Subscription can only be used for JMS subscription (Java Message Service).
+	// > **Note:** Client Scoped Subscription can only be used for JMS subscription (Java Message Service).
 	ClientScopedSubscriptionEnabled *bool `pulumi:"clientScopedSubscriptionEnabled"`
 	// Boolean flag which controls whether the Subscription has dead letter support on filter evaluation exceptions. Defaults to `true`.
 	DeadLetteringOnFilterEvaluationError *bool `pulumi:"deadLetteringOnFilterEvaluationError"`
@@ -270,7 +270,7 @@ type SubscriptionArgs struct {
 	ClientScopedSubscription SubscriptionClientScopedSubscriptionPtrInput
 	// whether the subscription is scoped to a client id. Defaults to `false`.
 	//
-	// > **NOTE:** Client Scoped Subscription can only be used for JMS subscription (Java Message Service).
+	// > **Note:** Client Scoped Subscription can only be used for JMS subscription (Java Message Service).
 	ClientScopedSubscriptionEnabled pulumi.BoolPtrInput
 	// Boolean flag which controls whether the Subscription has dead letter support on filter evaluation exceptions. Defaults to `true`.
 	DeadLetteringOnFilterEvaluationError pulumi.BoolPtrInput
@@ -400,7 +400,7 @@ func (o SubscriptionOutput) ClientScopedSubscription() SubscriptionClientScopedS
 
 // whether the subscription is scoped to a client id. Defaults to `false`.
 //
-// > **NOTE:** Client Scoped Subscription can only be used for JMS subscription (Java Message Service).
+// > **Note:** Client Scoped Subscription can only be used for JMS subscription (Java Message Service).
 func (o SubscriptionOutput) ClientScopedSubscriptionEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Subscription) pulumi.BoolPtrOutput { return v.ClientScopedSubscriptionEnabled }).(pulumi.BoolPtrOutput)
 }

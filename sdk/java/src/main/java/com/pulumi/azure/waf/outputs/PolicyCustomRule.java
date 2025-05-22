@@ -17,7 +17,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class PolicyCustomRule {
     /**
-     * @return Type of action. Possible values are `Allow`, `Block` and `Log`.
+     * @return Type of action. Possible values are `Allow`, `Block`, `JSChallenge` and `Log`.
      * 
      * &gt; **Note:** If the `rule_type` is specified as `RateLimitRule`, the `Allow` is not supported.
      * 
@@ -66,7 +66,7 @@ public final class PolicyCustomRule {
 
     private PolicyCustomRule() {}
     /**
-     * @return Type of action. Possible values are `Allow`, `Block` and `Log`.
+     * @return Type of action. Possible values are `Allow`, `Block`, `JSChallenge` and `Log`.
      * 
      * &gt; **Note:** If the `rule_type` is specified as `RateLimitRule`, the `Allow` is not supported.
      * 

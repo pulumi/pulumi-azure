@@ -180,7 +180,7 @@ export class VirtualNetworkPeering extends pulumi.CustomResource {
     /**
      * Controls if remote gateways can be used on the local virtual network. If the flag is set to `true`, and `allowGatewayTransit` on the remote peering is also `true`, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to `true`. This flag cannot be set if virtual network already has a gateway. Defaults to `false`.
      *
-     * > **NOTE:** `useRemoteGateways` must be set to `false` if using Global Virtual Network Peerings.
+     * > **Note:** `useRemoteGateways` must be set to `false` if using Global Virtual Network Peerings.
      */
     public readonly useRemoteGateways!: pulumi.Output<boolean | undefined>;
     /**
@@ -295,7 +295,7 @@ export interface VirtualNetworkPeeringState {
     /**
      * Controls if remote gateways can be used on the local virtual network. If the flag is set to `true`, and `allowGatewayTransit` on the remote peering is also `true`, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to `true`. This flag cannot be set if virtual network already has a gateway. Defaults to `false`.
      *
-     * > **NOTE:** `useRemoteGateways` must be set to `false` if using Global Virtual Network Peerings.
+     * > **Note:** `useRemoteGateways` must be set to `false` if using Global Virtual Network Peerings.
      */
     useRemoteGateways?: pulumi.Input<boolean>;
     /**
@@ -355,7 +355,7 @@ export interface VirtualNetworkPeeringArgs {
     /**
      * Controls if remote gateways can be used on the local virtual network. If the flag is set to `true`, and `allowGatewayTransit` on the remote peering is also `true`, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to `true`. This flag cannot be set if virtual network already has a gateway. Defaults to `false`.
      *
-     * > **NOTE:** `useRemoteGateways` must be set to `false` if using Global Virtual Network Peerings.
+     * > **Note:** `useRemoteGateways` must be set to `false` if using Global Virtual Network Peerings.
      */
     useRemoteGateways?: pulumi.Input<boolean>;
     /**

@@ -157,6 +157,13 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.Authorization`: 2020-10-01
+ * 
  * ## Import
  * 
  * PIM Eligible Role Assignments can be imported using the following composite resource ID, e.g.
@@ -185,7 +192,7 @@ public class EligibleRoleAssignment extends com.pulumi.resources.CustomResource 
     /**
      * The version of the condition. Supported values include `2.0`. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** `condition_version` is required when specifying `condition` and vice versa.
+     * &gt; **Note:** `condition_version` is required when specifying `condition` and vice versa.
      * 
      */
     @Export(name="conditionVersion", refs={String.class}, tree="[0]")
@@ -194,7 +201,7 @@ public class EligibleRoleAssignment extends com.pulumi.resources.CustomResource 
     /**
      * @return The version of the condition. Supported values include `2.0`. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** `condition_version` is required when specifying `condition` and vice versa.
+     * &gt; **Note:** `condition_version` is required when specifying `condition` and vice versa.
      * 
      */
     public Output<Optional<String>> conditionVersion() {

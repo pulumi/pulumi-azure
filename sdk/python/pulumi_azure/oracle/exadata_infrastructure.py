@@ -422,6 +422,13 @@ class ExadataInfrastructure(pulumi.CustomResource):
             shape="Exadata.X9M")
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Oracle.Database`: 2024-06-01
+
         ## Import
 
         Cloud Exadata Infrastructures can be imported using the `resource id`, e.g.
@@ -472,6 +479,13 @@ class ExadataInfrastructure(pulumi.CustomResource):
             compute_count=2,
             shape="Exadata.X9M")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Oracle.Database`: 2024-06-01
 
         ## Import
 

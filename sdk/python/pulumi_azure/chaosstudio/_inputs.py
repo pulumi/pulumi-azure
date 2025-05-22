@@ -40,7 +40,7 @@ if not MYPY:
         """
         A list of User Managed Identity IDs which should be assigned to the Policy Definition.
 
-        > **NOTE:** This is required when `type` is set to `UserAssigned`.
+        > **Note:** This is required when `type` is set to `UserAssigned`.
         """
         principal_id: NotRequired[pulumi.Input[builtins.str]]
         """
@@ -64,7 +64,7 @@ class ExperimentIdentityArgs:
         :param pulumi.Input[builtins.str] type: The Type of Managed Identity which should be added to this Policy Definition. Possible values are `SystemAssigned` and `UserAssigned`.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] identity_ids: A list of User Managed Identity IDs which should be assigned to the Policy Definition.
                
-               > **NOTE:** This is required when `type` is set to `UserAssigned`.
+               > **Note:** This is required when `type` is set to `UserAssigned`.
         :param pulumi.Input[builtins.str] principal_id: The Principal ID associated with this Managed Service Identity.
         :param pulumi.Input[builtins.str] tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
@@ -94,7 +94,7 @@ class ExperimentIdentityArgs:
         """
         A list of User Managed Identity IDs which should be assigned to the Policy Definition.
 
-        > **NOTE:** This is required when `type` is set to `UserAssigned`.
+        > **Note:** This is required when `type` is set to `UserAssigned`.
         """
         return pulumi.get(self, "identity_ids")
 

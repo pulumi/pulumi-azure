@@ -49,7 +49,7 @@ public final class ComputeClusterSshArgs extends com.pulumi.resources.ResourceAr
     /**
      * SSH public key of the administrator user account. Changing this forces a new Machine Learning Compute Cluster to be created.
      * 
-     * &gt; **NOTE:** At least one of `admin_password` and `key_value` shoud be specified.
+     * &gt; **Note:** At least one of `admin_password` and `key_value` shoud be specified.
      * 
      */
     @Import(name="keyValue")
@@ -58,7 +58,7 @@ public final class ComputeClusterSshArgs extends com.pulumi.resources.ResourceAr
     /**
      * @return SSH public key of the administrator user account. Changing this forces a new Machine Learning Compute Cluster to be created.
      * 
-     * &gt; **NOTE:** At least one of `admin_password` and `key_value` shoud be specified.
+     * &gt; **Note:** At least one of `admin_password` and `key_value` shoud be specified.
      * 
      */
     public Optional<Output<String>> keyValue() {
@@ -136,7 +136,7 @@ public final class ComputeClusterSshArgs extends com.pulumi.resources.ResourceAr
         /**
          * @param keyValue SSH public key of the administrator user account. Changing this forces a new Machine Learning Compute Cluster to be created.
          * 
-         * &gt; **NOTE:** At least one of `admin_password` and `key_value` shoud be specified.
+         * &gt; **Note:** At least one of `admin_password` and `key_value` shoud be specified.
          * 
          * @return builder
          * 
@@ -149,7 +149,7 @@ public final class ComputeClusterSshArgs extends com.pulumi.resources.ResourceAr
         /**
          * @param keyValue SSH public key of the administrator user account. Changing this forces a new Machine Learning Compute Cluster to be created.
          * 
-         * &gt; **NOTE:** At least one of `admin_password` and `key_value` shoud be specified.
+         * &gt; **Note:** At least one of `admin_password` and `key_value` shoud be specified.
          * 
          * @return builder
          * 

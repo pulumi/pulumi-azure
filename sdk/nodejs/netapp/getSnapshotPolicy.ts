@@ -28,6 +28,13 @@ import * as utilities from "../utilities";
  * export const weeklySchedule = example.then(example => example.weeklySchedules);
  * export const monthlySchedule = example.then(example => example.monthlySchedules);
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.NetApp`: 2025-01-01
  */
 export function getSnapshotPolicy(args: GetSnapshotPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetSnapshotPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -124,6 +131,13 @@ export interface GetSnapshotPolicyResult {
  * export const weeklySchedule = example.then(example => example.weeklySchedules);
  * export const monthlySchedule = example.then(example => example.monthlySchedules);
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.NetApp`: 2025-01-01
  */
 export function getSnapshotPolicyOutput(args: GetSnapshotPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSnapshotPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

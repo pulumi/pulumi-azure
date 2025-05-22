@@ -54,7 +54,7 @@ func LookupKey(ctx *pulumi.Context, args *LookupKeyArgs, opts ...pulumi.InvokeOp
 type LookupKeyArgs struct {
 	// Specifies the ID of the Key Vault instance where the Secret resides, available on the `keyvault.KeyVault` Data Source / Resource.
 	//
-	// **NOTE:** The vault must be in the same subscription as the provider. If the vault is in another subscription, you must create an aliased provider for that subscription.
+	// > **Note:** The vault must be in the same subscription as the provider. If the vault is in another subscription, you must create an aliased provider for that subscription.
 	KeyVaultId string `pulumi:"keyVaultId"`
 	// Specifies the name of the Key Vault Key.
 	Name string `pulumi:"name"`
@@ -111,7 +111,7 @@ func LookupKeyOutput(ctx *pulumi.Context, args LookupKeyOutputArgs, opts ...pulu
 type LookupKeyOutputArgs struct {
 	// Specifies the ID of the Key Vault instance where the Secret resides, available on the `keyvault.KeyVault` Data Source / Resource.
 	//
-	// **NOTE:** The vault must be in the same subscription as the provider. If the vault is in another subscription, you must create an aliased provider for that subscription.
+	// > **Note:** The vault must be in the same subscription as the provider. If the vault is in another subscription, you must create an aliased provider for that subscription.
 	KeyVaultId pulumi.StringInput `pulumi:"keyVaultId"`
 	// Specifies the name of the Key Vault Key.
 	Name pulumi.StringInput `pulumi:"name"`

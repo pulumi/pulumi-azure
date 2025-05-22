@@ -54,6 +54,13 @@ public final class SystemcenterFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ScVmm`: 2023-10-07
+     * 
      */
     public static Output<GetVirtualMachineManagerInventoryItemsResult> getVirtualMachineManagerInventoryItems(GetVirtualMachineManagerInventoryItemsArgs args) {
         return getVirtualMachineManagerInventoryItems(args, InvokeOptions.Empty);
@@ -96,6 +103,13 @@ public final class SystemcenterFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ScVmm`: 2023-10-07
      * 
      */
     public static CompletableFuture<GetVirtualMachineManagerInventoryItemsResult> getVirtualMachineManagerInventoryItemsPlain(GetVirtualMachineManagerInventoryItemsPlainArgs args) {
@@ -140,6 +154,13 @@ public final class SystemcenterFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ScVmm`: 2023-10-07
+     * 
      */
     public static Output<GetVirtualMachineManagerInventoryItemsResult> getVirtualMachineManagerInventoryItems(GetVirtualMachineManagerInventoryItemsArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:systemcenter/getVirtualMachineManagerInventoryItems:getVirtualMachineManagerInventoryItems", TypeShape.of(GetVirtualMachineManagerInventoryItemsResult.class), args, Utilities.withVersion(options));
@@ -183,6 +204,13 @@ public final class SystemcenterFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ScVmm`: 2023-10-07
+     * 
      */
     public static Output<GetVirtualMachineManagerInventoryItemsResult> getVirtualMachineManagerInventoryItems(GetVirtualMachineManagerInventoryItemsArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:systemcenter/getVirtualMachineManagerInventoryItems:getVirtualMachineManagerInventoryItems", TypeShape.of(GetVirtualMachineManagerInventoryItemsResult.class), args, Utilities.withVersion(options));
@@ -225,6 +253,13 @@ public final class SystemcenterFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ScVmm`: 2023-10-07
      * 
      */
     public static CompletableFuture<GetVirtualMachineManagerInventoryItemsResult> getVirtualMachineManagerInventoryItemsPlain(GetVirtualMachineManagerInventoryItemsPlainArgs args, InvokeOptions options) {

@@ -92,7 +92,7 @@ public class SharedAccessPolicy extends com.pulumi.resources.CustomResource {
     /**
      * Adds `DeviceConnect` permission to this Shared Access Account. It allows sending and receiving on the device-side endpoints.
      * 
-     * &gt; **NOTE** At least one of `registry_read`, `registry_write`, `service_connect`, `device_connect` permissions must be set to `true`.
+     * &gt; **Note:** At least one of `registry_read`, `registry_write`, `service_connect`, `device_connect` permissions must be set to `true`.
      * 
      */
     @Export(name="deviceConnect", refs={Boolean.class}, tree="[0]")
@@ -101,7 +101,7 @@ public class SharedAccessPolicy extends com.pulumi.resources.CustomResource {
     /**
      * @return Adds `DeviceConnect` permission to this Shared Access Account. It allows sending and receiving on the device-side endpoints.
      * 
-     * &gt; **NOTE** At least one of `registry_read`, `registry_write`, `service_connect`, `device_connect` permissions must be set to `true`.
+     * &gt; **Note:** At least one of `registry_read`, `registry_write`, `service_connect`, `device_connect` permissions must be set to `true`.
      * 
      */
     public Output<Optional<Boolean>> deviceConnect() {
@@ -180,7 +180,7 @@ public class SharedAccessPolicy extends com.pulumi.resources.CustomResource {
     /**
      * Adds `RegistryWrite` permission to this Shared Access Account. It allows write access to the identity registry.
      * 
-     * &gt; **NOTE** When `registry_write` is set to `true`, `registry_read` must also be set to true. This is a limitation of the Azure REST API
+     * &gt; **Note:** When `registry_write` is set to `true`, `registry_read` must also be set to true. This is a limitation of the Azure REST API
      * 
      */
     @Export(name="registryWrite", refs={Boolean.class}, tree="[0]")
@@ -189,7 +189,7 @@ public class SharedAccessPolicy extends com.pulumi.resources.CustomResource {
     /**
      * @return Adds `RegistryWrite` permission to this Shared Access Account. It allows write access to the identity registry.
      * 
-     * &gt; **NOTE** When `registry_write` is set to `true`, `registry_read` must also be set to true. This is a limitation of the Azure REST API
+     * &gt; **Note:** When `registry_write` is set to `true`, `registry_read` must also be set to true. This is a limitation of the Azure REST API
      * 
      */
     public Output<Optional<Boolean>> registryWrite() {

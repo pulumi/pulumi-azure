@@ -310,6 +310,13 @@ def get_managed_instance(name: Optional[builtins.str] = None,
         resource_group_name=example_azurerm_resource_group["name"])
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Sql`: 2023-08-01-preview
+
 
     :param builtins.str name: The name of the SQL Managed Instance.
     :param builtins.str resource_group_name: The name of the resource group where the SQL Managed Instance exists.
@@ -358,6 +365,13 @@ def get_managed_instance_output(name: Optional[pulumi.Input[builtins.str]] = Non
     example = azure.mssql.get_managed_instance(name="managedsqlinstance",
         resource_group_name=example_azurerm_resource_group["name"])
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Sql`: 2023-08-01-preview
 
 
     :param builtins.str name: The name of the SQL Managed Instance.

@@ -19,9 +19,9 @@ public final class WindowsWebAppSiteConfigApplicationStackArgs extends com.pulum
     /**
      * The Application Stack for the Windows Web App. Possible values include `dotnet`, `dotnetcore`, `node`, `python`, `php`, and `java`.
      * 
-     * &gt; **NOTE:** Whilst this property is Optional omitting it can cause unexpected behaviour, in particular for display of settings in the Azure Portal.
+     * &gt; **Note:** Whilst this property is Optional omitting it can cause unexpected behaviour, in particular for display of settings in the Azure Portal.
      * 
-     * &gt; **NOTE:** Windows Web apps can configure multiple `app_stack` properties, it is recommended to always configure this `Optional` value and set it to the primary application stack of your app to ensure correct operation of this resource and display the correct metadata in the Azure Portal.
+     * &gt; **Note:** Windows Web apps can configure multiple `app_stack` properties, it is recommended to always configure this `Optional` value and set it to the primary application stack of your app to ensure correct operation of this resource and display the correct metadata in the Azure Portal.
      * 
      */
     @Import(name="currentStack")
@@ -30,9 +30,9 @@ public final class WindowsWebAppSiteConfigApplicationStackArgs extends com.pulum
     /**
      * @return The Application Stack for the Windows Web App. Possible values include `dotnet`, `dotnetcore`, `node`, `python`, `php`, and `java`.
      * 
-     * &gt; **NOTE:** Whilst this property is Optional omitting it can cause unexpected behaviour, in particular for display of settings in the Azure Portal.
+     * &gt; **Note:** Whilst this property is Optional omitting it can cause unexpected behaviour, in particular for display of settings in the Azure Portal.
      * 
-     * &gt; **NOTE:** Windows Web apps can configure multiple `app_stack` properties, it is recommended to always configure this `Optional` value and set it to the primary application stack of your app to ensure correct operation of this resource and display the correct metadata in the Azure Portal.
+     * &gt; **Note:** Windows Web apps can configure multiple `app_stack` properties, it is recommended to always configure this `Optional` value and set it to the primary application stack of your app to ensure correct operation of this resource and display the correct metadata in the Azure Portal.
      * 
      */
     public Optional<Output<String>> currentStack() {
@@ -57,7 +57,7 @@ public final class WindowsWebAppSiteConfigApplicationStackArgs extends com.pulum
     /**
      * The User Name to use for authentication against the registry to pull the image.
      * 
-     * &gt; **NOTE:** `docker_registry_url`, `docker_registry_username`, and `docker_registry_password` replace the use of the `app_settings` values of `DOCKER_REGISTRY_SERVER_URL`, `DOCKER_REGISTRY_SERVER_USERNAME` and `DOCKER_REGISTRY_SERVER_PASSWORD` respectively, these values will be managed by the provider and should not be specified in the `app_settings` map.
+     * &gt; **Note:** `docker_registry_url`, `docker_registry_username`, and `docker_registry_password` replace the use of the `app_settings` values of `DOCKER_REGISTRY_SERVER_URL`, `DOCKER_REGISTRY_SERVER_USERNAME` and `DOCKER_REGISTRY_SERVER_PASSWORD` respectively, these values will be managed by the provider and should not be specified in the `app_settings` map.
      * 
      */
     @Import(name="dockerRegistryPassword")
@@ -66,7 +66,7 @@ public final class WindowsWebAppSiteConfigApplicationStackArgs extends com.pulum
     /**
      * @return The User Name to use for authentication against the registry to pull the image.
      * 
-     * &gt; **NOTE:** `docker_registry_url`, `docker_registry_username`, and `docker_registry_password` replace the use of the `app_settings` values of `DOCKER_REGISTRY_SERVER_URL`, `DOCKER_REGISTRY_SERVER_USERNAME` and `DOCKER_REGISTRY_SERVER_PASSWORD` respectively, these values will be managed by the provider and should not be specified in the `app_settings` map.
+     * &gt; **Note:** `docker_registry_url`, `docker_registry_username`, and `docker_registry_password` replace the use of the `app_settings` values of `DOCKER_REGISTRY_SERVER_URL`, `DOCKER_REGISTRY_SERVER_USERNAME` and `DOCKER_REGISTRY_SERVER_PASSWORD` respectively, these values will be managed by the provider and should not be specified in the `app_settings` map.
      * 
      */
     public Optional<Output<String>> dockerRegistryPassword() {
@@ -121,7 +121,7 @@ public final class WindowsWebAppSiteConfigApplicationStackArgs extends com.pulum
     /**
      * The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0`, `v7.0`, `v8.0` and `v9.0`.
      * 
-     * &gt; **NOTE:** The Portal displayed values and the actual underlying API values differ for this setting, as follows:
+     * &gt; **Note:** The Portal displayed values and the actual underlying API values differ for this setting, as follows:
      * Portal Value | API value
      * :--|--:
      * ASP.NET V3.5 | v2.0
@@ -138,7 +138,7 @@ public final class WindowsWebAppSiteConfigApplicationStackArgs extends com.pulum
     /**
      * @return The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0`, `v7.0`, `v8.0` and `v9.0`.
      * 
-     * &gt; **NOTE:** The Portal displayed values and the actual underlying API values differ for this setting, as follows:
+     * &gt; **Note:** The Portal displayed values and the actual underlying API values differ for this setting, as follows:
      * Portal Value | API value
      * :--|--:
      * ASP.NET V3.5 | v2.0
@@ -209,7 +209,7 @@ public final class WindowsWebAppSiteConfigApplicationStackArgs extends com.pulum
     /**
      * The version of Java to use when `current_stack` is set to `java`.
      * 
-     * &gt; **NOTE:** For currently supported versions, please see the official documentation. Some example values include: `1.8`, `1.8.0_322`,  `11`, `11.0.14`, `17` and `17.0.2`
+     * &gt; **Note:** For currently supported versions, please see the official documentation. Some example values include: `1.8`, `1.8.0_322`,  `11`, `11.0.14`, `17` and `17.0.2`
      * 
      */
     @Import(name="javaVersion")
@@ -218,7 +218,7 @@ public final class WindowsWebAppSiteConfigApplicationStackArgs extends com.pulum
     /**
      * @return The version of Java to use when `current_stack` is set to `java`.
      * 
-     * &gt; **NOTE:** For currently supported versions, please see the official documentation. Some example values include: `1.8`, `1.8.0_322`,  `11`, `11.0.14`, `17` and `17.0.2`
+     * &gt; **Note:** For currently supported versions, please see the official documentation. Some example values include: `1.8`, `1.8.0_322`,  `11`, `11.0.14`, `17` and `17.0.2`
      * 
      */
     public Optional<Output<String>> javaVersion() {
@@ -228,7 +228,7 @@ public final class WindowsWebAppSiteConfigApplicationStackArgs extends com.pulum
     /**
      * The version of node to use when `current_stack` is set to `node`. Possible values are `~12`, `~14`, `~16`, `~18`, `~20` and `~22`.
      * 
-     * &gt; **NOTE:** This property conflicts with `java_version`.
+     * &gt; **Note:** This property conflicts with `java_version`.
      * 
      */
     @Import(name="nodeVersion")
@@ -237,7 +237,7 @@ public final class WindowsWebAppSiteConfigApplicationStackArgs extends com.pulum
     /**
      * @return The version of node to use when `current_stack` is set to `node`. Possible values are `~12`, `~14`, `~16`, `~18`, `~20` and `~22`.
      * 
-     * &gt; **NOTE:** This property conflicts with `java_version`.
+     * &gt; **Note:** This property conflicts with `java_version`.
      * 
      */
     public Optional<Output<String>> nodeVersion() {
@@ -247,7 +247,7 @@ public final class WindowsWebAppSiteConfigApplicationStackArgs extends com.pulum
     /**
      * The version of PHP to use when `current_stack` is set to `php`. Possible values are `7.1`, `7.4` and `Off`.
      * 
-     * &gt; **NOTE:** The value `Off` is used to signify latest supported by the service.
+     * &gt; **Note:** The value `Off` is used to signify latest supported by the service.
      * 
      */
     @Import(name="phpVersion")
@@ -256,7 +256,7 @@ public final class WindowsWebAppSiteConfigApplicationStackArgs extends com.pulum
     /**
      * @return The version of PHP to use when `current_stack` is set to `php`. Possible values are `7.1`, `7.4` and `Off`.
      * 
-     * &gt; **NOTE:** The value `Off` is used to signify latest supported by the service.
+     * &gt; **Note:** The value `Off` is used to signify latest supported by the service.
      * 
      */
     public Optional<Output<String>> phpVersion() {
@@ -281,7 +281,7 @@ public final class WindowsWebAppSiteConfigApplicationStackArgs extends com.pulum
     /**
      * The version of Tomcat the Java App should use. Conflicts with `java_embedded_server_enabled`
      * 
-     * &gt; **NOTE:** See the official documentation for current supported versions. Some example values include: `10.0`, `10.0.20`.
+     * &gt; **Note:** See the official documentation for current supported versions. Some example values include: `10.0`, `10.0.20`.
      * 
      */
     @Import(name="tomcatVersion")
@@ -290,7 +290,7 @@ public final class WindowsWebAppSiteConfigApplicationStackArgs extends com.pulum
     /**
      * @return The version of Tomcat the Java App should use. Conflicts with `java_embedded_server_enabled`
      * 
-     * &gt; **NOTE:** See the official documentation for current supported versions. Some example values include: `10.0`, `10.0.20`.
+     * &gt; **Note:** See the official documentation for current supported versions. Some example values include: `10.0`, `10.0.20`.
      * 
      */
     public Optional<Output<String>> tomcatVersion() {
@@ -338,9 +338,9 @@ public final class WindowsWebAppSiteConfigApplicationStackArgs extends com.pulum
         /**
          * @param currentStack The Application Stack for the Windows Web App. Possible values include `dotnet`, `dotnetcore`, `node`, `python`, `php`, and `java`.
          * 
-         * &gt; **NOTE:** Whilst this property is Optional omitting it can cause unexpected behaviour, in particular for display of settings in the Azure Portal.
+         * &gt; **Note:** Whilst this property is Optional omitting it can cause unexpected behaviour, in particular for display of settings in the Azure Portal.
          * 
-         * &gt; **NOTE:** Windows Web apps can configure multiple `app_stack` properties, it is recommended to always configure this `Optional` value and set it to the primary application stack of your app to ensure correct operation of this resource and display the correct metadata in the Azure Portal.
+         * &gt; **Note:** Windows Web apps can configure multiple `app_stack` properties, it is recommended to always configure this `Optional` value and set it to the primary application stack of your app to ensure correct operation of this resource and display the correct metadata in the Azure Portal.
          * 
          * @return builder
          * 
@@ -353,9 +353,9 @@ public final class WindowsWebAppSiteConfigApplicationStackArgs extends com.pulum
         /**
          * @param currentStack The Application Stack for the Windows Web App. Possible values include `dotnet`, `dotnetcore`, `node`, `python`, `php`, and `java`.
          * 
-         * &gt; **NOTE:** Whilst this property is Optional omitting it can cause unexpected behaviour, in particular for display of settings in the Azure Portal.
+         * &gt; **Note:** Whilst this property is Optional omitting it can cause unexpected behaviour, in particular for display of settings in the Azure Portal.
          * 
-         * &gt; **NOTE:** Windows Web apps can configure multiple `app_stack` properties, it is recommended to always configure this `Optional` value and set it to the primary application stack of your app to ensure correct operation of this resource and display the correct metadata in the Azure Portal.
+         * &gt; **Note:** Windows Web apps can configure multiple `app_stack` properties, it is recommended to always configure this `Optional` value and set it to the primary application stack of your app to ensure correct operation of this resource and display the correct metadata in the Azure Portal.
          * 
          * @return builder
          * 
@@ -388,7 +388,7 @@ public final class WindowsWebAppSiteConfigApplicationStackArgs extends com.pulum
         /**
          * @param dockerRegistryPassword The User Name to use for authentication against the registry to pull the image.
          * 
-         * &gt; **NOTE:** `docker_registry_url`, `docker_registry_username`, and `docker_registry_password` replace the use of the `app_settings` values of `DOCKER_REGISTRY_SERVER_URL`, `DOCKER_REGISTRY_SERVER_USERNAME` and `DOCKER_REGISTRY_SERVER_PASSWORD` respectively, these values will be managed by the provider and should not be specified in the `app_settings` map.
+         * &gt; **Note:** `docker_registry_url`, `docker_registry_username`, and `docker_registry_password` replace the use of the `app_settings` values of `DOCKER_REGISTRY_SERVER_URL`, `DOCKER_REGISTRY_SERVER_USERNAME` and `DOCKER_REGISTRY_SERVER_PASSWORD` respectively, these values will be managed by the provider and should not be specified in the `app_settings` map.
          * 
          * @return builder
          * 
@@ -401,7 +401,7 @@ public final class WindowsWebAppSiteConfigApplicationStackArgs extends com.pulum
         /**
          * @param dockerRegistryPassword The User Name to use for authentication against the registry to pull the image.
          * 
-         * &gt; **NOTE:** `docker_registry_url`, `docker_registry_username`, and `docker_registry_password` replace the use of the `app_settings` values of `DOCKER_REGISTRY_SERVER_URL`, `DOCKER_REGISTRY_SERVER_USERNAME` and `DOCKER_REGISTRY_SERVER_PASSWORD` respectively, these values will be managed by the provider and should not be specified in the `app_settings` map.
+         * &gt; **Note:** `docker_registry_url`, `docker_registry_username`, and `docker_registry_password` replace the use of the `app_settings` values of `DOCKER_REGISTRY_SERVER_URL`, `DOCKER_REGISTRY_SERVER_USERNAME` and `DOCKER_REGISTRY_SERVER_PASSWORD` respectively, these values will be managed by the provider and should not be specified in the `app_settings` map.
          * 
          * @return builder
          * 
@@ -476,7 +476,7 @@ public final class WindowsWebAppSiteConfigApplicationStackArgs extends com.pulum
         /**
          * @param dotnetVersion The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0`, `v7.0`, `v8.0` and `v9.0`.
          * 
-         * &gt; **NOTE:** The Portal displayed values and the actual underlying API values differ for this setting, as follows:
+         * &gt; **Note:** The Portal displayed values and the actual underlying API values differ for this setting, as follows:
          * Portal Value | API value
          * :--|--:
          * ASP.NET V3.5 | v2.0
@@ -497,7 +497,7 @@ public final class WindowsWebAppSiteConfigApplicationStackArgs extends com.pulum
         /**
          * @param dotnetVersion The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0`, `v7.0`, `v8.0` and `v9.0`.
          * 
-         * &gt; **NOTE:** The Portal displayed values and the actual underlying API values differ for this setting, as follows:
+         * &gt; **Note:** The Portal displayed values and the actual underlying API values differ for this setting, as follows:
          * Portal Value | API value
          * :--|--:
          * ASP.NET V3.5 | v2.0
@@ -588,7 +588,7 @@ public final class WindowsWebAppSiteConfigApplicationStackArgs extends com.pulum
         /**
          * @param javaVersion The version of Java to use when `current_stack` is set to `java`.
          * 
-         * &gt; **NOTE:** For currently supported versions, please see the official documentation. Some example values include: `1.8`, `1.8.0_322`,  `11`, `11.0.14`, `17` and `17.0.2`
+         * &gt; **Note:** For currently supported versions, please see the official documentation. Some example values include: `1.8`, `1.8.0_322`,  `11`, `11.0.14`, `17` and `17.0.2`
          * 
          * @return builder
          * 
@@ -601,7 +601,7 @@ public final class WindowsWebAppSiteConfigApplicationStackArgs extends com.pulum
         /**
          * @param javaVersion The version of Java to use when `current_stack` is set to `java`.
          * 
-         * &gt; **NOTE:** For currently supported versions, please see the official documentation. Some example values include: `1.8`, `1.8.0_322`,  `11`, `11.0.14`, `17` and `17.0.2`
+         * &gt; **Note:** For currently supported versions, please see the official documentation. Some example values include: `1.8`, `1.8.0_322`,  `11`, `11.0.14`, `17` and `17.0.2`
          * 
          * @return builder
          * 
@@ -613,7 +613,7 @@ public final class WindowsWebAppSiteConfigApplicationStackArgs extends com.pulum
         /**
          * @param nodeVersion The version of node to use when `current_stack` is set to `node`. Possible values are `~12`, `~14`, `~16`, `~18`, `~20` and `~22`.
          * 
-         * &gt; **NOTE:** This property conflicts with `java_version`.
+         * &gt; **Note:** This property conflicts with `java_version`.
          * 
          * @return builder
          * 
@@ -626,7 +626,7 @@ public final class WindowsWebAppSiteConfigApplicationStackArgs extends com.pulum
         /**
          * @param nodeVersion The version of node to use when `current_stack` is set to `node`. Possible values are `~12`, `~14`, `~16`, `~18`, `~20` and `~22`.
          * 
-         * &gt; **NOTE:** This property conflicts with `java_version`.
+         * &gt; **Note:** This property conflicts with `java_version`.
          * 
          * @return builder
          * 
@@ -638,7 +638,7 @@ public final class WindowsWebAppSiteConfigApplicationStackArgs extends com.pulum
         /**
          * @param phpVersion The version of PHP to use when `current_stack` is set to `php`. Possible values are `7.1`, `7.4` and `Off`.
          * 
-         * &gt; **NOTE:** The value `Off` is used to signify latest supported by the service.
+         * &gt; **Note:** The value `Off` is used to signify latest supported by the service.
          * 
          * @return builder
          * 
@@ -651,7 +651,7 @@ public final class WindowsWebAppSiteConfigApplicationStackArgs extends com.pulum
         /**
          * @param phpVersion The version of PHP to use when `current_stack` is set to `php`. Possible values are `7.1`, `7.4` and `Off`.
          * 
-         * &gt; **NOTE:** The value `Off` is used to signify latest supported by the service.
+         * &gt; **Note:** The value `Off` is used to signify latest supported by the service.
          * 
          * @return builder
          * 
@@ -684,7 +684,7 @@ public final class WindowsWebAppSiteConfigApplicationStackArgs extends com.pulum
         /**
          * @param tomcatVersion The version of Tomcat the Java App should use. Conflicts with `java_embedded_server_enabled`
          * 
-         * &gt; **NOTE:** See the official documentation for current supported versions. Some example values include: `10.0`, `10.0.20`.
+         * &gt; **Note:** See the official documentation for current supported versions. Some example values include: `10.0`, `10.0.20`.
          * 
          * @return builder
          * 
@@ -697,7 +697,7 @@ public final class WindowsWebAppSiteConfigApplicationStackArgs extends com.pulum
         /**
          * @param tomcatVersion The version of Tomcat the Java App should use. Conflicts with `java_embedded_server_enabled`
          * 
-         * &gt; **NOTE:** See the official documentation for current supported versions. Some example values include: `10.0`, `10.0.20`.
+         * &gt; **Note:** See the official documentation for current supported versions. Some example values include: `10.0`, `10.0.20`.
          * 
          * @return builder
          * 

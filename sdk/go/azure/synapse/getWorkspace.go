@@ -60,7 +60,7 @@ type LookupWorkspaceArgs struct {
 
 // A collection of values returned by getWorkspace.
 type LookupWorkspaceResult struct {
-	// A list of Connectivity endpoints for this Synapse Workspace.
+	// A map of Connectivity endpoints for this Synapse Workspace.
 	ConnectivityEndpoints map[string]string `pulumi:"connectivityEndpoints"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
@@ -110,7 +110,7 @@ func (o LookupWorkspaceResultOutput) ToLookupWorkspaceResultOutputWithContext(ct
 	return o
 }
 
-// A list of Connectivity endpoints for this Synapse Workspace.
+// A map of Connectivity endpoints for this Synapse Workspace.
 func (o LookupWorkspaceResultOutput) ConnectivityEndpoints() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupWorkspaceResult) map[string]string { return v.ConnectivityEndpoints }).(pulumi.StringMapOutput)
 }

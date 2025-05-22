@@ -120,7 +120,7 @@ class HubIdentity(dict):
         :param builtins.str type: Specifies the type of Managed Service Identity that should be configured on this AI Foundry Hub. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
         :param Sequence[builtins.str] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this AI Foundry Hub.
                
-               > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+               > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         :param builtins.str principal_id: The Principal ID associated with this Managed Service Identity.
         :param builtins.str tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
@@ -146,7 +146,7 @@ class HubIdentity(dict):
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this AI Foundry Hub.
 
-        > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+        > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         """
         return pulumi.get(self, "identity_ids")
 
@@ -235,7 +235,7 @@ class ProjectIdentity(dict):
         :param builtins.str type: Specifies the type of Managed Service Identity that should be configured on this AI Foundry Project. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
         :param Sequence[builtins.str] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this AI Foundry Project.
                
-               > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+               > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         :param builtins.str principal_id: The Principal ID associated with this Managed Service Identity.
         :param builtins.str tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
@@ -261,7 +261,7 @@ class ProjectIdentity(dict):
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this AI Foundry Project.
 
-        > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+        > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         """
         return pulumi.get(self, "identity_ids")
 

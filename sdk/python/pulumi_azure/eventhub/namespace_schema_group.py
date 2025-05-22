@@ -28,7 +28,9 @@ class NamespaceSchemaGroupArgs:
         The set of arguments for constructing a NamespaceSchemaGroup resource.
         :param pulumi.Input[builtins.str] namespace_id: Specifies the ID of the EventHub Namespace. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] schema_compatibility: Specifies the compatibility of this schema group. Possible values are `None`, `Backward`, `Forward`. Changing this forces a new resource to be created.
-        :param pulumi.Input[builtins.str] schema_type: Specifies the Type of this schema group. Possible values are `Avro`, `Unknown`. Changing this forces a new resource to be created.
+        :param pulumi.Input[builtins.str] schema_type: Specifies the Type of this schema group. Possible values are `Avro`, `Unknown` and `Json`. Changing this forces a new resource to be created.
+               
+               > **Note:** When `schema_type` is specified as `Json`, `schema_compatibility` must be set to `None`.
         :param pulumi.Input[builtins.str] name: Specifies the name of this schema group. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "namespace_id", namespace_id)
@@ -65,7 +67,9 @@ class NamespaceSchemaGroupArgs:
     @pulumi.getter(name="schemaType")
     def schema_type(self) -> pulumi.Input[builtins.str]:
         """
-        Specifies the Type of this schema group. Possible values are `Avro`, `Unknown`. Changing this forces a new resource to be created.
+        Specifies the Type of this schema group. Possible values are `Avro`, `Unknown` and `Json`. Changing this forces a new resource to be created.
+
+        > **Note:** When `schema_type` is specified as `Json`, `schema_compatibility` must be set to `None`.
         """
         return pulumi.get(self, "schema_type")
 
@@ -98,7 +102,9 @@ class _NamespaceSchemaGroupState:
         :param pulumi.Input[builtins.str] name: Specifies the name of this schema group. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] namespace_id: Specifies the ID of the EventHub Namespace. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] schema_compatibility: Specifies the compatibility of this schema group. Possible values are `None`, `Backward`, `Forward`. Changing this forces a new resource to be created.
-        :param pulumi.Input[builtins.str] schema_type: Specifies the Type of this schema group. Possible values are `Avro`, `Unknown`. Changing this forces a new resource to be created.
+        :param pulumi.Input[builtins.str] schema_type: Specifies the Type of this schema group. Possible values are `Avro`, `Unknown` and `Json`. Changing this forces a new resource to be created.
+               
+               > **Note:** When `schema_type` is specified as `Json`, `schema_compatibility` must be set to `None`.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -149,7 +155,9 @@ class _NamespaceSchemaGroupState:
     @pulumi.getter(name="schemaType")
     def schema_type(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies the Type of this schema group. Possible values are `Avro`, `Unknown`. Changing this forces a new resource to be created.
+        Specifies the Type of this schema group. Possible values are `Avro`, `Unknown` and `Json`. Changing this forces a new resource to be created.
+
+        > **Note:** When `schema_type` is specified as `Json`, `schema_compatibility` must be set to `None`.
         """
         return pulumi.get(self, "schema_type")
 
@@ -191,6 +199,13 @@ class NamespaceSchemaGroup(pulumi.CustomResource):
             schema_type="Avro")
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.EventHub`: 2024-01-01
+
         ## Import
 
         Schema Group for a EventHub Namespace can be imported using the `resource id`, e.g.
@@ -204,7 +219,9 @@ class NamespaceSchemaGroup(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: Specifies the name of this schema group. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] namespace_id: Specifies the ID of the EventHub Namespace. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] schema_compatibility: Specifies the compatibility of this schema group. Possible values are `None`, `Backward`, `Forward`. Changing this forces a new resource to be created.
-        :param pulumi.Input[builtins.str] schema_type: Specifies the Type of this schema group. Possible values are `Avro`, `Unknown`. Changing this forces a new resource to be created.
+        :param pulumi.Input[builtins.str] schema_type: Specifies the Type of this schema group. Possible values are `Avro`, `Unknown` and `Json`. Changing this forces a new resource to be created.
+               
+               > **Note:** When `schema_type` is specified as `Json`, `schema_compatibility` must be set to `None`.
         """
         ...
     @overload
@@ -233,6 +250,13 @@ class NamespaceSchemaGroup(pulumi.CustomResource):
             schema_compatibility="Forward",
             schema_type="Avro")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.EventHub`: 2024-01-01
 
         ## Import
 
@@ -304,7 +328,9 @@ class NamespaceSchemaGroup(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: Specifies the name of this schema group. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] namespace_id: Specifies the ID of the EventHub Namespace. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] schema_compatibility: Specifies the compatibility of this schema group. Possible values are `None`, `Backward`, `Forward`. Changing this forces a new resource to be created.
-        :param pulumi.Input[builtins.str] schema_type: Specifies the Type of this schema group. Possible values are `Avro`, `Unknown`. Changing this forces a new resource to be created.
+        :param pulumi.Input[builtins.str] schema_type: Specifies the Type of this schema group. Possible values are `Avro`, `Unknown` and `Json`. Changing this forces a new resource to be created.
+               
+               > **Note:** When `schema_type` is specified as `Json`, `schema_compatibility` must be set to `None`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -344,7 +370,9 @@ class NamespaceSchemaGroup(pulumi.CustomResource):
     @pulumi.getter(name="schemaType")
     def schema_type(self) -> pulumi.Output[builtins.str]:
         """
-        Specifies the Type of this schema group. Possible values are `Avro`, `Unknown`. Changing this forces a new resource to be created.
+        Specifies the Type of this schema group. Possible values are `Avro`, `Unknown` and `Json`. Changing this forces a new resource to be created.
+
+        > **Note:** When `schema_type` is specified as `Json`, `schema_compatibility` must be set to `None`.
         """
         return pulumi.get(self, "schema_type")
 

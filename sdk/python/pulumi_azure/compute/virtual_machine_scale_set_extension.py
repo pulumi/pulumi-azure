@@ -48,24 +48,24 @@ class VirtualMachineScaleSetExtensionArgs:
                ```
         :param pulumi.Input[builtins.str] virtual_machine_scale_set_id: The ID of the Virtual Machine Scale Set. Changing this forces a new resource to be created.
                
-               > **NOTE:** This should be the ID from the `compute.LinuxVirtualMachineScaleSet` or `compute.WindowsVirtualMachineScaleSet` resource - when using the older `compute.ScaleSet` resource extensions should instead be defined inline.
+               > **Note:** This should be the ID from the `compute.LinuxVirtualMachineScaleSet` or `compute.WindowsVirtualMachineScaleSet` resource - when using the older `compute.ScaleSet` resource extensions should instead be defined inline.
         :param pulumi.Input[builtins.bool] auto_upgrade_minor_version: Should the latest version of the Extension be used at Deployment Time, if one is available? This won't auto-update the extension on existing installation. Defaults to `true`.
         :param pulumi.Input[builtins.bool] automatic_upgrade_enabled: Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension?
         :param pulumi.Input[builtins.bool] failure_suppression_enabled: Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
                
-               > **NOTE:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `failure_suppression_enabled` value.
+               > **Note:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `failure_suppression_enabled` value.
         :param pulumi.Input[builtins.str] force_update_tag: A value which, when different to the previous value can be used to force-run the Extension even if the Extension Configuration hasn't changed.
         :param pulumi.Input[builtins.str] name: The name for the Virtual Machine Scale Set Extension. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] protected_settings: A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
                
-               > **NOTE:** Keys within the `protected_settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
+               > **Note:** Keys within the `protected_settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
         :param pulumi.Input['VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs'] protected_settings_from_key_vault: A `protected_settings_from_key_vault` block as defined below.
                
                > **Note:** `protected_settings_from_key_vault` cannot be used with `protected_settings`
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] provision_after_extensions: An ordered list of Extension names which this should be provisioned after.
         :param pulumi.Input[builtins.str] settings: A JSON String which specifies Settings for the Extension.
                
-               > **NOTE:** Keys within the `settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
+               > **Note:** Keys within the `settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
         """
         pulumi.set(__self__, "publisher", publisher)
         pulumi.set(__self__, "type", type)
@@ -138,7 +138,7 @@ class VirtualMachineScaleSetExtensionArgs:
         """
         The ID of the Virtual Machine Scale Set. Changing this forces a new resource to be created.
 
-        > **NOTE:** This should be the ID from the `compute.LinuxVirtualMachineScaleSet` or `compute.WindowsVirtualMachineScaleSet` resource - when using the older `compute.ScaleSet` resource extensions should instead be defined inline.
+        > **Note:** This should be the ID from the `compute.LinuxVirtualMachineScaleSet` or `compute.WindowsVirtualMachineScaleSet` resource - when using the older `compute.ScaleSet` resource extensions should instead be defined inline.
         """
         return pulumi.get(self, "virtual_machine_scale_set_id")
 
@@ -176,7 +176,7 @@ class VirtualMachineScaleSetExtensionArgs:
         """
         Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
 
-        > **NOTE:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `failure_suppression_enabled` value.
+        > **Note:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `failure_suppression_enabled` value.
         """
         return pulumi.get(self, "failure_suppression_enabled")
 
@@ -214,7 +214,7 @@ class VirtualMachineScaleSetExtensionArgs:
         """
         A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
 
-        > **NOTE:** Keys within the `protected_settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
+        > **Note:** Keys within the `protected_settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
         """
         return pulumi.get(self, "protected_settings")
 
@@ -254,7 +254,7 @@ class VirtualMachineScaleSetExtensionArgs:
         """
         A JSON String which specifies Settings for the Extension.
 
-        > **NOTE:** Keys within the `settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
+        > **Note:** Keys within the `settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
         """
         return pulumi.get(self, "settings")
 
@@ -285,12 +285,12 @@ class _VirtualMachineScaleSetExtensionState:
         :param pulumi.Input[builtins.bool] automatic_upgrade_enabled: Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension?
         :param pulumi.Input[builtins.bool] failure_suppression_enabled: Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
                
-               > **NOTE:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `failure_suppression_enabled` value.
+               > **Note:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `failure_suppression_enabled` value.
         :param pulumi.Input[builtins.str] force_update_tag: A value which, when different to the previous value can be used to force-run the Extension even if the Extension Configuration hasn't changed.
         :param pulumi.Input[builtins.str] name: The name for the Virtual Machine Scale Set Extension. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] protected_settings: A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
                
-               > **NOTE:** Keys within the `protected_settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
+               > **Note:** Keys within the `protected_settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
         :param pulumi.Input['VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs'] protected_settings_from_key_vault: A `protected_settings_from_key_vault` block as defined below.
                
                > **Note:** `protected_settings_from_key_vault` cannot be used with `protected_settings`
@@ -298,7 +298,7 @@ class _VirtualMachineScaleSetExtensionState:
         :param pulumi.Input[builtins.str] publisher: Specifies the Publisher of the Extension. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] settings: A JSON String which specifies Settings for the Extension.
                
-               > **NOTE:** Keys within the `settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
+               > **Note:** Keys within the `settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
         :param pulumi.Input[builtins.str] type: Specifies the Type of the Extension. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] type_handler_version: Specifies the version of the extension to use, available versions can be found using the Azure CLI.
                
@@ -309,7 +309,7 @@ class _VirtualMachineScaleSetExtensionState:
                ```
         :param pulumi.Input[builtins.str] virtual_machine_scale_set_id: The ID of the Virtual Machine Scale Set. Changing this forces a new resource to be created.
                
-               > **NOTE:** This should be the ID from the `compute.LinuxVirtualMachineScaleSet` or `compute.WindowsVirtualMachineScaleSet` resource - when using the older `compute.ScaleSet` resource extensions should instead be defined inline.
+               > **Note:** This should be the ID from the `compute.LinuxVirtualMachineScaleSet` or `compute.WindowsVirtualMachineScaleSet` resource - when using the older `compute.ScaleSet` resource extensions should instead be defined inline.
         """
         if auto_upgrade_minor_version is not None:
             pulumi.set(__self__, "auto_upgrade_minor_version", auto_upgrade_minor_version)
@@ -368,7 +368,7 @@ class _VirtualMachineScaleSetExtensionState:
         """
         Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
 
-        > **NOTE:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `failure_suppression_enabled` value.
+        > **Note:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `failure_suppression_enabled` value.
         """
         return pulumi.get(self, "failure_suppression_enabled")
 
@@ -406,7 +406,7 @@ class _VirtualMachineScaleSetExtensionState:
         """
         A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
 
-        > **NOTE:** Keys within the `protected_settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
+        > **Note:** Keys within the `protected_settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
         """
         return pulumi.get(self, "protected_settings")
 
@@ -458,7 +458,7 @@ class _VirtualMachineScaleSetExtensionState:
         """
         A JSON String which specifies Settings for the Extension.
 
-        > **NOTE:** Keys within the `settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
+        > **Note:** Keys within the `settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
         """
         return pulumi.get(self, "settings")
 
@@ -502,7 +502,7 @@ class _VirtualMachineScaleSetExtensionState:
         """
         The ID of the Virtual Machine Scale Set. Changing this forces a new resource to be created.
 
-        > **NOTE:** This should be the ID from the `compute.LinuxVirtualMachineScaleSet` or `compute.WindowsVirtualMachineScaleSet` resource - when using the older `compute.ScaleSet` resource extensions should instead be defined inline.
+        > **Note:** This should be the ID from the `compute.LinuxVirtualMachineScaleSet` or `compute.WindowsVirtualMachineScaleSet` resource - when using the older `compute.ScaleSet` resource extensions should instead be defined inline.
         """
         return pulumi.get(self, "virtual_machine_scale_set_id")
 
@@ -534,7 +534,7 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
         """
         Manages an Extension for a Virtual Machine Scale Set.
 
-        > **NOTE:** This resource is not intended to be used with the `compute.ScaleSet` resource - instead it's intended for this to be used with the `compute.LinuxVirtualMachineScaleSet` and `compute.WindowsVirtualMachineScaleSet` resources.
+        > **Note:** This resource is not intended to be used with the `compute.ScaleSet` resource - instead it's intended for this to be used with the `compute.LinuxVirtualMachineScaleSet` and `compute.WindowsVirtualMachineScaleSet` resources.
 
         ## Example Usage
 
@@ -594,12 +594,12 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] automatic_upgrade_enabled: Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension?
         :param pulumi.Input[builtins.bool] failure_suppression_enabled: Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
                
-               > **NOTE:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `failure_suppression_enabled` value.
+               > **Note:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `failure_suppression_enabled` value.
         :param pulumi.Input[builtins.str] force_update_tag: A value which, when different to the previous value can be used to force-run the Extension even if the Extension Configuration hasn't changed.
         :param pulumi.Input[builtins.str] name: The name for the Virtual Machine Scale Set Extension. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] protected_settings: A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
                
-               > **NOTE:** Keys within the `protected_settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
+               > **Note:** Keys within the `protected_settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
         :param pulumi.Input[Union['VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs', 'VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgsDict']] protected_settings_from_key_vault: A `protected_settings_from_key_vault` block as defined below.
                
                > **Note:** `protected_settings_from_key_vault` cannot be used with `protected_settings`
@@ -607,7 +607,7 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] publisher: Specifies the Publisher of the Extension. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] settings: A JSON String which specifies Settings for the Extension.
                
-               > **NOTE:** Keys within the `settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
+               > **Note:** Keys within the `settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
         :param pulumi.Input[builtins.str] type: Specifies the Type of the Extension. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] type_handler_version: Specifies the version of the extension to use, available versions can be found using the Azure CLI.
                
@@ -618,7 +618,7 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
                ```
         :param pulumi.Input[builtins.str] virtual_machine_scale_set_id: The ID of the Virtual Machine Scale Set. Changing this forces a new resource to be created.
                
-               > **NOTE:** This should be the ID from the `compute.LinuxVirtualMachineScaleSet` or `compute.WindowsVirtualMachineScaleSet` resource - when using the older `compute.ScaleSet` resource extensions should instead be defined inline.
+               > **Note:** This should be the ID from the `compute.LinuxVirtualMachineScaleSet` or `compute.WindowsVirtualMachineScaleSet` resource - when using the older `compute.ScaleSet` resource extensions should instead be defined inline.
         """
         ...
     @overload
@@ -629,7 +629,7 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
         """
         Manages an Extension for a Virtual Machine Scale Set.
 
-        > **NOTE:** This resource is not intended to be used with the `compute.ScaleSet` resource - instead it's intended for this to be used with the `compute.LinuxVirtualMachineScaleSet` and `compute.WindowsVirtualMachineScaleSet` resources.
+        > **Note:** This resource is not intended to be used with the `compute.ScaleSet` resource - instead it's intended for this to be used with the `compute.LinuxVirtualMachineScaleSet` and `compute.WindowsVirtualMachineScaleSet` resources.
 
         ## Example Usage
 
@@ -777,12 +777,12 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] automatic_upgrade_enabled: Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension?
         :param pulumi.Input[builtins.bool] failure_suppression_enabled: Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
                
-               > **NOTE:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `failure_suppression_enabled` value.
+               > **Note:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `failure_suppression_enabled` value.
         :param pulumi.Input[builtins.str] force_update_tag: A value which, when different to the previous value can be used to force-run the Extension even if the Extension Configuration hasn't changed.
         :param pulumi.Input[builtins.str] name: The name for the Virtual Machine Scale Set Extension. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] protected_settings: A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
                
-               > **NOTE:** Keys within the `protected_settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
+               > **Note:** Keys within the `protected_settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
         :param pulumi.Input[Union['VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs', 'VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgsDict']] protected_settings_from_key_vault: A `protected_settings_from_key_vault` block as defined below.
                
                > **Note:** `protected_settings_from_key_vault` cannot be used with `protected_settings`
@@ -790,7 +790,7 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] publisher: Specifies the Publisher of the Extension. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] settings: A JSON String which specifies Settings for the Extension.
                
-               > **NOTE:** Keys within the `settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
+               > **Note:** Keys within the `settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
         :param pulumi.Input[builtins.str] type: Specifies the Type of the Extension. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] type_handler_version: Specifies the version of the extension to use, available versions can be found using the Azure CLI.
                
@@ -801,7 +801,7 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
                ```
         :param pulumi.Input[builtins.str] virtual_machine_scale_set_id: The ID of the Virtual Machine Scale Set. Changing this forces a new resource to be created.
                
-               > **NOTE:** This should be the ID from the `compute.LinuxVirtualMachineScaleSet` or `compute.WindowsVirtualMachineScaleSet` resource - when using the older `compute.ScaleSet` resource extensions should instead be defined inline.
+               > **Note:** This should be the ID from the `compute.LinuxVirtualMachineScaleSet` or `compute.WindowsVirtualMachineScaleSet` resource - when using the older `compute.ScaleSet` resource extensions should instead be defined inline.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -844,7 +844,7 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
         """
         Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
 
-        > **NOTE:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `failure_suppression_enabled` value.
+        > **Note:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `failure_suppression_enabled` value.
         """
         return pulumi.get(self, "failure_suppression_enabled")
 
@@ -870,7 +870,7 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
         """
         A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
 
-        > **NOTE:** Keys within the `protected_settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
+        > **Note:** Keys within the `protected_settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
         """
         return pulumi.get(self, "protected_settings")
 
@@ -906,7 +906,7 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
         """
         A JSON String which specifies Settings for the Extension.
 
-        > **NOTE:** Keys within the `settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
+        > **Note:** Keys within the `settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
         """
         return pulumi.get(self, "settings")
 
@@ -938,7 +938,7 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
         """
         The ID of the Virtual Machine Scale Set. Changing this forces a new resource to be created.
 
-        > **NOTE:** This should be the ID from the `compute.LinuxVirtualMachineScaleSet` or `compute.WindowsVirtualMachineScaleSet` resource - when using the older `compute.ScaleSet` resource extensions should instead be defined inline.
+        > **Note:** This should be the ID from the `compute.LinuxVirtualMachineScaleSet` or `compute.WindowsVirtualMachineScaleSet` resource - when using the older `compute.ScaleSet` resource extensions should instead be defined inline.
         """
         return pulumi.get(self, "virtual_machine_scale_set_id")
 

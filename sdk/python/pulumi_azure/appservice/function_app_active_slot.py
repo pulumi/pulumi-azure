@@ -198,6 +198,13 @@ class FunctionAppActiveSlot(pulumi.CustomResource):
         example_function_app_active_slot = azure.appservice.FunctionAppActiveSlot("example", slot_id=example_linux_function_app_slot.id)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Web`: 2023-12-01
+
         ## Import
 
         a Function App Active Slot can be imported using the `resource id`, e.g.
@@ -293,6 +300,13 @@ class FunctionAppActiveSlot(pulumi.CustomResource):
             site_config={})
         example_function_app_active_slot = azure.appservice.FunctionAppActiveSlot("example", slot_id=example_linux_function_app_slot.id)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Web`: 2023-12-01
 
         ## Import
 

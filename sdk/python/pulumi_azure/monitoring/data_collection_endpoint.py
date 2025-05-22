@@ -145,6 +145,7 @@ class _DataCollectionEndpointState:
                  kind: Optional[pulumi.Input[builtins.str]] = None,
                  location: Optional[pulumi.Input[builtins.str]] = None,
                  logs_ingestion_endpoint: Optional[pulumi.Input[builtins.str]] = None,
+                 metrics_ingestion_endpoint: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  resource_group_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -157,6 +158,7 @@ class _DataCollectionEndpointState:
         :param pulumi.Input[builtins.str] kind: The kind of the Data Collection Endpoint. Possible values are `Linux` and `Windows`.
         :param pulumi.Input[builtins.str] location: The Azure Region where the Data Collection Endpoint should exist. Changing this forces a new Data Collection Endpoint to be created.
         :param pulumi.Input[builtins.str] logs_ingestion_endpoint: The endpoint used for ingesting logs, e.g., `https://mydce-abcd.eastus-1.ingest.monitor.azure.com`.
+        :param pulumi.Input[builtins.str] metrics_ingestion_endpoint: The endpoint used for ingesting metrics, e.g., `https://mydce-abcd.eastus-1.metrics.ingest.monitor.azure.com`.
         :param pulumi.Input[builtins.str] name: The name which should be used for this Data Collection Endpoint. Changing this forces a new Data Collection Endpoint to be created.
         :param pulumi.Input[builtins.bool] public_network_access_enabled: Whether network access from public internet to the Data Collection Endpoint are allowed. Possible values are `true` and `false`. Default to `true`.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the Resource Group where the Data Collection Endpoint should exist. Changing this forces a new Data Collection Endpoint to be created.
@@ -174,6 +176,8 @@ class _DataCollectionEndpointState:
             pulumi.set(__self__, "location", location)
         if logs_ingestion_endpoint is not None:
             pulumi.set(__self__, "logs_ingestion_endpoint", logs_ingestion_endpoint)
+        if metrics_ingestion_endpoint is not None:
+            pulumi.set(__self__, "metrics_ingestion_endpoint", metrics_ingestion_endpoint)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if public_network_access_enabled is not None:
@@ -254,6 +258,18 @@ class _DataCollectionEndpointState:
     @logs_ingestion_endpoint.setter
     def logs_ingestion_endpoint(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "logs_ingestion_endpoint", value)
+
+    @property
+    @pulumi.getter(name="metricsIngestionEndpoint")
+    def metrics_ingestion_endpoint(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The endpoint used for ingesting metrics, e.g., `https://mydce-abcd.eastus-1.metrics.ingest.monitor.azure.com`.
+        """
+        return pulumi.get(self, "metrics_ingestion_endpoint")
+
+    @metrics_ingestion_endpoint.setter
+    def metrics_ingestion_endpoint(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "metrics_ingestion_endpoint", value)
 
     @property
     @pulumi.getter
@@ -342,6 +358,13 @@ class DataCollectionEndpoint(pulumi.CustomResource):
             })
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Insights`: 2023-03-11
+
         ## Import
 
         Data Collection Endpoints can be imported using the `resource id`, e.g.
@@ -389,6 +412,13 @@ class DataCollectionEndpoint(pulumi.CustomResource):
                 "foo": "bar",
             })
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Insights`: 2023-03-11
 
         ## Import
 
@@ -441,6 +471,7 @@ class DataCollectionEndpoint(pulumi.CustomResource):
             __props__.__dict__["configuration_access_endpoint"] = None
             __props__.__dict__["immutable_id"] = None
             __props__.__dict__["logs_ingestion_endpoint"] = None
+            __props__.__dict__["metrics_ingestion_endpoint"] = None
         super(DataCollectionEndpoint, __self__).__init__(
             'azure:monitoring/dataCollectionEndpoint:DataCollectionEndpoint',
             resource_name,
@@ -457,6 +488,7 @@ class DataCollectionEndpoint(pulumi.CustomResource):
             kind: Optional[pulumi.Input[builtins.str]] = None,
             location: Optional[pulumi.Input[builtins.str]] = None,
             logs_ingestion_endpoint: Optional[pulumi.Input[builtins.str]] = None,
+            metrics_ingestion_endpoint: Optional[pulumi.Input[builtins.str]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
             public_network_access_enabled: Optional[pulumi.Input[builtins.bool]] = None,
             resource_group_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -474,6 +506,7 @@ class DataCollectionEndpoint(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] kind: The kind of the Data Collection Endpoint. Possible values are `Linux` and `Windows`.
         :param pulumi.Input[builtins.str] location: The Azure Region where the Data Collection Endpoint should exist. Changing this forces a new Data Collection Endpoint to be created.
         :param pulumi.Input[builtins.str] logs_ingestion_endpoint: The endpoint used for ingesting logs, e.g., `https://mydce-abcd.eastus-1.ingest.monitor.azure.com`.
+        :param pulumi.Input[builtins.str] metrics_ingestion_endpoint: The endpoint used for ingesting metrics, e.g., `https://mydce-abcd.eastus-1.metrics.ingest.monitor.azure.com`.
         :param pulumi.Input[builtins.str] name: The name which should be used for this Data Collection Endpoint. Changing this forces a new Data Collection Endpoint to be created.
         :param pulumi.Input[builtins.bool] public_network_access_enabled: Whether network access from public internet to the Data Collection Endpoint are allowed. Possible values are `true` and `false`. Default to `true`.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the Resource Group where the Data Collection Endpoint should exist. Changing this forces a new Data Collection Endpoint to be created.
@@ -489,6 +522,7 @@ class DataCollectionEndpoint(pulumi.CustomResource):
         __props__.__dict__["kind"] = kind
         __props__.__dict__["location"] = location
         __props__.__dict__["logs_ingestion_endpoint"] = logs_ingestion_endpoint
+        __props__.__dict__["metrics_ingestion_endpoint"] = metrics_ingestion_endpoint
         __props__.__dict__["name"] = name
         __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
         __props__.__dict__["resource_group_name"] = resource_group_name
@@ -542,6 +576,14 @@ class DataCollectionEndpoint(pulumi.CustomResource):
         The endpoint used for ingesting logs, e.g., `https://mydce-abcd.eastus-1.ingest.monitor.azure.com`.
         """
         return pulumi.get(self, "logs_ingestion_endpoint")
+
+    @property
+    @pulumi.getter(name="metricsIngestionEndpoint")
+    def metrics_ingestion_endpoint(self) -> pulumi.Output[builtins.str]:
+        """
+        The endpoint used for ingesting metrics, e.g., `https://mydce-abcd.eastus-1.metrics.ingest.monitor.azure.com`.
+        """
+        return pulumi.get(self, "metrics_ingestion_endpoint")
 
     @property
     @pulumi.getter

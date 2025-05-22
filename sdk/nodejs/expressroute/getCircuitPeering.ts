@@ -19,6 +19,13 @@ import * as utilities from "../utilities";
  *     resourceGroupName: "example-resources",
  * });
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.Network`: 2024-05-01
  */
 export function getCircuitPeering(args: GetCircuitPeeringArgs, opts?: pulumi.InvokeOptions): Promise<GetCircuitPeeringResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -109,6 +116,13 @@ export interface GetCircuitPeeringResult {
  *     resourceGroupName: "example-resources",
  * });
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.Network`: 2024-05-01
  */
 export function getCircuitPeeringOutput(args: GetCircuitPeeringOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCircuitPeeringResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

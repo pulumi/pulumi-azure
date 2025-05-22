@@ -241,6 +241,13 @@ def get_host_pool(name: Optional[builtins.str] = None,
         resource_group_name="example-resources")
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.DesktopVirtualization`: 2024-04-03
+
 
     :param builtins.str name: The name of the Virtual Desktop Host Pool to retrieve.
     :param builtins.str resource_group_name: The name of the resource group where the Virtual Desktop Host Pool exists.
@@ -283,6 +290,13 @@ def get_host_pool_output(name: Optional[pulumi.Input[builtins.str]] = None,
     example = azure.desktopvirtualization.get_host_pool(name="example-pool",
         resource_group_name="example-resources")
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.DesktopVirtualization`: 2024-04-03
 
 
     :param builtins.str name: The name of the Virtual Desktop Host Pool to retrieve.

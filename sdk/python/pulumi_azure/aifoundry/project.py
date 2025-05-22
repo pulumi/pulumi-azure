@@ -29,6 +29,7 @@ class ProjectArgs:
                  identity: Optional[pulumi.Input['ProjectIdentityArgs']] = None,
                  location: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 primary_user_assigned_identity: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a Project resource.
@@ -39,6 +40,7 @@ class ProjectArgs:
         :param pulumi.Input['ProjectIdentityArgs'] identity: A `identity` block as defined below.
         :param pulumi.Input[builtins.str] location: The Azure Region where the AI Foundry Project should exist. Changing this forces a new AI Foundry Project to be created.
         :param pulumi.Input[builtins.str] name: The name which should be used for this AI Foundry Project. Changing this forces a new AI Foundry Project to be created.
+        :param pulumi.Input[builtins.str] primary_user_assigned_identity: The user assigned identity ID that represents the AI Foundry Hub identity. This must be set when enabling encryption with a user assigned identity.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags which should be assigned to the AI Foundry Project.
         """
         pulumi.set(__self__, "ai_services_hub_id", ai_services_hub_id)
@@ -54,6 +56,8 @@ class ProjectArgs:
             pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if primary_user_assigned_identity is not None:
+            pulumi.set(__self__, "primary_user_assigned_identity", primary_user_assigned_identity)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -142,6 +146,18 @@ class ProjectArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="primaryUserAssignedIdentity")
+    def primary_user_assigned_identity(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The user assigned identity ID that represents the AI Foundry Hub identity. This must be set when enabling encryption with a user assigned identity.
+        """
+        return pulumi.get(self, "primary_user_assigned_identity")
+
+    @primary_user_assigned_identity.setter
+    def primary_user_assigned_identity(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "primary_user_assigned_identity", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
@@ -164,6 +180,7 @@ class _ProjectState:
                  identity: Optional[pulumi.Input['ProjectIdentityArgs']] = None,
                  location: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 primary_user_assigned_identity: Optional[pulumi.Input[builtins.str]] = None,
                  project_id: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
@@ -175,6 +192,7 @@ class _ProjectState:
         :param pulumi.Input['ProjectIdentityArgs'] identity: A `identity` block as defined below.
         :param pulumi.Input[builtins.str] location: The Azure Region where the AI Foundry Project should exist. Changing this forces a new AI Foundry Project to be created.
         :param pulumi.Input[builtins.str] name: The name which should be used for this AI Foundry Project. Changing this forces a new AI Foundry Project to be created.
+        :param pulumi.Input[builtins.str] primary_user_assigned_identity: The user assigned identity ID that represents the AI Foundry Hub identity. This must be set when enabling encryption with a user assigned identity.
         :param pulumi.Input[builtins.str] project_id: The immutable project ID associated with this AI Foundry Project.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags which should be assigned to the AI Foundry Project.
         """
@@ -192,6 +210,8 @@ class _ProjectState:
             pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if primary_user_assigned_identity is not None:
+            pulumi.set(__self__, "primary_user_assigned_identity", primary_user_assigned_identity)
         if project_id is not None:
             pulumi.set(__self__, "project_id", project_id)
         if tags is not None:
@@ -282,6 +302,18 @@ class _ProjectState:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="primaryUserAssignedIdentity")
+    def primary_user_assigned_identity(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The user assigned identity ID that represents the AI Foundry Hub identity. This must be set when enabling encryption with a user assigned identity.
+        """
+        return pulumi.get(self, "primary_user_assigned_identity")
+
+    @primary_user_assigned_identity.setter
+    def primary_user_assigned_identity(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "primary_user_assigned_identity", value)
+
+    @property
     @pulumi.getter(name="projectId")
     def project_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -319,6 +351,7 @@ class Project(pulumi.CustomResource):
                  identity: Optional[pulumi.Input[Union['ProjectIdentityArgs', 'ProjectIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 primary_user_assigned_identity: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
@@ -341,7 +374,7 @@ class Project(pulumi.CustomResource):
             tenant_id=current.tenant_id,
             sku_name="standard",
             purge_protection_enabled=True)
-        test = azure.keyvault.AccessPolicy("test",
+        example_access_policy = azure.keyvault.AccessPolicy("example",
             key_vault_id=example_key_vault.id,
             tenant_id=current.tenant_id,
             object_id=current.object_id,
@@ -378,6 +411,13 @@ class Project(pulumi.CustomResource):
             ai_services_hub_id=example_hub.id)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.MachineLearningServices`: 2024-04-01
+
         ## Import
 
         AI Foundry Projects can be imported using the `resource id`, e.g.
@@ -395,6 +435,7 @@ class Project(pulumi.CustomResource):
         :param pulumi.Input[Union['ProjectIdentityArgs', 'ProjectIdentityArgsDict']] identity: A `identity` block as defined below.
         :param pulumi.Input[builtins.str] location: The Azure Region where the AI Foundry Project should exist. Changing this forces a new AI Foundry Project to be created.
         :param pulumi.Input[builtins.str] name: The name which should be used for this AI Foundry Project. Changing this forces a new AI Foundry Project to be created.
+        :param pulumi.Input[builtins.str] primary_user_assigned_identity: The user assigned identity ID that represents the AI Foundry Hub identity. This must be set when enabling encryption with a user assigned identity.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags which should be assigned to the AI Foundry Project.
         """
         ...
@@ -423,7 +464,7 @@ class Project(pulumi.CustomResource):
             tenant_id=current.tenant_id,
             sku_name="standard",
             purge_protection_enabled=True)
-        test = azure.keyvault.AccessPolicy("test",
+        example_access_policy = azure.keyvault.AccessPolicy("example",
             key_vault_id=example_key_vault.id,
             tenant_id=current.tenant_id,
             object_id=current.object_id,
@@ -459,6 +500,13 @@ class Project(pulumi.CustomResource):
             location=example_hub.location,
             ai_services_hub_id=example_hub.id)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.MachineLearningServices`: 2024-04-01
 
         ## Import
 
@@ -490,6 +538,7 @@ class Project(pulumi.CustomResource):
                  identity: Optional[pulumi.Input[Union['ProjectIdentityArgs', 'ProjectIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 primary_user_assigned_identity: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -509,6 +558,7 @@ class Project(pulumi.CustomResource):
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
+            __props__.__dict__["primary_user_assigned_identity"] = primary_user_assigned_identity
             __props__.__dict__["tags"] = tags
             __props__.__dict__["project_id"] = None
         super(Project, __self__).__init__(
@@ -528,6 +578,7 @@ class Project(pulumi.CustomResource):
             identity: Optional[pulumi.Input[Union['ProjectIdentityArgs', 'ProjectIdentityArgsDict']]] = None,
             location: Optional[pulumi.Input[builtins.str]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
+            primary_user_assigned_identity: Optional[pulumi.Input[builtins.str]] = None,
             project_id: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None) -> 'Project':
         """
@@ -544,6 +595,7 @@ class Project(pulumi.CustomResource):
         :param pulumi.Input[Union['ProjectIdentityArgs', 'ProjectIdentityArgsDict']] identity: A `identity` block as defined below.
         :param pulumi.Input[builtins.str] location: The Azure Region where the AI Foundry Project should exist. Changing this forces a new AI Foundry Project to be created.
         :param pulumi.Input[builtins.str] name: The name which should be used for this AI Foundry Project. Changing this forces a new AI Foundry Project to be created.
+        :param pulumi.Input[builtins.str] primary_user_assigned_identity: The user assigned identity ID that represents the AI Foundry Hub identity. This must be set when enabling encryption with a user assigned identity.
         :param pulumi.Input[builtins.str] project_id: The immutable project ID associated with this AI Foundry Project.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags which should be assigned to the AI Foundry Project.
         """
@@ -558,6 +610,7 @@ class Project(pulumi.CustomResource):
         __props__.__dict__["identity"] = identity
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
+        __props__.__dict__["primary_user_assigned_identity"] = primary_user_assigned_identity
         __props__.__dict__["project_id"] = project_id
         __props__.__dict__["tags"] = tags
         return Project(resource_name, opts=opts, __props__=__props__)
@@ -617,6 +670,14 @@ class Project(pulumi.CustomResource):
         The name which should be used for this AI Foundry Project. Changing this forces a new AI Foundry Project to be created.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="primaryUserAssignedIdentity")
+    def primary_user_assigned_identity(self) -> pulumi.Output[Optional[builtins.str]]:
+        """
+        The user assigned identity ID that represents the AI Foundry Hub identity. This must be set when enabling encryption with a user assigned identity.
+        """
+        return pulumi.get(self, "primary_user_assigned_identity")
 
     @property
     @pulumi.getter(name="projectId")

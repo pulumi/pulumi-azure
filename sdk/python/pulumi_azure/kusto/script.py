@@ -333,6 +333,13 @@ class Script(pulumi.CustomResource):
             force_an_update_when_value_changed="first")
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Kusto`: 2024-04-13
+
         ## Import
 
         Kusto Scripts can be imported using the `resource id`, e.g.
@@ -419,6 +426,13 @@ class Script(pulumi.CustomResource):
             continue_on_errors_enabled=True,
             force_an_update_when_value_changed="first")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Kusto`: 2024-04-13
 
         ## Import
 

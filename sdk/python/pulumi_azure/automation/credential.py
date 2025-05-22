@@ -260,6 +260,13 @@ class Credential(pulumi.CustomResource):
             description="This is an example credential")
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Automation`: 2023-11-01
+
         ## Import
 
         Automation Credentials can be imported using the `resource id`, e.g.
@@ -308,6 +315,13 @@ class Credential(pulumi.CustomResource):
             password="example_pwd",
             description="This is an example credential")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Automation`: 2023-11-01
 
         ## Import
 

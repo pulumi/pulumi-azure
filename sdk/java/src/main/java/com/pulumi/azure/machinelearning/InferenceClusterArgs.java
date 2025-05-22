@@ -22,7 +22,7 @@ public final class InferenceClusterArgs extends com.pulumi.resources.ResourceArg
     /**
      * The purpose of the Inference Cluster. Options are `DevTest`, `DenseProd` and `FastProd`. If used for Development or Testing, use `DevTest` here. Default purpose is `FastProd`, which is recommended for production workloads. Changing this forces a new Machine Learning Inference Cluster to be created.
      * 
-     * &gt; **NOTE:** When creating or attaching a cluster, if the cluster will be used for production (`cluster_purpose = &#34;FastProd&#34;`), then it must contain at least 12 virtual CPUs. The number of virtual CPUs can be calculated by multiplying the number of nodes in the cluster by the number of cores provided by the VM size selected. For example, if you use a VM size of &#34;Standard_D3_v2&#34;, which has 4 virtual cores, then you should select 3 or greater as the number of nodes.
+     * &gt; **Note:** When creating or attaching a cluster, if the cluster will be used for production (`cluster_purpose = &#34;FastProd&#34;`), then it must contain at least 12 virtual CPUs. The number of virtual CPUs can be calculated by multiplying the number of nodes in the cluster by the number of cores provided by the VM size selected. For example, if you use a VM size of &#34;Standard_D3_v2&#34;, which has 4 virtual cores, then you should select 3 or greater as the number of nodes.
      * 
      */
     @Import(name="clusterPurpose")
@@ -31,7 +31,7 @@ public final class InferenceClusterArgs extends com.pulumi.resources.ResourceArg
     /**
      * @return The purpose of the Inference Cluster. Options are `DevTest`, `DenseProd` and `FastProd`. If used for Development or Testing, use `DevTest` here. Default purpose is `FastProd`, which is recommended for production workloads. Changing this forces a new Machine Learning Inference Cluster to be created.
      * 
-     * &gt; **NOTE:** When creating or attaching a cluster, if the cluster will be used for production (`cluster_purpose = &#34;FastProd&#34;`), then it must contain at least 12 virtual CPUs. The number of virtual CPUs can be calculated by multiplying the number of nodes in the cluster by the number of cores provided by the VM size selected. For example, if you use a VM size of &#34;Standard_D3_v2&#34;, which has 4 virtual cores, then you should select 3 or greater as the number of nodes.
+     * &gt; **Note:** When creating or attaching a cluster, if the cluster will be used for production (`cluster_purpose = &#34;FastProd&#34;`), then it must contain at least 12 virtual CPUs. The number of virtual CPUs can be calculated by multiplying the number of nodes in the cluster by the number of cores provided by the VM size selected. For example, if you use a VM size of &#34;Standard_D3_v2&#34;, which has 4 virtual cores, then you should select 3 or greater as the number of nodes.
      * 
      */
     public Optional<Output<String>> clusterPurpose() {
@@ -193,7 +193,7 @@ public final class InferenceClusterArgs extends com.pulumi.resources.ResourceArg
         /**
          * @param clusterPurpose The purpose of the Inference Cluster. Options are `DevTest`, `DenseProd` and `FastProd`. If used for Development or Testing, use `DevTest` here. Default purpose is `FastProd`, which is recommended for production workloads. Changing this forces a new Machine Learning Inference Cluster to be created.
          * 
-         * &gt; **NOTE:** When creating or attaching a cluster, if the cluster will be used for production (`cluster_purpose = &#34;FastProd&#34;`), then it must contain at least 12 virtual CPUs. The number of virtual CPUs can be calculated by multiplying the number of nodes in the cluster by the number of cores provided by the VM size selected. For example, if you use a VM size of &#34;Standard_D3_v2&#34;, which has 4 virtual cores, then you should select 3 or greater as the number of nodes.
+         * &gt; **Note:** When creating or attaching a cluster, if the cluster will be used for production (`cluster_purpose = &#34;FastProd&#34;`), then it must contain at least 12 virtual CPUs. The number of virtual CPUs can be calculated by multiplying the number of nodes in the cluster by the number of cores provided by the VM size selected. For example, if you use a VM size of &#34;Standard_D3_v2&#34;, which has 4 virtual cores, then you should select 3 or greater as the number of nodes.
          * 
          * @return builder
          * 
@@ -206,7 +206,7 @@ public final class InferenceClusterArgs extends com.pulumi.resources.ResourceArg
         /**
          * @param clusterPurpose The purpose of the Inference Cluster. Options are `DevTest`, `DenseProd` and `FastProd`. If used for Development or Testing, use `DevTest` here. Default purpose is `FastProd`, which is recommended for production workloads. Changing this forces a new Machine Learning Inference Cluster to be created.
          * 
-         * &gt; **NOTE:** When creating or attaching a cluster, if the cluster will be used for production (`cluster_purpose = &#34;FastProd&#34;`), then it must contain at least 12 virtual CPUs. The number of virtual CPUs can be calculated by multiplying the number of nodes in the cluster by the number of cores provided by the VM size selected. For example, if you use a VM size of &#34;Standard_D3_v2&#34;, which has 4 virtual cores, then you should select 3 or greater as the number of nodes.
+         * &gt; **Note:** When creating or attaching a cluster, if the cluster will be used for production (`cluster_purpose = &#34;FastProd&#34;`), then it must contain at least 12 virtual CPUs. The number of virtual CPUs can be calculated by multiplying the number of nodes in the cluster by the number of cores provided by the VM size selected. For example, if you use a VM size of &#34;Standard_D3_v2&#34;, which has 4 virtual cores, then you should select 3 or greater as the number of nodes.
          * 
          * @return builder
          * 

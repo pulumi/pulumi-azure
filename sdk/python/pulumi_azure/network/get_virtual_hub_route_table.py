@@ -136,6 +136,13 @@ def get_virtual_hub_route_table(name: Optional[builtins.str] = None,
     pulumi.export("virtualHubRouteTableId", example.id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Network`: 2024-05-01
+
 
     :param builtins.str name: The name of the Virtual Hub Route Table.
     :param builtins.str resource_group_name: The Name of the Resource Group where the Virtual Hub Route Table exists.
@@ -174,6 +181,13 @@ def get_virtual_hub_route_table_output(name: Optional[pulumi.Input[builtins.str]
         virtual_hub_name="example-hub-name")
     pulumi.export("virtualHubRouteTableId", example.id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Network`: 2024-05-01
 
 
     :param builtins.str name: The name of the Virtual Hub Route Table.

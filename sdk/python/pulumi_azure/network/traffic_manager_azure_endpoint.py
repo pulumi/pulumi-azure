@@ -415,6 +415,13 @@ class TrafficManagerAzureEndpoint(pulumi.CustomResource):
             target_resource_id=example_public_ip.id)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network`: 2022-04-01
+
         ## Import
 
         Azure Endpoints can be imported using the `resource id`, e.g.
@@ -486,6 +493,13 @@ class TrafficManagerAzureEndpoint(pulumi.CustomResource):
             weight=100,
             target_resource_id=example_public_ip.id)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network`: 2022-04-01
 
         ## Import
 

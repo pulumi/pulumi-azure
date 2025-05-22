@@ -20,6 +20,7 @@ public final class GetServiceHostnameConfigurationPortal {
      * @return The ID of the Key Vault Secret which contains the SSL Certificate.
      * 
      */
+    private String keyVaultCertificateId;
     private String keyVaultId;
     /**
      * @return Is Client Certificate Negotiation enabled?
@@ -39,6 +40,9 @@ public final class GetServiceHostnameConfigurationPortal {
      * @return The ID of the Key Vault Secret which contains the SSL Certificate.
      * 
      */
+    public String keyVaultCertificateId() {
+        return this.keyVaultCertificateId;
+    }
     public String keyVaultId() {
         return this.keyVaultId;
     }
@@ -60,12 +64,14 @@ public final class GetServiceHostnameConfigurationPortal {
     @CustomType.Builder
     public static final class Builder {
         private String hostName;
+        private String keyVaultCertificateId;
         private String keyVaultId;
         private Boolean negotiateClientCertificate;
         public Builder() {}
         public Builder(GetServiceHostnameConfigurationPortal defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.hostName = defaults.hostName;
+    	      this.keyVaultCertificateId = defaults.keyVaultCertificateId;
     	      this.keyVaultId = defaults.keyVaultId;
     	      this.negotiateClientCertificate = defaults.negotiateClientCertificate;
         }
@@ -76,6 +82,14 @@ public final class GetServiceHostnameConfigurationPortal {
               throw new MissingRequiredPropertyException("GetServiceHostnameConfigurationPortal", "hostName");
             }
             this.hostName = hostName;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder keyVaultCertificateId(String keyVaultCertificateId) {
+            if (keyVaultCertificateId == null) {
+              throw new MissingRequiredPropertyException("GetServiceHostnameConfigurationPortal", "keyVaultCertificateId");
+            }
+            this.keyVaultCertificateId = keyVaultCertificateId;
             return this;
         }
         @CustomType.Setter
@@ -97,6 +111,7 @@ public final class GetServiceHostnameConfigurationPortal {
         public GetServiceHostnameConfigurationPortal build() {
             final var _resultValue = new GetServiceHostnameConfigurationPortal();
             _resultValue.hostName = hostName;
+            _resultValue.keyVaultCertificateId = keyVaultCertificateId;
             _resultValue.keyVaultId = keyVaultId;
             _resultValue.negotiateClientCertificate = negotiateClientCertificate;
             return _resultValue;

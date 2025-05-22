@@ -21,7 +21,7 @@ public final class WindowsWebAppBackupScheduleArgs extends com.pulumi.resources.
     /**
      * How often the backup should be executed (e.g. for weekly backup, this should be set to `7` and `frequency_unit` should be set to `Day`).
      * 
-     * &gt; **NOTE:** Not all intervals are supported on all Windows Web App SKUs. Please refer to the official documentation for appropriate values.
+     * &gt; **Note:** Not all intervals are supported on all Windows Web App SKUs. Please refer to the official documentation for appropriate values.
      * 
      */
     @Import(name="frequencyInterval", required=true)
@@ -30,7 +30,7 @@ public final class WindowsWebAppBackupScheduleArgs extends com.pulumi.resources.
     /**
      * @return How often the backup should be executed (e.g. for weekly backup, this should be set to `7` and `frequency_unit` should be set to `Day`).
      * 
-     * &gt; **NOTE:** Not all intervals are supported on all Windows Web App SKUs. Please refer to the official documentation for appropriate values.
+     * &gt; **Note:** Not all intervals are supported on all Windows Web App SKUs. Please refer to the official documentation for appropriate values.
      * 
      */
     public Output<Integer> frequencyInterval() {
@@ -144,7 +144,7 @@ public final class WindowsWebAppBackupScheduleArgs extends com.pulumi.resources.
         /**
          * @param frequencyInterval How often the backup should be executed (e.g. for weekly backup, this should be set to `7` and `frequency_unit` should be set to `Day`).
          * 
-         * &gt; **NOTE:** Not all intervals are supported on all Windows Web App SKUs. Please refer to the official documentation for appropriate values.
+         * &gt; **Note:** Not all intervals are supported on all Windows Web App SKUs. Please refer to the official documentation for appropriate values.
          * 
          * @return builder
          * 
@@ -157,7 +157,7 @@ public final class WindowsWebAppBackupScheduleArgs extends com.pulumi.resources.
         /**
          * @param frequencyInterval How often the backup should be executed (e.g. for weekly backup, this should be set to `7` and `frequency_unit` should be set to `Day`).
          * 
-         * &gt; **NOTE:** Not all intervals are supported on all Windows Web App SKUs. Please refer to the official documentation for appropriate values.
+         * &gt; **Note:** Not all intervals are supported on all Windows Web App SKUs. Please refer to the official documentation for appropriate values.
          * 
          * @return builder
          * 

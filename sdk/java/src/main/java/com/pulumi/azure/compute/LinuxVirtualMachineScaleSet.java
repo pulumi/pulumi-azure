@@ -337,7 +337,7 @@ public class LinuxVirtualMachineScaleSet extends com.pulumi.resources.CustomReso
     /**
      * Should Password Authentication be disabled on this Virtual Machine Scale Set? Defaults to `true`.
      * 
-     * &gt; In general we&#39;d recommend using SSH Keys for authentication rather than Passwords - but there&#39;s tradeoff&#39;s to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
+     * &gt; **Note:** In general we&#39;d recommend using SSH Keys for authentication rather than Passwords - but there&#39;s tradeoff&#39;s to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
      * 
      * &gt; **Note:** When a `admin_password` is specified `disable_password_authentication` must be set to `false`.
      * 
@@ -348,7 +348,7 @@ public class LinuxVirtualMachineScaleSet extends com.pulumi.resources.CustomReso
     /**
      * @return Should Password Authentication be disabled on this Virtual Machine Scale Set? Defaults to `true`.
      * 
-     * &gt; In general we&#39;d recommend using SSH Keys for authentication rather than Passwords - but there&#39;s tradeoff&#39;s to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
+     * &gt; **Note:** In general we&#39;d recommend using SSH Keys for authentication rather than Passwords - but there&#39;s tradeoff&#39;s to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
      * 
      * &gt; **Note:** When a `admin_password` is specified `disable_password_authentication` must be set to `false`.
      * 

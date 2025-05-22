@@ -68,14 +68,14 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of Connectivity endpoints for this Synapse Workspace.
+     * A map of Connectivity endpoints for this Synapse Workspace. Possible key values are `dev`, `sql`, `sqlOnDemand`, and `web`.
      * 
      */
     @Import(name="connectivityEndpoints")
     private @Nullable Output<Map<String,String>> connectivityEndpoints;
 
     /**
-     * @return A list of Connectivity endpoints for this Synapse Workspace.
+     * @return A map of Connectivity endpoints for this Synapse Workspace. Possible key values are `dev`, `sql`, `sqlOnDemand`, and `web`.
      * 
      */
     public Optional<Output<Map<String,String>>> connectivityEndpoints() {
@@ -445,7 +445,7 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param connectivityEndpoints A list of Connectivity endpoints for this Synapse Workspace.
+         * @param connectivityEndpoints A map of Connectivity endpoints for this Synapse Workspace. Possible key values are `dev`, `sql`, `sqlOnDemand`, and `web`.
          * 
          * @return builder
          * 
@@ -456,7 +456,7 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param connectivityEndpoints A list of Connectivity endpoints for this Synapse Workspace.
+         * @param connectivityEndpoints A map of Connectivity endpoints for this Synapse Workspace. Possible key values are `dev`, `sql`, `sqlOnDemand`, and `web`.
          * 
          * @return builder
          * 

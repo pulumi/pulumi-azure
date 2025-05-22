@@ -13,7 +13,7 @@ public final class GroupContainerSecurity {
     /**
      * @return Whether the container&#39;s permission is elevated to privileged? Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** Currently, this only applies when the `os_type` is `Linux` and the `sku` is `Confidential`.
+     * &gt; **Note:** Currently, this only applies when the `os_type` is `Linux` and the `sku` is `Confidential`.
      * 
      */
     private Boolean privilegeEnabled;
@@ -22,7 +22,7 @@ public final class GroupContainerSecurity {
     /**
      * @return Whether the container&#39;s permission is elevated to privileged? Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** Currently, this only applies when the `os_type` is `Linux` and the `sku` is `Confidential`.
+     * &gt; **Note:** Currently, this only applies when the `os_type` is `Linux` and the `sku` is `Confidential`.
      * 
      */
     public Boolean privilegeEnabled() {

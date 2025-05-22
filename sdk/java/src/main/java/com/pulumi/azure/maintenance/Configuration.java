@@ -66,6 +66,13 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.Maintenance`: 2023-04-01
+ * 
  * ## Import
  * 
  * Maintenance Configuration can be imported using the `resource id`, e.g.
@@ -94,7 +101,7 @@ public class Configuration extends com.pulumi.resources.CustomResource {
     /**
      * An `install_patches` block as defined below.
      * 
-     * &gt; **NOTE:** `install_patches` must be specified when `scope` is `InGuestPatch`.
+     * &gt; **Note:** `install_patches` must be specified when `scope` is `InGuestPatch`.
      * 
      */
     @Export(name="installPatches", refs={ConfigurationInstallPatches.class}, tree="[0]")
@@ -103,7 +110,7 @@ public class Configuration extends com.pulumi.resources.CustomResource {
     /**
      * @return An `install_patches` block as defined below.
      * 
-     * &gt; **NOTE:** `install_patches` must be specified when `scope` is `InGuestPatch`.
+     * &gt; **Note:** `install_patches` must be specified when `scope` is `InGuestPatch`.
      * 
      */
     public Output<Optional<ConfigurationInstallPatches>> installPatches() {

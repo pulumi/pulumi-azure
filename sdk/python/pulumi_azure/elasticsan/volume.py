@@ -30,7 +30,7 @@ class VolumeArgs:
         The set of arguments for constructing a Volume resource.
         :param pulumi.Input[builtins.int] size_in_gib: Specifies the size of the Elastic SAN Volume in GiB. The size should be within the remaining capacity of the parent Elastic SAN. Possible values are between `1` and `65536` (16 TiB).
                
-               > **NOTE:** The size can only be increased. If `create_source` is specified, then the size must be equal to or greater than the source's size.
+               > **Note:** The size can only be increased. If `create_source` is specified, then the size must be equal to or greater than the source's size.
         :param pulumi.Input[builtins.str] volume_group_id: Specifies the Volume Group ID within which this Elastic SAN Volume should exist. Changing this forces a new resource to be created.
         :param pulumi.Input['VolumeCreateSourceArgs'] create_source: A `create_source` block as defined below.
         :param pulumi.Input[builtins.str] name: Specifies the name of this Elastic SAN Volume. Changing this forces a new resource to be created.
@@ -48,7 +48,7 @@ class VolumeArgs:
         """
         Specifies the size of the Elastic SAN Volume in GiB. The size should be within the remaining capacity of the parent Elastic SAN. Possible values are between `1` and `65536` (16 TiB).
 
-        > **NOTE:** The size can only be increased. If `create_source` is specified, then the size must be equal to or greater than the source's size.
+        > **Note:** The size can only be increased. If `create_source` is specified, then the size must be equal to or greater than the source's size.
         """
         return pulumi.get(self, "size_in_gib")
 
@@ -110,7 +110,7 @@ class _VolumeState:
         :param pulumi.Input[builtins.str] name: Specifies the name of this Elastic SAN Volume. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.int] size_in_gib: Specifies the size of the Elastic SAN Volume in GiB. The size should be within the remaining capacity of the parent Elastic SAN. Possible values are between `1` and `65536` (16 TiB).
                
-               > **NOTE:** The size can only be increased. If `create_source` is specified, then the size must be equal to or greater than the source's size.
+               > **Note:** The size can only be increased. If `create_source` is specified, then the size must be equal to or greater than the source's size.
         :param pulumi.Input[builtins.str] target_iqn: The iSCSI Target IQN of the Elastic SAN Volume.
         :param pulumi.Input[builtins.str] target_portal_hostname: The iSCSI Target Portal Host Name of the Elastic SAN Volume.
         :param pulumi.Input[builtins.int] target_portal_port: The iSCSI Target Portal Port of the Elastic SAN Volume.
@@ -164,7 +164,7 @@ class _VolumeState:
         """
         Specifies the size of the Elastic SAN Volume in GiB. The size should be within the remaining capacity of the parent Elastic SAN. Possible values are between `1` and `65536` (16 TiB).
 
-        > **NOTE:** The size can only be increased. If `create_source` is specified, then the size must be equal to or greater than the source's size.
+        > **Note:** The size can only be increased. If `create_source` is specified, then the size must be equal to or greater than the source's size.
         """
         return pulumi.get(self, "size_in_gib")
 
@@ -317,6 +317,13 @@ class Volume(pulumi.CustomResource):
             })
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ElasticSan`: 2023-01-01
+
         ## Import
 
         An existing Elastic SAN Volume can be imported into Pulumi using the `resource id`, e.g.
@@ -331,7 +338,7 @@ class Volume(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: Specifies the name of this Elastic SAN Volume. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.int] size_in_gib: Specifies the size of the Elastic SAN Volume in GiB. The size should be within the remaining capacity of the parent Elastic SAN. Possible values are between `1` and `65536` (16 TiB).
                
-               > **NOTE:** The size can only be increased. If `create_source` is specified, then the size must be equal to or greater than the source's size.
+               > **Note:** The size can only be increased. If `create_source` is specified, then the size must be equal to or greater than the source's size.
         :param pulumi.Input[builtins.str] volume_group_id: Specifies the Volume Group ID within which this Elastic SAN Volume should exist. Changing this forces a new resource to be created.
         """
         ...
@@ -413,6 +420,13 @@ class Volume(pulumi.CustomResource):
             })
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ElasticSan`: 2023-01-01
+
         ## Import
 
         An existing Elastic SAN Volume can be imported into Pulumi using the `resource id`, e.g.
@@ -490,7 +504,7 @@ class Volume(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: Specifies the name of this Elastic SAN Volume. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.int] size_in_gib: Specifies the size of the Elastic SAN Volume in GiB. The size should be within the remaining capacity of the parent Elastic SAN. Possible values are between `1` and `65536` (16 TiB).
                
-               > **NOTE:** The size can only be increased. If `create_source` is specified, then the size must be equal to or greater than the source's size.
+               > **Note:** The size can only be increased. If `create_source` is specified, then the size must be equal to or greater than the source's size.
         :param pulumi.Input[builtins.str] target_iqn: The iSCSI Target IQN of the Elastic SAN Volume.
         :param pulumi.Input[builtins.str] target_portal_hostname: The iSCSI Target Portal Host Name of the Elastic SAN Volume.
         :param pulumi.Input[builtins.int] target_portal_port: The iSCSI Target Portal Port of the Elastic SAN Volume.
@@ -533,7 +547,7 @@ class Volume(pulumi.CustomResource):
         """
         Specifies the size of the Elastic SAN Volume in GiB. The size should be within the remaining capacity of the parent Elastic SAN. Possible values are between `1` and `65536` (16 TiB).
 
-        > **NOTE:** The size can only be increased. If `create_source` is specified, then the size must be equal to or greater than the source's size.
+        > **Note:** The size can only be increased. If `create_source` is specified, then the size must be equal to or greater than the source's size.
         """
         return pulumi.get(self, "size_in_gib")
 

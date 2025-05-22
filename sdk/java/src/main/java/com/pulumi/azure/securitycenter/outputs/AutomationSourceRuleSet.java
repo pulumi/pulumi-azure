@@ -14,7 +14,7 @@ public final class AutomationSourceRuleSet {
     /**
      * @return One or more `rule` blocks as defined below.
      * 
-     * &gt; **NOTE:** This automation will trigger when all of the `rule`s in this `rule_set` are evaluated as &#39;true&#39;. This is equivalent to a logical &#39;AND&#39;.
+     * &gt; **Note:** This automation will trigger when all of the `rule`s in this `rule_set` are evaluated as &#39;true&#39;. This is equivalent to a logical &#39;AND&#39;.
      * 
      */
     private List<AutomationSourceRuleSetRule> rules;
@@ -23,7 +23,7 @@ public final class AutomationSourceRuleSet {
     /**
      * @return One or more `rule` blocks as defined below.
      * 
-     * &gt; **NOTE:** This automation will trigger when all of the `rule`s in this `rule_set` are evaluated as &#39;true&#39;. This is equivalent to a logical &#39;AND&#39;.
+     * &gt; **Note:** This automation will trigger when all of the `rule`s in this `rule_set` are evaluated as &#39;true&#39;. This is equivalent to a logical &#39;AND&#39;.
      * 
      */
     public List<AutomationSourceRuleSetRule> rules() {

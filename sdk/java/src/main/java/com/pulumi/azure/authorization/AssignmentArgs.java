@@ -35,12 +35,16 @@ public final class AssignmentArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The version of the condition. Possible values are `1.0` or `2.0`. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note:** `condition` is required when `condition_version` is set.
+     * 
      */
     @Import(name="conditionVersion")
     private @Nullable Output<String> conditionVersion;
 
     /**
      * @return The version of the condition. Possible values are `1.0` or `2.0`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** `condition` is required when `condition_version` is set.
      * 
      */
     public Optional<Output<String>> conditionVersion() {
@@ -50,7 +54,7 @@ public final class AssignmentArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The delegated Azure Resource Id which contains a Managed Identity. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** this field is only used in cross tenant scenario.
+     * &gt; **Note:** This field is only used in cross tenant scenarios.
      * 
      */
     @Import(name="delegatedManagedIdentityResourceId")
@@ -59,7 +63,7 @@ public final class AssignmentArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return The delegated Azure Resource Id which contains a Managed Identity. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** this field is only used in cross tenant scenario.
+     * &gt; **Note:** This field is only used in cross tenant scenarios.
      * 
      */
     public Optional<Output<String>> delegatedManagedIdentityResourceId() {
@@ -99,7 +103,7 @@ public final class AssignmentArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The ID of the Principal (User, Group or Service Principal) to assign the Role Definition to. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** The Principal ID is also known as the Object ID (ie not the &#34;Application ID&#34; for applications).
+     * &gt; **Note:** The Principal ID is also known as the Object ID (i.e. not the &#34;Application ID&#34; for applications).
      * 
      */
     @Import(name="principalId", required=true)
@@ -108,7 +112,7 @@ public final class AssignmentArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return The ID of the Principal (User, Group or Service Principal) to assign the Role Definition to. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** The Principal ID is also known as the Object ID (ie not the &#34;Application ID&#34; for applications).
+     * &gt; **Note:** The Principal ID is also known as the Object ID (i.e. not the &#34;Application ID&#34; for applications).
      * 
      */
     public Output<String> principalId() {
@@ -118,8 +122,6 @@ public final class AssignmentArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The type of the `principal_id`. Possible values are `User`, `Group` and `ServicePrincipal`. Changing this forces a new resource to be created. It is necessary to explicitly set this attribute when creating role assignments if the principal creating the assignment is constrained by ABAC rules that filters on the PrincipalType attribute.
      * 
-     * &gt; **NOTE:** If one of `condition` or `condition_version` is set both fields must be present.
-     * 
      */
     @Import(name="principalType")
     private @Nullable Output<String> principalType;
@@ -127,22 +129,20 @@ public final class AssignmentArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return The type of the `principal_id`. Possible values are `User`, `Group` and `ServicePrincipal`. Changing this forces a new resource to be created. It is necessary to explicitly set this attribute when creating role assignments if the principal creating the assignment is constrained by ABAC rules that filters on the PrincipalType attribute.
      * 
-     * &gt; **NOTE:** If one of `condition` or `condition_version` is set both fields must be present.
-     * 
      */
     public Optional<Output<String>> principalType() {
         return Optional.ofNullable(this.principalType);
     }
 
     /**
-     * The Scoped-ID of the Role Definition. Changing this forces a new resource to be created. Conflicts with `role_definition_name`.
+     * The Scoped-ID of the Role Definition. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="roleDefinitionId")
     private @Nullable Output<String> roleDefinitionId;
 
     /**
-     * @return The Scoped-ID of the Role Definition. Changing this forces a new resource to be created. Conflicts with `role_definition_name`.
+     * @return The Scoped-ID of the Role Definition. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> roleDefinitionId() {
@@ -150,14 +150,18 @@ public final class AssignmentArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of a built-in Role. Changing this forces a new resource to be created. Conflicts with `role_definition_id`.
+     * The name of a built-in Role. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** Either `role_definition_id` or `role_definition_name` must be set.
      * 
      */
     @Import(name="roleDefinitionName")
     private @Nullable Output<String> roleDefinitionName;
 
     /**
-     * @return The name of a built-in Role. Changing this forces a new resource to be created. Conflicts with `role_definition_id`.
+     * @return The name of a built-in Role. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** Either `role_definition_id` or `role_definition_name` must be set.
      * 
      */
     public Optional<Output<String>> roleDefinitionName() {
@@ -182,7 +186,7 @@ public final class AssignmentArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * If the `principal_id` is a newly provisioned `Service Principal` set this value to `true` to skip the `Azure Active Directory` check which may fail due to replication lag. This argument is only valid if the `principal_id` is a `Service Principal` identity. Defaults to `false`.
      * 
-     * &gt; **NOTE:** If it is not a `Service Principal` identity it will cause the role assignment to fail.
+     * &gt; **Note:** If it is not a `Service Principal` identity it will cause the role assignment to fail.
      * 
      */
     @Import(name="skipServicePrincipalAadCheck")
@@ -191,7 +195,7 @@ public final class AssignmentArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return If the `principal_id` is a newly provisioned `Service Principal` set this value to `true` to skip the `Azure Active Directory` check which may fail due to replication lag. This argument is only valid if the `principal_id` is a `Service Principal` identity. Defaults to `false`.
      * 
-     * &gt; **NOTE:** If it is not a `Service Principal` identity it will cause the role assignment to fail.
+     * &gt; **Note:** If it is not a `Service Principal` identity it will cause the role assignment to fail.
      * 
      */
     public Optional<Output<Boolean>> skipServicePrincipalAadCheck() {
@@ -256,6 +260,8 @@ public final class AssignmentArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param conditionVersion The version of the condition. Possible values are `1.0` or `2.0`. Changing this forces a new resource to be created.
          * 
+         * &gt; **Note:** `condition` is required when `condition_version` is set.
+         * 
          * @return builder
          * 
          */
@@ -267,6 +273,8 @@ public final class AssignmentArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param conditionVersion The version of the condition. Possible values are `1.0` or `2.0`. Changing this forces a new resource to be created.
          * 
+         * &gt; **Note:** `condition` is required when `condition_version` is set.
+         * 
          * @return builder
          * 
          */
@@ -277,7 +285,7 @@ public final class AssignmentArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param delegatedManagedIdentityResourceId The delegated Azure Resource Id which contains a Managed Identity. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** this field is only used in cross tenant scenario.
+         * &gt; **Note:** This field is only used in cross tenant scenarios.
          * 
          * @return builder
          * 
@@ -290,7 +298,7 @@ public final class AssignmentArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param delegatedManagedIdentityResourceId The delegated Azure Resource Id which contains a Managed Identity. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** this field is only used in cross tenant scenario.
+         * &gt; **Note:** This field is only used in cross tenant scenarios.
          * 
          * @return builder
          * 
@@ -344,7 +352,7 @@ public final class AssignmentArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param principalId The ID of the Principal (User, Group or Service Principal) to assign the Role Definition to. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** The Principal ID is also known as the Object ID (ie not the &#34;Application ID&#34; for applications).
+         * &gt; **Note:** The Principal ID is also known as the Object ID (i.e. not the &#34;Application ID&#34; for applications).
          * 
          * @return builder
          * 
@@ -357,7 +365,7 @@ public final class AssignmentArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param principalId The ID of the Principal (User, Group or Service Principal) to assign the Role Definition to. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** The Principal ID is also known as the Object ID (ie not the &#34;Application ID&#34; for applications).
+         * &gt; **Note:** The Principal ID is also known as the Object ID (i.e. not the &#34;Application ID&#34; for applications).
          * 
          * @return builder
          * 
@@ -368,8 +376,6 @@ public final class AssignmentArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param principalType The type of the `principal_id`. Possible values are `User`, `Group` and `ServicePrincipal`. Changing this forces a new resource to be created. It is necessary to explicitly set this attribute when creating role assignments if the principal creating the assignment is constrained by ABAC rules that filters on the PrincipalType attribute.
-         * 
-         * &gt; **NOTE:** If one of `condition` or `condition_version` is set both fields must be present.
          * 
          * @return builder
          * 
@@ -382,8 +388,6 @@ public final class AssignmentArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param principalType The type of the `principal_id`. Possible values are `User`, `Group` and `ServicePrincipal`. Changing this forces a new resource to be created. It is necessary to explicitly set this attribute when creating role assignments if the principal creating the assignment is constrained by ABAC rules that filters on the PrincipalType attribute.
          * 
-         * &gt; **NOTE:** If one of `condition` or `condition_version` is set both fields must be present.
-         * 
          * @return builder
          * 
          */
@@ -392,7 +396,7 @@ public final class AssignmentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param roleDefinitionId The Scoped-ID of the Role Definition. Changing this forces a new resource to be created. Conflicts with `role_definition_name`.
+         * @param roleDefinitionId The Scoped-ID of the Role Definition. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -403,7 +407,7 @@ public final class AssignmentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param roleDefinitionId The Scoped-ID of the Role Definition. Changing this forces a new resource to be created. Conflicts with `role_definition_name`.
+         * @param roleDefinitionId The Scoped-ID of the Role Definition. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -413,7 +417,9 @@ public final class AssignmentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param roleDefinitionName The name of a built-in Role. Changing this forces a new resource to be created. Conflicts with `role_definition_id`.
+         * @param roleDefinitionName The name of a built-in Role. Changing this forces a new resource to be created.
+         * 
+         * &gt; **Note:** Either `role_definition_id` or `role_definition_name` must be set.
          * 
          * @return builder
          * 
@@ -424,7 +430,9 @@ public final class AssignmentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param roleDefinitionName The name of a built-in Role. Changing this forces a new resource to be created. Conflicts with `role_definition_id`.
+         * @param roleDefinitionName The name of a built-in Role. Changing this forces a new resource to be created.
+         * 
+         * &gt; **Note:** Either `role_definition_id` or `role_definition_name` must be set.
          * 
          * @return builder
          * 
@@ -457,7 +465,7 @@ public final class AssignmentArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param skipServicePrincipalAadCheck If the `principal_id` is a newly provisioned `Service Principal` set this value to `true` to skip the `Azure Active Directory` check which may fail due to replication lag. This argument is only valid if the `principal_id` is a `Service Principal` identity. Defaults to `false`.
          * 
-         * &gt; **NOTE:** If it is not a `Service Principal` identity it will cause the role assignment to fail.
+         * &gt; **Note:** If it is not a `Service Principal` identity it will cause the role assignment to fail.
          * 
          * @return builder
          * 
@@ -470,7 +478,7 @@ public final class AssignmentArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param skipServicePrincipalAadCheck If the `principal_id` is a newly provisioned `Service Principal` set this value to `true` to skip the `Azure Active Directory` check which may fail due to replication lag. This argument is only valid if the `principal_id` is a `Service Principal` identity. Defaults to `false`.
          * 
-         * &gt; **NOTE:** If it is not a `Service Principal` identity it will cause the role assignment to fail.
+         * &gt; **Note:** If it is not a `Service Principal` identity it will cause the role assignment to fail.
          * 
          * @return builder
          * 

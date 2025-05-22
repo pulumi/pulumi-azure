@@ -35,6 +35,13 @@ namespace Pulumi.Azure.Oracle
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Oracle.Database`: 2024-06-01
         /// </summary>
         public static Task<GetAdbsNationalCharacterSetsResult> InvokeAsync(GetAdbsNationalCharacterSetsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAdbsNationalCharacterSetsResult>("azure:oracle/getAdbsNationalCharacterSets:getAdbsNationalCharacterSets", args ?? new GetAdbsNationalCharacterSetsArgs(), options.WithDefaults());
@@ -63,6 +70,13 @@ namespace Pulumi.Azure.Oracle
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Oracle.Database`: 2024-06-01
         /// </summary>
         public static Output<GetAdbsNationalCharacterSetsResult> Invoke(GetAdbsNationalCharacterSetsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAdbsNationalCharacterSetsResult>("azure:oracle/getAdbsNationalCharacterSets:getAdbsNationalCharacterSets", args ?? new GetAdbsNationalCharacterSetsInvokeArgs(), options.WithDefaults());
@@ -91,6 +105,13 @@ namespace Pulumi.Azure.Oracle
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Oracle.Database`: 2024-06-01
         /// </summary>
         public static Output<GetAdbsNationalCharacterSetsResult> Invoke(GetAdbsNationalCharacterSetsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAdbsNationalCharacterSetsResult>("azure:oracle/getAdbsNationalCharacterSets:getAdbsNationalCharacterSets", args ?? new GetAdbsNationalCharacterSetsInvokeArgs(), options.WithDefaults());

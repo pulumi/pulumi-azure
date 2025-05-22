@@ -39,7 +39,7 @@ class ModuleArgs:
         :param pulumi.Input[builtins.str] location: The Azure Region where the Dedicated Hardware Security Module should exist. Changing this forces a new Dedicated Hardware Security Module to be created.
         :param pulumi.Input['ModuleManagementNetworkProfileArgs'] management_network_profile: A `management_network_profile` block as defined below.
                
-               ->**NOTE:**  The `management_network_profile` should not be specified when `sku_name` is `SafeNet Luna Network HSM A790`.
+               > **Note:** The `management_network_profile` should not be specified when `sku_name` is `SafeNet Luna Network HSM A790`.
         :param pulumi.Input[builtins.str] name: The name which should be used for this Dedicated Hardware Security Module. Changing this forces a new Dedicated Hardware Security Module to be created.
         :param pulumi.Input[builtins.str] stamp_id: The ID of the stamp. Possible values are `stamp1` or `stamp2`. Changing this forces a new Dedicated Hardware Security Module to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags which should be assigned to the Dedicated Hardware Security Module.
@@ -115,7 +115,7 @@ class ModuleArgs:
         """
         A `management_network_profile` block as defined below.
 
-        ->**NOTE:**  The `management_network_profile` should not be specified when `sku_name` is `SafeNet Luna Network HSM A790`.
+        > **Note:** The `management_network_profile` should not be specified when `sku_name` is `SafeNet Luna Network HSM A790`.
         """
         return pulumi.get(self, "management_network_profile")
 
@@ -189,7 +189,7 @@ class _ModuleState:
         :param pulumi.Input[builtins.str] location: The Azure Region where the Dedicated Hardware Security Module should exist. Changing this forces a new Dedicated Hardware Security Module to be created.
         :param pulumi.Input['ModuleManagementNetworkProfileArgs'] management_network_profile: A `management_network_profile` block as defined below.
                
-               ->**NOTE:**  The `management_network_profile` should not be specified when `sku_name` is `SafeNet Luna Network HSM A790`.
+               > **Note:** The `management_network_profile` should not be specified when `sku_name` is `SafeNet Luna Network HSM A790`.
         :param pulumi.Input[builtins.str] name: The name which should be used for this Dedicated Hardware Security Module. Changing this forces a new Dedicated Hardware Security Module to be created.
         :param pulumi.Input['ModuleNetworkProfileArgs'] network_profile: A `network_profile` block as defined below.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the Resource Group where the Dedicated Hardware Security Module should exist. Changing this forces a new Dedicated Hardware Security Module to be created.
@@ -235,7 +235,7 @@ class _ModuleState:
         """
         A `management_network_profile` block as defined below.
 
-        ->**NOTE:**  The `management_network_profile` should not be specified when `sku_name` is `SafeNet Luna Network HSM A790`.
+        > **Note:** The `management_network_profile` should not be specified when `sku_name` is `SafeNet Luna Network HSM A790`.
         """
         return pulumi.get(self, "management_network_profile")
 
@@ -427,6 +427,13 @@ class Module(pulumi.CustomResource):
             opts = pulumi.ResourceOptions(depends_on=[example_virtual_network_gateway]))
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.HardwareSecurityModules`: 2021-11-30
+
         ## Import
 
         Dedicated Hardware Security Module can be imported using the `resource id`, e.g.
@@ -440,7 +447,7 @@ class Module(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] location: The Azure Region where the Dedicated Hardware Security Module should exist. Changing this forces a new Dedicated Hardware Security Module to be created.
         :param pulumi.Input[Union['ModuleManagementNetworkProfileArgs', 'ModuleManagementNetworkProfileArgsDict']] management_network_profile: A `management_network_profile` block as defined below.
                
-               ->**NOTE:**  The `management_network_profile` should not be specified when `sku_name` is `SafeNet Luna Network HSM A790`.
+               > **Note:** The `management_network_profile` should not be specified when `sku_name` is `SafeNet Luna Network HSM A790`.
         :param pulumi.Input[builtins.str] name: The name which should be used for this Dedicated Hardware Security Module. Changing this forces a new Dedicated Hardware Security Module to be created.
         :param pulumi.Input[Union['ModuleNetworkProfileArgs', 'ModuleNetworkProfileArgsDict']] network_profile: A `network_profile` block as defined below.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the Resource Group where the Dedicated Hardware Security Module should exist. Changing this forces a new Dedicated Hardware Security Module to be created.
@@ -538,6 +545,13 @@ class Module(pulumi.CustomResource):
             opts = pulumi.ResourceOptions(depends_on=[example_virtual_network_gateway]))
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.HardwareSecurityModules`: 2021-11-30
+
         ## Import
 
         Dedicated Hardware Security Module can be imported using the `resource id`, e.g.
@@ -623,7 +637,7 @@ class Module(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] location: The Azure Region where the Dedicated Hardware Security Module should exist. Changing this forces a new Dedicated Hardware Security Module to be created.
         :param pulumi.Input[Union['ModuleManagementNetworkProfileArgs', 'ModuleManagementNetworkProfileArgsDict']] management_network_profile: A `management_network_profile` block as defined below.
                
-               ->**NOTE:**  The `management_network_profile` should not be specified when `sku_name` is `SafeNet Luna Network HSM A790`.
+               > **Note:** The `management_network_profile` should not be specified when `sku_name` is `SafeNet Luna Network HSM A790`.
         :param pulumi.Input[builtins.str] name: The name which should be used for this Dedicated Hardware Security Module. Changing this forces a new Dedicated Hardware Security Module to be created.
         :param pulumi.Input[Union['ModuleNetworkProfileArgs', 'ModuleNetworkProfileArgsDict']] network_profile: A `network_profile` block as defined below.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the Resource Group where the Dedicated Hardware Security Module should exist. Changing this forces a new Dedicated Hardware Security Module to be created.
@@ -661,7 +675,7 @@ class Module(pulumi.CustomResource):
         """
         A `management_network_profile` block as defined below.
 
-        ->**NOTE:**  The `management_network_profile` should not be specified when `sku_name` is `SafeNet Luna Network HSM A790`.
+        > **Note:** The `management_network_profile` should not be specified when `sku_name` is `SafeNet Luna Network HSM A790`.
         """
         return pulumi.get(self, "management_network_profile")
 

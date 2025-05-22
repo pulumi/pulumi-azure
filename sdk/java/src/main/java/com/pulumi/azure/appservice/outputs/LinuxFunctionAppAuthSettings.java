@@ -40,7 +40,7 @@ public final class LinuxFunctionAppAuthSettings {
     /**
      * @return The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`
      * 
-     * &gt; **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to &#34;RedirectToLoginPage&#34;.
+     * &gt; **Note:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to &#34;RedirectToLoginPage&#34;.
      * 
      */
     private @Nullable String defaultProvider;
@@ -67,7 +67,7 @@ public final class LinuxFunctionAppAuthSettings {
     /**
      * @return The OpenID Connect Issuer URI that represents the entity which issues access tokens for this Linux Web App.
      * 
-     * &gt; **NOTE:** When using Azure Active Directory, this value is the URI of the directory tenant, e.g. &lt;https://sts.windows.net/{tenant-guid}/&gt;.
+     * &gt; **Note:** When using Azure Active Directory, this value is the URI of the directory tenant, e.g. &lt;https://sts.windows.net/{tenant-guid}/&gt;.
      * 
      */
     private @Nullable String issuer;
@@ -127,7 +127,7 @@ public final class LinuxFunctionAppAuthSettings {
     /**
      * @return The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`
      * 
-     * &gt; **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to &#34;RedirectToLoginPage&#34;.
+     * &gt; **Note:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to &#34;RedirectToLoginPage&#34;.
      * 
      */
     public Optional<String> defaultProvider() {
@@ -164,7 +164,7 @@ public final class LinuxFunctionAppAuthSettings {
     /**
      * @return The OpenID Connect Issuer URI that represents the entity which issues access tokens for this Linux Web App.
      * 
-     * &gt; **NOTE:** When using Azure Active Directory, this value is the URI of the directory tenant, e.g. &lt;https://sts.windows.net/{tenant-guid}/&gt;.
+     * &gt; **Note:** When using Azure Active Directory, this value is the URI of the directory tenant, e.g. &lt;https://sts.windows.net/{tenant-guid}/&gt;.
      * 
      */
     public Optional<String> issuer() {

@@ -20,7 +20,7 @@ import javax.annotation.Nullable;
 /**
  * Manages a Cassandra Datacenter.
  * 
- * &gt; **NOTE:** In order for the `Azure Managed Instances for Apache Cassandra` to work properly the product requires the `Azure Cosmos DB` Application ID to be present and working in your tenant. If the `Azure Cosmos DB` Application ID is missing in your environment you will need to have an administrator of your tenant run the following command to add the `Azure Cosmos DB` Application ID to your tenant:
+ * &gt; **Note:** In order for the `Azure Managed Instances for Apache Cassandra` to work properly the product requires the `Azure Cosmos DB` Application ID to be present and working in your tenant. If the `Azure Cosmos DB` Application ID is missing in your environment you will need to have an administrator of your tenant run the following command to add the `Azure Cosmos DB` Application ID to your tenant:
  * 
  * ## Example Usage
  * 
@@ -298,7 +298,7 @@ public class CassandraDatacenter extends com.pulumi.resources.CustomResource {
     /**
      * Determines the selected sku.
      * 
-     * &gt; **NOTE:** In v4.0 of the provider the `sku_name` will have a default value of `Standard_E16s_v5`.
+     * &gt; **Note:** In v4.0 of the provider the `sku_name` will have a default value of `Standard_E16s_v5`.
      * 
      */
     @Export(name="skuName", refs={String.class}, tree="[0]")
@@ -307,7 +307,7 @@ public class CassandraDatacenter extends com.pulumi.resources.CustomResource {
     /**
      * @return Determines the selected sku.
      * 
-     * &gt; **NOTE:** In v4.0 of the provider the `sku_name` will have a default value of `Standard_E16s_v5`.
+     * &gt; **Note:** In v4.0 of the provider the `sku_name` will have a default value of `Standard_E16s_v5`.
      * 
      */
     public Output<Optional<String>> skuName() {

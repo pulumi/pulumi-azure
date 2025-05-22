@@ -12,10 +12,87 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Manages a Palo Alto Network Virtual Appliance.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/network"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/paloalto"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVirtualWan, err := network.NewVirtualWan(ctx, "example", &network.VirtualWanArgs{
+//				Name:              pulumi.String("example-virtualwan"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVirtualHub, err := network.NewVirtualHub(ctx, "example", &network.VirtualHubArgs{
+//				Name:              pulumi.String("example-virtualhub"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
+//				VirtualWanId:      exampleVirtualWan.ID(),
+//				AddressPrefix:     pulumi.String("10.0.0.0/23"),
+//				Tags: pulumi.StringMap{
+//					"hubSaaSPreview": pulumi.String("true"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = paloalto.NewVirtualNetworkAppliance(ctx, "example", &paloalto.VirtualNetworkApplianceArgs{
+//				Name:         pulumi.String("example-appliance"),
+//				VirtualHubId: exampleVirtualHub.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.Network`: 2024-05-01
+//
+// ## Import
+//
+// Palo Alto Local Network Virtual Appliances can be imported using the `resource id`, e.g.
+//
+// ```sh
+// $ pulumi import azure:paloalto/virtualNetworkAppliance:VirtualNetworkAppliance example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/networkVirtualAppliances/myPANetworkVirtualAppliance
+// ```
 type VirtualNetworkAppliance struct {
 	pulumi.CustomResourceState
 
-	Name         pulumi.StringOutput `pulumi:"name"`
+	// The name which should be used for this Palo Alto Local Network Virtual Appliance. Changing this forces a new Palo Alto Local Network Virtual Appliance to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The ID of the Virtual Hub to deploy this appliance onto. Changing this forces a new Palo Alto Local Network Virtual Appliance to be created.
+	//
+	// > **Note:** THe Virtual Hub must be created with the tag `"hubSaaSPreview" = "true"` to be compatible with this resource.
 	VirtualHubId pulumi.StringOutput `pulumi:"virtualHubId"`
 }
 
@@ -52,12 +129,20 @@ func GetVirtualNetworkAppliance(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VirtualNetworkAppliance resources.
 type virtualNetworkApplianceState struct {
-	Name         *string `pulumi:"name"`
+	// The name which should be used for this Palo Alto Local Network Virtual Appliance. Changing this forces a new Palo Alto Local Network Virtual Appliance to be created.
+	Name *string `pulumi:"name"`
+	// The ID of the Virtual Hub to deploy this appliance onto. Changing this forces a new Palo Alto Local Network Virtual Appliance to be created.
+	//
+	// > **Note:** THe Virtual Hub must be created with the tag `"hubSaaSPreview" = "true"` to be compatible with this resource.
 	VirtualHubId *string `pulumi:"virtualHubId"`
 }
 
 type VirtualNetworkApplianceState struct {
-	Name         pulumi.StringPtrInput
+	// The name which should be used for this Palo Alto Local Network Virtual Appliance. Changing this forces a new Palo Alto Local Network Virtual Appliance to be created.
+	Name pulumi.StringPtrInput
+	// The ID of the Virtual Hub to deploy this appliance onto. Changing this forces a new Palo Alto Local Network Virtual Appliance to be created.
+	//
+	// > **Note:** THe Virtual Hub must be created with the tag `"hubSaaSPreview" = "true"` to be compatible with this resource.
 	VirtualHubId pulumi.StringPtrInput
 }
 
@@ -66,13 +151,21 @@ func (VirtualNetworkApplianceState) ElementType() reflect.Type {
 }
 
 type virtualNetworkApplianceArgs struct {
-	Name         *string `pulumi:"name"`
-	VirtualHubId string  `pulumi:"virtualHubId"`
+	// The name which should be used for this Palo Alto Local Network Virtual Appliance. Changing this forces a new Palo Alto Local Network Virtual Appliance to be created.
+	Name *string `pulumi:"name"`
+	// The ID of the Virtual Hub to deploy this appliance onto. Changing this forces a new Palo Alto Local Network Virtual Appliance to be created.
+	//
+	// > **Note:** THe Virtual Hub must be created with the tag `"hubSaaSPreview" = "true"` to be compatible with this resource.
+	VirtualHubId string `pulumi:"virtualHubId"`
 }
 
 // The set of arguments for constructing a VirtualNetworkAppliance resource.
 type VirtualNetworkApplianceArgs struct {
-	Name         pulumi.StringPtrInput
+	// The name which should be used for this Palo Alto Local Network Virtual Appliance. Changing this forces a new Palo Alto Local Network Virtual Appliance to be created.
+	Name pulumi.StringPtrInput
+	// The ID of the Virtual Hub to deploy this appliance onto. Changing this forces a new Palo Alto Local Network Virtual Appliance to be created.
+	//
+	// > **Note:** THe Virtual Hub must be created with the tag `"hubSaaSPreview" = "true"` to be compatible with this resource.
 	VirtualHubId pulumi.StringInput
 }
 
@@ -163,10 +256,14 @@ func (o VirtualNetworkApplianceOutput) ToVirtualNetworkApplianceOutputWithContex
 	return o
 }
 
+// The name which should be used for this Palo Alto Local Network Virtual Appliance. Changing this forces a new Palo Alto Local Network Virtual Appliance to be created.
 func (o VirtualNetworkApplianceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualNetworkAppliance) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// The ID of the Virtual Hub to deploy this appliance onto. Changing this forces a new Palo Alto Local Network Virtual Appliance to be created.
+//
+// > **Note:** THe Virtual Hub must be created with the tag `"hubSaaSPreview" = "true"` to be compatible with this resource.
 func (o VirtualNetworkApplianceOutput) VirtualHubId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualNetworkAppliance) pulumi.StringOutput { return v.VirtualHubId }).(pulumi.StringOutput)
 }

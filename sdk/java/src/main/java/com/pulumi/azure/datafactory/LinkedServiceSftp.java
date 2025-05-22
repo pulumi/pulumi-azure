@@ -6,6 +6,9 @@ package com.pulumi.azure.datafactory;
 import com.pulumi.azure.Utilities;
 import com.pulumi.azure.datafactory.LinkedServiceSftpArgs;
 import com.pulumi.azure.datafactory.inputs.LinkedServiceSftpState;
+import com.pulumi.azure.datafactory.outputs.LinkedServiceSftpKeyVaultPassword;
+import com.pulumi.azure.datafactory.outputs.LinkedServiceSftpKeyVaultPrivateKeyContentBase64;
+import com.pulumi.azure.datafactory.outputs.LinkedServiceSftpKeyVaultPrivateKeyPassphrase;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -121,14 +124,14 @@ public class LinkedServiceSftp extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.annotations);
     }
     /**
-     * The type of authentication used to connect to the web table source. Valid options are `Anonymous`, `Basic` and `ClientCertificate`.
+     * The type of authentication used to connect to the SFTP server. Valid options are `MultiFactor`, `Basic` and `SshPublicKey`.
      * 
      */
     @Export(name="authenticationType", refs={String.class}, tree="[0]")
     private Output<String> authenticationType;
 
     /**
-     * @return The type of authentication used to connect to the web table source. Valid options are `Anonymous`, `Basic` and `ClientCertificate`.
+     * @return The type of authentication used to connect to the SFTP server. Valid options are `MultiFactor`, `Basic` and `SshPublicKey`.
      * 
      */
     public Output<String> authenticationType() {
@@ -205,6 +208,56 @@ public class LinkedServiceSftp extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.integrationRuntimeName);
     }
     /**
+     * A `key_vault_password` block as defined below.
+     * 
+     * &gt; **Note:** Either `password` or `key_vault_password` is required when `authentication_type` is set to `Basic`.
+     * 
+     */
+    @Export(name="keyVaultPasswords", refs={List.class,LinkedServiceSftpKeyVaultPassword.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<LinkedServiceSftpKeyVaultPassword>> keyVaultPasswords;
+
+    /**
+     * @return A `key_vault_password` block as defined below.
+     * 
+     * &gt; **Note:** Either `password` or `key_vault_password` is required when `authentication_type` is set to `Basic`.
+     * 
+     */
+    public Output<Optional<List<LinkedServiceSftpKeyVaultPassword>>> keyVaultPasswords() {
+        return Codegen.optional(this.keyVaultPasswords);
+    }
+    /**
+     * A `key_vault_private_key_content_base64` block as defined below.
+     * 
+     */
+    @Export(name="keyVaultPrivateKeyContentBase64", refs={LinkedServiceSftpKeyVaultPrivateKeyContentBase64.class}, tree="[0]")
+    private Output</* @Nullable */ LinkedServiceSftpKeyVaultPrivateKeyContentBase64> keyVaultPrivateKeyContentBase64;
+
+    /**
+     * @return A `key_vault_private_key_content_base64` block as defined below.
+     * 
+     */
+    public Output<Optional<LinkedServiceSftpKeyVaultPrivateKeyContentBase64>> keyVaultPrivateKeyContentBase64() {
+        return Codegen.optional(this.keyVaultPrivateKeyContentBase64);
+    }
+    /**
+     * A `key_vault_private_key_passphrase` block as defined below.
+     * 
+     * &gt; **Note:** One of `private_key_content_base64` or `private_key_path` (or their Key Vault equivalent) is required when `authentication_type` is set to `SshPublicKey`.
+     * 
+     */
+    @Export(name="keyVaultPrivateKeyPassphrase", refs={LinkedServiceSftpKeyVaultPrivateKeyPassphrase.class}, tree="[0]")
+    private Output</* @Nullable */ LinkedServiceSftpKeyVaultPrivateKeyPassphrase> keyVaultPrivateKeyPassphrase;
+
+    /**
+     * @return A `key_vault_private_key_passphrase` block as defined below.
+     * 
+     * &gt; **Note:** One of `private_key_content_base64` or `private_key_path` (or their Key Vault equivalent) is required when `authentication_type` is set to `SshPublicKey`.
+     * 
+     */
+    public Output<Optional<LinkedServiceSftpKeyVaultPrivateKeyPassphrase>> keyVaultPrivateKeyPassphrase() {
+        return Codegen.optional(this.keyVaultPrivateKeyPassphrase);
+    }
+    /**
      * Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      * 
      */
@@ -233,18 +286,18 @@ public class LinkedServiceSftp extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.parameters);
     }
     /**
-     * Password to logon to the SFTP Server for Basic Authentication.
+     * Password to log on to the SFTP Server for Basic Authentication.
      * 
      */
     @Export(name="password", refs={String.class}, tree="[0]")
-    private Output<String> password;
+    private Output</* @Nullable */ String> password;
 
     /**
-     * @return Password to logon to the SFTP Server for Basic Authentication.
+     * @return Password to log on to the SFTP Server for Basic Authentication.
      * 
      */
-    public Output<String> password() {
-        return this.password;
+    public Output<Optional<String>> password() {
+        return Codegen.optional(this.password);
     }
     /**
      * The TCP port number that the SFTP server uses to listen for client connection. Default value is 22.
@@ -259,6 +312,52 @@ public class LinkedServiceSftp extends com.pulumi.resources.CustomResource {
      */
     public Output<Integer> port() {
         return this.port;
+    }
+    /**
+     * The Base64 encoded private key content in OpenSSH format used to log on to the SFTP server.
+     * 
+     */
+    @Export(name="privateKeyContentBase64", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> privateKeyContentBase64;
+
+    /**
+     * @return The Base64 encoded private key content in OpenSSH format used to log on to the SFTP server.
+     * 
+     */
+    public Output<Optional<String>> privateKeyContentBase64() {
+        return Codegen.optional(this.privateKeyContentBase64);
+    }
+    /**
+     * The passphrase for the private key if the key is encrypted.
+     * 
+     */
+    @Export(name="privateKeyPassphrase", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> privateKeyPassphrase;
+
+    /**
+     * @return The passphrase for the private key if the key is encrypted.
+     * 
+     */
+    public Output<Optional<String>> privateKeyPassphrase() {
+        return Codegen.optional(this.privateKeyPassphrase);
+    }
+    /**
+     * The absolute path to the private key file that the self-hosted integration runtime can access.
+     * 
+     * &gt; **Note:** `private_key_path` only applies when using a self-hosted integration runtime (instead of the default Azure provided runtime), as indicated by supplying a value for `integration_runtime_name`.
+     * 
+     */
+    @Export(name="privateKeyPath", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> privateKeyPath;
+
+    /**
+     * @return The absolute path to the private key file that the self-hosted integration runtime can access.
+     * 
+     * &gt; **Note:** `private_key_path` only applies when using a self-hosted integration runtime (instead of the default Azure provided runtime), as indicated by supplying a value for `integration_runtime_name`.
+     * 
+     */
+    public Output<Optional<String>> privateKeyPath() {
+        return Codegen.optional(this.privateKeyPath);
     }
     /**
      * Whether to validate host key fingerprint while connecting. If set to `false`, `host_key_fingerprint` must also be set.
@@ -329,7 +428,9 @@ public class LinkedServiceSftp extends com.pulumi.resources.CustomResource {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
-                "password"
+                "password",
+                "privateKeyContentBase64",
+                "privateKeyPassphrase"
             ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);

@@ -19,6 +19,13 @@ import * as utilities from "../utilities";
  * export const versions = current.then(current => current.versions);
  * export const latestVersion = current.then(current => current.latestVersion);
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.ContainerService`: 2019-08-01
  */
 export function getKubernetesServiceVersions(args: GetKubernetesServiceVersionsArgs, opts?: pulumi.InvokeOptions): Promise<GetKubernetesServiceVersionsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -86,6 +93,13 @@ export interface GetKubernetesServiceVersionsResult {
  * export const versions = current.then(current => current.versions);
  * export const latestVersion = current.then(current => current.latestVersion);
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.ContainerService`: 2019-08-01
  */
 export function getKubernetesServiceVersionsOutput(args: GetKubernetesServiceVersionsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetKubernetesServiceVersionsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

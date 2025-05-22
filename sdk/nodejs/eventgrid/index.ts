@@ -45,6 +45,11 @@ export type Namespace = import("./namespace").Namespace;
 export const Namespace: typeof import("./namespace").Namespace = null as any;
 utilities.lazyLoad(exports, ["Namespace"], () => require("./namespace"));
 
+export { PartnerConfigurationArgs, PartnerConfigurationState } from "./partnerConfiguration";
+export type PartnerConfiguration = import("./partnerConfiguration").PartnerConfiguration;
+export const PartnerConfiguration: typeof import("./partnerConfiguration").PartnerConfiguration = null as any;
+utilities.lazyLoad(exports, ["PartnerConfiguration"], () => require("./partnerConfiguration"));
+
 export { SystemTopicArgs, SystemTopicState } from "./systemTopic";
 export type SystemTopic = import("./systemTopic").SystemTopic;
 export const SystemTopic: typeof import("./systemTopic").SystemTopic = null as any;
@@ -74,6 +79,8 @@ const _module = {
                 return new EventSubscription(name, <any>undefined, { urn })
             case "azure:eventgrid/namespace:Namespace":
                 return new Namespace(name, <any>undefined, { urn })
+            case "azure:eventgrid/partnerConfiguration:PartnerConfiguration":
+                return new PartnerConfiguration(name, <any>undefined, { urn })
             case "azure:eventgrid/systemTopic:SystemTopic":
                 return new SystemTopic(name, <any>undefined, { urn })
             case "azure:eventgrid/systemTopicEventSubscription:SystemTopicEventSubscription":
@@ -89,6 +96,7 @@ pulumi.runtime.registerResourceModule("azure", "eventgrid/domain", _module)
 pulumi.runtime.registerResourceModule("azure", "eventgrid/domainTopic", _module)
 pulumi.runtime.registerResourceModule("azure", "eventgrid/eventSubscription", _module)
 pulumi.runtime.registerResourceModule("azure", "eventgrid/namespace", _module)
+pulumi.runtime.registerResourceModule("azure", "eventgrid/partnerConfiguration", _module)
 pulumi.runtime.registerResourceModule("azure", "eventgrid/systemTopic", _module)
 pulumi.runtime.registerResourceModule("azure", "eventgrid/systemTopicEventSubscription", _module)
 pulumi.runtime.registerResourceModule("azure", "eventgrid/topic", _module)

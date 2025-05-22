@@ -13,6 +13,10 @@ import javax.annotation.Nullable;
 public final class NextGenerationFirewallVirtualHubPanoramaPanorama {
     private @Nullable String deviceGroupName;
     private @Nullable String hostName;
+    /**
+     * @return The name which should be used for this Palo Alto Next Generation Firewall VHub Panorama. Changing this forces a new Palo Alto Next Generation Firewall VHub Panorama to be created.
+     * 
+     */
     private @Nullable String name;
     private @Nullable String panoramaServer1;
     private @Nullable String panoramaServer2;
@@ -26,6 +30,10 @@ public final class NextGenerationFirewallVirtualHubPanoramaPanorama {
     public Optional<String> hostName() {
         return Optional.ofNullable(this.hostName);
     }
+    /**
+     * @return The name which should be used for this Palo Alto Next Generation Firewall VHub Panorama. Changing this forces a new Palo Alto Next Generation Firewall VHub Panorama to be created.
+     * 
+     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }

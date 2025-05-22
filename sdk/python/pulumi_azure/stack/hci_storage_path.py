@@ -258,6 +258,13 @@ class HciStoragePath(pulumi.CustomResource):
             })
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.AzureStackHCI`: 2024-01-01
+
         ## Import
 
         Azure Stack HCI Storage Paths can be imported using the `resource id`, e.g.
@@ -303,6 +310,13 @@ class HciStoragePath(pulumi.CustomResource):
                 "foo": "bar",
             })
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.AzureStackHCI`: 2024-01-01
 
         ## Import
 

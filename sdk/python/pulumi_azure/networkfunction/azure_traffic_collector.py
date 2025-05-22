@@ -224,6 +224,13 @@ class AzureTrafficCollector(pulumi.CustomResource):
             })
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.NetworkFunction`: 2022-11-01
+
         ## Import
 
         Network Function Azure Traffic Collector can be imported using the `resource id`, e.g.
@@ -265,6 +272,13 @@ class AzureTrafficCollector(pulumi.CustomResource):
                 "key": "value",
             })
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.NetworkFunction`: 2022-11-01
 
         ## Import
 

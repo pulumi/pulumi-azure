@@ -18,6 +18,13 @@ import * as utilities from "../utilities";
  *     resourceGroupName: "example-ruleset-resourcegroup",
  * });
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.Network`: 2022-07-01
  */
 export function getResolverDnsForwardingRuleset(args: GetResolverDnsForwardingRulesetArgs, opts?: pulumi.InvokeOptions): Promise<GetResolverDnsForwardingRulesetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -78,6 +85,13 @@ export interface GetResolverDnsForwardingRulesetResult {
  *     resourceGroupName: "example-ruleset-resourcegroup",
  * });
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.Network`: 2022-07-01
  */
 export function getResolverDnsForwardingRulesetOutput(args: GetResolverDnsForwardingRulesetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetResolverDnsForwardingRulesetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

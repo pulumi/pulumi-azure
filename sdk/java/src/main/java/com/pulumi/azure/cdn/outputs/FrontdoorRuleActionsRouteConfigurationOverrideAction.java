@@ -31,14 +31,14 @@ public final class FrontdoorRuleActionsRouteConfigurationOverrideAction {
     /**
      * @return Should the Front Door dynamically compress the content? Possible values include `true` or `false`.
      * 
-     * -&gt;**NOTE:** Content won&#39;t be compressed on AzureFrontDoor when requested content is smaller than `1 byte` or larger than `1 MB`.
+     * &gt; **Note:** Content won&#39;t be compressed on AzureFrontDoor when requested content is smaller than `1 byte` or larger than `1 MB`.
      * 
      */
     private @Nullable Boolean compressionEnabled;
     /**
      * @return The forwarding protocol the request will be redirected as. This overrides the configuration specified in the route to be associated with. Possible values include `MatchRequest`, `HttpOnly` or `HttpsOnly`.
      * 
-     * -&gt;**NOTE:** If the `cdn_frontdoor_origin_group_id` is not defined you cannot set the `forwarding_protocol`.
+     * &gt; **Note:** If the `cdn_frontdoor_origin_group_id` is not defined you cannot set the `forwarding_protocol`.
      * 
      */
     private @Nullable String forwardingProtocol;
@@ -50,7 +50,7 @@ public final class FrontdoorRuleActionsRouteConfigurationOverrideAction {
     /**
      * @return A list of query string parameter names.
      * 
-     * -&gt;**NOTE:** `query_string_parameters` is a required field when the `query_string_caching_behavior` is set to `IncludeSpecifiedQueryStrings` or `IgnoreSpecifiedQueryStrings`.
+     * &gt; **Note:** `query_string_parameters` is a required field when the `query_string_caching_behavior` is set to `IncludeSpecifiedQueryStrings` or `IgnoreSpecifiedQueryStrings`.
      * 
      */
     private @Nullable List<String> queryStringParameters;
@@ -80,7 +80,7 @@ public final class FrontdoorRuleActionsRouteConfigurationOverrideAction {
     /**
      * @return Should the Front Door dynamically compress the content? Possible values include `true` or `false`.
      * 
-     * -&gt;**NOTE:** Content won&#39;t be compressed on AzureFrontDoor when requested content is smaller than `1 byte` or larger than `1 MB`.
+     * &gt; **Note:** Content won&#39;t be compressed on AzureFrontDoor when requested content is smaller than `1 byte` or larger than `1 MB`.
      * 
      */
     public Optional<Boolean> compressionEnabled() {
@@ -89,7 +89,7 @@ public final class FrontdoorRuleActionsRouteConfigurationOverrideAction {
     /**
      * @return The forwarding protocol the request will be redirected as. This overrides the configuration specified in the route to be associated with. Possible values include `MatchRequest`, `HttpOnly` or `HttpsOnly`.
      * 
-     * -&gt;**NOTE:** If the `cdn_frontdoor_origin_group_id` is not defined you cannot set the `forwarding_protocol`.
+     * &gt; **Note:** If the `cdn_frontdoor_origin_group_id` is not defined you cannot set the `forwarding_protocol`.
      * 
      */
     public Optional<String> forwardingProtocol() {
@@ -105,7 +105,7 @@ public final class FrontdoorRuleActionsRouteConfigurationOverrideAction {
     /**
      * @return A list of query string parameter names.
      * 
-     * -&gt;**NOTE:** `query_string_parameters` is a required field when the `query_string_caching_behavior` is set to `IncludeSpecifiedQueryStrings` or `IgnoreSpecifiedQueryStrings`.
+     * &gt; **Note:** `query_string_parameters` is a required field when the `query_string_caching_behavior` is set to `IncludeSpecifiedQueryStrings` or `IgnoreSpecifiedQueryStrings`.
      * 
      */
     public List<String> queryStringParameters() {

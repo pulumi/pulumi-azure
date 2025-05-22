@@ -645,7 +645,7 @@ class WorkspaceIdentity(dict):
         :param builtins.str type: Specifies the type of Managed Service Identity that should be associated with this Synapse Workspace. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned` (to enable both).
         :param Sequence[builtins.str] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this Synapse Workspace.
                
-               > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+               > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         :param builtins.str principal_id: The Principal ID for the Service Principal associated with the Managed Service Identity of this Synapse Workspace.
         :param builtins.str tenant_id: The Tenant ID for the Service Principal associated with the Managed Service Identity of this Synapse Workspace.
         """
@@ -671,7 +671,7 @@ class WorkspaceIdentity(dict):
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this Synapse Workspace.
 
-        > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+        > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         """
         return pulumi.get(self, "identity_ids")
 

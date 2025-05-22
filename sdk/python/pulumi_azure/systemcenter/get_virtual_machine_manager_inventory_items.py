@@ -97,6 +97,13 @@ def get_virtual_machine_manager_inventory_items(inventory_type: Optional[builtin
         system_center_virtual_machine_manager_server_id=example_azurerm_system_center_virtual_machine_manager_server["id"])
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.ScVmm`: 2023-10-07
+
 
     :param builtins.str inventory_type: The inventory type of the System Center Virtual Machine Manager Inventory Item. Possible values are `Cloud`, `VirtualMachine`, `VirtualMachineTemplate` and `VirtualNetwork`.
     :param builtins.str system_center_virtual_machine_manager_server_id: The ID of the System Center Virtual Machine Manager Server.
@@ -127,6 +134,13 @@ def get_virtual_machine_manager_inventory_items_output(inventory_type: Optional[
     example = azure.systemcenter.get_virtual_machine_manager_inventory_items(inventory_type="Cloud",
         system_center_virtual_machine_manager_server_id=example_azurerm_system_center_virtual_machine_manager_server["id"])
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.ScVmm`: 2023-10-07
 
 
     :param builtins.str inventory_type: The inventory type of the System Center Virtual Machine Manager Inventory Item. Possible values are `Cloud`, `VirtualMachine`, `VirtualMachineTemplate` and `VirtualNetwork`.

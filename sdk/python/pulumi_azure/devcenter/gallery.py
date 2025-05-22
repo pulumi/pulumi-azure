@@ -171,6 +171,13 @@ class Gallery(pulumi.CustomResource):
             name="example")
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DevCenter`: 2025-02-01
+
         ## Import
 
         An existing Dev Center Gallery can be imported into Pulumi using the `resource id`, e.g.
@@ -232,6 +239,13 @@ class Gallery(pulumi.CustomResource):
             shared_gallery_id=example_shared_image_gallery.id,
             name="example")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DevCenter`: 2025-02-01
 
         ## Import
 

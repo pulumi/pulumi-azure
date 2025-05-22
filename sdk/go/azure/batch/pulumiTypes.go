@@ -1363,7 +1363,7 @@ type PoolCertificate struct {
 	Id string `pulumi:"id"`
 	// The location of the certificate store on the compute node into which to install the certificate. Possible values are `CurrentUser` or `LocalMachine`.
 	//
-	// > **NOTE:** This property is applicable only for pools configured with Windows nodes (that is, created with cloudServiceConfiguration, or with virtualMachineConfiguration using a Windows image reference). For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable `AZ_BATCH_CERTIFICATES_DIR` is supplied to the task to query for this location. For certificates with visibility of `remoteUser`, a 'certs' directory is created in the user's home directory (e.g., `/home/{user-name}/certs`) and certificates are placed in that directory.
+	// > **Note:** This property is applicable only for pools configured with Windows nodes (that is, created with cloudServiceConfiguration, or with virtualMachineConfiguration using a Windows image reference). For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable `AZ_BATCH_CERTIFICATES_DIR` is supplied to the task to query for this location. For certificates with visibility of `remoteUser`, a 'certs' directory is created in the user's home directory (e.g., `/home/{user-name}/certs`) and certificates are placed in that directory.
 	StoreLocation string `pulumi:"storeLocation"`
 	// The name of the certificate store on the compute node into which to install the certificate. This property is applicable only for pools configured with Windows nodes (that is, created with cloudServiceConfiguration, or with virtualMachineConfiguration using a Windows image reference). Common store names include: `My`, `Root`, `CA`, `Trust`, `Disallowed`, `TrustedPeople`, `TrustedPublisher`, `AuthRoot`, `AddressBook`, but any custom store name can also be used.
 	StoreName *string `pulumi:"storeName"`
@@ -1387,7 +1387,7 @@ type PoolCertificateArgs struct {
 	Id pulumi.StringInput `pulumi:"id"`
 	// The location of the certificate store on the compute node into which to install the certificate. Possible values are `CurrentUser` or `LocalMachine`.
 	//
-	// > **NOTE:** This property is applicable only for pools configured with Windows nodes (that is, created with cloudServiceConfiguration, or with virtualMachineConfiguration using a Windows image reference). For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable `AZ_BATCH_CERTIFICATES_DIR` is supplied to the task to query for this location. For certificates with visibility of `remoteUser`, a 'certs' directory is created in the user's home directory (e.g., `/home/{user-name}/certs`) and certificates are placed in that directory.
+	// > **Note:** This property is applicable only for pools configured with Windows nodes (that is, created with cloudServiceConfiguration, or with virtualMachineConfiguration using a Windows image reference). For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable `AZ_BATCH_CERTIFICATES_DIR` is supplied to the task to query for this location. For certificates with visibility of `remoteUser`, a 'certs' directory is created in the user's home directory (e.g., `/home/{user-name}/certs`) and certificates are placed in that directory.
 	StoreLocation pulumi.StringInput `pulumi:"storeLocation"`
 	// The name of the certificate store on the compute node into which to install the certificate. This property is applicable only for pools configured with Windows nodes (that is, created with cloudServiceConfiguration, or with virtualMachineConfiguration using a Windows image reference). Common store names include: `My`, `Root`, `CA`, `Trust`, `Disallowed`, `TrustedPeople`, `TrustedPublisher`, `AuthRoot`, `AddressBook`, but any custom store name can also be used.
 	StoreName pulumi.StringPtrInput `pulumi:"storeName"`
@@ -1453,7 +1453,7 @@ func (o PoolCertificateOutput) Id() pulumi.StringOutput {
 
 // The location of the certificate store on the compute node into which to install the certificate. Possible values are `CurrentUser` or `LocalMachine`.
 //
-// > **NOTE:** This property is applicable only for pools configured with Windows nodes (that is, created with cloudServiceConfiguration, or with virtualMachineConfiguration using a Windows image reference). For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable `AZ_BATCH_CERTIFICATES_DIR` is supplied to the task to query for this location. For certificates with visibility of `remoteUser`, a 'certs' directory is created in the user's home directory (e.g., `/home/{user-name}/certs`) and certificates are placed in that directory.
+// > **Note:** This property is applicable only for pools configured with Windows nodes (that is, created with cloudServiceConfiguration, or with virtualMachineConfiguration using a Windows image reference). For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable `AZ_BATCH_CERTIFICATES_DIR` is supplied to the task to query for this location. For certificates with visibility of `remoteUser`, a 'certs' directory is created in the user's home directory (e.g., `/home/{user-name}/certs`) and certificates are placed in that directory.
 func (o PoolCertificateOutput) StoreLocation() pulumi.StringOutput {
 	return o.ApplyT(func(v PoolCertificate) string { return v.StoreLocation }).(pulumi.StringOutput)
 }
@@ -2015,7 +2015,7 @@ type PoolExtension struct {
 	AutoUpgradeMinorVersion *bool `pulumi:"autoUpgradeMinorVersion"`
 	// Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available. Supported values are `true` and `false`.
 	//
-	// > **NOTE:** When `automaticUpgradeEnabled` is set to `true`, the `typeHandlerVersion` is automatically updated by the Azure platform when a new version is available and any change in `typeHandlerVersion` should be manually ignored by user.
+	// > **Note:** When `automaticUpgradeEnabled` is set to `true`, the `typeHandlerVersion` is automatically updated by the Azure platform when a new version is available and any change in `typeHandlerVersion` should be manually ignored by user.
 	AutomaticUpgradeEnabled *bool `pulumi:"automaticUpgradeEnabled"`
 	// The name of the virtual machine extension.
 	Name string `pulumi:"name"`
@@ -2049,7 +2049,7 @@ type PoolExtensionArgs struct {
 	AutoUpgradeMinorVersion pulumi.BoolPtrInput `pulumi:"autoUpgradeMinorVersion"`
 	// Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available. Supported values are `true` and `false`.
 	//
-	// > **NOTE:** When `automaticUpgradeEnabled` is set to `true`, the `typeHandlerVersion` is automatically updated by the Azure platform when a new version is available and any change in `typeHandlerVersion` should be manually ignored by user.
+	// > **Note:** When `automaticUpgradeEnabled` is set to `true`, the `typeHandlerVersion` is automatically updated by the Azure platform when a new version is available and any change in `typeHandlerVersion` should be manually ignored by user.
 	AutomaticUpgradeEnabled pulumi.BoolPtrInput `pulumi:"automaticUpgradeEnabled"`
 	// The name of the virtual machine extension.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -2125,7 +2125,7 @@ func (o PoolExtensionOutput) AutoUpgradeMinorVersion() pulumi.BoolPtrOutput {
 
 // Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available. Supported values are `true` and `false`.
 //
-// > **NOTE:** When `automaticUpgradeEnabled` is set to `true`, the `typeHandlerVersion` is automatically updated by the Azure platform when a new version is available and any change in `typeHandlerVersion` should be manually ignored by user.
+// > **Note:** When `automaticUpgradeEnabled` is set to `true`, the `typeHandlerVersion` is automatically updated by the Azure platform when a new version is available and any change in `typeHandlerVersion` should be manually ignored by user.
 func (o PoolExtensionOutput) AutomaticUpgradeEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PoolExtension) *bool { return v.AutomaticUpgradeEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -3894,9 +3894,9 @@ type PoolSecurityProfile struct {
 	SecurityType *string `pulumi:"securityType"`
 	// Whether to enable virtual trusted platform module (vTPM) for the Virtual Machine or Virtual Machine Scale Set. Possible values are `true` and `false`. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** `securityProfile` block can only be specified during creation and does not support updates.
+	// > **Note:** `securityProfile` block can only be specified during creation and does not support updates.
 	//
-	// > **NOTE:** `securityType` must be specified to set UEFI related properties including `secureBootEnabled` and `vtpmEnabled`.
+	// > **Note:** `securityType` must be specified to set UEFI related properties including `secureBootEnabled` and `vtpmEnabled`.
 	VtpmEnabled *bool `pulumi:"vtpmEnabled"`
 }
 
@@ -3920,9 +3920,9 @@ type PoolSecurityProfileArgs struct {
 	SecurityType pulumi.StringPtrInput `pulumi:"securityType"`
 	// Whether to enable virtual trusted platform module (vTPM) for the Virtual Machine or Virtual Machine Scale Set. Possible values are `true` and `false`. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** `securityProfile` block can only be specified during creation and does not support updates.
+	// > **Note:** `securityProfile` block can only be specified during creation and does not support updates.
 	//
-	// > **NOTE:** `securityType` must be specified to set UEFI related properties including `secureBootEnabled` and `vtpmEnabled`.
+	// > **Note:** `securityType` must be specified to set UEFI related properties including `secureBootEnabled` and `vtpmEnabled`.
 	VtpmEnabled pulumi.BoolPtrInput `pulumi:"vtpmEnabled"`
 }
 
@@ -4020,9 +4020,9 @@ func (o PoolSecurityProfileOutput) SecurityType() pulumi.StringPtrOutput {
 
 // Whether to enable virtual trusted platform module (vTPM) for the Virtual Machine or Virtual Machine Scale Set. Possible values are `true` and `false`. Changing this forces a new resource to be created.
 //
-// > **NOTE:** `securityProfile` block can only be specified during creation and does not support updates.
+// > **Note:** `securityProfile` block can only be specified during creation and does not support updates.
 //
-// > **NOTE:** `securityType` must be specified to set UEFI related properties including `secureBootEnabled` and `vtpmEnabled`.
+// > **Note:** `securityType` must be specified to set UEFI related properties including `secureBootEnabled` and `vtpmEnabled`.
 func (o PoolSecurityProfileOutput) VtpmEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PoolSecurityProfile) *bool { return v.VtpmEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -4083,9 +4083,9 @@ func (o PoolSecurityProfilePtrOutput) SecurityType() pulumi.StringPtrOutput {
 
 // Whether to enable virtual trusted platform module (vTPM) for the Virtual Machine or Virtual Machine Scale Set. Possible values are `true` and `false`. Changing this forces a new resource to be created.
 //
-// > **NOTE:** `securityProfile` block can only be specified during creation and does not support updates.
+// > **Note:** `securityProfile` block can only be specified during creation and does not support updates.
 //
-// > **NOTE:** `securityType` must be specified to set UEFI related properties including `secureBootEnabled` and `vtpmEnabled`.
+// > **Note:** `securityType` must be specified to set UEFI related properties including `secureBootEnabled` and `vtpmEnabled`.
 func (o PoolSecurityProfilePtrOutput) VtpmEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *PoolSecurityProfile) *bool {
 		if v == nil {
@@ -4603,7 +4603,7 @@ type PoolStartTaskResourceFile struct {
 	StorageContainerUrl *string `pulumi:"storageContainerUrl"`
 	// An identity reference from pool's user assigned managed identity list.
 	//
-	// > **Please Note:** Exactly one of `autoStorageContainerName`, `storageContainerUrl` and `autoUser` must be specified.
+	// > **Note:** Exactly one of `autoStorageContainerName`, `storageContainerUrl` and `autoUser` must be specified.
 	UserAssignedIdentityId *string `pulumi:"userAssignedIdentityId"`
 }
 
@@ -4633,7 +4633,7 @@ type PoolStartTaskResourceFileArgs struct {
 	StorageContainerUrl pulumi.StringPtrInput `pulumi:"storageContainerUrl"`
 	// An identity reference from pool's user assigned managed identity list.
 	//
-	// > **Please Note:** Exactly one of `autoStorageContainerName`, `storageContainerUrl` and `autoUser` must be specified.
+	// > **Note:** Exactly one of `autoStorageContainerName`, `storageContainerUrl` and `autoUser` must be specified.
 	UserAssignedIdentityId pulumi.StringPtrInput `pulumi:"userAssignedIdentityId"`
 }
 
@@ -4720,7 +4720,7 @@ func (o PoolStartTaskResourceFileOutput) StorageContainerUrl() pulumi.StringPtrO
 
 // An identity reference from pool's user assigned managed identity list.
 //
-// > **Please Note:** Exactly one of `autoStorageContainerName`, `storageContainerUrl` and `autoUser` must be specified.
+// > **Note:** Exactly one of `autoStorageContainerName`, `storageContainerUrl` and `autoUser` must be specified.
 func (o PoolStartTaskResourceFileOutput) UserAssignedIdentityId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PoolStartTaskResourceFile) *string { return v.UserAssignedIdentityId }).(pulumi.StringPtrOutput)
 }
@@ -4748,7 +4748,7 @@ func (o PoolStartTaskResourceFileArrayOutput) Index(i pulumi.IntInput) PoolStart
 type PoolStartTaskUserIdentity struct {
 	// A `autoUser` block that describes the user identity under which the start task runs as defined below.
 	//
-	// > **Please Note:** `userName` and `autoUser` blocks cannot be used both at the same time, but you need to define one or the other.
+	// > **Note:** `userName` and `autoUser` blocks cannot be used both at the same time, but you need to define one or the other.
 	AutoUser *PoolStartTaskUserIdentityAutoUser `pulumi:"autoUser"`
 	// The username to be used by the Batch pool start task.
 	UserName *string `pulumi:"userName"`
@@ -4768,7 +4768,7 @@ type PoolStartTaskUserIdentityInput interface {
 type PoolStartTaskUserIdentityArgs struct {
 	// A `autoUser` block that describes the user identity under which the start task runs as defined below.
 	//
-	// > **Please Note:** `userName` and `autoUser` blocks cannot be used both at the same time, but you need to define one or the other.
+	// > **Note:** `userName` and `autoUser` blocks cannot be used both at the same time, but you need to define one or the other.
 	AutoUser PoolStartTaskUserIdentityAutoUserPtrInput `pulumi:"autoUser"`
 	// The username to be used by the Batch pool start task.
 	UserName pulumi.StringPtrInput `pulumi:"userName"`
@@ -4853,7 +4853,7 @@ func (o PoolStartTaskUserIdentityOutput) ToPoolStartTaskUserIdentityPtrOutputWit
 
 // A `autoUser` block that describes the user identity under which the start task runs as defined below.
 //
-// > **Please Note:** `userName` and `autoUser` blocks cannot be used both at the same time, but you need to define one or the other.
+// > **Note:** `userName` and `autoUser` blocks cannot be used both at the same time, but you need to define one or the other.
 func (o PoolStartTaskUserIdentityOutput) AutoUser() PoolStartTaskUserIdentityAutoUserPtrOutput {
 	return o.ApplyT(func(v PoolStartTaskUserIdentity) *PoolStartTaskUserIdentityAutoUser { return v.AutoUser }).(PoolStartTaskUserIdentityAutoUserPtrOutput)
 }
@@ -4889,7 +4889,7 @@ func (o PoolStartTaskUserIdentityPtrOutput) Elem() PoolStartTaskUserIdentityOutp
 
 // A `autoUser` block that describes the user identity under which the start task runs as defined below.
 //
-// > **Please Note:** `userName` and `autoUser` blocks cannot be used both at the same time, but you need to define one or the other.
+// > **Note:** `userName` and `autoUser` blocks cannot be used both at the same time, but you need to define one or the other.
 func (o PoolStartTaskUserIdentityPtrOutput) AutoUser() PoolStartTaskUserIdentityAutoUserPtrOutput {
 	return o.ApplyT(func(v *PoolStartTaskUserIdentity) *PoolStartTaskUserIdentityAutoUser {
 		if v == nil {

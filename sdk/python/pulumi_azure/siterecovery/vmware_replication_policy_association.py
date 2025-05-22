@@ -169,6 +169,13 @@ class VmwareReplicationPolicyAssociation(pulumi.CustomResource):
             policy_id=example_vm_ware_replication_policy.id)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.RecoveryServices`: 2024-04-01
+
         ## Import
 
         Site Recovery Replication Policies can be imported using the `resource id`, e.g.
@@ -217,6 +224,13 @@ class VmwareReplicationPolicyAssociation(pulumi.CustomResource):
             recovery_vault_id=example_vault.id,
             policy_id=example_vm_ware_replication_policy.id)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.RecoveryServices`: 2024-04-01
 
         ## Import
 

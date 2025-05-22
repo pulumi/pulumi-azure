@@ -744,7 +744,7 @@ class ActionGroupItsmReceiver(dict):
         :param builtins.str name: The name of the ITSM receiver.
         :param builtins.str region: The region of the workspace.
                
-               > **NOTE** `ticket_configuration` should be JSON blob with `PayloadRevision` and `WorkItemType` keys (e.g., `ticket_configuration="{\\"PayloadRevision\\":0,\\"WorkItemType\\":\\"Incident\\"}"`), and `ticket_configuration="{}"` will return an error, see more at this [REST API issue](https://github.com/Azure/azure-rest-api-specs/issues/20488)
+               > **Note:** `ticket_configuration` should be JSON blob with `PayloadRevision` and `WorkItemType` keys (e.g., `ticket_configuration="{\\"PayloadRevision\\":0,\\"WorkItemType\\":\\"Incident\\"}"`), and `ticket_configuration="{}"` will return an error, see more at this [REST API issue](https://github.com/Azure/azure-rest-api-specs/issues/20488)
         :param builtins.str ticket_configuration: A JSON blob for the configurations of the ITSM action. CreateMultipleWorkItems option will be part of this blob as well.
         :param builtins.str workspace_id: The Azure Log Analytics workspace ID where this connection is defined. Format is `<subscription id>|<workspace id>`, for example `00000000-0000-0000-0000-000000000000|00000000-0000-0000-0000-000000000000`.
         """
@@ -776,7 +776,7 @@ class ActionGroupItsmReceiver(dict):
         """
         The region of the workspace.
 
-        > **NOTE** `ticket_configuration` should be JSON blob with `PayloadRevision` and `WorkItemType` keys (e.g., `ticket_configuration="{\\"PayloadRevision\\":0,\\"WorkItemType\\":\\"Incident\\"}"`), and `ticket_configuration="{}"` will return an error, see more at this [REST API issue](https://github.com/Azure/azure-rest-api-specs/issues/20488)
+        > **Note:** `ticket_configuration` should be JSON blob with `PayloadRevision` and `WorkItemType` keys (e.g., `ticket_configuration="{\\"PayloadRevision\\":0,\\"WorkItemType\\":\\"Incident\\"}"`), and `ticket_configuration="{}"` will return an error, see more at this [REST API issue](https://github.com/Azure/azure-rest-api-specs/issues/20488)
         """
         return pulumi.get(self, "region")
 
@@ -1021,7 +1021,7 @@ class ActionGroupWebhookReceiver(dict):
         :param builtins.str service_uri: The URI where webhooks should be sent.
         :param 'ActionGroupWebhookReceiverAadAuthArgs' aad_auth: The `aad_auth` block as defined below.
                
-               > **NOTE:** Before adding a secure webhook receiver by setting `aad_auth`, please read [the configuration instruction of the AAD application](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups#secure-webhook).
+               > **Note:** Before adding a secure webhook receiver by setting `aad_auth`, please read [the configuration instruction of the AAD application](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups#secure-webhook).
         :param builtins.bool use_common_alert_schema: Enables or disables the common alert schema.
         """
         pulumi.set(__self__, "name", name)
@@ -1053,7 +1053,7 @@ class ActionGroupWebhookReceiver(dict):
         """
         The `aad_auth` block as defined below.
 
-        > **NOTE:** Before adding a secure webhook receiver by setting `aad_auth`, please read [the configuration instruction of the AAD application](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups#secure-webhook).
+        > **Note:** Before adding a secure webhook receiver by setting `aad_auth`, please read [the configuration instruction of the AAD application](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups#secure-webhook).
         """
         return pulumi.get(self, "aad_auth")
 
@@ -1256,7 +1256,7 @@ class ActivityLogAlertCriteria(dict):
         :param builtins.str level: The severity level of the event. Possible values are `Verbose`, `Informational`, `Warning`, `Error`, and `Critical`.
         :param Sequence[builtins.str] levels: A list of severity level of the event. Possible values are `Verbose`, `Informational`, `Warning`, `Error`, and `Critical`.
                
-               > **NOTE:** `level` and `levels` are mutually exclusive.
+               > **Note:** `level` and `levels` are mutually exclusive.
         :param builtins.str operation_name: The Resource Manager Role-Based Access Control operation name. Supported operation should be of the form: `<resourceProvider>/<resourceType>/<operation>`.
         :param builtins.str recommendation_category: The recommendation category of the event. Possible values are `Cost`, `Reliability`, `OperationalExcellence`, `HighAvailability` and `Performance`. It is only allowed when `category` is `Recommendation`.
         :param builtins.str recommendation_impact: The recommendation impact of the event. Possible values are `High`, `Medium` and `Low`. It is only allowed when `category` is `Recommendation`.
@@ -1264,29 +1264,29 @@ class ActivityLogAlertCriteria(dict):
         :param builtins.str resource_group: The name of resource group monitored by the activity log alert.
         :param Sequence[builtins.str] resource_groups: A list of names of resource groups monitored by the activity log alert.
                
-               > **NOTE:** `resource_group` and `resource_groups` are mutually exclusive.
+               > **Note:** `resource_group` and `resource_groups` are mutually exclusive.
         :param 'ActivityLogAlertCriteriaResourceHealthArgs' resource_health: A block to define fine grain resource health settings.
         :param builtins.str resource_id: The specific resource monitored by the activity log alert. It should be within one of the `scopes`.
         :param Sequence[builtins.str] resource_ids: A list of specific resources monitored by the activity log alert. It should be within one of the `scopes`.
                
-               > **NOTE:** `resource_id` and `resource_ids` are mutually exclusive.
+               > **Note:** `resource_id` and `resource_ids` are mutually exclusive.
         :param builtins.str resource_provider: The name of the resource provider monitored by the activity log alert.
         :param Sequence[builtins.str] resource_providers: A list of names of resource providers monitored by the activity log alert.
                
-               > **NOTE:** `resource_provider` and `resource_providers` are mutually exclusive.
+               > **Note:** `resource_provider` and `resource_providers` are mutually exclusive.
         :param builtins.str resource_type: The resource type monitored by the activity log alert.
         :param Sequence[builtins.str] resource_types: A list of resource types monitored by the activity log alert.
                
-               > **NOTE:** `resource_type` and `resource_types` are mutually exclusive.
+               > **Note:** `resource_type` and `resource_types` are mutually exclusive.
         :param 'ActivityLogAlertCriteriaServiceHealthArgs' service_health: A block to define fine grain service health settings.
         :param builtins.str status: The status of the event. For example, `Started`, `Failed`, or `Succeeded`.
         :param Sequence[builtins.str] statuses: A list of status of the event. For example, `Started`, `Failed`, or `Succeeded`.
                
-               > **NOTE:** `status` and `statuses` are mutually exclusive.
+               > **Note:** `status` and `statuses` are mutually exclusive.
         :param builtins.str sub_status: The sub status of the event.
         :param Sequence[builtins.str] sub_statuses: A list of sub status of the event.
                
-               > **NOTE:** `sub_status` and `sub_statuses` are mutually exclusive.
+               > **Note:** `sub_status` and `sub_statuses` are mutually exclusive.
         """
         pulumi.set(__self__, "category", category)
         if caller is not None:
@@ -1362,7 +1362,7 @@ class ActivityLogAlertCriteria(dict):
         """
         A list of severity level of the event. Possible values are `Verbose`, `Informational`, `Warning`, `Error`, and `Critical`.
 
-        > **NOTE:** `level` and `levels` are mutually exclusive.
+        > **Note:** `level` and `levels` are mutually exclusive.
         """
         return pulumi.get(self, "levels")
 
@@ -1412,7 +1412,7 @@ class ActivityLogAlertCriteria(dict):
         """
         A list of names of resource groups monitored by the activity log alert.
 
-        > **NOTE:** `resource_group` and `resource_groups` are mutually exclusive.
+        > **Note:** `resource_group` and `resource_groups` are mutually exclusive.
         """
         return pulumi.get(self, "resource_groups")
 
@@ -1438,7 +1438,7 @@ class ActivityLogAlertCriteria(dict):
         """
         A list of specific resources monitored by the activity log alert. It should be within one of the `scopes`.
 
-        > **NOTE:** `resource_id` and `resource_ids` are mutually exclusive.
+        > **Note:** `resource_id` and `resource_ids` are mutually exclusive.
         """
         return pulumi.get(self, "resource_ids")
 
@@ -1456,7 +1456,7 @@ class ActivityLogAlertCriteria(dict):
         """
         A list of names of resource providers monitored by the activity log alert.
 
-        > **NOTE:** `resource_provider` and `resource_providers` are mutually exclusive.
+        > **Note:** `resource_provider` and `resource_providers` are mutually exclusive.
         """
         return pulumi.get(self, "resource_providers")
 
@@ -1474,7 +1474,7 @@ class ActivityLogAlertCriteria(dict):
         """
         A list of resource types monitored by the activity log alert.
 
-        > **NOTE:** `resource_type` and `resource_types` are mutually exclusive.
+        > **Note:** `resource_type` and `resource_types` are mutually exclusive.
         """
         return pulumi.get(self, "resource_types")
 
@@ -1500,7 +1500,7 @@ class ActivityLogAlertCriteria(dict):
         """
         A list of status of the event. For example, `Started`, `Failed`, or `Succeeded`.
 
-        > **NOTE:** `status` and `statuses` are mutually exclusive.
+        > **Note:** `status` and `statuses` are mutually exclusive.
         """
         return pulumi.get(self, "statuses")
 
@@ -1518,7 +1518,7 @@ class ActivityLogAlertCriteria(dict):
         """
         A list of sub status of the event.
 
-        > **NOTE:** `sub_status` and `sub_statuses` are mutually exclusive.
+        > **Note:** `sub_status` and `sub_statuses` are mutually exclusive.
         """
         return pulumi.get(self, "sub_statuses")
 
@@ -3712,7 +3712,7 @@ class AutoscaleSettingProfileCapacity(dict):
         :param builtins.int default: The number of instances that are available for scaling if metrics are not available for evaluation. The default is only used if the current instance count is lower than the default. Valid values are between `0` and `1000`.
         :param builtins.int maximum: The maximum number of instances for this resource. Valid values are between `0` and `1000`.
                
-               > **NOTE:** The maximum number of instances is also limited by the amount of Cores available in the subscription.
+               > **Note:** The maximum number of instances is also limited by the amount of Cores available in the subscription.
         :param builtins.int minimum: The minimum number of instances for this resource. Valid values are between `0` and `1000`.
         """
         pulumi.set(__self__, "default", default)
@@ -3733,7 +3733,7 @@ class AutoscaleSettingProfileCapacity(dict):
         """
         The maximum number of instances for this resource. Valid values are between `0` and `1000`.
 
-        > **NOTE:** The maximum number of instances is also limited by the amount of Cores available in the subscription.
+        > **Note:** The maximum number of instances is also limited by the amount of Cores available in the subscription.
         """
         return pulumi.get(self, "maximum")
 
@@ -3933,7 +3933,7 @@ class AutoscaleSettingProfileRuleMetricTrigger(dict):
         """
         :param builtins.str metric_name: The name of the metric that defines what the rule monitors, such as `Percentage CPU` for `Virtual Machine Scale Sets` and `CpuPercentage` for `App Service Plan`.
                
-               > **NOTE:** The allowed value of `metric_name` highly depends on the targeting resource type, please visit [Supported metrics with Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported) for more details.
+               > **Note:** The allowed value of `metric_name` highly depends on the targeting resource type, please visit [Supported metrics with Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported) for more details.
         :param builtins.str metric_resource_id: The ID of the Resource which the Rule monitors.
         :param builtins.str operator: Specifies the operator used to compare the metric data and threshold. Possible values are: `Equals`, `NotEquals`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan`, `LessThanOrEqual`.
         :param builtins.str statistic: Specifies how the metrics from multiple instances are combined. Possible values are `Average`, `Max`, `Min` and `Sum`.
@@ -3966,7 +3966,7 @@ class AutoscaleSettingProfileRuleMetricTrigger(dict):
         """
         The name of the metric that defines what the rule monitors, such as `Percentage CPU` for `Virtual Machine Scale Sets` and `CpuPercentage` for `App Service Plan`.
 
-        > **NOTE:** The allowed value of `metric_name` highly depends on the targeting resource type, please visit [Supported metrics with Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported) for more details.
+        > **Note:** The allowed value of `metric_name` highly depends on the targeting resource type, please visit [Supported metrics with Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported) for more details.
         """
         return pulumi.get(self, "metric_name")
 
@@ -5149,9 +5149,9 @@ class DataCollectionRuleDestinations(dict):
         :param Sequence['DataCollectionRuleDestinationsStorageBlobArgs'] storage_blobs: One or more `storage_blob` blocks as defined below.
         :param Sequence['DataCollectionRuleDestinationsStorageTableDirectArgs'] storage_table_directs: One or more `storage_table_direct` blocks as defined below.
                
-               > **NOTE** `event_hub_direct`, `storage_blob_direct`, and `storage_table_direct` are only available for rules of kind `AgentDirectToStore`.
+               > **Note:** `event_hub_direct`, `storage_blob_direct`, and `storage_table_direct` are only available for rules of kind `AgentDirectToStore`.
                
-               > **NOTE** At least one of `azure_monitor_metrics`, `event_hub`, `event_hub_direct`, `log_analytics`, `monitor_account`, `storage_blob`, `storage_blob_direct`,and `storage_table_direct` blocks must be specified.
+               > **Note:** At least one of `azure_monitor_metrics`, `event_hub`, `event_hub_direct`, `log_analytics`, `monitor_account`, `storage_blob`, `storage_blob_direct`,and `storage_table_direct` blocks must be specified.
         """
         if azure_monitor_metrics is not None:
             pulumi.set(__self__, "azure_monitor_metrics", azure_monitor_metrics)
@@ -5232,9 +5232,9 @@ class DataCollectionRuleDestinations(dict):
         """
         One or more `storage_table_direct` blocks as defined below.
 
-        > **NOTE** `event_hub_direct`, `storage_blob_direct`, and `storage_table_direct` are only available for rules of kind `AgentDirectToStore`.
+        > **Note:** `event_hub_direct`, `storage_blob_direct`, and `storage_table_direct` are only available for rules of kind `AgentDirectToStore`.
 
-        > **NOTE** At least one of `azure_monitor_metrics`, `event_hub`, `event_hub_direct`, `log_analytics`, `monitor_account`, `storage_blob`, `storage_blob_direct`,and `storage_table_direct` blocks must be specified.
+        > **Note:** At least one of `azure_monitor_metrics`, `event_hub`, `event_hub_direct`, `log_analytics`, `monitor_account`, `storage_blob`, `storage_blob_direct`,and `storage_table_direct` blocks must be specified.
         """
         return pulumi.get(self, "storage_table_directs")
 
@@ -5650,7 +5650,7 @@ class DataCollectionRuleIdentity(dict):
         :param builtins.str type: Specifies the type of Managed Service Identity that should be configured on this Data Collection Rule. Possible values are `SystemAssigned` and `UserAssigned`.
         :param Sequence[builtins.str] identity_ids: A list of User Assigned Managed Identity IDs to be assigned to this Data Collection Rule. Currently, up to 1 identity is supported.
                
-               > **NOTE:** This is required when `type` is set to `UserAssigned`.
+               > **Note:** This is required when `type` is set to `UserAssigned`.
         :param builtins.str principal_id: The Principal ID associated with this Managed Service Identity.
         :param builtins.str tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
@@ -5676,7 +5676,7 @@ class DataCollectionRuleIdentity(dict):
         """
         A list of User Assigned Managed Identity IDs to be assigned to this Data Collection Rule. Currently, up to 1 identity is supported.
 
-        > **NOTE:** This is required when `type` is set to `UserAssigned`.
+        > **Note:** This is required when `type` is set to `UserAssigned`.
         """
         return pulumi.get(self, "identity_ids")
 
@@ -6688,7 +6688,7 @@ class ScheduledQueryRulesAlertV2Criteria(dict):
         :param 'ScheduledQueryRulesAlertV2CriteriaFailingPeriodsArgs' failing_periods: A `failing_periods` block as defined below.
         :param builtins.str metric_measure_column: Specifies the column containing the metric measure number.
                
-               > **Note** `metric_measure_column` is required if `time_aggregation_method` is `Average`, `Maximum`, `Minimum`, or `Total`. And `metric_measure_column` can not be specified if `time_aggregation_method` is `Count`.
+               > **Note:** `metric_measure_column` is required if `time_aggregation_method` is `Average`, `Maximum`, `Minimum`, or `Total`. And `metric_measure_column` can not be specified if `time_aggregation_method` is `Count`.
         :param builtins.str resource_id_column: Specifies the column containing the resource ID. The content of the column must be an uri formatted as resource ID.
         """
         pulumi.set(__self__, "operator", operator)
@@ -6758,7 +6758,7 @@ class ScheduledQueryRulesAlertV2Criteria(dict):
         """
         Specifies the column containing the metric measure number.
 
-        > **Note** `metric_measure_column` is required if `time_aggregation_method` is `Average`, `Maximum`, `Minimum`, or `Total`. And `metric_measure_column` can not be specified if `time_aggregation_method` is `Count`.
+        > **Note:** `metric_measure_column` is required if `time_aggregation_method` is `Average`, `Maximum`, `Minimum`, or `Total`. And `metric_measure_column` can not be specified if `time_aggregation_method` is `Count`.
         """
         return pulumi.get(self, "metric_measure_column")
 
@@ -6839,9 +6839,9 @@ class ScheduledQueryRulesAlertV2CriteriaFailingPeriods(dict):
         :param builtins.int minimum_failing_periods_to_trigger_alert: Specifies the number of violations to trigger an alert. Should be smaller or equal to `number_of_evaluation_periods`. Possible value is integer between 1 and 6.
         :param builtins.int number_of_evaluation_periods: Specifies the number of aggregated look-back points. The look-back time window is calculated based on the aggregation granularity `window_duration` and the selected number of aggregated points. Possible value is integer between 1 and 6.
                
-               > **Note** The query look back which is `window_duration`*`number_of_evaluation_periods` cannot exceed 48 hours.
+               > **Note:** The query look back which is `window_duration`*`number_of_evaluation_periods` cannot exceed 48 hours.
                
-               > **Note** `number_of_evaluation_periods` must be `1` for queries that do not project timestamp column
+               > **Note:** `number_of_evaluation_periods` must be `1` for queries that do not project timestamp column
         """
         pulumi.set(__self__, "minimum_failing_periods_to_trigger_alert", minimum_failing_periods_to_trigger_alert)
         pulumi.set(__self__, "number_of_evaluation_periods", number_of_evaluation_periods)
@@ -6860,9 +6860,9 @@ class ScheduledQueryRulesAlertV2CriteriaFailingPeriods(dict):
         """
         Specifies the number of aggregated look-back points. The look-back time window is calculated based on the aggregation granularity `window_duration` and the selected number of aggregated points. Possible value is integer between 1 and 6.
 
-        > **Note** The query look back which is `window_duration`*`number_of_evaluation_periods` cannot exceed 48 hours.
+        > **Note:** The query look back which is `window_duration`*`number_of_evaluation_periods` cannot exceed 48 hours.
 
-        > **Note** `number_of_evaluation_periods` must be `1` for queries that do not project timestamp column
+        > **Note:** `number_of_evaluation_periods` must be `1` for queries that do not project timestamp column
         """
         return pulumi.get(self, "number_of_evaluation_periods")
 
@@ -6899,7 +6899,7 @@ class ScheduledQueryRulesAlertV2Identity(dict):
         :param builtins.str type: Specifies the type of Managed Service Identity that should be configured on this Scheduled Query Rule. Possible values are `SystemAssigned`, `UserAssigned`.
         :param Sequence[builtins.str] identity_ids: A list of User Assigned Managed Identity IDs to be assigned to this Scheduled Query Rule.
                
-               > **NOTE:** This is required when `type` is set to `UserAssigned`. The identity associated must have required roles, read the [Azure documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-create-log-alert-rule#configure-the-alert-rule-details) for more information.
+               > **Note:** This is required when `type` is set to `UserAssigned`. The identity associated must have required roles, read the [Azure documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-create-log-alert-rule#configure-the-alert-rule-details) for more information.
         :param builtins.str principal_id: The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service slot.
         :param builtins.str tenant_id: The Tenant ID for the Service Principal associated with the Managed Service Identity of this App Service slot.
         """
@@ -6925,7 +6925,7 @@ class ScheduledQueryRulesAlertV2Identity(dict):
         """
         A list of User Assigned Managed Identity IDs to be assigned to this Scheduled Query Rule.
 
-        > **NOTE:** This is required when `type` is set to `UserAssigned`. The identity associated must have required roles, read the [Azure documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-create-log-alert-rule#configure-the-alert-rule-details) for more information.
+        > **Note:** This is required when `type` is set to `UserAssigned`. The identity associated must have required roles, read the [Azure documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-create-log-alert-rule#configure-the-alert-rule-details) for more information.
         """
         return pulumi.get(self, "identity_ids")
 

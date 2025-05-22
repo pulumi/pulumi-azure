@@ -23,6 +23,13 @@ import * as utilities from "../utilities";
  * export const ipAddress = example.then(example => example.ipAddress);
  * export const fqdn = example.then(example => example.fqdn);
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.ContainerInstance`: 2023-05-01
  */
 export function getGroup(args: GetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -107,6 +114,13 @@ export interface GetGroupResult {
  * export const ipAddress = example.then(example => example.ipAddress);
  * export const fqdn = example.then(example => example.fqdn);
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.ContainerInstance`: 2023-05-01
  */
 export function getGroupOutput(args: GetGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

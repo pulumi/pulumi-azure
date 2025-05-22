@@ -169,6 +169,13 @@ def get_service(name: Optional[builtins.str] = None,
     pulumi.export("id", example.id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Communication`: 2023-03-31
+
 
     :param builtins.str name: The name of this Communication Service.
            *
@@ -208,6 +215,13 @@ def get_service_output(name: Optional[pulumi.Input[builtins.str]] = None,
         resource_group_name="existing")
     pulumi.export("id", example.id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Communication`: 2023-03-31
 
 
     :param builtins.str name: The name of this Communication Service.

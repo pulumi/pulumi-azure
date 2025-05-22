@@ -221,7 +221,7 @@ namespace Pulumi.Azure.AppConfiguration
         /// <summary>
         /// The value of the App Configuration Key. This should only be set when type is set to `kv`.
         /// 
-        /// &gt; **NOTE:** `value` and `vault_key_reference` are mutually exclusive.
+        /// &gt; **Note:** `value` and `vault_key_reference` are mutually exclusive.
         /// </summary>
         [Output("value")]
         public Output<string?> Value { get; private set; } = null!;
@@ -229,9 +229,9 @@ namespace Pulumi.Azure.AppConfiguration
         /// <summary>
         /// The ID of the vault secret this App Configuration Key refers to. This should only be set when `type` is set to `vault`.
         /// 
-        /// &gt; **NOTE:** `vault_key_reference` and `value` are mutually exclusive.
+        /// &gt; **Note:** `vault_key_reference` and `value` are mutually exclusive.
         /// 
-        /// &gt; **NOTE:** When setting the `vault_key_reference` using the `id` will pin the value to specific version of the secret, to reference latest secret value use `versionless_id`
+        /// &gt; **Note:** When setting the `vault_key_reference` using the `id` will pin the value to specific version of the secret, to reference latest secret value use `versionless_id`
         /// </summary>
         [Output("vaultKeyReference")]
         public Output<string?> VaultKeyReference { get; private set; } = null!;
@@ -339,7 +339,7 @@ namespace Pulumi.Azure.AppConfiguration
         /// <summary>
         /// The value of the App Configuration Key. This should only be set when type is set to `kv`.
         /// 
-        /// &gt; **NOTE:** `value` and `vault_key_reference` are mutually exclusive.
+        /// &gt; **Note:** `value` and `vault_key_reference` are mutually exclusive.
         /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }
@@ -347,9 +347,9 @@ namespace Pulumi.Azure.AppConfiguration
         /// <summary>
         /// The ID of the vault secret this App Configuration Key refers to. This should only be set when `type` is set to `vault`.
         /// 
-        /// &gt; **NOTE:** `vault_key_reference` and `value` are mutually exclusive.
+        /// &gt; **Note:** `vault_key_reference` and `value` are mutually exclusive.
         /// 
-        /// &gt; **NOTE:** When setting the `vault_key_reference` using the `id` will pin the value to specific version of the secret, to reference latest secret value use `versionless_id`
+        /// &gt; **Note:** When setting the `vault_key_reference` using the `id` will pin the value to specific version of the secret, to reference latest secret value use `versionless_id`
         /// </summary>
         [Input("vaultKeyReference")]
         public Input<string>? VaultKeyReference { get; set; }
@@ -419,7 +419,7 @@ namespace Pulumi.Azure.AppConfiguration
         /// <summary>
         /// The value of the App Configuration Key. This should only be set when type is set to `kv`.
         /// 
-        /// &gt; **NOTE:** `value` and `vault_key_reference` are mutually exclusive.
+        /// &gt; **Note:** `value` and `vault_key_reference` are mutually exclusive.
         /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }
@@ -427,9 +427,9 @@ namespace Pulumi.Azure.AppConfiguration
         /// <summary>
         /// The ID of the vault secret this App Configuration Key refers to. This should only be set when `type` is set to `vault`.
         /// 
-        /// &gt; **NOTE:** `vault_key_reference` and `value` are mutually exclusive.
+        /// &gt; **Note:** `vault_key_reference` and `value` are mutually exclusive.
         /// 
-        /// &gt; **NOTE:** When setting the `vault_key_reference` using the `id` will pin the value to specific version of the secret, to reference latest secret value use `versionless_id`
+        /// &gt; **Note:** When setting the `vault_key_reference` using the `id` will pin the value to specific version of the secret, to reference latest secret value use `versionless_id`
         /// </summary>
         [Input("vaultKeyReference")]
         public Input<string>? VaultKeyReference { get; set; }

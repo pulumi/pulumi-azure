@@ -169,6 +169,13 @@ def get_virtual_hub(name: Optional[builtins.str] = None,
     pulumi.export("virtualHubId", example.id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Network`: 2024-05-01
+
 
     :param builtins.str name: The name of the Virtual Hub.
     :param builtins.str resource_group_name: The Name of the Resource Group where the Virtual Hub exists.
@@ -206,6 +213,13 @@ def get_virtual_hub_output(name: Optional[pulumi.Input[builtins.str]] = None,
         resource_group_name="example-resources")
     pulumi.export("virtualHubId", example.id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Network`: 2024-05-01
 
 
     :param builtins.str name: The name of the Virtual Hub.

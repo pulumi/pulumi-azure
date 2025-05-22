@@ -31,6 +31,23 @@ class RoleAssignmentArgs:
                  skip_service_principal_aad_check: Optional[pulumi.Input[builtins.bool]] = None):
         """
         The set of arguments for constructing a RoleAssignment resource.
+        :param pulumi.Input[builtins.str] principal_id: The ID of the Principal (User, Group or Service Principal) to assign the Role Definition to. Changing this forces a new resource to be created.
+               
+               > **Note:** The Principal ID is also known as the Object ID (i.e. not the "Application ID" for applications). To assign Azure roles, the Principal must have `Microsoft.Authorization/roleAssignments/write` permissions. See [documentation](https://learn.microsoft.com/en-us/azure/role-based-access-control/role-assignments-portal) for more information.
+        :param pulumi.Input[builtins.str] condition: The condition that limits the resources that the role can be assigned to. Changing this forces a new resource to be created.
+        :param pulumi.Input[builtins.str] condition_version: The version of the condition. Possible values are `1.0` or `2.0`. Changing this forces a new resource to be created.
+        :param pulumi.Input[builtins.str] delegated_managed_identity_resource_id: The delegated Azure Resource ID which contains a Managed Identity. Changing this forces a new resource to be created.
+               
+               > **Note:** This field is only used in cross tenant scenarios.
+        :param pulumi.Input[builtins.str] description: The description for this Role Assignment. Changing this forces a new resource to be created.
+        :param pulumi.Input[builtins.str] name: A unique UUID/GUID for this Role Assignment - one will be generated if not specified. Changing this forces a new resource to be created.
+        :param pulumi.Input[builtins.str] role_definition_id: The Scoped-ID of the Role Definition. Changing this forces a new resource to be created. Conflicts with `role_definition_name`.
+        :param pulumi.Input[builtins.str] role_definition_name: The name of a built-in Role. Changing this forces a new resource to be created. Conflicts with `role_definition_id`.
+               
+               > **Note:** To assign `Marketplace Admin` role, the calling Principal must first be assigned Privileged Role Administrator (like `Owner` role) or Global Administrator. See [documentation](https://learn.microsoft.com/en-us/marketplace/create-manage-private-azure-marketplace-new#prerequisites) for more information.
+        :param pulumi.Input[builtins.bool] skip_service_principal_aad_check: If the `principal_id` is a newly provisioned `Service Principal` set this value to `true` to skip the `Azure Active Directory` check which may fail due to replication lag. This argument is only valid if the `principal_id` is a `Service Principal` identity. Defaults to `false`. Changing this forces a new resource to be created.
+               
+               > **Note:** This field takes effect only when `principal_id` is a `Service Principal` identity.
         """
         pulumi.set(__self__, "principal_id", principal_id)
         if condition is not None:
@@ -53,6 +70,11 @@ class RoleAssignmentArgs:
     @property
     @pulumi.getter(name="principalId")
     def principal_id(self) -> pulumi.Input[builtins.str]:
+        """
+        The ID of the Principal (User, Group or Service Principal) to assign the Role Definition to. Changing this forces a new resource to be created.
+
+        > **Note:** The Principal ID is also known as the Object ID (i.e. not the "Application ID" for applications). To assign Azure roles, the Principal must have `Microsoft.Authorization/roleAssignments/write` permissions. See [documentation](https://learn.microsoft.com/en-us/azure/role-based-access-control/role-assignments-portal) for more information.
+        """
         return pulumi.get(self, "principal_id")
 
     @principal_id.setter
@@ -62,6 +84,9 @@ class RoleAssignmentArgs:
     @property
     @pulumi.getter
     def condition(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The condition that limits the resources that the role can be assigned to. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "condition")
 
     @condition.setter
@@ -71,6 +96,9 @@ class RoleAssignmentArgs:
     @property
     @pulumi.getter(name="conditionVersion")
     def condition_version(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The version of the condition. Possible values are `1.0` or `2.0`. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "condition_version")
 
     @condition_version.setter
@@ -80,6 +108,11 @@ class RoleAssignmentArgs:
     @property
     @pulumi.getter(name="delegatedManagedIdentityResourceId")
     def delegated_managed_identity_resource_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The delegated Azure Resource ID which contains a Managed Identity. Changing this forces a new resource to be created.
+
+        > **Note:** This field is only used in cross tenant scenarios.
+        """
         return pulumi.get(self, "delegated_managed_identity_resource_id")
 
     @delegated_managed_identity_resource_id.setter
@@ -89,6 +122,9 @@ class RoleAssignmentArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The description for this Role Assignment. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -98,6 +134,9 @@ class RoleAssignmentArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        A unique UUID/GUID for this Role Assignment - one will be generated if not specified. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -107,6 +146,9 @@ class RoleAssignmentArgs:
     @property
     @pulumi.getter(name="roleDefinitionId")
     def role_definition_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The Scoped-ID of the Role Definition. Changing this forces a new resource to be created. Conflicts with `role_definition_name`.
+        """
         return pulumi.get(self, "role_definition_id")
 
     @role_definition_id.setter
@@ -116,6 +158,11 @@ class RoleAssignmentArgs:
     @property
     @pulumi.getter(name="roleDefinitionName")
     def role_definition_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The name of a built-in Role. Changing this forces a new resource to be created. Conflicts with `role_definition_id`.
+
+        > **Note:** To assign `Marketplace Admin` role, the calling Principal must first be assigned Privileged Role Administrator (like `Owner` role) or Global Administrator. See [documentation](https://learn.microsoft.com/en-us/marketplace/create-manage-private-azure-marketplace-new#prerequisites) for more information.
+        """
         return pulumi.get(self, "role_definition_name")
 
     @role_definition_name.setter
@@ -125,6 +172,11 @@ class RoleAssignmentArgs:
     @property
     @pulumi.getter(name="skipServicePrincipalAadCheck")
     def skip_service_principal_aad_check(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        If the `principal_id` is a newly provisioned `Service Principal` set this value to `true` to skip the `Azure Active Directory` check which may fail due to replication lag. This argument is only valid if the `principal_id` is a `Service Principal` identity. Defaults to `false`. Changing this forces a new resource to be created.
+
+        > **Note:** This field takes effect only when `principal_id` is a `Service Principal` identity.
+        """
         return pulumi.get(self, "skip_service_principal_aad_check")
 
     @skip_service_principal_aad_check.setter
@@ -147,6 +199,24 @@ class _RoleAssignmentState:
                  skip_service_principal_aad_check: Optional[pulumi.Input[builtins.bool]] = None):
         """
         Input properties used for looking up and filtering RoleAssignment resources.
+        :param pulumi.Input[builtins.str] condition: The condition that limits the resources that the role can be assigned to. Changing this forces a new resource to be created.
+        :param pulumi.Input[builtins.str] condition_version: The version of the condition. Possible values are `1.0` or `2.0`. Changing this forces a new resource to be created.
+        :param pulumi.Input[builtins.str] delegated_managed_identity_resource_id: The delegated Azure Resource ID which contains a Managed Identity. Changing this forces a new resource to be created.
+               
+               > **Note:** This field is only used in cross tenant scenarios.
+        :param pulumi.Input[builtins.str] description: The description for this Role Assignment. Changing this forces a new resource to be created.
+        :param pulumi.Input[builtins.str] name: A unique UUID/GUID for this Role Assignment - one will be generated if not specified. Changing this forces a new resource to be created.
+        :param pulumi.Input[builtins.str] principal_id: The ID of the Principal (User, Group or Service Principal) to assign the Role Definition to. Changing this forces a new resource to be created.
+               
+               > **Note:** The Principal ID is also known as the Object ID (i.e. not the "Application ID" for applications). To assign Azure roles, the Principal must have `Microsoft.Authorization/roleAssignments/write` permissions. See [documentation](https://learn.microsoft.com/en-us/azure/role-based-access-control/role-assignments-portal) for more information.
+        :param pulumi.Input[builtins.str] principal_type: The type of the `principal_id`, e.g. User, Group, Service Principal, Application, etc.
+        :param pulumi.Input[builtins.str] role_definition_id: The Scoped-ID of the Role Definition. Changing this forces a new resource to be created. Conflicts with `role_definition_name`.
+        :param pulumi.Input[builtins.str] role_definition_name: The name of a built-in Role. Changing this forces a new resource to be created. Conflicts with `role_definition_id`.
+               
+               > **Note:** To assign `Marketplace Admin` role, the calling Principal must first be assigned Privileged Role Administrator (like `Owner` role) or Global Administrator. See [documentation](https://learn.microsoft.com/en-us/marketplace/create-manage-private-azure-marketplace-new#prerequisites) for more information.
+        :param pulumi.Input[builtins.bool] skip_service_principal_aad_check: If the `principal_id` is a newly provisioned `Service Principal` set this value to `true` to skip the `Azure Active Directory` check which may fail due to replication lag. This argument is only valid if the `principal_id` is a `Service Principal` identity. Defaults to `false`. Changing this forces a new resource to be created.
+               
+               > **Note:** This field takes effect only when `principal_id` is a `Service Principal` identity.
         """
         if condition is not None:
             pulumi.set(__self__, "condition", condition)
@@ -172,6 +242,9 @@ class _RoleAssignmentState:
     @property
     @pulumi.getter
     def condition(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The condition that limits the resources that the role can be assigned to. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "condition")
 
     @condition.setter
@@ -181,6 +254,9 @@ class _RoleAssignmentState:
     @property
     @pulumi.getter(name="conditionVersion")
     def condition_version(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The version of the condition. Possible values are `1.0` or `2.0`. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "condition_version")
 
     @condition_version.setter
@@ -190,6 +266,11 @@ class _RoleAssignmentState:
     @property
     @pulumi.getter(name="delegatedManagedIdentityResourceId")
     def delegated_managed_identity_resource_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The delegated Azure Resource ID which contains a Managed Identity. Changing this forces a new resource to be created.
+
+        > **Note:** This field is only used in cross tenant scenarios.
+        """
         return pulumi.get(self, "delegated_managed_identity_resource_id")
 
     @delegated_managed_identity_resource_id.setter
@@ -199,6 +280,9 @@ class _RoleAssignmentState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The description for this Role Assignment. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -208,6 +292,9 @@ class _RoleAssignmentState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        A unique UUID/GUID for this Role Assignment - one will be generated if not specified. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -217,6 +304,11 @@ class _RoleAssignmentState:
     @property
     @pulumi.getter(name="principalId")
     def principal_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The ID of the Principal (User, Group or Service Principal) to assign the Role Definition to. Changing this forces a new resource to be created.
+
+        > **Note:** The Principal ID is also known as the Object ID (i.e. not the "Application ID" for applications). To assign Azure roles, the Principal must have `Microsoft.Authorization/roleAssignments/write` permissions. See [documentation](https://learn.microsoft.com/en-us/azure/role-based-access-control/role-assignments-portal) for more information.
+        """
         return pulumi.get(self, "principal_id")
 
     @principal_id.setter
@@ -226,6 +318,9 @@ class _RoleAssignmentState:
     @property
     @pulumi.getter(name="principalType")
     def principal_type(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The type of the `principal_id`, e.g. User, Group, Service Principal, Application, etc.
+        """
         return pulumi.get(self, "principal_type")
 
     @principal_type.setter
@@ -235,6 +330,9 @@ class _RoleAssignmentState:
     @property
     @pulumi.getter(name="roleDefinitionId")
     def role_definition_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The Scoped-ID of the Role Definition. Changing this forces a new resource to be created. Conflicts with `role_definition_name`.
+        """
         return pulumi.get(self, "role_definition_id")
 
     @role_definition_id.setter
@@ -244,6 +342,11 @@ class _RoleAssignmentState:
     @property
     @pulumi.getter(name="roleDefinitionName")
     def role_definition_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The name of a built-in Role. Changing this forces a new resource to be created. Conflicts with `role_definition_id`.
+
+        > **Note:** To assign `Marketplace Admin` role, the calling Principal must first be assigned Privileged Role Administrator (like `Owner` role) or Global Administrator. See [documentation](https://learn.microsoft.com/en-us/marketplace/create-manage-private-azure-marketplace-new#prerequisites) for more information.
+        """
         return pulumi.get(self, "role_definition_name")
 
     @role_definition_name.setter
@@ -253,6 +356,11 @@ class _RoleAssignmentState:
     @property
     @pulumi.getter(name="skipServicePrincipalAadCheck")
     def skip_service_principal_aad_check(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        If the `principal_id` is a newly provisioned `Service Principal` set this value to `true` to skip the `Azure Active Directory` check which may fail due to replication lag. This argument is only valid if the `principal_id` is a `Service Principal` identity. Defaults to `false`. Changing this forces a new resource to be created.
+
+        > **Note:** This field takes effect only when `principal_id` is a `Service Principal` identity.
+        """
         return pulumi.get(self, "skip_service_principal_aad_check")
 
     @skip_service_principal_aad_check.setter
@@ -277,9 +385,73 @@ class RoleAssignment(pulumi.CustomResource):
                  skip_service_principal_aad_check: Optional[pulumi.Input[builtins.bool]] = None,
                  __props__=None):
         """
-        Create a RoleAssignment resource with the given unique name, props, and options.
+        Assigns a given Principal (User or Group) to a given Role in a Private Azure Marketplace.
+
+        ## Example Usage
+
+        ### Using A Role Definition Name)
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.get_client_config()
+        example_role_assignment = azure.marketplace.RoleAssignment("example",
+            role_definition_name="Marketplace Admin",
+            principal_id=example.object_id)
+        ```
+
+        ### Using A Role Definition ID)
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.get_client_config()
+        example_get_role_definition = azure.authorization.get_role_definition(name="Log Analytics Reader")
+        example_role_assignment = azure.marketplace.RoleAssignment("example",
+            role_definition_id=example_get_role_definition.id,
+            principal_id=example.object_id)
+        ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Authorization`: 2022-05-01-preview, 2022-04-01
+
+        ## Import
+
+        Role Assignments can be imported using the `resource id`, e.g.
+
+        ```sh
+        $ pulumi import azure:marketplace/roleAssignment:RoleAssignment example /providers/Microsoft.Marketplace/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-0000-000000000000
+        ```
+
+        text
+
+        /providers/Microsoft.Marketplace/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-0000-000000000000|00000000-0000-0000-0000-000000000000
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[builtins.str] condition: The condition that limits the resources that the role can be assigned to. Changing this forces a new resource to be created.
+        :param pulumi.Input[builtins.str] condition_version: The version of the condition. Possible values are `1.0` or `2.0`. Changing this forces a new resource to be created.
+        :param pulumi.Input[builtins.str] delegated_managed_identity_resource_id: The delegated Azure Resource ID which contains a Managed Identity. Changing this forces a new resource to be created.
+               
+               > **Note:** This field is only used in cross tenant scenarios.
+        :param pulumi.Input[builtins.str] description: The description for this Role Assignment. Changing this forces a new resource to be created.
+        :param pulumi.Input[builtins.str] name: A unique UUID/GUID for this Role Assignment - one will be generated if not specified. Changing this forces a new resource to be created.
+        :param pulumi.Input[builtins.str] principal_id: The ID of the Principal (User, Group or Service Principal) to assign the Role Definition to. Changing this forces a new resource to be created.
+               
+               > **Note:** The Principal ID is also known as the Object ID (i.e. not the "Application ID" for applications). To assign Azure roles, the Principal must have `Microsoft.Authorization/roleAssignments/write` permissions. See [documentation](https://learn.microsoft.com/en-us/azure/role-based-access-control/role-assignments-portal) for more information.
+        :param pulumi.Input[builtins.str] role_definition_id: The Scoped-ID of the Role Definition. Changing this forces a new resource to be created. Conflicts with `role_definition_name`.
+        :param pulumi.Input[builtins.str] role_definition_name: The name of a built-in Role. Changing this forces a new resource to be created. Conflicts with `role_definition_id`.
+               
+               > **Note:** To assign `Marketplace Admin` role, the calling Principal must first be assigned Privileged Role Administrator (like `Owner` role) or Global Administrator. See [documentation](https://learn.microsoft.com/en-us/marketplace/create-manage-private-azure-marketplace-new#prerequisites) for more information.
+        :param pulumi.Input[builtins.bool] skip_service_principal_aad_check: If the `principal_id` is a newly provisioned `Service Principal` set this value to `true` to skip the `Azure Active Directory` check which may fail due to replication lag. This argument is only valid if the `principal_id` is a `Service Principal` identity. Defaults to `false`. Changing this forces a new resource to be created.
+               
+               > **Note:** This field takes effect only when `principal_id` is a `Service Principal` identity.
         """
         ...
     @overload
@@ -288,7 +460,54 @@ class RoleAssignment(pulumi.CustomResource):
                  args: RoleAssignmentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a RoleAssignment resource with the given unique name, props, and options.
+        Assigns a given Principal (User or Group) to a given Role in a Private Azure Marketplace.
+
+        ## Example Usage
+
+        ### Using A Role Definition Name)
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.get_client_config()
+        example_role_assignment = azure.marketplace.RoleAssignment("example",
+            role_definition_name="Marketplace Admin",
+            principal_id=example.object_id)
+        ```
+
+        ### Using A Role Definition ID)
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.get_client_config()
+        example_get_role_definition = azure.authorization.get_role_definition(name="Log Analytics Reader")
+        example_role_assignment = azure.marketplace.RoleAssignment("example",
+            role_definition_id=example_get_role_definition.id,
+            principal_id=example.object_id)
+        ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Authorization`: 2022-05-01-preview, 2022-04-01
+
+        ## Import
+
+        Role Assignments can be imported using the `resource id`, e.g.
+
+        ```sh
+        $ pulumi import azure:marketplace/roleAssignment:RoleAssignment example /providers/Microsoft.Marketplace/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-0000-000000000000
+        ```
+
+        text
+
+        /providers/Microsoft.Marketplace/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-0000-000000000000|00000000-0000-0000-0000-000000000000
+
         :param str resource_name: The name of the resource.
         :param RoleAssignmentArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -361,6 +580,24 @@ class RoleAssignment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[builtins.str] condition: The condition that limits the resources that the role can be assigned to. Changing this forces a new resource to be created.
+        :param pulumi.Input[builtins.str] condition_version: The version of the condition. Possible values are `1.0` or `2.0`. Changing this forces a new resource to be created.
+        :param pulumi.Input[builtins.str] delegated_managed_identity_resource_id: The delegated Azure Resource ID which contains a Managed Identity. Changing this forces a new resource to be created.
+               
+               > **Note:** This field is only used in cross tenant scenarios.
+        :param pulumi.Input[builtins.str] description: The description for this Role Assignment. Changing this forces a new resource to be created.
+        :param pulumi.Input[builtins.str] name: A unique UUID/GUID for this Role Assignment - one will be generated if not specified. Changing this forces a new resource to be created.
+        :param pulumi.Input[builtins.str] principal_id: The ID of the Principal (User, Group or Service Principal) to assign the Role Definition to. Changing this forces a new resource to be created.
+               
+               > **Note:** The Principal ID is also known as the Object ID (i.e. not the "Application ID" for applications). To assign Azure roles, the Principal must have `Microsoft.Authorization/roleAssignments/write` permissions. See [documentation](https://learn.microsoft.com/en-us/azure/role-based-access-control/role-assignments-portal) for more information.
+        :param pulumi.Input[builtins.str] principal_type: The type of the `principal_id`, e.g. User, Group, Service Principal, Application, etc.
+        :param pulumi.Input[builtins.str] role_definition_id: The Scoped-ID of the Role Definition. Changing this forces a new resource to be created. Conflicts with `role_definition_name`.
+        :param pulumi.Input[builtins.str] role_definition_name: The name of a built-in Role. Changing this forces a new resource to be created. Conflicts with `role_definition_id`.
+               
+               > **Note:** To assign `Marketplace Admin` role, the calling Principal must first be assigned Privileged Role Administrator (like `Owner` role) or Global Administrator. See [documentation](https://learn.microsoft.com/en-us/marketplace/create-manage-private-azure-marketplace-new#prerequisites) for more information.
+        :param pulumi.Input[builtins.bool] skip_service_principal_aad_check: If the `principal_id` is a newly provisioned `Service Principal` set this value to `true` to skip the `Azure Active Directory` check which may fail due to replication lag. This argument is only valid if the `principal_id` is a `Service Principal` identity. Defaults to `false`. Changing this forces a new resource to be created.
+               
+               > **Note:** This field takes effect only when `principal_id` is a `Service Principal` identity.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -381,50 +618,88 @@ class RoleAssignment(pulumi.CustomResource):
     @property
     @pulumi.getter
     def condition(self) -> pulumi.Output[Optional[builtins.str]]:
+        """
+        The condition that limits the resources that the role can be assigned to. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "condition")
 
     @property
     @pulumi.getter(name="conditionVersion")
     def condition_version(self) -> pulumi.Output[Optional[builtins.str]]:
+        """
+        The version of the condition. Possible values are `1.0` or `2.0`. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "condition_version")
 
     @property
     @pulumi.getter(name="delegatedManagedIdentityResourceId")
     def delegated_managed_identity_resource_id(self) -> pulumi.Output[Optional[builtins.str]]:
+        """
+        The delegated Azure Resource ID which contains a Managed Identity. Changing this forces a new resource to be created.
+
+        > **Note:** This field is only used in cross tenant scenarios.
+        """
         return pulumi.get(self, "delegated_managed_identity_resource_id")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[builtins.str]]:
+        """
+        The description for this Role Assignment. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[builtins.str]:
+        """
+        A unique UUID/GUID for this Role Assignment - one will be generated if not specified. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="principalId")
     def principal_id(self) -> pulumi.Output[builtins.str]:
+        """
+        The ID of the Principal (User, Group or Service Principal) to assign the Role Definition to. Changing this forces a new resource to be created.
+
+        > **Note:** The Principal ID is also known as the Object ID (i.e. not the "Application ID" for applications). To assign Azure roles, the Principal must have `Microsoft.Authorization/roleAssignments/write` permissions. See [documentation](https://learn.microsoft.com/en-us/azure/role-based-access-control/role-assignments-portal) for more information.
+        """
         return pulumi.get(self, "principal_id")
 
     @property
     @pulumi.getter(name="principalType")
     def principal_type(self) -> pulumi.Output[builtins.str]:
+        """
+        The type of the `principal_id`, e.g. User, Group, Service Principal, Application, etc.
+        """
         return pulumi.get(self, "principal_type")
 
     @property
     @pulumi.getter(name="roleDefinitionId")
     def role_definition_id(self) -> pulumi.Output[Optional[builtins.str]]:
+        """
+        The Scoped-ID of the Role Definition. Changing this forces a new resource to be created. Conflicts with `role_definition_name`.
+        """
         return pulumi.get(self, "role_definition_id")
 
     @property
     @pulumi.getter(name="roleDefinitionName")
     def role_definition_name(self) -> pulumi.Output[Optional[builtins.str]]:
+        """
+        The name of a built-in Role. Changing this forces a new resource to be created. Conflicts with `role_definition_id`.
+
+        > **Note:** To assign `Marketplace Admin` role, the calling Principal must first be assigned Privileged Role Administrator (like `Owner` role) or Global Administrator. See [documentation](https://learn.microsoft.com/en-us/marketplace/create-manage-private-azure-marketplace-new#prerequisites) for more information.
+        """
         return pulumi.get(self, "role_definition_name")
 
     @property
     @pulumi.getter(name="skipServicePrincipalAadCheck")
     def skip_service_principal_aad_check(self) -> pulumi.Output[Optional[builtins.bool]]:
+        """
+        If the `principal_id` is a newly provisioned `Service Principal` set this value to `true` to skip the `Azure Active Directory` check which may fail due to replication lag. This argument is only valid if the `principal_id` is a `Service Principal` identity. Defaults to `false`. Changing this forces a new resource to be created.
+
+        > **Note:** This field takes effect only when `principal_id` is a `Service Principal` identity.
+        """
         return pulumi.get(self, "skip_service_principal_aad_check")
 

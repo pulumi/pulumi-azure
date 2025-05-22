@@ -1454,7 +1454,7 @@ if not MYPY:
         """
         A list of Hostname(s) should be used for this HTTP Listener. It allows special wildcard characters.
 
-        > **NOTE** The `host_names` and `host_name` are mutually exclusive and cannot both be set.
+        > **Note:** The `host_names` and `host_name` are mutually exclusive and cannot both be set.
         """
         id: NotRequired[pulumi.Input[builtins.str]]
         """
@@ -1514,7 +1514,7 @@ class ApplicationGatewayHttpListenerArgs:
         :param pulumi.Input[builtins.str] host_name: The Hostname which should be used for this HTTP Listener. Setting this value changes Listener Type to 'Multi site'.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] host_names: A list of Hostname(s) should be used for this HTTP Listener. It allows special wildcard characters.
                
-               > **NOTE** The `host_names` and `host_name` are mutually exclusive and cannot both be set.
+               > **Note:** The `host_names` and `host_name` are mutually exclusive and cannot both be set.
         :param pulumi.Input[builtins.str] id: The ID of the Rewrite Rule Set
         :param pulumi.Input[builtins.bool] require_sni: Should Server Name Indication be Required? Defaults to `false`.
         :param pulumi.Input[builtins.str] ssl_certificate_id: The ID of the associated SSL Certificate.
@@ -1665,7 +1665,7 @@ class ApplicationGatewayHttpListenerArgs:
         """
         A list of Hostname(s) should be used for this HTTP Listener. It allows special wildcard characters.
 
-        > **NOTE** The `host_names` and `host_name` are mutually exclusive and cannot both be set.
+        > **Note:** The `host_names` and `host_name` are mutually exclusive and cannot both be set.
         """
         return pulumi.get(self, "host_names")
 
@@ -1951,7 +1951,7 @@ if not MYPY:
         """
         One or more `ip_configuration` blocks as defined below.
 
-        > **Please Note:** The `AllowApplicationGatewayPrivateLink` feature must be registered on the subscription before enabling private link
+        > **Note:** The `AllowApplicationGatewayPrivateLink` feature must be registered on the subscription before enabling private link
 
         ```bash
         az feature register --name AllowApplicationGatewayPrivateLink --namespace Microsoft.Network
@@ -1977,7 +1977,7 @@ class ApplicationGatewayPrivateLinkConfigurationArgs:
         """
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayPrivateLinkConfigurationIpConfigurationArgs']]] ip_configurations: One or more `ip_configuration` blocks as defined below.
                
-               > **Please Note:** The `AllowApplicationGatewayPrivateLink` feature must be registered on the subscription before enabling private link
+               > **Note:** The `AllowApplicationGatewayPrivateLink` feature must be registered on the subscription before enabling private link
                
                ```bash
                az feature register --name AllowApplicationGatewayPrivateLink --namespace Microsoft.Network
@@ -1996,7 +1996,7 @@ class ApplicationGatewayPrivateLinkConfigurationArgs:
         """
         One or more `ip_configuration` blocks as defined below.
 
-        > **Please Note:** The `AllowApplicationGatewayPrivateLink` feature must be registered on the subscription before enabling private link
+        > **Note:** The `AllowApplicationGatewayPrivateLink` feature must be registered on the subscription before enabling private link
 
         ```bash
         az feature register --name AllowApplicationGatewayPrivateLink --namespace Microsoft.Network
@@ -2643,7 +2643,7 @@ if not MYPY:
         """
         Rule evaluation order can be dictated by specifying an integer value from `1` to `20000` with `1` being the highest priority and `20000` being the lowest priority.
 
-        > **NOTE:** `priority` is required when `sku[0].tier` is set to `*_v2`.
+        > **Note:** `priority` is required when `sku[0].tier` is set to `*_v2`.
         """
         redirect_configuration_id: NotRequired[pulumi.Input[builtins.str]]
         """
@@ -2661,7 +2661,7 @@ if not MYPY:
         """
         The Name of the Rewrite Rule Set which should be used for this Routing Rule. Only valid for v2 SKUs.
 
-        > **NOTE:** `backend_address_pool_name`, `backend_http_settings_name`, `redirect_configuration_name`, and `rewrite_rule_set_name` are applicable only when `rule_type` is `Basic`.
+        > **Note:** `backend_address_pool_name`, `backend_http_settings_name`, `redirect_configuration_name`, and `rewrite_rule_set_name` are applicable only when `rule_type` is `Basic`.
         """
         url_path_map_id: NotRequired[pulumi.Input[builtins.str]]
         """
@@ -2705,13 +2705,13 @@ class ApplicationGatewayRequestRoutingRuleArgs:
         :param pulumi.Input[builtins.str] id: The ID of the Rewrite Rule Set
         :param pulumi.Input[builtins.int] priority: Rule evaluation order can be dictated by specifying an integer value from `1` to `20000` with `1` being the highest priority and `20000` being the lowest priority.
                
-               > **NOTE:** `priority` is required when `sku[0].tier` is set to `*_v2`.
+               > **Note:** `priority` is required when `sku[0].tier` is set to `*_v2`.
         :param pulumi.Input[builtins.str] redirect_configuration_id: The ID of the associated Redirect Configuration.
         :param pulumi.Input[builtins.str] redirect_configuration_name: The Name of the Redirect Configuration which should be used for this Routing Rule. Cannot be set if either `backend_address_pool_name` or `backend_http_settings_name` is set.
         :param pulumi.Input[builtins.str] rewrite_rule_set_id: The ID of the associated Rewrite Rule Set.
         :param pulumi.Input[builtins.str] rewrite_rule_set_name: The Name of the Rewrite Rule Set which should be used for this Routing Rule. Only valid for v2 SKUs.
                
-               > **NOTE:** `backend_address_pool_name`, `backend_http_settings_name`, `redirect_configuration_name`, and `rewrite_rule_set_name` are applicable only when `rule_type` is `Basic`.
+               > **Note:** `backend_address_pool_name`, `backend_http_settings_name`, `redirect_configuration_name`, and `rewrite_rule_set_name` are applicable only when `rule_type` is `Basic`.
         :param pulumi.Input[builtins.str] url_path_map_id: The ID of the associated URL Path Map.
         :param pulumi.Input[builtins.str] url_path_map_name: The Name of the URL Path Map which should be associated with this Routing Rule.
         """
@@ -2859,7 +2859,7 @@ class ApplicationGatewayRequestRoutingRuleArgs:
         """
         Rule evaluation order can be dictated by specifying an integer value from `1` to `20000` with `1` being the highest priority and `20000` being the lowest priority.
 
-        > **NOTE:** `priority` is required when `sku[0].tier` is set to `*_v2`.
+        > **Note:** `priority` is required when `sku[0].tier` is set to `*_v2`.
         """
         return pulumi.get(self, "priority")
 
@@ -2909,7 +2909,7 @@ class ApplicationGatewayRequestRoutingRuleArgs:
         """
         The Name of the Rewrite Rule Set which should be used for this Routing Rule. Only valid for v2 SKUs.
 
-        > **NOTE:** `backend_address_pool_name`, `backend_http_settings_name`, `redirect_configuration_name`, and `rewrite_rule_set_name` are applicable only when `rule_type` is `Basic`.
+        > **Note:** `backend_address_pool_name`, `backend_http_settings_name`, `redirect_configuration_name`, and `rewrite_rule_set_name` are applicable only when `rule_type` is `Basic`.
         """
         return pulumi.get(self, "rewrite_rule_set_name")
 
@@ -3511,7 +3511,7 @@ if not MYPY:
         """
         The base64-encoded PFX certificate data. Required if `key_vault_secret_id` is not set.
 
-        > **NOTE:** When specifying a file, use `data = filebase64("path/to/file")` to encode the contents of that file.
+        > **Note:** When specifying a file, use `data = filebase64("path/to/file")` to encode the contents of that file.
         """
         id: NotRequired[pulumi.Input[builtins.str]]
         """
@@ -3521,11 +3521,11 @@ if not MYPY:
         """
         The Secret ID of the (base-64 encoded unencrypted pfx) `Secret` or `Certificate` object stored in Azure KeyVault. You need to enable soft delete for Key Vault to use this feature. Required if `data` is not set.
 
-        > **NOTE:** To implement certificate rotation, `versionless_secret_id` should be used, although `secret_id` is also supported.
+        > **Note:** To implement certificate rotation, `versionless_secret_id` should be used, although `secret_id` is also supported.
 
-        > **NOTE:** TLS termination with Key Vault certificates is limited to the [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/key-vault-certs).
+        > **Note:** TLS termination with Key Vault certificates is limited to the [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/key-vault-certs).
 
-        > **NOTE:** For TLS termination with Key Vault certificates to work properly, an existing user-assigned managed identity, which Application Gateway uses to retrieve certificates from Key Vault, should be defined via `identity` block. Additionally, access policies in the Key Vault to allow the identity to be granted *get* access to the secret should be defined.
+        > **Note:** For TLS termination with Key Vault certificates to work properly, an existing user-assigned managed identity, which Application Gateway uses to retrieve certificates from Key Vault, should be defined via `identity` block. Additionally, access policies in the Key Vault to allow the identity to be granted *get* access to the secret should be defined.
         """
         password: NotRequired[pulumi.Input[builtins.str]]
         """
@@ -3551,15 +3551,15 @@ class ApplicationGatewaySslCertificateArgs:
         :param pulumi.Input[builtins.str] name: The Name of the SSL certificate that is unique within this Application Gateway
         :param pulumi.Input[builtins.str] data: The base64-encoded PFX certificate data. Required if `key_vault_secret_id` is not set.
                
-               > **NOTE:** When specifying a file, use `data = filebase64("path/to/file")` to encode the contents of that file.
+               > **Note:** When specifying a file, use `data = filebase64("path/to/file")` to encode the contents of that file.
         :param pulumi.Input[builtins.str] id: The ID of the Rewrite Rule Set
         :param pulumi.Input[builtins.str] key_vault_secret_id: The Secret ID of the (base-64 encoded unencrypted pfx) `Secret` or `Certificate` object stored in Azure KeyVault. You need to enable soft delete for Key Vault to use this feature. Required if `data` is not set.
                
-               > **NOTE:** To implement certificate rotation, `versionless_secret_id` should be used, although `secret_id` is also supported.
+               > **Note:** To implement certificate rotation, `versionless_secret_id` should be used, although `secret_id` is also supported.
                
-               > **NOTE:** TLS termination with Key Vault certificates is limited to the [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/key-vault-certs).
+               > **Note:** TLS termination with Key Vault certificates is limited to the [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/key-vault-certs).
                
-               > **NOTE:** For TLS termination with Key Vault certificates to work properly, an existing user-assigned managed identity, which Application Gateway uses to retrieve certificates from Key Vault, should be defined via `identity` block. Additionally, access policies in the Key Vault to allow the identity to be granted *get* access to the secret should be defined.
+               > **Note:** For TLS termination with Key Vault certificates to work properly, an existing user-assigned managed identity, which Application Gateway uses to retrieve certificates from Key Vault, should be defined via `identity` block. Additionally, access policies in the Key Vault to allow the identity to be granted *get* access to the secret should be defined.
         :param pulumi.Input[builtins.str] password: Password for the pfx file specified in data. Required if `data` is set.
         :param pulumi.Input[builtins.str] public_cert_data: The Public Certificate Data associated with the SSL Certificate.
         """
@@ -3593,7 +3593,7 @@ class ApplicationGatewaySslCertificateArgs:
         """
         The base64-encoded PFX certificate data. Required if `key_vault_secret_id` is not set.
 
-        > **NOTE:** When specifying a file, use `data = filebase64("path/to/file")` to encode the contents of that file.
+        > **Note:** When specifying a file, use `data = filebase64("path/to/file")` to encode the contents of that file.
         """
         return pulumi.get(self, "data")
 
@@ -3619,11 +3619,11 @@ class ApplicationGatewaySslCertificateArgs:
         """
         The Secret ID of the (base-64 encoded unencrypted pfx) `Secret` or `Certificate` object stored in Azure KeyVault. You need to enable soft delete for Key Vault to use this feature. Required if `data` is not set.
 
-        > **NOTE:** To implement certificate rotation, `versionless_secret_id` should be used, although `secret_id` is also supported.
+        > **Note:** To implement certificate rotation, `versionless_secret_id` should be used, although `secret_id` is also supported.
 
-        > **NOTE:** TLS termination with Key Vault certificates is limited to the [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/key-vault-certs).
+        > **Note:** TLS termination with Key Vault certificates is limited to the [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/key-vault-certs).
 
-        > **NOTE:** For TLS termination with Key Vault certificates to work properly, an existing user-assigned managed identity, which Application Gateway uses to retrieve certificates from Key Vault, should be defined via `identity` block. Additionally, access policies in the Key Vault to allow the identity to be granted *get* access to the secret should be defined.
+        > **Note:** For TLS termination with Key Vault certificates to work properly, an existing user-assigned managed identity, which Application Gateway uses to retrieve certificates from Key Vault, should be defined via `identity` block. Additionally, access policies in the Key Vault to allow the identity to be granted *get* access to the secret should be defined.
         """
         return pulumi.get(self, "key_vault_secret_id")
 
@@ -3663,7 +3663,7 @@ if not MYPY:
         """
         A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1`, `TLSv1_2` and `TLSv1_3`.
 
-        > **NOTE:** `disabled_protocols` cannot be set when `policy_name` or `policy_type` are set.
+        > **Note:** `disabled_protocols` cannot be set when `policy_name` or `policy_type` are set.
         """
         min_protocol_version: NotRequired[pulumi.Input[builtins.str]]
         policy_name: NotRequired[pulumi.Input[builtins.str]]
@@ -3671,7 +3671,7 @@ if not MYPY:
         """
         The Type of the Policy. Possible values are `Predefined`, `Custom` and `CustomV2`.
 
-        > **NOTE:** `policy_type` is Required when `policy_name` is set - cannot be set if `disabled_protocols` is set.
+        > **Note:** `policy_type` is Required when `policy_name` is set - cannot be set if `disabled_protocols` is set.
         """
 elif False:
     ApplicationGatewaySslPolicyArgsDict: TypeAlias = Mapping[str, Any]
@@ -3687,10 +3687,10 @@ class ApplicationGatewaySslPolicyArgs:
         """
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] disabled_protocols: A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1`, `TLSv1_2` and `TLSv1_3`.
                
-               > **NOTE:** `disabled_protocols` cannot be set when `policy_name` or `policy_type` are set.
+               > **Note:** `disabled_protocols` cannot be set when `policy_name` or `policy_type` are set.
         :param pulumi.Input[builtins.str] policy_type: The Type of the Policy. Possible values are `Predefined`, `Custom` and `CustomV2`.
                
-               > **NOTE:** `policy_type` is Required when `policy_name` is set - cannot be set if `disabled_protocols` is set.
+               > **Note:** `policy_type` is Required when `policy_name` is set - cannot be set if `disabled_protocols` is set.
         """
         if cipher_suites is not None:
             pulumi.set(__self__, "cipher_suites", cipher_suites)
@@ -3718,7 +3718,7 @@ class ApplicationGatewaySslPolicyArgs:
         """
         A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1`, `TLSv1_2` and `TLSv1_3`.
 
-        > **NOTE:** `disabled_protocols` cannot be set when `policy_name` or `policy_type` are set.
+        > **Note:** `disabled_protocols` cannot be set when `policy_name` or `policy_type` are set.
         """
         return pulumi.get(self, "disabled_protocols")
 
@@ -3750,7 +3750,7 @@ class ApplicationGatewaySslPolicyArgs:
         """
         The Type of the Policy. Possible values are `Predefined`, `Custom` and `CustomV2`.
 
-        > **NOTE:** `policy_type` is Required when `policy_name` is set - cannot be set if `disabled_protocols` is set.
+        > **Note:** `policy_type` is Required when `policy_name` is set - cannot be set if `disabled_protocols` is set.
         """
         return pulumi.get(self, "policy_type")
 
@@ -3897,7 +3897,7 @@ if not MYPY:
         """
         A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1`, `TLSv1_2` and `TLSv1_3`.
 
-        > **NOTE:** `disabled_protocols` cannot be set when `policy_name` or `policy_type` are set.
+        > **Note:** `disabled_protocols` cannot be set when `policy_name` or `policy_type` are set.
         """
         min_protocol_version: NotRequired[pulumi.Input[builtins.str]]
         policy_name: NotRequired[pulumi.Input[builtins.str]]
@@ -3905,7 +3905,7 @@ if not MYPY:
         """
         The Type of the Policy. Possible values are `Predefined`, `Custom` and `CustomV2`.
 
-        > **NOTE:** `policy_type` is Required when `policy_name` is set - cannot be set if `disabled_protocols` is set.
+        > **Note:** `policy_type` is Required when `policy_name` is set - cannot be set if `disabled_protocols` is set.
         """
 elif False:
     ApplicationGatewaySslProfileSslPolicyArgsDict: TypeAlias = Mapping[str, Any]
@@ -3921,10 +3921,10 @@ class ApplicationGatewaySslProfileSslPolicyArgs:
         """
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] disabled_protocols: A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1`, `TLSv1_2` and `TLSv1_3`.
                
-               > **NOTE:** `disabled_protocols` cannot be set when `policy_name` or `policy_type` are set.
+               > **Note:** `disabled_protocols` cannot be set when `policy_name` or `policy_type` are set.
         :param pulumi.Input[builtins.str] policy_type: The Type of the Policy. Possible values are `Predefined`, `Custom` and `CustomV2`.
                
-               > **NOTE:** `policy_type` is Required when `policy_name` is set - cannot be set if `disabled_protocols` is set.
+               > **Note:** `policy_type` is Required when `policy_name` is set - cannot be set if `disabled_protocols` is set.
         """
         if cipher_suites is not None:
             pulumi.set(__self__, "cipher_suites", cipher_suites)
@@ -3952,7 +3952,7 @@ class ApplicationGatewaySslProfileSslPolicyArgs:
         """
         A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1`, `TLSv1_2` and `TLSv1_3`.
 
-        > **NOTE:** `disabled_protocols` cannot be set when `policy_name` or `policy_type` are set.
+        > **Note:** `disabled_protocols` cannot be set when `policy_name` or `policy_type` are set.
         """
         return pulumi.get(self, "disabled_protocols")
 
@@ -3984,7 +3984,7 @@ class ApplicationGatewaySslProfileSslPolicyArgs:
         """
         The Type of the Policy. Possible values are `Predefined`, `Custom` and `CustomV2`.
 
-        > **NOTE:** `policy_type` is Required when `policy_name` is set - cannot be set if `disabled_protocols` is set.
+        > **Note:** `policy_type` is Required when `policy_name` is set - cannot be set if `disabled_protocols` is set.
         """
         return pulumi.get(self, "policy_type")
 
@@ -4081,11 +4081,11 @@ if not MYPY:
         """
         The Secret ID of the (base-64 encoded unencrypted pfx) `Secret` or `Certificate` object stored in Azure KeyVault. You need to enable soft delete for the Key Vault to use this feature. Required if `data` is not set.
 
-        > **NOTE:** To implement certificate rotation, `versionless_secret_id` should be used, although `secret_id` is also supported.
+        > **Note:** To implement certificate rotation, `versionless_secret_id` should be used, although `secret_id` is also supported.
 
-        > **NOTE:** TLS termination with Key Vault certificates is limited to the [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/key-vault-certs).
+        > **Note:** TLS termination with Key Vault certificates is limited to the [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/key-vault-certs).
 
-        > **NOTE:** For TLS termination with Key Vault certificates to work properly, an existing user-assigned managed identity, which Application Gateway uses to retrieve certificates from Key Vault, should be defined via `identity` block. Additionally, access policies in the Key Vault to allow the identity to be granted *get* access to the secret should be defined.
+        > **Note:** For TLS termination with Key Vault certificates to work properly, an existing user-assigned managed identity, which Application Gateway uses to retrieve certificates from Key Vault, should be defined via `identity` block. Additionally, access policies in the Key Vault to allow the identity to be granted *get* access to the secret should be defined.
         """
 elif False:
     ApplicationGatewayTrustedRootCertificateArgsDict: TypeAlias = Mapping[str, Any]
@@ -4103,11 +4103,11 @@ class ApplicationGatewayTrustedRootCertificateArgs:
         :param pulumi.Input[builtins.str] id: The ID of the Rewrite Rule Set
         :param pulumi.Input[builtins.str] key_vault_secret_id: The Secret ID of the (base-64 encoded unencrypted pfx) `Secret` or `Certificate` object stored in Azure KeyVault. You need to enable soft delete for the Key Vault to use this feature. Required if `data` is not set.
                
-               > **NOTE:** To implement certificate rotation, `versionless_secret_id` should be used, although `secret_id` is also supported.
+               > **Note:** To implement certificate rotation, `versionless_secret_id` should be used, although `secret_id` is also supported.
                
-               > **NOTE:** TLS termination with Key Vault certificates is limited to the [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/key-vault-certs).
+               > **Note:** TLS termination with Key Vault certificates is limited to the [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/key-vault-certs).
                
-               > **NOTE:** For TLS termination with Key Vault certificates to work properly, an existing user-assigned managed identity, which Application Gateway uses to retrieve certificates from Key Vault, should be defined via `identity` block. Additionally, access policies in the Key Vault to allow the identity to be granted *get* access to the secret should be defined.
+               > **Note:** For TLS termination with Key Vault certificates to work properly, an existing user-assigned managed identity, which Application Gateway uses to retrieve certificates from Key Vault, should be defined via `identity` block. Additionally, access policies in the Key Vault to allow the identity to be granted *get* access to the secret should be defined.
         """
         pulumi.set(__self__, "name", name)
         if data is not None:
@@ -4159,11 +4159,11 @@ class ApplicationGatewayTrustedRootCertificateArgs:
         """
         The Secret ID of the (base-64 encoded unencrypted pfx) `Secret` or `Certificate` object stored in Azure KeyVault. You need to enable soft delete for the Key Vault to use this feature. Required if `data` is not set.
 
-        > **NOTE:** To implement certificate rotation, `versionless_secret_id` should be used, although `secret_id` is also supported.
+        > **Note:** To implement certificate rotation, `versionless_secret_id` should be used, although `secret_id` is also supported.
 
-        > **NOTE:** TLS termination with Key Vault certificates is limited to the [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/key-vault-certs).
+        > **Note:** TLS termination with Key Vault certificates is limited to the [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/key-vault-certs).
 
-        > **NOTE:** For TLS termination with Key Vault certificates to work properly, an existing user-assigned managed identity, which Application Gateway uses to retrieve certificates from Key Vault, should be defined via `identity` block. Additionally, access policies in the Key Vault to allow the identity to be granted *get* access to the secret should be defined.
+        > **Note:** For TLS termination with Key Vault certificates to work properly, an existing user-assigned managed identity, which Application Gateway uses to retrieve certificates from Key Vault, should be defined via `identity` block. Additionally, access policies in the Key Vault to allow the identity to be granted *get* access to the secret should be defined.
         """
         return pulumi.get(self, "key_vault_secret_id")
 
@@ -4206,7 +4206,7 @@ if not MYPY:
         """
         The Name of the Default Redirect Configuration which should be used for this URL Path Map. Cannot be set if either `default_backend_address_pool_name` or `default_backend_http_settings_name` is set.
 
-        > **NOTE:** Both `default_backend_address_pool_name` and `default_backend_http_settings_name` or `default_redirect_configuration_name` should be specified.
+        > **Note:** Both `default_backend_address_pool_name` and `default_backend_http_settings_name` or `default_redirect_configuration_name` should be specified.
         """
         default_rewrite_rule_set_id: NotRequired[pulumi.Input[builtins.str]]
         default_rewrite_rule_set_name: NotRequired[pulumi.Input[builtins.str]]
@@ -4244,7 +4244,7 @@ class ApplicationGatewayUrlPathMapArgs:
         :param pulumi.Input[builtins.str] default_redirect_configuration_id: The ID of the Default Redirect Configuration.
         :param pulumi.Input[builtins.str] default_redirect_configuration_name: The Name of the Default Redirect Configuration which should be used for this URL Path Map. Cannot be set if either `default_backend_address_pool_name` or `default_backend_http_settings_name` is set.
                
-               > **NOTE:** Both `default_backend_address_pool_name` and `default_backend_http_settings_name` or `default_redirect_configuration_name` should be specified.
+               > **Note:** Both `default_backend_address_pool_name` and `default_backend_http_settings_name` or `default_redirect_configuration_name` should be specified.
         :param pulumi.Input[builtins.str] default_rewrite_rule_set_name: The Name of the Default Rewrite Rule Set which should be used for this URL Path Map. Only valid for v2 SKUs.
         :param pulumi.Input[builtins.str] id: The ID of the Rewrite Rule Set
         """
@@ -4359,7 +4359,7 @@ class ApplicationGatewayUrlPathMapArgs:
         """
         The Name of the Default Redirect Configuration which should be used for this URL Path Map. Cannot be set if either `default_backend_address_pool_name` or `default_backend_http_settings_name` is set.
 
-        > **NOTE:** Both `default_backend_address_pool_name` and `default_backend_http_settings_name` or `default_redirect_configuration_name` should be specified.
+        > **Note:** Both `default_backend_address_pool_name` and `default_backend_http_settings_name` or `default_redirect_configuration_name` should be specified.
         """
         return pulumi.get(self, "default_redirect_configuration_name")
 
@@ -4984,7 +4984,7 @@ if not MYPY:
         """
         The ID of the Route Filter. Only available when `peering_type` is set to `MicrosoftPeering`.
 
-        > **NOTE:** `ipv6` can be specified when `peering_type` is `MicrosoftPeering` or `AzurePrivatePeering`
+        > **Note:** `ipv6` can be specified when `peering_type` is `MicrosoftPeering` or `AzurePrivatePeering`
         """
 elif False:
     ExpressRouteCircuitPeeringIpv6ArgsDict: TypeAlias = Mapping[str, Any]
@@ -5004,7 +5004,7 @@ class ExpressRouteCircuitPeeringIpv6Args:
         :param pulumi.Input['ExpressRouteCircuitPeeringIpv6MicrosoftPeeringArgs'] microsoft_peering: A `microsoft_peering` block as defined below.
         :param pulumi.Input[builtins.str] route_filter_id: The ID of the Route Filter. Only available when `peering_type` is set to `MicrosoftPeering`.
                
-               > **NOTE:** `ipv6` can be specified when `peering_type` is `MicrosoftPeering` or `AzurePrivatePeering`
+               > **Note:** `ipv6` can be specified when `peering_type` is `MicrosoftPeering` or `AzurePrivatePeering`
         """
         pulumi.set(__self__, "primary_peer_address_prefix", primary_peer_address_prefix)
         pulumi.set(__self__, "secondary_peer_address_prefix", secondary_peer_address_prefix)
@@ -5069,7 +5069,7 @@ class ExpressRouteCircuitPeeringIpv6Args:
         """
         The ID of the Route Filter. Only available when `peering_type` is set to `MicrosoftPeering`.
 
-        > **NOTE:** `ipv6` can be specified when `peering_type` is `MicrosoftPeering` or `AzurePrivatePeering`
+        > **Note:** `ipv6` can be specified when `peering_type` is `MicrosoftPeering` or `AzurePrivatePeering`
         """
         return pulumi.get(self, "route_filter_id")
 
@@ -5267,7 +5267,7 @@ if not MYPY:
         """
         The billing mode for bandwidth. Possible values are `MeteredData` or `UnlimitedData`.
 
-        > **NOTE:** You can migrate from `MeteredData` to `UnlimitedData`, but not the other way around.
+        > **Note:** You can migrate from `MeteredData` to `UnlimitedData`, but not the other way around.
         """
         tier: pulumi.Input[builtins.str]
         """
@@ -5284,7 +5284,7 @@ class ExpressRouteCircuitSkuArgs:
         """
         :param pulumi.Input[builtins.str] family: The billing mode for bandwidth. Possible values are `MeteredData` or `UnlimitedData`.
                
-               > **NOTE:** You can migrate from `MeteredData` to `UnlimitedData`, but not the other way around.
+               > **Note:** You can migrate from `MeteredData` to `UnlimitedData`, but not the other way around.
         :param pulumi.Input[builtins.str] tier: The service tier. Possible values are `Basic`, `Local`, `Standard` or `Premium`.
         """
         pulumi.set(__self__, "family", family)
@@ -5296,7 +5296,7 @@ class ExpressRouteCircuitSkuArgs:
         """
         The billing mode for bandwidth. Possible values are `MeteredData` or `UnlimitedData`.
 
-        > **NOTE:** You can migrate from `MeteredData` to `UnlimitedData`, but not the other way around.
+        > **Note:** You can migrate from `MeteredData` to `UnlimitedData`, but not the other way around.
         """
         return pulumi.get(self, "family")
 
@@ -5572,7 +5572,7 @@ if not MYPY:
         """
         Should Secure Channel Identifier on the Express Route Port Link be enabled? Defaults to `false`.
 
-        > **NOTE** `macsec_ckn_keyvault_secret_id` and `macsec_cak_keyvault_secret_id` should be used together with `identity`, so that the Express Route Port instance have the right permission to access the Key Vault.
+        > **Note:** `macsec_ckn_keyvault_secret_id` and `macsec_cak_keyvault_secret_id` should be used together with `identity`, so that the Express Route Port instance have the right permission to access the Key Vault.
         """
         patch_panel_id: NotRequired[pulumi.Input[builtins.str]]
         """
@@ -5613,7 +5613,7 @@ class ExpressRoutePortLink1Args:
         :param pulumi.Input[builtins.str] macsec_ckn_keyvault_secret_id: The ID of the Key Vault Secret that contains the MACSec CKN key for this Express Route Port Link.
         :param pulumi.Input[builtins.bool] macsec_sci_enabled: Should Secure Channel Identifier on the Express Route Port Link be enabled? Defaults to `false`.
                
-               > **NOTE** `macsec_ckn_keyvault_secret_id` and `macsec_cak_keyvault_secret_id` should be used together with `identity`, so that the Express Route Port instance have the right permission to access the Key Vault.
+               > **Note:** `macsec_ckn_keyvault_secret_id` and `macsec_cak_keyvault_secret_id` should be used together with `identity`, so that the Express Route Port instance have the right permission to access the Key Vault.
         :param pulumi.Input[builtins.str] patch_panel_id: The ID that maps from the Express Route Port Link to the patch panel port.
         :param pulumi.Input[builtins.str] rack_id: The ID that maps from the patch panel port to the rack.
         :param pulumi.Input[builtins.str] router_name: The name of the Azure router associated with the Express Route Port Link.
@@ -5731,7 +5731,7 @@ class ExpressRoutePortLink1Args:
         """
         Should Secure Channel Identifier on the Express Route Port Link be enabled? Defaults to `false`.
 
-        > **NOTE** `macsec_ckn_keyvault_secret_id` and `macsec_cak_keyvault_secret_id` should be used together with `identity`, so that the Express Route Port instance have the right permission to access the Key Vault.
+        > **Note:** `macsec_ckn_keyvault_secret_id` and `macsec_cak_keyvault_secret_id` should be used together with `identity`, so that the Express Route Port instance have the right permission to access the Key Vault.
         """
         return pulumi.get(self, "macsec_sci_enabled")
 
@@ -5810,7 +5810,7 @@ if not MYPY:
         """
         Should Secure Channel Identifier on the Express Route Port Link be enabled? Defaults to `false`.
 
-        > **NOTE** `macsec_ckn_keyvault_secret_id` and `macsec_cak_keyvault_secret_id` should be used together with `identity`, so that the Express Route Port instance have the right permission to access the Key Vault.
+        > **Note:** `macsec_ckn_keyvault_secret_id` and `macsec_cak_keyvault_secret_id` should be used together with `identity`, so that the Express Route Port instance have the right permission to access the Key Vault.
         """
         patch_panel_id: NotRequired[pulumi.Input[builtins.str]]
         """
@@ -5851,7 +5851,7 @@ class ExpressRoutePortLink2Args:
         :param pulumi.Input[builtins.str] macsec_ckn_keyvault_secret_id: The ID of the Key Vault Secret that contains the MACSec CKN key for this Express Route Port Link.
         :param pulumi.Input[builtins.bool] macsec_sci_enabled: Should Secure Channel Identifier on the Express Route Port Link be enabled? Defaults to `false`.
                
-               > **NOTE** `macsec_ckn_keyvault_secret_id` and `macsec_cak_keyvault_secret_id` should be used together with `identity`, so that the Express Route Port instance have the right permission to access the Key Vault.
+               > **Note:** `macsec_ckn_keyvault_secret_id` and `macsec_cak_keyvault_secret_id` should be used together with `identity`, so that the Express Route Port instance have the right permission to access the Key Vault.
         :param pulumi.Input[builtins.str] patch_panel_id: The ID that maps from the Express Route Port Link to the patch panel port.
         :param pulumi.Input[builtins.str] rack_id: The ID that maps from the patch panel port to the rack.
         :param pulumi.Input[builtins.str] router_name: The name of the Azure router associated with the Express Route Port Link.
@@ -5969,7 +5969,7 @@ class ExpressRoutePortLink2Args:
         """
         Should Secure Channel Identifier on the Express Route Port Link be enabled? Defaults to `false`.
 
-        > **NOTE** `macsec_ckn_keyvault_secret_id` and `macsec_cak_keyvault_secret_id` should be used together with `identity`, so that the Express Route Port instance have the right permission to access the Key Vault.
+        > **Note:** `macsec_ckn_keyvault_secret_id` and `macsec_cak_keyvault_secret_id` should be used together with `identity`, so that the Express Route Port instance have the right permission to access the Key Vault.
         """
         return pulumi.get(self, "macsec_sci_enabled")
 
@@ -6040,7 +6040,7 @@ if not MYPY:
         """
         A list of source IP Group IDs for the rule.
 
-        > **NOTE** At least one of `source_addresses` and `source_ip_groups` must be specified for a rule.
+        > **Note:** At least one of `source_addresses` and `source_ip_groups` must be specified for a rule.
         """
         target_fqdns: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
         """
@@ -6067,7 +6067,7 @@ class FirewallApplicationRuleCollectionRuleArgs:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] source_addresses: A list of source IP addresses and/or IP ranges.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] source_ip_groups: A list of source IP Group IDs for the rule.
                
-               > **NOTE** At least one of `source_addresses` and `source_ip_groups` must be specified for a rule.
+               > **Note:** At least one of `source_addresses` and `source_ip_groups` must be specified for a rule.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] target_fqdns: A list of FQDNs.
         """
         pulumi.set(__self__, "name", name)
@@ -6150,7 +6150,7 @@ class FirewallApplicationRuleCollectionRuleArgs:
         """
         A list of source IP Group IDs for the rule.
 
-        > **NOTE** At least one of `source_addresses` and `source_ip_groups` must be specified for a rule.
+        > **Note:** At least one of `source_addresses` and `source_ip_groups` must be specified for a rule.
         """
         return pulumi.get(self, "source_ip_groups")
 
@@ -6235,19 +6235,19 @@ if not MYPY:
         """
         The ID of the Public IP Address associated with the firewall.
 
-        > **NOTE** A public ip address is required unless a `management_ip_configuration` block is specified.
+        > **Note:** A public ip address is required unless a `management_ip_configuration` block is specified.
 
-        > **NOTE** When multiple `ip_configuration` blocks with `public_ip_address_id` are configured, `pulumi up` will raise an error when one or some of these `ip_configuration` blocks are removed. because the `public_ip_address_id` is still used by the `firewall` resource until the `firewall` resource is updated. and the destruction of `network.PublicIp` happens before the update of firewall by default. to destroy of `network.PublicIp` will cause the error. The workaround is to set `create_before_destroy=true` to the `network.PublicIp` resource `lifecycle` block. See more detail: destroying.md#create-before-destroy
+        > **Note:** When multiple `ip_configuration` blocks with `public_ip_address_id` are configured, `pulumi up` will raise an error when one or some of these `ip_configuration` blocks are removed. because the `public_ip_address_id` is still used by the `firewall` resource until the `firewall` resource is updated. and the destruction of `network.PublicIp` happens before the update of firewall by default. to destroy of `network.PublicIp` will cause the error. The workaround is to set `create_before_destroy=true` to the `network.PublicIp` resource `lifecycle` block. See more detail: destroying.md#create-before-destroy
 
-        > **NOTE** The Public IP must have a `Static` allocation and `Standard` SKU.
+        > **Note:** The Public IP must have a `Static` allocation and `Standard` SKU.
         """
         subnet_id: NotRequired[pulumi.Input[builtins.str]]
         """
         Reference to the subnet associated with the IP Configuration. Changing this forces a new resource to be created.
 
-        > **NOTE** The Subnet used for the Firewall must have the name `AzureFirewallSubnet` and the subnet mask must be at least a `/26`.
+        > **Note:** The Subnet used for the Firewall must have the name `AzureFirewallSubnet` and the subnet mask must be at least a `/26`.
 
-        > **NOTE** At least one and only one `ip_configuration` block may contain a `subnet_id`.
+        > **Note:** At least one and only one `ip_configuration` block may contain a `subnet_id`.
         """
 elif False:
     FirewallIpConfigurationArgsDict: TypeAlias = Mapping[str, Any]
@@ -6264,16 +6264,16 @@ class FirewallIpConfigurationArgs:
         :param pulumi.Input[builtins.str] private_ip_address: The private IP address associated with the Firewall.
         :param pulumi.Input[builtins.str] public_ip_address_id: The ID of the Public IP Address associated with the firewall.
                
-               > **NOTE** A public ip address is required unless a `management_ip_configuration` block is specified.
+               > **Note:** A public ip address is required unless a `management_ip_configuration` block is specified.
                
-               > **NOTE** When multiple `ip_configuration` blocks with `public_ip_address_id` are configured, `pulumi up` will raise an error when one or some of these `ip_configuration` blocks are removed. because the `public_ip_address_id` is still used by the `firewall` resource until the `firewall` resource is updated. and the destruction of `network.PublicIp` happens before the update of firewall by default. to destroy of `network.PublicIp` will cause the error. The workaround is to set `create_before_destroy=true` to the `network.PublicIp` resource `lifecycle` block. See more detail: destroying.md#create-before-destroy
+               > **Note:** When multiple `ip_configuration` blocks with `public_ip_address_id` are configured, `pulumi up` will raise an error when one or some of these `ip_configuration` blocks are removed. because the `public_ip_address_id` is still used by the `firewall` resource until the `firewall` resource is updated. and the destruction of `network.PublicIp` happens before the update of firewall by default. to destroy of `network.PublicIp` will cause the error. The workaround is to set `create_before_destroy=true` to the `network.PublicIp` resource `lifecycle` block. See more detail: destroying.md#create-before-destroy
                
-               > **NOTE** The Public IP must have a `Static` allocation and `Standard` SKU.
+               > **Note:** The Public IP must have a `Static` allocation and `Standard` SKU.
         :param pulumi.Input[builtins.str] subnet_id: Reference to the subnet associated with the IP Configuration. Changing this forces a new resource to be created.
                
-               > **NOTE** The Subnet used for the Firewall must have the name `AzureFirewallSubnet` and the subnet mask must be at least a `/26`.
+               > **Note:** The Subnet used for the Firewall must have the name `AzureFirewallSubnet` and the subnet mask must be at least a `/26`.
                
-               > **NOTE** At least one and only one `ip_configuration` block may contain a `subnet_id`.
+               > **Note:** At least one and only one `ip_configuration` block may contain a `subnet_id`.
         """
         pulumi.set(__self__, "name", name)
         if private_ip_address is not None:
@@ -6313,11 +6313,11 @@ class FirewallIpConfigurationArgs:
         """
         The ID of the Public IP Address associated with the firewall.
 
-        > **NOTE** A public ip address is required unless a `management_ip_configuration` block is specified.
+        > **Note:** A public ip address is required unless a `management_ip_configuration` block is specified.
 
-        > **NOTE** When multiple `ip_configuration` blocks with `public_ip_address_id` are configured, `pulumi up` will raise an error when one or some of these `ip_configuration` blocks are removed. because the `public_ip_address_id` is still used by the `firewall` resource until the `firewall` resource is updated. and the destruction of `network.PublicIp` happens before the update of firewall by default. to destroy of `network.PublicIp` will cause the error. The workaround is to set `create_before_destroy=true` to the `network.PublicIp` resource `lifecycle` block. See more detail: destroying.md#create-before-destroy
+        > **Note:** When multiple `ip_configuration` blocks with `public_ip_address_id` are configured, `pulumi up` will raise an error when one or some of these `ip_configuration` blocks are removed. because the `public_ip_address_id` is still used by the `firewall` resource until the `firewall` resource is updated. and the destruction of `network.PublicIp` happens before the update of firewall by default. to destroy of `network.PublicIp` will cause the error. The workaround is to set `create_before_destroy=true` to the `network.PublicIp` resource `lifecycle` block. See more detail: destroying.md#create-before-destroy
 
-        > **NOTE** The Public IP must have a `Static` allocation and `Standard` SKU.
+        > **Note:** The Public IP must have a `Static` allocation and `Standard` SKU.
         """
         return pulumi.get(self, "public_ip_address_id")
 
@@ -6331,9 +6331,9 @@ class FirewallIpConfigurationArgs:
         """
         Reference to the subnet associated with the IP Configuration. Changing this forces a new resource to be created.
 
-        > **NOTE** The Subnet used for the Firewall must have the name `AzureFirewallSubnet` and the subnet mask must be at least a `/26`.
+        > **Note:** The Subnet used for the Firewall must have the name `AzureFirewallSubnet` and the subnet mask must be at least a `/26`.
 
-        > **NOTE** At least one and only one `ip_configuration` block may contain a `subnet_id`.
+        > **Note:** At least one and only one `ip_configuration` block may contain a `subnet_id`.
         """
         return pulumi.get(self, "subnet_id")
 
@@ -6352,13 +6352,13 @@ if not MYPY:
         """
         The ID of the Public IP Address associated with the firewall.
 
-        > **NOTE** The Public IP must have a `Static` allocation and `Standard` SKU.
+        > **Note:** The Public IP must have a `Static` allocation and `Standard` SKU.
         """
         subnet_id: pulumi.Input[builtins.str]
         """
         Reference to the subnet associated with the IP Configuration. Changing this forces a new resource to be created.
 
-        > **NOTE** The Management Subnet used for the Firewall must have the name `AzureFirewallManagementSubnet` and the subnet mask must be at least a `/26`.
+        > **Note:** The Management Subnet used for the Firewall must have the name `AzureFirewallManagementSubnet` and the subnet mask must be at least a `/26`.
         """
         private_ip_address: NotRequired[pulumi.Input[builtins.str]]
         """
@@ -6378,10 +6378,10 @@ class FirewallManagementIpConfigurationArgs:
         :param pulumi.Input[builtins.str] name: Specifies the name of the IP Configuration.
         :param pulumi.Input[builtins.str] public_ip_address_id: The ID of the Public IP Address associated with the firewall.
                
-               > **NOTE** The Public IP must have a `Static` allocation and `Standard` SKU.
+               > **Note:** The Public IP must have a `Static` allocation and `Standard` SKU.
         :param pulumi.Input[builtins.str] subnet_id: Reference to the subnet associated with the IP Configuration. Changing this forces a new resource to be created.
                
-               > **NOTE** The Management Subnet used for the Firewall must have the name `AzureFirewallManagementSubnet` and the subnet mask must be at least a `/26`.
+               > **Note:** The Management Subnet used for the Firewall must have the name `AzureFirewallManagementSubnet` and the subnet mask must be at least a `/26`.
         :param pulumi.Input[builtins.str] private_ip_address: The private IP address associated with the Firewall.
         """
         pulumi.set(__self__, "name", name)
@@ -6408,7 +6408,7 @@ class FirewallManagementIpConfigurationArgs:
         """
         The ID of the Public IP Address associated with the firewall.
 
-        > **NOTE** The Public IP must have a `Static` allocation and `Standard` SKU.
+        > **Note:** The Public IP must have a `Static` allocation and `Standard` SKU.
         """
         return pulumi.get(self, "public_ip_address_id")
 
@@ -6422,7 +6422,7 @@ class FirewallManagementIpConfigurationArgs:
         """
         Reference to the subnet associated with the IP Configuration. Changing this forces a new resource to be created.
 
-        > **NOTE** The Management Subnet used for the Firewall must have the name `AzureFirewallManagementSubnet` and the subnet mask must be at least a `/26`.
+        > **Note:** The Management Subnet used for the Firewall must have the name `AzureFirewallManagementSubnet` and the subnet mask must be at least a `/26`.
         """
         return pulumi.get(self, "subnet_id")
 
@@ -6481,7 +6481,7 @@ if not MYPY:
         """
         A list of source IP Group IDs for the rule.
 
-        > **NOTE** At least one of `source_addresses` and `source_ip_groups` must be specified for a rule.
+        > **Note:** At least one of `source_addresses` and `source_ip_groups` must be specified for a rule.
         """
 elif False:
     FirewallNatRuleCollectionRuleArgsDict: TypeAlias = Mapping[str, Any]
@@ -6509,7 +6509,7 @@ class FirewallNatRuleCollectionRuleArgs:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] source_addresses: A list of source IP addresses and/or IP ranges.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] source_ip_groups: A list of source IP Group IDs for the rule.
                
-               > **NOTE** At least one of `source_addresses` and `source_ip_groups` must be specified for a rule.
+               > **Note:** At least one of `source_addresses` and `source_ip_groups` must be specified for a rule.
         """
         pulumi.set(__self__, "destination_addresses", destination_addresses)
         pulumi.set(__self__, "destination_ports", destination_ports)
@@ -6626,7 +6626,7 @@ class FirewallNatRuleCollectionRuleArgs:
         """
         A list of source IP Group IDs for the rule.
 
-        > **NOTE** At least one of `source_addresses` and `source_ip_groups` must be specified for a rule.
+        > **Note:** At least one of `source_addresses` and `source_ip_groups` must be specified for a rule.
         """
         return pulumi.get(self, "source_ip_groups")
 
@@ -6661,9 +6661,9 @@ if not MYPY:
         """
         A list of destination FQDNS for the rule.
 
-        > **NOTE** [You must enable DNS Proxy to use FQDNs in your network rules](https://docs.microsoft.com/azure/firewall/fqdn-filtering-network-rules).
+        > **Note:** [You must enable DNS Proxy to use FQDNs in your network rules](https://docs.microsoft.com/azure/firewall/fqdn-filtering-network-rules).
 
-        > **NOTE** At least one of `destination_addresses`, `destination_ip_groups` and `destination_fqdns` must be specified for a rule.
+        > **Note:** At least one of `destination_addresses`, `destination_ip_groups` and `destination_fqdns` must be specified for a rule.
         """
         destination_ip_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
         """
@@ -6677,7 +6677,7 @@ if not MYPY:
         """
         A list of IP Group IDs for the rule.
 
-        > **NOTE** At least one of `source_addresses` and `source_ip_groups` must be specified for a rule.
+        > **Note:** At least one of `source_addresses` and `source_ip_groups` must be specified for a rule.
         """
 elif False:
     FirewallNetworkRuleCollectionRuleArgsDict: TypeAlias = Mapping[str, Any]
@@ -6702,14 +6702,14 @@ class FirewallNetworkRuleCollectionRuleArgs:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] destination_addresses: Either a list of destination IP addresses and/or IP ranges, or a list of destination [Service Tags](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags).
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] destination_fqdns: A list of destination FQDNS for the rule.
                
-               > **NOTE** [You must enable DNS Proxy to use FQDNs in your network rules](https://docs.microsoft.com/azure/firewall/fqdn-filtering-network-rules).
+               > **Note:** [You must enable DNS Proxy to use FQDNs in your network rules](https://docs.microsoft.com/azure/firewall/fqdn-filtering-network-rules).
                
-               > **NOTE** At least one of `destination_addresses`, `destination_ip_groups` and `destination_fqdns` must be specified for a rule.
+               > **Note:** At least one of `destination_addresses`, `destination_ip_groups` and `destination_fqdns` must be specified for a rule.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] destination_ip_groups: A list of destination IP Group IDs for the rule.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] source_addresses: A list of source IP addresses and/or IP ranges.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] source_ip_groups: A list of IP Group IDs for the rule.
                
-               > **NOTE** At least one of `source_addresses` and `source_ip_groups` must be specified for a rule.
+               > **Note:** At least one of `source_addresses` and `source_ip_groups` must be specified for a rule.
         """
         pulumi.set(__self__, "destination_ports", destination_ports)
         pulumi.set(__self__, "name", name)
@@ -6793,9 +6793,9 @@ class FirewallNetworkRuleCollectionRuleArgs:
         """
         A list of destination FQDNS for the rule.
 
-        > **NOTE** [You must enable DNS Proxy to use FQDNs in your network rules](https://docs.microsoft.com/azure/firewall/fqdn-filtering-network-rules).
+        > **Note:** [You must enable DNS Proxy to use FQDNs in your network rules](https://docs.microsoft.com/azure/firewall/fqdn-filtering-network-rules).
 
-        > **NOTE** At least one of `destination_addresses`, `destination_ip_groups` and `destination_fqdns` must be specified for a rule.
+        > **Note:** At least one of `destination_addresses`, `destination_ip_groups` and `destination_fqdns` must be specified for a rule.
         """
         return pulumi.get(self, "destination_fqdns")
 
@@ -6833,7 +6833,7 @@ class FirewallNetworkRuleCollectionRuleArgs:
         """
         A list of IP Group IDs for the rule.
 
-        > **NOTE** At least one of `source_addresses` and `source_ip_groups` must be specified for a rule.
+        > **Note:** At least one of `source_addresses` and `source_ip_groups` must be specified for a rule.
         """
         return pulumi.get(self, "source_ip_groups")
 
@@ -8069,7 +8069,7 @@ if not MYPY:
         """
         Specifies the translated FQDN.
 
-        > **NOTE:** Exactly one of `translated_address` and `translated_fqdn` should be set.
+        > **Note:** Exactly one of `translated_address` and `translated_fqdn` should be set.
         """
 elif False:
     FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgsDict: TypeAlias = Mapping[str, Any]
@@ -8094,7 +8094,7 @@ class FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs:
         :param pulumi.Input[builtins.str] translated_address: Specifies the translated address.
         :param pulumi.Input[builtins.str] translated_fqdn: Specifies the translated FQDN.
                
-               > **NOTE:** Exactly one of `translated_address` and `translated_fqdn` should be set.
+               > **Note:** Exactly one of `translated_address` and `translated_fqdn` should be set.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "protocols", protocols)
@@ -8213,7 +8213,7 @@ class FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs:
         """
         Specifies the translated FQDN.
 
-        > **NOTE:** Exactly one of `translated_address` and `translated_fqdn` should be set.
+        > **Note:** Exactly one of `translated_address` and `translated_fqdn` should be set.
         """
         return pulumi.get(self, "translated_fqdn")
 
@@ -9899,7 +9899,7 @@ if not MYPY:
         """
         Indicates whether to global mesh is supported for this group. Possible values are `true` and `false`.
 
-        > **NOTE:** A group can be global only if the `group_connectivity` is `DirectlyConnected`.
+        > **Note:** A group can be global only if the `group_connectivity` is `DirectlyConnected`.
         """
         use_hub_gateway: NotRequired[pulumi.Input[builtins.bool]]
         """
@@ -9920,7 +9920,7 @@ class NetworkManagerConnectivityConfigurationAppliesToGroupArgs:
         :param pulumi.Input[builtins.str] network_group_id: Specifies the resource ID of Network Group which the configuration applies to.
         :param pulumi.Input[builtins.bool] global_mesh_enabled: Indicates whether to global mesh is supported for this group. Possible values are `true` and `false`.
                
-               > **NOTE:** A group can be global only if the `group_connectivity` is `DirectlyConnected`.
+               > **Note:** A group can be global only if the `group_connectivity` is `DirectlyConnected`.
         :param pulumi.Input[builtins.bool] use_hub_gateway: Indicates whether the hub gateway is used. Possible values are `true` and `false`.
         """
         pulumi.set(__self__, "group_connectivity", group_connectivity)
@@ -9960,7 +9960,7 @@ class NetworkManagerConnectivityConfigurationAppliesToGroupArgs:
         """
         Indicates whether to global mesh is supported for this group. Possible values are `true` and `false`.
 
-        > **NOTE:** A group can be global only if the `group_connectivity` is `DirectlyConnected`.
+        > **Note:** A group can be global only if the `group_connectivity` is `DirectlyConnected`.
         """
         return pulumi.get(self, "global_mesh_enabled")
 
@@ -10109,7 +10109,7 @@ if not MYPY:
         """
         A list of management group IDs.
 
-        > **NOTE:** When specifying a scope at the management group level, you need to register the `Microsoft.Network` at the management group scope before deploying a Network Manager, more information can be found in the [Azure document](https://learn.microsoft.com/en-us/azure/virtual-network-manager/concept-network-manager-scope#scope).
+        > **Note:** When specifying a scope at the management group level, you need to register the `Microsoft.Network` at the management group scope before deploying a Network Manager, more information can be found in the [Azure document](https://learn.microsoft.com/en-us/azure/virtual-network-manager/concept-network-manager-scope#scope).
         """
         subscription_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
         """
@@ -10126,7 +10126,7 @@ class NetworkManagerScopeArgs:
         """
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] management_group_ids: A list of management group IDs.
                
-               > **NOTE:** When specifying a scope at the management group level, you need to register the `Microsoft.Network` at the management group scope before deploying a Network Manager, more information can be found in the [Azure document](https://learn.microsoft.com/en-us/azure/virtual-network-manager/concept-network-manager-scope#scope).
+               > **Note:** When specifying a scope at the management group level, you need to register the `Microsoft.Network` at the management group scope before deploying a Network Manager, more information can be found in the [Azure document](https://learn.microsoft.com/en-us/azure/virtual-network-manager/concept-network-manager-scope#scope).
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] subscription_ids: A list of subscription IDs.
         """
         if management_group_ids is not None:
@@ -10140,7 +10140,7 @@ class NetworkManagerScopeArgs:
         """
         A list of management group IDs.
 
-        > **NOTE:** When specifying a scope at the management group level, you need to register the `Microsoft.Network` at the management group scope before deploying a Network Manager, more information can be found in the [Azure document](https://learn.microsoft.com/en-us/azure/virtual-network-manager/concept-network-manager-scope#scope).
+        > **Note:** When specifying a scope at the management group level, you need to register the `Microsoft.Network` at the management group scope before deploying a Network Manager, more information can be found in the [Azure document](https://learn.microsoft.com/en-us/azure/virtual-network-manager/concept-network-manager-scope#scope).
         """
         return pulumi.get(self, "management_group_ids")
 
@@ -11677,7 +11677,7 @@ if not MYPY:
         """
         Specifies a list of resources or aliases that this Subnet Service Endpoint Storage Policy Definition applies to.
 
-        > **NOTE** The `service_resources` property must contain either Aliases or Resource IDs, but not both.
+        > **Note:** The `service_resources` property must contain either Aliases or Resource IDs, but not both.
         """
         description: NotRequired[pulumi.Input[builtins.str]]
         """
@@ -11701,7 +11701,7 @@ class SubnetServiceEndpointStoragePolicyDefinitionArgs:
         :param pulumi.Input[builtins.str] name: The name which should be used for this Subnet Service Endpoint Storage Policy Definition.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] service_resources: Specifies a list of resources or aliases that this Subnet Service Endpoint Storage Policy Definition applies to.
                
-               > **NOTE** The `service_resources` property must contain either Aliases or Resource IDs, but not both.
+               > **Note:** The `service_resources` property must contain either Aliases or Resource IDs, but not both.
         :param pulumi.Input[builtins.str] description: The description of this Subnet Service Endpoint Storage Policy Definition.
         :param pulumi.Input[builtins.str] service: The type of service resources. Valid values are `Microsoft.Storage` or `Global`. When the `service_resources` property contains resource IDs, this property must be `Microsoft.Storage`. When the `service_resources` property contains Aliases, this property must be `Global`. Defaults to `Microsoft.Storage`.
         """
@@ -11730,7 +11730,7 @@ class SubnetServiceEndpointStoragePolicyDefinitionArgs:
         """
         Specifies a list of resources or aliases that this Subnet Service Endpoint Storage Policy Definition applies to.
 
-        > **NOTE** The `service_resources` property must contain either Aliases or Resource IDs, but not both.
+        > **Note:** The `service_resources` property must contain either Aliases or Resource IDs, but not both.
         """
         return pulumi.get(self, "service_resources")
 
@@ -13801,7 +13801,7 @@ if not MYPY:
         List of the vpn authentication types for the virtual network gateway.
         The supported values are `AAD`, `Radius` and `Certificate`.
 
-        > **NOTE:** `vpn_auth_types` must be set when using multiple vpn authentication types.
+        > **Note:** `vpn_auth_types` must be set when using multiple vpn authentication types.
         """
         vpn_client_protocols: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
         """
@@ -13845,7 +13845,7 @@ class VirtualNetworkGatewayVpnClientConfigurationArgs:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] vpn_auth_types: List of the vpn authentication types for the virtual network gateway.
                The supported values are `AAD`, `Radius` and `Certificate`.
                
-               > **NOTE:** `vpn_auth_types` must be set when using multiple vpn authentication types.
+               > **Note:** `vpn_auth_types` must be set when using multiple vpn authentication types.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] vpn_client_protocols: List of the protocols supported by the vpn client.
                The supported values are `SSTP`, `IkeV2` and `OpenVPN`.
                Values `SSTP` and `IkeV2` are incompatible with the use of
@@ -14017,7 +14017,7 @@ class VirtualNetworkGatewayVpnClientConfigurationArgs:
         List of the vpn authentication types for the virtual network gateway.
         The supported values are `AAD`, `Radius` and `Certificate`.
 
-        > **NOTE:** `vpn_auth_types` must be set when using multiple vpn authentication types.
+        > **Note:** `vpn_auth_types` must be set when using multiple vpn authentication types.
         """
         return pulumi.get(self, "vpn_auth_types")
 
@@ -16567,7 +16567,7 @@ if not MYPY:
         """
         A `bgp` block as defined above.
 
-        > **NOTE:** The `link.bgp` has to be set when the `address_cidrs` isn't specified.
+        > **Note:** The `link.bgp` has to be set when the `address_cidrs` isn't specified.
         """
         fqdn: NotRequired[pulumi.Input[builtins.str]]
         """
@@ -16581,7 +16581,7 @@ if not MYPY:
         """
         The IP address of this VPN Site Link.
 
-        > **NOTE:** Either `fqdn` or `ip_address` should be specified.
+        > **Note:** Either `fqdn` or `ip_address` should be specified.
         """
         provider_name: NotRequired[pulumi.Input[builtins.str]]
         """
@@ -16608,12 +16608,12 @@ class VpnSiteLinkArgs:
         :param pulumi.Input[builtins.str] name: The name which should be used for this VPN Site Link.
         :param pulumi.Input['VpnSiteLinkBgpArgs'] bgp: A `bgp` block as defined above.
                
-               > **NOTE:** The `link.bgp` has to be set when the `address_cidrs` isn't specified.
+               > **Note:** The `link.bgp` has to be set when the `address_cidrs` isn't specified.
         :param pulumi.Input[builtins.str] fqdn: The FQDN of this VPN Site Link.
         :param pulumi.Input[builtins.str] id: The ID of the VPN Site Link.
         :param pulumi.Input[builtins.str] ip_address: The IP address of this VPN Site Link.
                
-               > **NOTE:** Either `fqdn` or `ip_address` should be specified.
+               > **Note:** Either `fqdn` or `ip_address` should be specified.
         :param pulumi.Input[builtins.str] provider_name: The name of the physical link at the VPN Site. Example: `ATT`, `Verizon`.
         :param pulumi.Input[builtins.int] speed_in_mbps: The speed of the VPN device at the branch location in unit of mbps. Defaults to `0`.
         """
@@ -16649,7 +16649,7 @@ class VpnSiteLinkArgs:
         """
         A `bgp` block as defined above.
 
-        > **NOTE:** The `link.bgp` has to be set when the `address_cidrs` isn't specified.
+        > **Note:** The `link.bgp` has to be set when the `address_cidrs` isn't specified.
         """
         return pulumi.get(self, "bgp")
 
@@ -16687,7 +16687,7 @@ class VpnSiteLinkArgs:
         """
         The IP address of this VPN Site Link.
 
-        > **NOTE:** Either `fqdn` or `ip_address` should be specified.
+        > **Note:** Either `fqdn` or `ip_address` should be specified.
         """
         return pulumi.get(self, "ip_address")
 

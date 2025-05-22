@@ -107,6 +107,13 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.ApiManagement`: 2022-08-01
+ *
  * ## Import
  *
  * API Management Certificates can be imported using the `resource id`, e.g.
@@ -158,13 +165,13 @@ export class Certificate extends pulumi.CustomResource {
     /**
      * The Client ID of the User Assigned Managed Identity to use for retrieving certificate.
      *
-     * > **NOTE:** If not specified, will use System Assigned identity of the API Management Service.
+     * > **Note:** If not specified, will use System Assigned identity of the API Management Service.
      */
     public readonly keyVaultIdentityClientId!: pulumi.Output<string | undefined>;
     /**
      * The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`.
      *
-     * > **NOTE:** Setting this field requires the `identity` block to be specified in API Management Service, since this identity is used to retrieve the Key Vault Certificate. Possible values are versioned or versionless secret ID. Auto-updating the Certificate from the Key Vault requires that Secret version isn't specified.
+     * > **Note:** Setting this field requires the `identity` block to be specified in API Management Service, since this identity is used to retrieve the Key Vault Certificate. Possible values are versioned or versionless secret ID. Auto-updating the Certificate from the Key Vault requires that Secret version isn't specified.
      */
     public readonly keyVaultSecretId!: pulumi.Output<string | undefined>;
     /**
@@ -178,7 +185,7 @@ export class Certificate extends pulumi.CustomResource {
     /**
      * The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** Either `data` or `keyVaultSecretId` must be specified - but not both.
+     * > **Note:** Either `data` or `keyVaultSecretId` must be specified - but not both.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
@@ -258,13 +265,13 @@ export interface CertificateState {
     /**
      * The Client ID of the User Assigned Managed Identity to use for retrieving certificate.
      *
-     * > **NOTE:** If not specified, will use System Assigned identity of the API Management Service.
+     * > **Note:** If not specified, will use System Assigned identity of the API Management Service.
      */
     keyVaultIdentityClientId?: pulumi.Input<string>;
     /**
      * The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`.
      *
-     * > **NOTE:** Setting this field requires the `identity` block to be specified in API Management Service, since this identity is used to retrieve the Key Vault Certificate. Possible values are versioned or versionless secret ID. Auto-updating the Certificate from the Key Vault requires that Secret version isn't specified.
+     * > **Note:** Setting this field requires the `identity` block to be specified in API Management Service, since this identity is used to retrieve the Key Vault Certificate. Possible values are versioned or versionless secret ID. Auto-updating the Certificate from the Key Vault requires that Secret version isn't specified.
      */
     keyVaultSecretId?: pulumi.Input<string>;
     /**
@@ -278,7 +285,7 @@ export interface CertificateState {
     /**
      * The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** Either `data` or `keyVaultSecretId` must be specified - but not both.
+     * > **Note:** Either `data` or `keyVaultSecretId` must be specified - but not both.
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
@@ -306,13 +313,13 @@ export interface CertificateArgs {
     /**
      * The Client ID of the User Assigned Managed Identity to use for retrieving certificate.
      *
-     * > **NOTE:** If not specified, will use System Assigned identity of the API Management Service.
+     * > **Note:** If not specified, will use System Assigned identity of the API Management Service.
      */
     keyVaultIdentityClientId?: pulumi.Input<string>;
     /**
      * The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`.
      *
-     * > **NOTE:** Setting this field requires the `identity` block to be specified in API Management Service, since this identity is used to retrieve the Key Vault Certificate. Possible values are versioned or versionless secret ID. Auto-updating the Certificate from the Key Vault requires that Secret version isn't specified.
+     * > **Note:** Setting this field requires the `identity` block to be specified in API Management Service, since this identity is used to retrieve the Key Vault Certificate. Possible values are versioned or versionless secret ID. Auto-updating the Certificate from the Key Vault requires that Secret version isn't specified.
      */
     keyVaultSecretId?: pulumi.Input<string>;
     /**
@@ -326,7 +333,7 @@ export interface CertificateArgs {
     /**
      * The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** Either `data` or `keyVaultSecretId` must be specified - but not both.
+     * > **Note:** Either `data` or `keyVaultSecretId` must be specified - but not both.
      */
     resourceGroupName: pulumi.Input<string>;
 }

@@ -42,7 +42,7 @@ import (
 //				Location:              example.Location,
 //				AdministratorLogin:    pulumi.String("mysqladminun"),
 //				AdministratorPassword: pulumi.String("H@Sh1CoR3!"),
-//				SkuName:               pulumi.String("B_Standard_B1s"),
+//				SkuName:               pulumi.String("B_Standard_B1ms"),
 //			})
 //			if err != nil {
 //				return err

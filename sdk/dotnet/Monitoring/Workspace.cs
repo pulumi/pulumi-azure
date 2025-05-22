@@ -42,6 +42,13 @@ namespace Pulumi.Azure.Monitoring
     /// });
     /// ```
     /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.Monitor`: 2023-04-03
+    /// 
     /// ## Import
     /// 
     /// Azure Monitor Workspace can be imported using the `resource id`, e.g.

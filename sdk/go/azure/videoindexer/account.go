@@ -67,6 +67,13 @@ import (
 //
 // ```
 //
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.VideoIndexer`: 2024-01-01
+//
 // ## Import
 //
 // Video Indexer Accounts can be imported using the `resource id`, e.g.

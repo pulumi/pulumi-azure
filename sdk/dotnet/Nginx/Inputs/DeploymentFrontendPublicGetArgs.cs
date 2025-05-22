@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Nginx.Inputs
         private InputList<string>? _ipAddresses;
 
         /// <summary>
-        /// Specifies a list of Public IP Resource ID to this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
+        /// Specifies a list of Public IP Resource ID to this NGINX Deployment.
         /// </summary>
         public InputList<string> IpAddresses
         {

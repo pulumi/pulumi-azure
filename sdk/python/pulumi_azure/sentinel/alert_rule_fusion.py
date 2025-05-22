@@ -228,6 +228,13 @@ class AlertRuleFusion(pulumi.CustomResource):
             alert_rule_template_guid="f71aba3d-28fb-450b-b192-4e76a83015c8")
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.OperationalInsights`: 2023-12-01-preview
+
         ## Import
 
         Sentinel Fusion Alert Rules can be imported using the `resource id`, e.g.
@@ -271,6 +278,13 @@ class AlertRuleFusion(pulumi.CustomResource):
             log_analytics_workspace_id=example_log_analytics_workspace_onboarding.workspace_id,
             alert_rule_template_guid="f71aba3d-28fb-450b-b192-4e76a83015c8")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.OperationalInsights`: 2023-12-01-preview
 
         ## Import
 

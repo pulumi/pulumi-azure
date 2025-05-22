@@ -176,7 +176,7 @@ public final class SoftwareUpdateConfigurationArgs extends com.pulumi.resources.
     /**
      * A `windows` block as defined below.
      * 
-     * &gt; **NOTE:** One of `linux` or `windows` must be specified.
+     * &gt; **Note:** One of `linux` or `windows` must be specified.
      * 
      */
     @Import(name="windows")
@@ -185,7 +185,7 @@ public final class SoftwareUpdateConfigurationArgs extends com.pulumi.resources.
     /**
      * @return A `windows` block as defined below.
      * 
-     * &gt; **NOTE:** One of `linux` or `windows` must be specified.
+     * &gt; **Note:** One of `linux` or `windows` must be specified.
      * 
      */
     public Optional<Output<SoftwareUpdateConfigurationWindowsArgs>> windows() {
@@ -459,7 +459,7 @@ public final class SoftwareUpdateConfigurationArgs extends com.pulumi.resources.
         /**
          * @param windows A `windows` block as defined below.
          * 
-         * &gt; **NOTE:** One of `linux` or `windows` must be specified.
+         * &gt; **Note:** One of `linux` or `windows` must be specified.
          * 
          * @return builder
          * 
@@ -472,7 +472,7 @@ public final class SoftwareUpdateConfigurationArgs extends com.pulumi.resources.
         /**
          * @param windows A `windows` block as defined below.
          * 
-         * &gt; **NOTE:** One of `linux` or `windows` must be specified.
+         * &gt; **Note:** One of `linux` or `windows` must be specified.
          * 
          * @return builder
          * 

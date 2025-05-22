@@ -20,6 +20,13 @@ import * as utilities from "../utilities";
  * });
  * export const azurermMarketplaceAgreementId = id;
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.MarketplaceOrdering`: 2015-06-01
  */
 export function getAgreement(args: GetAgreementArgs, opts?: pulumi.InvokeOptions): Promise<GetAgreementResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -78,6 +85,13 @@ export interface GetAgreementResult {
  * });
  * export const azurermMarketplaceAgreementId = id;
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.MarketplaceOrdering`: 2015-06-01
  */
 export function getAgreementOutput(args: GetAgreementOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAgreementResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

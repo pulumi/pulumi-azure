@@ -40,6 +40,13 @@ import (
 //	}
 //
 // ```
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This data source uses the following Azure API Providers:
+//
+// * `Microsoft.RecoveryServices`: 2024-04-01
 func LookupFabric(ctx *pulumi.Context, args *LookupFabricArgs, opts ...pulumi.InvokeOption) (*LookupFabricResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupFabricResult

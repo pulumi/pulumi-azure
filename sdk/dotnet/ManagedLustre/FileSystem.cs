@@ -26,7 +26,7 @@ namespace Pulumi.Azure.ManagedLustre
         /// <summary>
         /// An `encryption_key` block as defined below.
         /// 
-        /// &gt; **NOTE:** Removing `encryption_key` forces a new resource to be created.
+        /// &gt; **Note:** Removing `encryption_key` forces a new resource to be created.
         /// </summary>
         [Output("encryptionKey")]
         public Output<Outputs.FileSystemEncryptionKey?> EncryptionKey { get; private set; } = null!;
@@ -152,7 +152,7 @@ namespace Pulumi.Azure.ManagedLustre
         /// <summary>
         /// An `encryption_key` block as defined below.
         /// 
-        /// &gt; **NOTE:** Removing `encryption_key` forces a new resource to be created.
+        /// &gt; **Note:** Removing `encryption_key` forces a new resource to be created.
         /// </summary>
         [Input("encryptionKey")]
         public Input<Inputs.FileSystemEncryptionKeyArgs>? EncryptionKey { get; set; }
@@ -246,7 +246,7 @@ namespace Pulumi.Azure.ManagedLustre
         /// <summary>
         /// An `encryption_key` block as defined below.
         /// 
-        /// &gt; **NOTE:** Removing `encryption_key` forces a new resource to be created.
+        /// &gt; **Note:** Removing `encryption_key` forces a new resource to be created.
         /// </summary>
         [Input("encryptionKey")]
         public Input<Inputs.FileSystemEncryptionKeyGetArgs>? EncryptionKey { get; set; }

@@ -134,7 +134,7 @@ def get_share(acls: Optional[Sequence[Union['GetShareAclArgs', 'GetShareAclArgsD
     """
     Use this data source to access information about an existing File Share.
 
-    > **Note on Authentication** Shared Key authentication will always be used for this data source, as AzureAD authentication is not supported by the Storage API for files.
+    > **Note:** Shared Key authentication will always be used for this data source, as AzureAD authentication is not supported by the Storage API for files.
 
     ## Example Usage
 
@@ -148,13 +148,20 @@ def get_share(acls: Optional[Sequence[Union['GetShareAclArgs', 'GetShareAclArgsD
         storage_account_id=example.id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Storage`: 2023-05-01
+
 
     :param Sequence[Union['GetShareAclArgs', 'GetShareAclArgsDict']] acls: One or more acl blocks as defined below.
     :param Mapping[str, builtins.str] metadata: A map of custom file share metadata.
     :param builtins.str name: The name of the share.
     :param builtins.str storage_account_id: The ID of the storage account in which the share exists.
            
-           > **NOTE:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
+           > **Note:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
     :param builtins.str storage_account_name: The name of the storage account in which the share exists. This property is deprecated in favour of `storage_account_id`.
     """
     __args__ = dict()
@@ -184,7 +191,7 @@ def get_share_output(acls: Optional[pulumi.Input[Optional[Sequence[Union['GetSha
     """
     Use this data source to access information about an existing File Share.
 
-    > **Note on Authentication** Shared Key authentication will always be used for this data source, as AzureAD authentication is not supported by the Storage API for files.
+    > **Note:** Shared Key authentication will always be used for this data source, as AzureAD authentication is not supported by the Storage API for files.
 
     ## Example Usage
 
@@ -198,13 +205,20 @@ def get_share_output(acls: Optional[pulumi.Input[Optional[Sequence[Union['GetSha
         storage_account_id=example.id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Storage`: 2023-05-01
+
 
     :param Sequence[Union['GetShareAclArgs', 'GetShareAclArgsDict']] acls: One or more acl blocks as defined below.
     :param Mapping[str, builtins.str] metadata: A map of custom file share metadata.
     :param builtins.str name: The name of the share.
     :param builtins.str storage_account_id: The ID of the storage account in which the share exists.
            
-           > **NOTE:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
+           > **Note:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
     :param builtins.str storage_account_name: The name of the storage account in which the share exists. This property is deprecated in favour of `storage_account_id`.
     """
     __args__ = dict()

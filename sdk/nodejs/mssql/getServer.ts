@@ -21,6 +21,13 @@ import * as utilities from "../utilities";
  * });
  * export const id = example.then(example => example.id);
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.Sql`: 2023-08-01-preview
  */
 export function getServer(args: GetServerArgs, opts?: pulumi.InvokeOptions): Promise<GetServerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -49,11 +56,15 @@ export interface GetServerArgs {
  */
 export interface GetServerResult {
     /**
-     * The server's administrator login name.
+     * The administrator login name of the Microsoft SQL Server.
      */
     readonly administratorLogin: string;
     /**
-     * The fully qualified domain name of the Azure SQL Server.
+     * Whether the Express Vulnerability Assessment Configuration is enabled.
+     */
+    readonly expressVulnerabilityAssessmentEnabled: boolean;
+    /**
+     * The fully qualified domain name of the Microsoft SQL Server.
      */
     readonly fullyQualifiedDomainName: string;
     /**
@@ -61,7 +72,7 @@ export interface GetServerResult {
      */
     readonly id: string;
     /**
-     * A `identity` block as defined below.
+     * An `identity` block as defined below.
      */
     readonly identities: outputs.mssql.GetServerIdentity[];
     /**
@@ -71,7 +82,7 @@ export interface GetServerResult {
     readonly name: string;
     readonly resourceGroupName: string;
     /**
-     * A list of dropped restorable database IDs on the server.
+     * A list of dropped restorable database IDs on the Microsoft SQL Server.
      */
     readonly restorableDroppedDatabaseIds: string[];
     /**
@@ -79,11 +90,11 @@ export interface GetServerResult {
      */
     readonly tags: {[key: string]: string};
     /**
-     * The Key Vault key URI to be used as the `Customer Managed Key`(CMK/BYOK) for the `Transparent Data Encryption`(TDE) layer.
+     * The Key Vault Key URI to be used as the `Customer Managed Key` (CMK/BYOK) for the `Transparent Data Encryption` (TDE) layer.
      */
     readonly transparentDataEncryptionKeyVaultKeyId: string;
     /**
-     * This servers MS SQL version.
+     * The version of the Microsoft SQL Server.
      */
     readonly version: string;
 }
@@ -102,6 +113,13 @@ export interface GetServerResult {
  * });
  * export const id = example.then(example => example.id);
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.Sql`: 2023-08-01-preview
  */
 export function getServerOutput(args: GetServerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

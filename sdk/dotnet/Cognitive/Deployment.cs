@@ -56,6 +56,13 @@ namespace Pulumi.Azure.Cognitive
     /// });
     /// ```
     /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.CognitiveServices`: 2024-10-01
+    /// 
     /// ## Import
     /// 
     /// Cognitive Services Account Deployment can be imported using the `resource id`, e.g.

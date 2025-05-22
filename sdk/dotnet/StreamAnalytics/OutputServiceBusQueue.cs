@@ -86,7 +86,7 @@ namespace Pulumi.Azure.StreamAnalytics
         /// <summary>
         /// A key-value pair of system property columns that will be attached to the outgoing messages for the Service Bus Queue Output.
         /// 
-        /// &gt; **NOTE:** The acceptable keys are `ContentType`, `CorrelationId`, `Label`, `MessageId`, `PartitionKey`, `ReplyTo`, `ReplyToSessionId`, `ScheduledEnqueueTimeUtc`, `SessionId`, `TimeToLive` and `To`.
+        /// &gt; **Note:** The acceptable keys are `ContentType`, `CorrelationId`, `Label`, `MessageId`, `PartitionKey`, `ReplyTo`, `ReplyToSessionId`, `ScheduledEnqueueTimeUtc`, `SessionId`, `TimeToLive` and `To`.
         /// </summary>
         [Output("systemPropertyColumns")]
         public Output<ImmutableDictionary<string, string>?> SystemPropertyColumns { get; private set; } = null!;
@@ -223,7 +223,7 @@ namespace Pulumi.Azure.StreamAnalytics
         /// <summary>
         /// A key-value pair of system property columns that will be attached to the outgoing messages for the Service Bus Queue Output.
         /// 
-        /// &gt; **NOTE:** The acceptable keys are `ContentType`, `CorrelationId`, `Label`, `MessageId`, `PartitionKey`, `ReplyTo`, `ReplyToSessionId`, `ScheduledEnqueueTimeUtc`, `SessionId`, `TimeToLive` and `To`.
+        /// &gt; **Note:** The acceptable keys are `ContentType`, `CorrelationId`, `Label`, `MessageId`, `PartitionKey`, `ReplyTo`, `ReplyToSessionId`, `ScheduledEnqueueTimeUtc`, `SessionId`, `TimeToLive` and `To`.
         /// </summary>
         public InputMap<string> SystemPropertyColumns
         {
@@ -321,7 +321,7 @@ namespace Pulumi.Azure.StreamAnalytics
         /// <summary>
         /// A key-value pair of system property columns that will be attached to the outgoing messages for the Service Bus Queue Output.
         /// 
-        /// &gt; **NOTE:** The acceptable keys are `ContentType`, `CorrelationId`, `Label`, `MessageId`, `PartitionKey`, `ReplyTo`, `ReplyToSessionId`, `ScheduledEnqueueTimeUtc`, `SessionId`, `TimeToLive` and `To`.
+        /// &gt; **Note:** The acceptable keys are `ContentType`, `CorrelationId`, `Label`, `MessageId`, `PartitionKey`, `ReplyTo`, `ReplyToSessionId`, `ScheduledEnqueueTimeUtc`, `SessionId`, `TimeToLive` and `To`.
         /// </summary>
         public InputMap<string> SystemPropertyColumns
         {

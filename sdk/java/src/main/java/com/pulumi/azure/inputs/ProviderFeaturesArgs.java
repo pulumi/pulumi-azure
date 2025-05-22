@@ -7,6 +7,7 @@ import com.pulumi.azure.inputs.ProviderFeaturesApiManagementArgs;
 import com.pulumi.azure.inputs.ProviderFeaturesAppConfigurationArgs;
 import com.pulumi.azure.inputs.ProviderFeaturesApplicationInsightsArgs;
 import com.pulumi.azure.inputs.ProviderFeaturesCognitiveAccountArgs;
+import com.pulumi.azure.inputs.ProviderFeaturesDatabricksWorkspaceArgs;
 import com.pulumi.azure.inputs.ProviderFeaturesKeyVaultArgs;
 import com.pulumi.azure.inputs.ProviderFeaturesLogAnalyticsWorkspaceArgs;
 import com.pulumi.azure.inputs.ProviderFeaturesMachineLearningArgs;
@@ -58,6 +59,13 @@ public final class ProviderFeaturesArgs extends com.pulumi.resources.ResourceArg
 
     public Optional<Output<ProviderFeaturesCognitiveAccountArgs>> cognitiveAccount() {
         return Optional.ofNullable(this.cognitiveAccount);
+    }
+
+    @Import(name="databricksWorkspace")
+    private @Nullable Output<ProviderFeaturesDatabricksWorkspaceArgs> databricksWorkspace;
+
+    public Optional<Output<ProviderFeaturesDatabricksWorkspaceArgs>> databricksWorkspace() {
+        return Optional.ofNullable(this.databricksWorkspace);
     }
 
     @Import(name="keyVault")
@@ -165,6 +173,7 @@ public final class ProviderFeaturesArgs extends com.pulumi.resources.ResourceArg
         this.appConfiguration = $.appConfiguration;
         this.applicationInsights = $.applicationInsights;
         this.cognitiveAccount = $.cognitiveAccount;
+        this.databricksWorkspace = $.databricksWorkspace;
         this.keyVault = $.keyVault;
         this.logAnalyticsWorkspace = $.logAnalyticsWorkspace;
         this.machineLearning = $.machineLearning;
@@ -233,6 +242,15 @@ public final class ProviderFeaturesArgs extends com.pulumi.resources.ResourceArg
 
         public Builder cognitiveAccount(ProviderFeaturesCognitiveAccountArgs cognitiveAccount) {
             return cognitiveAccount(Output.of(cognitiveAccount));
+        }
+
+        public Builder databricksWorkspace(@Nullable Output<ProviderFeaturesDatabricksWorkspaceArgs> databricksWorkspace) {
+            $.databricksWorkspace = databricksWorkspace;
+            return this;
+        }
+
+        public Builder databricksWorkspace(ProviderFeaturesDatabricksWorkspaceArgs databricksWorkspace) {
+            return databricksWorkspace(Output.of(databricksWorkspace));
         }
 
         public Builder keyVault(@Nullable Output<ProviderFeaturesKeyVaultArgs> keyVault) {

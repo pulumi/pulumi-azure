@@ -70,6 +70,13 @@ import (
 //
 // ```
 //
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.OperationalInsights`: 2023-12-01-preview
+//
 // ## Import
 //
 // Sentinel MS Security Incident Alert Rules can be imported using the `resource id`, e.g.
@@ -100,7 +107,7 @@ type AlertRuleMsSecurityIncident struct {
 	ProductFilter pulumi.StringOutput `pulumi:"productFilter"`
 	// Only create incidents from alerts when alert severity level is contained in this list. Possible values are `High`, `Medium`, `Low` and `Informational`.
 	//
-	// > **NOTE** At least one of the severity filters need to be set.
+	// > **Note:** At least one of the severity filters need to be set.
 	SeverityFilters pulumi.StringArrayOutput `pulumi:"severityFilters"`
 }
 
@@ -166,7 +173,7 @@ type alertRuleMsSecurityIncidentState struct {
 	ProductFilter *string `pulumi:"productFilter"`
 	// Only create incidents from alerts when alert severity level is contained in this list. Possible values are `High`, `Medium`, `Low` and `Informational`.
 	//
-	// > **NOTE** At least one of the severity filters need to be set.
+	// > **Note:** At least one of the severity filters need to be set.
 	SeverityFilters []string `pulumi:"severityFilters"`
 }
 
@@ -191,7 +198,7 @@ type AlertRuleMsSecurityIncidentState struct {
 	ProductFilter pulumi.StringPtrInput
 	// Only create incidents from alerts when alert severity level is contained in this list. Possible values are `High`, `Medium`, `Low` and `Informational`.
 	//
-	// > **NOTE** At least one of the severity filters need to be set.
+	// > **Note:** At least one of the severity filters need to be set.
 	SeverityFilters pulumi.StringArrayInput
 }
 
@@ -220,7 +227,7 @@ type alertRuleMsSecurityIncidentArgs struct {
 	ProductFilter string `pulumi:"productFilter"`
 	// Only create incidents from alerts when alert severity level is contained in this list. Possible values are `High`, `Medium`, `Low` and `Informational`.
 	//
-	// > **NOTE** At least one of the severity filters need to be set.
+	// > **Note:** At least one of the severity filters need to be set.
 	SeverityFilters []string `pulumi:"severityFilters"`
 }
 
@@ -246,7 +253,7 @@ type AlertRuleMsSecurityIncidentArgs struct {
 	ProductFilter pulumi.StringInput
 	// Only create incidents from alerts when alert severity level is contained in this list. Possible values are `High`, `Medium`, `Low` and `Informational`.
 	//
-	// > **NOTE** At least one of the severity filters need to be set.
+	// > **Note:** At least one of the severity filters need to be set.
 	SeverityFilters pulumi.StringArrayInput
 }
 
@@ -384,7 +391,7 @@ func (o AlertRuleMsSecurityIncidentOutput) ProductFilter() pulumi.StringOutput {
 
 // Only create incidents from alerts when alert severity level is contained in this list. Possible values are `High`, `Medium`, `Low` and `Informational`.
 //
-// > **NOTE** At least one of the severity filters need to be set.
+// > **Note:** At least one of the severity filters need to be set.
 func (o AlertRuleMsSecurityIncidentOutput) SeverityFilters() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AlertRuleMsSecurityIncident) pulumi.StringArrayOutput { return v.SeverityFilters }).(pulumi.StringArrayOutput)
 }

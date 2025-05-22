@@ -231,6 +231,13 @@ class HybridConnection(pulumi.CustomResource):
             user_metadata="testmetadata")
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Relay`: 2021-11-01
+
         ## Import
 
         Relay Hybrid Connection's can be imported using the `resource id`, e.g.
@@ -280,6 +287,13 @@ class HybridConnection(pulumi.CustomResource):
             requires_client_authorization=False,
             user_metadata="testmetadata")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Relay`: 2021-11-01
 
         ## Import
 

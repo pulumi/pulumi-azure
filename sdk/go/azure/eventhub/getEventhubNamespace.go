@@ -41,6 +41,13 @@ import (
 //
 // ```
 //
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This data source uses the following Azure API Providers:
+//
+// * `Microsoft.EventHub`: 2024-01-01
+//
 // Deprecated: azure.eventhub.getEventhubNamespace has been deprecated in favor of azure.eventhub.getNamespace
 func GetEventhubNamespace(ctx *pulumi.Context, args *GetEventhubNamespaceArgs, opts ...pulumi.InvokeOption) (*GetEventhubNamespaceResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)

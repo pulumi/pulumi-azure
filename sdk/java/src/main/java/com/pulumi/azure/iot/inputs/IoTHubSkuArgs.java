@@ -18,7 +18,7 @@ public final class IoTHubSkuArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The number of provisioned IoT Hub units.
      * 
-     * &gt; **NOTE:** Only one IotHub can be on the `Free` tier per subscription.
+     * &gt; **Note:** Only one IotHub can be on the `Free` tier per subscription.
      * 
      */
     @Import(name="capacity", required=true)
@@ -27,7 +27,7 @@ public final class IoTHubSkuArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return The number of provisioned IoT Hub units.
      * 
-     * &gt; **NOTE:** Only one IotHub can be on the `Free` tier per subscription.
+     * &gt; **Note:** Only one IotHub can be on the `Free` tier per subscription.
      * 
      */
     public Output<Integer> capacity() {
@@ -37,7 +37,7 @@ public final class IoTHubSkuArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The name of the sku. Possible values are `B1`, `B2`, `B3`, `F1`, `S1`, `S2`, and `S3`.
      * 
-     * &gt; **NOTE:** The `F1` sku is on `Free` tier.
+     * &gt; **Note:** The `F1` sku is on `Free` tier.
      * 
      */
     @Import(name="name", required=true)
@@ -46,7 +46,7 @@ public final class IoTHubSkuArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return The name of the sku. Possible values are `B1`, `B2`, `B3`, `F1`, `S1`, `S2`, and `S3`.
      * 
-     * &gt; **NOTE:** The `F1` sku is on `Free` tier.
+     * &gt; **Note:** The `F1` sku is on `Free` tier.
      * 
      */
     public Output<String> name() {
@@ -81,7 +81,7 @@ public final class IoTHubSkuArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param capacity The number of provisioned IoT Hub units.
          * 
-         * &gt; **NOTE:** Only one IotHub can be on the `Free` tier per subscription.
+         * &gt; **Note:** Only one IotHub can be on the `Free` tier per subscription.
          * 
          * @return builder
          * 
@@ -94,7 +94,7 @@ public final class IoTHubSkuArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param capacity The number of provisioned IoT Hub units.
          * 
-         * &gt; **NOTE:** Only one IotHub can be on the `Free` tier per subscription.
+         * &gt; **Note:** Only one IotHub can be on the `Free` tier per subscription.
          * 
          * @return builder
          * 
@@ -106,7 +106,7 @@ public final class IoTHubSkuArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param name The name of the sku. Possible values are `B1`, `B2`, `B3`, `F1`, `S1`, `S2`, and `S3`.
          * 
-         * &gt; **NOTE:** The `F1` sku is on `Free` tier.
+         * &gt; **Note:** The `F1` sku is on `Free` tier.
          * 
          * @return builder
          * 
@@ -119,7 +119,7 @@ public final class IoTHubSkuArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param name The name of the sku. Possible values are `B1`, `B2`, `B3`, `F1`, `S1`, `S2`, and `S3`.
          * 
-         * &gt; **NOTE:** The `F1` sku is on `Free` tier.
+         * &gt; **Note:** The `F1` sku is on `Free` tier.
          * 
          * @return builder
          * 

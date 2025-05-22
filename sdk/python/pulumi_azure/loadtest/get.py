@@ -158,6 +158,13 @@ def get(name: Optional[builtins.str] = None,
     pulumi.export("loadTestId", example.id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.LoadTestService`: 2022-12-01
+
 
     :param builtins.str name: The name of the Load Test Service.
     :param builtins.str resource_group_name: The name of the Resource Group in which the Load Test Service exists.
@@ -194,6 +201,13 @@ def get_output(name: Optional[pulumi.Input[builtins.str]] = None,
         name="example-load-test")
     pulumi.export("loadTestId", example.id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.LoadTestService`: 2022-12-01
 
 
     :param builtins.str name: The name of the Load Test Service.

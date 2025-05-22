@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Manages the File Upload of an IoT Hub.
  *
- * > **NOTE:** File upload can be defined either directly on the `azure.iot.IoTHub` resource, or using the `azure.iot.FileUpload` resource - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
+ * > **Note:** File upload can be defined either directly on the `azure.iot.IoTHub` resource, or using the `azure.iot.FileUpload` resource - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
  *
  * ## Example Usage
  *
@@ -102,7 +102,7 @@ export class FileUpload extends pulumi.CustomResource {
     /**
      * The ID of the User Managed Identity used to authenticate against the storage account.
      *
-     * > **NOTE:** `identityId` can only be specified when `authenticationType` is `identityBased`. It must be one of the `identityIds` of the IoT Hub. If `identityId` is omitted when `authenticationType` is `identityBased`, then the System-Assigned Managed Identity of the IoT Hub will be used.
+     * > **Note:** `identityId` can only be specified when `authenticationType` is `identityBased`. It must be one of the `identityIds` of the IoT Hub. If `identityId` is omitted when `authenticationType` is `identityBased`, then the System-Assigned Managed Identity of the IoT Hub will be used.
      */
     public readonly identityId!: pulumi.Output<string | undefined>;
     /**
@@ -201,7 +201,7 @@ export interface FileUploadState {
     /**
      * The ID of the User Managed Identity used to authenticate against the storage account.
      *
-     * > **NOTE:** `identityId` can only be specified when `authenticationType` is `identityBased`. It must be one of the `identityIds` of the IoT Hub. If `identityId` is omitted when `authenticationType` is `identityBased`, then the System-Assigned Managed Identity of the IoT Hub will be used.
+     * > **Note:** `identityId` can only be specified when `authenticationType` is `identityBased`. It must be one of the `identityIds` of the IoT Hub. If `identityId` is omitted when `authenticationType` is `identityBased`, then the System-Assigned Managed Identity of the IoT Hub will be used.
      */
     identityId?: pulumi.Input<string>;
     /**
@@ -249,7 +249,7 @@ export interface FileUploadArgs {
     /**
      * The ID of the User Managed Identity used to authenticate against the storage account.
      *
-     * > **NOTE:** `identityId` can only be specified when `authenticationType` is `identityBased`. It must be one of the `identityIds` of the IoT Hub. If `identityId` is omitted when `authenticationType` is `identityBased`, then the System-Assigned Managed Identity of the IoT Hub will be used.
+     * > **Note:** `identityId` can only be specified when `authenticationType` is `identityBased`. It must be one of the `identityIds` of the IoT Hub. If `identityId` is omitted when `authenticationType` is `identityBased`, then the System-Assigned Managed Identity of the IoT Hub will be used.
      */
     identityId?: pulumi.Input<string>;
     /**

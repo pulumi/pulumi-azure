@@ -55,6 +55,13 @@ import (
 //
 // ```
 //
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.ElasticSan`: 2023-01-01
+//
 // ## Import
 //
 // An existing Elastic SAN can be imported into Pulumi using the `resource id`, e.g.
@@ -67,11 +74,11 @@ type ElasticSan struct {
 
 	// Specifies the base size of the Elastic SAN resource in TiB. Possible values are between `1` and `100`.
 	//
-	// > **NOTE** When updating `baseSizeInTib`, the new value should be greater than the existing one.
+	// > **Note:** When updating `baseSizeInTib`, the new value should be greater than the existing one.
 	BaseSizeInTib pulumi.IntOutput `pulumi:"baseSizeInTib"`
 	// Specifies the extended size of the Elastic SAN resource in TiB. Possible values are between `1` and `100`.
 	//
-	// > **NOTE** `extendedSizeInTib` cannot be removed and when updating, the new value should be greater than the existing one.
+	// > **Note:** `extendedSizeInTib` cannot be removed and when updating, the new value should be greater than the existing one.
 	ExtendedSizeInTib pulumi.IntPtrOutput `pulumi:"extendedSizeInTib"`
 	// The Azure Region where the Elastic SAN resource should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -95,7 +102,7 @@ type ElasticSan struct {
 	VolumeGroupCount pulumi.IntOutput `pulumi:"volumeGroupCount"`
 	// Logical zone for the Elastic SAN resource. Changing this forces a new resource to be created.
 	//
-	// > **NOTE** `zones` cannot be specified if `sku.name` is set to `Premium_ZRS`.
+	// > **Note:** `zones` cannot be specified if `sku.name` is set to `Premium_ZRS`.
 	Zones pulumi.StringArrayOutput `pulumi:"zones"`
 }
 
@@ -140,11 +147,11 @@ func GetElasticSan(ctx *pulumi.Context,
 type elasticSanState struct {
 	// Specifies the base size of the Elastic SAN resource in TiB. Possible values are between `1` and `100`.
 	//
-	// > **NOTE** When updating `baseSizeInTib`, the new value should be greater than the existing one.
+	// > **Note:** When updating `baseSizeInTib`, the new value should be greater than the existing one.
 	BaseSizeInTib *int `pulumi:"baseSizeInTib"`
 	// Specifies the extended size of the Elastic SAN resource in TiB. Possible values are between `1` and `100`.
 	//
-	// > **NOTE** `extendedSizeInTib` cannot be removed and when updating, the new value should be greater than the existing one.
+	// > **Note:** `extendedSizeInTib` cannot be removed and when updating, the new value should be greater than the existing one.
 	ExtendedSizeInTib *int `pulumi:"extendedSizeInTib"`
 	// The Azure Region where the Elastic SAN resource should exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -168,18 +175,18 @@ type elasticSanState struct {
 	VolumeGroupCount *int `pulumi:"volumeGroupCount"`
 	// Logical zone for the Elastic SAN resource. Changing this forces a new resource to be created.
 	//
-	// > **NOTE** `zones` cannot be specified if `sku.name` is set to `Premium_ZRS`.
+	// > **Note:** `zones` cannot be specified if `sku.name` is set to `Premium_ZRS`.
 	Zones []string `pulumi:"zones"`
 }
 
 type ElasticSanState struct {
 	// Specifies the base size of the Elastic SAN resource in TiB. Possible values are between `1` and `100`.
 	//
-	// > **NOTE** When updating `baseSizeInTib`, the new value should be greater than the existing one.
+	// > **Note:** When updating `baseSizeInTib`, the new value should be greater than the existing one.
 	BaseSizeInTib pulumi.IntPtrInput
 	// Specifies the extended size of the Elastic SAN resource in TiB. Possible values are between `1` and `100`.
 	//
-	// > **NOTE** `extendedSizeInTib` cannot be removed and when updating, the new value should be greater than the existing one.
+	// > **Note:** `extendedSizeInTib` cannot be removed and when updating, the new value should be greater than the existing one.
 	ExtendedSizeInTib pulumi.IntPtrInput
 	// The Azure Region where the Elastic SAN resource should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -203,7 +210,7 @@ type ElasticSanState struct {
 	VolumeGroupCount pulumi.IntPtrInput
 	// Logical zone for the Elastic SAN resource. Changing this forces a new resource to be created.
 	//
-	// > **NOTE** `zones` cannot be specified if `sku.name` is set to `Premium_ZRS`.
+	// > **Note:** `zones` cannot be specified if `sku.name` is set to `Premium_ZRS`.
 	Zones pulumi.StringArrayInput
 }
 
@@ -214,11 +221,11 @@ func (ElasticSanState) ElementType() reflect.Type {
 type elasticSanArgs struct {
 	// Specifies the base size of the Elastic SAN resource in TiB. Possible values are between `1` and `100`.
 	//
-	// > **NOTE** When updating `baseSizeInTib`, the new value should be greater than the existing one.
+	// > **Note:** When updating `baseSizeInTib`, the new value should be greater than the existing one.
 	BaseSizeInTib int `pulumi:"baseSizeInTib"`
 	// Specifies the extended size of the Elastic SAN resource in TiB. Possible values are between `1` and `100`.
 	//
-	// > **NOTE** `extendedSizeInTib` cannot be removed and when updating, the new value should be greater than the existing one.
+	// > **Note:** `extendedSizeInTib` cannot be removed and when updating, the new value should be greater than the existing one.
 	ExtendedSizeInTib *int `pulumi:"extendedSizeInTib"`
 	// The Azure Region where the Elastic SAN resource should exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -232,7 +239,7 @@ type elasticSanArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Logical zone for the Elastic SAN resource. Changing this forces a new resource to be created.
 	//
-	// > **NOTE** `zones` cannot be specified if `sku.name` is set to `Premium_ZRS`.
+	// > **Note:** `zones` cannot be specified if `sku.name` is set to `Premium_ZRS`.
 	Zones []string `pulumi:"zones"`
 }
 
@@ -240,11 +247,11 @@ type elasticSanArgs struct {
 type ElasticSanArgs struct {
 	// Specifies the base size of the Elastic SAN resource in TiB. Possible values are between `1` and `100`.
 	//
-	// > **NOTE** When updating `baseSizeInTib`, the new value should be greater than the existing one.
+	// > **Note:** When updating `baseSizeInTib`, the new value should be greater than the existing one.
 	BaseSizeInTib pulumi.IntInput
 	// Specifies the extended size of the Elastic SAN resource in TiB. Possible values are between `1` and `100`.
 	//
-	// > **NOTE** `extendedSizeInTib` cannot be removed and when updating, the new value should be greater than the existing one.
+	// > **Note:** `extendedSizeInTib` cannot be removed and when updating, the new value should be greater than the existing one.
 	ExtendedSizeInTib pulumi.IntPtrInput
 	// The Azure Region where the Elastic SAN resource should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -258,7 +265,7 @@ type ElasticSanArgs struct {
 	Tags pulumi.StringMapInput
 	// Logical zone for the Elastic SAN resource. Changing this forces a new resource to be created.
 	//
-	// > **NOTE** `zones` cannot be specified if `sku.name` is set to `Premium_ZRS`.
+	// > **Note:** `zones` cannot be specified if `sku.name` is set to `Premium_ZRS`.
 	Zones pulumi.StringArrayInput
 }
 
@@ -351,14 +358,14 @@ func (o ElasticSanOutput) ToElasticSanOutputWithContext(ctx context.Context) Ela
 
 // Specifies the base size of the Elastic SAN resource in TiB. Possible values are between `1` and `100`.
 //
-// > **NOTE** When updating `baseSizeInTib`, the new value should be greater than the existing one.
+// > **Note:** When updating `baseSizeInTib`, the new value should be greater than the existing one.
 func (o ElasticSanOutput) BaseSizeInTib() pulumi.IntOutput {
 	return o.ApplyT(func(v *ElasticSan) pulumi.IntOutput { return v.BaseSizeInTib }).(pulumi.IntOutput)
 }
 
 // Specifies the extended size of the Elastic SAN resource in TiB. Possible values are between `1` and `100`.
 //
-// > **NOTE** `extendedSizeInTib` cannot be removed and when updating, the new value should be greater than the existing one.
+// > **Note:** `extendedSizeInTib` cannot be removed and when updating, the new value should be greater than the existing one.
 func (o ElasticSanOutput) ExtendedSizeInTib() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ElasticSan) pulumi.IntPtrOutput { return v.ExtendedSizeInTib }).(pulumi.IntPtrOutput)
 }
@@ -415,7 +422,7 @@ func (o ElasticSanOutput) VolumeGroupCount() pulumi.IntOutput {
 
 // Logical zone for the Elastic SAN resource. Changing this forces a new resource to be created.
 //
-// > **NOTE** `zones` cannot be specified if `sku.name` is set to `Premium_ZRS`.
+// > **Note:** `zones` cannot be specified if `sku.name` is set to `Premium_ZRS`.
 func (o ElasticSanOutput) Zones() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ElasticSan) pulumi.StringArrayOutput { return v.Zones }).(pulumi.StringArrayOutput)
 }

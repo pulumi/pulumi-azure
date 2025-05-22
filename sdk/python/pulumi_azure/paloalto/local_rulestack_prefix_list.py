@@ -225,6 +225,13 @@ class LocalRulestackPrefixList(pulumi.CustomResource):
             prefix_lists=["10.0.1.0/24"])
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `PaloAltoNetworks.Cloudngfw`: 2022-08-29
+
         ## Import
 
         Palo Alto Local Rulestack Prefix Lists can be imported using the `resource id`, e.g.
@@ -268,6 +275,13 @@ class LocalRulestackPrefixList(pulumi.CustomResource):
             rulestack_id=example_local_rulestack.id,
             prefix_lists=["10.0.1.0/24"])
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `PaloAltoNetworks.Cloudngfw`: 2022-08-29
 
         ## Import
 

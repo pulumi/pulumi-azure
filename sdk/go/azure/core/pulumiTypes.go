@@ -2503,7 +2503,7 @@ func (o ResourceGroupCostManagementViewPivotArrayOutput) Index(i pulumi.IntInput
 type ResourceGroupPolicyAssignmentIdentity struct {
 	// A list of User Managed Identity IDs which should be assigned to the Policy Definition.
 	//
-	// > **NOTE:** This is required when `type` is set to `UserAssigned`.
+	// > **Note:** This is required when `type` is set to `UserAssigned`.
 	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID of the Policy Assignment for this Resource Group.
 	PrincipalId *string `pulumi:"principalId"`
@@ -2527,7 +2527,7 @@ type ResourceGroupPolicyAssignmentIdentityInput interface {
 type ResourceGroupPolicyAssignmentIdentityArgs struct {
 	// A list of User Managed Identity IDs which should be assigned to the Policy Definition.
 	//
-	// > **NOTE:** This is required when `type` is set to `UserAssigned`.
+	// > **Note:** This is required when `type` is set to `UserAssigned`.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID of the Policy Assignment for this Resource Group.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
@@ -2616,7 +2616,7 @@ func (o ResourceGroupPolicyAssignmentIdentityOutput) ToResourceGroupPolicyAssign
 
 // A list of User Managed Identity IDs which should be assigned to the Policy Definition.
 //
-// > **NOTE:** This is required when `type` is set to `UserAssigned`.
+// > **Note:** This is required when `type` is set to `UserAssigned`.
 func (o ResourceGroupPolicyAssignmentIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ResourceGroupPolicyAssignmentIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
@@ -2662,7 +2662,7 @@ func (o ResourceGroupPolicyAssignmentIdentityPtrOutput) Elem() ResourceGroupPoli
 
 // A list of User Managed Identity IDs which should be assigned to the Policy Definition.
 //
-// > **NOTE:** This is required when `type` is set to `UserAssigned`.
+// > **Note:** This is required when `type` is set to `UserAssigned`.
 func (o ResourceGroupPolicyAssignmentIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ResourceGroupPolicyAssignmentIdentity) []string {
 		if v == nil {
@@ -3247,7 +3247,7 @@ func (o ResourceGroupPolicyAssignmentResourceSelectorSelectorArrayOutput) Index(
 type ResourcePolicyAssignmentIdentity struct {
 	// A list of User Managed Identity IDs which should be assigned to the Policy Definition.
 	//
-	// > **NOTE:** This is required when `type` is set to `UserAssigned`.
+	// > **Note:** This is required when `type` is set to `UserAssigned`.
 	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID of the Policy Assignment for this Resource.
 	PrincipalId *string `pulumi:"principalId"`
@@ -3271,7 +3271,7 @@ type ResourcePolicyAssignmentIdentityInput interface {
 type ResourcePolicyAssignmentIdentityArgs struct {
 	// A list of User Managed Identity IDs which should be assigned to the Policy Definition.
 	//
-	// > **NOTE:** This is required when `type` is set to `UserAssigned`.
+	// > **Note:** This is required when `type` is set to `UserAssigned`.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID of the Policy Assignment for this Resource.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
@@ -3360,7 +3360,7 @@ func (o ResourcePolicyAssignmentIdentityOutput) ToResourcePolicyAssignmentIdenti
 
 // A list of User Managed Identity IDs which should be assigned to the Policy Definition.
 //
-// > **NOTE:** This is required when `type` is set to `UserAssigned`.
+// > **Note:** This is required when `type` is set to `UserAssigned`.
 func (o ResourcePolicyAssignmentIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ResourcePolicyAssignmentIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
@@ -3406,7 +3406,7 @@ func (o ResourcePolicyAssignmentIdentityPtrOutput) Elem() ResourcePolicyAssignme
 
 // A list of User Managed Identity IDs which should be assigned to the Policy Definition.
 //
-// > **NOTE:** This is required when `type` is set to `UserAssigned`.
+// > **Note:** This is required when `type` is set to `UserAssigned`.
 func (o ResourcePolicyAssignmentIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ResourcePolicyAssignmentIdentity) []string {
 		if v == nil {
@@ -5133,7 +5133,7 @@ func (o SubscriptionCostManagementViewPivotArrayOutput) Index(i pulumi.IntInput)
 type SubscriptionPolicyAssignmentIdentity struct {
 	// A list of User Managed Identity IDs which should be assigned to the Policy Definition.
 	//
-	// > **NOTE:** This is required when `type` is set to `UserAssigned`.
+	// > **Note:** This is required when `type` is set to `UserAssigned`.
 	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID of the Policy Assignment for this Subscription.
 	PrincipalId *string `pulumi:"principalId"`
@@ -5157,7 +5157,7 @@ type SubscriptionPolicyAssignmentIdentityInput interface {
 type SubscriptionPolicyAssignmentIdentityArgs struct {
 	// A list of User Managed Identity IDs which should be assigned to the Policy Definition.
 	//
-	// > **NOTE:** This is required when `type` is set to `UserAssigned`.
+	// > **Note:** This is required when `type` is set to `UserAssigned`.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID of the Policy Assignment for this Subscription.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
@@ -5246,7 +5246,7 @@ func (o SubscriptionPolicyAssignmentIdentityOutput) ToSubscriptionPolicyAssignme
 
 // A list of User Managed Identity IDs which should be assigned to the Policy Definition.
 //
-// > **NOTE:** This is required when `type` is set to `UserAssigned`.
+// > **Note:** This is required when `type` is set to `UserAssigned`.
 func (o SubscriptionPolicyAssignmentIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SubscriptionPolicyAssignmentIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
@@ -5292,7 +5292,7 @@ func (o SubscriptionPolicyAssignmentIdentityPtrOutput) Elem() SubscriptionPolicy
 
 // A list of User Managed Identity IDs which should be assigned to the Policy Definition.
 //
-// > **NOTE:** This is required when `type` is set to `UserAssigned`.
+// > **Note:** This is required when `type` is set to `UserAssigned`.
 func (o SubscriptionPolicyAssignmentIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SubscriptionPolicyAssignmentIdentity) []string {
 		if v == nil {

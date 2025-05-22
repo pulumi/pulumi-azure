@@ -77,7 +77,7 @@ export class DataConnectorOffice365Project extends pulumi.CustomResource {
     /**
      * The ID of the tenant that this Office 365 Project Data Connector connects to. Changing this forces a new Office 365 Project Data Connector to be created.
      *
-     * > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
+     * > **Note:** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
      */
     public readonly tenantId!: pulumi.Output<string>;
 
@@ -126,7 +126,7 @@ export interface DataConnectorOffice365ProjectState {
     /**
      * The ID of the tenant that this Office 365 Project Data Connector connects to. Changing this forces a new Office 365 Project Data Connector to be created.
      *
-     * > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
+     * > **Note:** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
      */
     tenantId?: pulumi.Input<string>;
 }
@@ -146,7 +146,7 @@ export interface DataConnectorOffice365ProjectArgs {
     /**
      * The ID of the tenant that this Office 365 Project Data Connector connects to. Changing this forces a new Office 365 Project Data Connector to be created.
      *
-     * > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
+     * > **Note:** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
      */
     tenantId?: pulumi.Input<string>;
 }

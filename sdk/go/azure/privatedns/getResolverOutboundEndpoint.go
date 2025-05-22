@@ -39,6 +39,13 @@ import (
 //	}
 //
 // ```
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This data source uses the following Azure API Providers:
+//
+// * `Microsoft.Network`: 2022-07-01
 func LookupResolverOutboundEndpoint(ctx *pulumi.Context, args *LookupResolverOutboundEndpointArgs, opts ...pulumi.InvokeOption) (*LookupResolverOutboundEndpointResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupResolverOutboundEndpointResult

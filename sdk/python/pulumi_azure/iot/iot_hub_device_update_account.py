@@ -312,6 +312,13 @@ class IotHubDeviceUpdateAccount(pulumi.CustomResource):
             })
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DeviceUpdate`: 2022-10-01
+
         ## Import
 
         IoT Hub Device Update Account can be imported using the `resource id`, e.g.
@@ -359,6 +366,13 @@ class IotHubDeviceUpdateAccount(pulumi.CustomResource):
                 "key": "value",
             })
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DeviceUpdate`: 2022-10-01
 
         ## Import
 

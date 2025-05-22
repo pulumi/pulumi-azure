@@ -64,14 +64,14 @@ public final class NetworkManagerDeploymentArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * Specifies the configuration deployment type. Possible values are `Connectivity` and `SecurityAdmin`. Changing this forces a new Network Manager Deployment to be created.
+     * Specifies the configuration deployment type. Possible values are `Connectivity`, `SecurityAdmin` and `Routing`. Changing this forces a new Network Manager Deployment to be created.
      * 
      */
     @Import(name="scopeAccess", required=true)
     private Output<String> scopeAccess;
 
     /**
-     * @return Specifies the configuration deployment type. Possible values are `Connectivity` and `SecurityAdmin`. Changing this forces a new Network Manager Deployment to be created.
+     * @return Specifies the configuration deployment type. Possible values are `Connectivity`, `SecurityAdmin` and `Routing`. Changing this forces a new Network Manager Deployment to be created.
      * 
      */
     public Output<String> scopeAccess() {
@@ -195,7 +195,7 @@ public final class NetworkManagerDeploymentArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param scopeAccess Specifies the configuration deployment type. Possible values are `Connectivity` and `SecurityAdmin`. Changing this forces a new Network Manager Deployment to be created.
+         * @param scopeAccess Specifies the configuration deployment type. Possible values are `Connectivity`, `SecurityAdmin` and `Routing`. Changing this forces a new Network Manager Deployment to be created.
          * 
          * @return builder
          * 
@@ -206,7 +206,7 @@ public final class NetworkManagerDeploymentArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param scopeAccess Specifies the configuration deployment type. Possible values are `Connectivity` and `SecurityAdmin`. Changing this forces a new Network Manager Deployment to be created.
+         * @param scopeAccess Specifies the configuration deployment type. Possible values are `Connectivity`, `SecurityAdmin` and `Routing`. Changing this forces a new Network Manager Deployment to be created.
          * 
          * @return builder
          * 

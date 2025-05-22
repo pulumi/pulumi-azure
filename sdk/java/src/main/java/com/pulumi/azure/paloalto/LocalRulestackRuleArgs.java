@@ -221,7 +221,7 @@ public final class LocalRulestackRuleArgs extends com.pulumi.resources.ResourceA
     /**
      * The Priority of this rule. Rules are executed in numerical order. Changing this forces a new Palo Alto Local Rulestack Rule to be created.
      * 
-     * &gt; **NOTE:** This is the primary identifier of a rule, as such it is not possible to change the Priority of a rule once created.
+     * &gt; **Note:** This is the primary identifier of a rule, as such it is not possible to change the Priority of a rule once created.
      * 
      */
     @Import(name="priority", required=true)
@@ -230,7 +230,7 @@ public final class LocalRulestackRuleArgs extends com.pulumi.resources.ResourceA
     /**
      * @return The Priority of this rule. Rules are executed in numerical order. Changing this forces a new Palo Alto Local Rulestack Rule to be created.
      * 
-     * &gt; **NOTE:** This is the primary identifier of a rule, as such it is not possible to change the Priority of a rule once created.
+     * &gt; **Note:** This is the primary identifier of a rule, as such it is not possible to change the Priority of a rule once created.
      * 
      */
     public Output<Integer> priority() {
@@ -240,7 +240,7 @@ public final class LocalRulestackRuleArgs extends com.pulumi.resources.ResourceA
     /**
      * The Protocol and port to use in the form `[protocol]:[port_number]` e.g. `TCP:8080` or `UDP:53`. Conflicts with `protocol_ports`. Defaults to `application-default`.
      * 
-     * &gt; **NOTE** In 4.0 or later versions, the default of `protocol` will no longer be set by provider, exactly one of `protocol` and `protocol_ports` must be specified. You need to explicitly specify `protocol=&#34;application-default&#34;` to keep the the current default of the `protocol`.
+     * &gt; **Note:** In 4.0 or later versions, the default of `protocol` will no longer be set by provider, exactly one of `protocol` and `protocol_ports` must be specified. You need to explicitly specify `protocol=&#34;application-default&#34;` to keep the the current default of the `protocol`.
      * 
      */
     @Import(name="protocol")
@@ -249,7 +249,7 @@ public final class LocalRulestackRuleArgs extends com.pulumi.resources.ResourceA
     /**
      * @return The Protocol and port to use in the form `[protocol]:[port_number]` e.g. `TCP:8080` or `UDP:53`. Conflicts with `protocol_ports`. Defaults to `application-default`.
      * 
-     * &gt; **NOTE** In 4.0 or later versions, the default of `protocol` will no longer be set by provider, exactly one of `protocol` and `protocol_ports` must be specified. You need to explicitly specify `protocol=&#34;application-default&#34;` to keep the the current default of the `protocol`.
+     * &gt; **Note:** In 4.0 or later versions, the default of `protocol` will no longer be set by provider, exactly one of `protocol` and `protocol_ports` must be specified. You need to explicitly specify `protocol=&#34;application-default&#34;` to keep the the current default of the `protocol`.
      * 
      */
     public Optional<Output<String>> protocol() {
@@ -644,7 +644,7 @@ public final class LocalRulestackRuleArgs extends com.pulumi.resources.ResourceA
         /**
          * @param priority The Priority of this rule. Rules are executed in numerical order. Changing this forces a new Palo Alto Local Rulestack Rule to be created.
          * 
-         * &gt; **NOTE:** This is the primary identifier of a rule, as such it is not possible to change the Priority of a rule once created.
+         * &gt; **Note:** This is the primary identifier of a rule, as such it is not possible to change the Priority of a rule once created.
          * 
          * @return builder
          * 
@@ -657,7 +657,7 @@ public final class LocalRulestackRuleArgs extends com.pulumi.resources.ResourceA
         /**
          * @param priority The Priority of this rule. Rules are executed in numerical order. Changing this forces a new Palo Alto Local Rulestack Rule to be created.
          * 
-         * &gt; **NOTE:** This is the primary identifier of a rule, as such it is not possible to change the Priority of a rule once created.
+         * &gt; **Note:** This is the primary identifier of a rule, as such it is not possible to change the Priority of a rule once created.
          * 
          * @return builder
          * 
@@ -669,7 +669,7 @@ public final class LocalRulestackRuleArgs extends com.pulumi.resources.ResourceA
         /**
          * @param protocol The Protocol and port to use in the form `[protocol]:[port_number]` e.g. `TCP:8080` or `UDP:53`. Conflicts with `protocol_ports`. Defaults to `application-default`.
          * 
-         * &gt; **NOTE** In 4.0 or later versions, the default of `protocol` will no longer be set by provider, exactly one of `protocol` and `protocol_ports` must be specified. You need to explicitly specify `protocol=&#34;application-default&#34;` to keep the the current default of the `protocol`.
+         * &gt; **Note:** In 4.0 or later versions, the default of `protocol` will no longer be set by provider, exactly one of `protocol` and `protocol_ports` must be specified. You need to explicitly specify `protocol=&#34;application-default&#34;` to keep the the current default of the `protocol`.
          * 
          * @return builder
          * 
@@ -682,7 +682,7 @@ public final class LocalRulestackRuleArgs extends com.pulumi.resources.ResourceA
         /**
          * @param protocol The Protocol and port to use in the form `[protocol]:[port_number]` e.g. `TCP:8080` or `UDP:53`. Conflicts with `protocol_ports`. Defaults to `application-default`.
          * 
-         * &gt; **NOTE** In 4.0 or later versions, the default of `protocol` will no longer be set by provider, exactly one of `protocol` and `protocol_ports` must be specified. You need to explicitly specify `protocol=&#34;application-default&#34;` to keep the the current default of the `protocol`.
+         * &gt; **Note:** In 4.0 or later versions, the default of `protocol` will no longer be set by provider, exactly one of `protocol` and `protocol_ports` must be specified. You need to explicitly specify `protocol=&#34;application-default&#34;` to keep the the current default of the `protocol`.
          * 
          * @return builder
          * 

@@ -89,6 +89,13 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.AlertsManagement`: 2023-03-01
+ *
  * ## Import
  *
  * Alert Management Prometheus Rule Group can be imported using the `resource id`, e.g.

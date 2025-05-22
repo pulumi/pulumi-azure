@@ -33,7 +33,7 @@ namespace Pulumi.Azure.Backup.Inputs
         /// <summary>
         /// Including the last day of the month, default to `false`.
         /// 
-        /// &gt; **NOTE:**: Either `weekdays` and `weeks` or `days` and `include_last_days` must be specified.
+        /// &gt; **Note:** Either `weekdays` and `weeks` or `days` and `include_last_days` must be specified.
         /// </summary>
         [Input("includeLastDays")]
         public Input<bool>? IncludeLastDays { get; set; }

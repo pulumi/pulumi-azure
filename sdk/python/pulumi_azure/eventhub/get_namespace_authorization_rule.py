@@ -204,6 +204,13 @@ def get_namespace_authorization_rule(name: Optional[builtins.str] = None,
     pulumi.export("eventhubAuthorizationRuleId", example.id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.EventHub`: 2024-01-01
+
 
     :param builtins.str name: The name of the EventHub Authorization Rule resource.
     :param builtins.str namespace_name: Specifies the name of the EventHub Namespace.
@@ -248,6 +255,13 @@ def get_namespace_authorization_rule_output(name: Optional[pulumi.Input[builtins
         namespace_name="example-ns")
     pulumi.export("eventhubAuthorizationRuleId", example.id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.EventHub`: 2024-01-01
 
 
     :param builtins.str name: The name of the EventHub Authorization Rule resource.

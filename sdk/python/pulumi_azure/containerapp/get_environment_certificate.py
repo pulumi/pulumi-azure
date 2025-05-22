@@ -158,6 +158,13 @@ def get_environment_certificate(container_app_environment_id: Optional[builtins.
         container_app_environment_id=example.id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.App`: 2025-01-01
+
 
     :param builtins.str container_app_environment_id: The ID of the Container App Environment to configure this Certificate on. Changing this forces a new resource to be created.
     :param builtins.str name: The name of the Container Apps Certificate. Changing this forces a new resource to be created.
@@ -195,6 +202,13 @@ def get_environment_certificate_output(container_app_environment_id: Optional[pu
     example_get_environment_certificate = azure.containerapp.get_environment_certificate(name="mycertificate",
         container_app_environment_id=example.id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.App`: 2025-01-01
 
 
     :param builtins.str container_app_environment_id: The ID of the Container App Environment to configure this Certificate on. Changing this forces a new resource to be created.

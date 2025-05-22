@@ -194,6 +194,13 @@ class AlertRuleMachineLearningBehaviorAnalytics(pulumi.CustomResource):
             alert_rule_template_guid="737a2ce1-70a3-4968-9e90-3e6aca836abf")
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.OperationalInsights`: 2023-12-01-preview
+
         ## Import
 
         Sentinel Machine Learning Behavior Analytics Rules can be imported using the `resource id`, e.g.
@@ -238,6 +245,13 @@ class AlertRuleMachineLearningBehaviorAnalytics(pulumi.CustomResource):
             log_analytics_workspace_id=example_analytics_workspace.id,
             alert_rule_template_guid="737a2ce1-70a3-4968-9e90-3e6aca836abf")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.OperationalInsights`: 2023-12-01-preview
 
         ## Import
 

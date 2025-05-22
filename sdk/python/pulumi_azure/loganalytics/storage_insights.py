@@ -299,6 +299,13 @@ class StorageInsights(pulumi.CustomResource):
             storage_account_key=example_account.primary_access_key)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.OperationalInsights`: 2020-08-01
+
         ## Import
 
         Log Analytics Storage Insight Configs can be imported using the `resource id`, e.g.
@@ -354,6 +361,13 @@ class StorageInsights(pulumi.CustomResource):
             storage_account_id=example_account.id,
             storage_account_key=example_account.primary_access_key)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.OperationalInsights`: 2020-08-01
 
         ## Import
 

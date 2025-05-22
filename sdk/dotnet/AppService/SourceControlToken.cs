@@ -29,6 +29,13 @@ namespace Pulumi.Azure.AppService
     /// });
     /// ```
     /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.Web`: 2023-01-01
+    /// 
     /// ## Import
     /// 
     /// App Service Source GitHub Tokens can be imported using the `resource id`, e.g.
@@ -49,7 +56,7 @@ namespace Pulumi.Azure.AppService
         /// <summary>
         /// The Access Token Secret.
         /// 
-        /// &gt; **NOTE:** The token used for deploying App Service needs the following permissions: `repo` and `workflow`.
+        /// &gt; **Note:** The token used for deploying App Service needs the following permissions: `repo` and `workflow`.
         /// </summary>
         [Output("tokenSecret")]
         public Output<string?> TokenSecret { get; private set; } = null!;
@@ -133,7 +140,7 @@ namespace Pulumi.Azure.AppService
         /// <summary>
         /// The Access Token Secret.
         /// 
-        /// &gt; **NOTE:** The token used for deploying App Service needs the following permissions: `repo` and `workflow`.
+        /// &gt; **Note:** The token used for deploying App Service needs the following permissions: `repo` and `workflow`.
         /// </summary>
         public Input<string>? TokenSecret
         {
@@ -181,7 +188,7 @@ namespace Pulumi.Azure.AppService
         /// <summary>
         /// The Access Token Secret.
         /// 
-        /// &gt; **NOTE:** The token used for deploying App Service needs the following permissions: `repo` and `workflow`.
+        /// &gt; **Note:** The token used for deploying App Service needs the following permissions: `repo` and `workflow`.
         /// </summary>
         public Input<string>? TokenSecret
         {

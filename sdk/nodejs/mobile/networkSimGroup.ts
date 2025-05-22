@@ -53,6 +53,13 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.MobileNetwork`: 2022-11-01
+ *
  * ## Import
  *
  * Mobile Network Sim Groups can be imported using the `resource id`, e.g.
@@ -96,7 +103,7 @@ export class NetworkSimGroup extends pulumi.CustomResource {
     /**
      * An `identity` block as defined below.
      *
-     * > **NOTE:** A `UserAssigned` identity must be specified when `encryptionKeyUrl` is specified.
+     * > **Note:** A `UserAssigned` identity must be specified when `encryptionKeyUrl` is specified.
      */
     public readonly identity!: pulumi.Output<outputs.mobile.NetworkSimGroupIdentity | undefined>;
     /**
@@ -163,7 +170,7 @@ export interface NetworkSimGroupState {
     /**
      * An `identity` block as defined below.
      *
-     * > **NOTE:** A `UserAssigned` identity must be specified when `encryptionKeyUrl` is specified.
+     * > **Note:** A `UserAssigned` identity must be specified when `encryptionKeyUrl` is specified.
      */
     identity?: pulumi.Input<inputs.mobile.NetworkSimGroupIdentity>;
     /**
@@ -195,7 +202,7 @@ export interface NetworkSimGroupArgs {
     /**
      * An `identity` block as defined below.
      *
-     * > **NOTE:** A `UserAssigned` identity must be specified when `encryptionKeyUrl` is specified.
+     * > **Note:** A `UserAssigned` identity must be specified when `encryptionKeyUrl` is specified.
      */
     identity?: pulumi.Input<inputs.mobile.NetworkSimGroupIdentity>;
     /**

@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DeploymentFrontendPublic {
     /**
-     * @return Specifies a list of Public IP Resource ID to this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
+     * @return Specifies a list of Public IP Resource ID to this NGINX Deployment.
      * 
      */
     private @Nullable List<String> ipAddresses;
 
     private DeploymentFrontendPublic() {}
     /**
-     * @return Specifies a list of Public IP Resource ID to this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
+     * @return Specifies a list of Public IP Resource ID to this NGINX Deployment.
      * 
      */
     public List<String> ipAddresses() {

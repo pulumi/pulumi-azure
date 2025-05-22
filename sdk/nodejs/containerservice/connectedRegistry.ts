@@ -55,6 +55,13 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.ContainerRegistry`: 2023-11-01-preview
+ *
  * ## Import
  *
  * Container Connected Registries can be imported using the `resource id`, e.g.
@@ -102,7 +109,7 @@ export class ConnectedRegistry extends pulumi.CustomResource {
     /**
      * The ID of the Container Registry that this Connected Registry will reside in. Changing this forces a new Container Connected Registry to be created.
      *
-     * > If `parentRegistryId` is not specified, the Connected Registry will be connected to the Container Registry identified by `containerRegistryId`.
+     * > **Note:** If `parentRegistryId` is not specified, the Connected Registry will be connected to the Container Registry identified by `containerRegistryId`.
      */
     public readonly containerRegistryId!: pulumi.Output<string>;
     /**
@@ -208,7 +215,7 @@ export interface ConnectedRegistryState {
     /**
      * The ID of the Container Registry that this Connected Registry will reside in. Changing this forces a new Container Connected Registry to be created.
      *
-     * > If `parentRegistryId` is not specified, the Connected Registry will be connected to the Container Registry identified by `containerRegistryId`.
+     * > **Note:** If `parentRegistryId` is not specified, the Connected Registry will be connected to the Container Registry identified by `containerRegistryId`.
      */
     containerRegistryId?: pulumi.Input<string>;
     /**
@@ -264,7 +271,7 @@ export interface ConnectedRegistryArgs {
     /**
      * The ID of the Container Registry that this Connected Registry will reside in. Changing this forces a new Container Connected Registry to be created.
      *
-     * > If `parentRegistryId` is not specified, the Connected Registry will be connected to the Container Registry identified by `containerRegistryId`.
+     * > **Note:** If `parentRegistryId` is not specified, the Connected Registry will be connected to the Container Registry identified by `containerRegistryId`.
      */
     containerRegistryId: pulumi.Input<string>;
     /**

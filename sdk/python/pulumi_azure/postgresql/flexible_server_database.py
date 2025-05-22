@@ -197,6 +197,13 @@ class FlexibleServerDatabase(pulumi.CustomResource):
             charset="UTF8")
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DBforPostgreSQL`: 2024-08-01
+
         ## Import
 
         Azure PostgreSQL Flexible Server Database can be imported using the `resource id`, e.g.
@@ -243,6 +250,13 @@ class FlexibleServerDatabase(pulumi.CustomResource):
             collation="en_US.utf8",
             charset="UTF8")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DBforPostgreSQL`: 2024-08-01
 
         ## Import
 

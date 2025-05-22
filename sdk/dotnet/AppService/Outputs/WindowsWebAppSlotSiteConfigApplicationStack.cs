@@ -16,7 +16,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// <summary>
         /// The Application Stack for the Windows Web App. Possible values include `dotnet`, `dotnetcore`, `node`, `python`, `php`, and `java`.
         /// 
-        /// &gt; **NOTE:** Whilst this property is Optional omitting it can cause unexpected behaviour, in particular for display of settings in the Azure Portal.
+        /// &gt; **Note:** Whilst this property is Optional omitting it can cause unexpected behaviour, in particular for display of settings in the Azure Portal.
         /// </summary>
         public readonly string? CurrentStack;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// <summary>
         /// The User Name to use for authentication against the registry to pull the image.
         /// 
-        /// &gt; **NOTE:** `docker_registry_url`, `docker_registry_username`, and `docker_registry_password` replace the use of the `app_settings` values of `DOCKER_REGISTRY_SERVER_URL`, `DOCKER_REGISTRY_SERVER_USERNAME` and `DOCKER_REGISTRY_SERVER_PASSWORD` respectively, these values will be managed by the provider and should not be specified in the `app_settings` map.
+        /// &gt; **Note:** `docker_registry_url`, `docker_registry_username`, and `docker_registry_password` replace the use of the `app_settings` values of `DOCKER_REGISTRY_SERVER_URL`, `DOCKER_REGISTRY_SERVER_USERNAME` and `DOCKER_REGISTRY_SERVER_PASSWORD` respectively, these values will be managed by the provider and should not be specified in the `app_settings` map.
         /// </summary>
         public readonly string? DockerRegistryPassword;
         /// <summary>
@@ -54,19 +54,19 @@ namespace Pulumi.Azure.AppService.Outputs
         /// <summary>
         /// The version of Java to use when `current_stack` is set to `java`. Possible values include `1.7`, `1.8`, `11` and `17`. Required with `java_container` and `java_container_version`.
         /// 
-        /// &gt; **NOTE:** For compatible combinations of `java_version`, `java_container` and `java_container_version` users can use `az webapp list-runtimes` from command line.
+        /// &gt; **Note:** For compatible combinations of `java_version`, `java_container` and `java_container_version` users can use `az webapp list-runtimes` from command line.
         /// </summary>
         public readonly string? JavaVersion;
         /// <summary>
         /// The version of node to use when `current_stack` is set to `node`. Possible values include `~12`, `~14`, `~16`, `~18`, `~20` and `~22`.
         /// 
-        /// &gt; **NOTE:** This property conflicts with `java_version`.
+        /// &gt; **Note:** This property conflicts with `java_version`.
         /// </summary>
         public readonly string? NodeVersion;
         /// <summary>
         /// The version of PHP to use when `current_stack` is set to `php`. Possible values are `7.1`, `7.4` and `Off`.
         /// 
-        /// &gt; **NOTE:** The value `Off` is used to signify latest supported by the service.
+        /// &gt; **Note:** The value `Off` is used to signify latest supported by the service.
         /// </summary>
         public readonly string? PhpVersion;
         /// <summary>
@@ -76,7 +76,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// <summary>
         /// The version of Tomcat the Java App should use.
         /// 
-        /// &gt; **NOTE:** See the official documentation for current supported versions.
+        /// &gt; **Note:** See the official documentation for current supported versions.
         /// </summary>
         public readonly string? TomcatVersion;
 

@@ -171,6 +171,13 @@ def get_backup_policy(account_name: Optional[builtins.str] = None,
     pulumi.export("backupPolicyId", example.id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.NetApp`: 2025-01-01
+
 
     :param builtins.str account_name: The name of the NetApp Account in which the NetApp Policy exists.
     :param builtins.str name: The name of the NetApp Backup Policy.
@@ -212,6 +219,13 @@ def get_backup_policy_output(account_name: Optional[pulumi.Input[builtins.str]] 
         name="example-backuppolicy")
     pulumi.export("backupPolicyId", example.id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.NetApp`: 2025-01-01
 
 
     :param builtins.str account_name: The name of the NetApp Account in which the NetApp Policy exists.

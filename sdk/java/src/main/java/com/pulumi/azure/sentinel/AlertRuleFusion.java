@@ -78,6 +78,13 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.OperationalInsights`: 2023-12-01-preview
+ * 
  * ## Import
  * 
  * Sentinel Fusion Alert Rules can be imported using the `resource id`, e.g.

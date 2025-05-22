@@ -181,6 +181,13 @@ def get_insights(name: Optional[builtins.str] = None,
     pulumi.export("applicationInsightsInstrumentationKey", example.instrumentation_key)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Insights`: 2020-02-02
+
 
     :param builtins.str name: Specifies the name of the Application Insights component.
     :param builtins.str resource_group_name: Specifies the name of the resource group the Application Insights component is located in.
@@ -219,6 +226,13 @@ def get_insights_output(name: Optional[pulumi.Input[builtins.str]] = None,
         resource_group_name="networking")
     pulumi.export("applicationInsightsInstrumentationKey", example.instrumentation_key)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Insights`: 2020-02-02
 
 
     :param builtins.str name: Specifies the name of the Application Insights component.

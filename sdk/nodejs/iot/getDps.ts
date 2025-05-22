@@ -18,6 +18,13 @@ import * as utilities from "../utilities";
  *     resourceGroupName: "iothub_dps_rg",
  * });
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.Devices`: 2022-02-05
  */
 export function getDps(args: GetDpsArgs, opts?: pulumi.InvokeOptions): Promise<GetDpsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -89,6 +96,13 @@ export interface GetDpsResult {
  *     resourceGroupName: "iothub_dps_rg",
  * });
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.Devices`: 2022-02-05
  */
 export function getDpsOutput(args: GetDpsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDpsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

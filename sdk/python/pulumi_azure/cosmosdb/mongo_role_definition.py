@@ -222,6 +222,13 @@ class MongoRoleDefinition(pulumi.CustomResource):
             role_name="example-roledefinition")
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DocumentDB`: 2022-11-15
+
         ## Import
 
         Cosmos DB Mongo Role Definitions can be imported using the `resource id`, e.g.
@@ -286,6 +293,13 @@ class MongoRoleDefinition(pulumi.CustomResource):
             cosmos_mongo_database_id=example_mongo_database.id,
             role_name="example-roledefinition")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DocumentDB`: 2022-11-15
 
         ## Import
 

@@ -88,9 +88,9 @@ export class FirewallRule extends pulumi.CustomResource {
     /**
      * The ending IP address to allow through the firewall for this rule.
      *
-     * > **NOTE:** The Azure feature `Allow access to Azure services` can be enabled by setting `startIpAddress` and `endIpAddress` to `0.0.0.0`.
+     * > **Note:** The Azure feature `Allow access to Azure services` can be enabled by setting `startIpAddress` and `endIpAddress` to `0.0.0.0`.
      *
-     * > **NOTE:** The Azure feature `Allow access to Azure services` requires the `name` to be `AllowAllWindowsAzureIps`.
+     * > **Note:** The Azure feature `Allow access to Azure services` requires the `name` to be `AllowAllWindowsAzureIps`.
      */
     public readonly endIpAddress!: pulumi.Output<string>;
     /**
@@ -151,9 +151,9 @@ export interface FirewallRuleState {
     /**
      * The ending IP address to allow through the firewall for this rule.
      *
-     * > **NOTE:** The Azure feature `Allow access to Azure services` can be enabled by setting `startIpAddress` and `endIpAddress` to `0.0.0.0`.
+     * > **Note:** The Azure feature `Allow access to Azure services` can be enabled by setting `startIpAddress` and `endIpAddress` to `0.0.0.0`.
      *
-     * > **NOTE:** The Azure feature `Allow access to Azure services` requires the `name` to be `AllowAllWindowsAzureIps`.
+     * > **Note:** The Azure feature `Allow access to Azure services` requires the `name` to be `AllowAllWindowsAzureIps`.
      */
     endIpAddress?: pulumi.Input<string>;
     /**
@@ -177,9 +177,9 @@ export interface FirewallRuleArgs {
     /**
      * The ending IP address to allow through the firewall for this rule.
      *
-     * > **NOTE:** The Azure feature `Allow access to Azure services` can be enabled by setting `startIpAddress` and `endIpAddress` to `0.0.0.0`.
+     * > **Note:** The Azure feature `Allow access to Azure services` can be enabled by setting `startIpAddress` and `endIpAddress` to `0.0.0.0`.
      *
-     * > **NOTE:** The Azure feature `Allow access to Azure services` requires the `name` to be `AllowAllWindowsAzureIps`.
+     * > **Note:** The Azure feature `Allow access to Azure services` requires the `name` to be `AllowAllWindowsAzureIps`.
      */
     endIpAddress: pulumi.Input<string>;
     /**

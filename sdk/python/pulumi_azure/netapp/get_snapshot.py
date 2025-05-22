@@ -130,6 +130,13 @@ def get_snapshot(account_name: Optional[builtins.str] = None,
     pulumi.export("netappSnapshotId", example["id"])
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.NetApp`: 2025-01-01
+
 
     :param builtins.str account_name: The name of the NetApp Account where the NetApp Pool exists.
     :param builtins.str name: The name of the NetApp Snapshot.
@@ -176,6 +183,13 @@ def get_snapshot_output(account_name: Optional[pulumi.Input[builtins.str]] = Non
         volume_name="acctestnetappvolume")
     pulumi.export("netappSnapshotId", example["id"])
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.NetApp`: 2025-01-01
 
 
     :param builtins.str account_name: The name of the NetApp Account where the NetApp Pool exists.

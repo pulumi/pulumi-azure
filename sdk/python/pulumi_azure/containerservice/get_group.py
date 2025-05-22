@@ -173,6 +173,13 @@ def get_group(name: Optional[builtins.str] = None,
     pulumi.export("fqdn", example.fqdn)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.ContainerInstance`: 2023-05-01
+
 
     :param builtins.str name: The name of this Container Group instance.
     :param builtins.str resource_group_name: The name of the Resource Group where the Container Group instance exists.
@@ -215,6 +222,13 @@ def get_group_output(name: Optional[pulumi.Input[builtins.str]] = None,
     pulumi.export("ipAddress", example.ip_address)
     pulumi.export("fqdn", example.fqdn)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.ContainerInstance`: 2023-05-01
 
 
     :param builtins.str name: The name of this Container Group instance.

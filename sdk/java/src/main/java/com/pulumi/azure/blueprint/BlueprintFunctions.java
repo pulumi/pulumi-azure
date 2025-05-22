@@ -21,7 +21,7 @@ public final class BlueprintFunctions {
     /**
      * Use this data source to access information about an existing Azure Blueprint Definition
      * 
-     * &gt; **NOTE:** Azure Blueprints are in Preview and potentially subject to breaking change without notice.
+     * &gt; **Note:** Azure Blueprints are in Preview and potentially subject to breaking change without notice.
      * 
      * ## Example Usage
      * 
@@ -67,6 +67,13 @@ public final class BlueprintFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Blueprint`: 2018-11-01-preview
      * 
      */
     public static Output<GetDefinitionResult> getDefinition(GetDefinitionArgs args) {
@@ -75,7 +82,7 @@ public final class BlueprintFunctions {
     /**
      * Use this data source to access information about an existing Azure Blueprint Definition
      * 
-     * &gt; **NOTE:** Azure Blueprints are in Preview and potentially subject to breaking change without notice.
+     * &gt; **Note:** Azure Blueprints are in Preview and potentially subject to breaking change without notice.
      * 
      * ## Example Usage
      * 
@@ -121,6 +128,13 @@ public final class BlueprintFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Blueprint`: 2018-11-01-preview
      * 
      */
     public static CompletableFuture<GetDefinitionResult> getDefinitionPlain(GetDefinitionPlainArgs args) {
@@ -129,7 +143,7 @@ public final class BlueprintFunctions {
     /**
      * Use this data source to access information about an existing Azure Blueprint Definition
      * 
-     * &gt; **NOTE:** Azure Blueprints are in Preview and potentially subject to breaking change without notice.
+     * &gt; **Note:** Azure Blueprints are in Preview and potentially subject to breaking change without notice.
      * 
      * ## Example Usage
      * 
@@ -175,6 +189,13 @@ public final class BlueprintFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Blueprint`: 2018-11-01-preview
      * 
      */
     public static Output<GetDefinitionResult> getDefinition(GetDefinitionArgs args, InvokeOptions options) {
@@ -183,7 +204,7 @@ public final class BlueprintFunctions {
     /**
      * Use this data source to access information about an existing Azure Blueprint Definition
      * 
-     * &gt; **NOTE:** Azure Blueprints are in Preview and potentially subject to breaking change without notice.
+     * &gt; **Note:** Azure Blueprints are in Preview and potentially subject to breaking change without notice.
      * 
      * ## Example Usage
      * 
@@ -229,6 +250,13 @@ public final class BlueprintFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Blueprint`: 2018-11-01-preview
      * 
      */
     public static Output<GetDefinitionResult> getDefinition(GetDefinitionArgs args, InvokeOutputOptions options) {
@@ -237,7 +265,7 @@ public final class BlueprintFunctions {
     /**
      * Use this data source to access information about an existing Azure Blueprint Definition
      * 
-     * &gt; **NOTE:** Azure Blueprints are in Preview and potentially subject to breaking change without notice.
+     * &gt; **Note:** Azure Blueprints are in Preview and potentially subject to breaking change without notice.
      * 
      * ## Example Usage
      * 
@@ -284,6 +312,13 @@ public final class BlueprintFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Blueprint`: 2018-11-01-preview
+     * 
      */
     public static CompletableFuture<GetDefinitionResult> getDefinitionPlain(GetDefinitionPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:blueprint/getDefinition:getDefinition", TypeShape.of(GetDefinitionResult.class), args, Utilities.withVersion(options));
@@ -291,7 +326,7 @@ public final class BlueprintFunctions {
     /**
      * Use this data source to access information about an existing Blueprint Published Version
      * 
-     * &gt; **NOTE:** Azure Blueprints are in Preview and potentially subject to breaking change without notice.
+     * &gt; **Note:** Azure Blueprints are in Preview and potentially subject to breaking change without notice.
      * 
      * ## Example Usage
      * 
@@ -334,6 +369,13 @@ public final class BlueprintFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Blueprint`: 2018-11-01-preview
      * 
      */
     public static Output<GetPublishedVersionResult> getPublishedVersion(GetPublishedVersionArgs args) {
@@ -342,7 +384,7 @@ public final class BlueprintFunctions {
     /**
      * Use this data source to access information about an existing Blueprint Published Version
      * 
-     * &gt; **NOTE:** Azure Blueprints are in Preview and potentially subject to breaking change without notice.
+     * &gt; **Note:** Azure Blueprints are in Preview and potentially subject to breaking change without notice.
      * 
      * ## Example Usage
      * 
@@ -385,6 +427,13 @@ public final class BlueprintFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Blueprint`: 2018-11-01-preview
      * 
      */
     public static CompletableFuture<GetPublishedVersionResult> getPublishedVersionPlain(GetPublishedVersionPlainArgs args) {
@@ -393,7 +442,7 @@ public final class BlueprintFunctions {
     /**
      * Use this data source to access information about an existing Blueprint Published Version
      * 
-     * &gt; **NOTE:** Azure Blueprints are in Preview and potentially subject to breaking change without notice.
+     * &gt; **Note:** Azure Blueprints are in Preview and potentially subject to breaking change without notice.
      * 
      * ## Example Usage
      * 
@@ -436,6 +485,13 @@ public final class BlueprintFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Blueprint`: 2018-11-01-preview
      * 
      */
     public static Output<GetPublishedVersionResult> getPublishedVersion(GetPublishedVersionArgs args, InvokeOptions options) {
@@ -444,7 +500,7 @@ public final class BlueprintFunctions {
     /**
      * Use this data source to access information about an existing Blueprint Published Version
      * 
-     * &gt; **NOTE:** Azure Blueprints are in Preview and potentially subject to breaking change without notice.
+     * &gt; **Note:** Azure Blueprints are in Preview and potentially subject to breaking change without notice.
      * 
      * ## Example Usage
      * 
@@ -487,6 +543,13 @@ public final class BlueprintFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Blueprint`: 2018-11-01-preview
      * 
      */
     public static Output<GetPublishedVersionResult> getPublishedVersion(GetPublishedVersionArgs args, InvokeOutputOptions options) {
@@ -495,7 +558,7 @@ public final class BlueprintFunctions {
     /**
      * Use this data source to access information about an existing Blueprint Published Version
      * 
-     * &gt; **NOTE:** Azure Blueprints are in Preview and potentially subject to breaking change without notice.
+     * &gt; **Note:** Azure Blueprints are in Preview and potentially subject to breaking change without notice.
      * 
      * ## Example Usage
      * 
@@ -538,6 +601,13 @@ public final class BlueprintFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Blueprint`: 2018-11-01-preview
      * 
      */
     public static CompletableFuture<GetPublishedVersionResult> getPublishedVersionPlain(GetPublishedVersionPlainArgs args, InvokeOptions options) {

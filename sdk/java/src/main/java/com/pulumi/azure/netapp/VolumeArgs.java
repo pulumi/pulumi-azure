@@ -223,14 +223,14 @@ public final class VolumeArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the NetApp pool in which the NetApp Volume should be created. Changing this forces a new resource to be created.
+     * The name of the NetApp pool in which the NetApp Volume should be created.
      * 
      */
     @Import(name="poolName", required=true)
     private Output<String> poolName;
 
     /**
-     * @return The name of the NetApp pool in which the NetApp Volume should be created. Changing this forces a new resource to be created.
+     * @return The name of the NetApp pool in which the NetApp Volume should be created.
      * 
      */
     public Output<String> poolName() {
@@ -282,17 +282,9 @@ public final class VolumeArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.securityStyle);
     }
 
-    /**
-     * The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`. Changing this forces a new resource to be created.
-     * 
-     */
     @Import(name="serviceLevel", required=true)
     private Output<String> serviceLevel;
 
-    /**
-     * @return The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`. Changing this forces a new resource to be created.
-     * 
-     */
     public Output<String> serviceLevel() {
         return this.serviceLevel;
     }
@@ -804,7 +796,7 @@ public final class VolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param poolName The name of the NetApp pool in which the NetApp Volume should be created. Changing this forces a new resource to be created.
+         * @param poolName The name of the NetApp pool in which the NetApp Volume should be created.
          * 
          * @return builder
          * 
@@ -815,7 +807,7 @@ public final class VolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param poolName The name of the NetApp pool in which the NetApp Volume should be created. Changing this forces a new resource to be created.
+         * @param poolName The name of the NetApp pool in which the NetApp Volume should be created.
          * 
          * @return builder
          * 
@@ -897,23 +889,11 @@ public final class VolumeArgs extends com.pulumi.resources.ResourceArgs {
             return securityStyle(Output.of(securityStyle));
         }
 
-        /**
-         * @param serviceLevel The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`. Changing this forces a new resource to be created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serviceLevel(Output<String> serviceLevel) {
             $.serviceLevel = serviceLevel;
             return this;
         }
 
-        /**
-         * @param serviceLevel The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`. Changing this forces a new resource to be created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serviceLevel(String serviceLevel) {
             return serviceLevel(Output.of(serviceLevel));
         }

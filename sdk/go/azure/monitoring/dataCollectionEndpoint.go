@@ -56,6 +56,13 @@ import (
 //
 // ```
 //
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.Insights`: 2023-03-11
+//
 // ## Import
 //
 // Data Collection Endpoints can be imported using the `resource id`, e.g.
@@ -78,6 +85,8 @@ type DataCollectionEndpoint struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The endpoint used for ingesting logs, e.g., `https://mydce-abcd.eastus-1.ingest.monitor.azure.com`.
 	LogsIngestionEndpoint pulumi.StringOutput `pulumi:"logsIngestionEndpoint"`
+	// The endpoint used for ingesting metrics, e.g., `https://mydce-abcd.eastus-1.metrics.ingest.monitor.azure.com`.
+	MetricsIngestionEndpoint pulumi.StringOutput `pulumi:"metricsIngestionEndpoint"`
 	// The name which should be used for this Data Collection Endpoint. Changing this forces a new Data Collection Endpoint to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Whether network access from public internet to the Data Collection Endpoint are allowed. Possible values are `true` and `false`. Default to `true`.
@@ -133,6 +142,8 @@ type dataCollectionEndpointState struct {
 	Location *string `pulumi:"location"`
 	// The endpoint used for ingesting logs, e.g., `https://mydce-abcd.eastus-1.ingest.monitor.azure.com`.
 	LogsIngestionEndpoint *string `pulumi:"logsIngestionEndpoint"`
+	// The endpoint used for ingesting metrics, e.g., `https://mydce-abcd.eastus-1.metrics.ingest.monitor.azure.com`.
+	MetricsIngestionEndpoint *string `pulumi:"metricsIngestionEndpoint"`
 	// The name which should be used for this Data Collection Endpoint. Changing this forces a new Data Collection Endpoint to be created.
 	Name *string `pulumi:"name"`
 	// Whether network access from public internet to the Data Collection Endpoint are allowed. Possible values are `true` and `false`. Default to `true`.
@@ -156,6 +167,8 @@ type DataCollectionEndpointState struct {
 	Location pulumi.StringPtrInput
 	// The endpoint used for ingesting logs, e.g., `https://mydce-abcd.eastus-1.ingest.monitor.azure.com`.
 	LogsIngestionEndpoint pulumi.StringPtrInput
+	// The endpoint used for ingesting metrics, e.g., `https://mydce-abcd.eastus-1.metrics.ingest.monitor.azure.com`.
+	MetricsIngestionEndpoint pulumi.StringPtrInput
 	// The name which should be used for this Data Collection Endpoint. Changing this forces a new Data Collection Endpoint to be created.
 	Name pulumi.StringPtrInput
 	// Whether network access from public internet to the Data Collection Endpoint are allowed. Possible values are `true` and `false`. Default to `true`.
@@ -320,6 +333,11 @@ func (o DataCollectionEndpointOutput) Location() pulumi.StringOutput {
 // The endpoint used for ingesting logs, e.g., `https://mydce-abcd.eastus-1.ingest.monitor.azure.com`.
 func (o DataCollectionEndpointOutput) LogsIngestionEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataCollectionEndpoint) pulumi.StringOutput { return v.LogsIngestionEndpoint }).(pulumi.StringOutput)
+}
+
+// The endpoint used for ingesting metrics, e.g., `https://mydce-abcd.eastus-1.metrics.ingest.monitor.azure.com`.
+func (o DataCollectionEndpointOutput) MetricsIngestionEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataCollectionEndpoint) pulumi.StringOutput { return v.MetricsIngestionEndpoint }).(pulumi.StringOutput)
 }
 
 // The name which should be used for this Data Collection Endpoint. Changing this forces a new Data Collection Endpoint to be created.

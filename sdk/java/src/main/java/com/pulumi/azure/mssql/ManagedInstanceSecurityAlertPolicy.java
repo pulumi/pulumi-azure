@@ -25,6 +25,13 @@ import javax.annotation.Nullable;
  * &lt;!--Start PulumiCodeChooser --&gt;
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.Sql`: 2023-08-01-preview
+ * 
  * ## Import
  * 
  * MS SQL Managed Instance Security Alert Policy can be imported using the `resource id`, e.g.
@@ -137,7 +144,7 @@ public class ManagedInstanceSecurityAlertPolicy extends com.pulumi.resources.Cus
     /**
      * Specifies the identifier key of the Threat Detection audit storage account. This is mandatory when you use `storage_endpoint` to specify a storage account blob endpoint.
      * 
-     * &gt; **NOTE:**  Please note that storage accounts configured with `shared_access_key_enabled = false` cannot be used to configure `azure.mssql.ManagedInstanceSecurityAlertPolicy` with `storage_endpoint` for now.
+     * &gt; **Note:** Please note that storage accounts configured with `shared_access_key_enabled = false` cannot be used to configure `azure.mssql.ManagedInstanceSecurityAlertPolicy` with `storage_endpoint` for now.
      * 
      */
     @Export(name="storageAccountAccessKey", refs={String.class}, tree="[0]")
@@ -146,7 +153,7 @@ public class ManagedInstanceSecurityAlertPolicy extends com.pulumi.resources.Cus
     /**
      * @return Specifies the identifier key of the Threat Detection audit storage account. This is mandatory when you use `storage_endpoint` to specify a storage account blob endpoint.
      * 
-     * &gt; **NOTE:**  Please note that storage accounts configured with `shared_access_key_enabled = false` cannot be used to configure `azure.mssql.ManagedInstanceSecurityAlertPolicy` with `storage_endpoint` for now.
+     * &gt; **Note:** Please note that storage accounts configured with `shared_access_key_enabled = false` cannot be used to configure `azure.mssql.ManagedInstanceSecurityAlertPolicy` with `storage_endpoint` for now.
      * 
      */
     public Output<Optional<String>> storageAccountAccessKey() {

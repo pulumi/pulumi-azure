@@ -28,7 +28,7 @@ type GetCertificatesArgs struct {
 	IncludePending *bool `pulumi:"includePending"`
 	// Specifies the ID of the Key Vault instance to fetch certificate names from, available on the `keyvault.KeyVault` Data Source / Resource.
 	//
-	// **NOTE:** The vault must be in the same subscription as the provider. If the vault is in another subscription, you must create an aliased provider for that subscription.
+	// > **Note:** The vault must be in the same subscription as the provider. If the vault is in another subscription, you must create an aliased provider for that subscription.
 	KeyVaultId string `pulumi:"keyVaultId"`
 }
 
@@ -60,7 +60,7 @@ type GetCertificatesOutputArgs struct {
 	IncludePending pulumi.BoolPtrInput `pulumi:"includePending"`
 	// Specifies the ID of the Key Vault instance to fetch certificate names from, available on the `keyvault.KeyVault` Data Source / Resource.
 	//
-	// **NOTE:** The vault must be in the same subscription as the provider. If the vault is in another subscription, you must create an aliased provider for that subscription.
+	// > **Note:** The vault must be in the same subscription as the provider. If the vault is in another subscription, you must create an aliased provider for that subscription.
 	KeyVaultId pulumi.StringInput `pulumi:"keyVaultId"`
 }
 

@@ -85,6 +85,13 @@ import (
 //
 // ```
 //
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.Datadog`: 2021-03-01
+//
 // ## Import
 //
 // Tag Rules on the Datadog Monitor can be imported using the `tag rule resource id`, e.g.

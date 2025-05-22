@@ -14,15 +14,15 @@ import (
 
 // Manages an IotHub
 //
-// > **NOTE:** Endpoints can be defined either directly on the `iot.IoTHub` resource, or using the `azurerm_iothub_endpoint_*` resources - but the two ways of defining the endpoints cannot be used together. If both are used against the same IoTHub, spurious changes will occur. Also, defining a `azurerm_iothub_endpoint_*` resource and another endpoint of a different type directly on the `iot.IoTHub` resource is not supported.
+// > **Note:** Endpoints can be defined either directly on the `iot.IoTHub` resource, or using the `azurerm_iothub_endpoint_*` resources - but the two ways of defining the endpoints cannot be used together. If both are used against the same IoTHub, spurious changes will occur. Also, defining a `azurerm_iothub_endpoint_*` resource and another endpoint of a different type directly on the `iot.IoTHub` resource is not supported.
 //
-// > **NOTE:** Routes can be defined either directly on the `iot.IoTHub` resource, or using the `iot.Route` resource - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
+// > **Note:** Routes can be defined either directly on the `iot.IoTHub` resource, or using the `iot.Route` resource - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
 //
-// > **NOTE:** Enrichments can be defined either directly on the `iot.IoTHub` resource, or using the `iot.Enrichment` resource - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
+// > **Note:** Enrichments can be defined either directly on the `iot.IoTHub` resource, or using the `iot.Enrichment` resource - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
 //
-// > **NOTE:** Fallback route can be defined either directly on the `iot.IoTHub` resource, or using the `iot.FallbackRoute` resource - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
+// > **Note:** Fallback route can be defined either directly on the `iot.IoTHub` resource, or using the `iot.FallbackRoute` resource - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
 //
-// > **NOTE:** File upload can be defined either directly on the `iot.IoTHub` resource, or using the `iot.FileUpload` resource - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
+// > **Note:** File upload can be defined either directly on the `iot.IoTHub` resource, or using the `iot.FileUpload` resource - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
 //
 // ## Example Usage
 //
@@ -205,7 +205,7 @@ type IoTHub struct {
 	EventHubRetentionInDays pulumi.IntPtrOutput `pulumi:"eventHubRetentionInDays"`
 	// A `fallbackRoute` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
 	//
-	// > **NOTE:** If `fallbackRoute` isn't explicitly specified, the fallback route wouldn't be enabled by default.
+	// > **Note:** If `fallbackRoute` isn't explicitly specified, the fallback route wouldn't be enabled by default.
 	FallbackRoute IoTHubFallbackRouteOutput `pulumi:"fallbackRoute"`
 	// A `fileUpload` block as defined below.
 	FileUpload IoTHubFileUploadPtrOutput `pulumi:"fileUpload"`
@@ -290,7 +290,7 @@ type ioTHubState struct {
 	EventHubRetentionInDays *int `pulumi:"eventHubRetentionInDays"`
 	// A `fallbackRoute` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
 	//
-	// > **NOTE:** If `fallbackRoute` isn't explicitly specified, the fallback route wouldn't be enabled by default.
+	// > **Note:** If `fallbackRoute` isn't explicitly specified, the fallback route wouldn't be enabled by default.
 	FallbackRoute *IoTHubFallbackRoute `pulumi:"fallbackRoute"`
 	// A `fileUpload` block as defined below.
 	FileUpload *IoTHubFileUpload `pulumi:"fileUpload"`
@@ -340,7 +340,7 @@ type IoTHubState struct {
 	EventHubRetentionInDays pulumi.IntPtrInput
 	// A `fallbackRoute` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
 	//
-	// > **NOTE:** If `fallbackRoute` isn't explicitly specified, the fallback route wouldn't be enabled by default.
+	// > **Note:** If `fallbackRoute` isn't explicitly specified, the fallback route wouldn't be enabled by default.
 	FallbackRoute IoTHubFallbackRoutePtrInput
 	// A `fileUpload` block as defined below.
 	FileUpload IoTHubFileUploadPtrInput
@@ -384,7 +384,7 @@ type ioTHubArgs struct {
 	EventHubRetentionInDays *int `pulumi:"eventHubRetentionInDays"`
 	// A `fallbackRoute` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
 	//
-	// > **NOTE:** If `fallbackRoute` isn't explicitly specified, the fallback route wouldn't be enabled by default.
+	// > **Note:** If `fallbackRoute` isn't explicitly specified, the fallback route wouldn't be enabled by default.
 	FallbackRoute *IoTHubFallbackRoute `pulumi:"fallbackRoute"`
 	// A `fileUpload` block as defined below.
 	FileUpload *IoTHubFileUpload `pulumi:"fileUpload"`
@@ -420,7 +420,7 @@ type IoTHubArgs struct {
 	EventHubRetentionInDays pulumi.IntPtrInput
 	// A `fallbackRoute` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
 	//
-	// > **NOTE:** If `fallbackRoute` isn't explicitly specified, the fallback route wouldn't be enabled by default.
+	// > **Note:** If `fallbackRoute` isn't explicitly specified, the fallback route wouldn't be enabled by default.
 	FallbackRoute IoTHubFallbackRoutePtrInput
 	// A `fileUpload` block as defined below.
 	FileUpload IoTHubFileUploadPtrInput
@@ -581,7 +581,7 @@ func (o IoTHubOutput) EventHubRetentionInDays() pulumi.IntPtrOutput {
 
 // A `fallbackRoute` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
 //
-// > **NOTE:** If `fallbackRoute` isn't explicitly specified, the fallback route wouldn't be enabled by default.
+// > **Note:** If `fallbackRoute` isn't explicitly specified, the fallback route wouldn't be enabled by default.
 func (o IoTHubOutput) FallbackRoute() IoTHubFallbackRouteOutput {
 	return o.ApplyT(func(v *IoTHub) IoTHubFallbackRouteOutput { return v.FallbackRoute }).(IoTHubFallbackRouteOutput)
 }

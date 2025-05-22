@@ -95,7 +95,7 @@ type CustomHostnameBinding struct {
 	AppServiceName pulumi.StringOutput `pulumi:"appServiceName"`
 	// Specifies the Custom Hostname to use for the App Service, example `www.example.com`. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** A CNAME needs to be configured from this Hostname to the Azure Website - otherwise Azure will reject the Hostname Binding.
+	// > **Note:** A CNAME needs to be configured from this Hostname to the Azure Website - otherwise Azure will reject the Hostname Binding.
 	Hostname pulumi.StringOutput `pulumi:"hostname"`
 	// The name of the resource group in which the App Service exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -103,7 +103,7 @@ type CustomHostnameBinding struct {
 	SslState pulumi.StringOutput `pulumi:"sslState"`
 	// The SSL certificate thumbprint. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** `thumbprint` must be specified when `sslState` is set.
+	// > **Note:** `thumbprint` must be specified when `sslState` is set.
 	Thumbprint pulumi.StringOutput `pulumi:"thumbprint"`
 	// The virtual IP address assigned to the hostname if IP based SSL is enabled.
 	VirtualIp pulumi.StringOutput `pulumi:"virtualIp"`
@@ -152,7 +152,7 @@ type customHostnameBindingState struct {
 	AppServiceName *string `pulumi:"appServiceName"`
 	// Specifies the Custom Hostname to use for the App Service, example `www.example.com`. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** A CNAME needs to be configured from this Hostname to the Azure Website - otherwise Azure will reject the Hostname Binding.
+	// > **Note:** A CNAME needs to be configured from this Hostname to the Azure Website - otherwise Azure will reject the Hostname Binding.
 	Hostname *string `pulumi:"hostname"`
 	// The name of the resource group in which the App Service exists. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -160,7 +160,7 @@ type customHostnameBindingState struct {
 	SslState *string `pulumi:"sslState"`
 	// The SSL certificate thumbprint. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** `thumbprint` must be specified when `sslState` is set.
+	// > **Note:** `thumbprint` must be specified when `sslState` is set.
 	Thumbprint *string `pulumi:"thumbprint"`
 	// The virtual IP address assigned to the hostname if IP based SSL is enabled.
 	VirtualIp *string `pulumi:"virtualIp"`
@@ -171,7 +171,7 @@ type CustomHostnameBindingState struct {
 	AppServiceName pulumi.StringPtrInput
 	// Specifies the Custom Hostname to use for the App Service, example `www.example.com`. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** A CNAME needs to be configured from this Hostname to the Azure Website - otherwise Azure will reject the Hostname Binding.
+	// > **Note:** A CNAME needs to be configured from this Hostname to the Azure Website - otherwise Azure will reject the Hostname Binding.
 	Hostname pulumi.StringPtrInput
 	// The name of the resource group in which the App Service exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -179,7 +179,7 @@ type CustomHostnameBindingState struct {
 	SslState pulumi.StringPtrInput
 	// The SSL certificate thumbprint. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** `thumbprint` must be specified when `sslState` is set.
+	// > **Note:** `thumbprint` must be specified when `sslState` is set.
 	Thumbprint pulumi.StringPtrInput
 	// The virtual IP address assigned to the hostname if IP based SSL is enabled.
 	VirtualIp pulumi.StringPtrInput
@@ -194,7 +194,7 @@ type customHostnameBindingArgs struct {
 	AppServiceName string `pulumi:"appServiceName"`
 	// Specifies the Custom Hostname to use for the App Service, example `www.example.com`. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** A CNAME needs to be configured from this Hostname to the Azure Website - otherwise Azure will reject the Hostname Binding.
+	// > **Note:** A CNAME needs to be configured from this Hostname to the Azure Website - otherwise Azure will reject the Hostname Binding.
 	Hostname string `pulumi:"hostname"`
 	// The name of the resource group in which the App Service exists. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -202,7 +202,7 @@ type customHostnameBindingArgs struct {
 	SslState *string `pulumi:"sslState"`
 	// The SSL certificate thumbprint. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** `thumbprint` must be specified when `sslState` is set.
+	// > **Note:** `thumbprint` must be specified when `sslState` is set.
 	Thumbprint *string `pulumi:"thumbprint"`
 }
 
@@ -212,7 +212,7 @@ type CustomHostnameBindingArgs struct {
 	AppServiceName pulumi.StringInput
 	// Specifies the Custom Hostname to use for the App Service, example `www.example.com`. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** A CNAME needs to be configured from this Hostname to the Azure Website - otherwise Azure will reject the Hostname Binding.
+	// > **Note:** A CNAME needs to be configured from this Hostname to the Azure Website - otherwise Azure will reject the Hostname Binding.
 	Hostname pulumi.StringInput
 	// The name of the resource group in which the App Service exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
@@ -220,7 +220,7 @@ type CustomHostnameBindingArgs struct {
 	SslState pulumi.StringPtrInput
 	// The SSL certificate thumbprint. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** `thumbprint` must be specified when `sslState` is set.
+	// > **Note:** `thumbprint` must be specified when `sslState` is set.
 	Thumbprint pulumi.StringPtrInput
 }
 
@@ -318,7 +318,7 @@ func (o CustomHostnameBindingOutput) AppServiceName() pulumi.StringOutput {
 
 // Specifies the Custom Hostname to use for the App Service, example `www.example.com`. Changing this forces a new resource to be created.
 //
-// > **NOTE:** A CNAME needs to be configured from this Hostname to the Azure Website - otherwise Azure will reject the Hostname Binding.
+// > **Note:** A CNAME needs to be configured from this Hostname to the Azure Website - otherwise Azure will reject the Hostname Binding.
 func (o CustomHostnameBindingOutput) Hostname() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomHostnameBinding) pulumi.StringOutput { return v.Hostname }).(pulumi.StringOutput)
 }
@@ -335,7 +335,7 @@ func (o CustomHostnameBindingOutput) SslState() pulumi.StringOutput {
 
 // The SSL certificate thumbprint. Changing this forces a new resource to be created.
 //
-// > **NOTE:** `thumbprint` must be specified when `sslState` is set.
+// > **Note:** `thumbprint` must be specified when `sslState` is set.
 func (o CustomHostnameBindingOutput) Thumbprint() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomHostnameBinding) pulumi.StringOutput { return v.Thumbprint }).(pulumi.StringOutput)
 }

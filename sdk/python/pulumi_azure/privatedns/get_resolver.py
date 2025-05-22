@@ -120,6 +120,13 @@ def get_resolver(name: Optional[builtins.str] = None,
         resource_group_name="example-resourcegroup-name")
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Network`: 2022-07-01
+
 
     :param builtins.str name: Name of the Private DNS Resolver.
     :param builtins.str resource_group_name: Name of the Resource Group where the Private DNS Resolver exists.
@@ -152,6 +159,13 @@ def get_resolver_output(name: Optional[pulumi.Input[builtins.str]] = None,
     test = azure.privatedns.get_resolver(name="example",
         resource_group_name="example-resourcegroup-name")
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Network`: 2022-07-01
 
 
     :param builtins.str name: Name of the Private DNS Resolver.

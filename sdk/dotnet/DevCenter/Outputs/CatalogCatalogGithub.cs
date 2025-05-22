@@ -13,9 +13,21 @@ namespace Pulumi.Azure.DevCenter.Outputs
     [OutputType]
     public sealed class CatalogCatalogGithub
     {
+        /// <summary>
+        /// The Git branch of the Dev Center Catalog.
+        /// </summary>
         public readonly string Branch;
+        /// <summary>
+        /// A reference to the Key Vault secret containing a security token to authenticate to a Git repository.
+        /// </summary>
         public readonly string KeyVaultKeyUrl;
+        /// <summary>
+        /// The folder where the catalog items can be found inside the repository.
+        /// </summary>
         public readonly string Path;
+        /// <summary>
+        /// The Git URI of the Dev Center Catalog.
+        /// </summary>
         public readonly string Uri;
 
         [OutputConstructor]

@@ -199,6 +199,13 @@ def get_service(name: Optional[builtins.str] = None,
         resource_group_name=example_resource_group.name)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Search`: 2024-06-01-preview
+
 
     :param builtins.str name: The Name of the Search Service.
     :param builtins.str resource_group_name: The name of the Resource Group where the Search Service exists.
@@ -240,6 +247,13 @@ def get_service_output(name: Optional[pulumi.Input[builtins.str]] = None,
     example = azure.search.get_service_output(name="example-search-service",
         resource_group_name=example_resource_group.name)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Search`: 2024-06-01-preview
 
 
     :param builtins.str name: The Name of the Search Service.

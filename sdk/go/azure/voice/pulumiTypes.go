@@ -20,7 +20,7 @@ type ServicesCommunicationsGatewayServiceLocation struct {
 	AllowedSignalingSourceAddressPrefixes []string `pulumi:"allowedSignalingSourceAddressPrefixes"`
 	// IP address to use to contact the ESRP from this region.
 	//
-	// !> **NOTE:** The `esrpAddresses` must be specified for each `serviceLocation` when the`e911Type` is set to `DirectToEsrp`.  The `esrpAddresses` must not be specified for each `serviceLocation` when the`e911Type` is set to `Standard`.
+	// !> **Note:** The `esrpAddresses` must be specified for each `serviceLocation` when the`e911Type` is set to `DirectToEsrp`.  The `esrpAddresses` must not be specified for each `serviceLocation` when the`e911Type` is set to `Standard`.
 	EsrpAddresses []string `pulumi:"esrpAddresses"`
 	// Specifies the region in which the resources needed for Teams Calling will be deployed.
 	Location string `pulumi:"location"`
@@ -46,7 +46,7 @@ type ServicesCommunicationsGatewayServiceLocationArgs struct {
 	AllowedSignalingSourceAddressPrefixes pulumi.StringArrayInput `pulumi:"allowedSignalingSourceAddressPrefixes"`
 	// IP address to use to contact the ESRP from this region.
 	//
-	// !> **NOTE:** The `esrpAddresses` must be specified for each `serviceLocation` when the`e911Type` is set to `DirectToEsrp`.  The `esrpAddresses` must not be specified for each `serviceLocation` when the`e911Type` is set to `Standard`.
+	// !> **Note:** The `esrpAddresses` must be specified for each `serviceLocation` when the`e911Type` is set to `DirectToEsrp`.  The `esrpAddresses` must not be specified for each `serviceLocation` when the`e911Type` is set to `Standard`.
 	EsrpAddresses pulumi.StringArrayInput `pulumi:"esrpAddresses"`
 	// Specifies the region in which the resources needed for Teams Calling will be deployed.
 	Location pulumi.StringInput `pulumi:"location"`
@@ -121,7 +121,7 @@ func (o ServicesCommunicationsGatewayServiceLocationOutput) AllowedSignalingSour
 
 // IP address to use to contact the ESRP from this region.
 //
-// !> **NOTE:** The `esrpAddresses` must be specified for each `serviceLocation` when the`e911Type` is set to `DirectToEsrp`.  The `esrpAddresses` must not be specified for each `serviceLocation` when the`e911Type` is set to `Standard`.
+// !> **Note:** The `esrpAddresses` must be specified for each `serviceLocation` when the`e911Type` is set to `DirectToEsrp`.  The `esrpAddresses` must not be specified for each `serviceLocation` when the`e911Type` is set to `Standard`.
 func (o ServicesCommunicationsGatewayServiceLocationOutput) EsrpAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ServicesCommunicationsGatewayServiceLocation) []string { return v.EsrpAddresses }).(pulumi.StringArrayOutput)
 }

@@ -292,6 +292,13 @@ class DataSourceWindowsPerformanceCounter(pulumi.CustomResource):
             interval_seconds=10)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.OperationalInsights`: 2020-08-01
+
         ## Import
 
         Log Analytics Windows Performance Counter DataSources can be imported using the `resource id`, e.g.
@@ -342,6 +349,13 @@ class DataSourceWindowsPerformanceCounter(pulumi.CustomResource):
             counter_name="CPU",
             interval_seconds=10)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.OperationalInsights`: 2020-08-01
 
         ## Import
 

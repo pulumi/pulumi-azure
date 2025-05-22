@@ -36,10 +36,15 @@ public final class CustomDomainGateway {
      * 
      */
     private String hostName;
+    private @Nullable String keyVaultCertificateId;
     /**
      * @return The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
      * 
+     * @deprecated
+     * `key_vault_id` has been deprecated in favour of `key_vault_certificate_id` and will be removed in v5.0 of the AzureRM provider
+     * 
      */
+    @Deprecated /* `key_vault_id` has been deprecated in favour of `key_vault_certificate_id` and will be removed in v5.0 of the AzureRM provider */
     private @Nullable String keyVaultId;
     /**
      * @return Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
@@ -94,10 +99,17 @@ public final class CustomDomainGateway {
     public String hostName() {
         return this.hostName;
     }
+    public Optional<String> keyVaultCertificateId() {
+        return Optional.ofNullable(this.keyVaultCertificateId);
+    }
     /**
      * @return The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
      * 
+     * @deprecated
+     * `key_vault_id` has been deprecated in favour of `key_vault_certificate_id` and will be removed in v5.0 of the AzureRM provider
+     * 
      */
+    @Deprecated /* `key_vault_id` has been deprecated in favour of `key_vault_certificate_id` and will be removed in v5.0 of the AzureRM provider */
     public Optional<String> keyVaultId() {
         return Optional.ofNullable(this.keyVaultId);
     }
@@ -140,6 +152,7 @@ public final class CustomDomainGateway {
         private @Nullable Boolean defaultSslBinding;
         private @Nullable String expiry;
         private String hostName;
+        private @Nullable String keyVaultCertificateId;
         private @Nullable String keyVaultId;
         private @Nullable Boolean negotiateClientCertificate;
         private @Nullable String sslKeyvaultIdentityClientId;
@@ -155,6 +168,7 @@ public final class CustomDomainGateway {
     	      this.defaultSslBinding = defaults.defaultSslBinding;
     	      this.expiry = defaults.expiry;
     	      this.hostName = defaults.hostName;
+    	      this.keyVaultCertificateId = defaults.keyVaultCertificateId;
     	      this.keyVaultId = defaults.keyVaultId;
     	      this.negotiateClientCertificate = defaults.negotiateClientCertificate;
     	      this.sslKeyvaultIdentityClientId = defaults.sslKeyvaultIdentityClientId;
@@ -207,6 +221,12 @@ public final class CustomDomainGateway {
             return this;
         }
         @CustomType.Setter
+        public Builder keyVaultCertificateId(@Nullable String keyVaultCertificateId) {
+
+            this.keyVaultCertificateId = keyVaultCertificateId;
+            return this;
+        }
+        @CustomType.Setter
         public Builder keyVaultId(@Nullable String keyVaultId) {
 
             this.keyVaultId = keyVaultId;
@@ -245,6 +265,7 @@ public final class CustomDomainGateway {
             _resultValue.defaultSslBinding = defaultSslBinding;
             _resultValue.expiry = expiry;
             _resultValue.hostName = hostName;
+            _resultValue.keyVaultCertificateId = keyVaultCertificateId;
             _resultValue.keyVaultId = keyVaultId;
             _resultValue.negotiateClientCertificate = negotiateClientCertificate;
             _resultValue.sslKeyvaultIdentityClientId = sslKeyvaultIdentityClientId;

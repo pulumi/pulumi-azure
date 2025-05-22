@@ -12,7 +12,7 @@ namespace Pulumi.Azure.NetApp
     /// <summary>
     /// Manages a NetApp Volume.
     /// 
-    /// !&gt;**IMPORTANT:** This resource uses a feature to prevent deletion called `prevent_volume_destruction`, defaulting to `true`. It is intentionally set to `true` to prevent the possibility of accidental data loss. The example in this page shows all possible protection options you can apply, it is using same values as the defaults.
+    /// !&gt; **Note:** This resource uses a feature to prevent deletion called `prevent_volume_destruction`, defaulting to `true`. It is intentionally set to `true` to prevent the possibility of accidental data loss. The example in this page shows all possible protection options you can apply, it is using same values as the defaults.
     /// 
     /// ## Import
     /// 
@@ -111,7 +111,7 @@ namespace Pulumi.Azure.NetApp
         public Output<string> NetworkFeatures { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the NetApp pool in which the NetApp Volume should be created. Changing this forces a new resource to be created.
+        /// The name of the NetApp pool in which the NetApp Volume should be created.
         /// </summary>
         [Output("poolName")]
         public Output<string> PoolName { get; private set; } = null!;
@@ -134,9 +134,6 @@ namespace Pulumi.Azure.NetApp
         [Output("securityStyle")]
         public Output<string> SecurityStyle { get; private set; } = null!;
 
-        /// <summary>
-        /// The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`. Changing this forces a new resource to be created.
-        /// </summary>
         [Output("serviceLevel")]
         public Output<string> ServiceLevel { get; private set; } = null!;
 
@@ -340,7 +337,7 @@ namespace Pulumi.Azure.NetApp
         public Input<string>? NetworkFeatures { get; set; }
 
         /// <summary>
-        /// The name of the NetApp pool in which the NetApp Volume should be created. Changing this forces a new resource to be created.
+        /// The name of the NetApp pool in which the NetApp Volume should be created.
         /// </summary>
         [Input("poolName", required: true)]
         public Input<string> PoolName { get; set; } = null!;
@@ -369,9 +366,6 @@ namespace Pulumi.Azure.NetApp
         [Input("securityStyle")]
         public Input<string>? SecurityStyle { get; set; }
 
-        /// <summary>
-        /// The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`. Changing this forces a new resource to be created.
-        /// </summary>
         [Input("serviceLevel", required: true)]
         public Input<string> ServiceLevel { get; set; } = null!;
 
@@ -555,7 +549,7 @@ namespace Pulumi.Azure.NetApp
         public Input<string>? NetworkFeatures { get; set; }
 
         /// <summary>
-        /// The name of the NetApp pool in which the NetApp Volume should be created. Changing this forces a new resource to be created.
+        /// The name of the NetApp pool in which the NetApp Volume should be created.
         /// </summary>
         [Input("poolName")]
         public Input<string>? PoolName { get; set; }
@@ -584,9 +578,6 @@ namespace Pulumi.Azure.NetApp
         [Input("securityStyle")]
         public Input<string>? SecurityStyle { get; set; }
 
-        /// <summary>
-        /// The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`. Changing this forces a new resource to be created.
-        /// </summary>
         [Input("serviceLevel")]
         public Input<string>? ServiceLevel { get; set; }
 

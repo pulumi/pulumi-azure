@@ -157,6 +157,13 @@ def get_workspace(name: Optional[builtins.str] = None,
     pulumi.export("queryEndpoint", example.query_endpoint)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Monitor`: 2023-04-03
+
 
     :param builtins.str name: Specifies the name of the Workspace.
     :param builtins.str resource_group_name: Specifies the name of the resource group the Workspace is located in.
@@ -193,6 +200,13 @@ def get_workspace_output(name: Optional[pulumi.Input[builtins.str]] = None,
         resource_group_name=example_azurerm_resource_group["name"])
     pulumi.export("queryEndpoint", example.query_endpoint)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Monitor`: 2023-04-03
 
 
     :param builtins.str name: Specifies the name of the Workspace.

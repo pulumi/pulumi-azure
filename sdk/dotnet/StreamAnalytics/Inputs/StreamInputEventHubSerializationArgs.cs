@@ -15,7 +15,7 @@ namespace Pulumi.Azure.StreamAnalytics.Inputs
         /// <summary>
         /// The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
         /// 
-        /// &gt; **NOTE:** This is required when `type` is set to `Csv` or `Json`.
+        /// &gt; **Note:** This is required when `type` is set to `Csv` or `Json`.
         /// </summary>
         [Input("encoding")]
         public Input<string>? Encoding { get; set; }
@@ -23,7 +23,7 @@ namespace Pulumi.Azure.StreamAnalytics.Inputs
         /// <summary>
         /// The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `	` (tab), `|` (pipe) and `;`.
         /// 
-        /// &gt; **NOTE:** This is required when `type` is set to `Csv`.
+        /// &gt; **Note:** This is required when `type` is set to `Csv`.
         /// </summary>
         [Input("fieldDelimiter")]
         public Input<string>? FieldDelimiter { get; set; }

@@ -48,6 +48,13 @@ import (
 //	}
 //
 // ```
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This data source uses the following Azure API Providers:
+//
+// * `Microsoft.OperationalInsights`: 2023-12-01-preview
 func GetAlertRule(ctx *pulumi.Context, args *GetAlertRuleArgs, opts ...pulumi.InvokeOption) (*GetAlertRuleResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetAlertRuleResult

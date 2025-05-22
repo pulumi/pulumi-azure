@@ -91,6 +91,13 @@ import * as utilities from "../utilities";
  * const exampleFunctionAppActiveSlot = new azure.appservice.FunctionAppActiveSlot("example", {slotId: exampleLinuxFunctionAppSlot.id});
  * ```
  *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.Web`: 2023-12-01
+ *
  * ## Import
  *
  * a Function App Active Slot can be imported using the `resource id`, e.g.

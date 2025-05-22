@@ -33,12 +33,16 @@ public final class FlexibleServerVirtualEndpointState extends com.pulumi.resourc
     /**
      * The Resource ID of the *Replica* Postgres Flexible Server this should be associated with
      * 
+     * &gt; **Note:** If a fail-over has occurred, you will be unable to update `replica_server_id`. You can remove the resource from state and reimport it back in with `source_server_id` and `replica_server_id` flipped and then update `replica_server_id`.
+     * 
      */
     @Import(name="replicaServerId")
     private @Nullable Output<String> replicaServerId;
 
     /**
      * @return The Resource ID of the *Replica* Postgres Flexible Server this should be associated with
+     * 
+     * &gt; **Note:** If a fail-over has occurred, you will be unable to update `replica_server_id`. You can remove the resource from state and reimport it back in with `source_server_id` and `replica_server_id` flipped and then update `replica_server_id`.
      * 
      */
     public Optional<Output<String>> replicaServerId() {
@@ -126,6 +130,8 @@ public final class FlexibleServerVirtualEndpointState extends com.pulumi.resourc
         /**
          * @param replicaServerId The Resource ID of the *Replica* Postgres Flexible Server this should be associated with
          * 
+         * &gt; **Note:** If a fail-over has occurred, you will be unable to update `replica_server_id`. You can remove the resource from state and reimport it back in with `source_server_id` and `replica_server_id` flipped and then update `replica_server_id`.
+         * 
          * @return builder
          * 
          */
@@ -136,6 +142,8 @@ public final class FlexibleServerVirtualEndpointState extends com.pulumi.resourc
 
         /**
          * @param replicaServerId The Resource ID of the *Replica* Postgres Flexible Server this should be associated with
+         * 
+         * &gt; **Note:** If a fail-over has occurred, you will be unable to update `replica_server_id`. You can remove the resource from state and reimport it back in with `source_server_id` and `replica_server_id` flipped and then update `replica_server_id`.
          * 
          * @return builder
          * 

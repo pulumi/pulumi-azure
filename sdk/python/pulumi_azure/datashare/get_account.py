@@ -110,6 +110,13 @@ def get_account(name: Optional[builtins.str] = None,
     pulumi.export("id", example.id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.DataShare`: 2019-11-01
+
 
     :param builtins.str name: The name of this Data Share Account.
     :param builtins.str resource_group_name: The name of the Resource Group where the Data Share Account exists.
@@ -142,6 +149,13 @@ def get_account_output(name: Optional[pulumi.Input[builtins.str]] = None,
         resource_group_name="example-resource-group")
     pulumi.export("id", example.id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.DataShare`: 2019-11-01
 
 
     :param builtins.str name: The name of this Data Share Account.

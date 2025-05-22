@@ -55,6 +55,13 @@ public final class ProximityFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Compute`: 2022-03-01
+     * 
      */
     public static Output<GetPlacementGroupResult> getPlacementGroup(GetPlacementGroupArgs args) {
         return getPlacementGroup(args, InvokeOptions.Empty);
@@ -98,6 +105,13 @@ public final class ProximityFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Compute`: 2022-03-01
      * 
      */
     public static CompletableFuture<GetPlacementGroupResult> getPlacementGroupPlain(GetPlacementGroupPlainArgs args) {
@@ -143,6 +157,13 @@ public final class ProximityFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Compute`: 2022-03-01
+     * 
      */
     public static Output<GetPlacementGroupResult> getPlacementGroup(GetPlacementGroupArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:proximity/getPlacementGroup:getPlacementGroup", TypeShape.of(GetPlacementGroupResult.class), args, Utilities.withVersion(options));
@@ -187,6 +208,13 @@ public final class ProximityFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Compute`: 2022-03-01
+     * 
      */
     public static Output<GetPlacementGroupResult> getPlacementGroup(GetPlacementGroupArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:proximity/getPlacementGroup:getPlacementGroup", TypeShape.of(GetPlacementGroupResult.class), args, Utilities.withVersion(options));
@@ -230,6 +258,13 @@ public final class ProximityFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Compute`: 2022-03-01
      * 
      */
     public static CompletableFuture<GetPlacementGroupResult> getPlacementGroupPlain(GetPlacementGroupPlainArgs args, InvokeOptions options) {

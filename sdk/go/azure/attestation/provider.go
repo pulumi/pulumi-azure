@@ -58,6 +58,13 @@ import (
 //
 // ```
 //
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.Attestation`: 2020-10-01
+//
 // ## Import
 //
 // Attestation Providers can be imported using the `resource id`, e.g.
@@ -78,13 +85,13 @@ type Provider struct {
 	OpenEnclavePolicyBase64 pulumi.StringPtrOutput `pulumi:"openEnclavePolicyBase64"`
 	// A valid X.509 certificate (Section 4 of [RFC4648](https://tools.ietf.org/html/rfc4648)). Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** If the `policySigningCertificateData` argument contains more than one valid X.509 certificate only the first certificate will be used.
+	// > **Note:** If the `policySigningCertificateData` argument contains more than one valid X.509 certificate only the first certificate will be used.
 	PolicySigningCertificateData pulumi.StringPtrOutput `pulumi:"policySigningCertificateData"`
 	// The name of the Resource Group where the attestation provider should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
 	//
-	// > [More information on the JWT Policies can be found in this article on `learn.microsoft.com`](https://learn.microsoft.com/azure/attestation/author-sign-policy).
+	// > **Note:** [More information on the JWT Policies can be found in this article on `learn.microsoft.com`](https://learn.microsoft.com/azure/attestation/author-sign-policy).
 	SevSnpPolicyBase64 pulumi.StringPtrOutput `pulumi:"sevSnpPolicyBase64"`
 	// Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
 	SgxEnclavePolicyBase64 pulumi.StringPtrOutput `pulumi:"sgxEnclavePolicyBase64"`
@@ -139,13 +146,13 @@ type providerState struct {
 	OpenEnclavePolicyBase64 *string `pulumi:"openEnclavePolicyBase64"`
 	// A valid X.509 certificate (Section 4 of [RFC4648](https://tools.ietf.org/html/rfc4648)). Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** If the `policySigningCertificateData` argument contains more than one valid X.509 certificate only the first certificate will be used.
+	// > **Note:** If the `policySigningCertificateData` argument contains more than one valid X.509 certificate only the first certificate will be used.
 	PolicySigningCertificateData *string `pulumi:"policySigningCertificateData"`
 	// The name of the Resource Group where the attestation provider should exist. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
 	//
-	// > [More information on the JWT Policies can be found in this article on `learn.microsoft.com`](https://learn.microsoft.com/azure/attestation/author-sign-policy).
+	// > **Note:** [More information on the JWT Policies can be found in this article on `learn.microsoft.com`](https://learn.microsoft.com/azure/attestation/author-sign-policy).
 	SevSnpPolicyBase64 *string `pulumi:"sevSnpPolicyBase64"`
 	// Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
 	SgxEnclavePolicyBase64 *string `pulumi:"sgxEnclavePolicyBase64"`
@@ -168,13 +175,13 @@ type ProviderState struct {
 	OpenEnclavePolicyBase64 pulumi.StringPtrInput
 	// A valid X.509 certificate (Section 4 of [RFC4648](https://tools.ietf.org/html/rfc4648)). Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** If the `policySigningCertificateData` argument contains more than one valid X.509 certificate only the first certificate will be used.
+	// > **Note:** If the `policySigningCertificateData` argument contains more than one valid X.509 certificate only the first certificate will be used.
 	PolicySigningCertificateData pulumi.StringPtrInput
 	// The name of the Resource Group where the attestation provider should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
 	//
-	// > [More information on the JWT Policies can be found in this article on `learn.microsoft.com`](https://learn.microsoft.com/azure/attestation/author-sign-policy).
+	// > **Note:** [More information on the JWT Policies can be found in this article on `learn.microsoft.com`](https://learn.microsoft.com/azure/attestation/author-sign-policy).
 	SevSnpPolicyBase64 pulumi.StringPtrInput
 	// Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
 	SgxEnclavePolicyBase64 pulumi.StringPtrInput
@@ -199,13 +206,13 @@ type providerArgs struct {
 	OpenEnclavePolicyBase64 *string `pulumi:"openEnclavePolicyBase64"`
 	// A valid X.509 certificate (Section 4 of [RFC4648](https://tools.ietf.org/html/rfc4648)). Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** If the `policySigningCertificateData` argument contains more than one valid X.509 certificate only the first certificate will be used.
+	// > **Note:** If the `policySigningCertificateData` argument contains more than one valid X.509 certificate only the first certificate will be used.
 	PolicySigningCertificateData *string `pulumi:"policySigningCertificateData"`
 	// The name of the Resource Group where the attestation provider should exist. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
 	//
-	// > [More information on the JWT Policies can be found in this article on `learn.microsoft.com`](https://learn.microsoft.com/azure/attestation/author-sign-policy).
+	// > **Note:** [More information on the JWT Policies can be found in this article on `learn.microsoft.com`](https://learn.microsoft.com/azure/attestation/author-sign-policy).
 	SevSnpPolicyBase64 *string `pulumi:"sevSnpPolicyBase64"`
 	// Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
 	SgxEnclavePolicyBase64 *string `pulumi:"sgxEnclavePolicyBase64"`
@@ -225,13 +232,13 @@ type ProviderArgs struct {
 	OpenEnclavePolicyBase64 pulumi.StringPtrInput
 	// A valid X.509 certificate (Section 4 of [RFC4648](https://tools.ietf.org/html/rfc4648)). Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** If the `policySigningCertificateData` argument contains more than one valid X.509 certificate only the first certificate will be used.
+	// > **Note:** If the `policySigningCertificateData` argument contains more than one valid X.509 certificate only the first certificate will be used.
 	PolicySigningCertificateData pulumi.StringPtrInput
 	// The name of the Resource Group where the attestation provider should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
 	//
-	// > [More information on the JWT Policies can be found in this article on `learn.microsoft.com`](https://learn.microsoft.com/azure/attestation/author-sign-policy).
+	// > **Note:** [More information on the JWT Policies can be found in this article on `learn.microsoft.com`](https://learn.microsoft.com/azure/attestation/author-sign-policy).
 	SevSnpPolicyBase64 pulumi.StringPtrInput
 	// Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
 	SgxEnclavePolicyBase64 pulumi.StringPtrInput
@@ -350,7 +357,7 @@ func (o ProviderOutput) OpenEnclavePolicyBase64() pulumi.StringPtrOutput {
 
 // A valid X.509 certificate (Section 4 of [RFC4648](https://tools.ietf.org/html/rfc4648)). Changing this forces a new resource to be created.
 //
-// > **NOTE:** If the `policySigningCertificateData` argument contains more than one valid X.509 certificate only the first certificate will be used.
+// > **Note:** If the `policySigningCertificateData` argument contains more than one valid X.509 certificate only the first certificate will be used.
 func (o ProviderOutput) PolicySigningCertificateData() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.PolicySigningCertificateData }).(pulumi.StringPtrOutput)
 }
@@ -362,7 +369,7 @@ func (o ProviderOutput) ResourceGroupName() pulumi.StringOutput {
 
 // Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
 //
-// > [More information on the JWT Policies can be found in this article on `learn.microsoft.com`](https://learn.microsoft.com/azure/attestation/author-sign-policy).
+// > **Note:** [More information on the JWT Policies can be found in this article on `learn.microsoft.com`](https://learn.microsoft.com/azure/attestation/author-sign-policy).
 func (o ProviderOutput) SevSnpPolicyBase64() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.SevSnpPolicyBase64 }).(pulumi.StringPtrOutput)
 }

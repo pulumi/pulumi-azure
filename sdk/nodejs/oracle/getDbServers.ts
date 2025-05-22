@@ -21,6 +21,13 @@ import * as utilities from "../utilities";
  * });
  * export const id = example.then(example => example.id);
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Oracle.Database`: 2024-06-01
  */
 export function getDbServers(args: GetDbServersArgs, opts?: pulumi.InvokeOptions): Promise<GetDbServersResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -74,6 +81,13 @@ export interface GetDbServersResult {
  * });
  * export const id = example.then(example => example.id);
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Oracle.Database`: 2024-06-01
  */
 export function getDbServersOutput(args: GetDbServersOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDbServersResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

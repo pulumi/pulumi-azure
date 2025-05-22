@@ -67,6 +67,13 @@ namespace Pulumi.Azure.PostgreSql
     /// });
     /// ```
     /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.DBforPostgreSQL`: 2024-08-01
+    /// 
     /// ## Import
     /// 
     /// A PostgreSQL Flexible Server Active Directory Administrator can be imported using the `resource id`, e.g.

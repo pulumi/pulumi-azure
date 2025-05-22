@@ -101,6 +101,13 @@ def get_account_encryption(netapp_account_id: Optional[builtins.str] = None,
     pulumi.export("id", example.id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.NetApp`: 2025-01-01
+
 
     :param builtins.str netapp_account_id: The ID of the NetApp account where customer managed keys-based encryption is enabled.
     """
@@ -129,6 +136,13 @@ def get_account_encryption_output(netapp_account_id: Optional[pulumi.Input[built
     example = azure.netapp.get_account_encryption(netapp_account_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.NetApp/netAppAccounts/account1")
     pulumi.export("id", example.id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.NetApp`: 2025-01-01
 
 
     :param builtins.str netapp_account_id: The ID of the NetApp account where customer managed keys-based encryption is enabled.

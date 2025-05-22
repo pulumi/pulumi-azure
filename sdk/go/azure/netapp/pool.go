@@ -61,6 +61,13 @@ import (
 //
 // ```
 //
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.NetApp`: 2025-01-01
+//
 // ## Import
 //
 // NetApp Pool can be imported using the `resource id`, e.g.
@@ -73,6 +80,10 @@ type Pool struct {
 
 	// The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
 	AccountName pulumi.StringOutput `pulumi:"accountName"`
+	// Whether the NetApp Pool can hold cool access enabled volumes. Defaults to `false`.
+	//
+	// > **Note:** Disabling `coolAccessEnabled` is not allowed and forces a new resource to be created.
+	CoolAccessEnabled pulumi.BoolPtrOutput `pulumi:"coolAccessEnabled"`
 	// The encryption type of the pool. Valid values include `Single`, and `Double`. Defaults to `Single`. Changing this forces a new resource to be created.
 	EncryptionType pulumi.StringPtrOutput `pulumi:"encryptionType"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -87,9 +98,9 @@ type Pool struct {
 	ServiceLevel pulumi.StringOutput `pulumi:"serviceLevel"`
 	// Provisioned size of the pool in TB. Value must be between `1` and `2048`.
 	//
-	// > **NOTE** `2` TB capacity pool sizing is currently in preview. You can only take advantage of the `2` TB minimum if all the volumes in the capacity pool are using `Standard` network features. If any volume is using `Basic` network features, the minimum size is `4` TB. Please see the product [documentation](https://learn.microsoft.com/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool) for more information.
+	// > **Note:** `2` TB capacity pool sizing is currently in preview. You can only take advantage of the `2` TB minimum if all the volumes in the capacity pool are using `Standard` network features. If any volume is using `Basic` network features, the minimum size is `4` TB. Please see the product [documentation](https://learn.microsoft.com/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool) for more information.
 	//
-	// > **NOTE** The maximum `sizeInTb` is goverened by regional quotas. You may request additional capacity from Azure, currently up to `2048`.
+	// > **Note:** The maximum `sizeInTb` is goverened by regional quotas. You may request additional capacity from Azure, currently up to `2048`.
 	SizeInTb pulumi.IntOutput `pulumi:"sizeInTb"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -139,6 +150,10 @@ func GetPool(ctx *pulumi.Context,
 type poolState struct {
 	// The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
 	AccountName *string `pulumi:"accountName"`
+	// Whether the NetApp Pool can hold cool access enabled volumes. Defaults to `false`.
+	//
+	// > **Note:** Disabling `coolAccessEnabled` is not allowed and forces a new resource to be created.
+	CoolAccessEnabled *bool `pulumi:"coolAccessEnabled"`
 	// The encryption type of the pool. Valid values include `Single`, and `Double`. Defaults to `Single`. Changing this forces a new resource to be created.
 	EncryptionType *string `pulumi:"encryptionType"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -153,9 +168,9 @@ type poolState struct {
 	ServiceLevel *string `pulumi:"serviceLevel"`
 	// Provisioned size of the pool in TB. Value must be between `1` and `2048`.
 	//
-	// > **NOTE** `2` TB capacity pool sizing is currently in preview. You can only take advantage of the `2` TB minimum if all the volumes in the capacity pool are using `Standard` network features. If any volume is using `Basic` network features, the minimum size is `4` TB. Please see the product [documentation](https://learn.microsoft.com/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool) for more information.
+	// > **Note:** `2` TB capacity pool sizing is currently in preview. You can only take advantage of the `2` TB minimum if all the volumes in the capacity pool are using `Standard` network features. If any volume is using `Basic` network features, the minimum size is `4` TB. Please see the product [documentation](https://learn.microsoft.com/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool) for more information.
 	//
-	// > **NOTE** The maximum `sizeInTb` is goverened by regional quotas. You may request additional capacity from Azure, currently up to `2048`.
+	// > **Note:** The maximum `sizeInTb` is goverened by regional quotas. You may request additional capacity from Azure, currently up to `2048`.
 	SizeInTb *int `pulumi:"sizeInTb"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -164,6 +179,10 @@ type poolState struct {
 type PoolState struct {
 	// The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
 	AccountName pulumi.StringPtrInput
+	// Whether the NetApp Pool can hold cool access enabled volumes. Defaults to `false`.
+	//
+	// > **Note:** Disabling `coolAccessEnabled` is not allowed and forces a new resource to be created.
+	CoolAccessEnabled pulumi.BoolPtrInput
 	// The encryption type of the pool. Valid values include `Single`, and `Double`. Defaults to `Single`. Changing this forces a new resource to be created.
 	EncryptionType pulumi.StringPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -178,9 +197,9 @@ type PoolState struct {
 	ServiceLevel pulumi.StringPtrInput
 	// Provisioned size of the pool in TB. Value must be between `1` and `2048`.
 	//
-	// > **NOTE** `2` TB capacity pool sizing is currently in preview. You can only take advantage of the `2` TB minimum if all the volumes in the capacity pool are using `Standard` network features. If any volume is using `Basic` network features, the minimum size is `4` TB. Please see the product [documentation](https://learn.microsoft.com/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool) for more information.
+	// > **Note:** `2` TB capacity pool sizing is currently in preview. You can only take advantage of the `2` TB minimum if all the volumes in the capacity pool are using `Standard` network features. If any volume is using `Basic` network features, the minimum size is `4` TB. Please see the product [documentation](https://learn.microsoft.com/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool) for more information.
 	//
-	// > **NOTE** The maximum `sizeInTb` is goverened by regional quotas. You may request additional capacity from Azure, currently up to `2048`.
+	// > **Note:** The maximum `sizeInTb` is goverened by regional quotas. You may request additional capacity from Azure, currently up to `2048`.
 	SizeInTb pulumi.IntPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -193,6 +212,10 @@ func (PoolState) ElementType() reflect.Type {
 type poolArgs struct {
 	// The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
 	AccountName string `pulumi:"accountName"`
+	// Whether the NetApp Pool can hold cool access enabled volumes. Defaults to `false`.
+	//
+	// > **Note:** Disabling `coolAccessEnabled` is not allowed and forces a new resource to be created.
+	CoolAccessEnabled *bool `pulumi:"coolAccessEnabled"`
 	// The encryption type of the pool. Valid values include `Single`, and `Double`. Defaults to `Single`. Changing this forces a new resource to be created.
 	EncryptionType *string `pulumi:"encryptionType"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -207,9 +230,9 @@ type poolArgs struct {
 	ServiceLevel string `pulumi:"serviceLevel"`
 	// Provisioned size of the pool in TB. Value must be between `1` and `2048`.
 	//
-	// > **NOTE** `2` TB capacity pool sizing is currently in preview. You can only take advantage of the `2` TB minimum if all the volumes in the capacity pool are using `Standard` network features. If any volume is using `Basic` network features, the minimum size is `4` TB. Please see the product [documentation](https://learn.microsoft.com/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool) for more information.
+	// > **Note:** `2` TB capacity pool sizing is currently in preview. You can only take advantage of the `2` TB minimum if all the volumes in the capacity pool are using `Standard` network features. If any volume is using `Basic` network features, the minimum size is `4` TB. Please see the product [documentation](https://learn.microsoft.com/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool) for more information.
 	//
-	// > **NOTE** The maximum `sizeInTb` is goverened by regional quotas. You may request additional capacity from Azure, currently up to `2048`.
+	// > **Note:** The maximum `sizeInTb` is goverened by regional quotas. You may request additional capacity from Azure, currently up to `2048`.
 	SizeInTb int `pulumi:"sizeInTb"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -219,6 +242,10 @@ type poolArgs struct {
 type PoolArgs struct {
 	// The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
 	AccountName pulumi.StringInput
+	// Whether the NetApp Pool can hold cool access enabled volumes. Defaults to `false`.
+	//
+	// > **Note:** Disabling `coolAccessEnabled` is not allowed and forces a new resource to be created.
+	CoolAccessEnabled pulumi.BoolPtrInput
 	// The encryption type of the pool. Valid values include `Single`, and `Double`. Defaults to `Single`. Changing this forces a new resource to be created.
 	EncryptionType pulumi.StringPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -233,9 +260,9 @@ type PoolArgs struct {
 	ServiceLevel pulumi.StringInput
 	// Provisioned size of the pool in TB. Value must be between `1` and `2048`.
 	//
-	// > **NOTE** `2` TB capacity pool sizing is currently in preview. You can only take advantage of the `2` TB minimum if all the volumes in the capacity pool are using `Standard` network features. If any volume is using `Basic` network features, the minimum size is `4` TB. Please see the product [documentation](https://learn.microsoft.com/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool) for more information.
+	// > **Note:** `2` TB capacity pool sizing is currently in preview. You can only take advantage of the `2` TB minimum if all the volumes in the capacity pool are using `Standard` network features. If any volume is using `Basic` network features, the minimum size is `4` TB. Please see the product [documentation](https://learn.microsoft.com/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool) for more information.
 	//
-	// > **NOTE** The maximum `sizeInTb` is goverened by regional quotas. You may request additional capacity from Azure, currently up to `2048`.
+	// > **Note:** The maximum `sizeInTb` is goverened by regional quotas. You may request additional capacity from Azure, currently up to `2048`.
 	SizeInTb pulumi.IntInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -333,6 +360,13 @@ func (o PoolOutput) AccountName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Pool) pulumi.StringOutput { return v.AccountName }).(pulumi.StringOutput)
 }
 
+// Whether the NetApp Pool can hold cool access enabled volumes. Defaults to `false`.
+//
+// > **Note:** Disabling `coolAccessEnabled` is not allowed and forces a new resource to be created.
+func (o PoolOutput) CoolAccessEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Pool) pulumi.BoolPtrOutput { return v.CoolAccessEnabled }).(pulumi.BoolPtrOutput)
+}
+
 // The encryption type of the pool. Valid values include `Single`, and `Double`. Defaults to `Single`. Changing this forces a new resource to be created.
 func (o PoolOutput) EncryptionType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Pool) pulumi.StringPtrOutput { return v.EncryptionType }).(pulumi.StringPtrOutput)
@@ -365,9 +399,9 @@ func (o PoolOutput) ServiceLevel() pulumi.StringOutput {
 
 // Provisioned size of the pool in TB. Value must be between `1` and `2048`.
 //
-// > **NOTE** `2` TB capacity pool sizing is currently in preview. You can only take advantage of the `2` TB minimum if all the volumes in the capacity pool are using `Standard` network features. If any volume is using `Basic` network features, the minimum size is `4` TB. Please see the product [documentation](https://learn.microsoft.com/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool) for more information.
+// > **Note:** `2` TB capacity pool sizing is currently in preview. You can only take advantage of the `2` TB minimum if all the volumes in the capacity pool are using `Standard` network features. If any volume is using `Basic` network features, the minimum size is `4` TB. Please see the product [documentation](https://learn.microsoft.com/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool) for more information.
 //
-// > **NOTE** The maximum `sizeInTb` is goverened by regional quotas. You may request additional capacity from Azure, currently up to `2048`.
+// > **Note:** The maximum `sizeInTb` is goverened by regional quotas. You may request additional capacity from Azure, currently up to `2048`.
 func (o PoolOutput) SizeInTb() pulumi.IntOutput {
 	return o.ApplyT(func(v *Pool) pulumi.IntOutput { return v.SizeInTb }).(pulumi.IntOutput)
 }

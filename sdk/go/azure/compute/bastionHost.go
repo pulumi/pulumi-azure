@@ -138,7 +138,7 @@ type BastionHost struct {
 	ShareableLinkEnabled pulumi.BoolPtrOutput `pulumi:"shareableLinkEnabled"`
 	// The SKU of the Bastion Host. Accepted values are `Developer`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
 	//
-	// > **Note** Downgrading the SKU will force a new resource to be created.
+	// > **Note:** Downgrading the SKU will force a new resource to be created.
 	Sku pulumi.StringPtrOutput `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -223,7 +223,7 @@ type bastionHostState struct {
 	ShareableLinkEnabled *bool `pulumi:"shareableLinkEnabled"`
 	// The SKU of the Bastion Host. Accepted values are `Developer`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
 	//
-	// > **Note** Downgrading the SKU will force a new resource to be created.
+	// > **Note:** Downgrading the SKU will force a new resource to be created.
 	Sku *string `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -276,7 +276,7 @@ type BastionHostState struct {
 	ShareableLinkEnabled pulumi.BoolPtrInput
 	// The SKU of the Bastion Host. Accepted values are `Developer`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
 	//
-	// > **Note** Downgrading the SKU will force a new resource to be created.
+	// > **Note:** Downgrading the SKU will force a new resource to be created.
 	Sku pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -331,7 +331,7 @@ type bastionHostArgs struct {
 	ShareableLinkEnabled *bool `pulumi:"shareableLinkEnabled"`
 	// The SKU of the Bastion Host. Accepted values are `Developer`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
 	//
-	// > **Note** Downgrading the SKU will force a new resource to be created.
+	// > **Note:** Downgrading the SKU will force a new resource to be created.
 	Sku *string `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -383,7 +383,7 @@ type BastionHostArgs struct {
 	ShareableLinkEnabled pulumi.BoolPtrInput
 	// The SKU of the Bastion Host. Accepted values are `Developer`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
 	//
-	// > **Note** Downgrading the SKU will force a new resource to be created.
+	// > **Note:** Downgrading the SKU will force a new resource to be created.
 	Sku pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -558,7 +558,7 @@ func (o BastionHostOutput) ShareableLinkEnabled() pulumi.BoolPtrOutput {
 
 // The SKU of the Bastion Host. Accepted values are `Developer`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
 //
-// > **Note** Downgrading the SKU will force a new resource to be created.
+// > **Note:** Downgrading the SKU will force a new resource to be created.
 func (o BastionHostOutput) Sku() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BastionHost) pulumi.StringPtrOutput { return v.Sku }).(pulumi.StringPtrOutput)
 }

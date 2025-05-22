@@ -16,7 +16,7 @@ namespace Pulumi.Azure.HDInsight.Outputs
         /// <summary>
         /// The password used for the Ambari Portal.
         /// 
-        /// &gt; **NOTE:** This password must be different from the one used for the `head_node`, `worker_node` and `zookeeper_node` roles.
+        /// &gt; **Note:** This password must be different from the one used for the `head_node`, `worker_node` and `zookeeper_node` roles.
         /// </summary>
         public readonly string Password;
         /// <summary>

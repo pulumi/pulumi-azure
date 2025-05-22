@@ -206,6 +206,13 @@ class NetworkManagerSecurityAdminConfiguration(pulumi.CustomResource):
             apply_on_network_intent_policy_based_services="None")
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network`: 2024-05-01
+
         ## Import
 
         Network Manager Security Admin Configuration can be imported using the `resource id`, e.g.
@@ -261,6 +268,13 @@ class NetworkManagerSecurityAdminConfiguration(pulumi.CustomResource):
             description="example admin conf",
             apply_on_network_intent_policy_based_services="None")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network`: 2024-05-01
 
         ## Import
 

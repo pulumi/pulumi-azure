@@ -50,7 +50,7 @@ if not MYPY:
         """
         The scope of this rule. The `scope` and (potentially) the `filter` determine which clients match the rule. Possible values are: `default`, `network`, `host`.
 
-        > **NOTE:** Each `access_rule` should set a unique `scope`.
+        > **Note:** Each `access_rule` should set a unique `scope`.
         """
         anonymous_gid: NotRequired[pulumi.Input[builtins.int]]
         """
@@ -94,7 +94,7 @@ class CacheAccessPolicyAccessRuleArgs:
         :param pulumi.Input[builtins.str] access: The access level for this rule. Possible values are: `rw`, `ro`, `no`.
         :param pulumi.Input[builtins.str] scope: The scope of this rule. The `scope` and (potentially) the `filter` determine which clients match the rule. Possible values are: `default`, `network`, `host`.
                
-               > **NOTE:** Each `access_rule` should set a unique `scope`.
+               > **Note:** Each `access_rule` should set a unique `scope`.
         :param pulumi.Input[builtins.int] anonymous_gid: The anonymous GID used when `root_squash_enabled` is `true`.
         :param pulumi.Input[builtins.int] anonymous_uid: The anonymous UID used when `root_squash_enabled` is `true`.
         :param pulumi.Input[builtins.str] filter: The filter applied to the `scope` for this rule. The filter's format depends on its scope: `default` scope matches all clients and has no filter value; `network` scope takes a CIDR format; `host` takes an IP address or fully qualified domain name. If a client does not match any filter rule and there is no default rule, access is denied.
@@ -135,7 +135,7 @@ class CacheAccessPolicyAccessRuleArgs:
         """
         The scope of this rule. The `scope` and (potentially) the `filter` determine which clients match the rule. Possible values are: `default`, `network`, `host`.
 
-        > **NOTE:** Each `access_rule` should set a unique `scope`.
+        > **Note:** Each `access_rule` should set a unique `scope`.
         """
         return pulumi.get(self, "scope")
 
@@ -860,7 +860,7 @@ if not MYPY:
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this HPC Cache. Changing this forces a new resource to be created.
 
-        > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+        > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         """
         principal_id: NotRequired[pulumi.Input[builtins.str]]
         """
@@ -884,7 +884,7 @@ class CacheIdentityArgs:
         :param pulumi.Input[builtins.str] type: Specifies the type of Managed Service Identity that should be configured on this HPC Cache. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both). Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this HPC Cache. Changing this forces a new resource to be created.
                
-               > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+               > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         :param pulumi.Input[builtins.str] principal_id: The Principal ID associated with this Managed Service Identity.
         :param pulumi.Input[builtins.str] tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
@@ -914,7 +914,7 @@ class CacheIdentityArgs:
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this HPC Cache. Changing this forces a new resource to be created.
 
-        > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+        > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         """
         return pulumi.get(self, "identity_ids")
 

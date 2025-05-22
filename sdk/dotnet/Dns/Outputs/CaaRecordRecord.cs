@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Dns.Outputs
         /// </summary>
         public readonly int Flags;
         /// <summary>
-        /// A property tag, options are `issue`, `issuewild` and `iodef`.
+        /// A property tag, options are `issue`, `issuewild`, `iodef`, and `contactemail`.
         /// </summary>
         public readonly string Tag;
         /// <summary>

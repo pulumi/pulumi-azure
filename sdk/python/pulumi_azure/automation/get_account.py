@@ -155,6 +155,13 @@ def get_account(name: Optional[builtins.str] = None,
     pulumi.export("automationAccountId", example.id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Automation`: 2023-11-01, 2019-06-01
+
 
     :param builtins.str name: The name of the Automation Account.
     :param builtins.str resource_group_name: Specifies the name of the Resource Group where the Automation Account exists.
@@ -191,6 +198,13 @@ def get_account_output(name: Optional[pulumi.Input[builtins.str]] = None,
         resource_group_name="example-resources")
     pulumi.export("automationAccountId", example.id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Automation`: 2023-11-01, 2019-06-01
 
 
     :param builtins.str name: The name of the Automation Account.

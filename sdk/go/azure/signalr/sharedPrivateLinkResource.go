@@ -94,6 +94,13 @@ import (
 //
 // ```
 //
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.SignalRService`: 2024-03-01
+//
 // ## Import
 //
 // Signalr Shared Private Link Resource can be imported using the `resource id`, e.g.
@@ -116,7 +123,7 @@ type SharedPrivateLinkResource struct {
 	SubResourceName pulumi.StringOutput `pulumi:"subResourceName"`
 	// The ID of the Shared Private Link Enabled Remote Resource which this Signalr Private Endpoint should be connected to. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** The `subResourceName` should match with the type of the `targetResourceId` that's being specified.
+	// > **Note:** The `subResourceName` should match with the type of the `targetResourceId` that's being specified.
 	TargetResourceId pulumi.StringOutput `pulumi:"targetResourceId"`
 }
 
@@ -171,7 +178,7 @@ type sharedPrivateLinkResourceState struct {
 	SubResourceName *string `pulumi:"subResourceName"`
 	// The ID of the Shared Private Link Enabled Remote Resource which this Signalr Private Endpoint should be connected to. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** The `subResourceName` should match with the type of the `targetResourceId` that's being specified.
+	// > **Note:** The `subResourceName` should match with the type of the `targetResourceId` that's being specified.
 	TargetResourceId *string `pulumi:"targetResourceId"`
 }
 
@@ -188,7 +195,7 @@ type SharedPrivateLinkResourceState struct {
 	SubResourceName pulumi.StringPtrInput
 	// The ID of the Shared Private Link Enabled Remote Resource which this Signalr Private Endpoint should be connected to. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** The `subResourceName` should match with the type of the `targetResourceId` that's being specified.
+	// > **Note:** The `subResourceName` should match with the type of the `targetResourceId` that's being specified.
 	TargetResourceId pulumi.StringPtrInput
 }
 
@@ -207,7 +214,7 @@ type sharedPrivateLinkResourceArgs struct {
 	SubResourceName string `pulumi:"subResourceName"`
 	// The ID of the Shared Private Link Enabled Remote Resource which this Signalr Private Endpoint should be connected to. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** The `subResourceName` should match with the type of the `targetResourceId` that's being specified.
+	// > **Note:** The `subResourceName` should match with the type of the `targetResourceId` that's being specified.
 	TargetResourceId string `pulumi:"targetResourceId"`
 }
 
@@ -223,7 +230,7 @@ type SharedPrivateLinkResourceArgs struct {
 	SubResourceName pulumi.StringInput
 	// The ID of the Shared Private Link Enabled Remote Resource which this Signalr Private Endpoint should be connected to. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** The `subResourceName` should match with the type of the `targetResourceId` that's being specified.
+	// > **Note:** The `subResourceName` should match with the type of the `targetResourceId` that's being specified.
 	TargetResourceId pulumi.StringInput
 }
 
@@ -341,7 +348,7 @@ func (o SharedPrivateLinkResourceOutput) SubResourceName() pulumi.StringOutput {
 
 // The ID of the Shared Private Link Enabled Remote Resource which this Signalr Private Endpoint should be connected to. Changing this forces a new resource to be created.
 //
-// > **NOTE:** The `subResourceName` should match with the type of the `targetResourceId` that's being specified.
+// > **Note:** The `subResourceName` should match with the type of the `targetResourceId` that's being specified.
 func (o SharedPrivateLinkResourceOutput) TargetResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *SharedPrivateLinkResource) pulumi.StringOutput { return v.TargetResourceId }).(pulumi.StringOutput)
 }

@@ -25,7 +25,7 @@ public final class KeyVaultState extends com.pulumi.resources.ResourceArgs {
     /**
      * A list of up to 1024 objects describing access policies, as described below.
      * 
-     * &gt; **NOTE** Since `access_policy` can be configured both inline and via the separate `azure.keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+     * &gt; **Note:** Since `access_policy` can be configured both inline and via the separate `azure.keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
      * 
      */
     @Import(name="accessPolicies")
@@ -34,7 +34,7 @@ public final class KeyVaultState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return A list of up to 1024 objects describing access policies, as described below.
      * 
-     * &gt; **NOTE** Since `access_policy` can be configured both inline and via the separate `azure.keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+     * &gt; **Note:** Since `access_policy` can be configured both inline and via the separate `azure.keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
      * 
      */
     public Optional<Output<List<KeyVaultAccessPolicyArgs>>> accessPolicies() {
@@ -336,7 +336,7 @@ public final class KeyVaultState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param accessPolicies A list of up to 1024 objects describing access policies, as described below.
          * 
-         * &gt; **NOTE** Since `access_policy` can be configured both inline and via the separate `azure.keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+         * &gt; **Note:** Since `access_policy` can be configured both inline and via the separate `azure.keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
          * 
          * @return builder
          * 
@@ -349,7 +349,7 @@ public final class KeyVaultState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param accessPolicies A list of up to 1024 objects describing access policies, as described below.
          * 
-         * &gt; **NOTE** Since `access_policy` can be configured both inline and via the separate `azure.keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+         * &gt; **Note:** Since `access_policy` can be configured both inline and via the separate `azure.keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
          * 
          * @return builder
          * 
@@ -361,7 +361,7 @@ public final class KeyVaultState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param accessPolicies A list of up to 1024 objects describing access policies, as described below.
          * 
-         * &gt; **NOTE** Since `access_policy` can be configured both inline and via the separate `azure.keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+         * &gt; **Note:** Since `access_policy` can be configured both inline and via the separate `azure.keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
          * 
          * @return builder
          * 

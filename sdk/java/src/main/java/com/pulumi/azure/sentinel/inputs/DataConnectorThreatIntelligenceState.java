@@ -63,7 +63,7 @@ public final class DataConnectorThreatIntelligenceState extends com.pulumi.resou
     /**
      * The ID of the tenant that this Threat Intelligence Data Connector connects to. Changing this forces a new Threat Intelligence Data Connector to be created.
      * 
-     * &gt; **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
+     * &gt; **Note:** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
      * 
      */
     @Import(name="tenantId")
@@ -72,7 +72,7 @@ public final class DataConnectorThreatIntelligenceState extends com.pulumi.resou
     /**
      * @return The ID of the tenant that this Threat Intelligence Data Connector connects to. Changing this forces a new Threat Intelligence Data Connector to be created.
      * 
-     * &gt; **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
+     * &gt; **Note:** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
      * 
      */
     public Optional<Output<String>> tenantId() {
@@ -172,7 +172,7 @@ public final class DataConnectorThreatIntelligenceState extends com.pulumi.resou
         /**
          * @param tenantId The ID of the tenant that this Threat Intelligence Data Connector connects to. Changing this forces a new Threat Intelligence Data Connector to be created.
          * 
-         * &gt; **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
+         * &gt; **Note:** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
          * 
          * @return builder
          * 
@@ -185,7 +185,7 @@ public final class DataConnectorThreatIntelligenceState extends com.pulumi.resou
         /**
          * @param tenantId The ID of the tenant that this Threat Intelligence Data Connector connects to. Changing this forces a new Threat Intelligence Data Connector to be created.
          * 
-         * &gt; **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
+         * &gt; **Note:** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
          * 
          * @return builder
          * 

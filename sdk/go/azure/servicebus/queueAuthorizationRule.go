@@ -38,7 +38,7 @@ type QueueAuthorizationRule struct {
 	PrimaryKey pulumi.StringOutput `pulumi:"primaryKey"`
 	// Specifies the ID of the ServiceBus Queue. Changing this forces a new resource to be created.
 	//
-	// > **NOTE** At least one of the 3 permissions below needs to be set.
+	// > **Note:** At least one of the 3 permissions below needs to be set.
 	QueueId pulumi.StringOutput `pulumi:"queueId"`
 	// The Secondary Connection String for the Authorization Rule.
 	SecondaryConnectionString pulumi.StringOutput `pulumi:"secondaryConnectionString"`
@@ -112,7 +112,7 @@ type queueAuthorizationRuleState struct {
 	PrimaryKey *string `pulumi:"primaryKey"`
 	// Specifies the ID of the ServiceBus Queue. Changing this forces a new resource to be created.
 	//
-	// > **NOTE** At least one of the 3 permissions below needs to be set.
+	// > **Note:** At least one of the 3 permissions below needs to be set.
 	QueueId *string `pulumi:"queueId"`
 	// The Secondary Connection String for the Authorization Rule.
 	SecondaryConnectionString *string `pulumi:"secondaryConnectionString"`
@@ -139,7 +139,7 @@ type QueueAuthorizationRuleState struct {
 	PrimaryKey pulumi.StringPtrInput
 	// Specifies the ID of the ServiceBus Queue. Changing this forces a new resource to be created.
 	//
-	// > **NOTE** At least one of the 3 permissions below needs to be set.
+	// > **Note:** At least one of the 3 permissions below needs to be set.
 	QueueId pulumi.StringPtrInput
 	// The Secondary Connection String for the Authorization Rule.
 	SecondaryConnectionString pulumi.StringPtrInput
@@ -164,7 +164,7 @@ type queueAuthorizationRuleArgs struct {
 	Name *string `pulumi:"name"`
 	// Specifies the ID of the ServiceBus Queue. Changing this forces a new resource to be created.
 	//
-	// > **NOTE** At least one of the 3 permissions below needs to be set.
+	// > **Note:** At least one of the 3 permissions below needs to be set.
 	QueueId string `pulumi:"queueId"`
 	// Does this Authorization Rule have Send permissions to the ServiceBus Queue? Defaults to `false`.
 	Send *bool `pulumi:"send"`
@@ -180,7 +180,7 @@ type QueueAuthorizationRuleArgs struct {
 	Name pulumi.StringPtrInput
 	// Specifies the ID of the ServiceBus Queue. Changing this forces a new resource to be created.
 	//
-	// > **NOTE** At least one of the 3 permissions below needs to be set.
+	// > **Note:** At least one of the 3 permissions below needs to be set.
 	QueueId pulumi.StringInput
 	// Does this Authorization Rule have Send permissions to the ServiceBus Queue? Defaults to `false`.
 	Send pulumi.BoolPtrInput
@@ -305,7 +305,7 @@ func (o QueueAuthorizationRuleOutput) PrimaryKey() pulumi.StringOutput {
 
 // Specifies the ID of the ServiceBus Queue. Changing this forces a new resource to be created.
 //
-// > **NOTE** At least one of the 3 permissions below needs to be set.
+// > **Note:** At least one of the 3 permissions below needs to be set.
 func (o QueueAuthorizationRuleOutput) QueueId() pulumi.StringOutput {
 	return o.ApplyT(func(v *QueueAuthorizationRule) pulumi.StringOutput { return v.QueueId }).(pulumi.StringOutput)
 }

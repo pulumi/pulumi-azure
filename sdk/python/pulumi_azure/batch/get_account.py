@@ -197,6 +197,13 @@ def get_account(name: Optional[builtins.str] = None,
     pulumi.export("poolAllocationMode", example.pool_allocation_mode)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Batch`: 2024-07-01
+
 
     :param builtins.str name: The name of the Batch account.
     :param builtins.str resource_group_name: The Name of the Resource Group where this Batch account exists.
@@ -236,6 +243,13 @@ def get_account_output(name: Optional[pulumi.Input[builtins.str]] = None,
         resource_group_name="test")
     pulumi.export("poolAllocationMode", example.pool_allocation_mode)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Batch`: 2024-07-01
 
 
     :param builtins.str name: The name of the Batch account.

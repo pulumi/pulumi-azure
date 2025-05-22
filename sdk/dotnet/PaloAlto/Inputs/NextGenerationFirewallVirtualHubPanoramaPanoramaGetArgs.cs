@@ -18,6 +18,9 @@ namespace Pulumi.Azure.PaloAlto.Inputs
         [Input("hostName")]
         public Input<string>? HostName { get; set; }
 
+        /// <summary>
+        /// The name which should be used for this Palo Alto Next Generation Firewall VHub Panorama. Changing this forces a new Palo Alto Next Generation Firewall VHub Panorama to be created.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 

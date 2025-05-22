@@ -40,6 +40,13 @@ import (
 //	}
 //
 // ```
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This data source uses the following Azure API Providers:
+//
+// * `Microsoft.AzureStackHCI`: 2024-01-01
 func LookupHciStoragePath(ctx *pulumi.Context, args *LookupHciStoragePathArgs, opts ...pulumi.InvokeOption) (*LookupHciStoragePathResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupHciStoragePathResult

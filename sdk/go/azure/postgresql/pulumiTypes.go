@@ -577,7 +577,7 @@ func (o FlexibleServerHighAvailabilityPtrOutput) StandbyAvailabilityZone() pulum
 type FlexibleServerIdentity struct {
 	// A list of User Assigned Managed Identity IDs to be assigned to this PostgreSQL Flexible Server. Required if used together with `customerManagedKey` block.
 	//
-	// > **Note**: `identityIds` is required when `type` is set to `UserAssigned`.
+	// > **Note:** `identityIds` is required when `type` is set to `UserAssigned`.
 	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId *string `pulumi:"principalId"`
@@ -601,7 +601,7 @@ type FlexibleServerIdentityInput interface {
 type FlexibleServerIdentityArgs struct {
 	// A list of User Assigned Managed Identity IDs to be assigned to this PostgreSQL Flexible Server. Required if used together with `customerManagedKey` block.
 	//
-	// > **Note**: `identityIds` is required when `type` is set to `UserAssigned`.
+	// > **Note:** `identityIds` is required when `type` is set to `UserAssigned`.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
@@ -690,7 +690,7 @@ func (o FlexibleServerIdentityOutput) ToFlexibleServerIdentityPtrOutputWithConte
 
 // A list of User Assigned Managed Identity IDs to be assigned to this PostgreSQL Flexible Server. Required if used together with `customerManagedKey` block.
 //
-// > **Note**: `identityIds` is required when `type` is set to `UserAssigned`.
+// > **Note:** `identityIds` is required when `type` is set to `UserAssigned`.
 func (o FlexibleServerIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FlexibleServerIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
@@ -736,7 +736,7 @@ func (o FlexibleServerIdentityPtrOutput) Elem() FlexibleServerIdentityOutput {
 
 // A list of User Assigned Managed Identity IDs to be assigned to this PostgreSQL Flexible Server. Required if used together with `customerManagedKey` block.
 //
-// > **Note**: `identityIds` is required when `type` is set to `UserAssigned`.
+// > **Note:** `identityIds` is required when `type` is set to `UserAssigned`.
 func (o FlexibleServerIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FlexibleServerIdentity) []string {
 		if v == nil {

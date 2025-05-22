@@ -35,7 +35,7 @@ public final class WindowsWebAppAuthSettingsV2FacebookV2Args extends com.pulumi.
     /**
      * The app setting name that contains the `app_secret` value used for Facebook Login.
      * 
-     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+     * !&gt; **Note:** A setting with this name must exist in `app_settings` to function correctly.
      * 
      */
     @Import(name="appSecretSettingName", required=true)
@@ -44,7 +44,7 @@ public final class WindowsWebAppAuthSettingsV2FacebookV2Args extends com.pulumi.
     /**
      * @return The app setting name that contains the `app_secret` value used for Facebook Login.
      * 
-     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+     * !&gt; **Note:** A setting with this name must exist in `app_settings` to function correctly.
      * 
      */
     public Output<String> appSecretSettingName() {
@@ -132,7 +132,7 @@ public final class WindowsWebAppAuthSettingsV2FacebookV2Args extends com.pulumi.
         /**
          * @param appSecretSettingName The app setting name that contains the `app_secret` value used for Facebook Login.
          * 
-         * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+         * !&gt; **Note:** A setting with this name must exist in `app_settings` to function correctly.
          * 
          * @return builder
          * 
@@ -145,7 +145,7 @@ public final class WindowsWebAppAuthSettingsV2FacebookV2Args extends com.pulumi.
         /**
          * @param appSecretSettingName The app setting name that contains the `app_secret` value used for Facebook Login.
          * 
-         * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+         * !&gt; **Note:** A setting with this name must exist in `app_settings` to function correctly.
          * 
          * @return builder
          * 

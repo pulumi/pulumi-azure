@@ -146,6 +146,13 @@ def get_vpn_gateway(name: Optional[builtins.str] = None,
     pulumi.export("azurermVpnGatewayId", example.id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Network`: 2024-05-01
+
 
     :param builtins.str name: The Name of the VPN Gateway.
     :param builtins.str resource_group_name: The name of the Resource Group where the VPN Gateway exists.
@@ -181,6 +188,13 @@ def get_vpn_gateway_output(name: Optional[pulumi.Input[builtins.str]] = None,
         resource_group_name="existing-vpn_gateway")
     pulumi.export("azurermVpnGatewayId", example.id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Network`: 2024-05-01
 
 
     :param builtins.str name: The Name of the VPN Gateway.

@@ -18,7 +18,7 @@ import javax.annotation.Nullable;
 /**
  * Manages a Facebook integration for a Bot Channel
  * 
- * &gt; **Note** A bot can only have a single Facebook Channel associated with it.
+ * &gt; **Note:** A bot can only have a single Facebook Channel associated with it.
  * 
  * ## Example Usage
  * 

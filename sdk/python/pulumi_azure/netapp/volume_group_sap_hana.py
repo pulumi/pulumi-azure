@@ -454,6 +454,13 @@ class VolumeGroupSapHana(pulumi.CustomResource):
                 ]))
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.NetApp`: 2025-01-01
+
         ## Import
 
         Application Volume Groups can be imported using the `resource id`, e.g.
@@ -663,6 +670,13 @@ class VolumeGroupSapHana(pulumi.CustomResource):
                     example_placement_group,
                 ]))
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.NetApp`: 2025-01-01
 
         ## Import
 

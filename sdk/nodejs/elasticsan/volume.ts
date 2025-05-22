@@ -89,6 +89,13 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.ElasticSan`: 2023-01-01
+ *
  * ## Import
  *
  * An existing Elastic SAN Volume can be imported into Pulumi using the `resource id`, e.g.
@@ -136,7 +143,7 @@ export class Volume extends pulumi.CustomResource {
     /**
      * Specifies the size of the Elastic SAN Volume in GiB. The size should be within the remaining capacity of the parent Elastic SAN. Possible values are between `1` and `65536` (16 TiB).
      *
-     * > **NOTE:** The size can only be increased. If `createSource` is specified, then the size must be equal to or greater than the source's size.
+     * > **Note:** The size can only be increased. If `createSource` is specified, then the size must be equal to or greater than the source's size.
      */
     public readonly sizeInGib!: pulumi.Output<number>;
     /**
@@ -218,7 +225,7 @@ export interface VolumeState {
     /**
      * Specifies the size of the Elastic SAN Volume in GiB. The size should be within the remaining capacity of the parent Elastic SAN. Possible values are between `1` and `65536` (16 TiB).
      *
-     * > **NOTE:** The size can only be increased. If `createSource` is specified, then the size must be equal to or greater than the source's size.
+     * > **Note:** The size can only be increased. If `createSource` is specified, then the size must be equal to or greater than the source's size.
      */
     sizeInGib?: pulumi.Input<number>;
     /**
@@ -258,7 +265,7 @@ export interface VolumeArgs {
     /**
      * Specifies the size of the Elastic SAN Volume in GiB. The size should be within the remaining capacity of the parent Elastic SAN. Possible values are between `1` and `65536` (16 TiB).
      *
-     * > **NOTE:** The size can only be increased. If `createSource` is specified, then the size must be equal to or greater than the source's size.
+     * > **Note:** The size can only be increased. If `createSource` is specified, then the size must be equal to or greater than the source's size.
      */
     sizeInGib: pulumi.Input<number>;
     /**

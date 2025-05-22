@@ -12,7 +12,9 @@ namespace Pulumi.Azure.Hpc
     /// <summary>
     /// Manages a HPC Cache.
     /// 
-    /// &gt; **Note:** By request of the service team the provider no longer automatically registering the `Microsoft.StorageCache` Resource Provider for this resource. To register it you can run `az provider register --namespace 'Microsoft.StorageCache'`.
+    /// !&gt; **Note:** The `azure.hpc.Cache` resource has been deprecated because the service is retiring on 2025-09-30. This resource will be removed in v5.0 of the AzureRM Provider. See https://aka.ms/hpccacheretirement for more information.
+    /// 
+    /// &gt; **Note:** By request of the service team the provider no longer automatically registers the `Microsoft.StorageCache` Resource Provider for this resource. To register it you can run `az provider register --namespace 'Microsoft.StorageCache'`.
     /// 
     /// ## Example Usage
     /// 
@@ -65,6 +67,13 @@ namespace Pulumi.Azure.Hpc
     /// });
     /// ```
     /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.StorageCache`: 2023-05-01
+    /// 
     /// ## Import
     /// 
     /// HPC Caches can be imported using the `resource id`, e.g.
@@ -85,7 +94,7 @@ namespace Pulumi.Azure.Hpc
         /// <summary>
         /// The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `21623`, `24576`, `43246`, `49152` and `86491`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** The `21623`, `43246` and `86491` sizes are restricted to read only resources.
+        /// &gt; **Note:** The `21623`, `43246` and `86491` sizes are restricted to read only resources.
         /// </summary>
         [Output("cacheSizeInGb")]
         public Output<int> CacheSizeInGb { get; private set; } = null!;
@@ -173,7 +182,7 @@ namespace Pulumi.Azure.Hpc
         /// <summary>
         /// The SKU of HPC Cache to use. Possible values are (ReadWrite) - `Standard_2G`, `Standard_4G` `Standard_8G` or (ReadOnly) - `Standard_L4_5G`, `Standard_L9G`, and `Standard_L16G`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** The read-only SKUs have restricted cache sizes. `Standard_L4_5G` must be set to `21623`. `Standard_L9G` to `43246` and `Standard_L16G` to `86491`.
+        /// &gt; **Note:** The read-only SKUs have restricted cache sizes. `Standard_L4_5G` must be set to `21623`. `Standard_L9G` to `43246` and `Standard_L16G` to `86491`.
         /// </summary>
         [Output("skuName")]
         public Output<string> SkuName { get; private set; } = null!;
@@ -245,7 +254,7 @@ namespace Pulumi.Azure.Hpc
         /// <summary>
         /// The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `21623`, `24576`, `43246`, `49152` and `86491`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** The `21623`, `43246` and `86491` sizes are restricted to read only resources.
+        /// &gt; **Note:** The `21623`, `43246` and `86491` sizes are restricted to read only resources.
         /// </summary>
         [Input("cacheSizeInGb", required: true)]
         public Input<int> CacheSizeInGb { get; set; } = null!;
@@ -327,7 +336,7 @@ namespace Pulumi.Azure.Hpc
         /// <summary>
         /// The SKU of HPC Cache to use. Possible values are (ReadWrite) - `Standard_2G`, `Standard_4G` `Standard_8G` or (ReadOnly) - `Standard_L4_5G`, `Standard_L9G`, and `Standard_L16G`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** The read-only SKUs have restricted cache sizes. `Standard_L4_5G` must be set to `21623`. `Standard_L9G` to `43246` and `Standard_L16G` to `86491`.
+        /// &gt; **Note:** The read-only SKUs have restricted cache sizes. `Standard_L4_5G` must be set to `21623`. `Standard_L9G` to `43246` and `Standard_L16G` to `86491`.
         /// </summary>
         [Input("skuName", required: true)]
         public Input<string> SkuName { get; set; } = null!;
@@ -367,7 +376,7 @@ namespace Pulumi.Azure.Hpc
         /// <summary>
         /// The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `21623`, `24576`, `43246`, `49152` and `86491`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** The `21623`, `43246` and `86491` sizes are restricted to read only resources.
+        /// &gt; **Note:** The `21623`, `43246` and `86491` sizes are restricted to read only resources.
         /// </summary>
         [Input("cacheSizeInGb")]
         public Input<int>? CacheSizeInGb { get; set; }
@@ -461,7 +470,7 @@ namespace Pulumi.Azure.Hpc
         /// <summary>
         /// The SKU of HPC Cache to use. Possible values are (ReadWrite) - `Standard_2G`, `Standard_4G` `Standard_8G` or (ReadOnly) - `Standard_L4_5G`, `Standard_L9G`, and `Standard_L16G`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** The read-only SKUs have restricted cache sizes. `Standard_L4_5G` must be set to `21623`. `Standard_L9G` to `43246` and `Standard_L16G` to `86491`.
+        /// &gt; **Note:** The read-only SKUs have restricted cache sizes. `Standard_L4_5G` must be set to `21623`. `Standard_L9G` to `43246` and `Standard_L16G` to `86491`.
         /// </summary>
         [Input("skuName")]
         public Input<string>? SkuName { get; set; }

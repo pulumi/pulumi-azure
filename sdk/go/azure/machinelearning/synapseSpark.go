@@ -140,6 +140,13 @@ import (
 //
 // ```
 //
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.MachineLearningServices`: 2024-04-01
+//
 // ## Import
 //
 // Machine Learning Synapse Sparks can be imported using the `resource id`, e.g.

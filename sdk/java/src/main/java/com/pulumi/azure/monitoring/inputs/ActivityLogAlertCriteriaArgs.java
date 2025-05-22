@@ -67,7 +67,7 @@ public final class ActivityLogAlertCriteriaArgs extends com.pulumi.resources.Res
     /**
      * A list of severity level of the event. Possible values are `Verbose`, `Informational`, `Warning`, `Error`, and `Critical`.
      * 
-     * &gt; **NOTE:** `level` and `levels` are mutually exclusive.
+     * &gt; **Note:** `level` and `levels` are mutually exclusive.
      * 
      */
     @Import(name="levels")
@@ -76,7 +76,7 @@ public final class ActivityLogAlertCriteriaArgs extends com.pulumi.resources.Res
     /**
      * @return A list of severity level of the event. Possible values are `Verbose`, `Informational`, `Warning`, `Error`, and `Critical`.
      * 
-     * &gt; **NOTE:** `level` and `levels` are mutually exclusive.
+     * &gt; **Note:** `level` and `levels` are mutually exclusive.
      * 
      */
     public Optional<Output<List<String>>> levels() {
@@ -161,7 +161,7 @@ public final class ActivityLogAlertCriteriaArgs extends com.pulumi.resources.Res
     /**
      * A list of names of resource groups monitored by the activity log alert.
      * 
-     * &gt; **NOTE:** `resource_group` and `resource_groups` are mutually exclusive.
+     * &gt; **Note:** `resource_group` and `resource_groups` are mutually exclusive.
      * 
      */
     @Import(name="resourceGroups")
@@ -170,7 +170,7 @@ public final class ActivityLogAlertCriteriaArgs extends com.pulumi.resources.Res
     /**
      * @return A list of names of resource groups monitored by the activity log alert.
      * 
-     * &gt; **NOTE:** `resource_group` and `resource_groups` are mutually exclusive.
+     * &gt; **Note:** `resource_group` and `resource_groups` are mutually exclusive.
      * 
      */
     public Optional<Output<List<String>>> resourceGroups() {
@@ -210,7 +210,7 @@ public final class ActivityLogAlertCriteriaArgs extends com.pulumi.resources.Res
     /**
      * A list of specific resources monitored by the activity log alert. It should be within one of the `scopes`.
      * 
-     * &gt; **NOTE:** `resource_id` and `resource_ids` are mutually exclusive.
+     * &gt; **Note:** `resource_id` and `resource_ids` are mutually exclusive.
      * 
      */
     @Import(name="resourceIds")
@@ -219,7 +219,7 @@ public final class ActivityLogAlertCriteriaArgs extends com.pulumi.resources.Res
     /**
      * @return A list of specific resources monitored by the activity log alert. It should be within one of the `scopes`.
      * 
-     * &gt; **NOTE:** `resource_id` and `resource_ids` are mutually exclusive.
+     * &gt; **Note:** `resource_id` and `resource_ids` are mutually exclusive.
      * 
      */
     public Optional<Output<List<String>>> resourceIds() {
@@ -244,7 +244,7 @@ public final class ActivityLogAlertCriteriaArgs extends com.pulumi.resources.Res
     /**
      * A list of names of resource providers monitored by the activity log alert.
      * 
-     * &gt; **NOTE:** `resource_provider` and `resource_providers` are mutually exclusive.
+     * &gt; **Note:** `resource_provider` and `resource_providers` are mutually exclusive.
      * 
      */
     @Import(name="resourceProviders")
@@ -253,7 +253,7 @@ public final class ActivityLogAlertCriteriaArgs extends com.pulumi.resources.Res
     /**
      * @return A list of names of resource providers monitored by the activity log alert.
      * 
-     * &gt; **NOTE:** `resource_provider` and `resource_providers` are mutually exclusive.
+     * &gt; **Note:** `resource_provider` and `resource_providers` are mutually exclusive.
      * 
      */
     public Optional<Output<List<String>>> resourceProviders() {
@@ -278,7 +278,7 @@ public final class ActivityLogAlertCriteriaArgs extends com.pulumi.resources.Res
     /**
      * A list of resource types monitored by the activity log alert.
      * 
-     * &gt; **NOTE:** `resource_type` and `resource_types` are mutually exclusive.
+     * &gt; **Note:** `resource_type` and `resource_types` are mutually exclusive.
      * 
      */
     @Import(name="resourceTypes")
@@ -287,7 +287,7 @@ public final class ActivityLogAlertCriteriaArgs extends com.pulumi.resources.Res
     /**
      * @return A list of resource types monitored by the activity log alert.
      * 
-     * &gt; **NOTE:** `resource_type` and `resource_types` are mutually exclusive.
+     * &gt; **Note:** `resource_type` and `resource_types` are mutually exclusive.
      * 
      */
     public Optional<Output<List<String>>> resourceTypes() {
@@ -327,7 +327,7 @@ public final class ActivityLogAlertCriteriaArgs extends com.pulumi.resources.Res
     /**
      * A list of status of the event. For example, `Started`, `Failed`, or `Succeeded`.
      * 
-     * &gt; **NOTE:** `status` and `statuses` are mutually exclusive.
+     * &gt; **Note:** `status` and `statuses` are mutually exclusive.
      * 
      */
     @Import(name="statuses")
@@ -336,7 +336,7 @@ public final class ActivityLogAlertCriteriaArgs extends com.pulumi.resources.Res
     /**
      * @return A list of status of the event. For example, `Started`, `Failed`, or `Succeeded`.
      * 
-     * &gt; **NOTE:** `status` and `statuses` are mutually exclusive.
+     * &gt; **Note:** `status` and `statuses` are mutually exclusive.
      * 
      */
     public Optional<Output<List<String>>> statuses() {
@@ -361,7 +361,7 @@ public final class ActivityLogAlertCriteriaArgs extends com.pulumi.resources.Res
     /**
      * A list of sub status of the event.
      * 
-     * &gt; **NOTE:** `sub_status` and `sub_statuses` are mutually exclusive.
+     * &gt; **Note:** `sub_status` and `sub_statuses` are mutually exclusive.
      * 
      */
     @Import(name="subStatuses")
@@ -370,7 +370,7 @@ public final class ActivityLogAlertCriteriaArgs extends com.pulumi.resources.Res
     /**
      * @return A list of sub status of the event.
      * 
-     * &gt; **NOTE:** `sub_status` and `sub_statuses` are mutually exclusive.
+     * &gt; **Note:** `sub_status` and `sub_statuses` are mutually exclusive.
      * 
      */
     public Optional<Output<List<String>>> subStatuses() {
@@ -488,7 +488,7 @@ public final class ActivityLogAlertCriteriaArgs extends com.pulumi.resources.Res
         /**
          * @param levels A list of severity level of the event. Possible values are `Verbose`, `Informational`, `Warning`, `Error`, and `Critical`.
          * 
-         * &gt; **NOTE:** `level` and `levels` are mutually exclusive.
+         * &gt; **Note:** `level` and `levels` are mutually exclusive.
          * 
          * @return builder
          * 
@@ -501,7 +501,7 @@ public final class ActivityLogAlertCriteriaArgs extends com.pulumi.resources.Res
         /**
          * @param levels A list of severity level of the event. Possible values are `Verbose`, `Informational`, `Warning`, `Error`, and `Critical`.
          * 
-         * &gt; **NOTE:** `level` and `levels` are mutually exclusive.
+         * &gt; **Note:** `level` and `levels` are mutually exclusive.
          * 
          * @return builder
          * 
@@ -513,7 +513,7 @@ public final class ActivityLogAlertCriteriaArgs extends com.pulumi.resources.Res
         /**
          * @param levels A list of severity level of the event. Possible values are `Verbose`, `Informational`, `Warning`, `Error`, and `Critical`.
          * 
-         * &gt; **NOTE:** `level` and `levels` are mutually exclusive.
+         * &gt; **Note:** `level` and `levels` are mutually exclusive.
          * 
          * @return builder
          * 
@@ -630,7 +630,7 @@ public final class ActivityLogAlertCriteriaArgs extends com.pulumi.resources.Res
         /**
          * @param resourceGroups A list of names of resource groups monitored by the activity log alert.
          * 
-         * &gt; **NOTE:** `resource_group` and `resource_groups` are mutually exclusive.
+         * &gt; **Note:** `resource_group` and `resource_groups` are mutually exclusive.
          * 
          * @return builder
          * 
@@ -643,7 +643,7 @@ public final class ActivityLogAlertCriteriaArgs extends com.pulumi.resources.Res
         /**
          * @param resourceGroups A list of names of resource groups monitored by the activity log alert.
          * 
-         * &gt; **NOTE:** `resource_group` and `resource_groups` are mutually exclusive.
+         * &gt; **Note:** `resource_group` and `resource_groups` are mutually exclusive.
          * 
          * @return builder
          * 
@@ -655,7 +655,7 @@ public final class ActivityLogAlertCriteriaArgs extends com.pulumi.resources.Res
         /**
          * @param resourceGroups A list of names of resource groups monitored by the activity log alert.
          * 
-         * &gt; **NOTE:** `resource_group` and `resource_groups` are mutually exclusive.
+         * &gt; **Note:** `resource_group` and `resource_groups` are mutually exclusive.
          * 
          * @return builder
          * 
@@ -709,7 +709,7 @@ public final class ActivityLogAlertCriteriaArgs extends com.pulumi.resources.Res
         /**
          * @param resourceIds A list of specific resources monitored by the activity log alert. It should be within one of the `scopes`.
          * 
-         * &gt; **NOTE:** `resource_id` and `resource_ids` are mutually exclusive.
+         * &gt; **Note:** `resource_id` and `resource_ids` are mutually exclusive.
          * 
          * @return builder
          * 
@@ -722,7 +722,7 @@ public final class ActivityLogAlertCriteriaArgs extends com.pulumi.resources.Res
         /**
          * @param resourceIds A list of specific resources monitored by the activity log alert. It should be within one of the `scopes`.
          * 
-         * &gt; **NOTE:** `resource_id` and `resource_ids` are mutually exclusive.
+         * &gt; **Note:** `resource_id` and `resource_ids` are mutually exclusive.
          * 
          * @return builder
          * 
@@ -734,7 +734,7 @@ public final class ActivityLogAlertCriteriaArgs extends com.pulumi.resources.Res
         /**
          * @param resourceIds A list of specific resources monitored by the activity log alert. It should be within one of the `scopes`.
          * 
-         * &gt; **NOTE:** `resource_id` and `resource_ids` are mutually exclusive.
+         * &gt; **Note:** `resource_id` and `resource_ids` are mutually exclusive.
          * 
          * @return builder
          * 
@@ -767,7 +767,7 @@ public final class ActivityLogAlertCriteriaArgs extends com.pulumi.resources.Res
         /**
          * @param resourceProviders A list of names of resource providers monitored by the activity log alert.
          * 
-         * &gt; **NOTE:** `resource_provider` and `resource_providers` are mutually exclusive.
+         * &gt; **Note:** `resource_provider` and `resource_providers` are mutually exclusive.
          * 
          * @return builder
          * 
@@ -780,7 +780,7 @@ public final class ActivityLogAlertCriteriaArgs extends com.pulumi.resources.Res
         /**
          * @param resourceProviders A list of names of resource providers monitored by the activity log alert.
          * 
-         * &gt; **NOTE:** `resource_provider` and `resource_providers` are mutually exclusive.
+         * &gt; **Note:** `resource_provider` and `resource_providers` are mutually exclusive.
          * 
          * @return builder
          * 
@@ -792,7 +792,7 @@ public final class ActivityLogAlertCriteriaArgs extends com.pulumi.resources.Res
         /**
          * @param resourceProviders A list of names of resource providers monitored by the activity log alert.
          * 
-         * &gt; **NOTE:** `resource_provider` and `resource_providers` are mutually exclusive.
+         * &gt; **Note:** `resource_provider` and `resource_providers` are mutually exclusive.
          * 
          * @return builder
          * 
@@ -825,7 +825,7 @@ public final class ActivityLogAlertCriteriaArgs extends com.pulumi.resources.Res
         /**
          * @param resourceTypes A list of resource types monitored by the activity log alert.
          * 
-         * &gt; **NOTE:** `resource_type` and `resource_types` are mutually exclusive.
+         * &gt; **Note:** `resource_type` and `resource_types` are mutually exclusive.
          * 
          * @return builder
          * 
@@ -838,7 +838,7 @@ public final class ActivityLogAlertCriteriaArgs extends com.pulumi.resources.Res
         /**
          * @param resourceTypes A list of resource types monitored by the activity log alert.
          * 
-         * &gt; **NOTE:** `resource_type` and `resource_types` are mutually exclusive.
+         * &gt; **Note:** `resource_type` and `resource_types` are mutually exclusive.
          * 
          * @return builder
          * 
@@ -850,7 +850,7 @@ public final class ActivityLogAlertCriteriaArgs extends com.pulumi.resources.Res
         /**
          * @param resourceTypes A list of resource types monitored by the activity log alert.
          * 
-         * &gt; **NOTE:** `resource_type` and `resource_types` are mutually exclusive.
+         * &gt; **Note:** `resource_type` and `resource_types` are mutually exclusive.
          * 
          * @return builder
          * 
@@ -904,7 +904,7 @@ public final class ActivityLogAlertCriteriaArgs extends com.pulumi.resources.Res
         /**
          * @param statuses A list of status of the event. For example, `Started`, `Failed`, or `Succeeded`.
          * 
-         * &gt; **NOTE:** `status` and `statuses` are mutually exclusive.
+         * &gt; **Note:** `status` and `statuses` are mutually exclusive.
          * 
          * @return builder
          * 
@@ -917,7 +917,7 @@ public final class ActivityLogAlertCriteriaArgs extends com.pulumi.resources.Res
         /**
          * @param statuses A list of status of the event. For example, `Started`, `Failed`, or `Succeeded`.
          * 
-         * &gt; **NOTE:** `status` and `statuses` are mutually exclusive.
+         * &gt; **Note:** `status` and `statuses` are mutually exclusive.
          * 
          * @return builder
          * 
@@ -929,7 +929,7 @@ public final class ActivityLogAlertCriteriaArgs extends com.pulumi.resources.Res
         /**
          * @param statuses A list of status of the event. For example, `Started`, `Failed`, or `Succeeded`.
          * 
-         * &gt; **NOTE:** `status` and `statuses` are mutually exclusive.
+         * &gt; **Note:** `status` and `statuses` are mutually exclusive.
          * 
          * @return builder
          * 
@@ -962,7 +962,7 @@ public final class ActivityLogAlertCriteriaArgs extends com.pulumi.resources.Res
         /**
          * @param subStatuses A list of sub status of the event.
          * 
-         * &gt; **NOTE:** `sub_status` and `sub_statuses` are mutually exclusive.
+         * &gt; **Note:** `sub_status` and `sub_statuses` are mutually exclusive.
          * 
          * @return builder
          * 
@@ -975,7 +975,7 @@ public final class ActivityLogAlertCriteriaArgs extends com.pulumi.resources.Res
         /**
          * @param subStatuses A list of sub status of the event.
          * 
-         * &gt; **NOTE:** `sub_status` and `sub_statuses` are mutually exclusive.
+         * &gt; **Note:** `sub_status` and `sub_statuses` are mutually exclusive.
          * 
          * @return builder
          * 
@@ -987,7 +987,7 @@ public final class ActivityLogAlertCriteriaArgs extends com.pulumi.resources.Res
         /**
          * @param subStatuses A list of sub status of the event.
          * 
-         * &gt; **NOTE:** `sub_status` and `sub_statuses` are mutually exclusive.
+         * &gt; **Note:** `sub_status` and `sub_statuses` are mutually exclusive.
          * 
          * @return builder
          * 

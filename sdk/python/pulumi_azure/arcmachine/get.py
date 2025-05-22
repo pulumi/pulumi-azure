@@ -413,6 +413,13 @@ def get(name: Optional[builtins.str] = None,
     pulumi.export("id", example.id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.HybridCompute`: 2022-11-10
+
 
     :param builtins.str name: The name of this Azure Arc machine.
     :param builtins.str resource_group_name: The name of the Resource Group where the Hybrid Compute exists.
@@ -470,6 +477,13 @@ def get_output(name: Optional[pulumi.Input[builtins.str]] = None,
         resource_group_name="existing-rg")
     pulumi.export("id", example.id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.HybridCompute`: 2022-11-10
 
 
     :param builtins.str name: The name of this Azure Arc machine.

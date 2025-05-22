@@ -74,6 +74,13 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `PaloAltoNetworks.Cloudngfw`: 2022-08-29
+ * 
  */
 @ResourceType(type="azure:paloalto/localRulestackOutboundTrustCertificateAssociation:LocalRulestackOutboundTrustCertificateAssociation")
 public class LocalRulestackOutboundTrustCertificateAssociation extends com.pulumi.resources.CustomResource {

@@ -262,6 +262,13 @@ class ZoneVirtualNetworkLink(pulumi.CustomResource):
             virtual_network_id=example_virtual_network.id)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network`: 2024-06-01
+
         ## Import
 
         Private DNS Zone Virtual Network Links can be imported using the `resource id`, e.g.
@@ -311,6 +318,13 @@ class ZoneVirtualNetworkLink(pulumi.CustomResource):
             private_dns_zone_name=example_zone.name,
             virtual_network_id=example_virtual_network.id)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network`: 2024-06-01
 
         ## Import
 

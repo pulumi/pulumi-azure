@@ -187,6 +187,13 @@ namespace Pulumi.Azure.ElasticSan
     /// });
     /// ```
     /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.ElasticSan`: 2023-01-01
+    /// 
     /// ## Import
     /// 
     /// An existing Elastic SAN Volume Group can be imported into Pulumi using the `resource id`, e.g.
@@ -207,7 +214,7 @@ namespace Pulumi.Azure.ElasticSan
         /// <summary>
         /// An `encryption` block as defined below.
         /// 
-        /// &gt; **NOTE:** The `encryption` block can only be set when `encryption_type` is set to `EncryptionAtRestWithCustomerManagedKey`.
+        /// &gt; **Note:** The `encryption` block can only be set when `encryption_type` is set to `EncryptionAtRestWithCustomerManagedKey`.
         /// </summary>
         [Output("encryption")]
         public Output<Outputs.VolumeGroupEncryption?> Encryption { get; private set; } = null!;
@@ -297,7 +304,7 @@ namespace Pulumi.Azure.ElasticSan
         /// <summary>
         /// An `encryption` block as defined below.
         /// 
-        /// &gt; **NOTE:** The `encryption` block can only be set when `encryption_type` is set to `EncryptionAtRestWithCustomerManagedKey`.
+        /// &gt; **Note:** The `encryption` block can only be set when `encryption_type` is set to `EncryptionAtRestWithCustomerManagedKey`.
         /// </summary>
         [Input("encryption")]
         public Input<Inputs.VolumeGroupEncryptionArgs>? Encryption { get; set; }
@@ -355,7 +362,7 @@ namespace Pulumi.Azure.ElasticSan
         /// <summary>
         /// An `encryption` block as defined below.
         /// 
-        /// &gt; **NOTE:** The `encryption` block can only be set when `encryption_type` is set to `EncryptionAtRestWithCustomerManagedKey`.
+        /// &gt; **Note:** The `encryption` block can only be set when `encryption_type` is set to `EncryptionAtRestWithCustomerManagedKey`.
         /// </summary>
         [Input("encryption")]
         public Input<Inputs.VolumeGroupEncryptionGetArgs>? Encryption { get; set; }

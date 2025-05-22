@@ -141,7 +141,7 @@ class Policy(pulumi.CustomResource):
         """
         Manages a API Management service Policy.
 
-        > **NOTE:** This resource will, upon creation, **overwrite any existing policy in the API Management service**, as there is no feasible way to test whether the policy has been modified from the default. Similarly, when this resource is destroyed, the API Management service will revert to its default policy.
+        > **Note:** This resource will, upon creation, **overwrite any existing policy in the API Management service**, as there is no feasible way to test whether the policy has been modified from the default. Similarly, when this resource is destroyed, the API Management service will revert to its default policy.
 
         ## Example Usage
 
@@ -170,6 +170,13 @@ class Policy(pulumi.CustomResource):
             api_management_id=example_service.id,
             xml_content=std.file(input="example.xml").result)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ApiManagement`: 2022-08-01
 
         ## Import
 
@@ -194,7 +201,7 @@ class Policy(pulumi.CustomResource):
         """
         Manages a API Management service Policy.
 
-        > **NOTE:** This resource will, upon creation, **overwrite any existing policy in the API Management service**, as there is no feasible way to test whether the policy has been modified from the default. Similarly, when this resource is destroyed, the API Management service will revert to its default policy.
+        > **Note:** This resource will, upon creation, **overwrite any existing policy in the API Management service**, as there is no feasible way to test whether the policy has been modified from the default. Similarly, when this resource is destroyed, the API Management service will revert to its default policy.
 
         ## Example Usage
 
@@ -223,6 +230,13 @@ class Policy(pulumi.CustomResource):
             api_management_id=example_service.id,
             xml_content=std.file(input="example.xml").result)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ApiManagement`: 2022-08-01
 
         ## Import
 

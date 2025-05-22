@@ -63,6 +63,13 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.Network`: 2024-06-01
+ * 
  * ## Import
  * 
  * Private DNS Zones can be imported using the `resource id`, e.g.
@@ -119,7 +126,7 @@ public class Zone extends com.pulumi.resources.CustomResource {
     /**
      * The name of the Private DNS Zone. Must be a valid domain name. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** If you are going to be using the Private DNS Zone with a Private Endpoint the name of the Private DNS Zone must follow the **Private DNS Zone name** schema in the [product documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-dns#virtual-network-and-on-premises-workloads-using-a-dns-forwarder) in order for the two resources to be connected successfully.
+     * &gt; **Note:** If you are going to be using the Private DNS Zone with a Private Endpoint the name of the Private DNS Zone must follow the **Private DNS Zone name** schema in the [product documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-dns#virtual-network-and-on-premises-workloads-using-a-dns-forwarder) in order for the two resources to be connected successfully.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
@@ -128,7 +135,7 @@ public class Zone extends com.pulumi.resources.CustomResource {
     /**
      * @return The name of the Private DNS Zone. Must be a valid domain name. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** If you are going to be using the Private DNS Zone with a Private Endpoint the name of the Private DNS Zone must follow the **Private DNS Zone name** schema in the [product documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-dns#virtual-network-and-on-premises-workloads-using-a-dns-forwarder) in order for the two resources to be connected successfully.
+     * &gt; **Note:** If you are going to be using the Private DNS Zone with a Private Endpoint the name of the Private DNS Zone must follow the **Private DNS Zone name** schema in the [product documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-dns#virtual-network-and-on-premises-workloads-using-a-dns-forwarder) in order for the two resources to be connected successfully.
      * 
      */
     public Output<String> name() {

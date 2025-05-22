@@ -40,6 +40,13 @@ import (
 //	}
 //
 // ```
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This data source uses the following Azure API Providers:
+//
+// * `Microsoft.Databricks`: 2024-05-01
 func GetWorkspacePrivateEndpointConnection(ctx *pulumi.Context, args *GetWorkspacePrivateEndpointConnectionArgs, opts ...pulumi.InvokeOption) (*GetWorkspacePrivateEndpointConnectionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetWorkspacePrivateEndpointConnectionResult

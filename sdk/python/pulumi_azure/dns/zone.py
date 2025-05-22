@@ -238,6 +238,13 @@ class Zone(pulumi.CustomResource):
             resource_group_name=example.name)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network`: 2018-05-01
+
         ## Import
 
         DNS Zones can be imported using the `resource id`, e.g.
@@ -275,6 +282,13 @@ class Zone(pulumi.CustomResource):
             name="mydomain.com",
             resource_group_name=example.name)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network`: 2018-05-01
 
         ## Import
 

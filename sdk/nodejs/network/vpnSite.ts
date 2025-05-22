@@ -76,7 +76,7 @@ export class VpnSite extends pulumi.CustomResource {
     /**
      * Specifies a list of IP address CIDRs that are located on your on-premises site. Traffic destined for these address spaces is routed to your local site.
      *
-     * > **NOTE:** The `addressCidrs` has to be set when the `link.bgp` isn't specified.
+     * > **Note:** The `addressCidrs` has to be set when the `link.bgp` isn't specified.
      */
     public readonly addressCidrs!: pulumi.Output<string[] | undefined>;
     /**
@@ -170,7 +170,7 @@ export interface VpnSiteState {
     /**
      * Specifies a list of IP address CIDRs that are located on your on-premises site. Traffic destined for these address spaces is routed to your local site.
      *
-     * > **NOTE:** The `addressCidrs` has to be set when the `link.bgp` isn't specified.
+     * > **Note:** The `addressCidrs` has to be set when the `link.bgp` isn't specified.
      */
     addressCidrs?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -218,7 +218,7 @@ export interface VpnSiteArgs {
     /**
      * Specifies a list of IP address CIDRs that are located on your on-premises site. Traffic destined for these address spaces is routed to your local site.
      *
-     * > **NOTE:** The `addressCidrs` has to be set when the `link.bgp` isn't specified.
+     * > **Note:** The `addressCidrs` has to be set when the `link.bgp` isn't specified.
      */
     addressCidrs?: pulumi.Input<pulumi.Input<string>[]>;
     /**

@@ -119,7 +119,7 @@ public final class ExpressRouteCircuitPeeringState extends com.pulumi.resources.
     /**
      * The type of the ExpressRoute Circuit Peering. Acceptable values include `AzurePrivatePeering`, `AzurePublicPeering` and `MicrosoftPeering`.
      * 
-     * &gt; **NOTE:** only one Peering of each Type can be created. Attempting to create multiple peerings of the same type will overwrite the original peering.
+     * &gt; **Note:** only one Peering of each Type can be created. Attempting to create multiple peerings of the same type will overwrite the original peering.
      * 
      */
     @Import(name="peeringType")
@@ -128,7 +128,7 @@ public final class ExpressRouteCircuitPeeringState extends com.pulumi.resources.
     /**
      * @return The type of the ExpressRoute Circuit Peering. Acceptable values include `AzurePrivatePeering`, `AzurePublicPeering` and `MicrosoftPeering`.
      * 
-     * &gt; **NOTE:** only one Peering of each Type can be created. Attempting to create multiple peerings of the same type will overwrite the original peering.
+     * &gt; **Note:** only one Peering of each Type can be created. Attempting to create multiple peerings of the same type will overwrite the original peering.
      * 
      */
     public Optional<Output<String>> peeringType() {
@@ -183,7 +183,7 @@ public final class ExpressRouteCircuitPeeringState extends com.pulumi.resources.
     /**
      * The ID of the Route Filter. Only available when `peering_type` is set to `MicrosoftPeering`.
      * 
-     * &gt; **NOTE:** `ipv6` can be specified when `peering_type` is `MicrosoftPeering` or `AzurePrivatePeering`
+     * &gt; **Note:** `ipv6` can be specified when `peering_type` is `MicrosoftPeering` or `AzurePrivatePeering`
      * 
      */
     @Import(name="routeFilterId")
@@ -192,7 +192,7 @@ public final class ExpressRouteCircuitPeeringState extends com.pulumi.resources.
     /**
      * @return The ID of the Route Filter. Only available when `peering_type` is set to `MicrosoftPeering`.
      * 
-     * &gt; **NOTE:** `ipv6` can be specified when `peering_type` is `MicrosoftPeering` or `AzurePrivatePeering`
+     * &gt; **Note:** `ipv6` can be specified when `peering_type` is `MicrosoftPeering` or `AzurePrivatePeering`
      * 
      */
     public Optional<Output<String>> routeFilterId() {
@@ -436,7 +436,7 @@ public final class ExpressRouteCircuitPeeringState extends com.pulumi.resources.
         /**
          * @param peeringType The type of the ExpressRoute Circuit Peering. Acceptable values include `AzurePrivatePeering`, `AzurePublicPeering` and `MicrosoftPeering`.
          * 
-         * &gt; **NOTE:** only one Peering of each Type can be created. Attempting to create multiple peerings of the same type will overwrite the original peering.
+         * &gt; **Note:** only one Peering of each Type can be created. Attempting to create multiple peerings of the same type will overwrite the original peering.
          * 
          * @return builder
          * 
@@ -449,7 +449,7 @@ public final class ExpressRouteCircuitPeeringState extends com.pulumi.resources.
         /**
          * @param peeringType The type of the ExpressRoute Circuit Peering. Acceptable values include `AzurePrivatePeering`, `AzurePublicPeering` and `MicrosoftPeering`.
          * 
-         * &gt; **NOTE:** only one Peering of each Type can be created. Attempting to create multiple peerings of the same type will overwrite the original peering.
+         * &gt; **Note:** only one Peering of each Type can be created. Attempting to create multiple peerings of the same type will overwrite the original peering.
          * 
          * @return builder
          * 
@@ -524,7 +524,7 @@ public final class ExpressRouteCircuitPeeringState extends com.pulumi.resources.
         /**
          * @param routeFilterId The ID of the Route Filter. Only available when `peering_type` is set to `MicrosoftPeering`.
          * 
-         * &gt; **NOTE:** `ipv6` can be specified when `peering_type` is `MicrosoftPeering` or `AzurePrivatePeering`
+         * &gt; **Note:** `ipv6` can be specified when `peering_type` is `MicrosoftPeering` or `AzurePrivatePeering`
          * 
          * @return builder
          * 
@@ -537,7 +537,7 @@ public final class ExpressRouteCircuitPeeringState extends com.pulumi.resources.
         /**
          * @param routeFilterId The ID of the Route Filter. Only available when `peering_type` is set to `MicrosoftPeering`.
          * 
-         * &gt; **NOTE:** `ipv6` can be specified when `peering_type` is `MicrosoftPeering` or `AzurePrivatePeering`
+         * &gt; **Note:** `ipv6` can be specified when `peering_type` is `MicrosoftPeering` or `AzurePrivatePeering`
          * 
          * @return builder
          * 

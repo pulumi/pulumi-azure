@@ -11,13 +11,29 @@ import java.util.Objects;
 
 @CustomType
 public final class NextGenerationFirewallVirtualHubPanoramaDestinationNatFrontendConfig {
+    /**
+     * @return The port on which traffic will be receiveed.
+     * 
+     */
     private Integer port;
+    /**
+     * @return The ID of the Public IP Address resource the traffic will be received on.
+     * 
+     */
     private String publicIpAddressId;
 
     private NextGenerationFirewallVirtualHubPanoramaDestinationNatFrontendConfig() {}
+    /**
+     * @return The port on which traffic will be receiveed.
+     * 
+     */
     public Integer port() {
         return this.port;
     }
+    /**
+     * @return The ID of the Public IP Address resource the traffic will be received on.
+     * 
+     */
     public String publicIpAddressId() {
         return this.publicIpAddressId;
     }

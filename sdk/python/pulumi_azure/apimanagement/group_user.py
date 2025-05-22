@@ -187,6 +187,13 @@ class GroupUser(pulumi.CustomResource):
             api_management_name=example.api_management_name)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ApiManagement`: 2022-08-01
+
         ## Import
 
         API Management Group Users can be imported using the `resource id`, e.g.
@@ -226,6 +233,13 @@ class GroupUser(pulumi.CustomResource):
             resource_group_name=example.resource_group_name,
             api_management_name=example.api_management_name)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ApiManagement`: 2022-08-01
 
         ## Import
 

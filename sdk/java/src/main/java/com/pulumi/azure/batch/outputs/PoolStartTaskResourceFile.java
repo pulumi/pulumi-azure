@@ -44,7 +44,7 @@ public final class PoolStartTaskResourceFile {
     /**
      * @return An identity reference from pool&#39;s user assigned managed identity list.
      * 
-     * &gt; **Please Note:** Exactly one of `auto_storage_container_name`, `storage_container_url` and `auto_user` must be specified.
+     * &gt; **Note:** Exactly one of `auto_storage_container_name`, `storage_container_url` and `auto_user` must be specified.
      * 
      */
     private @Nullable String userAssignedIdentityId;
@@ -95,7 +95,7 @@ public final class PoolStartTaskResourceFile {
     /**
      * @return An identity reference from pool&#39;s user assigned managed identity list.
      * 
-     * &gt; **Please Note:** Exactly one of `auto_storage_container_name`, `storage_container_url` and `auto_user` must be specified.
+     * &gt; **Note:** Exactly one of `auto_storage_container_name`, `storage_container_url` and `auto_user` must be specified.
      * 
      */
     public Optional<String> userAssignedIdentityId() {

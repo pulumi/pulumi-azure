@@ -517,7 +517,7 @@ public final class WindowsWebAppSlotState extends com.pulumi.resources.ResourceA
     /**
      * Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
      * 
-     * &gt; **NOTE:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
+     * &gt; **Note:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
      * 
      */
     @Import(name="webdeployPublishBasicAuthenticationEnabled")
@@ -526,7 +526,7 @@ public final class WindowsWebAppSlotState extends com.pulumi.resources.ResourceA
     /**
      * @return Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
      * 
-     * &gt; **NOTE:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
+     * &gt; **Note:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
      * 
      */
     public Optional<Output<Boolean>> webdeployPublishBasicAuthenticationEnabled() {
@@ -1338,7 +1338,7 @@ public final class WindowsWebAppSlotState extends com.pulumi.resources.ResourceA
         /**
          * @param webdeployPublishBasicAuthenticationEnabled Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
          * 
-         * &gt; **NOTE:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
+         * &gt; **Note:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
          * 
          * @return builder
          * 
@@ -1351,7 +1351,7 @@ public final class WindowsWebAppSlotState extends com.pulumi.resources.ResourceA
         /**
          * @param webdeployPublishBasicAuthenticationEnabled Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
          * 
-         * &gt; **NOTE:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
+         * &gt; **Note:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
          * 
          * @return builder
          * 

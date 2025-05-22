@@ -36,6 +36,13 @@ namespace Pulumi.Azure.Consumption
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Consumption`: 2019-10-01
         /// </summary>
         public static Task<GetBudgetSubscriptionResult> InvokeAsync(GetBudgetSubscriptionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBudgetSubscriptionResult>("azure:consumption/getBudgetSubscription:getBudgetSubscription", args ?? new GetBudgetSubscriptionArgs(), options.WithDefaults());
@@ -65,6 +72,13 @@ namespace Pulumi.Azure.Consumption
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Consumption`: 2019-10-01
         /// </summary>
         public static Output<GetBudgetSubscriptionResult> Invoke(GetBudgetSubscriptionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBudgetSubscriptionResult>("azure:consumption/getBudgetSubscription:getBudgetSubscription", args ?? new GetBudgetSubscriptionInvokeArgs(), options.WithDefaults());
@@ -94,6 +108,13 @@ namespace Pulumi.Azure.Consumption
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Consumption`: 2019-10-01
         /// </summary>
         public static Output<GetBudgetSubscriptionResult> Invoke(GetBudgetSubscriptionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetBudgetSubscriptionResult>("azure:consumption/getBudgetSubscription:getBudgetSubscription", args ?? new GetBudgetSubscriptionInvokeArgs(), options.WithDefaults());

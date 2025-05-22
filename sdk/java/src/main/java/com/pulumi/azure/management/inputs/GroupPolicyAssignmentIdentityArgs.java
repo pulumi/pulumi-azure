@@ -20,7 +20,7 @@ public final class GroupPolicyAssignmentIdentityArgs extends com.pulumi.resource
     /**
      * A list of User Managed Identity IDs which should be assigned to the Policy Definition.
      * 
-     * &gt; **NOTE:** This is required when `type` is set to `UserAssigned`.
+     * &gt; **Note:** This is required when `type` is set to `UserAssigned`.
      * 
      */
     @Import(name="identityIds")
@@ -29,7 +29,7 @@ public final class GroupPolicyAssignmentIdentityArgs extends com.pulumi.resource
     /**
      * @return A list of User Managed Identity IDs which should be assigned to the Policy Definition.
      * 
-     * &gt; **NOTE:** This is required when `type` is set to `UserAssigned`.
+     * &gt; **Note:** This is required when `type` is set to `UserAssigned`.
      * 
      */
     public Optional<Output<List<String>>> identityIds() {
@@ -111,7 +111,7 @@ public final class GroupPolicyAssignmentIdentityArgs extends com.pulumi.resource
         /**
          * @param identityIds A list of User Managed Identity IDs which should be assigned to the Policy Definition.
          * 
-         * &gt; **NOTE:** This is required when `type` is set to `UserAssigned`.
+         * &gt; **Note:** This is required when `type` is set to `UserAssigned`.
          * 
          * @return builder
          * 
@@ -124,7 +124,7 @@ public final class GroupPolicyAssignmentIdentityArgs extends com.pulumi.resource
         /**
          * @param identityIds A list of User Managed Identity IDs which should be assigned to the Policy Definition.
          * 
-         * &gt; **NOTE:** This is required when `type` is set to `UserAssigned`.
+         * &gt; **Note:** This is required when `type` is set to `UserAssigned`.
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class GroupPolicyAssignmentIdentityArgs extends com.pulumi.resource
         /**
          * @param identityIds A list of User Managed Identity IDs which should be assigned to the Policy Definition.
          * 
-         * &gt; **NOTE:** This is required when `type` is set to `UserAssigned`.
+         * &gt; **Note:** This is required when `type` is set to `UserAssigned`.
          * 
          * @return builder
          * 

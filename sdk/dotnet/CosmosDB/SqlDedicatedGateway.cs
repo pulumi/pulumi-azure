@@ -59,6 +59,13 @@ namespace Pulumi.Azure.CosmosDB
     /// });
     /// ```
     /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.DocumentDB`: 2022-05-15
+    /// 
     /// ## Import
     /// 
     /// CosmosDB SQL Dedicated Gateways can be imported using the `resource id`, e.g.

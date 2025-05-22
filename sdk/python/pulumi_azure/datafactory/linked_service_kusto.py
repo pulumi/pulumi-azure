@@ -50,9 +50,9 @@ class LinkedServiceKustoArgs:
         :param pulumi.Input[builtins.str] service_principal_key: The service principal key in which to authenticate against the Kusto Database.
         :param pulumi.Input[builtins.str] tenant: The service principal tenant id or name in which to authenticate against the Kusto Database.
                
-               > **NOTE** If `service_principal_id` is used, `service_principal_key` and `tenant` is also required.
+               > **Note:** If `service_principal_id` is used, `service_principal_key` and `tenant` is also required.
                
-               > **NOTE** One of Managed Identity authentication and Service Principal authentication must be set.
+               > **Note:** One of Managed Identity authentication and Service Principal authentication must be set.
         :param pulumi.Input[builtins.bool] use_managed_identity: Whether to use the Data Factory's managed identity to authenticate against the Kusto Database.
         """
         pulumi.set(__self__, "data_factory_id", data_factory_id)
@@ -219,9 +219,9 @@ class LinkedServiceKustoArgs:
         """
         The service principal tenant id or name in which to authenticate against the Kusto Database.
 
-        > **NOTE** If `service_principal_id` is used, `service_principal_key` and `tenant` is also required.
+        > **Note:** If `service_principal_id` is used, `service_principal_key` and `tenant` is also required.
 
-        > **NOTE** One of Managed Identity authentication and Service Principal authentication must be set.
+        > **Note:** One of Managed Identity authentication and Service Principal authentication must be set.
         """
         return pulumi.get(self, "tenant")
 
@@ -275,9 +275,9 @@ class _LinkedServiceKustoState:
         :param pulumi.Input[builtins.str] service_principal_key: The service principal key in which to authenticate against the Kusto Database.
         :param pulumi.Input[builtins.str] tenant: The service principal tenant id or name in which to authenticate against the Kusto Database.
                
-               > **NOTE** If `service_principal_id` is used, `service_principal_key` and `tenant` is also required.
+               > **Note:** If `service_principal_id` is used, `service_principal_key` and `tenant` is also required.
                
-               > **NOTE** One of Managed Identity authentication and Service Principal authentication must be set.
+               > **Note:** One of Managed Identity authentication and Service Principal authentication must be set.
         :param pulumi.Input[builtins.bool] use_managed_identity: Whether to use the Data Factory's managed identity to authenticate against the Kusto Database.
         """
         if additional_properties is not None:
@@ -447,9 +447,9 @@ class _LinkedServiceKustoState:
         """
         The service principal tenant id or name in which to authenticate against the Kusto Database.
 
-        > **NOTE** If `service_principal_id` is used, `service_principal_key` and `tenant` is also required.
+        > **Note:** If `service_principal_id` is used, `service_principal_key` and `tenant` is also required.
 
-        > **NOTE** One of Managed Identity authentication and Service Principal authentication must be set.
+        > **Note:** One of Managed Identity authentication and Service Principal authentication must be set.
         """
         return pulumi.get(self, "tenant")
 
@@ -564,9 +564,9 @@ class LinkedServiceKusto(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] service_principal_key: The service principal key in which to authenticate against the Kusto Database.
         :param pulumi.Input[builtins.str] tenant: The service principal tenant id or name in which to authenticate against the Kusto Database.
                
-               > **NOTE** If `service_principal_id` is used, `service_principal_key` and `tenant` is also required.
+               > **Note:** If `service_principal_id` is used, `service_principal_key` and `tenant` is also required.
                
-               > **NOTE** One of Managed Identity authentication and Service Principal authentication must be set.
+               > **Note:** One of Managed Identity authentication and Service Principal authentication must be set.
         :param pulumi.Input[builtins.bool] use_managed_identity: Whether to use the Data Factory's managed identity to authenticate against the Kusto Database.
         """
         ...
@@ -735,9 +735,9 @@ class LinkedServiceKusto(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] service_principal_key: The service principal key in which to authenticate against the Kusto Database.
         :param pulumi.Input[builtins.str] tenant: The service principal tenant id or name in which to authenticate against the Kusto Database.
                
-               > **NOTE** If `service_principal_id` is used, `service_principal_key` and `tenant` is also required.
+               > **Note:** If `service_principal_id` is used, `service_principal_key` and `tenant` is also required.
                
-               > **NOTE** One of Managed Identity authentication and Service Principal authentication must be set.
+               > **Note:** One of Managed Identity authentication and Service Principal authentication must be set.
         :param pulumi.Input[builtins.bool] use_managed_identity: Whether to use the Data Factory's managed identity to authenticate against the Kusto Database.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -855,9 +855,9 @@ class LinkedServiceKusto(pulumi.CustomResource):
         """
         The service principal tenant id or name in which to authenticate against the Kusto Database.
 
-        > **NOTE** If `service_principal_id` is used, `service_principal_key` and `tenant` is also required.
+        > **Note:** If `service_principal_id` is used, `service_principal_key` and `tenant` is also required.
 
-        > **NOTE** One of Managed Identity authentication and Service Principal authentication must be set.
+        > **Note:** One of Managed Identity authentication and Service Principal authentication must be set.
         """
         return pulumi.get(self, "tenant")
 

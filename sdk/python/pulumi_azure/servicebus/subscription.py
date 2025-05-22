@@ -46,7 +46,7 @@ class SubscriptionArgs:
         :param pulumi.Input['SubscriptionClientScopedSubscriptionArgs'] client_scoped_subscription: A `client_scoped_subscription` block as defined below.
         :param pulumi.Input[builtins.bool] client_scoped_subscription_enabled: whether the subscription is scoped to a client id. Defaults to `false`.
                
-               > **NOTE:** Client Scoped Subscription can only be used for JMS subscription (Java Message Service).
+               > **Note:** Client Scoped Subscription can only be used for JMS subscription (Java Message Service).
         :param pulumi.Input[builtins.bool] dead_lettering_on_filter_evaluation_error: Boolean flag which controls whether the Subscription has dead letter support on filter evaluation exceptions. Defaults to `true`.
         :param pulumi.Input[builtins.bool] dead_lettering_on_message_expiration: Boolean flag which controls whether the Subscription has dead letter support when a message expires.
         :param pulumi.Input[builtins.str] default_message_ttl: The Default message timespan to live as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the value used when TimeToLive is not set on a message itself. Defaults to `P10675199DT2H48M5.4775807S`.
@@ -152,7 +152,7 @@ class SubscriptionArgs:
         """
         whether the subscription is scoped to a client id. Defaults to `false`.
 
-        > **NOTE:** Client Scoped Subscription can only be used for JMS subscription (Java Message Service).
+        > **Note:** Client Scoped Subscription can only be used for JMS subscription (Java Message Service).
         """
         return pulumi.get(self, "client_scoped_subscription_enabled")
 
@@ -294,7 +294,7 @@ class _SubscriptionState:
         :param pulumi.Input['SubscriptionClientScopedSubscriptionArgs'] client_scoped_subscription: A `client_scoped_subscription` block as defined below.
         :param pulumi.Input[builtins.bool] client_scoped_subscription_enabled: whether the subscription is scoped to a client id. Defaults to `false`.
                
-               > **NOTE:** Client Scoped Subscription can only be used for JMS subscription (Java Message Service).
+               > **Note:** Client Scoped Subscription can only be used for JMS subscription (Java Message Service).
         :param pulumi.Input[builtins.bool] dead_lettering_on_filter_evaluation_error: Boolean flag which controls whether the Subscription has dead letter support on filter evaluation exceptions. Defaults to `true`.
         :param pulumi.Input[builtins.bool] dead_lettering_on_message_expiration: Boolean flag which controls whether the Subscription has dead letter support when a message expires.
         :param pulumi.Input[builtins.str] default_message_ttl: The Default message timespan to live as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the value used when TimeToLive is not set on a message itself. Defaults to `P10675199DT2H48M5.4775807S`.
@@ -380,7 +380,7 @@ class _SubscriptionState:
         """
         whether the subscription is scoped to a client id. Defaults to `false`.
 
-        > **NOTE:** Client Scoped Subscription can only be used for JMS subscription (Java Message Service).
+        > **Note:** Client Scoped Subscription can only be used for JMS subscription (Java Message Service).
         """
         return pulumi.get(self, "client_scoped_subscription_enabled")
 
@@ -588,7 +588,7 @@ class Subscription(pulumi.CustomResource):
         :param pulumi.Input[Union['SubscriptionClientScopedSubscriptionArgs', 'SubscriptionClientScopedSubscriptionArgsDict']] client_scoped_subscription: A `client_scoped_subscription` block as defined below.
         :param pulumi.Input[builtins.bool] client_scoped_subscription_enabled: whether the subscription is scoped to a client id. Defaults to `false`.
                
-               > **NOTE:** Client Scoped Subscription can only be used for JMS subscription (Java Message Service).
+               > **Note:** Client Scoped Subscription can only be used for JMS subscription (Java Message Service).
         :param pulumi.Input[builtins.bool] dead_lettering_on_filter_evaluation_error: Boolean flag which controls whether the Subscription has dead letter support on filter evaluation exceptions. Defaults to `true`.
         :param pulumi.Input[builtins.bool] dead_lettering_on_message_expiration: Boolean flag which controls whether the Subscription has dead letter support when a message expires.
         :param pulumi.Input[builtins.str] default_message_ttl: The Default message timespan to live as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the value used when TimeToLive is not set on a message itself. Defaults to `P10675199DT2H48M5.4775807S`.
@@ -742,7 +742,7 @@ class Subscription(pulumi.CustomResource):
         :param pulumi.Input[Union['SubscriptionClientScopedSubscriptionArgs', 'SubscriptionClientScopedSubscriptionArgsDict']] client_scoped_subscription: A `client_scoped_subscription` block as defined below.
         :param pulumi.Input[builtins.bool] client_scoped_subscription_enabled: whether the subscription is scoped to a client id. Defaults to `false`.
                
-               > **NOTE:** Client Scoped Subscription can only be used for JMS subscription (Java Message Service).
+               > **Note:** Client Scoped Subscription can only be used for JMS subscription (Java Message Service).
         :param pulumi.Input[builtins.bool] dead_lettering_on_filter_evaluation_error: Boolean flag which controls whether the Subscription has dead letter support on filter evaluation exceptions. Defaults to `true`.
         :param pulumi.Input[builtins.bool] dead_lettering_on_message_expiration: Boolean flag which controls whether the Subscription has dead letter support when a message expires.
         :param pulumi.Input[builtins.str] default_message_ttl: The Default message timespan to live as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the value used when TimeToLive is not set on a message itself. Defaults to `P10675199DT2H48M5.4775807S`.
@@ -806,7 +806,7 @@ class Subscription(pulumi.CustomResource):
         """
         whether the subscription is scoped to a client id. Defaults to `false`.
 
-        > **NOTE:** Client Scoped Subscription can only be used for JMS subscription (Java Message Service).
+        > **Note:** Client Scoped Subscription can only be used for JMS subscription (Java Message Service).
         """
         return pulumi.get(self, "client_scoped_subscription_enabled")
 

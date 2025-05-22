@@ -16,7 +16,7 @@ import (
 //
 // ## Example Usage
 //
-// > **NOTE :**  Normal `pulumi up` could ignore this note. Please disable correlation request id for continuous operations in one build (like acctest). The continuous operations like `update` or `delete` could not be triggered when it shares the same `correlation-id` with its previous operation.
+// > **Note:** Normal `pulumi up` could ignore this note. Please disable correlation request id for continuous operations in one build (like acctest). The continuous operations like `update` or `delete` could not be triggered when it shares the same `correlation-id` with its previous operation.
 //
 // ```go
 // package main
@@ -60,6 +60,13 @@ import (
 //
 // ```
 //
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.AVS`: 2022-05-01
+//
 // ## Import
 //
 // Azure VMware Solution Private Clouds can be imported using the `resource id`, e.g.
@@ -75,12 +82,12 @@ type PrivateCloud struct {
 	// The endpoint for the VMware HCX Cloud Manager.
 	HcxCloudManagerEndpoint pulumi.StringOutput `pulumi:"hcxCloudManagerEndpoint"`
 	// Is the Azure VMware Solution Private Cloud connected to the internet? This field can not be updated with `management_cluster[0].size` together.
-	// > **NOTE :** `internetConnectionEnabled` and `management_cluster[0].size` cannot be updated at the same time.
+	// > **Note:** `internetConnectionEnabled` and `management_cluster[0].size` cannot be updated at the same time.
 	InternetConnectionEnabled pulumi.BoolPtrOutput `pulumi:"internetConnectionEnabled"`
 	// The Azure Region where the Azure VMware Solution Private Cloud should exist. Changing this forces a new Azure VMware Solution Private Cloud to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// A `managementCluster` block as defined below.
-	// > **NOTE :** `internetConnectionEnabled` and `management_cluster[0].size` cannot be updated at the same time.
+	// > **Note:** `internetConnectionEnabled` and `management_cluster[0].size` cannot be updated at the same time.
 	ManagementCluster PrivateCloudManagementClusterOutput `pulumi:"managementCluster"`
 	// The network used to access VMware vCenter Server and NSX Manager.
 	ManagementSubnetCidr pulumi.StringOutput `pulumi:"managementSubnetCidr"`
@@ -170,12 +177,12 @@ type privateCloudState struct {
 	// The endpoint for the VMware HCX Cloud Manager.
 	HcxCloudManagerEndpoint *string `pulumi:"hcxCloudManagerEndpoint"`
 	// Is the Azure VMware Solution Private Cloud connected to the internet? This field can not be updated with `management_cluster[0].size` together.
-	// > **NOTE :** `internetConnectionEnabled` and `management_cluster[0].size` cannot be updated at the same time.
+	// > **Note:** `internetConnectionEnabled` and `management_cluster[0].size` cannot be updated at the same time.
 	InternetConnectionEnabled *bool `pulumi:"internetConnectionEnabled"`
 	// The Azure Region where the Azure VMware Solution Private Cloud should exist. Changing this forces a new Azure VMware Solution Private Cloud to be created.
 	Location *string `pulumi:"location"`
 	// A `managementCluster` block as defined below.
-	// > **NOTE :** `internetConnectionEnabled` and `management_cluster[0].size` cannot be updated at the same time.
+	// > **Note:** `internetConnectionEnabled` and `management_cluster[0].size` cannot be updated at the same time.
 	ManagementCluster *PrivateCloudManagementCluster `pulumi:"managementCluster"`
 	// The network used to access VMware vCenter Server and NSX Manager.
 	ManagementSubnetCidr *string `pulumi:"managementSubnetCidr"`
@@ -213,12 +220,12 @@ type PrivateCloudState struct {
 	// The endpoint for the VMware HCX Cloud Manager.
 	HcxCloudManagerEndpoint pulumi.StringPtrInput
 	// Is the Azure VMware Solution Private Cloud connected to the internet? This field can not be updated with `management_cluster[0].size` together.
-	// > **NOTE :** `internetConnectionEnabled` and `management_cluster[0].size` cannot be updated at the same time.
+	// > **Note:** `internetConnectionEnabled` and `management_cluster[0].size` cannot be updated at the same time.
 	InternetConnectionEnabled pulumi.BoolPtrInput
 	// The Azure Region where the Azure VMware Solution Private Cloud should exist. Changing this forces a new Azure VMware Solution Private Cloud to be created.
 	Location pulumi.StringPtrInput
 	// A `managementCluster` block as defined below.
-	// > **NOTE :** `internetConnectionEnabled` and `management_cluster[0].size` cannot be updated at the same time.
+	// > **Note:** `internetConnectionEnabled` and `management_cluster[0].size` cannot be updated at the same time.
 	ManagementCluster PrivateCloudManagementClusterPtrInput
 	// The network used to access VMware vCenter Server and NSX Manager.
 	ManagementSubnetCidr pulumi.StringPtrInput
@@ -256,12 +263,12 @@ func (PrivateCloudState) ElementType() reflect.Type {
 
 type privateCloudArgs struct {
 	// Is the Azure VMware Solution Private Cloud connected to the internet? This field can not be updated with `management_cluster[0].size` together.
-	// > **NOTE :** `internetConnectionEnabled` and `management_cluster[0].size` cannot be updated at the same time.
+	// > **Note:** `internetConnectionEnabled` and `management_cluster[0].size` cannot be updated at the same time.
 	InternetConnectionEnabled *bool `pulumi:"internetConnectionEnabled"`
 	// The Azure Region where the Azure VMware Solution Private Cloud should exist. Changing this forces a new Azure VMware Solution Private Cloud to be created.
 	Location *string `pulumi:"location"`
 	// A `managementCluster` block as defined below.
-	// > **NOTE :** `internetConnectionEnabled` and `management_cluster[0].size` cannot be updated at the same time.
+	// > **Note:** `internetConnectionEnabled` and `management_cluster[0].size` cannot be updated at the same time.
 	ManagementCluster PrivateCloudManagementCluster `pulumi:"managementCluster"`
 	// The name which should be used for this Azure VMware Solution Private Cloud. Changing this forces a new Azure VMware Solution Private Cloud to be created.
 	Name *string `pulumi:"name"`
@@ -282,12 +289,12 @@ type privateCloudArgs struct {
 // The set of arguments for constructing a PrivateCloud resource.
 type PrivateCloudArgs struct {
 	// Is the Azure VMware Solution Private Cloud connected to the internet? This field can not be updated with `management_cluster[0].size` together.
-	// > **NOTE :** `internetConnectionEnabled` and `management_cluster[0].size` cannot be updated at the same time.
+	// > **Note:** `internetConnectionEnabled` and `management_cluster[0].size` cannot be updated at the same time.
 	InternetConnectionEnabled pulumi.BoolPtrInput
 	// The Azure Region where the Azure VMware Solution Private Cloud should exist. Changing this forces a new Azure VMware Solution Private Cloud to be created.
 	Location pulumi.StringPtrInput
 	// A `managementCluster` block as defined below.
-	// > **NOTE :** `internetConnectionEnabled` and `management_cluster[0].size` cannot be updated at the same time.
+	// > **Note:** `internetConnectionEnabled` and `management_cluster[0].size` cannot be updated at the same time.
 	ManagementCluster PrivateCloudManagementClusterInput
 	// The name which should be used for this Azure VMware Solution Private Cloud. Changing this forces a new Azure VMware Solution Private Cloud to be created.
 	Name pulumi.StringPtrInput
@@ -403,7 +410,7 @@ func (o PrivateCloudOutput) HcxCloudManagerEndpoint() pulumi.StringOutput {
 }
 
 // Is the Azure VMware Solution Private Cloud connected to the internet? This field can not be updated with `management_cluster[0].size` together.
-// > **NOTE :** `internetConnectionEnabled` and `management_cluster[0].size` cannot be updated at the same time.
+// > **Note:** `internetConnectionEnabled` and `management_cluster[0].size` cannot be updated at the same time.
 func (o PrivateCloudOutput) InternetConnectionEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *PrivateCloud) pulumi.BoolPtrOutput { return v.InternetConnectionEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -414,7 +421,7 @@ func (o PrivateCloudOutput) Location() pulumi.StringOutput {
 }
 
 // A `managementCluster` block as defined below.
-// > **NOTE :** `internetConnectionEnabled` and `management_cluster[0].size` cannot be updated at the same time.
+// > **Note:** `internetConnectionEnabled` and `management_cluster[0].size` cannot be updated at the same time.
 func (o PrivateCloudOutput) ManagementCluster() PrivateCloudManagementClusterOutput {
 	return o.ApplyT(func(v *PrivateCloud) PrivateCloudManagementClusterOutput { return v.ManagementCluster }).(PrivateCloudManagementClusterOutput)
 }

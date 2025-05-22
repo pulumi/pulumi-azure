@@ -23,7 +23,7 @@ import javax.annotation.Nullable;
 /**
  * Manages an AlertingAction Scheduled Query Rules resource within Azure Monitor.
  * 
- * &gt; **Warning** This resource is using an older AzureRM API version which is known to cause problems e.g. with custom webhook properties not included in triggered alerts. This resource is superseded by the azure.monitoring.ScheduledQueryRulesAlertV2 resource using newer API versions.
+ * &gt; **Note:** This resource is using an older AzureRM API version which is known to cause problems e.g. with custom webhook properties not included in triggered alerts. This resource is superseded by the azure.monitoring.ScheduledQueryRulesAlertV2 resource using newer API versions.
  * 
  * ## Import
  * 
@@ -66,7 +66,7 @@ public class ScheduledQueryRulesAlert extends com.pulumi.resources.CustomResourc
     }
     /**
      * Should the alerts in this Metric Alert be auto resolved? Defaults to `false`.
-     * &gt; **NOTE** `auto_mitigation_enabled` and `throttling` are mutually exclusive and cannot both be set.
+     * &gt; **Note:** `auto_mitigation_enabled` and `throttling` are mutually exclusive and cannot both be set.
      * 
      */
     @Export(name="autoMitigationEnabled", refs={Boolean.class}, tree="[0]")
@@ -74,7 +74,7 @@ public class ScheduledQueryRulesAlert extends com.pulumi.resources.CustomResourc
 
     /**
      * @return Should the alerts in this Metric Alert be auto resolved? Defaults to `false`.
-     * &gt; **NOTE** `auto_mitigation_enabled` and `throttling` are mutually exclusive and cannot both be set.
+     * &gt; **Note:** `auto_mitigation_enabled` and `throttling` are mutually exclusive and cannot both be set.
      * 
      */
     public Output<Optional<Boolean>> autoMitigationEnabled() {

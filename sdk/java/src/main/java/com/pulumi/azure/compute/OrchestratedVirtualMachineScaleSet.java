@@ -17,6 +17,7 @@ import com.pulumi.azure.compute.outputs.OrchestratedVirtualMachineScaleSetOsDisk
 import com.pulumi.azure.compute.outputs.OrchestratedVirtualMachineScaleSetOsProfile;
 import com.pulumi.azure.compute.outputs.OrchestratedVirtualMachineScaleSetPlan;
 import com.pulumi.azure.compute.outputs.OrchestratedVirtualMachineScaleSetPriorityMix;
+import com.pulumi.azure.compute.outputs.OrchestratedVirtualMachineScaleSetRollingUpgradePolicy;
 import com.pulumi.azure.compute.outputs.OrchestratedVirtualMachineScaleSetSkuProfile;
 import com.pulumi.azure.compute.outputs.OrchestratedVirtualMachineScaleSetSourceImageReference;
 import com.pulumi.azure.compute.outputs.OrchestratedVirtualMachineScaleSetTerminationNotification;
@@ -470,6 +471,20 @@ public class OrchestratedVirtualMachineScaleSet extends com.pulumi.resources.Cus
         return this.resourceGroupName;
     }
     /**
+     * A `rolling_upgrade_policy` block as defined below. This is Required when `upgrade_mode` is set to `Rolling` and cannot be specified when `upgrade_mode` is set to `Manual`. Changing this forces a new resource to be created.
+     * 
+     */
+    @Export(name="rollingUpgradePolicy", refs={OrchestratedVirtualMachineScaleSetRollingUpgradePolicy.class}, tree="[0]")
+    private Output</* @Nullable */ OrchestratedVirtualMachineScaleSetRollingUpgradePolicy> rollingUpgradePolicy;
+
+    /**
+     * @return A `rolling_upgrade_policy` block as defined below. This is Required when `upgrade_mode` is set to `Rolling` and cannot be specified when `upgrade_mode` is set to `Manual`. Changing this forces a new resource to be created.
+     * 
+     */
+    public Output<Optional<OrchestratedVirtualMachineScaleSetRollingUpgradePolicy>> rollingUpgradePolicy() {
+        return Codegen.optional(this.rollingUpgradePolicy);
+    }
+    /**
      * Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Possible values are `true` or `false`.
      * 
      * &gt; **Note:** `single_placement_group` behaves differently for Flexible orchestration Virtual Machine Scale Sets than it does for Uniform orchestration Virtual Machine Scale Sets. It is recommended that you do not define the `single_placement_group` field in your configuration file as the service will determine what this value should be based off of the value contained within the `sku_name` field of your configuration file. You may set the `single_placement_group` field to `true`, however once you set it to `false` you will not be able to revert it back to `true`.
@@ -588,6 +603,20 @@ public class OrchestratedVirtualMachineScaleSet extends com.pulumi.resources.Cus
      */
     public Output<String> uniqueId() {
         return this.uniqueId;
+    }
+    /**
+     * Specifies how upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`. Changing this forces a new resource to be created.
+     * 
+     */
+    @Export(name="upgradeMode", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> upgradeMode;
+
+    /**
+     * @return Specifies how upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`. Changing this forces a new resource to be created.
+     * 
+     */
+    public Output<Optional<String>> upgradeMode() {
+        return Codegen.optional(this.upgradeMode);
     }
     /**
      * The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.

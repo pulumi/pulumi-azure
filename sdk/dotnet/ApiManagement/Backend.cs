@@ -50,6 +50,13 @@ namespace Pulumi.Azure.ApiManagement
     /// });
     /// ```
     /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.ApiManagement`: 2022-08-01
+    /// 
     /// ## Import
     /// 
     /// API Management backends can be imported using the `resource id`, e.g.

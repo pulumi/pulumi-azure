@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 /**
  * Manages a Private Link Service.
  *
- * > **NOTE** Private Link is now in [GA](https://docs.microsoft.com/en-gb/azure/private-link/).
+ * > **Note:** Private Link is now in [GA](https://docs.microsoft.com/en-gb/azure/private-link/).
  *
  * ## Import
  *
@@ -90,7 +90,7 @@ export class LinkService extends pulumi.CustomResource {
     /**
      * A list of Subscription UUID/GUID's that will be able to see this Private Link Service.
      *
-     * > **NOTE:** If no Subscription IDs are specified then Azure allows every Subscription to see this Private Link Service.
+     * > **Note:** If no Subscription IDs are specified then Azure allows every Subscription to see this Private Link Service.
      */
     public readonly visibilitySubscriptionIds!: pulumi.Output<string[] | undefined>;
 
@@ -193,7 +193,7 @@ export interface LinkServiceState {
     /**
      * A list of Subscription UUID/GUID's that will be able to see this Private Link Service.
      *
-     * > **NOTE:** If no Subscription IDs are specified then Azure allows every Subscription to see this Private Link Service.
+     * > **Note:** If no Subscription IDs are specified then Azure allows every Subscription to see this Private Link Service.
      */
     visibilitySubscriptionIds?: pulumi.Input<pulumi.Input<string>[]>;
 }
@@ -241,7 +241,7 @@ export interface LinkServiceArgs {
     /**
      * A list of Subscription UUID/GUID's that will be able to see this Private Link Service.
      *
-     * > **NOTE:** If no Subscription IDs are specified then Azure allows every Subscription to see this Private Link Service.
+     * > **Note:** If no Subscription IDs are specified then Azure allows every Subscription to see this Private Link Service.
      */
     visibilitySubscriptionIds?: pulumi.Input<pulumi.Input<string>[]>;
 }

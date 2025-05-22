@@ -20,7 +20,7 @@ public final class FlexibleServerIdentityArgs extends com.pulumi.resources.Resou
     /**
      * A list of User Assigned Managed Identity IDs to be assigned to this PostgreSQL Flexible Server. Required if used together with `customer_managed_key` block.
      * 
-     * &gt; **Note**: `identity_ids` is required when `type` is set to `UserAssigned`.
+     * &gt; **Note:** `identity_ids` is required when `type` is set to `UserAssigned`.
      * 
      */
     @Import(name="identityIds")
@@ -29,7 +29,7 @@ public final class FlexibleServerIdentityArgs extends com.pulumi.resources.Resou
     /**
      * @return A list of User Assigned Managed Identity IDs to be assigned to this PostgreSQL Flexible Server. Required if used together with `customer_managed_key` block.
      * 
-     * &gt; **Note**: `identity_ids` is required when `type` is set to `UserAssigned`.
+     * &gt; **Note:** `identity_ids` is required when `type` is set to `UserAssigned`.
      * 
      */
     public Optional<Output<List<String>>> identityIds() {
@@ -111,7 +111,7 @@ public final class FlexibleServerIdentityArgs extends com.pulumi.resources.Resou
         /**
          * @param identityIds A list of User Assigned Managed Identity IDs to be assigned to this PostgreSQL Flexible Server. Required if used together with `customer_managed_key` block.
          * 
-         * &gt; **Note**: `identity_ids` is required when `type` is set to `UserAssigned`.
+         * &gt; **Note:** `identity_ids` is required when `type` is set to `UserAssigned`.
          * 
          * @return builder
          * 
@@ -124,7 +124,7 @@ public final class FlexibleServerIdentityArgs extends com.pulumi.resources.Resou
         /**
          * @param identityIds A list of User Assigned Managed Identity IDs to be assigned to this PostgreSQL Flexible Server. Required if used together with `customer_managed_key` block.
          * 
-         * &gt; **Note**: `identity_ids` is required when `type` is set to `UserAssigned`.
+         * &gt; **Note:** `identity_ids` is required when `type` is set to `UserAssigned`.
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class FlexibleServerIdentityArgs extends com.pulumi.resources.Resou
         /**
          * @param identityIds A list of User Assigned Managed Identity IDs to be assigned to this PostgreSQL Flexible Server. Required if used together with `customer_managed_key` block.
          * 
-         * &gt; **Note**: `identity_ids` is required when `type` is set to `UserAssigned`.
+         * &gt; **Note:** `identity_ids` is required when `type` is set to `UserAssigned`.
          * 
          * @return builder
          * 

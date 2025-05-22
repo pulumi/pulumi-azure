@@ -16,7 +16,7 @@ public final class ReplicationRecoveryPlanBootRecoveryGroupPostAction {
     /**
      * @return The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
      * 
-     * &gt; **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
+     * &gt; **Note:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
      * 
      */
     private @Nullable String fabricLocation;
@@ -33,7 +33,7 @@ public final class ReplicationRecoveryPlanBootRecoveryGroupPostAction {
     /**
      * @return Instructions of manual action.
      * 
-     * &gt; **NOTE:** This property is required when `type` is set to `ManualActionDetails`.
+     * &gt; **Note:** This property is required when `type` is set to `ManualActionDetails`.
      * 
      */
     private @Nullable String manualActionInstruction;
@@ -45,14 +45,14 @@ public final class ReplicationRecoveryPlanBootRecoveryGroupPostAction {
     /**
      * @return Id of runbook.
      * 
-     * &gt; **NOTE:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
+     * &gt; **Note:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
      * 
      */
     private @Nullable String runbookId;
     /**
      * @return Path of action script.
      * 
-     * &gt; **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
+     * &gt; **Note:** This property is required when `type` is set to `ScriptActionDetails`.
      * 
      */
     private @Nullable String scriptPath;
@@ -66,7 +66,7 @@ public final class ReplicationRecoveryPlanBootRecoveryGroupPostAction {
     /**
      * @return The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
      * 
-     * &gt; **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
+     * &gt; **Note:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
      * 
      */
     public Optional<String> fabricLocation() {
@@ -89,7 +89,7 @@ public final class ReplicationRecoveryPlanBootRecoveryGroupPostAction {
     /**
      * @return Instructions of manual action.
      * 
-     * &gt; **NOTE:** This property is required when `type` is set to `ManualActionDetails`.
+     * &gt; **Note:** This property is required when `type` is set to `ManualActionDetails`.
      * 
      */
     public Optional<String> manualActionInstruction() {
@@ -105,7 +105,7 @@ public final class ReplicationRecoveryPlanBootRecoveryGroupPostAction {
     /**
      * @return Id of runbook.
      * 
-     * &gt; **NOTE:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
+     * &gt; **Note:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
      * 
      */
     public Optional<String> runbookId() {
@@ -114,7 +114,7 @@ public final class ReplicationRecoveryPlanBootRecoveryGroupPostAction {
     /**
      * @return Path of action script.
      * 
-     * &gt; **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
+     * &gt; **Note:** This property is required when `type` is set to `ScriptActionDetails`.
      * 
      */
     public Optional<String> scriptPath() {

@@ -106,6 +106,13 @@ def get_protection_container(name: Optional[builtins.str] = None,
         recovery_fabric_name="primary-fabric")
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.RecoveryServices`: 2024-04-01
+
 
     :param builtins.str name: Specifies the name of the protection container.
     :param builtins.str recovery_fabric_name: The name of the fabric that contains the protection container.
@@ -145,6 +152,13 @@ def get_protection_container_output(name: Optional[pulumi.Input[builtins.str]] =
         resource_group_name="tfex-resource_group",
         recovery_fabric_name="primary-fabric")
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.RecoveryServices`: 2024-04-01
 
 
     :param builtins.str name: Specifies the name of the protection container.

@@ -81,6 +81,13 @@ public final class ApimanagementFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ApiManagement`: 2022-08-01
+     * 
      */
     public static Output<GetApiResult> getApi(GetApiArgs args) {
         return getApi(args, InvokeOptions.Empty);
@@ -126,6 +133,13 @@ public final class ApimanagementFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ApiManagement`: 2022-08-01
      * 
      */
     public static CompletableFuture<GetApiResult> getApiPlain(GetApiPlainArgs args) {
@@ -173,6 +187,13 @@ public final class ApimanagementFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ApiManagement`: 2022-08-01
+     * 
      */
     public static Output<GetApiResult> getApi(GetApiArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:apimanagement/getApi:getApi", TypeShape.of(GetApiResult.class), args, Utilities.withVersion(options));
@@ -218,6 +239,13 @@ public final class ApimanagementFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ApiManagement`: 2022-08-01
      * 
      */
     public static Output<GetApiResult> getApi(GetApiArgs args, InvokeOutputOptions options) {
@@ -265,6 +293,13 @@ public final class ApimanagementFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ApiManagement`: 2022-08-01
+     * 
      */
     public static CompletableFuture<GetApiResult> getApiPlain(GetApiPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:apimanagement/getApi:getApi", TypeShape.of(GetApiResult.class), args, Utilities.withVersion(options));
@@ -309,6 +344,13 @@ public final class ApimanagementFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ApiManagement`: 2022-08-01
      * 
      */
     public static Output<GetApiVersionSetResult> getApiVersionSet(GetApiVersionSetArgs args) {
@@ -355,6 +397,13 @@ public final class ApimanagementFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ApiManagement`: 2022-08-01
+     * 
      */
     public static CompletableFuture<GetApiVersionSetResult> getApiVersionSetPlain(GetApiVersionSetPlainArgs args) {
         return getApiVersionSetPlain(args, InvokeOptions.Empty);
@@ -399,6 +448,13 @@ public final class ApimanagementFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ApiManagement`: 2022-08-01
      * 
      */
     public static Output<GetApiVersionSetResult> getApiVersionSet(GetApiVersionSetArgs args, InvokeOptions options) {
@@ -445,6 +501,13 @@ public final class ApimanagementFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ApiManagement`: 2022-08-01
+     * 
      */
     public static Output<GetApiVersionSetResult> getApiVersionSet(GetApiVersionSetArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:apimanagement/getApiVersionSet:getApiVersionSet", TypeShape.of(GetApiVersionSetResult.class), args, Utilities.withVersion(options));
@@ -489,6 +552,13 @@ public final class ApimanagementFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ApiManagement`: 2022-08-01
      * 
      */
     public static CompletableFuture<GetApiVersionSetResult> getApiVersionSetPlain(GetApiVersionSetPlainArgs args, InvokeOptions options) {
@@ -539,6 +609,13 @@ public final class ApimanagementFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ApiManagement`: 2022-08-01
+     * 
      */
     public static Output<GetGatewayResult> getGateway(GetGatewayArgs args) {
         return getGateway(args, InvokeOptions.Empty);
@@ -587,6 +664,13 @@ public final class ApimanagementFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ApiManagement`: 2022-08-01
      * 
      */
     public static CompletableFuture<GetGatewayResult> getGatewayPlain(GetGatewayPlainArgs args) {
@@ -637,6 +721,13 @@ public final class ApimanagementFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ApiManagement`: 2022-08-01
+     * 
      */
     public static Output<GetGatewayResult> getGateway(GetGatewayArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:apimanagement/getGateway:getGateway", TypeShape.of(GetGatewayResult.class), args, Utilities.withVersion(options));
@@ -686,6 +777,13 @@ public final class ApimanagementFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ApiManagement`: 2022-08-01
+     * 
      */
     public static Output<GetGatewayResult> getGateway(GetGatewayArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:apimanagement/getGateway:getGateway", TypeShape.of(GetGatewayResult.class), args, Utilities.withVersion(options));
@@ -734,6 +832,13 @@ public final class ApimanagementFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ApiManagement`: 2022-08-01
      * 
      */
     public static CompletableFuture<GetGatewayResult> getGatewayPlain(GetGatewayPlainArgs args, InvokeOptions options) {
@@ -792,6 +897,13 @@ public final class ApimanagementFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ApiManagement`: 2022-08-01
+     * 
      */
     public static Output<GetGatewayHostNameConfigurationResult> getGatewayHostNameConfiguration(GetGatewayHostNameConfigurationArgs args) {
         return getGatewayHostNameConfiguration(args, InvokeOptions.Empty);
@@ -848,6 +960,13 @@ public final class ApimanagementFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ApiManagement`: 2022-08-01
      * 
      */
     public static CompletableFuture<GetGatewayHostNameConfigurationResult> getGatewayHostNameConfigurationPlain(GetGatewayHostNameConfigurationPlainArgs args) {
@@ -906,6 +1025,13 @@ public final class ApimanagementFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ApiManagement`: 2022-08-01
+     * 
      */
     public static Output<GetGatewayHostNameConfigurationResult> getGatewayHostNameConfiguration(GetGatewayHostNameConfigurationArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:apimanagement/getGatewayHostNameConfiguration:getGatewayHostNameConfiguration", TypeShape.of(GetGatewayHostNameConfigurationResult.class), args, Utilities.withVersion(options));
@@ -962,6 +1088,13 @@ public final class ApimanagementFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ApiManagement`: 2022-08-01
      * 
      */
     public static Output<GetGatewayHostNameConfigurationResult> getGatewayHostNameConfiguration(GetGatewayHostNameConfigurationArgs args, InvokeOutputOptions options) {
@@ -1020,6 +1153,13 @@ public final class ApimanagementFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ApiManagement`: 2022-08-01
+     * 
      */
     public static CompletableFuture<GetGatewayHostNameConfigurationResult> getGatewayHostNameConfigurationPlain(GetGatewayHostNameConfigurationPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:apimanagement/getGatewayHostNameConfiguration:getGatewayHostNameConfiguration", TypeShape.of(GetGatewayHostNameConfigurationResult.class), args, Utilities.withVersion(options));
@@ -1064,6 +1204,13 @@ public final class ApimanagementFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ApiManagement`: 2022-08-01
      * 
      */
     public static Output<GetGroupResult> getGroup(GetGroupArgs args) {
@@ -1110,6 +1257,13 @@ public final class ApimanagementFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ApiManagement`: 2022-08-01
+     * 
      */
     public static CompletableFuture<GetGroupResult> getGroupPlain(GetGroupPlainArgs args) {
         return getGroupPlain(args, InvokeOptions.Empty);
@@ -1154,6 +1308,13 @@ public final class ApimanagementFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ApiManagement`: 2022-08-01
      * 
      */
     public static Output<GetGroupResult> getGroup(GetGroupArgs args, InvokeOptions options) {
@@ -1200,6 +1361,13 @@ public final class ApimanagementFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ApiManagement`: 2022-08-01
+     * 
      */
     public static Output<GetGroupResult> getGroup(GetGroupArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:apimanagement/getGroup:getGroup", TypeShape.of(GetGroupResult.class), args, Utilities.withVersion(options));
@@ -1244,6 +1412,13 @@ public final class ApimanagementFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ApiManagement`: 2022-08-01
      * 
      */
     public static CompletableFuture<GetGroupResult> getGroupPlain(GetGroupPlainArgs args, InvokeOptions options) {
@@ -1290,6 +1465,13 @@ public final class ApimanagementFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ApiManagement`: 2022-08-01
+     * 
      */
     public static Output<GetProductResult> getProduct(GetProductArgs args) {
         return getProduct(args, InvokeOptions.Empty);
@@ -1334,6 +1516,13 @@ public final class ApimanagementFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ApiManagement`: 2022-08-01
      * 
      */
     public static CompletableFuture<GetProductResult> getProductPlain(GetProductPlainArgs args) {
@@ -1380,6 +1569,13 @@ public final class ApimanagementFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ApiManagement`: 2022-08-01
+     * 
      */
     public static Output<GetProductResult> getProduct(GetProductArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:apimanagement/getProduct:getProduct", TypeShape.of(GetProductResult.class), args, Utilities.withVersion(options));
@@ -1424,6 +1620,13 @@ public final class ApimanagementFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ApiManagement`: 2022-08-01
      * 
      */
     public static Output<GetProductResult> getProduct(GetProductArgs args, InvokeOutputOptions options) {
@@ -1470,6 +1673,13 @@ public final class ApimanagementFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ApiManagement`: 2022-08-01
+     * 
      */
     public static CompletableFuture<GetProductResult> getProductPlain(GetProductPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:apimanagement/getProduct:getProduct", TypeShape.of(GetProductResult.class), args, Utilities.withVersion(options));
@@ -1513,6 +1723,13 @@ public final class ApimanagementFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ApiManagement`: 2022-08-01
      * 
      */
     public static Output<GetServiceResult> getService(GetServiceArgs args) {
@@ -1558,6 +1775,13 @@ public final class ApimanagementFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ApiManagement`: 2022-08-01
+     * 
      */
     public static CompletableFuture<GetServiceResult> getServicePlain(GetServicePlainArgs args) {
         return getServicePlain(args, InvokeOptions.Empty);
@@ -1601,6 +1825,13 @@ public final class ApimanagementFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ApiManagement`: 2022-08-01
      * 
      */
     public static Output<GetServiceResult> getService(GetServiceArgs args, InvokeOptions options) {
@@ -1646,6 +1877,13 @@ public final class ApimanagementFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ApiManagement`: 2022-08-01
+     * 
      */
     public static Output<GetServiceResult> getService(GetServiceArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:apimanagement/getService:getService", TypeShape.of(GetServiceResult.class), args, Utilities.withVersion(options));
@@ -1689,6 +1927,13 @@ public final class ApimanagementFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ApiManagement`: 2022-08-01
      * 
      */
     public static CompletableFuture<GetServiceResult> getServicePlain(GetServicePlainArgs args, InvokeOptions options) {
@@ -1734,6 +1979,13 @@ public final class ApimanagementFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ApiManagement`: 2022-08-01
+     * 
      */
     public static Output<GetSubscriptionResult> getSubscription(GetSubscriptionArgs args) {
         return getSubscription(args, InvokeOptions.Empty);
@@ -1777,6 +2029,13 @@ public final class ApimanagementFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ApiManagement`: 2022-08-01
      * 
      */
     public static CompletableFuture<GetSubscriptionResult> getSubscriptionPlain(GetSubscriptionPlainArgs args) {
@@ -1822,6 +2081,13 @@ public final class ApimanagementFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ApiManagement`: 2022-08-01
+     * 
      */
     public static Output<GetSubscriptionResult> getSubscription(GetSubscriptionArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:apimanagement/getSubscription:getSubscription", TypeShape.of(GetSubscriptionResult.class), args, Utilities.withVersion(options));
@@ -1866,6 +2132,13 @@ public final class ApimanagementFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ApiManagement`: 2022-08-01
+     * 
      */
     public static Output<GetSubscriptionResult> getSubscription(GetSubscriptionArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:apimanagement/getSubscription:getSubscription", TypeShape.of(GetSubscriptionResult.class), args, Utilities.withVersion(options));
@@ -1909,6 +2182,13 @@ public final class ApimanagementFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ApiManagement`: 2022-08-01
      * 
      */
     public static CompletableFuture<GetSubscriptionResult> getSubscriptionPlain(GetSubscriptionPlainArgs args, InvokeOptions options) {

@@ -85,12 +85,19 @@ import (
 //
 // > **Note:** If creating multiple replicas, an error can occur if virtual endpoints are created before all replicas have been completed. To avoid this error, use a `dependsOn` property on `postgresql.FlexibleServerVirtualEndpoint` that references all Postgres Flexible Server Replicas.
 //
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.DBforPostgreSQL`: 2024-08-01
+//
 // ## Import
 //
 // A PostgreSQL Flexible Virtual Endpoint can be imported using the `resource id`, e.g.
 //
 // ```sh
-// $ pulumi import azure:postgresql/flexibleServerVirtualEndpoint:FlexibleServerVirtualEndpoint example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DBforPostgreSQL/flexibleServers/server1/virtualEndpoints/endpoint1
+// $ pulumi import azure:postgresql/flexibleServerVirtualEndpoint:FlexibleServerVirtualEndpoint example "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DBforPostgreSQL/flexibleServers/sourceServerName/virtualEndpoints/endpointName|/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DBforPostgreSQL/flexibleServers/replicaServerName/virtualEndpoints/endpointName"
 // ```
 type FlexibleServerVirtualEndpoint struct {
 	pulumi.CustomResourceState
@@ -98,6 +105,8 @@ type FlexibleServerVirtualEndpoint struct {
 	// The name of the Virtual Endpoint
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The Resource ID of the *Replica* Postgres Flexible Server this should be associated with
+	//
+	// > **Note:** If a fail-over has occurred, you will be unable to update `replicaServerId`. You can remove the resource from state and reimport it back in with `sourceServerId` and `replicaServerId` flipped and then update `replicaServerId`.
 	ReplicaServerId pulumi.StringOutput `pulumi:"replicaServerId"`
 	// The Resource ID of the *Source* Postgres Flexible Server this should be associated with.
 	SourceServerId pulumi.StringOutput `pulumi:"sourceServerId"`
@@ -147,6 +156,8 @@ type flexibleServerVirtualEndpointState struct {
 	// The name of the Virtual Endpoint
 	Name *string `pulumi:"name"`
 	// The Resource ID of the *Replica* Postgres Flexible Server this should be associated with
+	//
+	// > **Note:** If a fail-over has occurred, you will be unable to update `replicaServerId`. You can remove the resource from state and reimport it back in with `sourceServerId` and `replicaServerId` flipped and then update `replicaServerId`.
 	ReplicaServerId *string `pulumi:"replicaServerId"`
 	// The Resource ID of the *Source* Postgres Flexible Server this should be associated with.
 	SourceServerId *string `pulumi:"sourceServerId"`
@@ -158,6 +169,8 @@ type FlexibleServerVirtualEndpointState struct {
 	// The name of the Virtual Endpoint
 	Name pulumi.StringPtrInput
 	// The Resource ID of the *Replica* Postgres Flexible Server this should be associated with
+	//
+	// > **Note:** If a fail-over has occurred, you will be unable to update `replicaServerId`. You can remove the resource from state and reimport it back in with `sourceServerId` and `replicaServerId` flipped and then update `replicaServerId`.
 	ReplicaServerId pulumi.StringPtrInput
 	// The Resource ID of the *Source* Postgres Flexible Server this should be associated with.
 	SourceServerId pulumi.StringPtrInput
@@ -173,6 +186,8 @@ type flexibleServerVirtualEndpointArgs struct {
 	// The name of the Virtual Endpoint
 	Name *string `pulumi:"name"`
 	// The Resource ID of the *Replica* Postgres Flexible Server this should be associated with
+	//
+	// > **Note:** If a fail-over has occurred, you will be unable to update `replicaServerId`. You can remove the resource from state and reimport it back in with `sourceServerId` and `replicaServerId` flipped and then update `replicaServerId`.
 	ReplicaServerId string `pulumi:"replicaServerId"`
 	// The Resource ID of the *Source* Postgres Flexible Server this should be associated with.
 	SourceServerId string `pulumi:"sourceServerId"`
@@ -185,6 +200,8 @@ type FlexibleServerVirtualEndpointArgs struct {
 	// The name of the Virtual Endpoint
 	Name pulumi.StringPtrInput
 	// The Resource ID of the *Replica* Postgres Flexible Server this should be associated with
+	//
+	// > **Note:** If a fail-over has occurred, you will be unable to update `replicaServerId`. You can remove the resource from state and reimport it back in with `sourceServerId` and `replicaServerId` flipped and then update `replicaServerId`.
 	ReplicaServerId pulumi.StringInput
 	// The Resource ID of the *Source* Postgres Flexible Server this should be associated with.
 	SourceServerId pulumi.StringInput
@@ -285,6 +302,8 @@ func (o FlexibleServerVirtualEndpointOutput) Name() pulumi.StringOutput {
 }
 
 // The Resource ID of the *Replica* Postgres Flexible Server this should be associated with
+//
+// > **Note:** If a fail-over has occurred, you will be unable to update `replicaServerId`. You can remove the resource from state and reimport it back in with `sourceServerId` and `replicaServerId` flipped and then update `replicaServerId`.
 func (o FlexibleServerVirtualEndpointOutput) ReplicaServerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *FlexibleServerVirtualEndpoint) pulumi.StringOutput { return v.ReplicaServerId }).(pulumi.StringOutput)
 }

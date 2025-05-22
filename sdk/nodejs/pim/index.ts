@@ -15,6 +15,11 @@ export type EligibleRoleAssignment = import("./eligibleRoleAssignment").Eligible
 export const EligibleRoleAssignment: typeof import("./eligibleRoleAssignment").EligibleRoleAssignment = null as any;
 utilities.lazyLoad(exports, ["EligibleRoleAssignment"], () => require("./eligibleRoleAssignment"));
 
+export { GetRoleAssignmentsArgs, GetRoleAssignmentsResult, GetRoleAssignmentsOutputArgs } from "./getRoleAssignments";
+export const getRoleAssignments: typeof import("./getRoleAssignments").getRoleAssignments = null as any;
+export const getRoleAssignmentsOutput: typeof import("./getRoleAssignments").getRoleAssignmentsOutput = null as any;
+utilities.lazyLoad(exports, ["getRoleAssignments","getRoleAssignmentsOutput"], () => require("./getRoleAssignments"));
+
 export { GetRoleManagementPolicyArgs, GetRoleManagementPolicyResult, GetRoleManagementPolicyOutputArgs } from "./getRoleManagementPolicy";
 export const getRoleManagementPolicy: typeof import("./getRoleManagementPolicy").getRoleManagementPolicy = null as any;
 export const getRoleManagementPolicyOutput: typeof import("./getRoleManagementPolicy").getRoleManagementPolicyOutput = null as any;

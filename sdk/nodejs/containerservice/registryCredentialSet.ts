@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  *
  * ### Minimal)
  *
- * > NOTE: Be aware that you will need to permit the Identity that is created for the Container Registry to have `get` on secrets to the Key Vault, e.g. using the `azure.keyvault.AccessPolicy` resource.
+ * > **Note:** Be aware that you will need to permit the Identity that is created for the Container Registry to have `get` on secrets to the Key Vault, e.g. using the `azure.keyvault.AccessPolicy` resource.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -111,6 +111,13 @@ import * as utilities from "../utilities";
  *     secretPermissions: ["Get"],
  * });
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.ContainerRegistry`: 2023-07-01
  *
  * ## Import
  *

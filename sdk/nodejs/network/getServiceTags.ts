@@ -21,6 +21,13 @@ import * as utilities from "../utilities";
  * export const addressPrefixes = example.then(example => example.addressPrefixes);
  * export const ipv4Cidrs = example.then(example => example.ipv4Cidrs);
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.Network`: 2024-05-01
  */
 export function getServiceTags(args: GetServiceTagsArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceTagsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -94,6 +101,13 @@ export interface GetServiceTagsResult {
  * export const addressPrefixes = example.then(example => example.addressPrefixes);
  * export const ipv4Cidrs = example.then(example => example.ipv4Cidrs);
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.Network`: 2024-05-01
  */
 export function getServiceTagsOutput(args: GetServiceTagsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServiceTagsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

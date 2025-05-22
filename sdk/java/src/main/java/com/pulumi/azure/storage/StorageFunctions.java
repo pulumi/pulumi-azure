@@ -97,6 +97,13 @@ public final class StorageFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Storage`: 2023-05-01
+     * 
      */
     public static Output<GetAccountResult> getAccount(GetAccountArgs args) {
         return getAccount(args, InvokeOptions.Empty);
@@ -140,6 +147,13 @@ public final class StorageFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Storage`: 2023-05-01
      * 
      */
     public static CompletableFuture<GetAccountResult> getAccountPlain(GetAccountPlainArgs args) {
@@ -185,6 +199,13 @@ public final class StorageFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Storage`: 2023-05-01
+     * 
      */
     public static Output<GetAccountResult> getAccount(GetAccountArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:storage/getAccount:getAccount", TypeShape.of(GetAccountResult.class), args, Utilities.withVersion(options));
@@ -229,6 +250,13 @@ public final class StorageFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Storage`: 2023-05-01
+     * 
      */
     public static Output<GetAccountResult> getAccount(GetAccountArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:storage/getAccount:getAccount", TypeShape.of(GetAccountResult.class), args, Utilities.withVersion(options));
@@ -272,6 +300,13 @@ public final class StorageFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Storage`: 2023-05-01
      * 
      */
     public static CompletableFuture<GetAccountResult> getAccountPlain(GetAccountPlainArgs args, InvokeOptions options) {
@@ -1683,6 +1718,13 @@ public final class StorageFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Storage`: 2023-05-01
+     * 
      */
     public static Output<GetEncryptionScopeResult> getEncryptionScope(GetEncryptionScopeArgs args) {
         return getEncryptionScope(args, InvokeOptions.Empty);
@@ -1732,6 +1774,13 @@ public final class StorageFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Storage`: 2023-05-01
      * 
      */
     public static CompletableFuture<GetEncryptionScopeResult> getEncryptionScopePlain(GetEncryptionScopePlainArgs args) {
@@ -1783,6 +1832,13 @@ public final class StorageFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Storage`: 2023-05-01
+     * 
      */
     public static Output<GetEncryptionScopeResult> getEncryptionScope(GetEncryptionScopeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:storage/getEncryptionScope:getEncryptionScope", TypeShape.of(GetEncryptionScopeResult.class), args, Utilities.withVersion(options));
@@ -1832,6 +1888,13 @@ public final class StorageFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Storage`: 2023-05-01
      * 
      */
     public static Output<GetEncryptionScopeResult> getEncryptionScope(GetEncryptionScopeArgs args, InvokeOutputOptions options) {
@@ -1883,6 +1946,13 @@ public final class StorageFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Storage`: 2023-05-01
+     * 
      */
     public static CompletableFuture<GetEncryptionScopeResult> getEncryptionScopePlain(GetEncryptionScopePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:storage/getEncryptionScope:getEncryptionScope", TypeShape.of(GetEncryptionScopeResult.class), args, Utilities.withVersion(options));
@@ -1930,6 +2000,13 @@ public final class StorageFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Storage`: 2023-05-01
      * 
      */
     public static Output<GetPolicyResult> getPolicy(GetPolicyArgs args) {
@@ -1979,6 +2056,13 @@ public final class StorageFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Storage`: 2023-05-01
+     * 
      */
     public static CompletableFuture<GetPolicyResult> getPolicyPlain(GetPolicyPlainArgs args) {
         return getPolicyPlain(args, InvokeOptions.Empty);
@@ -2026,6 +2110,13 @@ public final class StorageFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Storage`: 2023-05-01
      * 
      */
     public static Output<GetPolicyResult> getPolicy(GetPolicyArgs args, InvokeOptions options) {
@@ -2075,6 +2166,13 @@ public final class StorageFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Storage`: 2023-05-01
+     * 
      */
     public static Output<GetPolicyResult> getPolicy(GetPolicyArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:storage/getPolicy:getPolicy", TypeShape.of(GetPolicyResult.class), args, Utilities.withVersion(options));
@@ -2122,6 +2220,13 @@ public final class StorageFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Storage`: 2023-05-01
      * 
      */
     public static CompletableFuture<GetPolicyResult> getPolicyPlain(GetPolicyPlainArgs args, InvokeOptions options) {
@@ -2345,7 +2450,7 @@ public final class StorageFunctions {
     /**
      * Use this data source to access information about an existing File Share.
      * 
-     * &gt; **Note on Authentication** Shared Key authentication will always be used for this data source, as AzureAD authentication is not supported by the Storage API for files.
+     * &gt; **Note:** Shared Key authentication will always be used for this data source, as AzureAD authentication is not supported by the Storage API for files.
      * 
      * ## Example Usage
      * 
@@ -2388,6 +2493,13 @@ public final class StorageFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Storage`: 2023-05-01
      * 
      */
     public static Output<GetShareResult> getShare(GetShareArgs args) {
@@ -2396,7 +2508,7 @@ public final class StorageFunctions {
     /**
      * Use this data source to access information about an existing File Share.
      * 
-     * &gt; **Note on Authentication** Shared Key authentication will always be used for this data source, as AzureAD authentication is not supported by the Storage API for files.
+     * &gt; **Note:** Shared Key authentication will always be used for this data source, as AzureAD authentication is not supported by the Storage API for files.
      * 
      * ## Example Usage
      * 
@@ -2439,6 +2551,13 @@ public final class StorageFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Storage`: 2023-05-01
      * 
      */
     public static CompletableFuture<GetShareResult> getSharePlain(GetSharePlainArgs args) {
@@ -2447,7 +2566,7 @@ public final class StorageFunctions {
     /**
      * Use this data source to access information about an existing File Share.
      * 
-     * &gt; **Note on Authentication** Shared Key authentication will always be used for this data source, as AzureAD authentication is not supported by the Storage API for files.
+     * &gt; **Note:** Shared Key authentication will always be used for this data source, as AzureAD authentication is not supported by the Storage API for files.
      * 
      * ## Example Usage
      * 
@@ -2490,6 +2609,13 @@ public final class StorageFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Storage`: 2023-05-01
      * 
      */
     public static Output<GetShareResult> getShare(GetShareArgs args, InvokeOptions options) {
@@ -2498,7 +2624,7 @@ public final class StorageFunctions {
     /**
      * Use this data source to access information about an existing File Share.
      * 
-     * &gt; **Note on Authentication** Shared Key authentication will always be used for this data source, as AzureAD authentication is not supported by the Storage API for files.
+     * &gt; **Note:** Shared Key authentication will always be used for this data source, as AzureAD authentication is not supported by the Storage API for files.
      * 
      * ## Example Usage
      * 
@@ -2541,6 +2667,13 @@ public final class StorageFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Storage`: 2023-05-01
      * 
      */
     public static Output<GetShareResult> getShare(GetShareArgs args, InvokeOutputOptions options) {
@@ -2549,7 +2682,7 @@ public final class StorageFunctions {
     /**
      * Use this data source to access information about an existing File Share.
      * 
-     * &gt; **Note on Authentication** Shared Key authentication will always be used for this data source, as AzureAD authentication is not supported by the Storage API for files.
+     * &gt; **Note:** Shared Key authentication will always be used for this data source, as AzureAD authentication is not supported by the Storage API for files.
      * 
      * ## Example Usage
      * 
@@ -2592,6 +2725,13 @@ public final class StorageFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Storage`: 2023-05-01
      * 
      */
     public static CompletableFuture<GetShareResult> getSharePlain(GetSharePlainArgs args, InvokeOptions options) {
@@ -2642,6 +2782,13 @@ public final class StorageFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Storage`: 2023-05-01
+     * 
      */
     public static Output<GetStorageContainerResult> getStorageContainer(GetStorageContainerArgs args) {
         return getStorageContainer(args, InvokeOptions.Empty);
@@ -2690,6 +2837,13 @@ public final class StorageFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Storage`: 2023-05-01
      * 
      */
     public static CompletableFuture<GetStorageContainerResult> getStorageContainerPlain(GetStorageContainerPlainArgs args) {
@@ -2740,6 +2894,13 @@ public final class StorageFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Storage`: 2023-05-01
+     * 
      */
     public static Output<GetStorageContainerResult> getStorageContainer(GetStorageContainerArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:storage/getStorageContainer:getStorageContainer", TypeShape.of(GetStorageContainerResult.class), args, Utilities.withVersion(options));
@@ -2788,6 +2949,13 @@ public final class StorageFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Storage`: 2023-05-01
      * 
      */
     public static Output<GetStorageContainerResult> getStorageContainer(GetStorageContainerArgs args, InvokeOutputOptions options) {
@@ -2838,6 +3006,13 @@ public final class StorageFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Storage`: 2023-05-01
+     * 
      */
     public static CompletableFuture<GetStorageContainerResult> getStorageContainerPlain(GetStorageContainerPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:storage/getStorageContainer:getStorageContainer", TypeShape.of(GetStorageContainerResult.class), args, Utilities.withVersion(options));
@@ -2881,6 +3056,13 @@ public final class StorageFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.StorageSync`: 2020-03-01
      * 
      */
     public static Output<GetSyncResult> getSync(GetSyncArgs args) {
@@ -2926,6 +3108,13 @@ public final class StorageFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.StorageSync`: 2020-03-01
+     * 
      */
     public static CompletableFuture<GetSyncResult> getSyncPlain(GetSyncPlainArgs args) {
         return getSyncPlain(args, InvokeOptions.Empty);
@@ -2969,6 +3158,13 @@ public final class StorageFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.StorageSync`: 2020-03-01
      * 
      */
     public static Output<GetSyncResult> getSync(GetSyncArgs args, InvokeOptions options) {
@@ -3014,6 +3210,13 @@ public final class StorageFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.StorageSync`: 2020-03-01
+     * 
      */
     public static Output<GetSyncResult> getSync(GetSyncArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:storage/getSync:getSync", TypeShape.of(GetSyncResult.class), args, Utilities.withVersion(options));
@@ -3057,6 +3260,13 @@ public final class StorageFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.StorageSync`: 2020-03-01
      * 
      */
     public static CompletableFuture<GetSyncResult> getSyncPlain(GetSyncPlainArgs args, InvokeOptions options) {
@@ -3102,6 +3312,13 @@ public final class StorageFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.StorageSync`: 2020-03-01
+     * 
      */
     public static Output<GetSyncGroupResult> getSyncGroup(GetSyncGroupArgs args) {
         return getSyncGroup(args, InvokeOptions.Empty);
@@ -3145,6 +3362,13 @@ public final class StorageFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.StorageSync`: 2020-03-01
      * 
      */
     public static CompletableFuture<GetSyncGroupResult> getSyncGroupPlain(GetSyncGroupPlainArgs args) {
@@ -3190,6 +3414,13 @@ public final class StorageFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.StorageSync`: 2020-03-01
+     * 
      */
     public static Output<GetSyncGroupResult> getSyncGroup(GetSyncGroupArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:storage/getSyncGroup:getSyncGroup", TypeShape.of(GetSyncGroupResult.class), args, Utilities.withVersion(options));
@@ -3234,6 +3465,13 @@ public final class StorageFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.StorageSync`: 2020-03-01
+     * 
      */
     public static Output<GetSyncGroupResult> getSyncGroup(GetSyncGroupArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:storage/getSyncGroup:getSyncGroup", TypeShape.of(GetSyncGroupResult.class), args, Utilities.withVersion(options));
@@ -3277,6 +3515,13 @@ public final class StorageFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.StorageSync`: 2020-03-01
      * 
      */
     public static CompletableFuture<GetSyncGroupResult> getSyncGroupPlain(GetSyncGroupPlainArgs args, InvokeOptions options) {

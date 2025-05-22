@@ -216,6 +216,13 @@ def get_queue_authorization_rule(name: Optional[builtins.str] = None,
     pulumi.export("id", example.id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.ServiceBus`: 2021-06-01-preview
+
 
     :param builtins.str name: The name of this ServiceBus Queue Authorisation Rule.
     :param builtins.str namespace_name: The name of the ServiceBus Namespace.
@@ -268,6 +275,13 @@ def get_queue_authorization_rule_output(name: Optional[pulumi.Input[builtins.str
         namespace_name="example-namespace")
     pulumi.export("id", example.id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.ServiceBus`: 2021-06-01-preview
 
 
     :param builtins.str name: The name of this ServiceBus Queue Authorisation Rule.

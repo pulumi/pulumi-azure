@@ -76,6 +76,13 @@ public final class AutomationFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Automation`: 2023-11-01, 2019-06-01
+     * 
      */
     public static Output<GetAccountResult> getAccount(GetAccountArgs args) {
         return getAccount(args, InvokeOptions.Empty);
@@ -119,6 +126,13 @@ public final class AutomationFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Automation`: 2023-11-01, 2019-06-01
      * 
      */
     public static CompletableFuture<GetAccountResult> getAccountPlain(GetAccountPlainArgs args) {
@@ -164,6 +178,13 @@ public final class AutomationFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Automation`: 2023-11-01, 2019-06-01
+     * 
      */
     public static Output<GetAccountResult> getAccount(GetAccountArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:automation/getAccount:getAccount", TypeShape.of(GetAccountResult.class), args, Utilities.withVersion(options));
@@ -208,6 +229,13 @@ public final class AutomationFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Automation`: 2023-11-01, 2019-06-01
+     * 
      */
     public static Output<GetAccountResult> getAccount(GetAccountArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:automation/getAccount:getAccount", TypeShape.of(GetAccountResult.class), args, Utilities.withVersion(options));
@@ -251,6 +279,13 @@ public final class AutomationFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Automation`: 2023-11-01, 2019-06-01
      * 
      */
     public static CompletableFuture<GetAccountResult> getAccountPlain(GetAccountPlainArgs args, InvokeOptions options) {
@@ -972,6 +1007,13 @@ public final class AutomationFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Automation`: 2023-11-01
+     * 
      */
     public static Output<GetRunbookResult> getRunbook(GetRunbookArgs args) {
         return getRunbook(args, InvokeOptions.Empty);
@@ -1016,6 +1058,13 @@ public final class AutomationFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Automation`: 2023-11-01
      * 
      */
     public static CompletableFuture<GetRunbookResult> getRunbookPlain(GetRunbookPlainArgs args) {
@@ -1062,6 +1111,13 @@ public final class AutomationFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Automation`: 2023-11-01
+     * 
      */
     public static Output<GetRunbookResult> getRunbook(GetRunbookArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:automation/getRunbook:getRunbook", TypeShape.of(GetRunbookResult.class), args, Utilities.withVersion(options));
@@ -1107,6 +1163,13 @@ public final class AutomationFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Automation`: 2023-11-01
+     * 
      */
     public static Output<GetRunbookResult> getRunbook(GetRunbookArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:automation/getRunbook:getRunbook", TypeShape.of(GetRunbookResult.class), args, Utilities.withVersion(options));
@@ -1151,6 +1214,13 @@ public final class AutomationFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Automation`: 2023-11-01
      * 
      */
     public static CompletableFuture<GetRunbookResult> getRunbookPlain(GetRunbookPlainArgs args, InvokeOptions options) {
@@ -1461,6 +1531,13 @@ public final class AutomationFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Automation`: 2023-11-01
+     * 
      */
     public static Output<GetVariablesResult> getVariables(GetVariablesArgs args) {
         return getVariables(args, InvokeOptions.Empty);
@@ -1509,6 +1586,13 @@ public final class AutomationFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Automation`: 2023-11-01
      * 
      */
     public static CompletableFuture<GetVariablesResult> getVariablesPlain(GetVariablesPlainArgs args) {
@@ -1559,6 +1643,13 @@ public final class AutomationFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Automation`: 2023-11-01
+     * 
      */
     public static Output<GetVariablesResult> getVariables(GetVariablesArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:automation/getVariables:getVariables", TypeShape.of(GetVariablesResult.class), args, Utilities.withVersion(options));
@@ -1608,6 +1699,13 @@ public final class AutomationFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Automation`: 2023-11-01
+     * 
      */
     public static Output<GetVariablesResult> getVariables(GetVariablesArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:automation/getVariables:getVariables", TypeShape.of(GetVariablesResult.class), args, Utilities.withVersion(options));
@@ -1656,6 +1754,13 @@ public final class AutomationFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Automation`: 2023-11-01
      * 
      */
     public static CompletableFuture<GetVariablesResult> getVariablesPlain(GetVariablesPlainArgs args, InvokeOptions options) {

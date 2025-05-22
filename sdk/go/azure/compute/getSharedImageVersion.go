@@ -41,6 +41,13 @@ import (
 //	}
 //
 // ```
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This data source uses the following Azure API Providers:
+//
+// * `Microsoft.Compute`: 2023-07-03
 func LookupSharedImageVersion(ctx *pulumi.Context, args *LookupSharedImageVersionArgs, opts ...pulumi.InvokeOption) (*LookupSharedImageVersionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSharedImageVersionResult

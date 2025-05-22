@@ -59,6 +59,9 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         [Input("hostName", required: true)]
         public Input<string> HostName { get; set; } = null!;
 
+        [Input("keyVaultCertificateId")]
+        public Input<string>? KeyVaultCertificateId { get; set; }
+
         /// <summary>
         /// The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
         /// </summary>

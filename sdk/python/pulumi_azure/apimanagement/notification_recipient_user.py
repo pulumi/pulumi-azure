@@ -169,6 +169,13 @@ class NotificationRecipientUser(pulumi.CustomResource):
             user_id=example_user.user_id)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ApiManagement`: 2022-08-01
+
         ## Import
 
         API Management Notification Recipient Users can be imported using the `resource id`, e.g.
@@ -221,6 +228,13 @@ class NotificationRecipientUser(pulumi.CustomResource):
             notification_type="AccountClosedPublisher",
             user_id=example_user.user_id)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ApiManagement`: 2022-08-01
 
         ## Import
 

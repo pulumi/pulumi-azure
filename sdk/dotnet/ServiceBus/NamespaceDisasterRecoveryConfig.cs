@@ -12,7 +12,7 @@ namespace Pulumi.Azure.ServiceBus
     /// <summary>
     /// Manages a Disaster Recovery Config for a Service Bus Namespace.
     /// 
-    /// &gt; **NOTE:** Disaster Recovery Config is a Premium SKU only capability.
+    /// &gt; **Note:** Disaster Recovery Config is a Premium SKU only capability.
     /// 
     /// ## Example Usage
     /// 

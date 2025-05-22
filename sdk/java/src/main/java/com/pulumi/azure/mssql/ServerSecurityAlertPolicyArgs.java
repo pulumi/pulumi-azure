@@ -35,14 +35,14 @@ public final class ServerSecurityAlertPolicyArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * Boolean flag which specifies if the alert is sent to the account administrators or not. Defaults to `false`.
+     * Are the alerts sent to the account administrators? Possible values are `true` or `false`. Defaults to `false`.
      * 
      */
     @Import(name="emailAccountAdmins")
     private @Nullable Output<Boolean> emailAccountAdmins;
 
     /**
-     * @return Boolean flag which specifies if the alert is sent to the account administrators or not. Defaults to `false`.
+     * @return Are the alerts sent to the account administrators? Possible values are `true` or `false`. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> emailAccountAdmins() {
@@ -80,14 +80,14 @@ public final class ServerSecurityAlertPolicyArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * Specifies the number of days to keep in the Threat Detection audit logs. Defaults to `0`.
+     * Specifies the number of days to keep the Threat Detection audit logs. Defaults to `0`.
      * 
      */
     @Import(name="retentionDays")
     private @Nullable Output<Integer> retentionDays;
 
     /**
-     * @return Specifies the number of days to keep in the Threat Detection audit logs. Defaults to `0`.
+     * @return Specifies the number of days to keep the Threat Detection audit logs. Defaults to `0`.
      * 
      */
     public Optional<Output<Integer>> retentionDays() {
@@ -110,14 +110,14 @@ public final class ServerSecurityAlertPolicyArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific database server. Possible values are `Disabled`, `Enabled` and `New`.
+     * Specifies the state of the policy. Possible values are `Disabled` or `Enabled`.
      * 
      */
     @Import(name="state", required=true)
     private Output<String> state;
 
     /**
-     * @return Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific database server. Possible values are `Disabled`, `Enabled` and `New`.
+     * @return Specifies the state of the policy. Possible values are `Disabled` or `Enabled`.
      * 
      */
     public Output<String> state() {
@@ -125,18 +125,18 @@ public final class ServerSecurityAlertPolicyArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * Specifies the identifier key of the Threat Detection audit storage account. This is mandatory when you use `storage_endpoint` to specify a storage account blob endpoint.
+     * Specifies the primary access key of the Threat Detection audit logs blob storage endpoint.
      * 
-     * &gt; **NOTE:**  Please note that storage accounts configured with `shared_access_key_enabled = false` cannot be used to configure `azure.mssql.ServerSecurityAlertPolicy` with `storage_endpoint` for now.
+     * &gt; **Note:** The `storage_account_access_key` only applies if the storage account is not behind a virtual network or a firewall.
      * 
      */
     @Import(name="storageAccountAccessKey")
     private @Nullable Output<String> storageAccountAccessKey;
 
     /**
-     * @return Specifies the identifier key of the Threat Detection audit storage account. This is mandatory when you use `storage_endpoint` to specify a storage account blob endpoint.
+     * @return Specifies the primary access key of the Threat Detection audit logs blob storage endpoint.
      * 
-     * &gt; **NOTE:**  Please note that storage accounts configured with `shared_access_key_enabled = false` cannot be used to configure `azure.mssql.ServerSecurityAlertPolicy` with `storage_endpoint` for now.
+     * &gt; **Note:** The `storage_account_access_key` only applies if the storage account is not behind a virtual network or a firewall.
      * 
      */
     public Optional<Output<String>> storageAccountAccessKey() {
@@ -144,14 +144,22 @@ public final class ServerSecurityAlertPolicyArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * Specifies the blob storage endpoint (e.g. &lt;https://example.blob.core.windows.net&gt;). This blob storage will hold all Threat Detection audit logs.
+     * Specifies the blob storage endpoint that will hold all Threat Detection audit logs (e.g., `https://example.blob.core.windows.net`).
+     * 
+     * &gt; **Note:** The `storage_account_access_key` field is required when the `storage_endpoint` field has been set.
+     * 
+     * &gt; **Note:** Storage accounts configured with `shared_access_key_enabled = false` cannot be used for the `storage_endpoint` field.
      * 
      */
     @Import(name="storageEndpoint")
     private @Nullable Output<String> storageEndpoint;
 
     /**
-     * @return Specifies the blob storage endpoint (e.g. &lt;https://example.blob.core.windows.net&gt;). This blob storage will hold all Threat Detection audit logs.
+     * @return Specifies the blob storage endpoint that will hold all Threat Detection audit logs (e.g., `https://example.blob.core.windows.net`).
+     * 
+     * &gt; **Note:** The `storage_account_access_key` field is required when the `storage_endpoint` field has been set.
+     * 
+     * &gt; **Note:** Storage accounts configured with `shared_access_key_enabled = false` cannot be used for the `storage_endpoint` field.
      * 
      */
     public Optional<Output<String>> storageEndpoint() {
@@ -222,7 +230,7 @@ public final class ServerSecurityAlertPolicyArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param emailAccountAdmins Boolean flag which specifies if the alert is sent to the account administrators or not. Defaults to `false`.
+         * @param emailAccountAdmins Are the alerts sent to the account administrators? Possible values are `true` or `false`. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -233,7 +241,7 @@ public final class ServerSecurityAlertPolicyArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param emailAccountAdmins Boolean flag which specifies if the alert is sent to the account administrators or not. Defaults to `false`.
+         * @param emailAccountAdmins Are the alerts sent to the account administrators? Possible values are `true` or `false`. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -295,7 +303,7 @@ public final class ServerSecurityAlertPolicyArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param retentionDays Specifies the number of days to keep in the Threat Detection audit logs. Defaults to `0`.
+         * @param retentionDays Specifies the number of days to keep the Threat Detection audit logs. Defaults to `0`.
          * 
          * @return builder
          * 
@@ -306,7 +314,7 @@ public final class ServerSecurityAlertPolicyArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param retentionDays Specifies the number of days to keep in the Threat Detection audit logs. Defaults to `0`.
+         * @param retentionDays Specifies the number of days to keep the Threat Detection audit logs. Defaults to `0`.
          * 
          * @return builder
          * 
@@ -337,7 +345,7 @@ public final class ServerSecurityAlertPolicyArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param state Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific database server. Possible values are `Disabled`, `Enabled` and `New`.
+         * @param state Specifies the state of the policy. Possible values are `Disabled` or `Enabled`.
          * 
          * @return builder
          * 
@@ -348,7 +356,7 @@ public final class ServerSecurityAlertPolicyArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param state Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific database server. Possible values are `Disabled`, `Enabled` and `New`.
+         * @param state Specifies the state of the policy. Possible values are `Disabled` or `Enabled`.
          * 
          * @return builder
          * 
@@ -358,9 +366,9 @@ public final class ServerSecurityAlertPolicyArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param storageAccountAccessKey Specifies the identifier key of the Threat Detection audit storage account. This is mandatory when you use `storage_endpoint` to specify a storage account blob endpoint.
+         * @param storageAccountAccessKey Specifies the primary access key of the Threat Detection audit logs blob storage endpoint.
          * 
-         * &gt; **NOTE:**  Please note that storage accounts configured with `shared_access_key_enabled = false` cannot be used to configure `azure.mssql.ServerSecurityAlertPolicy` with `storage_endpoint` for now.
+         * &gt; **Note:** The `storage_account_access_key` only applies if the storage account is not behind a virtual network or a firewall.
          * 
          * @return builder
          * 
@@ -371,9 +379,9 @@ public final class ServerSecurityAlertPolicyArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param storageAccountAccessKey Specifies the identifier key of the Threat Detection audit storage account. This is mandatory when you use `storage_endpoint` to specify a storage account blob endpoint.
+         * @param storageAccountAccessKey Specifies the primary access key of the Threat Detection audit logs blob storage endpoint.
          * 
-         * &gt; **NOTE:**  Please note that storage accounts configured with `shared_access_key_enabled = false` cannot be used to configure `azure.mssql.ServerSecurityAlertPolicy` with `storage_endpoint` for now.
+         * &gt; **Note:** The `storage_account_access_key` only applies if the storage account is not behind a virtual network or a firewall.
          * 
          * @return builder
          * 
@@ -383,7 +391,11 @@ public final class ServerSecurityAlertPolicyArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param storageEndpoint Specifies the blob storage endpoint (e.g. &lt;https://example.blob.core.windows.net&gt;). This blob storage will hold all Threat Detection audit logs.
+         * @param storageEndpoint Specifies the blob storage endpoint that will hold all Threat Detection audit logs (e.g., `https://example.blob.core.windows.net`).
+         * 
+         * &gt; **Note:** The `storage_account_access_key` field is required when the `storage_endpoint` field has been set.
+         * 
+         * &gt; **Note:** Storage accounts configured with `shared_access_key_enabled = false` cannot be used for the `storage_endpoint` field.
          * 
          * @return builder
          * 
@@ -394,7 +406,11 @@ public final class ServerSecurityAlertPolicyArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param storageEndpoint Specifies the blob storage endpoint (e.g. &lt;https://example.blob.core.windows.net&gt;). This blob storage will hold all Threat Detection audit logs.
+         * @param storageEndpoint Specifies the blob storage endpoint that will hold all Threat Detection audit logs (e.g., `https://example.blob.core.windows.net`).
+         * 
+         * &gt; **Note:** The `storage_account_access_key` field is required when the `storage_endpoint` field has been set.
+         * 
+         * &gt; **Note:** Storage accounts configured with `shared_access_key_enabled = false` cannot be used for the `storage_endpoint` field.
          * 
          * @return builder
          * 

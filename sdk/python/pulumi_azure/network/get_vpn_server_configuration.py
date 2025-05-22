@@ -197,6 +197,13 @@ def get_vpn_server_configuration(name: Optional[builtins.str] = None,
     pulumi.export("azurermVpnServerConfiguration", example.id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Network`: 2024-05-01
+
 
     :param builtins.str name: The Name of the VPN Server Configuration.
     :param builtins.str resource_group_name: The name of the Resource Group where the VPN Server Configuration exists.
@@ -236,6 +243,13 @@ def get_vpn_server_configuration_output(name: Optional[pulumi.Input[builtins.str
         resource_group_name="existing-resource-group")
     pulumi.export("azurermVpnServerConfiguration", example.id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Network`: 2024-05-01
 
 
     :param builtins.str name: The Name of the VPN Server Configuration.

@@ -342,6 +342,13 @@ class ProjectEnvironmentType(pulumi.CustomResource):
             })
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DevCenter`: 2025-02-01
+
         ## Import
 
         An existing Dev Center Project Environment Type can be imported into Pulumi using the `resource id`, e.g.
@@ -405,6 +412,13 @@ class ProjectEnvironmentType(pulumi.CustomResource):
                 "type": "SystemAssigned",
             })
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DevCenter`: 2025-02-01
 
         ## Import
 

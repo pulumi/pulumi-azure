@@ -29,6 +29,13 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.EventHub`: 2024-01-01
+ *
  * ## Import
  *
  * Schema Group for a EventHub Namespace can be imported using the `resource id`, e.g.
@@ -78,7 +85,9 @@ export class NamespaceSchemaGroup extends pulumi.CustomResource {
      */
     public readonly schemaCompatibility!: pulumi.Output<string>;
     /**
-     * Specifies the Type of this schema group. Possible values are `Avro`, `Unknown`. Changing this forces a new resource to be created.
+     * Specifies the Type of this schema group. Possible values are `Avro`, `Unknown` and `Json`. Changing this forces a new resource to be created.
+     *
+     * > **Note:** When `schemaType` is specified as `Json`, `schemaCompatibility` must be set to `None`.
      */
     public readonly schemaType!: pulumi.Output<string>;
 
@@ -137,7 +146,9 @@ export interface NamespaceSchemaGroupState {
      */
     schemaCompatibility?: pulumi.Input<string>;
     /**
-     * Specifies the Type of this schema group. Possible values are `Avro`, `Unknown`. Changing this forces a new resource to be created.
+     * Specifies the Type of this schema group. Possible values are `Avro`, `Unknown` and `Json`. Changing this forces a new resource to be created.
+     *
+     * > **Note:** When `schemaType` is specified as `Json`, `schemaCompatibility` must be set to `None`.
      */
     schemaType?: pulumi.Input<string>;
 }
@@ -159,7 +170,9 @@ export interface NamespaceSchemaGroupArgs {
      */
     schemaCompatibility: pulumi.Input<string>;
     /**
-     * Specifies the Type of this schema group. Possible values are `Avro`, `Unknown`. Changing this forces a new resource to be created.
+     * Specifies the Type of this schema group. Possible values are `Avro`, `Unknown` and `Json`. Changing this forces a new resource to be created.
+     *
+     * > **Note:** When `schemaType` is specified as `Json`, `schemaCompatibility` must be set to `None`.
      */
     schemaType: pulumi.Input<string>;
 }

@@ -26,6 +26,8 @@ __all__ = [
     'ProviderFeaturesApplicationInsightsArgsDict',
     'ProviderFeaturesCognitiveAccountArgs',
     'ProviderFeaturesCognitiveAccountArgsDict',
+    'ProviderFeaturesDatabricksWorkspaceArgs',
+    'ProviderFeaturesDatabricksWorkspaceArgsDict',
     'ProviderFeaturesKeyVaultArgs',
     'ProviderFeaturesKeyVaultArgsDict',
     'ProviderFeaturesLogAnalyticsWorkspaceArgs',
@@ -64,6 +66,7 @@ if not MYPY:
         app_configuration: NotRequired[pulumi.Input['ProviderFeaturesAppConfigurationArgsDict']]
         application_insights: NotRequired[pulumi.Input['ProviderFeaturesApplicationInsightsArgsDict']]
         cognitive_account: NotRequired[pulumi.Input['ProviderFeaturesCognitiveAccountArgsDict']]
+        databricks_workspace: NotRequired[pulumi.Input['ProviderFeaturesDatabricksWorkspaceArgsDict']]
         key_vault: NotRequired[pulumi.Input['ProviderFeaturesKeyVaultArgsDict']]
         log_analytics_workspace: NotRequired[pulumi.Input['ProviderFeaturesLogAnalyticsWorkspaceArgsDict']]
         machine_learning: NotRequired[pulumi.Input['ProviderFeaturesMachineLearningArgsDict']]
@@ -88,6 +91,7 @@ class ProviderFeaturesArgs:
                  app_configuration: Optional[pulumi.Input['ProviderFeaturesAppConfigurationArgs']] = None,
                  application_insights: Optional[pulumi.Input['ProviderFeaturesApplicationInsightsArgs']] = None,
                  cognitive_account: Optional[pulumi.Input['ProviderFeaturesCognitiveAccountArgs']] = None,
+                 databricks_workspace: Optional[pulumi.Input['ProviderFeaturesDatabricksWorkspaceArgs']] = None,
                  key_vault: Optional[pulumi.Input['ProviderFeaturesKeyVaultArgs']] = None,
                  log_analytics_workspace: Optional[pulumi.Input['ProviderFeaturesLogAnalyticsWorkspaceArgs']] = None,
                  machine_learning: Optional[pulumi.Input['ProviderFeaturesMachineLearningArgs']] = None,
@@ -110,6 +114,8 @@ class ProviderFeaturesArgs:
             pulumi.set(__self__, "application_insights", application_insights)
         if cognitive_account is not None:
             pulumi.set(__self__, "cognitive_account", cognitive_account)
+        if databricks_workspace is not None:
+            pulumi.set(__self__, "databricks_workspace", databricks_workspace)
         if key_vault is not None:
             pulumi.set(__self__, "key_vault", key_vault)
         if log_analytics_workspace is not None:
@@ -174,6 +180,15 @@ class ProviderFeaturesArgs:
     @cognitive_account.setter
     def cognitive_account(self, value: Optional[pulumi.Input['ProviderFeaturesCognitiveAccountArgs']]):
         pulumi.set(self, "cognitive_account", value)
+
+    @property
+    @pulumi.getter(name="databricksWorkspace")
+    def databricks_workspace(self) -> Optional[pulumi.Input['ProviderFeaturesDatabricksWorkspaceArgs']]:
+        return pulumi.get(self, "databricks_workspace")
+
+    @databricks_workspace.setter
+    def databricks_workspace(self, value: Optional[pulumi.Input['ProviderFeaturesDatabricksWorkspaceArgs']]):
+        pulumi.set(self, "databricks_workspace", value)
 
     @property
     @pulumi.getter(name="keyVault")
@@ -418,6 +433,38 @@ class ProviderFeaturesCognitiveAccountArgs:
     @purge_soft_delete_on_destroy.setter
     def purge_soft_delete_on_destroy(self, value: Optional[pulumi.Input[builtins.bool]]):
         pulumi.set(self, "purge_soft_delete_on_destroy", value)
+
+
+if not MYPY:
+    class ProviderFeaturesDatabricksWorkspaceArgsDict(TypedDict):
+        force_delete: NotRequired[pulumi.Input[builtins.bool]]
+        """
+        When enabled, the managed resource group that contains the Unity Catalog data will be forcibly deleted when the workspace is destroyed, regardless of contents.
+        """
+elif False:
+    ProviderFeaturesDatabricksWorkspaceArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ProviderFeaturesDatabricksWorkspaceArgs:
+    def __init__(__self__, *,
+                 force_delete: Optional[pulumi.Input[builtins.bool]] = None):
+        """
+        :param pulumi.Input[builtins.bool] force_delete: When enabled, the managed resource group that contains the Unity Catalog data will be forcibly deleted when the workspace is destroyed, regardless of contents.
+        """
+        if force_delete is not None:
+            pulumi.set(__self__, "force_delete", force_delete)
+
+    @property
+    @pulumi.getter(name="forceDelete")
+    def force_delete(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        When enabled, the managed resource group that contains the Unity Catalog data will be forcibly deleted when the workspace is destroyed, regardless of contents.
+        """
+        return pulumi.get(self, "force_delete")
+
+    @force_delete.setter
+    def force_delete(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "force_delete", value)
 
 
 if not MYPY:
@@ -980,6 +1027,9 @@ class ProviderFeaturesVirtualMachineArgs:
         if detach_implicit_data_disk_on_deletion is not None:
             pulumi.set(__self__, "detach_implicit_data_disk_on_deletion", detach_implicit_data_disk_on_deletion)
         if graceful_shutdown is not None:
+            warnings.warn("""'graceful_shutdown' has been deprecated and will be removed from v5.0 of the AzureRM provider.""", DeprecationWarning)
+            pulumi.log.warn("""graceful_shutdown is deprecated: 'graceful_shutdown' has been deprecated and will be removed from v5.0 of the AzureRM provider.""")
+        if graceful_shutdown is not None:
             pulumi.set(__self__, "graceful_shutdown", graceful_shutdown)
         if skip_shutdown_and_force_delete is not None:
             pulumi.set(__self__, "skip_shutdown_and_force_delete", skip_shutdown_and_force_delete)
@@ -1004,6 +1054,7 @@ class ProviderFeaturesVirtualMachineArgs:
 
     @property
     @pulumi.getter(name="gracefulShutdown")
+    @_utilities.deprecated("""'graceful_shutdown' has been deprecated and will be removed from v5.0 of the AzureRM provider.""")
     def graceful_shutdown(self) -> Optional[pulumi.Input[builtins.bool]]:
         return pulumi.get(self, "graceful_shutdown")
 

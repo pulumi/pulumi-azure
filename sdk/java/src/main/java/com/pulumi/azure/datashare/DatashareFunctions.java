@@ -70,6 +70,13 @@ public final class DatashareFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DataShare`: 2019-11-01
+     * 
      */
     public static Output<GetAccountResult> getAccount(GetAccountArgs args) {
         return getAccount(args, InvokeOptions.Empty);
@@ -113,6 +120,13 @@ public final class DatashareFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DataShare`: 2019-11-01
      * 
      */
     public static CompletableFuture<GetAccountResult> getAccountPlain(GetAccountPlainArgs args) {
@@ -158,6 +172,13 @@ public final class DatashareFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DataShare`: 2019-11-01
+     * 
      */
     public static Output<GetAccountResult> getAccount(GetAccountArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:datashare/getAccount:getAccount", TypeShape.of(GetAccountResult.class), args, Utilities.withVersion(options));
@@ -201,6 +222,13 @@ public final class DatashareFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DataShare`: 2019-11-01
      * 
      */
     public static Output<GetAccountResult> getAccount(GetAccountArgs args, InvokeOutputOptions options) {
@@ -246,6 +274,13 @@ public final class DatashareFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DataShare`: 2019-11-01
+     * 
      */
     public static CompletableFuture<GetAccountResult> getAccountPlain(GetAccountPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:datashare/getAccount:getAccount", TypeShape.of(GetAccountResult.class), args, Utilities.withVersion(options));
@@ -289,6 +324,13 @@ public final class DatashareFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DataShare`: 2019-11-01
      * 
      */
     public static Output<GetDatasetBlobStorageResult> getDatasetBlobStorage(GetDatasetBlobStorageArgs args) {
@@ -334,6 +376,13 @@ public final class DatashareFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DataShare`: 2019-11-01
+     * 
      */
     public static CompletableFuture<GetDatasetBlobStorageResult> getDatasetBlobStoragePlain(GetDatasetBlobStoragePlainArgs args) {
         return getDatasetBlobStoragePlain(args, InvokeOptions.Empty);
@@ -377,6 +426,13 @@ public final class DatashareFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DataShare`: 2019-11-01
      * 
      */
     public static Output<GetDatasetBlobStorageResult> getDatasetBlobStorage(GetDatasetBlobStorageArgs args, InvokeOptions options) {
@@ -422,6 +478,13 @@ public final class DatashareFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DataShare`: 2019-11-01
+     * 
      */
     public static Output<GetDatasetBlobStorageResult> getDatasetBlobStorage(GetDatasetBlobStorageArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:datashare/getDatasetBlobStorage:getDatasetBlobStorage", TypeShape.of(GetDatasetBlobStorageResult.class), args, Utilities.withVersion(options));
@@ -465,6 +528,13 @@ public final class DatashareFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DataShare`: 2019-11-01
      * 
      */
     public static CompletableFuture<GetDatasetBlobStorageResult> getDatasetBlobStoragePlain(GetDatasetBlobStoragePlainArgs args, InvokeOptions options) {
@@ -510,6 +580,13 @@ public final class DatashareFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DataShare`: 2019-11-01
+     * 
      */
     public static Output<GetDatasetDataLakeGen2Result> getDatasetDataLakeGen2(GetDatasetDataLakeGen2Args args) {
         return getDatasetDataLakeGen2(args, InvokeOptions.Empty);
@@ -553,6 +630,13 @@ public final class DatashareFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DataShare`: 2019-11-01
      * 
      */
     public static CompletableFuture<GetDatasetDataLakeGen2Result> getDatasetDataLakeGen2Plain(GetDatasetDataLakeGen2PlainArgs args) {
@@ -598,6 +682,13 @@ public final class DatashareFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DataShare`: 2019-11-01
+     * 
      */
     public static Output<GetDatasetDataLakeGen2Result> getDatasetDataLakeGen2(GetDatasetDataLakeGen2Args args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:datashare/getDatasetDataLakeGen2:getDatasetDataLakeGen2", TypeShape.of(GetDatasetDataLakeGen2Result.class), args, Utilities.withVersion(options));
@@ -641,6 +732,13 @@ public final class DatashareFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DataShare`: 2019-11-01
      * 
      */
     public static Output<GetDatasetDataLakeGen2Result> getDatasetDataLakeGen2(GetDatasetDataLakeGen2Args args, InvokeOutputOptions options) {
@@ -686,6 +784,13 @@ public final class DatashareFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DataShare`: 2019-11-01
+     * 
      */
     public static CompletableFuture<GetDatasetDataLakeGen2Result> getDatasetDataLakeGen2Plain(GetDatasetDataLakeGen2PlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:datashare/getDatasetDataLakeGen2:getDatasetDataLakeGen2", TypeShape.of(GetDatasetDataLakeGen2Result.class), args, Utilities.withVersion(options));
@@ -729,6 +834,13 @@ public final class DatashareFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DataShare`: 2019-11-01
      * 
      */
     public static Output<GetDatasetKustoClusterResult> getDatasetKustoCluster(GetDatasetKustoClusterArgs args) {
@@ -774,6 +886,13 @@ public final class DatashareFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DataShare`: 2019-11-01
+     * 
      */
     public static CompletableFuture<GetDatasetKustoClusterResult> getDatasetKustoClusterPlain(GetDatasetKustoClusterPlainArgs args) {
         return getDatasetKustoClusterPlain(args, InvokeOptions.Empty);
@@ -817,6 +936,13 @@ public final class DatashareFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DataShare`: 2019-11-01
      * 
      */
     public static Output<GetDatasetKustoClusterResult> getDatasetKustoCluster(GetDatasetKustoClusterArgs args, InvokeOptions options) {
@@ -862,6 +988,13 @@ public final class DatashareFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DataShare`: 2019-11-01
+     * 
      */
     public static Output<GetDatasetKustoClusterResult> getDatasetKustoCluster(GetDatasetKustoClusterArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:datashare/getDatasetKustoCluster:getDatasetKustoCluster", TypeShape.of(GetDatasetKustoClusterResult.class), args, Utilities.withVersion(options));
@@ -905,6 +1038,13 @@ public final class DatashareFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DataShare`: 2019-11-01
      * 
      */
     public static CompletableFuture<GetDatasetKustoClusterResult> getDatasetKustoClusterPlain(GetDatasetKustoClusterPlainArgs args, InvokeOptions options) {
@@ -950,6 +1090,13 @@ public final class DatashareFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DataShare`: 2019-11-01
+     * 
      */
     public static Output<GetDatasetKustoDatabaseResult> getDatasetKustoDatabase(GetDatasetKustoDatabaseArgs args) {
         return getDatasetKustoDatabase(args, InvokeOptions.Empty);
@@ -993,6 +1140,13 @@ public final class DatashareFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DataShare`: 2019-11-01
      * 
      */
     public static CompletableFuture<GetDatasetKustoDatabaseResult> getDatasetKustoDatabasePlain(GetDatasetKustoDatabasePlainArgs args) {
@@ -1038,6 +1192,13 @@ public final class DatashareFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DataShare`: 2019-11-01
+     * 
      */
     public static Output<GetDatasetKustoDatabaseResult> getDatasetKustoDatabase(GetDatasetKustoDatabaseArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:datashare/getDatasetKustoDatabase:getDatasetKustoDatabase", TypeShape.of(GetDatasetKustoDatabaseResult.class), args, Utilities.withVersion(options));
@@ -1082,6 +1243,13 @@ public final class DatashareFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DataShare`: 2019-11-01
+     * 
      */
     public static Output<GetDatasetKustoDatabaseResult> getDatasetKustoDatabase(GetDatasetKustoDatabaseArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:datashare/getDatasetKustoDatabase:getDatasetKustoDatabase", TypeShape.of(GetDatasetKustoDatabaseResult.class), args, Utilities.withVersion(options));
@@ -1125,6 +1293,13 @@ public final class DatashareFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DataShare`: 2019-11-01
      * 
      */
     public static CompletableFuture<GetDatasetKustoDatabaseResult> getDatasetKustoDatabasePlain(GetDatasetKustoDatabasePlainArgs args, InvokeOptions options) {
@@ -1176,6 +1351,13 @@ public final class DatashareFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DataShare`: 2019-11-01
+     * 
      */
     public static Output<GetShareResult> getShare(GetShareArgs args) {
         return getShare(args, InvokeOptions.Empty);
@@ -1225,6 +1407,13 @@ public final class DatashareFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DataShare`: 2019-11-01
      * 
      */
     public static CompletableFuture<GetShareResult> getSharePlain(GetSharePlainArgs args) {
@@ -1276,6 +1465,13 @@ public final class DatashareFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DataShare`: 2019-11-01
+     * 
      */
     public static Output<GetShareResult> getShare(GetShareArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:datashare/getShare:getShare", TypeShape.of(GetShareResult.class), args, Utilities.withVersion(options));
@@ -1326,6 +1522,13 @@ public final class DatashareFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DataShare`: 2019-11-01
+     * 
      */
     public static Output<GetShareResult> getShare(GetShareArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:datashare/getShare:getShare", TypeShape.of(GetShareResult.class), args, Utilities.withVersion(options));
@@ -1375,6 +1578,13 @@ public final class DatashareFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DataShare`: 2019-11-01
      * 
      */
     public static CompletableFuture<GetShareResult> getSharePlain(GetSharePlainArgs args, InvokeOptions options) {

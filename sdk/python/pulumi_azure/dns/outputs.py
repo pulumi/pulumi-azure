@@ -35,7 +35,7 @@ class CaaRecordRecord(dict):
                  value: builtins.str):
         """
         :param builtins.int flags: Extensible CAA flags, currently only 1 is implemented to set the issuer critical flag.
-        :param builtins.str tag: A property tag, options are `issue`, `issuewild` and `iodef`.
+        :param builtins.str tag: A property tag, options are `issue`, `issuewild`, `iodef`, and `contactemail`.
         :param builtins.str value: A property value such as a registrar domain.
         """
         pulumi.set(__self__, "flags", flags)
@@ -54,7 +54,7 @@ class CaaRecordRecord(dict):
     @pulumi.getter
     def tag(self) -> builtins.str:
         """
-        A property tag, options are `issue`, `issuewild` and `iodef`.
+        A property tag, options are `issue`, `issuewild`, `iodef`, and `contactemail`.
         """
         return pulumi.get(self, "tag")
 
@@ -322,7 +322,7 @@ class GetCAARecordRecordResult(dict):
                  value: builtins.str):
         """
         :param builtins.int flags: Extensible CAA flags, currently only 1 is implemented to set the issuer critical flag.
-        :param builtins.str tag: A property tag, options are `issue`, `issuewild` and `iodef`.
+        :param builtins.str tag: A property tag, options are `issue`, `issuewild`, `iodef`, and `contactemail`.
         :param builtins.str value: A property value such as a registrar domain.
         """
         pulumi.set(__self__, "flags", flags)
@@ -341,7 +341,7 @@ class GetCAARecordRecordResult(dict):
     @pulumi.getter
     def tag(self) -> builtins.str:
         """
-        A property tag, options are `issue`, `issuewild` and `iodef`.
+        A property tag, options are `issue`, `issuewild`, `iodef`, and `contactemail`.
         """
         return pulumi.get(self, "tag")
 

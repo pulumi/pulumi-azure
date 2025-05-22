@@ -114,6 +114,13 @@ namespace Pulumi.Azure.Pim
     /// });
     /// ```
     /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.Authorization`: 2020-10-01
+    /// 
     /// ## Import
     /// 
     /// PIM Eligible Role Assignments can be imported using the following composite resource ID, e.g.
@@ -134,7 +141,7 @@ namespace Pulumi.Azure.Pim
         /// <summary>
         /// The version of the condition. Supported values include `2.0`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** `condition_version` is required when specifying `condition` and vice versa.
+        /// &gt; **Note:** `condition_version` is required when specifying `condition` and vice versa.
         /// </summary>
         [Output("conditionVersion")]
         public Output<string?> ConditionVersion { get; private set; } = null!;
@@ -236,7 +243,7 @@ namespace Pulumi.Azure.Pim
         /// <summary>
         /// The version of the condition. Supported values include `2.0`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** `condition_version` is required when specifying `condition` and vice versa.
+        /// &gt; **Note:** `condition_version` is required when specifying `condition` and vice versa.
         /// </summary>
         [Input("conditionVersion")]
         public Input<string>? ConditionVersion { get; set; }
@@ -294,7 +301,7 @@ namespace Pulumi.Azure.Pim
         /// <summary>
         /// The version of the condition. Supported values include `2.0`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** `condition_version` is required when specifying `condition` and vice versa.
+        /// &gt; **Note:** `condition_version` is required when specifying `condition` and vice versa.
         /// </summary>
         [Input("conditionVersion")]
         public Input<string>? ConditionVersion { get; set; }

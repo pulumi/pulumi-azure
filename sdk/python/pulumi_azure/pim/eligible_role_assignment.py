@@ -38,7 +38,7 @@ class EligibleRoleAssignmentArgs:
         :param pulumi.Input[builtins.str] condition: The condition that limits the resources that the role can be assigned to. See the [official conditions documentation](https://learn.microsoft.com/en-us/azure/role-based-access-control/conditions-overview#what-are-role-assignment-conditions) for details. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] condition_version: The version of the condition. Supported values include `2.0`. Changing this forces a new resource to be created.
                
-               > **NOTE:** `condition_version` is required when specifying `condition` and vice versa.
+               > **Note:** `condition_version` is required when specifying `condition` and vice versa.
         :param pulumi.Input[builtins.str] justification: The justification of the role assignment. Changing this forces a new resource to be created.
         :param pulumi.Input['EligibleRoleAssignmentScheduleArgs'] schedule: A `schedule` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input['EligibleRoleAssignmentTicketArgs'] ticket: A `ticket` block as defined below. Changing this forces a new resource to be created.
@@ -111,7 +111,7 @@ class EligibleRoleAssignmentArgs:
         """
         The version of the condition. Supported values include `2.0`. Changing this forces a new resource to be created.
 
-        > **NOTE:** `condition_version` is required when specifying `condition` and vice versa.
+        > **Note:** `condition_version` is required when specifying `condition` and vice versa.
         """
         return pulumi.get(self, "condition_version")
 
@@ -173,7 +173,7 @@ class _EligibleRoleAssignmentState:
         :param pulumi.Input[builtins.str] condition: The condition that limits the resources that the role can be assigned to. See the [official conditions documentation](https://learn.microsoft.com/en-us/azure/role-based-access-control/conditions-overview#what-are-role-assignment-conditions) for details. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] condition_version: The version of the condition. Supported values include `2.0`. Changing this forces a new resource to be created.
                
-               > **NOTE:** `condition_version` is required when specifying `condition` and vice versa.
+               > **Note:** `condition_version` is required when specifying `condition` and vice versa.
         :param pulumi.Input[builtins.str] justification: The justification of the role assignment. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] principal_id: Object ID of the principal for this eligible role assignment. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] principal_type: Type of principal to which the role will be assigned.
@@ -219,7 +219,7 @@ class _EligibleRoleAssignmentState:
         """
         The version of the condition. Supported values include `2.0`. Changing this forces a new resource to be created.
 
-        > **NOTE:** `condition_version` is required when specifying `condition` and vice versa.
+        > **Note:** `condition_version` is required when specifying `condition` and vice versa.
         """
         return pulumi.get(self, "condition_version")
 
@@ -388,6 +388,13 @@ class EligibleRoleAssignment(pulumi.CustomResource):
             })
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Authorization`: 2020-10-01
+
         ## Import
 
         PIM Eligible Role Assignments can be imported using the following composite resource ID, e.g.
@@ -401,7 +408,7 @@ class EligibleRoleAssignment(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] condition: The condition that limits the resources that the role can be assigned to. See the [official conditions documentation](https://learn.microsoft.com/en-us/azure/role-based-access-control/conditions-overview#what-are-role-assignment-conditions) for details. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] condition_version: The version of the condition. Supported values include `2.0`. Changing this forces a new resource to be created.
                
-               > **NOTE:** `condition_version` is required when specifying `condition` and vice versa.
+               > **Note:** `condition_version` is required when specifying `condition` and vice versa.
         :param pulumi.Input[builtins.str] justification: The justification of the role assignment. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] principal_id: Object ID of the principal for this eligible role assignment. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] role_definition_id: The role definition ID for this eligible role assignment. Changing this forces a new resource to be created.
@@ -475,6 +482,13 @@ class EligibleRoleAssignment(pulumi.CustomResource):
                 "system": "example ticket system",
             })
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Authorization`: 2020-10-01
 
         ## Import
 
@@ -560,7 +574,7 @@ class EligibleRoleAssignment(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] condition: The condition that limits the resources that the role can be assigned to. See the [official conditions documentation](https://learn.microsoft.com/en-us/azure/role-based-access-control/conditions-overview#what-are-role-assignment-conditions) for details. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] condition_version: The version of the condition. Supported values include `2.0`. Changing this forces a new resource to be created.
                
-               > **NOTE:** `condition_version` is required when specifying `condition` and vice versa.
+               > **Note:** `condition_version` is required when specifying `condition` and vice versa.
         :param pulumi.Input[builtins.str] justification: The justification of the role assignment. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] principal_id: Object ID of the principal for this eligible role assignment. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] principal_type: Type of principal to which the role will be assigned.
@@ -598,7 +612,7 @@ class EligibleRoleAssignment(pulumi.CustomResource):
         """
         The version of the condition. Supported values include `2.0`. Changing this forces a new resource to be created.
 
-        > **NOTE:** `condition_version` is required when specifying `condition` and vice versa.
+        > **Note:** `condition_version` is required when specifying `condition` and vice versa.
         """
         return pulumi.get(self, "condition_version")
 

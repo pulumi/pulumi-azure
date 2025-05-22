@@ -397,6 +397,13 @@ class SourceControl(pulumi.CustomResource):
             branch="main")
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Automation`: 2023-11-01
+
         ## Import
 
         Automations can be imported using the `resource id`, e.g.
@@ -453,6 +460,13 @@ class SourceControl(pulumi.CustomResource):
             source_control_type="GitHub",
             branch="main")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Automation`: 2023-11-01
 
         ## Import
 

@@ -38,7 +38,7 @@ class VpnSiteArgs:
         :param pulumi.Input[builtins.str] virtual_wan_id: The ID of the Virtual Wan where this VPN site resides in. Changing this forces a new VPN Site to be created.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] address_cidrs: Specifies a list of IP address CIDRs that are located on your on-premises site. Traffic destined for these address spaces is routed to your local site.
                
-               > **NOTE:** The `address_cidrs` has to be set when the `link.bgp` isn't specified.
+               > **Note:** The `address_cidrs` has to be set when the `link.bgp` isn't specified.
         :param pulumi.Input[builtins.str] device_model: The model of the VPN device.
         :param pulumi.Input[builtins.str] device_vendor: The name of the VPN device vendor.
         :param pulumi.Input[Sequence[pulumi.Input['VpnSiteLinkArgs']]] links: One or more `link` blocks as defined below.
@@ -96,7 +96,7 @@ class VpnSiteArgs:
         """
         Specifies a list of IP address CIDRs that are located on your on-premises site. Traffic destined for these address spaces is routed to your local site.
 
-        > **NOTE:** The `address_cidrs` has to be set when the `link.bgp` isn't specified.
+        > **Note:** The `address_cidrs` has to be set when the `link.bgp` isn't specified.
         """
         return pulumi.get(self, "address_cidrs")
 
@@ -206,7 +206,7 @@ class _VpnSiteState:
         Input properties used for looking up and filtering VpnSite resources.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] address_cidrs: Specifies a list of IP address CIDRs that are located on your on-premises site. Traffic destined for these address spaces is routed to your local site.
                
-               > **NOTE:** The `address_cidrs` has to be set when the `link.bgp` isn't specified.
+               > **Note:** The `address_cidrs` has to be set when the `link.bgp` isn't specified.
         :param pulumi.Input[builtins.str] device_model: The model of the VPN device.
         :param pulumi.Input[builtins.str] device_vendor: The name of the VPN device vendor.
         :param pulumi.Input[Sequence[pulumi.Input['VpnSiteLinkArgs']]] links: One or more `link` blocks as defined below.
@@ -244,7 +244,7 @@ class _VpnSiteState:
         """
         Specifies a list of IP address CIDRs that are located on your on-premises site. Traffic destined for these address spaces is routed to your local site.
 
-        > **NOTE:** The `address_cidrs` has to be set when the `link.bgp` isn't specified.
+        > **Note:** The `address_cidrs` has to be set when the `link.bgp` isn't specified.
         """
         return pulumi.get(self, "address_cidrs")
 
@@ -418,7 +418,7 @@ class VpnSite(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] address_cidrs: Specifies a list of IP address CIDRs that are located on your on-premises site. Traffic destined for these address spaces is routed to your local site.
                
-               > **NOTE:** The `address_cidrs` has to be set when the `link.bgp` isn't specified.
+               > **Note:** The `address_cidrs` has to be set when the `link.bgp` isn't specified.
         :param pulumi.Input[builtins.str] device_model: The model of the VPN device.
         :param pulumi.Input[builtins.str] device_vendor: The name of the VPN device vendor.
         :param pulumi.Input[Sequence[pulumi.Input[Union['VpnSiteLinkArgs', 'VpnSiteLinkArgsDict']]]] links: One or more `link` blocks as defined below.
@@ -548,7 +548,7 @@ class VpnSite(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] address_cidrs: Specifies a list of IP address CIDRs that are located on your on-premises site. Traffic destined for these address spaces is routed to your local site.
                
-               > **NOTE:** The `address_cidrs` has to be set when the `link.bgp` isn't specified.
+               > **Note:** The `address_cidrs` has to be set when the `link.bgp` isn't specified.
         :param pulumi.Input[builtins.str] device_model: The model of the VPN device.
         :param pulumi.Input[builtins.str] device_vendor: The name of the VPN device vendor.
         :param pulumi.Input[Sequence[pulumi.Input[Union['VpnSiteLinkArgs', 'VpnSiteLinkArgsDict']]]] links: One or more `link` blocks as defined below.
@@ -581,7 +581,7 @@ class VpnSite(pulumi.CustomResource):
         """
         Specifies a list of IP address CIDRs that are located on your on-premises site. Traffic destined for these address spaces is routed to your local site.
 
-        > **NOTE:** The `address_cidrs` has to be set when the `link.bgp` isn't specified.
+        > **Note:** The `address_cidrs` has to be set when the `link.bgp` isn't specified.
         """
         return pulumi.get(self, "address_cidrs")
 

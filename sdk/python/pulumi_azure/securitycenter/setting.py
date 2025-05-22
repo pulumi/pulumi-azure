@@ -107,9 +107,9 @@ class Setting(pulumi.CustomResource):
         """
         Manages the Data Access Settings for Azure Security Center.
 
-        > **NOTE:** This resource requires the `Owner` permission on the Subscription.
+        > **Note:** This resource requires the `Owner` permission on the Subscription.
 
-        > **NOTE:** Deletion of this resource disables the setting.
+        > **Note:** Deletion of this resource disables the setting.
 
         ## Example Usage
 
@@ -144,9 +144,9 @@ class Setting(pulumi.CustomResource):
         """
         Manages the Data Access Settings for Azure Security Center.
 
-        > **NOTE:** This resource requires the `Owner` permission on the Subscription.
+        > **Note:** This resource requires the `Owner` permission on the Subscription.
 
-        > **NOTE:** Deletion of this resource disables the setting.
+        > **Note:** Deletion of this resource disables the setting.
 
         ## Example Usage
 

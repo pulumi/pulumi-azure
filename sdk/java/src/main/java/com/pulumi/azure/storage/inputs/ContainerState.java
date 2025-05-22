@@ -20,7 +20,7 @@ public final class ContainerState extends com.pulumi.resources.ResourceArgs {
     /**
      * The Access Level configured for this Container. Possible values are `blob`, `container` or `private`. Defaults to `private`.
      * 
-     * &gt; **Note** When updating `container_access_type` for an existing storage container resource, Shared Key authentication will always be used, as AzureAD authentication is not supported.
+     * &gt; **Note:** When updating `container_access_type` for an existing storage container resource, Shared Key authentication will always be used, as AzureAD authentication is not supported.
      * 
      */
     @Import(name="containerAccessType")
@@ -29,7 +29,7 @@ public final class ContainerState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return The Access Level configured for this Container. Possible values are `blob`, `container` or `private`. Defaults to `private`.
      * 
-     * &gt; **Note** When updating `container_access_type` for an existing storage container resource, Shared Key authentication will always be used, as AzureAD authentication is not supported.
+     * &gt; **Note:** When updating `container_access_type` for an existing storage container resource, Shared Key authentication will always be used, as AzureAD authentication is not supported.
      * 
      */
     public Optional<Output<String>> containerAccessType() {
@@ -152,7 +152,7 @@ public final class ContainerState extends com.pulumi.resources.ResourceArgs {
     /**
      * The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
+     * &gt; **Note:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
      * 
      */
     @Import(name="storageAccountId")
@@ -161,7 +161,7 @@ public final class ContainerState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
+     * &gt; **Note:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
      * 
      */
     public Optional<Output<String>> storageAccountId() {
@@ -231,7 +231,7 @@ public final class ContainerState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param containerAccessType The Access Level configured for this Container. Possible values are `blob`, `container` or `private`. Defaults to `private`.
          * 
-         * &gt; **Note** When updating `container_access_type` for an existing storage container resource, Shared Key authentication will always be used, as AzureAD authentication is not supported.
+         * &gt; **Note:** When updating `container_access_type` for an existing storage container resource, Shared Key authentication will always be used, as AzureAD authentication is not supported.
          * 
          * @return builder
          * 
@@ -244,7 +244,7 @@ public final class ContainerState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param containerAccessType The Access Level configured for this Container. Possible values are `blob`, `container` or `private`. Defaults to `private`.
          * 
-         * &gt; **Note** When updating `container_access_type` for an existing storage container resource, Shared Key authentication will always be used, as AzureAD authentication is not supported.
+         * &gt; **Note:** When updating `container_access_type` for an existing storage container resource, Shared Key authentication will always be used, as AzureAD authentication is not supported.
          * 
          * @return builder
          * 
@@ -411,7 +411,7 @@ public final class ContainerState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param storageAccountId The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
+         * &gt; **Note:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
          * 
          * @return builder
          * 
@@ -424,7 +424,7 @@ public final class ContainerState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param storageAccountId The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
+         * &gt; **Note:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
          * 
          * @return builder
          * 

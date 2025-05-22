@@ -51,18 +51,18 @@ class ExtensionArgs:
         :param pulumi.Input[builtins.bool] automatic_upgrade_enabled: Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension?
         :param pulumi.Input[builtins.bool] failure_suppression_enabled: Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
                
-               > **NOTE:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `failure_suppression_enabled` value.
+               > **Note:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `failure_suppression_enabled` value.
         :param pulumi.Input[builtins.str] name: The name of the virtual machine extension peering. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] protected_settings: The protected_settings passed to the extension, like settings, these are specified as a JSON object in a string.
                
-               > **Please Note:** Certain VM Extensions require that the keys in the `protected_settings` block are case sensitive. If you're seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
+               > **Note:** Certain VM Extensions require that the keys in the `protected_settings` block are case sensitive. If you're seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
         :param pulumi.Input['ExtensionProtectedSettingsFromKeyVaultArgs'] protected_settings_from_key_vault: A `protected_settings_from_key_vault` block as defined below.
                
                > **Note:** `protected_settings_from_key_vault` cannot be used with `protected_settings`
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] provision_after_extensions: Specifies the collection of extension names after which this extension needs to be provisioned.
         :param pulumi.Input[builtins.str] settings: The settings passed to the extension, these are specified as a JSON object in a string.
                
-               > **Please Note:** Certain VM Extensions require that the keys in the `settings` block are case sensitive. If you're seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
+               > **Note:** Certain VM Extensions require that the keys in the `settings` block are case sensitive. If you're seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags to assign to the resource.
         """
         pulumi.set(__self__, "publisher", publisher)
@@ -172,7 +172,7 @@ class ExtensionArgs:
         """
         Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
 
-        > **NOTE:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `failure_suppression_enabled` value.
+        > **Note:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `failure_suppression_enabled` value.
         """
         return pulumi.get(self, "failure_suppression_enabled")
 
@@ -198,7 +198,7 @@ class ExtensionArgs:
         """
         The protected_settings passed to the extension, like settings, these are specified as a JSON object in a string.
 
-        > **Please Note:** Certain VM Extensions require that the keys in the `protected_settings` block are case sensitive. If you're seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
+        > **Note:** Certain VM Extensions require that the keys in the `protected_settings` block are case sensitive. If you're seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
         """
         return pulumi.get(self, "protected_settings")
 
@@ -238,7 +238,7 @@ class ExtensionArgs:
         """
         The settings passed to the extension, these are specified as a JSON object in a string.
 
-        > **Please Note:** Certain VM Extensions require that the keys in the `settings` block are case sensitive. If you're seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
+        > **Note:** Certain VM Extensions require that the keys in the `settings` block are case sensitive. If you're seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
         """
         return pulumi.get(self, "settings")
 
@@ -281,11 +281,11 @@ class _ExtensionState:
         :param pulumi.Input[builtins.bool] automatic_upgrade_enabled: Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension?
         :param pulumi.Input[builtins.bool] failure_suppression_enabled: Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
                
-               > **NOTE:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `failure_suppression_enabled` value.
+               > **Note:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `failure_suppression_enabled` value.
         :param pulumi.Input[builtins.str] name: The name of the virtual machine extension peering. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] protected_settings: The protected_settings passed to the extension, like settings, these are specified as a JSON object in a string.
                
-               > **Please Note:** Certain VM Extensions require that the keys in the `protected_settings` block are case sensitive. If you're seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
+               > **Note:** Certain VM Extensions require that the keys in the `protected_settings` block are case sensitive. If you're seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
         :param pulumi.Input['ExtensionProtectedSettingsFromKeyVaultArgs'] protected_settings_from_key_vault: A `protected_settings_from_key_vault` block as defined below.
                
                > **Note:** `protected_settings_from_key_vault` cannot be used with `protected_settings`
@@ -293,7 +293,7 @@ class _ExtensionState:
         :param pulumi.Input[builtins.str] publisher: The publisher of the extension, available publishers can be found by using the Azure CLI. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] settings: The settings passed to the extension, these are specified as a JSON object in a string.
                
-               > **Please Note:** Certain VM Extensions require that the keys in the `settings` block are case sensitive. If you're seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
+               > **Note:** Certain VM Extensions require that the keys in the `settings` block are case sensitive. If you're seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[builtins.str] type: The type of extension, available types for a publisher can be found using the Azure CLI.
                
@@ -362,7 +362,7 @@ class _ExtensionState:
         """
         Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
 
-        > **NOTE:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `failure_suppression_enabled` value.
+        > **Note:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `failure_suppression_enabled` value.
         """
         return pulumi.get(self, "failure_suppression_enabled")
 
@@ -388,7 +388,7 @@ class _ExtensionState:
         """
         The protected_settings passed to the extension, like settings, these are specified as a JSON object in a string.
 
-        > **Please Note:** Certain VM Extensions require that the keys in the `protected_settings` block are case sensitive. If you're seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
+        > **Note:** Certain VM Extensions require that the keys in the `protected_settings` block are case sensitive. If you're seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
         """
         return pulumi.get(self, "protected_settings")
 
@@ -440,7 +440,7 @@ class _ExtensionState:
         """
         The settings passed to the extension, these are specified as a JSON object in a string.
 
-        > **Please Note:** Certain VM Extensions require that the keys in the `settings` block are case sensitive. If you're seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
+        > **Note:** Certain VM Extensions require that the keys in the `settings` block are case sensitive. If you're seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
         """
         return pulumi.get(self, "settings")
 
@@ -527,9 +527,9 @@ class Extension(pulumi.CustomResource):
         Manages a Virtual Machine Extension to provide post deployment configuration
         and run automated tasks.
 
-        > **NOTE:** Custom Script Extensions for Linux & Windows require that the `commandToExecute` returns a `0` exit code to be classified as successfully deployed. You can achieve this by appending `exit 0` to the end of your `commandToExecute`.
+        > **Note:** Custom Script Extensions for Linux & Windows require that the `commandToExecute` returns a `0` exit code to be classified as successfully deployed. You can achieve this by appending `exit 0` to the end of your `commandToExecute`.
 
-        > **NOTE:** Custom Script Extensions require that the Azure Virtual Machine Guest Agent is running on the Virtual Machine.
+        > **Note:** Custom Script Extensions require that the Azure Virtual Machine Guest Agent is running on the Virtual Machine.
 
         ## Example Usage
 
@@ -610,11 +610,11 @@ class Extension(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] automatic_upgrade_enabled: Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension?
         :param pulumi.Input[builtins.bool] failure_suppression_enabled: Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
                
-               > **NOTE:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `failure_suppression_enabled` value.
+               > **Note:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `failure_suppression_enabled` value.
         :param pulumi.Input[builtins.str] name: The name of the virtual machine extension peering. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] protected_settings: The protected_settings passed to the extension, like settings, these are specified as a JSON object in a string.
                
-               > **Please Note:** Certain VM Extensions require that the keys in the `protected_settings` block are case sensitive. If you're seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
+               > **Note:** Certain VM Extensions require that the keys in the `protected_settings` block are case sensitive. If you're seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
         :param pulumi.Input[Union['ExtensionProtectedSettingsFromKeyVaultArgs', 'ExtensionProtectedSettingsFromKeyVaultArgsDict']] protected_settings_from_key_vault: A `protected_settings_from_key_vault` block as defined below.
                
                > **Note:** `protected_settings_from_key_vault` cannot be used with `protected_settings`
@@ -622,7 +622,7 @@ class Extension(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] publisher: The publisher of the extension, available publishers can be found by using the Azure CLI. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] settings: The settings passed to the extension, these are specified as a JSON object in a string.
                
-               > **Please Note:** Certain VM Extensions require that the keys in the `settings` block are case sensitive. If you're seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
+               > **Note:** Certain VM Extensions require that the keys in the `settings` block are case sensitive. If you're seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[builtins.str] type: The type of extension, available types for a publisher can be found using the Azure CLI.
                
@@ -644,9 +644,9 @@ class Extension(pulumi.CustomResource):
         Manages a Virtual Machine Extension to provide post deployment configuration
         and run automated tasks.
 
-        > **NOTE:** Custom Script Extensions for Linux & Windows require that the `commandToExecute` returns a `0` exit code to be classified as successfully deployed. You can achieve this by appending `exit 0` to the end of your `commandToExecute`.
+        > **Note:** Custom Script Extensions for Linux & Windows require that the `commandToExecute` returns a `0` exit code to be classified as successfully deployed. You can achieve this by appending `exit 0` to the end of your `commandToExecute`.
 
-        > **NOTE:** Custom Script Extensions require that the Azure Virtual Machine Guest Agent is running on the Virtual Machine.
+        > **Note:** Custom Script Extensions require that the Azure Virtual Machine Guest Agent is running on the Virtual Machine.
 
         ## Example Usage
 
@@ -815,11 +815,11 @@ class Extension(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] automatic_upgrade_enabled: Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension?
         :param pulumi.Input[builtins.bool] failure_suppression_enabled: Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
                
-               > **NOTE:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `failure_suppression_enabled` value.
+               > **Note:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `failure_suppression_enabled` value.
         :param pulumi.Input[builtins.str] name: The name of the virtual machine extension peering. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] protected_settings: The protected_settings passed to the extension, like settings, these are specified as a JSON object in a string.
                
-               > **Please Note:** Certain VM Extensions require that the keys in the `protected_settings` block are case sensitive. If you're seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
+               > **Note:** Certain VM Extensions require that the keys in the `protected_settings` block are case sensitive. If you're seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
         :param pulumi.Input[Union['ExtensionProtectedSettingsFromKeyVaultArgs', 'ExtensionProtectedSettingsFromKeyVaultArgsDict']] protected_settings_from_key_vault: A `protected_settings_from_key_vault` block as defined below.
                
                > **Note:** `protected_settings_from_key_vault` cannot be used with `protected_settings`
@@ -827,7 +827,7 @@ class Extension(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] publisher: The publisher of the extension, available publishers can be found by using the Azure CLI. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] settings: The settings passed to the extension, these are specified as a JSON object in a string.
                
-               > **Please Note:** Certain VM Extensions require that the keys in the `settings` block are case sensitive. If you're seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
+               > **Note:** Certain VM Extensions require that the keys in the `settings` block are case sensitive. If you're seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[builtins.str] type: The type of extension, available types for a publisher can be found using the Azure CLI.
                
@@ -880,7 +880,7 @@ class Extension(pulumi.CustomResource):
         """
         Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
 
-        > **NOTE:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `failure_suppression_enabled` value.
+        > **Note:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `failure_suppression_enabled` value.
         """
         return pulumi.get(self, "failure_suppression_enabled")
 
@@ -898,7 +898,7 @@ class Extension(pulumi.CustomResource):
         """
         The protected_settings passed to the extension, like settings, these are specified as a JSON object in a string.
 
-        > **Please Note:** Certain VM Extensions require that the keys in the `protected_settings` block are case sensitive. If you're seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
+        > **Note:** Certain VM Extensions require that the keys in the `protected_settings` block are case sensitive. If you're seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
         """
         return pulumi.get(self, "protected_settings")
 
@@ -934,7 +934,7 @@ class Extension(pulumi.CustomResource):
         """
         The settings passed to the extension, these are specified as a JSON object in a string.
 
-        > **Please Note:** Certain VM Extensions require that the keys in the `settings` block are case sensitive. If you're seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
+        > **Note:** Certain VM Extensions require that the keys in the `settings` block are case sensitive. If you're seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
         """
         return pulumi.get(self, "settings")
 

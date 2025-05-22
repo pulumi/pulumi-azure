@@ -71,6 +71,13 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.ElasticSan`: 2023-01-01
+ * 
  * ## Import
  * 
  * An existing Elastic SAN can be imported into Pulumi using the `resource id`, e.g.
@@ -85,7 +92,7 @@ public class ElasticSan extends com.pulumi.resources.CustomResource {
     /**
      * Specifies the base size of the Elastic SAN resource in TiB. Possible values are between `1` and `100`.
      * 
-     * &gt; **NOTE** When updating `base_size_in_tib`, the new value should be greater than the existing one.
+     * &gt; **Note:** When updating `base_size_in_tib`, the new value should be greater than the existing one.
      * 
      */
     @Export(name="baseSizeInTib", refs={Integer.class}, tree="[0]")
@@ -94,7 +101,7 @@ public class ElasticSan extends com.pulumi.resources.CustomResource {
     /**
      * @return Specifies the base size of the Elastic SAN resource in TiB. Possible values are between `1` and `100`.
      * 
-     * &gt; **NOTE** When updating `base_size_in_tib`, the new value should be greater than the existing one.
+     * &gt; **Note:** When updating `base_size_in_tib`, the new value should be greater than the existing one.
      * 
      */
     public Output<Integer> baseSizeInTib() {
@@ -103,7 +110,7 @@ public class ElasticSan extends com.pulumi.resources.CustomResource {
     /**
      * Specifies the extended size of the Elastic SAN resource in TiB. Possible values are between `1` and `100`.
      * 
-     * &gt; **NOTE** `extended_size_in_tib` cannot be removed and when updating, the new value should be greater than the existing one.
+     * &gt; **Note:** `extended_size_in_tib` cannot be removed and when updating, the new value should be greater than the existing one.
      * 
      */
     @Export(name="extendedSizeInTib", refs={Integer.class}, tree="[0]")
@@ -112,7 +119,7 @@ public class ElasticSan extends com.pulumi.resources.CustomResource {
     /**
      * @return Specifies the extended size of the Elastic SAN resource in TiB. Possible values are between `1` and `100`.
      * 
-     * &gt; **NOTE** `extended_size_in_tib` cannot be removed and when updating, the new value should be greater than the existing one.
+     * &gt; **Note:** `extended_size_in_tib` cannot be removed and when updating, the new value should be greater than the existing one.
      * 
      */
     public Output<Optional<Integer>> extendedSizeInTib() {
@@ -261,7 +268,7 @@ public class ElasticSan extends com.pulumi.resources.CustomResource {
     /**
      * Logical zone for the Elastic SAN resource. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE** `zones` cannot be specified if `sku.name` is set to `Premium_ZRS`.
+     * &gt; **Note:** `zones` cannot be specified if `sku.name` is set to `Premium_ZRS`.
      * 
      */
     @Export(name="zones", refs={List.class,String.class}, tree="[0,1]")
@@ -270,7 +277,7 @@ public class ElasticSan extends com.pulumi.resources.CustomResource {
     /**
      * @return Logical zone for the Elastic SAN resource. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE** `zones` cannot be specified if `sku.name` is set to `Premium_ZRS`.
+     * &gt; **Note:** `zones` cannot be specified if `sku.name` is set to `Premium_ZRS`.
      * 
      */
     public Output<Optional<List<String>>> zones() {

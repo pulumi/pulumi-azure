@@ -15,16 +15,36 @@ public final class VirtualNetworkApplianceState extends com.pulumi.resources.Res
 
     public static final VirtualNetworkApplianceState Empty = new VirtualNetworkApplianceState();
 
+    /**
+     * The name which should be used for this Palo Alto Local Network Virtual Appliance. Changing this forces a new Palo Alto Local Network Virtual Appliance to be created.
+     * 
+     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
+    /**
+     * @return The name which should be used for this Palo Alto Local Network Virtual Appliance. Changing this forces a new Palo Alto Local Network Virtual Appliance to be created.
+     * 
+     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * The ID of the Virtual Hub to deploy this appliance onto. Changing this forces a new Palo Alto Local Network Virtual Appliance to be created.
+     * 
+     * &gt; **Note:** THe Virtual Hub must be created with the tag `&#34;hubSaaSPreview&#34; = &#34;true&#34;` to be compatible with this resource.
+     * 
+     */
     @Import(name="virtualHubId")
     private @Nullable Output<String> virtualHubId;
 
+    /**
+     * @return The ID of the Virtual Hub to deploy this appliance onto. Changing this forces a new Palo Alto Local Network Virtual Appliance to be created.
+     * 
+     * &gt; **Note:** THe Virtual Hub must be created with the tag `&#34;hubSaaSPreview&#34; = &#34;true&#34;` to be compatible with this resource.
+     * 
+     */
     public Optional<Output<String>> virtualHubId() {
         return Optional.ofNullable(this.virtualHubId);
     }
@@ -54,20 +74,48 @@ public final class VirtualNetworkApplianceState extends com.pulumi.resources.Res
             $ = new VirtualNetworkApplianceState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param name The name which should be used for this Palo Alto Local Network Virtual Appliance. Changing this forces a new Palo Alto Local Network Virtual Appliance to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name The name which should be used for this Palo Alto Local Network Virtual Appliance. Changing this forces a new Palo Alto Local Network Virtual Appliance to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
+        /**
+         * @param virtualHubId The ID of the Virtual Hub to deploy this appliance onto. Changing this forces a new Palo Alto Local Network Virtual Appliance to be created.
+         * 
+         * &gt; **Note:** THe Virtual Hub must be created with the tag `&#34;hubSaaSPreview&#34; = &#34;true&#34;` to be compatible with this resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder virtualHubId(@Nullable Output<String> virtualHubId) {
             $.virtualHubId = virtualHubId;
             return this;
         }
 
+        /**
+         * @param virtualHubId The ID of the Virtual Hub to deploy this appliance onto. Changing this forces a new Palo Alto Local Network Virtual Appliance to be created.
+         * 
+         * &gt; **Note:** THe Virtual Hub must be created with the tag `&#34;hubSaaSPreview&#34; = &#34;true&#34;` to be compatible with this resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder virtualHubId(String virtualHubId) {
             return virtualHubId(Output.of(virtualHubId));
         }

@@ -42,7 +42,7 @@ class DataConnectorThreatIntelligenceTaxiiArgs:
         :param pulumi.Input[builtins.str] polling_frequency: The polling frequency for the TAXII server. Possible values are `OnceAMinute`, `OnceAnHour` and `OnceADay`. Defaults to `OnceAnHour`.
         :param pulumi.Input[builtins.str] tenant_id: The ID of the tenant that this Threat Intelligence TAXII Data Connector connects to. Changing this forces a new Threat Intelligence TAXII Data Connector to be created.
                
-               > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
+               > **Note:** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
         :param pulumi.Input[builtins.str] user_name: The user name for the TAXII server.
         """
         pulumi.set(__self__, "api_root_url", api_root_url)
@@ -164,7 +164,7 @@ class DataConnectorThreatIntelligenceTaxiiArgs:
         """
         The ID of the tenant that this Threat Intelligence TAXII Data Connector connects to. Changing this forces a new Threat Intelligence TAXII Data Connector to be created.
 
-        > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
+        > **Note:** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
         """
         return pulumi.get(self, "tenant_id")
 
@@ -210,7 +210,7 @@ class _DataConnectorThreatIntelligenceTaxiiState:
         :param pulumi.Input[builtins.str] polling_frequency: The polling frequency for the TAXII server. Possible values are `OnceAMinute`, `OnceAnHour` and `OnceADay`. Defaults to `OnceAnHour`.
         :param pulumi.Input[builtins.str] tenant_id: The ID of the tenant that this Threat Intelligence TAXII Data Connector connects to. Changing this forces a new Threat Intelligence TAXII Data Connector to be created.
                
-               > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
+               > **Note:** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
         :param pulumi.Input[builtins.str] user_name: The user name for the TAXII server.
         """
         if api_root_url is not None:
@@ -336,7 +336,7 @@ class _DataConnectorThreatIntelligenceTaxiiState:
         """
         The ID of the tenant that this Threat Intelligence TAXII Data Connector connects to. Changing this forces a new Threat Intelligence TAXII Data Connector to be created.
 
-        > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
+        > **Note:** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
         """
         return pulumi.get(self, "tenant_id")
 
@@ -400,6 +400,13 @@ class DataConnectorThreatIntelligenceTaxii(pulumi.CustomResource):
             collection_id="someid")
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.OperationalInsights`: 2022-10-01
+
         ## Import
 
         Threat Intelligence TAXII Data Connectors can be imported using the `resource id`, e.g.
@@ -420,7 +427,7 @@ class DataConnectorThreatIntelligenceTaxii(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] polling_frequency: The polling frequency for the TAXII server. Possible values are `OnceAMinute`, `OnceAnHour` and `OnceADay`. Defaults to `OnceAnHour`.
         :param pulumi.Input[builtins.str] tenant_id: The ID of the tenant that this Threat Intelligence TAXII Data Connector connects to. Changing this forces a new Threat Intelligence TAXII Data Connector to be created.
                
-               > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
+               > **Note:** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
         :param pulumi.Input[builtins.str] user_name: The user name for the TAXII server.
         """
         ...
@@ -454,6 +461,13 @@ class DataConnectorThreatIntelligenceTaxii(pulumi.CustomResource):
             api_root_url="https://foo/taxii2/api2/",
             collection_id="someid")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.OperationalInsights`: 2022-10-01
 
         ## Import
 
@@ -554,7 +568,7 @@ class DataConnectorThreatIntelligenceTaxii(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] polling_frequency: The polling frequency for the TAXII server. Possible values are `OnceAMinute`, `OnceAnHour` and `OnceADay`. Defaults to `OnceAnHour`.
         :param pulumi.Input[builtins.str] tenant_id: The ID of the tenant that this Threat Intelligence TAXII Data Connector connects to. Changing this forces a new Threat Intelligence TAXII Data Connector to be created.
                
-               > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
+               > **Note:** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
         :param pulumi.Input[builtins.str] user_name: The user name for the TAXII server.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -643,7 +657,7 @@ class DataConnectorThreatIntelligenceTaxii(pulumi.CustomResource):
         """
         The ID of the tenant that this Threat Intelligence TAXII Data Connector connects to. Changing this forces a new Threat Intelligence TAXII Data Connector to be created.
 
-        > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
+        > **Note:** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
         """
         return pulumi.get(self, "tenant_id")
 

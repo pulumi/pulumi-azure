@@ -97,6 +97,13 @@ namespace Pulumi.Azure.ManagedApplication
     /// });
     /// ```
     /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.Solutions`: 2021-07-01
+    /// 
     /// ## Import
     /// 
     /// Managed Application can be imported using the `resource id`, e.g.

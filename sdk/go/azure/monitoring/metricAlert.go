@@ -115,19 +115,19 @@ type MetricAlert struct {
 	Actions MetricAlertActionArrayOutput `pulumi:"actions"`
 	// A `applicationInsightsWebTestLocationAvailabilityCriteria` block as defined below.
 	//
-	// > **NOTE** One of either `criteria`, `dynamicCriteria` or `applicationInsightsWebTestLocationAvailabilityCriteria` must be specified.
+	// > **Note:** One of either `criteria`, `dynamicCriteria` or `applicationInsightsWebTestLocationAvailabilityCriteria` must be specified.
 	ApplicationInsightsWebTestLocationAvailabilityCriteria MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaPtrOutput `pulumi:"applicationInsightsWebTestLocationAvailabilityCriteria"`
 	// Should the alerts in this Metric Alert be auto resolved? Defaults to `true`.
 	AutoMitigate pulumi.BoolPtrOutput `pulumi:"autoMitigate"`
 	// One or more (static) `criteria` blocks as defined below.
 	//
-	// > **NOTE** One of either `criteria`, `dynamicCriteria` or `applicationInsightsWebTestLocationAvailabilityCriteria` must be specified.
+	// > **Note:** One of either `criteria`, `dynamicCriteria` or `applicationInsightsWebTestLocationAvailabilityCriteria` must be specified.
 	Criterias MetricAlertCriteriaArrayOutput `pulumi:"criterias"`
 	// The description of this Metric Alert.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// A `dynamicCriteria` block as defined below.
 	//
-	// > **NOTE** One of either `criteria`, `dynamicCriteria` or `applicationInsightsWebTestLocationAvailabilityCriteria` must be specified.
+	// > **Note:** One of either `criteria`, `dynamicCriteria` or `applicationInsightsWebTestLocationAvailabilityCriteria` must be specified.
 	DynamicCriteria MetricAlertDynamicCriteriaPtrOutput `pulumi:"dynamicCriteria"`
 	// Should this Metric Alert be enabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
@@ -145,11 +145,11 @@ type MetricAlert struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The location of the target resource.
 	//
-	// > This is Required when using a Subscription as scope, a Resource Group as scope or Multiple Scopes.
+	// > **Note:** This is Required when using a Subscription as scope, a Resource Group as scope or Multiple Scopes.
 	TargetResourceLocation pulumi.StringOutput `pulumi:"targetResourceLocation"`
 	// The resource type (e.g. `Microsoft.Compute/virtualMachines`) of the target resource.
 	//
-	// > This is Required when using a Subscription as scope, a Resource Group as scope or Multiple Scopes.
+	// > **Note:** This is Required when using a Subscription as scope, a Resource Group as scope or Multiple Scopes.
 	TargetResourceType pulumi.StringOutput `pulumi:"targetResourceType"`
 	// The period of time that is used to monitor alert activity, represented in ISO 8601 duration format. This value must be greater than `frequency`. Possible values are `PT1M`, `PT5M`, `PT15M`, `PT30M`, `PT1H`, `PT6H`, `PT12H` and `P1D`. Defaults to `PT5M`.
 	WindowSize pulumi.StringPtrOutput `pulumi:"windowSize"`
@@ -195,19 +195,19 @@ type metricAlertState struct {
 	Actions []MetricAlertAction `pulumi:"actions"`
 	// A `applicationInsightsWebTestLocationAvailabilityCriteria` block as defined below.
 	//
-	// > **NOTE** One of either `criteria`, `dynamicCriteria` or `applicationInsightsWebTestLocationAvailabilityCriteria` must be specified.
+	// > **Note:** One of either `criteria`, `dynamicCriteria` or `applicationInsightsWebTestLocationAvailabilityCriteria` must be specified.
 	ApplicationInsightsWebTestLocationAvailabilityCriteria *MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteria `pulumi:"applicationInsightsWebTestLocationAvailabilityCriteria"`
 	// Should the alerts in this Metric Alert be auto resolved? Defaults to `true`.
 	AutoMitigate *bool `pulumi:"autoMitigate"`
 	// One or more (static) `criteria` blocks as defined below.
 	//
-	// > **NOTE** One of either `criteria`, `dynamicCriteria` or `applicationInsightsWebTestLocationAvailabilityCriteria` must be specified.
+	// > **Note:** One of either `criteria`, `dynamicCriteria` or `applicationInsightsWebTestLocationAvailabilityCriteria` must be specified.
 	Criterias []MetricAlertCriteria `pulumi:"criterias"`
 	// The description of this Metric Alert.
 	Description *string `pulumi:"description"`
 	// A `dynamicCriteria` block as defined below.
 	//
-	// > **NOTE** One of either `criteria`, `dynamicCriteria` or `applicationInsightsWebTestLocationAvailabilityCriteria` must be specified.
+	// > **Note:** One of either `criteria`, `dynamicCriteria` or `applicationInsightsWebTestLocationAvailabilityCriteria` must be specified.
 	DynamicCriteria *MetricAlertDynamicCriteria `pulumi:"dynamicCriteria"`
 	// Should this Metric Alert be enabled? Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
@@ -225,11 +225,11 @@ type metricAlertState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The location of the target resource.
 	//
-	// > This is Required when using a Subscription as scope, a Resource Group as scope or Multiple Scopes.
+	// > **Note:** This is Required when using a Subscription as scope, a Resource Group as scope or Multiple Scopes.
 	TargetResourceLocation *string `pulumi:"targetResourceLocation"`
 	// The resource type (e.g. `Microsoft.Compute/virtualMachines`) of the target resource.
 	//
-	// > This is Required when using a Subscription as scope, a Resource Group as scope or Multiple Scopes.
+	// > **Note:** This is Required when using a Subscription as scope, a Resource Group as scope or Multiple Scopes.
 	TargetResourceType *string `pulumi:"targetResourceType"`
 	// The period of time that is used to monitor alert activity, represented in ISO 8601 duration format. This value must be greater than `frequency`. Possible values are `PT1M`, `PT5M`, `PT15M`, `PT30M`, `PT1H`, `PT6H`, `PT12H` and `P1D`. Defaults to `PT5M`.
 	WindowSize *string `pulumi:"windowSize"`
@@ -240,19 +240,19 @@ type MetricAlertState struct {
 	Actions MetricAlertActionArrayInput
 	// A `applicationInsightsWebTestLocationAvailabilityCriteria` block as defined below.
 	//
-	// > **NOTE** One of either `criteria`, `dynamicCriteria` or `applicationInsightsWebTestLocationAvailabilityCriteria` must be specified.
+	// > **Note:** One of either `criteria`, `dynamicCriteria` or `applicationInsightsWebTestLocationAvailabilityCriteria` must be specified.
 	ApplicationInsightsWebTestLocationAvailabilityCriteria MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaPtrInput
 	// Should the alerts in this Metric Alert be auto resolved? Defaults to `true`.
 	AutoMitigate pulumi.BoolPtrInput
 	// One or more (static) `criteria` blocks as defined below.
 	//
-	// > **NOTE** One of either `criteria`, `dynamicCriteria` or `applicationInsightsWebTestLocationAvailabilityCriteria` must be specified.
+	// > **Note:** One of either `criteria`, `dynamicCriteria` or `applicationInsightsWebTestLocationAvailabilityCriteria` must be specified.
 	Criterias MetricAlertCriteriaArrayInput
 	// The description of this Metric Alert.
 	Description pulumi.StringPtrInput
 	// A `dynamicCriteria` block as defined below.
 	//
-	// > **NOTE** One of either `criteria`, `dynamicCriteria` or `applicationInsightsWebTestLocationAvailabilityCriteria` must be specified.
+	// > **Note:** One of either `criteria`, `dynamicCriteria` or `applicationInsightsWebTestLocationAvailabilityCriteria` must be specified.
 	DynamicCriteria MetricAlertDynamicCriteriaPtrInput
 	// Should this Metric Alert be enabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
@@ -270,11 +270,11 @@ type MetricAlertState struct {
 	Tags pulumi.StringMapInput
 	// The location of the target resource.
 	//
-	// > This is Required when using a Subscription as scope, a Resource Group as scope or Multiple Scopes.
+	// > **Note:** This is Required when using a Subscription as scope, a Resource Group as scope or Multiple Scopes.
 	TargetResourceLocation pulumi.StringPtrInput
 	// The resource type (e.g. `Microsoft.Compute/virtualMachines`) of the target resource.
 	//
-	// > This is Required when using a Subscription as scope, a Resource Group as scope or Multiple Scopes.
+	// > **Note:** This is Required when using a Subscription as scope, a Resource Group as scope or Multiple Scopes.
 	TargetResourceType pulumi.StringPtrInput
 	// The period of time that is used to monitor alert activity, represented in ISO 8601 duration format. This value must be greater than `frequency`. Possible values are `PT1M`, `PT5M`, `PT15M`, `PT30M`, `PT1H`, `PT6H`, `PT12H` and `P1D`. Defaults to `PT5M`.
 	WindowSize pulumi.StringPtrInput
@@ -289,19 +289,19 @@ type metricAlertArgs struct {
 	Actions []MetricAlertAction `pulumi:"actions"`
 	// A `applicationInsightsWebTestLocationAvailabilityCriteria` block as defined below.
 	//
-	// > **NOTE** One of either `criteria`, `dynamicCriteria` or `applicationInsightsWebTestLocationAvailabilityCriteria` must be specified.
+	// > **Note:** One of either `criteria`, `dynamicCriteria` or `applicationInsightsWebTestLocationAvailabilityCriteria` must be specified.
 	ApplicationInsightsWebTestLocationAvailabilityCriteria *MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteria `pulumi:"applicationInsightsWebTestLocationAvailabilityCriteria"`
 	// Should the alerts in this Metric Alert be auto resolved? Defaults to `true`.
 	AutoMitigate *bool `pulumi:"autoMitigate"`
 	// One or more (static) `criteria` blocks as defined below.
 	//
-	// > **NOTE** One of either `criteria`, `dynamicCriteria` or `applicationInsightsWebTestLocationAvailabilityCriteria` must be specified.
+	// > **Note:** One of either `criteria`, `dynamicCriteria` or `applicationInsightsWebTestLocationAvailabilityCriteria` must be specified.
 	Criterias []MetricAlertCriteria `pulumi:"criterias"`
 	// The description of this Metric Alert.
 	Description *string `pulumi:"description"`
 	// A `dynamicCriteria` block as defined below.
 	//
-	// > **NOTE** One of either `criteria`, `dynamicCriteria` or `applicationInsightsWebTestLocationAvailabilityCriteria` must be specified.
+	// > **Note:** One of either `criteria`, `dynamicCriteria` or `applicationInsightsWebTestLocationAvailabilityCriteria` must be specified.
 	DynamicCriteria *MetricAlertDynamicCriteria `pulumi:"dynamicCriteria"`
 	// Should this Metric Alert be enabled? Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
@@ -319,11 +319,11 @@ type metricAlertArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The location of the target resource.
 	//
-	// > This is Required when using a Subscription as scope, a Resource Group as scope or Multiple Scopes.
+	// > **Note:** This is Required when using a Subscription as scope, a Resource Group as scope or Multiple Scopes.
 	TargetResourceLocation *string `pulumi:"targetResourceLocation"`
 	// The resource type (e.g. `Microsoft.Compute/virtualMachines`) of the target resource.
 	//
-	// > This is Required when using a Subscription as scope, a Resource Group as scope or Multiple Scopes.
+	// > **Note:** This is Required when using a Subscription as scope, a Resource Group as scope or Multiple Scopes.
 	TargetResourceType *string `pulumi:"targetResourceType"`
 	// The period of time that is used to monitor alert activity, represented in ISO 8601 duration format. This value must be greater than `frequency`. Possible values are `PT1M`, `PT5M`, `PT15M`, `PT30M`, `PT1H`, `PT6H`, `PT12H` and `P1D`. Defaults to `PT5M`.
 	WindowSize *string `pulumi:"windowSize"`
@@ -335,19 +335,19 @@ type MetricAlertArgs struct {
 	Actions MetricAlertActionArrayInput
 	// A `applicationInsightsWebTestLocationAvailabilityCriteria` block as defined below.
 	//
-	// > **NOTE** One of either `criteria`, `dynamicCriteria` or `applicationInsightsWebTestLocationAvailabilityCriteria` must be specified.
+	// > **Note:** One of either `criteria`, `dynamicCriteria` or `applicationInsightsWebTestLocationAvailabilityCriteria` must be specified.
 	ApplicationInsightsWebTestLocationAvailabilityCriteria MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaPtrInput
 	// Should the alerts in this Metric Alert be auto resolved? Defaults to `true`.
 	AutoMitigate pulumi.BoolPtrInput
 	// One or more (static) `criteria` blocks as defined below.
 	//
-	// > **NOTE** One of either `criteria`, `dynamicCriteria` or `applicationInsightsWebTestLocationAvailabilityCriteria` must be specified.
+	// > **Note:** One of either `criteria`, `dynamicCriteria` or `applicationInsightsWebTestLocationAvailabilityCriteria` must be specified.
 	Criterias MetricAlertCriteriaArrayInput
 	// The description of this Metric Alert.
 	Description pulumi.StringPtrInput
 	// A `dynamicCriteria` block as defined below.
 	//
-	// > **NOTE** One of either `criteria`, `dynamicCriteria` or `applicationInsightsWebTestLocationAvailabilityCriteria` must be specified.
+	// > **Note:** One of either `criteria`, `dynamicCriteria` or `applicationInsightsWebTestLocationAvailabilityCriteria` must be specified.
 	DynamicCriteria MetricAlertDynamicCriteriaPtrInput
 	// Should this Metric Alert be enabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
@@ -365,11 +365,11 @@ type MetricAlertArgs struct {
 	Tags pulumi.StringMapInput
 	// The location of the target resource.
 	//
-	// > This is Required when using a Subscription as scope, a Resource Group as scope or Multiple Scopes.
+	// > **Note:** This is Required when using a Subscription as scope, a Resource Group as scope or Multiple Scopes.
 	TargetResourceLocation pulumi.StringPtrInput
 	// The resource type (e.g. `Microsoft.Compute/virtualMachines`) of the target resource.
 	//
-	// > This is Required when using a Subscription as scope, a Resource Group as scope or Multiple Scopes.
+	// > **Note:** This is Required when using a Subscription as scope, a Resource Group as scope or Multiple Scopes.
 	TargetResourceType pulumi.StringPtrInput
 	// The period of time that is used to monitor alert activity, represented in ISO 8601 duration format. This value must be greater than `frequency`. Possible values are `PT1M`, `PT5M`, `PT15M`, `PT30M`, `PT1H`, `PT6H`, `PT12H` and `P1D`. Defaults to `PT5M`.
 	WindowSize pulumi.StringPtrInput
@@ -469,7 +469,7 @@ func (o MetricAlertOutput) Actions() MetricAlertActionArrayOutput {
 
 // A `applicationInsightsWebTestLocationAvailabilityCriteria` block as defined below.
 //
-// > **NOTE** One of either `criteria`, `dynamicCriteria` or `applicationInsightsWebTestLocationAvailabilityCriteria` must be specified.
+// > **Note:** One of either `criteria`, `dynamicCriteria` or `applicationInsightsWebTestLocationAvailabilityCriteria` must be specified.
 func (o MetricAlertOutput) ApplicationInsightsWebTestLocationAvailabilityCriteria() MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaPtrOutput {
 	return o.ApplyT(func(v *MetricAlert) MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaPtrOutput {
 		return v.ApplicationInsightsWebTestLocationAvailabilityCriteria
@@ -483,7 +483,7 @@ func (o MetricAlertOutput) AutoMitigate() pulumi.BoolPtrOutput {
 
 // One or more (static) `criteria` blocks as defined below.
 //
-// > **NOTE** One of either `criteria`, `dynamicCriteria` or `applicationInsightsWebTestLocationAvailabilityCriteria` must be specified.
+// > **Note:** One of either `criteria`, `dynamicCriteria` or `applicationInsightsWebTestLocationAvailabilityCriteria` must be specified.
 func (o MetricAlertOutput) Criterias() MetricAlertCriteriaArrayOutput {
 	return o.ApplyT(func(v *MetricAlert) MetricAlertCriteriaArrayOutput { return v.Criterias }).(MetricAlertCriteriaArrayOutput)
 }
@@ -495,7 +495,7 @@ func (o MetricAlertOutput) Description() pulumi.StringPtrOutput {
 
 // A `dynamicCriteria` block as defined below.
 //
-// > **NOTE** One of either `criteria`, `dynamicCriteria` or `applicationInsightsWebTestLocationAvailabilityCriteria` must be specified.
+// > **Note:** One of either `criteria`, `dynamicCriteria` or `applicationInsightsWebTestLocationAvailabilityCriteria` must be specified.
 func (o MetricAlertOutput) DynamicCriteria() MetricAlertDynamicCriteriaPtrOutput {
 	return o.ApplyT(func(v *MetricAlert) MetricAlertDynamicCriteriaPtrOutput { return v.DynamicCriteria }).(MetricAlertDynamicCriteriaPtrOutput)
 }
@@ -537,14 +537,14 @@ func (o MetricAlertOutput) Tags() pulumi.StringMapOutput {
 
 // The location of the target resource.
 //
-// > This is Required when using a Subscription as scope, a Resource Group as scope or Multiple Scopes.
+// > **Note:** This is Required when using a Subscription as scope, a Resource Group as scope or Multiple Scopes.
 func (o MetricAlertOutput) TargetResourceLocation() pulumi.StringOutput {
 	return o.ApplyT(func(v *MetricAlert) pulumi.StringOutput { return v.TargetResourceLocation }).(pulumi.StringOutput)
 }
 
 // The resource type (e.g. `Microsoft.Compute/virtualMachines`) of the target resource.
 //
-// > This is Required when using a Subscription as scope, a Resource Group as scope or Multiple Scopes.
+// > **Note:** This is Required when using a Subscription as scope, a Resource Group as scope or Multiple Scopes.
 func (o MetricAlertOutput) TargetResourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v *MetricAlert) pulumi.StringOutput { return v.TargetResourceType }).(pulumi.StringOutput)
 }

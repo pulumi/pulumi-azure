@@ -92,6 +92,13 @@ import (
 //
 // ```
 //
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.App`: 2025-01-01
+//
 // ## Import
 //
 // A Container App Environment Storage can be imported using the `resource id`, e.g.
@@ -103,15 +110,18 @@ type EnvironmentStorage struct {
 	pulumi.CustomResourceState
 
 	// The Storage Account Access Key.
-	AccessKey pulumi.StringOutput `pulumi:"accessKey"`
+	AccessKey pulumi.StringPtrOutput `pulumi:"accessKey"`
 	// The access mode to connect this storage to the Container App. Possible values include `ReadOnly` and `ReadWrite`. Changing this forces a new resource to be created.
 	AccessMode pulumi.StringOutput `pulumi:"accessMode"`
 	// The Azure Storage Account in which the Share to be used is located. Changing this forces a new resource to be created.
-	AccountName pulumi.StringOutput `pulumi:"accountName"`
+	AccountName pulumi.StringPtrOutput `pulumi:"accountName"`
 	// The ID of the Container App Environment to which this storage belongs. Changing this forces a new resource to be created.
 	ContainerAppEnvironmentId pulumi.StringOutput `pulumi:"containerAppEnvironmentId"`
 	// The name for this Container App Environment Storage. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The NFS server to use for the Azure File Share, the format will be `yourstorageaccountname.file.core.windows.net`. Changing this forces a new resource to be created.
+	// *
+	NfsServerUrl pulumi.StringPtrOutput `pulumi:"nfsServerUrl"`
 	// The name of the Azure Storage Share to use. Changing this forces a new resource to be created.
 	ShareName pulumi.StringOutput `pulumi:"shareName"`
 }
@@ -123,14 +133,8 @@ func NewEnvironmentStorage(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.AccessKey == nil {
-		return nil, errors.New("invalid value for required argument 'AccessKey'")
-	}
 	if args.AccessMode == nil {
 		return nil, errors.New("invalid value for required argument 'AccessMode'")
-	}
-	if args.AccountName == nil {
-		return nil, errors.New("invalid value for required argument 'AccountName'")
 	}
 	if args.ContainerAppEnvironmentId == nil {
 		return nil, errors.New("invalid value for required argument 'ContainerAppEnvironmentId'")
@@ -139,7 +143,7 @@ func NewEnvironmentStorage(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ShareName'")
 	}
 	if args.AccessKey != nil {
-		args.AccessKey = pulumi.ToSecret(args.AccessKey).(pulumi.StringInput)
+		args.AccessKey = pulumi.ToSecret(args.AccessKey).(pulumi.StringPtrInput)
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"accessKey",
@@ -178,6 +182,9 @@ type environmentStorageState struct {
 	ContainerAppEnvironmentId *string `pulumi:"containerAppEnvironmentId"`
 	// The name for this Container App Environment Storage. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// The NFS server to use for the Azure File Share, the format will be `yourstorageaccountname.file.core.windows.net`. Changing this forces a new resource to be created.
+	// *
+	NfsServerUrl *string `pulumi:"nfsServerUrl"`
 	// The name of the Azure Storage Share to use. Changing this forces a new resource to be created.
 	ShareName *string `pulumi:"shareName"`
 }
@@ -193,6 +200,9 @@ type EnvironmentStorageState struct {
 	ContainerAppEnvironmentId pulumi.StringPtrInput
 	// The name for this Container App Environment Storage. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// The NFS server to use for the Azure File Share, the format will be `yourstorageaccountname.file.core.windows.net`. Changing this forces a new resource to be created.
+	// *
+	NfsServerUrl pulumi.StringPtrInput
 	// The name of the Azure Storage Share to use. Changing this forces a new resource to be created.
 	ShareName pulumi.StringPtrInput
 }
@@ -203,15 +213,18 @@ func (EnvironmentStorageState) ElementType() reflect.Type {
 
 type environmentStorageArgs struct {
 	// The Storage Account Access Key.
-	AccessKey string `pulumi:"accessKey"`
+	AccessKey *string `pulumi:"accessKey"`
 	// The access mode to connect this storage to the Container App. Possible values include `ReadOnly` and `ReadWrite`. Changing this forces a new resource to be created.
 	AccessMode string `pulumi:"accessMode"`
 	// The Azure Storage Account in which the Share to be used is located. Changing this forces a new resource to be created.
-	AccountName string `pulumi:"accountName"`
+	AccountName *string `pulumi:"accountName"`
 	// The ID of the Container App Environment to which this storage belongs. Changing this forces a new resource to be created.
 	ContainerAppEnvironmentId string `pulumi:"containerAppEnvironmentId"`
 	// The name for this Container App Environment Storage. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// The NFS server to use for the Azure File Share, the format will be `yourstorageaccountname.file.core.windows.net`. Changing this forces a new resource to be created.
+	// *
+	NfsServerUrl *string `pulumi:"nfsServerUrl"`
 	// The name of the Azure Storage Share to use. Changing this forces a new resource to be created.
 	ShareName string `pulumi:"shareName"`
 }
@@ -219,15 +232,18 @@ type environmentStorageArgs struct {
 // The set of arguments for constructing a EnvironmentStorage resource.
 type EnvironmentStorageArgs struct {
 	// The Storage Account Access Key.
-	AccessKey pulumi.StringInput
+	AccessKey pulumi.StringPtrInput
 	// The access mode to connect this storage to the Container App. Possible values include `ReadOnly` and `ReadWrite`. Changing this forces a new resource to be created.
 	AccessMode pulumi.StringInput
 	// The Azure Storage Account in which the Share to be used is located. Changing this forces a new resource to be created.
-	AccountName pulumi.StringInput
+	AccountName pulumi.StringPtrInput
 	// The ID of the Container App Environment to which this storage belongs. Changing this forces a new resource to be created.
 	ContainerAppEnvironmentId pulumi.StringInput
 	// The name for this Container App Environment Storage. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// The NFS server to use for the Azure File Share, the format will be `yourstorageaccountname.file.core.windows.net`. Changing this forces a new resource to be created.
+	// *
+	NfsServerUrl pulumi.StringPtrInput
 	// The name of the Azure Storage Share to use. Changing this forces a new resource to be created.
 	ShareName pulumi.StringInput
 }
@@ -320,8 +336,8 @@ func (o EnvironmentStorageOutput) ToEnvironmentStorageOutputWithContext(ctx cont
 }
 
 // The Storage Account Access Key.
-func (o EnvironmentStorageOutput) AccessKey() pulumi.StringOutput {
-	return o.ApplyT(func(v *EnvironmentStorage) pulumi.StringOutput { return v.AccessKey }).(pulumi.StringOutput)
+func (o EnvironmentStorageOutput) AccessKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EnvironmentStorage) pulumi.StringPtrOutput { return v.AccessKey }).(pulumi.StringPtrOutput)
 }
 
 // The access mode to connect this storage to the Container App. Possible values include `ReadOnly` and `ReadWrite`. Changing this forces a new resource to be created.
@@ -330,8 +346,8 @@ func (o EnvironmentStorageOutput) AccessMode() pulumi.StringOutput {
 }
 
 // The Azure Storage Account in which the Share to be used is located. Changing this forces a new resource to be created.
-func (o EnvironmentStorageOutput) AccountName() pulumi.StringOutput {
-	return o.ApplyT(func(v *EnvironmentStorage) pulumi.StringOutput { return v.AccountName }).(pulumi.StringOutput)
+func (o EnvironmentStorageOutput) AccountName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EnvironmentStorage) pulumi.StringPtrOutput { return v.AccountName }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the Container App Environment to which this storage belongs. Changing this forces a new resource to be created.
@@ -342,6 +358,12 @@ func (o EnvironmentStorageOutput) ContainerAppEnvironmentId() pulumi.StringOutpu
 // The name for this Container App Environment Storage. Changing this forces a new resource to be created.
 func (o EnvironmentStorageOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *EnvironmentStorage) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The NFS server to use for the Azure File Share, the format will be `yourstorageaccountname.file.core.windows.net`. Changing this forces a new resource to be created.
+// *
+func (o EnvironmentStorageOutput) NfsServerUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EnvironmentStorage) pulumi.StringPtrOutput { return v.NfsServerUrl }).(pulumi.StringPtrOutput)
 }
 
 // The name of the Azure Storage Share to use. Changing this forces a new resource to be created.

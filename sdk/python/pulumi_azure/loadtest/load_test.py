@@ -312,6 +312,13 @@ class LoadTest(pulumi.CustomResource):
             resource_group_name=example.name)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.LoadTestService`: 2022-12-01
+
         ## Import
 
         An existing Load Test can be imported into Pulumi using the `resource id`, e.g.
@@ -365,6 +372,13 @@ class LoadTest(pulumi.CustomResource):
             name="example",
             resource_group_name=example.name)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.LoadTestService`: 2022-12-01
 
         ## Import
 

@@ -19,7 +19,7 @@ import javax.annotation.Nullable;
 /**
  * Manages a Load Balancer Backend Address Pool.
  * 
- * &gt; **NOTE:** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration Attached
+ * &gt; **Note:** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration Attached
  * 
  * ## Example Usage
  * 
@@ -85,6 +85,13 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.Network`: 2023-09-01
  * 
  * ## Import
  * 
@@ -184,7 +191,7 @@ public class BackendAddressPool extends com.pulumi.resources.CustomResource {
     /**
      * The backend address synchronous mode for the Backend Address Pool. Possible values are `Automatic` and `Manual`. This is required with `virtual_network_id`. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** The `synchronous_mode` can set only for Load Balancer with `Standard` SKU.
+     * &gt; **Note:** The `synchronous_mode` can set only for Load Balancer with `Standard` SKU.
      * 
      */
     @Export(name="synchronousMode", refs={String.class}, tree="[0]")
@@ -193,7 +200,7 @@ public class BackendAddressPool extends com.pulumi.resources.CustomResource {
     /**
      * @return The backend address synchronous mode for the Backend Address Pool. Possible values are `Automatic` and `Manual`. This is required with `virtual_network_id`. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** The `synchronous_mode` can set only for Load Balancer with `Standard` SKU.
+     * &gt; **Note:** The `synchronous_mode` can set only for Load Balancer with `Standard` SKU.
      * 
      */
     public Output<Optional<String>> synchronousMode() {

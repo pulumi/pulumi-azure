@@ -221,6 +221,12 @@ namespace Pulumi.Azure.Compute
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
+        /// A `rolling_upgrade_policy` block as defined below. This is Required when `upgrade_mode` is set to `Rolling` and cannot be specified when `upgrade_mode` is set to `Manual`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("rollingUpgradePolicy")]
+        public Output<Outputs.OrchestratedVirtualMachineScaleSetRollingUpgradePolicy?> RollingUpgradePolicy { get; private set; } = null!;
+
+        /// <summary>
         /// Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Possible values are `true` or `false`.
         /// 
         /// &gt; **Note:** `single_placement_group` behaves differently for Flexible orchestration Virtual Machine Scale Sets than it does for Uniform orchestration Virtual Machine Scale Sets. It is recommended that you do not define the `single_placement_group` field in your configuration file as the service will determine what this value should be based off of the value contained within the `sku_name` field of your configuration file. You may set the `single_placement_group` field to `true`, however once you set it to `false` you will not be able to revert it back to `true`.
@@ -271,6 +277,12 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Output("uniqueId")]
         public Output<string> UniqueId { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies how upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("upgradeMode")]
+        public Output<string?> UpgradeMode { get; private set; } = null!;
 
         /// <summary>
         /// The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
@@ -525,6 +537,12 @@ namespace Pulumi.Azure.Compute
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
+        /// A `rolling_upgrade_policy` block as defined below. This is Required when `upgrade_mode` is set to `Rolling` and cannot be specified when `upgrade_mode` is set to `Manual`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("rollingUpgradePolicy")]
+        public Input<Inputs.OrchestratedVirtualMachineScaleSetRollingUpgradePolicyArgs>? RollingUpgradePolicy { get; set; }
+
+        /// <summary>
         /// Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Possible values are `true` or `false`.
         /// 
         /// &gt; **Note:** `single_placement_group` behaves differently for Flexible orchestration Virtual Machine Scale Sets than it does for Uniform orchestration Virtual Machine Scale Sets. It is recommended that you do not define the `single_placement_group` field in your configuration file as the service will determine what this value should be based off of the value contained within the `sku_name` field of your configuration file. You may set the `single_placement_group` field to `true`, however once you set it to `false` you will not be able to revert it back to `true`.
@@ -575,6 +593,12 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Input("terminationNotification")]
         public Input<Inputs.OrchestratedVirtualMachineScaleSetTerminationNotificationArgs>? TerminationNotification { get; set; }
+
+        /// <summary>
+        /// Specifies how upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("upgradeMode")]
+        public Input<string>? UpgradeMode { get; set; }
 
         [Input("userDataBase64")]
         private Input<string>? _userDataBase64;
@@ -803,6 +827,12 @@ namespace Pulumi.Azure.Compute
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
+        /// A `rolling_upgrade_policy` block as defined below. This is Required when `upgrade_mode` is set to `Rolling` and cannot be specified when `upgrade_mode` is set to `Manual`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("rollingUpgradePolicy")]
+        public Input<Inputs.OrchestratedVirtualMachineScaleSetRollingUpgradePolicyGetArgs>? RollingUpgradePolicy { get; set; }
+
+        /// <summary>
         /// Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Possible values are `true` or `false`.
         /// 
         /// &gt; **Note:** `single_placement_group` behaves differently for Flexible orchestration Virtual Machine Scale Sets than it does for Uniform orchestration Virtual Machine Scale Sets. It is recommended that you do not define the `single_placement_group` field in your configuration file as the service will determine what this value should be based off of the value contained within the `sku_name` field of your configuration file. You may set the `single_placement_group` field to `true`, however once you set it to `false` you will not be able to revert it back to `true`.
@@ -859,6 +889,12 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Input("uniqueId")]
         public Input<string>? UniqueId { get; set; }
+
+        /// <summary>
+        /// Specifies how upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("upgradeMode")]
+        public Input<string>? UpgradeMode { get; set; }
 
         [Input("userDataBase64")]
         private Input<string>? _userDataBase64;

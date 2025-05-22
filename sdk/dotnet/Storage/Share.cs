@@ -12,9 +12,9 @@ namespace Pulumi.Azure.Storage
     /// <summary>
     /// Manages a File Share within Azure Storage.
     /// 
-    /// &gt; **Note** The storage share supports two storage tiers: premium and standard. Standard file shares are created in general purpose (GPv1 or GPv2) storage accounts and premium file shares are created in FileStorage storage accounts. For further information, refer to the section "What storage tiers are supported in Azure Files?" of [documentation](https://docs.microsoft.com/azure/storage/files/storage-files-faq#general).
+    /// &gt; **Note:** The storage share supports two storage tiers: premium and standard. Standard file shares are created in general purpose (GPv1 or GPv2) storage accounts and premium file shares are created in FileStorage storage accounts. For further information, refer to the section "What storage tiers are supported in Azure Files?" of [documentation](https://docs.microsoft.com/azure/storage/files/storage-files-faq#general).
     /// 
-    /// &gt; **Note on Authentication** Shared Key authentication will always be used for this resource, as AzureAD authentication is not supported by the Storage API for files.
+    /// &gt; **Note:** Shared Key authentication will always be used for this resource, as AzureAD authentication is not supported by the Storage API for files.
     /// 
     /// ## Example Usage
     /// 
@@ -67,6 +67,13 @@ namespace Pulumi.Azure.Storage
     /// });
     /// ```
     /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.Storage`: 2023-05-01
+    /// 
     /// ## Import
     /// 
     /// Storage Shares can be imported using the `id`, e.g.
@@ -81,7 +88,7 @@ namespace Pulumi.Azure.Storage
         /// <summary>
         /// The access tier of the File Share. Possible values are `Hot`, `Cool` and `TransactionOptimized`, `Premium`.
         /// 
-        /// ~&gt;**NOTE:** The `FileStorage` `account_kind` of the `azure.storage.Account` requires `Premium` `access_tier`.
+        /// &gt; **Note:** The `FileStorage` `account_kind` of the `azure.storage.Account` requires `Premium` `access_tier`.
         /// </summary>
         [Output("accessTier")]
         public Output<string> AccessTier { get; private set; } = null!;
@@ -95,7 +102,7 @@ namespace Pulumi.Azure.Storage
         /// <summary>
         /// The protocol used for the share. Possible values are `SMB` and `NFS`. The `SMB` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created.
         /// 
-        /// ~&gt;**NOTE:** The `FileStorage` `account_kind` of the `azure.storage.Account` is required for the `NFS` protocol.
+        /// &gt; **Note:** The `FileStorage` `account_kind` of the `azure.storage.Account` is required for the `NFS` protocol.
         /// </summary>
         [Output("enabledProtocol")]
         public Output<string?> EnabledProtocol { get; private set; } = null!;
@@ -115,9 +122,9 @@ namespace Pulumi.Azure.Storage
         /// <summary>
         /// The maximum size of the share, in gigabytes.
         /// 
-        /// ~&gt;**NOTE:** For Standard storage accounts, by default this must be `1` GB (or higher) and at most `5120` GB (`5` TB). This can be set to a value larger than `5120` GB if `large_file_share_enabled` is set to `true` in the parent `azure.storage.Account`.
+        /// &gt; **Note:** For Standard storage accounts, by default this must be `1` GB (or higher) and at most `5120` GB (`5` TB). This can be set to a value larger than `5120` GB if `large_file_share_enabled` is set to `true` in the parent `azure.storage.Account`.
         /// 
-        /// ~&gt;**NOTE:** For Premium FileStorage storage accounts, this must be greater than `100` GB and at most `102400` GB (`100` TB).
+        /// &gt; **Note:** For Premium FileStorage storage accounts, this must be greater than `100` GB and at most `102400` GB (`100` TB).
         /// </summary>
         [Output("quota")]
         public Output<int> Quota { get; private set; } = null!;
@@ -131,7 +138,7 @@ namespace Pulumi.Azure.Storage
         /// <summary>
         /// Specifies the storage account in which to create the share. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
+        /// &gt; **Note:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
         /// </summary>
         [Output("storageAccountId")]
         public Output<string?> StorageAccountId { get; private set; } = null!;
@@ -199,7 +206,7 @@ namespace Pulumi.Azure.Storage
         /// <summary>
         /// The access tier of the File Share. Possible values are `Hot`, `Cool` and `TransactionOptimized`, `Premium`.
         /// 
-        /// ~&gt;**NOTE:** The `FileStorage` `account_kind` of the `azure.storage.Account` requires `Premium` `access_tier`.
+        /// &gt; **Note:** The `FileStorage` `account_kind` of the `azure.storage.Account` requires `Premium` `access_tier`.
         /// </summary>
         [Input("accessTier")]
         public Input<string>? AccessTier { get; set; }
@@ -219,7 +226,7 @@ namespace Pulumi.Azure.Storage
         /// <summary>
         /// The protocol used for the share. Possible values are `SMB` and `NFS`. The `SMB` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created.
         /// 
-        /// ~&gt;**NOTE:** The `FileStorage` `account_kind` of the `azure.storage.Account` is required for the `NFS` protocol.
+        /// &gt; **Note:** The `FileStorage` `account_kind` of the `azure.storage.Account` is required for the `NFS` protocol.
         /// </summary>
         [Input("enabledProtocol")]
         public Input<string>? EnabledProtocol { get; set; }
@@ -245,9 +252,9 @@ namespace Pulumi.Azure.Storage
         /// <summary>
         /// The maximum size of the share, in gigabytes.
         /// 
-        /// ~&gt;**NOTE:** For Standard storage accounts, by default this must be `1` GB (or higher) and at most `5120` GB (`5` TB). This can be set to a value larger than `5120` GB if `large_file_share_enabled` is set to `true` in the parent `azure.storage.Account`.
+        /// &gt; **Note:** For Standard storage accounts, by default this must be `1` GB (or higher) and at most `5120` GB (`5` TB). This can be set to a value larger than `5120` GB if `large_file_share_enabled` is set to `true` in the parent `azure.storage.Account`.
         /// 
-        /// ~&gt;**NOTE:** For Premium FileStorage storage accounts, this must be greater than `100` GB and at most `102400` GB (`100` TB).
+        /// &gt; **Note:** For Premium FileStorage storage accounts, this must be greater than `100` GB and at most `102400` GB (`100` TB).
         /// </summary>
         [Input("quota", required: true)]
         public Input<int> Quota { get; set; } = null!;
@@ -255,7 +262,7 @@ namespace Pulumi.Azure.Storage
         /// <summary>
         /// Specifies the storage account in which to create the share. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
+        /// &gt; **Note:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
         /// </summary>
         [Input("storageAccountId")]
         public Input<string>? StorageAccountId { get; set; }
@@ -279,7 +286,7 @@ namespace Pulumi.Azure.Storage
         /// <summary>
         /// The access tier of the File Share. Possible values are `Hot`, `Cool` and `TransactionOptimized`, `Premium`.
         /// 
-        /// ~&gt;**NOTE:** The `FileStorage` `account_kind` of the `azure.storage.Account` requires `Premium` `access_tier`.
+        /// &gt; **Note:** The `FileStorage` `account_kind` of the `azure.storage.Account` requires `Premium` `access_tier`.
         /// </summary>
         [Input("accessTier")]
         public Input<string>? AccessTier { get; set; }
@@ -299,7 +306,7 @@ namespace Pulumi.Azure.Storage
         /// <summary>
         /// The protocol used for the share. Possible values are `SMB` and `NFS`. The `SMB` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created.
         /// 
-        /// ~&gt;**NOTE:** The `FileStorage` `account_kind` of the `azure.storage.Account` is required for the `NFS` protocol.
+        /// &gt; **Note:** The `FileStorage` `account_kind` of the `azure.storage.Account` is required for the `NFS` protocol.
         /// </summary>
         [Input("enabledProtocol")]
         public Input<string>? EnabledProtocol { get; set; }
@@ -325,9 +332,9 @@ namespace Pulumi.Azure.Storage
         /// <summary>
         /// The maximum size of the share, in gigabytes.
         /// 
-        /// ~&gt;**NOTE:** For Standard storage accounts, by default this must be `1` GB (or higher) and at most `5120` GB (`5` TB). This can be set to a value larger than `5120` GB if `large_file_share_enabled` is set to `true` in the parent `azure.storage.Account`.
+        /// &gt; **Note:** For Standard storage accounts, by default this must be `1` GB (or higher) and at most `5120` GB (`5` TB). This can be set to a value larger than `5120` GB if `large_file_share_enabled` is set to `true` in the parent `azure.storage.Account`.
         /// 
-        /// ~&gt;**NOTE:** For Premium FileStorage storage accounts, this must be greater than `100` GB and at most `102400` GB (`100` TB).
+        /// &gt; **Note:** For Premium FileStorage storage accounts, this must be greater than `100` GB and at most `102400` GB (`100` TB).
         /// </summary>
         [Input("quota")]
         public Input<int>? Quota { get; set; }
@@ -341,7 +348,7 @@ namespace Pulumi.Azure.Storage
         /// <summary>
         /// Specifies the storage account in which to create the share. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
+        /// &gt; **Note:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
         /// </summary>
         [Input("storageAccountId")]
         public Input<string>? StorageAccountId { get; set; }

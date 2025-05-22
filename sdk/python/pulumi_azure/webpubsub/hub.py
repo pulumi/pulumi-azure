@@ -34,10 +34,10 @@ class HubArgs:
                Possible values are `true`, `false`.
         :param pulumi.Input[Sequence[pulumi.Input['HubEventHandlerArgs']]] event_handlers: An `event_handler` block as defined below.
                
-               > **NOTE:** User can change the order of `event_handler` to change the priority accordingly.
+               > **Note:** User can change the order of `event_handler` to change the priority accordingly.
         :param pulumi.Input[Sequence[pulumi.Input['HubEventListenerArgs']]] event_listeners: An `event_listener` block as defined below.
                
-               > **NOTE:**  The managed identity of Web PubSub service must be enabled and the identity must have the "Azure Event Hubs Data sender" role to access the Event Hub.
+               > **Note:** The managed identity of Web PubSub service must be enabled and the identity must have the "Azure Event Hubs Data sender" role to access the Event Hub.
         :param pulumi.Input[builtins.str] name: The name of the Web Pubsub hub service. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "web_pubsub_id", web_pubsub_id)
@@ -81,7 +81,7 @@ class HubArgs:
         """
         An `event_handler` block as defined below.
 
-        > **NOTE:** User can change the order of `event_handler` to change the priority accordingly.
+        > **Note:** User can change the order of `event_handler` to change the priority accordingly.
         """
         return pulumi.get(self, "event_handlers")
 
@@ -95,7 +95,7 @@ class HubArgs:
         """
         An `event_listener` block as defined below.
 
-        > **NOTE:**  The managed identity of Web PubSub service must be enabled and the identity must have the "Azure Event Hubs Data sender" role to access the Event Hub.
+        > **Note:** The managed identity of Web PubSub service must be enabled and the identity must have the "Azure Event Hubs Data sender" role to access the Event Hub.
         """
         return pulumi.get(self, "event_listeners")
 
@@ -130,10 +130,10 @@ class _HubState:
                Possible values are `true`, `false`.
         :param pulumi.Input[Sequence[pulumi.Input['HubEventHandlerArgs']]] event_handlers: An `event_handler` block as defined below.
                
-               > **NOTE:** User can change the order of `event_handler` to change the priority accordingly.
+               > **Note:** User can change the order of `event_handler` to change the priority accordingly.
         :param pulumi.Input[Sequence[pulumi.Input['HubEventListenerArgs']]] event_listeners: An `event_listener` block as defined below.
                
-               > **NOTE:**  The managed identity of Web PubSub service must be enabled and the identity must have the "Azure Event Hubs Data sender" role to access the Event Hub.
+               > **Note:** The managed identity of Web PubSub service must be enabled and the identity must have the "Azure Event Hubs Data sender" role to access the Event Hub.
         :param pulumi.Input[builtins.str] name: The name of the Web Pubsub hub service. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] web_pubsub_id: Specifies the id of the Web Pubsub. Changing this forces a new resource to be created.
         """
@@ -167,7 +167,7 @@ class _HubState:
         """
         An `event_handler` block as defined below.
 
-        > **NOTE:** User can change the order of `event_handler` to change the priority accordingly.
+        > **Note:** User can change the order of `event_handler` to change the priority accordingly.
         """
         return pulumi.get(self, "event_handlers")
 
@@ -181,7 +181,7 @@ class _HubState:
         """
         An `event_listener` block as defined below.
 
-        > **NOTE:**  The managed identity of Web PubSub service must be enabled and the identity must have the "Azure Event Hubs Data sender" role to access the Event Hub.
+        > **Note:** The managed identity of Web PubSub service must be enabled and the identity must have the "Azure Event Hubs Data sender" role to access the Event Hub.
         """
         return pulumi.get(self, "event_listeners")
 
@@ -296,6 +296,13 @@ class Hub(pulumi.CustomResource):
             opts = pulumi.ResourceOptions(depends_on=[example_service]))
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.SignalRService`: 2024-03-01
+
         ## Import
 
         Web Pubsub Hub can be imported using the `resource id`, e.g.
@@ -310,10 +317,10 @@ class Hub(pulumi.CustomResource):
                Possible values are `true`, `false`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['HubEventHandlerArgs', 'HubEventHandlerArgsDict']]]] event_handlers: An `event_handler` block as defined below.
                
-               > **NOTE:** User can change the order of `event_handler` to change the priority accordingly.
+               > **Note:** User can change the order of `event_handler` to change the priority accordingly.
         :param pulumi.Input[Sequence[pulumi.Input[Union['HubEventListenerArgs', 'HubEventListenerArgsDict']]]] event_listeners: An `event_listener` block as defined below.
                
-               > **NOTE:**  The managed identity of Web PubSub service must be enabled and the identity must have the "Azure Event Hubs Data sender" role to access the Event Hub.
+               > **Note:** The managed identity of Web PubSub service must be enabled and the identity must have the "Azure Event Hubs Data sender" role to access the Event Hub.
         :param pulumi.Input[builtins.str] name: The name of the Web Pubsub hub service. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] web_pubsub_id: Specifies the id of the Web Pubsub. Changing this forces a new resource to be created.
         """
@@ -393,6 +400,13 @@ class Hub(pulumi.CustomResource):
             opts = pulumi.ResourceOptions(depends_on=[example_service]))
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.SignalRService`: 2024-03-01
+
         ## Import
 
         Web Pubsub Hub can be imported using the `resource id`, e.g.
@@ -463,10 +477,10 @@ class Hub(pulumi.CustomResource):
                Possible values are `true`, `false`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['HubEventHandlerArgs', 'HubEventHandlerArgsDict']]]] event_handlers: An `event_handler` block as defined below.
                
-               > **NOTE:** User can change the order of `event_handler` to change the priority accordingly.
+               > **Note:** User can change the order of `event_handler` to change the priority accordingly.
         :param pulumi.Input[Sequence[pulumi.Input[Union['HubEventListenerArgs', 'HubEventListenerArgsDict']]]] event_listeners: An `event_listener` block as defined below.
                
-               > **NOTE:**  The managed identity of Web PubSub service must be enabled and the identity must have the "Azure Event Hubs Data sender" role to access the Event Hub.
+               > **Note:** The managed identity of Web PubSub service must be enabled and the identity must have the "Azure Event Hubs Data sender" role to access the Event Hub.
         :param pulumi.Input[builtins.str] name: The name of the Web Pubsub hub service. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] web_pubsub_id: Specifies the id of the Web Pubsub. Changing this forces a new resource to be created.
         """
@@ -496,7 +510,7 @@ class Hub(pulumi.CustomResource):
         """
         An `event_handler` block as defined below.
 
-        > **NOTE:** User can change the order of `event_handler` to change the priority accordingly.
+        > **Note:** User can change the order of `event_handler` to change the priority accordingly.
         """
         return pulumi.get(self, "event_handlers")
 
@@ -506,7 +520,7 @@ class Hub(pulumi.CustomResource):
         """
         An `event_listener` block as defined below.
 
-        > **NOTE:**  The managed identity of Web PubSub service must be enabled and the identity must have the "Azure Event Hubs Data sender" role to access the Event Hub.
+        > **Note:** The managed identity of Web PubSub service must be enabled and the identity must have the "Azure Event Hubs Data sender" role to access the Event Hub.
         """
         return pulumi.get(self, "event_listeners")
 

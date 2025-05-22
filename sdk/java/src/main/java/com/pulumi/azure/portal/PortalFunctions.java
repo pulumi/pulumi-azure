@@ -55,6 +55,13 @@ public final class PortalFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Portal`: 2019-01-01-preview
+     * 
      */
     public static Output<Azurerm_portal_dashboardResult> azurerm_portal_dashboard(Azurerm_portal_dashboardArgs args) {
         return azurerm_portal_dashboard(args, InvokeOptions.Empty);
@@ -98,6 +105,13 @@ public final class PortalFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Portal`: 2019-01-01-preview
      * 
      */
     public static CompletableFuture<Azurerm_portal_dashboardResult> azurerm_portal_dashboardPlain(Azurerm_portal_dashboardPlainArgs args) {
@@ -143,6 +157,13 @@ public final class PortalFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Portal`: 2019-01-01-preview
+     * 
      */
     public static Output<Azurerm_portal_dashboardResult> azurerm_portal_dashboard(Azurerm_portal_dashboardArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:portal/azurerm_portal_dashboard:azurerm_portal_dashboard", TypeShape.of(Azurerm_portal_dashboardResult.class), args, Utilities.withVersion(options));
@@ -187,6 +208,13 @@ public final class PortalFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Portal`: 2019-01-01-preview
+     * 
      */
     public static Output<Azurerm_portal_dashboardResult> azurerm_portal_dashboard(Azurerm_portal_dashboardArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:portal/azurerm_portal_dashboard:azurerm_portal_dashboard", TypeShape.of(Azurerm_portal_dashboardResult.class), args, Utilities.withVersion(options));
@@ -230,6 +258,13 @@ public final class PortalFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Portal`: 2019-01-01-preview
      * 
      */
     public static CompletableFuture<Azurerm_portal_dashboardResult> azurerm_portal_dashboardPlain(Azurerm_portal_dashboardPlainArgs args, InvokeOptions options) {

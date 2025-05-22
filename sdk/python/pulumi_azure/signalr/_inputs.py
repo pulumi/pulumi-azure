@@ -75,7 +75,7 @@ if not MYPY:
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this signalR.
 
-        > **NOTE:** This is required when `type` is set to `UserAssigned`
+        > **Note:** This is required when `type` is set to `UserAssigned`
         """
         principal_id: NotRequired[pulumi.Input[builtins.str]]
         tenant_id: NotRequired[pulumi.Input[builtins.str]]
@@ -93,7 +93,7 @@ class ServiceIdentityArgs:
         :param pulumi.Input[builtins.str] type: Specifies the type of Managed Service Identity that should be configured on this signalR. Possible values are `SystemAssigned`, `UserAssigned`.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this signalR.
                
-               > **NOTE:** This is required when `type` is set to `UserAssigned`
+               > **Note:** This is required when `type` is set to `UserAssigned`
         """
         pulumi.set(__self__, "type", type)
         if identity_ids is not None:
@@ -121,7 +121,7 @@ class ServiceIdentityArgs:
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this signalR.
 
-        > **NOTE:** This is required when `type` is set to `UserAssigned`
+        > **Note:** This is required when `type` is set to `UserAssigned`
         """
         return pulumi.get(self, "identity_ids")
 
@@ -405,7 +405,7 @@ if not MYPY:
         """
         Specifies the number of units associated with this SignalR service. Valid values are `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9`, `10`, `20`, `30`, `40`, `50`, `60`, `70`, `80`, `90`, `100`, `200`, `300`, `400`, `500`, `600`, `700`, `800`, `900` and `1000`.
 
-        > **NOTE:** The valid capacity range for sku `Free_F1` is `1`, for sku `Premium_P2` is from `100` to `1000`, and from `1` to `100` for sku `Standard_S1` and `Premium_P1`.
+        > **Note:** The valid capacity range for sku `Free_F1` is `1`, for sku `Premium_P2` is from `100` to `1000`, and from `1` to `100` for sku `Standard_S1` and `Premium_P1`.
         """
         name: pulumi.Input[builtins.str]
         """
@@ -422,7 +422,7 @@ class ServiceSkuArgs:
         """
         :param pulumi.Input[builtins.int] capacity: Specifies the number of units associated with this SignalR service. Valid values are `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9`, `10`, `20`, `30`, `40`, `50`, `60`, `70`, `80`, `90`, `100`, `200`, `300`, `400`, `500`, `600`, `700`, `800`, `900` and `1000`.
                
-               > **NOTE:** The valid capacity range for sku `Free_F1` is `1`, for sku `Premium_P2` is from `100` to `1000`, and from `1` to `100` for sku `Standard_S1` and `Premium_P1`.
+               > **Note:** The valid capacity range for sku `Free_F1` is `1`, for sku `Premium_P2` is from `100` to `1000`, and from `1` to `100` for sku `Standard_S1` and `Premium_P1`.
         :param pulumi.Input[builtins.str] name: Specifies which tier to use. Valid values are `Free_F1`, `Standard_S1`, `Premium_P1` and `Premium_P2`.
         """
         pulumi.set(__self__, "capacity", capacity)
@@ -434,7 +434,7 @@ class ServiceSkuArgs:
         """
         Specifies the number of units associated with this SignalR service. Valid values are `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9`, `10`, `20`, `30`, `40`, `50`, `60`, `70`, `80`, `90`, `100`, `200`, `300`, `400`, `500`, `600`, `700`, `800`, `900` and `1000`.
 
-        > **NOTE:** The valid capacity range for sku `Free_F1` is `1`, for sku `Premium_P2` is from `100` to `1000`, and from `1` to `100` for sku `Standard_S1` and `Premium_P1`.
+        > **Note:** The valid capacity range for sku `Free_F1` is `1`, for sku `Premium_P2` is from `100` to `1000`, and from `1` to `100` for sku `Standard_S1` and `Premium_P1`.
         """
         return pulumi.get(self, "capacity")
 

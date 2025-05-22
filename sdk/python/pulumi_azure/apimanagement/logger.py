@@ -338,6 +338,13 @@ class Logger(pulumi.CustomResource):
             })
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ApiManagement`: 2022-08-01
+
         ## Import
 
         API Management Loggers can be imported using the `resource id`, e.g.
@@ -396,6 +403,13 @@ class Logger(pulumi.CustomResource):
                 "instrumentation_key": example_insights.instrumentation_key,
             })
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ApiManagement`: 2022-08-01
 
         ## Import
 

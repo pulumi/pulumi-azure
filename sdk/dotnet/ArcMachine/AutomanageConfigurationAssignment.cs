@@ -53,6 +53,13 @@ namespace Pulumi.Azure.ArcMachine
     /// });
     /// ```
     /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.HybridCompute`: 2022-05-04
+    /// 
     /// ## Import
     /// 
     /// Virtual Machine Automanage Configuration Profile Assignment can be imported using the `resource id`, e.g.
@@ -73,7 +80,7 @@ namespace Pulumi.Azure.ArcMachine
         /// <summary>
         /// The ARM resource ID of the Automanage Configuration to assign to the Virtual Machine. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** For a successful creation of this resource, locate "Automanage API Access" app within your Entra ID tenant. Make sure it's granted access to the scope that includes the arc server.
+        /// &gt; **Note:** For a successful creation of this resource, locate "Automanage API Access" app within your Entra ID tenant. Make sure it's granted access to the scope that includes the arc server.
         /// </summary>
         [Output("configurationId")]
         public Output<string> ConfigurationId { get; private set; } = null!;
@@ -133,7 +140,7 @@ namespace Pulumi.Azure.ArcMachine
         /// <summary>
         /// The ARM resource ID of the Automanage Configuration to assign to the Virtual Machine. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** For a successful creation of this resource, locate "Automanage API Access" app within your Entra ID tenant. Make sure it's granted access to the scope that includes the arc server.
+        /// &gt; **Note:** For a successful creation of this resource, locate "Automanage API Access" app within your Entra ID tenant. Make sure it's granted access to the scope that includes the arc server.
         /// </summary>
         [Input("configurationId", required: true)]
         public Input<string> ConfigurationId { get; set; } = null!;
@@ -155,7 +162,7 @@ namespace Pulumi.Azure.ArcMachine
         /// <summary>
         /// The ARM resource ID of the Automanage Configuration to assign to the Virtual Machine. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** For a successful creation of this resource, locate "Automanage API Access" app within your Entra ID tenant. Make sure it's granted access to the scope that includes the arc server.
+        /// &gt; **Note:** For a successful creation of this resource, locate "Automanage API Access" app within your Entra ID tenant. Make sure it's granted access to the scope that includes the arc server.
         /// </summary>
         [Input("configurationId")]
         public Input<string>? ConfigurationId { get; set; }

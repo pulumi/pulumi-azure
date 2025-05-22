@@ -225,6 +225,13 @@ class MoverAgent(pulumi.CustomResource):
             description="Example Agent Description")
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.StorageMover`: 2023-03-01
+
         ## Import
 
         Storage Mover Agent can be imported using the `resource id`, e.g.
@@ -269,6 +276,13 @@ class MoverAgent(pulumi.CustomResource):
             arc_virtual_machine_uuid="3bb2c024-eba9-4d18-9e7a-1d772fcc5fe9",
             description="Example Agent Description")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.StorageMover`: 2023-03-01
 
         ## Import
 

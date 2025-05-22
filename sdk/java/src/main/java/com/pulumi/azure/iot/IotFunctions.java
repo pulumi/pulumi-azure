@@ -63,6 +63,13 @@ public final class IotFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Devices`: 2022-02-05
+     * 
      */
     public static Output<GetDpsResult> getDps(GetDpsArgs args) {
         return getDps(args, InvokeOptions.Empty);
@@ -105,6 +112,13 @@ public final class IotFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Devices`: 2022-02-05
      * 
      */
     public static CompletableFuture<GetDpsResult> getDpsPlain(GetDpsPlainArgs args) {
@@ -149,6 +163,13 @@ public final class IotFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Devices`: 2022-02-05
+     * 
      */
     public static Output<GetDpsResult> getDps(GetDpsArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:iot/getDps:getDps", TypeShape.of(GetDpsResult.class), args, Utilities.withVersion(options));
@@ -192,6 +213,13 @@ public final class IotFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Devices`: 2022-02-05
+     * 
      */
     public static Output<GetDpsResult> getDps(GetDpsArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:iot/getDps:getDps", TypeShape.of(GetDpsResult.class), args, Utilities.withVersion(options));
@@ -234,6 +262,13 @@ public final class IotFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Devices`: 2022-02-05
      * 
      */
     public static CompletableFuture<GetDpsResult> getDpsPlain(GetDpsPlainArgs args, InvokeOptions options) {
@@ -279,6 +314,13 @@ public final class IotFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Devices`: 2022-02-05
+     * 
      */
     public static Output<GetDpsSharedAccessPolicyResult> getDpsSharedAccessPolicy(GetDpsSharedAccessPolicyArgs args) {
         return getDpsSharedAccessPolicy(args, InvokeOptions.Empty);
@@ -322,6 +364,13 @@ public final class IotFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Devices`: 2022-02-05
      * 
      */
     public static CompletableFuture<GetDpsSharedAccessPolicyResult> getDpsSharedAccessPolicyPlain(GetDpsSharedAccessPolicyPlainArgs args) {
@@ -367,6 +416,13 @@ public final class IotFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Devices`: 2022-02-05
+     * 
      */
     public static Output<GetDpsSharedAccessPolicyResult> getDpsSharedAccessPolicy(GetDpsSharedAccessPolicyArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:iot/getDpsSharedAccessPolicy:getDpsSharedAccessPolicy", TypeShape.of(GetDpsSharedAccessPolicyResult.class), args, Utilities.withVersion(options));
@@ -411,6 +467,13 @@ public final class IotFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Devices`: 2022-02-05
+     * 
      */
     public static Output<GetDpsSharedAccessPolicyResult> getDpsSharedAccessPolicy(GetDpsSharedAccessPolicyArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:iot/getDpsSharedAccessPolicy:getDpsSharedAccessPolicy", TypeShape.of(GetDpsSharedAccessPolicyResult.class), args, Utilities.withVersion(options));
@@ -454,6 +517,13 @@ public final class IotFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Devices`: 2022-02-05
      * 
      */
     public static CompletableFuture<GetDpsSharedAccessPolicyResult> getDpsSharedAccessPolicyPlain(GetDpsSharedAccessPolicyPlainArgs args, InvokeOptions options) {

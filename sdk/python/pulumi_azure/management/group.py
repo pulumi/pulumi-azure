@@ -217,6 +217,13 @@ class Group(pulumi.CustomResource):
             subscription_ids=[current.subscription_id])
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Management`: 2020-05-01
+
         ## Import
 
         Management Groups can be imported using the `management group resource id`, e.g.
@@ -260,6 +267,13 @@ class Group(pulumi.CustomResource):
             parent_management_group_id=example_parent.id,
             subscription_ids=[current.subscription_id])
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Management`: 2020-05-01
 
         ## Import
 

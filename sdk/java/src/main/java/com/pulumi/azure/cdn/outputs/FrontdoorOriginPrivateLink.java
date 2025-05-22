@@ -30,9 +30,9 @@ public final class FrontdoorOriginPrivateLink {
      */
     private @Nullable String requestMessage;
     /**
-     * @return Specifies the type of target for this Private Link Endpoint. Possible values are `blob`, `blob_secondary`, `web` and `sites`.
+     * @return Specifies the type of target for this Private Link Endpoint. Possible values are `blob`, `blob_secondary`, `Gateway`, `managedEnvironments`, `sites`, `web` and `web_secondary`.
      * 
-     * &gt; **NOTE:** `target_type` cannot be specified when using a Load Balancer as an Origin.
+     * &gt; **Note:** `target_type` cannot be specified when using a Load Balancer as an Origin.
      * 
      */
     private @Nullable String targetType;
@@ -62,9 +62,9 @@ public final class FrontdoorOriginPrivateLink {
         return Optional.ofNullable(this.requestMessage);
     }
     /**
-     * @return Specifies the type of target for this Private Link Endpoint. Possible values are `blob`, `blob_secondary`, `web` and `sites`.
+     * @return Specifies the type of target for this Private Link Endpoint. Possible values are `blob`, `blob_secondary`, `Gateway`, `managedEnvironments`, `sites`, `web` and `web_secondary`.
      * 
-     * &gt; **NOTE:** `target_type` cannot be specified when using a Load Balancer as an Origin.
+     * &gt; **Note:** `target_type` cannot be specified when using a Load Balancer as an Origin.
      * 
      */
     public Optional<String> targetType() {

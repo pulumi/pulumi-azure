@@ -27,7 +27,7 @@ class AutomanageConfigurationAssignmentArgs:
         :param pulumi.Input[builtins.str] arc_machine_id: The ARM resource ID of the Arc Machine to assign the Automanage Configuration to. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] configuration_id: The ARM resource ID of the Automanage Configuration to assign to the Virtual Machine. Changing this forces a new resource to be created.
                
-               > **NOTE:** For a successful creation of this resource, locate "Automanage API Access" app within your Entra ID tenant. Make sure it's granted access to the scope that includes the arc server.
+               > **Note:** For a successful creation of this resource, locate "Automanage API Access" app within your Entra ID tenant. Make sure it's granted access to the scope that includes the arc server.
         """
         pulumi.set(__self__, "arc_machine_id", arc_machine_id)
         pulumi.set(__self__, "configuration_id", configuration_id)
@@ -50,7 +50,7 @@ class AutomanageConfigurationAssignmentArgs:
         """
         The ARM resource ID of the Automanage Configuration to assign to the Virtual Machine. Changing this forces a new resource to be created.
 
-        > **NOTE:** For a successful creation of this resource, locate "Automanage API Access" app within your Entra ID tenant. Make sure it's granted access to the scope that includes the arc server.
+        > **Note:** For a successful creation of this resource, locate "Automanage API Access" app within your Entra ID tenant. Make sure it's granted access to the scope that includes the arc server.
         """
         return pulumi.get(self, "configuration_id")
 
@@ -69,7 +69,7 @@ class _AutomanageConfigurationAssignmentState:
         :param pulumi.Input[builtins.str] arc_machine_id: The ARM resource ID of the Arc Machine to assign the Automanage Configuration to. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] configuration_id: The ARM resource ID of the Automanage Configuration to assign to the Virtual Machine. Changing this forces a new resource to be created.
                
-               > **NOTE:** For a successful creation of this resource, locate "Automanage API Access" app within your Entra ID tenant. Make sure it's granted access to the scope that includes the arc server.
+               > **Note:** For a successful creation of this resource, locate "Automanage API Access" app within your Entra ID tenant. Make sure it's granted access to the scope that includes the arc server.
         """
         if arc_machine_id is not None:
             pulumi.set(__self__, "arc_machine_id", arc_machine_id)
@@ -94,7 +94,7 @@ class _AutomanageConfigurationAssignmentState:
         """
         The ARM resource ID of the Automanage Configuration to assign to the Virtual Machine. Changing this forces a new resource to be created.
 
-        > **NOTE:** For a successful creation of this resource, locate "Automanage API Access" app within your Entra ID tenant. Make sure it's granted access to the scope that includes the arc server.
+        > **Note:** For a successful creation of this resource, locate "Automanage API Access" app within your Entra ID tenant. Make sure it's granted access to the scope that includes the arc server.
         """
         return pulumi.get(self, "configuration_id")
 
@@ -138,6 +138,13 @@ class AutomanageConfigurationAssignment(pulumi.CustomResource):
             configuration_id=example_configuration.id)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.HybridCompute`: 2022-05-04
+
         ## Import
 
         Virtual Machine Automanage Configuration Profile Assignment can be imported using the `resource id`, e.g.
@@ -151,7 +158,7 @@ class AutomanageConfigurationAssignment(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] arc_machine_id: The ARM resource ID of the Arc Machine to assign the Automanage Configuration to. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] configuration_id: The ARM resource ID of the Automanage Configuration to assign to the Virtual Machine. Changing this forces a new resource to be created.
                
-               > **NOTE:** For a successful creation of this resource, locate "Automanage API Access" app within your Entra ID tenant. Make sure it's granted access to the scope that includes the arc server.
+               > **Note:** For a successful creation of this resource, locate "Automanage API Access" app within your Entra ID tenant. Make sure it's granted access to the scope that includes the arc server.
         """
         ...
     @overload
@@ -184,6 +191,13 @@ class AutomanageConfigurationAssignment(pulumi.CustomResource):
             arc_machine_id=example.id,
             configuration_id=example_configuration.id)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.HybridCompute`: 2022-05-04
 
         ## Import
 
@@ -247,7 +261,7 @@ class AutomanageConfigurationAssignment(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] arc_machine_id: The ARM resource ID of the Arc Machine to assign the Automanage Configuration to. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] configuration_id: The ARM resource ID of the Automanage Configuration to assign to the Virtual Machine. Changing this forces a new resource to be created.
                
-               > **NOTE:** For a successful creation of this resource, locate "Automanage API Access" app within your Entra ID tenant. Make sure it's granted access to the scope that includes the arc server.
+               > **Note:** For a successful creation of this resource, locate "Automanage API Access" app within your Entra ID tenant. Make sure it's granted access to the scope that includes the arc server.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -271,7 +285,7 @@ class AutomanageConfigurationAssignment(pulumi.CustomResource):
         """
         The ARM resource ID of the Automanage Configuration to assign to the Virtual Machine. Changing this forces a new resource to be created.
 
-        > **NOTE:** For a successful creation of this resource, locate "Automanage API Access" app within your Entra ID tenant. Make sure it's granted access to the scope that includes the arc server.
+        > **Note:** For a successful creation of this resource, locate "Automanage API Access" app within your Entra ID tenant. Make sure it's granted access to the scope that includes the arc server.
         """
         return pulumi.get(self, "configuration_id")
 

@@ -229,6 +229,13 @@ class NamespaceCustomerManagedKey(pulumi.CustomResource):
             key_vault_key_id=example_key.id)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ServiceBus`: 2022-10-01-preview
+
         ## Import
 
         Service Bus Namespace Customer Managed Key can be imported using the `resource id`, e.g.
@@ -340,6 +347,13 @@ class NamespaceCustomerManagedKey(pulumi.CustomResource):
             namespace_id=example_namespace.id,
             key_vault_key_id=example_key.id)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ServiceBus`: 2022-10-01-preview
 
         ## Import
 

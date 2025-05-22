@@ -30,7 +30,7 @@ type ManagedHardwareSecurityModuleKey struct {
 	Curve pulumi.StringPtrOutput `pulumi:"curve"`
 	// Expiration UTC datetime (Y-m-d'T'H:M:S'Z'). When this parameter gets changed on reruns, if newer date is ahead of current date, an update is performed. If the newer date is before the current date, resource will be force created.
 	ExpirationDate pulumi.StringPtrOutput `pulumi:"expirationDate"`
-	// A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify` and `wrapKey`. Please note these values are case-sensitive.
+	// A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify`, `wrapKey` and `import`. Please note these values are case-sensitive.
 	KeyOpts pulumi.StringArrayOutput `pulumi:"keyOpts"`
 	// Specifies the Size of the RSA key to create in bytes. For example, 1024 or 2048. *Note*: This field is required if `keyType` is `RSA-HSM` or `oct-HSM`. Changing this forces a new resource to be created.
 	KeySize pulumi.IntPtrOutput `pulumi:"keySize"`
@@ -93,7 +93,7 @@ type managedHardwareSecurityModuleKeyState struct {
 	Curve *string `pulumi:"curve"`
 	// Expiration UTC datetime (Y-m-d'T'H:M:S'Z'). When this parameter gets changed on reruns, if newer date is ahead of current date, an update is performed. If the newer date is before the current date, resource will be force created.
 	ExpirationDate *string `pulumi:"expirationDate"`
-	// A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify` and `wrapKey`. Please note these values are case-sensitive.
+	// A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify`, `wrapKey` and `import`. Please note these values are case-sensitive.
 	KeyOpts []string `pulumi:"keyOpts"`
 	// Specifies the Size of the RSA key to create in bytes. For example, 1024 or 2048. *Note*: This field is required if `keyType` is `RSA-HSM` or `oct-HSM`. Changing this forces a new resource to be created.
 	KeySize *int `pulumi:"keySize"`
@@ -118,7 +118,7 @@ type ManagedHardwareSecurityModuleKeyState struct {
 	Curve pulumi.StringPtrInput
 	// Expiration UTC datetime (Y-m-d'T'H:M:S'Z'). When this parameter gets changed on reruns, if newer date is ahead of current date, an update is performed. If the newer date is before the current date, resource will be force created.
 	ExpirationDate pulumi.StringPtrInput
-	// A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify` and `wrapKey`. Please note these values are case-sensitive.
+	// A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify`, `wrapKey` and `import`. Please note these values are case-sensitive.
 	KeyOpts pulumi.StringArrayInput
 	// Specifies the Size of the RSA key to create in bytes. For example, 1024 or 2048. *Note*: This field is required if `keyType` is `RSA-HSM` or `oct-HSM`. Changing this forces a new resource to be created.
 	KeySize pulumi.IntPtrInput
@@ -147,7 +147,7 @@ type managedHardwareSecurityModuleKeyArgs struct {
 	Curve *string `pulumi:"curve"`
 	// Expiration UTC datetime (Y-m-d'T'H:M:S'Z'). When this parameter gets changed on reruns, if newer date is ahead of current date, an update is performed. If the newer date is before the current date, resource will be force created.
 	ExpirationDate *string `pulumi:"expirationDate"`
-	// A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify` and `wrapKey`. Please note these values are case-sensitive.
+	// A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify`, `wrapKey` and `import`. Please note these values are case-sensitive.
 	KeyOpts []string `pulumi:"keyOpts"`
 	// Specifies the Size of the RSA key to create in bytes. For example, 1024 or 2048. *Note*: This field is required if `keyType` is `RSA-HSM` or `oct-HSM`. Changing this forces a new resource to be created.
 	KeySize *int `pulumi:"keySize"`
@@ -171,7 +171,7 @@ type ManagedHardwareSecurityModuleKeyArgs struct {
 	Curve pulumi.StringPtrInput
 	// Expiration UTC datetime (Y-m-d'T'H:M:S'Z'). When this parameter gets changed on reruns, if newer date is ahead of current date, an update is performed. If the newer date is before the current date, resource will be force created.
 	ExpirationDate pulumi.StringPtrInput
-	// A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify` and `wrapKey`. Please note these values are case-sensitive.
+	// A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify`, `wrapKey` and `import`. Please note these values are case-sensitive.
 	KeyOpts pulumi.StringArrayInput
 	// Specifies the Size of the RSA key to create in bytes. For example, 1024 or 2048. *Note*: This field is required if `keyType` is `RSA-HSM` or `oct-HSM`. Changing this forces a new resource to be created.
 	KeySize pulumi.IntPtrInput
@@ -286,7 +286,7 @@ func (o ManagedHardwareSecurityModuleKeyOutput) ExpirationDate() pulumi.StringPt
 	return o.ApplyT(func(v *ManagedHardwareSecurityModuleKey) pulumi.StringPtrOutput { return v.ExpirationDate }).(pulumi.StringPtrOutput)
 }
 
-// A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify` and `wrapKey`. Please note these values are case-sensitive.
+// A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify`, `wrapKey` and `import`. Please note these values are case-sensitive.
 func (o ManagedHardwareSecurityModuleKeyOutput) KeyOpts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ManagedHardwareSecurityModuleKey) pulumi.StringArrayOutput { return v.KeyOpts }).(pulumi.StringArrayOutput)
 }

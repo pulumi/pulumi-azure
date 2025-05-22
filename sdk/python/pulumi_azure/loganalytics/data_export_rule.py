@@ -283,6 +283,13 @@ class DataExportRule(pulumi.CustomResource):
             enabled=True)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.OperationalInsights`: 2020-08-01
+
         ## Import
 
         Log Analytics Data Export Rule can be imported using the `resource id`, e.g.
@@ -338,6 +345,13 @@ class DataExportRule(pulumi.CustomResource):
             table_names=["Heartbeat"],
             enabled=True)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.OperationalInsights`: 2020-08-01
 
         ## Import
 

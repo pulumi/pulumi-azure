@@ -16,7 +16,7 @@ public final class ClusterIdentity {
     /**
      * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this Kusto Cluster.
      * 
-     * &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+     * &gt; **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
      * 
      */
     private @Nullable List<String> identityIds;
@@ -40,7 +40,7 @@ public final class ClusterIdentity {
     /**
      * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this Kusto Cluster.
      * 
-     * &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+     * &gt; **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
      * 
      */
     public List<String> identityIds() {

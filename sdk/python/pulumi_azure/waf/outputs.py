@@ -70,7 +70,7 @@ class PolicyCustomRule(dict):
                  rate_limit_duration: Optional[builtins.str] = None,
                  rate_limit_threshold: Optional[builtins.int] = None):
         """
-        :param builtins.str action: Type of action. Possible values are `Allow`, `Block` and `Log`.
+        :param builtins.str action: Type of action. Possible values are `Allow`, `Block`, `JSChallenge` and `Log`.
                
                > **Note:** If the `rule_type` is specified as `RateLimitRule`, the `Allow` is not supported.
         :param Sequence['PolicyCustomRuleMatchConditionArgs'] match_conditions: One or more `match_conditions` blocks as defined below.
@@ -101,7 +101,7 @@ class PolicyCustomRule(dict):
     @pulumi.getter
     def action(self) -> builtins.str:
         """
-        Type of action. Possible values are `Allow`, `Block` and `Log`.
+        Type of action. Possible values are `Allow`, `Block`, `JSChallenge` and `Log`.
 
         > **Note:** If the `rule_type` is specified as `RateLimitRule`, the `Allow` is not supported.
         """

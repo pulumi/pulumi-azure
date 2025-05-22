@@ -314,6 +314,13 @@ def get_queue(name: Optional[builtins.str] = None,
     pulumi.export("id", example.id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.ServiceBus`: 2022-10-01-preview, 2021-06-01-preview
+
 
     :param builtins.str name: The name of this Service Bus Queue.
     :param builtins.str namespace_id: The ID of the ServiceBus Namespace where the Service Bus Queue exists.
@@ -368,6 +375,13 @@ def get_queue_output(name: Optional[pulumi.Input[builtins.str]] = None,
         namespace_id="existing")
     pulumi.export("id", example.id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.ServiceBus`: 2022-10-01-preview, 2021-06-01-preview
 
 
     :param builtins.str name: The name of this Service Bus Queue.

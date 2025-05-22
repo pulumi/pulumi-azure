@@ -24,16 +24,32 @@ public final class NextGenerationFirewallVirtualHubPanoramaDnsSettingsArgs exten
         return Optional.ofNullable(this.azureDnsServers);
     }
 
+    /**
+     * Specifies a list of DNS servers to proxy. Conflicts with `dns_settings[0].use_azure_dns`.
+     * 
+     */
     @Import(name="dnsServers")
     private @Nullable Output<List<String>> dnsServers;
 
+    /**
+     * @return Specifies a list of DNS servers to proxy. Conflicts with `dns_settings[0].use_azure_dns`.
+     * 
+     */
     public Optional<Output<List<String>>> dnsServers() {
         return Optional.ofNullable(this.dnsServers);
     }
 
+    /**
+     * Should Azure DNS servers be used? Conflicts with `dns_settings[0].dns_servers`. Defaults to `false`.
+     * 
+     */
     @Import(name="useAzureDns")
     private @Nullable Output<Boolean> useAzureDns;
 
+    /**
+     * @return Should Azure DNS servers be used? Conflicts with `dns_settings[0].dns_servers`. Defaults to `false`.
+     * 
+     */
     public Optional<Output<Boolean>> useAzureDns() {
         return Optional.ofNullable(this.useAzureDns);
     }
@@ -77,24 +93,54 @@ public final class NextGenerationFirewallVirtualHubPanoramaDnsSettingsArgs exten
             return azureDnsServers(List.of(azureDnsServers));
         }
 
+        /**
+         * @param dnsServers Specifies a list of DNS servers to proxy. Conflicts with `dns_settings[0].use_azure_dns`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dnsServers(@Nullable Output<List<String>> dnsServers) {
             $.dnsServers = dnsServers;
             return this;
         }
 
+        /**
+         * @param dnsServers Specifies a list of DNS servers to proxy. Conflicts with `dns_settings[0].use_azure_dns`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dnsServers(List<String> dnsServers) {
             return dnsServers(Output.of(dnsServers));
         }
 
+        /**
+         * @param dnsServers Specifies a list of DNS servers to proxy. Conflicts with `dns_settings[0].use_azure_dns`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dnsServers(String... dnsServers) {
             return dnsServers(List.of(dnsServers));
         }
 
+        /**
+         * @param useAzureDns Should Azure DNS servers be used? Conflicts with `dns_settings[0].dns_servers`. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder useAzureDns(@Nullable Output<Boolean> useAzureDns) {
             $.useAzureDns = useAzureDns;
             return this;
         }
 
+        /**
+         * @param useAzureDns Should Azure DNS servers be used? Conflicts with `dns_settings[0].dns_servers`. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder useAzureDns(Boolean useAzureDns) {
             return useAzureDns(Output.of(useAzureDns));
         }

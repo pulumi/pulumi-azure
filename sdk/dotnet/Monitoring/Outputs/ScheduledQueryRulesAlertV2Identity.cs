@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Monitoring.Outputs
         /// <summary>
         /// A list of User Assigned Managed Identity IDs to be assigned to this Scheduled Query Rule.
         /// 
-        /// &gt; **NOTE:** This is required when `type` is set to `UserAssigned`. The identity associated must have required roles, read the [Azure documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-create-log-alert-rule#configure-the-alert-rule-details) for more information.
+        /// &gt; **Note:** This is required when `type` is set to `UserAssigned`. The identity associated must have required roles, read the [Azure documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-create-log-alert-rule#configure-the-alert-rule-details) for more information.
         /// </summary>
         public readonly ImmutableArray<string> IdentityIds;
         /// <summary>

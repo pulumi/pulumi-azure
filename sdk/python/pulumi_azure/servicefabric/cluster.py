@@ -51,7 +51,7 @@ class ClusterArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ClusterNodeTypeArgs']]] node_types: One or more `node_type` blocks as defined below.
         :param pulumi.Input[builtins.str] reliability_level: Specifies the Reliability Level of the Cluster. Possible values include `None`, `Bronze`, `Silver`, `Gold` and `Platinum`.
                
-               > **NOTE:** The Reliability Level of the Cluster depends on the number of nodes in the Cluster: `Platinum` requires at least 9 VM's, `Gold` requires at least 7 VM's, `Silver` requires at least 5 VM's, `Bronze` requires at least 3 VM's.
+               > **Note:** The Reliability Level of the Cluster depends on the number of nodes in the Cluster: `Platinum` requires at least 9 VM's, `Gold` requires at least 7 VM's, `Silver` requires at least 5 VM's, `Bronze` requires at least 3 VM's.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the Resource Group in which the Service Fabric Cluster exists. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] upgrade_mode: Specifies the Upgrade Mode of the cluster. Possible values are `Automatic` or `Manual`.
         :param pulumi.Input[builtins.str] vm_image: Specifies the Image expected for the Service Fabric Cluster, such as `Windows`. Changing this forces a new resource to be created.
@@ -61,7 +61,7 @@ class ClusterArgs:
         :param pulumi.Input['ClusterCertificateCommonNamesArgs'] certificate_common_names: A `certificate_common_names` block as defined below. Conflicts with `certificate`.
         :param pulumi.Input[Sequence[pulumi.Input['ClusterClientCertificateCommonNameArgs']]] client_certificate_common_names: A `client_certificate_common_name` block as defined below.
                
-               > **NOTE:** If Client Certificates are enabled then at a Certificate must be configured on the cluster.
+               > **Note:** If Client Certificates are enabled then at a Certificate must be configured on the cluster.
         :param pulumi.Input[Sequence[pulumi.Input['ClusterClientCertificateThumbprintArgs']]] client_certificate_thumbprints: One or more `client_certificate_thumbprint` blocks as defined below.
         :param pulumi.Input[builtins.str] cluster_code_version: Required if Upgrade Mode set to `Manual`, Specifies the Version of the Cluster Code of the cluster.
         :param pulumi.Input['ClusterDiagnosticsConfigArgs'] diagnostics_config: A `diagnostics_config` block as defined below.
@@ -146,7 +146,7 @@ class ClusterArgs:
         """
         Specifies the Reliability Level of the Cluster. Possible values include `None`, `Bronze`, `Silver`, `Gold` and `Platinum`.
 
-        > **NOTE:** The Reliability Level of the Cluster depends on the number of nodes in the Cluster: `Platinum` requires at least 9 VM's, `Gold` requires at least 7 VM's, `Silver` requires at least 5 VM's, `Bronze` requires at least 3 VM's.
+        > **Note:** The Reliability Level of the Cluster depends on the number of nodes in the Cluster: `Platinum` requires at least 9 VM's, `Gold` requires at least 7 VM's, `Silver` requires at least 5 VM's, `Bronze` requires at least 3 VM's.
         """
         return pulumi.get(self, "reliability_level")
 
@@ -244,7 +244,7 @@ class ClusterArgs:
         """
         A `client_certificate_common_name` block as defined below.
 
-        > **NOTE:** If Client Certificates are enabled then at a Certificate must be configured on the cluster.
+        > **Note:** If Client Certificates are enabled then at a Certificate must be configured on the cluster.
         """
         return pulumi.get(self, "client_certificate_common_names")
 
@@ -432,7 +432,7 @@ class _ClusterState:
         :param pulumi.Input['ClusterCertificateCommonNamesArgs'] certificate_common_names: A `certificate_common_names` block as defined below. Conflicts with `certificate`.
         :param pulumi.Input[Sequence[pulumi.Input['ClusterClientCertificateCommonNameArgs']]] client_certificate_common_names: A `client_certificate_common_name` block as defined below.
                
-               > **NOTE:** If Client Certificates are enabled then at a Certificate must be configured on the cluster.
+               > **Note:** If Client Certificates are enabled then at a Certificate must be configured on the cluster.
         :param pulumi.Input[Sequence[pulumi.Input['ClusterClientCertificateThumbprintArgs']]] client_certificate_thumbprints: One or more `client_certificate_thumbprint` blocks as defined below.
         :param pulumi.Input[builtins.str] cluster_code_version: Required if Upgrade Mode set to `Manual`, Specifies the Version of the Cluster Code of the cluster.
         :param pulumi.Input[builtins.str] cluster_endpoint: The Cluster Endpoint for this Service Fabric Cluster.
@@ -444,7 +444,7 @@ class _ClusterState:
         :param pulumi.Input[Sequence[pulumi.Input['ClusterNodeTypeArgs']]] node_types: One or more `node_type` blocks as defined below.
         :param pulumi.Input[builtins.str] reliability_level: Specifies the Reliability Level of the Cluster. Possible values include `None`, `Bronze`, `Silver`, `Gold` and `Platinum`.
                
-               > **NOTE:** The Reliability Level of the Cluster depends on the number of nodes in the Cluster: `Platinum` requires at least 9 VM's, `Gold` requires at least 7 VM's, `Silver` requires at least 5 VM's, `Bronze` requires at least 3 VM's.
+               > **Note:** The Reliability Level of the Cluster depends on the number of nodes in the Cluster: `Platinum` requires at least 9 VM's, `Gold` requires at least 7 VM's, `Silver` requires at least 5 VM's, `Bronze` requires at least 3 VM's.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the Resource Group in which the Service Fabric Cluster exists. Changing this forces a new resource to be created.
         :param pulumi.Input['ClusterReverseProxyCertificateArgs'] reverse_proxy_certificate: A `reverse_proxy_certificate` block as defined below. Conflicts with `reverse_proxy_certificate_common_names`.
         :param pulumi.Input['ClusterReverseProxyCertificateCommonNamesArgs'] reverse_proxy_certificate_common_names: A `reverse_proxy_certificate_common_names` block as defined below. Conflicts with `reverse_proxy_certificate`.
@@ -558,7 +558,7 @@ class _ClusterState:
         """
         A `client_certificate_common_name` block as defined below.
 
-        > **NOTE:** If Client Certificates are enabled then at a Certificate must be configured on the cluster.
+        > **Note:** If Client Certificates are enabled then at a Certificate must be configured on the cluster.
         """
         return pulumi.get(self, "client_certificate_common_names")
 
@@ -680,7 +680,7 @@ class _ClusterState:
         """
         Specifies the Reliability Level of the Cluster. Possible values include `None`, `Bronze`, `Silver`, `Gold` and `Platinum`.
 
-        > **NOTE:** The Reliability Level of the Cluster depends on the number of nodes in the Cluster: `Platinum` requires at least 9 VM's, `Gold` requires at least 7 VM's, `Silver` requires at least 5 VM's, `Bronze` requires at least 3 VM's.
+        > **Note:** The Reliability Level of the Cluster depends on the number of nodes in the Cluster: `Platinum` requires at least 9 VM's, `Gold` requires at least 7 VM's, `Silver` requires at least 5 VM's, `Bronze` requires at least 3 VM's.
         """
         return pulumi.get(self, "reliability_level")
 
@@ -857,6 +857,13 @@ class Cluster(pulumi.CustomResource):
             }])
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ServiceFabric`: 2021-06-01
+
         ## Import
 
         Service Fabric Clusters can be imported using the `resource id`, e.g.
@@ -873,7 +880,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[Union['ClusterCertificateCommonNamesArgs', 'ClusterCertificateCommonNamesArgsDict']] certificate_common_names: A `certificate_common_names` block as defined below. Conflicts with `certificate`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ClusterClientCertificateCommonNameArgs', 'ClusterClientCertificateCommonNameArgsDict']]]] client_certificate_common_names: A `client_certificate_common_name` block as defined below.
                
-               > **NOTE:** If Client Certificates are enabled then at a Certificate must be configured on the cluster.
+               > **Note:** If Client Certificates are enabled then at a Certificate must be configured on the cluster.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ClusterClientCertificateThumbprintArgs', 'ClusterClientCertificateThumbprintArgsDict']]]] client_certificate_thumbprints: One or more `client_certificate_thumbprint` blocks as defined below.
         :param pulumi.Input[builtins.str] cluster_code_version: Required if Upgrade Mode set to `Manual`, Specifies the Version of the Cluster Code of the cluster.
         :param pulumi.Input[Union['ClusterDiagnosticsConfigArgs', 'ClusterDiagnosticsConfigArgsDict']] diagnostics_config: A `diagnostics_config` block as defined below.
@@ -884,7 +891,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['ClusterNodeTypeArgs', 'ClusterNodeTypeArgsDict']]]] node_types: One or more `node_type` blocks as defined below.
         :param pulumi.Input[builtins.str] reliability_level: Specifies the Reliability Level of the Cluster. Possible values include `None`, `Bronze`, `Silver`, `Gold` and `Platinum`.
                
-               > **NOTE:** The Reliability Level of the Cluster depends on the number of nodes in the Cluster: `Platinum` requires at least 9 VM's, `Gold` requires at least 7 VM's, `Silver` requires at least 5 VM's, `Bronze` requires at least 3 VM's.
+               > **Note:** The Reliability Level of the Cluster depends on the number of nodes in the Cluster: `Platinum` requires at least 9 VM's, `Gold` requires at least 7 VM's, `Silver` requires at least 5 VM's, `Bronze` requires at least 3 VM's.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the Resource Group in which the Service Fabric Cluster exists. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['ClusterReverseProxyCertificateArgs', 'ClusterReverseProxyCertificateArgsDict']] reverse_proxy_certificate: A `reverse_proxy_certificate` block as defined below. Conflicts with `reverse_proxy_certificate_common_names`.
         :param pulumi.Input[Union['ClusterReverseProxyCertificateCommonNamesArgs', 'ClusterReverseProxyCertificateCommonNamesArgsDict']] reverse_proxy_certificate_common_names: A `reverse_proxy_certificate_common_names` block as defined below. Conflicts with `reverse_proxy_certificate`.
@@ -930,6 +937,13 @@ class Cluster(pulumi.CustomResource):
                 "http_endpoint_port": 80,
             }])
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ServiceFabric`: 2021-06-01
 
         ## Import
 
@@ -1069,7 +1083,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[Union['ClusterCertificateCommonNamesArgs', 'ClusterCertificateCommonNamesArgsDict']] certificate_common_names: A `certificate_common_names` block as defined below. Conflicts with `certificate`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ClusterClientCertificateCommonNameArgs', 'ClusterClientCertificateCommonNameArgsDict']]]] client_certificate_common_names: A `client_certificate_common_name` block as defined below.
                
-               > **NOTE:** If Client Certificates are enabled then at a Certificate must be configured on the cluster.
+               > **Note:** If Client Certificates are enabled then at a Certificate must be configured on the cluster.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ClusterClientCertificateThumbprintArgs', 'ClusterClientCertificateThumbprintArgsDict']]]] client_certificate_thumbprints: One or more `client_certificate_thumbprint` blocks as defined below.
         :param pulumi.Input[builtins.str] cluster_code_version: Required if Upgrade Mode set to `Manual`, Specifies the Version of the Cluster Code of the cluster.
         :param pulumi.Input[builtins.str] cluster_endpoint: The Cluster Endpoint for this Service Fabric Cluster.
@@ -1081,7 +1095,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['ClusterNodeTypeArgs', 'ClusterNodeTypeArgsDict']]]] node_types: One or more `node_type` blocks as defined below.
         :param pulumi.Input[builtins.str] reliability_level: Specifies the Reliability Level of the Cluster. Possible values include `None`, `Bronze`, `Silver`, `Gold` and `Platinum`.
                
-               > **NOTE:** The Reliability Level of the Cluster depends on the number of nodes in the Cluster: `Platinum` requires at least 9 VM's, `Gold` requires at least 7 VM's, `Silver` requires at least 5 VM's, `Bronze` requires at least 3 VM's.
+               > **Note:** The Reliability Level of the Cluster depends on the number of nodes in the Cluster: `Platinum` requires at least 9 VM's, `Gold` requires at least 7 VM's, `Silver` requires at least 5 VM's, `Bronze` requires at least 3 VM's.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the Resource Group in which the Service Fabric Cluster exists. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['ClusterReverseProxyCertificateArgs', 'ClusterReverseProxyCertificateArgsDict']] reverse_proxy_certificate: A `reverse_proxy_certificate` block as defined below. Conflicts with `reverse_proxy_certificate_common_names`.
         :param pulumi.Input[Union['ClusterReverseProxyCertificateCommonNamesArgs', 'ClusterReverseProxyCertificateCommonNamesArgsDict']] reverse_proxy_certificate_common_names: A `reverse_proxy_certificate_common_names` block as defined below. Conflicts with `reverse_proxy_certificate`.
@@ -1160,7 +1174,7 @@ class Cluster(pulumi.CustomResource):
         """
         A `client_certificate_common_name` block as defined below.
 
-        > **NOTE:** If Client Certificates are enabled then at a Certificate must be configured on the cluster.
+        > **Note:** If Client Certificates are enabled then at a Certificate must be configured on the cluster.
         """
         return pulumi.get(self, "client_certificate_common_names")
 
@@ -1242,7 +1256,7 @@ class Cluster(pulumi.CustomResource):
         """
         Specifies the Reliability Level of the Cluster. Possible values include `None`, `Bronze`, `Silver`, `Gold` and `Platinum`.
 
-        > **NOTE:** The Reliability Level of the Cluster depends on the number of nodes in the Cluster: `Platinum` requires at least 9 VM's, `Gold` requires at least 7 VM's, `Silver` requires at least 5 VM's, `Bronze` requires at least 3 VM's.
+        > **Note:** The Reliability Level of the Cluster depends on the number of nodes in the Cluster: `Platinum` requires at least 9 VM's, `Gold` requires at least 7 VM's, `Silver` requires at least 5 VM's, `Bronze` requires at least 3 VM's.
         """
         return pulumi.get(self, "reliability_level")
 

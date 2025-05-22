@@ -132,7 +132,7 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// The IPv6 address space from which to allocate customer addresses for global reach.
         /// 
-        /// &gt; **NOTE:** `address_prefix_ipv6` cannot be set when ExpressRoute Circuit Connection with ExpressRoute Circuit based on ExpressRoute Port.
+        /// &gt; **Note:** `address_prefix_ipv6` cannot be set when ExpressRoute Circuit Connection with ExpressRoute Circuit based on ExpressRoute Port.
         /// </summary>
         [Output("addressPrefixIpv6")]
         public Output<string?> AddressPrefixIpv6 { get; private set; } = null!;
@@ -220,7 +220,7 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// The IPv6 address space from which to allocate customer addresses for global reach.
         /// 
-        /// &gt; **NOTE:** `address_prefix_ipv6` cannot be set when ExpressRoute Circuit Connection with ExpressRoute Circuit based on ExpressRoute Port.
+        /// &gt; **Note:** `address_prefix_ipv6` cannot be set when ExpressRoute Circuit Connection with ExpressRoute Circuit based on ExpressRoute Port.
         /// </summary>
         [Input("addressPrefixIpv6")]
         public Input<string>? AddressPrefixIpv6 { get; set; }
@@ -276,7 +276,7 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// The IPv6 address space from which to allocate customer addresses for global reach.
         /// 
-        /// &gt; **NOTE:** `address_prefix_ipv6` cannot be set when ExpressRoute Circuit Connection with ExpressRoute Circuit based on ExpressRoute Port.
+        /// &gt; **Note:** `address_prefix_ipv6` cannot be set when ExpressRoute Circuit Connection with ExpressRoute Circuit based on ExpressRoute Port.
         /// </summary>
         [Input("addressPrefixIpv6")]
         public Input<string>? AddressPrefixIpv6 { get; set; }

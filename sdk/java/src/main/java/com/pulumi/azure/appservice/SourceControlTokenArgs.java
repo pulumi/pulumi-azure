@@ -34,7 +34,7 @@ public final class SourceControlTokenArgs extends com.pulumi.resources.ResourceA
     /**
      * The Access Token Secret.
      * 
-     * &gt; **NOTE:** The token used for deploying App Service needs the following permissions: `repo` and `workflow`.
+     * &gt; **Note:** The token used for deploying App Service needs the following permissions: `repo` and `workflow`.
      * 
      */
     @Import(name="tokenSecret")
@@ -43,7 +43,7 @@ public final class SourceControlTokenArgs extends com.pulumi.resources.ResourceA
     /**
      * @return The Access Token Secret.
      * 
-     * &gt; **NOTE:** The token used for deploying App Service needs the following permissions: `repo` and `workflow`.
+     * &gt; **Note:** The token used for deploying App Service needs the following permissions: `repo` and `workflow`.
      * 
      */
     public Optional<Output<String>> tokenSecret() {
@@ -115,7 +115,7 @@ public final class SourceControlTokenArgs extends com.pulumi.resources.ResourceA
         /**
          * @param tokenSecret The Access Token Secret.
          * 
-         * &gt; **NOTE:** The token used for deploying App Service needs the following permissions: `repo` and `workflow`.
+         * &gt; **Note:** The token used for deploying App Service needs the following permissions: `repo` and `workflow`.
          * 
          * @return builder
          * 
@@ -128,7 +128,7 @@ public final class SourceControlTokenArgs extends com.pulumi.resources.ResourceA
         /**
          * @param tokenSecret The Access Token Secret.
          * 
-         * &gt; **NOTE:** The token used for deploying App Service needs the following permissions: `repo` and `workflow`.
+         * &gt; **Note:** The token used for deploying App Service needs the following permissions: `repo` and `workflow`.
          * 
          * @return builder
          * 

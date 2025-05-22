@@ -61,6 +61,13 @@ public final class DesktopvirtualizationFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DesktopVirtualization`: 2024-04-03
+     * 
      */
     public static Output<GetApplicationGroupResult> getApplicationGroup(GetApplicationGroupArgs args) {
         return getApplicationGroup(args, InvokeOptions.Empty);
@@ -104,6 +111,13 @@ public final class DesktopvirtualizationFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DesktopVirtualization`: 2024-04-03
      * 
      */
     public static CompletableFuture<GetApplicationGroupResult> getApplicationGroupPlain(GetApplicationGroupPlainArgs args) {
@@ -149,6 +163,13 @@ public final class DesktopvirtualizationFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DesktopVirtualization`: 2024-04-03
+     * 
      */
     public static Output<GetApplicationGroupResult> getApplicationGroup(GetApplicationGroupArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:desktopvirtualization/getApplicationGroup:getApplicationGroup", TypeShape.of(GetApplicationGroupResult.class), args, Utilities.withVersion(options));
@@ -192,6 +213,13 @@ public final class DesktopvirtualizationFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DesktopVirtualization`: 2024-04-03
      * 
      */
     public static Output<GetApplicationGroupResult> getApplicationGroup(GetApplicationGroupArgs args, InvokeOutputOptions options) {
@@ -237,6 +265,13 @@ public final class DesktopvirtualizationFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DesktopVirtualization`: 2024-04-03
+     * 
      */
     public static CompletableFuture<GetApplicationGroupResult> getApplicationGroupPlain(GetApplicationGroupPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:desktopvirtualization/getApplicationGroup:getApplicationGroup", TypeShape.of(GetApplicationGroupResult.class), args, Utilities.withVersion(options));
@@ -279,6 +314,13 @@ public final class DesktopvirtualizationFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DesktopVirtualization`: 2024-04-03
      * 
      */
     public static Output<GetHostPoolResult> getHostPool(GetHostPoolArgs args) {
@@ -323,6 +365,13 @@ public final class DesktopvirtualizationFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DesktopVirtualization`: 2024-04-03
+     * 
      */
     public static CompletableFuture<GetHostPoolResult> getHostPoolPlain(GetHostPoolPlainArgs args) {
         return getHostPoolPlain(args, InvokeOptions.Empty);
@@ -365,6 +414,13 @@ public final class DesktopvirtualizationFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DesktopVirtualization`: 2024-04-03
      * 
      */
     public static Output<GetHostPoolResult> getHostPool(GetHostPoolArgs args, InvokeOptions options) {
@@ -409,6 +465,13 @@ public final class DesktopvirtualizationFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DesktopVirtualization`: 2024-04-03
+     * 
      */
     public static Output<GetHostPoolResult> getHostPool(GetHostPoolArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:desktopvirtualization/getHostPool:getHostPool", TypeShape.of(GetHostPoolResult.class), args, Utilities.withVersion(options));
@@ -451,6 +514,13 @@ public final class DesktopvirtualizationFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DesktopVirtualization`: 2024-04-03
      * 
      */
     public static CompletableFuture<GetHostPoolResult> getHostPoolPlain(GetHostPoolPlainArgs args, InvokeOptions options) {
@@ -496,6 +566,13 @@ public final class DesktopvirtualizationFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DesktopVirtualization`: 2024-04-03
+     * 
      */
     public static Output<GetWorkspaceResult> getWorkspace(GetWorkspaceArgs args) {
         return getWorkspace(args, InvokeOptions.Empty);
@@ -539,6 +616,13 @@ public final class DesktopvirtualizationFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DesktopVirtualization`: 2024-04-03
      * 
      */
     public static CompletableFuture<GetWorkspaceResult> getWorkspacePlain(GetWorkspacePlainArgs args) {
@@ -584,6 +668,13 @@ public final class DesktopvirtualizationFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DesktopVirtualization`: 2024-04-03
+     * 
      */
     public static Output<GetWorkspaceResult> getWorkspace(GetWorkspaceArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:desktopvirtualization/getWorkspace:getWorkspace", TypeShape.of(GetWorkspaceResult.class), args, Utilities.withVersion(options));
@@ -628,6 +719,13 @@ public final class DesktopvirtualizationFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DesktopVirtualization`: 2024-04-03
+     * 
      */
     public static Output<GetWorkspaceResult> getWorkspace(GetWorkspaceArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:desktopvirtualization/getWorkspace:getWorkspace", TypeShape.of(GetWorkspaceResult.class), args, Utilities.withVersion(options));
@@ -671,6 +769,13 @@ public final class DesktopvirtualizationFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DesktopVirtualization`: 2024-04-03
      * 
      */
     public static CompletableFuture<GetWorkspaceResult> getWorkspacePlain(GetWorkspacePlainArgs args, InvokeOptions options) {

@@ -226,6 +226,13 @@ class BackupVault(pulumi.CustomResource):
             account_name=example_account.name)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.NetApp`: 2025-01-01
+
         ## Import
 
         NetApp Backup Vault can be imported using the `resource id`, e.g.
@@ -270,6 +277,13 @@ class BackupVault(pulumi.CustomResource):
             location=example.location,
             account_name=example_account.name)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.NetApp`: 2025-01-01
 
         ## Import
 

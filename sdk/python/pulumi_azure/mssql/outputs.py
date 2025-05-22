@@ -1257,7 +1257,7 @@ class ManagedInstanceIdentity(dict):
         :param builtins.str type: Specifies the type of Managed Service Identity that should be configured on this SQL Managed Instance. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned`.
         :param Sequence[builtins.str] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this SQL Managed Instance. Required when `type` includes `UserAssigned`.
                
-               > The assigned `principal_id` and `tenant_id` can be retrieved after the identity `type` has been set to `SystemAssigned` and SQL Managed Instance has been created.
+               > **Note:** The assigned `principal_id` and `tenant_id` can be retrieved after the identity `type` has been set to `SystemAssigned` and SQL Managed Instance has been created.
         :param builtins.str principal_id: The Principal ID for the Service Principal associated with the Identity of this SQL Managed Instance.
         :param builtins.str tenant_id: The Tenant ID for the Service Principal associated with the Identity of this SQL Managed Instance.
         """
@@ -1283,7 +1283,7 @@ class ManagedInstanceIdentity(dict):
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this SQL Managed Instance. Required when `type` includes `UserAssigned`.
 
-        > The assigned `principal_id` and `tenant_id` can be retrieved after the identity `type` has been set to `SystemAssigned` and SQL Managed Instance has been created.
+        > **Note:** The assigned `principal_id` and `tenant_id` can be retrieved after the identity `type` has been set to `SystemAssigned` and SQL Managed Instance has been created.
         """
         return pulumi.get(self, "identity_ids")
 
@@ -1472,9 +1472,9 @@ class ServerIdentity(dict):
         :param builtins.str type: Specifies the type of Managed Service Identity that should be configured on this SQL Server. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
         :param Sequence[builtins.str] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this SQL Server.
                
-               > **NOTE:** This is required when `type` is set to `UserAssigned`
+               > **Note:** This is required when `type` is set to `UserAssigned`
                
-               > **NOTE:** When `type` is set to `SystemAssigned`, the assigned `principal_id` and `tenant_id` can be retrieved after the Microsoft SQL Server has been created. More details are available below.
+               > **Note:** When `type` is set to `SystemAssigned`, the assigned `principal_id` and `tenant_id` can be retrieved after the Microsoft SQL Server has been created. More details are available below.
         :param builtins.str principal_id: The Principal ID for the Service Principal associated with the Identity of this SQL Server.
         :param builtins.str tenant_id: The Tenant ID for the Service Principal associated with the Identity of this SQL Server.
         """
@@ -1500,9 +1500,9 @@ class ServerIdentity(dict):
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this SQL Server.
 
-        > **NOTE:** This is required when `type` is set to `UserAssigned`
+        > **Note:** This is required when `type` is set to `UserAssigned`
 
-        > **NOTE:** When `type` is set to `SystemAssigned`, the assigned `principal_id` and `tenant_id` can be retrieved after the Microsoft SQL Server has been created. More details are available below.
+        > **Note:** When `type` is set to `SystemAssigned`, the assigned `principal_id` and `tenant_id` can be retrieved after the Microsoft SQL Server has been created. More details are available below.
         """
         return pulumi.get(self, "identity_ids")
 
@@ -1678,7 +1678,7 @@ class VirtualMachineAssessmentSchedule(dict):
         :param builtins.str start_time: What time the assessment will be run. Must be in the format `HH:mm`.
         :param builtins.int monthly_occurrence: How many months between assessment runs. Valid values are between `1` and `5`.
                
-               > **NOTE:** Either one of `weekly_interval` or `monthly_occurrence` must be specified.
+               > **Note:** Either one of `weekly_interval` or `monthly_occurrence` must be specified.
         :param builtins.int weekly_interval: How many weeks between assessment runs. Valid values are between `1` and `6`.
         """
         pulumi.set(__self__, "day_of_week", day_of_week)
@@ -1710,7 +1710,7 @@ class VirtualMachineAssessmentSchedule(dict):
         """
         How many months between assessment runs. Valid values are between `1` and `5`.
 
-        > **NOTE:** Either one of `weekly_interval` or `monthly_occurrence` must be specified.
+        > **Note:** Either one of `weekly_interval` or `monthly_occurrence` must be specified.
         """
         return pulumi.get(self, "monthly_occurrence")
 
@@ -1877,7 +1877,7 @@ class VirtualMachineAutoBackupManualSchedule(dict):
         :param builtins.int log_backup_frequency_in_minutes: Frequency of log backups, in minutes. Valid values are from `5` to `60`.
         :param Sequence[builtins.str] days_of_weeks: A list of days on which backup can take place. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`
                
-               > **NOTE:** `days_of_week` can only be specified when `manual_schedule` is set to `Weekly`
+               > **Note:** `days_of_week` can only be specified when `manual_schedule` is set to `Weekly`
         """
         pulumi.set(__self__, "full_backup_frequency", full_backup_frequency)
         pulumi.set(__self__, "full_backup_start_hour", full_backup_start_hour)
@@ -1924,7 +1924,7 @@ class VirtualMachineAutoBackupManualSchedule(dict):
         """
         A list of days on which backup can take place. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`
 
-        > **NOTE:** `days_of_week` can only be specified when `manual_schedule` is set to `Weekly`
+        > **Note:** `days_of_week` can only be specified when `manual_schedule` is set to `Weekly`
         """
         return pulumi.get(self, "days_of_weeks")
 
@@ -2030,7 +2030,7 @@ class VirtualMachineAvailabilityGroupListenerLoadBalancerConfiguration(dict):
         :param Sequence[builtins.str] sql_virtual_machine_ids: Specifies a list of SQL Virtual Machine IDs. Changing this forces a new resource to be created.
         :param builtins.str subnet_id: The ID of the Subnet to create the listener. Changing this forces a new resource to be created.
                
-               > **NOTE:** `sql_virtual_machine_ids` should match with the SQL Virtual Machines specified in `replica`.
+               > **Note:** `sql_virtual_machine_ids` should match with the SQL Virtual Machines specified in `replica`.
         """
         pulumi.set(__self__, "load_balancer_id", load_balancer_id)
         pulumi.set(__self__, "private_ip_address", private_ip_address)
@@ -2076,7 +2076,7 @@ class VirtualMachineAvailabilityGroupListenerLoadBalancerConfiguration(dict):
         """
         The ID of the Subnet to create the listener. Changing this forces a new resource to be created.
 
-        > **NOTE:** `sql_virtual_machine_ids` should match with the SQL Virtual Machines specified in `replica`.
+        > **Note:** `sql_virtual_machine_ids` should match with the SQL Virtual Machines specified in `replica`.
         """
         return pulumi.get(self, "subnet_id")
 
@@ -2113,7 +2113,7 @@ class VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfiguration(dict):
         :param builtins.str sql_virtual_machine_id: The ID of the Sql Virtual Machine. Changing this forces a new resource to be created.
         :param builtins.str subnet_id: The ID of the Subnet to create the listener. Changing this forces a new resource to be created.
                
-               > **NOTE:** `sql_virtual_machine_id` should match with the SQL Virtual Machines specified in `replica`.
+               > **Note:** `sql_virtual_machine_id` should match with the SQL Virtual Machines specified in `replica`.
         """
         pulumi.set(__self__, "private_ip_address", private_ip_address)
         pulumi.set(__self__, "sql_virtual_machine_id", sql_virtual_machine_id)
@@ -2141,7 +2141,7 @@ class VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfiguration(dict):
         """
         The ID of the Subnet to create the listener. Changing this forces a new resource to be created.
 
-        > **NOTE:** `sql_virtual_machine_id` should match with the SQL Virtual Machines specified in `replica`.
+        > **Note:** `sql_virtual_machine_id` should match with the SQL Virtual Machines specified in `replica`.
         """
         return pulumi.get(self, "subnet_id")
 
@@ -2477,7 +2477,7 @@ class VirtualMachineSqlInstance(dict):
         :param builtins.int max_server_memory_mb: Maximum amount memory that SQL Server Memory Manager can allocate to the SQL Server process. Possible values are between `128` and `2147483647` Defaults to `2147483647`.
         :param builtins.int min_server_memory_mb: Minimum amount memory that SQL Server Memory Manager can allocate to the SQL Server process. Possible values are between `0` and `2147483647` Defaults to `0`.
                
-               > **NOTE:** `max_server_memory_mb` must be greater than or equal to `min_server_memory_mb`
+               > **Note:** `max_server_memory_mb` must be greater than or equal to `min_server_memory_mb`
         """
         if adhoc_workloads_optimization_enabled is not None:
             pulumi.set(__self__, "adhoc_workloads_optimization_enabled", adhoc_workloads_optimization_enabled)
@@ -2548,7 +2548,7 @@ class VirtualMachineSqlInstance(dict):
         """
         Minimum amount memory that SQL Server Memory Manager can allocate to the SQL Server process. Possible values are between `0` and `2147483647` Defaults to `0`.
 
-        > **NOTE:** `max_server_memory_mb` must be greater than or equal to `min_server_memory_mb`
+        > **Note:** `max_server_memory_mb` must be greater than or equal to `min_server_memory_mb`
         """
         return pulumi.get(self, "min_server_memory_mb")
 

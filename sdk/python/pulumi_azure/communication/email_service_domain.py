@@ -275,6 +275,13 @@ class EmailServiceDomain(pulumi.CustomResource):
             domain_management="AzureManaged")
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Communication`: 2023-03-31
+
         ## Import
 
         Communication Services can be imported using the `resource id`, e.g.
@@ -318,6 +325,13 @@ class EmailServiceDomain(pulumi.CustomResource):
             email_service_id=example_email_service.id,
             domain_management="AzureManaged")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Communication`: 2023-03-31
 
         ## Import
 

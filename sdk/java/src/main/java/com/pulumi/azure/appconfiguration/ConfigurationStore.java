@@ -218,6 +218,13 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.AppConfiguration`: 2024-05-01
+ * 
  * ## Import
  * 
  * App Configurations can be imported using the `resource id`, e.g.
@@ -466,18 +473,18 @@ public class ConfigurationStore extends com.pulumi.resources.CustomResource {
         return this.secondaryWriteKeys;
     }
     /**
-     * The SKU name of the App Configuration. Possible values are `free`, `standard` and `premium`. Defaults to `free`.
+     * The SKU name of the App Configuration. Possible values are `free`, `developer`, `standard` and `premium`. Defaults to `free`.
      * 
-     * &gt; **Note:** Azure does not support downgrading `sku`. Downgrading from `premium` tier to `standard` or `free`, or from `standard` to `free`, forces a new resource to be created.
+     * &gt; **Note:** Azure does not support downgrading `sku` to a lower tier, except from `premium` to `standard`. Downgrading will force a new resource to be created.
      * 
      */
     @Export(name="sku", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sku;
 
     /**
-     * @return The SKU name of the App Configuration. Possible values are `free`, `standard` and `premium`. Defaults to `free`.
+     * @return The SKU name of the App Configuration. Possible values are `free`, `developer`, `standard` and `premium`. Defaults to `free`.
      * 
-     * &gt; **Note:** Azure does not support downgrading `sku`. Downgrading from `premium` tier to `standard` or `free`, or from `standard` to `free`, forces a new resource to be created.
+     * &gt; **Note:** Azure does not support downgrading `sku` to a lower tier, except from `premium` to `standard`. Downgrading will force a new resource to be created.
      * 
      */
     public Output<Optional<String>> sku() {

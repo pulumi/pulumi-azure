@@ -12,6 +12,7 @@ import com.pulumi.azure.nginx.outputs.DeploymentFrontendPublic;
 import com.pulumi.azure.nginx.outputs.DeploymentIdentity;
 import com.pulumi.azure.nginx.outputs.DeploymentLoggingStorageAccount;
 import com.pulumi.azure.nginx.outputs.DeploymentNetworkInterface;
+import com.pulumi.azure.nginx.outputs.DeploymentWebApplicationFirewall;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -122,6 +123,13 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Nginx.NginxPlus`: 2024-11-01-preview
+ * 
  * ## Import
  * 
  * NGINX Deployments can be imported using the `resource id`, e.g.
@@ -164,7 +172,7 @@ public class Deployment extends com.pulumi.resources.CustomResource {
     /**
      * Specify the number of NGINX capacity units for this NGINX deployment.
      * 
-     * &gt; **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
+     * &gt; **Note:** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
      * 
      */
     @Export(name="capacity", refs={Integer.class}, tree="[0]")
@@ -173,7 +181,7 @@ public class Deployment extends com.pulumi.resources.CustomResource {
     /**
      * @return Specify the number of NGINX capacity units for this NGINX deployment.
      * 
-     * &gt; **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
+     * &gt; **Note:** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
      * 
      */
     public Output<Optional<Integer>> capacity() {
@@ -222,28 +230,28 @@ public class Deployment extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.email);
     }
     /**
-     * One or more `frontend_private` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
+     * One or more `frontend_private` blocks as defined below.
      * 
      */
     @Export(name="frontendPrivates", refs={List.class,DeploymentFrontendPrivate.class}, tree="[0,1]")
     private Output</* @Nullable */ List<DeploymentFrontendPrivate>> frontendPrivates;
 
     /**
-     * @return One or more `frontend_private` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
+     * @return One or more `frontend_private` blocks as defined below.
      * 
      */
     public Output<Optional<List<DeploymentFrontendPrivate>>> frontendPrivates() {
         return Codegen.optional(this.frontendPrivates);
     }
     /**
-     * A `frontend_public` block as defined below. Changing this forces a new NGINX Deployment to be created.
+     * A `frontend_public` block as defined below.
      * 
      */
     @Export(name="frontendPublic", refs={DeploymentFrontendPublic.class}, tree="[0]")
     private Output</* @Nullable */ DeploymentFrontendPublic> frontendPublic;
 
     /**
-     * @return A `frontend_public` block as defined below. Changing this forces a new NGINX Deployment to be created.
+     * @return A `frontend_public` block as defined below.
      * 
      */
     public Output<Optional<DeploymentFrontendPublic>> frontendPublic() {
@@ -330,14 +338,14 @@ public class Deployment extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * One or more `network_interface` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
+     * One or more `network_interface` blocks as defined below.
      * 
      */
     @Export(name="networkInterfaces", refs={List.class,DeploymentNetworkInterface.class}, tree="[0,1]")
     private Output</* @Nullable */ List<DeploymentNetworkInterface>> networkInterfaces;
 
     /**
-     * @return One or more `network_interface` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
+     * @return One or more `network_interface` blocks as defined below.
      * 
      */
     public Output<Optional<List<DeploymentNetworkInterface>>> networkInterfaces() {
@@ -390,6 +398,20 @@ public class Deployment extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
+    }
+    /**
+     * A `web_application_firewall` blocks as defined below.
+     * 
+     */
+    @Export(name="webApplicationFirewall", refs={DeploymentWebApplicationFirewall.class}, tree="[0]")
+    private Output</* @Nullable */ DeploymentWebApplicationFirewall> webApplicationFirewall;
+
+    /**
+     * @return A `web_application_firewall` blocks as defined below.
+     * 
+     */
+    public Output<Optional<DeploymentWebApplicationFirewall>> webApplicationFirewall() {
+        return Codegen.optional(this.webApplicationFirewall);
     }
 
     /**

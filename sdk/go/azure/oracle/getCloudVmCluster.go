@@ -40,6 +40,13 @@ import (
 //	}
 //
 // ```
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This data source uses the following Azure API Providers:
+//
+// * `Oracle.Database`: 2024-06-01
 func LookupCloudVmCluster(ctx *pulumi.Context, args *LookupCloudVmClusterArgs, opts ...pulumi.InvokeOption) (*LookupCloudVmClusterResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupCloudVmClusterResult

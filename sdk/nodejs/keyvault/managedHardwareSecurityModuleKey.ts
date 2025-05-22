@@ -54,7 +54,7 @@ export class ManagedHardwareSecurityModuleKey extends pulumi.CustomResource {
      */
     public readonly expirationDate!: pulumi.Output<string | undefined>;
     /**
-     * A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify` and `wrapKey`. Please note these values are case-sensitive.
+     * A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify`, `wrapKey` and `import`. Please note these values are case-sensitive.
      */
     public readonly keyOpts!: pulumi.Output<string[]>;
     /**
@@ -151,7 +151,7 @@ export interface ManagedHardwareSecurityModuleKeyState {
      */
     expirationDate?: pulumi.Input<string>;
     /**
-     * A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify` and `wrapKey`. Please note these values are case-sensitive.
+     * A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify`, `wrapKey` and `import`. Please note these values are case-sensitive.
      */
     keyOpts?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -199,7 +199,7 @@ export interface ManagedHardwareSecurityModuleKeyArgs {
      */
     expirationDate?: pulumi.Input<string>;
     /**
-     * A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify` and `wrapKey`. Please note these values are case-sensitive.
+     * A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify`, `wrapKey` and `import`. Please note these values are case-sensitive.
      */
     keyOpts: pulumi.Input<pulumi.Input<string>[]>;
     /**

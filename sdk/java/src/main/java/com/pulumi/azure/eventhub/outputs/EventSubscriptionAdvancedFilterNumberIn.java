@@ -20,7 +20,7 @@ public final class EventSubscriptionAdvancedFilterNumberIn {
     /**
      * @return Specifies an array of values to compare to when using a multiple values operator.
      * 
-     * &gt; **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+     * &gt; **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
      * 
      */
     private List<Double> values;
@@ -36,7 +36,7 @@ public final class EventSubscriptionAdvancedFilterNumberIn {
     /**
      * @return Specifies an array of values to compare to when using a multiple values operator.
      * 
-     * &gt; **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+     * &gt; **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
      * 
      */
     public List<Double> values() {

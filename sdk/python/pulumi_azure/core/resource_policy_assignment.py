@@ -41,7 +41,7 @@ class ResourcePolicyAssignmentArgs:
         :param pulumi.Input[builtins.str] policy_definition_id: The ID of the Policy Definition or Policy Definition Set. Changing this forces a new Policy Assignment to be created.
         :param pulumi.Input[builtins.str] resource_id: The ID of the Resource (or Resource Scope) where this should be applied. Changing this forces a new Resource Policy Assignment to be created.
                
-               > To create a Policy Assignment at a Management Group use the `management.GroupPolicyAssignment` resource, for a Resource Group use the `core.ResourceGroupPolicyAssignment` and for a Subscription use the `core.SubscriptionPolicyAssignment` resource.
+               > **Note:** To create a Policy Assignment at a Management Group use the `management.GroupPolicyAssignment` resource, for a Resource Group use the `core.ResourceGroupPolicyAssignment` and for a Subscription use the `core.SubscriptionPolicyAssignment` resource.
         :param pulumi.Input[builtins.str] description: A description which should be used for this Policy Assignment.
         :param pulumi.Input[builtins.str] display_name: The Display Name for this Policy Assignment.
         :param pulumi.Input[builtins.bool] enforce: Specifies if this Policy should be enforced or not? Defaults to `true`.
@@ -102,7 +102,7 @@ class ResourcePolicyAssignmentArgs:
         """
         The ID of the Resource (or Resource Scope) where this should be applied. Changing this forces a new Resource Policy Assignment to be created.
 
-        > To create a Policy Assignment at a Management Group use the `management.GroupPolicyAssignment` resource, for a Resource Group use the `core.ResourceGroupPolicyAssignment` and for a Subscription use the `core.SubscriptionPolicyAssignment` resource.
+        > **Note:** To create a Policy Assignment at a Management Group use the `management.GroupPolicyAssignment` resource, for a Resource Group use the `core.ResourceGroupPolicyAssignment` and for a Subscription use the `core.SubscriptionPolicyAssignment` resource.
         """
         return pulumi.get(self, "resource_id")
 
@@ -292,7 +292,7 @@ class _ResourcePolicyAssignmentState:
         :param pulumi.Input[builtins.str] policy_definition_id: The ID of the Policy Definition or Policy Definition Set. Changing this forces a new Policy Assignment to be created.
         :param pulumi.Input[builtins.str] resource_id: The ID of the Resource (or Resource Scope) where this should be applied. Changing this forces a new Resource Policy Assignment to be created.
                
-               > To create a Policy Assignment at a Management Group use the `management.GroupPolicyAssignment` resource, for a Resource Group use the `core.ResourceGroupPolicyAssignment` and for a Subscription use the `core.SubscriptionPolicyAssignment` resource.
+               > **Note:** To create a Policy Assignment at a Management Group use the `management.GroupPolicyAssignment` resource, for a Resource Group use the `core.ResourceGroupPolicyAssignment` and for a Subscription use the `core.SubscriptionPolicyAssignment` resource.
         :param pulumi.Input[Sequence[pulumi.Input['ResourcePolicyAssignmentResourceSelectorArgs']]] resource_selectors: One or more `resource_selectors` blocks as defined below to filter polices by resource properties.
         """
         if description is not None:
@@ -476,7 +476,7 @@ class _ResourcePolicyAssignmentState:
         """
         The ID of the Resource (or Resource Scope) where this should be applied. Changing this forces a new Resource Policy Assignment to be created.
 
-        > To create a Policy Assignment at a Management Group use the `management.GroupPolicyAssignment` resource, for a Resource Group use the `core.ResourceGroupPolicyAssignment` and for a Subscription use the `core.SubscriptionPolicyAssignment` resource.
+        > **Note:** To create a Policy Assignment at a Management Group use the `management.GroupPolicyAssignment` resource, for a Resource Group use the `core.ResourceGroupPolicyAssignment` and for a Subscription use the `core.SubscriptionPolicyAssignment` resource.
         """
         return pulumi.get(self, "resource_id")
 
@@ -552,6 +552,13 @@ class ResourcePolicyAssignment(pulumi.CustomResource):
             policy_definition_id=example_definition.id)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Authorization`: 2022-06-01
+
         ## Import
 
         Resource Policy Assignments can be imported using the `resource id`, e.g.
@@ -580,7 +587,7 @@ class ResourcePolicyAssignment(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] policy_definition_id: The ID of the Policy Definition or Policy Definition Set. Changing this forces a new Policy Assignment to be created.
         :param pulumi.Input[builtins.str] resource_id: The ID of the Resource (or Resource Scope) where this should be applied. Changing this forces a new Resource Policy Assignment to be created.
                
-               > To create a Policy Assignment at a Management Group use the `management.GroupPolicyAssignment` resource, for a Resource Group use the `core.ResourceGroupPolicyAssignment` and for a Subscription use the `core.SubscriptionPolicyAssignment` resource.
+               > **Note:** To create a Policy Assignment at a Management Group use the `management.GroupPolicyAssignment` resource, for a Resource Group use the `core.ResourceGroupPolicyAssignment` and for a Subscription use the `core.SubscriptionPolicyAssignment` resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ResourcePolicyAssignmentResourceSelectorArgs', 'ResourcePolicyAssignmentResourceSelectorArgsDict']]]] resource_selectors: One or more `resource_selectors` blocks as defined below to filter polices by resource properties.
         """
         ...
@@ -622,6 +629,13 @@ class ResourcePolicyAssignment(pulumi.CustomResource):
             resource_id=example.id,
             policy_definition_id=example_definition.id)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Authorization`: 2022-06-01
 
         ## Import
 
@@ -736,7 +750,7 @@ class ResourcePolicyAssignment(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] policy_definition_id: The ID of the Policy Definition or Policy Definition Set. Changing this forces a new Policy Assignment to be created.
         :param pulumi.Input[builtins.str] resource_id: The ID of the Resource (or Resource Scope) where this should be applied. Changing this forces a new Resource Policy Assignment to be created.
                
-               > To create a Policy Assignment at a Management Group use the `management.GroupPolicyAssignment` resource, for a Resource Group use the `core.ResourceGroupPolicyAssignment` and for a Subscription use the `core.SubscriptionPolicyAssignment` resource.
+               > **Note:** To create a Policy Assignment at a Management Group use the `management.GroupPolicyAssignment` resource, for a Resource Group use the `core.ResourceGroupPolicyAssignment` and for a Subscription use the `core.SubscriptionPolicyAssignment` resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ResourcePolicyAssignmentResourceSelectorArgs', 'ResourcePolicyAssignmentResourceSelectorArgsDict']]]] resource_selectors: One or more `resource_selectors` blocks as defined below to filter polices by resource properties.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -863,7 +877,7 @@ class ResourcePolicyAssignment(pulumi.CustomResource):
         """
         The ID of the Resource (or Resource Scope) where this should be applied. Changing this forces a new Resource Policy Assignment to be created.
 
-        > To create a Policy Assignment at a Management Group use the `management.GroupPolicyAssignment` resource, for a Resource Group use the `core.ResourceGroupPolicyAssignment` and for a Subscription use the `core.SubscriptionPolicyAssignment` resource.
+        > **Note:** To create a Policy Assignment at a Management Group use the `management.GroupPolicyAssignment` resource, for a Resource Group use the `core.ResourceGroupPolicyAssignment` and for a Subscription use the `core.SubscriptionPolicyAssignment` resource.
         """
         return pulumi.get(self, "resource_id")
 

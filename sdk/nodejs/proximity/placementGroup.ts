@@ -66,7 +66,7 @@ export class PlacementGroup extends pulumi.CustomResource {
     /**
      * Specifies the supported sizes of Virtual Machines that can be created in the Proximity Placement Group.
      *
-     * > **NOTE:** Removing `allowedVmSizes` after it is set forces a new resource to be created.
+     * > **Note:** Removing `allowedVmSizes` after it is set forces a new resource to be created.
      */
     public readonly allowedVmSizes!: pulumi.Output<string[] | undefined>;
     /**
@@ -88,7 +88,7 @@ export class PlacementGroup extends pulumi.CustomResource {
     /**
      * Specifies the supported zone of the Proximity Placement Group. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** `allowedVmSizes` must be set when `zone` is specified.
+     * > **Note:** `allowedVmSizes` must be set when `zone` is specified.
      */
     public readonly zone!: pulumi.Output<string | undefined>;
 
@@ -135,7 +135,7 @@ export interface PlacementGroupState {
     /**
      * Specifies the supported sizes of Virtual Machines that can be created in the Proximity Placement Group.
      *
-     * > **NOTE:** Removing `allowedVmSizes` after it is set forces a new resource to be created.
+     * > **Note:** Removing `allowedVmSizes` after it is set forces a new resource to be created.
      */
     allowedVmSizes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -157,7 +157,7 @@ export interface PlacementGroupState {
     /**
      * Specifies the supported zone of the Proximity Placement Group. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** `allowedVmSizes` must be set when `zone` is specified.
+     * > **Note:** `allowedVmSizes` must be set when `zone` is specified.
      */
     zone?: pulumi.Input<string>;
 }
@@ -169,7 +169,7 @@ export interface PlacementGroupArgs {
     /**
      * Specifies the supported sizes of Virtual Machines that can be created in the Proximity Placement Group.
      *
-     * > **NOTE:** Removing `allowedVmSizes` after it is set forces a new resource to be created.
+     * > **Note:** Removing `allowedVmSizes` after it is set forces a new resource to be created.
      */
     allowedVmSizes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -191,7 +191,7 @@ export interface PlacementGroupArgs {
     /**
      * Specifies the supported zone of the Proximity Placement Group. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** `allowedVmSizes` must be set when `zone` is specified.
+     * > **Note:** `allowedVmSizes` must be set when `zone` is specified.
      */
     zone?: pulumi.Input<string>;
 }

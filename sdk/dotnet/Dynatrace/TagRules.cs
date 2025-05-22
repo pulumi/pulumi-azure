@@ -24,13 +24,13 @@ namespace Pulumi.Azure.Dynatrace
     public partial class TagRules : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Set of rules for sending logs for the Monitor resource. Changing this forces a new resource to be created. A `log_rule` block as defined below.
+        /// Set of rules for sending logs for the Monitor resource. A `log_rule` block as defined below.
         /// </summary>
         [Output("logRule")]
         public Output<Outputs.TagRulesLogRule?> LogRule { get; private set; } = null!;
 
         /// <summary>
-        /// Set of rules for sending metrics for the Monitor resource. Changing this forces a new resource to be created. A `metric_rule` block as defined below.
+        /// Set of rules for sending metrics for the Monitor resource. A `metric_rule` block as defined below.
         /// </summary>
         [Output("metricRule")]
         public Output<Outputs.TagRulesMetricRule?> MetricRule { get; private set; } = null!;
@@ -94,13 +94,13 @@ namespace Pulumi.Azure.Dynatrace
     public sealed class TagRulesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Set of rules for sending logs for the Monitor resource. Changing this forces a new resource to be created. A `log_rule` block as defined below.
+        /// Set of rules for sending logs for the Monitor resource. A `log_rule` block as defined below.
         /// </summary>
         [Input("logRule")]
         public Input<Inputs.TagRulesLogRuleArgs>? LogRule { get; set; }
 
         /// <summary>
-        /// Set of rules for sending metrics for the Monitor resource. Changing this forces a new resource to be created. A `metric_rule` block as defined below.
+        /// Set of rules for sending metrics for the Monitor resource. A `metric_rule` block as defined below.
         /// </summary>
         [Input("metricRule")]
         public Input<Inputs.TagRulesMetricRuleArgs>? MetricRule { get; set; }
@@ -126,13 +126,13 @@ namespace Pulumi.Azure.Dynatrace
     public sealed class TagRulesState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Set of rules for sending logs for the Monitor resource. Changing this forces a new resource to be created. A `log_rule` block as defined below.
+        /// Set of rules for sending logs for the Monitor resource. A `log_rule` block as defined below.
         /// </summary>
         [Input("logRule")]
         public Input<Inputs.TagRulesLogRuleGetArgs>? LogRule { get; set; }
 
         /// <summary>
-        /// Set of rules for sending metrics for the Monitor resource. Changing this forces a new resource to be created. A `metric_rule` block as defined below.
+        /// Set of rules for sending metrics for the Monitor resource. A `metric_rule` block as defined below.
         /// </summary>
         [Input("metricRule")]
         public Input<Inputs.TagRulesMetricRuleGetArgs>? MetricRule { get; set; }

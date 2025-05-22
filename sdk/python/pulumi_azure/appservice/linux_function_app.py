@@ -91,12 +91,12 @@ class LinuxFunctionAppArgs:
         :param pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppStorageAccountArgs']]] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[builtins.str] storage_key_vault_secret_id: The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App.
                
-               > **NOTE:** `storage_key_vault_secret_id` cannot be used with `storage_account_name`.
+               > **Note:** `storage_key_vault_secret_id` cannot be used with `storage_account_name`.
                
-               > **NOTE:** `storage_key_vault_secret_id` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
+               > **Note:** `storage_key_vault_secret_id` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
         :param pulumi.Input[builtins.bool] storage_uses_managed_identity: Should the Function App use Managed Identity to access the storage account. Conflicts with `storage_account_access_key`.
                
-               > **NOTE:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
+               > **Note:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags which should be assigned to the Linux Function App.
         :param pulumi.Input[builtins.bool] virtual_network_backup_restore_enabled: Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
         :param pulumi.Input[builtins.bool] vnet_image_pull_enabled: Should the traffic for the image pull be routed over virtual network enabled. Defaults to `false`.
@@ -104,7 +104,7 @@ class LinuxFunctionAppArgs:
                > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. Must be set to `true` when running in an App Service Environment.
         :param pulumi.Input[builtins.bool] webdeploy_publish_basic_authentication_enabled: Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
                
-               > **NOTE:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
+               > **Note:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
         :param pulumi.Input[builtins.str] zip_deploy_file: The local path and filename of the Zip packaged application to deploy to this Linux Function App.
                
                > **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `app_settings`. Refer to the [Azure docs](https://learn.microsoft.com/en-us/azure/azure-functions/functions-deployment-technologies) for further details.
@@ -510,9 +510,9 @@ class LinuxFunctionAppArgs:
         """
         The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App.
 
-        > **NOTE:** `storage_key_vault_secret_id` cannot be used with `storage_account_name`.
+        > **Note:** `storage_key_vault_secret_id` cannot be used with `storage_account_name`.
 
-        > **NOTE:** `storage_key_vault_secret_id` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
+        > **Note:** `storage_key_vault_secret_id` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
         """
         return pulumi.get(self, "storage_key_vault_secret_id")
 
@@ -526,7 +526,7 @@ class LinuxFunctionAppArgs:
         """
         Should the Function App use Managed Identity to access the storage account. Conflicts with `storage_account_access_key`.
 
-        > **NOTE:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
+        > **Note:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
         """
         return pulumi.get(self, "storage_uses_managed_identity")
 
@@ -587,7 +587,7 @@ class LinuxFunctionAppArgs:
         """
         Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
 
-        > **NOTE:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
+        > **Note:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
         """
         return pulumi.get(self, "webdeploy_publish_basic_authentication_enabled")
 
@@ -700,12 +700,12 @@ class _LinuxFunctionAppState:
         :param pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppStorageAccountArgs']]] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[builtins.str] storage_key_vault_secret_id: The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App.
                
-               > **NOTE:** `storage_key_vault_secret_id` cannot be used with `storage_account_name`.
+               > **Note:** `storage_key_vault_secret_id` cannot be used with `storage_account_name`.
                
-               > **NOTE:** `storage_key_vault_secret_id` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
+               > **Note:** `storage_key_vault_secret_id` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
         :param pulumi.Input[builtins.bool] storage_uses_managed_identity: Should the Function App use Managed Identity to access the storage account. Conflicts with `storage_account_access_key`.
                
-               > **NOTE:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
+               > **Note:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags which should be assigned to the Linux Function App.
         :param pulumi.Input[builtins.bool] virtual_network_backup_restore_enabled: Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
         :param pulumi.Input[builtins.bool] vnet_image_pull_enabled: Should the traffic for the image pull be routed over virtual network enabled. Defaults to `false`.
@@ -713,7 +713,7 @@ class _LinuxFunctionAppState:
                > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. Must be set to `true` when running in an App Service Environment.
         :param pulumi.Input[builtins.bool] webdeploy_publish_basic_authentication_enabled: Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
                
-               > **NOTE:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
+               > **Note:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
         :param pulumi.Input[builtins.str] zip_deploy_file: The local path and filename of the Zip packaged application to deploy to this Linux Function App.
                
                > **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `app_settings`. Refer to the [Azure docs](https://learn.microsoft.com/en-us/azure/azure-functions/functions-deployment-technologies) for further details.
@@ -1248,9 +1248,9 @@ class _LinuxFunctionAppState:
         """
         The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App.
 
-        > **NOTE:** `storage_key_vault_secret_id` cannot be used with `storage_account_name`.
+        > **Note:** `storage_key_vault_secret_id` cannot be used with `storage_account_name`.
 
-        > **NOTE:** `storage_key_vault_secret_id` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
+        > **Note:** `storage_key_vault_secret_id` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
         """
         return pulumi.get(self, "storage_key_vault_secret_id")
 
@@ -1264,7 +1264,7 @@ class _LinuxFunctionAppState:
         """
         Should the Function App use Managed Identity to access the storage account. Conflicts with `storage_account_access_key`.
 
-        > **NOTE:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
+        > **Note:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
         """
         return pulumi.get(self, "storage_uses_managed_identity")
 
@@ -1325,7 +1325,7 @@ class _LinuxFunctionAppState:
         """
         Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
 
-        > **NOTE:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
+        > **Note:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
         """
         return pulumi.get(self, "webdeploy_publish_basic_authentication_enabled")
 
@@ -1422,6 +1422,13 @@ class LinuxFunctionApp(pulumi.CustomResource):
             site_config={})
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Web`: 2023-12-01, 2023-01-01
+
         ## Import
 
         Linux Function Apps can be imported using the `resource id`, e.g.
@@ -1464,12 +1471,12 @@ class LinuxFunctionApp(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['LinuxFunctionAppStorageAccountArgs', 'LinuxFunctionAppStorageAccountArgsDict']]]] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[builtins.str] storage_key_vault_secret_id: The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App.
                
-               > **NOTE:** `storage_key_vault_secret_id` cannot be used with `storage_account_name`.
+               > **Note:** `storage_key_vault_secret_id` cannot be used with `storage_account_name`.
                
-               > **NOTE:** `storage_key_vault_secret_id` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
+               > **Note:** `storage_key_vault_secret_id` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
         :param pulumi.Input[builtins.bool] storage_uses_managed_identity: Should the Function App use Managed Identity to access the storage account. Conflicts with `storage_account_access_key`.
                
-               > **NOTE:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
+               > **Note:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags which should be assigned to the Linux Function App.
         :param pulumi.Input[builtins.bool] virtual_network_backup_restore_enabled: Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
         :param pulumi.Input[builtins.bool] vnet_image_pull_enabled: Should the traffic for the image pull be routed over virtual network enabled. Defaults to `false`.
@@ -1477,7 +1484,7 @@ class LinuxFunctionApp(pulumi.CustomResource):
                > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. Must be set to `true` when running in an App Service Environment.
         :param pulumi.Input[builtins.bool] webdeploy_publish_basic_authentication_enabled: Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
                
-               > **NOTE:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
+               > **Note:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
         :param pulumi.Input[builtins.str] zip_deploy_file: The local path and filename of the Zip packaged application to deploy to this Linux Function App.
                
                > **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `app_settings`. Refer to the [Azure docs](https://learn.microsoft.com/en-us/azure/azure-functions/functions-deployment-technologies) for further details.
@@ -1519,6 +1526,13 @@ class LinuxFunctionApp(pulumi.CustomResource):
             service_plan_id=example_service_plan.id,
             site_config={})
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Web`: 2023-12-01, 2023-01-01
 
         ## Import
 
@@ -1741,12 +1755,12 @@ class LinuxFunctionApp(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['LinuxFunctionAppStorageAccountArgs', 'LinuxFunctionAppStorageAccountArgsDict']]]] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[builtins.str] storage_key_vault_secret_id: The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App.
                
-               > **NOTE:** `storage_key_vault_secret_id` cannot be used with `storage_account_name`.
+               > **Note:** `storage_key_vault_secret_id` cannot be used with `storage_account_name`.
                
-               > **NOTE:** `storage_key_vault_secret_id` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
+               > **Note:** `storage_key_vault_secret_id` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
         :param pulumi.Input[builtins.bool] storage_uses_managed_identity: Should the Function App use Managed Identity to access the storage account. Conflicts with `storage_account_access_key`.
                
-               > **NOTE:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
+               > **Note:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags which should be assigned to the Linux Function App.
         :param pulumi.Input[builtins.bool] virtual_network_backup_restore_enabled: Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
         :param pulumi.Input[builtins.bool] vnet_image_pull_enabled: Should the traffic for the image pull be routed over virtual network enabled. Defaults to `false`.
@@ -1754,7 +1768,7 @@ class LinuxFunctionApp(pulumi.CustomResource):
                > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. Must be set to `true` when running in an App Service Environment.
         :param pulumi.Input[builtins.bool] webdeploy_publish_basic_authentication_enabled: Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
                
-               > **NOTE:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
+               > **Note:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
         :param pulumi.Input[builtins.str] zip_deploy_file: The local path and filename of the Zip packaged application to deploy to this Linux Function App.
                
                > **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `app_settings`. Refer to the [Azure docs](https://learn.microsoft.com/en-us/azure/azure-functions/functions-deployment-technologies) for further details.
@@ -2106,9 +2120,9 @@ class LinuxFunctionApp(pulumi.CustomResource):
         """
         The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App.
 
-        > **NOTE:** `storage_key_vault_secret_id` cannot be used with `storage_account_name`.
+        > **Note:** `storage_key_vault_secret_id` cannot be used with `storage_account_name`.
 
-        > **NOTE:** `storage_key_vault_secret_id` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
+        > **Note:** `storage_key_vault_secret_id` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
         """
         return pulumi.get(self, "storage_key_vault_secret_id")
 
@@ -2118,7 +2132,7 @@ class LinuxFunctionApp(pulumi.CustomResource):
         """
         Should the Function App use Managed Identity to access the storage account. Conflicts with `storage_account_access_key`.
 
-        > **NOTE:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
+        > **Note:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
         """
         return pulumi.get(self, "storage_uses_managed_identity")
 
@@ -2159,7 +2173,7 @@ class LinuxFunctionApp(pulumi.CustomResource):
         """
         Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
 
-        > **NOTE:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
+        > **Note:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
         """
         return pulumi.get(self, "webdeploy_publish_basic_authentication_enabled")
 

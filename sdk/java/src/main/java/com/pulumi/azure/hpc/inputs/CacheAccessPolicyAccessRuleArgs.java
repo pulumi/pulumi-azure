@@ -96,7 +96,7 @@ public final class CacheAccessPolicyAccessRuleArgs extends com.pulumi.resources.
     /**
      * The scope of this rule. The `scope` and (potentially) the `filter` determine which clients match the rule. Possible values are: `default`, `network`, `host`.
      * 
-     * &gt; **NOTE:** Each `access_rule` should set a unique `scope`.
+     * &gt; **Note:** Each `access_rule` should set a unique `scope`.
      * 
      */
     @Import(name="scope", required=true)
@@ -105,7 +105,7 @@ public final class CacheAccessPolicyAccessRuleArgs extends com.pulumi.resources.
     /**
      * @return The scope of this rule. The `scope` and (potentially) the `filter` determine which clients match the rule. Possible values are: `default`, `network`, `host`.
      * 
-     * &gt; **NOTE:** Each `access_rule` should set a unique `scope`.
+     * &gt; **Note:** Each `access_rule` should set a unique `scope`.
      * 
      */
     public Output<String> scope() {
@@ -281,7 +281,7 @@ public final class CacheAccessPolicyAccessRuleArgs extends com.pulumi.resources.
         /**
          * @param scope The scope of this rule. The `scope` and (potentially) the `filter` determine which clients match the rule. Possible values are: `default`, `network`, `host`.
          * 
-         * &gt; **NOTE:** Each `access_rule` should set a unique `scope`.
+         * &gt; **Note:** Each `access_rule` should set a unique `scope`.
          * 
          * @return builder
          * 
@@ -294,7 +294,7 @@ public final class CacheAccessPolicyAccessRuleArgs extends com.pulumi.resources.
         /**
          * @param scope The scope of this rule. The `scope` and (potentially) the `filter` determine which clients match the rule. Possible values are: `default`, `network`, `host`.
          * 
-         * &gt; **NOTE:** Each `access_rule` should set a unique `scope`.
+         * &gt; **Note:** Each `access_rule` should set a unique `scope`.
          * 
          * @return builder
          * 

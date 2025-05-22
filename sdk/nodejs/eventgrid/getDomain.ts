@@ -21,6 +21,13 @@ import * as utilities from "../utilities";
  * });
  * export const eventgridDomainMappingTopic = example.then(example => example.inputMappingFields?.[0]?.topic);
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.EventGrid`: 2022-06-15
  */
 export function getDomain(args: GetDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -114,6 +121,13 @@ export interface GetDomainResult {
  * });
  * export const eventgridDomainMappingTopic = example.then(example => example.inputMappingFields?.[0]?.topic);
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.EventGrid`: 2022-06-15
  */
 export function getDomainOutput(args: GetDomainOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDomainResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

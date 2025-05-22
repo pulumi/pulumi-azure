@@ -117,7 +117,7 @@ public class CustomHostnameBinding extends com.pulumi.resources.CustomResource {
     /**
      * Specifies the Custom Hostname to use for the App Service, example `www.example.com`. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** A CNAME needs to be configured from this Hostname to the Azure Website - otherwise Azure will reject the Hostname Binding.
+     * &gt; **Note:** A CNAME needs to be configured from this Hostname to the Azure Website - otherwise Azure will reject the Hostname Binding.
      * 
      */
     @Export(name="hostname", refs={String.class}, tree="[0]")
@@ -126,7 +126,7 @@ public class CustomHostnameBinding extends com.pulumi.resources.CustomResource {
     /**
      * @return Specifies the Custom Hostname to use for the App Service, example `www.example.com`. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** A CNAME needs to be configured from this Hostname to the Azure Website - otherwise Azure will reject the Hostname Binding.
+     * &gt; **Note:** A CNAME needs to be configured from this Hostname to the Azure Website - otherwise Azure will reject the Hostname Binding.
      * 
      */
     public Output<String> hostname() {
@@ -163,7 +163,7 @@ public class CustomHostnameBinding extends com.pulumi.resources.CustomResource {
     /**
      * The SSL certificate thumbprint. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** `thumbprint` must be specified when `ssl_state` is set.
+     * &gt; **Note:** `thumbprint` must be specified when `ssl_state` is set.
      * 
      */
     @Export(name="thumbprint", refs={String.class}, tree="[0]")
@@ -172,7 +172,7 @@ public class CustomHostnameBinding extends com.pulumi.resources.CustomResource {
     /**
      * @return The SSL certificate thumbprint. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** `thumbprint` must be specified when `ssl_state` is set.
+     * &gt; **Note:** `thumbprint` must be specified when `ssl_state` is set.
      * 
      */
     public Output<String> thumbprint() {

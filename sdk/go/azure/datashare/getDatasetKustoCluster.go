@@ -40,6 +40,13 @@ import (
 //	}
 //
 // ```
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This data source uses the following Azure API Providers:
+//
+// * `Microsoft.DataShare`: 2019-11-01
 func LookupDatasetKustoCluster(ctx *pulumi.Context, args *LookupDatasetKustoClusterArgs, opts ...pulumi.InvokeOption) (*LookupDatasetKustoClusterResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDatasetKustoClusterResult

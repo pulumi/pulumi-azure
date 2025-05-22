@@ -58,6 +58,13 @@ public final class DevtestFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DevTestLab`: 2018-09-15
+     * 
      */
     public static Output<GetLabResult> getLab(GetLabArgs args) {
         return getLab(args, InvokeOptions.Empty);
@@ -101,6 +108,13 @@ public final class DevtestFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DevTestLab`: 2018-09-15
      * 
      */
     public static CompletableFuture<GetLabResult> getLabPlain(GetLabPlainArgs args) {
@@ -146,6 +160,13 @@ public final class DevtestFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DevTestLab`: 2018-09-15
+     * 
      */
     public static Output<GetLabResult> getLab(GetLabArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:devtest/getLab:getLab", TypeShape.of(GetLabResult.class), args, Utilities.withVersion(options));
@@ -190,6 +211,13 @@ public final class DevtestFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DevTestLab`: 2018-09-15
+     * 
      */
     public static Output<GetLabResult> getLab(GetLabArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:devtest/getLab:getLab", TypeShape.of(GetLabResult.class), args, Utilities.withVersion(options));
@@ -233,6 +261,13 @@ public final class DevtestFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DevTestLab`: 2018-09-15
      * 
      */
     public static CompletableFuture<GetLabResult> getLabPlain(GetLabPlainArgs args, InvokeOptions options) {
@@ -279,6 +314,13 @@ public final class DevtestFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DevTestLab`: 2018-09-15
+     * 
      */
     public static Output<GetVirtualNetworkResult> getVirtualNetwork(GetVirtualNetworkArgs args) {
         return getVirtualNetwork(args, InvokeOptions.Empty);
@@ -323,6 +365,13 @@ public final class DevtestFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DevTestLab`: 2018-09-15
      * 
      */
     public static CompletableFuture<GetVirtualNetworkResult> getVirtualNetworkPlain(GetVirtualNetworkPlainArgs args) {
@@ -369,6 +418,13 @@ public final class DevtestFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DevTestLab`: 2018-09-15
+     * 
      */
     public static Output<GetVirtualNetworkResult> getVirtualNetwork(GetVirtualNetworkArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:devtest/getVirtualNetwork:getVirtualNetwork", TypeShape.of(GetVirtualNetworkResult.class), args, Utilities.withVersion(options));
@@ -414,6 +470,13 @@ public final class DevtestFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DevTestLab`: 2018-09-15
+     * 
      */
     public static Output<GetVirtualNetworkResult> getVirtualNetwork(GetVirtualNetworkArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:devtest/getVirtualNetwork:getVirtualNetwork", TypeShape.of(GetVirtualNetworkResult.class), args, Utilities.withVersion(options));
@@ -458,6 +521,13 @@ public final class DevtestFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DevTestLab`: 2018-09-15
      * 
      */
     public static CompletableFuture<GetVirtualNetworkResult> getVirtualNetworkPlain(GetVirtualNetworkPlainArgs args, InvokeOptions options) {

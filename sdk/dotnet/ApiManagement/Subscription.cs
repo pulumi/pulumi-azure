@@ -54,6 +54,13 @@ namespace Pulumi.Azure.ApiManagement
     /// });
     /// ```
     /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.ApiManagement`: 2022-08-01
+    /// 
     /// ## Import
     /// 
     /// API Management Subscriptions can be imported using the `resource id`, e.g.
@@ -74,7 +81,7 @@ namespace Pulumi.Azure.ApiManagement
         /// <summary>
         /// The ID of the API which should be assigned to this Subscription. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Info:** Only one of `product_id` and `api_id` can be set. If both are missing `/apis` scope is used for the subscription and all apis are accessible.
+        /// &gt; **Note:** Only one of `product_id` and `api_id` can be set. If both are missing `/apis` scope is used for the subscription and all apis are accessible.
         /// </summary>
         [Output("apiId")]
         public Output<string?> ApiId { get; private set; } = null!;
@@ -100,7 +107,7 @@ namespace Pulumi.Azure.ApiManagement
         /// <summary>
         /// The ID of the Product which should be assigned to this Subscription. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Info:** Only one of `product_id` and `api_id` can be set. If both are missing `all_apis` scope is used for the subscription.
+        /// &gt; **Note:** Only one of `product_id` and `api_id` can be set. If both are missing `all_apis` scope is used for the subscription.
         /// </summary>
         [Output("productId")]
         public Output<string?> ProductId { get; private set; } = null!;
@@ -195,7 +202,7 @@ namespace Pulumi.Azure.ApiManagement
         /// <summary>
         /// The ID of the API which should be assigned to this Subscription. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Info:** Only one of `product_id` and `api_id` can be set. If both are missing `/apis` scope is used for the subscription and all apis are accessible.
+        /// &gt; **Note:** Only one of `product_id` and `api_id` can be set. If both are missing `/apis` scope is used for the subscription and all apis are accessible.
         /// </summary>
         [Input("apiId")]
         public Input<string>? ApiId { get; set; }
@@ -231,7 +238,7 @@ namespace Pulumi.Azure.ApiManagement
         /// <summary>
         /// The ID of the Product which should be assigned to this Subscription. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Info:** Only one of `product_id` and `api_id` can be set. If both are missing `all_apis` scope is used for the subscription.
+        /// &gt; **Note:** Only one of `product_id` and `api_id` can be set. If both are missing `all_apis` scope is used for the subscription.
         /// </summary>
         [Input("productId")]
         public Input<string>? ProductId { get; set; }
@@ -293,7 +300,7 @@ namespace Pulumi.Azure.ApiManagement
         /// <summary>
         /// The ID of the API which should be assigned to this Subscription. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Info:** Only one of `product_id` and `api_id` can be set. If both are missing `/apis` scope is used for the subscription and all apis are accessible.
+        /// &gt; **Note:** Only one of `product_id` and `api_id` can be set. If both are missing `/apis` scope is used for the subscription and all apis are accessible.
         /// </summary>
         [Input("apiId")]
         public Input<string>? ApiId { get; set; }
@@ -329,7 +336,7 @@ namespace Pulumi.Azure.ApiManagement
         /// <summary>
         /// The ID of the Product which should be assigned to this Subscription. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Info:** Only one of `product_id` and `api_id` can be set. If both are missing `all_apis` scope is used for the subscription.
+        /// &gt; **Note:** Only one of `product_id` and `api_id` can be set. If both are missing `all_apis` scope is used for the subscription.
         /// </summary>
         [Input("productId")]
         public Input<string>? ProductId { get; set; }

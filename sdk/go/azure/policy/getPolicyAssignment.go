@@ -40,6 +40,13 @@ import (
 //	}
 //
 // ```
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This data source uses the following Azure API Providers:
+//
+// * `Microsoft.Authorization`: 2022-06-01
 func GetPolicyAssignment(ctx *pulumi.Context, args *GetPolicyAssignmentArgs, opts ...pulumi.InvokeOption) (*GetPolicyAssignmentResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetPolicyAssignmentResult

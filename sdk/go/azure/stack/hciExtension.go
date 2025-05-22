@@ -54,6 +54,13 @@ import (
 //
 // ```
 //
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.AzureStackHCI`: 2024-01-01
+//
 // ## Import
 //
 // Azure Stack HCI Extension can be imported using the `resource id`, e.g.
@@ -82,7 +89,7 @@ type HciExtension struct {
 	Type pulumi.StringOutput `pulumi:"type"`
 	// Specifies the version of the script handler.
 	//
-	// > **NOTE:** `typeHandlerVersion` cannot be set when `automaticUpgradeEnabled` is set to `true`.
+	// > **Note:** `typeHandlerVersion` cannot be set when `automaticUpgradeEnabled` is set to `true`.
 	TypeHandlerVersion pulumi.StringPtrOutput `pulumi:"typeHandlerVersion"`
 }
 
@@ -150,7 +157,7 @@ type hciExtensionState struct {
 	Type *string `pulumi:"type"`
 	// Specifies the version of the script handler.
 	//
-	// > **NOTE:** `typeHandlerVersion` cannot be set when `automaticUpgradeEnabled` is set to `true`.
+	// > **Note:** `typeHandlerVersion` cannot be set when `automaticUpgradeEnabled` is set to `true`.
 	TypeHandlerVersion *string `pulumi:"typeHandlerVersion"`
 }
 
@@ -173,7 +180,7 @@ type HciExtensionState struct {
 	Type pulumi.StringPtrInput
 	// Specifies the version of the script handler.
 	//
-	// > **NOTE:** `typeHandlerVersion` cannot be set when `automaticUpgradeEnabled` is set to `true`.
+	// > **Note:** `typeHandlerVersion` cannot be set when `automaticUpgradeEnabled` is set to `true`.
 	TypeHandlerVersion pulumi.StringPtrInput
 }
 
@@ -200,7 +207,7 @@ type hciExtensionArgs struct {
 	Type string `pulumi:"type"`
 	// Specifies the version of the script handler.
 	//
-	// > **NOTE:** `typeHandlerVersion` cannot be set when `automaticUpgradeEnabled` is set to `true`.
+	// > **Note:** `typeHandlerVersion` cannot be set when `automaticUpgradeEnabled` is set to `true`.
 	TypeHandlerVersion *string `pulumi:"typeHandlerVersion"`
 }
 
@@ -224,7 +231,7 @@ type HciExtensionArgs struct {
 	Type pulumi.StringInput
 	// Specifies the version of the script handler.
 	//
-	// > **NOTE:** `typeHandlerVersion` cannot be set when `automaticUpgradeEnabled` is set to `true`.
+	// > **Note:** `typeHandlerVersion` cannot be set when `automaticUpgradeEnabled` is set to `true`.
 	TypeHandlerVersion pulumi.StringPtrInput
 }
 
@@ -357,7 +364,7 @@ func (o HciExtensionOutput) Type() pulumi.StringOutput {
 
 // Specifies the version of the script handler.
 //
-// > **NOTE:** `typeHandlerVersion` cannot be set when `automaticUpgradeEnabled` is set to `true`.
+// > **Note:** `typeHandlerVersion` cannot be set when `automaticUpgradeEnabled` is set to `true`.
 func (o HciExtensionOutput) TypeHandlerVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HciExtension) pulumi.StringPtrOutput { return v.TypeHandlerVersion }).(pulumi.StringPtrOutput)
 }

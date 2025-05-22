@@ -14,6 +14,10 @@ namespace Pulumi.Azure.PaloAlto.Inputs
     {
         [Input("egressNatIpAddressIds")]
         private InputList<string>? _egressNatIpAddressIds;
+
+        /// <summary>
+        /// Specifies a list of Public IP IDs to use for Egress NAT.
+        /// </summary>
         public InputList<string> EgressNatIpAddressIds
         {
             get => _egressNatIpAddressIds ?? (_egressNatIpAddressIds = new InputList<string>());
@@ -31,11 +35,18 @@ namespace Pulumi.Azure.PaloAlto.Inputs
         [Input("ipOfTrustForUserDefinedRoutes")]
         public Input<string>? IpOfTrustForUserDefinedRoutes { get; set; }
 
+        /// <summary>
+        /// The ID of the Palo Alto Network Virtual Appliance in the VHub. Changing this forces a new Palo Alto Next Generation Firewall VHub Panorama to be created.
+        /// </summary>
         [Input("networkVirtualApplianceId", required: true)]
         public Input<string> NetworkVirtualApplianceId { get; set; } = null!;
 
         [Input("publicIpAddressIds", required: true)]
         private InputList<string>? _publicIpAddressIds;
+
+        /// <summary>
+        /// Specifies a list of Public IP IDs to use for this Next Generation Firewall.
+        /// </summary>
         public InputList<string> PublicIpAddressIds
         {
             get => _publicIpAddressIds ?? (_publicIpAddressIds = new InputList<string>());
@@ -52,6 +63,10 @@ namespace Pulumi.Azure.PaloAlto.Inputs
 
         [Input("trustedAddressRanges")]
         private InputList<string>? _trustedAddressRanges;
+
+        /// <summary>
+        /// Specifies a list of trusted ranges to use for the Network.
+        /// </summary>
         public InputList<string> TrustedAddressRanges
         {
             get => _trustedAddressRanges ?? (_trustedAddressRanges = new InputList<string>());
@@ -64,6 +79,9 @@ namespace Pulumi.Azure.PaloAlto.Inputs
         [Input("untrustedSubnetId")]
         public Input<string>? UntrustedSubnetId { get; set; }
 
+        /// <summary>
+        /// The ID of the Virtual Hub this Next generation Fireall will be deployed in. Changing this forces a new Palo Alto Next Generation Firewall VHub Local Rulestack to be created.
+        /// </summary>
         [Input("virtualHubId", required: true)]
         public Input<string> VirtualHubId { get; set; } = null!;
 

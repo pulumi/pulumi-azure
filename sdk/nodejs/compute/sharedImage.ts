@@ -90,7 +90,7 @@ export class SharedImage extends pulumi.CustomResource {
     /**
      * Specifies if Confidential Virtual Machines enabled. It will enable all the features of trusted, with higher confidentiality features for isolate machines or encrypted data. Available for Gen2 machines. Changing this forces a new resource to be created.
      *
-     * > **Note:**: Only one of `trustedLaunchSupported`, `trustedLaunchEnabled`, `confidentialVmSupported` and `confidentialVmEnabled` can be specified.
+     * > **Note:** Only one of `trustedLaunchSupported`, `trustedLaunchEnabled`, `confidentialVmSupported` and `confidentialVmEnabled` can be specified.
      */
     public readonly confidentialVmEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -300,7 +300,7 @@ export interface SharedImageState {
     /**
      * Specifies if Confidential Virtual Machines enabled. It will enable all the features of trusted, with higher confidentiality features for isolate machines or encrypted data. Available for Gen2 machines. Changing this forces a new resource to be created.
      *
-     * > **Note:**: Only one of `trustedLaunchSupported`, `trustedLaunchEnabled`, `confidentialVmSupported` and `confidentialVmEnabled` can be specified.
+     * > **Note:** Only one of `trustedLaunchSupported`, `trustedLaunchEnabled`, `confidentialVmSupported` and `confidentialVmEnabled` can be specified.
      */
     confidentialVmEnabled?: pulumi.Input<boolean>;
     /**
@@ -422,7 +422,7 @@ export interface SharedImageArgs {
     /**
      * Specifies if Confidential Virtual Machines enabled. It will enable all the features of trusted, with higher confidentiality features for isolate machines or encrypted data. Available for Gen2 machines. Changing this forces a new resource to be created.
      *
-     * > **Note:**: Only one of `trustedLaunchSupported`, `trustedLaunchEnabled`, `confidentialVmSupported` and `confidentialVmEnabled` can be specified.
+     * > **Note:** Only one of `trustedLaunchSupported`, `trustedLaunchEnabled`, `confidentialVmSupported` and `confidentialVmEnabled` can be specified.
      */
     confidentialVmEnabled?: pulumi.Input<boolean>;
     /**

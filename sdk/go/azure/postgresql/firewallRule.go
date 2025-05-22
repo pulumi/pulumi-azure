@@ -107,6 +107,13 @@ import (
 //
 // ```
 //
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.DBforPostgreSQL`: 2017-12-01
+//
 // ## Import
 //
 // PostgreSQL Firewall Rule's can be imported using the `resource id`, e.g.
@@ -119,7 +126,7 @@ type FirewallRule struct {
 
 	// Specifies the End IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** The Azure feature `Allow access to Azure services` can be enabled by setting `startIpAddress` and `endIpAddress` to `0.0.0.0` which ([is documented in the Azure API Docs](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate)).
+	// > **Note:** The Azure feature `Allow access to Azure services` can be enabled by setting `startIpAddress` and `endIpAddress` to `0.0.0.0` which ([is documented in the Azure API Docs](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate)).
 	EndIpAddress pulumi.StringOutput `pulumi:"endIpAddress"`
 	// Specifies the name of the PostgreSQL Firewall Rule. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -175,7 +182,7 @@ func GetFirewallRule(ctx *pulumi.Context,
 type firewallRuleState struct {
 	// Specifies the End IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** The Azure feature `Allow access to Azure services` can be enabled by setting `startIpAddress` and `endIpAddress` to `0.0.0.0` which ([is documented in the Azure API Docs](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate)).
+	// > **Note:** The Azure feature `Allow access to Azure services` can be enabled by setting `startIpAddress` and `endIpAddress` to `0.0.0.0` which ([is documented in the Azure API Docs](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate)).
 	EndIpAddress *string `pulumi:"endIpAddress"`
 	// Specifies the name of the PostgreSQL Firewall Rule. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -190,7 +197,7 @@ type firewallRuleState struct {
 type FirewallRuleState struct {
 	// Specifies the End IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** The Azure feature `Allow access to Azure services` can be enabled by setting `startIpAddress` and `endIpAddress` to `0.0.0.0` which ([is documented in the Azure API Docs](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate)).
+	// > **Note:** The Azure feature `Allow access to Azure services` can be enabled by setting `startIpAddress` and `endIpAddress` to `0.0.0.0` which ([is documented in the Azure API Docs](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate)).
 	EndIpAddress pulumi.StringPtrInput
 	// Specifies the name of the PostgreSQL Firewall Rule. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -209,7 +216,7 @@ func (FirewallRuleState) ElementType() reflect.Type {
 type firewallRuleArgs struct {
 	// Specifies the End IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** The Azure feature `Allow access to Azure services` can be enabled by setting `startIpAddress` and `endIpAddress` to `0.0.0.0` which ([is documented in the Azure API Docs](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate)).
+	// > **Note:** The Azure feature `Allow access to Azure services` can be enabled by setting `startIpAddress` and `endIpAddress` to `0.0.0.0` which ([is documented in the Azure API Docs](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate)).
 	EndIpAddress string `pulumi:"endIpAddress"`
 	// Specifies the name of the PostgreSQL Firewall Rule. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -225,7 +232,7 @@ type firewallRuleArgs struct {
 type FirewallRuleArgs struct {
 	// Specifies the End IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** The Azure feature `Allow access to Azure services` can be enabled by setting `startIpAddress` and `endIpAddress` to `0.0.0.0` which ([is documented in the Azure API Docs](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate)).
+	// > **Note:** The Azure feature `Allow access to Azure services` can be enabled by setting `startIpAddress` and `endIpAddress` to `0.0.0.0` which ([is documented in the Azure API Docs](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate)).
 	EndIpAddress pulumi.StringInput
 	// Specifies the name of the PostgreSQL Firewall Rule. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -326,7 +333,7 @@ func (o FirewallRuleOutput) ToFirewallRuleOutputWithContext(ctx context.Context)
 
 // Specifies the End IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.
 //
-// > **NOTE:** The Azure feature `Allow access to Azure services` can be enabled by setting `startIpAddress` and `endIpAddress` to `0.0.0.0` which ([is documented in the Azure API Docs](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate)).
+// > **Note:** The Azure feature `Allow access to Azure services` can be enabled by setting `startIpAddress` and `endIpAddress` to `0.0.0.0` which ([is documented in the Azure API Docs](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate)).
 func (o FirewallRuleOutput) EndIpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v *FirewallRule) pulumi.StringOutput { return v.EndIpAddress }).(pulumi.StringOutput)
 }

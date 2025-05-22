@@ -169,7 +169,7 @@ class AutomationSource(dict):
         :param builtins.str event_source: Type of data that will trigger this automation. Must be one of `Alerts`, `Assessments`, `AssessmentsSnapshot`, `RegulatoryComplianceAssessment`, `RegulatoryComplianceAssessmentSnapshot`, `SecureScoreControls`, `SecureScoreControlsSnapshot`, `SecureScores`, `SecureScoresSnapshot`, `SubAssessments` or `SubAssessmentsSnapshot`. Note. assessments are also referred to as recommendations
         :param Sequence['AutomationSourceRuleSetArgs'] rule_sets: A set of rules which evaluate upon event and data interception. This is defined in one or more `rule_set` blocks as defined below.
                
-               > **NOTE:** When multiple `rule_set` block are provided, a logical 'OR' is applied to the evaluation of them.
+               > **Note:** When multiple `rule_set` block are provided, a logical 'OR' is applied to the evaluation of them.
         """
         pulumi.set(__self__, "event_source", event_source)
         if rule_sets is not None:
@@ -189,7 +189,7 @@ class AutomationSource(dict):
         """
         A set of rules which evaluate upon event and data interception. This is defined in one or more `rule_set` blocks as defined below.
 
-        > **NOTE:** When multiple `rule_set` block are provided, a logical 'OR' is applied to the evaluation of them.
+        > **Note:** When multiple `rule_set` block are provided, a logical 'OR' is applied to the evaluation of them.
         """
         return pulumi.get(self, "rule_sets")
 
@@ -201,7 +201,7 @@ class AutomationSourceRuleSet(dict):
         """
         :param Sequence['AutomationSourceRuleSetRuleArgs'] rules: One or more `rule` blocks as defined below.
                
-               > **NOTE:** This automation will trigger when all of the `rule`s in this `rule_set` are evaluated as 'true'. This is equivalent to a logical 'AND'.
+               > **Note:** This automation will trigger when all of the `rule`s in this `rule_set` are evaluated as 'true'. This is equivalent to a logical 'AND'.
         """
         pulumi.set(__self__, "rules", rules)
 
@@ -211,7 +211,7 @@ class AutomationSourceRuleSet(dict):
         """
         One or more `rule` blocks as defined below.
 
-        > **NOTE:** This automation will trigger when all of the `rule`s in this `rule_set` are evaluated as 'true'. This is equivalent to a logical 'AND'.
+        > **Note:** This automation will trigger when all of the `rule`s in this `rule_set` are evaluated as 'true'. This is equivalent to a logical 'AND'.
         """
         return pulumi.get(self, "rules")
 
@@ -250,7 +250,7 @@ class AutomationSourceRuleSetRule(dict):
         :param builtins.str property_path: The JPath of the entity model property that should be checked.
         :param builtins.str property_type: The data type of the compared operands, must be one of: `Integer`, `String`, `Boolean` or `Number`.
                
-               > **NOTE:** The schema for Security Center alerts (when `event_source` is "Alerts") [can be found here](https://docs.microsoft.com/azure/security-center/alerts-schemas?tabs=schema-continuousexport)
+               > **Note:** The schema for Security Center alerts (when `event_source` is "Alerts") [can be found here](https://docs.microsoft.com/azure/security-center/alerts-schemas?tabs=schema-continuousexport)
         """
         pulumi.set(__self__, "expected_value", expected_value)
         pulumi.set(__self__, "operator", operator)
@@ -287,7 +287,7 @@ class AutomationSourceRuleSetRule(dict):
         """
         The data type of the compared operands, must be one of: `Integer`, `String`, `Boolean` or `Number`.
 
-        > **NOTE:** The schema for Security Center alerts (when `event_source` is "Alerts") [can be found here](https://docs.microsoft.com/azure/security-center/alerts-schemas?tabs=schema-continuousexport)
+        > **Note:** The schema for Security Center alerts (when `event_source` is "Alerts") [can be found here](https://docs.microsoft.com/azure/security-center/alerts-schemas?tabs=schema-continuousexport)
         """
         return pulumi.get(self, "property_type")
 
@@ -318,9 +318,9 @@ class SubscriptionPricingExtension(dict):
         :param builtins.str name: The name of extension.
         :param Mapping[str, builtins.str] additional_extension_properties: Key/Value pairs that are required for some extensions.
                
-               > **NOTE:** If an extension is not defined, it will not be enabled.
+               > **Note:** If an extension is not defined, it will not be enabled.
                
-               > **NOTE:** Changing the pricing tier to `Standard` affects all resources of the given type in the subscription and could be quite costly.
+               > **Note:** Changing the pricing tier to `Standard` affects all resources of the given type in the subscription and could be quite costly.
         """
         pulumi.set(__self__, "name", name)
         if additional_extension_properties is not None:
@@ -340,9 +340,9 @@ class SubscriptionPricingExtension(dict):
         """
         Key/Value pairs that are required for some extensions.
 
-        > **NOTE:** If an extension is not defined, it will not be enabled.
+        > **Note:** If an extension is not defined, it will not be enabled.
 
-        > **NOTE:** Changing the pricing tier to `Standard` affects all resources of the given type in the subscription and could be quite costly.
+        > **Note:** Changing the pricing tier to `Standard` affects all resources of the given type in the subscription and could be quite costly.
         """
         return pulumi.get(self, "additional_extension_properties")
 

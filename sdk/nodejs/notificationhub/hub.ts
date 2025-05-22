@@ -34,6 +34,13 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.NotificationHubs`: 2023-09-01
+ *
  * ## Import
  *
  * Notification Hubs can be imported using the `resource id`, e.g.
@@ -73,7 +80,7 @@ export class Hub extends pulumi.CustomResource {
     /**
      * A `apnsCredential` block as defined below.
      *
-     * > **NOTE:** Removing the `apnsCredential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we'll remove this limitation when the SDK bug is fixed.
+     * > **Note:** Removing the `apnsCredential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we'll remove this limitation when the SDK bug is fixed.
      */
     public readonly apnsCredential!: pulumi.Output<outputs.notificationhub.HubApnsCredential | undefined>;
     /**
@@ -83,7 +90,7 @@ export class Hub extends pulumi.CustomResource {
     /**
      * A `gcmCredential` block as defined below.
      *
-     * > **NOTE:** Removing the `gcmCredential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we'll remove this limitation when the SDK bug is fixed.
+     * > **Note:** Removing the `gcmCredential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we'll remove this limitation when the SDK bug is fixed.
      */
     public readonly gcmCredential!: pulumi.Output<outputs.notificationhub.HubGcmCredential | undefined>;
     /**
@@ -157,7 +164,7 @@ export interface HubState {
     /**
      * A `apnsCredential` block as defined below.
      *
-     * > **NOTE:** Removing the `apnsCredential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we'll remove this limitation when the SDK bug is fixed.
+     * > **Note:** Removing the `apnsCredential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we'll remove this limitation when the SDK bug is fixed.
      */
     apnsCredential?: pulumi.Input<inputs.notificationhub.HubApnsCredential>;
     /**
@@ -167,7 +174,7 @@ export interface HubState {
     /**
      * A `gcmCredential` block as defined below.
      *
-     * > **NOTE:** Removing the `gcmCredential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we'll remove this limitation when the SDK bug is fixed.
+     * > **Note:** Removing the `gcmCredential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we'll remove this limitation when the SDK bug is fixed.
      */
     gcmCredential?: pulumi.Input<inputs.notificationhub.HubGcmCredential>;
     /**
@@ -199,7 +206,7 @@ export interface HubArgs {
     /**
      * A `apnsCredential` block as defined below.
      *
-     * > **NOTE:** Removing the `apnsCredential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we'll remove this limitation when the SDK bug is fixed.
+     * > **Note:** Removing the `apnsCredential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we'll remove this limitation when the SDK bug is fixed.
      */
     apnsCredential?: pulumi.Input<inputs.notificationhub.HubApnsCredential>;
     /**
@@ -209,7 +216,7 @@ export interface HubArgs {
     /**
      * A `gcmCredential` block as defined below.
      *
-     * > **NOTE:** Removing the `gcmCredential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we'll remove this limitation when the SDK bug is fixed.
+     * > **Note:** Removing the `gcmCredential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we'll remove this limitation when the SDK bug is fixed.
      */
     gcmCredential?: pulumi.Input<inputs.notificationhub.HubGcmCredential>;
     /**

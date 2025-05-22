@@ -26,7 +26,7 @@ type CustomDomain struct {
 
 	// Specifies the custom domain name of the Web PubSub Custom Domain. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Please ensure the custom domain name is included in the Subject Alternative Names of the selected Web PubSub Custom Certificate.
+	// > **Note:** Please ensure the custom domain name is included in the Subject Alternative Names of the selected Web PubSub Custom Certificate.
 	DomainName pulumi.StringOutput `pulumi:"domainName"`
 	// Specifies the name of the Web PubSub Custom Domain. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -77,7 +77,7 @@ func GetCustomDomain(ctx *pulumi.Context,
 type customDomainState struct {
 	// Specifies the custom domain name of the Web PubSub Custom Domain. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Please ensure the custom domain name is included in the Subject Alternative Names of the selected Web PubSub Custom Certificate.
+	// > **Note:** Please ensure the custom domain name is included in the Subject Alternative Names of the selected Web PubSub Custom Certificate.
 	DomainName *string `pulumi:"domainName"`
 	// Specifies the name of the Web PubSub Custom Domain. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -90,7 +90,7 @@ type customDomainState struct {
 type CustomDomainState struct {
 	// Specifies the custom domain name of the Web PubSub Custom Domain. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Please ensure the custom domain name is included in the Subject Alternative Names of the selected Web PubSub Custom Certificate.
+	// > **Note:** Please ensure the custom domain name is included in the Subject Alternative Names of the selected Web PubSub Custom Certificate.
 	DomainName pulumi.StringPtrInput
 	// Specifies the name of the Web PubSub Custom Domain. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -107,7 +107,7 @@ func (CustomDomainState) ElementType() reflect.Type {
 type customDomainArgs struct {
 	// Specifies the custom domain name of the Web PubSub Custom Domain. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Please ensure the custom domain name is included in the Subject Alternative Names of the selected Web PubSub Custom Certificate.
+	// > **Note:** Please ensure the custom domain name is included in the Subject Alternative Names of the selected Web PubSub Custom Certificate.
 	DomainName string `pulumi:"domainName"`
 	// Specifies the name of the Web PubSub Custom Domain. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -121,7 +121,7 @@ type customDomainArgs struct {
 type CustomDomainArgs struct {
 	// Specifies the custom domain name of the Web PubSub Custom Domain. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Please ensure the custom domain name is included in the Subject Alternative Names of the selected Web PubSub Custom Certificate.
+	// > **Note:** Please ensure the custom domain name is included in the Subject Alternative Names of the selected Web PubSub Custom Certificate.
 	DomainName pulumi.StringInput
 	// Specifies the name of the Web PubSub Custom Domain. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -220,7 +220,7 @@ func (o CustomDomainOutput) ToCustomDomainOutputWithContext(ctx context.Context)
 
 // Specifies the custom domain name of the Web PubSub Custom Domain. Changing this forces a new resource to be created.
 //
-// > **NOTE:** Please ensure the custom domain name is included in the Subject Alternative Names of the selected Web PubSub Custom Certificate.
+// > **Note:** Please ensure the custom domain name is included in the Subject Alternative Names of the selected Web PubSub Custom Certificate.
 func (o CustomDomainOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomDomain) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
 }

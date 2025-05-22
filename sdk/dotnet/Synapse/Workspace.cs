@@ -242,7 +242,7 @@ namespace Pulumi.Azure.Synapse
         public Output<string?> ComputeSubnetId { get; private set; } = null!;
 
         /// <summary>
-        /// A list of Connectivity endpoints for this Synapse Workspace.
+        /// A map of Connectivity endpoints for this Synapse Workspace. Possible key values are `dev`, `sql`, `sqlOnDemand`, and `web`.
         /// </summary>
         [Output("connectivityEndpoints")]
         public Output<ImmutableDictionary<string, string>> ConnectivityEndpoints { get; private set; } = null!;
@@ -571,7 +571,7 @@ namespace Pulumi.Azure.Synapse
         private InputMap<string>? _connectivityEndpoints;
 
         /// <summary>
-        /// A list of Connectivity endpoints for this Synapse Workspace.
+        /// A map of Connectivity endpoints for this Synapse Workspace. Possible key values are `dev`, `sql`, `sqlOnDemand`, and `web`.
         /// </summary>
         public InputMap<string> ConnectivityEndpoints
         {

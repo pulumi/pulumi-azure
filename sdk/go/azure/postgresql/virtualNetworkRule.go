@@ -14,7 +14,7 @@ import (
 
 // Manages a PostgreSQL Virtual Network Rule.
 //
-// > **NOTE:** PostgreSQL Virtual Network Rules [can only be used with SKU Tiers of `GeneralPurpose` or `MemoryOptimized`](https://docs.microsoft.com/azure/postgresql/concepts-data-access-and-security-vnet)
+// > **Note:** PostgreSQL Virtual Network Rules [can only be used with SKU Tiers of `GeneralPurpose` or `MemoryOptimized`](https://docs.microsoft.com/azure/postgresql/concepts-data-access-and-security-vnet)
 //
 // ## Example Usage
 //
@@ -95,6 +95,13 @@ import (
 //
 // ```
 //
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.DBforPostgreSQL`: 2017-12-01
+//
 // ## Import
 //
 // PostgreSQL Virtual Network Rules can be imported using the `resource id`, e.g.
@@ -109,7 +116,7 @@ type VirtualNetworkRule struct {
 	IgnoreMissingVnetServiceEndpoint pulumi.BoolPtrOutput `pulumi:"ignoreMissingVnetServiceEndpoint"`
 	// The name of the PostgreSQL virtual network rule. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** `name` must be between 1-128 characters long and must satisfy all of the requirements below:
+	// > **Note:** `name` must be between 1-128 characters long and must satisfy all of the requirements below:
 	//
 	// 1. Contains only alphanumeric and hyphen characters
 	// 2. Cannot start with a number or hyphen
@@ -166,7 +173,7 @@ type virtualNetworkRuleState struct {
 	IgnoreMissingVnetServiceEndpoint *bool `pulumi:"ignoreMissingVnetServiceEndpoint"`
 	// The name of the PostgreSQL virtual network rule. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** `name` must be between 1-128 characters long and must satisfy all of the requirements below:
+	// > **Note:** `name` must be between 1-128 characters long and must satisfy all of the requirements below:
 	//
 	// 1. Contains only alphanumeric and hyphen characters
 	// 2. Cannot start with a number or hyphen
@@ -185,7 +192,7 @@ type VirtualNetworkRuleState struct {
 	IgnoreMissingVnetServiceEndpoint pulumi.BoolPtrInput
 	// The name of the PostgreSQL virtual network rule. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** `name` must be between 1-128 characters long and must satisfy all of the requirements below:
+	// > **Note:** `name` must be between 1-128 characters long and must satisfy all of the requirements below:
 	//
 	// 1. Contains only alphanumeric and hyphen characters
 	// 2. Cannot start with a number or hyphen
@@ -208,7 +215,7 @@ type virtualNetworkRuleArgs struct {
 	IgnoreMissingVnetServiceEndpoint *bool `pulumi:"ignoreMissingVnetServiceEndpoint"`
 	// The name of the PostgreSQL virtual network rule. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** `name` must be between 1-128 characters long and must satisfy all of the requirements below:
+	// > **Note:** `name` must be between 1-128 characters long and must satisfy all of the requirements below:
 	//
 	// 1. Contains only alphanumeric and hyphen characters
 	// 2. Cannot start with a number or hyphen
@@ -228,7 +235,7 @@ type VirtualNetworkRuleArgs struct {
 	IgnoreMissingVnetServiceEndpoint pulumi.BoolPtrInput
 	// The name of the PostgreSQL virtual network rule. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** `name` must be between 1-128 characters long and must satisfy all of the requirements below:
+	// > **Note:** `name` must be between 1-128 characters long and must satisfy all of the requirements below:
 	//
 	// 1. Contains only alphanumeric and hyphen characters
 	// 2. Cannot start with a number or hyphen
@@ -336,7 +343,7 @@ func (o VirtualNetworkRuleOutput) IgnoreMissingVnetServiceEndpoint() pulumi.Bool
 
 // The name of the PostgreSQL virtual network rule. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen. Changing this forces a new resource to be created.
 //
-// > **NOTE:** `name` must be between 1-128 characters long and must satisfy all of the requirements below:
+// > **Note:** `name` must be between 1-128 characters long and must satisfy all of the requirements below:
 //
 // 1. Contains only alphanumeric and hyphen characters
 // 2. Cannot start with a number or hyphen

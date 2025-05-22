@@ -33,7 +33,7 @@ public final class ActivityLogAlertCriteria {
     /**
      * @return A list of severity level of the event. Possible values are `Verbose`, `Informational`, `Warning`, `Error`, and `Critical`.
      * 
-     * &gt; **NOTE:** `level` and `levels` are mutually exclusive.
+     * &gt; **Note:** `level` and `levels` are mutually exclusive.
      * 
      */
     private @Nullable List<String> levels;
@@ -65,7 +65,7 @@ public final class ActivityLogAlertCriteria {
     /**
      * @return A list of names of resource groups monitored by the activity log alert.
      * 
-     * &gt; **NOTE:** `resource_group` and `resource_groups` are mutually exclusive.
+     * &gt; **Note:** `resource_group` and `resource_groups` are mutually exclusive.
      * 
      */
     private @Nullable List<String> resourceGroups;
@@ -82,7 +82,7 @@ public final class ActivityLogAlertCriteria {
     /**
      * @return A list of specific resources monitored by the activity log alert. It should be within one of the `scopes`.
      * 
-     * &gt; **NOTE:** `resource_id` and `resource_ids` are mutually exclusive.
+     * &gt; **Note:** `resource_id` and `resource_ids` are mutually exclusive.
      * 
      */
     private @Nullable List<String> resourceIds;
@@ -94,7 +94,7 @@ public final class ActivityLogAlertCriteria {
     /**
      * @return A list of names of resource providers monitored by the activity log alert.
      * 
-     * &gt; **NOTE:** `resource_provider` and `resource_providers` are mutually exclusive.
+     * &gt; **Note:** `resource_provider` and `resource_providers` are mutually exclusive.
      * 
      */
     private @Nullable List<String> resourceProviders;
@@ -106,7 +106,7 @@ public final class ActivityLogAlertCriteria {
     /**
      * @return A list of resource types monitored by the activity log alert.
      * 
-     * &gt; **NOTE:** `resource_type` and `resource_types` are mutually exclusive.
+     * &gt; **Note:** `resource_type` and `resource_types` are mutually exclusive.
      * 
      */
     private @Nullable List<String> resourceTypes;
@@ -123,7 +123,7 @@ public final class ActivityLogAlertCriteria {
     /**
      * @return A list of status of the event. For example, `Started`, `Failed`, or `Succeeded`.
      * 
-     * &gt; **NOTE:** `status` and `statuses` are mutually exclusive.
+     * &gt; **Note:** `status` and `statuses` are mutually exclusive.
      * 
      */
     private @Nullable List<String> statuses;
@@ -135,7 +135,7 @@ public final class ActivityLogAlertCriteria {
     /**
      * @return A list of sub status of the event.
      * 
-     * &gt; **NOTE:** `sub_status` and `sub_statuses` are mutually exclusive.
+     * &gt; **Note:** `sub_status` and `sub_statuses` are mutually exclusive.
      * 
      */
     private @Nullable List<String> subStatuses;
@@ -165,7 +165,7 @@ public final class ActivityLogAlertCriteria {
     /**
      * @return A list of severity level of the event. Possible values are `Verbose`, `Informational`, `Warning`, `Error`, and `Critical`.
      * 
-     * &gt; **NOTE:** `level` and `levels` are mutually exclusive.
+     * &gt; **Note:** `level` and `levels` are mutually exclusive.
      * 
      */
     public List<String> levels() {
@@ -209,7 +209,7 @@ public final class ActivityLogAlertCriteria {
     /**
      * @return A list of names of resource groups monitored by the activity log alert.
      * 
-     * &gt; **NOTE:** `resource_group` and `resource_groups` are mutually exclusive.
+     * &gt; **Note:** `resource_group` and `resource_groups` are mutually exclusive.
      * 
      */
     public List<String> resourceGroups() {
@@ -232,7 +232,7 @@ public final class ActivityLogAlertCriteria {
     /**
      * @return A list of specific resources monitored by the activity log alert. It should be within one of the `scopes`.
      * 
-     * &gt; **NOTE:** `resource_id` and `resource_ids` are mutually exclusive.
+     * &gt; **Note:** `resource_id` and `resource_ids` are mutually exclusive.
      * 
      */
     public List<String> resourceIds() {
@@ -248,7 +248,7 @@ public final class ActivityLogAlertCriteria {
     /**
      * @return A list of names of resource providers monitored by the activity log alert.
      * 
-     * &gt; **NOTE:** `resource_provider` and `resource_providers` are mutually exclusive.
+     * &gt; **Note:** `resource_provider` and `resource_providers` are mutually exclusive.
      * 
      */
     public List<String> resourceProviders() {
@@ -264,7 +264,7 @@ public final class ActivityLogAlertCriteria {
     /**
      * @return A list of resource types monitored by the activity log alert.
      * 
-     * &gt; **NOTE:** `resource_type` and `resource_types` are mutually exclusive.
+     * &gt; **Note:** `resource_type` and `resource_types` are mutually exclusive.
      * 
      */
     public List<String> resourceTypes() {
@@ -287,7 +287,7 @@ public final class ActivityLogAlertCriteria {
     /**
      * @return A list of status of the event. For example, `Started`, `Failed`, or `Succeeded`.
      * 
-     * &gt; **NOTE:** `status` and `statuses` are mutually exclusive.
+     * &gt; **Note:** `status` and `statuses` are mutually exclusive.
      * 
      */
     public List<String> statuses() {
@@ -303,7 +303,7 @@ public final class ActivityLogAlertCriteria {
     /**
      * @return A list of sub status of the event.
      * 
-     * &gt; **NOTE:** `sub_status` and `sub_statuses` are mutually exclusive.
+     * &gt; **Note:** `sub_status` and `sub_statuses` are mutually exclusive.
      * 
      */
     public List<String> subStatuses() {

@@ -21,6 +21,13 @@ import * as utilities from "../utilities";
  * });
  * export const id = example.then(example => example.id);
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Oracle.Database`: 2024-06-01
  */
 export function getExadataInfrastructure(args: GetExadataInfrastructureArgs, opts?: pulumi.InvokeOptions): Promise<GetExadataInfrastructureResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -202,6 +209,13 @@ export interface GetExadataInfrastructureResult {
  * });
  * export const id = example.then(example => example.id);
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Oracle.Database`: 2024-06-01
  */
 export function getExadataInfrastructureOutput(args: GetExadataInfrastructureOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetExadataInfrastructureResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

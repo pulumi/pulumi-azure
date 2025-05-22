@@ -14,7 +14,7 @@ import (
 
 // Manages the File Upload of an IoT Hub.
 //
-// > **NOTE:** File upload can be defined either directly on the `iot.IoTHub` resource, or using the `iot.FileUpload` resource - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
+// > **Note:** File upload can be defined either directly on the `iot.IoTHub` resource, or using the `iot.FileUpload` resource - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
 //
 // ## Example Usage
 //
@@ -103,7 +103,7 @@ type FileUpload struct {
 	DefaultTtl pulumi.StringPtrOutput `pulumi:"defaultTtl"`
 	// The ID of the User Managed Identity used to authenticate against the storage account.
 	//
-	// > **NOTE:** `identityId` can only be specified when `authenticationType` is `identityBased`. It must be one of the `identityIds` of the IoT Hub. If `identityId` is omitted when `authenticationType` is `identityBased`, then the System-Assigned Managed Identity of the IoT Hub will be used.
+	// > **Note:** `identityId` can only be specified when `authenticationType` is `identityBased`. It must be one of the `identityIds` of the IoT Hub. If `identityId` is omitted when `authenticationType` is `identityBased`, then the System-Assigned Managed Identity of the IoT Hub will be used.
 	IdentityId pulumi.StringPtrOutput `pulumi:"identityId"`
 	// The ID of the IoT Hub. Changing this forces a new IoT Hub to be created.
 	IothubId pulumi.StringOutput `pulumi:"iothubId"`
@@ -173,7 +173,7 @@ type fileUploadState struct {
 	DefaultTtl *string `pulumi:"defaultTtl"`
 	// The ID of the User Managed Identity used to authenticate against the storage account.
 	//
-	// > **NOTE:** `identityId` can only be specified when `authenticationType` is `identityBased`. It must be one of the `identityIds` of the IoT Hub. If `identityId` is omitted when `authenticationType` is `identityBased`, then the System-Assigned Managed Identity of the IoT Hub will be used.
+	// > **Note:** `identityId` can only be specified when `authenticationType` is `identityBased`. It must be one of the `identityIds` of the IoT Hub. If `identityId` is omitted when `authenticationType` is `identityBased`, then the System-Assigned Managed Identity of the IoT Hub will be used.
 	IdentityId *string `pulumi:"identityId"`
 	// The ID of the IoT Hub. Changing this forces a new IoT Hub to be created.
 	IothubId *string `pulumi:"iothubId"`
@@ -198,7 +198,7 @@ type FileUploadState struct {
 	DefaultTtl pulumi.StringPtrInput
 	// The ID of the User Managed Identity used to authenticate against the storage account.
 	//
-	// > **NOTE:** `identityId` can only be specified when `authenticationType` is `identityBased`. It must be one of the `identityIds` of the IoT Hub. If `identityId` is omitted when `authenticationType` is `identityBased`, then the System-Assigned Managed Identity of the IoT Hub will be used.
+	// > **Note:** `identityId` can only be specified when `authenticationType` is `identityBased`. It must be one of the `identityIds` of the IoT Hub. If `identityId` is omitted when `authenticationType` is `identityBased`, then the System-Assigned Managed Identity of the IoT Hub will be used.
 	IdentityId pulumi.StringPtrInput
 	// The ID of the IoT Hub. Changing this forces a new IoT Hub to be created.
 	IothubId pulumi.StringPtrInput
@@ -227,7 +227,7 @@ type fileUploadArgs struct {
 	DefaultTtl *string `pulumi:"defaultTtl"`
 	// The ID of the User Managed Identity used to authenticate against the storage account.
 	//
-	// > **NOTE:** `identityId` can only be specified when `authenticationType` is `identityBased`. It must be one of the `identityIds` of the IoT Hub. If `identityId` is omitted when `authenticationType` is `identityBased`, then the System-Assigned Managed Identity of the IoT Hub will be used.
+	// > **Note:** `identityId` can only be specified when `authenticationType` is `identityBased`. It must be one of the `identityIds` of the IoT Hub. If `identityId` is omitted when `authenticationType` is `identityBased`, then the System-Assigned Managed Identity of the IoT Hub will be used.
 	IdentityId *string `pulumi:"identityId"`
 	// The ID of the IoT Hub. Changing this forces a new IoT Hub to be created.
 	IothubId string `pulumi:"iothubId"`
@@ -253,7 +253,7 @@ type FileUploadArgs struct {
 	DefaultTtl pulumi.StringPtrInput
 	// The ID of the User Managed Identity used to authenticate against the storage account.
 	//
-	// > **NOTE:** `identityId` can only be specified when `authenticationType` is `identityBased`. It must be one of the `identityIds` of the IoT Hub. If `identityId` is omitted when `authenticationType` is `identityBased`, then the System-Assigned Managed Identity of the IoT Hub will be used.
+	// > **Note:** `identityId` can only be specified when `authenticationType` is `identityBased`. It must be one of the `identityIds` of the IoT Hub. If `identityId` is omitted when `authenticationType` is `identityBased`, then the System-Assigned Managed Identity of the IoT Hub will be used.
 	IdentityId pulumi.StringPtrInput
 	// The ID of the IoT Hub. Changing this forces a new IoT Hub to be created.
 	IothubId pulumi.StringInput
@@ -376,7 +376,7 @@ func (o FileUploadOutput) DefaultTtl() pulumi.StringPtrOutput {
 
 // The ID of the User Managed Identity used to authenticate against the storage account.
 //
-// > **NOTE:** `identityId` can only be specified when `authenticationType` is `identityBased`. It must be one of the `identityIds` of the IoT Hub. If `identityId` is omitted when `authenticationType` is `identityBased`, then the System-Assigned Managed Identity of the IoT Hub will be used.
+// > **Note:** `identityId` can only be specified when `authenticationType` is `identityBased`. It must be one of the `identityIds` of the IoT Hub. If `identityId` is omitted when `authenticationType` is `identityBased`, then the System-Assigned Managed Identity of the IoT Hub will be used.
 func (o FileUploadOutput) IdentityId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FileUpload) pulumi.StringPtrOutput { return v.IdentityId }).(pulumi.StringPtrOutput)
 }

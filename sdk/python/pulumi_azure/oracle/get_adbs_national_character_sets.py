@@ -87,6 +87,13 @@ def get_adbs_national_character_sets(location: Optional[builtins.str] = None,
     pulumi.export("example", example_azurerm_oracle_adbs_national_character_sets)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Oracle.Database`: 2024-06-01
+
 
     :param builtins.str location: The Azure Region to query for the national character sets in.
     """
@@ -113,6 +120,13 @@ def get_adbs_national_character_sets_output(location: Optional[pulumi.Input[buil
     example = azure.oracle.get_adbs_character_sets(location="West Europe")
     pulumi.export("example", example_azurerm_oracle_adbs_national_character_sets)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Oracle.Database`: 2024-06-01
 
 
     :param builtins.str location: The Azure Region to query for the national character sets in.

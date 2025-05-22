@@ -23,6 +23,13 @@ import * as utilities from "../utilities";
  * export const location = example.then(example => example.location);
  * export const clientId = example.then(example => example.clientId);
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.AzureStackHCI`: 2024-01-01, 2022-05-04
  */
 export function getHciCluster(args: GetHciClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetHciClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -110,6 +117,13 @@ export interface GetHciClusterResult {
  * export const location = example.then(example => example.location);
  * export const clientId = example.then(example => example.clientId);
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.AzureStackHCI`: 2024-01-01, 2022-05-04
  */
 export function getHciClusterOutput(args: GetHciClusterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetHciClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

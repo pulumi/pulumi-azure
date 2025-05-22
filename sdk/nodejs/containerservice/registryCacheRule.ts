@@ -35,6 +35,13 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.ContainerRegistry`: 2023-07-01
+ *
  * ## Import
  *
  * Container Registry Cache Rules can be imported using the `resource id`, e.g.

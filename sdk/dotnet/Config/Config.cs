@@ -348,6 +348,7 @@ namespace Pulumi.Azure
                 public Pulumi.Azure.Config.Types.FeaturesAppConfiguration? AppConfiguration { get; set; } = null!;
                 public Pulumi.Azure.Config.Types.FeaturesApplicationInsights? ApplicationInsights { get; set; } = null!;
                 public Pulumi.Azure.Config.Types.FeaturesCognitiveAccount? CognitiveAccount { get; set; } = null!;
+                public Pulumi.Azure.Config.Types.FeaturesDatabricksWorkspace? DatabricksWorkspace { get; set; } = null!;
                 public Pulumi.Azure.Config.Types.FeaturesKeyVault? KeyVault { get; set; } = null!;
                 public Pulumi.Azure.Config.Types.FeaturesLogAnalyticsWorkspace? LogAnalyticsWorkspace { get; set; } = null!;
                 public Pulumi.Azure.Config.Types.FeaturesMachineLearning? MachineLearning { get; set; } = null!;
@@ -384,6 +385,14 @@ namespace Pulumi.Azure
              public class FeaturesCognitiveAccount
              {
                 public bool? PurgeSoftDeleteOnDestroy { get; set; }
+            }
+
+             public class FeaturesDatabricksWorkspace
+             {
+            /// <summary>
+            /// When enabled, the managed resource group that contains the Unity Catalog data will be forcibly deleted when the workspace is destroyed, regardless of contents.
+            /// </summary>
+                public bool? ForceDelete { get; set; }
             }
 
              public class FeaturesKeyVault

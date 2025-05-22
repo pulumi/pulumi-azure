@@ -144,6 +144,13 @@ def get_project(name: Optional[builtins.str] = None,
     pulumi.export("name", example.name)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.DataMigration`: 2021-06-30
+
 
     :param builtins.str name: Name of the database migration project.
     :param builtins.str resource_group_name: Name of the resource group where resource belongs to.
@@ -183,6 +190,13 @@ def get_project_output(name: Optional[pulumi.Input[builtins.str]] = None,
         service_name="example-dbms")
     pulumi.export("name", example.name)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.DataMigration`: 2021-06-30
 
 
     :param builtins.str name: Name of the database migration project.

@@ -265,7 +265,9 @@ type WindowsVirtualMachine struct {
 	// > **NOTE:** To attach an existing VM to a Virtual Machine Scale Set, the scale set must have `singlePlacementGroup` set to `false`, see [the documentation](https://learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm?tabs=portal-1%2Cportal-2%2Cportal-3#limitations-for-attaching-an-existing-vm-to-a-scale-set) for more information.
 	VirtualMachineScaleSetId pulumi.StringPtrOutput `pulumi:"virtualMachineScaleSetId"`
 	// Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.
-	VmAgentPlatformUpdatesEnabled pulumi.BoolPtrOutput `pulumi:"vmAgentPlatformUpdatesEnabled"`
+	//
+	// Deprecated: this property has been deprecated due to a breaking change introduced by the Service team, which redefined it as a read-only field within the API
+	VmAgentPlatformUpdatesEnabled pulumi.BoolOutput `pulumi:"vmAgentPlatformUpdatesEnabled"`
 	// Specifies if vTPM (virtual Trusted Platform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
 	VtpmEnabled pulumi.BoolPtrOutput `pulumi:"vtpmEnabled"`
 	// One or more `winrmListener` blocks as defined below. Changing this forces a new resource to be created.
@@ -470,6 +472,8 @@ type windowsVirtualMachineState struct {
 	// > **NOTE:** To attach an existing VM to a Virtual Machine Scale Set, the scale set must have `singlePlacementGroup` set to `false`, see [the documentation](https://learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm?tabs=portal-1%2Cportal-2%2Cportal-3#limitations-for-attaching-an-existing-vm-to-a-scale-set) for more information.
 	VirtualMachineScaleSetId *string `pulumi:"virtualMachineScaleSetId"`
 	// Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.
+	//
+	// Deprecated: this property has been deprecated due to a breaking change introduced by the Service team, which redefined it as a read-only field within the API
 	VmAgentPlatformUpdatesEnabled *bool `pulumi:"vmAgentPlatformUpdatesEnabled"`
 	// Specifies if vTPM (virtual Trusted Platform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
 	VtpmEnabled *bool `pulumi:"vtpmEnabled"`
@@ -617,6 +621,8 @@ type WindowsVirtualMachineState struct {
 	// > **NOTE:** To attach an existing VM to a Virtual Machine Scale Set, the scale set must have `singlePlacementGroup` set to `false`, see [the documentation](https://learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm?tabs=portal-1%2Cportal-2%2Cportal-3#limitations-for-attaching-an-existing-vm-to-a-scale-set) for more information.
 	VirtualMachineScaleSetId pulumi.StringPtrInput
 	// Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.
+	//
+	// Deprecated: this property has been deprecated due to a breaking change introduced by the Service team, which redefined it as a read-only field within the API
 	VmAgentPlatformUpdatesEnabled pulumi.BoolPtrInput
 	// Specifies if vTPM (virtual Trusted Platform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
 	VtpmEnabled pulumi.BoolPtrInput
@@ -758,6 +764,8 @@ type windowsVirtualMachineArgs struct {
 	// > **NOTE:** To attach an existing VM to a Virtual Machine Scale Set, the scale set must have `singlePlacementGroup` set to `false`, see [the documentation](https://learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm?tabs=portal-1%2Cportal-2%2Cportal-3#limitations-for-attaching-an-existing-vm-to-a-scale-set) for more information.
 	VirtualMachineScaleSetId *string `pulumi:"virtualMachineScaleSetId"`
 	// Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.
+	//
+	// Deprecated: this property has been deprecated due to a breaking change introduced by the Service team, which redefined it as a read-only field within the API
 	VmAgentPlatformUpdatesEnabled *bool `pulumi:"vmAgentPlatformUpdatesEnabled"`
 	// Specifies if vTPM (virtual Trusted Platform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
 	VtpmEnabled *bool `pulumi:"vtpmEnabled"`
@@ -896,6 +904,8 @@ type WindowsVirtualMachineArgs struct {
 	// > **NOTE:** To attach an existing VM to a Virtual Machine Scale Set, the scale set must have `singlePlacementGroup` set to `false`, see [the documentation](https://learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm?tabs=portal-1%2Cportal-2%2Cportal-3#limitations-for-attaching-an-existing-vm-to-a-scale-set) for more information.
 	VirtualMachineScaleSetId pulumi.StringPtrInput
 	// Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.
+	//
+	// Deprecated: this property has been deprecated due to a breaking change introduced by the Service team, which redefined it as a read-only field within the API
 	VmAgentPlatformUpdatesEnabled pulumi.BoolPtrInput
 	// Specifies if vTPM (virtual Trusted Platform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
 	VtpmEnabled pulumi.BoolPtrInput
@@ -1302,8 +1312,10 @@ func (o WindowsVirtualMachineOutput) VirtualMachineScaleSetId() pulumi.StringPtr
 }
 
 // Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.
-func (o WindowsVirtualMachineOutput) VmAgentPlatformUpdatesEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *WindowsVirtualMachine) pulumi.BoolPtrOutput { return v.VmAgentPlatformUpdatesEnabled }).(pulumi.BoolPtrOutput)
+//
+// Deprecated: this property has been deprecated due to a breaking change introduced by the Service team, which redefined it as a read-only field within the API
+func (o WindowsVirtualMachineOutput) VmAgentPlatformUpdatesEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *WindowsVirtualMachine) pulumi.BoolOutput { return v.VmAgentPlatformUpdatesEnabled }).(pulumi.BoolOutput)
 }
 
 // Specifies if vTPM (virtual Trusted Platform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.

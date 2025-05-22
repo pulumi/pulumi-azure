@@ -16,7 +16,7 @@ namespace Pulumi.Azure.HDInsight.Outputs
         /// <summary>
         /// A `recurrence` block as defined below.
         /// 
-        /// &gt; **NOTE:** Either a `capacity` or `recurrence` block must be specified - but not both.
+        /// &gt; **Note:** Either a `capacity` or `recurrence` block must be specified - but not both.
         /// </summary>
         public readonly Outputs.HBaseClusterRolesWorkerNodeAutoscaleRecurrence? Recurrence;
 

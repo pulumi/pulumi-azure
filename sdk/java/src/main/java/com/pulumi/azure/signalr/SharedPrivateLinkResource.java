@@ -97,6 +97,13 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.SignalRService`: 2024-03-01
+ * 
  * ## Import
  * 
  * Signalr Shared Private Link Resource can be imported using the `resource id`, e.g.
@@ -181,7 +188,7 @@ public class SharedPrivateLinkResource extends com.pulumi.resources.CustomResour
     /**
      * The ID of the Shared Private Link Enabled Remote Resource which this Signalr Private Endpoint should be connected to. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** The `sub_resource_name` should match with the type of the `target_resource_id` that&#39;s being specified.
+     * &gt; **Note:** The `sub_resource_name` should match with the type of the `target_resource_id` that&#39;s being specified.
      * 
      */
     @Export(name="targetResourceId", refs={String.class}, tree="[0]")
@@ -190,7 +197,7 @@ public class SharedPrivateLinkResource extends com.pulumi.resources.CustomResour
     /**
      * @return The ID of the Shared Private Link Enabled Remote Resource which this Signalr Private Endpoint should be connected to. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** The `sub_resource_name` should match with the type of the `target_resource_id` that&#39;s being specified.
+     * &gt; **Note:** The `sub_resource_name` should match with the type of the `target_resource_id` that&#39;s being specified.
      * 
      */
     public Output<String> targetResourceId() {

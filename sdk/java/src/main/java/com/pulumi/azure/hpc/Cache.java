@@ -27,7 +27,9 @@ import javax.annotation.Nullable;
 /**
  * Manages a HPC Cache.
  * 
- * &gt; **Note:** By request of the service team the provider no longer automatically registering the `Microsoft.StorageCache` Resource Provider for this resource. To register it you can run `az provider register --namespace &#39;Microsoft.StorageCache&#39;`.
+ * !&gt; **Note:** The `azure.hpc.Cache` resource has been deprecated because the service is retiring on 2025-09-30. This resource will be removed in v5.0 of the AzureRM Provider. See https://aka.ms/hpccacheretirement for more information.
+ * 
+ * &gt; **Note:** By request of the service team the provider no longer automatically registers the `Microsoft.StorageCache` Resource Provider for this resource. To register it you can run `az provider register --namespace &#39;Microsoft.StorageCache&#39;`.
  * 
  * ## Example Usage
  * 
@@ -94,6 +96,13 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.StorageCache`: 2023-05-01
+ * 
  * ## Import
  * 
  * HPC Caches can be imported using the `resource id`, e.g.
@@ -122,7 +131,7 @@ public class Cache extends com.pulumi.resources.CustomResource {
     /**
      * The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `21623`, `24576`, `43246`, `49152` and `86491`. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** The `21623`, `43246` and `86491` sizes are restricted to read only resources.
+     * &gt; **Note:** The `21623`, `43246` and `86491` sizes are restricted to read only resources.
      * 
      */
     @Export(name="cacheSizeInGb", refs={Integer.class}, tree="[0]")
@@ -131,7 +140,7 @@ public class Cache extends com.pulumi.resources.CustomResource {
     /**
      * @return The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `21623`, `24576`, `43246`, `49152` and `86491`. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** The `21623`, `43246` and `86491` sizes are restricted to read only resources.
+     * &gt; **Note:** The `21623`, `43246` and `86491` sizes are restricted to read only resources.
      * 
      */
     public Output<Integer> cacheSizeInGb() {
@@ -326,7 +335,7 @@ public class Cache extends com.pulumi.resources.CustomResource {
     /**
      * The SKU of HPC Cache to use. Possible values are (ReadWrite) - `Standard_2G`, `Standard_4G` `Standard_8G` or (ReadOnly) - `Standard_L4_5G`, `Standard_L9G`, and `Standard_L16G`. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** The read-only SKUs have restricted cache sizes. `Standard_L4_5G` must be set to `21623`. `Standard_L9G` to `43246` and `Standard_L16G` to `86491`.
+     * &gt; **Note:** The read-only SKUs have restricted cache sizes. `Standard_L4_5G` must be set to `21623`. `Standard_L9G` to `43246` and `Standard_L16G` to `86491`.
      * 
      */
     @Export(name="skuName", refs={String.class}, tree="[0]")
@@ -335,7 +344,7 @@ public class Cache extends com.pulumi.resources.CustomResource {
     /**
      * @return The SKU of HPC Cache to use. Possible values are (ReadWrite) - `Standard_2G`, `Standard_4G` `Standard_8G` or (ReadOnly) - `Standard_L4_5G`, `Standard_L9G`, and `Standard_L16G`. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** The read-only SKUs have restricted cache sizes. `Standard_L4_5G` must be set to `21623`. `Standard_L9G` to `43246` and `Standard_L16G` to `86491`.
+     * &gt; **Note:** The read-only SKUs have restricted cache sizes. `Standard_L4_5G` must be set to `21623`. `Standard_L9G` to `43246` and `Standard_L16G` to `86491`.
      * 
      */
     public Output<String> skuName() {

@@ -193,6 +193,13 @@ def get_lab(name: Optional[builtins.str] = None,
     pulumi.export("uniqueIdentifier", example.unique_identifier)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.DevTestLab`: 2018-09-15
+
 
     :param builtins.str name: The name of the Dev Test Lab.
     :param builtins.str resource_group_name: The Name of the Resource Group where the Dev Test Lab exists.
@@ -232,6 +239,13 @@ def get_lab_output(name: Optional[pulumi.Input[builtins.str]] = None,
         resource_group_name="example-resources")
     pulumi.export("uniqueIdentifier", example.unique_identifier)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.DevTestLab`: 2018-09-15
 
 
     :param builtins.str name: The name of the Dev Test Lab.

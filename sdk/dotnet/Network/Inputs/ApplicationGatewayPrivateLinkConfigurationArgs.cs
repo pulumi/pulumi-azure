@@ -24,7 +24,7 @@ namespace Pulumi.Azure.Network.Inputs
         /// <summary>
         /// One or more `ip_configuration` blocks as defined below.
         /// 
-        /// &gt; **Please Note:** The `AllowApplicationGatewayPrivateLink` feature must be registered on the subscription before enabling private link
+        /// &gt; **Note:** The `AllowApplicationGatewayPrivateLink` feature must be registered on the subscription before enabling private link
         /// 
         /// ```bash
         /// az feature register --name AllowApplicationGatewayPrivateLink --namespace Microsoft.Network

@@ -56,7 +56,7 @@ class ApiArgs:
         :param pulumi.Input[builtins.str] display_name: The display name of the API.
         :param pulumi.Input['ApiImportArgs'] import_: A `import` block as documented below.
                
-               > **NOTE:** The `display_name`, `description`, `contact`, and `license` fields can be imported by the `import` block, which might cause a drift if these fields are set along with the `import` block.
+               > **Note:** The `display_name`, `description`, `contact`, and `license` fields can be imported by the `import` block, which might cause a drift if these fields are set along with the `import` block.
         :param pulumi.Input['ApiLicenseArgs'] license: A `license` block as documented below.
         :param pulumi.Input[builtins.str] name: The name of the API Management API. Changing this forces a new resource to be created.
         :param pulumi.Input['ApiOauth2AuthorizationArgs'] oauth2_authorization: An `oauth2_authorization` block as documented below.
@@ -64,7 +64,7 @@ class ApiArgs:
         :param pulumi.Input[builtins.str] path: The Path for this API Management API, which is a relative URL which uniquely identifies this API and all of its resource paths within the API Management Service.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] protocols: A list of protocols the operations in this API can be invoked. Possible values are `http`, `https`, `ws`, and `wss`.
                
-               > **NOTE:** `display_name`, `path` and `protocols` are required when `source_api_id` is not set.
+               > **Note:** `display_name`, `path` and `protocols` are required when `source_api_id` is not set.
         :param pulumi.Input[builtins.str] revision_description: The description of the API Revision of the API Management API.
         :param pulumi.Input[builtins.str] service_url: Absolute URL of the backend service implementing this API.
         :param pulumi.Input[builtins.str] source_api_id: The API id of the source API, which could be in format `azurerm_api_management_api.example.id` or in format `azurerm_api_management_api.example.id;rev=1`
@@ -75,7 +75,7 @@ class ApiArgs:
         :param pulumi.Input[builtins.str] version_description: The description of the API Version of the API Management API.
         :param pulumi.Input[builtins.str] version_set_id: The ID of the Version Set which this API is associated with.
                
-               > **NOTE:** When `version` is set, `version_set_id` must also be specified
+               > **Note:** When `version` is set, `version_set_id` must also be specified
         """
         pulumi.set(__self__, "api_management_name", api_management_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -211,7 +211,7 @@ class ApiArgs:
         """
         A `import` block as documented below.
 
-        > **NOTE:** The `display_name`, `description`, `contact`, and `license` fields can be imported by the `import` block, which might cause a drift if these fields are set along with the `import` block.
+        > **Note:** The `display_name`, `description`, `contact`, and `license` fields can be imported by the `import` block, which might cause a drift if these fields are set along with the `import` block.
         """
         return pulumi.get(self, "import_")
 
@@ -285,7 +285,7 @@ class ApiArgs:
         """
         A list of protocols the operations in this API can be invoked. Possible values are `http`, `https`, `ws`, and `wss`.
 
-        > **NOTE:** `display_name`, `path` and `protocols` are required when `source_api_id` is not set.
+        > **Note:** `display_name`, `path` and `protocols` are required when `source_api_id` is not set.
         """
         return pulumi.get(self, "protocols")
 
@@ -395,7 +395,7 @@ class ApiArgs:
         """
         The ID of the Version Set which this API is associated with.
 
-        > **NOTE:** When `version` is set, `version_set_id` must also be specified
+        > **Note:** When `version` is set, `version_set_id` must also be specified
         """
         return pulumi.get(self, "version_set_id")
 
@@ -441,7 +441,7 @@ class _ApiState:
         :param pulumi.Input[builtins.str] display_name: The display name of the API.
         :param pulumi.Input['ApiImportArgs'] import_: A `import` block as documented below.
                
-               > **NOTE:** The `display_name`, `description`, `contact`, and `license` fields can be imported by the `import` block, which might cause a drift if these fields are set along with the `import` block.
+               > **Note:** The `display_name`, `description`, `contact`, and `license` fields can be imported by the `import` block, which might cause a drift if these fields are set along with the `import` block.
         :param pulumi.Input[builtins.bool] is_current: Is this the current API Revision?
         :param pulumi.Input[builtins.bool] is_online: Is this API Revision online/accessible via the Gateway?
         :param pulumi.Input['ApiLicenseArgs'] license: A `license` block as documented below.
@@ -451,7 +451,7 @@ class _ApiState:
         :param pulumi.Input[builtins.str] path: The Path for this API Management API, which is a relative URL which uniquely identifies this API and all of its resource paths within the API Management Service.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] protocols: A list of protocols the operations in this API can be invoked. Possible values are `http`, `https`, `ws`, and `wss`.
                
-               > **NOTE:** `display_name`, `path` and `protocols` are required when `source_api_id` is not set.
+               > **Note:** `display_name`, `path` and `protocols` are required when `source_api_id` is not set.
         :param pulumi.Input[builtins.str] resource_group_name: The Name of the Resource Group where the API Management API exists. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] revision: The Revision which used for this API. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] revision_description: The description of the API Revision of the API Management API.
@@ -464,7 +464,7 @@ class _ApiState:
         :param pulumi.Input[builtins.str] version_description: The description of the API Version of the API Management API.
         :param pulumi.Input[builtins.str] version_set_id: The ID of the Version Set which this API is associated with.
                
-               > **NOTE:** When `version` is set, `version_set_id` must also be specified
+               > **Note:** When `version` is set, `version_set_id` must also be specified
         """
         if api_management_name is not None:
             pulumi.set(__self__, "api_management_name", api_management_name)
@@ -583,7 +583,7 @@ class _ApiState:
         """
         A `import` block as documented below.
 
-        > **NOTE:** The `display_name`, `description`, `contact`, and `license` fields can be imported by the `import` block, which might cause a drift if these fields are set along with the `import` block.
+        > **Note:** The `display_name`, `description`, `contact`, and `license` fields can be imported by the `import` block, which might cause a drift if these fields are set along with the `import` block.
         """
         return pulumi.get(self, "import_")
 
@@ -681,7 +681,7 @@ class _ApiState:
         """
         A list of protocols the operations in this API can be invoked. Possible values are `http`, `https`, `ws`, and `wss`.
 
-        > **NOTE:** `display_name`, `path` and `protocols` are required when `source_api_id` is not set.
+        > **Note:** `display_name`, `path` and `protocols` are required when `source_api_id` is not set.
         """
         return pulumi.get(self, "protocols")
 
@@ -815,7 +815,7 @@ class _ApiState:
         """
         The ID of the Version Set which this API is associated with.
 
-        > **NOTE:** When `version` is set, `version_set_id` must also be specified
+        > **Note:** When `version` is set, `version_set_id` must also be specified
         """
         return pulumi.get(self, "version_set_id")
 
@@ -887,6 +887,13 @@ class Api(pulumi.CustomResource):
             })
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ApiManagement`: 2022-08-01
+
         ## Import
 
         API Management API's can be imported using the `resource id`, e.g.
@@ -904,7 +911,7 @@ class Api(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] display_name: The display name of the API.
         :param pulumi.Input[Union['ApiImportArgs', 'ApiImportArgsDict']] import_: A `import` block as documented below.
                
-               > **NOTE:** The `display_name`, `description`, `contact`, and `license` fields can be imported by the `import` block, which might cause a drift if these fields are set along with the `import` block.
+               > **Note:** The `display_name`, `description`, `contact`, and `license` fields can be imported by the `import` block, which might cause a drift if these fields are set along with the `import` block.
         :param pulumi.Input[Union['ApiLicenseArgs', 'ApiLicenseArgsDict']] license: A `license` block as documented below.
         :param pulumi.Input[builtins.str] name: The name of the API Management API. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['ApiOauth2AuthorizationArgs', 'ApiOauth2AuthorizationArgsDict']] oauth2_authorization: An `oauth2_authorization` block as documented below.
@@ -912,7 +919,7 @@ class Api(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] path: The Path for this API Management API, which is a relative URL which uniquely identifies this API and all of its resource paths within the API Management Service.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] protocols: A list of protocols the operations in this API can be invoked. Possible values are `http`, `https`, `ws`, and `wss`.
                
-               > **NOTE:** `display_name`, `path` and `protocols` are required when `source_api_id` is not set.
+               > **Note:** `display_name`, `path` and `protocols` are required when `source_api_id` is not set.
         :param pulumi.Input[builtins.str] resource_group_name: The Name of the Resource Group where the API Management API exists. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] revision: The Revision which used for this API. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] revision_description: The description of the API Revision of the API Management API.
@@ -925,7 +932,7 @@ class Api(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] version_description: The description of the API Version of the API Management API.
         :param pulumi.Input[builtins.str] version_set_id: The ID of the Version Set which this API is associated with.
                
-               > **NOTE:** When `version` is set, `version_set_id` must also be specified
+               > **Note:** When `version` is set, `version_set_id` must also be specified
         """
         ...
     @overload
@@ -965,6 +972,13 @@ class Api(pulumi.CustomResource):
                 "content_value": "https://raw.githubusercontent.com/hashicorp/terraform-provider-azurerm/refs/heads/main/internal/services/apimanagement/testdata/api_management_api_schema_swagger.json",
             })
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ApiManagement`: 2022-08-01
 
         ## Import
 
@@ -1101,7 +1115,7 @@ class Api(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] display_name: The display name of the API.
         :param pulumi.Input[Union['ApiImportArgs', 'ApiImportArgsDict']] import_: A `import` block as documented below.
                
-               > **NOTE:** The `display_name`, `description`, `contact`, and `license` fields can be imported by the `import` block, which might cause a drift if these fields are set along with the `import` block.
+               > **Note:** The `display_name`, `description`, `contact`, and `license` fields can be imported by the `import` block, which might cause a drift if these fields are set along with the `import` block.
         :param pulumi.Input[builtins.bool] is_current: Is this the current API Revision?
         :param pulumi.Input[builtins.bool] is_online: Is this API Revision online/accessible via the Gateway?
         :param pulumi.Input[Union['ApiLicenseArgs', 'ApiLicenseArgsDict']] license: A `license` block as documented below.
@@ -1111,7 +1125,7 @@ class Api(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] path: The Path for this API Management API, which is a relative URL which uniquely identifies this API and all of its resource paths within the API Management Service.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] protocols: A list of protocols the operations in this API can be invoked. Possible values are `http`, `https`, `ws`, and `wss`.
                
-               > **NOTE:** `display_name`, `path` and `protocols` are required when `source_api_id` is not set.
+               > **Note:** `display_name`, `path` and `protocols` are required when `source_api_id` is not set.
         :param pulumi.Input[builtins.str] resource_group_name: The Name of the Resource Group where the API Management API exists. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] revision: The Revision which used for this API. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] revision_description: The description of the API Revision of the API Management API.
@@ -1124,7 +1138,7 @@ class Api(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] version_description: The description of the API Version of the API Management API.
         :param pulumi.Input[builtins.str] version_set_id: The ID of the Version Set which this API is associated with.
                
-               > **NOTE:** When `version` is set, `version_set_id` must also be specified
+               > **Note:** When `version` is set, `version_set_id` must also be specified
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1203,7 +1217,7 @@ class Api(pulumi.CustomResource):
         """
         A `import` block as documented below.
 
-        > **NOTE:** The `display_name`, `description`, `contact`, and `license` fields can be imported by the `import` block, which might cause a drift if these fields are set along with the `import` block.
+        > **Note:** The `display_name`, `description`, `contact`, and `license` fields can be imported by the `import` block, which might cause a drift if these fields are set along with the `import` block.
         """
         return pulumi.get(self, "import_")
 
@@ -1269,7 +1283,7 @@ class Api(pulumi.CustomResource):
         """
         A list of protocols the operations in this API can be invoked. Possible values are `http`, `https`, `ws`, and `wss`.
 
-        > **NOTE:** `display_name`, `path` and `protocols` are required when `source_api_id` is not set.
+        > **Note:** `display_name`, `path` and `protocols` are required when `source_api_id` is not set.
         """
         return pulumi.get(self, "protocols")
 
@@ -1359,7 +1373,7 @@ class Api(pulumi.CustomResource):
         """
         The ID of the Version Set which this API is associated with.
 
-        > **NOTE:** When `version` is set, `version_set_id` must also be specified
+        > **Note:** When `version` is set, `version_set_id` must also be specified
         """
         return pulumi.get(self, "version_set_id")
 

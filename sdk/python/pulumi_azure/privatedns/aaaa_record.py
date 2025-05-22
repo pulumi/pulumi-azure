@@ -276,6 +276,13 @@ class AAAARecord(pulumi.CustomResource):
             ])
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network`: 2024-06-01
+
         ## Import
 
         Private DNS AAAA Records can be imported using the `resource id`, e.g.
@@ -324,6 +331,13 @@ class AAAARecord(pulumi.CustomResource):
                 "fd5d:70bc:930e:d008::7335",
             ])
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network`: 2024-06-01
 
         ## Import
 

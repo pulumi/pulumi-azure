@@ -24,6 +24,13 @@ import javax.annotation.Nullable;
  * &lt;!--Start PulumiCodeChooser --&gt;
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.ServiceLinker`: 2024-04-01, 2022-05-01
+ * 
  * ## Import
  * 
  * Service Connector for app service can be imported using the `resource id`, e.g.

@@ -131,6 +131,13 @@ def get_kubernetes_service_versions(include_preview: Optional[builtins.bool] = N
     pulumi.export("latestVersion", current.latest_version)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.ContainerService`: 2019-08-01
+
 
     :param builtins.bool include_preview: Should Preview versions of Kubernetes in AKS be included? Defaults to `true`
     :param builtins.str location: Specifies the location in which to query for versions.
@@ -168,6 +175,13 @@ def get_kubernetes_service_versions_output(include_preview: Optional[pulumi.Inpu
     pulumi.export("versions", current.versions)
     pulumi.export("latestVersion", current.latest_version)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.ContainerService`: 2019-08-01
 
 
     :param builtins.bool include_preview: Should Preview versions of Kubernetes in AKS be included? Defaults to `true`

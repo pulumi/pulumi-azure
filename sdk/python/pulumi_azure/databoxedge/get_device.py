@@ -133,6 +133,13 @@ def get_device(name: Optional[builtins.str] = None,
         resource_group_name="example-rg")
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.DataBoxEdge`: 2022-03-01
+
 
     :param builtins.str name: The name which should be used for this Databox Edge Device. Changing this forces a new Databox Edge Device to be created.
     :param builtins.str resource_group_name: The name of the Resource Group where the Databox Edge Device should exist. Changing this forces a new Databox Edge Device to be created.
@@ -166,6 +173,13 @@ def get_device_output(name: Optional[pulumi.Input[builtins.str]] = None,
     example = azure.databoxedge.get_device(name="example-device",
         resource_group_name="example-rg")
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.DataBoxEdge`: 2022-03-01
 
 
     :param builtins.str name: The name which should be used for this Databox Edge Device. Changing this forces a new Databox Edge Device to be created.

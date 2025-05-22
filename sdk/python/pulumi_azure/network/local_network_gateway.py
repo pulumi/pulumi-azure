@@ -38,7 +38,7 @@ class LocalNetworkGatewayArgs:
         :param pulumi.Input[builtins.str] gateway_address: The gateway IP address to connect with.
         :param pulumi.Input[builtins.str] gateway_fqdn: The gateway FQDN to connect with.
                
-               > **NOTE:** Either `gateway_address` or `gateway_fqdn` should be specified.
+               > **Note:** Either `gateway_address` or `gateway_fqdn` should be specified.
         :param pulumi.Input[builtins.str] location: The location/region where the local network gateway is created. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] name: The name of the local network gateway. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags to assign to the resource.
@@ -113,7 +113,7 @@ class LocalNetworkGatewayArgs:
         """
         The gateway FQDN to connect with.
 
-        > **NOTE:** Either `gateway_address` or `gateway_fqdn` should be specified.
+        > **Note:** Either `gateway_address` or `gateway_fqdn` should be specified.
         """
         return pulumi.get(self, "gateway_fqdn")
 
@@ -176,7 +176,7 @@ class _LocalNetworkGatewayState:
         :param pulumi.Input[builtins.str] gateway_address: The gateway IP address to connect with.
         :param pulumi.Input[builtins.str] gateway_fqdn: The gateway FQDN to connect with.
                
-               > **NOTE:** Either `gateway_address` or `gateway_fqdn` should be specified.
+               > **Note:** Either `gateway_address` or `gateway_fqdn` should be specified.
         :param pulumi.Input[builtins.str] location: The location/region where the local network gateway is created. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] name: The name of the local network gateway. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group in which to create the local network gateway. Changing this forces a new resource to be created.
@@ -241,7 +241,7 @@ class _LocalNetworkGatewayState:
         """
         The gateway FQDN to connect with.
 
-        > **NOTE:** Either `gateway_address` or `gateway_fqdn` should be specified.
+        > **Note:** Either `gateway_address` or `gateway_fqdn` should be specified.
         """
         return pulumi.get(self, "gateway_fqdn")
 
@@ -348,7 +348,7 @@ class LocalNetworkGateway(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] gateway_address: The gateway IP address to connect with.
         :param pulumi.Input[builtins.str] gateway_fqdn: The gateway FQDN to connect with.
                
-               > **NOTE:** Either `gateway_address` or `gateway_fqdn` should be specified.
+               > **Note:** Either `gateway_address` or `gateway_fqdn` should be specified.
         :param pulumi.Input[builtins.str] location: The location/region where the local network gateway is created. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] name: The name of the local network gateway. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group in which to create the local network gateway. Changing this forces a new resource to be created.
@@ -460,7 +460,7 @@ class LocalNetworkGateway(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] gateway_address: The gateway IP address to connect with.
         :param pulumi.Input[builtins.str] gateway_fqdn: The gateway FQDN to connect with.
                
-               > **NOTE:** Either `gateway_address` or `gateway_fqdn` should be specified.
+               > **Note:** Either `gateway_address` or `gateway_fqdn` should be specified.
         :param pulumi.Input[builtins.str] location: The location/region where the local network gateway is created. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] name: The name of the local network gateway. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group in which to create the local network gateway. Changing this forces a new resource to be created.
@@ -510,7 +510,7 @@ class LocalNetworkGateway(pulumi.CustomResource):
         """
         The gateway FQDN to connect with.
 
-        > **NOTE:** Either `gateway_address` or `gateway_fqdn` should be specified.
+        > **Note:** Either `gateway_address` or `gateway_fqdn` should be specified.
         """
         return pulumi.get(self, "gateway_fqdn")
 

@@ -14,7 +14,7 @@ import (
 
 // Manages an IotHub EventHub Endpoint
 //
-// > **NOTE:** Endpoints can be defined either directly on the `iot.IoTHub` resource, or using the `azurerm_iothub_endpoint_*` resources - but the two ways of defining the endpoints cannot be used together. If both are used against the same IoTHub, spurious changes will occur. Also, defining a `azurerm_iothub_endpoint_*` resource and another endpoint of a different type directly on the `iot.IoTHub` resource is not supported.
+// > **Note:** Endpoints can be defined either directly on the `iot.IoTHub` resource, or using the `azurerm_iothub_endpoint_*` resources - but the two ways of defining the endpoints cannot be used together. If both are used against the same IoTHub, spurious changes will occur. Also, defining a `azurerm_iothub_endpoint_*` resource and another endpoint of a different type directly on the `iot.IoTHub` resource is not supported.
 //
 // ## Example Usage
 //
@@ -120,7 +120,7 @@ type EndpointEventhub struct {
 	EntityPath pulumi.StringPtrOutput `pulumi:"entityPath"`
 	// ID of the User Managed Identity used to authenticate against the Event Hub endpoint.
 	//
-	// > **NOTE:** `identityId` can only be specified when `authenticationType` is `identityBased`. It must be one of the `identityIds` of the Iot Hub. If not specified when `authenticationType` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
+	// > **Note:** `identityId` can only be specified when `authenticationType` is `identityBased`. It must be one of the `identityIds` of the Iot Hub. If not specified when `authenticationType` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
 	IdentityId pulumi.StringPtrOutput `pulumi:"identityId"`
 	// The IoTHub ID for the endpoint. Changing this forces a new resource to be created.
 	IothubId pulumi.StringOutput `pulumi:"iothubId"`
@@ -183,7 +183,7 @@ type endpointEventhubState struct {
 	EntityPath *string `pulumi:"entityPath"`
 	// ID of the User Managed Identity used to authenticate against the Event Hub endpoint.
 	//
-	// > **NOTE:** `identityId` can only be specified when `authenticationType` is `identityBased`. It must be one of the `identityIds` of the Iot Hub. If not specified when `authenticationType` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
+	// > **Note:** `identityId` can only be specified when `authenticationType` is `identityBased`. It must be one of the `identityIds` of the Iot Hub. If not specified when `authenticationType` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
 	IdentityId *string `pulumi:"identityId"`
 	// The IoTHub ID for the endpoint. Changing this forces a new resource to be created.
 	IothubId *string `pulumi:"iothubId"`
@@ -204,7 +204,7 @@ type EndpointEventhubState struct {
 	EntityPath pulumi.StringPtrInput
 	// ID of the User Managed Identity used to authenticate against the Event Hub endpoint.
 	//
-	// > **NOTE:** `identityId` can only be specified when `authenticationType` is `identityBased`. It must be one of the `identityIds` of the Iot Hub. If not specified when `authenticationType` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
+	// > **Note:** `identityId` can only be specified when `authenticationType` is `identityBased`. It must be one of the `identityIds` of the Iot Hub. If not specified when `authenticationType` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
 	IdentityId pulumi.StringPtrInput
 	// The IoTHub ID for the endpoint. Changing this forces a new resource to be created.
 	IothubId pulumi.StringPtrInput
@@ -229,7 +229,7 @@ type endpointEventhubArgs struct {
 	EntityPath *string `pulumi:"entityPath"`
 	// ID of the User Managed Identity used to authenticate against the Event Hub endpoint.
 	//
-	// > **NOTE:** `identityId` can only be specified when `authenticationType` is `identityBased`. It must be one of the `identityIds` of the Iot Hub. If not specified when `authenticationType` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
+	// > **Note:** `identityId` can only be specified when `authenticationType` is `identityBased`. It must be one of the `identityIds` of the Iot Hub. If not specified when `authenticationType` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
 	IdentityId *string `pulumi:"identityId"`
 	// The IoTHub ID for the endpoint. Changing this forces a new resource to be created.
 	IothubId string `pulumi:"iothubId"`
@@ -251,7 +251,7 @@ type EndpointEventhubArgs struct {
 	EntityPath pulumi.StringPtrInput
 	// ID of the User Managed Identity used to authenticate against the Event Hub endpoint.
 	//
-	// > **NOTE:** `identityId` can only be specified when `authenticationType` is `identityBased`. It must be one of the `identityIds` of the Iot Hub. If not specified when `authenticationType` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
+	// > **Note:** `identityId` can only be specified when `authenticationType` is `identityBased`. It must be one of the `identityIds` of the Iot Hub. If not specified when `authenticationType` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
 	IdentityId pulumi.StringPtrInput
 	// The IoTHub ID for the endpoint. Changing this forces a new resource to be created.
 	IothubId pulumi.StringInput
@@ -370,7 +370,7 @@ func (o EndpointEventhubOutput) EntityPath() pulumi.StringPtrOutput {
 
 // ID of the User Managed Identity used to authenticate against the Event Hub endpoint.
 //
-// > **NOTE:** `identityId` can only be specified when `authenticationType` is `identityBased`. It must be one of the `identityIds` of the Iot Hub. If not specified when `authenticationType` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
+// > **Note:** `identityId` can only be specified when `authenticationType` is `identityBased`. It must be one of the `identityIds` of the Iot Hub. If not specified when `authenticationType` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
 func (o EndpointEventhubOutput) IdentityId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointEventhub) pulumi.StringPtrOutput { return v.IdentityId }).(pulumi.StringPtrOutput)
 }

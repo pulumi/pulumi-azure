@@ -279,18 +279,18 @@ public final class ConfigurationStoreState extends com.pulumi.resources.Resource
     }
 
     /**
-     * The SKU name of the App Configuration. Possible values are `free`, `standard` and `premium`. Defaults to `free`.
+     * The SKU name of the App Configuration. Possible values are `free`, `developer`, `standard` and `premium`. Defaults to `free`.
      * 
-     * &gt; **Note:** Azure does not support downgrading `sku`. Downgrading from `premium` tier to `standard` or `free`, or from `standard` to `free`, forces a new resource to be created.
+     * &gt; **Note:** Azure does not support downgrading `sku` to a lower tier, except from `premium` to `standard`. Downgrading will force a new resource to be created.
      * 
      */
     @Import(name="sku")
     private @Nullable Output<String> sku;
 
     /**
-     * @return The SKU name of the App Configuration. Possible values are `free`, `standard` and `premium`. Defaults to `free`.
+     * @return The SKU name of the App Configuration. Possible values are `free`, `developer`, `standard` and `premium`. Defaults to `free`.
      * 
-     * &gt; **Note:** Azure does not support downgrading `sku`. Downgrading from `premium` tier to `standard` or `free`, or from `standard` to `free`, forces a new resource to be created.
+     * &gt; **Note:** Azure does not support downgrading `sku` to a lower tier, except from `premium` to `standard`. Downgrading will force a new resource to be created.
      * 
      */
     public Optional<Output<String>> sku() {
@@ -772,9 +772,9 @@ public final class ConfigurationStoreState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param sku The SKU name of the App Configuration. Possible values are `free`, `standard` and `premium`. Defaults to `free`.
+         * @param sku The SKU name of the App Configuration. Possible values are `free`, `developer`, `standard` and `premium`. Defaults to `free`.
          * 
-         * &gt; **Note:** Azure does not support downgrading `sku`. Downgrading from `premium` tier to `standard` or `free`, or from `standard` to `free`, forces a new resource to be created.
+         * &gt; **Note:** Azure does not support downgrading `sku` to a lower tier, except from `premium` to `standard`. Downgrading will force a new resource to be created.
          * 
          * @return builder
          * 
@@ -785,9 +785,9 @@ public final class ConfigurationStoreState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param sku The SKU name of the App Configuration. Possible values are `free`, `standard` and `premium`. Defaults to `free`.
+         * @param sku The SKU name of the App Configuration. Possible values are `free`, `developer`, `standard` and `premium`. Defaults to `free`.
          * 
-         * &gt; **Note:** Azure does not support downgrading `sku`. Downgrading from `premium` tier to `standard` or `free`, or from `standard` to `free`, forces a new resource to be created.
+         * &gt; **Note:** Azure does not support downgrading `sku` to a lower tier, except from `premium` to `standard`. Downgrading will force a new resource to be created.
          * 
          * @return builder
          * 

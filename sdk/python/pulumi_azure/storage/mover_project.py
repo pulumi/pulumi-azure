@@ -160,6 +160,13 @@ class MoverProject(pulumi.CustomResource):
             description="Example Project Description")
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.StorageMover`: 2023-03-01
+
         ## Import
 
         Storage Mover Project can be imported using the `resource id`, e.g.
@@ -201,6 +208,13 @@ class MoverProject(pulumi.CustomResource):
             storage_mover_id=example_mover.id,
             description="Example Project Description")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.StorageMover`: 2023-03-01
 
         ## Import
 

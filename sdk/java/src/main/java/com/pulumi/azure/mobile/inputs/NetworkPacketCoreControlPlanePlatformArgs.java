@@ -34,7 +34,7 @@ public final class NetworkPacketCoreControlPlanePlatformArgs extends com.pulumi.
     /**
      * The ID of the Azure Arc custom location where the packet core is deployed.
      * 
-     * &gt; **NOTE:** At least one of `edge_device_id`, `arc_kubernetes_cluster_id`, `stack_hci_cluster_id` and `custom_location_id` should be specified. If multiple are set, they must be consistent with each other.
+     * &gt; **Note:** At least one of `edge_device_id`, `arc_kubernetes_cluster_id`, `stack_hci_cluster_id` and `custom_location_id` should be specified. If multiple are set, they must be consistent with each other.
      * 
      */
     @Import(name="customLocationId")
@@ -43,7 +43,7 @@ public final class NetworkPacketCoreControlPlanePlatformArgs extends com.pulumi.
     /**
      * @return The ID of the Azure Arc custom location where the packet core is deployed.
      * 
-     * &gt; **NOTE:** At least one of `edge_device_id`, `arc_kubernetes_cluster_id`, `stack_hci_cluster_id` and `custom_location_id` should be specified. If multiple are set, they must be consistent with each other.
+     * &gt; **Note:** At least one of `edge_device_id`, `arc_kubernetes_cluster_id`, `stack_hci_cluster_id` and `custom_location_id` should be specified. If multiple are set, they must be consistent with each other.
      * 
      */
     public Optional<Output<String>> customLocationId() {
@@ -147,7 +147,7 @@ public final class NetworkPacketCoreControlPlanePlatformArgs extends com.pulumi.
         /**
          * @param customLocationId The ID of the Azure Arc custom location where the packet core is deployed.
          * 
-         * &gt; **NOTE:** At least one of `edge_device_id`, `arc_kubernetes_cluster_id`, `stack_hci_cluster_id` and `custom_location_id` should be specified. If multiple are set, they must be consistent with each other.
+         * &gt; **Note:** At least one of `edge_device_id`, `arc_kubernetes_cluster_id`, `stack_hci_cluster_id` and `custom_location_id` should be specified. If multiple are set, they must be consistent with each other.
          * 
          * @return builder
          * 
@@ -160,7 +160,7 @@ public final class NetworkPacketCoreControlPlanePlatformArgs extends com.pulumi.
         /**
          * @param customLocationId The ID of the Azure Arc custom location where the packet core is deployed.
          * 
-         * &gt; **NOTE:** At least one of `edge_device_id`, `arc_kubernetes_cluster_id`, `stack_hci_cluster_id` and `custom_location_id` should be specified. If multiple are set, they must be consistent with each other.
+         * &gt; **Note:** At least one of `edge_device_id`, `arc_kubernetes_cluster_id`, `stack_hci_cluster_id` and `custom_location_id` should be specified. If multiple are set, they must be consistent with each other.
          * 
          * @return builder
          * 

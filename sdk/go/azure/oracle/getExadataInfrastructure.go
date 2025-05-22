@@ -40,6 +40,13 @@ import (
 //	}
 //
 // ```
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This data source uses the following Azure API Providers:
+//
+// * `Oracle.Database`: 2024-06-01
 func LookupExadataInfrastructure(ctx *pulumi.Context, args *LookupExadataInfrastructureArgs, opts ...pulumi.InvokeOption) (*LookupExadataInfrastructureResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupExadataInfrastructureResult

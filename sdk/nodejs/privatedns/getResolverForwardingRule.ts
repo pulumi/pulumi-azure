@@ -20,6 +20,13 @@ import * as utilities from "../utilities";
  *     dnsForwardingRulesetId: "example-forwarding-rulset-id",
  * });
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.Network`: 2022-07-01
  */
 export function getResolverForwardingRule(args: GetResolverForwardingRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetResolverForwardingRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -84,6 +91,13 @@ export interface GetResolverForwardingRuleResult {
  *     dnsForwardingRulesetId: "example-forwarding-rulset-id",
  * });
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.Network`: 2022-07-01
  */
 export function getResolverForwardingRuleOutput(args: GetResolverForwardingRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetResolverForwardingRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -64,6 +64,13 @@ namespace Pulumi.Azure.EventHub
     /// });
     /// ```
     /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.EventHub`: 2024-01-01
+    /// 
     /// ## Import
     /// 
     /// EventHub Authorization Rules can be imported using the `resource id`, e.g.
@@ -127,7 +134,7 @@ namespace Pulumi.Azure.EventHub
         /// <summary>
         /// The name of the resource group in which the EventHub Namespace exists. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE** At least one of the 3 permissions below needs to be set.
+        /// &gt; **Note:** At least one of the 3 permissions below needs to be set.
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
@@ -244,7 +251,7 @@ namespace Pulumi.Azure.EventHub
         /// <summary>
         /// The name of the resource group in which the EventHub Namespace exists. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE** At least one of the 3 permissions below needs to be set.
+        /// &gt; **Note:** At least one of the 3 permissions below needs to be set.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -344,7 +351,7 @@ namespace Pulumi.Azure.EventHub
         /// <summary>
         /// The name of the resource group in which the EventHub Namespace exists. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE** At least one of the 3 permissions below needs to be set.
+        /// &gt; **Note:** At least one of the 3 permissions below needs to be set.
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }

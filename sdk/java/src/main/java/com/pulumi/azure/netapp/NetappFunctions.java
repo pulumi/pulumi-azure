@@ -85,6 +85,13 @@ public final class NetappFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.NetApp`: 2025-01-01
+     * 
      */
     public static Output<GetAccountResult> getAccount(GetAccountArgs args) {
         return getAccount(args, InvokeOptions.Empty);
@@ -128,6 +135,13 @@ public final class NetappFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.NetApp`: 2025-01-01
      * 
      */
     public static CompletableFuture<GetAccountResult> getAccountPlain(GetAccountPlainArgs args) {
@@ -173,6 +187,13 @@ public final class NetappFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.NetApp`: 2025-01-01
+     * 
      */
     public static Output<GetAccountResult> getAccount(GetAccountArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:netapp/getAccount:getAccount", TypeShape.of(GetAccountResult.class), args, Utilities.withVersion(options));
@@ -216,6 +237,13 @@ public final class NetappFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.NetApp`: 2025-01-01
      * 
      */
     public static Output<GetAccountResult> getAccount(GetAccountArgs args, InvokeOutputOptions options) {
@@ -261,6 +289,13 @@ public final class NetappFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.NetApp`: 2025-01-01
+     * 
      */
     public static CompletableFuture<GetAccountResult> getAccountPlain(GetAccountPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:netapp/getAccount:getAccount", TypeShape.of(GetAccountResult.class), args, Utilities.withVersion(options));
@@ -303,6 +338,13 @@ public final class NetappFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.NetApp`: 2025-01-01
      * 
      */
     public static Output<GetAccountEncryptionResult> getAccountEncryption(GetAccountEncryptionArgs args) {
@@ -347,6 +389,13 @@ public final class NetappFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.NetApp`: 2025-01-01
+     * 
      */
     public static CompletableFuture<GetAccountEncryptionResult> getAccountEncryptionPlain(GetAccountEncryptionPlainArgs args) {
         return getAccountEncryptionPlain(args, InvokeOptions.Empty);
@@ -389,6 +438,13 @@ public final class NetappFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.NetApp`: 2025-01-01
      * 
      */
     public static Output<GetAccountEncryptionResult> getAccountEncryption(GetAccountEncryptionArgs args, InvokeOptions options) {
@@ -433,6 +489,13 @@ public final class NetappFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.NetApp`: 2025-01-01
+     * 
      */
     public static Output<GetAccountEncryptionResult> getAccountEncryption(GetAccountEncryptionArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:netapp/getAccountEncryption:getAccountEncryption", TypeShape.of(GetAccountEncryptionResult.class), args, Utilities.withVersion(options));
@@ -475,6 +538,13 @@ public final class NetappFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.NetApp`: 2025-01-01
      * 
      */
     public static CompletableFuture<GetAccountEncryptionResult> getAccountEncryptionPlain(GetAccountEncryptionPlainArgs args, InvokeOptions options) {
@@ -521,6 +591,13 @@ public final class NetappFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.NetApp`: 2025-01-01
+     * 
      */
     public static Output<GetBackupPolicyResult> getBackupPolicy(GetBackupPolicyArgs args) {
         return getBackupPolicy(args, InvokeOptions.Empty);
@@ -565,6 +642,13 @@ public final class NetappFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.NetApp`: 2025-01-01
      * 
      */
     public static CompletableFuture<GetBackupPolicyResult> getBackupPolicyPlain(GetBackupPolicyPlainArgs args) {
@@ -611,6 +695,13 @@ public final class NetappFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.NetApp`: 2025-01-01
+     * 
      */
     public static Output<GetBackupPolicyResult> getBackupPolicy(GetBackupPolicyArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:netapp/getBackupPolicy:getBackupPolicy", TypeShape.of(GetBackupPolicyResult.class), args, Utilities.withVersion(options));
@@ -655,6 +746,13 @@ public final class NetappFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.NetApp`: 2025-01-01
      * 
      */
     public static Output<GetBackupPolicyResult> getBackupPolicy(GetBackupPolicyArgs args, InvokeOutputOptions options) {
@@ -701,6 +799,13 @@ public final class NetappFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.NetApp`: 2025-01-01
+     * 
      */
     public static CompletableFuture<GetBackupPolicyResult> getBackupPolicyPlain(GetBackupPolicyPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:netapp/getBackupPolicy:getBackupPolicy", TypeShape.of(GetBackupPolicyResult.class), args, Utilities.withVersion(options));
@@ -745,6 +850,13 @@ public final class NetappFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.NetApp`: 2025-01-01
      * 
      */
     public static Output<GetBackupVaultResult> getBackupVault(GetBackupVaultArgs args) {
@@ -791,6 +903,13 @@ public final class NetappFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.NetApp`: 2025-01-01
+     * 
      */
     public static CompletableFuture<GetBackupVaultResult> getBackupVaultPlain(GetBackupVaultPlainArgs args) {
         return getBackupVaultPlain(args, InvokeOptions.Empty);
@@ -835,6 +954,13 @@ public final class NetappFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.NetApp`: 2025-01-01
      * 
      */
     public static Output<GetBackupVaultResult> getBackupVault(GetBackupVaultArgs args, InvokeOptions options) {
@@ -881,6 +1007,13 @@ public final class NetappFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.NetApp`: 2025-01-01
+     * 
      */
     public static Output<GetBackupVaultResult> getBackupVault(GetBackupVaultArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:netapp/getBackupVault:getBackupVault", TypeShape.of(GetBackupVaultResult.class), args, Utilities.withVersion(options));
@@ -925,6 +1058,13 @@ public final class NetappFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.NetApp`: 2025-01-01
      * 
      */
     public static CompletableFuture<GetBackupVaultResult> getBackupVaultPlain(GetBackupVaultPlainArgs args, InvokeOptions options) {
@@ -971,6 +1111,13 @@ public final class NetappFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.NetApp`: 2025-01-01
+     * 
      */
     public static Output<GetPoolResult> getPool(GetPoolArgs args) {
         return getPool(args, InvokeOptions.Empty);
@@ -1015,6 +1162,13 @@ public final class NetappFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.NetApp`: 2025-01-01
      * 
      */
     public static CompletableFuture<GetPoolResult> getPoolPlain(GetPoolPlainArgs args) {
@@ -1061,6 +1215,13 @@ public final class NetappFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.NetApp`: 2025-01-01
+     * 
      */
     public static Output<GetPoolResult> getPool(GetPoolArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:netapp/getPool:getPool", TypeShape.of(GetPoolResult.class), args, Utilities.withVersion(options));
@@ -1106,6 +1267,13 @@ public final class NetappFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.NetApp`: 2025-01-01
+     * 
      */
     public static Output<GetPoolResult> getPool(GetPoolArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:netapp/getPool:getPool", TypeShape.of(GetPoolResult.class), args, Utilities.withVersion(options));
@@ -1150,6 +1318,13 @@ public final class NetappFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.NetApp`: 2025-01-01
      * 
      */
     public static CompletableFuture<GetPoolResult> getPoolPlain(GetPoolPlainArgs args, InvokeOptions options) {
@@ -1198,6 +1373,13 @@ public final class NetappFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.NetApp`: 2025-01-01
+     * 
      */
     public static Output<GetSnapshotResult> getSnapshot(GetSnapshotArgs args) {
         return getSnapshot(args, InvokeOptions.Empty);
@@ -1244,6 +1426,13 @@ public final class NetappFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.NetApp`: 2025-01-01
      * 
      */
     public static CompletableFuture<GetSnapshotResult> getSnapshotPlain(GetSnapshotPlainArgs args) {
@@ -1292,6 +1481,13 @@ public final class NetappFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.NetApp`: 2025-01-01
+     * 
      */
     public static Output<GetSnapshotResult> getSnapshot(GetSnapshotArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:netapp/getSnapshot:getSnapshot", TypeShape.of(GetSnapshotResult.class), args, Utilities.withVersion(options));
@@ -1339,6 +1535,13 @@ public final class NetappFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.NetApp`: 2025-01-01
+     * 
      */
     public static Output<GetSnapshotResult> getSnapshot(GetSnapshotArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:netapp/getSnapshot:getSnapshot", TypeShape.of(GetSnapshotResult.class), args, Utilities.withVersion(options));
@@ -1385,6 +1588,13 @@ public final class NetappFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.NetApp`: 2025-01-01
      * 
      */
     public static CompletableFuture<GetSnapshotResult> getSnapshotPlain(GetSnapshotPlainArgs args, InvokeOptions options) {
@@ -1437,6 +1647,13 @@ public final class NetappFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.NetApp`: 2025-01-01
+     * 
      */
     public static Output<GetSnapshotPolicyResult> getSnapshotPolicy(GetSnapshotPolicyArgs args) {
         return getSnapshotPolicy(args, InvokeOptions.Empty);
@@ -1487,6 +1704,13 @@ public final class NetappFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.NetApp`: 2025-01-01
      * 
      */
     public static CompletableFuture<GetSnapshotPolicyResult> getSnapshotPolicyPlain(GetSnapshotPolicyPlainArgs args) {
@@ -1539,6 +1763,13 @@ public final class NetappFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.NetApp`: 2025-01-01
+     * 
      */
     public static Output<GetSnapshotPolicyResult> getSnapshotPolicy(GetSnapshotPolicyArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:netapp/getSnapshotPolicy:getSnapshotPolicy", TypeShape.of(GetSnapshotPolicyResult.class), args, Utilities.withVersion(options));
@@ -1589,6 +1820,13 @@ public final class NetappFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.NetApp`: 2025-01-01
      * 
      */
     public static Output<GetSnapshotPolicyResult> getSnapshotPolicy(GetSnapshotPolicyArgs args, InvokeOutputOptions options) {
@@ -1641,6 +1879,13 @@ public final class NetappFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.NetApp`: 2025-01-01
+     * 
      */
     public static CompletableFuture<GetSnapshotPolicyResult> getSnapshotPolicyPlain(GetSnapshotPolicyPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:netapp/getSnapshotPolicy:getSnapshotPolicy", TypeShape.of(GetSnapshotPolicyResult.class), args, Utilities.withVersion(options));
@@ -1686,6 +1931,13 @@ public final class NetappFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.NetApp`: 2025-01-01
      * 
      */
     public static Output<GetVolumeResult> getVolume(GetVolumeArgs args) {
@@ -1733,6 +1985,13 @@ public final class NetappFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.NetApp`: 2025-01-01
+     * 
      */
     public static CompletableFuture<GetVolumeResult> getVolumePlain(GetVolumePlainArgs args) {
         return getVolumePlain(args, InvokeOptions.Empty);
@@ -1778,6 +2037,13 @@ public final class NetappFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.NetApp`: 2025-01-01
      * 
      */
     public static Output<GetVolumeResult> getVolume(GetVolumeArgs args, InvokeOptions options) {
@@ -1825,6 +2091,13 @@ public final class NetappFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.NetApp`: 2025-01-01
+     * 
      */
     public static Output<GetVolumeResult> getVolume(GetVolumeArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:netapp/getVolume:getVolume", TypeShape.of(GetVolumeResult.class), args, Utilities.withVersion(options));
@@ -1871,6 +2144,13 @@ public final class NetappFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.NetApp`: 2025-01-01
+     * 
      */
     public static CompletableFuture<GetVolumeResult> getVolumePlain(GetVolumePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:netapp/getVolume:getVolume", TypeShape.of(GetVolumeResult.class), args, Utilities.withVersion(options));
@@ -1915,6 +2195,13 @@ public final class NetappFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.NetApp`: 2025-01-01
      * 
      */
     public static Output<GetVolumeGroupOracleResult> getVolumeGroupOracle(GetVolumeGroupOracleArgs args) {
@@ -1961,6 +2248,13 @@ public final class NetappFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.NetApp`: 2025-01-01
+     * 
      */
     public static CompletableFuture<GetVolumeGroupOracleResult> getVolumeGroupOraclePlain(GetVolumeGroupOraclePlainArgs args) {
         return getVolumeGroupOraclePlain(args, InvokeOptions.Empty);
@@ -2005,6 +2299,13 @@ public final class NetappFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.NetApp`: 2025-01-01
      * 
      */
     public static Output<GetVolumeGroupOracleResult> getVolumeGroupOracle(GetVolumeGroupOracleArgs args, InvokeOptions options) {
@@ -2051,6 +2352,13 @@ public final class NetappFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.NetApp`: 2025-01-01
+     * 
      */
     public static Output<GetVolumeGroupOracleResult> getVolumeGroupOracle(GetVolumeGroupOracleArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:netapp/getVolumeGroupOracle:getVolumeGroupOracle", TypeShape.of(GetVolumeGroupOracleResult.class), args, Utilities.withVersion(options));
@@ -2095,6 +2403,13 @@ public final class NetappFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.NetApp`: 2025-01-01
      * 
      */
     public static CompletableFuture<GetVolumeGroupOracleResult> getVolumeGroupOraclePlain(GetVolumeGroupOraclePlainArgs args, InvokeOptions options) {
@@ -2141,6 +2456,13 @@ public final class NetappFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.NetApp`: 2025-01-01
+     * 
      */
     public static Output<GetVolumeGroupSapHanaResult> getVolumeGroupSapHana(GetVolumeGroupSapHanaArgs args) {
         return getVolumeGroupSapHana(args, InvokeOptions.Empty);
@@ -2185,6 +2507,13 @@ public final class NetappFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.NetApp`: 2025-01-01
      * 
      */
     public static CompletableFuture<GetVolumeGroupSapHanaResult> getVolumeGroupSapHanaPlain(GetVolumeGroupSapHanaPlainArgs args) {
@@ -2231,6 +2560,13 @@ public final class NetappFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.NetApp`: 2025-01-01
+     * 
      */
     public static Output<GetVolumeGroupSapHanaResult> getVolumeGroupSapHana(GetVolumeGroupSapHanaArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:netapp/getVolumeGroupSapHana:getVolumeGroupSapHana", TypeShape.of(GetVolumeGroupSapHanaResult.class), args, Utilities.withVersion(options));
@@ -2275,6 +2611,13 @@ public final class NetappFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.NetApp`: 2025-01-01
      * 
      */
     public static Output<GetVolumeGroupSapHanaResult> getVolumeGroupSapHana(GetVolumeGroupSapHanaArgs args, InvokeOutputOptions options) {
@@ -2321,6 +2664,13 @@ public final class NetappFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.NetApp`: 2025-01-01
+     * 
      */
     public static CompletableFuture<GetVolumeGroupSapHanaResult> getVolumeGroupSapHanaPlain(GetVolumeGroupSapHanaPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:netapp/getVolumeGroupSapHana:getVolumeGroupSapHana", TypeShape.of(GetVolumeGroupSapHanaResult.class), args, Utilities.withVersion(options));
@@ -2364,6 +2714,13 @@ public final class NetappFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.NetApp`: 2025-01-01
      * 
      */
     public static Output<GetVolumeQuotaRuleResult> getVolumeQuotaRule(GetVolumeQuotaRuleArgs args) {
@@ -2409,6 +2766,13 @@ public final class NetappFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.NetApp`: 2025-01-01
+     * 
      */
     public static CompletableFuture<GetVolumeQuotaRuleResult> getVolumeQuotaRulePlain(GetVolumeQuotaRulePlainArgs args) {
         return getVolumeQuotaRulePlain(args, InvokeOptions.Empty);
@@ -2452,6 +2816,13 @@ public final class NetappFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.NetApp`: 2025-01-01
      * 
      */
     public static Output<GetVolumeQuotaRuleResult> getVolumeQuotaRule(GetVolumeQuotaRuleArgs args, InvokeOptions options) {
@@ -2497,6 +2868,13 @@ public final class NetappFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.NetApp`: 2025-01-01
+     * 
      */
     public static Output<GetVolumeQuotaRuleResult> getVolumeQuotaRule(GetVolumeQuotaRuleArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:netapp/getVolumeQuotaRule:getVolumeQuotaRule", TypeShape.of(GetVolumeQuotaRuleResult.class), args, Utilities.withVersion(options));
@@ -2540,6 +2918,13 @@ public final class NetappFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.NetApp`: 2025-01-01
      * 
      */
     public static CompletableFuture<GetVolumeQuotaRuleResult> getVolumeQuotaRulePlain(GetVolumeQuotaRulePlainArgs args, InvokeOptions options) {

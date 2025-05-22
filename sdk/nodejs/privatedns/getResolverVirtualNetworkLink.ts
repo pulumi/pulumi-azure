@@ -18,6 +18,13 @@ import * as utilities from "../utilities";
  *     dnsForwardingRulesetId: "example-dns-forwarding-ruleset-id",
  * });
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.Network`: 2022-07-01
  */
 export function getResolverVirtualNetworkLink(args: GetResolverVirtualNetworkLinkArgs, opts?: pulumi.InvokeOptions): Promise<GetResolverVirtualNetworkLinkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -74,6 +81,13 @@ export interface GetResolverVirtualNetworkLinkResult {
  *     dnsForwardingRulesetId: "example-dns-forwarding-ruleset-id",
  * });
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.Network`: 2022-07-01
  */
 export function getResolverVirtualNetworkLinkOutput(args: GetResolverVirtualNetworkLinkOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetResolverVirtualNetworkLinkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

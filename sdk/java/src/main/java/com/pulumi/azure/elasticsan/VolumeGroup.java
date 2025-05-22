@@ -192,6 +192,13 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.ElasticSan`: 2023-01-01
+ * 
  * ## Import
  * 
  * An existing Elastic SAN Volume Group can be imported into Pulumi using the `resource id`, e.g.
@@ -220,7 +227,7 @@ public class VolumeGroup extends com.pulumi.resources.CustomResource {
     /**
      * An `encryption` block as defined below.
      * 
-     * &gt; **NOTE:** The `encryption` block can only be set when `encryption_type` is set to `EncryptionAtRestWithCustomerManagedKey`.
+     * &gt; **Note:** The `encryption` block can only be set when `encryption_type` is set to `EncryptionAtRestWithCustomerManagedKey`.
      * 
      */
     @Export(name="encryption", refs={VolumeGroupEncryption.class}, tree="[0]")
@@ -229,7 +236,7 @@ public class VolumeGroup extends com.pulumi.resources.CustomResource {
     /**
      * @return An `encryption` block as defined below.
      * 
-     * &gt; **NOTE:** The `encryption` block can only be set when `encryption_type` is set to `EncryptionAtRestWithCustomerManagedKey`.
+     * &gt; **Note:** The `encryption` block can only be set when `encryption_type` is set to `EncryptionAtRestWithCustomerManagedKey`.
      * 
      */
     public Output<Optional<VolumeGroupEncryption>> encryption() {

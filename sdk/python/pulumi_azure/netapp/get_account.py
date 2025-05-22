@@ -118,6 +118,13 @@ def get_account(identity: Optional[Union['GetAccountIdentityArgs', 'GetAccountId
     pulumi.export("netappAccountId", example.id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.NetApp`: 2025-01-01
+
 
     :param builtins.str name: The name of the NetApp Account.
     :param builtins.str resource_group_name: The Name of the Resource Group where the NetApp Account exists.
@@ -153,6 +160,13 @@ def get_account_output(identity: Optional[pulumi.Input[Optional[Union['GetAccoun
         name="acctestnetappaccount")
     pulumi.export("netappAccountId", example.id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.NetApp`: 2025-01-01
 
 
     :param builtins.str name: The name of the NetApp Account.

@@ -54,6 +54,13 @@ import (
 //
 // ```
 //
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.PowerBIDedicated`: 2021-01-01
+//
 // ## Import
 //
 // PowerBI Embedded can be imported using the `resource id`, e.g.

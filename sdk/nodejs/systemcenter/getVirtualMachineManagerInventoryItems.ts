@@ -20,6 +20,13 @@ import * as utilities from "../utilities";
  *     systemCenterVirtualMachineManagerServerId: exampleAzurermSystemCenterVirtualMachineManagerServer.id,
  * });
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.ScVmm`: 2023-10-07
  */
 export function getVirtualMachineManagerInventoryItems(args: GetVirtualMachineManagerInventoryItemsArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineManagerInventoryItemsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -72,6 +79,13 @@ export interface GetVirtualMachineManagerInventoryItemsResult {
  *     systemCenterVirtualMachineManagerServerId: exampleAzurermSystemCenterVirtualMachineManagerServer.id,
  * });
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.ScVmm`: 2023-10-07
  */
 export function getVirtualMachineManagerInventoryItemsOutput(args: GetVirtualMachineManagerInventoryItemsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVirtualMachineManagerInventoryItemsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

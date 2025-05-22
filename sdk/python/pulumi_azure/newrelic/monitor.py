@@ -42,7 +42,7 @@ class MonitorArgs:
         :param pulumi.Input[builtins.str] account_creation_source: Specifies the source of account creation. Possible values are `LIFTR` and `NEWRELIC`. Defaults to `LIFTR`. Changing this forces a new Azure Native New Relic Monitor to be created.
         :param pulumi.Input[builtins.str] account_id: Specifies the account id. Changing this forces a new Azure Native New Relic Monitor to be created.
                
-               > **NOTE:** The value of `account_id` must come from an Azure Native New Relic Monitor instance of another different subscription.
+               > **Note:** The value of `account_id` must come from an Azure Native New Relic Monitor instance of another different subscription.
         :param pulumi.Input['MonitorIdentityArgs'] identity: An `identity` block as defined below. Changing this forces a new Azure Native New Relic Monitor to be created.
         :param pulumi.Input[builtins.str] ingestion_key: Specifies the ingestion key of account. Changing this forces a new Azure Native New Relic Monitor to be created.
         :param pulumi.Input[builtins.str] location: Specifies the Azure Region where the Azure Native New Relic Monitor should exist. Changing this forces a new Azure Native New Relic Monitor to be created.
@@ -50,7 +50,7 @@ class MonitorArgs:
         :param pulumi.Input[builtins.str] org_creation_source: Specifies the source of org creation. Possible values are `LIFTR` and `NEWRELIC`. Defaults to `LIFTR`. Changing this forces a new Azure Native New Relic Monitor to be created.
         :param pulumi.Input[builtins.str] organization_id: Specifies the organization id. Changing this forces a new Azure Native New Relic Monitor to be created.
                
-               > **NOTE:** The value of `organization_id` must come from an Azure Native New Relic Monitor instance of another different subscription.
+               > **Note:** The value of `organization_id` must come from an Azure Native New Relic Monitor instance of another different subscription.
         :param pulumi.Input[builtins.str] user_id: Specifies the user id. Changing this forces a new Azure Native New Relic Monitor to be created.
         """
         pulumi.set(__self__, "plan", plan)
@@ -129,7 +129,7 @@ class MonitorArgs:
         """
         Specifies the account id. Changing this forces a new Azure Native New Relic Monitor to be created.
 
-        > **NOTE:** The value of `account_id` must come from an Azure Native New Relic Monitor instance of another different subscription.
+        > **Note:** The value of `account_id` must come from an Azure Native New Relic Monitor instance of another different subscription.
         """
         return pulumi.get(self, "account_id")
 
@@ -203,7 +203,7 @@ class MonitorArgs:
         """
         Specifies the organization id. Changing this forces a new Azure Native New Relic Monitor to be created.
 
-        > **NOTE:** The value of `organization_id` must come from an Azure Native New Relic Monitor instance of another different subscription.
+        > **Note:** The value of `organization_id` must come from an Azure Native New Relic Monitor instance of another different subscription.
         """
         return pulumi.get(self, "organization_id")
 
@@ -244,7 +244,7 @@ class _MonitorState:
         :param pulumi.Input[builtins.str] account_creation_source: Specifies the source of account creation. Possible values are `LIFTR` and `NEWRELIC`. Defaults to `LIFTR`. Changing this forces a new Azure Native New Relic Monitor to be created.
         :param pulumi.Input[builtins.str] account_id: Specifies the account id. Changing this forces a new Azure Native New Relic Monitor to be created.
                
-               > **NOTE:** The value of `account_id` must come from an Azure Native New Relic Monitor instance of another different subscription.
+               > **Note:** The value of `account_id` must come from an Azure Native New Relic Monitor instance of another different subscription.
         :param pulumi.Input['MonitorIdentityArgs'] identity: An `identity` block as defined below. Changing this forces a new Azure Native New Relic Monitor to be created.
         :param pulumi.Input[builtins.str] ingestion_key: Specifies the ingestion key of account. Changing this forces a new Azure Native New Relic Monitor to be created.
         :param pulumi.Input[builtins.str] location: Specifies the Azure Region where the Azure Native New Relic Monitor should exist. Changing this forces a new Azure Native New Relic Monitor to be created.
@@ -252,7 +252,7 @@ class _MonitorState:
         :param pulumi.Input[builtins.str] org_creation_source: Specifies the source of org creation. Possible values are `LIFTR` and `NEWRELIC`. Defaults to `LIFTR`. Changing this forces a new Azure Native New Relic Monitor to be created.
         :param pulumi.Input[builtins.str] organization_id: Specifies the organization id. Changing this forces a new Azure Native New Relic Monitor to be created.
                
-               > **NOTE:** The value of `organization_id` must come from an Azure Native New Relic Monitor instance of another different subscription.
+               > **Note:** The value of `organization_id` must come from an Azure Native New Relic Monitor instance of another different subscription.
         :param pulumi.Input['MonitorPlanArgs'] plan: A `plan` block as defined below. Changing this forces a new Azure Native New Relic Monitor to be created.
         :param pulumi.Input[builtins.str] resource_group_name: Specifies the name of the Resource Group where the Azure Native New Relic Monitor should exist. Changing this forces a new Azure Native New Relic Monitor to be created.
         :param pulumi.Input['MonitorUserArgs'] user: A `user` block as defined below. Changing this forces a new Azure Native New Relic Monitor to be created.
@@ -301,7 +301,7 @@ class _MonitorState:
         """
         Specifies the account id. Changing this forces a new Azure Native New Relic Monitor to be created.
 
-        > **NOTE:** The value of `account_id` must come from an Azure Native New Relic Monitor instance of another different subscription.
+        > **Note:** The value of `account_id` must come from an Azure Native New Relic Monitor instance of another different subscription.
         """
         return pulumi.get(self, "account_id")
 
@@ -375,7 +375,7 @@ class _MonitorState:
         """
         Specifies the organization id. Changing this forces a new Azure Native New Relic Monitor to be created.
 
-        > **NOTE:** The value of `organization_id` must come from an Azure Native New Relic Monitor instance of another different subscription.
+        > **Note:** The value of `organization_id` must come from an Azure Native New Relic Monitor instance of another different subscription.
         """
         return pulumi.get(self, "organization_id")
 
@@ -499,6 +499,13 @@ class Monitor(pulumi.CustomResource):
             principal_id=example_azurerm_new_relic_monitor["identity"][0]["principalId"])
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `NewRelic.Observability`: 2024-03-01
+
         ## Import
 
         Azure Native New Relic Monitor can be imported using the `resource id`, e.g.
@@ -512,7 +519,7 @@ class Monitor(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] account_creation_source: Specifies the source of account creation. Possible values are `LIFTR` and `NEWRELIC`. Defaults to `LIFTR`. Changing this forces a new Azure Native New Relic Monitor to be created.
         :param pulumi.Input[builtins.str] account_id: Specifies the account id. Changing this forces a new Azure Native New Relic Monitor to be created.
                
-               > **NOTE:** The value of `account_id` must come from an Azure Native New Relic Monitor instance of another different subscription.
+               > **Note:** The value of `account_id` must come from an Azure Native New Relic Monitor instance of another different subscription.
         :param pulumi.Input[Union['MonitorIdentityArgs', 'MonitorIdentityArgsDict']] identity: An `identity` block as defined below. Changing this forces a new Azure Native New Relic Monitor to be created.
         :param pulumi.Input[builtins.str] ingestion_key: Specifies the ingestion key of account. Changing this forces a new Azure Native New Relic Monitor to be created.
         :param pulumi.Input[builtins.str] location: Specifies the Azure Region where the Azure Native New Relic Monitor should exist. Changing this forces a new Azure Native New Relic Monitor to be created.
@@ -520,7 +527,7 @@ class Monitor(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] org_creation_source: Specifies the source of org creation. Possible values are `LIFTR` and `NEWRELIC`. Defaults to `LIFTR`. Changing this forces a new Azure Native New Relic Monitor to be created.
         :param pulumi.Input[builtins.str] organization_id: Specifies the organization id. Changing this forces a new Azure Native New Relic Monitor to be created.
                
-               > **NOTE:** The value of `organization_id` must come from an Azure Native New Relic Monitor instance of another different subscription.
+               > **Note:** The value of `organization_id` must come from an Azure Native New Relic Monitor instance of another different subscription.
         :param pulumi.Input[Union['MonitorPlanArgs', 'MonitorPlanArgsDict']] plan: A `plan` block as defined below. Changing this forces a new Azure Native New Relic Monitor to be created.
         :param pulumi.Input[builtins.str] resource_group_name: Specifies the name of the Resource Group where the Azure Native New Relic Monitor should exist. Changing this forces a new Azure Native New Relic Monitor to be created.
         :param pulumi.Input[Union['MonitorUserArgs', 'MonitorUserArgsDict']] user: A `user` block as defined below. Changing this forces a new Azure Native New Relic Monitor to be created.
@@ -579,6 +586,13 @@ class Monitor(pulumi.CustomResource):
             role_definition_id=f"{primary.id}{monitoring_reader.id}",
             principal_id=example_azurerm_new_relic_monitor["identity"][0]["principalId"])
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `NewRelic.Observability`: 2024-03-01
 
         ## Import
 
@@ -676,7 +690,7 @@ class Monitor(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] account_creation_source: Specifies the source of account creation. Possible values are `LIFTR` and `NEWRELIC`. Defaults to `LIFTR`. Changing this forces a new Azure Native New Relic Monitor to be created.
         :param pulumi.Input[builtins.str] account_id: Specifies the account id. Changing this forces a new Azure Native New Relic Monitor to be created.
                
-               > **NOTE:** The value of `account_id` must come from an Azure Native New Relic Monitor instance of another different subscription.
+               > **Note:** The value of `account_id` must come from an Azure Native New Relic Monitor instance of another different subscription.
         :param pulumi.Input[Union['MonitorIdentityArgs', 'MonitorIdentityArgsDict']] identity: An `identity` block as defined below. Changing this forces a new Azure Native New Relic Monitor to be created.
         :param pulumi.Input[builtins.str] ingestion_key: Specifies the ingestion key of account. Changing this forces a new Azure Native New Relic Monitor to be created.
         :param pulumi.Input[builtins.str] location: Specifies the Azure Region where the Azure Native New Relic Monitor should exist. Changing this forces a new Azure Native New Relic Monitor to be created.
@@ -684,7 +698,7 @@ class Monitor(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] org_creation_source: Specifies the source of org creation. Possible values are `LIFTR` and `NEWRELIC`. Defaults to `LIFTR`. Changing this forces a new Azure Native New Relic Monitor to be created.
         :param pulumi.Input[builtins.str] organization_id: Specifies the organization id. Changing this forces a new Azure Native New Relic Monitor to be created.
                
-               > **NOTE:** The value of `organization_id` must come from an Azure Native New Relic Monitor instance of another different subscription.
+               > **Note:** The value of `organization_id` must come from an Azure Native New Relic Monitor instance of another different subscription.
         :param pulumi.Input[Union['MonitorPlanArgs', 'MonitorPlanArgsDict']] plan: A `plan` block as defined below. Changing this forces a new Azure Native New Relic Monitor to be created.
         :param pulumi.Input[builtins.str] resource_group_name: Specifies the name of the Resource Group where the Azure Native New Relic Monitor should exist. Changing this forces a new Azure Native New Relic Monitor to be created.
         :param pulumi.Input[Union['MonitorUserArgs', 'MonitorUserArgsDict']] user: A `user` block as defined below. Changing this forces a new Azure Native New Relic Monitor to be created.
@@ -722,7 +736,7 @@ class Monitor(pulumi.CustomResource):
         """
         Specifies the account id. Changing this forces a new Azure Native New Relic Monitor to be created.
 
-        > **NOTE:** The value of `account_id` must come from an Azure Native New Relic Monitor instance of another different subscription.
+        > **Note:** The value of `account_id` must come from an Azure Native New Relic Monitor instance of another different subscription.
         """
         return pulumi.get(self, "account_id")
 
@@ -772,7 +786,7 @@ class Monitor(pulumi.CustomResource):
         """
         Specifies the organization id. Changing this forces a new Azure Native New Relic Monitor to be created.
 
-        > **NOTE:** The value of `organization_id` must come from an Azure Native New Relic Monitor instance of another different subscription.
+        > **Note:** The value of `organization_id` must come from an Azure Native New Relic Monitor instance of another different subscription.
         """
         return pulumi.get(self, "organization_id")
 

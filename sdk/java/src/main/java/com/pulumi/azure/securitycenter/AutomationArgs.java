@@ -84,7 +84,7 @@ public final class AutomationArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The name which should be used for this Security Center Automation. Changing this forces a new Security Center Automation to be created.
      * 
-     * &gt; **NOTE:** For the automation to appear in Azure Portal correctly under Microsoft Defender for Cloud &gt; Environment Settings &gt; Account &gt; Continuous Export, either `ExportToWorkspace` or `ExportToEventHub` must be used.
+     * &gt; **Note:** For the automation to appear in Azure Portal correctly under Microsoft Defender for Cloud &gt; Environment Settings &gt; Account &gt; Continuous Export, either `ExportToWorkspace` or `ExportToEventHub` must be used.
      * 
      */
     @Import(name="name")
@@ -93,7 +93,7 @@ public final class AutomationArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return The name which should be used for this Security Center Automation. Changing this forces a new Security Center Automation to be created.
      * 
-     * &gt; **NOTE:** For the automation to appear in Azure Portal correctly under Microsoft Defender for Cloud &gt; Environment Settings &gt; Account &gt; Continuous Export, either `ExportToWorkspace` or `ExportToEventHub` must be used.
+     * &gt; **Note:** For the automation to appear in Azure Portal correctly under Microsoft Defender for Cloud &gt; Environment Settings &gt; Account &gt; Continuous Export, either `ExportToWorkspace` or `ExportToEventHub` must be used.
      * 
      */
     public Optional<Output<String>> name() {
@@ -289,7 +289,7 @@ public final class AutomationArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param name The name which should be used for this Security Center Automation. Changing this forces a new Security Center Automation to be created.
          * 
-         * &gt; **NOTE:** For the automation to appear in Azure Portal correctly under Microsoft Defender for Cloud &gt; Environment Settings &gt; Account &gt; Continuous Export, either `ExportToWorkspace` or `ExportToEventHub` must be used.
+         * &gt; **Note:** For the automation to appear in Azure Portal correctly under Microsoft Defender for Cloud &gt; Environment Settings &gt; Account &gt; Continuous Export, either `ExportToWorkspace` or `ExportToEventHub` must be used.
          * 
          * @return builder
          * 
@@ -302,7 +302,7 @@ public final class AutomationArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param name The name which should be used for this Security Center Automation. Changing this forces a new Security Center Automation to be created.
          * 
-         * &gt; **NOTE:** For the automation to appear in Azure Portal correctly under Microsoft Defender for Cloud &gt; Environment Settings &gt; Account &gt; Continuous Export, either `ExportToWorkspace` or `ExportToEventHub` must be used.
+         * &gt; **Note:** For the automation to appear in Azure Portal correctly under Microsoft Defender for Cloud &gt; Environment Settings &gt; Account &gt; Continuous Export, either `ExportToWorkspace` or `ExportToEventHub` must be used.
          * 
          * @return builder
          * 

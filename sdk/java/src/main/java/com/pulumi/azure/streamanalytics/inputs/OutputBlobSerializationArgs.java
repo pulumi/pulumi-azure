@@ -19,7 +19,7 @@ public final class OutputBlobSerializationArgs extends com.pulumi.resources.Reso
     /**
      * The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
      * 
-     * &gt; **NOTE:** This is required when `type` is set to `Csv` or `Json`.
+     * &gt; **Note:** This is required when `type` is set to `Csv` or `Json`.
      * 
      */
     @Import(name="encoding")
@@ -28,7 +28,7 @@ public final class OutputBlobSerializationArgs extends com.pulumi.resources.Reso
     /**
      * @return The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
      * 
-     * &gt; **NOTE:** This is required when `type` is set to `Csv` or `Json`.
+     * &gt; **Note:** This is required when `type` is set to `Csv` or `Json`.
      * 
      */
     public Optional<Output<String>> encoding() {
@@ -38,7 +38,7 @@ public final class OutputBlobSerializationArgs extends com.pulumi.resources.Reso
     /**
      * The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `	` (tab), `|` (pipe) and `;`.
      * 
-     * &gt; **NOTE:** This is required when `type` is set to `Csv`.
+     * &gt; **Note:** This is required when `type` is set to `Csv`.
      * 
      */
     @Import(name="fieldDelimiter")
@@ -47,7 +47,7 @@ public final class OutputBlobSerializationArgs extends com.pulumi.resources.Reso
     /**
      * @return The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `	` (tab), `|` (pipe) and `;`.
      * 
-     * &gt; **NOTE:** This is required when `type` is set to `Csv`.
+     * &gt; **Note:** This is required when `type` is set to `Csv`.
      * 
      */
     public Optional<Output<String>> fieldDelimiter() {
@@ -57,7 +57,7 @@ public final class OutputBlobSerializationArgs extends com.pulumi.resources.Reso
     /**
      * Specifies the format of the JSON the output will be written in. Possible values are `Array` and `LineSeparated`.
      * 
-     * &gt; **NOTE:** This is Required and can only be specified when `type` is set to `Json`.
+     * &gt; **Note:** This is Required and can only be specified when `type` is set to `Json`.
      * 
      */
     @Import(name="format")
@@ -66,7 +66,7 @@ public final class OutputBlobSerializationArgs extends com.pulumi.resources.Reso
     /**
      * @return Specifies the format of the JSON the output will be written in. Possible values are `Array` and `LineSeparated`.
      * 
-     * &gt; **NOTE:** This is Required and can only be specified when `type` is set to `Json`.
+     * &gt; **Note:** This is Required and can only be specified when `type` is set to `Json`.
      * 
      */
     public Optional<Output<String>> format() {
@@ -76,7 +76,7 @@ public final class OutputBlobSerializationArgs extends com.pulumi.resources.Reso
     /**
      * The serialization format used for outgoing data streams. Possible values are `Avro`, `Csv`, `Json` and `Parquet`.
      * 
-     * &gt; **NOTE:** `batch_max_wait_time` and `batch_min_rows` are required when `type` is set to `Parquet`
+     * &gt; **Note:** `batch_max_wait_time` and `batch_min_rows` are required when `type` is set to `Parquet`
      * 
      */
     @Import(name="type", required=true)
@@ -85,7 +85,7 @@ public final class OutputBlobSerializationArgs extends com.pulumi.resources.Reso
     /**
      * @return The serialization format used for outgoing data streams. Possible values are `Avro`, `Csv`, `Json` and `Parquet`.
      * 
-     * &gt; **NOTE:** `batch_max_wait_time` and `batch_min_rows` are required when `type` is set to `Parquet`
+     * &gt; **Note:** `batch_max_wait_time` and `batch_min_rows` are required when `type` is set to `Parquet`
      * 
      */
     public Output<String> type() {
@@ -122,7 +122,7 @@ public final class OutputBlobSerializationArgs extends com.pulumi.resources.Reso
         /**
          * @param encoding The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
          * 
-         * &gt; **NOTE:** This is required when `type` is set to `Csv` or `Json`.
+         * &gt; **Note:** This is required when `type` is set to `Csv` or `Json`.
          * 
          * @return builder
          * 
@@ -135,7 +135,7 @@ public final class OutputBlobSerializationArgs extends com.pulumi.resources.Reso
         /**
          * @param encoding The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
          * 
-         * &gt; **NOTE:** This is required when `type` is set to `Csv` or `Json`.
+         * &gt; **Note:** This is required when `type` is set to `Csv` or `Json`.
          * 
          * @return builder
          * 
@@ -147,7 +147,7 @@ public final class OutputBlobSerializationArgs extends com.pulumi.resources.Reso
         /**
          * @param fieldDelimiter The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `	` (tab), `|` (pipe) and `;`.
          * 
-         * &gt; **NOTE:** This is required when `type` is set to `Csv`.
+         * &gt; **Note:** This is required when `type` is set to `Csv`.
          * 
          * @return builder
          * 
@@ -160,7 +160,7 @@ public final class OutputBlobSerializationArgs extends com.pulumi.resources.Reso
         /**
          * @param fieldDelimiter The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `	` (tab), `|` (pipe) and `;`.
          * 
-         * &gt; **NOTE:** This is required when `type` is set to `Csv`.
+         * &gt; **Note:** This is required when `type` is set to `Csv`.
          * 
          * @return builder
          * 
@@ -172,7 +172,7 @@ public final class OutputBlobSerializationArgs extends com.pulumi.resources.Reso
         /**
          * @param format Specifies the format of the JSON the output will be written in. Possible values are `Array` and `LineSeparated`.
          * 
-         * &gt; **NOTE:** This is Required and can only be specified when `type` is set to `Json`.
+         * &gt; **Note:** This is Required and can only be specified when `type` is set to `Json`.
          * 
          * @return builder
          * 
@@ -185,7 +185,7 @@ public final class OutputBlobSerializationArgs extends com.pulumi.resources.Reso
         /**
          * @param format Specifies the format of the JSON the output will be written in. Possible values are `Array` and `LineSeparated`.
          * 
-         * &gt; **NOTE:** This is Required and can only be specified when `type` is set to `Json`.
+         * &gt; **Note:** This is Required and can only be specified when `type` is set to `Json`.
          * 
          * @return builder
          * 
@@ -197,7 +197,7 @@ public final class OutputBlobSerializationArgs extends com.pulumi.resources.Reso
         /**
          * @param type The serialization format used for outgoing data streams. Possible values are `Avro`, `Csv`, `Json` and `Parquet`.
          * 
-         * &gt; **NOTE:** `batch_max_wait_time` and `batch_min_rows` are required when `type` is set to `Parquet`
+         * &gt; **Note:** `batch_max_wait_time` and `batch_min_rows` are required when `type` is set to `Parquet`
          * 
          * @return builder
          * 
@@ -210,7 +210,7 @@ public final class OutputBlobSerializationArgs extends com.pulumi.resources.Reso
         /**
          * @param type The serialization format used for outgoing data streams. Possible values are `Avro`, `Csv`, `Json` and `Parquet`.
          * 
-         * &gt; **NOTE:** `batch_max_wait_time` and `batch_min_rows` are required when `type` is set to `Parquet`
+         * &gt; **Note:** `batch_max_wait_time` and `batch_min_rows` are required when `type` is set to `Parquet`
          * 
          * @return builder
          * 

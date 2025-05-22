@@ -19,7 +19,7 @@ import javax.annotation.Nullable;
 /**
  * Manages the Pricing Tier for Azure Security Center in the current subscription.
  * 
- * &gt; **NOTE:** Deletion of this resource will reset the pricing tier to `Free`
+ * &gt; **Note:** Deletion of this resource will reset the pricing tier to `Free`
  * 
  * ## Example Usage
  * 
@@ -136,14 +136,14 @@ public class SubscriptionPricing extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.extensions);
     }
     /**
-     * The resource type this setting affects. Possible values are `Api`, `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, `VirtualMachines`, `Arm`, `Dns`, `OpenSourceRelationalDatabases`, `Containers`, `CosmosDbs` and `CloudPosture`. Defaults to `VirtualMachines`
+     * The resource type this setting affects. Possible values are `AI`, `Api`, `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, `VirtualMachines`, `Arm`, `Dns`, `OpenSourceRelationalDatabases`, `Containers`, `CosmosDbs` and `CloudPosture`. Defaults to `VirtualMachines`
      * 
      */
     @Export(name="resourceType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> resourceType;
 
     /**
-     * @return The resource type this setting affects. Possible values are `Api`, `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, `VirtualMachines`, `Arm`, `Dns`, `OpenSourceRelationalDatabases`, `Containers`, `CosmosDbs` and `CloudPosture`. Defaults to `VirtualMachines`
+     * @return The resource type this setting affects. Possible values are `AI`, `Api`, `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, `VirtualMachines`, `Arm`, `Dns`, `OpenSourceRelationalDatabases`, `Containers`, `CosmosDbs` and `CloudPosture`. Defaults to `VirtualMachines`
      * 
      */
     public Output<Optional<String>> resourceType() {

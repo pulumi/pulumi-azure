@@ -49,7 +49,7 @@ public final class GetCertificateDataArgs extends com.pulumi.resources.InvokeArg
     /**
      * Specifies the version of the certificate to look up.  (Defaults to latest)
      * 
-     * &gt; **NOTE:** The vault must be in the same subscription as the provider. If the vault is in another subscription, you must create an aliased provider for that subscription.
+     * &gt; **Note:** The vault must be in the same subscription as the provider. If the vault is in another subscription, you must create an aliased provider for that subscription.
      * 
      */
     @Import(name="version")
@@ -58,7 +58,7 @@ public final class GetCertificateDataArgs extends com.pulumi.resources.InvokeArg
     /**
      * @return Specifies the version of the certificate to look up.  (Defaults to latest)
      * 
-     * &gt; **NOTE:** The vault must be in the same subscription as the provider. If the vault is in another subscription, you must create an aliased provider for that subscription.
+     * &gt; **Note:** The vault must be in the same subscription as the provider. If the vault is in another subscription, you must create an aliased provider for that subscription.
      * 
      */
     public Optional<Output<String>> version() {
@@ -136,7 +136,7 @@ public final class GetCertificateDataArgs extends com.pulumi.resources.InvokeArg
         /**
          * @param version Specifies the version of the certificate to look up.  (Defaults to latest)
          * 
-         * &gt; **NOTE:** The vault must be in the same subscription as the provider. If the vault is in another subscription, you must create an aliased provider for that subscription.
+         * &gt; **Note:** The vault must be in the same subscription as the provider. If the vault is in another subscription, you must create an aliased provider for that subscription.
          * 
          * @return builder
          * 
@@ -149,7 +149,7 @@ public final class GetCertificateDataArgs extends com.pulumi.resources.InvokeArg
         /**
          * @param version Specifies the version of the certificate to look up.  (Defaults to latest)
          * 
-         * &gt; **NOTE:** The vault must be in the same subscription as the provider. If the vault is in another subscription, you must create an aliased provider for that subscription.
+         * &gt; **Note:** The vault must be in the same subscription as the provider. If the vault is in another subscription, you must create an aliased provider for that subscription.
          * 
          * @return builder
          * 

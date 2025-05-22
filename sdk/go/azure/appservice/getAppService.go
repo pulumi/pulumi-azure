@@ -13,7 +13,7 @@ import (
 
 // Use this data source to access information about an existing App Service.
 //
-// !> **Note:** The `appservice.AppService` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `appservice.LinuxWebApp` and `appservice.WindowsWebApp` data sources instead.
+// !> **Note:** The `appservice.AppService` data source is deprecated in version 5.0 of the provider and will be removed in version 6.0. Please use the `appservice.LinuxWebApp` and `appservice.WindowsWebApp` data sources instead.
 //
 // ## Example Usage
 //

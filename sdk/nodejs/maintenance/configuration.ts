@@ -30,6 +30,13 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.Maintenance`: 2023-04-01
+ *
  * ## Import
  *
  * Maintenance Configuration can be imported using the `resource id`, e.g.
@@ -73,7 +80,7 @@ export class Configuration extends pulumi.CustomResource {
     /**
      * An `installPatches` block as defined below.
      *
-     * > **NOTE:** `installPatches` must be specified when `scope` is `InGuestPatch`.
+     * > **Note:** `installPatches` must be specified when `scope` is `InGuestPatch`.
      */
     public readonly installPatches!: pulumi.Output<outputs.maintenance.ConfigurationInstallPatches | undefined>;
     /**
@@ -167,7 +174,7 @@ export interface ConfigurationState {
     /**
      * An `installPatches` block as defined below.
      *
-     * > **NOTE:** `installPatches` must be specified when `scope` is `InGuestPatch`.
+     * > **Note:** `installPatches` must be specified when `scope` is `InGuestPatch`.
      */
     installPatches?: pulumi.Input<inputs.maintenance.ConfigurationInstallPatches>;
     /**
@@ -215,7 +222,7 @@ export interface ConfigurationArgs {
     /**
      * An `installPatches` block as defined below.
      *
-     * > **NOTE:** `installPatches` must be specified when `scope` is `InGuestPatch`.
+     * > **Note:** `installPatches` must be specified when `scope` is `InGuestPatch`.
      */
     installPatches?: pulumi.Input<inputs.maintenance.ConfigurationInstallPatches>;
     /**

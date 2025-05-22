@@ -36,7 +36,7 @@ public final class AutomationSourceArgs extends com.pulumi.resources.ResourceArg
     /**
      * A set of rules which evaluate upon event and data interception. This is defined in one or more `rule_set` blocks as defined below.
      * 
-     * &gt; **NOTE:** When multiple `rule_set` block are provided, a logical &#39;OR&#39; is applied to the evaluation of them.
+     * &gt; **Note:** When multiple `rule_set` block are provided, a logical &#39;OR&#39; is applied to the evaluation of them.
      * 
      */
     @Import(name="ruleSets")
@@ -45,7 +45,7 @@ public final class AutomationSourceArgs extends com.pulumi.resources.ResourceArg
     /**
      * @return A set of rules which evaluate upon event and data interception. This is defined in one or more `rule_set` blocks as defined below.
      * 
-     * &gt; **NOTE:** When multiple `rule_set` block are provided, a logical &#39;OR&#39; is applied to the evaluation of them.
+     * &gt; **Note:** When multiple `rule_set` block are provided, a logical &#39;OR&#39; is applied to the evaluation of them.
      * 
      */
     public Optional<Output<List<AutomationSourceRuleSetArgs>>> ruleSets() {
@@ -101,7 +101,7 @@ public final class AutomationSourceArgs extends com.pulumi.resources.ResourceArg
         /**
          * @param ruleSets A set of rules which evaluate upon event and data interception. This is defined in one or more `rule_set` blocks as defined below.
          * 
-         * &gt; **NOTE:** When multiple `rule_set` block are provided, a logical &#39;OR&#39; is applied to the evaluation of them.
+         * &gt; **Note:** When multiple `rule_set` block are provided, a logical &#39;OR&#39; is applied to the evaluation of them.
          * 
          * @return builder
          * 
@@ -114,7 +114,7 @@ public final class AutomationSourceArgs extends com.pulumi.resources.ResourceArg
         /**
          * @param ruleSets A set of rules which evaluate upon event and data interception. This is defined in one or more `rule_set` blocks as defined below.
          * 
-         * &gt; **NOTE:** When multiple `rule_set` block are provided, a logical &#39;OR&#39; is applied to the evaluation of them.
+         * &gt; **Note:** When multiple `rule_set` block are provided, a logical &#39;OR&#39; is applied to the evaluation of them.
          * 
          * @return builder
          * 
@@ -126,7 +126,7 @@ public final class AutomationSourceArgs extends com.pulumi.resources.ResourceArg
         /**
          * @param ruleSets A set of rules which evaluate upon event and data interception. This is defined in one or more `rule_set` blocks as defined below.
          * 
-         * &gt; **NOTE:** When multiple `rule_set` block are provided, a logical &#39;OR&#39; is applied to the evaluation of them.
+         * &gt; **Note:** When multiple `rule_set` block are provided, a logical &#39;OR&#39; is applied to the evaluation of them.
          * 
          * @return builder
          * 

@@ -135,6 +135,13 @@ namespace Pulumi.Azure.PostgreSql
     /// });
     /// ```
     /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.DBforPostgreSQL`: 2020-01-01
+    /// 
     /// ## Import
     /// 
     /// A PostgreSQL Server Key can be imported using the `resource id` of the PostgreSQL Server Key, e.g.

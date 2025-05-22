@@ -21,6 +21,13 @@ import * as utilities from "../utilities";
  * });
  * export const trafficRoutingMethod = example.then(example => example.trafficRoutingMethod);
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.Network`: 2022-04-01
  */
 export function getTrafficManagerProfile(args: GetTrafficManagerProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetTrafficManagerProfileResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -111,6 +118,13 @@ export interface GetTrafficManagerProfileResult {
  * });
  * export const trafficRoutingMethod = example.then(example => example.trafficRoutingMethod);
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.Network`: 2022-04-01
  */
 export function getTrafficManagerProfileOutput(args: GetTrafficManagerProfileOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTrafficManagerProfileResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

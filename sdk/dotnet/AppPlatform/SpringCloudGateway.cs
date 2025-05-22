@@ -10,9 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppPlatform
 {
     /// <summary>
-    /// &gt; **NOTE:** This resource is applicable only for Spring Cloud Service with enterprise tier.
+    /// &gt; **Note:** This resource is applicable only for Spring Cloud Service with enterprise tier.
     /// 
     /// Manages a Spring Cloud Gateway.
+    /// 
+    /// !&gt; **Note:** Azure Spring Apps is now deprecated and will be retired on 2028-05-31 - as such the `azure.appplatform.SpringCloudGateway` resource is deprecated and will be removed in a future major version of the AzureRM Provider. See https://aka.ms/asaretirement for more information.
     /// 
     /// ## Example Usage
     /// 
@@ -98,6 +100,13 @@ namespace Pulumi.Azure.AppPlatform
     /// 
     /// });
     /// ```
+    /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.AppPlatform`: 2024-01-01-preview
     /// 
     /// ## Import
     /// 

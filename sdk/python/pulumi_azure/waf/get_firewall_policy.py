@@ -104,6 +104,13 @@ def get_firewall_policy(name: Optional[builtins.str] = None,
     pulumi.export("id", example.id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Network`: 2024-05-01
+
 
     :param builtins.str name: The name of the Web Application Firewall Policy
     :param builtins.str resource_group_name: The name of the Resource Group where the Web Application Firewall Policy exists.
@@ -138,6 +145,13 @@ def get_firewall_policy_output(name: Optional[pulumi.Input[builtins.str]] = None
         name="existing")
     pulumi.export("id", example.id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Network`: 2024-05-01
 
 
     :param builtins.str name: The name of the Web Application Firewall Policy

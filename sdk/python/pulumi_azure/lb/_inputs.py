@@ -242,7 +242,7 @@ if not MYPY:
         """
         Specifies a list of Availability Zones in which the IP Address for this Load Balancer should be located.
 
-        > **NOTE:** Availability Zones are only supported with a [Standard SKU](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones) and [in select regions](https://docs.microsoft.com/azure/availability-zones/az-overview) at this time.
+        > **Note:** Availability Zones are only supported with a [Standard SKU](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones) and [in select regions](https://docs.microsoft.com/azure/availability-zones/az-overview) at this time.
         """
 elif False:
     LoadBalancerFrontendIpConfigurationArgsDict: TypeAlias = Mapping[str, Any]
@@ -278,7 +278,7 @@ class LoadBalancerFrontendIpConfigurationArgs:
         :param pulumi.Input[builtins.str] subnet_id: The ID of the Subnet which should be associated with the IP Configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] zones: Specifies a list of Availability Zones in which the IP Address for this Load Balancer should be located.
                
-               > **NOTE:** Availability Zones are only supported with a [Standard SKU](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones) and [in select regions](https://docs.microsoft.com/azure/availability-zones/az-overview) at this time.
+               > **Note:** Availability Zones are only supported with a [Standard SKU](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones) and [in select regions](https://docs.microsoft.com/azure/availability-zones/az-overview) at this time.
         """
         pulumi.set(__self__, "name", name)
         if gateway_load_balancer_frontend_ip_configuration_id is not None:
@@ -456,7 +456,7 @@ class LoadBalancerFrontendIpConfigurationArgs:
         """
         Specifies a list of Availability Zones in which the IP Address for this Load Balancer should be located.
 
-        > **NOTE:** Availability Zones are only supported with a [Standard SKU](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones) and [in select regions](https://docs.microsoft.com/azure/availability-zones/az-overview) at this time.
+        > **Note:** Availability Zones are only supported with a [Standard SKU](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones) and [in select regions](https://docs.microsoft.com/azure/availability-zones/az-overview) at this time.
         """
         return pulumi.get(self, "zones")
 

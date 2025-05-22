@@ -32,7 +32,7 @@ namespace Pulumi.Azure.MSSql
         /// <summary>
         /// A `load_balancer_configuration` block as defined below. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** Either one of `load_balancer_configuration` or `multi_subnet_ip_configuration` must be specified.
+        /// &gt; **Note:** Either one of `load_balancer_configuration` or `multi_subnet_ip_configuration` must be specified.
         /// </summary>
         [Output("loadBalancerConfiguration")]
         public Output<Outputs.VirtualMachineAvailabilityGroupListenerLoadBalancerConfiguration?> LoadBalancerConfiguration { get; private set; } = null!;
@@ -122,7 +122,7 @@ namespace Pulumi.Azure.MSSql
         /// <summary>
         /// A `load_balancer_configuration` block as defined below. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** Either one of `load_balancer_configuration` or `multi_subnet_ip_configuration` must be specified.
+        /// &gt; **Note:** Either one of `load_balancer_configuration` or `multi_subnet_ip_configuration` must be specified.
         /// </summary>
         [Input("loadBalancerConfiguration")]
         public Input<Inputs.VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationArgs>? LoadBalancerConfiguration { get; set; }
@@ -186,7 +186,7 @@ namespace Pulumi.Azure.MSSql
         /// <summary>
         /// A `load_balancer_configuration` block as defined below. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** Either one of `load_balancer_configuration` or `multi_subnet_ip_configuration` must be specified.
+        /// &gt; **Note:** Either one of `load_balancer_configuration` or `multi_subnet_ip_configuration` must be specified.
         /// </summary>
         [Input("loadBalancerConfiguration")]
         public Input<Inputs.VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationGetArgs>? LoadBalancerConfiguration { get; set; }

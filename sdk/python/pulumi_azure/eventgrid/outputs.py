@@ -55,6 +55,7 @@ __all__ = [
     'NamespaceTopicSpacesConfiguration',
     'NamespaceTopicSpacesConfigurationDynamicRoutingEnrichment',
     'NamespaceTopicSpacesConfigurationStaticRoutingEnrichment',
+    'PartnerConfigurationPartnerAuthorization',
     'SystemTopicEventSubscriptionAdvancedFilter',
     'SystemTopicEventSubscriptionAdvancedFilterBoolEqual',
     'SystemTopicEventSubscriptionAdvancedFilterIsNotNull',
@@ -128,9 +129,9 @@ class DomainIdentity(dict):
         :param builtins.str type: Specifies the type of Managed Service Identity that should be configured on this Event Grid Domain. Possible values are `SystemAssigned`, `UserAssigned`.
         :param Sequence[builtins.str] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid Domain.
                
-               > **NOTE:** This is required when `type` is set to `UserAssigned`
+               > **Note:** This is required when `type` is set to `UserAssigned`
                
-               > **NOTE:** When `type` is set to `SystemAssigned`, The assigned `principal_id` and `tenant_id` can be retrieved after the Event Grid Domain has been created. More details are available below.
+               > **Note:** When `type` is set to `SystemAssigned`, The assigned `principal_id` and `tenant_id` can be retrieved after the Event Grid Domain has been created. More details are available below.
         :param builtins.str principal_id: The Principal ID associated with this Managed Service Identity.
         :param builtins.str tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
@@ -156,9 +157,9 @@ class DomainIdentity(dict):
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid Domain.
 
-        > **NOTE:** This is required when `type` is set to `UserAssigned`
+        > **Note:** This is required when `type` is set to `UserAssigned`
 
-        > **NOTE:** When `type` is set to `SystemAssigned`, The assigned `principal_id` and `tenant_id` can be retrieved after the Event Grid Domain has been created. More details are available below.
+        > **Note:** When `type` is set to `SystemAssigned`, The assigned `principal_id` and `tenant_id` can be retrieved after the Event Grid Domain has been created. More details are available below.
         """
         return pulumi.get(self, "identity_ids")
 
@@ -800,7 +801,7 @@ class EventSubscriptionAdvancedFilterNumberIn(dict):
         :param builtins.str key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
         :param Sequence[builtins.float] values: Specifies an array of values to compare to when using a multiple values operator.
                
-               > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+               > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -819,7 +820,7 @@ class EventSubscriptionAdvancedFilterNumberIn(dict):
         """
         Specifies an array of values to compare to when using a multiple values operator.
 
-        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+        > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         return pulumi.get(self, "values")
 
@@ -833,7 +834,7 @@ class EventSubscriptionAdvancedFilterNumberInRange(dict):
         :param builtins.str key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
         :param Sequence[Sequence[builtins.float]] values: Specifies an array of values to compare to when using a multiple values operator.
                
-               > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+               > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -852,7 +853,7 @@ class EventSubscriptionAdvancedFilterNumberInRange(dict):
         """
         Specifies an array of values to compare to when using a multiple values operator.
 
-        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+        > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         return pulumi.get(self, "values")
 
@@ -916,7 +917,7 @@ class EventSubscriptionAdvancedFilterNumberNotIn(dict):
         :param builtins.str key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
         :param Sequence[builtins.float] values: Specifies an array of values to compare to when using a multiple values operator.
                
-               > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+               > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -935,7 +936,7 @@ class EventSubscriptionAdvancedFilterNumberNotIn(dict):
         """
         Specifies an array of values to compare to when using a multiple values operator.
 
-        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+        > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         return pulumi.get(self, "values")
 
@@ -949,7 +950,7 @@ class EventSubscriptionAdvancedFilterNumberNotInRange(dict):
         :param builtins.str key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
         :param Sequence[Sequence[builtins.float]] values: Specifies an array of values to compare to when using a multiple values operator.
                
-               > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+               > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -968,7 +969,7 @@ class EventSubscriptionAdvancedFilterNumberNotInRange(dict):
         """
         Specifies an array of values to compare to when using a multiple values operator.
 
-        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+        > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         return pulumi.get(self, "values")
 
@@ -982,7 +983,7 @@ class EventSubscriptionAdvancedFilterStringBeginsWith(dict):
         :param builtins.str key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
         :param Sequence[builtins.str] values: Specifies an array of values to compare to when using a multiple values operator.
                
-               > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+               > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -1001,7 +1002,7 @@ class EventSubscriptionAdvancedFilterStringBeginsWith(dict):
         """
         Specifies an array of values to compare to when using a multiple values operator.
 
-        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+        > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         return pulumi.get(self, "values")
 
@@ -1015,7 +1016,7 @@ class EventSubscriptionAdvancedFilterStringContain(dict):
         :param builtins.str key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
         :param Sequence[builtins.str] values: Specifies an array of values to compare to when using a multiple values operator.
                
-               > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+               > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -1034,7 +1035,7 @@ class EventSubscriptionAdvancedFilterStringContain(dict):
         """
         Specifies an array of values to compare to when using a multiple values operator.
 
-        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+        > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         return pulumi.get(self, "values")
 
@@ -1048,7 +1049,7 @@ class EventSubscriptionAdvancedFilterStringEndsWith(dict):
         :param builtins.str key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
         :param Sequence[builtins.str] values: Specifies an array of values to compare to when using a multiple values operator.
                
-               > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+               > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -1067,7 +1068,7 @@ class EventSubscriptionAdvancedFilterStringEndsWith(dict):
         """
         Specifies an array of values to compare to when using a multiple values operator.
 
-        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+        > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         return pulumi.get(self, "values")
 
@@ -1081,7 +1082,7 @@ class EventSubscriptionAdvancedFilterStringIn(dict):
         :param builtins.str key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
         :param Sequence[builtins.str] values: Specifies an array of values to compare to when using a multiple values operator.
                
-               > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+               > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -1100,7 +1101,7 @@ class EventSubscriptionAdvancedFilterStringIn(dict):
         """
         Specifies an array of values to compare to when using a multiple values operator.
 
-        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+        > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         return pulumi.get(self, "values")
 
@@ -1114,7 +1115,7 @@ class EventSubscriptionAdvancedFilterStringNotBeginsWith(dict):
         :param builtins.str key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
         :param Sequence[builtins.str] values: Specifies an array of values to compare to when using a multiple values operator.
                
-               > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+               > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -1133,7 +1134,7 @@ class EventSubscriptionAdvancedFilterStringNotBeginsWith(dict):
         """
         Specifies an array of values to compare to when using a multiple values operator.
 
-        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+        > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         return pulumi.get(self, "values")
 
@@ -1147,7 +1148,7 @@ class EventSubscriptionAdvancedFilterStringNotContain(dict):
         :param builtins.str key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
         :param Sequence[builtins.str] values: Specifies an array of values to compare to when using a multiple values operator.
                
-               > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+               > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -1166,7 +1167,7 @@ class EventSubscriptionAdvancedFilterStringNotContain(dict):
         """
         Specifies an array of values to compare to when using a multiple values operator.
 
-        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+        > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         return pulumi.get(self, "values")
 
@@ -1180,7 +1181,7 @@ class EventSubscriptionAdvancedFilterStringNotEndsWith(dict):
         :param builtins.str key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
         :param Sequence[builtins.str] values: Specifies an array of values to compare to when using a multiple values operator.
                
-               > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+               > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -1199,7 +1200,7 @@ class EventSubscriptionAdvancedFilterStringNotEndsWith(dict):
         """
         Specifies an array of values to compare to when using a multiple values operator.
 
-        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+        > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         return pulumi.get(self, "values")
 
@@ -1213,7 +1214,7 @@ class EventSubscriptionAdvancedFilterStringNotIn(dict):
         :param builtins.str key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
         :param Sequence[builtins.str] values: Specifies an array of values to compare to when using a multiple values operator.
                
-               > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+               > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -1232,7 +1233,7 @@ class EventSubscriptionAdvancedFilterStringNotIn(dict):
         """
         Specifies an array of values to compare to when using a multiple values operator.
 
-        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+        > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         return pulumi.get(self, "values")
 
@@ -1835,7 +1836,7 @@ class NamespaceIdentity(dict):
         :param builtins.str type: Specifies the type of Managed Service Identity that should be configured on this Event Grid Namespace. Possible values are `SystemAssigned`, `UserAssigned`.
         :param Sequence[builtins.str] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid Namespace.
                
-               > **NOTE:** This is required when `type` is set to `UserAssigned`
+               > **Note:** This is required when `type` is set to `UserAssigned`
         """
         pulumi.set(__self__, "type", type)
         if identity_ids is not None:
@@ -1859,7 +1860,7 @@ class NamespaceIdentity(dict):
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid Namespace.
 
-        > **NOTE:** This is required when `type` is set to `UserAssigned`
+        > **Note:** This is required when `type` is set to `UserAssigned`
         """
         return pulumi.get(self, "identity_ids")
 
@@ -2083,6 +2084,72 @@ class NamespaceTopicSpacesConfigurationStaticRoutingEnrichment(dict):
         The enrichment value.
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class PartnerConfigurationPartnerAuthorization(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "partnerName":
+            suggest = "partner_name"
+        elif key == "partnerRegistrationId":
+            suggest = "partner_registration_id"
+        elif key == "authorizationExpirationTimeInUtc":
+            suggest = "authorization_expiration_time_in_utc"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PartnerConfigurationPartnerAuthorization. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PartnerConfigurationPartnerAuthorization.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PartnerConfigurationPartnerAuthorization.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 partner_name: builtins.str,
+                 partner_registration_id: builtins.str,
+                 authorization_expiration_time_in_utc: Optional[builtins.str] = None):
+        """
+        :param builtins.str partner_name: The partner name.
+        :param builtins.str partner_registration_id: The immutable id of the corresponding partner registration.
+        :param builtins.str authorization_expiration_time_in_utc: Expiration time of the partner authorization. Value should be in RFC 3339 format in UTC time zone, for example: "2025-02-04T00:00:00Z".
+               
+               > **Note:** If the time from `authorization_expiration_time_in_utc` expires, any request from this partner to create, update or delete resources in the subscriber's context will fail. If not specified, the authorization will expire after `default_maximum_expiration_time_in_days`.
+        """
+        pulumi.set(__self__, "partner_name", partner_name)
+        pulumi.set(__self__, "partner_registration_id", partner_registration_id)
+        if authorization_expiration_time_in_utc is not None:
+            pulumi.set(__self__, "authorization_expiration_time_in_utc", authorization_expiration_time_in_utc)
+
+    @property
+    @pulumi.getter(name="partnerName")
+    def partner_name(self) -> builtins.str:
+        """
+        The partner name.
+        """
+        return pulumi.get(self, "partner_name")
+
+    @property
+    @pulumi.getter(name="partnerRegistrationId")
+    def partner_registration_id(self) -> builtins.str:
+        """
+        The immutable id of the corresponding partner registration.
+        """
+        return pulumi.get(self, "partner_registration_id")
+
+    @property
+    @pulumi.getter(name="authorizationExpirationTimeInUtc")
+    def authorization_expiration_time_in_utc(self) -> Optional[builtins.str]:
+        """
+        Expiration time of the partner authorization. Value should be in RFC 3339 format in UTC time zone, for example: "2025-02-04T00:00:00Z".
+
+        > **Note:** If the time from `authorization_expiration_time_in_utc` expires, any request from this partner to create, update or delete resources in the subscriber's context will fail. If not specified, the authorization will expire after `default_maximum_expiration_time_in_days`.
+        """
+        return pulumi.get(self, "authorization_expiration_time_in_utc")
 
 
 @pulumi.output_type
@@ -2497,7 +2564,7 @@ class SystemTopicEventSubscriptionAdvancedFilterNumberIn(dict):
         :param builtins.str key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
         :param Sequence[builtins.float] values: Specifies an array of values to compare to when using a multiple values operator.
                
-               > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+               > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -2516,7 +2583,7 @@ class SystemTopicEventSubscriptionAdvancedFilterNumberIn(dict):
         """
         Specifies an array of values to compare to when using a multiple values operator.
 
-        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+        > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         return pulumi.get(self, "values")
 
@@ -2530,7 +2597,7 @@ class SystemTopicEventSubscriptionAdvancedFilterNumberInRange(dict):
         :param builtins.str key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
         :param Sequence[Sequence[builtins.float]] values: Specifies an array of values to compare to when using a multiple values operator.
                
-               > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+               > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -2549,7 +2616,7 @@ class SystemTopicEventSubscriptionAdvancedFilterNumberInRange(dict):
         """
         Specifies an array of values to compare to when using a multiple values operator.
 
-        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+        > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         return pulumi.get(self, "values")
 
@@ -2613,7 +2680,7 @@ class SystemTopicEventSubscriptionAdvancedFilterNumberNotIn(dict):
         :param builtins.str key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
         :param Sequence[builtins.float] values: Specifies an array of values to compare to when using a multiple values operator.
                
-               > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+               > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -2632,7 +2699,7 @@ class SystemTopicEventSubscriptionAdvancedFilterNumberNotIn(dict):
         """
         Specifies an array of values to compare to when using a multiple values operator.
 
-        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+        > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         return pulumi.get(self, "values")
 
@@ -2646,7 +2713,7 @@ class SystemTopicEventSubscriptionAdvancedFilterNumberNotInRange(dict):
         :param builtins.str key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
         :param Sequence[Sequence[builtins.float]] values: Specifies an array of values to compare to when using a multiple values operator.
                
-               > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+               > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -2665,7 +2732,7 @@ class SystemTopicEventSubscriptionAdvancedFilterNumberNotInRange(dict):
         """
         Specifies an array of values to compare to when using a multiple values operator.
 
-        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+        > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         return pulumi.get(self, "values")
 
@@ -2679,7 +2746,7 @@ class SystemTopicEventSubscriptionAdvancedFilterStringBeginsWith(dict):
         :param builtins.str key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
         :param Sequence[builtins.str] values: Specifies an array of values to compare to when using a multiple values operator.
                
-               > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+               > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -2698,7 +2765,7 @@ class SystemTopicEventSubscriptionAdvancedFilterStringBeginsWith(dict):
         """
         Specifies an array of values to compare to when using a multiple values operator.
 
-        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+        > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         return pulumi.get(self, "values")
 
@@ -2712,7 +2779,7 @@ class SystemTopicEventSubscriptionAdvancedFilterStringContain(dict):
         :param builtins.str key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
         :param Sequence[builtins.str] values: Specifies an array of values to compare to when using a multiple values operator.
                
-               > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+               > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -2731,7 +2798,7 @@ class SystemTopicEventSubscriptionAdvancedFilterStringContain(dict):
         """
         Specifies an array of values to compare to when using a multiple values operator.
 
-        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+        > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         return pulumi.get(self, "values")
 
@@ -2745,7 +2812,7 @@ class SystemTopicEventSubscriptionAdvancedFilterStringEndsWith(dict):
         :param builtins.str key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
         :param Sequence[builtins.str] values: Specifies an array of values to compare to when using a multiple values operator.
                
-               > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+               > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -2764,7 +2831,7 @@ class SystemTopicEventSubscriptionAdvancedFilterStringEndsWith(dict):
         """
         Specifies an array of values to compare to when using a multiple values operator.
 
-        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+        > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         return pulumi.get(self, "values")
 
@@ -2778,7 +2845,7 @@ class SystemTopicEventSubscriptionAdvancedFilterStringIn(dict):
         :param builtins.str key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
         :param Sequence[builtins.str] values: Specifies an array of values to compare to when using a multiple values operator.
                
-               > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+               > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -2797,7 +2864,7 @@ class SystemTopicEventSubscriptionAdvancedFilterStringIn(dict):
         """
         Specifies an array of values to compare to when using a multiple values operator.
 
-        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+        > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         return pulumi.get(self, "values")
 
@@ -2811,7 +2878,7 @@ class SystemTopicEventSubscriptionAdvancedFilterStringNotBeginsWith(dict):
         :param builtins.str key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
         :param Sequence[builtins.str] values: Specifies an array of values to compare to when using a multiple values operator.
                
-               > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+               > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -2830,7 +2897,7 @@ class SystemTopicEventSubscriptionAdvancedFilterStringNotBeginsWith(dict):
         """
         Specifies an array of values to compare to when using a multiple values operator.
 
-        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+        > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         return pulumi.get(self, "values")
 
@@ -2844,7 +2911,7 @@ class SystemTopicEventSubscriptionAdvancedFilterStringNotContain(dict):
         :param builtins.str key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
         :param Sequence[builtins.str] values: Specifies an array of values to compare to when using a multiple values operator.
                
-               > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+               > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -2863,7 +2930,7 @@ class SystemTopicEventSubscriptionAdvancedFilterStringNotContain(dict):
         """
         Specifies an array of values to compare to when using a multiple values operator.
 
-        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+        > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         return pulumi.get(self, "values")
 
@@ -2877,7 +2944,7 @@ class SystemTopicEventSubscriptionAdvancedFilterStringNotEndsWith(dict):
         :param builtins.str key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
         :param Sequence[builtins.str] values: Specifies an array of values to compare to when using a multiple values operator.
                
-               > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+               > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -2896,7 +2963,7 @@ class SystemTopicEventSubscriptionAdvancedFilterStringNotEndsWith(dict):
         """
         Specifies an array of values to compare to when using a multiple values operator.
 
-        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+        > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         return pulumi.get(self, "values")
 
@@ -2910,7 +2977,7 @@ class SystemTopicEventSubscriptionAdvancedFilterStringNotIn(dict):
         :param builtins.str key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
         :param Sequence[builtins.str] values: Specifies an array of values to compare to when using a multiple values operator.
                
-               > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+               > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -2929,7 +2996,7 @@ class SystemTopicEventSubscriptionAdvancedFilterStringNotIn(dict):
         """
         Specifies an array of values to compare to when using a multiple values operator.
 
-        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+        > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         return pulumi.get(self, "values")
 
@@ -3532,9 +3599,9 @@ class SystemTopicIdentity(dict):
         :param builtins.str type: Specifies the type of Managed Service Identity that should be configured on this Event Grid System Topic. Possible values are `SystemAssigned`, `UserAssigned`.
         :param Sequence[builtins.str] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid System Topic.
                
-               > **NOTE:** This is required when `type` is set to `UserAssigned`
+               > **Note:** This is required when `type` is set to `UserAssigned`
                
-               > **NOTE:** When `type` is set to `SystemAssigned`, The assigned `principal_id` and `tenant_id` can be retrieved after the Event Grid System Topic has been created. More details are available below.
+               > **Note:** When `type` is set to `SystemAssigned`, The assigned `principal_id` and `tenant_id` can be retrieved after the Event Grid System Topic has been created. More details are available below.
         :param builtins.str principal_id: The Principal ID associated with this Managed Service Identity.
         :param builtins.str tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
@@ -3560,9 +3627,9 @@ class SystemTopicIdentity(dict):
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid System Topic.
 
-        > **NOTE:** This is required when `type` is set to `UserAssigned`
+        > **Note:** This is required when `type` is set to `UserAssigned`
 
-        > **NOTE:** When `type` is set to `SystemAssigned`, The assigned `principal_id` and `tenant_id` can be retrieved after the Event Grid System Topic has been created. More details are available below.
+        > **Note:** When `type` is set to `SystemAssigned`, The assigned `principal_id` and `tenant_id` can be retrieved after the Event Grid System Topic has been created. More details are available below.
         """
         return pulumi.get(self, "identity_ids")
 
@@ -3615,9 +3682,9 @@ class TopicIdentity(dict):
         :param builtins.str type: Specifies the type of Managed Service Identity that should be configured on this Event Grid Topic. Possible values are `SystemAssigned`, `UserAssigned`.
         :param Sequence[builtins.str] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid Topic.
                
-               > **NOTE:** This is required when `type` is set to `UserAssigned`
+               > **Note:** This is required when `type` is set to `UserAssigned`
                
-               > **NOTE:** When `type` is set to `SystemAssigned`, The assigned `principal_id` and `tenant_id` can be retrieved after the Event Grid Topic has been created. More details are available below.
+               > **Note:** When `type` is set to `SystemAssigned`, The assigned `principal_id` and `tenant_id` can be retrieved after the Event Grid Topic has been created. More details are available below.
         :param builtins.str principal_id: The Principal ID associated with this Managed Service Identity.
         :param builtins.str tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
@@ -3643,9 +3710,9 @@ class TopicIdentity(dict):
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid Topic.
 
-        > **NOTE:** This is required when `type` is set to `UserAssigned`
+        > **Note:** This is required when `type` is set to `UserAssigned`
 
-        > **NOTE:** When `type` is set to `SystemAssigned`, The assigned `principal_id` and `tenant_id` can be retrieved after the Event Grid Topic has been created. More details are available below.
+        > **Note:** When `type` is set to `SystemAssigned`, The assigned `principal_id` and `tenant_id` can be retrieved after the Event Grid Topic has been created. More details are available below.
         """
         return pulumi.get(self, "identity_ids")
 

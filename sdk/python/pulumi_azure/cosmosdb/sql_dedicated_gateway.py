@@ -167,6 +167,13 @@ class SqlDedicatedGateway(pulumi.CustomResource):
             instance_size="Cosmos.D4s")
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DocumentDB`: 2022-05-15
+
         ## Import
 
         CosmosDB SQL Dedicated Gateways can be imported using the `resource id`, e.g.
@@ -217,6 +224,13 @@ class SqlDedicatedGateway(pulumi.CustomResource):
             instance_count=1,
             instance_size="Cosmos.D4s")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DocumentDB`: 2022-05-15
 
         ## Import
 

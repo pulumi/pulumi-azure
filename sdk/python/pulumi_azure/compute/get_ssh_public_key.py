@@ -107,6 +107,13 @@ def get_ssh_public_key(name: Optional[builtins.str] = None,
     pulumi.export("id", example.id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Compute`: 2024-03-01
+
 
     :param builtins.str name: The name of this SSH Public Key.
     :param builtins.str resource_group_name: The name of the Resource Group where the SSH Public Key exists.
@@ -142,6 +149,13 @@ def get_ssh_public_key_output(name: Optional[pulumi.Input[builtins.str]] = None,
         resource_group_name="existing")
     pulumi.export("id", example.id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Compute`: 2024-03-01
 
 
     :param builtins.str name: The name of this SSH Public Key.

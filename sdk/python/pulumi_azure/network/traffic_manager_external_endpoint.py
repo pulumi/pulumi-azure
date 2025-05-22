@@ -442,6 +442,13 @@ class TrafficManagerExternalEndpoint(pulumi.CustomResource):
             target="www.example.com")
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network`: 2022-04-01
+
         ## Import
 
         External Endpoints can be imported using the `resource id`, e.g.
@@ -508,6 +515,13 @@ class TrafficManagerExternalEndpoint(pulumi.CustomResource):
             weight=100,
             target="www.example.com")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network`: 2022-04-01
 
         ## Import
 

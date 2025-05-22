@@ -74,6 +74,13 @@ namespace Pulumi.Azure.ContainerApp
     /// });
     /// ```
     /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.App`: 2025-01-01
+    /// 
     /// ## Import
     /// 
     /// A Container App Environment Storage can be imported using the `resource id`, e.g.
@@ -89,7 +96,7 @@ namespace Pulumi.Azure.ContainerApp
         /// The Storage Account Access Key.
         /// </summary>
         [Output("accessKey")]
-        public Output<string> AccessKey { get; private set; } = null!;
+        public Output<string?> AccessKey { get; private set; } = null!;
 
         /// <summary>
         /// The access mode to connect this storage to the Container App. Possible values include `ReadOnly` and `ReadWrite`. Changing this forces a new resource to be created.
@@ -101,7 +108,7 @@ namespace Pulumi.Azure.ContainerApp
         /// The Azure Storage Account in which the Share to be used is located. Changing this forces a new resource to be created.
         /// </summary>
         [Output("accountName")]
-        public Output<string> AccountName { get; private set; } = null!;
+        public Output<string?> AccountName { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the Container App Environment to which this storage belongs. Changing this forces a new resource to be created.
@@ -114,6 +121,13 @@ namespace Pulumi.Azure.ContainerApp
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// The NFS server to use for the Azure File Share, the format will be `yourstorageaccountname.file.core.windows.net`. Changing this forces a new resource to be created.
+        /// *
+        /// </summary>
+        [Output("nfsServerUrl")]
+        public Output<string?> NfsServerUrl { get; private set; } = null!;
 
         /// <summary>
         /// The name of the Azure Storage Share to use. Changing this forces a new resource to be created.
@@ -171,7 +185,7 @@ namespace Pulumi.Azure.ContainerApp
 
     public sealed class EnvironmentStorageArgs : global::Pulumi.ResourceArgs
     {
-        [Input("accessKey", required: true)]
+        [Input("accessKey")]
         private Input<string>? _accessKey;
 
         /// <summary>
@@ -196,8 +210,8 @@ namespace Pulumi.Azure.ContainerApp
         /// <summary>
         /// The Azure Storage Account in which the Share to be used is located. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("accountName", required: true)]
-        public Input<string> AccountName { get; set; } = null!;
+        [Input("accountName")]
+        public Input<string>? AccountName { get; set; }
 
         /// <summary>
         /// The ID of the Container App Environment to which this storage belongs. Changing this forces a new resource to be created.
@@ -210,6 +224,13 @@ namespace Pulumi.Azure.ContainerApp
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The NFS server to use for the Azure File Share, the format will be `yourstorageaccountname.file.core.windows.net`. Changing this forces a new resource to be created.
+        /// *
+        /// </summary>
+        [Input("nfsServerUrl")]
+        public Input<string>? NfsServerUrl { get; set; }
 
         /// <summary>
         /// The name of the Azure Storage Share to use. Changing this forces a new resource to be created.
@@ -264,6 +285,13 @@ namespace Pulumi.Azure.ContainerApp
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The NFS server to use for the Azure File Share, the format will be `yourstorageaccountname.file.core.windows.net`. Changing this forces a new resource to be created.
+        /// *
+        /// </summary>
+        [Input("nfsServerUrl")]
+        public Input<string>? NfsServerUrl { get; set; }
 
         /// <summary>
         /// The name of the Azure Storage Share to use. Changing this forces a new resource to be created.

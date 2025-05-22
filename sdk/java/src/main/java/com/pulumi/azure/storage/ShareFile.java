@@ -197,7 +197,7 @@ public class ShareFile extends com.pulumi.resources.CustomResource {
     /**
      * An absolute path to a file on the local system. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note** The file specified with `source` can not be empty.
+     * &gt; **Note:** The file specified with `source` can not be empty.
      * 
      */
     @Export(name="source", refs={String.class}, tree="[0]")
@@ -206,7 +206,7 @@ public class ShareFile extends com.pulumi.resources.CustomResource {
     /**
      * @return An absolute path to a file on the local system. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note** The file specified with `source` can not be empty.
+     * &gt; **Note:** The file specified with `source` can not be empty.
      * 
      */
     public Output<Optional<String>> source() {

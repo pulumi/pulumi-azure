@@ -203,7 +203,7 @@ class Enrichment(pulumi.CustomResource):
         """
         Manages an IotHub Enrichment
 
-        > **NOTE:** Enrichment can be defined either directly on the `iot.IoTHub` resource, or using the `iot.Enrichment` resources - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
+        > **Note:** Enrichment can be defined either directly on the `iot.IoTHub` resource, or using the `iot.Enrichment` resources - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
 
         ## Example Usage
 
@@ -286,7 +286,7 @@ class Enrichment(pulumi.CustomResource):
         """
         Manages an IotHub Enrichment
 
-        > **NOTE:** Enrichment can be defined either directly on the `iot.IoTHub` resource, or using the `iot.Enrichment` resources - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
+        > **Note:** Enrichment can be defined either directly on the `iot.IoTHub` resource, or using the `iot.Enrichment` resources - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
 
         ## Example Usage
 

@@ -53,6 +53,13 @@ namespace Pulumi.Azure.Relay
     /// });
     /// ```
     /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.Relay`: 2021-11-01
+    /// 
     /// ## Import
     /// 
     /// Azure Relay Namespace Authorization Rules can be imported using the `resource id`, e.g.

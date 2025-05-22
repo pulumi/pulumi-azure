@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const exampleCapacity = new azure.fabric.Capacity("example", {
- *     name: "example-ffc",
+ *     name: "exampleffc",
  *     resourceGroupName: example.name,
  *     location: "West Europe",
  *     administrationMembers: [current.then(current => current.objectId)],
@@ -34,6 +34,13 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.Fabric`: 2023-11-01
  *
  * ## Import
  *

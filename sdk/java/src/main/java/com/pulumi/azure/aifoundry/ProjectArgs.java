@@ -125,6 +125,21 @@ public final class ProjectArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The user assigned identity ID that represents the AI Foundry Hub identity. This must be set when enabling encryption with a user assigned identity.
+     * 
+     */
+    @Import(name="primaryUserAssignedIdentity")
+    private @Nullable Output<String> primaryUserAssignedIdentity;
+
+    /**
+     * @return The user assigned identity ID that represents the AI Foundry Hub identity. This must be set when enabling encryption with a user assigned identity.
+     * 
+     */
+    public Optional<Output<String>> primaryUserAssignedIdentity() {
+        return Optional.ofNullable(this.primaryUserAssignedIdentity);
+    }
+
+    /**
      * A mapping of tags which should be assigned to the AI Foundry Project.
      * 
      */
@@ -149,6 +164,7 @@ public final class ProjectArgs extends com.pulumi.resources.ResourceArgs {
         this.identity = $.identity;
         this.location = $.location;
         this.name = $.name;
+        this.primaryUserAssignedIdentity = $.primaryUserAssignedIdentity;
         this.tags = $.tags;
     }
 
@@ -315,6 +331,27 @@ public final class ProjectArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param primaryUserAssignedIdentity The user assigned identity ID that represents the AI Foundry Hub identity. This must be set when enabling encryption with a user assigned identity.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder primaryUserAssignedIdentity(@Nullable Output<String> primaryUserAssignedIdentity) {
+            $.primaryUserAssignedIdentity = primaryUserAssignedIdentity;
+            return this;
+        }
+
+        /**
+         * @param primaryUserAssignedIdentity The user assigned identity ID that represents the AI Foundry Hub identity. This must be set when enabling encryption with a user assigned identity.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder primaryUserAssignedIdentity(String primaryUserAssignedIdentity) {
+            return primaryUserAssignedIdentity(Output.of(primaryUserAssignedIdentity));
         }
 
         /**

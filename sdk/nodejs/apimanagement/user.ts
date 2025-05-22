@@ -36,6 +36,13 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.ApiManagement`: 2022-08-01
+ *
  * ## Import
  *
  * API Management Users can be imported using the `resource id`, e.g.
@@ -107,7 +114,7 @@ export class User extends pulumi.CustomResource {
     /**
      * The state of this user. Possible values are `active`, `blocked` and `pending`.
      *
-     * > **NOTE:** the State can be changed from Pending > Active/Blocked but not from Active/Blocked > Pending.
+     * > **Note:** the State can be changed from Pending > Active/Blocked but not from Active/Blocked > Pending.
      */
     public readonly state!: pulumi.Output<string>;
     /**
@@ -215,7 +222,7 @@ export interface UserState {
     /**
      * The state of this user. Possible values are `active`, `blocked` and `pending`.
      *
-     * > **NOTE:** the State can be changed from Pending > Active/Blocked but not from Active/Blocked > Pending.
+     * > **Note:** the State can be changed from Pending > Active/Blocked but not from Active/Blocked > Pending.
      */
     state?: pulumi.Input<string>;
     /**
@@ -263,7 +270,7 @@ export interface UserArgs {
     /**
      * The state of this user. Possible values are `active`, `blocked` and `pending`.
      *
-     * > **NOTE:** the State can be changed from Pending > Active/Blocked but not from Active/Blocked > Pending.
+     * > **Note:** the State can be changed from Pending > Active/Blocked but not from Active/Blocked > Pending.
      */
     state?: pulumi.Input<string>;
     /**

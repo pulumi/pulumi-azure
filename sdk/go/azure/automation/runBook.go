@@ -81,15 +81,15 @@ type RunBook struct {
 	AutomationAccountName pulumi.StringOutput `pulumi:"automationAccountName"`
 	// The desired content of the runbook.
 	//
-	// > **NOTE** The Azure API requires a `publishContentLink` to be supplied even when specifying your own `content`.
+	// > **Note:** The Azure API requires a `publishContentLink` to be supplied even when specifying your own `content`.
 	Content pulumi.StringOutput `pulumi:"content"`
-	// A description for this credential.
+	// A description for the runbook.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// A `draft` block as defined below.
 	Draft RunBookDraftPtrOutput `pulumi:"draft"`
 	// One or more `jobSchedule` block as defined below.
 	//
-	// > **NOTE** AzureRM provides a stand-alone automation.JobSchedule and this inlined `jobSchedule` property to manage the job schedules. At this time you should choose one of them to manage the job schedule resources.
+	// > **Note:** AzureRM provides a stand-alone automation.JobSchedule and this inlined `jobSchedule` property to manage the job schedules. At this time you should choose one of them to manage the job schedule resources.
 	JobSchedules RunBookJobScheduleArrayOutput `pulumi:"jobSchedules"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -160,15 +160,15 @@ type runBookState struct {
 	AutomationAccountName *string `pulumi:"automationAccountName"`
 	// The desired content of the runbook.
 	//
-	// > **NOTE** The Azure API requires a `publishContentLink` to be supplied even when specifying your own `content`.
+	// > **Note:** The Azure API requires a `publishContentLink` to be supplied even when specifying your own `content`.
 	Content *string `pulumi:"content"`
-	// A description for this credential.
+	// A description for the runbook.
 	Description *string `pulumi:"description"`
 	// A `draft` block as defined below.
 	Draft *RunBookDraft `pulumi:"draft"`
 	// One or more `jobSchedule` block as defined below.
 	//
-	// > **NOTE** AzureRM provides a stand-alone automation.JobSchedule and this inlined `jobSchedule` property to manage the job schedules. At this time you should choose one of them to manage the job schedule resources.
+	// > **Note:** AzureRM provides a stand-alone automation.JobSchedule and this inlined `jobSchedule` property to manage the job schedules. At this time you should choose one of them to manage the job schedule resources.
 	JobSchedules []RunBookJobSchedule `pulumi:"jobSchedules"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -195,15 +195,15 @@ type RunBookState struct {
 	AutomationAccountName pulumi.StringPtrInput
 	// The desired content of the runbook.
 	//
-	// > **NOTE** The Azure API requires a `publishContentLink` to be supplied even when specifying your own `content`.
+	// > **Note:** The Azure API requires a `publishContentLink` to be supplied even when specifying your own `content`.
 	Content pulumi.StringPtrInput
-	// A description for this credential.
+	// A description for the runbook.
 	Description pulumi.StringPtrInput
 	// A `draft` block as defined below.
 	Draft RunBookDraftPtrInput
 	// One or more `jobSchedule` block as defined below.
 	//
-	// > **NOTE** AzureRM provides a stand-alone automation.JobSchedule and this inlined `jobSchedule` property to manage the job schedules. At this time you should choose one of them to manage the job schedule resources.
+	// > **Note:** AzureRM provides a stand-alone automation.JobSchedule and this inlined `jobSchedule` property to manage the job schedules. At this time you should choose one of them to manage the job schedule resources.
 	JobSchedules RunBookJobScheduleArrayInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -234,15 +234,15 @@ type runBookArgs struct {
 	AutomationAccountName string `pulumi:"automationAccountName"`
 	// The desired content of the runbook.
 	//
-	// > **NOTE** The Azure API requires a `publishContentLink` to be supplied even when specifying your own `content`.
+	// > **Note:** The Azure API requires a `publishContentLink` to be supplied even when specifying your own `content`.
 	Content *string `pulumi:"content"`
-	// A description for this credential.
+	// A description for the runbook.
 	Description *string `pulumi:"description"`
 	// A `draft` block as defined below.
 	Draft *RunBookDraft `pulumi:"draft"`
 	// One or more `jobSchedule` block as defined below.
 	//
-	// > **NOTE** AzureRM provides a stand-alone automation.JobSchedule and this inlined `jobSchedule` property to manage the job schedules. At this time you should choose one of them to manage the job schedule resources.
+	// > **Note:** AzureRM provides a stand-alone automation.JobSchedule and this inlined `jobSchedule` property to manage the job schedules. At this time you should choose one of them to manage the job schedule resources.
 	JobSchedules []RunBookJobSchedule `pulumi:"jobSchedules"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -270,15 +270,15 @@ type RunBookArgs struct {
 	AutomationAccountName pulumi.StringInput
 	// The desired content of the runbook.
 	//
-	// > **NOTE** The Azure API requires a `publishContentLink` to be supplied even when specifying your own `content`.
+	// > **Note:** The Azure API requires a `publishContentLink` to be supplied even when specifying your own `content`.
 	Content pulumi.StringPtrInput
-	// A description for this credential.
+	// A description for the runbook.
 	Description pulumi.StringPtrInput
 	// A `draft` block as defined below.
 	Draft RunBookDraftPtrInput
 	// One or more `jobSchedule` block as defined below.
 	//
-	// > **NOTE** AzureRM provides a stand-alone automation.JobSchedule and this inlined `jobSchedule` property to manage the job schedules. At this time you should choose one of them to manage the job schedule resources.
+	// > **Note:** AzureRM provides a stand-alone automation.JobSchedule and this inlined `jobSchedule` property to manage the job schedules. At this time you should choose one of them to manage the job schedule resources.
 	JobSchedules RunBookJobScheduleArrayInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -394,12 +394,12 @@ func (o RunBookOutput) AutomationAccountName() pulumi.StringOutput {
 
 // The desired content of the runbook.
 //
-// > **NOTE** The Azure API requires a `publishContentLink` to be supplied even when specifying your own `content`.
+// > **Note:** The Azure API requires a `publishContentLink` to be supplied even when specifying your own `content`.
 func (o RunBookOutput) Content() pulumi.StringOutput {
 	return o.ApplyT(func(v *RunBook) pulumi.StringOutput { return v.Content }).(pulumi.StringOutput)
 }
 
-// A description for this credential.
+// A description for the runbook.
 func (o RunBookOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RunBook) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
@@ -411,7 +411,7 @@ func (o RunBookOutput) Draft() RunBookDraftPtrOutput {
 
 // One or more `jobSchedule` block as defined below.
 //
-// > **NOTE** AzureRM provides a stand-alone automation.JobSchedule and this inlined `jobSchedule` property to manage the job schedules. At this time you should choose one of them to manage the job schedule resources.
+// > **Note:** AzureRM provides a stand-alone automation.JobSchedule and this inlined `jobSchedule` property to manage the job schedules. At this time you should choose one of them to manage the job schedule resources.
 func (o RunBookOutput) JobSchedules() RunBookJobScheduleArrayOutput {
 	return o.ApplyT(func(v *RunBook) RunBookJobScheduleArrayOutput { return v.JobSchedules }).(RunBookJobScheduleArrayOutput)
 }

@@ -109,6 +109,13 @@ def get_application_security_group(name: Optional[builtins.str] = None,
     pulumi.export("applicationSecurityGroupId", example.id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Network`: 2024-05-01
+
 
     :param builtins.str name: The name of the Application Security Group.
     :param builtins.str resource_group_name: The name of the resource group in which the Application Security Group exists.
@@ -141,6 +148,13 @@ def get_application_security_group_output(name: Optional[pulumi.Input[builtins.s
         resource_group_name="my-resource-group")
     pulumi.export("applicationSecurityGroupId", example.id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Network`: 2024-05-01
 
 
     :param builtins.str name: The name of the Application Security Group.

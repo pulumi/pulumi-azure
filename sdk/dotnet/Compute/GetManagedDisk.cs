@@ -36,6 +36,13 @@ namespace Pulumi.Azure.Compute
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Compute`: 2023-04-02
         /// </summary>
         public static Task<GetManagedDiskResult> InvokeAsync(GetManagedDiskArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagedDiskResult>("azure:compute/getManagedDisk:getManagedDisk", args ?? new GetManagedDiskArgs(), options.WithDefaults());
@@ -65,6 +72,13 @@ namespace Pulumi.Azure.Compute
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Compute`: 2023-04-02
         /// </summary>
         public static Output<GetManagedDiskResult> Invoke(GetManagedDiskInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagedDiskResult>("azure:compute/getManagedDisk:getManagedDisk", args ?? new GetManagedDiskInvokeArgs(), options.WithDefaults());
@@ -94,6 +108,13 @@ namespace Pulumi.Azure.Compute
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Compute`: 2023-04-02
         /// </summary>
         public static Output<GetManagedDiskResult> Invoke(GetManagedDiskInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagedDiskResult>("azure:compute/getManagedDisk:getManagedDisk", args ?? new GetManagedDiskInvokeArgs(), options.WithDefaults());
@@ -177,6 +198,10 @@ namespace Pulumi.Azure.Compute
         /// The ID of the source image used for creating this Managed Disk.
         /// </summary>
         public readonly string ImageReferenceId;
+        /// <summary>
+        /// The Azure location of the Managed Disk.
+        /// </summary>
+        public readonly string Location;
         public readonly string Name;
         /// <summary>
         /// Policy for accessing the disk via network.
@@ -232,6 +257,8 @@ namespace Pulumi.Azure.Compute
 
             string imageReferenceId,
 
+            string location,
+
             string name,
 
             string networkAccessPolicy,
@@ -261,6 +288,7 @@ namespace Pulumi.Azure.Compute
             EncryptionSettings = encryptionSettings;
             Id = id;
             ImageReferenceId = imageReferenceId;
+            Location = location;
             Name = name;
             NetworkAccessPolicy = networkAccessPolicy;
             OsType = osType;

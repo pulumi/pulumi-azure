@@ -416,6 +416,13 @@ class BackupInstanceKubernetesCluster(pulumi.CustomResource):
                 ]))
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DataProtection`: 2024-04-01
+
         ## Import
 
         Backup Instance Kubernetes Cluster can be imported using the `resource id`, e.g.
@@ -586,6 +593,13 @@ class BackupInstanceKubernetesCluster(pulumi.CustomResource):
                     test_vault_data_contributor_on_storage,
                 ]))
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DataProtection`: 2024-04-01
 
         ## Import
 

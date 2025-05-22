@@ -14,7 +14,7 @@ import (
 
 // Applies a Guest Configuration Policy to a Virtual Machine.
 //
-// > **NOTE:** You can create Guest Configuration Policies without defining a `compute.Extension` resource, however the policies will not be executed until a `compute.Extension` has been provisioned to the virtual machine.
+// > **Note:** You can create Guest Configuration Policies without defining a `compute.Extension` resource, however the policies will not be executed until a `compute.Extension` has been provisioned to the virtual machine.
 //
 // ## Example Usage
 //
@@ -154,6 +154,13 @@ import (
 //	}
 //
 // ```
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.Compute`: 2020-06-25
 //
 // ## Import
 //

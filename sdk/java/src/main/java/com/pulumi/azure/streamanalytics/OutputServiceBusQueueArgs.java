@@ -172,7 +172,7 @@ public final class OutputServiceBusQueueArgs extends com.pulumi.resources.Resour
     /**
      * A key-value pair of system property columns that will be attached to the outgoing messages for the Service Bus Queue Output.
      * 
-     * &gt; **NOTE:** The acceptable keys are `ContentType`, `CorrelationId`, `Label`, `MessageId`, `PartitionKey`, `ReplyTo`, `ReplyToSessionId`, `ScheduledEnqueueTimeUtc`, `SessionId`, `TimeToLive` and `To`.
+     * &gt; **Note:** The acceptable keys are `ContentType`, `CorrelationId`, `Label`, `MessageId`, `PartitionKey`, `ReplyTo`, `ReplyToSessionId`, `ScheduledEnqueueTimeUtc`, `SessionId`, `TimeToLive` and `To`.
      * 
      */
     @Import(name="systemPropertyColumns")
@@ -181,7 +181,7 @@ public final class OutputServiceBusQueueArgs extends com.pulumi.resources.Resour
     /**
      * @return A key-value pair of system property columns that will be attached to the outgoing messages for the Service Bus Queue Output.
      * 
-     * &gt; **NOTE:** The acceptable keys are `ContentType`, `CorrelationId`, `Label`, `MessageId`, `PartitionKey`, `ReplyTo`, `ReplyToSessionId`, `ScheduledEnqueueTimeUtc`, `SessionId`, `TimeToLive` and `To`.
+     * &gt; **Note:** The acceptable keys are `ContentType`, `CorrelationId`, `Label`, `MessageId`, `PartitionKey`, `ReplyTo`, `ReplyToSessionId`, `ScheduledEnqueueTimeUtc`, `SessionId`, `TimeToLive` and `To`.
      * 
      */
     public Optional<Output<Map<String,String>>> systemPropertyColumns() {
@@ -445,7 +445,7 @@ public final class OutputServiceBusQueueArgs extends com.pulumi.resources.Resour
         /**
          * @param systemPropertyColumns A key-value pair of system property columns that will be attached to the outgoing messages for the Service Bus Queue Output.
          * 
-         * &gt; **NOTE:** The acceptable keys are `ContentType`, `CorrelationId`, `Label`, `MessageId`, `PartitionKey`, `ReplyTo`, `ReplyToSessionId`, `ScheduledEnqueueTimeUtc`, `SessionId`, `TimeToLive` and `To`.
+         * &gt; **Note:** The acceptable keys are `ContentType`, `CorrelationId`, `Label`, `MessageId`, `PartitionKey`, `ReplyTo`, `ReplyToSessionId`, `ScheduledEnqueueTimeUtc`, `SessionId`, `TimeToLive` and `To`.
          * 
          * @return builder
          * 
@@ -458,7 +458,7 @@ public final class OutputServiceBusQueueArgs extends com.pulumi.resources.Resour
         /**
          * @param systemPropertyColumns A key-value pair of system property columns that will be attached to the outgoing messages for the Service Bus Queue Output.
          * 
-         * &gt; **NOTE:** The acceptable keys are `ContentType`, `CorrelationId`, `Label`, `MessageId`, `PartitionKey`, `ReplyTo`, `ReplyToSessionId`, `ScheduledEnqueueTimeUtc`, `SessionId`, `TimeToLive` and `To`.
+         * &gt; **Note:** The acceptable keys are `ContentType`, `CorrelationId`, `Label`, `MessageId`, `PartitionKey`, `ReplyTo`, `ReplyToSessionId`, `ScheduledEnqueueTimeUtc`, `SessionId`, `TimeToLive` and `To`.
          * 
          * @return builder
          * 

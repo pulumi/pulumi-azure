@@ -27,6 +27,13 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.Management`: 2020-05-01
+ *
  * ## Import
  *
  * Management Groups can be imported using the `management group resource id`, e.g.

@@ -24,6 +24,10 @@ class VirtualNetworkApplianceArgs:
                  name: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a VirtualNetworkAppliance resource.
+        :param pulumi.Input[builtins.str] virtual_hub_id: The ID of the Virtual Hub to deploy this appliance onto. Changing this forces a new Palo Alto Local Network Virtual Appliance to be created.
+               
+               > **Note:** THe Virtual Hub must be created with the tag `"hubSaaSPreview" = "true"` to be compatible with this resource.
+        :param pulumi.Input[builtins.str] name: The name which should be used for this Palo Alto Local Network Virtual Appliance. Changing this forces a new Palo Alto Local Network Virtual Appliance to be created.
         """
         pulumi.set(__self__, "virtual_hub_id", virtual_hub_id)
         if name is not None:
@@ -32,6 +36,11 @@ class VirtualNetworkApplianceArgs:
     @property
     @pulumi.getter(name="virtualHubId")
     def virtual_hub_id(self) -> pulumi.Input[builtins.str]:
+        """
+        The ID of the Virtual Hub to deploy this appliance onto. Changing this forces a new Palo Alto Local Network Virtual Appliance to be created.
+
+        > **Note:** THe Virtual Hub must be created with the tag `"hubSaaSPreview" = "true"` to be compatible with this resource.
+        """
         return pulumi.get(self, "virtual_hub_id")
 
     @virtual_hub_id.setter
@@ -41,6 +50,9 @@ class VirtualNetworkApplianceArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The name which should be used for this Palo Alto Local Network Virtual Appliance. Changing this forces a new Palo Alto Local Network Virtual Appliance to be created.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -55,6 +67,10 @@ class _VirtualNetworkApplianceState:
                  virtual_hub_id: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering VirtualNetworkAppliance resources.
+        :param pulumi.Input[builtins.str] name: The name which should be used for this Palo Alto Local Network Virtual Appliance. Changing this forces a new Palo Alto Local Network Virtual Appliance to be created.
+        :param pulumi.Input[builtins.str] virtual_hub_id: The ID of the Virtual Hub to deploy this appliance onto. Changing this forces a new Palo Alto Local Network Virtual Appliance to be created.
+               
+               > **Note:** THe Virtual Hub must be created with the tag `"hubSaaSPreview" = "true"` to be compatible with this resource.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -64,6 +80,9 @@ class _VirtualNetworkApplianceState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The name which should be used for this Palo Alto Local Network Virtual Appliance. Changing this forces a new Palo Alto Local Network Virtual Appliance to be created.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -73,6 +92,11 @@ class _VirtualNetworkApplianceState:
     @property
     @pulumi.getter(name="virtualHubId")
     def virtual_hub_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The ID of the Virtual Hub to deploy this appliance onto. Changing this forces a new Palo Alto Local Network Virtual Appliance to be created.
+
+        > **Note:** THe Virtual Hub must be created with the tag `"hubSaaSPreview" = "true"` to be compatible with this resource.
+        """
         return pulumi.get(self, "virtual_hub_id")
 
     @virtual_hub_id.setter
@@ -90,9 +114,56 @@ class VirtualNetworkAppliance(pulumi.CustomResource):
                  virtual_hub_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
-        Create a VirtualNetworkAppliance resource with the given unique name, props, and options.
+        Manages a Palo Alto Network Virtual Appliance.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_virtual_wan = azure.network.VirtualWan("example",
+            name="example-virtualwan",
+            resource_group_name=example.name,
+            location=example.location)
+        example_virtual_hub = azure.network.VirtualHub("example",
+            name="example-virtualhub",
+            resource_group_name=example.name,
+            location=example.location,
+            virtual_wan_id=example_virtual_wan.id,
+            address_prefix="10.0.0.0/23",
+            tags={
+                "hubSaaSPreview": "true",
+            })
+        example_virtual_network_appliance = azure.paloalto.VirtualNetworkAppliance("example",
+            name="example-appliance",
+            virtual_hub_id=example_virtual_hub.id)
+        ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network`: 2024-05-01
+
+        ## Import
+
+        Palo Alto Local Network Virtual Appliances can be imported using the `resource id`, e.g.
+
+        ```sh
+        $ pulumi import azure:paloalto/virtualNetworkAppliance:VirtualNetworkAppliance example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/networkVirtualAppliances/myPANetworkVirtualAppliance
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[builtins.str] name: The name which should be used for this Palo Alto Local Network Virtual Appliance. Changing this forces a new Palo Alto Local Network Virtual Appliance to be created.
+        :param pulumi.Input[builtins.str] virtual_hub_id: The ID of the Virtual Hub to deploy this appliance onto. Changing this forces a new Palo Alto Local Network Virtual Appliance to be created.
+               
+               > **Note:** THe Virtual Hub must be created with the tag `"hubSaaSPreview" = "true"` to be compatible with this resource.
         """
         ...
     @overload
@@ -101,7 +172,50 @@ class VirtualNetworkAppliance(pulumi.CustomResource):
                  args: VirtualNetworkApplianceArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a VirtualNetworkAppliance resource with the given unique name, props, and options.
+        Manages a Palo Alto Network Virtual Appliance.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_virtual_wan = azure.network.VirtualWan("example",
+            name="example-virtualwan",
+            resource_group_name=example.name,
+            location=example.location)
+        example_virtual_hub = azure.network.VirtualHub("example",
+            name="example-virtualhub",
+            resource_group_name=example.name,
+            location=example.location,
+            virtual_wan_id=example_virtual_wan.id,
+            address_prefix="10.0.0.0/23",
+            tags={
+                "hubSaaSPreview": "true",
+            })
+        example_virtual_network_appliance = azure.paloalto.VirtualNetworkAppliance("example",
+            name="example-appliance",
+            virtual_hub_id=example_virtual_hub.id)
+        ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network`: 2024-05-01
+
+        ## Import
+
+        Palo Alto Local Network Virtual Appliances can be imported using the `resource id`, e.g.
+
+        ```sh
+        $ pulumi import azure:paloalto/virtualNetworkAppliance:VirtualNetworkAppliance example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/networkVirtualAppliances/myPANetworkVirtualAppliance
+        ```
+
         :param str resource_name: The name of the resource.
         :param VirtualNetworkApplianceArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -151,6 +265,10 @@ class VirtualNetworkAppliance(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[builtins.str] name: The name which should be used for this Palo Alto Local Network Virtual Appliance. Changing this forces a new Palo Alto Local Network Virtual Appliance to be created.
+        :param pulumi.Input[builtins.str] virtual_hub_id: The ID of the Virtual Hub to deploy this appliance onto. Changing this forces a new Palo Alto Local Network Virtual Appliance to be created.
+               
+               > **Note:** THe Virtual Hub must be created with the tag `"hubSaaSPreview" = "true"` to be compatible with this resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -163,10 +281,18 @@ class VirtualNetworkAppliance(pulumi.CustomResource):
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[builtins.str]:
+        """
+        The name which should be used for this Palo Alto Local Network Virtual Appliance. Changing this forces a new Palo Alto Local Network Virtual Appliance to be created.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="virtualHubId")
     def virtual_hub_id(self) -> pulumi.Output[builtins.str]:
+        """
+        The ID of the Virtual Hub to deploy this appliance onto. Changing this forces a new Palo Alto Local Network Virtual Appliance to be created.
+
+        > **Note:** THe Virtual Hub must be created with the tag `"hubSaaSPreview" = "true"` to be compatible with this resource.
+        """
         return pulumi.get(self, "virtual_hub_id")
 

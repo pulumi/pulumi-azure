@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Blueprint
         /// <summary>
         /// Use this data source to access information about an existing Blueprint Published Version
         /// 
-        /// &gt; **NOTE:** Azure Blueprints are in Preview and potentially subject to breaking change without notice.
+        /// &gt; **Note:** Azure Blueprints are in Preview and potentially subject to breaking change without notice.
         /// 
         /// ## Example Usage
         /// 
@@ -37,6 +37,13 @@ namespace Pulumi.Azure.Blueprint
         /// 
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Blueprint`: 2018-11-01-preview
         /// </summary>
         public static Task<GetPublishedVersionResult> InvokeAsync(GetPublishedVersionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPublishedVersionResult>("azure:blueprint/getPublishedVersion:getPublishedVersion", args ?? new GetPublishedVersionArgs(), options.WithDefaults());
@@ -44,7 +51,7 @@ namespace Pulumi.Azure.Blueprint
         /// <summary>
         /// Use this data source to access information about an existing Blueprint Published Version
         /// 
-        /// &gt; **NOTE:** Azure Blueprints are in Preview and potentially subject to breaking change without notice.
+        /// &gt; **Note:** Azure Blueprints are in Preview and potentially subject to breaking change without notice.
         /// 
         /// ## Example Usage
         /// 
@@ -67,6 +74,13 @@ namespace Pulumi.Azure.Blueprint
         /// 
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Blueprint`: 2018-11-01-preview
         /// </summary>
         public static Output<GetPublishedVersionResult> Invoke(GetPublishedVersionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPublishedVersionResult>("azure:blueprint/getPublishedVersion:getPublishedVersion", args ?? new GetPublishedVersionInvokeArgs(), options.WithDefaults());
@@ -74,7 +88,7 @@ namespace Pulumi.Azure.Blueprint
         /// <summary>
         /// Use this data source to access information about an existing Blueprint Published Version
         /// 
-        /// &gt; **NOTE:** Azure Blueprints are in Preview and potentially subject to breaking change without notice.
+        /// &gt; **Note:** Azure Blueprints are in Preview and potentially subject to breaking change without notice.
         /// 
         /// ## Example Usage
         /// 
@@ -97,6 +111,13 @@ namespace Pulumi.Azure.Blueprint
         /// 
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Blueprint`: 2018-11-01-preview
         /// </summary>
         public static Output<GetPublishedVersionResult> Invoke(GetPublishedVersionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPublishedVersionResult>("azure:blueprint/getPublishedVersion:getPublishedVersion", args ?? new GetPublishedVersionInvokeArgs(), options.WithDefaults());

@@ -300,14 +300,14 @@ public class Workspace extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.computeSubnetId);
     }
     /**
-     * A list of Connectivity endpoints for this Synapse Workspace.
+     * A map of Connectivity endpoints for this Synapse Workspace. Possible key values are `dev`, `sql`, `sqlOnDemand`, and `web`.
      * 
      */
     @Export(name="connectivityEndpoints", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> connectivityEndpoints;
 
     /**
-     * @return A list of Connectivity endpoints for this Synapse Workspace.
+     * @return A map of Connectivity endpoints for this Synapse Workspace. Possible key values are `dev`, `sql`, `sqlOnDemand`, and `web`.
      * 
      */
     public Output<Map<String,String>> connectivityEndpoints() {

@@ -28,7 +28,7 @@ public final class WindowsWebAppSiteConfigArgs extends com.pulumi.resources.Reso
     /**
      * If this Windows Web App is Always On enabled. Defaults to `true`.
      * 
-     * &gt; **NOTE:** `always_on` must be explicitly set to `false` when using `Free`, `F1`, `D1`, or `Shared` Service Plans.
+     * &gt; **Note:** `always_on` must be explicitly set to `false` when using `Free`, `F1`, `D1`, or `Shared` Service Plans.
      * 
      */
     @Import(name="alwaysOn")
@@ -37,7 +37,7 @@ public final class WindowsWebAppSiteConfigArgs extends com.pulumi.resources.Reso
     /**
      * @return If this Windows Web App is Always On enabled. Defaults to `true`.
      * 
-     * &gt; **NOTE:** `always_on` must be explicitly set to `false` when using `Free`, `F1`, `D1`, or `Shared` Service Plans.
+     * &gt; **Note:** `always_on` must be explicitly set to `false` when using `Free`, `F1`, `D1`, or `Shared` Service Plans.
      * 
      */
     public Optional<Output<Boolean>> alwaysOn() {
@@ -591,7 +591,7 @@ public final class WindowsWebAppSiteConfigArgs extends com.pulumi.resources.Reso
         /**
          * @param alwaysOn If this Windows Web App is Always On enabled. Defaults to `true`.
          * 
-         * &gt; **NOTE:** `always_on` must be explicitly set to `false` when using `Free`, `F1`, `D1`, or `Shared` Service Plans.
+         * &gt; **Note:** `always_on` must be explicitly set to `false` when using `Free`, `F1`, `D1`, or `Shared` Service Plans.
          * 
          * @return builder
          * 
@@ -604,7 +604,7 @@ public final class WindowsWebAppSiteConfigArgs extends com.pulumi.resources.Reso
         /**
          * @param alwaysOn If this Windows Web App is Always On enabled. Defaults to `true`.
          * 
-         * &gt; **NOTE:** `always_on` must be explicitly set to `false` when using `Free`, `F1`, `D1`, or `Shared` Service Plans.
+         * &gt; **Note:** `always_on` must be explicitly set to `false` when using `Free`, `F1`, `D1`, or `Shared` Service Plans.
          * 
          * @return builder
          * 

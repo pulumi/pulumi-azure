@@ -25,6 +25,13 @@ import javax.annotation.Nullable;
  * &lt;!--Start PulumiCodeChooser --&gt;
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.KeyVault`: 2023-07-01
+ * 
  * ## Import
  * 
  * Key Vault Managed Hardware Security Module Key can be imported using the `resource id`, e.g.
@@ -65,14 +72,14 @@ public class ManagedHardwareSecurityModuleKey extends com.pulumi.resources.Custo
         return Codegen.optional(this.expirationDate);
     }
     /**
-     * A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify` and `wrapKey`. Please note these values are case-sensitive.
+     * A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify`, `wrapKey` and `import`. Please note these values are case-sensitive.
      * 
      */
     @Export(name="keyOpts", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> keyOpts;
 
     /**
-     * @return A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify` and `wrapKey`. Please note these values are case-sensitive.
+     * @return A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify`, `wrapKey` and `import`. Please note these values are case-sensitive.
      * 
      */
     public Output<List<String>> keyOpts() {

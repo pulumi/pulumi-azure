@@ -30,6 +30,7 @@ class AppFlexConsumptionArgs:
                  storage_authentication_type: pulumi.Input[builtins.str],
                  storage_container_endpoint: pulumi.Input[builtins.str],
                  storage_container_type: pulumi.Input[builtins.str],
+                 always_readies: Optional[pulumi.Input[Sequence[pulumi.Input['AppFlexConsumptionAlwaysReadyArgs']]]] = None,
                  app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  auth_settings: Optional[pulumi.Input['AppFlexConsumptionAuthSettingsArgs']] = None,
                  auth_settings_v2: Optional[pulumi.Input['AppFlexConsumptionAuthSettingsV2Args']] = None,
@@ -54,13 +55,14 @@ class AppFlexConsumptionArgs:
         """
         The set of arguments for constructing a AppFlexConsumption resource.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the Resource Group where the Function App should exist. Changing this forces a new Linux Function App to be created.
-        :param pulumi.Input[builtins.str] runtime_name: The Runtime of the Linux Function App. Possible values are `node`, `dotnet-isolated`, `powershell`, `python`, `java`.
+        :param pulumi.Input[builtins.str] runtime_name: The Runtime of the Linux Function App. Possible values are `node`, `dotnet-isolated`, `powershell`, `python`, `java` and `custom`.
         :param pulumi.Input[builtins.str] runtime_version: The Runtime version of the Linux Function App. The values are diff from different runtime version. The supported values are `8.0`, `9.0` for `dotnet-isolated`, `20` for `node`, `3.10`, `3.11` for `python`, `11`, `17` for `java`, `7.4` for `powershell`.
-        :param pulumi.Input[builtins.str] service_plan_id: The ID of the App Service Plan within which to create this Function App.
+        :param pulumi.Input[builtins.str] service_plan_id: The ID of the App Service Plan within which to create this Function App. Changing this forces a new Linux Function App to be created.
         :param pulumi.Input['AppFlexConsumptionSiteConfigArgs'] site_config: A `site_config` block as defined below.
         :param pulumi.Input[builtins.str] storage_authentication_type: The authentication type which will be used to access the backend storage account for the Function App. Possible values are `StorageAccountConnectionString`, `SystemAssignedIdentity`, and `UserAssignedIdentity`.
         :param pulumi.Input[builtins.str] storage_container_endpoint: The backend storage container endpoint which will be used by this Function App.
         :param pulumi.Input[builtins.str] storage_container_type: The storage container type used for the Function App. The current supported type is `blobContainer`.
+        :param pulumi.Input[Sequence[pulumi.Input['AppFlexConsumptionAlwaysReadyArgs']]] always_readies: One or more `always_ready` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] app_settings: A map of key-value pairs for [App
                Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
         :param pulumi.Input['AppFlexConsumptionAuthSettingsArgs'] auth_settings: A `auth_settings` block as defined below.
@@ -80,7 +82,7 @@ class AppFlexConsumptionArgs:
         :param pulumi.Input[builtins.str] storage_access_key: The access key which will be used to access the backend storage account for the Function App.
                
                > **Note:** The `storage_access_key` must be specified when `storage_authentication_type` is set to `StorageAccountConnectionString`.
-        :param pulumi.Input[builtins.str] storage_user_assigned_identity_id: The user assigned Managed Identity to access the storage account. Conflicts with `storage_account_access_key`.
+        :param pulumi.Input[builtins.str] storage_user_assigned_identity_id: The user assigned Managed Identity to access the storage account. Conflicts with `storage_access_key`.
                
                > **Note:** The `storage_user_assigned_identity_id` must be specified when `storage_authentication_type` is set to `UserAssignedIdentity`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags which should be assigned to the Linux Function App.
@@ -99,6 +101,8 @@ class AppFlexConsumptionArgs:
         pulumi.set(__self__, "storage_authentication_type", storage_authentication_type)
         pulumi.set(__self__, "storage_container_endpoint", storage_container_endpoint)
         pulumi.set(__self__, "storage_container_type", storage_container_type)
+        if always_readies is not None:
+            pulumi.set(__self__, "always_readies", always_readies)
         if app_settings is not None:
             pulumi.set(__self__, "app_settings", app_settings)
         if auth_settings is not None:
@@ -158,7 +162,7 @@ class AppFlexConsumptionArgs:
     @pulumi.getter(name="runtimeName")
     def runtime_name(self) -> pulumi.Input[builtins.str]:
         """
-        The Runtime of the Linux Function App. Possible values are `node`, `dotnet-isolated`, `powershell`, `python`, `java`.
+        The Runtime of the Linux Function App. Possible values are `node`, `dotnet-isolated`, `powershell`, `python`, `java` and `custom`.
         """
         return pulumi.get(self, "runtime_name")
 
@@ -182,7 +186,7 @@ class AppFlexConsumptionArgs:
     @pulumi.getter(name="servicePlanId")
     def service_plan_id(self) -> pulumi.Input[builtins.str]:
         """
-        The ID of the App Service Plan within which to create this Function App.
+        The ID of the App Service Plan within which to create this Function App. Changing this forces a new Linux Function App to be created.
         """
         return pulumi.get(self, "service_plan_id")
 
@@ -237,6 +241,18 @@ class AppFlexConsumptionArgs:
     @storage_container_type.setter
     def storage_container_type(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "storage_container_type", value)
+
+    @property
+    @pulumi.getter(name="alwaysReadies")
+    def always_readies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppFlexConsumptionAlwaysReadyArgs']]]]:
+        """
+        One or more `always_ready` blocks as defined below.
+        """
+        return pulumi.get(self, "always_readies")
+
+    @always_readies.setter
+    def always_readies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AppFlexConsumptionAlwaysReadyArgs']]]]):
+        pulumi.set(self, "always_readies", value)
 
     @property
     @pulumi.getter(name="appSettings")
@@ -437,7 +453,7 @@ class AppFlexConsumptionArgs:
     @pulumi.getter(name="storageUserAssignedIdentityId")
     def storage_user_assigned_identity_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The user assigned Managed Identity to access the storage account. Conflicts with `storage_account_access_key`.
+        The user assigned Managed Identity to access the storage account. Conflicts with `storage_access_key`.
 
         > **Note:** The `storage_user_assigned_identity_id` must be specified when `storage_authentication_type` is set to `UserAssignedIdentity`.
         """
@@ -500,6 +516,7 @@ class AppFlexConsumptionArgs:
 @pulumi.input_type
 class _AppFlexConsumptionState:
     def __init__(__self__, *,
+                 always_readies: Optional[pulumi.Input[Sequence[pulumi.Input['AppFlexConsumptionAlwaysReadyArgs']]]] = None,
                  app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  auth_settings: Optional[pulumi.Input['AppFlexConsumptionAuthSettingsArgs']] = None,
                  auth_settings_v2: Optional[pulumi.Input['AppFlexConsumptionAuthSettingsV2Args']] = None,
@@ -540,6 +557,7 @@ class _AppFlexConsumptionState:
                  zip_deploy_file: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering AppFlexConsumption resources.
+        :param pulumi.Input[Sequence[pulumi.Input['AppFlexConsumptionAlwaysReadyArgs']]] always_readies: One or more `always_ready` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] app_settings: A map of key-value pairs for [App
                Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
         :param pulumi.Input['AppFlexConsumptionAuthSettingsArgs'] auth_settings: A `auth_settings` block as defined below.
@@ -564,9 +582,9 @@ class _AppFlexConsumptionState:
         :param pulumi.Input[builtins.str] possible_outbound_ip_addresses: A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outbound_ip_addresses`.
         :param pulumi.Input[builtins.bool] public_network_access_enabled: Should public network access be enabled for the Function App. Defaults to `true`.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the Resource Group where the Function App should exist. Changing this forces a new Linux Function App to be created.
-        :param pulumi.Input[builtins.str] runtime_name: The Runtime of the Linux Function App. Possible values are `node`, `dotnet-isolated`, `powershell`, `python`, `java`.
+        :param pulumi.Input[builtins.str] runtime_name: The Runtime of the Linux Function App. Possible values are `node`, `dotnet-isolated`, `powershell`, `python`, `java` and `custom`.
         :param pulumi.Input[builtins.str] runtime_version: The Runtime version of the Linux Function App. The values are diff from different runtime version. The supported values are `8.0`, `9.0` for `dotnet-isolated`, `20` for `node`, `3.10`, `3.11` for `python`, `11`, `17` for `java`, `7.4` for `powershell`.
-        :param pulumi.Input[builtins.str] service_plan_id: The ID of the App Service Plan within which to create this Function App.
+        :param pulumi.Input[builtins.str] service_plan_id: The ID of the App Service Plan within which to create this Function App. Changing this forces a new Linux Function App to be created.
         :param pulumi.Input['AppFlexConsumptionSiteConfigArgs'] site_config: A `site_config` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['AppFlexConsumptionSiteCredentialArgs']]] site_credentials: A `site_credential` block as defined below.
         :param pulumi.Input['AppFlexConsumptionStickySettingsArgs'] sticky_settings: A `sticky_settings` block as defined below.
@@ -576,7 +594,7 @@ class _AppFlexConsumptionState:
         :param pulumi.Input[builtins.str] storage_authentication_type: The authentication type which will be used to access the backend storage account for the Function App. Possible values are `StorageAccountConnectionString`, `SystemAssignedIdentity`, and `UserAssignedIdentity`.
         :param pulumi.Input[builtins.str] storage_container_endpoint: The backend storage container endpoint which will be used by this Function App.
         :param pulumi.Input[builtins.str] storage_container_type: The storage container type used for the Function App. The current supported type is `blobContainer`.
-        :param pulumi.Input[builtins.str] storage_user_assigned_identity_id: The user assigned Managed Identity to access the storage account. Conflicts with `storage_account_access_key`.
+        :param pulumi.Input[builtins.str] storage_user_assigned_identity_id: The user assigned Managed Identity to access the storage account. Conflicts with `storage_access_key`.
                
                > **Note:** The `storage_user_assigned_identity_id` must be specified when `storage_authentication_type` is set to `UserAssignedIdentity`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags which should be assigned to the Linux Function App.
@@ -587,6 +605,8 @@ class _AppFlexConsumptionState:
                
                > **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `app_settings`. Refer to the [Azure docs](https://learn.microsoft.com/en-us/azure/azure-functions/functions-deployment-technologies) for further details.
         """
+        if always_readies is not None:
+            pulumi.set(__self__, "always_readies", always_readies)
         if app_settings is not None:
             pulumi.set(__self__, "app_settings", app_settings)
         if auth_settings is not None:
@@ -663,6 +683,18 @@ class _AppFlexConsumptionState:
             pulumi.set(__self__, "webdeploy_publish_basic_authentication_enabled", webdeploy_publish_basic_authentication_enabled)
         if zip_deploy_file is not None:
             pulumi.set(__self__, "zip_deploy_file", zip_deploy_file)
+
+    @property
+    @pulumi.getter(name="alwaysReadies")
+    def always_readies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppFlexConsumptionAlwaysReadyArgs']]]]:
+        """
+        One or more `always_ready` blocks as defined below.
+        """
+        return pulumi.get(self, "always_readies")
+
+    @always_readies.setter
+    def always_readies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AppFlexConsumptionAlwaysReadyArgs']]]]):
+        pulumi.set(self, "always_readies", value)
 
     @property
     @pulumi.getter(name="appSettings")
@@ -945,7 +977,7 @@ class _AppFlexConsumptionState:
     @pulumi.getter(name="runtimeName")
     def runtime_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The Runtime of the Linux Function App. Possible values are `node`, `dotnet-isolated`, `powershell`, `python`, `java`.
+        The Runtime of the Linux Function App. Possible values are `node`, `dotnet-isolated`, `powershell`, `python`, `java` and `custom`.
         """
         return pulumi.get(self, "runtime_name")
 
@@ -969,7 +1001,7 @@ class _AppFlexConsumptionState:
     @pulumi.getter(name="servicePlanId")
     def service_plan_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The ID of the App Service Plan within which to create this Function App.
+        The ID of the App Service Plan within which to create this Function App. Changing this forces a new Linux Function App to be created.
         """
         return pulumi.get(self, "service_plan_id")
 
@@ -1067,7 +1099,7 @@ class _AppFlexConsumptionState:
     @pulumi.getter(name="storageUserAssignedIdentityId")
     def storage_user_assigned_identity_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The user assigned Managed Identity to access the storage account. Conflicts with `storage_account_access_key`.
+        The user assigned Managed Identity to access the storage account. Conflicts with `storage_access_key`.
 
         > **Note:** The `storage_user_assigned_identity_id` must be specified when `storage_authentication_type` is set to `UserAssignedIdentity`.
         """
@@ -1133,6 +1165,7 @@ class AppFlexConsumption(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 always_readies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AppFlexConsumptionAlwaysReadyArgs', 'AppFlexConsumptionAlwaysReadyArgsDict']]]]] = None,
                  app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  auth_settings: Optional[pulumi.Input[Union['AppFlexConsumptionAuthSettingsArgs', 'AppFlexConsumptionAuthSettingsArgsDict']]] = None,
                  auth_settings_v2: Optional[pulumi.Input[Union['AppFlexConsumptionAuthSettingsV2Args', 'AppFlexConsumptionAuthSettingsV2ArgsDict']]] = None,
@@ -1207,8 +1240,16 @@ class AppFlexConsumption(pulumi.CustomResource):
             runtime_name="node",
             runtime_version="20",
             maximum_instance_count=50,
-            instance_memory_in_mb=2048)
+            instance_memory_in_mb=2048,
+            site_config={})
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Web`: 2023-12-01, 2023-01-01
 
         ## Import
 
@@ -1220,6 +1261,7 @@ class AppFlexConsumption(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AppFlexConsumptionAlwaysReadyArgs', 'AppFlexConsumptionAlwaysReadyArgsDict']]]] always_readies: One or more `always_ready` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] app_settings: A map of key-value pairs for [App
                Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
         :param pulumi.Input[Union['AppFlexConsumptionAuthSettingsArgs', 'AppFlexConsumptionAuthSettingsArgsDict']] auth_settings: A `auth_settings` block as defined below.
@@ -1236,9 +1278,9 @@ class AppFlexConsumption(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: The name which should be used for this Function App. Changing this forces a new Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
         :param pulumi.Input[builtins.bool] public_network_access_enabled: Should public network access be enabled for the Function App. Defaults to `true`.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the Resource Group where the Function App should exist. Changing this forces a new Linux Function App to be created.
-        :param pulumi.Input[builtins.str] runtime_name: The Runtime of the Linux Function App. Possible values are `node`, `dotnet-isolated`, `powershell`, `python`, `java`.
+        :param pulumi.Input[builtins.str] runtime_name: The Runtime of the Linux Function App. Possible values are `node`, `dotnet-isolated`, `powershell`, `python`, `java` and `custom`.
         :param pulumi.Input[builtins.str] runtime_version: The Runtime version of the Linux Function App. The values are diff from different runtime version. The supported values are `8.0`, `9.0` for `dotnet-isolated`, `20` for `node`, `3.10`, `3.11` for `python`, `11`, `17` for `java`, `7.4` for `powershell`.
-        :param pulumi.Input[builtins.str] service_plan_id: The ID of the App Service Plan within which to create this Function App.
+        :param pulumi.Input[builtins.str] service_plan_id: The ID of the App Service Plan within which to create this Function App. Changing this forces a new Linux Function App to be created.
         :param pulumi.Input[Union['AppFlexConsumptionSiteConfigArgs', 'AppFlexConsumptionSiteConfigArgsDict']] site_config: A `site_config` block as defined below.
         :param pulumi.Input[Union['AppFlexConsumptionStickySettingsArgs', 'AppFlexConsumptionStickySettingsArgsDict']] sticky_settings: A `sticky_settings` block as defined below.
         :param pulumi.Input[builtins.str] storage_access_key: The access key which will be used to access the backend storage account for the Function App.
@@ -1247,7 +1289,7 @@ class AppFlexConsumption(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] storage_authentication_type: The authentication type which will be used to access the backend storage account for the Function App. Possible values are `StorageAccountConnectionString`, `SystemAssignedIdentity`, and `UserAssignedIdentity`.
         :param pulumi.Input[builtins.str] storage_container_endpoint: The backend storage container endpoint which will be used by this Function App.
         :param pulumi.Input[builtins.str] storage_container_type: The storage container type used for the Function App. The current supported type is `blobContainer`.
-        :param pulumi.Input[builtins.str] storage_user_assigned_identity_id: The user assigned Managed Identity to access the storage account. Conflicts with `storage_account_access_key`.
+        :param pulumi.Input[builtins.str] storage_user_assigned_identity_id: The user assigned Managed Identity to access the storage account. Conflicts with `storage_access_key`.
                
                > **Note:** The `storage_user_assigned_identity_id` must be specified when `storage_authentication_type` is set to `UserAssignedIdentity`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags which should be assigned to the Linux Function App.
@@ -1308,8 +1350,16 @@ class AppFlexConsumption(pulumi.CustomResource):
             runtime_name="node",
             runtime_version="20",
             maximum_instance_count=50,
-            instance_memory_in_mb=2048)
+            instance_memory_in_mb=2048,
+            site_config={})
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Web`: 2023-12-01, 2023-01-01
 
         ## Import
 
@@ -1334,6 +1384,7 @@ class AppFlexConsumption(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 always_readies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AppFlexConsumptionAlwaysReadyArgs', 'AppFlexConsumptionAlwaysReadyArgsDict']]]]] = None,
                  app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  auth_settings: Optional[pulumi.Input[Union['AppFlexConsumptionAuthSettingsArgs', 'AppFlexConsumptionAuthSettingsArgsDict']]] = None,
                  auth_settings_v2: Optional[pulumi.Input[Union['AppFlexConsumptionAuthSettingsV2Args', 'AppFlexConsumptionAuthSettingsV2ArgsDict']]] = None,
@@ -1372,6 +1423,7 @@ class AppFlexConsumption(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AppFlexConsumptionArgs.__new__(AppFlexConsumptionArgs)
 
+            __props__.__dict__["always_readies"] = always_readies
             __props__.__dict__["app_settings"] = app_settings
             __props__.__dict__["auth_settings"] = auth_settings
             __props__.__dict__["auth_settings_v2"] = auth_settings_v2
@@ -1438,6 +1490,7 @@ class AppFlexConsumption(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            always_readies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AppFlexConsumptionAlwaysReadyArgs', 'AppFlexConsumptionAlwaysReadyArgsDict']]]]] = None,
             app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             auth_settings: Optional[pulumi.Input[Union['AppFlexConsumptionAuthSettingsArgs', 'AppFlexConsumptionAuthSettingsArgsDict']]] = None,
             auth_settings_v2: Optional[pulumi.Input[Union['AppFlexConsumptionAuthSettingsV2Args', 'AppFlexConsumptionAuthSettingsV2ArgsDict']]] = None,
@@ -1483,6 +1536,7 @@ class AppFlexConsumption(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AppFlexConsumptionAlwaysReadyArgs', 'AppFlexConsumptionAlwaysReadyArgsDict']]]] always_readies: One or more `always_ready` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] app_settings: A map of key-value pairs for [App
                Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
         :param pulumi.Input[Union['AppFlexConsumptionAuthSettingsArgs', 'AppFlexConsumptionAuthSettingsArgsDict']] auth_settings: A `auth_settings` block as defined below.
@@ -1507,9 +1561,9 @@ class AppFlexConsumption(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] possible_outbound_ip_addresses: A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outbound_ip_addresses`.
         :param pulumi.Input[builtins.bool] public_network_access_enabled: Should public network access be enabled for the Function App. Defaults to `true`.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the Resource Group where the Function App should exist. Changing this forces a new Linux Function App to be created.
-        :param pulumi.Input[builtins.str] runtime_name: The Runtime of the Linux Function App. Possible values are `node`, `dotnet-isolated`, `powershell`, `python`, `java`.
+        :param pulumi.Input[builtins.str] runtime_name: The Runtime of the Linux Function App. Possible values are `node`, `dotnet-isolated`, `powershell`, `python`, `java` and `custom`.
         :param pulumi.Input[builtins.str] runtime_version: The Runtime version of the Linux Function App. The values are diff from different runtime version. The supported values are `8.0`, `9.0` for `dotnet-isolated`, `20` for `node`, `3.10`, `3.11` for `python`, `11`, `17` for `java`, `7.4` for `powershell`.
-        :param pulumi.Input[builtins.str] service_plan_id: The ID of the App Service Plan within which to create this Function App.
+        :param pulumi.Input[builtins.str] service_plan_id: The ID of the App Service Plan within which to create this Function App. Changing this forces a new Linux Function App to be created.
         :param pulumi.Input[Union['AppFlexConsumptionSiteConfigArgs', 'AppFlexConsumptionSiteConfigArgsDict']] site_config: A `site_config` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AppFlexConsumptionSiteCredentialArgs', 'AppFlexConsumptionSiteCredentialArgsDict']]]] site_credentials: A `site_credential` block as defined below.
         :param pulumi.Input[Union['AppFlexConsumptionStickySettingsArgs', 'AppFlexConsumptionStickySettingsArgsDict']] sticky_settings: A `sticky_settings` block as defined below.
@@ -1519,7 +1573,7 @@ class AppFlexConsumption(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] storage_authentication_type: The authentication type which will be used to access the backend storage account for the Function App. Possible values are `StorageAccountConnectionString`, `SystemAssignedIdentity`, and `UserAssignedIdentity`.
         :param pulumi.Input[builtins.str] storage_container_endpoint: The backend storage container endpoint which will be used by this Function App.
         :param pulumi.Input[builtins.str] storage_container_type: The storage container type used for the Function App. The current supported type is `blobContainer`.
-        :param pulumi.Input[builtins.str] storage_user_assigned_identity_id: The user assigned Managed Identity to access the storage account. Conflicts with `storage_account_access_key`.
+        :param pulumi.Input[builtins.str] storage_user_assigned_identity_id: The user assigned Managed Identity to access the storage account. Conflicts with `storage_access_key`.
                
                > **Note:** The `storage_user_assigned_identity_id` must be specified when `storage_authentication_type` is set to `UserAssignedIdentity`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags which should be assigned to the Linux Function App.
@@ -1534,6 +1588,7 @@ class AppFlexConsumption(pulumi.CustomResource):
 
         __props__ = _AppFlexConsumptionState.__new__(_AppFlexConsumptionState)
 
+        __props__.__dict__["always_readies"] = always_readies
         __props__.__dict__["app_settings"] = app_settings
         __props__.__dict__["auth_settings"] = auth_settings
         __props__.__dict__["auth_settings_v2"] = auth_settings_v2
@@ -1573,6 +1628,14 @@ class AppFlexConsumption(pulumi.CustomResource):
         __props__.__dict__["webdeploy_publish_basic_authentication_enabled"] = webdeploy_publish_basic_authentication_enabled
         __props__.__dict__["zip_deploy_file"] = zip_deploy_file
         return AppFlexConsumption(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="alwaysReadies")
+    def always_readies(self) -> pulumi.Output[Optional[Sequence['outputs.AppFlexConsumptionAlwaysReady']]]:
+        """
+        One or more `always_ready` blocks as defined below.
+        """
+        return pulumi.get(self, "always_readies")
 
     @property
     @pulumi.getter(name="appSettings")
@@ -1763,7 +1826,7 @@ class AppFlexConsumption(pulumi.CustomResource):
     @pulumi.getter(name="runtimeName")
     def runtime_name(self) -> pulumi.Output[builtins.str]:
         """
-        The Runtime of the Linux Function App. Possible values are `node`, `dotnet-isolated`, `powershell`, `python`, `java`.
+        The Runtime of the Linux Function App. Possible values are `node`, `dotnet-isolated`, `powershell`, `python`, `java` and `custom`.
         """
         return pulumi.get(self, "runtime_name")
 
@@ -1779,7 +1842,7 @@ class AppFlexConsumption(pulumi.CustomResource):
     @pulumi.getter(name="servicePlanId")
     def service_plan_id(self) -> pulumi.Output[builtins.str]:
         """
-        The ID of the App Service Plan within which to create this Function App.
+        The ID of the App Service Plan within which to create this Function App. Changing this forces a new Linux Function App to be created.
         """
         return pulumi.get(self, "service_plan_id")
 
@@ -1845,7 +1908,7 @@ class AppFlexConsumption(pulumi.CustomResource):
     @pulumi.getter(name="storageUserAssignedIdentityId")
     def storage_user_assigned_identity_id(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        The user assigned Managed Identity to access the storage account. Conflicts with `storage_account_access_key`.
+        The user assigned Managed Identity to access the storage account. Conflicts with `storage_access_key`.
 
         > **Note:** The `storage_user_assigned_identity_id` must be specified when `storage_authentication_type` is set to `UserAssignedIdentity`.
         """

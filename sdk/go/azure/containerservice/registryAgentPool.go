@@ -60,6 +60,13 @@ import (
 //
 // ```
 //
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.ContainerRegistry`: 2019-06-01-preview
+//
 // ## Import
 //
 // Azure Container Registry Agent Pool can be imported using the `resource id`, e.g.

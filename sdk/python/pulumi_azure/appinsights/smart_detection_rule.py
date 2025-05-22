@@ -235,6 +235,13 @@ class SmartDetectionRule(pulumi.CustomResource):
             enabled=False)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Insights`: 2015-05-01
+
         ## Import
 
         Application Insights Smart Detection Rules can be imported using the `resource id`, e.g.
@@ -281,6 +288,13 @@ class SmartDetectionRule(pulumi.CustomResource):
             application_insights_id=example_insights.id,
             enabled=False)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Insights`: 2015-05-01
 
         ## Import
 

@@ -239,6 +239,13 @@ class EndpointServicebus(pulumi.CustomResource):
             servicebus_secondary_connection_string=example_topic_authorization_rule.secondary_connection_string)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DigitalTwins`: 2023-01-31
+
         ## Import
 
         Digital Twins Service Bus Endpoints can be imported using the `resource id`, e.g.
@@ -297,6 +304,13 @@ class EndpointServicebus(pulumi.CustomResource):
             servicebus_primary_connection_string=example_topic_authorization_rule.primary_connection_string,
             servicebus_secondary_connection_string=example_topic_authorization_rule.secondary_connection_string)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DigitalTwins`: 2023-01-31
 
         ## Import
 

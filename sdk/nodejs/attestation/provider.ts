@@ -28,6 +28,13 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.Attestation`: 2020-10-01
+ *
  * ## Import
  *
  * Attestation Providers can be imported using the `resource id`, e.g.
@@ -83,7 +90,7 @@ export class Provider extends pulumi.CustomResource {
     /**
      * A valid X.509 certificate (Section 4 of [RFC4648](https://tools.ietf.org/html/rfc4648)). Changing this forces a new resource to be created.
      *
-     * > **NOTE:** If the `policySigningCertificateData` argument contains more than one valid X.509 certificate only the first certificate will be used.
+     * > **Note:** If the `policySigningCertificateData` argument contains more than one valid X.509 certificate only the first certificate will be used.
      */
     public readonly policySigningCertificateData!: pulumi.Output<string | undefined>;
     /**
@@ -93,7 +100,7 @@ export class Provider extends pulumi.CustomResource {
     /**
      * Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
      *
-     * > [More information on the JWT Policies can be found in this article on `learn.microsoft.com`](https://learn.microsoft.com/azure/attestation/author-sign-policy).
+     * > **Note:** [More information on the JWT Policies can be found in this article on `learn.microsoft.com`](https://learn.microsoft.com/azure/attestation/author-sign-policy).
      */
     public readonly sevSnpPolicyBase64!: pulumi.Output<string | undefined>;
     /**
@@ -182,7 +189,7 @@ export interface ProviderState {
     /**
      * A valid X.509 certificate (Section 4 of [RFC4648](https://tools.ietf.org/html/rfc4648)). Changing this forces a new resource to be created.
      *
-     * > **NOTE:** If the `policySigningCertificateData` argument contains more than one valid X.509 certificate only the first certificate will be used.
+     * > **Note:** If the `policySigningCertificateData` argument contains more than one valid X.509 certificate only the first certificate will be used.
      */
     policySigningCertificateData?: pulumi.Input<string>;
     /**
@@ -192,7 +199,7 @@ export interface ProviderState {
     /**
      * Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
      *
-     * > [More information on the JWT Policies can be found in this article on `learn.microsoft.com`](https://learn.microsoft.com/azure/attestation/author-sign-policy).
+     * > **Note:** [More information on the JWT Policies can be found in this article on `learn.microsoft.com`](https://learn.microsoft.com/azure/attestation/author-sign-policy).
      */
     sevSnpPolicyBase64?: pulumi.Input<string>;
     /**
@@ -232,7 +239,7 @@ export interface ProviderArgs {
     /**
      * A valid X.509 certificate (Section 4 of [RFC4648](https://tools.ietf.org/html/rfc4648)). Changing this forces a new resource to be created.
      *
-     * > **NOTE:** If the `policySigningCertificateData` argument contains more than one valid X.509 certificate only the first certificate will be used.
+     * > **Note:** If the `policySigningCertificateData` argument contains more than one valid X.509 certificate only the first certificate will be used.
      */
     policySigningCertificateData?: pulumi.Input<string>;
     /**
@@ -242,7 +249,7 @@ export interface ProviderArgs {
     /**
      * Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
      *
-     * > [More information on the JWT Policies can be found in this article on `learn.microsoft.com`](https://learn.microsoft.com/azure/attestation/author-sign-policy).
+     * > **Note:** [More information on the JWT Policies can be found in this article on `learn.microsoft.com`](https://learn.microsoft.com/azure/attestation/author-sign-policy).
      */
     sevSnpPolicyBase64?: pulumi.Input<string>;
     /**

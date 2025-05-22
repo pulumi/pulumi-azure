@@ -673,6 +673,13 @@ class RunCommand(pulumi.CustomResource):
             })
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Compute`: 2023-03-01
+
         ## Import
 
         An existing Virtual Machine Run Command can be imported into Pulumi using the `resource id`, e.g.
@@ -894,6 +901,13 @@ class RunCommand(pulumi.CustomResource):
                 "some_key": "some-value",
             })
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Compute`: 2023-03-01
 
         ## Import
 

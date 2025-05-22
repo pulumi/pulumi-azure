@@ -175,6 +175,13 @@ def get_role_management_policy(role_definition_id: Optional[builtins.str] = None
         role_definition_id=mg_contributor.id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Authorization`: 2020-10-01
+
 
     :param builtins.str role_definition_id: The scoped Role Definition ID of the role for which this policy applies.
     :param builtins.str scope: The scope to which this Role Management Policy applies. Can refer to a management group, a subscription, a resource group or a resource.
@@ -228,6 +235,13 @@ def get_role_management_policy_output(role_definition_id: Optional[pulumi.Input[
     example_get_role_management_policy = azure.pim.get_role_management_policy(scope=example.id,
         role_definition_id=mg_contributor.id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Authorization`: 2020-10-01
 
 
     :param builtins.str role_definition_id: The scoped Role Definition ID of the role for which this policy applies.

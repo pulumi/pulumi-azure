@@ -23,7 +23,7 @@ public final class ActionGroupItsmReceiver {
     /**
      * @return The region of the workspace.
      * 
-     * &gt; **NOTE** `ticket_configuration` should be JSON blob with `PayloadRevision` and `WorkItemType` keys (e.g., `ticket_configuration=&#34;{\&#34;PayloadRevision\&#34;:0,\&#34;WorkItemType\&#34;:\&#34;Incident\&#34;}&#34;`), and `ticket_configuration=&#34;{}&#34;` will return an error, see more at this [REST API issue](https://github.com/Azure/azure-rest-api-specs/issues/20488)
+     * &gt; **Note:** `ticket_configuration` should be JSON blob with `PayloadRevision` and `WorkItemType` keys (e.g., `ticket_configuration=&#34;{\&#34;PayloadRevision\&#34;:0,\&#34;WorkItemType\&#34;:\&#34;Incident\&#34;}&#34;`), and `ticket_configuration=&#34;{}&#34;` will return an error, see more at this [REST API issue](https://github.com/Azure/azure-rest-api-specs/issues/20488)
      * 
      */
     private String region;
@@ -56,7 +56,7 @@ public final class ActionGroupItsmReceiver {
     /**
      * @return The region of the workspace.
      * 
-     * &gt; **NOTE** `ticket_configuration` should be JSON blob with `PayloadRevision` and `WorkItemType` keys (e.g., `ticket_configuration=&#34;{\&#34;PayloadRevision\&#34;:0,\&#34;WorkItemType\&#34;:\&#34;Incident\&#34;}&#34;`), and `ticket_configuration=&#34;{}&#34;` will return an error, see more at this [REST API issue](https://github.com/Azure/azure-rest-api-specs/issues/20488)
+     * &gt; **Note:** `ticket_configuration` should be JSON blob with `PayloadRevision` and `WorkItemType` keys (e.g., `ticket_configuration=&#34;{\&#34;PayloadRevision\&#34;:0,\&#34;WorkItemType\&#34;:\&#34;Incident\&#34;}&#34;`), and `ticket_configuration=&#34;{}&#34;` will return an error, see more at this [REST API issue](https://github.com/Azure/azure-rest-api-specs/issues/20488)
      * 
      */
     public String region() {

@@ -84,6 +84,13 @@ public final class MobileFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.MobileNetwork`: 2022-11-01
+     * 
      */
     public static Output<GetNetworkResult> getNetwork(GetNetworkArgs args) {
         return getNetwork(args, InvokeOptions.Empty);
@@ -126,6 +133,13 @@ public final class MobileFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.MobileNetwork`: 2022-11-01
      * 
      */
     public static CompletableFuture<GetNetworkResult> getNetworkPlain(GetNetworkPlainArgs args) {
@@ -170,6 +184,13 @@ public final class MobileFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.MobileNetwork`: 2022-11-01
+     * 
      */
     public static Output<GetNetworkResult> getNetwork(GetNetworkArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:mobile/getNetwork:getNetwork", TypeShape.of(GetNetworkResult.class), args, Utilities.withVersion(options));
@@ -213,6 +234,13 @@ public final class MobileFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.MobileNetwork`: 2022-11-01
+     * 
      */
     public static Output<GetNetworkResult> getNetwork(GetNetworkArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:mobile/getNetwork:getNetwork", TypeShape.of(GetNetworkResult.class), args, Utilities.withVersion(options));
@@ -255,6 +283,13 @@ public final class MobileFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.MobileNetwork`: 2022-11-01
      * 
      */
     public static CompletableFuture<GetNetworkResult> getNetworkPlain(GetNetworkPlainArgs args, InvokeOptions options) {
@@ -305,6 +340,13 @@ public final class MobileFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.MobileNetwork`: 2022-11-01
+     * 
      */
     public static Output<GetNetworkAttachedDataNetworkResult> getNetworkAttachedDataNetwork(GetNetworkAttachedDataNetworkArgs args) {
         return getNetworkAttachedDataNetwork(args, InvokeOptions.Empty);
@@ -353,6 +395,13 @@ public final class MobileFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.MobileNetwork`: 2022-11-01
      * 
      */
     public static CompletableFuture<GetNetworkAttachedDataNetworkResult> getNetworkAttachedDataNetworkPlain(GetNetworkAttachedDataNetworkPlainArgs args) {
@@ -403,6 +452,13 @@ public final class MobileFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.MobileNetwork`: 2022-11-01
+     * 
      */
     public static Output<GetNetworkAttachedDataNetworkResult> getNetworkAttachedDataNetwork(GetNetworkAttachedDataNetworkArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:mobile/getNetworkAttachedDataNetwork:getNetworkAttachedDataNetwork", TypeShape.of(GetNetworkAttachedDataNetworkResult.class), args, Utilities.withVersion(options));
@@ -451,6 +507,13 @@ public final class MobileFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.MobileNetwork`: 2022-11-01
      * 
      */
     public static Output<GetNetworkAttachedDataNetworkResult> getNetworkAttachedDataNetwork(GetNetworkAttachedDataNetworkArgs args, InvokeOutputOptions options) {
@@ -501,6 +564,13 @@ public final class MobileFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.MobileNetwork`: 2022-11-01
+     * 
      */
     public static CompletableFuture<GetNetworkAttachedDataNetworkResult> getNetworkAttachedDataNetworkPlain(GetNetworkAttachedDataNetworkPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:mobile/getNetworkAttachedDataNetwork:getNetworkAttachedDataNetwork", TypeShape.of(GetNetworkAttachedDataNetworkResult.class), args, Utilities.withVersion(options));
@@ -549,6 +619,13 @@ public final class MobileFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.MobileNetwork`: 2022-11-01
      * 
      */
     public static Output<GetNetworkDataNetworkResult> getNetworkDataNetwork(GetNetworkDataNetworkArgs args) {
@@ -599,6 +676,13 @@ public final class MobileFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.MobileNetwork`: 2022-11-01
+     * 
      */
     public static CompletableFuture<GetNetworkDataNetworkResult> getNetworkDataNetworkPlain(GetNetworkDataNetworkPlainArgs args) {
         return getNetworkDataNetworkPlain(args, InvokeOptions.Empty);
@@ -647,6 +731,13 @@ public final class MobileFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.MobileNetwork`: 2022-11-01
      * 
      */
     public static Output<GetNetworkDataNetworkResult> getNetworkDataNetwork(GetNetworkDataNetworkArgs args, InvokeOptions options) {
@@ -697,6 +788,13 @@ public final class MobileFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.MobileNetwork`: 2022-11-01
+     * 
      */
     public static Output<GetNetworkDataNetworkResult> getNetworkDataNetwork(GetNetworkDataNetworkArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:mobile/getNetworkDataNetwork:getNetworkDataNetwork", TypeShape.of(GetNetworkDataNetworkResult.class), args, Utilities.withVersion(options));
@@ -746,6 +844,13 @@ public final class MobileFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.MobileNetwork`: 2022-11-01
+     * 
      */
     public static CompletableFuture<GetNetworkDataNetworkResult> getNetworkDataNetworkPlain(GetNetworkDataNetworkPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:mobile/getNetworkDataNetwork:getNetworkDataNetwork", TypeShape.of(GetNetworkDataNetworkResult.class), args, Utilities.withVersion(options));
@@ -788,6 +893,13 @@ public final class MobileFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.MobileNetwork`: 2022-11-01
      * 
      */
     public static Output<GetNetworkPacketCoreControlPlaneResult> getNetworkPacketCoreControlPlane(GetNetworkPacketCoreControlPlaneArgs args) {
@@ -832,6 +944,13 @@ public final class MobileFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.MobileNetwork`: 2022-11-01
+     * 
      */
     public static CompletableFuture<GetNetworkPacketCoreControlPlaneResult> getNetworkPacketCoreControlPlanePlain(GetNetworkPacketCoreControlPlanePlainArgs args) {
         return getNetworkPacketCoreControlPlanePlain(args, InvokeOptions.Empty);
@@ -874,6 +993,13 @@ public final class MobileFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.MobileNetwork`: 2022-11-01
      * 
      */
     public static Output<GetNetworkPacketCoreControlPlaneResult> getNetworkPacketCoreControlPlane(GetNetworkPacketCoreControlPlaneArgs args, InvokeOptions options) {
@@ -918,6 +1044,13 @@ public final class MobileFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.MobileNetwork`: 2022-11-01
+     * 
      */
     public static Output<GetNetworkPacketCoreControlPlaneResult> getNetworkPacketCoreControlPlane(GetNetworkPacketCoreControlPlaneArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:mobile/getNetworkPacketCoreControlPlane:getNetworkPacketCoreControlPlane", TypeShape.of(GetNetworkPacketCoreControlPlaneResult.class), args, Utilities.withVersion(options));
@@ -960,6 +1093,13 @@ public final class MobileFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.MobileNetwork`: 2022-11-01
      * 
      */
     public static CompletableFuture<GetNetworkPacketCoreControlPlaneResult> getNetworkPacketCoreControlPlanePlain(GetNetworkPacketCoreControlPlanePlainArgs args, InvokeOptions options) {
@@ -1010,6 +1150,13 @@ public final class MobileFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.MobileNetwork`: 2022-11-01
+     * 
      */
     public static Output<GetNetworkPacketCoreDataPlaneResult> getNetworkPacketCoreDataPlane(GetNetworkPacketCoreDataPlaneArgs args) {
         return getNetworkPacketCoreDataPlane(args, InvokeOptions.Empty);
@@ -1058,6 +1205,13 @@ public final class MobileFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.MobileNetwork`: 2022-11-01
      * 
      */
     public static CompletableFuture<GetNetworkPacketCoreDataPlaneResult> getNetworkPacketCoreDataPlanePlain(GetNetworkPacketCoreDataPlanePlainArgs args) {
@@ -1108,6 +1262,13 @@ public final class MobileFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.MobileNetwork`: 2022-11-01
+     * 
      */
     public static Output<GetNetworkPacketCoreDataPlaneResult> getNetworkPacketCoreDataPlane(GetNetworkPacketCoreDataPlaneArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:mobile/getNetworkPacketCoreDataPlane:getNetworkPacketCoreDataPlane", TypeShape.of(GetNetworkPacketCoreDataPlaneResult.class), args, Utilities.withVersion(options));
@@ -1157,6 +1318,13 @@ public final class MobileFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.MobileNetwork`: 2022-11-01
+     * 
      */
     public static Output<GetNetworkPacketCoreDataPlaneResult> getNetworkPacketCoreDataPlane(GetNetworkPacketCoreDataPlaneArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:mobile/getNetworkPacketCoreDataPlane:getNetworkPacketCoreDataPlane", TypeShape.of(GetNetworkPacketCoreDataPlaneResult.class), args, Utilities.withVersion(options));
@@ -1205,6 +1373,13 @@ public final class MobileFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.MobileNetwork`: 2022-11-01
      * 
      */
     public static CompletableFuture<GetNetworkPacketCoreDataPlaneResult> getNetworkPacketCoreDataPlanePlain(GetNetworkPacketCoreDataPlanePlainArgs args, InvokeOptions options) {
@@ -1256,6 +1431,13 @@ public final class MobileFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.MobileNetwork`: 2022-11-01
+     * 
      */
     public static Output<GetNetworkServiceResult> getNetworkService(GetNetworkServiceArgs args) {
         return getNetworkService(args, InvokeOptions.Empty);
@@ -1305,6 +1487,13 @@ public final class MobileFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.MobileNetwork`: 2022-11-01
      * 
      */
     public static CompletableFuture<GetNetworkServiceResult> getNetworkServicePlain(GetNetworkServicePlainArgs args) {
@@ -1356,6 +1545,13 @@ public final class MobileFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.MobileNetwork`: 2022-11-01
+     * 
      */
     public static Output<GetNetworkServiceResult> getNetworkService(GetNetworkServiceArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:mobile/getNetworkService:getNetworkService", TypeShape.of(GetNetworkServiceResult.class), args, Utilities.withVersion(options));
@@ -1405,6 +1601,13 @@ public final class MobileFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.MobileNetwork`: 2022-11-01
      * 
      */
     public static Output<GetNetworkServiceResult> getNetworkService(GetNetworkServiceArgs args, InvokeOutputOptions options) {
@@ -1456,6 +1659,13 @@ public final class MobileFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.MobileNetwork`: 2022-11-01
+     * 
      */
     public static CompletableFuture<GetNetworkServiceResult> getNetworkServicePlain(GetNetworkServicePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:mobile/getNetworkService:getNetworkService", TypeShape.of(GetNetworkServiceResult.class), args, Utilities.withVersion(options));
@@ -1467,6 +1677,13 @@ public final class MobileFunctions {
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.MobileNetwork`: 2022-11-01
      * 
      */
     public static Output<GetNetworkSimResult> getNetworkSim(GetNetworkSimArgs args) {
@@ -1480,6 +1697,13 @@ public final class MobileFunctions {
      * &lt;!--Start PulumiCodeChooser --&gt;
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.MobileNetwork`: 2022-11-01
+     * 
      */
     public static CompletableFuture<GetNetworkSimResult> getNetworkSimPlain(GetNetworkSimPlainArgs args) {
         return getNetworkSimPlain(args, InvokeOptions.Empty);
@@ -1491,6 +1715,13 @@ public final class MobileFunctions {
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.MobileNetwork`: 2022-11-01
      * 
      */
     public static Output<GetNetworkSimResult> getNetworkSim(GetNetworkSimArgs args, InvokeOptions options) {
@@ -1504,6 +1735,13 @@ public final class MobileFunctions {
      * &lt;!--Start PulumiCodeChooser --&gt;
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.MobileNetwork`: 2022-11-01
+     * 
      */
     public static Output<GetNetworkSimResult> getNetworkSim(GetNetworkSimArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:mobile/getNetworkSim:getNetworkSim", TypeShape.of(GetNetworkSimResult.class), args, Utilities.withVersion(options));
@@ -1515,6 +1753,13 @@ public final class MobileFunctions {
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.MobileNetwork`: 2022-11-01
      * 
      */
     public static CompletableFuture<GetNetworkSimResult> getNetworkSimPlain(GetNetworkSimPlainArgs args, InvokeOptions options) {
@@ -1565,6 +1810,13 @@ public final class MobileFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.MobileNetwork`: 2022-11-01
+     * 
      */
     public static Output<GetNetworkSimGroupResult> getNetworkSimGroup(GetNetworkSimGroupArgs args) {
         return getNetworkSimGroup(args, InvokeOptions.Empty);
@@ -1613,6 +1865,13 @@ public final class MobileFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.MobileNetwork`: 2022-11-01
      * 
      */
     public static CompletableFuture<GetNetworkSimGroupResult> getNetworkSimGroupPlain(GetNetworkSimGroupPlainArgs args) {
@@ -1663,6 +1922,13 @@ public final class MobileFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.MobileNetwork`: 2022-11-01
+     * 
      */
     public static Output<GetNetworkSimGroupResult> getNetworkSimGroup(GetNetworkSimGroupArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:mobile/getNetworkSimGroup:getNetworkSimGroup", TypeShape.of(GetNetworkSimGroupResult.class), args, Utilities.withVersion(options));
@@ -1711,6 +1977,13 @@ public final class MobileFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.MobileNetwork`: 2022-11-01
      * 
      */
     public static Output<GetNetworkSimGroupResult> getNetworkSimGroup(GetNetworkSimGroupArgs args, InvokeOutputOptions options) {
@@ -1761,6 +2034,13 @@ public final class MobileFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.MobileNetwork`: 2022-11-01
+     * 
      */
     public static CompletableFuture<GetNetworkSimGroupResult> getNetworkSimGroupPlain(GetNetworkSimGroupPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:mobile/getNetworkSimGroup:getNetworkSimGroup", TypeShape.of(GetNetworkSimGroupResult.class), args, Utilities.withVersion(options));
@@ -1809,6 +2089,13 @@ public final class MobileFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.MobileNetwork`: 2022-11-01
      * 
      */
     public static Output<GetNetworkSimPolicyResult> getNetworkSimPolicy(GetNetworkSimPolicyArgs args) {
@@ -1859,6 +2146,13 @@ public final class MobileFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.MobileNetwork`: 2022-11-01
+     * 
      */
     public static CompletableFuture<GetNetworkSimPolicyResult> getNetworkSimPolicyPlain(GetNetworkSimPolicyPlainArgs args) {
         return getNetworkSimPolicyPlain(args, InvokeOptions.Empty);
@@ -1907,6 +2201,13 @@ public final class MobileFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.MobileNetwork`: 2022-11-01
      * 
      */
     public static Output<GetNetworkSimPolicyResult> getNetworkSimPolicy(GetNetworkSimPolicyArgs args, InvokeOptions options) {
@@ -1957,6 +2258,13 @@ public final class MobileFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.MobileNetwork`: 2022-11-01
+     * 
      */
     public static Output<GetNetworkSimPolicyResult> getNetworkSimPolicy(GetNetworkSimPolicyArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:mobile/getNetworkSimPolicy:getNetworkSimPolicy", TypeShape.of(GetNetworkSimPolicyResult.class), args, Utilities.withVersion(options));
@@ -2005,6 +2313,13 @@ public final class MobileFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.MobileNetwork`: 2022-11-01
      * 
      */
     public static CompletableFuture<GetNetworkSimPolicyResult> getNetworkSimPolicyPlain(GetNetworkSimPolicyPlainArgs args, InvokeOptions options) {
@@ -2055,6 +2370,13 @@ public final class MobileFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.MobileNetwork`: 2022-11-01
+     * 
      */
     public static Output<GetNetworkSiteResult> getNetworkSite(GetNetworkSiteArgs args) {
         return getNetworkSite(args, InvokeOptions.Empty);
@@ -2103,6 +2425,13 @@ public final class MobileFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.MobileNetwork`: 2022-11-01
      * 
      */
     public static CompletableFuture<GetNetworkSiteResult> getNetworkSitePlain(GetNetworkSitePlainArgs args) {
@@ -2153,6 +2482,13 @@ public final class MobileFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.MobileNetwork`: 2022-11-01
+     * 
      */
     public static Output<GetNetworkSiteResult> getNetworkSite(GetNetworkSiteArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:mobile/getNetworkSite:getNetworkSite", TypeShape.of(GetNetworkSiteResult.class), args, Utilities.withVersion(options));
@@ -2201,6 +2537,13 @@ public final class MobileFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.MobileNetwork`: 2022-11-01
      * 
      */
     public static Output<GetNetworkSiteResult> getNetworkSite(GetNetworkSiteArgs args, InvokeOutputOptions options) {
@@ -2251,6 +2594,13 @@ public final class MobileFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.MobileNetwork`: 2022-11-01
+     * 
      */
     public static CompletableFuture<GetNetworkSiteResult> getNetworkSitePlain(GetNetworkSitePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:mobile/getNetworkSite:getNetworkSite", TypeShape.of(GetNetworkSiteResult.class), args, Utilities.withVersion(options));
@@ -2299,6 +2649,13 @@ public final class MobileFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.MobileNetwork`: 2022-11-01
      * 
      */
     public static Output<GetNetworkSliceResult> getNetworkSlice(GetNetworkSliceArgs args) {
@@ -2349,6 +2706,13 @@ public final class MobileFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.MobileNetwork`: 2022-11-01
+     * 
      */
     public static CompletableFuture<GetNetworkSliceResult> getNetworkSlicePlain(GetNetworkSlicePlainArgs args) {
         return getNetworkSlicePlain(args, InvokeOptions.Empty);
@@ -2397,6 +2761,13 @@ public final class MobileFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.MobileNetwork`: 2022-11-01
      * 
      */
     public static Output<GetNetworkSliceResult> getNetworkSlice(GetNetworkSliceArgs args, InvokeOptions options) {
@@ -2447,6 +2818,13 @@ public final class MobileFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.MobileNetwork`: 2022-11-01
+     * 
      */
     public static Output<GetNetworkSliceResult> getNetworkSlice(GetNetworkSliceArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:mobile/getNetworkSlice:getNetworkSlice", TypeShape.of(GetNetworkSliceResult.class), args, Utilities.withVersion(options));
@@ -2495,6 +2873,13 @@ public final class MobileFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.MobileNetwork`: 2022-11-01
      * 
      */
     public static CompletableFuture<GetNetworkSliceResult> getNetworkSlicePlain(GetNetworkSlicePlainArgs args, InvokeOptions options) {

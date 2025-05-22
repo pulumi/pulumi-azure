@@ -94,6 +94,13 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.Sql`: 2023-08-01-preview
+ * 
  * ## Import
  * 
  * MS SQL Database Extended Auditing Policies can be imported using the `resource id`, e.g.
@@ -122,7 +129,7 @@ public class DatabaseExtendedAuditingPolicy extends com.pulumi.resources.CustomR
     /**
      * Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
      * 
-     * -&gt;**NOTE:**  If `enabled` is `true`, `storage_endpoint` or `log_monitoring_enabled` are required.
+     * &gt; **Note:** If `enabled` is `true`, `storage_endpoint` or `log_monitoring_enabled` are required.
      * 
      */
     @Export(name="enabled", refs={Boolean.class}, tree="[0]")
@@ -131,7 +138,7 @@ public class DatabaseExtendedAuditingPolicy extends com.pulumi.resources.CustomR
     /**
      * @return Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
      * 
-     * -&gt;**NOTE:**  If `enabled` is `true`, `storage_endpoint` or `log_monitoring_enabled` are required.
+     * &gt; **Note:** If `enabled` is `true`, `storage_endpoint` or `log_monitoring_enabled` are required.
      * 
      */
     public Output<Optional<Boolean>> enabled() {
@@ -140,7 +147,7 @@ public class DatabaseExtendedAuditingPolicy extends com.pulumi.resources.CustomR
     /**
      * Enable audit events to Azure Monitor? Defaults to `true`.
      * 
-     * &gt; **NOTE:** To enable sending audit events to Log Analytics, please refer to the example which can be found in the `./examples/sql-azure/sql_auditing_log_analytics` directory within the GitHub Repository.  To enable sending server audit events to Log Analytics, please enable the master database to send audit events to Log Analytics.
+     * &gt; **Note:** To enable sending audit events to Log Analytics, please refer to the example which can be found in the `./examples/sql-azure/sql_auditing_log_analytics` directory within the GitHub Repository.  To enable sending server audit events to Log Analytics, please enable the master database to send audit events to Log Analytics.
      * To enable audit events to Eventhub, please refer to the example which can be found in the `./examples/sql-azure/sql_auditing_eventhub` directory within the GitHub Repository.
      * 
      */
@@ -150,7 +157,7 @@ public class DatabaseExtendedAuditingPolicy extends com.pulumi.resources.CustomR
     /**
      * @return Enable audit events to Azure Monitor? Defaults to `true`.
      * 
-     * &gt; **NOTE:** To enable sending audit events to Log Analytics, please refer to the example which can be found in the `./examples/sql-azure/sql_auditing_log_analytics` directory within the GitHub Repository.  To enable sending server audit events to Log Analytics, please enable the master database to send audit events to Log Analytics.
+     * &gt; **Note:** To enable sending audit events to Log Analytics, please refer to the example which can be found in the `./examples/sql-azure/sql_auditing_log_analytics` directory within the GitHub Repository.  To enable sending server audit events to Log Analytics, please enable the master database to send audit events to Log Analytics.
      * To enable audit events to Eventhub, please refer to the example which can be found in the `./examples/sql-azure/sql_auditing_eventhub` directory within the GitHub Repository.
      * 
      */

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 /**
  * Manages a NetApp Volume.
  *
- * !>**IMPORTANT:** This resource uses a feature to prevent deletion called `preventVolumeDestruction`, defaulting to `true`. It is intentionally set to `true` to prevent the possibility of accidental data loss. The example in this page shows all possible protection options you can apply, it is using same values as the defaults.
+ * !> **Note:** This resource uses a feature to prevent deletion called `preventVolumeDestruction`, defaulting to `true`. It is intentionally set to `true` to prevent the possibility of accidental data loss. The example in this page shows all possible protection options you can apply, it is using same values as the defaults.
  *
  * ## Import
  *
@@ -105,7 +105,7 @@ export class Volume extends pulumi.CustomResource {
      */
     public readonly networkFeatures!: pulumi.Output<string>;
     /**
-     * The name of the NetApp pool in which the NetApp Volume should be created. Changing this forces a new resource to be created.
+     * The name of the NetApp pool in which the NetApp Volume should be created.
      */
     public readonly poolName!: pulumi.Output<string>;
     /**
@@ -120,9 +120,6 @@ export class Volume extends pulumi.CustomResource {
      * Volume security style, accepted values are `unix` or `ntfs`. If not provided, single-protocol volume is created defaulting to `unix` if it is `NFSv3` or `NFSv4.1` volume, if `CIFS`, it will default to `ntfs`. In a dual-protocol volume, if not provided, its value will be `ntfs`. Changing this forces a new resource to be created.
      */
     public readonly securityStyle!: pulumi.Output<string>;
-    /**
-     * The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`. Changing this forces a new resource to be created.
-     */
     public readonly serviceLevel!: pulumi.Output<string>;
     /**
      * Enable SMB encryption.
@@ -335,7 +332,7 @@ export interface VolumeState {
      */
     networkFeatures?: pulumi.Input<string>;
     /**
-     * The name of the NetApp pool in which the NetApp Volume should be created. Changing this forces a new resource to be created.
+     * The name of the NetApp pool in which the NetApp Volume should be created.
      */
     poolName?: pulumi.Input<string>;
     /**
@@ -350,9 +347,6 @@ export interface VolumeState {
      * Volume security style, accepted values are `unix` or `ntfs`. If not provided, single-protocol volume is created defaulting to `unix` if it is `NFSv3` or `NFSv4.1` volume, if `CIFS`, it will default to `ntfs`. In a dual-protocol volume, if not provided, its value will be `ntfs`. Changing this forces a new resource to be created.
      */
     securityStyle?: pulumi.Input<string>;
-    /**
-     * The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`. Changing this forces a new resource to be created.
-     */
     serviceLevel?: pulumi.Input<string>;
     /**
      * Enable SMB encryption.
@@ -460,7 +454,7 @@ export interface VolumeArgs {
      */
     networkFeatures?: pulumi.Input<string>;
     /**
-     * The name of the NetApp pool in which the NetApp Volume should be created. Changing this forces a new resource to be created.
+     * The name of the NetApp pool in which the NetApp Volume should be created.
      */
     poolName: pulumi.Input<string>;
     /**
@@ -475,9 +469,6 @@ export interface VolumeArgs {
      * Volume security style, accepted values are `unix` or `ntfs`. If not provided, single-protocol volume is created defaulting to `unix` if it is `NFSv3` or `NFSv4.1` volume, if `CIFS`, it will default to `ntfs`. In a dual-protocol volume, if not provided, its value will be `ntfs`. Changing this forces a new resource to be created.
      */
     securityStyle?: pulumi.Input<string>;
-    /**
-     * The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`. Changing this forces a new resource to be created.
-     */
     serviceLevel: pulumi.Input<string>;
     /**
      * Enable SMB encryption.

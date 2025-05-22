@@ -301,6 +301,13 @@ class Deployment(pulumi.CustomResource):
             })
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.CognitiveServices`: 2024-10-01
+
         ## Import
 
         Cognitive Services Account Deployment can be imported using the `resource id`, e.g.
@@ -355,6 +362,13 @@ class Deployment(pulumi.CustomResource):
                 "name": "Standard",
             })
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.CognitiveServices`: 2024-10-01
 
         ## Import
 

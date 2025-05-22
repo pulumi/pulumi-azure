@@ -431,6 +431,13 @@ class Watcher(pulumi.CustomResource):
             })
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Automation`: 2020-01-13-preview
+
         ## Import
 
         Automation Watchers can be imported using the `resource id`, e.g.
@@ -506,6 +513,13 @@ class Watcher(pulumi.CustomResource):
                 "foo": "bar",
             })
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Automation`: 2020-01-13-preview
 
         ## Import
 

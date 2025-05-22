@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Manages a Load Balancer Rule.
  *
- * > **NOTE** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration Attached
+ * > **Note:** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration Attached
  *
  * ## Example Usage
  *
@@ -43,6 +43,13 @@ import * as utilities from "../utilities";
  *     frontendIpConfigurationName: "PublicIPAddress",
  * });
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.Network`: 2023-09-01
  *
  * ## Import
  *
@@ -83,7 +90,7 @@ export class Rule extends pulumi.CustomResource {
     /**
      * A list of reference to a Backend Address Pool over which this Load Balancing Rule operates.
      *
-     * > **NOTE:** In most cases users can only set one Backend Address Pool ID in the `backendAddressPoolIds`. Especially, when the sku of the LB is `Gateway`, users can set up to two IDs in the `backendAddressPoolIds`.
+     * > **Note:** In most cases users can only set one Backend Address Pool ID in the `backendAddressPoolIds`. Especially, when the sku of the LB is `Gateway`, users can set up to two IDs in the `backendAddressPoolIds`.
      */
     public readonly backendAddressPoolIds!: pulumi.Output<string[] | undefined>;
     /**
@@ -207,7 +214,7 @@ export interface RuleState {
     /**
      * A list of reference to a Backend Address Pool over which this Load Balancing Rule operates.
      *
-     * > **NOTE:** In most cases users can only set one Backend Address Pool ID in the `backendAddressPoolIds`. Especially, when the sku of the LB is `Gateway`, users can set up to two IDs in the `backendAddressPoolIds`.
+     * > **Note:** In most cases users can only set one Backend Address Pool ID in the `backendAddressPoolIds`. Especially, when the sku of the LB is `Gateway`, users can set up to two IDs in the `backendAddressPoolIds`.
      */
     backendAddressPoolIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -268,7 +275,7 @@ export interface RuleArgs {
     /**
      * A list of reference to a Backend Address Pool over which this Load Balancing Rule operates.
      *
-     * > **NOTE:** In most cases users can only set one Backend Address Pool ID in the `backendAddressPoolIds`. Especially, when the sku of the LB is `Gateway`, users can set up to two IDs in the `backendAddressPoolIds`.
+     * > **Note:** In most cases users can only set one Backend Address Pool ID in the `backendAddressPoolIds`. Especially, when the sku of the LB is `Gateway`, users can set up to two IDs in the `backendAddressPoolIds`.
      */
     backendAddressPoolIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**

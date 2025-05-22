@@ -73,6 +73,13 @@ public final class WebpubsubFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.SignalRService`: 2024-03-01
+     * 
      */
     public static Output<GetPrivateLinkResourceResult> getPrivateLinkResource(GetPrivateLinkResourceArgs args) {
         return getPrivateLinkResource(args, InvokeOptions.Empty);
@@ -131,6 +138,13 @@ public final class WebpubsubFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.SignalRService`: 2024-03-01
      * 
      */
     public static CompletableFuture<GetPrivateLinkResourceResult> getPrivateLinkResourcePlain(GetPrivateLinkResourcePlainArgs args) {
@@ -191,6 +205,13 @@ public final class WebpubsubFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.SignalRService`: 2024-03-01
+     * 
      */
     public static Output<GetPrivateLinkResourceResult> getPrivateLinkResource(GetPrivateLinkResourceArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:webpubsub/getPrivateLinkResource:getPrivateLinkResource", TypeShape.of(GetPrivateLinkResourceResult.class), args, Utilities.withVersion(options));
@@ -249,6 +270,13 @@ public final class WebpubsubFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.SignalRService`: 2024-03-01
      * 
      */
     public static Output<GetPrivateLinkResourceResult> getPrivateLinkResource(GetPrivateLinkResourceArgs args, InvokeOutputOptions options) {
@@ -309,6 +337,13 @@ public final class WebpubsubFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.SignalRService`: 2024-03-01
+     * 
      */
     public static CompletableFuture<GetPrivateLinkResourceResult> getPrivateLinkResourcePlain(GetPrivateLinkResourcePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:webpubsub/getPrivateLinkResource:getPrivateLinkResource", TypeShape.of(GetPrivateLinkResourceResult.class), args, Utilities.withVersion(options));
@@ -351,6 +386,13 @@ public final class WebpubsubFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.SignalRService`: 2024-03-01
      * 
      */
     public static Output<GetServiceResult> getService(GetServiceArgs args) {
@@ -395,6 +437,13 @@ public final class WebpubsubFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.SignalRService`: 2024-03-01
+     * 
      */
     public static CompletableFuture<GetServiceResult> getServicePlain(GetServicePlainArgs args) {
         return getServicePlain(args, InvokeOptions.Empty);
@@ -437,6 +486,13 @@ public final class WebpubsubFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.SignalRService`: 2024-03-01
      * 
      */
     public static Output<GetServiceResult> getService(GetServiceArgs args, InvokeOptions options) {
@@ -481,6 +537,13 @@ public final class WebpubsubFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.SignalRService`: 2024-03-01
+     * 
      */
     public static Output<GetServiceResult> getService(GetServiceArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:webpubsub/getService:getService", TypeShape.of(GetServiceResult.class), args, Utilities.withVersion(options));
@@ -523,6 +586,13 @@ public final class WebpubsubFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.SignalRService`: 2024-03-01
      * 
      */
     public static CompletableFuture<GetServiceResult> getServicePlain(GetServicePlainArgs args, InvokeOptions options) {

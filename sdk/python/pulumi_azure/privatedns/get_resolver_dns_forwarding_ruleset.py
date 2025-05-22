@@ -120,6 +120,13 @@ def get_resolver_dns_forwarding_ruleset(name: Optional[builtins.str] = None,
         resource_group_name="example-ruleset-resourcegroup")
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Network`: 2022-07-01
+
 
     :param builtins.str name: Name of the existing Private DNS Resolver Dns Forwarding Ruleset.
     :param builtins.str resource_group_name: Name of the Resource Group where the Private DNS Resolver Dns Forwarding Ruleset exists.
@@ -152,6 +159,13 @@ def get_resolver_dns_forwarding_ruleset_output(name: Optional[pulumi.Input[built
     example = azure.privatedns.get_resolver_dns_forwarding_ruleset(name="example-ruleset",
         resource_group_name="example-ruleset-resourcegroup")
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Network`: 2022-07-01
 
 
     :param builtins.str name: Name of the existing Private DNS Resolver Dns Forwarding Ruleset.

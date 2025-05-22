@@ -20,8 +20,8 @@ public final class ClusterSkuArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Specifies the node count for the cluster. Boundaries depend on the SKU name.
      * 
-     * &gt; **NOTE:** If no `optimized_auto_scale` block is defined, then the capacity is required.
-     * **NOTE:** If an `optimized_auto_scale` block is defined and no capacity is set, then the capacity is initially set to the value of `minimum_instances`.
+     * &gt; **Note:** If no `optimized_auto_scale` block is defined, then the capacity is required.
+     * **Note:** If an `optimized_auto_scale` block is defined and no capacity is set, then the capacity is initially set to the value of `minimum_instances`.
      * 
      */
     @Import(name="capacity")
@@ -30,8 +30,8 @@ public final class ClusterSkuArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Specifies the node count for the cluster. Boundaries depend on the SKU name.
      * 
-     * &gt; **NOTE:** If no `optimized_auto_scale` block is defined, then the capacity is required.
-     * **NOTE:** If an `optimized_auto_scale` block is defined and no capacity is set, then the capacity is initially set to the value of `minimum_instances`.
+     * &gt; **Note:** If no `optimized_auto_scale` block is defined, then the capacity is required.
+     * **Note:** If an `optimized_auto_scale` block is defined and no capacity is set, then the capacity is initially set to the value of `minimum_instances`.
      * 
      */
     public Optional<Output<Integer>> capacity() {
@@ -81,8 +81,8 @@ public final class ClusterSkuArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param capacity Specifies the node count for the cluster. Boundaries depend on the SKU name.
          * 
-         * &gt; **NOTE:** If no `optimized_auto_scale` block is defined, then the capacity is required.
-         * **NOTE:** If an `optimized_auto_scale` block is defined and no capacity is set, then the capacity is initially set to the value of `minimum_instances`.
+         * &gt; **Note:** If no `optimized_auto_scale` block is defined, then the capacity is required.
+         * **Note:** If an `optimized_auto_scale` block is defined and no capacity is set, then the capacity is initially set to the value of `minimum_instances`.
          * 
          * @return builder
          * 
@@ -95,8 +95,8 @@ public final class ClusterSkuArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param capacity Specifies the node count for the cluster. Boundaries depend on the SKU name.
          * 
-         * &gt; **NOTE:** If no `optimized_auto_scale` block is defined, then the capacity is required.
-         * **NOTE:** If an `optimized_auto_scale` block is defined and no capacity is set, then the capacity is initially set to the value of `minimum_instances`.
+         * &gt; **Note:** If no `optimized_auto_scale` block is defined, then the capacity is required.
+         * **Note:** If an `optimized_auto_scale` block is defined and no capacity is set, then the capacity is initially set to the value of `minimum_instances`.
          * 
          * @return builder
          * 

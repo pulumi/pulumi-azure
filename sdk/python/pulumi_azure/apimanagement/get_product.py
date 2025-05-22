@@ -180,6 +180,13 @@ def get_product(api_management_name: Optional[builtins.str] = None,
     pulumi.export("productTerms", example.terms)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.ApiManagement`: 2022-08-01
+
 
     :param builtins.str api_management_name: The Name of the API Management Service in which this Product exists.
     :param builtins.str product_id: The Identifier for the API Management Product.
@@ -222,6 +229,13 @@ def get_product_output(api_management_name: Optional[pulumi.Input[builtins.str]]
         resource_group_name="search-service")
     pulumi.export("productTerms", example.terms)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.ApiManagement`: 2022-08-01
 
 
     :param builtins.str api_management_name: The Name of the API Management Service in which this Product exists.

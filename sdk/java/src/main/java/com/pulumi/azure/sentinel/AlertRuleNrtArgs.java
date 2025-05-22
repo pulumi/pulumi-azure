@@ -222,7 +222,7 @@ public final class AlertRuleNrtArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * A list of `sentinel_entity_mapping` blocks as defined below.
      * 
-     * &gt; **NOTE:** `entity_mapping` and `sentinel_entity_mapping` together can&#39;t exceed 5.
+     * &gt; **Note:** `entity_mapping` and `sentinel_entity_mapping` together can&#39;t exceed 5.
      * 
      */
     @Import(name="sentinelEntityMappings")
@@ -231,7 +231,7 @@ public final class AlertRuleNrtArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return A list of `sentinel_entity_mapping` blocks as defined below.
      * 
-     * &gt; **NOTE:** `entity_mapping` and `sentinel_entity_mapping` together can&#39;t exceed 5.
+     * &gt; **Note:** `entity_mapping` and `sentinel_entity_mapping` together can&#39;t exceed 5.
      * 
      */
     public Optional<Output<List<AlertRuleNrtSentinelEntityMappingArgs>>> sentinelEntityMappings() {
@@ -651,7 +651,7 @@ public final class AlertRuleNrtArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param sentinelEntityMappings A list of `sentinel_entity_mapping` blocks as defined below.
          * 
-         * &gt; **NOTE:** `entity_mapping` and `sentinel_entity_mapping` together can&#39;t exceed 5.
+         * &gt; **Note:** `entity_mapping` and `sentinel_entity_mapping` together can&#39;t exceed 5.
          * 
          * @return builder
          * 
@@ -664,7 +664,7 @@ public final class AlertRuleNrtArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param sentinelEntityMappings A list of `sentinel_entity_mapping` blocks as defined below.
          * 
-         * &gt; **NOTE:** `entity_mapping` and `sentinel_entity_mapping` together can&#39;t exceed 5.
+         * &gt; **Note:** `entity_mapping` and `sentinel_entity_mapping` together can&#39;t exceed 5.
          * 
          * @return builder
          * 
@@ -676,7 +676,7 @@ public final class AlertRuleNrtArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param sentinelEntityMappings A list of `sentinel_entity_mapping` blocks as defined below.
          * 
-         * &gt; **NOTE:** `entity_mapping` and `sentinel_entity_mapping` together can&#39;t exceed 5.
+         * &gt; **Note:** `entity_mapping` and `sentinel_entity_mapping` together can&#39;t exceed 5.
          * 
          * @return builder
          * 

@@ -10,8 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.DevCenter
 {
     /// <summary>
-    /// &lt;!-- Note: This documentation is generated. Any manual changes will be overwritten --&gt;
-    /// 
     /// Manages a Dev Center Project.
     /// 
     /// ## Example Usage
@@ -52,6 +50,13 @@ namespace Pulumi.Azure.DevCenter
     /// });
     /// ```
     /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.DevCenter`: 2025-02-01
+    /// 
     /// ## Import
     /// 
     /// An existing Dev Center Project can be imported into Pulumi using the `resource id`, e.g.
@@ -86,6 +91,12 @@ namespace Pulumi.Azure.DevCenter
         /// </summary>
         [Output("devCenterUri")]
         public Output<string> DevCenterUri { get; private set; } = null!;
+
+        /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.ProjectIdentity?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The Azure Region where the Dev Center Project should exist. Changing this forces a new Dev Center Project to be created.
@@ -176,6 +187,12 @@ namespace Pulumi.Azure.DevCenter
         public Input<string> DevCenterId { get; set; } = null!;
 
         /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.ProjectIdentityArgs>? Identity { get; set; }
+
+        /// <summary>
         /// The Azure Region where the Dev Center Project should exist. Changing this forces a new Dev Center Project to be created.
         /// </summary>
         [Input("location")]
@@ -236,6 +253,12 @@ namespace Pulumi.Azure.DevCenter
         /// </summary>
         [Input("devCenterUri")]
         public Input<string>? DevCenterUri { get; set; }
+
+        /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.ProjectIdentityGetArgs>? Identity { get; set; }
 
         /// <summary>
         /// The Azure Region where the Dev Center Project should exist. Changing this forces a new Dev Center Project to be created.

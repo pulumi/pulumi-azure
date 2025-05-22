@@ -4,6 +4,60 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Manage a Data Factory User Assigned Managed Identity credential resource. These resources are used by Data Factory to access data sources.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "westus",
+ * });
+ * const exampleUserAssignedIdentity = new azure.authorization.UserAssignedIdentity("example", {
+ *     location: example.location,
+ *     name: "my-user",
+ *     resourceGroupName: example.name,
+ * });
+ * const exampleFactory = new azure.datafactory.Factory("example", {
+ *     name: "example",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     identity: {
+ *         type: "UserAssigned",
+ *         identityIds: [exampleUserAssignedIdentity.id],
+ *     },
+ * });
+ * const test = new azure.datafactory.CredentialUserManagedIdentity("test", {
+ *     name: exampleUserAssignedIdentity.name,
+ *     description: "Short description of this credential",
+ *     dataFactoryId: exampleFactory.id,
+ *     identityId: exampleUserAssignedIdentity.id,
+ *     annotations: [
+ *         "example",
+ *         "example2",
+ *     ],
+ * });
+ * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.DataFactory`: 2018-06-01
+ *
+ * ## Import
+ *
+ * Data Factory Credentials can be imported using the `resource id`, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure:datafactory/credentialUserManagedIdentity:CredentialUserManagedIdentity example /subscriptions/1f3d6e58-feed-4bb6-87e5-a52305ad3375/resourceGroups/example-resources/providers/Microsoft.DataFactory/factories/example/credentials/credential1
+ * ```
+ */
 export class CredentialUserManagedIdentity extends pulumi.CustomResource {
     /**
      * Get an existing CredentialUserManagedIdentity resource's state with the given name, ID, and optional extra
@@ -33,23 +87,27 @@ export class CredentialUserManagedIdentity extends pulumi.CustomResource {
     }
 
     /**
-     * (Optional) List of string annotations.
+     * List of tags that can be used for describing the Data Factory Credential.
+     *
+     * > **Note:** Manually altering a Credential resource will cause annotations to be lost, resulting in a change being detected on the next run.
      */
     public readonly annotations!: pulumi.Output<string[] | undefined>;
     /**
-     * The resource ID of the parent Data Factory
+     * The Data Factory ID in which to associate the Credential with. Changing this forces a new resource.
      */
     public readonly dataFactoryId!: pulumi.Output<string>;
     /**
-     * (Optional) Short text description
+     * The description for the Data Factory Credential.
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * The resource ID of the User Assigned Managed Identity
+     * The Resouce ID of an existing User Assigned Managed Identity. This can be changed without recreating the resource. Changing this forces a new resource to be created.
+     *
+     * > **Note:** Attempting to create a Credential resource without first assigning the identity to the parent Data Factory will result in an Azure API error.
      */
     public readonly identityId!: pulumi.Output<string>;
     /**
-     * The desired name of the credential resource
+     * Specifies the name of the Credential. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
 
@@ -95,23 +153,27 @@ export class CredentialUserManagedIdentity extends pulumi.CustomResource {
  */
 export interface CredentialUserManagedIdentityState {
     /**
-     * (Optional) List of string annotations.
+     * List of tags that can be used for describing the Data Factory Credential.
+     *
+     * > **Note:** Manually altering a Credential resource will cause annotations to be lost, resulting in a change being detected on the next run.
      */
     annotations?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The resource ID of the parent Data Factory
+     * The Data Factory ID in which to associate the Credential with. Changing this forces a new resource.
      */
     dataFactoryId?: pulumi.Input<string>;
     /**
-     * (Optional) Short text description
+     * The description for the Data Factory Credential.
      */
     description?: pulumi.Input<string>;
     /**
-     * The resource ID of the User Assigned Managed Identity
+     * The Resouce ID of an existing User Assigned Managed Identity. This can be changed without recreating the resource. Changing this forces a new resource to be created.
+     *
+     * > **Note:** Attempting to create a Credential resource without first assigning the identity to the parent Data Factory will result in an Azure API error.
      */
     identityId?: pulumi.Input<string>;
     /**
-     * The desired name of the credential resource
+     * Specifies the name of the Credential. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
 }
@@ -121,23 +183,27 @@ export interface CredentialUserManagedIdentityState {
  */
 export interface CredentialUserManagedIdentityArgs {
     /**
-     * (Optional) List of string annotations.
+     * List of tags that can be used for describing the Data Factory Credential.
+     *
+     * > **Note:** Manually altering a Credential resource will cause annotations to be lost, resulting in a change being detected on the next run.
      */
     annotations?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The resource ID of the parent Data Factory
+     * The Data Factory ID in which to associate the Credential with. Changing this forces a new resource.
      */
     dataFactoryId: pulumi.Input<string>;
     /**
-     * (Optional) Short text description
+     * The description for the Data Factory Credential.
      */
     description?: pulumi.Input<string>;
     /**
-     * The resource ID of the User Assigned Managed Identity
+     * The Resouce ID of an existing User Assigned Managed Identity. This can be changed without recreating the resource. Changing this forces a new resource to be created.
+     *
+     * > **Note:** Attempting to create a Credential resource without first assigning the identity to the parent Data Factory will result in an Azure API error.
      */
     identityId: pulumi.Input<string>;
     /**
-     * The desired name of the credential resource
+     * Specifies the name of the Credential. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
 }

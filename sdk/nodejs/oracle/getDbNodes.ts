@@ -24,6 +24,13 @@ import * as utilities from "../utilities";
  *     };
  * }
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Oracle.Database`: 2024-06-01
  */
 export function getDbNodes(args: GetDbNodesArgs, opts?: pulumi.InvokeOptions): Promise<GetDbNodesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -74,6 +81,13 @@ export interface GetDbNodesResult {
  *     };
  * }
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Oracle.Database`: 2024-06-01
  */
 export function getDbNodesOutput(args: GetDbNodesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDbNodesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

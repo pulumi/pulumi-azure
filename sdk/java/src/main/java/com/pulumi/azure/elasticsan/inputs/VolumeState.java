@@ -50,7 +50,7 @@ public final class VolumeState extends com.pulumi.resources.ResourceArgs {
     /**
      * Specifies the size of the Elastic SAN Volume in GiB. The size should be within the remaining capacity of the parent Elastic SAN. Possible values are between `1` and `65536` (16 TiB).
      * 
-     * &gt; **NOTE:** The size can only be increased. If `create_source` is specified, then the size must be equal to or greater than the source&#39;s size.
+     * &gt; **Note:** The size can only be increased. If `create_source` is specified, then the size must be equal to or greater than the source&#39;s size.
      * 
      */
     @Import(name="sizeInGib")
@@ -59,7 +59,7 @@ public final class VolumeState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Specifies the size of the Elastic SAN Volume in GiB. The size should be within the remaining capacity of the parent Elastic SAN. Possible values are between `1` and `65536` (16 TiB).
      * 
-     * &gt; **NOTE:** The size can only be increased. If `create_source` is specified, then the size must be equal to or greater than the source&#39;s size.
+     * &gt; **Note:** The size can only be increased. If `create_source` is specified, then the size must be equal to or greater than the source&#39;s size.
      * 
      */
     public Optional<Output<Integer>> sizeInGib() {
@@ -217,7 +217,7 @@ public final class VolumeState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param sizeInGib Specifies the size of the Elastic SAN Volume in GiB. The size should be within the remaining capacity of the parent Elastic SAN. Possible values are between `1` and `65536` (16 TiB).
          * 
-         * &gt; **NOTE:** The size can only be increased. If `create_source` is specified, then the size must be equal to or greater than the source&#39;s size.
+         * &gt; **Note:** The size can only be increased. If `create_source` is specified, then the size must be equal to or greater than the source&#39;s size.
          * 
          * @return builder
          * 
@@ -230,7 +230,7 @@ public final class VolumeState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param sizeInGib Specifies the size of the Elastic SAN Volume in GiB. The size should be within the remaining capacity of the parent Elastic SAN. Possible values are between `1` and `65536` (16 TiB).
          * 
-         * &gt; **NOTE:** The size can only be increased. If `create_source` is specified, then the size must be equal to or greater than the source&#39;s size.
+         * &gt; **Note:** The size can only be increased. If `create_source` is specified, then the size must be equal to or greater than the source&#39;s size.
          * 
          * @return builder
          * 

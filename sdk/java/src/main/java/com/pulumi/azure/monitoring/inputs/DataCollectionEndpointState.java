@@ -108,6 +108,21 @@ public final class DataCollectionEndpointState extends com.pulumi.resources.Reso
     }
 
     /**
+     * The endpoint used for ingesting metrics, e.g., `https://mydce-abcd.eastus-1.metrics.ingest.monitor.azure.com`.
+     * 
+     */
+    @Import(name="metricsIngestionEndpoint")
+    private @Nullable Output<String> metricsIngestionEndpoint;
+
+    /**
+     * @return The endpoint used for ingesting metrics, e.g., `https://mydce-abcd.eastus-1.metrics.ingest.monitor.azure.com`.
+     * 
+     */
+    public Optional<Output<String>> metricsIngestionEndpoint() {
+        return Optional.ofNullable(this.metricsIngestionEndpoint);
+    }
+
+    /**
      * The name which should be used for this Data Collection Endpoint. Changing this forces a new Data Collection Endpoint to be created.
      * 
      */
@@ -176,6 +191,7 @@ public final class DataCollectionEndpointState extends com.pulumi.resources.Reso
         this.kind = $.kind;
         this.location = $.location;
         this.logsIngestionEndpoint = $.logsIngestionEndpoint;
+        this.metricsIngestionEndpoint = $.metricsIngestionEndpoint;
         this.name = $.name;
         this.publicNetworkAccessEnabled = $.publicNetworkAccessEnabled;
         this.resourceGroupName = $.resourceGroupName;
@@ -324,6 +340,27 @@ public final class DataCollectionEndpointState extends com.pulumi.resources.Reso
          */
         public Builder logsIngestionEndpoint(String logsIngestionEndpoint) {
             return logsIngestionEndpoint(Output.of(logsIngestionEndpoint));
+        }
+
+        /**
+         * @param metricsIngestionEndpoint The endpoint used for ingesting metrics, e.g., `https://mydce-abcd.eastus-1.metrics.ingest.monitor.azure.com`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder metricsIngestionEndpoint(@Nullable Output<String> metricsIngestionEndpoint) {
+            $.metricsIngestionEndpoint = metricsIngestionEndpoint;
+            return this;
+        }
+
+        /**
+         * @param metricsIngestionEndpoint The endpoint used for ingesting metrics, e.g., `https://mydce-abcd.eastus-1.metrics.ingest.monitor.azure.com`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder metricsIngestionEndpoint(String metricsIngestionEndpoint) {
+            return metricsIngestionEndpoint(Output.of(metricsIngestionEndpoint));
         }
 
         /**

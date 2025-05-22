@@ -78,6 +78,13 @@ namespace Pulumi.Azure.Mobile
     /// });
     /// ```
     /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.MobileNetwork`: 2022-11-01
+    /// 
     /// ## Import
     /// 
     /// Mobile Network Sim Groups can be imported using the `resource id`, e.g.
@@ -98,7 +105,7 @@ namespace Pulumi.Azure.Mobile
         /// <summary>
         /// An `identity` block as defined below.
         /// 
-        /// &gt; **NOTE:** A `UserAssigned` identity must be specified when `encryption_key_url` is specified.
+        /// &gt; **Note:** A `UserAssigned` identity must be specified when `encryption_key_url` is specified.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.NetworkSimGroupIdentity?> Identity { get; private set; } = null!;
@@ -182,7 +189,7 @@ namespace Pulumi.Azure.Mobile
         /// <summary>
         /// An `identity` block as defined below.
         /// 
-        /// &gt; **NOTE:** A `UserAssigned` identity must be specified when `encryption_key_url` is specified.
+        /// &gt; **Note:** A `UserAssigned` identity must be specified when `encryption_key_url` is specified.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.NetworkSimGroupIdentityArgs>? Identity { get; set; }
@@ -234,7 +241,7 @@ namespace Pulumi.Azure.Mobile
         /// <summary>
         /// An `identity` block as defined below.
         /// 
-        /// &gt; **NOTE:** A `UserAssigned` identity must be specified when `encryption_key_url` is specified.
+        /// &gt; **Note:** A `UserAssigned` identity must be specified when `encryption_key_url` is specified.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.NetworkSimGroupIdentityGetArgs>? Identity { get; set; }

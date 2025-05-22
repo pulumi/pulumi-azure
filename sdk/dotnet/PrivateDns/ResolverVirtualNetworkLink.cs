@@ -114,6 +114,13 @@ namespace Pulumi.Azure.PrivateDns
     /// });
     /// ```
     /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.Network`: 2022-07-01
+    /// 
     /// ## Import
     /// 
     /// Private DNS Resolver Virtual Network Link can be imported using the `resource id`, e.g.

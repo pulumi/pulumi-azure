@@ -35,7 +35,7 @@ class EndpointCustomDomainArgs:
         :param pulumi.Input[builtins.str] name: The name which should be used for this CDN Endpoint Custom Domain. Changing this forces a new CDN Endpoint Custom Domain to be created.
         :param pulumi.Input['EndpointCustomDomainUserManagedHttpsArgs'] user_managed_https: A `user_managed_https` block as defined below.
                
-               > **NOTE** Only one of `cdn_managed_https` and `user_managed_https` can be specified.
+               > **Note:** Only one of `cdn_managed_https` and `user_managed_https` can be specified.
         """
         pulumi.set(__self__, "cdn_endpoint_id", cdn_endpoint_id)
         pulumi.set(__self__, "host_name", host_name)
@@ -100,7 +100,7 @@ class EndpointCustomDomainArgs:
         """
         A `user_managed_https` block as defined below.
 
-        > **NOTE** Only one of `cdn_managed_https` and `user_managed_https` can be specified.
+        > **Note:** Only one of `cdn_managed_https` and `user_managed_https` can be specified.
         """
         return pulumi.get(self, "user_managed_https")
 
@@ -125,7 +125,7 @@ class _EndpointCustomDomainState:
         :param pulumi.Input[builtins.str] name: The name which should be used for this CDN Endpoint Custom Domain. Changing this forces a new CDN Endpoint Custom Domain to be created.
         :param pulumi.Input['EndpointCustomDomainUserManagedHttpsArgs'] user_managed_https: A `user_managed_https` block as defined below.
                
-               > **NOTE** Only one of `cdn_managed_https` and `user_managed_https` can be specified.
+               > **Note:** Only one of `cdn_managed_https` and `user_managed_https` can be specified.
         """
         if cdn_endpoint_id is not None:
             pulumi.set(__self__, "cdn_endpoint_id", cdn_endpoint_id)
@@ -192,7 +192,7 @@ class _EndpointCustomDomainState:
         """
         A `user_managed_https` block as defined below.
 
-        > **NOTE** Only one of `cdn_managed_https` and `user_managed_https` can be specified.
+        > **Note:** Only one of `cdn_managed_https` and `user_managed_https` can be specified.
         """
         return pulumi.get(self, "user_managed_https")
 
@@ -216,6 +216,10 @@ class EndpointCustomDomain(pulumi.CustomResource):
         """
         Manages a Custom Domain for a CDN Endpoint.
 
+        !> **Note:** The CDN services from Edgio(formerly Verizon) was shut down on 15 January 2025 and is no longer available .
+
+        !> **Note:** Support for CDN services from Akamai was removed on 31 October 2023.
+
         ## Example Usage
 
         ```python
@@ -235,7 +239,7 @@ class EndpointCustomDomain(pulumi.CustomResource):
             name="example-profile",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            sku="Standard_Verizon")
+            sku="Standard_Microsoft")
         example_endpoint = azure.cdn.Endpoint("example",
             name="example-endpoint",
             profile_name=example_profile.name,
@@ -275,7 +279,7 @@ class EndpointCustomDomain(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: The name which should be used for this CDN Endpoint Custom Domain. Changing this forces a new CDN Endpoint Custom Domain to be created.
         :param pulumi.Input[Union['EndpointCustomDomainUserManagedHttpsArgs', 'EndpointCustomDomainUserManagedHttpsArgsDict']] user_managed_https: A `user_managed_https` block as defined below.
                
-               > **NOTE** Only one of `cdn_managed_https` and `user_managed_https` can be specified.
+               > **Note:** Only one of `cdn_managed_https` and `user_managed_https` can be specified.
         """
         ...
     @overload
@@ -285,6 +289,10 @@ class EndpointCustomDomain(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Custom Domain for a CDN Endpoint.
+
+        !> **Note:** The CDN services from Edgio(formerly Verizon) was shut down on 15 January 2025 and is no longer available .
+
+        !> **Note:** Support for CDN services from Akamai was removed on 31 October 2023.
 
         ## Example Usage
 
@@ -305,7 +313,7 @@ class EndpointCustomDomain(pulumi.CustomResource):
             name="example-profile",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            sku="Standard_Verizon")
+            sku="Standard_Microsoft")
         example_endpoint = azure.cdn.Endpoint("example",
             name="example-endpoint",
             profile_name=example_profile.name,
@@ -403,7 +411,7 @@ class EndpointCustomDomain(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: The name which should be used for this CDN Endpoint Custom Domain. Changing this forces a new CDN Endpoint Custom Domain to be created.
         :param pulumi.Input[Union['EndpointCustomDomainUserManagedHttpsArgs', 'EndpointCustomDomainUserManagedHttpsArgsDict']] user_managed_https: A `user_managed_https` block as defined below.
                
-               > **NOTE** Only one of `cdn_managed_https` and `user_managed_https` can be specified.
+               > **Note:** Only one of `cdn_managed_https` and `user_managed_https` can be specified.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -454,7 +462,7 @@ class EndpointCustomDomain(pulumi.CustomResource):
         """
         A `user_managed_https` block as defined below.
 
-        > **NOTE** Only one of `cdn_managed_https` and `user_managed_https` can be specified.
+        > **Note:** Only one of `cdn_managed_https` and `user_managed_https` can be specified.
         """
         return pulumi.get(self, "user_managed_https")
 

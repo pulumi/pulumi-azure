@@ -288,7 +288,7 @@ public final class AlertRuleAnomalyDuplicateState extends com.pulumi.resources.R
     /**
      * A list of `threshold_observation` blocks as defined below.
      * 
-     * &gt; **NOTE:** un-specified `multi_select_observation`, `single_select_observation`, `prioritized_exclude_observation` and `threshold_observation` will be inherited from the built-in Anomaly Alert Rule.
+     * &gt; **Note:** un-specified `multi_select_observation`, `single_select_observation`, `prioritized_exclude_observation` and `threshold_observation` will be inherited from the built-in Anomaly Alert Rule.
      * 
      */
     @Import(name="thresholdObservations")
@@ -297,7 +297,7 @@ public final class AlertRuleAnomalyDuplicateState extends com.pulumi.resources.R
     /**
      * @return A list of `threshold_observation` blocks as defined below.
      * 
-     * &gt; **NOTE:** un-specified `multi_select_observation`, `single_select_observation`, `prioritized_exclude_observation` and `threshold_observation` will be inherited from the built-in Anomaly Alert Rule.
+     * &gt; **Note:** un-specified `multi_select_observation`, `single_select_observation`, `prioritized_exclude_observation` and `threshold_observation` will be inherited from the built-in Anomaly Alert Rule.
      * 
      */
     public Optional<Output<List<AlertRuleAnomalyDuplicateThresholdObservationArgs>>> thresholdObservations() {
@@ -775,7 +775,7 @@ public final class AlertRuleAnomalyDuplicateState extends com.pulumi.resources.R
         /**
          * @param thresholdObservations A list of `threshold_observation` blocks as defined below.
          * 
-         * &gt; **NOTE:** un-specified `multi_select_observation`, `single_select_observation`, `prioritized_exclude_observation` and `threshold_observation` will be inherited from the built-in Anomaly Alert Rule.
+         * &gt; **Note:** un-specified `multi_select_observation`, `single_select_observation`, `prioritized_exclude_observation` and `threshold_observation` will be inherited from the built-in Anomaly Alert Rule.
          * 
          * @return builder
          * 
@@ -788,7 +788,7 @@ public final class AlertRuleAnomalyDuplicateState extends com.pulumi.resources.R
         /**
          * @param thresholdObservations A list of `threshold_observation` blocks as defined below.
          * 
-         * &gt; **NOTE:** un-specified `multi_select_observation`, `single_select_observation`, `prioritized_exclude_observation` and `threshold_observation` will be inherited from the built-in Anomaly Alert Rule.
+         * &gt; **Note:** un-specified `multi_select_observation`, `single_select_observation`, `prioritized_exclude_observation` and `threshold_observation` will be inherited from the built-in Anomaly Alert Rule.
          * 
          * @return builder
          * 
@@ -800,7 +800,7 @@ public final class AlertRuleAnomalyDuplicateState extends com.pulumi.resources.R
         /**
          * @param thresholdObservations A list of `threshold_observation` blocks as defined below.
          * 
-         * &gt; **NOTE:** un-specified `multi_select_observation`, `single_select_observation`, `prioritized_exclude_observation` and `threshold_observation` will be inherited from the built-in Anomaly Alert Rule.
+         * &gt; **Note:** un-specified `multi_select_observation`, `single_select_observation`, `prioritized_exclude_observation` and `threshold_observation` will be inherited from the built-in Anomaly Alert Rule.
          * 
          * @return builder
          * 

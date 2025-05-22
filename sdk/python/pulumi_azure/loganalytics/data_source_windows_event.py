@@ -226,6 +226,13 @@ class DataSourceWindowsEvent(pulumi.CustomResource):
             event_types=["Error"])
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.OperationalInsights`: 2020-08-01
+
         ## Import
 
         Log Analytics Windows Event DataSources can be imported using the `resource id`, e.g.
@@ -272,6 +279,13 @@ class DataSourceWindowsEvent(pulumi.CustomResource):
             event_log_name="Application",
             event_types=["Error"])
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.OperationalInsights`: 2020-08-01
 
         ## Import
 

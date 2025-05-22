@@ -114,7 +114,7 @@ namespace Pulumi.Azure.KeyVault
         /// <summary>
         /// Specifies the ID of the Managed Hardware Security Module instance where the Secret resides, available on the `azure.keyvault.ManagedHardwareSecurityModuleKey` Data Source / Resource.
         /// 
-        /// **NOTE:** The Managed Hardware Security Module must be in the same subscription as the provider. If the Managed Hardware Security Module is in another subscription, you must create an aliased provider for that subscription.
+        /// &gt; **Note:** The Managed Hardware Security Module must be in the same subscription as the provider. If the Managed Hardware Security Module is in another subscription, you must create an aliased provider for that subscription.
         /// </summary>
         [Input("managedHsmId", required: true)]
         public string ManagedHsmId { get; set; } = null!;
@@ -136,7 +136,7 @@ namespace Pulumi.Azure.KeyVault
         /// <summary>
         /// Specifies the ID of the Managed Hardware Security Module instance where the Secret resides, available on the `azure.keyvault.ManagedHardwareSecurityModuleKey` Data Source / Resource.
         /// 
-        /// **NOTE:** The Managed Hardware Security Module must be in the same subscription as the provider. If the Managed Hardware Security Module is in another subscription, you must create an aliased provider for that subscription.
+        /// &gt; **Note:** The Managed Hardware Security Module must be in the same subscription as the provider. If the Managed Hardware Security Module is in another subscription, you must create an aliased provider for that subscription.
         /// </summary>
         [Input("managedHsmId", required: true)]
         public Input<string> ManagedHsmId { get; set; } = null!;

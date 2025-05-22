@@ -132,6 +132,13 @@ def azurerm_portal_dashboard(dashboard_properties: Optional[builtins.str] = None
     pulumi.export("id", example_azurerm_dashboard["id"])
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Portal`: 2019-01-01-preview
+
 
     :param builtins.str dashboard_properties: JSON data representing dashboard body.
     :param builtins.str display_name: Specifies the display name of the shared Azure Portal Dashboard.
@@ -172,6 +179,13 @@ def azurerm_portal_dashboard_output(dashboard_properties: Optional[pulumi.Input[
         resource_group_name="dashboard-rg")
     pulumi.export("id", example_azurerm_dashboard["id"])
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Portal`: 2019-01-01-preview
 
 
     :param builtins.str dashboard_properties: JSON data representing dashboard body.

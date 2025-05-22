@@ -187,7 +187,7 @@ namespace Pulumi.Azure.Sentinel
         /// <summary>
         /// A list of `threshold_observation` blocks as defined below.
         /// 
-        /// &gt; **NOTE:** un-specified `multi_select_observation`, `single_select_observation`, `prioritized_exclude_observation` and `threshold_observation` will be inherited from the built-in Anomaly Alert Rule.
+        /// &gt; **Note:** un-specified `multi_select_observation`, `single_select_observation`, `prioritized_exclude_observation` and `threshold_observation` will be inherited from the built-in Anomaly Alert Rule.
         /// </summary>
         [Output("thresholdObservations")]
         public Output<ImmutableArray<Outputs.AlertRuleAnomalyDuplicateThresholdObservation>> ThresholdObservations { get; private set; } = null!;
@@ -310,7 +310,7 @@ namespace Pulumi.Azure.Sentinel
         /// <summary>
         /// A list of `threshold_observation` blocks as defined below.
         /// 
-        /// &gt; **NOTE:** un-specified `multi_select_observation`, `single_select_observation`, `prioritized_exclude_observation` and `threshold_observation` will be inherited from the built-in Anomaly Alert Rule.
+        /// &gt; **Note:** un-specified `multi_select_observation`, `single_select_observation`, `prioritized_exclude_observation` and `threshold_observation` will be inherited from the built-in Anomaly Alert Rule.
         /// </summary>
         public InputList<Inputs.AlertRuleAnomalyDuplicateThresholdObservationArgs> ThresholdObservations
         {
@@ -473,7 +473,7 @@ namespace Pulumi.Azure.Sentinel
         /// <summary>
         /// A list of `threshold_observation` blocks as defined below.
         /// 
-        /// &gt; **NOTE:** un-specified `multi_select_observation`, `single_select_observation`, `prioritized_exclude_observation` and `threshold_observation` will be inherited from the built-in Anomaly Alert Rule.
+        /// &gt; **Note:** un-specified `multi_select_observation`, `single_select_observation`, `prioritized_exclude_observation` and `threshold_observation` will be inherited from the built-in Anomaly Alert Rule.
         /// </summary>
         public InputList<Inputs.AlertRuleAnomalyDuplicateThresholdObservationGetArgs> ThresholdObservations
         {

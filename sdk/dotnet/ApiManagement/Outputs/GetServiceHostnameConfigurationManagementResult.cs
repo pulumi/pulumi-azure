@@ -20,6 +20,7 @@ namespace Pulumi.Azure.ApiManagement.Outputs
         /// <summary>
         /// The ID of the Key Vault Secret which contains the SSL Certificate.
         /// </summary>
+        public readonly string KeyVaultCertificateId;
         public readonly string KeyVaultId;
         /// <summary>
         /// Is Client Certificate Negotiation enabled?
@@ -30,11 +31,14 @@ namespace Pulumi.Azure.ApiManagement.Outputs
         private GetServiceHostnameConfigurationManagementResult(
             string hostName,
 
+            string keyVaultCertificateId,
+
             string keyVaultId,
 
             bool negotiateClientCertificate)
         {
             HostName = hostName;
+            KeyVaultCertificateId = keyVaultCertificateId;
             KeyVaultId = keyVaultId;
             NegotiateClientCertificate = negotiateClientCertificate;
         }

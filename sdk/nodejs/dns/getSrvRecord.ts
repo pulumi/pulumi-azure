@@ -20,6 +20,13 @@ import * as utilities from "../utilities";
  * });
  * export const dnsSrvRecordId = example.then(example => example.id);
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.Network`: 2018-05-01
  */
 export function getSrvRecord(args: GetSrvRecordArgs, opts?: pulumi.InvokeOptions): Promise<GetSrvRecordResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -90,6 +97,13 @@ export interface GetSrvRecordResult {
  * });
  * export const dnsSrvRecordId = example.then(example => example.id);
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.Network`: 2018-05-01
  */
 export function getSrvRecordOutput(args: GetSrvRecordOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSrvRecordResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

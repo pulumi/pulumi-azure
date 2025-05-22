@@ -76,6 +76,13 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.HybridCompute`: 2022-05-04
+ * 
  * ## Import
  * 
  * Virtual Machine Automanage Configuration Profile Assignment can be imported using the `resource id`, e.g.
@@ -104,7 +111,7 @@ public class AutomanageConfigurationAssignment extends com.pulumi.resources.Cust
     /**
      * The ARM resource ID of the Automanage Configuration to assign to the Virtual Machine. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** For a successful creation of this resource, locate &#34;Automanage API Access&#34; app within your Entra ID tenant. Make sure it&#39;s granted access to the scope that includes the arc server.
+     * &gt; **Note:** For a successful creation of this resource, locate &#34;Automanage API Access&#34; app within your Entra ID tenant. Make sure it&#39;s granted access to the scope that includes the arc server.
      * 
      */
     @Export(name="configurationId", refs={String.class}, tree="[0]")
@@ -113,7 +120,7 @@ public class AutomanageConfigurationAssignment extends com.pulumi.resources.Cust
     /**
      * @return The ARM resource ID of the Automanage Configuration to assign to the Virtual Machine. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** For a successful creation of this resource, locate &#34;Automanage API Access&#34; app within your Entra ID tenant. Make sure it&#39;s granted access to the scope that includes the arc server.
+     * &gt; **Note:** For a successful creation of this resource, locate &#34;Automanage API Access&#34; app within your Entra ID tenant. Make sure it&#39;s granted access to the scope that includes the arc server.
      * 
      */
     public Output<String> configurationId() {

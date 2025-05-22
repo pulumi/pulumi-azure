@@ -190,6 +190,12 @@ __all__ = [
     'LinkedServiceOdataBasicAuthenticationArgsDict',
     'LinkedServiceOdbcBasicAuthenticationArgs',
     'LinkedServiceOdbcBasicAuthenticationArgsDict',
+    'LinkedServiceSftpKeyVaultPasswordArgs',
+    'LinkedServiceSftpKeyVaultPasswordArgsDict',
+    'LinkedServiceSftpKeyVaultPrivateKeyContentBase64Args',
+    'LinkedServiceSftpKeyVaultPrivateKeyContentBase64ArgsDict',
+    'LinkedServiceSftpKeyVaultPrivateKeyPassphraseArgs',
+    'LinkedServiceSftpKeyVaultPrivateKeyPassphraseArgsDict',
     'LinkedServiceSnowflakeKeyVaultPasswordArgs',
     'LinkedServiceSnowflakeKeyVaultPasswordArgsDict',
     'LinkedServiceSqlServerKeyVaultConnectionStringArgs',
@@ -3859,7 +3865,7 @@ if not MYPY:
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this Data Factory.
 
-        > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+        > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         """
         principal_id: NotRequired[pulumi.Input[builtins.str]]
         """
@@ -3883,7 +3889,7 @@ class FactoryIdentityArgs:
         :param pulumi.Input[builtins.str] type: Specifies the type of Managed Service Identity that should be configured on this Data Factory. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this Data Factory.
                
-               > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+               > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         :param pulumi.Input[builtins.str] principal_id: The Principal ID associated with this Managed Service Identity.
         :param pulumi.Input[builtins.str] tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
@@ -3913,7 +3919,7 @@ class FactoryIdentityArgs:
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this Data Factory.
 
-        > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+        > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         """
         return pulumi.get(self, "identity_ids")
 
@@ -5522,7 +5528,7 @@ if not MYPY:
         """
         The version of Azure Powershell installed for the Azure-SSIS Integration Runtime.
 
-        > **NOTE** At least one of `env`, `powershell_version`, `component` and `command_key` should be specified.
+        > **Note:** At least one of `env`, `powershell_version`, `component` and `command_key` should be specified.
         """
 elif False:
     IntegrationRuntimeSsisExpressCustomSetupArgsDict: TypeAlias = Mapping[str, Any]
@@ -5540,7 +5546,7 @@ class IntegrationRuntimeSsisExpressCustomSetupArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] environment: The Environment Variables for the Azure-SSIS Integration Runtime.
         :param pulumi.Input[builtins.str] powershell_version: The version of Azure Powershell installed for the Azure-SSIS Integration Runtime.
                
-               > **NOTE** At least one of `env`, `powershell_version`, `component` and `command_key` should be specified.
+               > **Note:** At least one of `env`, `powershell_version`, `component` and `command_key` should be specified.
         """
         if command_keys is not None:
             pulumi.set(__self__, "command_keys", command_keys)
@@ -5593,7 +5599,7 @@ class IntegrationRuntimeSsisExpressCustomSetupArgs:
         """
         The version of Azure Powershell installed for the Azure-SSIS Integration Runtime.
 
-        > **NOTE** At least one of `env`, `powershell_version`, `component` and `command_key` should be specified.
+        > **Note:** At least one of `env`, `powershell_version`, `component` and `command_key` should be specified.
         """
         return pulumi.get(self, "powershell_version")
 
@@ -6162,7 +6168,7 @@ if not MYPY:
         """
         id of the subnet to which the nodes of the Azure-SSIS Integration Runtime will be added.
 
-        > **NOTE** Only one of `subnet_id` and `subnet_name` can be specified. If `subnet_name` is specified, `vnet_id` must be provided.
+        > **Note:** Only one of `subnet_id` and `subnet_name` can be specified. If `subnet_name` is specified, `vnet_id` must be provided.
         """
         subnet_name: NotRequired[pulumi.Input[builtins.str]]
         """
@@ -6186,7 +6192,7 @@ class IntegrationRuntimeSsisVnetIntegrationArgs:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] public_ips: Static public IP addresses for the Azure-SSIS Integration Runtime. The size must be 2.
         :param pulumi.Input[builtins.str] subnet_id: id of the subnet to which the nodes of the Azure-SSIS Integration Runtime will be added.
                
-               > **NOTE** Only one of `subnet_id` and `subnet_name` can be specified. If `subnet_name` is specified, `vnet_id` must be provided.
+               > **Note:** Only one of `subnet_id` and `subnet_name` can be specified. If `subnet_name` is specified, `vnet_id` must be provided.
         :param pulumi.Input[builtins.str] subnet_name: Name of the subnet to which the nodes of the Azure-SSIS Integration Runtime will be added.
         :param pulumi.Input[builtins.str] vnet_id: ID of the virtual network to which the nodes of the Azure-SSIS Integration Runtime will be added.
         """
@@ -6217,7 +6223,7 @@ class IntegrationRuntimeSsisVnetIntegrationArgs:
         """
         id of the subnet to which the nodes of the Azure-SSIS Integration Runtime will be added.
 
-        > **NOTE** Only one of `subnet_id` and `subnet_name` can be specified. If `subnet_name` is specified, `vnet_id` must be provided.
+        > **Note:** Only one of `subnet_id` and `subnet_name` can be specified. If `subnet_name` is specified, `vnet_id` must be provided.
         """
         return pulumi.get(self, "subnet_id")
 
@@ -7049,6 +7055,156 @@ class LinkedServiceOdbcBasicAuthenticationArgs:
     @username.setter
     def username(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "username", value)
+
+
+if not MYPY:
+    class LinkedServiceSftpKeyVaultPasswordArgsDict(TypedDict):
+        linked_service_name: pulumi.Input[builtins.str]
+        """
+        Specifies the name of an existing Key Vault Data Factory Linked Service.
+        """
+        secret_name: pulumi.Input[builtins.str]
+        """
+        Specifies the name of the secret containing the password.
+        """
+elif False:
+    LinkedServiceSftpKeyVaultPasswordArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class LinkedServiceSftpKeyVaultPasswordArgs:
+    def __init__(__self__, *,
+                 linked_service_name: pulumi.Input[builtins.str],
+                 secret_name: pulumi.Input[builtins.str]):
+        """
+        :param pulumi.Input[builtins.str] linked_service_name: Specifies the name of an existing Key Vault Data Factory Linked Service.
+        :param pulumi.Input[builtins.str] secret_name: Specifies the name of the secret containing the password.
+        """
+        pulumi.set(__self__, "linked_service_name", linked_service_name)
+        pulumi.set(__self__, "secret_name", secret_name)
+
+    @property
+    @pulumi.getter(name="linkedServiceName")
+    def linked_service_name(self) -> pulumi.Input[builtins.str]:
+        """
+        Specifies the name of an existing Key Vault Data Factory Linked Service.
+        """
+        return pulumi.get(self, "linked_service_name")
+
+    @linked_service_name.setter
+    def linked_service_name(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "linked_service_name", value)
+
+    @property
+    @pulumi.getter(name="secretName")
+    def secret_name(self) -> pulumi.Input[builtins.str]:
+        """
+        Specifies the name of the secret containing the password.
+        """
+        return pulumi.get(self, "secret_name")
+
+    @secret_name.setter
+    def secret_name(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "secret_name", value)
+
+
+if not MYPY:
+    class LinkedServiceSftpKeyVaultPrivateKeyContentBase64ArgsDict(TypedDict):
+        linked_service_name: pulumi.Input[builtins.str]
+        """
+        Specifies the name of an existing Key Vault Data Factory Linked Service.
+        """
+        secret_name: pulumi.Input[builtins.str]
+        """
+        Specifies the name of the secret containing the Base64 encoded SSH private key.
+        """
+elif False:
+    LinkedServiceSftpKeyVaultPrivateKeyContentBase64ArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class LinkedServiceSftpKeyVaultPrivateKeyContentBase64Args:
+    def __init__(__self__, *,
+                 linked_service_name: pulumi.Input[builtins.str],
+                 secret_name: pulumi.Input[builtins.str]):
+        """
+        :param pulumi.Input[builtins.str] linked_service_name: Specifies the name of an existing Key Vault Data Factory Linked Service.
+        :param pulumi.Input[builtins.str] secret_name: Specifies the name of the secret containing the Base64 encoded SSH private key.
+        """
+        pulumi.set(__self__, "linked_service_name", linked_service_name)
+        pulumi.set(__self__, "secret_name", secret_name)
+
+    @property
+    @pulumi.getter(name="linkedServiceName")
+    def linked_service_name(self) -> pulumi.Input[builtins.str]:
+        """
+        Specifies the name of an existing Key Vault Data Factory Linked Service.
+        """
+        return pulumi.get(self, "linked_service_name")
+
+    @linked_service_name.setter
+    def linked_service_name(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "linked_service_name", value)
+
+    @property
+    @pulumi.getter(name="secretName")
+    def secret_name(self) -> pulumi.Input[builtins.str]:
+        """
+        Specifies the name of the secret containing the Base64 encoded SSH private key.
+        """
+        return pulumi.get(self, "secret_name")
+
+    @secret_name.setter
+    def secret_name(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "secret_name", value)
+
+
+if not MYPY:
+    class LinkedServiceSftpKeyVaultPrivateKeyPassphraseArgsDict(TypedDict):
+        linked_service_name: pulumi.Input[builtins.str]
+        """
+        Specifies the name of an existing Key Vault Data Factory Linked Service.
+        """
+        secret_name: pulumi.Input[builtins.str]
+        """
+        Specifies the name of the secret containing the SSH private key passphrase.
+        """
+elif False:
+    LinkedServiceSftpKeyVaultPrivateKeyPassphraseArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class LinkedServiceSftpKeyVaultPrivateKeyPassphraseArgs:
+    def __init__(__self__, *,
+                 linked_service_name: pulumi.Input[builtins.str],
+                 secret_name: pulumi.Input[builtins.str]):
+        """
+        :param pulumi.Input[builtins.str] linked_service_name: Specifies the name of an existing Key Vault Data Factory Linked Service.
+        :param pulumi.Input[builtins.str] secret_name: Specifies the name of the secret containing the SSH private key passphrase.
+        """
+        pulumi.set(__self__, "linked_service_name", linked_service_name)
+        pulumi.set(__self__, "secret_name", secret_name)
+
+    @property
+    @pulumi.getter(name="linkedServiceName")
+    def linked_service_name(self) -> pulumi.Input[builtins.str]:
+        """
+        Specifies the name of an existing Key Vault Data Factory Linked Service.
+        """
+        return pulumi.get(self, "linked_service_name")
+
+    @linked_service_name.setter
+    def linked_service_name(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "linked_service_name", value)
+
+    @property
+    @pulumi.getter(name="secretName")
+    def secret_name(self) -> pulumi.Input[builtins.str]:
+        """
+        Specifies the name of the secret containing the SSH private key passphrase.
+        """
+        return pulumi.get(self, "secret_name")
+
+    @secret_name.setter
+    def secret_name(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "secret_name", value)
 
 
 if not MYPY:

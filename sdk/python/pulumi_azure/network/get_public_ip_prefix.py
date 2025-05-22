@@ -171,6 +171,13 @@ def get_public_ip_prefix(name: Optional[builtins.str] = None,
     pulumi.export("publicIpPrefix", example.ip_prefix)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Network`: 2024-05-01
+
 
     :param builtins.str name: Specifies the name of the public IP prefix.
     :param builtins.str resource_group_name: Specifies the name of the resource group.
@@ -210,6 +217,13 @@ def get_public_ip_prefix_output(name: Optional[pulumi.Input[builtins.str]] = Non
         resource_group_name="name_of_resource_group")
     pulumi.export("publicIpPrefix", example.ip_prefix)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Network`: 2024-05-01
 
 
     :param builtins.str name: Specifies the name of the public IP prefix.

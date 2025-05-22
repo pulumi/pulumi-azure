@@ -16,7 +16,7 @@ namespace Pulumi.Azure.WebPubSub.Outputs
         /// <summary>
         /// Specify the identity ID of the target resource.
         /// 
-        /// &gt; **NOTE:** `managed_identity_id` is required if the auth block is defined
+        /// &gt; **Note:** `managed_identity_id` is required if the auth block is defined
         /// </summary>
         public readonly string ManagedIdentityId;
 

@@ -209,6 +209,13 @@ def get_service_bus_namespace(name: Optional[builtins.str] = None,
     pulumi.export("location", example.location)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.ServiceBus`: 2022-10-01-preview, 2021-06-01-preview
+
 
     :param builtins.str name: Specifies the name of the ServiceBus Namespace.
     :param builtins.str resource_group_name: Specifies the name of the Resource Group where the ServiceBus Namespace exists.
@@ -250,6 +257,13 @@ def get_service_bus_namespace_output(name: Optional[pulumi.Input[builtins.str]] 
         resource_group_name="example-resources")
     pulumi.export("location", example.location)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.ServiceBus`: 2022-10-01-preview, 2021-06-01-preview
 
 
     :param builtins.str name: Specifies the name of the ServiceBus Namespace.

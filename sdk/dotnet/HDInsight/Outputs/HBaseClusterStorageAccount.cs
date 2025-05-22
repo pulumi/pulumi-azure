@@ -16,7 +16,7 @@ namespace Pulumi.Azure.HDInsight.Outputs
         /// <summary>
         /// Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** One of the `storage_account` or `storage_account_gen2` blocks must be marked as the default.
+        /// &gt; **Note:** One of the `storage_account` or `storage_account_gen2` blocks must be marked as the default.
         /// </summary>
         public readonly bool IsDefault;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.Azure.HDInsight.Outputs
         /// <summary>
         /// The ID of the Storage Container. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** This can be obtained from the `id` of the `azure.storage.Container` resource.
+        /// &gt; **Note:** This can be obtained from the `id` of the `azure.storage.Container` resource.
         /// </summary>
         public readonly string StorageContainerId;
         /// <summary>

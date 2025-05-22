@@ -263,6 +263,13 @@ class GalleryApplicationAssignment(pulumi.CustomResource):
             virtual_machine_id=example.id)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Compute`: 2024-03-01
+
         ## Import
 
         Virtual Machine Gallery Application Assignments can be imported using the `resource id`, e.g.
@@ -344,6 +351,13 @@ class GalleryApplicationAssignment(pulumi.CustomResource):
             gallery_application_version_id=example_gallery_application_version.id,
             virtual_machine_id=example.id)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Compute`: 2024-03-01
 
         ## Import
 

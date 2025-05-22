@@ -20,9 +20,9 @@ public final class SubscriptionPricingExtensionArgs extends com.pulumi.resources
     /**
      * Key/Value pairs that are required for some extensions.
      * 
-     * &gt; **NOTE:** If an extension is not defined, it will not be enabled.
+     * &gt; **Note:** If an extension is not defined, it will not be enabled.
      * 
-     * &gt; **NOTE:** Changing the pricing tier to `Standard` affects all resources of the given type in the subscription and could be quite costly.
+     * &gt; **Note:** Changing the pricing tier to `Standard` affects all resources of the given type in the subscription and could be quite costly.
      * 
      */
     @Import(name="additionalExtensionProperties")
@@ -31,9 +31,9 @@ public final class SubscriptionPricingExtensionArgs extends com.pulumi.resources
     /**
      * @return Key/Value pairs that are required for some extensions.
      * 
-     * &gt; **NOTE:** If an extension is not defined, it will not be enabled.
+     * &gt; **Note:** If an extension is not defined, it will not be enabled.
      * 
-     * &gt; **NOTE:** Changing the pricing tier to `Standard` affects all resources of the given type in the subscription and could be quite costly.
+     * &gt; **Note:** Changing the pricing tier to `Standard` affects all resources of the given type in the subscription and could be quite costly.
      * 
      */
     public Optional<Output<Map<String,String>>> additionalExtensionProperties() {
@@ -83,9 +83,9 @@ public final class SubscriptionPricingExtensionArgs extends com.pulumi.resources
         /**
          * @param additionalExtensionProperties Key/Value pairs that are required for some extensions.
          * 
-         * &gt; **NOTE:** If an extension is not defined, it will not be enabled.
+         * &gt; **Note:** If an extension is not defined, it will not be enabled.
          * 
-         * &gt; **NOTE:** Changing the pricing tier to `Standard` affects all resources of the given type in the subscription and could be quite costly.
+         * &gt; **Note:** Changing the pricing tier to `Standard` affects all resources of the given type in the subscription and could be quite costly.
          * 
          * @return builder
          * 
@@ -98,9 +98,9 @@ public final class SubscriptionPricingExtensionArgs extends com.pulumi.resources
         /**
          * @param additionalExtensionProperties Key/Value pairs that are required for some extensions.
          * 
-         * &gt; **NOTE:** If an extension is not defined, it will not be enabled.
+         * &gt; **Note:** If an extension is not defined, it will not be enabled.
          * 
-         * &gt; **NOTE:** Changing the pricing tier to `Standard` affects all resources of the given type in the subscription and could be quite costly.
+         * &gt; **Note:** Changing the pricing tier to `Standard` affects all resources of the given type in the subscription and could be quite costly.
          * 
          * @return builder
          * 

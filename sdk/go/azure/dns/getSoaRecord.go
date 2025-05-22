@@ -38,6 +38,13 @@ import (
 //	}
 //
 // ```
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This data source uses the following Azure API Providers:
+//
+// * `Microsoft.Network`: 2018-05-01
 func GetSoaRecord(ctx *pulumi.Context, args *GetSoaRecordArgs, opts ...pulumi.InvokeOption) (*GetSoaRecordResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetSoaRecordResult

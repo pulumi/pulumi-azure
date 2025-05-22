@@ -16,7 +16,7 @@ public final class FrontdoorRouteCache {
     /**
      * @return Is content compression enabled? Possible values are `true` or `false`. Defaults to `false`.
      * 
-     * &gt; **NOTE:** Content won&#39;t be compressed when the requested content is smaller than `1 KB` or larger than `8 MB`(inclusive).
+     * &gt; **Note:** Content won&#39;t be compressed when the requested content is smaller than `1 KB` or larger than `8 MB`(inclusive).
      * 
      */
     private @Nullable Boolean compressionEnabled;
@@ -28,7 +28,7 @@ public final class FrontdoorRouteCache {
     /**
      * @return Defines how the Front Door Route will cache requests that include query strings. Possible values include `IgnoreQueryString`, `IgnoreSpecifiedQueryStrings`, `IncludeSpecifiedQueryStrings` or `UseQueryString`. Defaults to `IgnoreQueryString`.
      * 
-     * &gt; **NOTE:** The value of the `query_string_caching_behavior` determines if the `query_strings` field will be used as an include list or an ignore list.
+     * &gt; **Note:** The value of the `query_string_caching_behavior` determines if the `query_strings` field will be used as an include list or an ignore list.
      * 
      */
     private @Nullable String queryStringCachingBehavior;
@@ -42,7 +42,7 @@ public final class FrontdoorRouteCache {
     /**
      * @return Is content compression enabled? Possible values are `true` or `false`. Defaults to `false`.
      * 
-     * &gt; **NOTE:** Content won&#39;t be compressed when the requested content is smaller than `1 KB` or larger than `8 MB`(inclusive).
+     * &gt; **Note:** Content won&#39;t be compressed when the requested content is smaller than `1 KB` or larger than `8 MB`(inclusive).
      * 
      */
     public Optional<Boolean> compressionEnabled() {
@@ -58,7 +58,7 @@ public final class FrontdoorRouteCache {
     /**
      * @return Defines how the Front Door Route will cache requests that include query strings. Possible values include `IgnoreQueryString`, `IgnoreSpecifiedQueryStrings`, `IncludeSpecifiedQueryStrings` or `UseQueryString`. Defaults to `IgnoreQueryString`.
      * 
-     * &gt; **NOTE:** The value of the `query_string_caching_behavior` determines if the `query_strings` field will be used as an include list or an ignore list.
+     * &gt; **Note:** The value of the `query_string_caching_behavior` determines if the `query_strings` field will be used as an include list or an ignore list.
      * 
      */
     public Optional<String> queryStringCachingBehavior() {

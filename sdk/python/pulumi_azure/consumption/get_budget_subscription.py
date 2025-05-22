@@ -149,6 +149,13 @@ def get_budget_subscription(name: Optional[builtins.str] = None,
     pulumi.export("id", example_azurerm_consumption_budget["id"])
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Consumption`: 2019-10-01
+
 
     :param builtins.str name: The name of this Consumption Budget.
     :param builtins.str subscription_id: The ID of the subscription.
@@ -184,6 +191,13 @@ def get_budget_subscription_output(name: Optional[pulumi.Input[builtins.str]] = 
         subscription_id="/subscriptions/00000000-0000-0000-0000-000000000000/")
     pulumi.export("id", example_azurerm_consumption_budget["id"])
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Consumption`: 2019-10-01
 
 
     :param builtins.str name: The name of this Consumption Budget.

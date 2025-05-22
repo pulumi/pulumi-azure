@@ -14,9 +14,9 @@ import (
 
 // Manages an App Service Static Site.
 //
-// > **NOTE:** The `appservice.StaticSite` resource is deprecated in favour of `appservice.StaticWebApp` and will be removed in a future major release.
+// > **Note:** The `appservice.StaticSite` resource is deprecated in favour of `appservice.StaticWebApp` and will be removed in a future major release.
 //
-// ->**NOTE:** After the Static Site is provisioned, you'll need to associate your target repository, which contains your web app, to the Static Site, by following the [Azure Static Site document](https://docs.microsoft.com/azure/static-web-apps/github-actions-workflow).
+// > **Note:** After the Static Site is provisioned, you'll need to associate your target repository, which contains your web app, to the Static Site, by following the [Azure Static Site document](https://docs.microsoft.com/azure/static-web-apps/github-actions-workflow).
 //
 // ## Example Usage
 //

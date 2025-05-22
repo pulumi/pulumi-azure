@@ -17,6 +17,8 @@ import javax.annotation.Nullable;
 /**
  * Associates a Spring Cloud Application with a MySQL Database.
  * 
+ * !&gt; **Note:** Azure Spring Apps is now deprecated and will be retired on 2028-05-31 - as such the `azure.appplatform.SpringCloudAppMysqlAssociation` resource is deprecated and will be removed in a future major version of the AzureRM Provider. See https://aka.ms/asaretirement for more information.
+ * 
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
@@ -75,7 +77,7 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .administratorLogin("adminTerraform")
  *             .administratorPassword("QAZwsx123")
- *             .skuName("B_Standard_B1s")
+ *             .skuName("B_Standard_B1ms")
  *             .zone("2")
  *             .build());
  * 

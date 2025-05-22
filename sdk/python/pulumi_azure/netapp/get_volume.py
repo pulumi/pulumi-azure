@@ -295,6 +295,13 @@ def get_volume(account_name: Optional[builtins.str] = None,
     pulumi.export("netappVolumeId", example.id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.NetApp`: 2025-01-01
+
 
     :param builtins.str account_name: The name of the NetApp account where the NetApp pool exists.
     :param builtins.str name: The name of the NetApp Volume.
@@ -354,6 +361,13 @@ def get_volume_output(account_name: Optional[pulumi.Input[builtins.str]] = None,
         name="example-volume")
     pulumi.export("netappVolumeId", example.id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.NetApp`: 2025-01-01
 
 
     :param builtins.str account_name: The name of the NetApp account where the NetApp pool exists.

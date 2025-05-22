@@ -101,7 +101,7 @@ export class MetricAlert extends pulumi.CustomResource {
     /**
      * A `applicationInsightsWebTestLocationAvailabilityCriteria` block as defined below.
      *
-     * > **NOTE** One of either `criteria`, `dynamicCriteria` or `applicationInsightsWebTestLocationAvailabilityCriteria` must be specified.
+     * > **Note:** One of either `criteria`, `dynamicCriteria` or `applicationInsightsWebTestLocationAvailabilityCriteria` must be specified.
      */
     public readonly applicationInsightsWebTestLocationAvailabilityCriteria!: pulumi.Output<outputs.monitoring.MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteria | undefined>;
     /**
@@ -111,7 +111,7 @@ export class MetricAlert extends pulumi.CustomResource {
     /**
      * One or more (static) `criteria` blocks as defined below.
      *
-     * > **NOTE** One of either `criteria`, `dynamicCriteria` or `applicationInsightsWebTestLocationAvailabilityCriteria` must be specified.
+     * > **Note:** One of either `criteria`, `dynamicCriteria` or `applicationInsightsWebTestLocationAvailabilityCriteria` must be specified.
      */
     public readonly criterias!: pulumi.Output<outputs.monitoring.MetricAlertCriteria[] | undefined>;
     /**
@@ -121,7 +121,7 @@ export class MetricAlert extends pulumi.CustomResource {
     /**
      * A `dynamicCriteria` block as defined below.
      *
-     * > **NOTE** One of either `criteria`, `dynamicCriteria` or `applicationInsightsWebTestLocationAvailabilityCriteria` must be specified.
+     * > **Note:** One of either `criteria`, `dynamicCriteria` or `applicationInsightsWebTestLocationAvailabilityCriteria` must be specified.
      */
     public readonly dynamicCriteria!: pulumi.Output<outputs.monitoring.MetricAlertDynamicCriteria | undefined>;
     /**
@@ -155,13 +155,13 @@ export class MetricAlert extends pulumi.CustomResource {
     /**
      * The location of the target resource.
      *
-     * > This is Required when using a Subscription as scope, a Resource Group as scope or Multiple Scopes.
+     * > **Note:** This is Required when using a Subscription as scope, a Resource Group as scope or Multiple Scopes.
      */
     public readonly targetResourceLocation!: pulumi.Output<string>;
     /**
      * The resource type (e.g. `Microsoft.Compute/virtualMachines`) of the target resource.
      *
-     * > This is Required when using a Subscription as scope, a Resource Group as scope or Multiple Scopes.
+     * > **Note:** This is Required when using a Subscription as scope, a Resource Group as scope or Multiple Scopes.
      */
     public readonly targetResourceType!: pulumi.Output<string>;
     /**
@@ -239,7 +239,7 @@ export interface MetricAlertState {
     /**
      * A `applicationInsightsWebTestLocationAvailabilityCriteria` block as defined below.
      *
-     * > **NOTE** One of either `criteria`, `dynamicCriteria` or `applicationInsightsWebTestLocationAvailabilityCriteria` must be specified.
+     * > **Note:** One of either `criteria`, `dynamicCriteria` or `applicationInsightsWebTestLocationAvailabilityCriteria` must be specified.
      */
     applicationInsightsWebTestLocationAvailabilityCriteria?: pulumi.Input<inputs.monitoring.MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteria>;
     /**
@@ -249,7 +249,7 @@ export interface MetricAlertState {
     /**
      * One or more (static) `criteria` blocks as defined below.
      *
-     * > **NOTE** One of either `criteria`, `dynamicCriteria` or `applicationInsightsWebTestLocationAvailabilityCriteria` must be specified.
+     * > **Note:** One of either `criteria`, `dynamicCriteria` or `applicationInsightsWebTestLocationAvailabilityCriteria` must be specified.
      */
     criterias?: pulumi.Input<pulumi.Input<inputs.monitoring.MetricAlertCriteria>[]>;
     /**
@@ -259,7 +259,7 @@ export interface MetricAlertState {
     /**
      * A `dynamicCriteria` block as defined below.
      *
-     * > **NOTE** One of either `criteria`, `dynamicCriteria` or `applicationInsightsWebTestLocationAvailabilityCriteria` must be specified.
+     * > **Note:** One of either `criteria`, `dynamicCriteria` or `applicationInsightsWebTestLocationAvailabilityCriteria` must be specified.
      */
     dynamicCriteria?: pulumi.Input<inputs.monitoring.MetricAlertDynamicCriteria>;
     /**
@@ -293,13 +293,13 @@ export interface MetricAlertState {
     /**
      * The location of the target resource.
      *
-     * > This is Required when using a Subscription as scope, a Resource Group as scope or Multiple Scopes.
+     * > **Note:** This is Required when using a Subscription as scope, a Resource Group as scope or Multiple Scopes.
      */
     targetResourceLocation?: pulumi.Input<string>;
     /**
      * The resource type (e.g. `Microsoft.Compute/virtualMachines`) of the target resource.
      *
-     * > This is Required when using a Subscription as scope, a Resource Group as scope or Multiple Scopes.
+     * > **Note:** This is Required when using a Subscription as scope, a Resource Group as scope or Multiple Scopes.
      */
     targetResourceType?: pulumi.Input<string>;
     /**
@@ -319,7 +319,7 @@ export interface MetricAlertArgs {
     /**
      * A `applicationInsightsWebTestLocationAvailabilityCriteria` block as defined below.
      *
-     * > **NOTE** One of either `criteria`, `dynamicCriteria` or `applicationInsightsWebTestLocationAvailabilityCriteria` must be specified.
+     * > **Note:** One of either `criteria`, `dynamicCriteria` or `applicationInsightsWebTestLocationAvailabilityCriteria` must be specified.
      */
     applicationInsightsWebTestLocationAvailabilityCriteria?: pulumi.Input<inputs.monitoring.MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteria>;
     /**
@@ -329,7 +329,7 @@ export interface MetricAlertArgs {
     /**
      * One or more (static) `criteria` blocks as defined below.
      *
-     * > **NOTE** One of either `criteria`, `dynamicCriteria` or `applicationInsightsWebTestLocationAvailabilityCriteria` must be specified.
+     * > **Note:** One of either `criteria`, `dynamicCriteria` or `applicationInsightsWebTestLocationAvailabilityCriteria` must be specified.
      */
     criterias?: pulumi.Input<pulumi.Input<inputs.monitoring.MetricAlertCriteria>[]>;
     /**
@@ -339,7 +339,7 @@ export interface MetricAlertArgs {
     /**
      * A `dynamicCriteria` block as defined below.
      *
-     * > **NOTE** One of either `criteria`, `dynamicCriteria` or `applicationInsightsWebTestLocationAvailabilityCriteria` must be specified.
+     * > **Note:** One of either `criteria`, `dynamicCriteria` or `applicationInsightsWebTestLocationAvailabilityCriteria` must be specified.
      */
     dynamicCriteria?: pulumi.Input<inputs.monitoring.MetricAlertDynamicCriteria>;
     /**
@@ -373,13 +373,13 @@ export interface MetricAlertArgs {
     /**
      * The location of the target resource.
      *
-     * > This is Required when using a Subscription as scope, a Resource Group as scope or Multiple Scopes.
+     * > **Note:** This is Required when using a Subscription as scope, a Resource Group as scope or Multiple Scopes.
      */
     targetResourceLocation?: pulumi.Input<string>;
     /**
      * The resource type (e.g. `Microsoft.Compute/virtualMachines`) of the target resource.
      *
-     * > This is Required when using a Subscription as scope, a Resource Group as scope or Multiple Scopes.
+     * > **Note:** This is Required when using a Subscription as scope, a Resource Group as scope or Multiple Scopes.
      */
     targetResourceType?: pulumi.Input<string>;
     /**

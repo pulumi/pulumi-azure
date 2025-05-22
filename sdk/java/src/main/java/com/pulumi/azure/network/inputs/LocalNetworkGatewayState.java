@@ -66,7 +66,7 @@ public final class LocalNetworkGatewayState extends com.pulumi.resources.Resourc
     /**
      * The gateway FQDN to connect with.
      * 
-     * &gt; **NOTE:** Either `gateway_address` or `gateway_fqdn` should be specified.
+     * &gt; **Note:** Either `gateway_address` or `gateway_fqdn` should be specified.
      * 
      */
     @Import(name="gatewayFqdn")
@@ -75,7 +75,7 @@ public final class LocalNetworkGatewayState extends com.pulumi.resources.Resourc
     /**
      * @return The gateway FQDN to connect with.
      * 
-     * &gt; **NOTE:** Either `gateway_address` or `gateway_fqdn` should be specified.
+     * &gt; **Note:** Either `gateway_address` or `gateway_fqdn` should be specified.
      * 
      */
     public Optional<Output<String>> gatewayFqdn() {
@@ -249,7 +249,7 @@ public final class LocalNetworkGatewayState extends com.pulumi.resources.Resourc
         /**
          * @param gatewayFqdn The gateway FQDN to connect with.
          * 
-         * &gt; **NOTE:** Either `gateway_address` or `gateway_fqdn` should be specified.
+         * &gt; **Note:** Either `gateway_address` or `gateway_fqdn` should be specified.
          * 
          * @return builder
          * 
@@ -262,7 +262,7 @@ public final class LocalNetworkGatewayState extends com.pulumi.resources.Resourc
         /**
          * @param gatewayFqdn The gateway FQDN to connect with.
          * 
-         * &gt; **NOTE:** Either `gateway_address` or `gateway_fqdn` should be specified.
+         * &gt; **Note:** Either `gateway_address` or `gateway_fqdn` should be specified.
          * 
          * @return builder
          * 

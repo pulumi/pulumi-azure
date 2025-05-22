@@ -60,7 +60,7 @@ class SharedImageArgs:
         :param pulumi.Input[builtins.str] architecture: CPU architecture supported by an OS. Possible values are `x64` and `Arm64`. Defaults to `x64`. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.bool] confidential_vm_enabled: Specifies if Confidential Virtual Machines enabled. It will enable all the features of trusted, with higher confidentiality features for isolate machines or encrypted data. Available for Gen2 machines. Changing this forces a new resource to be created.
                
-               > **Note:**: Only one of `trusted_launch_supported`, `trusted_launch_enabled`, `confidential_vm_supported` and `confidential_vm_enabled` can be specified.
+               > **Note:** Only one of `trusted_launch_supported`, `trusted_launch_enabled`, `confidential_vm_supported` and `confidential_vm_enabled` can be specified.
         :param pulumi.Input[builtins.bool] confidential_vm_supported: Specifies if supports creation of both Confidential virtual machines and Gen2 virtual machines with standard security from a compatible Gen2 OS disk VHD or Gen2 Managed image. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] description: A description of this Shared Image.
         :param pulumi.Input[builtins.bool] disk_controller_type_nvme_enabled: Specifies if the Shared Image supports NVMe disks. Changing this forces a new resource to be created.
@@ -216,7 +216,7 @@ class SharedImageArgs:
         """
         Specifies if Confidential Virtual Machines enabled. It will enable all the features of trusted, with higher confidentiality features for isolate machines or encrypted data. Available for Gen2 machines. Changing this forces a new resource to be created.
 
-        > **Note:**: Only one of `trusted_launch_supported`, `trusted_launch_enabled`, `confidential_vm_supported` and `confidential_vm_enabled` can be specified.
+        > **Note:** Only one of `trusted_launch_supported`, `trusted_launch_enabled`, `confidential_vm_supported` and `confidential_vm_enabled` can be specified.
         """
         return pulumi.get(self, "confidential_vm_enabled")
 
@@ -516,7 +516,7 @@ class _SharedImageState:
         :param pulumi.Input[builtins.str] architecture: CPU architecture supported by an OS. Possible values are `x64` and `Arm64`. Defaults to `x64`. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.bool] confidential_vm_enabled: Specifies if Confidential Virtual Machines enabled. It will enable all the features of trusted, with higher confidentiality features for isolate machines or encrypted data. Available for Gen2 machines. Changing this forces a new resource to be created.
                
-               > **Note:**: Only one of `trusted_launch_supported`, `trusted_launch_enabled`, `confidential_vm_supported` and `confidential_vm_enabled` can be specified.
+               > **Note:** Only one of `trusted_launch_supported`, `trusted_launch_enabled`, `confidential_vm_supported` and `confidential_vm_enabled` can be specified.
         :param pulumi.Input[builtins.bool] confidential_vm_supported: Specifies if supports creation of both Confidential virtual machines and Gen2 virtual machines with standard security from a compatible Gen2 OS disk VHD or Gen2 Managed image. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] description: A description of this Shared Image.
         :param pulumi.Input[builtins.bool] disk_controller_type_nvme_enabled: Specifies if the Shared Image supports NVMe disks. Changing this forces a new resource to be created.
@@ -632,7 +632,7 @@ class _SharedImageState:
         """
         Specifies if Confidential Virtual Machines enabled. It will enable all the features of trusted, with higher confidentiality features for isolate machines or encrypted data. Available for Gen2 machines. Changing this forces a new resource to be created.
 
-        > **Note:**: Only one of `trusted_launch_supported`, `trusted_launch_enabled`, `confidential_vm_supported` and `confidential_vm_enabled` can be specified.
+        > **Note:** Only one of `trusted_launch_supported`, `trusted_launch_enabled`, `confidential_vm_supported` and `confidential_vm_enabled` can be specified.
         """
         return pulumi.get(self, "confidential_vm_enabled")
 
@@ -1026,7 +1026,7 @@ class SharedImage(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] architecture: CPU architecture supported by an OS. Possible values are `x64` and `Arm64`. Defaults to `x64`. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.bool] confidential_vm_enabled: Specifies if Confidential Virtual Machines enabled. It will enable all the features of trusted, with higher confidentiality features for isolate machines or encrypted data. Available for Gen2 machines. Changing this forces a new resource to be created.
                
-               > **Note:**: Only one of `trusted_launch_supported`, `trusted_launch_enabled`, `confidential_vm_supported` and `confidential_vm_enabled` can be specified.
+               > **Note:** Only one of `trusted_launch_supported`, `trusted_launch_enabled`, `confidential_vm_supported` and `confidential_vm_enabled` can be specified.
         :param pulumi.Input[builtins.bool] confidential_vm_supported: Specifies if supports creation of both Confidential virtual machines and Gen2 virtual machines with standard security from a compatible Gen2 OS disk VHD or Gen2 Managed image. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] description: A description of this Shared Image.
         :param pulumi.Input[builtins.bool] disk_controller_type_nvme_enabled: Specifies if the Shared Image supports NVMe disks. Changing this forces a new resource to be created.
@@ -1240,7 +1240,7 @@ class SharedImage(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] architecture: CPU architecture supported by an OS. Possible values are `x64` and `Arm64`. Defaults to `x64`. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.bool] confidential_vm_enabled: Specifies if Confidential Virtual Machines enabled. It will enable all the features of trusted, with higher confidentiality features for isolate machines or encrypted data. Available for Gen2 machines. Changing this forces a new resource to be created.
                
-               > **Note:**: Only one of `trusted_launch_supported`, `trusted_launch_enabled`, `confidential_vm_supported` and `confidential_vm_enabled` can be specified.
+               > **Note:** Only one of `trusted_launch_supported`, `trusted_launch_enabled`, `confidential_vm_supported` and `confidential_vm_enabled` can be specified.
         :param pulumi.Input[builtins.bool] confidential_vm_supported: Specifies if supports creation of both Confidential virtual machines and Gen2 virtual machines with standard security from a compatible Gen2 OS disk VHD or Gen2 Managed image. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] description: A description of this Shared Image.
         :param pulumi.Input[builtins.bool] disk_controller_type_nvme_enabled: Specifies if the Shared Image supports NVMe disks. Changing this forces a new resource to be created.
@@ -1325,7 +1325,7 @@ class SharedImage(pulumi.CustomResource):
         """
         Specifies if Confidential Virtual Machines enabled. It will enable all the features of trusted, with higher confidentiality features for isolate machines or encrypted data. Available for Gen2 machines. Changing this forces a new resource to be created.
 
-        > **Note:**: Only one of `trusted_launch_supported`, `trusted_launch_enabled`, `confidential_vm_supported` and `confidential_vm_enabled` can be specified.
+        > **Note:** Only one of `trusted_launch_supported`, `trusted_launch_enabled`, `confidential_vm_supported` and `confidential_vm_enabled` can be specified.
         """
         return pulumi.get(self, "confidential_vm_enabled")
 

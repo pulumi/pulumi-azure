@@ -196,6 +196,13 @@ def get_hci_cluster(name: Optional[builtins.str] = None,
     pulumi.export("clientId", example.client_id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.AzureStackHCI`: 2024-01-01, 2022-05-04
+
 
     :param builtins.str name: The name of the Azure Stack HCI Cluster.
     :param builtins.str resource_group_name: The name of the Resource Group where the Azure Stack HCI Cluster exists.
@@ -237,6 +244,13 @@ def get_hci_cluster_output(name: Optional[pulumi.Input[builtins.str]] = None,
     pulumi.export("location", example.location)
     pulumi.export("clientId", example.client_id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.AzureStackHCI`: 2024-01-01, 2022-05-04
 
 
     :param builtins.str name: The name of the Azure Stack HCI Cluster.

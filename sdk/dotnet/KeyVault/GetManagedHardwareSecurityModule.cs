@@ -36,6 +36,13 @@ namespace Pulumi.Azure.KeyVault
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.KeyVault`: 2023-07-01
         /// </summary>
         public static Task<GetManagedHardwareSecurityModuleResult> InvokeAsync(GetManagedHardwareSecurityModuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagedHardwareSecurityModuleResult>("azure:keyvault/getManagedHardwareSecurityModule:getManagedHardwareSecurityModule", args ?? new GetManagedHardwareSecurityModuleArgs(), options.WithDefaults());
@@ -65,6 +72,13 @@ namespace Pulumi.Azure.KeyVault
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.KeyVault`: 2023-07-01
         /// </summary>
         public static Output<GetManagedHardwareSecurityModuleResult> Invoke(GetManagedHardwareSecurityModuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagedHardwareSecurityModuleResult>("azure:keyvault/getManagedHardwareSecurityModule:getManagedHardwareSecurityModule", args ?? new GetManagedHardwareSecurityModuleInvokeArgs(), options.WithDefaults());
@@ -94,6 +108,13 @@ namespace Pulumi.Azure.KeyVault
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.KeyVault`: 2023-07-01
         /// </summary>
         public static Output<GetManagedHardwareSecurityModuleResult> Invoke(GetManagedHardwareSecurityModuleInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagedHardwareSecurityModuleResult>("azure:keyvault/getManagedHardwareSecurityModule:getManagedHardwareSecurityModule", args ?? new GetManagedHardwareSecurityModuleInvokeArgs(), options.WithDefaults());

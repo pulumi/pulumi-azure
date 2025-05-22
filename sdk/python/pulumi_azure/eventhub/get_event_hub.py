@@ -120,6 +120,13 @@ def get_event_hub(name: Optional[builtins.str] = None,
     pulumi.export("eventhubId", example.id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.EventHub`: 2024-01-01
+
 
     :param builtins.str name: The name of this EventHub.
     :param builtins.str namespace_name: The name of the EventHub Namespace where the EventHub exists.
@@ -157,6 +164,13 @@ def get_event_hub_output(name: Optional[pulumi.Input[builtins.str]] = None,
         namespace_name="search-eventhubns")
     pulumi.export("eventhubId", example.id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.EventHub`: 2024-01-01
 
 
     :param builtins.str name: The name of this EventHub.

@@ -12,7 +12,7 @@ namespace Pulumi.Azure.Bot
     /// <summary>
     /// Manages an Alexa integration for a Bot Channel
     /// 
-    /// &gt; **Note** A bot can only have a single Alexa Channel associated with it.
+    /// &gt; **Note:** A bot can only have a single Alexa Channel associated with it.
     /// 
     /// ## Example Usage
     /// 

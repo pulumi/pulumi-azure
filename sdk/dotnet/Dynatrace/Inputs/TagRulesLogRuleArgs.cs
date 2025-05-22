@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Dynatrace.Inputs
         private InputList<Inputs.TagRulesLogRuleFilteringTagArgs>? _filteringTags;
 
         /// <summary>
-        /// Filtering tag for the log rule. A `filtering_tag` block as defined below. Changing this forces a new resource to be created.
+        /// Filtering tag for the log rule. A `filtering_tag` block as defined below.
         /// </summary>
         public InputList<Inputs.TagRulesLogRuleFilteringTagArgs> FilteringTags
         {
@@ -25,19 +25,19 @@ namespace Pulumi.Azure.Dynatrace.Inputs
         }
 
         /// <summary>
-        /// Send Activity logs. The default value is `false`. Changing this forces a new resource to be created.
+        /// Send Activity logs. The default value is `false`.
         /// </summary>
         [Input("sendActivityLogsEnabled")]
         public Input<bool>? SendActivityLogsEnabled { get; set; }
 
         /// <summary>
-        /// Send Azure Active Directory logs. The default value is `false`. Changing this forces a new resource to be created.
+        /// Send Azure Active Directory logs. The default value is `false`.
         /// </summary>
         [Input("sendAzureActiveDirectoryLogsEnabled")]
         public Input<bool>? SendAzureActiveDirectoryLogsEnabled { get; set; }
 
         /// <summary>
-        /// Send Subscription logs. The default value is `false`. Changing this forces a new resource to be created.
+        /// Send Subscription logs. The default value is `false`.
         /// </summary>
         [Input("sendSubscriptionLogsEnabled")]
         public Input<bool>? SendSubscriptionLogsEnabled { get; set; }

@@ -58,6 +58,13 @@ import (
 //
 // ```
 //
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.ResourceConnector`: 2022-10-27
+//
 // ## Import
 //
 // Arc Resource Bridge Appliance can be imported using the `resource id`, e.g.

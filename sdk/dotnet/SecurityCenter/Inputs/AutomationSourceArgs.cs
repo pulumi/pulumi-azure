@@ -24,7 +24,7 @@ namespace Pulumi.Azure.SecurityCenter.Inputs
         /// <summary>
         /// A set of rules which evaluate upon event and data interception. This is defined in one or more `rule_set` blocks as defined below.
         /// 
-        /// &gt; **NOTE:** When multiple `rule_set` block are provided, a logical 'OR' is applied to the evaluation of them.
+        /// &gt; **Note:** When multiple `rule_set` block are provided, a logical 'OR' is applied to the evaluation of them.
         /// </summary>
         public InputList<Inputs.AutomationSourceRuleSetArgs> RuleSets
         {

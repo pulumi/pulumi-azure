@@ -124,7 +124,7 @@ public final class EventHubNamespaceAuthorizationRuleState extends com.pulumi.re
     /**
      * The name of the resource group in which the EventHub Namespace exists. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE** At least one of the 3 permissions below needs to be set.
+     * &gt; **Note:** At least one of the 3 permissions below needs to be set.
      * 
      */
     @Import(name="resourceGroupName")
@@ -133,7 +133,7 @@ public final class EventHubNamespaceAuthorizationRuleState extends com.pulumi.re
     /**
      * @return The name of the resource group in which the EventHub Namespace exists. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE** At least one of the 3 permissions below needs to be set.
+     * &gt; **Note:** At least one of the 3 permissions below needs to be set.
      * 
      */
     public Optional<Output<String>> resourceGroupName() {
@@ -385,7 +385,7 @@ public final class EventHubNamespaceAuthorizationRuleState extends com.pulumi.re
         /**
          * @param resourceGroupName The name of the resource group in which the EventHub Namespace exists. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE** At least one of the 3 permissions below needs to be set.
+         * &gt; **Note:** At least one of the 3 permissions below needs to be set.
          * 
          * @return builder
          * 
@@ -398,7 +398,7 @@ public final class EventHubNamespaceAuthorizationRuleState extends com.pulumi.re
         /**
          * @param resourceGroupName The name of the resource group in which the EventHub Namespace exists. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE** At least one of the 3 permissions below needs to be set.
+         * &gt; **Note:** At least one of the 3 permissions below needs to be set.
          * 
          * @return builder
          * 

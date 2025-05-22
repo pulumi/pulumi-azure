@@ -54,9 +54,8 @@ class VolumeArgs:
         """
         The set of arguments for constructing a Volume resource.
         :param pulumi.Input[builtins.str] account_name: The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
-        :param pulumi.Input[builtins.str] pool_name: The name of the NetApp pool in which the NetApp Volume should be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[builtins.str] pool_name: The name of the NetApp pool in which the NetApp Volume should be created.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group where the NetApp Volume should be created. Changing this forces a new resource to be created.
-        :param pulumi.Input[builtins.str] service_level: The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.int] storage_quota_in_gb: The maximum Storage Quota allowed for a file system in Gigabytes.
         :param pulumi.Input[builtins.str] subnet_id: The ID of the Subnet the NetApp Volume resides in, which must have the `Microsoft.NetApp/volumes` delegation. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] volume_path: A unique file path for the volume. Used when creating mount targets. Changing this forces a new resource to be created.
@@ -154,7 +153,7 @@ class VolumeArgs:
     @pulumi.getter(name="poolName")
     def pool_name(self) -> pulumi.Input[builtins.str]:
         """
-        The name of the NetApp pool in which the NetApp Volume should be created. Changing this forces a new resource to be created.
+        The name of the NetApp pool in which the NetApp Volume should be created.
         """
         return pulumi.get(self, "pool_name")
 
@@ -177,9 +176,6 @@ class VolumeArgs:
     @property
     @pulumi.getter(name="serviceLevel")
     def service_level(self) -> pulumi.Input[builtins.str]:
-        """
-        The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`. Changing this forces a new resource to be created.
-        """
         return pulumi.get(self, "service_level")
 
     @service_level.setter
@@ -540,11 +536,10 @@ class _VolumeState:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] mount_ip_addresses: A list of IPv4 Addresses which should be used to mount the volume.
         :param pulumi.Input[builtins.str] name: The name of the NetApp Volume. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] network_features: Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features).
-        :param pulumi.Input[builtins.str] pool_name: The name of the NetApp pool in which the NetApp Volume should be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[builtins.str] pool_name: The name of the NetApp pool in which the NetApp Volume should be created.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] protocols: The target volume protocol expressed as a list. Supported single value include `CIFS`, `NFSv3`, or `NFSv4.1`. If argument is not defined it will default to `NFSv3`. Changing this forces a new resource to be created and data will be lost. Dual protocol scenario is supported for CIFS and NFSv3, for more information, please refer to [Create a dual-protocol volume for Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/create-volumes-dual-protocol) document.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group where the NetApp Volume should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] security_style: Volume security style, accepted values are `unix` or `ntfs`. If not provided, single-protocol volume is created defaulting to `unix` if it is `NFSv3` or `NFSv4.1` volume, if `CIFS`, it will default to `ntfs`. In a dual-protocol volume, if not provided, its value will be `ntfs`. Changing this forces a new resource to be created.
-        :param pulumi.Input[builtins.str] service_level: The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.bool] smb3_protocol_encryption_enabled: Enable SMB encryption.
         :param pulumi.Input[builtins.bool] smb_access_based_enumeration_enabled: Limits enumeration of files and folders (that is, listing the contents) in SMB only to users with allowed access on the share. For instance, if a user doesn't have access to read a file or folder in a share with access-based enumeration enabled, then the file or folder doesn't show up in directory listings. Defaults to `false`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=security%20for%20administrators.-,Access%2Dbased%20enumeration,in%20an%20Azure%20NetApp%20Files%20SMB%20volume.%20Only%20contosoadmin%20has%20access.,-In%20the%20below)
         :param pulumi.Input[builtins.bool] smb_continuous_availability_enabled: Enable SMB Continuous Availability.
@@ -793,7 +788,7 @@ class _VolumeState:
     @pulumi.getter(name="poolName")
     def pool_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The name of the NetApp pool in which the NetApp Volume should be created. Changing this forces a new resource to be created.
+        The name of the NetApp pool in which the NetApp Volume should be created.
         """
         return pulumi.get(self, "pool_name")
 
@@ -840,9 +835,6 @@ class _VolumeState:
     @property
     @pulumi.getter(name="serviceLevel")
     def service_level(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`. Changing this forces a new resource to be created.
-        """
         return pulumi.get(self, "service_level")
 
     @service_level.setter
@@ -1023,7 +1015,7 @@ class Volume(pulumi.CustomResource):
         """
         Manages a NetApp Volume.
 
-        !>**IMPORTANT:** This resource uses a feature to prevent deletion called `prevent_volume_destruction`, defaulting to `true`. It is intentionally set to `true` to prevent the possibility of accidental data loss. The example in this page shows all possible protection options you can apply, it is using same values as the defaults.
+        !> **Note:** This resource uses a feature to prevent deletion called `prevent_volume_destruction`, defaulting to `true`. It is intentionally set to `true` to prevent the possibility of accidental data loss. The example in this page shows all possible protection options you can apply, it is using same values as the defaults.
 
         ## Import
 
@@ -1049,11 +1041,10 @@ class Volume(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] name: The name of the NetApp Volume. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] network_features: Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features).
-        :param pulumi.Input[builtins.str] pool_name: The name of the NetApp pool in which the NetApp Volume should be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[builtins.str] pool_name: The name of the NetApp pool in which the NetApp Volume should be created.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] protocols: The target volume protocol expressed as a list. Supported single value include `CIFS`, `NFSv3`, or `NFSv4.1`. If argument is not defined it will default to `NFSv3`. Changing this forces a new resource to be created and data will be lost. Dual protocol scenario is supported for CIFS and NFSv3, for more information, please refer to [Create a dual-protocol volume for Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/create-volumes-dual-protocol) document.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group where the NetApp Volume should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] security_style: Volume security style, accepted values are `unix` or `ntfs`. If not provided, single-protocol volume is created defaulting to `unix` if it is `NFSv3` or `NFSv4.1` volume, if `CIFS`, it will default to `ntfs`. In a dual-protocol volume, if not provided, its value will be `ntfs`. Changing this forces a new resource to be created.
-        :param pulumi.Input[builtins.str] service_level: The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.bool] smb3_protocol_encryption_enabled: Enable SMB encryption.
         :param pulumi.Input[builtins.bool] smb_access_based_enumeration_enabled: Limits enumeration of files and folders (that is, listing the contents) in SMB only to users with allowed access on the share. For instance, if a user doesn't have access to read a file or folder in a share with access-based enumeration enabled, then the file or folder doesn't show up in directory listings. Defaults to `false`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=security%20for%20administrators.-,Access%2Dbased%20enumeration,in%20an%20Azure%20NetApp%20Files%20SMB%20volume.%20Only%20contosoadmin%20has%20access.,-In%20the%20below)
         :param pulumi.Input[builtins.bool] smb_continuous_availability_enabled: Enable SMB Continuous Availability.
@@ -1077,7 +1068,7 @@ class Volume(pulumi.CustomResource):
         """
         Manages a NetApp Volume.
 
-        !>**IMPORTANT:** This resource uses a feature to prevent deletion called `prevent_volume_destruction`, defaulting to `true`. It is intentionally set to `true` to prevent the possibility of accidental data loss. The example in this page shows all possible protection options you can apply, it is using same values as the defaults.
+        !> **Note:** This resource uses a feature to prevent deletion called `prevent_volume_destruction`, defaulting to `true`. It is intentionally set to `true` to prevent the possibility of accidental data loss. The example in this page shows all possible protection options you can apply, it is using same values as the defaults.
 
         ## Import
 
@@ -1246,11 +1237,10 @@ class Volume(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] mount_ip_addresses: A list of IPv4 Addresses which should be used to mount the volume.
         :param pulumi.Input[builtins.str] name: The name of the NetApp Volume. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] network_features: Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features).
-        :param pulumi.Input[builtins.str] pool_name: The name of the NetApp pool in which the NetApp Volume should be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[builtins.str] pool_name: The name of the NetApp pool in which the NetApp Volume should be created.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] protocols: The target volume protocol expressed as a list. Supported single value include `CIFS`, `NFSv3`, or `NFSv4.1`. If argument is not defined it will default to `NFSv3`. Changing this forces a new resource to be created and data will be lost. Dual protocol scenario is supported for CIFS and NFSv3, for more information, please refer to [Create a dual-protocol volume for Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/create-volumes-dual-protocol) document.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group where the NetApp Volume should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] security_style: Volume security style, accepted values are `unix` or `ntfs`. If not provided, single-protocol volume is created defaulting to `unix` if it is `NFSv3` or `NFSv4.1` volume, if `CIFS`, it will default to `ntfs`. In a dual-protocol volume, if not provided, its value will be `ntfs`. Changing this forces a new resource to be created.
-        :param pulumi.Input[builtins.str] service_level: The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.bool] smb3_protocol_encryption_enabled: Enable SMB encryption.
         :param pulumi.Input[builtins.bool] smb_access_based_enumeration_enabled: Limits enumeration of files and folders (that is, listing the contents) in SMB only to users with allowed access on the share. For instance, if a user doesn't have access to read a file or folder in a share with access-based enumeration enabled, then the file or folder doesn't show up in directory listings. Defaults to `false`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=security%20for%20administrators.-,Access%2Dbased%20enumeration,in%20an%20Azure%20NetApp%20Files%20SMB%20volume.%20Only%20contosoadmin%20has%20access.,-In%20the%20below)
         :param pulumi.Input[builtins.bool] smb_continuous_availability_enabled: Enable SMB Continuous Availability.
@@ -1418,7 +1408,7 @@ class Volume(pulumi.CustomResource):
     @pulumi.getter(name="poolName")
     def pool_name(self) -> pulumi.Output[builtins.str]:
         """
-        The name of the NetApp pool in which the NetApp Volume should be created. Changing this forces a new resource to be created.
+        The name of the NetApp pool in which the NetApp Volume should be created.
         """
         return pulumi.get(self, "pool_name")
 
@@ -1449,9 +1439,6 @@ class Volume(pulumi.CustomResource):
     @property
     @pulumi.getter(name="serviceLevel")
     def service_level(self) -> pulumi.Output[builtins.str]:
-        """
-        The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`. Changing this forces a new resource to be created.
-        """
         return pulumi.get(self, "service_level")
 
     @property

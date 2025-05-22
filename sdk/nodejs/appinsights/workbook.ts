@@ -42,6 +42,13 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.Insights`: 2022-04-01
+ *
  * ## Import
  *
  * Workbooks can be imported using the `resource id`, e.g.

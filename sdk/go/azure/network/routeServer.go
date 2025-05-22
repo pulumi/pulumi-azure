@@ -117,7 +117,7 @@ type RouteServer struct {
 	Sku pulumi.StringOutput `pulumi:"sku"`
 	// The ID of the Subnet that the Route Server will reside. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Azure Route Server requires a dedicated subnet named RouteServerSubnet. The subnet size has to be at least /27 or short prefix (such as /26 or /25) and cannot be attached to any security group, otherwise, you'll receive an error message when deploying the Route Server.
+	// > **Note:** Azure Route Server requires a dedicated subnet named RouteServerSubnet. The subnet size has to be at least /27 or short prefix (such as /26 or /25) and cannot be attached to any security group, otherwise, you'll receive an error message when deploying the Route Server.
 	SubnetId pulumi.StringOutput `pulumi:"subnetId"`
 	// A mapping of tags to assign to the resource.
 	Tags             pulumi.StringMapOutput   `pulumi:"tags"`
@@ -184,7 +184,7 @@ type routeServerState struct {
 	Sku *string `pulumi:"sku"`
 	// The ID of the Subnet that the Route Server will reside. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Azure Route Server requires a dedicated subnet named RouteServerSubnet. The subnet size has to be at least /27 or short prefix (such as /26 or /25) and cannot be attached to any security group, otherwise, you'll receive an error message when deploying the Route Server.
+	// > **Note:** Azure Route Server requires a dedicated subnet named RouteServerSubnet. The subnet size has to be at least /27 or short prefix (such as /26 or /25) and cannot be attached to any security group, otherwise, you'll receive an error message when deploying the Route Server.
 	SubnetId *string `pulumi:"subnetId"`
 	// A mapping of tags to assign to the resource.
 	Tags             map[string]string `pulumi:"tags"`
@@ -210,7 +210,7 @@ type RouteServerState struct {
 	Sku pulumi.StringPtrInput
 	// The ID of the Subnet that the Route Server will reside. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Azure Route Server requires a dedicated subnet named RouteServerSubnet. The subnet size has to be at least /27 or short prefix (such as /26 or /25) and cannot be attached to any security group, otherwise, you'll receive an error message when deploying the Route Server.
+	// > **Note:** Azure Route Server requires a dedicated subnet named RouteServerSubnet. The subnet size has to be at least /27 or short prefix (such as /26 or /25) and cannot be attached to any security group, otherwise, you'll receive an error message when deploying the Route Server.
 	SubnetId pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags             pulumi.StringMapInput
@@ -239,7 +239,7 @@ type routeServerArgs struct {
 	Sku string `pulumi:"sku"`
 	// The ID of the Subnet that the Route Server will reside. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Azure Route Server requires a dedicated subnet named RouteServerSubnet. The subnet size has to be at least /27 or short prefix (such as /26 or /25) and cannot be attached to any security group, otherwise, you'll receive an error message when deploying the Route Server.
+	// > **Note:** Azure Route Server requires a dedicated subnet named RouteServerSubnet. The subnet size has to be at least /27 or short prefix (such as /26 or /25) and cannot be attached to any security group, otherwise, you'll receive an error message when deploying the Route Server.
 	SubnetId string `pulumi:"subnetId"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -263,7 +263,7 @@ type RouteServerArgs struct {
 	Sku pulumi.StringInput
 	// The ID of the Subnet that the Route Server will reside. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Azure Route Server requires a dedicated subnet named RouteServerSubnet. The subnet size has to be at least /27 or short prefix (such as /26 or /25) and cannot be attached to any security group, otherwise, you'll receive an error message when deploying the Route Server.
+	// > **Note:** Azure Route Server requires a dedicated subnet named RouteServerSubnet. The subnet size has to be at least /27 or short prefix (such as /26 or /25) and cannot be attached to any security group, otherwise, you'll receive an error message when deploying the Route Server.
 	SubnetId pulumi.StringInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -397,7 +397,7 @@ func (o RouteServerOutput) Sku() pulumi.StringOutput {
 
 // The ID of the Subnet that the Route Server will reside. Changing this forces a new resource to be created.
 //
-// > **NOTE:** Azure Route Server requires a dedicated subnet named RouteServerSubnet. The subnet size has to be at least /27 or short prefix (such as /26 or /25) and cannot be attached to any security group, otherwise, you'll receive an error message when deploying the Route Server.
+// > **Note:** Azure Route Server requires a dedicated subnet named RouteServerSubnet. The subnet size has to be at least /27 or short prefix (such as /26 or /25) and cannot be attached to any security group, otherwise, you'll receive an error message when deploying the Route Server.
 func (o RouteServerOutput) SubnetId() pulumi.StringOutput {
 	return o.ApplyT(func(v *RouteServer) pulumi.StringOutput { return v.SubnetId }).(pulumi.StringOutput)
 }

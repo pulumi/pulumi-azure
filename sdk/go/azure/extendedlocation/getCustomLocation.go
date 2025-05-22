@@ -40,6 +40,13 @@ import (
 //	}
 //
 // ```
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This data source uses the following Azure API Providers:
+//
+// * `Microsoft.ExtendedLocation`: 2021-08-15
 func LookupCustomLocation(ctx *pulumi.Context, args *LookupCustomLocationArgs, opts ...pulumi.InvokeOption) (*LookupCustomLocationResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupCustomLocationResult

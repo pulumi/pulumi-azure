@@ -45,6 +45,13 @@ namespace Pulumi.Azure.EventHub
     /// });
     /// ```
     /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.EventHub`: 2024-01-01
+    /// 
     /// ## Import
     /// 
     /// Schema Group for a EventHub Namespace can be imported using the `resource id`, e.g.
@@ -75,7 +82,9 @@ namespace Pulumi.Azure.EventHub
         public Output<string> SchemaCompatibility { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the Type of this schema group. Possible values are `Avro`, `Unknown`. Changing this forces a new resource to be created.
+        /// Specifies the Type of this schema group. Possible values are `Avro`, `Unknown` and `Json`. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** When `schema_type` is specified as `Json`, `schema_compatibility` must be set to `None`.
         /// </summary>
         [Output("schemaType")]
         public Output<string> SchemaType { get; private set; } = null!;
@@ -145,7 +154,9 @@ namespace Pulumi.Azure.EventHub
         public Input<string> SchemaCompatibility { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the Type of this schema group. Possible values are `Avro`, `Unknown`. Changing this forces a new resource to be created.
+        /// Specifies the Type of this schema group. Possible values are `Avro`, `Unknown` and `Json`. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** When `schema_type` is specified as `Json`, `schema_compatibility` must be set to `None`.
         /// </summary>
         [Input("schemaType", required: true)]
         public Input<string> SchemaType { get; set; } = null!;
@@ -177,7 +188,9 @@ namespace Pulumi.Azure.EventHub
         public Input<string>? SchemaCompatibility { get; set; }
 
         /// <summary>
-        /// Specifies the Type of this schema group. Possible values are `Avro`, `Unknown`. Changing this forces a new resource to be created.
+        /// Specifies the Type of this schema group. Possible values are `Avro`, `Unknown` and `Json`. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** When `schema_type` is specified as `Json`, `schema_compatibility` must be set to `None`.
         /// </summary>
         [Input("schemaType")]
         public Input<string>? SchemaType { get; set; }

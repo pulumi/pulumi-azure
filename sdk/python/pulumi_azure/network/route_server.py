@@ -36,7 +36,7 @@ class RouteServerArgs:
         :param pulumi.Input[builtins.str] sku: The SKU of the Route Server. The only possible value is `Standard`. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] subnet_id: The ID of the Subnet that the Route Server will reside. Changing this forces a new resource to be created.
                
-               > **NOTE:** Azure Route Server requires a dedicated subnet named RouteServerSubnet. The subnet size has to be at least /27 or short prefix (such as /26 or /25) and cannot be attached to any security group, otherwise, you'll receive an error message when deploying the Route Server.
+               > **Note:** Azure Route Server requires a dedicated subnet named RouteServerSubnet. The subnet size has to be at least /27 or short prefix (such as /26 or /25) and cannot be attached to any security group, otherwise, you'll receive an error message when deploying the Route Server.
         :param pulumi.Input[builtins.bool] branch_to_branch_traffic_enabled: Whether to enable route exchange between Azure Route Server and the gateway(s).
         :param pulumi.Input[builtins.str] hub_routing_preference: The hub routing preference. Valid values are `ASPath`, `ExpressRoute` or `VpnGateway`. Defaults to `ExpressRoute`.
         :param pulumi.Input[builtins.str] location: Specifies the supported Azure location where the Route Server should exist. Changing this forces a new resource to be created.
@@ -100,7 +100,7 @@ class RouteServerArgs:
         """
         The ID of the Subnet that the Route Server will reside. Changing this forces a new resource to be created.
 
-        > **NOTE:** Azure Route Server requires a dedicated subnet named RouteServerSubnet. The subnet size has to be at least /27 or short prefix (such as /26 or /25) and cannot be attached to any security group, otherwise, you'll receive an error message when deploying the Route Server.
+        > **Note:** Azure Route Server requires a dedicated subnet named RouteServerSubnet. The subnet size has to be at least /27 or short prefix (such as /26 or /25) and cannot be attached to any security group, otherwise, you'll receive an error message when deploying the Route Server.
         """
         return pulumi.get(self, "subnet_id")
 
@@ -195,7 +195,7 @@ class _RouteServerState:
         :param pulumi.Input[builtins.str] sku: The SKU of the Route Server. The only possible value is `Standard`. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] subnet_id: The ID of the Subnet that the Route Server will reside. Changing this forces a new resource to be created.
                
-               > **NOTE:** Azure Route Server requires a dedicated subnet named RouteServerSubnet. The subnet size has to be at least /27 or short prefix (such as /26 or /25) and cannot be attached to any security group, otherwise, you'll receive an error message when deploying the Route Server.
+               > **Note:** Azure Route Server requires a dedicated subnet named RouteServerSubnet. The subnet size has to be at least /27 or short prefix (such as /26 or /25) and cannot be attached to any security group, otherwise, you'll receive an error message when deploying the Route Server.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags to assign to the resource.
         """
         if branch_to_branch_traffic_enabled is not None:
@@ -322,7 +322,7 @@ class _RouteServerState:
         """
         The ID of the Subnet that the Route Server will reside. Changing this forces a new resource to be created.
 
-        > **NOTE:** Azure Route Server requires a dedicated subnet named RouteServerSubnet. The subnet size has to be at least /27 or short prefix (such as /26 or /25) and cannot be attached to any security group, otherwise, you'll receive an error message when deploying the Route Server.
+        > **Note:** Azure Route Server requires a dedicated subnet named RouteServerSubnet. The subnet size has to be at least /27 or short prefix (such as /26 or /25) and cannot be attached to any security group, otherwise, you'll receive an error message when deploying the Route Server.
         """
         return pulumi.get(self, "subnet_id")
 
@@ -438,7 +438,7 @@ class RouteServer(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] sku: The SKU of the Route Server. The only possible value is `Standard`. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] subnet_id: The ID of the Subnet that the Route Server will reside. Changing this forces a new resource to be created.
                
-               > **NOTE:** Azure Route Server requires a dedicated subnet named RouteServerSubnet. The subnet size has to be at least /27 or short prefix (such as /26 or /25) and cannot be attached to any security group, otherwise, you'll receive an error message when deploying the Route Server.
+               > **Note:** Azure Route Server requires a dedicated subnet named RouteServerSubnet. The subnet size has to be at least /27 or short prefix (such as /26 or /25) and cannot be attached to any security group, otherwise, you'll receive an error message when deploying the Route Server.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags to assign to the resource.
         """
         ...
@@ -588,7 +588,7 @@ class RouteServer(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] sku: The SKU of the Route Server. The only possible value is `Standard`. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] subnet_id: The ID of the Subnet that the Route Server will reside. Changing this forces a new resource to be created.
                
-               > **NOTE:** Azure Route Server requires a dedicated subnet named RouteServerSubnet. The subnet size has to be at least /27 or short prefix (such as /26 or /25) and cannot be attached to any security group, otherwise, you'll receive an error message when deploying the Route Server.
+               > **Note:** Azure Route Server requires a dedicated subnet named RouteServerSubnet. The subnet size has to be at least /27 or short prefix (such as /26 or /25) and cannot be attached to any security group, otherwise, you'll receive an error message when deploying the Route Server.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags to assign to the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -676,7 +676,7 @@ class RouteServer(pulumi.CustomResource):
         """
         The ID of the Subnet that the Route Server will reside. Changing this forces a new resource to be created.
 
-        > **NOTE:** Azure Route Server requires a dedicated subnet named RouteServerSubnet. The subnet size has to be at least /27 or short prefix (such as /26 or /25) and cannot be attached to any security group, otherwise, you'll receive an error message when deploying the Route Server.
+        > **Note:** Azure Route Server requires a dedicated subnet named RouteServerSubnet. The subnet size has to be at least /27 or short prefix (such as /26 or /25) and cannot be attached to any security group, otherwise, you'll receive an error message when deploying the Route Server.
         """
         return pulumi.get(self, "subnet_id")
 

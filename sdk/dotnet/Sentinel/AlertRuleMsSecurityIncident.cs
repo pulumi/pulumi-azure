@@ -56,6 +56,13 @@ namespace Pulumi.Azure.Sentinel
     /// });
     /// ```
     /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.OperationalInsights`: 2023-12-01-preview
+    /// 
     /// ## Import
     /// 
     /// Sentinel MS Security Incident Alert Rules can be imported using the `resource id`, e.g.
@@ -124,7 +131,7 @@ namespace Pulumi.Azure.Sentinel
         /// <summary>
         /// Only create incidents from alerts when alert severity level is contained in this list. Possible values are `High`, `Medium`, `Low` and `Informational`.
         /// 
-        /// &gt; **NOTE** At least one of the severity filters need to be set.
+        /// &gt; **Note:** At least one of the severity filters need to be set.
         /// </summary>
         [Output("severityFilters")]
         public Output<ImmutableArray<string>> SeverityFilters { get; private set; } = null!;
@@ -247,7 +254,7 @@ namespace Pulumi.Azure.Sentinel
         /// <summary>
         /// Only create incidents from alerts when alert severity level is contained in this list. Possible values are `High`, `Medium`, `Low` and `Informational`.
         /// 
-        /// &gt; **NOTE** At least one of the severity filters need to be set.
+        /// &gt; **Note:** At least one of the severity filters need to be set.
         /// </summary>
         public InputList<string> SeverityFilters
         {
@@ -335,7 +342,7 @@ namespace Pulumi.Azure.Sentinel
         /// <summary>
         /// Only create incidents from alerts when alert severity level is contained in this list. Possible values are `High`, `Medium`, `Low` and `Informational`.
         /// 
-        /// &gt; **NOTE** At least one of the severity filters need to be set.
+        /// &gt; **Note:** At least one of the severity filters need to be set.
         /// </summary>
         public InputList<string> SeverityFilters
         {

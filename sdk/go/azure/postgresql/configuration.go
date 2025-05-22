@@ -72,6 +72,13 @@ import (
 //
 // ```
 //
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.DBforPostgreSQL`: 2017-12-01
+//
 // ## Import
 //
 // PostgreSQL Configurations can be imported using the `resource id`, e.g.

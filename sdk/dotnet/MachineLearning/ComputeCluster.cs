@@ -11,7 +11,6 @@ namespace Pulumi.Azure.MachineLearning
 {
     /// <summary>
     /// Manages a Machine Learning Compute Cluster.
-    /// **NOTE:** At this point in time the resource cannot be updated (not supported by the backend Azure Go SDK). Therefore it can only be created and deleted, not updated. At the moment, there is also no possibility to specify ssh User Account Credentials to ssh into the compute cluster.
     /// 
     /// ## Example Usage
     /// 
@@ -120,6 +119,13 @@ namespace Pulumi.Azure.MachineLearning
     /// 
     /// });
     /// ```
+    /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.MachineLearningServices`: 2024-04-01
     /// 
     /// ## Import
     /// 

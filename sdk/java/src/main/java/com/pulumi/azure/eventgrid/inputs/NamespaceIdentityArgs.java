@@ -20,7 +20,7 @@ public final class NamespaceIdentityArgs extends com.pulumi.resources.ResourceAr
     /**
      * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid Namespace.
      * 
-     * &gt; **NOTE:** This is required when `type` is set to `UserAssigned`
+     * &gt; **Note:** This is required when `type` is set to `UserAssigned`
      * 
      */
     @Import(name="identityIds")
@@ -29,7 +29,7 @@ public final class NamespaceIdentityArgs extends com.pulumi.resources.ResourceAr
     /**
      * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid Namespace.
      * 
-     * &gt; **NOTE:** This is required when `type` is set to `UserAssigned`
+     * &gt; **Note:** This is required when `type` is set to `UserAssigned`
      * 
      */
     public Optional<Output<List<String>>> identityIds() {
@@ -95,7 +95,7 @@ public final class NamespaceIdentityArgs extends com.pulumi.resources.ResourceAr
         /**
          * @param identityIds Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid Namespace.
          * 
-         * &gt; **NOTE:** This is required when `type` is set to `UserAssigned`
+         * &gt; **Note:** This is required when `type` is set to `UserAssigned`
          * 
          * @return builder
          * 
@@ -108,7 +108,7 @@ public final class NamespaceIdentityArgs extends com.pulumi.resources.ResourceAr
         /**
          * @param identityIds Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid Namespace.
          * 
-         * &gt; **NOTE:** This is required when `type` is set to `UserAssigned`
+         * &gt; **Note:** This is required when `type` is set to `UserAssigned`
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class NamespaceIdentityArgs extends com.pulumi.resources.ResourceAr
         /**
          * @param identityIds Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid Namespace.
          * 
-         * &gt; **NOTE:** This is required when `type` is set to `UserAssigned`
+         * &gt; **Note:** This is required when `type` is set to `UserAssigned`
          * 
          * @return builder
          * 

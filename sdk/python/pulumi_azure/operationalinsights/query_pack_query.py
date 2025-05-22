@@ -402,6 +402,13 @@ class QueryPackQuery(pulumi.CustomResource):
             display_name="Exceptions - New in the last 24 hours")
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.OperationalInsights`: 2019-09-01
+
         ## Import
 
         Log Analytics Query Pack Queries can be imported using the `resource id`, e.g.
@@ -463,6 +470,13 @@ class QueryPackQuery(pulumi.CustomResource):
         \"\"\",
             display_name="Exceptions - New in the last 24 hours")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.OperationalInsights`: 2019-09-01
 
         ## Import
 

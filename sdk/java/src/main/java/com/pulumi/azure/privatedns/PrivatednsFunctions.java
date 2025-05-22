@@ -99,6 +99,13 @@ public final class PrivatednsFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2024-06-01
+     * 
      */
     public static Output<GetAAAARecordResult> getAAAARecord(GetAAAARecordArgs args) {
         return getAAAARecord(args, InvokeOptions.Empty);
@@ -141,6 +148,13 @@ public final class PrivatednsFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2024-06-01
      * 
      */
     public static CompletableFuture<GetAAAARecordResult> getAAAARecordPlain(GetAAAARecordPlainArgs args) {
@@ -185,6 +199,13 @@ public final class PrivatednsFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2024-06-01
+     * 
      */
     public static Output<GetAAAARecordResult> getAAAARecord(GetAAAARecordArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:privatedns/getAAAARecord:getAAAARecord", TypeShape.of(GetAAAARecordResult.class), args, Utilities.withVersion(options));
@@ -227,6 +248,13 @@ public final class PrivatednsFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2024-06-01
      * 
      */
     public static Output<GetAAAARecordResult> getAAAARecord(GetAAAARecordArgs args, InvokeOutputOptions options) {
@@ -271,6 +299,13 @@ public final class PrivatednsFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2024-06-01
+     * 
      */
     public static CompletableFuture<GetAAAARecordResult> getAAAARecordPlain(GetAAAARecordPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:privatedns/getAAAARecord:getAAAARecord", TypeShape.of(GetAAAARecordResult.class), args, Utilities.withVersion(options));
@@ -313,6 +348,13 @@ public final class PrivatednsFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2024-06-01
      * 
      */
     public static Output<GetARecordResult> getARecord(GetARecordArgs args) {
@@ -357,6 +399,13 @@ public final class PrivatednsFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2024-06-01
+     * 
      */
     public static CompletableFuture<GetARecordResult> getARecordPlain(GetARecordPlainArgs args) {
         return getARecordPlain(args, InvokeOptions.Empty);
@@ -399,6 +448,13 @@ public final class PrivatednsFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2024-06-01
      * 
      */
     public static Output<GetARecordResult> getARecord(GetARecordArgs args, InvokeOptions options) {
@@ -443,6 +499,13 @@ public final class PrivatednsFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2024-06-01
+     * 
      */
     public static Output<GetARecordResult> getARecord(GetARecordArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:privatedns/getARecord:getARecord", TypeShape.of(GetARecordResult.class), args, Utilities.withVersion(options));
@@ -485,6 +548,13 @@ public final class PrivatednsFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2024-06-01
      * 
      */
     public static CompletableFuture<GetARecordResult> getARecordPlain(GetARecordPlainArgs args, InvokeOptions options) {
@@ -529,6 +599,13 @@ public final class PrivatednsFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2024-06-01
+     * 
      */
     public static Output<GetCnameRecordResult> getCnameRecord(GetCnameRecordArgs args) {
         return getCnameRecord(args, InvokeOptions.Empty);
@@ -571,6 +648,13 @@ public final class PrivatednsFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2024-06-01
      * 
      */
     public static CompletableFuture<GetCnameRecordResult> getCnameRecordPlain(GetCnameRecordPlainArgs args) {
@@ -615,6 +699,13 @@ public final class PrivatednsFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2024-06-01
+     * 
      */
     public static Output<GetCnameRecordResult> getCnameRecord(GetCnameRecordArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:privatedns/getCnameRecord:getCnameRecord", TypeShape.of(GetCnameRecordResult.class), args, Utilities.withVersion(options));
@@ -658,6 +749,13 @@ public final class PrivatednsFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2024-06-01
+     * 
      */
     public static Output<GetCnameRecordResult> getCnameRecord(GetCnameRecordArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:privatedns/getCnameRecord:getCnameRecord", TypeShape.of(GetCnameRecordResult.class), args, Utilities.withVersion(options));
@@ -700,6 +798,13 @@ public final class PrivatednsFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2024-06-01
      * 
      */
     public static CompletableFuture<GetCnameRecordResult> getCnameRecordPlain(GetCnameRecordPlainArgs args, InvokeOptions options) {
@@ -964,6 +1069,13 @@ public final class PrivatednsFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2024-06-01
+     * 
      */
     public static Output<GetMxRecordResult> getMxRecord(GetMxRecordArgs args) {
         return getMxRecord(args, InvokeOptions.Empty);
@@ -1006,6 +1118,13 @@ public final class PrivatednsFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2024-06-01
      * 
      */
     public static CompletableFuture<GetMxRecordResult> getMxRecordPlain(GetMxRecordPlainArgs args) {
@@ -1050,6 +1169,13 @@ public final class PrivatednsFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2024-06-01
+     * 
      */
     public static Output<GetMxRecordResult> getMxRecord(GetMxRecordArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:privatedns/getMxRecord:getMxRecord", TypeShape.of(GetMxRecordResult.class), args, Utilities.withVersion(options));
@@ -1092,6 +1218,13 @@ public final class PrivatednsFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2024-06-01
      * 
      */
     public static Output<GetMxRecordResult> getMxRecord(GetMxRecordArgs args, InvokeOutputOptions options) {
@@ -1136,6 +1269,13 @@ public final class PrivatednsFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2024-06-01
+     * 
      */
     public static CompletableFuture<GetMxRecordResult> getMxRecordPlain(GetMxRecordPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:privatedns/getMxRecord:getMxRecord", TypeShape.of(GetMxRecordResult.class), args, Utilities.withVersion(options));
@@ -1178,6 +1318,13 @@ public final class PrivatednsFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2024-06-01
      * 
      */
     public static Output<GetPtrRecordResult> getPtrRecord(GetPtrRecordArgs args) {
@@ -1222,6 +1369,13 @@ public final class PrivatednsFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2024-06-01
+     * 
      */
     public static CompletableFuture<GetPtrRecordResult> getPtrRecordPlain(GetPtrRecordPlainArgs args) {
         return getPtrRecordPlain(args, InvokeOptions.Empty);
@@ -1264,6 +1418,13 @@ public final class PrivatednsFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2024-06-01
      * 
      */
     public static Output<GetPtrRecordResult> getPtrRecord(GetPtrRecordArgs args, InvokeOptions options) {
@@ -1308,6 +1469,13 @@ public final class PrivatednsFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2024-06-01
+     * 
      */
     public static Output<GetPtrRecordResult> getPtrRecord(GetPtrRecordArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:privatedns/getPtrRecord:getPtrRecord", TypeShape.of(GetPtrRecordResult.class), args, Utilities.withVersion(options));
@@ -1350,6 +1518,13 @@ public final class PrivatednsFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2024-06-01
      * 
      */
     public static CompletableFuture<GetPtrRecordResult> getPtrRecordPlain(GetPtrRecordPlainArgs args, InvokeOptions options) {
@@ -1394,6 +1569,13 @@ public final class PrivatednsFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2022-07-01
+     * 
      */
     public static Output<GetResolverResult> getResolver(GetResolverArgs args) {
         return getResolver(args, InvokeOptions.Empty);
@@ -1436,6 +1618,13 @@ public final class PrivatednsFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2022-07-01
      * 
      */
     public static CompletableFuture<GetResolverResult> getResolverPlain(GetResolverPlainArgs args) {
@@ -1480,6 +1669,13 @@ public final class PrivatednsFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2022-07-01
+     * 
      */
     public static Output<GetResolverResult> getResolver(GetResolverArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:privatedns/getResolver:getResolver", TypeShape.of(GetResolverResult.class), args, Utilities.withVersion(options));
@@ -1522,6 +1718,13 @@ public final class PrivatednsFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2022-07-01
      * 
      */
     public static Output<GetResolverResult> getResolver(GetResolverArgs args, InvokeOutputOptions options) {
@@ -1566,6 +1769,13 @@ public final class PrivatednsFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2022-07-01
+     * 
      */
     public static CompletableFuture<GetResolverResult> getResolverPlain(GetResolverPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:privatedns/getResolver:getResolver", TypeShape.of(GetResolverResult.class), args, Utilities.withVersion(options));
@@ -1608,6 +1818,13 @@ public final class PrivatednsFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2022-07-01
      * 
      */
     public static Output<GetResolverDnsForwardingRulesetResult> getResolverDnsForwardingRuleset(GetResolverDnsForwardingRulesetArgs args) {
@@ -1652,6 +1869,13 @@ public final class PrivatednsFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2022-07-01
+     * 
      */
     public static CompletableFuture<GetResolverDnsForwardingRulesetResult> getResolverDnsForwardingRulesetPlain(GetResolverDnsForwardingRulesetPlainArgs args) {
         return getResolverDnsForwardingRulesetPlain(args, InvokeOptions.Empty);
@@ -1694,6 +1918,13 @@ public final class PrivatednsFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2022-07-01
      * 
      */
     public static Output<GetResolverDnsForwardingRulesetResult> getResolverDnsForwardingRuleset(GetResolverDnsForwardingRulesetArgs args, InvokeOptions options) {
@@ -1738,6 +1969,13 @@ public final class PrivatednsFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2022-07-01
+     * 
      */
     public static Output<GetResolverDnsForwardingRulesetResult> getResolverDnsForwardingRuleset(GetResolverDnsForwardingRulesetArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:privatedns/getResolverDnsForwardingRuleset:getResolverDnsForwardingRuleset", TypeShape.of(GetResolverDnsForwardingRulesetResult.class), args, Utilities.withVersion(options));
@@ -1780,6 +2018,13 @@ public final class PrivatednsFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2022-07-01
      * 
      */
     public static CompletableFuture<GetResolverDnsForwardingRulesetResult> getResolverDnsForwardingRulesetPlain(GetResolverDnsForwardingRulesetPlainArgs args, InvokeOptions options) {
@@ -1824,6 +2069,13 @@ public final class PrivatednsFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2022-07-01
+     * 
      */
     public static Output<GetResolverForwardingRuleResult> getResolverForwardingRule(GetResolverForwardingRuleArgs args) {
         return getResolverForwardingRule(args, InvokeOptions.Empty);
@@ -1866,6 +2118,13 @@ public final class PrivatednsFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2022-07-01
      * 
      */
     public static CompletableFuture<GetResolverForwardingRuleResult> getResolverForwardingRulePlain(GetResolverForwardingRulePlainArgs args) {
@@ -1910,6 +2169,13 @@ public final class PrivatednsFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2022-07-01
+     * 
      */
     public static Output<GetResolverForwardingRuleResult> getResolverForwardingRule(GetResolverForwardingRuleArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:privatedns/getResolverForwardingRule:getResolverForwardingRule", TypeShape.of(GetResolverForwardingRuleResult.class), args, Utilities.withVersion(options));
@@ -1952,6 +2218,13 @@ public final class PrivatednsFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2022-07-01
      * 
      */
     public static Output<GetResolverForwardingRuleResult> getResolverForwardingRule(GetResolverForwardingRuleArgs args, InvokeOutputOptions options) {
@@ -1996,6 +2269,13 @@ public final class PrivatednsFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2022-07-01
+     * 
      */
     public static CompletableFuture<GetResolverForwardingRuleResult> getResolverForwardingRulePlain(GetResolverForwardingRulePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:privatedns/getResolverForwardingRule:getResolverForwardingRule", TypeShape.of(GetResolverForwardingRuleResult.class), args, Utilities.withVersion(options));
@@ -2038,6 +2318,13 @@ public final class PrivatednsFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2022-07-01
      * 
      */
     public static Output<GetResolverInboundEndpointResult> getResolverInboundEndpoint(GetResolverInboundEndpointArgs args) {
@@ -2082,6 +2369,13 @@ public final class PrivatednsFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2022-07-01
+     * 
      */
     public static CompletableFuture<GetResolverInboundEndpointResult> getResolverInboundEndpointPlain(GetResolverInboundEndpointPlainArgs args) {
         return getResolverInboundEndpointPlain(args, InvokeOptions.Empty);
@@ -2124,6 +2418,13 @@ public final class PrivatednsFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2022-07-01
      * 
      */
     public static Output<GetResolverInboundEndpointResult> getResolverInboundEndpoint(GetResolverInboundEndpointArgs args, InvokeOptions options) {
@@ -2168,6 +2469,13 @@ public final class PrivatednsFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2022-07-01
+     * 
      */
     public static Output<GetResolverInboundEndpointResult> getResolverInboundEndpoint(GetResolverInboundEndpointArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:privatedns/getResolverInboundEndpoint:getResolverInboundEndpoint", TypeShape.of(GetResolverInboundEndpointResult.class), args, Utilities.withVersion(options));
@@ -2210,6 +2518,13 @@ public final class PrivatednsFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2022-07-01
      * 
      */
     public static CompletableFuture<GetResolverInboundEndpointResult> getResolverInboundEndpointPlain(GetResolverInboundEndpointPlainArgs args, InvokeOptions options) {
@@ -2254,6 +2569,13 @@ public final class PrivatednsFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2022-07-01
+     * 
      */
     public static Output<GetResolverOutboundEndpointResult> getResolverOutboundEndpoint(GetResolverOutboundEndpointArgs args) {
         return getResolverOutboundEndpoint(args, InvokeOptions.Empty);
@@ -2296,6 +2618,13 @@ public final class PrivatednsFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2022-07-01
      * 
      */
     public static CompletableFuture<GetResolverOutboundEndpointResult> getResolverOutboundEndpointPlain(GetResolverOutboundEndpointPlainArgs args) {
@@ -2340,6 +2669,13 @@ public final class PrivatednsFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2022-07-01
+     * 
      */
     public static Output<GetResolverOutboundEndpointResult> getResolverOutboundEndpoint(GetResolverOutboundEndpointArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:privatedns/getResolverOutboundEndpoint:getResolverOutboundEndpoint", TypeShape.of(GetResolverOutboundEndpointResult.class), args, Utilities.withVersion(options));
@@ -2382,6 +2718,13 @@ public final class PrivatednsFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2022-07-01
      * 
      */
     public static Output<GetResolverOutboundEndpointResult> getResolverOutboundEndpoint(GetResolverOutboundEndpointArgs args, InvokeOutputOptions options) {
@@ -2426,6 +2769,13 @@ public final class PrivatednsFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2022-07-01
+     * 
      */
     public static CompletableFuture<GetResolverOutboundEndpointResult> getResolverOutboundEndpointPlain(GetResolverOutboundEndpointPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:privatedns/getResolverOutboundEndpoint:getResolverOutboundEndpoint", TypeShape.of(GetResolverOutboundEndpointResult.class), args, Utilities.withVersion(options));
@@ -2468,6 +2818,13 @@ public final class PrivatednsFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2022-07-01
      * 
      */
     public static Output<GetResolverVirtualNetworkLinkResult> getResolverVirtualNetworkLink(GetResolverVirtualNetworkLinkArgs args) {
@@ -2512,6 +2869,13 @@ public final class PrivatednsFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2022-07-01
+     * 
      */
     public static CompletableFuture<GetResolverVirtualNetworkLinkResult> getResolverVirtualNetworkLinkPlain(GetResolverVirtualNetworkLinkPlainArgs args) {
         return getResolverVirtualNetworkLinkPlain(args, InvokeOptions.Empty);
@@ -2554,6 +2918,13 @@ public final class PrivatednsFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2022-07-01
      * 
      */
     public static Output<GetResolverVirtualNetworkLinkResult> getResolverVirtualNetworkLink(GetResolverVirtualNetworkLinkArgs args, InvokeOptions options) {
@@ -2598,6 +2969,13 @@ public final class PrivatednsFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2022-07-01
+     * 
      */
     public static Output<GetResolverVirtualNetworkLinkResult> getResolverVirtualNetworkLink(GetResolverVirtualNetworkLinkArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:privatedns/getResolverVirtualNetworkLink:getResolverVirtualNetworkLink", TypeShape.of(GetResolverVirtualNetworkLinkResult.class), args, Utilities.withVersion(options));
@@ -2641,6 +3019,13 @@ public final class PrivatednsFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2022-07-01
+     * 
      */
     public static CompletableFuture<GetResolverVirtualNetworkLinkResult> getResolverVirtualNetworkLinkPlain(GetResolverVirtualNetworkLinkPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:privatedns/getResolverVirtualNetworkLink:getResolverVirtualNetworkLink", TypeShape.of(GetResolverVirtualNetworkLinkResult.class), args, Utilities.withVersion(options));
@@ -2682,6 +3067,13 @@ public final class PrivatednsFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2024-06-01
      * 
      */
     public static Output<GetSoaRecordResult> getSoaRecord(GetSoaRecordArgs args) {
@@ -2725,6 +3117,13 @@ public final class PrivatednsFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2024-06-01
+     * 
      */
     public static CompletableFuture<GetSoaRecordResult> getSoaRecordPlain(GetSoaRecordPlainArgs args) {
         return getSoaRecordPlain(args, InvokeOptions.Empty);
@@ -2766,6 +3165,13 @@ public final class PrivatednsFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2024-06-01
      * 
      */
     public static Output<GetSoaRecordResult> getSoaRecord(GetSoaRecordArgs args, InvokeOptions options) {
@@ -2809,6 +3215,13 @@ public final class PrivatednsFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2024-06-01
+     * 
      */
     public static Output<GetSoaRecordResult> getSoaRecord(GetSoaRecordArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:privatedns/getSoaRecord:getSoaRecord", TypeShape.of(GetSoaRecordResult.class), args, Utilities.withVersion(options));
@@ -2850,6 +3263,13 @@ public final class PrivatednsFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2024-06-01
      * 
      */
     public static CompletableFuture<GetSoaRecordResult> getSoaRecordPlain(GetSoaRecordPlainArgs args, InvokeOptions options) {
@@ -2894,6 +3314,13 @@ public final class PrivatednsFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2024-06-01
+     * 
      */
     public static Output<GetSrvRecordResult> getSrvRecord(GetSrvRecordArgs args) {
         return getSrvRecord(args, InvokeOptions.Empty);
@@ -2936,6 +3363,13 @@ public final class PrivatednsFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2024-06-01
      * 
      */
     public static CompletableFuture<GetSrvRecordResult> getSrvRecordPlain(GetSrvRecordPlainArgs args) {
@@ -2980,6 +3414,13 @@ public final class PrivatednsFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2024-06-01
+     * 
      */
     public static Output<GetSrvRecordResult> getSrvRecord(GetSrvRecordArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:privatedns/getSrvRecord:getSrvRecord", TypeShape.of(GetSrvRecordResult.class), args, Utilities.withVersion(options));
@@ -3022,6 +3463,13 @@ public final class PrivatednsFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2024-06-01
      * 
      */
     public static Output<GetSrvRecordResult> getSrvRecord(GetSrvRecordArgs args, InvokeOutputOptions options) {
@@ -3066,6 +3514,13 @@ public final class PrivatednsFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2024-06-01
+     * 
      */
     public static CompletableFuture<GetSrvRecordResult> getSrvRecordPlain(GetSrvRecordPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:privatedns/getSrvRecord:getSrvRecord", TypeShape.of(GetSrvRecordResult.class), args, Utilities.withVersion(options));
@@ -3108,6 +3563,13 @@ public final class PrivatednsFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2024-06-01
      * 
      */
     public static Output<GetTxtRecordResult> getTxtRecord(GetTxtRecordArgs args) {
@@ -3152,6 +3614,13 @@ public final class PrivatednsFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2024-06-01
+     * 
      */
     public static CompletableFuture<GetTxtRecordResult> getTxtRecordPlain(GetTxtRecordPlainArgs args) {
         return getTxtRecordPlain(args, InvokeOptions.Empty);
@@ -3194,6 +3663,13 @@ public final class PrivatednsFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2024-06-01
      * 
      */
     public static Output<GetTxtRecordResult> getTxtRecord(GetTxtRecordArgs args, InvokeOptions options) {
@@ -3238,6 +3714,13 @@ public final class PrivatednsFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2024-06-01
+     * 
      */
     public static Output<GetTxtRecordResult> getTxtRecord(GetTxtRecordArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:privatedns/getTxtRecord:getTxtRecord", TypeShape.of(GetTxtRecordResult.class), args, Utilities.withVersion(options));
@@ -3280,6 +3763,13 @@ public final class PrivatednsFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2024-06-01
      * 
      */
     public static CompletableFuture<GetTxtRecordResult> getTxtRecordPlain(GetTxtRecordPlainArgs args, InvokeOptions options) {
@@ -3326,6 +3816,13 @@ public final class PrivatednsFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2024-06-01
+     * 
      */
     public static Output<GetZoneVirtualNetworkLinkResult> getZoneVirtualNetworkLink(GetZoneVirtualNetworkLinkArgs args) {
         return getZoneVirtualNetworkLink(args, InvokeOptions.Empty);
@@ -3370,6 +3867,13 @@ public final class PrivatednsFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2024-06-01
      * 
      */
     public static CompletableFuture<GetZoneVirtualNetworkLinkResult> getZoneVirtualNetworkLinkPlain(GetZoneVirtualNetworkLinkPlainArgs args) {
@@ -3416,6 +3920,13 @@ public final class PrivatednsFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2024-06-01
+     * 
      */
     public static Output<GetZoneVirtualNetworkLinkResult> getZoneVirtualNetworkLink(GetZoneVirtualNetworkLinkArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:privatedns/getZoneVirtualNetworkLink:getZoneVirtualNetworkLink", TypeShape.of(GetZoneVirtualNetworkLinkResult.class), args, Utilities.withVersion(options));
@@ -3461,6 +3972,13 @@ public final class PrivatednsFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2024-06-01
+     * 
      */
     public static Output<GetZoneVirtualNetworkLinkResult> getZoneVirtualNetworkLink(GetZoneVirtualNetworkLinkArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:privatedns/getZoneVirtualNetworkLink:getZoneVirtualNetworkLink", TypeShape.of(GetZoneVirtualNetworkLinkResult.class), args, Utilities.withVersion(options));
@@ -3505,6 +4023,13 @@ public final class PrivatednsFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2024-06-01
      * 
      */
     public static CompletableFuture<GetZoneVirtualNetworkLinkResult> getZoneVirtualNetworkLinkPlain(GetZoneVirtualNetworkLinkPlainArgs args, InvokeOptions options) {

@@ -155,7 +155,7 @@ public final class AlertRuleMsSecurityIncidentState extends com.pulumi.resources
     /**
      * Only create incidents from alerts when alert severity level is contained in this list. Possible values are `High`, `Medium`, `Low` and `Informational`.
      * 
-     * &gt; **NOTE** At least one of the severity filters need to be set.
+     * &gt; **Note:** At least one of the severity filters need to be set.
      * 
      */
     @Import(name="severityFilters")
@@ -164,7 +164,7 @@ public final class AlertRuleMsSecurityIncidentState extends com.pulumi.resources
     /**
      * @return Only create incidents from alerts when alert severity level is contained in this list. Possible values are `High`, `Medium`, `Low` and `Informational`.
      * 
-     * &gt; **NOTE** At least one of the severity filters need to be set.
+     * &gt; **Note:** At least one of the severity filters need to be set.
      * 
      */
     public Optional<Output<List<String>>> severityFilters() {
@@ -416,7 +416,7 @@ public final class AlertRuleMsSecurityIncidentState extends com.pulumi.resources
         /**
          * @param severityFilters Only create incidents from alerts when alert severity level is contained in this list. Possible values are `High`, `Medium`, `Low` and `Informational`.
          * 
-         * &gt; **NOTE** At least one of the severity filters need to be set.
+         * &gt; **Note:** At least one of the severity filters need to be set.
          * 
          * @return builder
          * 
@@ -429,7 +429,7 @@ public final class AlertRuleMsSecurityIncidentState extends com.pulumi.resources
         /**
          * @param severityFilters Only create incidents from alerts when alert severity level is contained in this list. Possible values are `High`, `Medium`, `Low` and `Informational`.
          * 
-         * &gt; **NOTE** At least one of the severity filters need to be set.
+         * &gt; **Note:** At least one of the severity filters need to be set.
          * 
          * @return builder
          * 
@@ -441,7 +441,7 @@ public final class AlertRuleMsSecurityIncidentState extends com.pulumi.resources
         /**
          * @param severityFilters Only create incidents from alerts when alert severity level is contained in this list. Possible values are `High`, `Medium`, `Low` and `Informational`.
          * 
-         * &gt; **NOTE** At least one of the severity filters need to be set.
+         * &gt; **Note:** At least one of the severity filters need to be set.
          * 
          * @return builder
          * 

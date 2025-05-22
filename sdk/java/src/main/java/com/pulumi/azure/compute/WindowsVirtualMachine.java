@@ -956,16 +956,20 @@ public class WindowsVirtualMachine extends com.pulumi.resources.CustomResource {
     /**
      * Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.
      * 
+     * @deprecated
+     * this property has been deprecated due to a breaking change introduced by the Service team, which redefined it as a read-only field within the API
+     * 
      */
+    @Deprecated /* this property has been deprecated due to a breaking change introduced by the Service team, which redefined it as a read-only field within the API */
     @Export(name="vmAgentPlatformUpdatesEnabled", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> vmAgentPlatformUpdatesEnabled;
+    private Output<Boolean> vmAgentPlatformUpdatesEnabled;
 
     /**
      * @return Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.
      * 
      */
-    public Output<Optional<Boolean>> vmAgentPlatformUpdatesEnabled() {
-        return Codegen.optional(this.vmAgentPlatformUpdatesEnabled);
+    public Output<Boolean> vmAgentPlatformUpdatesEnabled() {
+        return this.vmAgentPlatformUpdatesEnabled;
     }
     /**
      * Specifies if vTPM (virtual Trusted Platform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.

@@ -380,6 +380,13 @@ class ResourcePolicyRemediation(pulumi.CustomResource):
             policy_assignment_id=example_resource_group_policy_assignment.id)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.PolicyInsights`: 2021-10-01
+
         ## Import
 
         Policy Remediations can be imported using the `resource id`, e.g.
@@ -450,6 +457,13 @@ class ResourcePolicyRemediation(pulumi.CustomResource):
             resource_id=example_virtual_network.id,
             policy_assignment_id=example_resource_group_policy_assignment.id)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.PolicyInsights`: 2021-10-01
 
         ## Import
 

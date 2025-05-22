@@ -14,14 +14,14 @@ public final class IoTHubSku {
     /**
      * @return The number of provisioned IoT Hub units.
      * 
-     * &gt; **NOTE:** Only one IotHub can be on the `Free` tier per subscription.
+     * &gt; **Note:** Only one IotHub can be on the `Free` tier per subscription.
      * 
      */
     private Integer capacity;
     /**
      * @return The name of the sku. Possible values are `B1`, `B2`, `B3`, `F1`, `S1`, `S2`, and `S3`.
      * 
-     * &gt; **NOTE:** The `F1` sku is on `Free` tier.
+     * &gt; **Note:** The `F1` sku is on `Free` tier.
      * 
      */
     private String name;
@@ -30,7 +30,7 @@ public final class IoTHubSku {
     /**
      * @return The number of provisioned IoT Hub units.
      * 
-     * &gt; **NOTE:** Only one IotHub can be on the `Free` tier per subscription.
+     * &gt; **Note:** Only one IotHub can be on the `Free` tier per subscription.
      * 
      */
     public Integer capacity() {
@@ -39,7 +39,7 @@ public final class IoTHubSku {
     /**
      * @return The name of the sku. Possible values are `B1`, `B2`, `B3`, `F1`, `S1`, `S2`, and `S3`.
      * 
-     * &gt; **NOTE:** The `F1` sku is on `Free` tier.
+     * &gt; **Note:** The `F1` sku is on `Free` tier.
      * 
      */
     public String name() {

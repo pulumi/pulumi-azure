@@ -148,6 +148,13 @@ def get_volume_group_oracle(account_name: Optional[builtins.str] = None,
     pulumi.export("id", example.id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.NetApp`: 2025-01-01
+
 
     :param builtins.str account_name: Name of the account where the application volume group belong to.
     :param builtins.str name: The name of this Application Volume Group for Oracle application.
@@ -187,6 +194,13 @@ def get_volume_group_oracle_output(account_name: Optional[pulumi.Input[builtins.
         account_name="existing account where the application volume group belong to")
     pulumi.export("id", example.id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.NetApp`: 2025-01-01
 
 
     :param builtins.str account_name: Name of the account where the application volume group belong to.

@@ -588,13 +588,13 @@ func (o MonitorUserPtrOutput) PhoneNumber() pulumi.StringPtrOutput {
 }
 
 type TagRulesLogRule struct {
-	// Filtering tag for the log rule. A `filteringTag` block as defined below. Changing this forces a new resource to be created.
+	// Filtering tag for the log rule. A `filteringTag` block as defined below.
 	FilteringTags []TagRulesLogRuleFilteringTag `pulumi:"filteringTags"`
-	// Send Activity logs. The default value is `false`. Changing this forces a new resource to be created.
+	// Send Activity logs. The default value is `false`.
 	SendActivityLogsEnabled *bool `pulumi:"sendActivityLogsEnabled"`
-	// Send Azure Active Directory logs. The default value is `false`. Changing this forces a new resource to be created.
+	// Send Azure Active Directory logs. The default value is `false`.
 	SendAzureActiveDirectoryLogsEnabled *bool `pulumi:"sendAzureActiveDirectoryLogsEnabled"`
-	// Send Subscription logs. The default value is `false`. Changing this forces a new resource to be created.
+	// Send Subscription logs. The default value is `false`.
 	SendSubscriptionLogsEnabled *bool `pulumi:"sendSubscriptionLogsEnabled"`
 }
 
@@ -610,13 +610,13 @@ type TagRulesLogRuleInput interface {
 }
 
 type TagRulesLogRuleArgs struct {
-	// Filtering tag for the log rule. A `filteringTag` block as defined below. Changing this forces a new resource to be created.
+	// Filtering tag for the log rule. A `filteringTag` block as defined below.
 	FilteringTags TagRulesLogRuleFilteringTagArrayInput `pulumi:"filteringTags"`
-	// Send Activity logs. The default value is `false`. Changing this forces a new resource to be created.
+	// Send Activity logs. The default value is `false`.
 	SendActivityLogsEnabled pulumi.BoolPtrInput `pulumi:"sendActivityLogsEnabled"`
-	// Send Azure Active Directory logs. The default value is `false`. Changing this forces a new resource to be created.
+	// Send Azure Active Directory logs. The default value is `false`.
 	SendAzureActiveDirectoryLogsEnabled pulumi.BoolPtrInput `pulumi:"sendAzureActiveDirectoryLogsEnabled"`
-	// Send Subscription logs. The default value is `false`. Changing this forces a new resource to be created.
+	// Send Subscription logs. The default value is `false`.
 	SendSubscriptionLogsEnabled pulumi.BoolPtrInput `pulumi:"sendSubscriptionLogsEnabled"`
 }
 
@@ -697,22 +697,22 @@ func (o TagRulesLogRuleOutput) ToTagRulesLogRulePtrOutputWithContext(ctx context
 	}).(TagRulesLogRulePtrOutput)
 }
 
-// Filtering tag for the log rule. A `filteringTag` block as defined below. Changing this forces a new resource to be created.
+// Filtering tag for the log rule. A `filteringTag` block as defined below.
 func (o TagRulesLogRuleOutput) FilteringTags() TagRulesLogRuleFilteringTagArrayOutput {
 	return o.ApplyT(func(v TagRulesLogRule) []TagRulesLogRuleFilteringTag { return v.FilteringTags }).(TagRulesLogRuleFilteringTagArrayOutput)
 }
 
-// Send Activity logs. The default value is `false`. Changing this forces a new resource to be created.
+// Send Activity logs. The default value is `false`.
 func (o TagRulesLogRuleOutput) SendActivityLogsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TagRulesLogRule) *bool { return v.SendActivityLogsEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Send Azure Active Directory logs. The default value is `false`. Changing this forces a new resource to be created.
+// Send Azure Active Directory logs. The default value is `false`.
 func (o TagRulesLogRuleOutput) SendAzureActiveDirectoryLogsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TagRulesLogRule) *bool { return v.SendAzureActiveDirectoryLogsEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Send Subscription logs. The default value is `false`. Changing this forces a new resource to be created.
+// Send Subscription logs. The default value is `false`.
 func (o TagRulesLogRuleOutput) SendSubscriptionLogsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TagRulesLogRule) *bool { return v.SendSubscriptionLogsEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -741,7 +741,7 @@ func (o TagRulesLogRulePtrOutput) Elem() TagRulesLogRuleOutput {
 	}).(TagRulesLogRuleOutput)
 }
 
-// Filtering tag for the log rule. A `filteringTag` block as defined below. Changing this forces a new resource to be created.
+// Filtering tag for the log rule. A `filteringTag` block as defined below.
 func (o TagRulesLogRulePtrOutput) FilteringTags() TagRulesLogRuleFilteringTagArrayOutput {
 	return o.ApplyT(func(v *TagRulesLogRule) []TagRulesLogRuleFilteringTag {
 		if v == nil {
@@ -751,7 +751,7 @@ func (o TagRulesLogRulePtrOutput) FilteringTags() TagRulesLogRuleFilteringTagArr
 	}).(TagRulesLogRuleFilteringTagArrayOutput)
 }
 
-// Send Activity logs. The default value is `false`. Changing this forces a new resource to be created.
+// Send Activity logs. The default value is `false`.
 func (o TagRulesLogRulePtrOutput) SendActivityLogsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TagRulesLogRule) *bool {
 		if v == nil {
@@ -761,7 +761,7 @@ func (o TagRulesLogRulePtrOutput) SendActivityLogsEnabled() pulumi.BoolPtrOutput
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Send Azure Active Directory logs. The default value is `false`. Changing this forces a new resource to be created.
+// Send Azure Active Directory logs. The default value is `false`.
 func (o TagRulesLogRulePtrOutput) SendAzureActiveDirectoryLogsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TagRulesLogRule) *bool {
 		if v == nil {
@@ -771,7 +771,7 @@ func (o TagRulesLogRulePtrOutput) SendAzureActiveDirectoryLogsEnabled() pulumi.B
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Send Subscription logs. The default value is `false`. Changing this forces a new resource to be created.
+// Send Subscription logs. The default value is `false`.
 func (o TagRulesLogRulePtrOutput) SendSubscriptionLogsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TagRulesLogRule) *bool {
 		if v == nil {
@@ -782,11 +782,11 @@ func (o TagRulesLogRulePtrOutput) SendSubscriptionLogsEnabled() pulumi.BoolPtrOu
 }
 
 type TagRulesLogRuleFilteringTag struct {
-	// Action of the filtering tag. Possible values are `Include` and `Exclude`. Changing this forces a new resource to be created.
+	// Action of the filtering tag. Possible values are `Include` and `Exclude`.
 	Action string `pulumi:"action"`
-	// Name of the filtering tag. Changing this forces a new resource to be created.
+	// Name of the filtering tag.
 	Name string `pulumi:"name"`
-	// Value of the filtering tag. Changing this forces a new resource to be created.
+	// Value of the filtering tag.
 	Value string `pulumi:"value"`
 }
 
@@ -802,11 +802,11 @@ type TagRulesLogRuleFilteringTagInput interface {
 }
 
 type TagRulesLogRuleFilteringTagArgs struct {
-	// Action of the filtering tag. Possible values are `Include` and `Exclude`. Changing this forces a new resource to be created.
+	// Action of the filtering tag. Possible values are `Include` and `Exclude`.
 	Action pulumi.StringInput `pulumi:"action"`
-	// Name of the filtering tag. Changing this forces a new resource to be created.
+	// Name of the filtering tag.
 	Name pulumi.StringInput `pulumi:"name"`
-	// Value of the filtering tag. Changing this forces a new resource to be created.
+	// Value of the filtering tag.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -861,17 +861,17 @@ func (o TagRulesLogRuleFilteringTagOutput) ToTagRulesLogRuleFilteringTagOutputWi
 	return o
 }
 
-// Action of the filtering tag. Possible values are `Include` and `Exclude`. Changing this forces a new resource to be created.
+// Action of the filtering tag. Possible values are `Include` and `Exclude`.
 func (o TagRulesLogRuleFilteringTagOutput) Action() pulumi.StringOutput {
 	return o.ApplyT(func(v TagRulesLogRuleFilteringTag) string { return v.Action }).(pulumi.StringOutput)
 }
 
-// Name of the filtering tag. Changing this forces a new resource to be created.
+// Name of the filtering tag.
 func (o TagRulesLogRuleFilteringTagOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v TagRulesLogRuleFilteringTag) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Value of the filtering tag. Changing this forces a new resource to be created.
+// Value of the filtering tag.
 func (o TagRulesLogRuleFilteringTagOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v TagRulesLogRuleFilteringTag) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -1034,11 +1034,11 @@ func (o TagRulesMetricRulePtrOutput) FilteringTags() TagRulesMetricRuleFiltering
 }
 
 type TagRulesMetricRuleFilteringTag struct {
-	// Action of the filtering tag. Possible values are `Include` and `Exclude`. Changing this forces a new resource to be created.
+	// Action of the filtering tag. Possible values are `Include` and `Exclude`.
 	Action string `pulumi:"action"`
-	// Name of the filtering tag. Changing this forces a new resource to be created.
+	// Name of the filtering tag.
 	Name string `pulumi:"name"`
-	// Value of the filtering tag. Changing this forces a new resource to be created.
+	// Value of the filtering tag.
 	Value string `pulumi:"value"`
 }
 
@@ -1054,11 +1054,11 @@ type TagRulesMetricRuleFilteringTagInput interface {
 }
 
 type TagRulesMetricRuleFilteringTagArgs struct {
-	// Action of the filtering tag. Possible values are `Include` and `Exclude`. Changing this forces a new resource to be created.
+	// Action of the filtering tag. Possible values are `Include` and `Exclude`.
 	Action pulumi.StringInput `pulumi:"action"`
-	// Name of the filtering tag. Changing this forces a new resource to be created.
+	// Name of the filtering tag.
 	Name pulumi.StringInput `pulumi:"name"`
-	// Value of the filtering tag. Changing this forces a new resource to be created.
+	// Value of the filtering tag.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -1113,17 +1113,17 @@ func (o TagRulesMetricRuleFilteringTagOutput) ToTagRulesMetricRuleFilteringTagOu
 	return o
 }
 
-// Action of the filtering tag. Possible values are `Include` and `Exclude`. Changing this forces a new resource to be created.
+// Action of the filtering tag. Possible values are `Include` and `Exclude`.
 func (o TagRulesMetricRuleFilteringTagOutput) Action() pulumi.StringOutput {
 	return o.ApplyT(func(v TagRulesMetricRuleFilteringTag) string { return v.Action }).(pulumi.StringOutput)
 }
 
-// Name of the filtering tag. Changing this forces a new resource to be created.
+// Name of the filtering tag.
 func (o TagRulesMetricRuleFilteringTagOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v TagRulesMetricRuleFilteringTag) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Value of the filtering tag. Changing this forces a new resource to be created.
+// Value of the filtering tag.
 func (o TagRulesMetricRuleFilteringTagOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v TagRulesMetricRuleFilteringTag) string { return v.Value }).(pulumi.StringOutput)
 }

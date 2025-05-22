@@ -6,6 +6,7 @@ package com.pulumi.azure.devcenter;
 import com.pulumi.azure.Utilities;
 import com.pulumi.azure.devcenter.ProjectArgs;
 import com.pulumi.azure.devcenter.inputs.ProjectState;
+import com.pulumi.azure.devcenter.outputs.ProjectIdentity;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -17,8 +18,6 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * &lt;!-- Note: This documentation is generated. Any manual changes will be overwritten --&gt;
- * 
  * Manages a Dev Center Project.
  * 
  * ## Example Usage
@@ -78,6 +77,13 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.DevCenter`: 2025-02-01
+ * 
  * ## Import
  * 
  * An existing Dev Center Project can be imported into Pulumi using the `resource id`, e.g.
@@ -136,6 +142,20 @@ public class Project extends com.pulumi.resources.CustomResource {
      */
     public Output<String> devCenterUri() {
         return this.devCenterUri;
+    }
+    /**
+     * An `identity` block as defined below.
+     * 
+     */
+    @Export(name="identity", refs={ProjectIdentity.class}, tree="[0]")
+    private Output</* @Nullable */ ProjectIdentity> identity;
+
+    /**
+     * @return An `identity` block as defined below.
+     * 
+     */
+    public Output<Optional<ProjectIdentity>> identity() {
+        return Codegen.optional(this.identity);
     }
     /**
      * The Azure Region where the Dev Center Project should exist. Changing this forces a new Dev Center Project to be created.

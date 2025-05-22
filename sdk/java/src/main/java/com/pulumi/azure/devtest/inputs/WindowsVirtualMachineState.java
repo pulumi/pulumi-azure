@@ -83,7 +83,7 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
     /**
      * One or more `inbound_nat_rule` blocks as defined below. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** If any `inbound_nat_rule` blocks are specified then `disallow_public_ip_address` must be set to `true`.
+     * &gt; **Note:** If any `inbound_nat_rule` blocks are specified then `disallow_public_ip_address` must be set to `true`.
      * 
      */
     @Import(name="inboundNatRules")
@@ -92,7 +92,7 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
     /**
      * @return One or more `inbound_nat_rule` blocks as defined below. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** If any `inbound_nat_rule` blocks are specified then `disallow_public_ip_address` must be set to `true`.
+     * &gt; **Note:** If any `inbound_nat_rule` blocks are specified then `disallow_public_ip_address` must be set to `true`.
      * 
      */
     public Optional<Output<List<WindowsVirtualMachineInboundNatRuleArgs>>> inboundNatRules() {
@@ -162,7 +162,7 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
     /**
      * Specifies the name of the Dev Test Machine. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** The validation requirements for the Name change based on the `os_type` used in this Virtual Machine. For a Linux VM the name must be between 1-62 characters, and for a Windows VM the name must be between 1-15 characters. It must begin and end with a letter or number, and cannot be all numbers.
+     * &gt; **Note:** The validation requirements for the Name change based on the `os_type` used in this Virtual Machine. For a Linux VM the name must be between 1-62 characters, and for a Windows VM the name must be between 1-15 characters. It must begin and end with a letter or number, and cannot be all numbers.
      * 
      */
     @Import(name="name")
@@ -171,7 +171,7 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
     /**
      * @return Specifies the name of the Dev Test Machine. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** The validation requirements for the Name change based on the `os_type` used in this Virtual Machine. For a Linux VM the name must be between 1-62 characters, and for a Windows VM the name must be between 1-15 characters. It must begin and end with a letter or number, and cannot be all numbers.
+     * &gt; **Note:** The validation requirements for the Name change based on the `os_type` used in this Virtual Machine. For a Linux VM the name must be between 1-62 characters, and for a Windows VM the name must be between 1-15 characters. It must begin and end with a letter or number, and cannot be all numbers.
      * 
      */
     public Optional<Output<String>> name() {
@@ -426,7 +426,7 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
         /**
          * @param inboundNatRules One or more `inbound_nat_rule` blocks as defined below. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** If any `inbound_nat_rule` blocks are specified then `disallow_public_ip_address` must be set to `true`.
+         * &gt; **Note:** If any `inbound_nat_rule` blocks are specified then `disallow_public_ip_address` must be set to `true`.
          * 
          * @return builder
          * 
@@ -439,7 +439,7 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
         /**
          * @param inboundNatRules One or more `inbound_nat_rule` blocks as defined below. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** If any `inbound_nat_rule` blocks are specified then `disallow_public_ip_address` must be set to `true`.
+         * &gt; **Note:** If any `inbound_nat_rule` blocks are specified then `disallow_public_ip_address` must be set to `true`.
          * 
          * @return builder
          * 
@@ -451,7 +451,7 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
         /**
          * @param inboundNatRules One or more `inbound_nat_rule` blocks as defined below. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** If any `inbound_nat_rule` blocks are specified then `disallow_public_ip_address` must be set to `true`.
+         * &gt; **Note:** If any `inbound_nat_rule` blocks are specified then `disallow_public_ip_address` must be set to `true`.
          * 
          * @return builder
          * 
@@ -547,7 +547,7 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
         /**
          * @param name Specifies the name of the Dev Test Machine. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** The validation requirements for the Name change based on the `os_type` used in this Virtual Machine. For a Linux VM the name must be between 1-62 characters, and for a Windows VM the name must be between 1-15 characters. It must begin and end with a letter or number, and cannot be all numbers.
+         * &gt; **Note:** The validation requirements for the Name change based on the `os_type` used in this Virtual Machine. For a Linux VM the name must be between 1-62 characters, and for a Windows VM the name must be between 1-15 characters. It must begin and end with a letter or number, and cannot be all numbers.
          * 
          * @return builder
          * 
@@ -560,7 +560,7 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
         /**
          * @param name Specifies the name of the Dev Test Machine. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** The validation requirements for the Name change based on the `os_type` used in this Virtual Machine. For a Linux VM the name must be between 1-62 characters, and for a Windows VM the name must be between 1-15 characters. It must begin and end with a letter or number, and cannot be all numbers.
+         * &gt; **Note:** The validation requirements for the Name change based on the `os_type` used in this Virtual Machine. For a Linux VM the name must be between 1-62 characters, and for a Windows VM the name must be between 1-15 characters. It must begin and end with a letter or number, and cannot be all numbers.
          * 
          * @return builder
          * 

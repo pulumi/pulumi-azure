@@ -240,6 +240,13 @@ class Device(pulumi.CustomResource):
             sku_name="EdgeP_Base-Standard")
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DataBoxEdge`: 2022-03-01
+
         ## Import
 
         Databox Edge Devices can be imported using the `resource id`, e.g.
@@ -280,6 +287,13 @@ class Device(pulumi.CustomResource):
             location=example.location,
             sku_name="EdgeP_Base-Standard")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DataBoxEdge`: 2022-03-01
 
         ## Import
 

@@ -40,6 +40,13 @@ import (
 //	}
 //
 // ```
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This data source uses the following Azure API Providers:
+//
+// * `Microsoft.Solutions`: 2021-07-01
 func LookupDefinition(ctx *pulumi.Context, args *LookupDefinitionArgs, opts ...pulumi.InvokeOption) (*LookupDefinitionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDefinitionResult

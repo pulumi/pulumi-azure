@@ -67,6 +67,13 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.AzureStackHCI`: 2024-01-01
+ * 
  * ## Import
  * 
  * Azure Stack HCI Extension can be imported using the `resource id`, e.g.
@@ -193,7 +200,7 @@ public class HciExtension extends com.pulumi.resources.CustomResource {
     /**
      * Specifies the version of the script handler.
      * 
-     * &gt; **NOTE:** `type_handler_version` cannot be set when `automatic_upgrade_enabled` is set to `true`.
+     * &gt; **Note:** `type_handler_version` cannot be set when `automatic_upgrade_enabled` is set to `true`.
      * 
      */
     @Export(name="typeHandlerVersion", refs={String.class}, tree="[0]")
@@ -202,7 +209,7 @@ public class HciExtension extends com.pulumi.resources.CustomResource {
     /**
      * @return Specifies the version of the script handler.
      * 
-     * &gt; **NOTE:** `type_handler_version` cannot be set when `automatic_upgrade_enabled` is set to `true`.
+     * &gt; **Note:** `type_handler_version` cannot be set when `automatic_upgrade_enabled` is set to `true`.
      * 
      */
     public Output<Optional<String>> typeHandlerVersion() {

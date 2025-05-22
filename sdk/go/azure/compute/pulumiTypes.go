@@ -355,7 +355,7 @@ func (o CapacityReservationSkuPtrOutput) Name() pulumi.StringPtrOutput {
 type DiskEncryptionSetIdentity struct {
 	// A list of User Assigned Managed Identity IDs to be assigned to this Disk Encryption Set.
 	//
-	// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+	// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 	IdentityIds []string `pulumi:"identityIds"`
 	// The (Client) ID of the Service Principal.
 	PrincipalId *string `pulumi:"principalId"`
@@ -379,7 +379,7 @@ type DiskEncryptionSetIdentityInput interface {
 type DiskEncryptionSetIdentityArgs struct {
 	// A list of User Assigned Managed Identity IDs to be assigned to this Disk Encryption Set.
 	//
-	// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+	// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The (Client) ID of the Service Principal.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
@@ -468,7 +468,7 @@ func (o DiskEncryptionSetIdentityOutput) ToDiskEncryptionSetIdentityPtrOutputWit
 
 // A list of User Assigned Managed Identity IDs to be assigned to this Disk Encryption Set.
 //
-// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 func (o DiskEncryptionSetIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DiskEncryptionSetIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
@@ -514,7 +514,7 @@ func (o DiskEncryptionSetIdentityPtrOutput) Elem() DiskEncryptionSetIdentityOutp
 
 // A list of User Assigned Managed Identity IDs to be assigned to this Disk Encryption Set.
 //
-// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 func (o DiskEncryptionSetIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DiskEncryptionSetIdentity) []string {
 		if v == nil {
@@ -3429,15 +3429,15 @@ func (o LinuxVirtualMachineScaleSetAdminSshKeyArrayOutput) Index(i pulumi.IntInp
 type LinuxVirtualMachineScaleSetAutomaticInstanceRepair struct {
 	// The repair action that will be used for repairing unhealthy virtual machines in the scale set. Possible values include `Replace`, `Restart`, `Reimage`.
 	//
-	// > **Note:**  Once the `action` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
+	// > **Note:** Once the `action` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
 	//
-	// > **Note:**  If you wish to update the repair `action` of an existing `automaticInstanceRepair` policy, you must first `disable` the `automaticInstanceRepair` policy before you can re-enable the `automaticInstanceRepair` policy with the new repair `action` defined.
+	// > **Note:** If you wish to update the repair `action` of an existing `automaticInstanceRepair` policy, you must first `disable` the `automaticInstanceRepair` policy before you can re-enable the `automaticInstanceRepair` policy with the new repair `action` defined.
 	Action *string `pulumi:"action"`
 	// Should the automatic instance repair be enabled on this Virtual Machine Scale Set?
 	Enabled bool `pulumi:"enabled"`
 	// Amount of time for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. Possible values are between `10` and `90` minutes. The time duration should be specified in `ISO 8601` format (e.g. `PT10M` to `PT90M`).
 	//
-	// > **Note:**  Once the `gracePeriod` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
+	// > **Note:** Once the `gracePeriod` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
 	GracePeriod *string `pulumi:"gracePeriod"`
 }
 
@@ -3455,15 +3455,15 @@ type LinuxVirtualMachineScaleSetAutomaticInstanceRepairInput interface {
 type LinuxVirtualMachineScaleSetAutomaticInstanceRepairArgs struct {
 	// The repair action that will be used for repairing unhealthy virtual machines in the scale set. Possible values include `Replace`, `Restart`, `Reimage`.
 	//
-	// > **Note:**  Once the `action` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
+	// > **Note:** Once the `action` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
 	//
-	// > **Note:**  If you wish to update the repair `action` of an existing `automaticInstanceRepair` policy, you must first `disable` the `automaticInstanceRepair` policy before you can re-enable the `automaticInstanceRepair` policy with the new repair `action` defined.
+	// > **Note:** If you wish to update the repair `action` of an existing `automaticInstanceRepair` policy, you must first `disable` the `automaticInstanceRepair` policy before you can re-enable the `automaticInstanceRepair` policy with the new repair `action` defined.
 	Action pulumi.StringPtrInput `pulumi:"action"`
 	// Should the automatic instance repair be enabled on this Virtual Machine Scale Set?
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// Amount of time for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. Possible values are between `10` and `90` minutes. The time duration should be specified in `ISO 8601` format (e.g. `PT10M` to `PT90M`).
 	//
-	// > **Note:**  Once the `gracePeriod` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
+	// > **Note:** Once the `gracePeriod` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
 	GracePeriod pulumi.StringPtrInput `pulumi:"gracePeriod"`
 }
 
@@ -3546,9 +3546,9 @@ func (o LinuxVirtualMachineScaleSetAutomaticInstanceRepairOutput) ToLinuxVirtual
 
 // The repair action that will be used for repairing unhealthy virtual machines in the scale set. Possible values include `Replace`, `Restart`, `Reimage`.
 //
-// > **Note:**  Once the `action` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
+// > **Note:** Once the `action` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
 //
-// > **Note:**  If you wish to update the repair `action` of an existing `automaticInstanceRepair` policy, you must first `disable` the `automaticInstanceRepair` policy before you can re-enable the `automaticInstanceRepair` policy with the new repair `action` defined.
+// > **Note:** If you wish to update the repair `action` of an existing `automaticInstanceRepair` policy, you must first `disable` the `automaticInstanceRepair` policy before you can re-enable the `automaticInstanceRepair` policy with the new repair `action` defined.
 func (o LinuxVirtualMachineScaleSetAutomaticInstanceRepairOutput) Action() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineScaleSetAutomaticInstanceRepair) *string { return v.Action }).(pulumi.StringPtrOutput)
 }
@@ -3560,7 +3560,7 @@ func (o LinuxVirtualMachineScaleSetAutomaticInstanceRepairOutput) Enabled() pulu
 
 // Amount of time for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. Possible values are between `10` and `90` minutes. The time duration should be specified in `ISO 8601` format (e.g. `PT10M` to `PT90M`).
 //
-// > **Note:**  Once the `gracePeriod` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
+// > **Note:** Once the `gracePeriod` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
 func (o LinuxVirtualMachineScaleSetAutomaticInstanceRepairOutput) GracePeriod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineScaleSetAutomaticInstanceRepair) *string { return v.GracePeriod }).(pulumi.StringPtrOutput)
 }
@@ -3591,9 +3591,9 @@ func (o LinuxVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput) Elem() Linu
 
 // The repair action that will be used for repairing unhealthy virtual machines in the scale set. Possible values include `Replace`, `Restart`, `Reimage`.
 //
-// > **Note:**  Once the `action` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
+// > **Note:** Once the `action` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
 //
-// > **Note:**  If you wish to update the repair `action` of an existing `automaticInstanceRepair` policy, you must first `disable` the `automaticInstanceRepair` policy before you can re-enable the `automaticInstanceRepair` policy with the new repair `action` defined.
+// > **Note:** If you wish to update the repair `action` of an existing `automaticInstanceRepair` policy, you must first `disable` the `automaticInstanceRepair` policy before you can re-enable the `automaticInstanceRepair` policy with the new repair `action` defined.
 func (o LinuxVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput) Action() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachineScaleSetAutomaticInstanceRepair) *string {
 		if v == nil {
@@ -3615,7 +3615,7 @@ func (o LinuxVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput) Enabled() p
 
 // Amount of time for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. Possible values are between `10` and `90` minutes. The time duration should be specified in `ISO 8601` format (e.g. `PT10M` to `PT90M`).
 //
-// > **Note:**  Once the `gracePeriod` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
+// > **Note:** Once the `gracePeriod` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
 func (o LinuxVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput) GracePeriod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachineScaleSetAutomaticInstanceRepair) *string {
 		if v == nil {
@@ -4985,7 +4985,7 @@ type LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration struct {
 	ApplicationSecurityGroupIds []string `pulumi:"applicationSecurityGroupIds"`
 	// A list of Backend Address Pools ID's from a Load Balancer which this Virtual Machine Scale Set should be connected to.
 	//
-	// > **Note:**  When the Virtual Machine Scale Set is configured to have public IPs per instance are created with a load balancer, the SKU of the Virtual Machine instance IPs is determined by the SKU of the Virtual Machine Scale Sets Load Balancer (e.g. `Basic` or `Standard`). Alternatively, you may use the `publicIpPrefixId` field to generate instance-level IPs in a virtual machine scale set as well. The zonal properties of the prefix will be passed to the Virtual Machine instance IPs, though they will not be shown in the output. To view the public IP addresses assigned to the Virtual Machine Scale Sets Virtual Machine instances use the **az vmss list-instance-public-ips --resource-group `ResourceGroupName` --name `VirtualMachineScaleSetName`** CLI command.
+	// > **Note:** When the Virtual Machine Scale Set is configured to have public IPs per instance are created with a load balancer, the SKU of the Virtual Machine instance IPs is determined by the SKU of the Virtual Machine Scale Sets Load Balancer (e.g. `Basic` or `Standard`). Alternatively, you may use the `publicIpPrefixId` field to generate instance-level IPs in a virtual machine scale set as well. The zonal properties of the prefix will be passed to the Virtual Machine instance IPs, though they will not be shown in the output. To view the public IP addresses assigned to the Virtual Machine Scale Sets Virtual Machine instances use the **az vmss list-instance-public-ips --resource-group `ResourceGroupName` --name `VirtualMachineScaleSetName`** CLI command.
 	//
 	// > **Note:** When using this field you'll also need to configure a Rule for the Load Balancer, and use a `dependsOn` between this resource and the Load Balancer Rule.
 	LoadBalancerBackendAddressPoolIds []string `pulumi:"loadBalancerBackendAddressPoolIds"`
@@ -5003,7 +5003,7 @@ type LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration struct {
 	PublicIpAddresses []LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress `pulumi:"publicIpAddresses"`
 	// The ID of the Subnet which this IP Configuration should be connected to.
 	//
-	// > `subnetId` is required if `version` is set to `IPv4`.
+	// > **Note:** `subnetId` is required if `version` is set to `IPv4`.
 	SubnetId *string `pulumi:"subnetId"`
 	// The Internet Protocol Version which should be used for this IP Configuration. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
 	Version *string `pulumi:"version"`
@@ -5027,7 +5027,7 @@ type LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs struct {
 	ApplicationSecurityGroupIds pulumi.StringArrayInput `pulumi:"applicationSecurityGroupIds"`
 	// A list of Backend Address Pools ID's from a Load Balancer which this Virtual Machine Scale Set should be connected to.
 	//
-	// > **Note:**  When the Virtual Machine Scale Set is configured to have public IPs per instance are created with a load balancer, the SKU of the Virtual Machine instance IPs is determined by the SKU of the Virtual Machine Scale Sets Load Balancer (e.g. `Basic` or `Standard`). Alternatively, you may use the `publicIpPrefixId` field to generate instance-level IPs in a virtual machine scale set as well. The zonal properties of the prefix will be passed to the Virtual Machine instance IPs, though they will not be shown in the output. To view the public IP addresses assigned to the Virtual Machine Scale Sets Virtual Machine instances use the **az vmss list-instance-public-ips --resource-group `ResourceGroupName` --name `VirtualMachineScaleSetName`** CLI command.
+	// > **Note:** When the Virtual Machine Scale Set is configured to have public IPs per instance are created with a load balancer, the SKU of the Virtual Machine instance IPs is determined by the SKU of the Virtual Machine Scale Sets Load Balancer (e.g. `Basic` or `Standard`). Alternatively, you may use the `publicIpPrefixId` field to generate instance-level IPs in a virtual machine scale set as well. The zonal properties of the prefix will be passed to the Virtual Machine instance IPs, though they will not be shown in the output. To view the public IP addresses assigned to the Virtual Machine Scale Sets Virtual Machine instances use the **az vmss list-instance-public-ips --resource-group `ResourceGroupName` --name `VirtualMachineScaleSetName`** CLI command.
 	//
 	// > **Note:** When using this field you'll also need to configure a Rule for the Load Balancer, and use a `dependsOn` between this resource and the Load Balancer Rule.
 	LoadBalancerBackendAddressPoolIds pulumi.StringArrayInput `pulumi:"loadBalancerBackendAddressPoolIds"`
@@ -5045,7 +5045,7 @@ type LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs struct {
 	PublicIpAddresses LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayInput `pulumi:"publicIpAddresses"`
 	// The ID of the Subnet which this IP Configuration should be connected to.
 	//
-	// > `subnetId` is required if `version` is set to `IPv4`.
+	// > **Note:** `subnetId` is required if `version` is set to `IPv4`.
 	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
 	// The Internet Protocol Version which should be used for this IP Configuration. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
 	Version pulumi.StringPtrInput `pulumi:"version"`
@@ -5118,7 +5118,7 @@ func (o LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput) Applic
 
 // A list of Backend Address Pools ID's from a Load Balancer which this Virtual Machine Scale Set should be connected to.
 //
-// > **Note:**  When the Virtual Machine Scale Set is configured to have public IPs per instance are created with a load balancer, the SKU of the Virtual Machine instance IPs is determined by the SKU of the Virtual Machine Scale Sets Load Balancer (e.g. `Basic` or `Standard`). Alternatively, you may use the `publicIpPrefixId` field to generate instance-level IPs in a virtual machine scale set as well. The zonal properties of the prefix will be passed to the Virtual Machine instance IPs, though they will not be shown in the output. To view the public IP addresses assigned to the Virtual Machine Scale Sets Virtual Machine instances use the **az vmss list-instance-public-ips --resource-group `ResourceGroupName` --name `VirtualMachineScaleSetName`** CLI command.
+// > **Note:** When the Virtual Machine Scale Set is configured to have public IPs per instance are created with a load balancer, the SKU of the Virtual Machine instance IPs is determined by the SKU of the Virtual Machine Scale Sets Load Balancer (e.g. `Basic` or `Standard`). Alternatively, you may use the `publicIpPrefixId` field to generate instance-level IPs in a virtual machine scale set as well. The zonal properties of the prefix will be passed to the Virtual Machine instance IPs, though they will not be shown in the output. To view the public IP addresses assigned to the Virtual Machine Scale Sets Virtual Machine instances use the **az vmss list-instance-public-ips --resource-group `ResourceGroupName` --name `VirtualMachineScaleSetName`** CLI command.
 //
 // > **Note:** When using this field you'll also need to configure a Rule for the Load Balancer, and use a `dependsOn` between this resource and the Load Balancer Rule.
 func (o LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput) LoadBalancerBackendAddressPoolIds() pulumi.StringArrayOutput {
@@ -5157,7 +5157,7 @@ func (o LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput) Public
 
 // The ID of the Subnet which this IP Configuration should be connected to.
 //
-// > `subnetId` is required if `version` is set to `IPv4`.
+// > **Note:** `subnetId` is required if `version` is set to `IPv4`.
 func (o LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
@@ -8445,15 +8445,15 @@ func (o OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput) Ultra
 type OrchestratedVirtualMachineScaleSetAutomaticInstanceRepair struct {
 	// The repair action that will be used for repairing unhealthy virtual machines in the scale set. Possible values include `Replace`, `Restart`, `Reimage`.
 	//
-	// > **Note:**  Once the `action` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
+	// > **Note:** Once the `action` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
 	//
-	// > **Note:**  If you wish to update the repair `action` of an existing `automaticInstanceRepair` policy, you must first `disable` the `automaticInstanceRepair` policy before you can re-enable the `automaticInstanceRepair` policy with the new repair `action` defined.
+	// > **Note:** If you wish to update the repair `action` of an existing `automaticInstanceRepair` policy, you must first `disable` the `automaticInstanceRepair` policy before you can re-enable the `automaticInstanceRepair` policy with the new repair `action` defined.
 	Action *string `pulumi:"action"`
 	// Should the automatic instance repair be enabled on this Virtual Machine Scale Set? Possible values are `true` and `false`.
 	Enabled bool `pulumi:"enabled"`
 	// Amount of time for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. Possible values are between `10` and `90` minutes. The time duration should be specified in `ISO 8601` format (e.g. `PT10M` to `PT90M`).
 	//
-	// > **Note:**  Once the `gracePeriod` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
+	// > **Note:** Once the `gracePeriod` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
 	GracePeriod *string `pulumi:"gracePeriod"`
 }
 
@@ -8471,15 +8471,15 @@ type OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairInput interface {
 type OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs struct {
 	// The repair action that will be used for repairing unhealthy virtual machines in the scale set. Possible values include `Replace`, `Restart`, `Reimage`.
 	//
-	// > **Note:**  Once the `action` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
+	// > **Note:** Once the `action` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
 	//
-	// > **Note:**  If you wish to update the repair `action` of an existing `automaticInstanceRepair` policy, you must first `disable` the `automaticInstanceRepair` policy before you can re-enable the `automaticInstanceRepair` policy with the new repair `action` defined.
+	// > **Note:** If you wish to update the repair `action` of an existing `automaticInstanceRepair` policy, you must first `disable` the `automaticInstanceRepair` policy before you can re-enable the `automaticInstanceRepair` policy with the new repair `action` defined.
 	Action pulumi.StringPtrInput `pulumi:"action"`
 	// Should the automatic instance repair be enabled on this Virtual Machine Scale Set? Possible values are `true` and `false`.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// Amount of time for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. Possible values are between `10` and `90` minutes. The time duration should be specified in `ISO 8601` format (e.g. `PT10M` to `PT90M`).
 	//
-	// > **Note:**  Once the `gracePeriod` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
+	// > **Note:** Once the `gracePeriod` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
 	GracePeriod pulumi.StringPtrInput `pulumi:"gracePeriod"`
 }
 
@@ -8562,9 +8562,9 @@ func (o OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairOutput) ToOrche
 
 // The repair action that will be used for repairing unhealthy virtual machines in the scale set. Possible values include `Replace`, `Restart`, `Reimage`.
 //
-// > **Note:**  Once the `action` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
+// > **Note:** Once the `action` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
 //
-// > **Note:**  If you wish to update the repair `action` of an existing `automaticInstanceRepair` policy, you must first `disable` the `automaticInstanceRepair` policy before you can re-enable the `automaticInstanceRepair` policy with the new repair `action` defined.
+// > **Note:** If you wish to update the repair `action` of an existing `automaticInstanceRepair` policy, you must first `disable` the `automaticInstanceRepair` policy before you can re-enable the `automaticInstanceRepair` policy with the new repair `action` defined.
 func (o OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairOutput) Action() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetAutomaticInstanceRepair) *string { return v.Action }).(pulumi.StringPtrOutput)
 }
@@ -8576,7 +8576,7 @@ func (o OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairOutput) Enabled
 
 // Amount of time for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. Possible values are between `10` and `90` minutes. The time duration should be specified in `ISO 8601` format (e.g. `PT10M` to `PT90M`).
 //
-// > **Note:**  Once the `gracePeriod` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
+// > **Note:** Once the `gracePeriod` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
 func (o OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairOutput) GracePeriod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetAutomaticInstanceRepair) *string { return v.GracePeriod }).(pulumi.StringPtrOutput)
 }
@@ -8607,9 +8607,9 @@ func (o OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput) Elem
 
 // The repair action that will be used for repairing unhealthy virtual machines in the scale set. Possible values include `Replace`, `Restart`, `Reimage`.
 //
-// > **Note:**  Once the `action` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
+// > **Note:** Once the `action` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
 //
-// > **Note:**  If you wish to update the repair `action` of an existing `automaticInstanceRepair` policy, you must first `disable` the `automaticInstanceRepair` policy before you can re-enable the `automaticInstanceRepair` policy with the new repair `action` defined.
+// > **Note:** If you wish to update the repair `action` of an existing `automaticInstanceRepair` policy, you must first `disable` the `automaticInstanceRepair` policy before you can re-enable the `automaticInstanceRepair` policy with the new repair `action` defined.
 func (o OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput) Action() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetAutomaticInstanceRepair) *string {
 		if v == nil {
@@ -8631,7 +8631,7 @@ func (o OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput) Enab
 
 // Amount of time for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. Possible values are between `10` and `90` minutes. The time duration should be specified in `ISO 8601` format (e.g. `PT10M` to `PT90M`).
 //
-// > **Note:**  Once the `gracePeriod` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
+// > **Note:** Once the `gracePeriod` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
 func (o OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput) GracePeriod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetAutomaticInstanceRepair) *string {
 		if v == nil {
@@ -12500,6 +12500,269 @@ func (o OrchestratedVirtualMachineScaleSetPriorityMixPtrOutput) RegularPercentag
 	}).(pulumi.IntPtrOutput)
 }
 
+type OrchestratedVirtualMachineScaleSetRollingUpgradePolicy struct {
+	// Should the Virtual Machine Scale Set ignore the Azure Zone boundaries when constructing upgrade batches? Possible values are `true` or `false`.
+	CrossZoneUpgradesEnabled *bool `pulumi:"crossZoneUpgradesEnabled"`
+	// The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability.
+	MaxBatchInstancePercent int `pulumi:"maxBatchInstancePercent"`
+	// The maximum percentage of the total virtual machine instances in the scale set that can be simultaneously unhealthy, either as a result of being upgraded, or by being found in an unhealthy state by the virtual machine health checks before the rolling upgrade aborts. This constraint will be checked prior to starting any batch.
+	MaxUnhealthyInstancePercent int `pulumi:"maxUnhealthyInstancePercent"`
+	// The maximum percentage of upgraded virtual machine instances that can be found to be in an unhealthy state. This check will happen after each batch is upgraded. If this percentage is ever exceeded, the rolling update aborts.
+	MaxUnhealthyUpgradedInstancePercent int `pulumi:"maxUnhealthyUpgradedInstancePercent"`
+	// Create new virtual machines to upgrade the scale set, rather than updating the existing virtual machines. Existing virtual machines will be deleted once the new virtual machines are created for each batch. Possible values are `true` or `false`.
+	MaximumSurgeInstancesEnabled *bool `pulumi:"maximumSurgeInstancesEnabled"`
+	// The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 duration format.
+	PauseTimeBetweenBatches string `pulumi:"pauseTimeBetweenBatches"`
+	// Upgrade all unhealthy instances in a scale set before any healthy instances. Possible values are `true` or `false`.
+	PrioritizeUnhealthyInstancesEnabled *bool `pulumi:"prioritizeUnhealthyInstancesEnabled"`
+}
+
+// OrchestratedVirtualMachineScaleSetRollingUpgradePolicyInput is an input type that accepts OrchestratedVirtualMachineScaleSetRollingUpgradePolicyArgs and OrchestratedVirtualMachineScaleSetRollingUpgradePolicyOutput values.
+// You can construct a concrete instance of `OrchestratedVirtualMachineScaleSetRollingUpgradePolicyInput` via:
+//
+//	OrchestratedVirtualMachineScaleSetRollingUpgradePolicyArgs{...}
+type OrchestratedVirtualMachineScaleSetRollingUpgradePolicyInput interface {
+	pulumi.Input
+
+	ToOrchestratedVirtualMachineScaleSetRollingUpgradePolicyOutput() OrchestratedVirtualMachineScaleSetRollingUpgradePolicyOutput
+	ToOrchestratedVirtualMachineScaleSetRollingUpgradePolicyOutputWithContext(context.Context) OrchestratedVirtualMachineScaleSetRollingUpgradePolicyOutput
+}
+
+type OrchestratedVirtualMachineScaleSetRollingUpgradePolicyArgs struct {
+	// Should the Virtual Machine Scale Set ignore the Azure Zone boundaries when constructing upgrade batches? Possible values are `true` or `false`.
+	CrossZoneUpgradesEnabled pulumi.BoolPtrInput `pulumi:"crossZoneUpgradesEnabled"`
+	// The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability.
+	MaxBatchInstancePercent pulumi.IntInput `pulumi:"maxBatchInstancePercent"`
+	// The maximum percentage of the total virtual machine instances in the scale set that can be simultaneously unhealthy, either as a result of being upgraded, or by being found in an unhealthy state by the virtual machine health checks before the rolling upgrade aborts. This constraint will be checked prior to starting any batch.
+	MaxUnhealthyInstancePercent pulumi.IntInput `pulumi:"maxUnhealthyInstancePercent"`
+	// The maximum percentage of upgraded virtual machine instances that can be found to be in an unhealthy state. This check will happen after each batch is upgraded. If this percentage is ever exceeded, the rolling update aborts.
+	MaxUnhealthyUpgradedInstancePercent pulumi.IntInput `pulumi:"maxUnhealthyUpgradedInstancePercent"`
+	// Create new virtual machines to upgrade the scale set, rather than updating the existing virtual machines. Existing virtual machines will be deleted once the new virtual machines are created for each batch. Possible values are `true` or `false`.
+	MaximumSurgeInstancesEnabled pulumi.BoolPtrInput `pulumi:"maximumSurgeInstancesEnabled"`
+	// The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 duration format.
+	PauseTimeBetweenBatches pulumi.StringInput `pulumi:"pauseTimeBetweenBatches"`
+	// Upgrade all unhealthy instances in a scale set before any healthy instances. Possible values are `true` or `false`.
+	PrioritizeUnhealthyInstancesEnabled pulumi.BoolPtrInput `pulumi:"prioritizeUnhealthyInstancesEnabled"`
+}
+
+func (OrchestratedVirtualMachineScaleSetRollingUpgradePolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrchestratedVirtualMachineScaleSetRollingUpgradePolicy)(nil)).Elem()
+}
+
+func (i OrchestratedVirtualMachineScaleSetRollingUpgradePolicyArgs) ToOrchestratedVirtualMachineScaleSetRollingUpgradePolicyOutput() OrchestratedVirtualMachineScaleSetRollingUpgradePolicyOutput {
+	return i.ToOrchestratedVirtualMachineScaleSetRollingUpgradePolicyOutputWithContext(context.Background())
+}
+
+func (i OrchestratedVirtualMachineScaleSetRollingUpgradePolicyArgs) ToOrchestratedVirtualMachineScaleSetRollingUpgradePolicyOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetRollingUpgradePolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrchestratedVirtualMachineScaleSetRollingUpgradePolicyOutput)
+}
+
+func (i OrchestratedVirtualMachineScaleSetRollingUpgradePolicyArgs) ToOrchestratedVirtualMachineScaleSetRollingUpgradePolicyPtrOutput() OrchestratedVirtualMachineScaleSetRollingUpgradePolicyPtrOutput {
+	return i.ToOrchestratedVirtualMachineScaleSetRollingUpgradePolicyPtrOutputWithContext(context.Background())
+}
+
+func (i OrchestratedVirtualMachineScaleSetRollingUpgradePolicyArgs) ToOrchestratedVirtualMachineScaleSetRollingUpgradePolicyPtrOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetRollingUpgradePolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrchestratedVirtualMachineScaleSetRollingUpgradePolicyOutput).ToOrchestratedVirtualMachineScaleSetRollingUpgradePolicyPtrOutputWithContext(ctx)
+}
+
+// OrchestratedVirtualMachineScaleSetRollingUpgradePolicyPtrInput is an input type that accepts OrchestratedVirtualMachineScaleSetRollingUpgradePolicyArgs, OrchestratedVirtualMachineScaleSetRollingUpgradePolicyPtr and OrchestratedVirtualMachineScaleSetRollingUpgradePolicyPtrOutput values.
+// You can construct a concrete instance of `OrchestratedVirtualMachineScaleSetRollingUpgradePolicyPtrInput` via:
+//
+//	        OrchestratedVirtualMachineScaleSetRollingUpgradePolicyArgs{...}
+//
+//	or:
+//
+//	        nil
+type OrchestratedVirtualMachineScaleSetRollingUpgradePolicyPtrInput interface {
+	pulumi.Input
+
+	ToOrchestratedVirtualMachineScaleSetRollingUpgradePolicyPtrOutput() OrchestratedVirtualMachineScaleSetRollingUpgradePolicyPtrOutput
+	ToOrchestratedVirtualMachineScaleSetRollingUpgradePolicyPtrOutputWithContext(context.Context) OrchestratedVirtualMachineScaleSetRollingUpgradePolicyPtrOutput
+}
+
+type orchestratedVirtualMachineScaleSetRollingUpgradePolicyPtrType OrchestratedVirtualMachineScaleSetRollingUpgradePolicyArgs
+
+func OrchestratedVirtualMachineScaleSetRollingUpgradePolicyPtr(v *OrchestratedVirtualMachineScaleSetRollingUpgradePolicyArgs) OrchestratedVirtualMachineScaleSetRollingUpgradePolicyPtrInput {
+	return (*orchestratedVirtualMachineScaleSetRollingUpgradePolicyPtrType)(v)
+}
+
+func (*orchestratedVirtualMachineScaleSetRollingUpgradePolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrchestratedVirtualMachineScaleSetRollingUpgradePolicy)(nil)).Elem()
+}
+
+func (i *orchestratedVirtualMachineScaleSetRollingUpgradePolicyPtrType) ToOrchestratedVirtualMachineScaleSetRollingUpgradePolicyPtrOutput() OrchestratedVirtualMachineScaleSetRollingUpgradePolicyPtrOutput {
+	return i.ToOrchestratedVirtualMachineScaleSetRollingUpgradePolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *orchestratedVirtualMachineScaleSetRollingUpgradePolicyPtrType) ToOrchestratedVirtualMachineScaleSetRollingUpgradePolicyPtrOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetRollingUpgradePolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrchestratedVirtualMachineScaleSetRollingUpgradePolicyPtrOutput)
+}
+
+type OrchestratedVirtualMachineScaleSetRollingUpgradePolicyOutput struct{ *pulumi.OutputState }
+
+func (OrchestratedVirtualMachineScaleSetRollingUpgradePolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrchestratedVirtualMachineScaleSetRollingUpgradePolicy)(nil)).Elem()
+}
+
+func (o OrchestratedVirtualMachineScaleSetRollingUpgradePolicyOutput) ToOrchestratedVirtualMachineScaleSetRollingUpgradePolicyOutput() OrchestratedVirtualMachineScaleSetRollingUpgradePolicyOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetRollingUpgradePolicyOutput) ToOrchestratedVirtualMachineScaleSetRollingUpgradePolicyOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetRollingUpgradePolicyOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetRollingUpgradePolicyOutput) ToOrchestratedVirtualMachineScaleSetRollingUpgradePolicyPtrOutput() OrchestratedVirtualMachineScaleSetRollingUpgradePolicyPtrOutput {
+	return o.ToOrchestratedVirtualMachineScaleSetRollingUpgradePolicyPtrOutputWithContext(context.Background())
+}
+
+func (o OrchestratedVirtualMachineScaleSetRollingUpgradePolicyOutput) ToOrchestratedVirtualMachineScaleSetRollingUpgradePolicyPtrOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetRollingUpgradePolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrchestratedVirtualMachineScaleSetRollingUpgradePolicy) *OrchestratedVirtualMachineScaleSetRollingUpgradePolicy {
+		return &v
+	}).(OrchestratedVirtualMachineScaleSetRollingUpgradePolicyPtrOutput)
+}
+
+// Should the Virtual Machine Scale Set ignore the Azure Zone boundaries when constructing upgrade batches? Possible values are `true` or `false`.
+func (o OrchestratedVirtualMachineScaleSetRollingUpgradePolicyOutput) CrossZoneUpgradesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetRollingUpgradePolicy) *bool {
+		return v.CrossZoneUpgradesEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability.
+func (o OrchestratedVirtualMachineScaleSetRollingUpgradePolicyOutput) MaxBatchInstancePercent() pulumi.IntOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetRollingUpgradePolicy) int { return v.MaxBatchInstancePercent }).(pulumi.IntOutput)
+}
+
+// The maximum percentage of the total virtual machine instances in the scale set that can be simultaneously unhealthy, either as a result of being upgraded, or by being found in an unhealthy state by the virtual machine health checks before the rolling upgrade aborts. This constraint will be checked prior to starting any batch.
+func (o OrchestratedVirtualMachineScaleSetRollingUpgradePolicyOutput) MaxUnhealthyInstancePercent() pulumi.IntOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetRollingUpgradePolicy) int {
+		return v.MaxUnhealthyInstancePercent
+	}).(pulumi.IntOutput)
+}
+
+// The maximum percentage of upgraded virtual machine instances that can be found to be in an unhealthy state. This check will happen after each batch is upgraded. If this percentage is ever exceeded, the rolling update aborts.
+func (o OrchestratedVirtualMachineScaleSetRollingUpgradePolicyOutput) MaxUnhealthyUpgradedInstancePercent() pulumi.IntOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetRollingUpgradePolicy) int {
+		return v.MaxUnhealthyUpgradedInstancePercent
+	}).(pulumi.IntOutput)
+}
+
+// Create new virtual machines to upgrade the scale set, rather than updating the existing virtual machines. Existing virtual machines will be deleted once the new virtual machines are created for each batch. Possible values are `true` or `false`.
+func (o OrchestratedVirtualMachineScaleSetRollingUpgradePolicyOutput) MaximumSurgeInstancesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetRollingUpgradePolicy) *bool {
+		return v.MaximumSurgeInstancesEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 duration format.
+func (o OrchestratedVirtualMachineScaleSetRollingUpgradePolicyOutput) PauseTimeBetweenBatches() pulumi.StringOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetRollingUpgradePolicy) string {
+		return v.PauseTimeBetweenBatches
+	}).(pulumi.StringOutput)
+}
+
+// Upgrade all unhealthy instances in a scale set before any healthy instances. Possible values are `true` or `false`.
+func (o OrchestratedVirtualMachineScaleSetRollingUpgradePolicyOutput) PrioritizeUnhealthyInstancesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetRollingUpgradePolicy) *bool {
+		return v.PrioritizeUnhealthyInstancesEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+type OrchestratedVirtualMachineScaleSetRollingUpgradePolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (OrchestratedVirtualMachineScaleSetRollingUpgradePolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrchestratedVirtualMachineScaleSetRollingUpgradePolicy)(nil)).Elem()
+}
+
+func (o OrchestratedVirtualMachineScaleSetRollingUpgradePolicyPtrOutput) ToOrchestratedVirtualMachineScaleSetRollingUpgradePolicyPtrOutput() OrchestratedVirtualMachineScaleSetRollingUpgradePolicyPtrOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetRollingUpgradePolicyPtrOutput) ToOrchestratedVirtualMachineScaleSetRollingUpgradePolicyPtrOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetRollingUpgradePolicyPtrOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetRollingUpgradePolicyPtrOutput) Elem() OrchestratedVirtualMachineScaleSetRollingUpgradePolicyOutput {
+	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetRollingUpgradePolicy) OrchestratedVirtualMachineScaleSetRollingUpgradePolicy {
+		if v != nil {
+			return *v
+		}
+		var ret OrchestratedVirtualMachineScaleSetRollingUpgradePolicy
+		return ret
+	}).(OrchestratedVirtualMachineScaleSetRollingUpgradePolicyOutput)
+}
+
+// Should the Virtual Machine Scale Set ignore the Azure Zone boundaries when constructing upgrade batches? Possible values are `true` or `false`.
+func (o OrchestratedVirtualMachineScaleSetRollingUpgradePolicyPtrOutput) CrossZoneUpgradesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetRollingUpgradePolicy) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.CrossZoneUpgradesEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability.
+func (o OrchestratedVirtualMachineScaleSetRollingUpgradePolicyPtrOutput) MaxBatchInstancePercent() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetRollingUpgradePolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxBatchInstancePercent
+	}).(pulumi.IntPtrOutput)
+}
+
+// The maximum percentage of the total virtual machine instances in the scale set that can be simultaneously unhealthy, either as a result of being upgraded, or by being found in an unhealthy state by the virtual machine health checks before the rolling upgrade aborts. This constraint will be checked prior to starting any batch.
+func (o OrchestratedVirtualMachineScaleSetRollingUpgradePolicyPtrOutput) MaxUnhealthyInstancePercent() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetRollingUpgradePolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxUnhealthyInstancePercent
+	}).(pulumi.IntPtrOutput)
+}
+
+// The maximum percentage of upgraded virtual machine instances that can be found to be in an unhealthy state. This check will happen after each batch is upgraded. If this percentage is ever exceeded, the rolling update aborts.
+func (o OrchestratedVirtualMachineScaleSetRollingUpgradePolicyPtrOutput) MaxUnhealthyUpgradedInstancePercent() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetRollingUpgradePolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxUnhealthyUpgradedInstancePercent
+	}).(pulumi.IntPtrOutput)
+}
+
+// Create new virtual machines to upgrade the scale set, rather than updating the existing virtual machines. Existing virtual machines will be deleted once the new virtual machines are created for each batch. Possible values are `true` or `false`.
+func (o OrchestratedVirtualMachineScaleSetRollingUpgradePolicyPtrOutput) MaximumSurgeInstancesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetRollingUpgradePolicy) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.MaximumSurgeInstancesEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 duration format.
+func (o OrchestratedVirtualMachineScaleSetRollingUpgradePolicyPtrOutput) PauseTimeBetweenBatches() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetRollingUpgradePolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PauseTimeBetweenBatches
+	}).(pulumi.StringPtrOutput)
+}
+
+// Upgrade all unhealthy instances in a scale set before any healthy instances. Possible values are `true` or `false`.
+func (o OrchestratedVirtualMachineScaleSetRollingUpgradePolicyPtrOutput) PrioritizeUnhealthyInstancesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetRollingUpgradePolicy) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PrioritizeUnhealthyInstancesEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 type OrchestratedVirtualMachineScaleSetSkuProfile struct {
 	// Specifies the allocation strategy for the virtual machine scale set based on which the VMs will be allocated. Possible values are `LowestPrice` and `CapacityOptimized`.
 	AllocationStrategy string `pulumi:"allocationStrategy"`
@@ -13144,7 +13407,7 @@ type PacketCaptureStorageLocation struct {
 	FilePath *string `pulumi:"filePath"`
 	// The ID of the storage account where the packet capture sessions should be saved to.
 	//
-	// > **NOTE:** At least one of `filePath` or `storageAccountId` must be specified.
+	// > **Note:** At least one of `filePath` or `storageAccountId` must be specified.
 	StorageAccountId *string `pulumi:"storageAccountId"`
 	// The URI of the storage path where the packet capture sessions are saved to.
 	StoragePath *string `pulumi:"storagePath"`
@@ -13166,7 +13429,7 @@ type PacketCaptureStorageLocationArgs struct {
 	FilePath pulumi.StringPtrInput `pulumi:"filePath"`
 	// The ID of the storage account where the packet capture sessions should be saved to.
 	//
-	// > **NOTE:** At least one of `filePath` or `storageAccountId` must be specified.
+	// > **Note:** At least one of `filePath` or `storageAccountId` must be specified.
 	StorageAccountId pulumi.StringPtrInput `pulumi:"storageAccountId"`
 	// The URI of the storage path where the packet capture sessions are saved to.
 	StoragePath pulumi.StringPtrInput `pulumi:"storagePath"`
@@ -13256,7 +13519,7 @@ func (o PacketCaptureStorageLocationOutput) FilePath() pulumi.StringPtrOutput {
 
 // The ID of the storage account where the packet capture sessions should be saved to.
 //
-// > **NOTE:** At least one of `filePath` or `storageAccountId` must be specified.
+// > **Note:** At least one of `filePath` or `storageAccountId` must be specified.
 func (o PacketCaptureStorageLocationOutput) StorageAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PacketCaptureStorageLocation) *string { return v.StorageAccountId }).(pulumi.StringPtrOutput)
 }
@@ -13302,7 +13565,7 @@ func (o PacketCaptureStorageLocationPtrOutput) FilePath() pulumi.StringPtrOutput
 
 // The ID of the storage account where the packet capture sessions should be saved to.
 //
-// > **NOTE:** At least one of `filePath` or `storageAccountId` must be specified.
+// > **Note:** At least one of `filePath` or `storageAccountId` must be specified.
 func (o PacketCaptureStorageLocationPtrOutput) StorageAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PacketCaptureStorageLocation) *string {
 		if v == nil {
@@ -17057,7 +17320,7 @@ type ScaleSetPacketCaptureStorageLocation struct {
 	FilePath *string `pulumi:"filePath"`
 	// The ID of the storage account to save the packet capture session
 	//
-	// > **NOTE:** At least one of `filePath` or `storageAccountId` must be specified.
+	// > **Note:** At least one of `filePath` or `storageAccountId` must be specified.
 	StorageAccountId *string `pulumi:"storageAccountId"`
 	// The URI of the storage path where the packet capture sessions are saved to.
 	StoragePath *string `pulumi:"storagePath"`
@@ -17079,7 +17342,7 @@ type ScaleSetPacketCaptureStorageLocationArgs struct {
 	FilePath pulumi.StringPtrInput `pulumi:"filePath"`
 	// The ID of the storage account to save the packet capture session
 	//
-	// > **NOTE:** At least one of `filePath` or `storageAccountId` must be specified.
+	// > **Note:** At least one of `filePath` or `storageAccountId` must be specified.
 	StorageAccountId pulumi.StringPtrInput `pulumi:"storageAccountId"`
 	// The URI of the storage path where the packet capture sessions are saved to.
 	StoragePath pulumi.StringPtrInput `pulumi:"storagePath"`
@@ -17169,7 +17432,7 @@ func (o ScaleSetPacketCaptureStorageLocationOutput) FilePath() pulumi.StringPtrO
 
 // The ID of the storage account to save the packet capture session
 //
-// > **NOTE:** At least one of `filePath` or `storageAccountId` must be specified.
+// > **Note:** At least one of `filePath` or `storageAccountId` must be specified.
 func (o ScaleSetPacketCaptureStorageLocationOutput) StorageAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScaleSetPacketCaptureStorageLocation) *string { return v.StorageAccountId }).(pulumi.StringPtrOutput)
 }
@@ -17215,7 +17478,7 @@ func (o ScaleSetPacketCaptureStorageLocationPtrOutput) FilePath() pulumi.StringP
 
 // The ID of the storage account to save the packet capture session
 //
-// > **NOTE:** At least one of `filePath` or `storageAccountId` must be specified.
+// > **Note:** At least one of `filePath` or `storageAccountId` must be specified.
 func (o ScaleSetPacketCaptureStorageLocationPtrOutput) StorageAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScaleSetPacketCaptureStorageLocation) *string {
 		if v == nil {
@@ -17784,7 +18047,7 @@ type ScaleSetStandbyPoolElasticityProfile struct {
 	MaxReadyCapacity int `pulumi:"maxReadyCapacity"`
 	// Specifies the desired minimum number of virtual machines in the standby pool.
 	//
-	// > **NOTE** `minReadyCapacity` cannot exceed `maxReadyCapacity`.
+	// > **Note:** `minReadyCapacity` cannot exceed `maxReadyCapacity`.
 	MinReadyCapacity int `pulumi:"minReadyCapacity"`
 }
 
@@ -17804,7 +18067,7 @@ type ScaleSetStandbyPoolElasticityProfileArgs struct {
 	MaxReadyCapacity pulumi.IntInput `pulumi:"maxReadyCapacity"`
 	// Specifies the desired minimum number of virtual machines in the standby pool.
 	//
-	// > **NOTE** `minReadyCapacity` cannot exceed `maxReadyCapacity`.
+	// > **Note:** `minReadyCapacity` cannot exceed `maxReadyCapacity`.
 	MinReadyCapacity pulumi.IntInput `pulumi:"minReadyCapacity"`
 }
 
@@ -17892,7 +18155,7 @@ func (o ScaleSetStandbyPoolElasticityProfileOutput) MaxReadyCapacity() pulumi.In
 
 // Specifies the desired minimum number of virtual machines in the standby pool.
 //
-// > **NOTE** `minReadyCapacity` cannot exceed `maxReadyCapacity`.
+// > **Note:** `minReadyCapacity` cannot exceed `maxReadyCapacity`.
 func (o ScaleSetStandbyPoolElasticityProfileOutput) MinReadyCapacity() pulumi.IntOutput {
 	return o.ApplyT(func(v ScaleSetStandbyPoolElasticityProfile) int { return v.MinReadyCapacity }).(pulumi.IntOutput)
 }
@@ -17933,7 +18196,7 @@ func (o ScaleSetStandbyPoolElasticityProfilePtrOutput) MaxReadyCapacity() pulumi
 
 // Specifies the desired minimum number of virtual machines in the standby pool.
 //
-// > **NOTE** `minReadyCapacity` cannot exceed `maxReadyCapacity`.
+// > **Note:** `minReadyCapacity` cannot exceed `maxReadyCapacity`.
 func (o ScaleSetStandbyPoolElasticityProfilePtrOutput) MinReadyCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ScaleSetStandbyPoolElasticityProfile) *int {
 		if v == nil {
@@ -18551,7 +18814,7 @@ func (o ScaleSetStorageProfileOsDiskPtrOutput) VhdContainers() pulumi.StringArra
 type SharedImageGallerySharing struct {
 	// A `communityGallery` block as defined below. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** `communityGallery` must be set when `permission` is set to `Community`.
+	// > **Note:** `communityGallery` must be set when `permission` is set to `Community`.
 	CommunityGallery *SharedImageGallerySharingCommunityGallery `pulumi:"communityGallery"`
 	// The permission of the Shared Image Gallery when sharing. Possible values are `Community`, `Groups` and `Private`. Changing this forces a new resource to be created.
 	//
@@ -18573,7 +18836,7 @@ type SharedImageGallerySharingInput interface {
 type SharedImageGallerySharingArgs struct {
 	// A `communityGallery` block as defined below. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** `communityGallery` must be set when `permission` is set to `Community`.
+	// > **Note:** `communityGallery` must be set when `permission` is set to `Community`.
 	CommunityGallery SharedImageGallerySharingCommunityGalleryPtrInput `pulumi:"communityGallery"`
 	// The permission of the Shared Image Gallery when sharing. Possible values are `Community`, `Groups` and `Private`. Changing this forces a new resource to be created.
 	//
@@ -18660,7 +18923,7 @@ func (o SharedImageGallerySharingOutput) ToSharedImageGallerySharingPtrOutputWit
 
 // A `communityGallery` block as defined below. Changing this forces a new resource to be created.
 //
-// > **NOTE:** `communityGallery` must be set when `permission` is set to `Community`.
+// > **Note:** `communityGallery` must be set when `permission` is set to `Community`.
 func (o SharedImageGallerySharingOutput) CommunityGallery() SharedImageGallerySharingCommunityGalleryPtrOutput {
 	return o.ApplyT(func(v SharedImageGallerySharing) *SharedImageGallerySharingCommunityGallery {
 		return v.CommunityGallery
@@ -18700,7 +18963,7 @@ func (o SharedImageGallerySharingPtrOutput) Elem() SharedImageGallerySharingOutp
 
 // A `communityGallery` block as defined below. Changing this forces a new resource to be created.
 //
-// > **NOTE:** `communityGallery` must be set when `permission` is set to `Community`.
+// > **Note:** `communityGallery` must be set when `permission` is set to `Community`.
 func (o SharedImageGallerySharingPtrOutput) CommunityGallery() SharedImageGallerySharingCommunityGalleryPtrOutput {
 	return o.ApplyT(func(v *SharedImageGallerySharing) *SharedImageGallerySharingCommunityGallery {
 		if v == nil {
@@ -24480,15 +24743,15 @@ func (o WindowsVirtualMachineScaleSetAdditionalUnattendContentArrayOutput) Index
 type WindowsVirtualMachineScaleSetAutomaticInstanceRepair struct {
 	// The repair action that will be used for repairing unhealthy virtual machines in the scale set. Possible values include `Replace`, `Restart`, `Reimage`.
 	//
-	// > **Note:**  Once the `action` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
+	// > **Note:** Once the `action` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
 	//
-	// > **Note:**  If you wish to update the repair `action` of an existing `automaticInstanceRepair` policy, you must first `disable` the `automaticInstanceRepair` policy before you can re-enable the `automaticInstanceRepair` policy with the new repair `action` defined.
+	// > **Note:** If you wish to update the repair `action` of an existing `automaticInstanceRepair` policy, you must first `disable` the `automaticInstanceRepair` policy before you can re-enable the `automaticInstanceRepair` policy with the new repair `action` defined.
 	Action *string `pulumi:"action"`
 	// Should the automatic instance repair be enabled on this Virtual Machine Scale Set?
 	Enabled bool `pulumi:"enabled"`
 	// Amount of time for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. Possible values are between `10` and `90` minutes. The time duration should be specified in `ISO 8601` format (e.g. `PT10M` to `PT90M`).
 	//
-	// > **Note:**  Once the `gracePeriod` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
+	// > **Note:** Once the `gracePeriod` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
 	GracePeriod *string `pulumi:"gracePeriod"`
 }
 
@@ -24506,15 +24769,15 @@ type WindowsVirtualMachineScaleSetAutomaticInstanceRepairInput interface {
 type WindowsVirtualMachineScaleSetAutomaticInstanceRepairArgs struct {
 	// The repair action that will be used for repairing unhealthy virtual machines in the scale set. Possible values include `Replace`, `Restart`, `Reimage`.
 	//
-	// > **Note:**  Once the `action` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
+	// > **Note:** Once the `action` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
 	//
-	// > **Note:**  If you wish to update the repair `action` of an existing `automaticInstanceRepair` policy, you must first `disable` the `automaticInstanceRepair` policy before you can re-enable the `automaticInstanceRepair` policy with the new repair `action` defined.
+	// > **Note:** If you wish to update the repair `action` of an existing `automaticInstanceRepair` policy, you must first `disable` the `automaticInstanceRepair` policy before you can re-enable the `automaticInstanceRepair` policy with the new repair `action` defined.
 	Action pulumi.StringPtrInput `pulumi:"action"`
 	// Should the automatic instance repair be enabled on this Virtual Machine Scale Set?
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// Amount of time for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. Possible values are between `10` and `90` minutes. The time duration should be specified in `ISO 8601` format (e.g. `PT10M` to `PT90M`).
 	//
-	// > **Note:**  Once the `gracePeriod` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
+	// > **Note:** Once the `gracePeriod` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
 	GracePeriod pulumi.StringPtrInput `pulumi:"gracePeriod"`
 }
 
@@ -24597,9 +24860,9 @@ func (o WindowsVirtualMachineScaleSetAutomaticInstanceRepairOutput) ToWindowsVir
 
 // The repair action that will be used for repairing unhealthy virtual machines in the scale set. Possible values include `Replace`, `Restart`, `Reimage`.
 //
-// > **Note:**  Once the `action` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
+// > **Note:** Once the `action` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
 //
-// > **Note:**  If you wish to update the repair `action` of an existing `automaticInstanceRepair` policy, you must first `disable` the `automaticInstanceRepair` policy before you can re-enable the `automaticInstanceRepair` policy with the new repair `action` defined.
+// > **Note:** If you wish to update the repair `action` of an existing `automaticInstanceRepair` policy, you must first `disable` the `automaticInstanceRepair` policy before you can re-enable the `automaticInstanceRepair` policy with the new repair `action` defined.
 func (o WindowsVirtualMachineScaleSetAutomaticInstanceRepairOutput) Action() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineScaleSetAutomaticInstanceRepair) *string { return v.Action }).(pulumi.StringPtrOutput)
 }
@@ -24611,7 +24874,7 @@ func (o WindowsVirtualMachineScaleSetAutomaticInstanceRepairOutput) Enabled() pu
 
 // Amount of time for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. Possible values are between `10` and `90` minutes. The time duration should be specified in `ISO 8601` format (e.g. `PT10M` to `PT90M`).
 //
-// > **Note:**  Once the `gracePeriod` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
+// > **Note:** Once the `gracePeriod` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
 func (o WindowsVirtualMachineScaleSetAutomaticInstanceRepairOutput) GracePeriod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineScaleSetAutomaticInstanceRepair) *string { return v.GracePeriod }).(pulumi.StringPtrOutput)
 }
@@ -24642,9 +24905,9 @@ func (o WindowsVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput) Elem() Wi
 
 // The repair action that will be used for repairing unhealthy virtual machines in the scale set. Possible values include `Replace`, `Restart`, `Reimage`.
 //
-// > **Note:**  Once the `action` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
+// > **Note:** Once the `action` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
 //
-// > **Note:**  If you wish to update the repair `action` of an existing `automaticInstanceRepair` policy, you must first `disable` the `automaticInstanceRepair` policy before you can re-enable the `automaticInstanceRepair` policy with the new repair `action` defined.
+// > **Note:** If you wish to update the repair `action` of an existing `automaticInstanceRepair` policy, you must first `disable` the `automaticInstanceRepair` policy before you can re-enable the `automaticInstanceRepair` policy with the new repair `action` defined.
 func (o WindowsVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput) Action() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachineScaleSetAutomaticInstanceRepair) *string {
 		if v == nil {
@@ -24666,7 +24929,7 @@ func (o WindowsVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput) Enabled()
 
 // Amount of time for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. Possible values are between `10` and `90` minutes. The time duration should be specified in `ISO 8601` format (e.g. `PT10M` to `PT90M`).
 //
-// > **Note:**  Once the `gracePeriod` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
+// > **Note:** Once the `gracePeriod` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
 func (o WindowsVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput) GracePeriod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachineScaleSetAutomaticInstanceRepair) *string {
 		if v == nil {
@@ -26036,7 +26299,7 @@ type WindowsVirtualMachineScaleSetNetworkInterfaceIpConfiguration struct {
 	ApplicationSecurityGroupIds []string `pulumi:"applicationSecurityGroupIds"`
 	// A list of Backend Address Pools ID's from a Load Balancer which this Virtual Machine Scale Set should be connected to.
 	//
-	// > **Note:**  When the Virtual Machine Scale Set is configured to have public IPs per instance are created with a load balancer, the SKU of the Virtual Machine instance IPs is determined by the SKU of the Virtual Machine Scale Sets Load Balancer (e.g. `Basic` or `Standard`). Alternatively, you may use the `publicIpPrefixId` field to generate instance-level IPs in a virtual machine scale set as well. The zonal properties of the prefix will be passed to the Virtual Machine instance IPs, though they will not be shown in the output. To view the public IP addresses assigned to the Virtual Machine Scale Sets Virtual Machine instances use the **az vmss list-instance-public-ips --resource-group `ResourceGroupName` --name `VirtualMachineScaleSetName`** CLI command.
+	// > **Note:** When the Virtual Machine Scale Set is configured to have public IPs per instance are created with a load balancer, the SKU of the Virtual Machine instance IPs is determined by the SKU of the Virtual Machine Scale Sets Load Balancer (e.g. `Basic` or `Standard`). Alternatively, you may use the `publicIpPrefixId` field to generate instance-level IPs in a virtual machine scale set as well. The zonal properties of the prefix will be passed to the Virtual Machine instance IPs, though they will not be shown in the output. To view the public IP addresses assigned to the Virtual Machine Scale Sets Virtual Machine instances use the **az vmss list-instance-public-ips --resource-group `ResourceGroupName` --name `VirtualMachineScaleSetName`** CLI command.
 	//
 	// > **Note:** When using this field you'll also need to configure a Rule for the Load Balancer, and use a `dependsOn` between this resource and the Load Balancer Rule.
 	LoadBalancerBackendAddressPoolIds []string `pulumi:"loadBalancerBackendAddressPoolIds"`
@@ -26054,7 +26317,7 @@ type WindowsVirtualMachineScaleSetNetworkInterfaceIpConfiguration struct {
 	PublicIpAddresses []WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress `pulumi:"publicIpAddresses"`
 	// The ID of the Subnet which this IP Configuration should be connected to.
 	//
-	// > `subnetId` is required if `version` is set to `IPv4`.
+	// > **Note:** `subnetId` is required if `version` is set to `IPv4`.
 	SubnetId *string `pulumi:"subnetId"`
 	// The Internet Protocol Version which should be used for this IP Configuration. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
 	Version *string `pulumi:"version"`
@@ -26078,7 +26341,7 @@ type WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs struct {
 	ApplicationSecurityGroupIds pulumi.StringArrayInput `pulumi:"applicationSecurityGroupIds"`
 	// A list of Backend Address Pools ID's from a Load Balancer which this Virtual Machine Scale Set should be connected to.
 	//
-	// > **Note:**  When the Virtual Machine Scale Set is configured to have public IPs per instance are created with a load balancer, the SKU of the Virtual Machine instance IPs is determined by the SKU of the Virtual Machine Scale Sets Load Balancer (e.g. `Basic` or `Standard`). Alternatively, you may use the `publicIpPrefixId` field to generate instance-level IPs in a virtual machine scale set as well. The zonal properties of the prefix will be passed to the Virtual Machine instance IPs, though they will not be shown in the output. To view the public IP addresses assigned to the Virtual Machine Scale Sets Virtual Machine instances use the **az vmss list-instance-public-ips --resource-group `ResourceGroupName` --name `VirtualMachineScaleSetName`** CLI command.
+	// > **Note:** When the Virtual Machine Scale Set is configured to have public IPs per instance are created with a load balancer, the SKU of the Virtual Machine instance IPs is determined by the SKU of the Virtual Machine Scale Sets Load Balancer (e.g. `Basic` or `Standard`). Alternatively, you may use the `publicIpPrefixId` field to generate instance-level IPs in a virtual machine scale set as well. The zonal properties of the prefix will be passed to the Virtual Machine instance IPs, though they will not be shown in the output. To view the public IP addresses assigned to the Virtual Machine Scale Sets Virtual Machine instances use the **az vmss list-instance-public-ips --resource-group `ResourceGroupName` --name `VirtualMachineScaleSetName`** CLI command.
 	//
 	// > **Note:** When using this field you'll also need to configure a Rule for the Load Balancer, and use a `dependsOn` between this resource and the Load Balancer Rule.
 	LoadBalancerBackendAddressPoolIds pulumi.StringArrayInput `pulumi:"loadBalancerBackendAddressPoolIds"`
@@ -26096,7 +26359,7 @@ type WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs struct {
 	PublicIpAddresses WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayInput `pulumi:"publicIpAddresses"`
 	// The ID of the Subnet which this IP Configuration should be connected to.
 	//
-	// > `subnetId` is required if `version` is set to `IPv4`.
+	// > **Note:** `subnetId` is required if `version` is set to `IPv4`.
 	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
 	// The Internet Protocol Version which should be used for this IP Configuration. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
 	Version pulumi.StringPtrInput `pulumi:"version"`
@@ -26169,7 +26432,7 @@ func (o WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput) Appl
 
 // A list of Backend Address Pools ID's from a Load Balancer which this Virtual Machine Scale Set should be connected to.
 //
-// > **Note:**  When the Virtual Machine Scale Set is configured to have public IPs per instance are created with a load balancer, the SKU of the Virtual Machine instance IPs is determined by the SKU of the Virtual Machine Scale Sets Load Balancer (e.g. `Basic` or `Standard`). Alternatively, you may use the `publicIpPrefixId` field to generate instance-level IPs in a virtual machine scale set as well. The zonal properties of the prefix will be passed to the Virtual Machine instance IPs, though they will not be shown in the output. To view the public IP addresses assigned to the Virtual Machine Scale Sets Virtual Machine instances use the **az vmss list-instance-public-ips --resource-group `ResourceGroupName` --name `VirtualMachineScaleSetName`** CLI command.
+// > **Note:** When the Virtual Machine Scale Set is configured to have public IPs per instance are created with a load balancer, the SKU of the Virtual Machine instance IPs is determined by the SKU of the Virtual Machine Scale Sets Load Balancer (e.g. `Basic` or `Standard`). Alternatively, you may use the `publicIpPrefixId` field to generate instance-level IPs in a virtual machine scale set as well. The zonal properties of the prefix will be passed to the Virtual Machine instance IPs, though they will not be shown in the output. To view the public IP addresses assigned to the Virtual Machine Scale Sets Virtual Machine instances use the **az vmss list-instance-public-ips --resource-group `ResourceGroupName` --name `VirtualMachineScaleSetName`** CLI command.
 //
 // > **Note:** When using this field you'll also need to configure a Rule for the Load Balancer, and use a `dependsOn` between this resource and the Load Balancer Rule.
 func (o WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput) LoadBalancerBackendAddressPoolIds() pulumi.StringArrayOutput {
@@ -26208,7 +26471,7 @@ func (o WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput) Publ
 
 // The ID of the Subnet which this IP Configuration should be connected to.
 //
-// > `subnetId` is required if `version` is set to `IPv4`.
+// > **Note:** `subnetId` is required if `version` is set to `IPv4`.
 func (o WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineScaleSetNetworkInterfaceIpConfiguration) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
@@ -33436,6 +33699,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OrchestratedVirtualMachineScaleSetPlanPtrInput)(nil)).Elem(), OrchestratedVirtualMachineScaleSetPlanArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrchestratedVirtualMachineScaleSetPriorityMixInput)(nil)).Elem(), OrchestratedVirtualMachineScaleSetPriorityMixArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrchestratedVirtualMachineScaleSetPriorityMixPtrInput)(nil)).Elem(), OrchestratedVirtualMachineScaleSetPriorityMixArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrchestratedVirtualMachineScaleSetRollingUpgradePolicyInput)(nil)).Elem(), OrchestratedVirtualMachineScaleSetRollingUpgradePolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrchestratedVirtualMachineScaleSetRollingUpgradePolicyPtrInput)(nil)).Elem(), OrchestratedVirtualMachineScaleSetRollingUpgradePolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrchestratedVirtualMachineScaleSetSkuProfileInput)(nil)).Elem(), OrchestratedVirtualMachineScaleSetSkuProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrchestratedVirtualMachineScaleSetSkuProfilePtrInput)(nil)).Elem(), OrchestratedVirtualMachineScaleSetSkuProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrchestratedVirtualMachineScaleSetSourceImageReferenceInput)(nil)).Elem(), OrchestratedVirtualMachineScaleSetSourceImageReferenceArgs{})
@@ -33848,6 +34113,8 @@ func init() {
 	pulumi.RegisterOutputType(OrchestratedVirtualMachineScaleSetPlanPtrOutput{})
 	pulumi.RegisterOutputType(OrchestratedVirtualMachineScaleSetPriorityMixOutput{})
 	pulumi.RegisterOutputType(OrchestratedVirtualMachineScaleSetPriorityMixPtrOutput{})
+	pulumi.RegisterOutputType(OrchestratedVirtualMachineScaleSetRollingUpgradePolicyOutput{})
+	pulumi.RegisterOutputType(OrchestratedVirtualMachineScaleSetRollingUpgradePolicyPtrOutput{})
 	pulumi.RegisterOutputType(OrchestratedVirtualMachineScaleSetSkuProfileOutput{})
 	pulumi.RegisterOutputType(OrchestratedVirtualMachineScaleSetSkuProfilePtrOutput{})
 	pulumi.RegisterOutputType(OrchestratedVirtualMachineScaleSetSourceImageReferenceOutput{})

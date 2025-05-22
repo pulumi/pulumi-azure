@@ -14,15 +14,15 @@ namespace Pulumi.Azure.Dynatrace.Outputs
     public sealed class TagRulesMetricRuleFilteringTag
     {
         /// <summary>
-        /// Action of the filtering tag. Possible values are `Include` and `Exclude`. Changing this forces a new resource to be created.
+        /// Action of the filtering tag. Possible values are `Include` and `Exclude`.
         /// </summary>
         public readonly string Action;
         /// <summary>
-        /// Name of the filtering tag. Changing this forces a new resource to be created.
+        /// Name of the filtering tag.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Value of the filtering tag. Changing this forces a new resource to be created.
+        /// Value of the filtering tag.
         /// </summary>
         public readonly string Value;
 

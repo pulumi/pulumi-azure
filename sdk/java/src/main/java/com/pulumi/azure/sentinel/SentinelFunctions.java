@@ -68,6 +68,13 @@ public final class SentinelFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.OperationalInsights`: 2023-12-01-preview
+     * 
      */
     public static Output<GetAlertRuleResult> getAlertRule(GetAlertRuleArgs args) {
         return getAlertRule(args, InvokeOptions.Empty);
@@ -118,6 +125,13 @@ public final class SentinelFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.OperationalInsights`: 2023-12-01-preview
      * 
      */
     public static CompletableFuture<GetAlertRuleResult> getAlertRulePlain(GetAlertRulePlainArgs args) {
@@ -170,6 +184,13 @@ public final class SentinelFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.OperationalInsights`: 2023-12-01-preview
+     * 
      */
     public static Output<GetAlertRuleResult> getAlertRule(GetAlertRuleArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:sentinel/getAlertRule:getAlertRule", TypeShape.of(GetAlertRuleResult.class), args, Utilities.withVersion(options));
@@ -221,6 +242,13 @@ public final class SentinelFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.OperationalInsights`: 2023-12-01-preview
+     * 
      */
     public static Output<GetAlertRuleResult> getAlertRule(GetAlertRuleArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:sentinel/getAlertRule:getAlertRule", TypeShape.of(GetAlertRuleResult.class), args, Utilities.withVersion(options));
@@ -271,6 +299,13 @@ public final class SentinelFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.OperationalInsights`: 2023-12-01-preview
      * 
      */
     public static CompletableFuture<GetAlertRuleResult> getAlertRulePlain(GetAlertRulePlainArgs args, InvokeOptions options) {

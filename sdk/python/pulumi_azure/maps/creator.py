@@ -234,6 +234,13 @@ class Creator(pulumi.CustomResource):
             })
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Maps`: 2023-06-01
+
         ## Import
 
         An Azure Maps Creators can be imported using the `resource id`, e.g.
@@ -286,6 +293,13 @@ class Creator(pulumi.CustomResource):
                 "environment": "Test",
             })
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Maps`: 2023-06-01
 
         ## Import
 

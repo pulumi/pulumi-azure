@@ -207,6 +207,13 @@ def get_account(name: Optional[builtins.str] = None,
     pulumi.export("primaryAccessKey", test.primary_access_key)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.CognitiveServices`: 2024-10-01
+
 
     :param builtins.str name: Specifies the name of the Cognitive Services Account.
     :param builtins.str resource_group_name: Specifies the name of the resource group where the Cognitive Services Account resides.
@@ -250,6 +257,13 @@ def get_account_output(name: Optional[pulumi.Input[builtins.str]] = None,
         resource_group_name="cognitive_account_rg")
     pulumi.export("primaryAccessKey", test.primary_access_key)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.CognitiveServices`: 2024-10-01
 
 
     :param builtins.str name: Specifies the name of the Cognitive Services Account.

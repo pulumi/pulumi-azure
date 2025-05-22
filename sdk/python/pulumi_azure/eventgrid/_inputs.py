@@ -92,6 +92,8 @@ __all__ = [
     'NamespaceTopicSpacesConfigurationDynamicRoutingEnrichmentArgsDict',
     'NamespaceTopicSpacesConfigurationStaticRoutingEnrichmentArgs',
     'NamespaceTopicSpacesConfigurationStaticRoutingEnrichmentArgsDict',
+    'PartnerConfigurationPartnerAuthorizationArgs',
+    'PartnerConfigurationPartnerAuthorizationArgsDict',
     'SystemTopicEventSubscriptionAdvancedFilterArgs',
     'SystemTopicEventSubscriptionAdvancedFilterArgsDict',
     'SystemTopicEventSubscriptionAdvancedFilterBoolEqualArgs',
@@ -174,9 +176,9 @@ if not MYPY:
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid Domain.
 
-        > **NOTE:** This is required when `type` is set to `UserAssigned`
+        > **Note:** This is required when `type` is set to `UserAssigned`
 
-        > **NOTE:** When `type` is set to `SystemAssigned`, The assigned `principal_id` and `tenant_id` can be retrieved after the Event Grid Domain has been created. More details are available below.
+        > **Note:** When `type` is set to `SystemAssigned`, The assigned `principal_id` and `tenant_id` can be retrieved after the Event Grid Domain has been created. More details are available below.
         """
         principal_id: NotRequired[pulumi.Input[builtins.str]]
         """
@@ -200,9 +202,9 @@ class DomainIdentityArgs:
         :param pulumi.Input[builtins.str] type: Specifies the type of Managed Service Identity that should be configured on this Event Grid Domain. Possible values are `SystemAssigned`, `UserAssigned`.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid Domain.
                
-               > **NOTE:** This is required when `type` is set to `UserAssigned`
+               > **Note:** This is required when `type` is set to `UserAssigned`
                
-               > **NOTE:** When `type` is set to `SystemAssigned`, The assigned `principal_id` and `tenant_id` can be retrieved after the Event Grid Domain has been created. More details are available below.
+               > **Note:** When `type` is set to `SystemAssigned`, The assigned `principal_id` and `tenant_id` can be retrieved after the Event Grid Domain has been created. More details are available below.
         :param pulumi.Input[builtins.str] principal_id: The Principal ID associated with this Managed Service Identity.
         :param pulumi.Input[builtins.str] tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
@@ -232,9 +234,9 @@ class DomainIdentityArgs:
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid Domain.
 
-        > **NOTE:** This is required when `type` is set to `UserAssigned`
+        > **Note:** This is required when `type` is set to `UserAssigned`
 
-        > **NOTE:** When `type` is set to `SystemAssigned`, The assigned `principal_id` and `tenant_id` can be retrieved after the Event Grid Domain has been created. More details are available below.
+        > **Note:** When `type` is set to `SystemAssigned`, The assigned `principal_id` and `tenant_id` can be retrieved after the Event Grid Domain has been created. More details are available below.
         """
         return pulumi.get(self, "identity_ids")
 
@@ -1121,7 +1123,7 @@ if not MYPY:
         """
         Specifies an array of values to compare to when using a multiple values operator.
 
-        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+        > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
 elif False:
     EventSubscriptionAdvancedFilterNumberInArgsDict: TypeAlias = Mapping[str, Any]
@@ -1135,7 +1137,7 @@ class EventSubscriptionAdvancedFilterNumberInArgs:
         :param pulumi.Input[builtins.str] key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.float]]] values: Specifies an array of values to compare to when using a multiple values operator.
                
-               > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+               > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -1158,7 +1160,7 @@ class EventSubscriptionAdvancedFilterNumberInArgs:
         """
         Specifies an array of values to compare to when using a multiple values operator.
 
-        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+        > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         return pulumi.get(self, "values")
 
@@ -1177,7 +1179,7 @@ if not MYPY:
         """
         Specifies an array of values to compare to when using a multiple values operator.
 
-        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+        > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
 elif False:
     EventSubscriptionAdvancedFilterNumberInRangeArgsDict: TypeAlias = Mapping[str, Any]
@@ -1191,7 +1193,7 @@ class EventSubscriptionAdvancedFilterNumberInRangeArgs:
         :param pulumi.Input[builtins.str] key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
         :param pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[builtins.float]]]]] values: Specifies an array of values to compare to when using a multiple values operator.
                
-               > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+               > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -1214,7 +1216,7 @@ class EventSubscriptionAdvancedFilterNumberInRangeArgs:
         """
         Specifies an array of values to compare to when using a multiple values operator.
 
-        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+        > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         return pulumi.get(self, "values")
 
@@ -1319,7 +1321,7 @@ if not MYPY:
         """
         Specifies an array of values to compare to when using a multiple values operator.
 
-        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+        > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
 elif False:
     EventSubscriptionAdvancedFilterNumberNotInArgsDict: TypeAlias = Mapping[str, Any]
@@ -1333,7 +1335,7 @@ class EventSubscriptionAdvancedFilterNumberNotInArgs:
         :param pulumi.Input[builtins.str] key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.float]]] values: Specifies an array of values to compare to when using a multiple values operator.
                
-               > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+               > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -1356,7 +1358,7 @@ class EventSubscriptionAdvancedFilterNumberNotInArgs:
         """
         Specifies an array of values to compare to when using a multiple values operator.
 
-        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+        > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         return pulumi.get(self, "values")
 
@@ -1375,7 +1377,7 @@ if not MYPY:
         """
         Specifies an array of values to compare to when using a multiple values operator.
 
-        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+        > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
 elif False:
     EventSubscriptionAdvancedFilterNumberNotInRangeArgsDict: TypeAlias = Mapping[str, Any]
@@ -1389,7 +1391,7 @@ class EventSubscriptionAdvancedFilterNumberNotInRangeArgs:
         :param pulumi.Input[builtins.str] key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
         :param pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[builtins.float]]]]] values: Specifies an array of values to compare to when using a multiple values operator.
                
-               > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+               > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -1412,7 +1414,7 @@ class EventSubscriptionAdvancedFilterNumberNotInRangeArgs:
         """
         Specifies an array of values to compare to when using a multiple values operator.
 
-        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+        > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         return pulumi.get(self, "values")
 
@@ -1431,7 +1433,7 @@ if not MYPY:
         """
         Specifies an array of values to compare to when using a multiple values operator.
 
-        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+        > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
 elif False:
     EventSubscriptionAdvancedFilterStringBeginsWithArgsDict: TypeAlias = Mapping[str, Any]
@@ -1445,7 +1447,7 @@ class EventSubscriptionAdvancedFilterStringBeginsWithArgs:
         :param pulumi.Input[builtins.str] key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] values: Specifies an array of values to compare to when using a multiple values operator.
                
-               > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+               > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -1468,7 +1470,7 @@ class EventSubscriptionAdvancedFilterStringBeginsWithArgs:
         """
         Specifies an array of values to compare to when using a multiple values operator.
 
-        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+        > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         return pulumi.get(self, "values")
 
@@ -1487,7 +1489,7 @@ if not MYPY:
         """
         Specifies an array of values to compare to when using a multiple values operator.
 
-        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+        > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
 elif False:
     EventSubscriptionAdvancedFilterStringContainArgsDict: TypeAlias = Mapping[str, Any]
@@ -1501,7 +1503,7 @@ class EventSubscriptionAdvancedFilterStringContainArgs:
         :param pulumi.Input[builtins.str] key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] values: Specifies an array of values to compare to when using a multiple values operator.
                
-               > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+               > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -1524,7 +1526,7 @@ class EventSubscriptionAdvancedFilterStringContainArgs:
         """
         Specifies an array of values to compare to when using a multiple values operator.
 
-        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+        > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         return pulumi.get(self, "values")
 
@@ -1543,7 +1545,7 @@ if not MYPY:
         """
         Specifies an array of values to compare to when using a multiple values operator.
 
-        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+        > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
 elif False:
     EventSubscriptionAdvancedFilterStringEndsWithArgsDict: TypeAlias = Mapping[str, Any]
@@ -1557,7 +1559,7 @@ class EventSubscriptionAdvancedFilterStringEndsWithArgs:
         :param pulumi.Input[builtins.str] key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] values: Specifies an array of values to compare to when using a multiple values operator.
                
-               > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+               > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -1580,7 +1582,7 @@ class EventSubscriptionAdvancedFilterStringEndsWithArgs:
         """
         Specifies an array of values to compare to when using a multiple values operator.
 
-        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+        > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         return pulumi.get(self, "values")
 
@@ -1599,7 +1601,7 @@ if not MYPY:
         """
         Specifies an array of values to compare to when using a multiple values operator.
 
-        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+        > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
 elif False:
     EventSubscriptionAdvancedFilterStringInArgsDict: TypeAlias = Mapping[str, Any]
@@ -1613,7 +1615,7 @@ class EventSubscriptionAdvancedFilterStringInArgs:
         :param pulumi.Input[builtins.str] key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] values: Specifies an array of values to compare to when using a multiple values operator.
                
-               > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+               > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -1636,7 +1638,7 @@ class EventSubscriptionAdvancedFilterStringInArgs:
         """
         Specifies an array of values to compare to when using a multiple values operator.
 
-        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+        > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         return pulumi.get(self, "values")
 
@@ -1655,7 +1657,7 @@ if not MYPY:
         """
         Specifies an array of values to compare to when using a multiple values operator.
 
-        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+        > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
 elif False:
     EventSubscriptionAdvancedFilterStringNotBeginsWithArgsDict: TypeAlias = Mapping[str, Any]
@@ -1669,7 +1671,7 @@ class EventSubscriptionAdvancedFilterStringNotBeginsWithArgs:
         :param pulumi.Input[builtins.str] key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] values: Specifies an array of values to compare to when using a multiple values operator.
                
-               > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+               > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -1692,7 +1694,7 @@ class EventSubscriptionAdvancedFilterStringNotBeginsWithArgs:
         """
         Specifies an array of values to compare to when using a multiple values operator.
 
-        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+        > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         return pulumi.get(self, "values")
 
@@ -1711,7 +1713,7 @@ if not MYPY:
         """
         Specifies an array of values to compare to when using a multiple values operator.
 
-        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+        > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
 elif False:
     EventSubscriptionAdvancedFilterStringNotContainArgsDict: TypeAlias = Mapping[str, Any]
@@ -1725,7 +1727,7 @@ class EventSubscriptionAdvancedFilterStringNotContainArgs:
         :param pulumi.Input[builtins.str] key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] values: Specifies an array of values to compare to when using a multiple values operator.
                
-               > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+               > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -1748,7 +1750,7 @@ class EventSubscriptionAdvancedFilterStringNotContainArgs:
         """
         Specifies an array of values to compare to when using a multiple values operator.
 
-        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+        > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         return pulumi.get(self, "values")
 
@@ -1767,7 +1769,7 @@ if not MYPY:
         """
         Specifies an array of values to compare to when using a multiple values operator.
 
-        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+        > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
 elif False:
     EventSubscriptionAdvancedFilterStringNotEndsWithArgsDict: TypeAlias = Mapping[str, Any]
@@ -1781,7 +1783,7 @@ class EventSubscriptionAdvancedFilterStringNotEndsWithArgs:
         :param pulumi.Input[builtins.str] key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] values: Specifies an array of values to compare to when using a multiple values operator.
                
-               > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+               > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -1804,7 +1806,7 @@ class EventSubscriptionAdvancedFilterStringNotEndsWithArgs:
         """
         Specifies an array of values to compare to when using a multiple values operator.
 
-        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+        > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         return pulumi.get(self, "values")
 
@@ -1823,7 +1825,7 @@ if not MYPY:
         """
         Specifies an array of values to compare to when using a multiple values operator.
 
-        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+        > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
 elif False:
     EventSubscriptionAdvancedFilterStringNotInArgsDict: TypeAlias = Mapping[str, Any]
@@ -1837,7 +1839,7 @@ class EventSubscriptionAdvancedFilterStringNotInArgs:
         :param pulumi.Input[builtins.str] key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] values: Specifies an array of values to compare to when using a multiple values operator.
                
-               > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+               > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -1860,7 +1862,7 @@ class EventSubscriptionAdvancedFilterStringNotInArgs:
         """
         Specifies an array of values to compare to when using a multiple values operator.
 
-        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+        > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         return pulumi.get(self, "values")
 
@@ -2535,7 +2537,7 @@ if not MYPY:
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid Namespace.
 
-        > **NOTE:** This is required when `type` is set to `UserAssigned`
+        > **Note:** This is required when `type` is set to `UserAssigned`
         """
         principal_id: NotRequired[pulumi.Input[builtins.str]]
         tenant_id: NotRequired[pulumi.Input[builtins.str]]
@@ -2553,7 +2555,7 @@ class NamespaceIdentityArgs:
         :param pulumi.Input[builtins.str] type: Specifies the type of Managed Service Identity that should be configured on this Event Grid Namespace. Possible values are `SystemAssigned`, `UserAssigned`.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid Namespace.
                
-               > **NOTE:** This is required when `type` is set to `UserAssigned`
+               > **Note:** This is required when `type` is set to `UserAssigned`
         """
         pulumi.set(__self__, "type", type)
         if identity_ids is not None:
@@ -2581,7 +2583,7 @@ class NamespaceIdentityArgs:
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid Namespace.
 
-        > **NOTE:** This is required when `type` is set to `UserAssigned`
+        > **Note:** This is required when `type` is set to `UserAssigned`
         """
         return pulumi.get(self, "identity_ids")
 
@@ -2889,6 +2891,82 @@ class NamespaceTopicSpacesConfigurationStaticRoutingEnrichmentArgs:
     @value.setter
     def value(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class PartnerConfigurationPartnerAuthorizationArgsDict(TypedDict):
+        partner_name: pulumi.Input[builtins.str]
+        """
+        The partner name.
+        """
+        partner_registration_id: pulumi.Input[builtins.str]
+        """
+        The immutable id of the corresponding partner registration.
+        """
+        authorization_expiration_time_in_utc: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Expiration time of the partner authorization. Value should be in RFC 3339 format in UTC time zone, for example: "2025-02-04T00:00:00Z".
+
+        > **Note:** If the time from `authorization_expiration_time_in_utc` expires, any request from this partner to create, update or delete resources in the subscriber's context will fail. If not specified, the authorization will expire after `default_maximum_expiration_time_in_days`.
+        """
+elif False:
+    PartnerConfigurationPartnerAuthorizationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PartnerConfigurationPartnerAuthorizationArgs:
+    def __init__(__self__, *,
+                 partner_name: pulumi.Input[builtins.str],
+                 partner_registration_id: pulumi.Input[builtins.str],
+                 authorization_expiration_time_in_utc: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] partner_name: The partner name.
+        :param pulumi.Input[builtins.str] partner_registration_id: The immutable id of the corresponding partner registration.
+        :param pulumi.Input[builtins.str] authorization_expiration_time_in_utc: Expiration time of the partner authorization. Value should be in RFC 3339 format in UTC time zone, for example: "2025-02-04T00:00:00Z".
+               
+               > **Note:** If the time from `authorization_expiration_time_in_utc` expires, any request from this partner to create, update or delete resources in the subscriber's context will fail. If not specified, the authorization will expire after `default_maximum_expiration_time_in_days`.
+        """
+        pulumi.set(__self__, "partner_name", partner_name)
+        pulumi.set(__self__, "partner_registration_id", partner_registration_id)
+        if authorization_expiration_time_in_utc is not None:
+            pulumi.set(__self__, "authorization_expiration_time_in_utc", authorization_expiration_time_in_utc)
+
+    @property
+    @pulumi.getter(name="partnerName")
+    def partner_name(self) -> pulumi.Input[builtins.str]:
+        """
+        The partner name.
+        """
+        return pulumi.get(self, "partner_name")
+
+    @partner_name.setter
+    def partner_name(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "partner_name", value)
+
+    @property
+    @pulumi.getter(name="partnerRegistrationId")
+    def partner_registration_id(self) -> pulumi.Input[builtins.str]:
+        """
+        The immutable id of the corresponding partner registration.
+        """
+        return pulumi.get(self, "partner_registration_id")
+
+    @partner_registration_id.setter
+    def partner_registration_id(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "partner_registration_id", value)
+
+    @property
+    @pulumi.getter(name="authorizationExpirationTimeInUtc")
+    def authorization_expiration_time_in_utc(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Expiration time of the partner authorization. Value should be in RFC 3339 format in UTC time zone, for example: "2025-02-04T00:00:00Z".
+
+        > **Note:** If the time from `authorization_expiration_time_in_utc` expires, any request from this partner to create, update or delete resources in the subscriber's context will fail. If not specified, the authorization will expire after `default_maximum_expiration_time_in_days`.
+        """
+        return pulumi.get(self, "authorization_expiration_time_in_utc")
+
+    @authorization_expiration_time_in_utc.setter
+    def authorization_expiration_time_in_utc(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "authorization_expiration_time_in_utc", value)
 
 
 if not MYPY:
@@ -3490,7 +3568,7 @@ if not MYPY:
         """
         Specifies an array of values to compare to when using a multiple values operator.
 
-        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+        > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
 elif False:
     SystemTopicEventSubscriptionAdvancedFilterNumberInArgsDict: TypeAlias = Mapping[str, Any]
@@ -3504,7 +3582,7 @@ class SystemTopicEventSubscriptionAdvancedFilterNumberInArgs:
         :param pulumi.Input[builtins.str] key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.float]]] values: Specifies an array of values to compare to when using a multiple values operator.
                
-               > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+               > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -3527,7 +3605,7 @@ class SystemTopicEventSubscriptionAdvancedFilterNumberInArgs:
         """
         Specifies an array of values to compare to when using a multiple values operator.
 
-        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+        > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         return pulumi.get(self, "values")
 
@@ -3546,7 +3624,7 @@ if not MYPY:
         """
         Specifies an array of values to compare to when using a multiple values operator.
 
-        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+        > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
 elif False:
     SystemTopicEventSubscriptionAdvancedFilterNumberInRangeArgsDict: TypeAlias = Mapping[str, Any]
@@ -3560,7 +3638,7 @@ class SystemTopicEventSubscriptionAdvancedFilterNumberInRangeArgs:
         :param pulumi.Input[builtins.str] key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
         :param pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[builtins.float]]]]] values: Specifies an array of values to compare to when using a multiple values operator.
                
-               > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+               > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -3583,7 +3661,7 @@ class SystemTopicEventSubscriptionAdvancedFilterNumberInRangeArgs:
         """
         Specifies an array of values to compare to when using a multiple values operator.
 
-        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+        > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         return pulumi.get(self, "values")
 
@@ -3688,7 +3766,7 @@ if not MYPY:
         """
         Specifies an array of values to compare to when using a multiple values operator.
 
-        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+        > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
 elif False:
     SystemTopicEventSubscriptionAdvancedFilterNumberNotInArgsDict: TypeAlias = Mapping[str, Any]
@@ -3702,7 +3780,7 @@ class SystemTopicEventSubscriptionAdvancedFilterNumberNotInArgs:
         :param pulumi.Input[builtins.str] key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.float]]] values: Specifies an array of values to compare to when using a multiple values operator.
                
-               > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+               > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -3725,7 +3803,7 @@ class SystemTopicEventSubscriptionAdvancedFilterNumberNotInArgs:
         """
         Specifies an array of values to compare to when using a multiple values operator.
 
-        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+        > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         return pulumi.get(self, "values")
 
@@ -3744,7 +3822,7 @@ if not MYPY:
         """
         Specifies an array of values to compare to when using a multiple values operator.
 
-        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+        > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
 elif False:
     SystemTopicEventSubscriptionAdvancedFilterNumberNotInRangeArgsDict: TypeAlias = Mapping[str, Any]
@@ -3758,7 +3836,7 @@ class SystemTopicEventSubscriptionAdvancedFilterNumberNotInRangeArgs:
         :param pulumi.Input[builtins.str] key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
         :param pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[builtins.float]]]]] values: Specifies an array of values to compare to when using a multiple values operator.
                
-               > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+               > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -3781,7 +3859,7 @@ class SystemTopicEventSubscriptionAdvancedFilterNumberNotInRangeArgs:
         """
         Specifies an array of values to compare to when using a multiple values operator.
 
-        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+        > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         return pulumi.get(self, "values")
 
@@ -3800,7 +3878,7 @@ if not MYPY:
         """
         Specifies an array of values to compare to when using a multiple values operator.
 
-        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+        > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
 elif False:
     SystemTopicEventSubscriptionAdvancedFilterStringBeginsWithArgsDict: TypeAlias = Mapping[str, Any]
@@ -3814,7 +3892,7 @@ class SystemTopicEventSubscriptionAdvancedFilterStringBeginsWithArgs:
         :param pulumi.Input[builtins.str] key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] values: Specifies an array of values to compare to when using a multiple values operator.
                
-               > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+               > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -3837,7 +3915,7 @@ class SystemTopicEventSubscriptionAdvancedFilterStringBeginsWithArgs:
         """
         Specifies an array of values to compare to when using a multiple values operator.
 
-        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+        > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         return pulumi.get(self, "values")
 
@@ -3856,7 +3934,7 @@ if not MYPY:
         """
         Specifies an array of values to compare to when using a multiple values operator.
 
-        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+        > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
 elif False:
     SystemTopicEventSubscriptionAdvancedFilterStringContainArgsDict: TypeAlias = Mapping[str, Any]
@@ -3870,7 +3948,7 @@ class SystemTopicEventSubscriptionAdvancedFilterStringContainArgs:
         :param pulumi.Input[builtins.str] key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] values: Specifies an array of values to compare to when using a multiple values operator.
                
-               > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+               > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -3893,7 +3971,7 @@ class SystemTopicEventSubscriptionAdvancedFilterStringContainArgs:
         """
         Specifies an array of values to compare to when using a multiple values operator.
 
-        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+        > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         return pulumi.get(self, "values")
 
@@ -3912,7 +3990,7 @@ if not MYPY:
         """
         Specifies an array of values to compare to when using a multiple values operator.
 
-        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+        > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
 elif False:
     SystemTopicEventSubscriptionAdvancedFilterStringEndsWithArgsDict: TypeAlias = Mapping[str, Any]
@@ -3926,7 +4004,7 @@ class SystemTopicEventSubscriptionAdvancedFilterStringEndsWithArgs:
         :param pulumi.Input[builtins.str] key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] values: Specifies an array of values to compare to when using a multiple values operator.
                
-               > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+               > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -3949,7 +4027,7 @@ class SystemTopicEventSubscriptionAdvancedFilterStringEndsWithArgs:
         """
         Specifies an array of values to compare to when using a multiple values operator.
 
-        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+        > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         return pulumi.get(self, "values")
 
@@ -3968,7 +4046,7 @@ if not MYPY:
         """
         Specifies an array of values to compare to when using a multiple values operator.
 
-        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+        > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
 elif False:
     SystemTopicEventSubscriptionAdvancedFilterStringInArgsDict: TypeAlias = Mapping[str, Any]
@@ -3982,7 +4060,7 @@ class SystemTopicEventSubscriptionAdvancedFilterStringInArgs:
         :param pulumi.Input[builtins.str] key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] values: Specifies an array of values to compare to when using a multiple values operator.
                
-               > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+               > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -4005,7 +4083,7 @@ class SystemTopicEventSubscriptionAdvancedFilterStringInArgs:
         """
         Specifies an array of values to compare to when using a multiple values operator.
 
-        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+        > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         return pulumi.get(self, "values")
 
@@ -4024,7 +4102,7 @@ if not MYPY:
         """
         Specifies an array of values to compare to when using a multiple values operator.
 
-        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+        > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
 elif False:
     SystemTopicEventSubscriptionAdvancedFilterStringNotBeginsWithArgsDict: TypeAlias = Mapping[str, Any]
@@ -4038,7 +4116,7 @@ class SystemTopicEventSubscriptionAdvancedFilterStringNotBeginsWithArgs:
         :param pulumi.Input[builtins.str] key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] values: Specifies an array of values to compare to when using a multiple values operator.
                
-               > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+               > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -4061,7 +4139,7 @@ class SystemTopicEventSubscriptionAdvancedFilterStringNotBeginsWithArgs:
         """
         Specifies an array of values to compare to when using a multiple values operator.
 
-        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+        > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         return pulumi.get(self, "values")
 
@@ -4080,7 +4158,7 @@ if not MYPY:
         """
         Specifies an array of values to compare to when using a multiple values operator.
 
-        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+        > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
 elif False:
     SystemTopicEventSubscriptionAdvancedFilterStringNotContainArgsDict: TypeAlias = Mapping[str, Any]
@@ -4094,7 +4172,7 @@ class SystemTopicEventSubscriptionAdvancedFilterStringNotContainArgs:
         :param pulumi.Input[builtins.str] key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] values: Specifies an array of values to compare to when using a multiple values operator.
                
-               > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+               > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -4117,7 +4195,7 @@ class SystemTopicEventSubscriptionAdvancedFilterStringNotContainArgs:
         """
         Specifies an array of values to compare to when using a multiple values operator.
 
-        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+        > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         return pulumi.get(self, "values")
 
@@ -4136,7 +4214,7 @@ if not MYPY:
         """
         Specifies an array of values to compare to when using a multiple values operator.
 
-        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+        > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
 elif False:
     SystemTopicEventSubscriptionAdvancedFilterStringNotEndsWithArgsDict: TypeAlias = Mapping[str, Any]
@@ -4150,7 +4228,7 @@ class SystemTopicEventSubscriptionAdvancedFilterStringNotEndsWithArgs:
         :param pulumi.Input[builtins.str] key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] values: Specifies an array of values to compare to when using a multiple values operator.
                
-               > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+               > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -4173,7 +4251,7 @@ class SystemTopicEventSubscriptionAdvancedFilterStringNotEndsWithArgs:
         """
         Specifies an array of values to compare to when using a multiple values operator.
 
-        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+        > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         return pulumi.get(self, "values")
 
@@ -4192,7 +4270,7 @@ if not MYPY:
         """
         Specifies an array of values to compare to when using a multiple values operator.
 
-        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+        > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
 elif False:
     SystemTopicEventSubscriptionAdvancedFilterStringNotInArgsDict: TypeAlias = Mapping[str, Any]
@@ -4206,7 +4284,7 @@ class SystemTopicEventSubscriptionAdvancedFilterStringNotInArgs:
         :param pulumi.Input[builtins.str] key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] values: Specifies an array of values to compare to when using a multiple values operator.
                
-               > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+               > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -4229,7 +4307,7 @@ class SystemTopicEventSubscriptionAdvancedFilterStringNotInArgs:
         """
         Specifies an array of values to compare to when using a multiple values operator.
 
-        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+        > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         return pulumi.get(self, "values")
 
@@ -4904,9 +4982,9 @@ if not MYPY:
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid System Topic.
 
-        > **NOTE:** This is required when `type` is set to `UserAssigned`
+        > **Note:** This is required when `type` is set to `UserAssigned`
 
-        > **NOTE:** When `type` is set to `SystemAssigned`, The assigned `principal_id` and `tenant_id` can be retrieved after the Event Grid System Topic has been created. More details are available below.
+        > **Note:** When `type` is set to `SystemAssigned`, The assigned `principal_id` and `tenant_id` can be retrieved after the Event Grid System Topic has been created. More details are available below.
         """
         principal_id: NotRequired[pulumi.Input[builtins.str]]
         """
@@ -4930,9 +5008,9 @@ class SystemTopicIdentityArgs:
         :param pulumi.Input[builtins.str] type: Specifies the type of Managed Service Identity that should be configured on this Event Grid System Topic. Possible values are `SystemAssigned`, `UserAssigned`.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid System Topic.
                
-               > **NOTE:** This is required when `type` is set to `UserAssigned`
+               > **Note:** This is required when `type` is set to `UserAssigned`
                
-               > **NOTE:** When `type` is set to `SystemAssigned`, The assigned `principal_id` and `tenant_id` can be retrieved after the Event Grid System Topic has been created. More details are available below.
+               > **Note:** When `type` is set to `SystemAssigned`, The assigned `principal_id` and `tenant_id` can be retrieved after the Event Grid System Topic has been created. More details are available below.
         :param pulumi.Input[builtins.str] principal_id: The Principal ID associated with this Managed Service Identity.
         :param pulumi.Input[builtins.str] tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
@@ -4962,9 +5040,9 @@ class SystemTopicIdentityArgs:
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid System Topic.
 
-        > **NOTE:** This is required when `type` is set to `UserAssigned`
+        > **Note:** This is required when `type` is set to `UserAssigned`
 
-        > **NOTE:** When `type` is set to `SystemAssigned`, The assigned `principal_id` and `tenant_id` can be retrieved after the Event Grid System Topic has been created. More details are available below.
+        > **Note:** When `type` is set to `SystemAssigned`, The assigned `principal_id` and `tenant_id` can be retrieved after the Event Grid System Topic has been created. More details are available below.
         """
         return pulumi.get(self, "identity_ids")
 
@@ -5007,9 +5085,9 @@ if not MYPY:
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid Topic.
 
-        > **NOTE:** This is required when `type` is set to `UserAssigned`
+        > **Note:** This is required when `type` is set to `UserAssigned`
 
-        > **NOTE:** When `type` is set to `SystemAssigned`, The assigned `principal_id` and `tenant_id` can be retrieved after the Event Grid Topic has been created. More details are available below.
+        > **Note:** When `type` is set to `SystemAssigned`, The assigned `principal_id` and `tenant_id` can be retrieved after the Event Grid Topic has been created. More details are available below.
         """
         principal_id: NotRequired[pulumi.Input[builtins.str]]
         """
@@ -5033,9 +5111,9 @@ class TopicIdentityArgs:
         :param pulumi.Input[builtins.str] type: Specifies the type of Managed Service Identity that should be configured on this Event Grid Topic. Possible values are `SystemAssigned`, `UserAssigned`.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid Topic.
                
-               > **NOTE:** This is required when `type` is set to `UserAssigned`
+               > **Note:** This is required when `type` is set to `UserAssigned`
                
-               > **NOTE:** When `type` is set to `SystemAssigned`, The assigned `principal_id` and `tenant_id` can be retrieved after the Event Grid Topic has been created. More details are available below.
+               > **Note:** When `type` is set to `SystemAssigned`, The assigned `principal_id` and `tenant_id` can be retrieved after the Event Grid Topic has been created. More details are available below.
         :param pulumi.Input[builtins.str] principal_id: The Principal ID associated with this Managed Service Identity.
         :param pulumi.Input[builtins.str] tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
@@ -5065,9 +5143,9 @@ class TopicIdentityArgs:
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid Topic.
 
-        > **NOTE:** This is required when `type` is set to `UserAssigned`
+        > **Note:** This is required when `type` is set to `UserAssigned`
 
-        > **NOTE:** When `type` is set to `SystemAssigned`, The assigned `principal_id` and `tenant_id` can be retrieved after the Event Grid Topic has been created. More details are available below.
+        > **Note:** When `type` is set to `SystemAssigned`, The assigned `principal_id` and `tenant_id` can be retrieved after the Event Grid Topic has been created. More details are available below.
         """
         return pulumi.get(self, "identity_ids")
 

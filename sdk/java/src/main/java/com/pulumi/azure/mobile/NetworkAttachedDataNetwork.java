@@ -25,6 +25,13 @@ import javax.annotation.Nullable;
  * &lt;!--Start PulumiCodeChooser --&gt;
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.MobileNetwork`: 2022-11-01
+ * 
  * ## Import
  * 
  * Mobile Network Attached Data Network can be imported using the `resource id`, e.g.

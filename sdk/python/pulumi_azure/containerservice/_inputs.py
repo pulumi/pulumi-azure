@@ -266,7 +266,7 @@ if not MYPY:
         """
         The digest of the artifact that wants to be subscribed for the Connected Registry.
 
-        > **NOTE:** One of either `tag` or `digest` can be specified.
+        > **Note:** One of either `tag` or `digest` can be specified.
         """
         tag: NotRequired[pulumi.Input[builtins.str]]
         """
@@ -287,7 +287,7 @@ class ConnectedRegistryNotificationArgs:
         :param pulumi.Input[builtins.str] name: The name of the artifact that wants to be subscribed for the Connected Registry.
         :param pulumi.Input[builtins.str] digest: The digest of the artifact that wants to be subscribed for the Connected Registry.
                
-               > **NOTE:** One of either `tag` or `digest` can be specified.
+               > **Note:** One of either `tag` or `digest` can be specified.
         :param pulumi.Input[builtins.str] tag: The tag of the artifact that wants to be subscribed for the Connected Registry.
         """
         pulumi.set(__self__, "action", action)
@@ -327,7 +327,7 @@ class ConnectedRegistryNotificationArgs:
         """
         The digest of the artifact that wants to be subscribed for the Connected Registry.
 
-        > **NOTE:** One of either `tag` or `digest` can be specified.
+        > **Note:** One of either `tag` or `digest` can be specified.
         """
         return pulumi.get(self, "digest")
 
@@ -2587,7 +2587,7 @@ if not MYPY:
         """
         Whether the container's permission is elevated to privileged? Changing this forces a new resource to be created.
 
-        > **NOTE:** Currently, this only applies when the `os_type` is `Linux` and the `sku` is `Confidential`.
+        > **Note:** Currently, this only applies when the `os_type` is `Linux` and the `sku` is `Confidential`.
         """
 elif False:
     GroupContainerSecurityArgsDict: TypeAlias = Mapping[str, Any]
@@ -2599,7 +2599,7 @@ class GroupContainerSecurityArgs:
         """
         :param pulumi.Input[builtins.bool] privilege_enabled: Whether the container's permission is elevated to privileged? Changing this forces a new resource to be created.
                
-               > **NOTE:** Currently, this only applies when the `os_type` is `Linux` and the `sku` is `Confidential`.
+               > **Note:** Currently, this only applies when the `os_type` is `Linux` and the `sku` is `Confidential`.
         """
         pulumi.set(__self__, "privilege_enabled", privilege_enabled)
 
@@ -2609,7 +2609,7 @@ class GroupContainerSecurityArgs:
         """
         Whether the container's permission is elevated to privileged? Changing this forces a new resource to be created.
 
-        > **NOTE:** Currently, this only applies when the `os_type` is `Linux` and the `sku` is `Confidential`.
+        > **Note:** Currently, this only applies when the `os_type` is `Linux` and the `sku` is `Confidential`.
         """
         return pulumi.get(self, "privilege_enabled")
 
@@ -2646,7 +2646,7 @@ if not MYPY:
 
         > **Note:** Exactly one of `empty_dir` volume, `git_repo` volume, `secret` volume or storage account volume (`share_name`, `storage_account_name`, and `storage_account_key`) must be specified.
 
-        > **Note** when using a storage account volume, all of `share_name`, `storage_account_name`, and `storage_account_key` must be specified.
+        > **Note:** when using a storage account volume, all of `share_name`, `storage_account_name`, and `storage_account_key` must be specified.
 
         > **Note:** The secret values must be supplied as Base64 encoded strings. The secret values are decoded to their original values when mounted in the volume on the container.
         """
@@ -2687,7 +2687,7 @@ class GroupContainerVolumeArgs:
                
                > **Note:** Exactly one of `empty_dir` volume, `git_repo` volume, `secret` volume or storage account volume (`share_name`, `storage_account_name`, and `storage_account_key`) must be specified.
                
-               > **Note** when using a storage account volume, all of `share_name`, `storage_account_name`, and `storage_account_key` must be specified.
+               > **Note:** when using a storage account volume, all of `share_name`, `storage_account_name`, and `storage_account_key` must be specified.
                
                > **Note:** The secret values must be supplied as Base64 encoded strings. The secret values are decoded to their original values when mounted in the volume on the container.
         :param pulumi.Input[builtins.str] share_name: The Azure storage share that is to be mounted as a volume. This must be created on the storage account specified as above. Changing this forces a new resource to be created.
@@ -2779,7 +2779,7 @@ class GroupContainerVolumeArgs:
 
         > **Note:** Exactly one of `empty_dir` volume, `git_repo` volume, `secret` volume or storage account volume (`share_name`, `storage_account_name`, and `storage_account_key`) must be specified.
 
-        > **Note** when using a storage account volume, all of `share_name`, `storage_account_name`, and `storage_account_key` must be specified.
+        > **Note:** when using a storage account volume, all of `share_name`, `storage_account_name`, and `storage_account_key` must be specified.
 
         > **Note:** The secret values must be supplied as Base64 encoded strings. The secret values are decoded to their original values when mounted in the volume on the container.
         """
@@ -3153,15 +3153,15 @@ if not MYPY:
         """
         Specifies the type of Managed Service Identity that should be configured on this Container Group. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 
-        > **NOTE:** When `type` is set to `SystemAssigned`, the identity of the Principal ID can be retrieved after the container group has been created. See [documentation](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) for more information.
+        > **Note:** When `type` is set to `SystemAssigned`, the identity of the Principal ID can be retrieved after the container group has been created. See [documentation](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) for more information.
         """
         identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Group.
 
-        > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+        > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 
-        > **NOTE:** Currently you can't use a managed identity in a container group deployed to a virtual network.
+        > **Note:** Currently you can't use a managed identity in a container group deployed to a virtual network.
         """
         principal_id: NotRequired[pulumi.Input[builtins.str]]
         """
@@ -3184,12 +3184,12 @@ class GroupIdentityArgs:
         """
         :param pulumi.Input[builtins.str] type: Specifies the type of Managed Service Identity that should be configured on this Container Group. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
                
-               > **NOTE:** When `type` is set to `SystemAssigned`, the identity of the Principal ID can be retrieved after the container group has been created. See [documentation](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) for more information.
+               > **Note:** When `type` is set to `SystemAssigned`, the identity of the Principal ID can be retrieved after the container group has been created. See [documentation](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) for more information.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Group.
                
-               > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+               > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
                
-               > **NOTE:** Currently you can't use a managed identity in a container group deployed to a virtual network.
+               > **Note:** Currently you can't use a managed identity in a container group deployed to a virtual network.
         :param pulumi.Input[builtins.str] principal_id: The Principal ID associated with this Managed Service Identity.
         :param pulumi.Input[builtins.str] tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
@@ -3207,7 +3207,7 @@ class GroupIdentityArgs:
         """
         Specifies the type of Managed Service Identity that should be configured on this Container Group. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 
-        > **NOTE:** When `type` is set to `SystemAssigned`, the identity of the Principal ID can be retrieved after the container group has been created. See [documentation](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) for more information.
+        > **Note:** When `type` is set to `SystemAssigned`, the identity of the Principal ID can be retrieved after the container group has been created. See [documentation](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) for more information.
         """
         return pulumi.get(self, "type")
 
@@ -3221,9 +3221,9 @@ class GroupIdentityArgs:
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Group.
 
-        > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+        > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 
-        > **NOTE:** Currently you can't use a managed identity in a container group deployed to a virtual network.
+        > **Note:** Currently you can't use a managed identity in a container group deployed to a virtual network.
         """
         return pulumi.get(self, "identity_ids")
 
@@ -3503,7 +3503,7 @@ if not MYPY:
         """
         Whether the container's permission is elevated to privileged? Changing this forces a new resource to be created.
 
-        > **NOTE:** Currently, this only applies when the `os_type` is `Linux` and the `sku` is `Confidential`.
+        > **Note:** Currently, this only applies when the `os_type` is `Linux` and the `sku` is `Confidential`.
         """
 elif False:
     GroupInitContainerSecurityArgsDict: TypeAlias = Mapping[str, Any]
@@ -3515,7 +3515,7 @@ class GroupInitContainerSecurityArgs:
         """
         :param pulumi.Input[builtins.bool] privilege_enabled: Whether the container's permission is elevated to privileged? Changing this forces a new resource to be created.
                
-               > **NOTE:** Currently, this only applies when the `os_type` is `Linux` and the `sku` is `Confidential`.
+               > **Note:** Currently, this only applies when the `os_type` is `Linux` and the `sku` is `Confidential`.
         """
         pulumi.set(__self__, "privilege_enabled", privilege_enabled)
 
@@ -3525,7 +3525,7 @@ class GroupInitContainerSecurityArgs:
         """
         Whether the container's permission is elevated to privileged? Changing this forces a new resource to be created.
 
-        > **NOTE:** Currently, this only applies when the `os_type` is `Linux` and the `sku` is `Confidential`.
+        > **Note:** Currently, this only applies when the `os_type` is `Linux` and the `sku` is `Confidential`.
         """
         return pulumi.get(self, "privilege_enabled")
 
@@ -3562,7 +3562,7 @@ if not MYPY:
 
         > **Note:** Exactly one of `empty_dir` volume, `git_repo` volume, `secret` volume or storage account volume (`share_name`, `storage_account_name`, and `storage_account_key`) must be specified.
 
-        > **Note** when using a storage account volume, all of `share_name`, `storage_account_name`, and `storage_account_key` must be specified.
+        > **Note:** when using a storage account volume, all of `share_name`, `storage_account_name`, and `storage_account_key` must be specified.
 
         > **Note:** The secret values must be supplied as Base64 encoded strings. The secret values are decoded to their original values when mounted in the volume on the container.
         """
@@ -3603,7 +3603,7 @@ class GroupInitContainerVolumeArgs:
                
                > **Note:** Exactly one of `empty_dir` volume, `git_repo` volume, `secret` volume or storage account volume (`share_name`, `storage_account_name`, and `storage_account_key`) must be specified.
                
-               > **Note** when using a storage account volume, all of `share_name`, `storage_account_name`, and `storage_account_key` must be specified.
+               > **Note:** when using a storage account volume, all of `share_name`, `storage_account_name`, and `storage_account_key` must be specified.
                
                > **Note:** The secret values must be supplied as Base64 encoded strings. The secret values are decoded to their original values when mounted in the volume on the container.
         :param pulumi.Input[builtins.str] share_name: The Azure storage share that is to be mounted as a volume. This must be created on the storage account specified as above. Changing this forces a new resource to be created.
@@ -3695,7 +3695,7 @@ class GroupInitContainerVolumeArgs:
 
         > **Note:** Exactly one of `empty_dir` volume, `git_repo` volume, `secret` volume or storage account volume (`share_name`, `storage_account_name`, and `storage_account_key`) must be specified.
 
-        > **Note** when using a storage account volume, all of `share_name`, `storage_account_name`, and `storage_account_key` must be specified.
+        > **Note:** when using a storage account volume, all of `share_name`, `storage_account_name`, and `storage_account_key` must be specified.
 
         > **Note:** The secret values must be supplied as Base64 encoded strings. The secret values are decoded to their original values when mounted in the volume on the container.
         """
@@ -6502,7 +6502,7 @@ if not MYPY:
         """
         Specifies the version of the plan from the marketplace. Changing this forces a new Kubernetes Cluster Extension to be created.
 
-        > **NOTE:** When `plan` is specified, legal terms must be accepted for this item on this subscription before creating the Kubernetes Cluster Extension. The `marketplace.Agreement` resource or AZ CLI tool can be used to do this.
+        > **Note:** When `plan` is specified, legal terms must be accepted for this item on this subscription before creating the Kubernetes Cluster Extension. The `marketplace.Agreement` resource or AZ CLI tool can be used to do this.
         """
 elif False:
     KubernetesClusterExtensionPlanArgsDict: TypeAlias = Mapping[str, Any]
@@ -6522,7 +6522,7 @@ class KubernetesClusterExtensionPlanArgs:
         :param pulumi.Input[builtins.str] promotion_code: Specifies the promotion code to use with the plan. Changing this forces a new Kubernetes Cluster Extension to be created.
         :param pulumi.Input[builtins.str] version: Specifies the version of the plan from the marketplace. Changing this forces a new Kubernetes Cluster Extension to be created.
                
-               > **NOTE:** When `plan` is specified, legal terms must be accepted for this item on this subscription before creating the Kubernetes Cluster Extension. The `marketplace.Agreement` resource or AZ CLI tool can be used to do this.
+               > **Note:** When `plan` is specified, legal terms must be accepted for this item on this subscription before creating the Kubernetes Cluster Extension. The `marketplace.Agreement` resource or AZ CLI tool can be used to do this.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "product", product)
@@ -6586,7 +6586,7 @@ class KubernetesClusterExtensionPlanArgs:
         """
         Specifies the version of the plan from the marketplace. Changing this forces a new Kubernetes Cluster Extension to be created.
 
-        > **NOTE:** When `plan` is specified, legal terms must be accepted for this item on this subscription before creating the Kubernetes Cluster Extension. The `marketplace.Agreement` resource or AZ CLI tool can be used to do this.
+        > **Note:** When `plan` is specified, legal terms must be accepted for this item on this subscription before creating the Kubernetes Cluster Extension. The `marketplace.Agreement` resource or AZ CLI tool can be used to do this.
         """
         return pulumi.get(self, "version")
 
@@ -11131,7 +11131,7 @@ if not MYPY:
         """
         The URI of the secret containing the password in a Key Vault.
 
-        > NOTE: Be aware that you will need to permit the Identity that is created for the Container Registry to have `get` on secrets to the Key Vault, e.g. using the `keyvault.AccessPolicy` resource.
+        > **Note:** Be aware that you will need to permit the Identity that is created for the Container Registry to have `get` on secrets to the Key Vault, e.g. using the `keyvault.AccessPolicy` resource.
         """
         username_secret_id: pulumi.Input[builtins.str]
         """
@@ -11148,7 +11148,7 @@ class RegistryCredentialSetAuthenticationCredentialsArgs:
         """
         :param pulumi.Input[builtins.str] password_secret_id: The URI of the secret containing the password in a Key Vault.
                
-               > NOTE: Be aware that you will need to permit the Identity that is created for the Container Registry to have `get` on secrets to the Key Vault, e.g. using the `keyvault.AccessPolicy` resource.
+               > **Note:** Be aware that you will need to permit the Identity that is created for the Container Registry to have `get` on secrets to the Key Vault, e.g. using the `keyvault.AccessPolicy` resource.
         :param pulumi.Input[builtins.str] username_secret_id: The URI of the secret containing the username in a Key Vault.
         """
         pulumi.set(__self__, "password_secret_id", password_secret_id)
@@ -11160,7 +11160,7 @@ class RegistryCredentialSetAuthenticationCredentialsArgs:
         """
         The URI of the secret containing the password in a Key Vault.
 
-        > NOTE: Be aware that you will need to permit the Identity that is created for the Container Registry to have `get` on secrets to the Key Vault, e.g. using the `keyvault.AccessPolicy` resource.
+        > **Note:** Be aware that you will need to permit the Identity that is created for the Container Registry to have `get` on secrets to the Key Vault, e.g. using the `keyvault.AccessPolicy` resource.
         """
         return pulumi.get(self, "password_secret_id")
 
@@ -11320,7 +11320,7 @@ if not MYPY:
         """
         Whether zone redundancy is enabled for this replication location? Defaults to `false`.
 
-        > **NOTE:** Changing the `zone_redundancy_enabled` forces the a underlying replication to be created.
+        > **Note:** Changing the `zone_redundancy_enabled` forces the a underlying replication to be created.
         """
 elif False:
     RegistryGeoreplicationArgsDict: TypeAlias = Mapping[str, Any]
@@ -11338,7 +11338,7 @@ class RegistryGeoreplicationArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags to assign to this replication location.
         :param pulumi.Input[builtins.bool] zone_redundancy_enabled: Whether zone redundancy is enabled for this replication location? Defaults to `false`.
                
-               > **NOTE:** Changing the `zone_redundancy_enabled` forces the a underlying replication to be created.
+               > **Note:** Changing the `zone_redundancy_enabled` forces the a underlying replication to be created.
         """
         pulumi.set(__self__, "location", location)
         if regional_endpoint_enabled is not None:
@@ -11390,7 +11390,7 @@ class RegistryGeoreplicationArgs:
         """
         Whether zone redundancy is enabled for this replication location? Defaults to `false`.
 
-        > **NOTE:** Changing the `zone_redundancy_enabled` forces the a underlying replication to be created.
+        > **Note:** Changing the `zone_redundancy_enabled` forces the a underlying replication to be created.
         """
         return pulumi.get(self, "zone_redundancy_enabled")
 
@@ -11409,7 +11409,7 @@ if not MYPY:
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Registry.
 
-        > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+        > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         """
         principal_id: NotRequired[pulumi.Input[builtins.str]]
         """
@@ -11433,7 +11433,7 @@ class RegistryIdentityArgs:
         :param pulumi.Input[builtins.str] type: Specifies the type of Managed Service Identity that should be configured on this Container Registry. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Registry.
                
-               > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+               > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         :param pulumi.Input[builtins.str] principal_id: The Principal ID associated with this Managed Service Identity.
         :param pulumi.Input[builtins.str] tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
@@ -11463,7 +11463,7 @@ class RegistryIdentityArgs:
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Registry.
 
-        > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+        > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         """
         return pulumi.get(self, "identity_ids")
 
@@ -11506,9 +11506,9 @@ if not MYPY:
         """
         One or more `ip_rule` blocks as defined below.
 
-        > **NOTE:** `network_rule_set` is only supported with the `Premium` SKU at this time.
+        > **Note:** `network_rule_set` is only supported with the `Premium` SKU at this time.
 
-        > **NOTE:** Azure automatically configures Network Rules - to remove these you'll need to specify an `network_rule_set` block with `default_action` set to `Deny`.
+        > **Note:** Azure automatically configures Network Rules - to remove these you'll need to specify an `network_rule_set` block with `default_action` set to `Deny`.
         """
 elif False:
     RegistryNetworkRuleSetArgsDict: TypeAlias = Mapping[str, Any]
@@ -11522,9 +11522,9 @@ class RegistryNetworkRuleSetArgs:
         :param pulumi.Input[builtins.str] default_action: The behaviour for requests matching no rules. Either `Allow` or `Deny`. Defaults to `Allow`
         :param pulumi.Input[Sequence[pulumi.Input['RegistryNetworkRuleSetIpRuleArgs']]] ip_rules: One or more `ip_rule` blocks as defined below.
                
-               > **NOTE:** `network_rule_set` is only supported with the `Premium` SKU at this time.
+               > **Note:** `network_rule_set` is only supported with the `Premium` SKU at this time.
                
-               > **NOTE:** Azure automatically configures Network Rules - to remove these you'll need to specify an `network_rule_set` block with `default_action` set to `Deny`.
+               > **Note:** Azure automatically configures Network Rules - to remove these you'll need to specify an `network_rule_set` block with `default_action` set to `Deny`.
         """
         if default_action is not None:
             pulumi.set(__self__, "default_action", default_action)
@@ -11549,9 +11549,9 @@ class RegistryNetworkRuleSetArgs:
         """
         One or more `ip_rule` blocks as defined below.
 
-        > **NOTE:** `network_rule_set` is only supported with the `Premium` SKU at this time.
+        > **Note:** `network_rule_set` is only supported with the `Premium` SKU at this time.
 
-        > **NOTE:** Azure automatically configures Network Rules - to remove these you'll need to specify an `network_rule_set` block with `default_action` set to `Deny`.
+        > **Note:** Azure automatically configures Network Rules - to remove these you'll need to specify an `network_rule_set` block with `default_action` set to `Deny`.
         """
         return pulumi.get(self, "ip_rules")
 
@@ -12212,7 +12212,7 @@ if not MYPY:
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Registry Task.
 
-        > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+        > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         """
         principal_id: NotRequired[pulumi.Input[builtins.str]]
         """
@@ -12236,7 +12236,7 @@ class RegistryTaskIdentityArgs:
         :param pulumi.Input[builtins.str] type: Specifies the type of Managed Service Identity that should be configured on this Container Registry Task. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Registry Task.
                
-               > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+               > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         :param pulumi.Input[builtins.str] principal_id: The Principal ID associated with this Managed Service Identity.
         :param pulumi.Input[builtins.str] tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
@@ -12266,7 +12266,7 @@ class RegistryTaskIdentityArgs:
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Registry Task.
 
-        > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+        > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         """
         return pulumi.get(self, "identity_ids")
 

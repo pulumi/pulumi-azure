@@ -20,15 +20,15 @@ public final class EnvironmentStorageArgs extends com.pulumi.resources.ResourceA
      * The Storage Account Access Key.
      * 
      */
-    @Import(name="accessKey", required=true)
-    private Output<String> accessKey;
+    @Import(name="accessKey")
+    private @Nullable Output<String> accessKey;
 
     /**
      * @return The Storage Account Access Key.
      * 
      */
-    public Output<String> accessKey() {
-        return this.accessKey;
+    public Optional<Output<String>> accessKey() {
+        return Optional.ofNullable(this.accessKey);
     }
 
     /**
@@ -50,15 +50,15 @@ public final class EnvironmentStorageArgs extends com.pulumi.resources.ResourceA
      * The Azure Storage Account in which the Share to be used is located. Changing this forces a new resource to be created.
      * 
      */
-    @Import(name="accountName", required=true)
-    private Output<String> accountName;
+    @Import(name="accountName")
+    private @Nullable Output<String> accountName;
 
     /**
      * @return The Azure Storage Account in which the Share to be used is located. Changing this forces a new resource to be created.
      * 
      */
-    public Output<String> accountName() {
-        return this.accountName;
+    public Optional<Output<String>> accountName() {
+        return Optional.ofNullable(this.accountName);
     }
 
     /**
@@ -92,6 +92,23 @@ public final class EnvironmentStorageArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
+     * The NFS server to use for the Azure File Share, the format will be `yourstorageaccountname.file.core.windows.net`. Changing this forces a new resource to be created.
+     * *
+     * 
+     */
+    @Import(name="nfsServerUrl")
+    private @Nullable Output<String> nfsServerUrl;
+
+    /**
+     * @return The NFS server to use for the Azure File Share, the format will be `yourstorageaccountname.file.core.windows.net`. Changing this forces a new resource to be created.
+     * *
+     * 
+     */
+    public Optional<Output<String>> nfsServerUrl() {
+        return Optional.ofNullable(this.nfsServerUrl);
+    }
+
+    /**
      * The name of the Azure Storage Share to use. Changing this forces a new resource to be created.
      * 
      */
@@ -114,6 +131,7 @@ public final class EnvironmentStorageArgs extends com.pulumi.resources.ResourceA
         this.accountName = $.accountName;
         this.containerAppEnvironmentId = $.containerAppEnvironmentId;
         this.name = $.name;
+        this.nfsServerUrl = $.nfsServerUrl;
         this.shareName = $.shareName;
     }
 
@@ -141,7 +159,7 @@ public final class EnvironmentStorageArgs extends com.pulumi.resources.ResourceA
          * @return builder
          * 
          */
-        public Builder accessKey(Output<String> accessKey) {
+        public Builder accessKey(@Nullable Output<String> accessKey) {
             $.accessKey = accessKey;
             return this;
         }
@@ -183,7 +201,7 @@ public final class EnvironmentStorageArgs extends com.pulumi.resources.ResourceA
          * @return builder
          * 
          */
-        public Builder accountName(Output<String> accountName) {
+        public Builder accountName(@Nullable Output<String> accountName) {
             $.accountName = accountName;
             return this;
         }
@@ -241,6 +259,29 @@ public final class EnvironmentStorageArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
+         * @param nfsServerUrl The NFS server to use for the Azure File Share, the format will be `yourstorageaccountname.file.core.windows.net`. Changing this forces a new resource to be created.
+         * *
+         * 
+         * @return builder
+         * 
+         */
+        public Builder nfsServerUrl(@Nullable Output<String> nfsServerUrl) {
+            $.nfsServerUrl = nfsServerUrl;
+            return this;
+        }
+
+        /**
+         * @param nfsServerUrl The NFS server to use for the Azure File Share, the format will be `yourstorageaccountname.file.core.windows.net`. Changing this forces a new resource to be created.
+         * *
+         * 
+         * @return builder
+         * 
+         */
+        public Builder nfsServerUrl(String nfsServerUrl) {
+            return nfsServerUrl(Output.of(nfsServerUrl));
+        }
+
+        /**
          * @param shareName The name of the Azure Storage Share to use. Changing this forces a new resource to be created.
          * 
          * @return builder
@@ -262,14 +303,8 @@ public final class EnvironmentStorageArgs extends com.pulumi.resources.ResourceA
         }
 
         public EnvironmentStorageArgs build() {
-            if ($.accessKey == null) {
-                throw new MissingRequiredPropertyException("EnvironmentStorageArgs", "accessKey");
-            }
             if ($.accessMode == null) {
                 throw new MissingRequiredPropertyException("EnvironmentStorageArgs", "accessMode");
-            }
-            if ($.accountName == null) {
-                throw new MissingRequiredPropertyException("EnvironmentStorageArgs", "accountName");
             }
             if ($.containerAppEnvironmentId == null) {
                 throw new MissingRequiredPropertyException("EnvironmentStorageArgs", "containerAppEnvironmentId");

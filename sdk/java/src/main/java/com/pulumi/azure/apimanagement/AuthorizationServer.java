@@ -70,6 +70,13 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.ApiManagement`: 2022-08-01
+ * 
  * ## Import
  * 
  * API Management Authorization Servers can be imported using the `resource id`, e.g.
@@ -112,7 +119,7 @@ public class AuthorizationServer extends com.pulumi.resources.CustomResource {
     /**
      * The HTTP Verbs supported by the Authorization Endpoint. Possible values are `DELETE`, `GET`, `HEAD`, `OPTIONS`, `PATCH`, `POST`, `PUT` and `TRACE`.
      * 
-     * &gt; **NOTE:** `GET` must always be present.
+     * &gt; **Note:** `GET` must always be present.
      * 
      */
     @Export(name="authorizationMethods", refs={List.class,String.class}, tree="[0,1]")
@@ -121,7 +128,7 @@ public class AuthorizationServer extends com.pulumi.resources.CustomResource {
     /**
      * @return The HTTP Verbs supported by the Authorization Endpoint. Possible values are `DELETE`, `GET`, `HEAD`, `OPTIONS`, `PATCH`, `POST`, `PUT` and `TRACE`.
      * 
-     * &gt; **NOTE:** `GET` must always be present.
+     * &gt; **Note:** `GET` must always be present.
      * 
      */
     public Output<List<String>> authorizationMethods() {
@@ -284,7 +291,7 @@ public class AuthorizationServer extends com.pulumi.resources.CustomResource {
     /**
      * The password associated with the Resource Owner.
      * 
-     * &gt; **NOTE:** This can only be specified when `grant_type` includes `resourceOwnerPassword`.
+     * &gt; **Note:** This can only be specified when `grant_type` includes `resourceOwnerPassword`.
      * 
      */
     @Export(name="resourceOwnerPassword", refs={String.class}, tree="[0]")
@@ -293,7 +300,7 @@ public class AuthorizationServer extends com.pulumi.resources.CustomResource {
     /**
      * @return The password associated with the Resource Owner.
      * 
-     * &gt; **NOTE:** This can only be specified when `grant_type` includes `resourceOwnerPassword`.
+     * &gt; **Note:** This can only be specified when `grant_type` includes `resourceOwnerPassword`.
      * 
      */
     public Output<Optional<String>> resourceOwnerPassword() {
@@ -302,7 +309,7 @@ public class AuthorizationServer extends com.pulumi.resources.CustomResource {
     /**
      * The username associated with the Resource Owner.
      * 
-     * &gt; **NOTE:** This can only be specified when `grant_type` includes `resourceOwnerPassword`.
+     * &gt; **Note:** This can only be specified when `grant_type` includes `resourceOwnerPassword`.
      * 
      */
     @Export(name="resourceOwnerUsername", refs={String.class}, tree="[0]")
@@ -311,7 +318,7 @@ public class AuthorizationServer extends com.pulumi.resources.CustomResource {
     /**
      * @return The username associated with the Resource Owner.
      * 
-     * &gt; **NOTE:** This can only be specified when `grant_type` includes `resourceOwnerPassword`.
+     * &gt; **Note:** This can only be specified when `grant_type` includes `resourceOwnerPassword`.
      * 
      */
     public Output<Optional<String>> resourceOwnerUsername() {

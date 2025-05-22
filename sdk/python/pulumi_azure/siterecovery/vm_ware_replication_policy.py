@@ -195,6 +195,13 @@ class VMWareReplicationPolicy(pulumi.CustomResource):
             application_consistent_snapshot_frequency_in_minutes=240)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.RecoveryServices`: 2024-04-01
+
         ## Import
 
         VMWare Replication Policy can be imported using the `resource id`, e.g.
@@ -241,6 +248,13 @@ class VMWareReplicationPolicy(pulumi.CustomResource):
             recovery_point_retention_in_minutes=1440,
             application_consistent_snapshot_frequency_in_minutes=240)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.RecoveryServices`: 2024-04-01
 
         ## Import
 

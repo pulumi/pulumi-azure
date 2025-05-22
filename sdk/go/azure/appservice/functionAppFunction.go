@@ -243,6 +243,13 @@ import (
 //
 // ```
 //
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.Web`: 2023-12-01
+//
 // ## Import
 //
 // a Function App Function can be imported using the `resource id`, e.g.
@@ -267,7 +274,7 @@ type FunctionAppFunction struct {
 	InvocationUrl pulumi.StringOutput `pulumi:"invocationUrl"`
 	// The language the Function is written in. Possible values are `CSharp`, `Custom`, `Java`, `Javascript`, `Python`, `PowerShell`, and `TypeScript`.
 	//
-	// > **NOTE:** when using `Custom` language, you must specify the code handler in the `host.json` file for your function. See the [official docs](https://docs.microsoft.com/azure/azure-functions/functions-custom-handlers#hostjson) for more information.
+	// > **Note:** when using `Custom` language, you must specify the code handler in the `host.json` file for your function. See the [official docs](https://docs.microsoft.com/azure/azure-functions/functions-custom-handlers#hostjson) for more information.
 	Language pulumi.StringPtrOutput `pulumi:"language"`
 	// The name of the function. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -335,7 +342,7 @@ type functionAppFunctionState struct {
 	InvocationUrl *string `pulumi:"invocationUrl"`
 	// The language the Function is written in. Possible values are `CSharp`, `Custom`, `Java`, `Javascript`, `Python`, `PowerShell`, and `TypeScript`.
 	//
-	// > **NOTE:** when using `Custom` language, you must specify the code handler in the `host.json` file for your function. See the [official docs](https://docs.microsoft.com/azure/azure-functions/functions-custom-handlers#hostjson) for more information.
+	// > **Note:** when using `Custom` language, you must specify the code handler in the `host.json` file for your function. See the [official docs](https://docs.microsoft.com/azure/azure-functions/functions-custom-handlers#hostjson) for more information.
 	Language *string `pulumi:"language"`
 	// The name of the function. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -368,7 +375,7 @@ type FunctionAppFunctionState struct {
 	InvocationUrl pulumi.StringPtrInput
 	// The language the Function is written in. Possible values are `CSharp`, `Custom`, `Java`, `Javascript`, `Python`, `PowerShell`, and `TypeScript`.
 	//
-	// > **NOTE:** when using `Custom` language, you must specify the code handler in the `host.json` file for your function. See the [official docs](https://docs.microsoft.com/azure/azure-functions/functions-custom-handlers#hostjson) for more information.
+	// > **Note:** when using `Custom` language, you must specify the code handler in the `host.json` file for your function. See the [official docs](https://docs.microsoft.com/azure/azure-functions/functions-custom-handlers#hostjson) for more information.
 	Language pulumi.StringPtrInput
 	// The name of the function. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -401,7 +408,7 @@ type functionAppFunctionArgs struct {
 	FunctionAppId string `pulumi:"functionAppId"`
 	// The language the Function is written in. Possible values are `CSharp`, `Custom`, `Java`, `Javascript`, `Python`, `PowerShell`, and `TypeScript`.
 	//
-	// > **NOTE:** when using `Custom` language, you must specify the code handler in the `host.json` file for your function. See the [official docs](https://docs.microsoft.com/azure/azure-functions/functions-custom-handlers#hostjson) for more information.
+	// > **Note:** when using `Custom` language, you must specify the code handler in the `host.json` file for your function. See the [official docs](https://docs.microsoft.com/azure/azure-functions/functions-custom-handlers#hostjson) for more information.
 	Language *string `pulumi:"language"`
 	// The name of the function. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -421,7 +428,7 @@ type FunctionAppFunctionArgs struct {
 	FunctionAppId pulumi.StringInput
 	// The language the Function is written in. Possible values are `CSharp`, `Custom`, `Java`, `Javascript`, `Python`, `PowerShell`, and `TypeScript`.
 	//
-	// > **NOTE:** when using `Custom` language, you must specify the code handler in the `host.json` file for your function. See the [official docs](https://docs.microsoft.com/azure/azure-functions/functions-custom-handlers#hostjson) for more information.
+	// > **Note:** when using `Custom` language, you must specify the code handler in the `host.json` file for your function. See the [official docs](https://docs.microsoft.com/azure/azure-functions/functions-custom-handlers#hostjson) for more information.
 	Language pulumi.StringPtrInput
 	// The name of the function. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -548,7 +555,7 @@ func (o FunctionAppFunctionOutput) InvocationUrl() pulumi.StringOutput {
 
 // The language the Function is written in. Possible values are `CSharp`, `Custom`, `Java`, `Javascript`, `Python`, `PowerShell`, and `TypeScript`.
 //
-// > **NOTE:** when using `Custom` language, you must specify the code handler in the `host.json` file for your function. See the [official docs](https://docs.microsoft.com/azure/azure-functions/functions-custom-handlers#hostjson) for more information.
+// > **Note:** when using `Custom` language, you must specify the code handler in the `host.json` file for your function. See the [official docs](https://docs.microsoft.com/azure/azure-functions/functions-custom-handlers#hostjson) for more information.
 func (o FunctionAppFunctionOutput) Language() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FunctionAppFunction) pulumi.StringPtrOutput { return v.Language }).(pulumi.StringPtrOutput)
 }

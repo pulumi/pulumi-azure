@@ -23,7 +23,7 @@ import * as utilities from "../utilities";
  *     location: example.location,
  *     administratorLogin: "mysqladminun",
  *     administratorPassword: "H@Sh1CoR3!",
- *     skuName: "B_Standard_B1s",
+ *     skuName: "B_Standard_B1ms",
  * });
  * const exampleFlexibleDatabase = new azure.mysql.FlexibleDatabase("example", {
  *     name: "exampledb",

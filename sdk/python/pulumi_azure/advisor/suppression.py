@@ -204,6 +204,13 @@ class Suppression(pulumi.CustomResource):
             ttl="01:00:00:00")
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Advisor`: 2023-01-01
+
         ## Import
 
         Advisor suppressions can be imported using the `resource id`, e.g.
@@ -242,6 +249,13 @@ class Suppression(pulumi.CustomResource):
             resource_id=f"/subscriptions/{current.subscription_id}",
             ttl="01:00:00:00")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Advisor`: 2023-01-01
 
         ## Import
 

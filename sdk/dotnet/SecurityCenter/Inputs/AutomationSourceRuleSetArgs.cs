@@ -18,7 +18,7 @@ namespace Pulumi.Azure.SecurityCenter.Inputs
         /// <summary>
         /// One or more `rule` blocks as defined below.
         /// 
-        /// &gt; **NOTE:** This automation will trigger when all of the `rule`s in this `rule_set` are evaluated as 'true'. This is equivalent to a logical 'AND'.
+        /// &gt; **Note:** This automation will trigger when all of the `rule`s in this `rule_set` are evaluated as 'true'. This is equivalent to a logical 'AND'.
         /// </summary>
         public InputList<Inputs.AutomationSourceRuleSetRuleArgs> Rules
         {

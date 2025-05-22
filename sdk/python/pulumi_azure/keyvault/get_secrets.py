@@ -92,7 +92,7 @@ def get_secrets(key_vault_id: Optional[builtins.str] = None,
 
     :param builtins.str key_vault_id: Specifies the ID of the Key Vault instance to fetch secret names from, available on the `keyvault.KeyVault` Data Source / Resource.
            
-           **NOTE:** The vault must be in the same subscription as the provider. If the vault is in another subscription, you must create an aliased provider for that subscription.
+           > **Note:** The vault must be in the same subscription as the provider. If the vault is in another subscription, you must create an aliased provider for that subscription.
     """
     __args__ = dict()
     __args__['keyVaultId'] = key_vault_id
@@ -112,7 +112,7 @@ def get_secrets_output(key_vault_id: Optional[pulumi.Input[builtins.str]] = None
 
     :param builtins.str key_vault_id: Specifies the ID of the Key Vault instance to fetch secret names from, available on the `keyvault.KeyVault` Data Source / Resource.
            
-           **NOTE:** The vault must be in the same subscription as the provider. If the vault is in another subscription, you must create an aliased provider for that subscription.
+           > **Note:** The vault must be in the same subscription as the provider. If the vault is in another subscription, you must create an aliased provider for that subscription.
     """
     __args__ = dict()
     __args__['keyVaultId'] = key_vault_id

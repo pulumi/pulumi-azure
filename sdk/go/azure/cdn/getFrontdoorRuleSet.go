@@ -40,6 +40,13 @@ import (
 //	}
 //
 // ```
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This data source uses the following Azure API Providers:
+//
+// * `Microsoft.Cdn`: 2024-02-01
 func LookupFrontdoorRuleSet(ctx *pulumi.Context, args *LookupFrontdoorRuleSetArgs, opts ...pulumi.InvokeOption) (*LookupFrontdoorRuleSetResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupFrontdoorRuleSetResult

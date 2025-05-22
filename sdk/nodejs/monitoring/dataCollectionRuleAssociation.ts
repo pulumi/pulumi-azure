@@ -93,6 +93,13 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.Insights`: 2023-03-11
+ *
  * ## Import
  *
  * Data Collection Rules Association can be imported using the `resource id`, e.g.
@@ -136,7 +143,7 @@ export class DataCollectionRuleAssociation extends pulumi.CustomResource {
     /**
      * The ID of the Data Collection Rule which will be associated to the target resource.
      *
-     * > **NOTE** Exactly one of `dataCollectionEndpointId` and `dataCollectionRuleId` blocks must be specified.
+     * > **Note:** Exactly one of `dataCollectionEndpointId` and `dataCollectionRuleId` blocks must be specified.
      */
     public readonly dataCollectionRuleId!: pulumi.Output<string | undefined>;
     /**
@@ -146,7 +153,7 @@ export class DataCollectionRuleAssociation extends pulumi.CustomResource {
     /**
      * The name which should be used for this Data Collection Rule Association. Changing this forces a new Data Collection Rule Association to be created. Defaults to `configurationAccessEndpoint`.
      *
-     * > **NOTE** `name` is required when `dataCollectionRuleId` is specified. And when `dataCollectionEndpointId` is specified, the `name` is populated with `configurationAccessEndpoint`.
+     * > **Note:** `name` is required when `dataCollectionRuleId` is specified. And when `dataCollectionEndpointId` is specified, the `name` is populated with `configurationAccessEndpoint`.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -199,7 +206,7 @@ export interface DataCollectionRuleAssociationState {
     /**
      * The ID of the Data Collection Rule which will be associated to the target resource.
      *
-     * > **NOTE** Exactly one of `dataCollectionEndpointId` and `dataCollectionRuleId` blocks must be specified.
+     * > **Note:** Exactly one of `dataCollectionEndpointId` and `dataCollectionRuleId` blocks must be specified.
      */
     dataCollectionRuleId?: pulumi.Input<string>;
     /**
@@ -209,7 +216,7 @@ export interface DataCollectionRuleAssociationState {
     /**
      * The name which should be used for this Data Collection Rule Association. Changing this forces a new Data Collection Rule Association to be created. Defaults to `configurationAccessEndpoint`.
      *
-     * > **NOTE** `name` is required when `dataCollectionRuleId` is specified. And when `dataCollectionEndpointId` is specified, the `name` is populated with `configurationAccessEndpoint`.
+     * > **Note:** `name` is required when `dataCollectionRuleId` is specified. And when `dataCollectionEndpointId` is specified, the `name` is populated with `configurationAccessEndpoint`.
      */
     name?: pulumi.Input<string>;
     /**
@@ -229,7 +236,7 @@ export interface DataCollectionRuleAssociationArgs {
     /**
      * The ID of the Data Collection Rule which will be associated to the target resource.
      *
-     * > **NOTE** Exactly one of `dataCollectionEndpointId` and `dataCollectionRuleId` blocks must be specified.
+     * > **Note:** Exactly one of `dataCollectionEndpointId` and `dataCollectionRuleId` blocks must be specified.
      */
     dataCollectionRuleId?: pulumi.Input<string>;
     /**
@@ -239,7 +246,7 @@ export interface DataCollectionRuleAssociationArgs {
     /**
      * The name which should be used for this Data Collection Rule Association. Changing this forces a new Data Collection Rule Association to be created. Defaults to `configurationAccessEndpoint`.
      *
-     * > **NOTE** `name` is required when `dataCollectionRuleId` is specified. And when `dataCollectionEndpointId` is specified, the `name` is populated with `configurationAccessEndpoint`.
+     * > **Note:** `name` is required when `dataCollectionRuleId` is specified. And when `dataCollectionEndpointId` is specified, the `name` is populated with `configurationAccessEndpoint`.
      */
     name?: pulumi.Input<string>;
     /**

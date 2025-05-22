@@ -41,7 +41,7 @@ class HciClusterArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags which should be assigned to the Azure Stack HCI Cluster.
         :param pulumi.Input[builtins.str] tenant_id: The Tenant ID of the Azure Active Directory which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
                
-               > **NOTE** If unspecified the Tenant ID of the Provider will be used.
+               > **Note:** If unspecified the Tenant ID of the Provider will be used.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if automanage_configuration_id is not None:
@@ -149,7 +149,7 @@ class HciClusterArgs:
         """
         The Tenant ID of the Azure Active Directory which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
 
-        > **NOTE** If unspecified the Tenant ID of the Provider will be used.
+        > **Note:** If unspecified the Tenant ID of the Provider will be used.
         """
         return pulumi.get(self, "tenant_id")
 
@@ -186,7 +186,7 @@ class _HciClusterState:
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags which should be assigned to the Azure Stack HCI Cluster.
         :param pulumi.Input[builtins.str] tenant_id: The Tenant ID of the Azure Active Directory which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
                
-               > **NOTE** If unspecified the Tenant ID of the Provider will be used.
+               > **Note:** If unspecified the Tenant ID of the Provider will be used.
         """
         if automanage_configuration_id is not None:
             pulumi.set(__self__, "automanage_configuration_id", automanage_configuration_id)
@@ -337,7 +337,7 @@ class _HciClusterState:
         """
         The Tenant ID of the Azure Active Directory which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
 
-        > **NOTE** If unspecified the Tenant ID of the Provider will be used.
+        > **Note:** If unspecified the Tenant ID of the Provider will be used.
         """
         return pulumi.get(self, "tenant_id")
 
@@ -387,6 +387,15 @@ class HciCluster(pulumi.CustomResource):
             })
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.AutoManage`: 2022-05-04
+
+        * `Microsoft.AzureStackHCI`: 2024-01-01, 2022-05-04
+
         ## Import
 
         Azure Stack HCI Clusters can be imported using the `resource id`, e.g.
@@ -406,7 +415,7 @@ class HciCluster(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags which should be assigned to the Azure Stack HCI Cluster.
         :param pulumi.Input[builtins.str] tenant_id: The Tenant ID of the Azure Active Directory which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
                
-               > **NOTE** If unspecified the Tenant ID of the Provider will be used.
+               > **Note:** If unspecified the Tenant ID of the Provider will be used.
         """
         ...
     @overload
@@ -439,6 +448,15 @@ class HciCluster(pulumi.CustomResource):
                 "type": "SystemAssigned",
             })
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.AutoManage`: 2022-05-04
+
+        * `Microsoft.AzureStackHCI`: 2024-01-01, 2022-05-04
 
         ## Import
 
@@ -533,7 +551,7 @@ class HciCluster(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags which should be assigned to the Azure Stack HCI Cluster.
         :param pulumi.Input[builtins.str] tenant_id: The Tenant ID of the Azure Active Directory which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
                
-               > **NOTE** If unspecified the Tenant ID of the Provider will be used.
+               > **Note:** If unspecified the Tenant ID of the Provider will be used.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -638,7 +656,7 @@ class HciCluster(pulumi.CustomResource):
         """
         The Tenant ID of the Azure Active Directory which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
 
-        > **NOTE** If unspecified the Tenant ID of the Provider will be used.
+        > **Note:** If unspecified the Tenant ID of the Provider will be used.
         """
         return pulumi.get(self, "tenant_id")
 

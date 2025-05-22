@@ -21,6 +21,13 @@ import * as utilities from "../utilities";
  * });
  * export const ledgerEndpoint = current.then(current => current.ledgerEndpoint);
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.ConfidentialLedger`: 2022-05-13
  */
 export function getConfidentialLedger(args: GetConfidentialLedgerArgs, opts?: pulumi.InvokeOptions): Promise<GetConfidentialLedgerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -92,6 +99,13 @@ export interface GetConfidentialLedgerResult {
  * });
  * export const ledgerEndpoint = current.then(current => current.ledgerEndpoint);
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.ConfidentialLedger`: 2022-05-13
  */
 export function getConfidentialLedgerOutput(args: GetConfidentialLedgerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConfidentialLedgerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

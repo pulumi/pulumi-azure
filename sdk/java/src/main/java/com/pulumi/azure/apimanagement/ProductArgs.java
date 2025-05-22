@@ -36,7 +36,7 @@ public final class ProductArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Do subscribers need to be approved prior to being able to use the Product?
      * 
-     * &gt; **NOTE:** `approval_required` can only be set when `subscription_required` is set to `true`.
+     * &gt; **Note:** `approval_required` can only be set when `subscription_required` is set to `true`.
      * 
      */
     @Import(name="approvalRequired")
@@ -45,7 +45,7 @@ public final class ProductArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Do subscribers need to be approved prior to being able to use the Product?
      * 
-     * &gt; **NOTE:** `approval_required` can only be set when `subscription_required` is set to `true`.
+     * &gt; **Note:** `approval_required` can only be set when `subscription_required` is set to `true`.
      * 
      */
     public Optional<Output<Boolean>> approvalRequired() {
@@ -145,7 +145,7 @@ public final class ProductArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The number of subscriptions a user can have to this Product at the same time.
      * 
-     * &gt; **NOTE:** `subscriptions_limit` can only be set when `subscription_required` is set to `true`.
+     * &gt; **Note:** `subscriptions_limit` can only be set when `subscription_required` is set to `true`.
      * 
      */
     @Import(name="subscriptionsLimit")
@@ -154,7 +154,7 @@ public final class ProductArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return The number of subscriptions a user can have to this Product at the same time.
      * 
-     * &gt; **NOTE:** `subscriptions_limit` can only be set when `subscription_required` is set to `true`.
+     * &gt; **Note:** `subscriptions_limit` can only be set when `subscription_required` is set to `true`.
      * 
      */
     public Optional<Output<Integer>> subscriptionsLimit() {
@@ -233,7 +233,7 @@ public final class ProductArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param approvalRequired Do subscribers need to be approved prior to being able to use the Product?
          * 
-         * &gt; **NOTE:** `approval_required` can only be set when `subscription_required` is set to `true`.
+         * &gt; **Note:** `approval_required` can only be set when `subscription_required` is set to `true`.
          * 
          * @return builder
          * 
@@ -246,7 +246,7 @@ public final class ProductArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param approvalRequired Do subscribers need to be approved prior to being able to use the Product?
          * 
-         * &gt; **NOTE:** `approval_required` can only be set when `subscription_required` is set to `true`.
+         * &gt; **Note:** `approval_required` can only be set when `subscription_required` is set to `true`.
          * 
          * @return builder
          * 
@@ -384,7 +384,7 @@ public final class ProductArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param subscriptionsLimit The number of subscriptions a user can have to this Product at the same time.
          * 
-         * &gt; **NOTE:** `subscriptions_limit` can only be set when `subscription_required` is set to `true`.
+         * &gt; **Note:** `subscriptions_limit` can only be set when `subscription_required` is set to `true`.
          * 
          * @return builder
          * 
@@ -397,7 +397,7 @@ public final class ProductArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param subscriptionsLimit The number of subscriptions a user can have to this Product at the same time.
          * 
-         * &gt; **NOTE:** `subscriptions_limit` can only be set when `subscription_required` is set to `true`.
+         * &gt; **Note:** `subscriptions_limit` can only be set when `subscription_required` is set to `true`.
          * 
          * @return builder
          * 

@@ -31,11 +31,11 @@ class DataConnectorMicrosoftCloudAppSecurityArgs:
         :param pulumi.Input[builtins.bool] alerts_enabled: Should the alerts be enabled? Defaults to `true`.
         :param pulumi.Input[builtins.bool] discovery_logs_enabled: Should the Discovery Logs be enabled? Defaults to `true`.
                
-               > **NOTE:** One of either `alerts_enabled` or `discovery_logs_enabled` has to be specified.
+               > **Note:** One of either `alerts_enabled` or `discovery_logs_enabled` has to be specified.
         :param pulumi.Input[builtins.str] name: The name which should be used for this Microsoft Cloud App Security Data Connector. Changing this forces a new Microsoft Cloud App Security Data Connector to be created.
         :param pulumi.Input[builtins.str] tenant_id: The ID of the Tenant that this Microsoft Cloud App Security Data Connector connects to.
                
-               > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
+               > **Note:** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
         """
         pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
         if alerts_enabled is not None:
@@ -77,7 +77,7 @@ class DataConnectorMicrosoftCloudAppSecurityArgs:
         """
         Should the Discovery Logs be enabled? Defaults to `true`.
 
-        > **NOTE:** One of either `alerts_enabled` or `discovery_logs_enabled` has to be specified.
+        > **Note:** One of either `alerts_enabled` or `discovery_logs_enabled` has to be specified.
         """
         return pulumi.get(self, "discovery_logs_enabled")
 
@@ -103,7 +103,7 @@ class DataConnectorMicrosoftCloudAppSecurityArgs:
         """
         The ID of the Tenant that this Microsoft Cloud App Security Data Connector connects to.
 
-        > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
+        > **Note:** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
         """
         return pulumi.get(self, "tenant_id")
 
@@ -125,12 +125,12 @@ class _DataConnectorMicrosoftCloudAppSecurityState:
         :param pulumi.Input[builtins.bool] alerts_enabled: Should the alerts be enabled? Defaults to `true`.
         :param pulumi.Input[builtins.bool] discovery_logs_enabled: Should the Discovery Logs be enabled? Defaults to `true`.
                
-               > **NOTE:** One of either `alerts_enabled` or `discovery_logs_enabled` has to be specified.
+               > **Note:** One of either `alerts_enabled` or `discovery_logs_enabled` has to be specified.
         :param pulumi.Input[builtins.str] log_analytics_workspace_id: The ID of the Log Analytics Workspace that this Microsoft Cloud App Security Data Connector resides in. Changing this forces a new Microsoft Cloud App Security Data Connector to be created.
         :param pulumi.Input[builtins.str] name: The name which should be used for this Microsoft Cloud App Security Data Connector. Changing this forces a new Microsoft Cloud App Security Data Connector to be created.
         :param pulumi.Input[builtins.str] tenant_id: The ID of the Tenant that this Microsoft Cloud App Security Data Connector connects to.
                
-               > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
+               > **Note:** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
         """
         if alerts_enabled is not None:
             pulumi.set(__self__, "alerts_enabled", alerts_enabled)
@@ -161,7 +161,7 @@ class _DataConnectorMicrosoftCloudAppSecurityState:
         """
         Should the Discovery Logs be enabled? Defaults to `true`.
 
-        > **NOTE:** One of either `alerts_enabled` or `discovery_logs_enabled` has to be specified.
+        > **Note:** One of either `alerts_enabled` or `discovery_logs_enabled` has to be specified.
         """
         return pulumi.get(self, "discovery_logs_enabled")
 
@@ -199,7 +199,7 @@ class _DataConnectorMicrosoftCloudAppSecurityState:
         """
         The ID of the Tenant that this Microsoft Cloud App Security Data Connector connects to.
 
-        > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
+        > **Note:** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
         """
         return pulumi.get(self, "tenant_id")
 
@@ -223,7 +223,7 @@ class DataConnectorMicrosoftCloudAppSecurity(pulumi.CustomResource):
         """
         Manages a Microsoft Cloud App Security Data Connector.
 
-         !> **NOTE:** This resource requires that [Enterprise Mobility + Security E5](https://www.microsoft.com/en-us/microsoft-365/enterprise-mobility-security) is enabled on the tenant being connected to.
+        !> **Note:** This resource requires that [Enterprise Mobility + Security E5](https://www.microsoft.com/en-us/microsoft-365/enterprise-mobility-security) is enabled on the tenant being connected to.
 
         ## Example Usage
 
@@ -258,12 +258,12 @@ class DataConnectorMicrosoftCloudAppSecurity(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] alerts_enabled: Should the alerts be enabled? Defaults to `true`.
         :param pulumi.Input[builtins.bool] discovery_logs_enabled: Should the Discovery Logs be enabled? Defaults to `true`.
                
-               > **NOTE:** One of either `alerts_enabled` or `discovery_logs_enabled` has to be specified.
+               > **Note:** One of either `alerts_enabled` or `discovery_logs_enabled` has to be specified.
         :param pulumi.Input[builtins.str] log_analytics_workspace_id: The ID of the Log Analytics Workspace that this Microsoft Cloud App Security Data Connector resides in. Changing this forces a new Microsoft Cloud App Security Data Connector to be created.
         :param pulumi.Input[builtins.str] name: The name which should be used for this Microsoft Cloud App Security Data Connector. Changing this forces a new Microsoft Cloud App Security Data Connector to be created.
         :param pulumi.Input[builtins.str] tenant_id: The ID of the Tenant that this Microsoft Cloud App Security Data Connector connects to.
                
-               > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
+               > **Note:** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
         """
         ...
     @overload
@@ -274,7 +274,7 @@ class DataConnectorMicrosoftCloudAppSecurity(pulumi.CustomResource):
         """
         Manages a Microsoft Cloud App Security Data Connector.
 
-         !> **NOTE:** This resource requires that [Enterprise Mobility + Security E5](https://www.microsoft.com/en-us/microsoft-365/enterprise-mobility-security) is enabled on the tenant being connected to.
+        !> **Note:** This resource requires that [Enterprise Mobility + Security E5](https://www.microsoft.com/en-us/microsoft-365/enterprise-mobility-security) is enabled on the tenant being connected to.
 
         ## Example Usage
 
@@ -365,12 +365,12 @@ class DataConnectorMicrosoftCloudAppSecurity(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] alerts_enabled: Should the alerts be enabled? Defaults to `true`.
         :param pulumi.Input[builtins.bool] discovery_logs_enabled: Should the Discovery Logs be enabled? Defaults to `true`.
                
-               > **NOTE:** One of either `alerts_enabled` or `discovery_logs_enabled` has to be specified.
+               > **Note:** One of either `alerts_enabled` or `discovery_logs_enabled` has to be specified.
         :param pulumi.Input[builtins.str] log_analytics_workspace_id: The ID of the Log Analytics Workspace that this Microsoft Cloud App Security Data Connector resides in. Changing this forces a new Microsoft Cloud App Security Data Connector to be created.
         :param pulumi.Input[builtins.str] name: The name which should be used for this Microsoft Cloud App Security Data Connector. Changing this forces a new Microsoft Cloud App Security Data Connector to be created.
         :param pulumi.Input[builtins.str] tenant_id: The ID of the Tenant that this Microsoft Cloud App Security Data Connector connects to.
                
-               > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
+               > **Note:** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -397,7 +397,7 @@ class DataConnectorMicrosoftCloudAppSecurity(pulumi.CustomResource):
         """
         Should the Discovery Logs be enabled? Defaults to `true`.
 
-        > **NOTE:** One of either `alerts_enabled` or `discovery_logs_enabled` has to be specified.
+        > **Note:** One of either `alerts_enabled` or `discovery_logs_enabled` has to be specified.
         """
         return pulumi.get(self, "discovery_logs_enabled")
 
@@ -423,7 +423,7 @@ class DataConnectorMicrosoftCloudAppSecurity(pulumi.CustomResource):
         """
         The ID of the Tenant that this Microsoft Cloud App Security Data Connector connects to.
 
-        > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
+        > **Note:** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
         """
         return pulumi.get(self, "tenant_id")
 

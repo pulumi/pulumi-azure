@@ -317,7 +317,7 @@ type AutomationSource struct {
 	EventSource string `pulumi:"eventSource"`
 	// A set of rules which evaluate upon event and data interception. This is defined in one or more `ruleSet` blocks as defined below.
 	//
-	// > **NOTE:** When multiple `ruleSet` block are provided, a logical 'OR' is applied to the evaluation of them.
+	// > **Note:** When multiple `ruleSet` block are provided, a logical 'OR' is applied to the evaluation of them.
 	RuleSets []AutomationSourceRuleSet `pulumi:"ruleSets"`
 }
 
@@ -337,7 +337,7 @@ type AutomationSourceArgs struct {
 	EventSource pulumi.StringInput `pulumi:"eventSource"`
 	// A set of rules which evaluate upon event and data interception. This is defined in one or more `ruleSet` blocks as defined below.
 	//
-	// > **NOTE:** When multiple `ruleSet` block are provided, a logical 'OR' is applied to the evaluation of them.
+	// > **Note:** When multiple `ruleSet` block are provided, a logical 'OR' is applied to the evaluation of them.
 	RuleSets AutomationSourceRuleSetArrayInput `pulumi:"ruleSets"`
 }
 
@@ -399,7 +399,7 @@ func (o AutomationSourceOutput) EventSource() pulumi.StringOutput {
 
 // A set of rules which evaluate upon event and data interception. This is defined in one or more `ruleSet` blocks as defined below.
 //
-// > **NOTE:** When multiple `ruleSet` block are provided, a logical 'OR' is applied to the evaluation of them.
+// > **Note:** When multiple `ruleSet` block are provided, a logical 'OR' is applied to the evaluation of them.
 func (o AutomationSourceOutput) RuleSets() AutomationSourceRuleSetArrayOutput {
 	return o.ApplyT(func(v AutomationSource) []AutomationSourceRuleSet { return v.RuleSets }).(AutomationSourceRuleSetArrayOutput)
 }
@@ -427,7 +427,7 @@ func (o AutomationSourceArrayOutput) Index(i pulumi.IntInput) AutomationSourceOu
 type AutomationSourceRuleSet struct {
 	// One or more `rule` blocks as defined below.
 	//
-	// > **NOTE:** This automation will trigger when all of the `rule`s in this `ruleSet` are evaluated as 'true'. This is equivalent to a logical 'AND'.
+	// > **Note:** This automation will trigger when all of the `rule`s in this `ruleSet` are evaluated as 'true'. This is equivalent to a logical 'AND'.
 	Rules []AutomationSourceRuleSetRule `pulumi:"rules"`
 }
 
@@ -445,7 +445,7 @@ type AutomationSourceRuleSetInput interface {
 type AutomationSourceRuleSetArgs struct {
 	// One or more `rule` blocks as defined below.
 	//
-	// > **NOTE:** This automation will trigger when all of the `rule`s in this `ruleSet` are evaluated as 'true'. This is equivalent to a logical 'AND'.
+	// > **Note:** This automation will trigger when all of the `rule`s in this `ruleSet` are evaluated as 'true'. This is equivalent to a logical 'AND'.
 	Rules AutomationSourceRuleSetRuleArrayInput `pulumi:"rules"`
 }
 
@@ -502,7 +502,7 @@ func (o AutomationSourceRuleSetOutput) ToAutomationSourceRuleSetOutputWithContex
 
 // One or more `rule` blocks as defined below.
 //
-// > **NOTE:** This automation will trigger when all of the `rule`s in this `ruleSet` are evaluated as 'true'. This is equivalent to a logical 'AND'.
+// > **Note:** This automation will trigger when all of the `rule`s in this `ruleSet` are evaluated as 'true'. This is equivalent to a logical 'AND'.
 func (o AutomationSourceRuleSetOutput) Rules() AutomationSourceRuleSetRuleArrayOutput {
 	return o.ApplyT(func(v AutomationSourceRuleSet) []AutomationSourceRuleSetRule { return v.Rules }).(AutomationSourceRuleSetRuleArrayOutput)
 }
@@ -536,7 +536,7 @@ type AutomationSourceRuleSetRule struct {
 	PropertyPath string `pulumi:"propertyPath"`
 	// The data type of the compared operands, must be one of: `Integer`, `String`, `Boolean` or `Number`.
 	//
-	// > **NOTE:** The schema for Security Center alerts (when `eventSource` is "Alerts") [can be found here](https://docs.microsoft.com/azure/security-center/alerts-schemas?tabs=schema-continuousexport)
+	// > **Note:** The schema for Security Center alerts (when `eventSource` is "Alerts") [can be found here](https://docs.microsoft.com/azure/security-center/alerts-schemas?tabs=schema-continuousexport)
 	PropertyType string `pulumi:"propertyType"`
 }
 
@@ -560,7 +560,7 @@ type AutomationSourceRuleSetRuleArgs struct {
 	PropertyPath pulumi.StringInput `pulumi:"propertyPath"`
 	// The data type of the compared operands, must be one of: `Integer`, `String`, `Boolean` or `Number`.
 	//
-	// > **NOTE:** The schema for Security Center alerts (when `eventSource` is "Alerts") [can be found here](https://docs.microsoft.com/azure/security-center/alerts-schemas?tabs=schema-continuousexport)
+	// > **Note:** The schema for Security Center alerts (when `eventSource` is "Alerts") [can be found here](https://docs.microsoft.com/azure/security-center/alerts-schemas?tabs=schema-continuousexport)
 	PropertyType pulumi.StringInput `pulumi:"propertyType"`
 }
 
@@ -632,7 +632,7 @@ func (o AutomationSourceRuleSetRuleOutput) PropertyPath() pulumi.StringOutput {
 
 // The data type of the compared operands, must be one of: `Integer`, `String`, `Boolean` or `Number`.
 //
-// > **NOTE:** The schema for Security Center alerts (when `eventSource` is "Alerts") [can be found here](https://docs.microsoft.com/azure/security-center/alerts-schemas?tabs=schema-continuousexport)
+// > **Note:** The schema for Security Center alerts (when `eventSource` is "Alerts") [can be found here](https://docs.microsoft.com/azure/security-center/alerts-schemas?tabs=schema-continuousexport)
 func (o AutomationSourceRuleSetRuleOutput) PropertyType() pulumi.StringOutput {
 	return o.ApplyT(func(v AutomationSourceRuleSetRule) string { return v.PropertyType }).(pulumi.StringOutput)
 }
@@ -660,9 +660,9 @@ func (o AutomationSourceRuleSetRuleArrayOutput) Index(i pulumi.IntInput) Automat
 type SubscriptionPricingExtension struct {
 	// Key/Value pairs that are required for some extensions.
 	//
-	// > **NOTE:** If an extension is not defined, it will not be enabled.
+	// > **Note:** If an extension is not defined, it will not be enabled.
 	//
-	// > **NOTE:** Changing the pricing tier to `Standard` affects all resources of the given type in the subscription and could be quite costly.
+	// > **Note:** Changing the pricing tier to `Standard` affects all resources of the given type in the subscription and could be quite costly.
 	AdditionalExtensionProperties map[string]string `pulumi:"additionalExtensionProperties"`
 	// The name of extension.
 	Name string `pulumi:"name"`
@@ -682,9 +682,9 @@ type SubscriptionPricingExtensionInput interface {
 type SubscriptionPricingExtensionArgs struct {
 	// Key/Value pairs that are required for some extensions.
 	//
-	// > **NOTE:** If an extension is not defined, it will not be enabled.
+	// > **Note:** If an extension is not defined, it will not be enabled.
 	//
-	// > **NOTE:** Changing the pricing tier to `Standard` affects all resources of the given type in the subscription and could be quite costly.
+	// > **Note:** Changing the pricing tier to `Standard` affects all resources of the given type in the subscription and could be quite costly.
 	AdditionalExtensionProperties pulumi.StringMapInput `pulumi:"additionalExtensionProperties"`
 	// The name of extension.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -743,9 +743,9 @@ func (o SubscriptionPricingExtensionOutput) ToSubscriptionPricingExtensionOutput
 
 // Key/Value pairs that are required for some extensions.
 //
-// > **NOTE:** If an extension is not defined, it will not be enabled.
+// > **Note:** If an extension is not defined, it will not be enabled.
 //
-// > **NOTE:** Changing the pricing tier to `Standard` affects all resources of the given type in the subscription and could be quite costly.
+// > **Note:** Changing the pricing tier to `Standard` affects all resources of the given type in the subscription and could be quite costly.
 func (o SubscriptionPricingExtensionOutput) AdditionalExtensionProperties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v SubscriptionPricingExtension) map[string]string { return v.AdditionalExtensionProperties }).(pulumi.StringMapOutput)
 }

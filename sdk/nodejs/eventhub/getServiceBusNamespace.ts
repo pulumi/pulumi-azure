@@ -19,6 +19,13 @@ import * as utilities from "../utilities";
  * });
  * export const location = example.then(example => example.location);
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.ServiceBus`: 2022-10-01-preview, 2021-06-01-preview
  */
 /** @deprecated azure.eventhub.getServiceBusNamespace has been deprecated in favor of azure.servicebus.getNamespace */
 export function getServiceBusNamespace(args: GetServiceBusNamespaceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceBusNamespaceResult> {
@@ -112,6 +119,13 @@ export interface GetServiceBusNamespaceResult {
  * });
  * export const location = example.then(example => example.location);
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.ServiceBus`: 2022-10-01-preview, 2021-06-01-preview
  */
 /** @deprecated azure.eventhub.getServiceBusNamespace has been deprecated in favor of azure.servicebus.getNamespace */
 export function getServiceBusNamespaceOutput(args: GetServiceBusNamespaceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServiceBusNamespaceResult> {

@@ -115,7 +115,7 @@ class AccountActiveDirectory(dict):
         :param builtins.str kerberos_ad_name: Name of the active directory machine.
         :param builtins.str kerberos_kdc_ip: kdc server IP addresses for the active directory machine.
                
-               > **IMPORTANT:** If you plan on using **Kerberos** volumes, both `ad_name` and `kdc_ip` are required in order to create the volume.
+               > **Note:** If you plan on using **Kerberos** volumes, both `ad_name` and `kdc_ip` are required in order to create the volume.
         :param builtins.bool ldap_over_tls_enabled: Specifies whether or not the LDAP traffic needs to be secured via TLS. Defaults to `false`.
         :param builtins.bool ldap_signing_enabled: Specifies whether or not the LDAP traffic needs to be signed. Defaults to `false`.
         :param builtins.bool local_nfs_users_with_ldap_allowed: If enabled, NFS client local users can also (in addition to LDAP users) access the NFS volumes. Defaults to `false`.
@@ -209,7 +209,7 @@ class AccountActiveDirectory(dict):
         """
         kdc server IP addresses for the active directory machine.
 
-        > **IMPORTANT:** If you plan on using **Kerberos** volumes, both `ad_name` and `kdc_ip` are required in order to create the volume.
+        > **Note:** If you plan on using **Kerberos** volumes, both `ad_name` and `kdc_ip` are required in order to create the volume.
         """
         return pulumi.get(self, "kerberos_kdc_ip")
 
@@ -675,7 +675,7 @@ class VolumeDataProtectionReplication(dict):
                
                A full example of the `data_protection_replication` attribute can be found in the `./examples/netapp/volume_crr` directory within the GitHub Repository
                
-               > **NOTE:** `data_protection_replication` can be defined only once per secondary volume, adding a second instance of it is not supported.
+               > **Note:** `data_protection_replication` can be defined only once per secondary volume, adding a second instance of it is not supported.
         :param builtins.str endpoint_type: The endpoint type, default value is `dst` for destination.
         """
         pulumi.set(__self__, "remote_volume_location", remote_volume_location)
@@ -708,7 +708,7 @@ class VolumeDataProtectionReplication(dict):
 
         A full example of the `data_protection_replication` attribute can be found in the `./examples/netapp/volume_crr` directory within the GitHub Repository
 
-        > **NOTE:** `data_protection_replication` can be defined only once per secondary volume, adding a second instance of it is not supported.
+        > **Note:** `data_protection_replication` can be defined only once per secondary volume, adding a second instance of it is not supported.
         """
         return pulumi.get(self, "replication_frequency")
 
@@ -747,7 +747,7 @@ class VolumeDataProtectionSnapshotPolicy(dict):
                
                A full example of the `data_protection_snapshot_policy` attribute usage can be found in the `./examples/netapp/nfsv3_volume_with_snapshot_policy` directory within the GitHub Repository
                
-               > **NOTE:** `data_protection_snapshot_policy` block can be used alone or with data_protection_replication in the primary volume only, if enabling it in the secondary, an error will be thrown.
+               > **Note:** `data_protection_snapshot_policy` block can be used alone or with data_protection_replication in the primary volume only, if enabling it in the secondary, an error will be thrown.
         """
         pulumi.set(__self__, "snapshot_policy_id", snapshot_policy_id)
 
@@ -759,7 +759,7 @@ class VolumeDataProtectionSnapshotPolicy(dict):
 
         A full example of the `data_protection_snapshot_policy` attribute usage can be found in the `./examples/netapp/nfsv3_volume_with_snapshot_policy` directory within the GitHub Repository
 
-        > **NOTE:** `data_protection_snapshot_policy` block can be used alone or with data_protection_replication in the primary volume only, if enabling it in the secondary, an error will be thrown.
+        > **Note:** `data_protection_snapshot_policy` block can be used alone or with data_protection_replication in the primary volume only, if enabling it in the secondary, an error will be thrown.
         """
         return pulumi.get(self, "snapshot_policy_id")
 
@@ -1043,7 +1043,7 @@ class VolumeGroupOracleVolume(dict):
         :param builtins.str network_features: Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features). This is required if enabling customer managed keys encryption scenario.
         :param builtins.str proximity_placement_group_id: The ID of the proximity placement group (PPG). Changing this forces a new Application Volume Group to be created and data will be lost. 
                
-               > **NOTE**: For Oracle application, it is required to have PPG enabled so Azure NetApp Files can pin the volumes next to your compute resources, please check [Requirements and considerations for application volume group for Oracle](https://learn.microsoft.com/en-us/azure/azure-netapp-files/application-volume-group-oracle-considerations) for details and other requirements. Note that this cannot be used together with `zone`.
+               > **Note:** For Oracle application, it is required to have PPG enabled so Azure NetApp Files can pin the volumes next to your compute resources, please check [Requirements and considerations for application volume group for Oracle](https://learn.microsoft.com/en-us/azure/azure-netapp-files/application-volume-group-oracle-considerations) for details and other requirements. Note that this cannot be used together with `zone`.
         :param Mapping[str, builtins.str] tags: A mapping of tags which should be assigned to the Application Volume Group.
         :param builtins.str zone: Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`, depending on the Azure region. Changing this forces a new resource to be created. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement). Note that this cannot be used together with `proximity_placement_group_id`.
         """
@@ -1225,7 +1225,7 @@ class VolumeGroupOracleVolume(dict):
         """
         The ID of the proximity placement group (PPG). Changing this forces a new Application Volume Group to be created and data will be lost. 
 
-        > **NOTE**: For Oracle application, it is required to have PPG enabled so Azure NetApp Files can pin the volumes next to your compute resources, please check [Requirements and considerations for application volume group for Oracle](https://learn.microsoft.com/en-us/azure/azure-netapp-files/application-volume-group-oracle-considerations) for details and other requirements. Note that this cannot be used together with `zone`.
+        > **Note:** For Oracle application, it is required to have PPG enabled so Azure NetApp Files can pin the volumes next to your compute resources, please check [Requirements and considerations for application volume group for Oracle](https://learn.microsoft.com/en-us/azure/azure-netapp-files/application-volume-group-oracle-considerations) for details and other requirements. Note that this cannot be used together with `zone`.
         """
         return pulumi.get(self, "proximity_placement_group_id")
 

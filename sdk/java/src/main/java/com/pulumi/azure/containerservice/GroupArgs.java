@@ -288,7 +288,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The priority of the Container Group. Possible values are `Regular` and `Spot`. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** When `priority` is set to `Spot`, the `ip_address_type` has to be `None`.
+     * &gt; **Note:** When `priority` is set to `Spot`, the `ip_address_type` has to be `None`.
      * 
      */
     @Import(name="priority")
@@ -297,7 +297,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return The priority of the Container Group. Possible values are `Regular` and `Spot`. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** When `priority` is set to `Spot`, the `ip_address_type` has to be `None`.
+     * &gt; **Note:** When `priority` is set to `Spot`, the `ip_address_type` has to be `None`.
      * 
      */
     public Optional<Output<String>> priority() {
@@ -841,7 +841,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param priority The priority of the Container Group. Possible values are `Regular` and `Spot`. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** When `priority` is set to `Spot`, the `ip_address_type` has to be `None`.
+         * &gt; **Note:** When `priority` is set to `Spot`, the `ip_address_type` has to be `None`.
          * 
          * @return builder
          * 
@@ -854,7 +854,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param priority The priority of the Container Group. Possible values are `Regular` and `Spot`. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** When `priority` is set to `Spot`, the `ip_address_type` has to be `None`.
+         * &gt; **Note:** When `priority` is set to `Spot`, the `ip_address_type` has to be `None`.
          * 
          * @return builder
          * 

@@ -247,6 +247,13 @@ def get_subscription(name: Optional[builtins.str] = None,
     pulumi.export("servicebusSubscription", example_azurerm_servicebus_namespace)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.ServiceBus`: 2021-06-01-preview
+
 
     :param builtins.str name: Specifies the name of the ServiceBus Subscription.
     :param builtins.str topic_id: The ID of the ServiceBus Topic where the Service Bus Subscription exists.
@@ -297,6 +304,13 @@ def get_subscription_output(name: Optional[pulumi.Input[builtins.str]] = None,
         topic_id="exampletopic")
     pulumi.export("servicebusSubscription", example_azurerm_servicebus_namespace)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.ServiceBus`: 2021-06-01-preview
 
 
     :param builtins.str name: Specifies the name of the ServiceBus Subscription.

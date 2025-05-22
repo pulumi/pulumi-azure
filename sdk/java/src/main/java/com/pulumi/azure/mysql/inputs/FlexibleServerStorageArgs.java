@@ -62,6 +62,21 @@ public final class FlexibleServerStorageArgs extends com.pulumi.resources.Resour
     }
 
     /**
+     * Should Storage Log On Disk be enabled? Defaults to `false`.
+     * 
+     */
+    @Import(name="logOnDiskEnabled")
+    private @Nullable Output<Boolean> logOnDiskEnabled;
+
+    /**
+     * @return Should Storage Log On Disk be enabled? Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> logOnDiskEnabled() {
+        return Optional.ofNullable(this.logOnDiskEnabled);
+    }
+
+    /**
      * The max storage allowed for the MySQL Flexible Server. Possible values are between `20` and `16384`.
      * 
      * &gt; **Note:** Decreasing `size_gb` forces a new resource to be created.
@@ -86,6 +101,7 @@ public final class FlexibleServerStorageArgs extends com.pulumi.resources.Resour
         this.autoGrowEnabled = $.autoGrowEnabled;
         this.ioScalingEnabled = $.ioScalingEnabled;
         this.iops = $.iops;
+        this.logOnDiskEnabled = $.logOnDiskEnabled;
         this.sizeGb = $.sizeGb;
     }
 
@@ -168,6 +184,27 @@ public final class FlexibleServerStorageArgs extends com.pulumi.resources.Resour
          */
         public Builder iops(Integer iops) {
             return iops(Output.of(iops));
+        }
+
+        /**
+         * @param logOnDiskEnabled Should Storage Log On Disk be enabled? Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder logOnDiskEnabled(@Nullable Output<Boolean> logOnDiskEnabled) {
+            $.logOnDiskEnabled = logOnDiskEnabled;
+            return this;
+        }
+
+        /**
+         * @param logOnDiskEnabled Should Storage Log On Disk be enabled? Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder logOnDiskEnabled(Boolean logOnDiskEnabled) {
+            return logOnDiskEnabled(Output.of(logOnDiskEnabled));
         }
 
         /**

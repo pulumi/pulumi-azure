@@ -40,6 +40,13 @@ import (
 //	}
 //
 // ```
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This data source uses the following Azure API Providers:
+//
+// * `Microsoft.Web`: 2023-01-01
 func LookupEnvironmentV3(ctx *pulumi.Context, args *LookupEnvironmentV3Args, opts ...pulumi.InvokeOption) (*LookupEnvironmentV3Result, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupEnvironmentV3Result

@@ -71,6 +71,13 @@ public final class LbFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2023-09-01
+     * 
      */
     public static Output<GetBackendAddressPoolResult> getBackendAddressPool(GetBackendAddressPoolArgs args) {
         return getBackendAddressPool(args, InvokeOptions.Empty);
@@ -121,6 +128,13 @@ public final class LbFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2023-09-01
      * 
      */
     public static CompletableFuture<GetBackendAddressPoolResult> getBackendAddressPoolPlain(GetBackendAddressPoolPlainArgs args) {
@@ -173,6 +187,13 @@ public final class LbFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2023-09-01
+     * 
      */
     public static Output<GetBackendAddressPoolResult> getBackendAddressPool(GetBackendAddressPoolArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:lb/getBackendAddressPool:getBackendAddressPool", TypeShape.of(GetBackendAddressPoolResult.class), args, Utilities.withVersion(options));
@@ -223,6 +244,13 @@ public final class LbFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2023-09-01
      * 
      */
     public static Output<GetBackendAddressPoolResult> getBackendAddressPool(GetBackendAddressPoolArgs args, InvokeOutputOptions options) {
@@ -275,6 +303,13 @@ public final class LbFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2023-09-01
+     * 
      */
     public static CompletableFuture<GetBackendAddressPoolResult> getBackendAddressPoolPlain(GetBackendAddressPoolPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:lb/getBackendAddressPool:getBackendAddressPool", TypeShape.of(GetBackendAddressPoolResult.class), args, Utilities.withVersion(options));
@@ -318,6 +353,13 @@ public final class LbFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2023-09-01
      * 
      */
     public static Output<GetLBResult> getLB(GetLBArgs args) {
@@ -363,6 +405,13 @@ public final class LbFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2023-09-01
+     * 
      */
     public static CompletableFuture<GetLBResult> getLBPlain(GetLBPlainArgs args) {
         return getLBPlain(args, InvokeOptions.Empty);
@@ -406,6 +455,13 @@ public final class LbFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2023-09-01
      * 
      */
     public static Output<GetLBResult> getLB(GetLBArgs args, InvokeOptions options) {
@@ -451,6 +507,13 @@ public final class LbFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2023-09-01
+     * 
      */
     public static Output<GetLBResult> getLB(GetLBArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:lb/getLB:getLB", TypeShape.of(GetLBResult.class), args, Utilities.withVersion(options));
@@ -494,6 +557,13 @@ public final class LbFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2023-09-01
      * 
      */
     public static CompletableFuture<GetLBResult> getLBPlain(GetLBPlainArgs args, InvokeOptions options) {
@@ -539,6 +609,13 @@ public final class LbFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2023-09-01
+     * 
      */
     public static Output<GetLBOutboundRuleResult> getLBOutboundRule(GetLBOutboundRuleArgs args) {
         return getLBOutboundRule(args, InvokeOptions.Empty);
@@ -582,6 +659,13 @@ public final class LbFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2023-09-01
      * 
      */
     public static CompletableFuture<GetLBOutboundRuleResult> getLBOutboundRulePlain(GetLBOutboundRulePlainArgs args) {
@@ -627,6 +711,13 @@ public final class LbFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2023-09-01
+     * 
      */
     public static Output<GetLBOutboundRuleResult> getLBOutboundRule(GetLBOutboundRuleArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:lb/getLBOutboundRule:getLBOutboundRule", TypeShape.of(GetLBOutboundRuleResult.class), args, Utilities.withVersion(options));
@@ -670,6 +761,13 @@ public final class LbFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2023-09-01
      * 
      */
     public static Output<GetLBOutboundRuleResult> getLBOutboundRule(GetLBOutboundRuleArgs args, InvokeOutputOptions options) {
@@ -715,6 +813,13 @@ public final class LbFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2023-09-01
+     * 
      */
     public static CompletableFuture<GetLBOutboundRuleResult> getLBOutboundRulePlain(GetLBOutboundRulePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:lb/getLBOutboundRule:getLBOutboundRule", TypeShape.of(GetLBOutboundRuleResult.class), args, Utilities.withVersion(options));
@@ -726,6 +831,13 @@ public final class LbFunctions {
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2023-09-01
      * 
      */
     public static Output<GetLBRuleResult> getLBRule(GetLBRuleArgs args) {
@@ -739,6 +851,13 @@ public final class LbFunctions {
      * &lt;!--Start PulumiCodeChooser --&gt;
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2023-09-01
+     * 
      */
     public static CompletableFuture<GetLBRuleResult> getLBRulePlain(GetLBRulePlainArgs args) {
         return getLBRulePlain(args, InvokeOptions.Empty);
@@ -750,6 +869,13 @@ public final class LbFunctions {
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2023-09-01
      * 
      */
     public static Output<GetLBRuleResult> getLBRule(GetLBRuleArgs args, InvokeOptions options) {
@@ -763,6 +889,13 @@ public final class LbFunctions {
      * &lt;!--Start PulumiCodeChooser --&gt;
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2023-09-01
+     * 
      */
     public static Output<GetLBRuleResult> getLBRule(GetLBRuleArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:lb/getLBRule:getLBRule", TypeShape.of(GetLBRuleResult.class), args, Utilities.withVersion(options));
@@ -774,6 +907,13 @@ public final class LbFunctions {
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2023-09-01
      * 
      */
     public static CompletableFuture<GetLBRuleResult> getLBRulePlain(GetLBRulePlainArgs args, InvokeOptions options) {

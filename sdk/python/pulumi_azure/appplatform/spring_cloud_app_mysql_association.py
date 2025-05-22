@@ -236,6 +236,8 @@ class SpringCloudAppMysqlAssociation(pulumi.CustomResource):
         """
         Associates a Spring Cloud Application with a MySQL Database.
 
+        !> **Note:** Azure Spring Apps is now deprecated and will be retired on 2028-05-31 - as such the `appplatform.SpringCloudAppMysqlAssociation` resource is deprecated and will be removed in a future major version of the AzureRM Provider. See https://aka.ms/asaretirement for more information.
+
         ## Example Usage
 
         ```python
@@ -259,7 +261,7 @@ class SpringCloudAppMysqlAssociation(pulumi.CustomResource):
             location=example.location,
             administrator_login="adminTerraform",
             administrator_password="QAZwsx123",
-            sku_name="B_Standard_B1s",
+            sku_name="B_Standard_B1ms",
             zone="2")
         example_flexible_database = azure.mysql.FlexibleDatabase("example",
             name="exampledb",
@@ -302,6 +304,8 @@ class SpringCloudAppMysqlAssociation(pulumi.CustomResource):
         """
         Associates a Spring Cloud Application with a MySQL Database.
 
+        !> **Note:** Azure Spring Apps is now deprecated and will be retired on 2028-05-31 - as such the `appplatform.SpringCloudAppMysqlAssociation` resource is deprecated and will be removed in a future major version of the AzureRM Provider. See https://aka.ms/asaretirement for more information.
+
         ## Example Usage
 
         ```python
@@ -325,7 +329,7 @@ class SpringCloudAppMysqlAssociation(pulumi.CustomResource):
             location=example.location,
             administrator_login="adminTerraform",
             administrator_password="QAZwsx123",
-            sku_name="B_Standard_B1s",
+            sku_name="B_Standard_B1ms",
             zone="2")
         example_flexible_database = azure.mysql.FlexibleDatabase("example",
             name="exampledb",

@@ -65,6 +65,13 @@ import (
 //
 // ```
 //
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.ApiManagement`: 2022-08-01
+//
 // ## Import
 //
 // API Management Users can be imported using the `resource id`, e.g.
@@ -93,7 +100,7 @@ type User struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The state of this user. Possible values are `active`, `blocked` and `pending`.
 	//
-	// > **NOTE:** the State can be changed from Pending > Active/Blocked but not from Active/Blocked > Pending.
+	// > **Note:** the State can be changed from Pending > Active/Blocked but not from Active/Blocked > Pending.
 	State pulumi.StringOutput `pulumi:"state"`
 	// The Identifier for this User, which must be unique within the API Management Service. Changing this forces a new resource to be created.
 	UserId pulumi.StringOutput `pulumi:"userId"`
@@ -172,7 +179,7 @@ type userState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The state of this user. Possible values are `active`, `blocked` and `pending`.
 	//
-	// > **NOTE:** the State can be changed from Pending > Active/Blocked but not from Active/Blocked > Pending.
+	// > **Note:** the State can be changed from Pending > Active/Blocked but not from Active/Blocked > Pending.
 	State *string `pulumi:"state"`
 	// The Identifier for this User, which must be unique within the API Management Service. Changing this forces a new resource to be created.
 	UserId *string `pulumi:"userId"`
@@ -197,7 +204,7 @@ type UserState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// The state of this user. Possible values are `active`, `blocked` and `pending`.
 	//
-	// > **NOTE:** the State can be changed from Pending > Active/Blocked but not from Active/Blocked > Pending.
+	// > **Note:** the State can be changed from Pending > Active/Blocked but not from Active/Blocked > Pending.
 	State pulumi.StringPtrInput
 	// The Identifier for this User, which must be unique within the API Management Service. Changing this forces a new resource to be created.
 	UserId pulumi.StringPtrInput
@@ -226,7 +233,7 @@ type userArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The state of this user. Possible values are `active`, `blocked` and `pending`.
 	//
-	// > **NOTE:** the State can be changed from Pending > Active/Blocked but not from Active/Blocked > Pending.
+	// > **Note:** the State can be changed from Pending > Active/Blocked but not from Active/Blocked > Pending.
 	State *string `pulumi:"state"`
 	// The Identifier for this User, which must be unique within the API Management Service. Changing this forces a new resource to be created.
 	UserId string `pulumi:"userId"`
@@ -252,7 +259,7 @@ type UserArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// The state of this user. Possible values are `active`, `blocked` and `pending`.
 	//
-	// > **NOTE:** the State can be changed from Pending > Active/Blocked but not from Active/Blocked > Pending.
+	// > **Note:** the State can be changed from Pending > Active/Blocked but not from Active/Blocked > Pending.
 	State pulumi.StringPtrInput
 	// The Identifier for this User, which must be unique within the API Management Service. Changing this forces a new resource to be created.
 	UserId pulumi.StringInput
@@ -387,7 +394,7 @@ func (o UserOutput) ResourceGroupName() pulumi.StringOutput {
 
 // The state of this user. Possible values are `active`, `blocked` and `pending`.
 //
-// > **NOTE:** the State can be changed from Pending > Active/Blocked but not from Active/Blocked > Pending.
+// > **Note:** the State can be changed from Pending > Active/Blocked but not from Active/Blocked > Pending.
 func (o UserOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
 }

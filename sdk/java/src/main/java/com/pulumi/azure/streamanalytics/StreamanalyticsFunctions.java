@@ -55,6 +55,13 @@ public final class StreamanalyticsFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.StreamAnalytics`: 2021-10-01-preview
+     * 
      */
     public static Output<GetJobResult> getJob(GetJobArgs args) {
         return getJob(args, InvokeOptions.Empty);
@@ -98,6 +105,13 @@ public final class StreamanalyticsFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.StreamAnalytics`: 2021-10-01-preview
      * 
      */
     public static CompletableFuture<GetJobResult> getJobPlain(GetJobPlainArgs args) {
@@ -143,6 +157,13 @@ public final class StreamanalyticsFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.StreamAnalytics`: 2021-10-01-preview
+     * 
      */
     public static Output<GetJobResult> getJob(GetJobArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:streamanalytics/getJob:getJob", TypeShape.of(GetJobResult.class), args, Utilities.withVersion(options));
@@ -187,6 +208,13 @@ public final class StreamanalyticsFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.StreamAnalytics`: 2021-10-01-preview
+     * 
      */
     public static Output<GetJobResult> getJob(GetJobArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:streamanalytics/getJob:getJob", TypeShape.of(GetJobResult.class), args, Utilities.withVersion(options));
@@ -230,6 +258,13 @@ public final class StreamanalyticsFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.StreamAnalytics`: 2021-10-01-preview
      * 
      */
     public static CompletableFuture<GetJobResult> getJobPlain(GetJobPlainArgs args, InvokeOptions options) {

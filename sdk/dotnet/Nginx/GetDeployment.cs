@@ -36,6 +36,13 @@ namespace Pulumi.Azure.Nginx
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Nginx.NginxPlus`: 2024-11-01-preview
         /// </summary>
         public static Task<GetDeploymentResult> InvokeAsync(GetDeploymentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDeploymentResult>("azure:nginx/getDeployment:getDeployment", args ?? new GetDeploymentArgs(), options.WithDefaults());
@@ -65,6 +72,13 @@ namespace Pulumi.Azure.Nginx
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Nginx.NginxPlus`: 2024-11-01-preview
         /// </summary>
         public static Output<GetDeploymentResult> Invoke(GetDeploymentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDeploymentResult>("azure:nginx/getDeployment:getDeployment", args ?? new GetDeploymentInvokeArgs(), options.WithDefaults());
@@ -94,6 +108,13 @@ namespace Pulumi.Azure.Nginx
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Nginx.NginxPlus`: 2024-11-01-preview
         /// </summary>
         public static Output<GetDeploymentResult> Invoke(GetDeploymentInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDeploymentResult>("azure:nginx/getDeployment:getDeployment", args ?? new GetDeploymentInvokeArgs(), options.WithDefaults());
@@ -215,6 +236,10 @@ namespace Pulumi.Azure.Nginx
         /// A mapping of tags assigned to the NGINX Deployment.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
+        /// <summary>
+        /// A `web_application_firewall` block as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetDeploymentWebApplicationFirewallResult> WebApplicationFirewalls;
 
         [OutputConstructor]
         private GetDeploymentResult(
@@ -256,7 +281,9 @@ namespace Pulumi.Azure.Nginx
 
             string sku,
 
-            ImmutableDictionary<string, string> tags)
+            ImmutableDictionary<string, string> tags,
+
+            ImmutableArray<Outputs.GetDeploymentWebApplicationFirewallResult> webApplicationFirewalls)
         {
             AutoScaleProfiles = autoScaleProfiles;
             AutomaticUpgradeChannel = automaticUpgradeChannel;
@@ -278,6 +305,7 @@ namespace Pulumi.Azure.Nginx
             ResourceGroupName = resourceGroupName;
             Sku = sku;
             Tags = tags;
+            WebApplicationFirewalls = webApplicationFirewalls;
         }
     }
 }

@@ -50,6 +50,13 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.SignalRService`: 2024-03-01
+ *
  * ## Import
  *
  * Signalr Shared Private Link Resource can be imported using the `resource id`, e.g.
@@ -109,7 +116,7 @@ export class SharedPrivateLinkResource extends pulumi.CustomResource {
     /**
      * The ID of the Shared Private Link Enabled Remote Resource which this Signalr Private Endpoint should be connected to. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** The `subResourceName` should match with the type of the `targetResourceId` that's being specified.
+     * > **Note:** The `subResourceName` should match with the type of the `targetResourceId` that's being specified.
      */
     public readonly targetResourceId!: pulumi.Output<string>;
 
@@ -182,7 +189,7 @@ export interface SharedPrivateLinkResourceState {
     /**
      * The ID of the Shared Private Link Enabled Remote Resource which this Signalr Private Endpoint should be connected to. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** The `subResourceName` should match with the type of the `targetResourceId` that's being specified.
+     * > **Note:** The `subResourceName` should match with the type of the `targetResourceId` that's being specified.
      */
     targetResourceId?: pulumi.Input<string>;
 }
@@ -210,7 +217,7 @@ export interface SharedPrivateLinkResourceArgs {
     /**
      * The ID of the Shared Private Link Enabled Remote Resource which this Signalr Private Endpoint should be connected to. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** The `subResourceName` should match with the type of the `targetResourceId` that's being specified.
+     * > **Note:** The `subResourceName` should match with the type of the `targetResourceId` that's being specified.
      */
     targetResourceId: pulumi.Input<string>;
 }

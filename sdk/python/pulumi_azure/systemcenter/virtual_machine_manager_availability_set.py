@@ -263,6 +263,13 @@ class VirtualMachineManagerAvailabilitySet(pulumi.CustomResource):
             system_center_virtual_machine_manager_server_id=example_virtual_machine_manager_server.id)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ScVmm`: 2023-10-07
+
         ## Import
 
         System Center Virtual Machine Manager Availability Sets can be imported into Pulumi using the `resource id`, e.g.
@@ -313,6 +320,13 @@ class VirtualMachineManagerAvailabilitySet(pulumi.CustomResource):
             custom_location_id=example_virtual_machine_manager_server.custom_location_id,
             system_center_virtual_machine_manager_server_id=example_virtual_machine_manager_server.id)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ScVmm`: 2023-10-07
 
         ## Import
 

@@ -46,20 +46,20 @@ class RegistryTaskArgs:
         :param pulumi.Input[builtins.str] agent_pool_name: The name of the dedicated Container Registry Agent Pool for this Container Registry Task.
         :param pulumi.Input['RegistryTaskAgentSettingArgs'] agent_setting: A `agent_setting` block as defined below.
                
-               > **NOTE:** Only one of `agent_pool_name` and `agent_setting` can be specified.
+               > **Note:** Only one of `agent_pool_name` and `agent_setting` can be specified.
         :param pulumi.Input['RegistryTaskBaseImageTriggerArgs'] base_image_trigger: A `base_image_trigger` block as defined below.
         :param pulumi.Input['RegistryTaskDockerStepArgs'] docker_step: A `docker_step` block as defined below.
         :param pulumi.Input[builtins.bool] enabled: Should this Container Registry Task be enabled? Defaults to `true`.
         :param pulumi.Input['RegistryTaskEncodedStepArgs'] encoded_step: A `encoded_step` block as defined below.
         :param pulumi.Input['RegistryTaskFileStepArgs'] file_step: A `file_step` block as defined below.
                
-               > **NOTE:** For non-system task (when `is_system_task` is set to `false`), one and only one of the `docker_step`, `encoded_step` and `file_step` should be specified.
+               > **Note:** For non-system task (when `is_system_task` is set to `false`), one and only one of the `docker_step`, `encoded_step` and `file_step` should be specified.
         :param pulumi.Input['RegistryTaskIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[builtins.bool] is_system_task: Whether this Container Registry Task is a system task. Changing this forces a new Container Registry Task to be created. Defaults to `false`.
         :param pulumi.Input[builtins.str] name: The name which should be used for this Container Registry Task. Changing this forces a new Container Registry Task to be created.
         :param pulumi.Input['RegistryTaskPlatformArgs'] platform: A `platform` block as defined below.
                
-               > **NOTE:** The `platform` is required for non-system task (when `is_system_task` is set to `false`).
+               > **Note:** The `platform` is required for non-system task (when `is_system_task` is set to `false`).
         :param pulumi.Input[Sequence[pulumi.Input['RegistryTaskSourceTriggerArgs']]] source_triggers: One or more `source_trigger` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['RegistryTaskTimerTriggerArgs']]] timer_triggers: One or more `timer_trigger` blocks as defined below.
         """
@@ -129,7 +129,7 @@ class RegistryTaskArgs:
         """
         A `agent_setting` block as defined below.
 
-        > **NOTE:** Only one of `agent_pool_name` and `agent_setting` can be specified.
+        > **Note:** Only one of `agent_pool_name` and `agent_setting` can be specified.
         """
         return pulumi.get(self, "agent_setting")
 
@@ -191,7 +191,7 @@ class RegistryTaskArgs:
         """
         A `file_step` block as defined below.
 
-        > **NOTE:** For non-system task (when `is_system_task` is set to `false`), one and only one of the `docker_step`, `encoded_step` and `file_step` should be specified.
+        > **Note:** For non-system task (when `is_system_task` is set to `false`), one and only one of the `docker_step`, `encoded_step` and `file_step` should be specified.
         """
         return pulumi.get(self, "file_step")
 
@@ -250,7 +250,7 @@ class RegistryTaskArgs:
         """
         A `platform` block as defined below.
 
-        > **NOTE:** The `platform` is required for non-system task (when `is_system_task` is set to `false`).
+        > **Note:** The `platform` is required for non-system task (when `is_system_task` is set to `false`).
         """
         return pulumi.get(self, "platform")
 
@@ -336,7 +336,7 @@ class _RegistryTaskState:
         :param pulumi.Input[builtins.str] agent_pool_name: The name of the dedicated Container Registry Agent Pool for this Container Registry Task.
         :param pulumi.Input['RegistryTaskAgentSettingArgs'] agent_setting: A `agent_setting` block as defined below.
                
-               > **NOTE:** Only one of `agent_pool_name` and `agent_setting` can be specified.
+               > **Note:** Only one of `agent_pool_name` and `agent_setting` can be specified.
         :param pulumi.Input['RegistryTaskBaseImageTriggerArgs'] base_image_trigger: A `base_image_trigger` block as defined below.
         :param pulumi.Input[builtins.str] container_registry_id: The ID of the Container Registry that this Container Registry Task resides in. Changing this forces a new Container Registry Task to be created.
         :param pulumi.Input['RegistryTaskDockerStepArgs'] docker_step: A `docker_step` block as defined below.
@@ -344,13 +344,13 @@ class _RegistryTaskState:
         :param pulumi.Input['RegistryTaskEncodedStepArgs'] encoded_step: A `encoded_step` block as defined below.
         :param pulumi.Input['RegistryTaskFileStepArgs'] file_step: A `file_step` block as defined below.
                
-               > **NOTE:** For non-system task (when `is_system_task` is set to `false`), one and only one of the `docker_step`, `encoded_step` and `file_step` should be specified.
+               > **Note:** For non-system task (when `is_system_task` is set to `false`), one and only one of the `docker_step`, `encoded_step` and `file_step` should be specified.
         :param pulumi.Input['RegistryTaskIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[builtins.bool] is_system_task: Whether this Container Registry Task is a system task. Changing this forces a new Container Registry Task to be created. Defaults to `false`.
         :param pulumi.Input[builtins.str] name: The name which should be used for this Container Registry Task. Changing this forces a new Container Registry Task to be created.
         :param pulumi.Input['RegistryTaskPlatformArgs'] platform: A `platform` block as defined below.
                
-               > **NOTE:** The `platform` is required for non-system task (when `is_system_task` is set to `false`).
+               > **Note:** The `platform` is required for non-system task (when `is_system_task` is set to `false`).
         :param pulumi.Input[Sequence[pulumi.Input['RegistryTaskSourceTriggerArgs']]] source_triggers: One or more `source_trigger` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['RegistryTaskTimerTriggerArgs']]] timer_triggers: One or more `timer_trigger` blocks as defined below.
         """
@@ -409,7 +409,7 @@ class _RegistryTaskState:
         """
         A `agent_setting` block as defined below.
 
-        > **NOTE:** Only one of `agent_pool_name` and `agent_setting` can be specified.
+        > **Note:** Only one of `agent_pool_name` and `agent_setting` can be specified.
         """
         return pulumi.get(self, "agent_setting")
 
@@ -483,7 +483,7 @@ class _RegistryTaskState:
         """
         A `file_step` block as defined below.
 
-        > **NOTE:** For non-system task (when `is_system_task` is set to `false`), one and only one of the `docker_step`, `encoded_step` and `file_step` should be specified.
+        > **Note:** For non-system task (when `is_system_task` is set to `false`), one and only one of the `docker_step`, `encoded_step` and `file_step` should be specified.
         """
         return pulumi.get(self, "file_step")
 
@@ -542,7 +542,7 @@ class _RegistryTaskState:
         """
         A `platform` block as defined below.
 
-        > **NOTE:** The `platform` is required for non-system task (when `is_system_task` is set to `false`).
+        > **Note:** The `platform` is required for non-system task (when `is_system_task` is set to `false`).
         """
         return pulumi.get(self, "platform")
 
@@ -658,6 +658,13 @@ class RegistryTask(pulumi.CustomResource):
             })
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ContainerRegistry`: 2023-11-01-preview, 2019-06-01-preview
+
         ## Import
 
         Container Registry Tasks can be imported using the `resource id`, e.g.
@@ -671,7 +678,7 @@ class RegistryTask(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] agent_pool_name: The name of the dedicated Container Registry Agent Pool for this Container Registry Task.
         :param pulumi.Input[Union['RegistryTaskAgentSettingArgs', 'RegistryTaskAgentSettingArgsDict']] agent_setting: A `agent_setting` block as defined below.
                
-               > **NOTE:** Only one of `agent_pool_name` and `agent_setting` can be specified.
+               > **Note:** Only one of `agent_pool_name` and `agent_setting` can be specified.
         :param pulumi.Input[Union['RegistryTaskBaseImageTriggerArgs', 'RegistryTaskBaseImageTriggerArgsDict']] base_image_trigger: A `base_image_trigger` block as defined below.
         :param pulumi.Input[builtins.str] container_registry_id: The ID of the Container Registry that this Container Registry Task resides in. Changing this forces a new Container Registry Task to be created.
         :param pulumi.Input[Union['RegistryTaskDockerStepArgs', 'RegistryTaskDockerStepArgsDict']] docker_step: A `docker_step` block as defined below.
@@ -679,13 +686,13 @@ class RegistryTask(pulumi.CustomResource):
         :param pulumi.Input[Union['RegistryTaskEncodedStepArgs', 'RegistryTaskEncodedStepArgsDict']] encoded_step: A `encoded_step` block as defined below.
         :param pulumi.Input[Union['RegistryTaskFileStepArgs', 'RegistryTaskFileStepArgsDict']] file_step: A `file_step` block as defined below.
                
-               > **NOTE:** For non-system task (when `is_system_task` is set to `false`), one and only one of the `docker_step`, `encoded_step` and `file_step` should be specified.
+               > **Note:** For non-system task (when `is_system_task` is set to `false`), one and only one of the `docker_step`, `encoded_step` and `file_step` should be specified.
         :param pulumi.Input[Union['RegistryTaskIdentityArgs', 'RegistryTaskIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[builtins.bool] is_system_task: Whether this Container Registry Task is a system task. Changing this forces a new Container Registry Task to be created. Defaults to `false`.
         :param pulumi.Input[builtins.str] name: The name which should be used for this Container Registry Task. Changing this forces a new Container Registry Task to be created.
         :param pulumi.Input[Union['RegistryTaskPlatformArgs', 'RegistryTaskPlatformArgsDict']] platform: A `platform` block as defined below.
                
-               > **NOTE:** The `platform` is required for non-system task (when `is_system_task` is set to `false`).
+               > **Note:** The `platform` is required for non-system task (when `is_system_task` is set to `false`).
         :param pulumi.Input[Sequence[pulumi.Input[Union['RegistryTaskSourceTriggerArgs', 'RegistryTaskSourceTriggerArgsDict']]]] source_triggers: One or more `source_trigger` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['RegistryTaskTimerTriggerArgs', 'RegistryTaskTimerTriggerArgsDict']]]] timer_triggers: One or more `timer_trigger` blocks as defined below.
         """
@@ -725,6 +732,13 @@ class RegistryTask(pulumi.CustomResource):
                 "image_names": ["helloworld:{{.Run.ID}}"],
             })
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ContainerRegistry`: 2023-11-01-preview, 2019-06-01-preview
 
         ## Import
 
@@ -834,7 +848,7 @@ class RegistryTask(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] agent_pool_name: The name of the dedicated Container Registry Agent Pool for this Container Registry Task.
         :param pulumi.Input[Union['RegistryTaskAgentSettingArgs', 'RegistryTaskAgentSettingArgsDict']] agent_setting: A `agent_setting` block as defined below.
                
-               > **NOTE:** Only one of `agent_pool_name` and `agent_setting` can be specified.
+               > **Note:** Only one of `agent_pool_name` and `agent_setting` can be specified.
         :param pulumi.Input[Union['RegistryTaskBaseImageTriggerArgs', 'RegistryTaskBaseImageTriggerArgsDict']] base_image_trigger: A `base_image_trigger` block as defined below.
         :param pulumi.Input[builtins.str] container_registry_id: The ID of the Container Registry that this Container Registry Task resides in. Changing this forces a new Container Registry Task to be created.
         :param pulumi.Input[Union['RegistryTaskDockerStepArgs', 'RegistryTaskDockerStepArgsDict']] docker_step: A `docker_step` block as defined below.
@@ -842,13 +856,13 @@ class RegistryTask(pulumi.CustomResource):
         :param pulumi.Input[Union['RegistryTaskEncodedStepArgs', 'RegistryTaskEncodedStepArgsDict']] encoded_step: A `encoded_step` block as defined below.
         :param pulumi.Input[Union['RegistryTaskFileStepArgs', 'RegistryTaskFileStepArgsDict']] file_step: A `file_step` block as defined below.
                
-               > **NOTE:** For non-system task (when `is_system_task` is set to `false`), one and only one of the `docker_step`, `encoded_step` and `file_step` should be specified.
+               > **Note:** For non-system task (when `is_system_task` is set to `false`), one and only one of the `docker_step`, `encoded_step` and `file_step` should be specified.
         :param pulumi.Input[Union['RegistryTaskIdentityArgs', 'RegistryTaskIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[builtins.bool] is_system_task: Whether this Container Registry Task is a system task. Changing this forces a new Container Registry Task to be created. Defaults to `false`.
         :param pulumi.Input[builtins.str] name: The name which should be used for this Container Registry Task. Changing this forces a new Container Registry Task to be created.
         :param pulumi.Input[Union['RegistryTaskPlatformArgs', 'RegistryTaskPlatformArgsDict']] platform: A `platform` block as defined below.
                
-               > **NOTE:** The `platform` is required for non-system task (when `is_system_task` is set to `false`).
+               > **Note:** The `platform` is required for non-system task (when `is_system_task` is set to `false`).
         :param pulumi.Input[Sequence[pulumi.Input[Union['RegistryTaskSourceTriggerArgs', 'RegistryTaskSourceTriggerArgsDict']]]] source_triggers: One or more `source_trigger` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['RegistryTaskTimerTriggerArgs', 'RegistryTaskTimerTriggerArgsDict']]]] timer_triggers: One or more `timer_trigger` blocks as defined below.
         """
@@ -890,7 +904,7 @@ class RegistryTask(pulumi.CustomResource):
         """
         A `agent_setting` block as defined below.
 
-        > **NOTE:** Only one of `agent_pool_name` and `agent_setting` can be specified.
+        > **Note:** Only one of `agent_pool_name` and `agent_setting` can be specified.
         """
         return pulumi.get(self, "agent_setting")
 
@@ -940,7 +954,7 @@ class RegistryTask(pulumi.CustomResource):
         """
         A `file_step` block as defined below.
 
-        > **NOTE:** For non-system task (when `is_system_task` is set to `false`), one and only one of the `docker_step`, `encoded_step` and `file_step` should be specified.
+        > **Note:** For non-system task (when `is_system_task` is set to `false`), one and only one of the `docker_step`, `encoded_step` and `file_step` should be specified.
         """
         return pulumi.get(self, "file_step")
 
@@ -979,7 +993,7 @@ class RegistryTask(pulumi.CustomResource):
         """
         A `platform` block as defined below.
 
-        > **NOTE:** The `platform` is required for non-system task (when `is_system_task` is set to `false`).
+        > **Note:** The `platform` is required for non-system task (when `is_system_task` is set to `false`).
         """
         return pulumi.get(self, "platform")
 

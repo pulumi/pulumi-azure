@@ -20,7 +20,7 @@ type ApplicationPlan struct {
 	Product string `pulumi:"product"`
 	// Specifies the promotion code to use with the plan. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** When `plan` is specified, legal terms must be accepted for this item on this subscription before creating the Managed Application. The `marketplace.Agreement` resource or AZ CLI tool can be used to do this.
+	// > **Note:** When `plan` is specified, legal terms must be accepted for this item on this subscription before creating the Managed Application. The `marketplace.Agreement` resource or AZ CLI tool can be used to do this.
 	PromotionCode *string `pulumi:"promotionCode"`
 	// Specifies the publisher of the plan. Changing this forces a new resource to be created.
 	Publisher string `pulumi:"publisher"`
@@ -46,7 +46,7 @@ type ApplicationPlanArgs struct {
 	Product pulumi.StringInput `pulumi:"product"`
 	// Specifies the promotion code to use with the plan. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** When `plan` is specified, legal terms must be accepted for this item on this subscription before creating the Managed Application. The `marketplace.Agreement` resource or AZ CLI tool can be used to do this.
+	// > **Note:** When `plan` is specified, legal terms must be accepted for this item on this subscription before creating the Managed Application. The `marketplace.Agreement` resource or AZ CLI tool can be used to do this.
 	PromotionCode pulumi.StringPtrInput `pulumi:"promotionCode"`
 	// Specifies the publisher of the plan. Changing this forces a new resource to be created.
 	Publisher pulumi.StringInput `pulumi:"publisher"`
@@ -143,7 +143,7 @@ func (o ApplicationPlanOutput) Product() pulumi.StringOutput {
 
 // Specifies the promotion code to use with the plan. Changing this forces a new resource to be created.
 //
-// > **NOTE:** When `plan` is specified, legal terms must be accepted for this item on this subscription before creating the Managed Application. The `marketplace.Agreement` resource or AZ CLI tool can be used to do this.
+// > **Note:** When `plan` is specified, legal terms must be accepted for this item on this subscription before creating the Managed Application. The `marketplace.Agreement` resource or AZ CLI tool can be used to do this.
 func (o ApplicationPlanOutput) PromotionCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationPlan) *string { return v.PromotionCode }).(pulumi.StringPtrOutput)
 }
@@ -204,7 +204,7 @@ func (o ApplicationPlanPtrOutput) Product() pulumi.StringPtrOutput {
 
 // Specifies the promotion code to use with the plan. Changing this forces a new resource to be created.
 //
-// > **NOTE:** When `plan` is specified, legal terms must be accepted for this item on this subscription before creating the Managed Application. The `marketplace.Agreement` resource or AZ CLI tool can be used to do this.
+// > **Note:** When `plan` is specified, legal terms must be accepted for this item on this subscription before creating the Managed Application. The `marketplace.Agreement` resource or AZ CLI tool can be used to do this.
 func (o ApplicationPlanPtrOutput) PromotionCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationPlan) *string {
 		if v == nil {

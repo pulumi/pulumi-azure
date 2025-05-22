@@ -36,7 +36,7 @@ namespace Pulumi.Azure.DataProtection
     ///         AdministratorLogin = "adminTerraform",
     ///         AdministratorPassword = "QAZwsx123",
     ///         Version = "8.0.21",
-    ///         SkuName = "B_Standard_B1s",
+    ///         SkuName = "B_Standard_B1ms",
     ///         Zone = "1",
     ///     });
     /// 
@@ -107,6 +107,13 @@ namespace Pulumi.Azure.DataProtection
     /// 
     /// });
     /// ```
+    /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.DataProtection`: 2024-04-01
     /// 
     /// ## Import
     /// 

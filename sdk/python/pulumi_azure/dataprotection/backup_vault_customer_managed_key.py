@@ -193,6 +193,13 @@ class BackupVaultCustomerManagedKey(pulumi.CustomResource):
             key_vault_key_id=example_key.id)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DataProtection`: 2024-04-01
+
         ## Import
 
         Backup Vault Customer Managed Keys can be imported using the `resource id`, e.g.
@@ -300,6 +307,13 @@ class BackupVaultCustomerManagedKey(pulumi.CustomResource):
             data_protection_backup_vault_id=example_backup_vault.id,
             key_vault_key_id=example_key.id)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DataProtection`: 2024-04-01
 
         ## Import
 

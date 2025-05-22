@@ -70,6 +70,13 @@ import (
 //
 // ```
 //
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.Web`: 2023-12-01
+//
 // ## Import
 //
 // Linux Web Apps can be imported using the `resource id`, e.g.
@@ -149,7 +156,7 @@ type LinuxWebAppSlot struct {
 	VirtualNetworkSubnetId             pulumi.StringPtrOutput `pulumi:"virtualNetworkSubnetId"`
 	// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
 	//
-	// > **NOTE:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
+	// > **Note:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
 	WebdeployPublishBasicAuthenticationEnabled pulumi.BoolPtrOutput `pulumi:"webdeployPublishBasicAuthenticationEnabled"`
 	// The local path and filename of the Zip packaged application to deploy to this Linux Web App.
 	//
@@ -267,7 +274,7 @@ type linuxWebAppSlotState struct {
 	VirtualNetworkSubnetId             *string           `pulumi:"virtualNetworkSubnetId"`
 	// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
 	//
-	// > **NOTE:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
+	// > **Note:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
 	WebdeployPublishBasicAuthenticationEnabled *bool `pulumi:"webdeployPublishBasicAuthenticationEnabled"`
 	// The local path and filename of the Zip packaged application to deploy to this Linux Web App.
 	//
@@ -345,7 +352,7 @@ type LinuxWebAppSlotState struct {
 	VirtualNetworkSubnetId             pulumi.StringPtrInput
 	// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
 	//
-	// > **NOTE:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
+	// > **Note:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
 	WebdeployPublishBasicAuthenticationEnabled pulumi.BoolPtrInput
 	// The local path and filename of the Zip packaged application to deploy to this Linux Web App.
 	//
@@ -407,7 +414,7 @@ type linuxWebAppSlotArgs struct {
 	VirtualNetworkSubnetId             *string           `pulumi:"virtualNetworkSubnetId"`
 	// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
 	//
-	// > **NOTE:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
+	// > **Note:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
 	WebdeployPublishBasicAuthenticationEnabled *bool `pulumi:"webdeployPublishBasicAuthenticationEnabled"`
 	// The local path and filename of the Zip packaged application to deploy to this Linux Web App.
 	//
@@ -466,7 +473,7 @@ type LinuxWebAppSlotArgs struct {
 	VirtualNetworkSubnetId             pulumi.StringPtrInput
 	// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
 	//
-	// > **NOTE:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
+	// > **Note:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
 	WebdeployPublishBasicAuthenticationEnabled pulumi.BoolPtrInput
 	// The local path and filename of the Zip packaged application to deploy to this Linux Web App.
 	//
@@ -732,7 +739,7 @@ func (o LinuxWebAppSlotOutput) VirtualNetworkSubnetId() pulumi.StringPtrOutput {
 
 // Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
 //
-// > **NOTE:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
+// > **Note:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
 func (o LinuxWebAppSlotOutput) WebdeployPublishBasicAuthenticationEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LinuxWebAppSlot) pulumi.BoolPtrOutput { return v.WebdeployPublishBasicAuthenticationEnabled }).(pulumi.BoolPtrOutput)
 }

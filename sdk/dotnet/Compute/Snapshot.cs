@@ -84,7 +84,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// A `encryption_settings` block as defined below.
         /// 
-        /// &gt; **NOTE:** Removing `encryption_settings` forces a new resource to be created.
+        /// &gt; **Note:** Removing `encryption_settings` forces a new resource to be created.
         /// </summary>
         [Output("encryptionSettings")]
         public Output<Outputs.SnapshotEncryptionSettings?> EncryptionSettings { get; private set; } = null!;
@@ -224,7 +224,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// A `encryption_settings` block as defined below.
         /// 
-        /// &gt; **NOTE:** Removing `encryption_settings` forces a new resource to be created.
+        /// &gt; **Note:** Removing `encryption_settings` forces a new resource to be created.
         /// </summary>
         [Input("encryptionSettings")]
         public Input<Inputs.SnapshotEncryptionSettingsArgs>? EncryptionSettings { get; set; }
@@ -326,7 +326,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// A `encryption_settings` block as defined below.
         /// 
-        /// &gt; **NOTE:** Removing `encryption_settings` forces a new resource to be created.
+        /// &gt; **Note:** Removing `encryption_settings` forces a new resource to be created.
         /// </summary>
         [Input("encryptionSettings")]
         public Input<Inputs.SnapshotEncryptionSettingsGetArgs>? EncryptionSettings { get; set; }

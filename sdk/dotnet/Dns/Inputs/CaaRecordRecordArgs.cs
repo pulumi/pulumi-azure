@@ -19,7 +19,7 @@ namespace Pulumi.Azure.Dns.Inputs
         public Input<int> Flags { get; set; } = null!;
 
         /// <summary>
-        /// A property tag, options are `issue`, `issuewild` and `iodef`.
+        /// A property tag, options are `issue`, `issuewild`, `iodef`, and `contactemail`.
         /// </summary>
         [Input("tag", required: true)]
         public Input<string> Tag { get; set; } = null!;

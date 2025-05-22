@@ -139,6 +139,13 @@ import (
 //
 // ***
 //
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.DBforPostgreSQL`: 2024-08-01
+//
 // ## Import
 //
 // PostgreSQL Flexible Servers can be imported using the `resource id`, e.g.
@@ -165,11 +172,7 @@ type FlexibleServer struct {
 	AutoGrowEnabled pulumi.BoolPtrOutput `pulumi:"autoGrowEnabled"`
 	// The backup retention days for the PostgreSQL Flexible Server. Possible values are between `7` and `35` days.
 	BackupRetentionDays pulumi.IntOutput `pulumi:"backupRetentionDays"`
-	// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica` and `Update`. Changing this forces a new PostgreSQL Flexible Server to be created.
-	//
-	// > **Note:** `createMode` cannot be changed once it's set since it's a parameter at creation.
-	//
-	// > **Note:** While creating the resource, `createMode` cannot be set to `Update`.
+	// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica` and `Update`.
 	CreateMode pulumi.StringPtrOutput `pulumi:"createMode"`
 	// A `customerManagedKey` block as defined below. Changing this forces a new resource to be created.
 	CustomerManagedKey FlexibleServerCustomerManagedKeyPtrOutput `pulumi:"customerManagedKey"`
@@ -189,7 +192,7 @@ type FlexibleServer struct {
 	MaintenanceWindow FlexibleServerMaintenanceWindowPtrOutput `pulumi:"maintenanceWindow"`
 	// The name which should be used for this PostgreSQL Flexible Server. Changing this forces a new PostgreSQL Flexible Server to be created.
 	//
-	// > **Note** This must be unique across the entire Azure service, not just within the resource group.
+	// > **Note:** This must be unique across the entire Azure service, not just within the resource group.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The point in time to restore from `sourceServerId` when `createMode` is `GeoRestore`, `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
 	PointInTimeRestoreTimeInUtc pulumi.StringPtrOutput `pulumi:"pointInTimeRestoreTimeInUtc"`
@@ -215,7 +218,7 @@ type FlexibleServer struct {
 	//
 	// > **Note:** If the `storageMb` field is undefined on the initial deployment of the PostgreSQL Flexible Server resource it will default to `32768`. If the `storageMb` field has been defined and then removed, the `storageMb` field will retain the previously defined value.
 	//
-	// > **Note:** The `storageMb` can only be scaled up, for example, you can scale the `storageMb` from `32768` to `65536`, but not from `65536` to `32768`.
+	// > **Note:** The `storageMb` can only be scaled up, for example, you can scale the `storageMb` from `32768` to `65536`, but not from `65536` to `32768`. Scaling down `storageMb` forces a new PostgreSQL Flexible Server to be created.
 	StorageMb pulumi.IntOutput `pulumi:"storageMb"`
 	// The name of storage performance tier for IOPS of the PostgreSQL Flexible Server. Possible values are `P4`, `P6`, `P10`, `P15`,`P20`, `P30`,`P40`, `P50`,`P60`, `P70` or `P80`. Default value is dependant on the `storageMb` value. Please see the `storageTier` defaults based on `storageMb` table below.
 	//
@@ -225,7 +228,9 @@ type FlexibleServer struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14`, `15` and `16`. Required when `createMode` is `Default`.
 	//
-	// > **Note:** When `createMode` is `Update`, upgrading version wouldn't force a new resource to be created.
+	// > **Note:** Downgrading `version` isn't supported and will force a new PostgreSQL Flexible Server to be created.
+	//
+	// > **Note:** In-place version updates are irreversible and may cause downtime for the PostgreSQL Flexible Server, determined by the size of the instance.
 	Version pulumi.StringOutput    `pulumi:"version"`
 	Zone    pulumi.StringPtrOutput `pulumi:"zone"`
 }
@@ -286,11 +291,7 @@ type flexibleServerState struct {
 	AutoGrowEnabled *bool `pulumi:"autoGrowEnabled"`
 	// The backup retention days for the PostgreSQL Flexible Server. Possible values are between `7` and `35` days.
 	BackupRetentionDays *int `pulumi:"backupRetentionDays"`
-	// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica` and `Update`. Changing this forces a new PostgreSQL Flexible Server to be created.
-	//
-	// > **Note:** `createMode` cannot be changed once it's set since it's a parameter at creation.
-	//
-	// > **Note:** While creating the resource, `createMode` cannot be set to `Update`.
+	// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica` and `Update`.
 	CreateMode *string `pulumi:"createMode"`
 	// A `customerManagedKey` block as defined below. Changing this forces a new resource to be created.
 	CustomerManagedKey *FlexibleServerCustomerManagedKey `pulumi:"customerManagedKey"`
@@ -310,7 +311,7 @@ type flexibleServerState struct {
 	MaintenanceWindow *FlexibleServerMaintenanceWindow `pulumi:"maintenanceWindow"`
 	// The name which should be used for this PostgreSQL Flexible Server. Changing this forces a new PostgreSQL Flexible Server to be created.
 	//
-	// > **Note** This must be unique across the entire Azure service, not just within the resource group.
+	// > **Note:** This must be unique across the entire Azure service, not just within the resource group.
 	Name *string `pulumi:"name"`
 	// The point in time to restore from `sourceServerId` when `createMode` is `GeoRestore`, `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
 	PointInTimeRestoreTimeInUtc *string `pulumi:"pointInTimeRestoreTimeInUtc"`
@@ -336,7 +337,7 @@ type flexibleServerState struct {
 	//
 	// > **Note:** If the `storageMb` field is undefined on the initial deployment of the PostgreSQL Flexible Server resource it will default to `32768`. If the `storageMb` field has been defined and then removed, the `storageMb` field will retain the previously defined value.
 	//
-	// > **Note:** The `storageMb` can only be scaled up, for example, you can scale the `storageMb` from `32768` to `65536`, but not from `65536` to `32768`.
+	// > **Note:** The `storageMb` can only be scaled up, for example, you can scale the `storageMb` from `32768` to `65536`, but not from `65536` to `32768`. Scaling down `storageMb` forces a new PostgreSQL Flexible Server to be created.
 	StorageMb *int `pulumi:"storageMb"`
 	// The name of storage performance tier for IOPS of the PostgreSQL Flexible Server. Possible values are `P4`, `P6`, `P10`, `P15`,`P20`, `P30`,`P40`, `P50`,`P60`, `P70` or `P80`. Default value is dependant on the `storageMb` value. Please see the `storageTier` defaults based on `storageMb` table below.
 	//
@@ -346,7 +347,9 @@ type flexibleServerState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14`, `15` and `16`. Required when `createMode` is `Default`.
 	//
-	// > **Note:** When `createMode` is `Update`, upgrading version wouldn't force a new resource to be created.
+	// > **Note:** Downgrading `version` isn't supported and will force a new PostgreSQL Flexible Server to be created.
+	//
+	// > **Note:** In-place version updates are irreversible and may cause downtime for the PostgreSQL Flexible Server, determined by the size of the instance.
 	Version *string `pulumi:"version"`
 	Zone    *string `pulumi:"zone"`
 }
@@ -368,11 +371,7 @@ type FlexibleServerState struct {
 	AutoGrowEnabled pulumi.BoolPtrInput
 	// The backup retention days for the PostgreSQL Flexible Server. Possible values are between `7` and `35` days.
 	BackupRetentionDays pulumi.IntPtrInput
-	// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica` and `Update`. Changing this forces a new PostgreSQL Flexible Server to be created.
-	//
-	// > **Note:** `createMode` cannot be changed once it's set since it's a parameter at creation.
-	//
-	// > **Note:** While creating the resource, `createMode` cannot be set to `Update`.
+	// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica` and `Update`.
 	CreateMode pulumi.StringPtrInput
 	// A `customerManagedKey` block as defined below. Changing this forces a new resource to be created.
 	CustomerManagedKey FlexibleServerCustomerManagedKeyPtrInput
@@ -392,7 +391,7 @@ type FlexibleServerState struct {
 	MaintenanceWindow FlexibleServerMaintenanceWindowPtrInput
 	// The name which should be used for this PostgreSQL Flexible Server. Changing this forces a new PostgreSQL Flexible Server to be created.
 	//
-	// > **Note** This must be unique across the entire Azure service, not just within the resource group.
+	// > **Note:** This must be unique across the entire Azure service, not just within the resource group.
 	Name pulumi.StringPtrInput
 	// The point in time to restore from `sourceServerId` when `createMode` is `GeoRestore`, `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
 	PointInTimeRestoreTimeInUtc pulumi.StringPtrInput
@@ -418,7 +417,7 @@ type FlexibleServerState struct {
 	//
 	// > **Note:** If the `storageMb` field is undefined on the initial deployment of the PostgreSQL Flexible Server resource it will default to `32768`. If the `storageMb` field has been defined and then removed, the `storageMb` field will retain the previously defined value.
 	//
-	// > **Note:** The `storageMb` can only be scaled up, for example, you can scale the `storageMb` from `32768` to `65536`, but not from `65536` to `32768`.
+	// > **Note:** The `storageMb` can only be scaled up, for example, you can scale the `storageMb` from `32768` to `65536`, but not from `65536` to `32768`. Scaling down `storageMb` forces a new PostgreSQL Flexible Server to be created.
 	StorageMb pulumi.IntPtrInput
 	// The name of storage performance tier for IOPS of the PostgreSQL Flexible Server. Possible values are `P4`, `P6`, `P10`, `P15`,`P20`, `P30`,`P40`, `P50`,`P60`, `P70` or `P80`. Default value is dependant on the `storageMb` value. Please see the `storageTier` defaults based on `storageMb` table below.
 	//
@@ -428,7 +427,9 @@ type FlexibleServerState struct {
 	Tags pulumi.StringMapInput
 	// The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14`, `15` and `16`. Required when `createMode` is `Default`.
 	//
-	// > **Note:** When `createMode` is `Update`, upgrading version wouldn't force a new resource to be created.
+	// > **Note:** Downgrading `version` isn't supported and will force a new PostgreSQL Flexible Server to be created.
+	//
+	// > **Note:** In-place version updates are irreversible and may cause downtime for the PostgreSQL Flexible Server, determined by the size of the instance.
 	Version pulumi.StringPtrInput
 	Zone    pulumi.StringPtrInput
 }
@@ -454,11 +455,7 @@ type flexibleServerArgs struct {
 	AutoGrowEnabled *bool `pulumi:"autoGrowEnabled"`
 	// The backup retention days for the PostgreSQL Flexible Server. Possible values are between `7` and `35` days.
 	BackupRetentionDays *int `pulumi:"backupRetentionDays"`
-	// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica` and `Update`. Changing this forces a new PostgreSQL Flexible Server to be created.
-	//
-	// > **Note:** `createMode` cannot be changed once it's set since it's a parameter at creation.
-	//
-	// > **Note:** While creating the resource, `createMode` cannot be set to `Update`.
+	// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica` and `Update`.
 	CreateMode *string `pulumi:"createMode"`
 	// A `customerManagedKey` block as defined below. Changing this forces a new resource to be created.
 	CustomerManagedKey *FlexibleServerCustomerManagedKey `pulumi:"customerManagedKey"`
@@ -476,7 +473,7 @@ type flexibleServerArgs struct {
 	MaintenanceWindow *FlexibleServerMaintenanceWindow `pulumi:"maintenanceWindow"`
 	// The name which should be used for this PostgreSQL Flexible Server. Changing this forces a new PostgreSQL Flexible Server to be created.
 	//
-	// > **Note** This must be unique across the entire Azure service, not just within the resource group.
+	// > **Note:** This must be unique across the entire Azure service, not just within the resource group.
 	Name *string `pulumi:"name"`
 	// The point in time to restore from `sourceServerId` when `createMode` is `GeoRestore`, `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
 	PointInTimeRestoreTimeInUtc *string `pulumi:"pointInTimeRestoreTimeInUtc"`
@@ -502,7 +499,7 @@ type flexibleServerArgs struct {
 	//
 	// > **Note:** If the `storageMb` field is undefined on the initial deployment of the PostgreSQL Flexible Server resource it will default to `32768`. If the `storageMb` field has been defined and then removed, the `storageMb` field will retain the previously defined value.
 	//
-	// > **Note:** The `storageMb` can only be scaled up, for example, you can scale the `storageMb` from `32768` to `65536`, but not from `65536` to `32768`.
+	// > **Note:** The `storageMb` can only be scaled up, for example, you can scale the `storageMb` from `32768` to `65536`, but not from `65536` to `32768`. Scaling down `storageMb` forces a new PostgreSQL Flexible Server to be created.
 	StorageMb *int `pulumi:"storageMb"`
 	// The name of storage performance tier for IOPS of the PostgreSQL Flexible Server. Possible values are `P4`, `P6`, `P10`, `P15`,`P20`, `P30`,`P40`, `P50`,`P60`, `P70` or `P80`. Default value is dependant on the `storageMb` value. Please see the `storageTier` defaults based on `storageMb` table below.
 	//
@@ -512,7 +509,9 @@ type flexibleServerArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14`, `15` and `16`. Required when `createMode` is `Default`.
 	//
-	// > **Note:** When `createMode` is `Update`, upgrading version wouldn't force a new resource to be created.
+	// > **Note:** Downgrading `version` isn't supported and will force a new PostgreSQL Flexible Server to be created.
+	//
+	// > **Note:** In-place version updates are irreversible and may cause downtime for the PostgreSQL Flexible Server, determined by the size of the instance.
 	Version *string `pulumi:"version"`
 	Zone    *string `pulumi:"zone"`
 }
@@ -535,11 +534,7 @@ type FlexibleServerArgs struct {
 	AutoGrowEnabled pulumi.BoolPtrInput
 	// The backup retention days for the PostgreSQL Flexible Server. Possible values are between `7` and `35` days.
 	BackupRetentionDays pulumi.IntPtrInput
-	// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica` and `Update`. Changing this forces a new PostgreSQL Flexible Server to be created.
-	//
-	// > **Note:** `createMode` cannot be changed once it's set since it's a parameter at creation.
-	//
-	// > **Note:** While creating the resource, `createMode` cannot be set to `Update`.
+	// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica` and `Update`.
 	CreateMode pulumi.StringPtrInput
 	// A `customerManagedKey` block as defined below. Changing this forces a new resource to be created.
 	CustomerManagedKey FlexibleServerCustomerManagedKeyPtrInput
@@ -557,7 +552,7 @@ type FlexibleServerArgs struct {
 	MaintenanceWindow FlexibleServerMaintenanceWindowPtrInput
 	// The name which should be used for this PostgreSQL Flexible Server. Changing this forces a new PostgreSQL Flexible Server to be created.
 	//
-	// > **Note** This must be unique across the entire Azure service, not just within the resource group.
+	// > **Note:** This must be unique across the entire Azure service, not just within the resource group.
 	Name pulumi.StringPtrInput
 	// The point in time to restore from `sourceServerId` when `createMode` is `GeoRestore`, `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
 	PointInTimeRestoreTimeInUtc pulumi.StringPtrInput
@@ -583,7 +578,7 @@ type FlexibleServerArgs struct {
 	//
 	// > **Note:** If the `storageMb` field is undefined on the initial deployment of the PostgreSQL Flexible Server resource it will default to `32768`. If the `storageMb` field has been defined and then removed, the `storageMb` field will retain the previously defined value.
 	//
-	// > **Note:** The `storageMb` can only be scaled up, for example, you can scale the `storageMb` from `32768` to `65536`, but not from `65536` to `32768`.
+	// > **Note:** The `storageMb` can only be scaled up, for example, you can scale the `storageMb` from `32768` to `65536`, but not from `65536` to `32768`. Scaling down `storageMb` forces a new PostgreSQL Flexible Server to be created.
 	StorageMb pulumi.IntPtrInput
 	// The name of storage performance tier for IOPS of the PostgreSQL Flexible Server. Possible values are `P4`, `P6`, `P10`, `P15`,`P20`, `P30`,`P40`, `P50`,`P60`, `P70` or `P80`. Default value is dependant on the `storageMb` value. Please see the `storageTier` defaults based on `storageMb` table below.
 	//
@@ -593,7 +588,9 @@ type FlexibleServerArgs struct {
 	Tags pulumi.StringMapInput
 	// The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14`, `15` and `16`. Required when `createMode` is `Default`.
 	//
-	// > **Note:** When `createMode` is `Update`, upgrading version wouldn't force a new resource to be created.
+	// > **Note:** Downgrading `version` isn't supported and will force a new PostgreSQL Flexible Server to be created.
+	//
+	// > **Note:** In-place version updates are irreversible and may cause downtime for the PostgreSQL Flexible Server, determined by the size of the instance.
 	Version pulumi.StringPtrInput
 	Zone    pulumi.StringPtrInput
 }
@@ -719,11 +716,7 @@ func (o FlexibleServerOutput) BackupRetentionDays() pulumi.IntOutput {
 	return o.ApplyT(func(v *FlexibleServer) pulumi.IntOutput { return v.BackupRetentionDays }).(pulumi.IntOutput)
 }
 
-// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica` and `Update`. Changing this forces a new PostgreSQL Flexible Server to be created.
-//
-// > **Note:** `createMode` cannot be changed once it's set since it's a parameter at creation.
-//
-// > **Note:** While creating the resource, `createMode` cannot be set to `Update`.
+// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica` and `Update`.
 func (o FlexibleServerOutput) CreateMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlexibleServer) pulumi.StringPtrOutput { return v.CreateMode }).(pulumi.StringPtrOutput)
 }
@@ -770,7 +763,7 @@ func (o FlexibleServerOutput) MaintenanceWindow() FlexibleServerMaintenanceWindo
 
 // The name which should be used for this PostgreSQL Flexible Server. Changing this forces a new PostgreSQL Flexible Server to be created.
 //
-// > **Note** This must be unique across the entire Azure service, not just within the resource group.
+// > **Note:** This must be unique across the entire Azure service, not just within the resource group.
 func (o FlexibleServerOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *FlexibleServer) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -820,7 +813,7 @@ func (o FlexibleServerOutput) SourceServerId() pulumi.StringPtrOutput {
 //
 // > **Note:** If the `storageMb` field is undefined on the initial deployment of the PostgreSQL Flexible Server resource it will default to `32768`. If the `storageMb` field has been defined and then removed, the `storageMb` field will retain the previously defined value.
 //
-// > **Note:** The `storageMb` can only be scaled up, for example, you can scale the `storageMb` from `32768` to `65536`, but not from `65536` to `32768`.
+// > **Note:** The `storageMb` can only be scaled up, for example, you can scale the `storageMb` from `32768` to `65536`, but not from `65536` to `32768`. Scaling down `storageMb` forces a new PostgreSQL Flexible Server to be created.
 func (o FlexibleServerOutput) StorageMb() pulumi.IntOutput {
 	return o.ApplyT(func(v *FlexibleServer) pulumi.IntOutput { return v.StorageMb }).(pulumi.IntOutput)
 }
@@ -839,7 +832,9 @@ func (o FlexibleServerOutput) Tags() pulumi.StringMapOutput {
 
 // The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14`, `15` and `16`. Required when `createMode` is `Default`.
 //
-// > **Note:** When `createMode` is `Update`, upgrading version wouldn't force a new resource to be created.
+// > **Note:** Downgrading `version` isn't supported and will force a new PostgreSQL Flexible Server to be created.
+//
+// > **Note:** In-place version updates are irreversible and may cause downtime for the PostgreSQL Flexible Server, determined by the size of the instance.
 func (o FlexibleServerOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v *FlexibleServer) pulumi.StringOutput { return v.Version }).(pulumi.StringOutput)
 }

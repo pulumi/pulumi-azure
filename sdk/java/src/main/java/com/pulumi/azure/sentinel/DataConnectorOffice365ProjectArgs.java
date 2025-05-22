@@ -49,7 +49,7 @@ public final class DataConnectorOffice365ProjectArgs extends com.pulumi.resource
     /**
      * The ID of the tenant that this Office 365 Project Data Connector connects to. Changing this forces a new Office 365 Project Data Connector to be created.
      * 
-     * &gt; **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
+     * &gt; **Note:** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
      * 
      */
     @Import(name="tenantId")
@@ -58,7 +58,7 @@ public final class DataConnectorOffice365ProjectArgs extends com.pulumi.resource
     /**
      * @return The ID of the tenant that this Office 365 Project Data Connector connects to. Changing this forces a new Office 365 Project Data Connector to be created.
      * 
-     * &gt; **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
+     * &gt; **Note:** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
      * 
      */
     public Optional<Output<String>> tenantId() {
@@ -136,7 +136,7 @@ public final class DataConnectorOffice365ProjectArgs extends com.pulumi.resource
         /**
          * @param tenantId The ID of the tenant that this Office 365 Project Data Connector connects to. Changing this forces a new Office 365 Project Data Connector to be created.
          * 
-         * &gt; **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
+         * &gt; **Note:** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
          * 
          * @return builder
          * 
@@ -149,7 +149,7 @@ public final class DataConnectorOffice365ProjectArgs extends com.pulumi.resource
         /**
          * @param tenantId The ID of the tenant that this Office 365 Project Data Connector connects to. Changing this forces a new Office 365 Project Data Connector to be created.
          * 
-         * &gt; **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
+         * &gt; **Note:** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
          * 
          * @return builder
          * 

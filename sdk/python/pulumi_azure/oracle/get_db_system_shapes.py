@@ -89,6 +89,13 @@ def get_db_system_shapes(location: Optional[builtins.str] = None,
     pulumi.export("example", example)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Oracle.Database`: 2024-06-01
+
 
     :param builtins.str location: The Azure Region to query for the system shapes in.
     """
@@ -117,6 +124,13 @@ def get_db_system_shapes_output(location: Optional[pulumi.Input[builtins.str]] =
     example = azure.oracle.get_db_system_shapes(location="West Europe")
     pulumi.export("example", example)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Oracle.Database`: 2024-06-01
 
 
     :param builtins.str location: The Azure Region to query for the system shapes in.

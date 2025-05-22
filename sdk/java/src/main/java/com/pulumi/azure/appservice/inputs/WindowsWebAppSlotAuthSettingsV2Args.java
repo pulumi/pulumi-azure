@@ -125,7 +125,7 @@ public final class WindowsWebAppSlotAuthSettingsV2Args extends com.pulumi.resour
     /**
      * The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
      * 
-     * &gt; **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
+     * &gt; **Note:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
      * 
      */
     @Import(name="defaultProvider")
@@ -134,7 +134,7 @@ public final class WindowsWebAppSlotAuthSettingsV2Args extends com.pulumi.resour
     /**
      * @return The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
      * 
-     * &gt; **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
+     * &gt; **Note:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
      * 
      */
     public Optional<Output<String>> defaultProvider() {
@@ -144,7 +144,7 @@ public final class WindowsWebAppSlotAuthSettingsV2Args extends com.pulumi.resour
     /**
      * The paths which should be excluded from the `unauthenticated_action` when it is set to `RedirectToLoginPage`.
      * 
-     * &gt; **NOTE:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
+     * &gt; **Note:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
      * 
      */
     @Import(name="excludedPaths")
@@ -153,7 +153,7 @@ public final class WindowsWebAppSlotAuthSettingsV2Args extends com.pulumi.resour
     /**
      * @return The paths which should be excluded from the `unauthenticated_action` when it is set to `RedirectToLoginPage`.
      * 
-     * &gt; **NOTE:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
+     * &gt; **Note:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
      * 
      */
     public Optional<Output<List<String>>> excludedPaths() {
@@ -558,7 +558,7 @@ public final class WindowsWebAppSlotAuthSettingsV2Args extends com.pulumi.resour
         /**
          * @param defaultProvider The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
          * 
-         * &gt; **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
+         * &gt; **Note:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
          * 
          * @return builder
          * 
@@ -571,7 +571,7 @@ public final class WindowsWebAppSlotAuthSettingsV2Args extends com.pulumi.resour
         /**
          * @param defaultProvider The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
          * 
-         * &gt; **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
+         * &gt; **Note:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
          * 
          * @return builder
          * 
@@ -583,7 +583,7 @@ public final class WindowsWebAppSlotAuthSettingsV2Args extends com.pulumi.resour
         /**
          * @param excludedPaths The paths which should be excluded from the `unauthenticated_action` when it is set to `RedirectToLoginPage`.
          * 
-         * &gt; **NOTE:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
+         * &gt; **Note:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
          * 
          * @return builder
          * 
@@ -596,7 +596,7 @@ public final class WindowsWebAppSlotAuthSettingsV2Args extends com.pulumi.resour
         /**
          * @param excludedPaths The paths which should be excluded from the `unauthenticated_action` when it is set to `RedirectToLoginPage`.
          * 
-         * &gt; **NOTE:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
+         * &gt; **Note:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
          * 
          * @return builder
          * 
@@ -608,7 +608,7 @@ public final class WindowsWebAppSlotAuthSettingsV2Args extends com.pulumi.resour
         /**
          * @param excludedPaths The paths which should be excluded from the `unauthenticated_action` when it is set to `RedirectToLoginPage`.
          * 
-         * &gt; **NOTE:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
+         * &gt; **Note:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
          * 
          * @return builder
          * 

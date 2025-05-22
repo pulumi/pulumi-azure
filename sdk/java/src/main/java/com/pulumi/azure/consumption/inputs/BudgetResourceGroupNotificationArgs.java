@@ -67,7 +67,7 @@ public final class BudgetResourceGroupNotificationArgs extends com.pulumi.resour
     /**
      * Should the notification be enabled? Defaults to `true`.
      * 
-     * &gt; **NOTE:** A `notification` block cannot have all of `contact_emails`, `contact_roles`, and `contact_groups` empty. This means that at least one of the three must be specified.
+     * &gt; **Note:** A `notification` block cannot have all of `contact_emails`, `contact_roles`, and `contact_groups` empty. This means that at least one of the three must be specified.
      * 
      */
     @Import(name="enabled")
@@ -76,7 +76,7 @@ public final class BudgetResourceGroupNotificationArgs extends com.pulumi.resour
     /**
      * @return Should the notification be enabled? Defaults to `true`.
      * 
-     * &gt; **NOTE:** A `notification` block cannot have all of `contact_emails`, `contact_roles`, and `contact_groups` empty. This means that at least one of the three must be specified.
+     * &gt; **Note:** A `notification` block cannot have all of `contact_emails`, `contact_roles`, and `contact_groups` empty. This means that at least one of the three must be specified.
      * 
      */
     public Optional<Output<Boolean>> enabled() {
@@ -254,7 +254,7 @@ public final class BudgetResourceGroupNotificationArgs extends com.pulumi.resour
         /**
          * @param enabled Should the notification be enabled? Defaults to `true`.
          * 
-         * &gt; **NOTE:** A `notification` block cannot have all of `contact_emails`, `contact_roles`, and `contact_groups` empty. This means that at least one of the three must be specified.
+         * &gt; **Note:** A `notification` block cannot have all of `contact_emails`, `contact_roles`, and `contact_groups` empty. This means that at least one of the three must be specified.
          * 
          * @return builder
          * 
@@ -267,7 +267,7 @@ public final class BudgetResourceGroupNotificationArgs extends com.pulumi.resour
         /**
          * @param enabled Should the notification be enabled? Defaults to `true`.
          * 
-         * &gt; **NOTE:** A `notification` block cannot have all of `contact_emails`, `contact_roles`, and `contact_groups` empty. This means that at least one of the three must be specified.
+         * &gt; **Note:** A `notification` block cannot have all of `contact_emails`, `contact_roles`, and `contact_groups` empty. This means that at least one of the three must be specified.
          * 
          * @return builder
          * 

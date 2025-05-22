@@ -14,6 +14,8 @@ namespace Pulumi.Azure.AppPlatform
         /// <summary>
         /// Use this data source to access information about an existing Spring Cloud Application.
         /// 
+        /// !&gt; **Note:** Azure Spring Apps is now deprecated and will be retired on 2028-05-31 - as such the `azure.appplatform.SpringCloudApp` data source is deprecated and will be removed in a future major version of the AzureRM Provider. See https://aka.ms/asaretirement for more information.
+        /// 
         /// ## Example Usage
         /// 
         /// ```csharp
@@ -44,6 +46,8 @@ namespace Pulumi.Azure.AppPlatform
         /// <summary>
         /// Use this data source to access information about an existing Spring Cloud Application.
         /// 
+        /// !&gt; **Note:** Azure Spring Apps is now deprecated and will be retired on 2028-05-31 - as such the `azure.appplatform.SpringCloudApp` data source is deprecated and will be removed in a future major version of the AzureRM Provider. See https://aka.ms/asaretirement for more information.
+        /// 
         /// ## Example Usage
         /// 
         /// ```csharp
@@ -73,6 +77,8 @@ namespace Pulumi.Azure.AppPlatform
 
         /// <summary>
         /// Use this data source to access information about an existing Spring Cloud Application.
+        /// 
+        /// !&gt; **Note:** Azure Spring Apps is now deprecated and will be retired on 2028-05-31 - as such the `azure.appplatform.SpringCloudApp` data source is deprecated and will be removed in a future major version of the AzureRM Provider. See https://aka.ms/asaretirement for more information.
         /// 
         /// ## Example Usage
         /// 

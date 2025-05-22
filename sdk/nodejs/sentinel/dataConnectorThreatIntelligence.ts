@@ -81,7 +81,7 @@ export class DataConnectorThreatIntelligence extends pulumi.CustomResource {
     /**
      * The ID of the tenant that this Threat Intelligence Data Connector connects to. Changing this forces a new Threat Intelligence Data Connector to be created.
      *
-     * > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
+     * > **Note:** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
      */
     public readonly tenantId!: pulumi.Output<string>;
 
@@ -136,7 +136,7 @@ export interface DataConnectorThreatIntelligenceState {
     /**
      * The ID of the tenant that this Threat Intelligence Data Connector connects to. Changing this forces a new Threat Intelligence Data Connector to be created.
      *
-     * > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
+     * > **Note:** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
      */
     tenantId?: pulumi.Input<string>;
 }
@@ -160,7 +160,7 @@ export interface DataConnectorThreatIntelligenceArgs {
     /**
      * The ID of the tenant that this Threat Intelligence Data Connector connects to. Changing this forces a new Threat Intelligence Data Connector to be created.
      *
-     * > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
+     * > **Note:** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
      */
     tenantId?: pulumi.Input<string>;
 }

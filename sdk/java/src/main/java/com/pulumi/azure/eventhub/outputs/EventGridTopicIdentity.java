@@ -16,9 +16,9 @@ public final class EventGridTopicIdentity {
     /**
      * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid Topic.
      * 
-     * &gt; **NOTE:** This is required when `type` is set to `UserAssigned`
+     * &gt; **Note:** This is required when `type` is set to `UserAssigned`
      * 
-     * &gt; **NOTE:** When `type` is set to `SystemAssigned`, The assigned `principal_id` and `tenant_id` can be retrieved after the Event Grid Topic has been created. More details are available below.
+     * &gt; **Note:** When `type` is set to `SystemAssigned`, The assigned `principal_id` and `tenant_id` can be retrieved after the Event Grid Topic has been created. More details are available below.
      * 
      */
     private @Nullable List<String> identityIds;
@@ -42,9 +42,9 @@ public final class EventGridTopicIdentity {
     /**
      * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid Topic.
      * 
-     * &gt; **NOTE:** This is required when `type` is set to `UserAssigned`
+     * &gt; **Note:** This is required when `type` is set to `UserAssigned`
      * 
-     * &gt; **NOTE:** When `type` is set to `SystemAssigned`, The assigned `principal_id` and `tenant_id` can be retrieved after the Event Grid Topic has been created. More details are available below.
+     * &gt; **Note:** When `type` is set to `SystemAssigned`, The assigned `principal_id` and `tenant_id` can be retrieved after the Event Grid Topic has been created. More details are available below.
      * 
      */
     public List<String> identityIds() {

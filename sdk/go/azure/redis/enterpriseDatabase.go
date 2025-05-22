@@ -82,6 +82,13 @@ import (
 //
 // ```
 //
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.Cache`: 2024-10-01
+//
 // ## Import
 //
 // Redis Enterprise Databases can be imported using the `resource id`, e.g.
@@ -104,11 +111,11 @@ type EnterpriseDatabase struct {
 	LinkedDatabaseGroupNickname pulumi.StringPtrOutput `pulumi:"linkedDatabaseGroupNickname"`
 	// A list of database resources to link with this database with a maximum of 5.
 	//
-	// > **NOTE:** Only the newly created databases can be added to an existing geo-replication group. Existing regular databases or recreated databases cannot be added to the existing geo-replication group. Any linked database be removed from the list will be forcefully unlinked.The only recommended operation is to delete after force-unlink and the recommended scenario of force-unlink is region outrage. The database cannot be linked again after force-unlink.
+	// > **Note:** Only the newly created databases can be added to an existing geo-replication group. Existing regular databases or recreated databases cannot be added to the existing geo-replication group. Any linked database be removed from the list will be forcefully unlinked.The only recommended operation is to delete after force-unlink and the recommended scenario of force-unlink is region outrage. The database cannot be linked again after force-unlink.
 	LinkedDatabaseIds pulumi.StringArrayOutput `pulumi:"linkedDatabaseIds"`
 	// A `module` block as defined below. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Only `RediSearch` and `RedisJSON` modules are allowed with geo-replication
+	// > **Note:** Only `RediSearch` and `RedisJSON` modules are allowed with geo-replication
 	Modules EnterpriseDatabaseModuleArrayOutput `pulumi:"modules"`
 	// The name which should be used for this Redis Enterprise Database. Currently the acceptable value for this argument is `default`. Defaults to `default`. Changing this forces a new Redis Enterprise Database to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -170,11 +177,11 @@ type enterpriseDatabaseState struct {
 	LinkedDatabaseGroupNickname *string `pulumi:"linkedDatabaseGroupNickname"`
 	// A list of database resources to link with this database with a maximum of 5.
 	//
-	// > **NOTE:** Only the newly created databases can be added to an existing geo-replication group. Existing regular databases or recreated databases cannot be added to the existing geo-replication group. Any linked database be removed from the list will be forcefully unlinked.The only recommended operation is to delete after force-unlink and the recommended scenario of force-unlink is region outrage. The database cannot be linked again after force-unlink.
+	// > **Note:** Only the newly created databases can be added to an existing geo-replication group. Existing regular databases or recreated databases cannot be added to the existing geo-replication group. Any linked database be removed from the list will be forcefully unlinked.The only recommended operation is to delete after force-unlink and the recommended scenario of force-unlink is region outrage. The database cannot be linked again after force-unlink.
 	LinkedDatabaseIds []string `pulumi:"linkedDatabaseIds"`
 	// A `module` block as defined below. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Only `RediSearch` and `RedisJSON` modules are allowed with geo-replication
+	// > **Note:** Only `RediSearch` and `RedisJSON` modules are allowed with geo-replication
 	Modules []EnterpriseDatabaseModule `pulumi:"modules"`
 	// The name which should be used for this Redis Enterprise Database. Currently the acceptable value for this argument is `default`. Defaults to `default`. Changing this forces a new Redis Enterprise Database to be created.
 	Name *string `pulumi:"name"`
@@ -199,11 +206,11 @@ type EnterpriseDatabaseState struct {
 	LinkedDatabaseGroupNickname pulumi.StringPtrInput
 	// A list of database resources to link with this database with a maximum of 5.
 	//
-	// > **NOTE:** Only the newly created databases can be added to an existing geo-replication group. Existing regular databases or recreated databases cannot be added to the existing geo-replication group. Any linked database be removed from the list will be forcefully unlinked.The only recommended operation is to delete after force-unlink and the recommended scenario of force-unlink is region outrage. The database cannot be linked again after force-unlink.
+	// > **Note:** Only the newly created databases can be added to an existing geo-replication group. Existing regular databases or recreated databases cannot be added to the existing geo-replication group. Any linked database be removed from the list will be forcefully unlinked.The only recommended operation is to delete after force-unlink and the recommended scenario of force-unlink is region outrage. The database cannot be linked again after force-unlink.
 	LinkedDatabaseIds pulumi.StringArrayInput
 	// A `module` block as defined below. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Only `RediSearch` and `RedisJSON` modules are allowed with geo-replication
+	// > **Note:** Only `RediSearch` and `RedisJSON` modules are allowed with geo-replication
 	Modules EnterpriseDatabaseModuleArrayInput
 	// The name which should be used for this Redis Enterprise Database. Currently the acceptable value for this argument is `default`. Defaults to `default`. Changing this forces a new Redis Enterprise Database to be created.
 	Name pulumi.StringPtrInput
@@ -232,11 +239,11 @@ type enterpriseDatabaseArgs struct {
 	LinkedDatabaseGroupNickname *string `pulumi:"linkedDatabaseGroupNickname"`
 	// A list of database resources to link with this database with a maximum of 5.
 	//
-	// > **NOTE:** Only the newly created databases can be added to an existing geo-replication group. Existing regular databases or recreated databases cannot be added to the existing geo-replication group. Any linked database be removed from the list will be forcefully unlinked.The only recommended operation is to delete after force-unlink and the recommended scenario of force-unlink is region outrage. The database cannot be linked again after force-unlink.
+	// > **Note:** Only the newly created databases can be added to an existing geo-replication group. Existing regular databases or recreated databases cannot be added to the existing geo-replication group. Any linked database be removed from the list will be forcefully unlinked.The only recommended operation is to delete after force-unlink and the recommended scenario of force-unlink is region outrage. The database cannot be linked again after force-unlink.
 	LinkedDatabaseIds []string `pulumi:"linkedDatabaseIds"`
 	// A `module` block as defined below. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Only `RediSearch` and `RedisJSON` modules are allowed with geo-replication
+	// > **Note:** Only `RediSearch` and `RedisJSON` modules are allowed with geo-replication
 	Modules []EnterpriseDatabaseModule `pulumi:"modules"`
 	// The name which should be used for this Redis Enterprise Database. Currently the acceptable value for this argument is `default`. Defaults to `default`. Changing this forces a new Redis Enterprise Database to be created.
 	Name *string `pulumi:"name"`
@@ -258,11 +265,11 @@ type EnterpriseDatabaseArgs struct {
 	LinkedDatabaseGroupNickname pulumi.StringPtrInput
 	// A list of database resources to link with this database with a maximum of 5.
 	//
-	// > **NOTE:** Only the newly created databases can be added to an existing geo-replication group. Existing regular databases or recreated databases cannot be added to the existing geo-replication group. Any linked database be removed from the list will be forcefully unlinked.The only recommended operation is to delete after force-unlink and the recommended scenario of force-unlink is region outrage. The database cannot be linked again after force-unlink.
+	// > **Note:** Only the newly created databases can be added to an existing geo-replication group. Existing regular databases or recreated databases cannot be added to the existing geo-replication group. Any linked database be removed from the list will be forcefully unlinked.The only recommended operation is to delete after force-unlink and the recommended scenario of force-unlink is region outrage. The database cannot be linked again after force-unlink.
 	LinkedDatabaseIds pulumi.StringArrayInput
 	// A `module` block as defined below. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Only `RediSearch` and `RedisJSON` modules are allowed with geo-replication
+	// > **Note:** Only `RediSearch` and `RedisJSON` modules are allowed with geo-replication
 	Modules EnterpriseDatabaseModuleArrayInput
 	// The name which should be used for this Redis Enterprise Database. Currently the acceptable value for this argument is `default`. Defaults to `default`. Changing this forces a new Redis Enterprise Database to be created.
 	Name pulumi.StringPtrInput
@@ -384,14 +391,14 @@ func (o EnterpriseDatabaseOutput) LinkedDatabaseGroupNickname() pulumi.StringPtr
 
 // A list of database resources to link with this database with a maximum of 5.
 //
-// > **NOTE:** Only the newly created databases can be added to an existing geo-replication group. Existing regular databases or recreated databases cannot be added to the existing geo-replication group. Any linked database be removed from the list will be forcefully unlinked.The only recommended operation is to delete after force-unlink and the recommended scenario of force-unlink is region outrage. The database cannot be linked again after force-unlink.
+// > **Note:** Only the newly created databases can be added to an existing geo-replication group. Existing regular databases or recreated databases cannot be added to the existing geo-replication group. Any linked database be removed from the list will be forcefully unlinked.The only recommended operation is to delete after force-unlink and the recommended scenario of force-unlink is region outrage. The database cannot be linked again after force-unlink.
 func (o EnterpriseDatabaseOutput) LinkedDatabaseIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *EnterpriseDatabase) pulumi.StringArrayOutput { return v.LinkedDatabaseIds }).(pulumi.StringArrayOutput)
 }
 
 // A `module` block as defined below. Changing this forces a new resource to be created.
 //
-// > **NOTE:** Only `RediSearch` and `RedisJSON` modules are allowed with geo-replication
+// > **Note:** Only `RediSearch` and `RedisJSON` modules are allowed with geo-replication
 func (o EnterpriseDatabaseOutput) Modules() EnterpriseDatabaseModuleArrayOutput {
 	return o.ApplyT(func(v *EnterpriseDatabase) EnterpriseDatabaseModuleArrayOutput { return v.Modules }).(EnterpriseDatabaseModuleArrayOutput)
 }

@@ -74,7 +74,7 @@ export class ManagedInstanceSecurityAlertPolicy extends pulumi.CustomResource {
     /**
      * Specifies the identifier key of the Threat Detection audit storage account. This is mandatory when you use `storageEndpoint` to specify a storage account blob endpoint.
      *
-     * > **NOTE:**  Please note that storage accounts configured with `sharedAccessKeyEnabled = false` cannot be used to configure `azure.mssql.ManagedInstanceSecurityAlertPolicy` with `storageEndpoint` for now.
+     * > **Note:** Please note that storage accounts configured with `sharedAccessKeyEnabled = false` cannot be used to configure `azure.mssql.ManagedInstanceSecurityAlertPolicy` with `storageEndpoint` for now.
      */
     public readonly storageAccountAccessKey!: pulumi.Output<string | undefined>;
     /**
@@ -164,7 +164,7 @@ export interface ManagedInstanceSecurityAlertPolicyState {
     /**
      * Specifies the identifier key of the Threat Detection audit storage account. This is mandatory when you use `storageEndpoint` to specify a storage account blob endpoint.
      *
-     * > **NOTE:**  Please note that storage accounts configured with `sharedAccessKeyEnabled = false` cannot be used to configure `azure.mssql.ManagedInstanceSecurityAlertPolicy` with `storageEndpoint` for now.
+     * > **Note:** Please note that storage accounts configured with `sharedAccessKeyEnabled = false` cannot be used to configure `azure.mssql.ManagedInstanceSecurityAlertPolicy` with `storageEndpoint` for now.
      */
     storageAccountAccessKey?: pulumi.Input<string>;
     /**
@@ -208,7 +208,7 @@ export interface ManagedInstanceSecurityAlertPolicyArgs {
     /**
      * Specifies the identifier key of the Threat Detection audit storage account. This is mandatory when you use `storageEndpoint` to specify a storage account blob endpoint.
      *
-     * > **NOTE:**  Please note that storage accounts configured with `sharedAccessKeyEnabled = false` cannot be used to configure `azure.mssql.ManagedInstanceSecurityAlertPolicy` with `storageEndpoint` for now.
+     * > **Note:** Please note that storage accounts configured with `sharedAccessKeyEnabled = false` cannot be used to configure `azure.mssql.ManagedInstanceSecurityAlertPolicy` with `storageEndpoint` for now.
      */
     storageAccountAccessKey?: pulumi.Input<string>;
     /**

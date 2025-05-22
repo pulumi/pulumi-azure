@@ -55,7 +55,7 @@ public final class SharedImageArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Specifies if Confidential Virtual Machines enabled. It will enable all the features of trusted, with higher confidentiality features for isolate machines or encrypted data. Available for Gen2 machines. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:**: Only one of `trusted_launch_supported`, `trusted_launch_enabled`, `confidential_vm_supported` and `confidential_vm_enabled` can be specified.
+     * &gt; **Note:** Only one of `trusted_launch_supported`, `trusted_launch_enabled`, `confidential_vm_supported` and `confidential_vm_enabled` can be specified.
      * 
      */
     @Import(name="confidentialVmEnabled")
@@ -64,7 +64,7 @@ public final class SharedImageArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Specifies if Confidential Virtual Machines enabled. It will enable all the features of trusted, with higher confidentiality features for isolate machines or encrypted data. Available for Gen2 machines. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:**: Only one of `trusted_launch_supported`, `trusted_launch_enabled`, `confidential_vm_supported` and `confidential_vm_enabled` can be specified.
+     * &gt; **Note:** Only one of `trusted_launch_supported`, `trusted_launch_enabled`, `confidential_vm_supported` and `confidential_vm_enabled` can be specified.
      * 
      */
     public Optional<Output<Boolean>> confidentialVmEnabled() {
@@ -546,7 +546,7 @@ public final class SharedImageArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param confidentialVmEnabled Specifies if Confidential Virtual Machines enabled. It will enable all the features of trusted, with higher confidentiality features for isolate machines or encrypted data. Available for Gen2 machines. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:**: Only one of `trusted_launch_supported`, `trusted_launch_enabled`, `confidential_vm_supported` and `confidential_vm_enabled` can be specified.
+         * &gt; **Note:** Only one of `trusted_launch_supported`, `trusted_launch_enabled`, `confidential_vm_supported` and `confidential_vm_enabled` can be specified.
          * 
          * @return builder
          * 
@@ -559,7 +559,7 @@ public final class SharedImageArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param confidentialVmEnabled Specifies if Confidential Virtual Machines enabled. It will enable all the features of trusted, with higher confidentiality features for isolate machines or encrypted data. Available for Gen2 machines. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:**: Only one of `trusted_launch_supported`, `trusted_launch_enabled`, `confidential_vm_supported` and `confidential_vm_enabled` can be specified.
+         * &gt; **Note:** Only one of `trusted_launch_supported`, `trusted_launch_enabled`, `confidential_vm_supported` and `confidential_vm_enabled` can be specified.
          * 
          * @return builder
          * 

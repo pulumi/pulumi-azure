@@ -58,6 +58,13 @@ public final class PostgresqlFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DBforPostgreSQL`: 2024-08-01
+     * 
      */
     public static Output<GetFlexibleServerResult> getFlexibleServer(GetFlexibleServerArgs args) {
         return getFlexibleServer(args, InvokeOptions.Empty);
@@ -101,6 +108,13 @@ public final class PostgresqlFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DBforPostgreSQL`: 2024-08-01
      * 
      */
     public static CompletableFuture<GetFlexibleServerResult> getFlexibleServerPlain(GetFlexibleServerPlainArgs args) {
@@ -146,6 +160,13 @@ public final class PostgresqlFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DBforPostgreSQL`: 2024-08-01
+     * 
      */
     public static Output<GetFlexibleServerResult> getFlexibleServer(GetFlexibleServerArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:postgresql/getFlexibleServer:getFlexibleServer", TypeShape.of(GetFlexibleServerResult.class), args, Utilities.withVersion(options));
@@ -189,6 +210,13 @@ public final class PostgresqlFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DBforPostgreSQL`: 2024-08-01
      * 
      */
     public static Output<GetFlexibleServerResult> getFlexibleServer(GetFlexibleServerArgs args, InvokeOutputOptions options) {
@@ -234,6 +262,13 @@ public final class PostgresqlFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DBforPostgreSQL`: 2024-08-01
+     * 
      */
     public static CompletableFuture<GetFlexibleServerResult> getFlexibleServerPlain(GetFlexibleServerPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:postgresql/getFlexibleServer:getFlexibleServer", TypeShape.of(GetFlexibleServerResult.class), args, Utilities.withVersion(options));
@@ -277,6 +312,13 @@ public final class PostgresqlFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DBforPostgreSQL`: 2017-12-01
      * 
      */
     public static Output<GetServerResult> getServer(GetServerArgs args) {
@@ -322,6 +364,13 @@ public final class PostgresqlFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DBforPostgreSQL`: 2017-12-01
+     * 
      */
     public static CompletableFuture<GetServerResult> getServerPlain(GetServerPlainArgs args) {
         return getServerPlain(args, InvokeOptions.Empty);
@@ -365,6 +414,13 @@ public final class PostgresqlFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DBforPostgreSQL`: 2017-12-01
      * 
      */
     public static Output<GetServerResult> getServer(GetServerArgs args, InvokeOptions options) {
@@ -410,6 +466,13 @@ public final class PostgresqlFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DBforPostgreSQL`: 2017-12-01
+     * 
      */
     public static Output<GetServerResult> getServer(GetServerArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:postgresql/getServer:getServer", TypeShape.of(GetServerResult.class), args, Utilities.withVersion(options));
@@ -453,6 +516,13 @@ public final class PostgresqlFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DBforPostgreSQL`: 2017-12-01
      * 
      */
     public static CompletableFuture<GetServerResult> getServerPlain(GetServerPlainArgs args, InvokeOptions options) {

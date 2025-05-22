@@ -19,6 +19,13 @@ import * as utilities from "../utilities";
  * });
  * export const id = example.then(example => example.id);
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.DataShare`: 2019-11-01
  */
 export function getDatasetKustoCluster(args: GetDatasetKustoClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetDatasetKustoClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -80,6 +87,13 @@ export interface GetDatasetKustoClusterResult {
  * });
  * export const id = example.then(example => example.id);
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.DataShare`: 2019-11-01
  */
 export function getDatasetKustoClusterOutput(args: GetDatasetKustoClusterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDatasetKustoClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

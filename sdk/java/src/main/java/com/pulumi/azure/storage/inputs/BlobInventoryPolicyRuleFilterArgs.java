@@ -21,7 +21,7 @@ public final class BlobInventoryPolicyRuleFilterArgs extends com.pulumi.resource
     /**
      * A set of blob types. Possible values are `blockBlob`, `appendBlob`, and `pageBlob`. The storage account with `is_hns_enabled` is `true` doesn&#39;t support `pageBlob`.
      * 
-     * &gt; **NOTE:** The `rules.*.schema_fields` for this rule has to include `BlobType` so that you can specify the `blob_types`.
+     * &gt; **Note:** The `rules.*.schema_fields` for this rule has to include `BlobType` so that you can specify the `blob_types`.
      * 
      */
     @Import(name="blobTypes", required=true)
@@ -30,7 +30,7 @@ public final class BlobInventoryPolicyRuleFilterArgs extends com.pulumi.resource
     /**
      * @return A set of blob types. Possible values are `blockBlob`, `appendBlob`, and `pageBlob`. The storage account with `is_hns_enabled` is `true` doesn&#39;t support `pageBlob`.
      * 
-     * &gt; **NOTE:** The `rules.*.schema_fields` for this rule has to include `BlobType` so that you can specify the `blob_types`.
+     * &gt; **Note:** The `rules.*.schema_fields` for this rule has to include `BlobType` so that you can specify the `blob_types`.
      * 
      */
     public Output<List<String>> blobTypes() {
@@ -55,7 +55,7 @@ public final class BlobInventoryPolicyRuleFilterArgs extends com.pulumi.resource
     /**
      * Includes blob versions in blob inventory or not? Defaults to `false`.
      * 
-     * &gt; **NOTE:** The `rules.*.schema_fields` for this rule has to include `IsCurrentVersion` and `VersionId` so that you can specify the `include_blob_versions`.
+     * &gt; **Note:** The `rules.*.schema_fields` for this rule has to include `IsCurrentVersion` and `VersionId` so that you can specify the `include_blob_versions`.
      * 
      */
     @Import(name="includeBlobVersions")
@@ -64,7 +64,7 @@ public final class BlobInventoryPolicyRuleFilterArgs extends com.pulumi.resource
     /**
      * @return Includes blob versions in blob inventory or not? Defaults to `false`.
      * 
-     * &gt; **NOTE:** The `rules.*.schema_fields` for this rule has to include `IsCurrentVersion` and `VersionId` so that you can specify the `include_blob_versions`.
+     * &gt; **Note:** The `rules.*.schema_fields` for this rule has to include `IsCurrentVersion` and `VersionId` so that you can specify the `include_blob_versions`.
      * 
      */
     public Optional<Output<Boolean>> includeBlobVersions() {
@@ -74,7 +74,7 @@ public final class BlobInventoryPolicyRuleFilterArgs extends com.pulumi.resource
     /**
      * Includes deleted blobs in blob inventory or not? Defaults to `false`.
      * 
-     * &gt; **NOTE:** If `rules.*.scope` is `Container`, the `rules.*.schema_fields` for this rule must include `Deleted`, `Version`, `DeletedTime`, and `RemainingRetentionDays` so that you can specify the `include_deleted`. If `rules.*.scope` is `Blob`, the `rules.*.schema_fields` must include `Deleted` and `RemainingRetentionDays` so that you can specify the `include_deleted`. If `rules.*.scope` is `Blob` and the storage account specified by `storage_account_id` has hierarchical namespaces enabled (`is_hns_enabled` is `true` on the storage account), the `rules.*.schema_fields` for this rule must include `Deleted`, `Version`, `DeletedTime`, and `RemainingRetentionDays` so that you can specify the `include_deleted`.
+     * &gt; **Note:** If `rules.*.scope` is `Container`, the `rules.*.schema_fields` for this rule must include `Deleted`, `Version`, `DeletedTime`, and `RemainingRetentionDays` so that you can specify the `include_deleted`. If `rules.*.scope` is `Blob`, the `rules.*.schema_fields` must include `Deleted` and `RemainingRetentionDays` so that you can specify the `include_deleted`. If `rules.*.scope` is `Blob` and the storage account specified by `storage_account_id` has hierarchical namespaces enabled (`is_hns_enabled` is `true` on the storage account), the `rules.*.schema_fields` for this rule must include `Deleted`, `Version`, `DeletedTime`, and `RemainingRetentionDays` so that you can specify the `include_deleted`.
      * 
      */
     @Import(name="includeDeleted")
@@ -83,7 +83,7 @@ public final class BlobInventoryPolicyRuleFilterArgs extends com.pulumi.resource
     /**
      * @return Includes deleted blobs in blob inventory or not? Defaults to `false`.
      * 
-     * &gt; **NOTE:** If `rules.*.scope` is `Container`, the `rules.*.schema_fields` for this rule must include `Deleted`, `Version`, `DeletedTime`, and `RemainingRetentionDays` so that you can specify the `include_deleted`. If `rules.*.scope` is `Blob`, the `rules.*.schema_fields` must include `Deleted` and `RemainingRetentionDays` so that you can specify the `include_deleted`. If `rules.*.scope` is `Blob` and the storage account specified by `storage_account_id` has hierarchical namespaces enabled (`is_hns_enabled` is `true` on the storage account), the `rules.*.schema_fields` for this rule must include `Deleted`, `Version`, `DeletedTime`, and `RemainingRetentionDays` so that you can specify the `include_deleted`.
+     * &gt; **Note:** If `rules.*.scope` is `Container`, the `rules.*.schema_fields` for this rule must include `Deleted`, `Version`, `DeletedTime`, and `RemainingRetentionDays` so that you can specify the `include_deleted`. If `rules.*.scope` is `Blob`, the `rules.*.schema_fields` must include `Deleted` and `RemainingRetentionDays` so that you can specify the `include_deleted`. If `rules.*.scope` is `Blob` and the storage account specified by `storage_account_id` has hierarchical namespaces enabled (`is_hns_enabled` is `true` on the storage account), the `rules.*.schema_fields` for this rule must include `Deleted`, `Version`, `DeletedTime`, and `RemainingRetentionDays` so that you can specify the `include_deleted`.
      * 
      */
     public Optional<Output<Boolean>> includeDeleted() {
@@ -93,7 +93,7 @@ public final class BlobInventoryPolicyRuleFilterArgs extends com.pulumi.resource
     /**
      * Includes blob snapshots in blob inventory or not? Defaults to `false`.
      * 
-     * &gt; **NOTE:** The `rules.*.schema_fields` for this rule has to include `Snapshot` so that you can specify the `include_snapshots`.
+     * &gt; **Note:** The `rules.*.schema_fields` for this rule has to include `Snapshot` so that you can specify the `include_snapshots`.
      * 
      */
     @Import(name="includeSnapshots")
@@ -102,7 +102,7 @@ public final class BlobInventoryPolicyRuleFilterArgs extends com.pulumi.resource
     /**
      * @return Includes blob snapshots in blob inventory or not? Defaults to `false`.
      * 
-     * &gt; **NOTE:** The `rules.*.schema_fields` for this rule has to include `Snapshot` so that you can specify the `include_snapshots`.
+     * &gt; **Note:** The `rules.*.schema_fields` for this rule has to include `Snapshot` so that you can specify the `include_snapshots`.
      * 
      */
     public Optional<Output<Boolean>> includeSnapshots() {
@@ -156,7 +156,7 @@ public final class BlobInventoryPolicyRuleFilterArgs extends com.pulumi.resource
         /**
          * @param blobTypes A set of blob types. Possible values are `blockBlob`, `appendBlob`, and `pageBlob`. The storage account with `is_hns_enabled` is `true` doesn&#39;t support `pageBlob`.
          * 
-         * &gt; **NOTE:** The `rules.*.schema_fields` for this rule has to include `BlobType` so that you can specify the `blob_types`.
+         * &gt; **Note:** The `rules.*.schema_fields` for this rule has to include `BlobType` so that you can specify the `blob_types`.
          * 
          * @return builder
          * 
@@ -169,7 +169,7 @@ public final class BlobInventoryPolicyRuleFilterArgs extends com.pulumi.resource
         /**
          * @param blobTypes A set of blob types. Possible values are `blockBlob`, `appendBlob`, and `pageBlob`. The storage account with `is_hns_enabled` is `true` doesn&#39;t support `pageBlob`.
          * 
-         * &gt; **NOTE:** The `rules.*.schema_fields` for this rule has to include `BlobType` so that you can specify the `blob_types`.
+         * &gt; **Note:** The `rules.*.schema_fields` for this rule has to include `BlobType` so that you can specify the `blob_types`.
          * 
          * @return builder
          * 
@@ -181,7 +181,7 @@ public final class BlobInventoryPolicyRuleFilterArgs extends com.pulumi.resource
         /**
          * @param blobTypes A set of blob types. Possible values are `blockBlob`, `appendBlob`, and `pageBlob`. The storage account with `is_hns_enabled` is `true` doesn&#39;t support `pageBlob`.
          * 
-         * &gt; **NOTE:** The `rules.*.schema_fields` for this rule has to include `BlobType` so that you can specify the `blob_types`.
+         * &gt; **Note:** The `rules.*.schema_fields` for this rule has to include `BlobType` so that you can specify the `blob_types`.
          * 
          * @return builder
          * 
@@ -224,7 +224,7 @@ public final class BlobInventoryPolicyRuleFilterArgs extends com.pulumi.resource
         /**
          * @param includeBlobVersions Includes blob versions in blob inventory or not? Defaults to `false`.
          * 
-         * &gt; **NOTE:** The `rules.*.schema_fields` for this rule has to include `IsCurrentVersion` and `VersionId` so that you can specify the `include_blob_versions`.
+         * &gt; **Note:** The `rules.*.schema_fields` for this rule has to include `IsCurrentVersion` and `VersionId` so that you can specify the `include_blob_versions`.
          * 
          * @return builder
          * 
@@ -237,7 +237,7 @@ public final class BlobInventoryPolicyRuleFilterArgs extends com.pulumi.resource
         /**
          * @param includeBlobVersions Includes blob versions in blob inventory or not? Defaults to `false`.
          * 
-         * &gt; **NOTE:** The `rules.*.schema_fields` for this rule has to include `IsCurrentVersion` and `VersionId` so that you can specify the `include_blob_versions`.
+         * &gt; **Note:** The `rules.*.schema_fields` for this rule has to include `IsCurrentVersion` and `VersionId` so that you can specify the `include_blob_versions`.
          * 
          * @return builder
          * 
@@ -249,7 +249,7 @@ public final class BlobInventoryPolicyRuleFilterArgs extends com.pulumi.resource
         /**
          * @param includeDeleted Includes deleted blobs in blob inventory or not? Defaults to `false`.
          * 
-         * &gt; **NOTE:** If `rules.*.scope` is `Container`, the `rules.*.schema_fields` for this rule must include `Deleted`, `Version`, `DeletedTime`, and `RemainingRetentionDays` so that you can specify the `include_deleted`. If `rules.*.scope` is `Blob`, the `rules.*.schema_fields` must include `Deleted` and `RemainingRetentionDays` so that you can specify the `include_deleted`. If `rules.*.scope` is `Blob` and the storage account specified by `storage_account_id` has hierarchical namespaces enabled (`is_hns_enabled` is `true` on the storage account), the `rules.*.schema_fields` for this rule must include `Deleted`, `Version`, `DeletedTime`, and `RemainingRetentionDays` so that you can specify the `include_deleted`.
+         * &gt; **Note:** If `rules.*.scope` is `Container`, the `rules.*.schema_fields` for this rule must include `Deleted`, `Version`, `DeletedTime`, and `RemainingRetentionDays` so that you can specify the `include_deleted`. If `rules.*.scope` is `Blob`, the `rules.*.schema_fields` must include `Deleted` and `RemainingRetentionDays` so that you can specify the `include_deleted`. If `rules.*.scope` is `Blob` and the storage account specified by `storage_account_id` has hierarchical namespaces enabled (`is_hns_enabled` is `true` on the storage account), the `rules.*.schema_fields` for this rule must include `Deleted`, `Version`, `DeletedTime`, and `RemainingRetentionDays` so that you can specify the `include_deleted`.
          * 
          * @return builder
          * 
@@ -262,7 +262,7 @@ public final class BlobInventoryPolicyRuleFilterArgs extends com.pulumi.resource
         /**
          * @param includeDeleted Includes deleted blobs in blob inventory or not? Defaults to `false`.
          * 
-         * &gt; **NOTE:** If `rules.*.scope` is `Container`, the `rules.*.schema_fields` for this rule must include `Deleted`, `Version`, `DeletedTime`, and `RemainingRetentionDays` so that you can specify the `include_deleted`. If `rules.*.scope` is `Blob`, the `rules.*.schema_fields` must include `Deleted` and `RemainingRetentionDays` so that you can specify the `include_deleted`. If `rules.*.scope` is `Blob` and the storage account specified by `storage_account_id` has hierarchical namespaces enabled (`is_hns_enabled` is `true` on the storage account), the `rules.*.schema_fields` for this rule must include `Deleted`, `Version`, `DeletedTime`, and `RemainingRetentionDays` so that you can specify the `include_deleted`.
+         * &gt; **Note:** If `rules.*.scope` is `Container`, the `rules.*.schema_fields` for this rule must include `Deleted`, `Version`, `DeletedTime`, and `RemainingRetentionDays` so that you can specify the `include_deleted`. If `rules.*.scope` is `Blob`, the `rules.*.schema_fields` must include `Deleted` and `RemainingRetentionDays` so that you can specify the `include_deleted`. If `rules.*.scope` is `Blob` and the storage account specified by `storage_account_id` has hierarchical namespaces enabled (`is_hns_enabled` is `true` on the storage account), the `rules.*.schema_fields` for this rule must include `Deleted`, `Version`, `DeletedTime`, and `RemainingRetentionDays` so that you can specify the `include_deleted`.
          * 
          * @return builder
          * 
@@ -274,7 +274,7 @@ public final class BlobInventoryPolicyRuleFilterArgs extends com.pulumi.resource
         /**
          * @param includeSnapshots Includes blob snapshots in blob inventory or not? Defaults to `false`.
          * 
-         * &gt; **NOTE:** The `rules.*.schema_fields` for this rule has to include `Snapshot` so that you can specify the `include_snapshots`.
+         * &gt; **Note:** The `rules.*.schema_fields` for this rule has to include `Snapshot` so that you can specify the `include_snapshots`.
          * 
          * @return builder
          * 
@@ -287,7 +287,7 @@ public final class BlobInventoryPolicyRuleFilterArgs extends com.pulumi.resource
         /**
          * @param includeSnapshots Includes blob snapshots in blob inventory or not? Defaults to `false`.
          * 
-         * &gt; **NOTE:** The `rules.*.schema_fields` for this rule has to include `Snapshot` so that you can specify the `include_snapshots`.
+         * &gt; **Note:** The `rules.*.schema_fields` for this rule has to include `Snapshot` so that you can specify the `include_snapshots`.
          * 
          * @return builder
          * 

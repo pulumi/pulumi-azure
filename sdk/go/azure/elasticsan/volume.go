@@ -151,6 +151,13 @@ import (
 //
 // ```
 //
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.ElasticSan`: 2023-01-01
+//
 // ## Import
 //
 // An existing Elastic SAN Volume can be imported into Pulumi using the `resource id`, e.g.
@@ -167,7 +174,7 @@ type Volume struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies the size of the Elastic SAN Volume in GiB. The size should be within the remaining capacity of the parent Elastic SAN. Possible values are between `1` and `65536` (16 TiB).
 	//
-	// > **NOTE:** The size can only be increased. If `createSource` is specified, then the size must be equal to or greater than the source's size.
+	// > **Note:** The size can only be increased. If `createSource` is specified, then the size must be equal to or greater than the source's size.
 	SizeInGib pulumi.IntOutput `pulumi:"sizeInGib"`
 	// The iSCSI Target IQN of the Elastic SAN Volume.
 	TargetIqn pulumi.StringOutput `pulumi:"targetIqn"`
@@ -223,7 +230,7 @@ type volumeState struct {
 	Name *string `pulumi:"name"`
 	// Specifies the size of the Elastic SAN Volume in GiB. The size should be within the remaining capacity of the parent Elastic SAN. Possible values are between `1` and `65536` (16 TiB).
 	//
-	// > **NOTE:** The size can only be increased. If `createSource` is specified, then the size must be equal to or greater than the source's size.
+	// > **Note:** The size can only be increased. If `createSource` is specified, then the size must be equal to or greater than the source's size.
 	SizeInGib *int `pulumi:"sizeInGib"`
 	// The iSCSI Target IQN of the Elastic SAN Volume.
 	TargetIqn *string `pulumi:"targetIqn"`
@@ -244,7 +251,7 @@ type VolumeState struct {
 	Name pulumi.StringPtrInput
 	// Specifies the size of the Elastic SAN Volume in GiB. The size should be within the remaining capacity of the parent Elastic SAN. Possible values are between `1` and `65536` (16 TiB).
 	//
-	// > **NOTE:** The size can only be increased. If `createSource` is specified, then the size must be equal to or greater than the source's size.
+	// > **Note:** The size can only be increased. If `createSource` is specified, then the size must be equal to or greater than the source's size.
 	SizeInGib pulumi.IntPtrInput
 	// The iSCSI Target IQN of the Elastic SAN Volume.
 	TargetIqn pulumi.StringPtrInput
@@ -269,7 +276,7 @@ type volumeArgs struct {
 	Name *string `pulumi:"name"`
 	// Specifies the size of the Elastic SAN Volume in GiB. The size should be within the remaining capacity of the parent Elastic SAN. Possible values are between `1` and `65536` (16 TiB).
 	//
-	// > **NOTE:** The size can only be increased. If `createSource` is specified, then the size must be equal to or greater than the source's size.
+	// > **Note:** The size can only be increased. If `createSource` is specified, then the size must be equal to or greater than the source's size.
 	SizeInGib int `pulumi:"sizeInGib"`
 	// Specifies the Volume Group ID within which this Elastic SAN Volume should exist. Changing this forces a new resource to be created.
 	VolumeGroupId string `pulumi:"volumeGroupId"`
@@ -283,7 +290,7 @@ type VolumeArgs struct {
 	Name pulumi.StringPtrInput
 	// Specifies the size of the Elastic SAN Volume in GiB. The size should be within the remaining capacity of the parent Elastic SAN. Possible values are between `1` and `65536` (16 TiB).
 	//
-	// > **NOTE:** The size can only be increased. If `createSource` is specified, then the size must be equal to or greater than the source's size.
+	// > **Note:** The size can only be increased. If `createSource` is specified, then the size must be equal to or greater than the source's size.
 	SizeInGib pulumi.IntInput
 	// Specifies the Volume Group ID within which this Elastic SAN Volume should exist. Changing this forces a new resource to be created.
 	VolumeGroupId pulumi.StringInput
@@ -388,7 +395,7 @@ func (o VolumeOutput) Name() pulumi.StringOutput {
 
 // Specifies the size of the Elastic SAN Volume in GiB. The size should be within the remaining capacity of the parent Elastic SAN. Possible values are between `1` and `65536` (16 TiB).
 //
-// > **NOTE:** The size can only be increased. If `createSource` is specified, then the size must be equal to or greater than the source's size.
+// > **Note:** The size can only be increased. If `createSource` is specified, then the size must be equal to or greater than the source's size.
 func (o VolumeOutput) SizeInGib() pulumi.IntOutput {
 	return o.ApplyT(func(v *Volume) pulumi.IntOutput { return v.SizeInGib }).(pulumi.IntOutput)
 }

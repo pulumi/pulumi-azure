@@ -121,6 +121,13 @@ def get_ip_group(name: Optional[builtins.str] = None,
     pulumi.export("cidrs", example.cidrs)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Network`: 2024-05-01
+
 
     :param builtins.str name: Specifies the Name of the IP Group.
     :param builtins.str resource_group_name: Specifies the Name of the Resource Group within which the IP Group exists
@@ -154,6 +161,13 @@ def get_ip_group_output(name: Optional[pulumi.Input[builtins.str]] = None,
         resource_group_name="example-rg")
     pulumi.export("cidrs", example.cidrs)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Network`: 2024-05-01
 
 
     :param builtins.str name: Specifies the Name of the IP Group.

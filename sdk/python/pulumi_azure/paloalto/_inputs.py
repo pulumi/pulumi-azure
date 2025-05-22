@@ -350,9 +350,21 @@ class LocalRulestackRuleSourceArgs:
 if not MYPY:
     class NextGenerationFirewallVirtualHubLocalRulestackDestinationNatArgsDict(TypedDict):
         name: pulumi.Input[builtins.str]
+        """
+        The name which should be used for this NAT.
+        """
         protocol: pulumi.Input[builtins.str]
+        """
+        The protocol used for this Destination NAT. Possible values include `TCP` and `UDP`.
+        """
         backend_config: NotRequired[pulumi.Input['NextGenerationFirewallVirtualHubLocalRulestackDestinationNatBackendConfigArgsDict']]
+        """
+        A `backend_config` block as defined above.
+        """
         frontend_config: NotRequired[pulumi.Input['NextGenerationFirewallVirtualHubLocalRulestackDestinationNatFrontendConfigArgsDict']]
+        """
+        A `frontend_config` block as defined below.
+        """
 elif False:
     NextGenerationFirewallVirtualHubLocalRulestackDestinationNatArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -363,6 +375,12 @@ class NextGenerationFirewallVirtualHubLocalRulestackDestinationNatArgs:
                  protocol: pulumi.Input[builtins.str],
                  backend_config: Optional[pulumi.Input['NextGenerationFirewallVirtualHubLocalRulestackDestinationNatBackendConfigArgs']] = None,
                  frontend_config: Optional[pulumi.Input['NextGenerationFirewallVirtualHubLocalRulestackDestinationNatFrontendConfigArgs']] = None):
+        """
+        :param pulumi.Input[builtins.str] name: The name which should be used for this NAT.
+        :param pulumi.Input[builtins.str] protocol: The protocol used for this Destination NAT. Possible values include `TCP` and `UDP`.
+        :param pulumi.Input['NextGenerationFirewallVirtualHubLocalRulestackDestinationNatBackendConfigArgs'] backend_config: A `backend_config` block as defined above.
+        :param pulumi.Input['NextGenerationFirewallVirtualHubLocalRulestackDestinationNatFrontendConfigArgs'] frontend_config: A `frontend_config` block as defined below.
+        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "protocol", protocol)
         if backend_config is not None:
@@ -373,6 +391,9 @@ class NextGenerationFirewallVirtualHubLocalRulestackDestinationNatArgs:
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[builtins.str]:
+        """
+        The name which should be used for this NAT.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -382,6 +403,9 @@ class NextGenerationFirewallVirtualHubLocalRulestackDestinationNatArgs:
     @property
     @pulumi.getter
     def protocol(self) -> pulumi.Input[builtins.str]:
+        """
+        The protocol used for this Destination NAT. Possible values include `TCP` and `UDP`.
+        """
         return pulumi.get(self, "protocol")
 
     @protocol.setter
@@ -391,6 +415,9 @@ class NextGenerationFirewallVirtualHubLocalRulestackDestinationNatArgs:
     @property
     @pulumi.getter(name="backendConfig")
     def backend_config(self) -> Optional[pulumi.Input['NextGenerationFirewallVirtualHubLocalRulestackDestinationNatBackendConfigArgs']]:
+        """
+        A `backend_config` block as defined above.
+        """
         return pulumi.get(self, "backend_config")
 
     @backend_config.setter
@@ -400,6 +427,9 @@ class NextGenerationFirewallVirtualHubLocalRulestackDestinationNatArgs:
     @property
     @pulumi.getter(name="frontendConfig")
     def frontend_config(self) -> Optional[pulumi.Input['NextGenerationFirewallVirtualHubLocalRulestackDestinationNatFrontendConfigArgs']]:
+        """
+        A `frontend_config` block as defined below.
+        """
         return pulumi.get(self, "frontend_config")
 
     @frontend_config.setter
@@ -410,7 +440,13 @@ class NextGenerationFirewallVirtualHubLocalRulestackDestinationNatArgs:
 if not MYPY:
     class NextGenerationFirewallVirtualHubLocalRulestackDestinationNatBackendConfigArgsDict(TypedDict):
         port: pulumi.Input[builtins.int]
+        """
+        The port number to send traffic to.
+        """
         public_ip_address: pulumi.Input[builtins.str]
+        """
+        The Public IP Address to send the traffic to.
+        """
 elif False:
     NextGenerationFirewallVirtualHubLocalRulestackDestinationNatBackendConfigArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -419,12 +455,19 @@ class NextGenerationFirewallVirtualHubLocalRulestackDestinationNatBackendConfigA
     def __init__(__self__, *,
                  port: pulumi.Input[builtins.int],
                  public_ip_address: pulumi.Input[builtins.str]):
+        """
+        :param pulumi.Input[builtins.int] port: The port number to send traffic to.
+        :param pulumi.Input[builtins.str] public_ip_address: The Public IP Address to send the traffic to.
+        """
         pulumi.set(__self__, "port", port)
         pulumi.set(__self__, "public_ip_address", public_ip_address)
 
     @property
     @pulumi.getter
     def port(self) -> pulumi.Input[builtins.int]:
+        """
+        The port number to send traffic to.
+        """
         return pulumi.get(self, "port")
 
     @port.setter
@@ -434,6 +477,9 @@ class NextGenerationFirewallVirtualHubLocalRulestackDestinationNatBackendConfigA
     @property
     @pulumi.getter(name="publicIpAddress")
     def public_ip_address(self) -> pulumi.Input[builtins.str]:
+        """
+        The Public IP Address to send the traffic to.
+        """
         return pulumi.get(self, "public_ip_address")
 
     @public_ip_address.setter
@@ -444,7 +490,13 @@ class NextGenerationFirewallVirtualHubLocalRulestackDestinationNatBackendConfigA
 if not MYPY:
     class NextGenerationFirewallVirtualHubLocalRulestackDestinationNatFrontendConfigArgsDict(TypedDict):
         port: pulumi.Input[builtins.int]
+        """
+        The port on which traffic will be receiveed.
+        """
         public_ip_address_id: pulumi.Input[builtins.str]
+        """
+        The ID of the Public IP Address resource the traffic will be received on.
+        """
 elif False:
     NextGenerationFirewallVirtualHubLocalRulestackDestinationNatFrontendConfigArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -453,12 +505,19 @@ class NextGenerationFirewallVirtualHubLocalRulestackDestinationNatFrontendConfig
     def __init__(__self__, *,
                  port: pulumi.Input[builtins.int],
                  public_ip_address_id: pulumi.Input[builtins.str]):
+        """
+        :param pulumi.Input[builtins.int] port: The port on which traffic will be receiveed.
+        :param pulumi.Input[builtins.str] public_ip_address_id: The ID of the Public IP Address resource the traffic will be received on.
+        """
         pulumi.set(__self__, "port", port)
         pulumi.set(__self__, "public_ip_address_id", public_ip_address_id)
 
     @property
     @pulumi.getter
     def port(self) -> pulumi.Input[builtins.int]:
+        """
+        The port on which traffic will be receiveed.
+        """
         return pulumi.get(self, "port")
 
     @port.setter
@@ -468,6 +527,9 @@ class NextGenerationFirewallVirtualHubLocalRulestackDestinationNatFrontendConfig
     @property
     @pulumi.getter(name="publicIpAddressId")
     def public_ip_address_id(self) -> pulumi.Input[builtins.str]:
+        """
+        The ID of the Public IP Address resource the traffic will be received on.
+        """
         return pulumi.get(self, "public_ip_address_id")
 
     @public_ip_address_id.setter
@@ -479,7 +541,13 @@ if not MYPY:
     class NextGenerationFirewallVirtualHubLocalRulestackDnsSettingsArgsDict(TypedDict):
         azure_dns_servers: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
         dns_servers: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
+        """
+        Specifies a list of DNS servers to proxy. Conflicts with `dns_settings[0].use_azure_dns`.
+        """
         use_azure_dns: NotRequired[pulumi.Input[builtins.bool]]
+        """
+        Should Azure DNS servers be used? Conflicts with `dns_settings[0].dns_servers`. Defaults to `false`.
+        """
 elif False:
     NextGenerationFirewallVirtualHubLocalRulestackDnsSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -489,6 +557,10 @@ class NextGenerationFirewallVirtualHubLocalRulestackDnsSettingsArgs:
                  azure_dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  use_azure_dns: Optional[pulumi.Input[builtins.bool]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] dns_servers: Specifies a list of DNS servers to proxy. Conflicts with `dns_settings[0].use_azure_dns`.
+        :param pulumi.Input[builtins.bool] use_azure_dns: Should Azure DNS servers be used? Conflicts with `dns_settings[0].dns_servers`. Defaults to `false`.
+        """
         if azure_dns_servers is not None:
             pulumi.set(__self__, "azure_dns_servers", azure_dns_servers)
         if dns_servers is not None:
@@ -508,6 +580,9 @@ class NextGenerationFirewallVirtualHubLocalRulestackDnsSettingsArgs:
     @property
     @pulumi.getter(name="dnsServers")
     def dns_servers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+        """
+        Specifies a list of DNS servers to proxy. Conflicts with `dns_settings[0].use_azure_dns`.
+        """
         return pulumi.get(self, "dns_servers")
 
     @dns_servers.setter
@@ -517,6 +592,9 @@ class NextGenerationFirewallVirtualHubLocalRulestackDnsSettingsArgs:
     @property
     @pulumi.getter(name="useAzureDns")
     def use_azure_dns(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        Should Azure DNS servers be used? Conflicts with `dns_settings[0].dns_servers`. Defaults to `false`.
+        """
         return pulumi.get(self, "use_azure_dns")
 
     @use_azure_dns.setter
@@ -527,13 +605,28 @@ class NextGenerationFirewallVirtualHubLocalRulestackDnsSettingsArgs:
 if not MYPY:
     class NextGenerationFirewallVirtualHubLocalRulestackNetworkProfileArgsDict(TypedDict):
         network_virtual_appliance_id: pulumi.Input[builtins.str]
+        """
+        The ID of the Palo Alto Network Virtual Appliance in the VHub. Changing this forces a new Palo Alto Next Generation Firewall VHub Local Rulestack to be created.
+        """
         public_ip_address_ids: pulumi.Input[Sequence[pulumi.Input[builtins.str]]]
+        """
+        Specifies a list of Public IP IDs to use for this Next Generation Firewall.
+        """
         virtual_hub_id: pulumi.Input[builtins.str]
+        """
+        The ID of the Virtual Hub this Next generation Fireall will be deployed in. Changing this forces a new Palo Alto Next Generation Firewall VHub Local Rulestack to be created.
+        """
         egress_nat_ip_address_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
+        """
+        Specifies a list of Public IP IDs to use for Egress NAT.
+        """
         egress_nat_ip_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
         ip_of_trust_for_user_defined_routes: NotRequired[pulumi.Input[builtins.str]]
         public_ip_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
         trusted_address_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
+        """
+        Specifies a list of trusted ranges to use for the Network.
+        """
         trusted_subnet_id: NotRequired[pulumi.Input[builtins.str]]
         untrusted_subnet_id: NotRequired[pulumi.Input[builtins.str]]
 elif False:
@@ -552,6 +645,13 @@ class NextGenerationFirewallVirtualHubLocalRulestackNetworkProfileArgs:
                  trusted_address_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  trusted_subnet_id: Optional[pulumi.Input[builtins.str]] = None,
                  untrusted_subnet_id: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] network_virtual_appliance_id: The ID of the Palo Alto Network Virtual Appliance in the VHub. Changing this forces a new Palo Alto Next Generation Firewall VHub Local Rulestack to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] public_ip_address_ids: Specifies a list of Public IP IDs to use for this Next Generation Firewall.
+        :param pulumi.Input[builtins.str] virtual_hub_id: The ID of the Virtual Hub this Next generation Fireall will be deployed in. Changing this forces a new Palo Alto Next Generation Firewall VHub Local Rulestack to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] egress_nat_ip_address_ids: Specifies a list of Public IP IDs to use for Egress NAT.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] trusted_address_ranges: Specifies a list of trusted ranges to use for the Network.
+        """
         pulumi.set(__self__, "network_virtual_appliance_id", network_virtual_appliance_id)
         pulumi.set(__self__, "public_ip_address_ids", public_ip_address_ids)
         pulumi.set(__self__, "virtual_hub_id", virtual_hub_id)
@@ -573,6 +673,9 @@ class NextGenerationFirewallVirtualHubLocalRulestackNetworkProfileArgs:
     @property
     @pulumi.getter(name="networkVirtualApplianceId")
     def network_virtual_appliance_id(self) -> pulumi.Input[builtins.str]:
+        """
+        The ID of the Palo Alto Network Virtual Appliance in the VHub. Changing this forces a new Palo Alto Next Generation Firewall VHub Local Rulestack to be created.
+        """
         return pulumi.get(self, "network_virtual_appliance_id")
 
     @network_virtual_appliance_id.setter
@@ -582,6 +685,9 @@ class NextGenerationFirewallVirtualHubLocalRulestackNetworkProfileArgs:
     @property
     @pulumi.getter(name="publicIpAddressIds")
     def public_ip_address_ids(self) -> pulumi.Input[Sequence[pulumi.Input[builtins.str]]]:
+        """
+        Specifies a list of Public IP IDs to use for this Next Generation Firewall.
+        """
         return pulumi.get(self, "public_ip_address_ids")
 
     @public_ip_address_ids.setter
@@ -591,6 +697,9 @@ class NextGenerationFirewallVirtualHubLocalRulestackNetworkProfileArgs:
     @property
     @pulumi.getter(name="virtualHubId")
     def virtual_hub_id(self) -> pulumi.Input[builtins.str]:
+        """
+        The ID of the Virtual Hub this Next generation Fireall will be deployed in. Changing this forces a new Palo Alto Next Generation Firewall VHub Local Rulestack to be created.
+        """
         return pulumi.get(self, "virtual_hub_id")
 
     @virtual_hub_id.setter
@@ -600,6 +709,9 @@ class NextGenerationFirewallVirtualHubLocalRulestackNetworkProfileArgs:
     @property
     @pulumi.getter(name="egressNatIpAddressIds")
     def egress_nat_ip_address_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+        """
+        Specifies a list of Public IP IDs to use for Egress NAT.
+        """
         return pulumi.get(self, "egress_nat_ip_address_ids")
 
     @egress_nat_ip_address_ids.setter
@@ -636,6 +748,9 @@ class NextGenerationFirewallVirtualHubLocalRulestackNetworkProfileArgs:
     @property
     @pulumi.getter(name="trustedAddressRanges")
     def trusted_address_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+        """
+        Specifies a list of trusted ranges to use for the Network.
+        """
         return pulumi.get(self, "trusted_address_ranges")
 
     @trusted_address_ranges.setter
@@ -664,9 +779,21 @@ class NextGenerationFirewallVirtualHubLocalRulestackNetworkProfileArgs:
 if not MYPY:
     class NextGenerationFirewallVirtualHubPanoramaDestinationNatArgsDict(TypedDict):
         name: pulumi.Input[builtins.str]
+        """
+        The name which should be used for this NAT.
+        """
         protocol: pulumi.Input[builtins.str]
+        """
+        The protocol used for this Destination NAT. Possible values include `TCP` and `UDP`.
+        """
         backend_config: NotRequired[pulumi.Input['NextGenerationFirewallVirtualHubPanoramaDestinationNatBackendConfigArgsDict']]
+        """
+        A `backend_config` block as defined above.
+        """
         frontend_config: NotRequired[pulumi.Input['NextGenerationFirewallVirtualHubPanoramaDestinationNatFrontendConfigArgsDict']]
+        """
+        A `frontend_config` block as defined below.
+        """
 elif False:
     NextGenerationFirewallVirtualHubPanoramaDestinationNatArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -677,6 +804,12 @@ class NextGenerationFirewallVirtualHubPanoramaDestinationNatArgs:
                  protocol: pulumi.Input[builtins.str],
                  backend_config: Optional[pulumi.Input['NextGenerationFirewallVirtualHubPanoramaDestinationNatBackendConfigArgs']] = None,
                  frontend_config: Optional[pulumi.Input['NextGenerationFirewallVirtualHubPanoramaDestinationNatFrontendConfigArgs']] = None):
+        """
+        :param pulumi.Input[builtins.str] name: The name which should be used for this NAT.
+        :param pulumi.Input[builtins.str] protocol: The protocol used for this Destination NAT. Possible values include `TCP` and `UDP`.
+        :param pulumi.Input['NextGenerationFirewallVirtualHubPanoramaDestinationNatBackendConfigArgs'] backend_config: A `backend_config` block as defined above.
+        :param pulumi.Input['NextGenerationFirewallVirtualHubPanoramaDestinationNatFrontendConfigArgs'] frontend_config: A `frontend_config` block as defined below.
+        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "protocol", protocol)
         if backend_config is not None:
@@ -687,6 +820,9 @@ class NextGenerationFirewallVirtualHubPanoramaDestinationNatArgs:
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[builtins.str]:
+        """
+        The name which should be used for this NAT.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -696,6 +832,9 @@ class NextGenerationFirewallVirtualHubPanoramaDestinationNatArgs:
     @property
     @pulumi.getter
     def protocol(self) -> pulumi.Input[builtins.str]:
+        """
+        The protocol used for this Destination NAT. Possible values include `TCP` and `UDP`.
+        """
         return pulumi.get(self, "protocol")
 
     @protocol.setter
@@ -705,6 +844,9 @@ class NextGenerationFirewallVirtualHubPanoramaDestinationNatArgs:
     @property
     @pulumi.getter(name="backendConfig")
     def backend_config(self) -> Optional[pulumi.Input['NextGenerationFirewallVirtualHubPanoramaDestinationNatBackendConfigArgs']]:
+        """
+        A `backend_config` block as defined above.
+        """
         return pulumi.get(self, "backend_config")
 
     @backend_config.setter
@@ -714,6 +856,9 @@ class NextGenerationFirewallVirtualHubPanoramaDestinationNatArgs:
     @property
     @pulumi.getter(name="frontendConfig")
     def frontend_config(self) -> Optional[pulumi.Input['NextGenerationFirewallVirtualHubPanoramaDestinationNatFrontendConfigArgs']]:
+        """
+        A `frontend_config` block as defined below.
+        """
         return pulumi.get(self, "frontend_config")
 
     @frontend_config.setter
@@ -724,7 +869,13 @@ class NextGenerationFirewallVirtualHubPanoramaDestinationNatArgs:
 if not MYPY:
     class NextGenerationFirewallVirtualHubPanoramaDestinationNatBackendConfigArgsDict(TypedDict):
         port: pulumi.Input[builtins.int]
+        """
+        The port number to send traffic to.
+        """
         public_ip_address: pulumi.Input[builtins.str]
+        """
+        The Public IP Address to send the traffic to.
+        """
 elif False:
     NextGenerationFirewallVirtualHubPanoramaDestinationNatBackendConfigArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -733,12 +884,19 @@ class NextGenerationFirewallVirtualHubPanoramaDestinationNatBackendConfigArgs:
     def __init__(__self__, *,
                  port: pulumi.Input[builtins.int],
                  public_ip_address: pulumi.Input[builtins.str]):
+        """
+        :param pulumi.Input[builtins.int] port: The port number to send traffic to.
+        :param pulumi.Input[builtins.str] public_ip_address: The Public IP Address to send the traffic to.
+        """
         pulumi.set(__self__, "port", port)
         pulumi.set(__self__, "public_ip_address", public_ip_address)
 
     @property
     @pulumi.getter
     def port(self) -> pulumi.Input[builtins.int]:
+        """
+        The port number to send traffic to.
+        """
         return pulumi.get(self, "port")
 
     @port.setter
@@ -748,6 +906,9 @@ class NextGenerationFirewallVirtualHubPanoramaDestinationNatBackendConfigArgs:
     @property
     @pulumi.getter(name="publicIpAddress")
     def public_ip_address(self) -> pulumi.Input[builtins.str]:
+        """
+        The Public IP Address to send the traffic to.
+        """
         return pulumi.get(self, "public_ip_address")
 
     @public_ip_address.setter
@@ -758,7 +919,13 @@ class NextGenerationFirewallVirtualHubPanoramaDestinationNatBackendConfigArgs:
 if not MYPY:
     class NextGenerationFirewallVirtualHubPanoramaDestinationNatFrontendConfigArgsDict(TypedDict):
         port: pulumi.Input[builtins.int]
+        """
+        The port on which traffic will be receiveed.
+        """
         public_ip_address_id: pulumi.Input[builtins.str]
+        """
+        The ID of the Public IP Address resource the traffic will be received on.
+        """
 elif False:
     NextGenerationFirewallVirtualHubPanoramaDestinationNatFrontendConfigArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -767,12 +934,19 @@ class NextGenerationFirewallVirtualHubPanoramaDestinationNatFrontendConfigArgs:
     def __init__(__self__, *,
                  port: pulumi.Input[builtins.int],
                  public_ip_address_id: pulumi.Input[builtins.str]):
+        """
+        :param pulumi.Input[builtins.int] port: The port on which traffic will be receiveed.
+        :param pulumi.Input[builtins.str] public_ip_address_id: The ID of the Public IP Address resource the traffic will be received on.
+        """
         pulumi.set(__self__, "port", port)
         pulumi.set(__self__, "public_ip_address_id", public_ip_address_id)
 
     @property
     @pulumi.getter
     def port(self) -> pulumi.Input[builtins.int]:
+        """
+        The port on which traffic will be receiveed.
+        """
         return pulumi.get(self, "port")
 
     @port.setter
@@ -782,6 +956,9 @@ class NextGenerationFirewallVirtualHubPanoramaDestinationNatFrontendConfigArgs:
     @property
     @pulumi.getter(name="publicIpAddressId")
     def public_ip_address_id(self) -> pulumi.Input[builtins.str]:
+        """
+        The ID of the Public IP Address resource the traffic will be received on.
+        """
         return pulumi.get(self, "public_ip_address_id")
 
     @public_ip_address_id.setter
@@ -793,7 +970,13 @@ if not MYPY:
     class NextGenerationFirewallVirtualHubPanoramaDnsSettingsArgsDict(TypedDict):
         azure_dns_servers: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
         dns_servers: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
+        """
+        Specifies a list of DNS servers to proxy. Conflicts with `dns_settings[0].use_azure_dns`.
+        """
         use_azure_dns: NotRequired[pulumi.Input[builtins.bool]]
+        """
+        Should Azure DNS servers be used? Conflicts with `dns_settings[0].dns_servers`. Defaults to `false`.
+        """
 elif False:
     NextGenerationFirewallVirtualHubPanoramaDnsSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -803,6 +986,10 @@ class NextGenerationFirewallVirtualHubPanoramaDnsSettingsArgs:
                  azure_dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  use_azure_dns: Optional[pulumi.Input[builtins.bool]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] dns_servers: Specifies a list of DNS servers to proxy. Conflicts with `dns_settings[0].use_azure_dns`.
+        :param pulumi.Input[builtins.bool] use_azure_dns: Should Azure DNS servers be used? Conflicts with `dns_settings[0].dns_servers`. Defaults to `false`.
+        """
         if azure_dns_servers is not None:
             pulumi.set(__self__, "azure_dns_servers", azure_dns_servers)
         if dns_servers is not None:
@@ -822,6 +1009,9 @@ class NextGenerationFirewallVirtualHubPanoramaDnsSettingsArgs:
     @property
     @pulumi.getter(name="dnsServers")
     def dns_servers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+        """
+        Specifies a list of DNS servers to proxy. Conflicts with `dns_settings[0].use_azure_dns`.
+        """
         return pulumi.get(self, "dns_servers")
 
     @dns_servers.setter
@@ -831,6 +1021,9 @@ class NextGenerationFirewallVirtualHubPanoramaDnsSettingsArgs:
     @property
     @pulumi.getter(name="useAzureDns")
     def use_azure_dns(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        Should Azure DNS servers be used? Conflicts with `dns_settings[0].dns_servers`. Defaults to `false`.
+        """
         return pulumi.get(self, "use_azure_dns")
 
     @use_azure_dns.setter
@@ -841,13 +1034,28 @@ class NextGenerationFirewallVirtualHubPanoramaDnsSettingsArgs:
 if not MYPY:
     class NextGenerationFirewallVirtualHubPanoramaNetworkProfileArgsDict(TypedDict):
         network_virtual_appliance_id: pulumi.Input[builtins.str]
+        """
+        The ID of the Palo Alto Network Virtual Appliance in the VHub. Changing this forces a new Palo Alto Next Generation Firewall VHub Panorama to be created.
+        """
         public_ip_address_ids: pulumi.Input[Sequence[pulumi.Input[builtins.str]]]
+        """
+        Specifies a list of Public IP IDs to use for this Next Generation Firewall.
+        """
         virtual_hub_id: pulumi.Input[builtins.str]
+        """
+        The ID of the Virtual Hub this Next generation Fireall will be deployed in. Changing this forces a new Palo Alto Next Generation Firewall VHub Local Rulestack to be created.
+        """
         egress_nat_ip_address_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
+        """
+        Specifies a list of Public IP IDs to use for Egress NAT.
+        """
         egress_nat_ip_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
         ip_of_trust_for_user_defined_routes: NotRequired[pulumi.Input[builtins.str]]
         public_ip_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
         trusted_address_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
+        """
+        Specifies a list of trusted ranges to use for the Network.
+        """
         trusted_subnet_id: NotRequired[pulumi.Input[builtins.str]]
         untrusted_subnet_id: NotRequired[pulumi.Input[builtins.str]]
 elif False:
@@ -866,6 +1074,13 @@ class NextGenerationFirewallVirtualHubPanoramaNetworkProfileArgs:
                  trusted_address_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  trusted_subnet_id: Optional[pulumi.Input[builtins.str]] = None,
                  untrusted_subnet_id: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] network_virtual_appliance_id: The ID of the Palo Alto Network Virtual Appliance in the VHub. Changing this forces a new Palo Alto Next Generation Firewall VHub Panorama to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] public_ip_address_ids: Specifies a list of Public IP IDs to use for this Next Generation Firewall.
+        :param pulumi.Input[builtins.str] virtual_hub_id: The ID of the Virtual Hub this Next generation Fireall will be deployed in. Changing this forces a new Palo Alto Next Generation Firewall VHub Local Rulestack to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] egress_nat_ip_address_ids: Specifies a list of Public IP IDs to use for Egress NAT.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] trusted_address_ranges: Specifies a list of trusted ranges to use for the Network.
+        """
         pulumi.set(__self__, "network_virtual_appliance_id", network_virtual_appliance_id)
         pulumi.set(__self__, "public_ip_address_ids", public_ip_address_ids)
         pulumi.set(__self__, "virtual_hub_id", virtual_hub_id)
@@ -887,6 +1102,9 @@ class NextGenerationFirewallVirtualHubPanoramaNetworkProfileArgs:
     @property
     @pulumi.getter(name="networkVirtualApplianceId")
     def network_virtual_appliance_id(self) -> pulumi.Input[builtins.str]:
+        """
+        The ID of the Palo Alto Network Virtual Appliance in the VHub. Changing this forces a new Palo Alto Next Generation Firewall VHub Panorama to be created.
+        """
         return pulumi.get(self, "network_virtual_appliance_id")
 
     @network_virtual_appliance_id.setter
@@ -896,6 +1114,9 @@ class NextGenerationFirewallVirtualHubPanoramaNetworkProfileArgs:
     @property
     @pulumi.getter(name="publicIpAddressIds")
     def public_ip_address_ids(self) -> pulumi.Input[Sequence[pulumi.Input[builtins.str]]]:
+        """
+        Specifies a list of Public IP IDs to use for this Next Generation Firewall.
+        """
         return pulumi.get(self, "public_ip_address_ids")
 
     @public_ip_address_ids.setter
@@ -905,6 +1126,9 @@ class NextGenerationFirewallVirtualHubPanoramaNetworkProfileArgs:
     @property
     @pulumi.getter(name="virtualHubId")
     def virtual_hub_id(self) -> pulumi.Input[builtins.str]:
+        """
+        The ID of the Virtual Hub this Next generation Fireall will be deployed in. Changing this forces a new Palo Alto Next Generation Firewall VHub Local Rulestack to be created.
+        """
         return pulumi.get(self, "virtual_hub_id")
 
     @virtual_hub_id.setter
@@ -914,6 +1138,9 @@ class NextGenerationFirewallVirtualHubPanoramaNetworkProfileArgs:
     @property
     @pulumi.getter(name="egressNatIpAddressIds")
     def egress_nat_ip_address_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+        """
+        Specifies a list of Public IP IDs to use for Egress NAT.
+        """
         return pulumi.get(self, "egress_nat_ip_address_ids")
 
     @egress_nat_ip_address_ids.setter
@@ -950,6 +1177,9 @@ class NextGenerationFirewallVirtualHubPanoramaNetworkProfileArgs:
     @property
     @pulumi.getter(name="trustedAddressRanges")
     def trusted_address_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+        """
+        Specifies a list of trusted ranges to use for the Network.
+        """
         return pulumi.get(self, "trusted_address_ranges")
 
     @trusted_address_ranges.setter
@@ -980,6 +1210,9 @@ if not MYPY:
         device_group_name: NotRequired[pulumi.Input[builtins.str]]
         host_name: NotRequired[pulumi.Input[builtins.str]]
         name: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The name which should be used for this Palo Alto Next Generation Firewall VHub Panorama. Changing this forces a new Palo Alto Next Generation Firewall VHub Panorama to be created.
+        """
         panorama_server1: NotRequired[pulumi.Input[builtins.str]]
         panorama_server2: NotRequired[pulumi.Input[builtins.str]]
         template_name: NotRequired[pulumi.Input[builtins.str]]
@@ -997,6 +1230,9 @@ class NextGenerationFirewallVirtualHubPanoramaPanoramaArgs:
                  panorama_server2: Optional[pulumi.Input[builtins.str]] = None,
                  template_name: Optional[pulumi.Input[builtins.str]] = None,
                  virtual_machine_ssh_key: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] name: The name which should be used for this Palo Alto Next Generation Firewall VHub Panorama. Changing this forces a new Palo Alto Next Generation Firewall VHub Panorama to be created.
+        """
         if device_group_name is not None:
             pulumi.set(__self__, "device_group_name", device_group_name)
         if host_name is not None:
@@ -1033,6 +1269,9 @@ class NextGenerationFirewallVirtualHubPanoramaPanoramaArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The name which should be used for this Palo Alto Next Generation Firewall VHub Panorama. Changing this forces a new Palo Alto Next Generation Firewall VHub Panorama to be created.
+        """
         return pulumi.get(self, "name")
 
     @name.setter

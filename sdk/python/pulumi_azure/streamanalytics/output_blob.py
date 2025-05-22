@@ -537,6 +537,13 @@ class OutputBlob(pulumi.CustomResource):
             })
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.StreamAnalytics`: 2021-10-01-preview
+
         ## Import
 
         Stream Analytics Outputs to Blob Storage can be imported using the `resource id`, e.g.
@@ -608,6 +615,13 @@ class OutputBlob(pulumi.CustomResource):
                 "field_delimiter": ",",
             })
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.StreamAnalytics`: 2021-10-01-preview
 
         ## Import
 

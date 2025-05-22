@@ -117,7 +117,7 @@ namespace Pulumi.Azure.KeyVault
         /// <summary>
         /// Specifies the version of the Key Vault Secret. Defaults to the current version of the Key Vault Secret.
         /// 
-        /// **NOTE:** The vault must be in the same subscription as the provider. If the vault is in another subscription, you must create an aliased provider for that subscription.
+        /// &gt; **Note:** The vault must be in the same subscription as the provider. If the vault is in another subscription, you must create an aliased provider for that subscription.
         /// </summary>
         [Input("version")]
         public string? Version { get; set; }
@@ -145,7 +145,7 @@ namespace Pulumi.Azure.KeyVault
         /// <summary>
         /// Specifies the version of the Key Vault Secret. Defaults to the current version of the Key Vault Secret.
         /// 
-        /// **NOTE:** The vault must be in the same subscription as the provider. If the vault is in another subscription, you must create an aliased provider for that subscription.
+        /// &gt; **Note:** The vault must be in the same subscription as the provider. If the vault is in another subscription, you must create an aliased provider for that subscription.
         /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }

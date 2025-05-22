@@ -7,6 +7,7 @@ import com.pulumi.azure.config.outputs.FeaturesApiManagement;
 import com.pulumi.azure.config.outputs.FeaturesAppConfiguration;
 import com.pulumi.azure.config.outputs.FeaturesApplicationInsights;
 import com.pulumi.azure.config.outputs.FeaturesCognitiveAccount;
+import com.pulumi.azure.config.outputs.FeaturesDatabricksWorkspace;
 import com.pulumi.azure.config.outputs.FeaturesKeyVault;
 import com.pulumi.azure.config.outputs.FeaturesLogAnalyticsWorkspace;
 import com.pulumi.azure.config.outputs.FeaturesMachineLearning;
@@ -32,6 +33,7 @@ public final class Features {
     private @Nullable FeaturesAppConfiguration appConfiguration;
     private @Nullable FeaturesApplicationInsights applicationInsights;
     private @Nullable FeaturesCognitiveAccount cognitiveAccount;
+    private @Nullable FeaturesDatabricksWorkspace databricksWorkspace;
     private @Nullable FeaturesKeyVault keyVault;
     private @Nullable FeaturesLogAnalyticsWorkspace logAnalyticsWorkspace;
     private @Nullable FeaturesMachineLearning machineLearning;
@@ -59,6 +61,9 @@ public final class Features {
     }
     public Optional<FeaturesCognitiveAccount> cognitiveAccount() {
         return Optional.ofNullable(this.cognitiveAccount);
+    }
+    public Optional<FeaturesDatabricksWorkspace> databricksWorkspace() {
+        return Optional.ofNullable(this.databricksWorkspace);
     }
     public Optional<FeaturesKeyVault> keyVault() {
         return Optional.ofNullable(this.keyVault);
@@ -116,6 +121,7 @@ public final class Features {
         private @Nullable FeaturesAppConfiguration appConfiguration;
         private @Nullable FeaturesApplicationInsights applicationInsights;
         private @Nullable FeaturesCognitiveAccount cognitiveAccount;
+        private @Nullable FeaturesDatabricksWorkspace databricksWorkspace;
         private @Nullable FeaturesKeyVault keyVault;
         private @Nullable FeaturesLogAnalyticsWorkspace logAnalyticsWorkspace;
         private @Nullable FeaturesMachineLearning machineLearning;
@@ -137,6 +143,7 @@ public final class Features {
     	      this.appConfiguration = defaults.appConfiguration;
     	      this.applicationInsights = defaults.applicationInsights;
     	      this.cognitiveAccount = defaults.cognitiveAccount;
+    	      this.databricksWorkspace = defaults.databricksWorkspace;
     	      this.keyVault = defaults.keyVault;
     	      this.logAnalyticsWorkspace = defaults.logAnalyticsWorkspace;
     	      this.machineLearning = defaults.machineLearning;
@@ -175,6 +182,12 @@ public final class Features {
         public Builder cognitiveAccount(@Nullable FeaturesCognitiveAccount cognitiveAccount) {
 
             this.cognitiveAccount = cognitiveAccount;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder databricksWorkspace(@Nullable FeaturesDatabricksWorkspace databricksWorkspace) {
+
+            this.databricksWorkspace = databricksWorkspace;
             return this;
         }
         @CustomType.Setter
@@ -267,6 +280,7 @@ public final class Features {
             _resultValue.appConfiguration = appConfiguration;
             _resultValue.applicationInsights = applicationInsights;
             _resultValue.cognitiveAccount = cognitiveAccount;
+            _resultValue.databricksWorkspace = databricksWorkspace;
             _resultValue.keyVault = keyVault;
             _resultValue.logAnalyticsWorkspace = logAnalyticsWorkspace;
             _resultValue.machineLearning = machineLearning;

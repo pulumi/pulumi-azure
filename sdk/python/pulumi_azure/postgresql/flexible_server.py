@@ -62,11 +62,7 @@ class FlexibleServerArgs:
         :param pulumi.Input['FlexibleServerAuthenticationArgs'] authentication: An `authentication` block as defined below.
         :param pulumi.Input[builtins.bool] auto_grow_enabled: Is the storage auto grow for PostgreSQL Flexible Server enabled? Defaults to `false`.
         :param pulumi.Input[builtins.int] backup_retention_days: The backup retention days for the PostgreSQL Flexible Server. Possible values are between `7` and `35` days.
-        :param pulumi.Input[builtins.str] create_mode: The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica` and `Update`. Changing this forces a new PostgreSQL Flexible Server to be created.
-               
-               > **Note:** `create_mode` cannot be changed once it's set since it's a parameter at creation.
-               
-               > **Note:** While creating the resource, `create_mode` cannot be set to `Update`.
+        :param pulumi.Input[builtins.str] create_mode: The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica` and `Update`.
         :param pulumi.Input['FlexibleServerCustomerManagedKeyArgs'] customer_managed_key: A `customer_managed_key` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] delegated_subnet_id: The ID of the virtual network subnet to create the PostgreSQL Flexible Server. The provided subnet should not have any other resource deployed in it and this subnet will be delegated to the PostgreSQL Flexible Server, if not already delegated. Changing this forces a new PostgreSQL Flexible Server to be created.
         :param pulumi.Input[builtins.bool] geo_redundant_backup_enabled: Is Geo-Redundant backup enabled on the PostgreSQL Flexible Server. Defaults to `false`. Changing this forces a new PostgreSQL Flexible Server to be created.
@@ -76,7 +72,7 @@ class FlexibleServerArgs:
         :param pulumi.Input['FlexibleServerMaintenanceWindowArgs'] maintenance_window: A `maintenance_window` block as defined below.
         :param pulumi.Input[builtins.str] name: The name which should be used for this PostgreSQL Flexible Server. Changing this forces a new PostgreSQL Flexible Server to be created.
                
-               > **Note** This must be unique across the entire Azure service, not just within the resource group.
+               > **Note:** This must be unique across the entire Azure service, not just within the resource group.
         :param pulumi.Input[builtins.str] point_in_time_restore_time_in_utc: The point in time to restore from `source_server_id` when `create_mode` is `GeoRestore`, `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
         :param pulumi.Input[builtins.str] private_dns_zone_id: The ID of the private DNS zone to create the PostgreSQL Flexible Server.
                
@@ -93,14 +89,16 @@ class FlexibleServerArgs:
                
                > **Note:** If the `storage_mb` field is undefined on the initial deployment of the PostgreSQL Flexible Server resource it will default to `32768`. If the `storage_mb` field has been defined and then removed, the `storage_mb` field will retain the previously defined value.
                
-               > **Note:** The `storage_mb` can only be scaled up, for example, you can scale the `storage_mb` from `32768` to `65536`, but not from `65536` to `32768`.
+               > **Note:** The `storage_mb` can only be scaled up, for example, you can scale the `storage_mb` from `32768` to `65536`, but not from `65536` to `32768`. Scaling down `storage_mb` forces a new PostgreSQL Flexible Server to be created.
         :param pulumi.Input[builtins.str] storage_tier: The name of storage performance tier for IOPS of the PostgreSQL Flexible Server. Possible values are `P4`, `P6`, `P10`, `P15`,`P20`, `P30`,`P40`, `P50`,`P60`, `P70` or `P80`. Default value is dependant on the `storage_mb` value. Please see the `storage_tier` defaults based on `storage_mb` table below.
                
                > **Note:** The `storage_tier` can be scaled once every 12 hours, this restriction is in place to ensure stability and performance after any changes to your PostgreSQL Flexible Server's configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags which should be assigned to the PostgreSQL Flexible Server.
         :param pulumi.Input[builtins.str] version: The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14`, `15` and `16`. Required when `create_mode` is `Default`.
                
-               > **Note:** When `create_mode` is `Update`, upgrading version wouldn't force a new resource to be created.
+               > **Note:** Downgrading `version` isn't supported and will force a new PostgreSQL Flexible Server to be created.
+               
+               > **Note:** In-place version updates are irreversible and may cause downtime for the PostgreSQL Flexible Server, determined by the size of the instance.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if administrator_login is not None:
@@ -248,11 +246,7 @@ class FlexibleServerArgs:
     @pulumi.getter(name="createMode")
     def create_mode(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica` and `Update`. Changing this forces a new PostgreSQL Flexible Server to be created.
-
-        > **Note:** `create_mode` cannot be changed once it's set since it's a parameter at creation.
-
-        > **Note:** While creating the resource, `create_mode` cannot be set to `Update`.
+        The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica` and `Update`.
         """
         return pulumi.get(self, "create_mode")
 
@@ -350,7 +344,7 @@ class FlexibleServerArgs:
         """
         The name which should be used for this PostgreSQL Flexible Server. Changing this forces a new PostgreSQL Flexible Server to be created.
 
-        > **Note** This must be unique across the entire Azure service, not just within the resource group.
+        > **Note:** This must be unique across the entire Azure service, not just within the resource group.
         """
         return pulumi.get(self, "name")
 
@@ -444,7 +438,7 @@ class FlexibleServerArgs:
 
         > **Note:** If the `storage_mb` field is undefined on the initial deployment of the PostgreSQL Flexible Server resource it will default to `32768`. If the `storage_mb` field has been defined and then removed, the `storage_mb` field will retain the previously defined value.
 
-        > **Note:** The `storage_mb` can only be scaled up, for example, you can scale the `storage_mb` from `32768` to `65536`, but not from `65536` to `32768`.
+        > **Note:** The `storage_mb` can only be scaled up, for example, you can scale the `storage_mb` from `32768` to `65536`, but not from `65536` to `32768`. Scaling down `storage_mb` forces a new PostgreSQL Flexible Server to be created.
         """
         return pulumi.get(self, "storage_mb")
 
@@ -484,7 +478,9 @@ class FlexibleServerArgs:
         """
         The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14`, `15` and `16`. Required when `create_mode` is `Default`.
 
-        > **Note:** When `create_mode` is `Update`, upgrading version wouldn't force a new resource to be created.
+        > **Note:** Downgrading `version` isn't supported and will force a new PostgreSQL Flexible Server to be created.
+
+        > **Note:** In-place version updates are irreversible and may cause downtime for the PostgreSQL Flexible Server, determined by the size of the instance.
         """
         return pulumi.get(self, "version")
 
@@ -545,11 +541,7 @@ class _FlexibleServerState:
         :param pulumi.Input['FlexibleServerAuthenticationArgs'] authentication: An `authentication` block as defined below.
         :param pulumi.Input[builtins.bool] auto_grow_enabled: Is the storage auto grow for PostgreSQL Flexible Server enabled? Defaults to `false`.
         :param pulumi.Input[builtins.int] backup_retention_days: The backup retention days for the PostgreSQL Flexible Server. Possible values are between `7` and `35` days.
-        :param pulumi.Input[builtins.str] create_mode: The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica` and `Update`. Changing this forces a new PostgreSQL Flexible Server to be created.
-               
-               > **Note:** `create_mode` cannot be changed once it's set since it's a parameter at creation.
-               
-               > **Note:** While creating the resource, `create_mode` cannot be set to `Update`.
+        :param pulumi.Input[builtins.str] create_mode: The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica` and `Update`.
         :param pulumi.Input['FlexibleServerCustomerManagedKeyArgs'] customer_managed_key: A `customer_managed_key` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] delegated_subnet_id: The ID of the virtual network subnet to create the PostgreSQL Flexible Server. The provided subnet should not have any other resource deployed in it and this subnet will be delegated to the PostgreSQL Flexible Server, if not already delegated. Changing this forces a new PostgreSQL Flexible Server to be created.
         :param pulumi.Input[builtins.str] fqdn: The FQDN of the PostgreSQL Flexible Server.
@@ -560,7 +552,7 @@ class _FlexibleServerState:
         :param pulumi.Input['FlexibleServerMaintenanceWindowArgs'] maintenance_window: A `maintenance_window` block as defined below.
         :param pulumi.Input[builtins.str] name: The name which should be used for this PostgreSQL Flexible Server. Changing this forces a new PostgreSQL Flexible Server to be created.
                
-               > **Note** This must be unique across the entire Azure service, not just within the resource group.
+               > **Note:** This must be unique across the entire Azure service, not just within the resource group.
         :param pulumi.Input[builtins.str] point_in_time_restore_time_in_utc: The point in time to restore from `source_server_id` when `create_mode` is `GeoRestore`, `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
         :param pulumi.Input[builtins.str] private_dns_zone_id: The ID of the private DNS zone to create the PostgreSQL Flexible Server.
                
@@ -578,14 +570,16 @@ class _FlexibleServerState:
                
                > **Note:** If the `storage_mb` field is undefined on the initial deployment of the PostgreSQL Flexible Server resource it will default to `32768`. If the `storage_mb` field has been defined and then removed, the `storage_mb` field will retain the previously defined value.
                
-               > **Note:** The `storage_mb` can only be scaled up, for example, you can scale the `storage_mb` from `32768` to `65536`, but not from `65536` to `32768`.
+               > **Note:** The `storage_mb` can only be scaled up, for example, you can scale the `storage_mb` from `32768` to `65536`, but not from `65536` to `32768`. Scaling down `storage_mb` forces a new PostgreSQL Flexible Server to be created.
         :param pulumi.Input[builtins.str] storage_tier: The name of storage performance tier for IOPS of the PostgreSQL Flexible Server. Possible values are `P4`, `P6`, `P10`, `P15`,`P20`, `P30`,`P40`, `P50`,`P60`, `P70` or `P80`. Default value is dependant on the `storage_mb` value. Please see the `storage_tier` defaults based on `storage_mb` table below.
                
                > **Note:** The `storage_tier` can be scaled once every 12 hours, this restriction is in place to ensure stability and performance after any changes to your PostgreSQL Flexible Server's configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags which should be assigned to the PostgreSQL Flexible Server.
         :param pulumi.Input[builtins.str] version: The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14`, `15` and `16`. Required when `create_mode` is `Default`.
                
-               > **Note:** When `create_mode` is `Update`, upgrading version wouldn't force a new resource to be created.
+               > **Note:** Downgrading `version` isn't supported and will force a new PostgreSQL Flexible Server to be created.
+               
+               > **Note:** In-place version updates are irreversible and may cause downtime for the PostgreSQL Flexible Server, determined by the size of the instance.
         """
         if administrator_login is not None:
             pulumi.set(__self__, "administrator_login", administrator_login)
@@ -724,11 +718,7 @@ class _FlexibleServerState:
     @pulumi.getter(name="createMode")
     def create_mode(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica` and `Update`. Changing this forces a new PostgreSQL Flexible Server to be created.
-
-        > **Note:** `create_mode` cannot be changed once it's set since it's a parameter at creation.
-
-        > **Note:** While creating the resource, `create_mode` cannot be set to `Update`.
+        The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica` and `Update`.
         """
         return pulumi.get(self, "create_mode")
 
@@ -838,7 +828,7 @@ class _FlexibleServerState:
         """
         The name which should be used for this PostgreSQL Flexible Server. Changing this forces a new PostgreSQL Flexible Server to be created.
 
-        > **Note** This must be unique across the entire Azure service, not just within the resource group.
+        > **Note:** This must be unique across the entire Azure service, not just within the resource group.
         """
         return pulumi.get(self, "name")
 
@@ -944,7 +934,7 @@ class _FlexibleServerState:
 
         > **Note:** If the `storage_mb` field is undefined on the initial deployment of the PostgreSQL Flexible Server resource it will default to `32768`. If the `storage_mb` field has been defined and then removed, the `storage_mb` field will retain the previously defined value.
 
-        > **Note:** The `storage_mb` can only be scaled up, for example, you can scale the `storage_mb` from `32768` to `65536`, but not from `65536` to `32768`.
+        > **Note:** The `storage_mb` can only be scaled up, for example, you can scale the `storage_mb` from `32768` to `65536`, but not from `65536` to `32768`. Scaling down `storage_mb` forces a new PostgreSQL Flexible Server to be created.
         """
         return pulumi.get(self, "storage_mb")
 
@@ -984,7 +974,9 @@ class _FlexibleServerState:
         """
         The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14`, `15` and `16`. Required when `create_mode` is `Default`.
 
-        > **Note:** When `create_mode` is `Update`, upgrading version wouldn't force a new resource to be created.
+        > **Note:** Downgrading `version` isn't supported and will force a new PostgreSQL Flexible Server to be created.
+
+        > **Note:** In-place version updates are irreversible and may cause downtime for the PostgreSQL Flexible Server, determined by the size of the instance.
         """
         return pulumi.get(self, "version")
 
@@ -1113,6 +1105,13 @@ class FlexibleServer(pulumi.CustomResource):
 
         ***
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DBforPostgreSQL`: 2024-08-01
+
         ## Import
 
         PostgreSQL Flexible Servers can be imported using the `resource id`, e.g.
@@ -1133,11 +1132,7 @@ class FlexibleServer(pulumi.CustomResource):
         :param pulumi.Input[Union['FlexibleServerAuthenticationArgs', 'FlexibleServerAuthenticationArgsDict']] authentication: An `authentication` block as defined below.
         :param pulumi.Input[builtins.bool] auto_grow_enabled: Is the storage auto grow for PostgreSQL Flexible Server enabled? Defaults to `false`.
         :param pulumi.Input[builtins.int] backup_retention_days: The backup retention days for the PostgreSQL Flexible Server. Possible values are between `7` and `35` days.
-        :param pulumi.Input[builtins.str] create_mode: The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica` and `Update`. Changing this forces a new PostgreSQL Flexible Server to be created.
-               
-               > **Note:** `create_mode` cannot be changed once it's set since it's a parameter at creation.
-               
-               > **Note:** While creating the resource, `create_mode` cannot be set to `Update`.
+        :param pulumi.Input[builtins.str] create_mode: The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica` and `Update`.
         :param pulumi.Input[Union['FlexibleServerCustomerManagedKeyArgs', 'FlexibleServerCustomerManagedKeyArgsDict']] customer_managed_key: A `customer_managed_key` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] delegated_subnet_id: The ID of the virtual network subnet to create the PostgreSQL Flexible Server. The provided subnet should not have any other resource deployed in it and this subnet will be delegated to the PostgreSQL Flexible Server, if not already delegated. Changing this forces a new PostgreSQL Flexible Server to be created.
         :param pulumi.Input[builtins.bool] geo_redundant_backup_enabled: Is Geo-Redundant backup enabled on the PostgreSQL Flexible Server. Defaults to `false`. Changing this forces a new PostgreSQL Flexible Server to be created.
@@ -1147,7 +1142,7 @@ class FlexibleServer(pulumi.CustomResource):
         :param pulumi.Input[Union['FlexibleServerMaintenanceWindowArgs', 'FlexibleServerMaintenanceWindowArgsDict']] maintenance_window: A `maintenance_window` block as defined below.
         :param pulumi.Input[builtins.str] name: The name which should be used for this PostgreSQL Flexible Server. Changing this forces a new PostgreSQL Flexible Server to be created.
                
-               > **Note** This must be unique across the entire Azure service, not just within the resource group.
+               > **Note:** This must be unique across the entire Azure service, not just within the resource group.
         :param pulumi.Input[builtins.str] point_in_time_restore_time_in_utc: The point in time to restore from `source_server_id` when `create_mode` is `GeoRestore`, `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
         :param pulumi.Input[builtins.str] private_dns_zone_id: The ID of the private DNS zone to create the PostgreSQL Flexible Server.
                
@@ -1165,14 +1160,16 @@ class FlexibleServer(pulumi.CustomResource):
                
                > **Note:** If the `storage_mb` field is undefined on the initial deployment of the PostgreSQL Flexible Server resource it will default to `32768`. If the `storage_mb` field has been defined and then removed, the `storage_mb` field will retain the previously defined value.
                
-               > **Note:** The `storage_mb` can only be scaled up, for example, you can scale the `storage_mb` from `32768` to `65536`, but not from `65536` to `32768`.
+               > **Note:** The `storage_mb` can only be scaled up, for example, you can scale the `storage_mb` from `32768` to `65536`, but not from `65536` to `32768`. Scaling down `storage_mb` forces a new PostgreSQL Flexible Server to be created.
         :param pulumi.Input[builtins.str] storage_tier: The name of storage performance tier for IOPS of the PostgreSQL Flexible Server. Possible values are `P4`, `P6`, `P10`, `P15`,`P20`, `P30`,`P40`, `P50`,`P60`, `P70` or `P80`. Default value is dependant on the `storage_mb` value. Please see the `storage_tier` defaults based on `storage_mb` table below.
                
                > **Note:** The `storage_tier` can be scaled once every 12 hours, this restriction is in place to ensure stability and performance after any changes to your PostgreSQL Flexible Server's configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags which should be assigned to the PostgreSQL Flexible Server.
         :param pulumi.Input[builtins.str] version: The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14`, `15` and `16`. Required when `create_mode` is `Default`.
                
-               > **Note:** When `create_mode` is `Update`, upgrading version wouldn't force a new resource to be created.
+               > **Note:** Downgrading `version` isn't supported and will force a new PostgreSQL Flexible Server to be created.
+               
+               > **Note:** In-place version updates are irreversible and may cause downtime for the PostgreSQL Flexible Server, determined by the size of the instance.
         """
         ...
     @overload
@@ -1256,6 +1253,13 @@ class FlexibleServer(pulumi.CustomResource):
         > **Note:** Host Caching (ReadOnly and Read/Write) is supported on disk sizes less than 4194304 MiB. This means any disk that is provisioned up to 4193280 MiB can take advantage of Host Caching. Host caching is not supported for disk sizes larger than 4193280 MiB. For example, a P50 premium disk provisioned at 4193280 GiB can take advantage of Host caching while a P50 disk provisioned at 4194304 MiB cannot. Moving from a smaller disk size to a larger disk size, greater than 4193280 MiB, will cause the disk to lose the disk caching ability.
 
         ***
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DBforPostgreSQL`: 2024-08-01
 
         ## Import
 
@@ -1403,11 +1407,7 @@ class FlexibleServer(pulumi.CustomResource):
         :param pulumi.Input[Union['FlexibleServerAuthenticationArgs', 'FlexibleServerAuthenticationArgsDict']] authentication: An `authentication` block as defined below.
         :param pulumi.Input[builtins.bool] auto_grow_enabled: Is the storage auto grow for PostgreSQL Flexible Server enabled? Defaults to `false`.
         :param pulumi.Input[builtins.int] backup_retention_days: The backup retention days for the PostgreSQL Flexible Server. Possible values are between `7` and `35` days.
-        :param pulumi.Input[builtins.str] create_mode: The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica` and `Update`. Changing this forces a new PostgreSQL Flexible Server to be created.
-               
-               > **Note:** `create_mode` cannot be changed once it's set since it's a parameter at creation.
-               
-               > **Note:** While creating the resource, `create_mode` cannot be set to `Update`.
+        :param pulumi.Input[builtins.str] create_mode: The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica` and `Update`.
         :param pulumi.Input[Union['FlexibleServerCustomerManagedKeyArgs', 'FlexibleServerCustomerManagedKeyArgsDict']] customer_managed_key: A `customer_managed_key` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] delegated_subnet_id: The ID of the virtual network subnet to create the PostgreSQL Flexible Server. The provided subnet should not have any other resource deployed in it and this subnet will be delegated to the PostgreSQL Flexible Server, if not already delegated. Changing this forces a new PostgreSQL Flexible Server to be created.
         :param pulumi.Input[builtins.str] fqdn: The FQDN of the PostgreSQL Flexible Server.
@@ -1418,7 +1418,7 @@ class FlexibleServer(pulumi.CustomResource):
         :param pulumi.Input[Union['FlexibleServerMaintenanceWindowArgs', 'FlexibleServerMaintenanceWindowArgsDict']] maintenance_window: A `maintenance_window` block as defined below.
         :param pulumi.Input[builtins.str] name: The name which should be used for this PostgreSQL Flexible Server. Changing this forces a new PostgreSQL Flexible Server to be created.
                
-               > **Note** This must be unique across the entire Azure service, not just within the resource group.
+               > **Note:** This must be unique across the entire Azure service, not just within the resource group.
         :param pulumi.Input[builtins.str] point_in_time_restore_time_in_utc: The point in time to restore from `source_server_id` when `create_mode` is `GeoRestore`, `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
         :param pulumi.Input[builtins.str] private_dns_zone_id: The ID of the private DNS zone to create the PostgreSQL Flexible Server.
                
@@ -1436,14 +1436,16 @@ class FlexibleServer(pulumi.CustomResource):
                
                > **Note:** If the `storage_mb` field is undefined on the initial deployment of the PostgreSQL Flexible Server resource it will default to `32768`. If the `storage_mb` field has been defined and then removed, the `storage_mb` field will retain the previously defined value.
                
-               > **Note:** The `storage_mb` can only be scaled up, for example, you can scale the `storage_mb` from `32768` to `65536`, but not from `65536` to `32768`.
+               > **Note:** The `storage_mb` can only be scaled up, for example, you can scale the `storage_mb` from `32768` to `65536`, but not from `65536` to `32768`. Scaling down `storage_mb` forces a new PostgreSQL Flexible Server to be created.
         :param pulumi.Input[builtins.str] storage_tier: The name of storage performance tier for IOPS of the PostgreSQL Flexible Server. Possible values are `P4`, `P6`, `P10`, `P15`,`P20`, `P30`,`P40`, `P50`,`P60`, `P70` or `P80`. Default value is dependant on the `storage_mb` value. Please see the `storage_tier` defaults based on `storage_mb` table below.
                
                > **Note:** The `storage_tier` can be scaled once every 12 hours, this restriction is in place to ensure stability and performance after any changes to your PostgreSQL Flexible Server's configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags which should be assigned to the PostgreSQL Flexible Server.
         :param pulumi.Input[builtins.str] version: The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14`, `15` and `16`. Required when `create_mode` is `Default`.
                
-               > **Note:** When `create_mode` is `Update`, upgrading version wouldn't force a new resource to be created.
+               > **Note:** Downgrading `version` isn't supported and will force a new PostgreSQL Flexible Server to be created.
+               
+               > **Note:** In-place version updates are irreversible and may cause downtime for the PostgreSQL Flexible Server, determined by the size of the instance.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1535,11 +1537,7 @@ class FlexibleServer(pulumi.CustomResource):
     @pulumi.getter(name="createMode")
     def create_mode(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica` and `Update`. Changing this forces a new PostgreSQL Flexible Server to be created.
-
-        > **Note:** `create_mode` cannot be changed once it's set since it's a parameter at creation.
-
-        > **Note:** While creating the resource, `create_mode` cannot be set to `Update`.
+        The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica` and `Update`.
         """
         return pulumi.get(self, "create_mode")
 
@@ -1613,7 +1611,7 @@ class FlexibleServer(pulumi.CustomResource):
         """
         The name which should be used for this PostgreSQL Flexible Server. Changing this forces a new PostgreSQL Flexible Server to be created.
 
-        > **Note** This must be unique across the entire Azure service, not just within the resource group.
+        > **Note:** This must be unique across the entire Azure service, not just within the resource group.
         """
         return pulumi.get(self, "name")
 
@@ -1687,7 +1685,7 @@ class FlexibleServer(pulumi.CustomResource):
 
         > **Note:** If the `storage_mb` field is undefined on the initial deployment of the PostgreSQL Flexible Server resource it will default to `32768`. If the `storage_mb` field has been defined and then removed, the `storage_mb` field will retain the previously defined value.
 
-        > **Note:** The `storage_mb` can only be scaled up, for example, you can scale the `storage_mb` from `32768` to `65536`, but not from `65536` to `32768`.
+        > **Note:** The `storage_mb` can only be scaled up, for example, you can scale the `storage_mb` from `32768` to `65536`, but not from `65536` to `32768`. Scaling down `storage_mb` forces a new PostgreSQL Flexible Server to be created.
         """
         return pulumi.get(self, "storage_mb")
 
@@ -1715,7 +1713,9 @@ class FlexibleServer(pulumi.CustomResource):
         """
         The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14`, `15` and `16`. Required when `create_mode` is `Default`.
 
-        > **Note:** When `create_mode` is `Update`, upgrading version wouldn't force a new resource to be created.
+        > **Note:** Downgrading `version` isn't supported and will force a new PostgreSQL Flexible Server to be created.
+
+        > **Note:** In-place version updates are irreversible and may cause downtime for the PostgreSQL Flexible Server, determined by the size of the instance.
         """
         return pulumi.get(self, "version")
 

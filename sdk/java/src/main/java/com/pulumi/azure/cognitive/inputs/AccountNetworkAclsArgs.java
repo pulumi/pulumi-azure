@@ -21,7 +21,7 @@ public final class AccountNetworkAclsArgs extends com.pulumi.resources.ResourceA
     /**
      * Whether to allow trusted Azure Services to access the service. Possible values are `None` and `AzureServices`.
      * 
-     * &gt; **NOTE:** `bypass` can only be set when `kind` is set to `OpenAI`
+     * &gt; **Note:** `bypass` can only be set when `kind` is set to `OpenAI`
      * 
      */
     @Import(name="bypass")
@@ -30,7 +30,7 @@ public final class AccountNetworkAclsArgs extends com.pulumi.resources.ResourceA
     /**
      * @return Whether to allow trusted Azure Services to access the service. Possible values are `None` and `AzureServices`.
      * 
-     * &gt; **NOTE:** `bypass` can only be set when `kind` is set to `OpenAI`
+     * &gt; **Note:** `bypass` can only be set when `kind` is set to `OpenAI`
      * 
      */
     public Optional<Output<String>> bypass() {
@@ -112,7 +112,7 @@ public final class AccountNetworkAclsArgs extends com.pulumi.resources.ResourceA
         /**
          * @param bypass Whether to allow trusted Azure Services to access the service. Possible values are `None` and `AzureServices`.
          * 
-         * &gt; **NOTE:** `bypass` can only be set when `kind` is set to `OpenAI`
+         * &gt; **Note:** `bypass` can only be set when `kind` is set to `OpenAI`
          * 
          * @return builder
          * 
@@ -125,7 +125,7 @@ public final class AccountNetworkAclsArgs extends com.pulumi.resources.ResourceA
         /**
          * @param bypass Whether to allow trusted Azure Services to access the service. Possible values are `None` and `AzureServices`.
          * 
-         * &gt; **NOTE:** `bypass` can only be set when `kind` is set to `OpenAI`
+         * &gt; **Note:** `bypass` can only be set when `kind` is set to `OpenAI`
          * 
          * @return builder
          * 

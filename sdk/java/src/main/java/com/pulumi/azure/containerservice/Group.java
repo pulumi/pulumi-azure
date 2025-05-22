@@ -94,6 +94,13 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.ContainerInstance`: 2023-05-01
+ * 
  * ## Import
  * 
  * Container Group&#39;s can be imported using the `resource id`, e.g.
@@ -374,7 +381,7 @@ public class Group extends com.pulumi.resources.CustomResource {
     /**
      * The priority of the Container Group. Possible values are `Regular` and `Spot`. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** When `priority` is set to `Spot`, the `ip_address_type` has to be `None`.
+     * &gt; **Note:** When `priority` is set to `Spot`, the `ip_address_type` has to be `None`.
      * 
      */
     @Export(name="priority", refs={String.class}, tree="[0]")
@@ -383,7 +390,7 @@ public class Group extends com.pulumi.resources.CustomResource {
     /**
      * @return The priority of the Container Group. Possible values are `Regular` and `Spot`. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** When `priority` is set to `Spot`, the `ip_address_type` has to be `None`.
+     * &gt; **Note:** When `priority` is set to `Spot`, the `ip_address_type` has to be `None`.
      * 
      */
     public Output<Optional<String>> priority() {

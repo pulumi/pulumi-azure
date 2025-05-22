@@ -47,7 +47,7 @@ class CassandraDatacenterArgs:
         :param pulumi.Input[builtins.int] node_count: The number of nodes the Cassandra Datacenter should have. The number should be equal or greater than `3`. Defaults to `3`.
         :param pulumi.Input[builtins.str] sku_name: Determines the selected sku.
                
-               > **NOTE:** In v4.0 of the provider the `sku_name` will have a default value of `Standard_E16s_v5`.
+               > **Note:** In v4.0 of the provider the `sku_name` will have a default value of `Standard_E16s_v5`.
         """
         pulumi.set(__self__, "cassandra_cluster_id", cassandra_cluster_id)
         pulumi.set(__self__, "delegated_management_subnet_id", delegated_management_subnet_id)
@@ -210,7 +210,7 @@ class CassandraDatacenterArgs:
         """
         Determines the selected sku.
 
-        > **NOTE:** In v4.0 of the provider the `sku_name` will have a default value of `Standard_E16s_v5`.
+        > **Note:** In v4.0 of the provider the `sku_name` will have a default value of `Standard_E16s_v5`.
         """
         return pulumi.get(self, "sku_name")
 
@@ -251,7 +251,7 @@ class _CassandraDatacenterState:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] seed_node_ip_addresses: A list of IP Address for the seed nodes in this Cassandra Datacenter.
         :param pulumi.Input[builtins.str] sku_name: Determines the selected sku.
                
-               > **NOTE:** In v4.0 of the provider the `sku_name` will have a default value of `Standard_E16s_v5`.
+               > **Note:** In v4.0 of the provider the `sku_name` will have a default value of `Standard_E16s_v5`.
         """
         if availability_zones_enabled is not None:
             pulumi.set(__self__, "availability_zones_enabled", availability_zones_enabled)
@@ -430,7 +430,7 @@ class _CassandraDatacenterState:
         """
         Determines the selected sku.
 
-        > **NOTE:** In v4.0 of the provider the `sku_name` will have a default value of `Standard_E16s_v5`.
+        > **Note:** In v4.0 of the provider the `sku_name` will have a default value of `Standard_E16s_v5`.
         """
         return pulumi.get(self, "sku_name")
 
@@ -461,7 +461,7 @@ class CassandraDatacenter(pulumi.CustomResource):
         """
         Manages a Cassandra Datacenter.
 
-        > **NOTE:** In order for the `Azure Managed Instances for Apache Cassandra` to work properly the product requires the `Azure Cosmos DB` Application ID to be present and working in your tenant. If the `Azure Cosmos DB` Application ID is missing in your environment you will need to have an administrator of your tenant run the following command to add the `Azure Cosmos DB` Application ID to your tenant:
+        > **Note:** In order for the `Azure Managed Instances for Apache Cassandra` to work properly the product requires the `Azure Cosmos DB` Application ID to be present and working in your tenant. If the `Azure Cosmos DB` Application ID is missing in your environment you will need to have an administrator of your tenant run the following command to add the `Azure Cosmos DB` Application ID to your tenant:
 
         ## Example Usage
 
@@ -529,7 +529,7 @@ class CassandraDatacenter(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] node_count: The number of nodes the Cassandra Datacenter should have. The number should be equal or greater than `3`. Defaults to `3`.
         :param pulumi.Input[builtins.str] sku_name: Determines the selected sku.
                
-               > **NOTE:** In v4.0 of the provider the `sku_name` will have a default value of `Standard_E16s_v5`.
+               > **Note:** In v4.0 of the provider the `sku_name` will have a default value of `Standard_E16s_v5`.
         """
         ...
     @overload
@@ -540,7 +540,7 @@ class CassandraDatacenter(pulumi.CustomResource):
         """
         Manages a Cassandra Datacenter.
 
-        > **NOTE:** In order for the `Azure Managed Instances for Apache Cassandra` to work properly the product requires the `Azure Cosmos DB` Application ID to be present and working in your tenant. If the `Azure Cosmos DB` Application ID is missing in your environment you will need to have an administrator of your tenant run the following command to add the `Azure Cosmos DB` Application ID to your tenant:
+        > **Note:** In order for the `Azure Managed Instances for Apache Cassandra` to work properly the product requires the `Azure Cosmos DB` Application ID to be present and working in your tenant. If the `Azure Cosmos DB` Application ID is missing in your environment you will need to have an administrator of your tenant run the following command to add the `Azure Cosmos DB` Application ID to your tenant:
 
         ## Example Usage
 
@@ -690,7 +690,7 @@ class CassandraDatacenter(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] seed_node_ip_addresses: A list of IP Address for the seed nodes in this Cassandra Datacenter.
         :param pulumi.Input[builtins.str] sku_name: Determines the selected sku.
                
-               > **NOTE:** In v4.0 of the provider the `sku_name` will have a default value of `Standard_E16s_v5`.
+               > **Note:** In v4.0 of the provider the `sku_name` will have a default value of `Standard_E16s_v5`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -813,7 +813,7 @@ class CassandraDatacenter(pulumi.CustomResource):
         """
         Determines the selected sku.
 
-        > **NOTE:** In v4.0 of the provider the `sku_name` will have a default value of `Standard_E16s_v5`.
+        > **Note:** In v4.0 of the provider the `sku_name` will have a default value of `Standard_E16s_v5`.
         """
         return pulumi.get(self, "sku_name")
 

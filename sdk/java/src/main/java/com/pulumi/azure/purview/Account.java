@@ -70,6 +70,13 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.Purview`: 2021-07-01
+ * 
  * ## Import
  * 
  * Purview Accounts can be imported using the `resource id`, e.g.
@@ -168,7 +175,7 @@ public class Account extends com.pulumi.resources.CustomResource {
     /**
      * The name which should be used for the new Resource Group where Purview Account creates the managed resources. Changing this forces a new Purview Account to be created.
      * 
-     * &gt; **Note:** `managed_resource_group_name` must be a new Resource Group
+     * &gt; **Note:** `managed_resource_group_name` must be a new Resource Group.
      * 
      */
     @Export(name="managedResourceGroupName", refs={String.class}, tree="[0]")
@@ -177,7 +184,7 @@ public class Account extends com.pulumi.resources.CustomResource {
     /**
      * @return The name which should be used for the new Resource Group where Purview Account creates the managed resources. Changing this forces a new Purview Account to be created.
      * 
-     * &gt; **Note:** `managed_resource_group_name` must be a new Resource Group
+     * &gt; **Note:** `managed_resource_group_name` must be a new Resource Group.
      * 
      */
     public Output<String> managedResourceGroupName() {

@@ -35,7 +35,7 @@ namespace Pulumi.Azure.MySql
     ///         Location = example.Location,
     ///         AdministratorLogin = "mysqladminun",
     ///         AdministratorPassword = "H@Sh1CoR3!",
-    ///         SkuName = "B_Standard_B1s",
+    ///         SkuName = "B_Standard_B1ms",
     ///     });
     /// 
     ///     var exampleFlexibleDatabase = new Azure.MySql.FlexibleDatabase("example", new()

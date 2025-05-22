@@ -54,6 +54,13 @@ public final class RecoveryservicesFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.RecoveryServices`: 2024-01-01
+     * 
      */
     public static Output<GetVaultResult> getVault(GetVaultArgs args) {
         return getVault(args, InvokeOptions.Empty);
@@ -96,6 +103,13 @@ public final class RecoveryservicesFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.RecoveryServices`: 2024-01-01
      * 
      */
     public static CompletableFuture<GetVaultResult> getVaultPlain(GetVaultPlainArgs args) {
@@ -140,6 +154,13 @@ public final class RecoveryservicesFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.RecoveryServices`: 2024-01-01
+     * 
      */
     public static Output<GetVaultResult> getVault(GetVaultArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:recoveryservices/getVault:getVault", TypeShape.of(GetVaultResult.class), args, Utilities.withVersion(options));
@@ -183,6 +204,13 @@ public final class RecoveryservicesFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.RecoveryServices`: 2024-01-01
+     * 
      */
     public static Output<GetVaultResult> getVault(GetVaultArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:recoveryservices/getVault:getVault", TypeShape.of(GetVaultResult.class), args, Utilities.withVersion(options));
@@ -225,6 +253,13 @@ public final class RecoveryservicesFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.RecoveryServices`: 2024-01-01
      * 
      */
     public static CompletableFuture<GetVaultResult> getVaultPlain(GetVaultPlainArgs args, InvokeOptions options) {

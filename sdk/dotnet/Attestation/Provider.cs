@@ -43,6 +43,13 @@ namespace Pulumi.Azure.Attestation
     /// });
     /// ```
     /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.Attestation`: 2020-10-01
+    /// 
     /// ## Import
     /// 
     /// Attestation Providers can be imported using the `resource id`, e.g.
@@ -81,7 +88,7 @@ namespace Pulumi.Azure.Attestation
         /// <summary>
         /// A valid X.509 certificate (Section 4 of [RFC4648](https://tools.ietf.org/html/rfc4648)). Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** If the `policy_signing_certificate_data` argument contains more than one valid X.509 certificate only the first certificate will be used.
+        /// &gt; **Note:** If the `policy_signing_certificate_data` argument contains more than one valid X.509 certificate only the first certificate will be used.
         /// </summary>
         [Output("policySigningCertificateData")]
         public Output<string?> PolicySigningCertificateData { get; private set; } = null!;
@@ -95,7 +102,7 @@ namespace Pulumi.Azure.Attestation
         /// <summary>
         /// Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
         /// 
-        /// &gt; [More information on the JWT Policies can be found in this article on `learn.microsoft.com`](https://learn.microsoft.com/azure/attestation/author-sign-policy).
+        /// &gt; **Note:** [More information on the JWT Policies can be found in this article on `learn.microsoft.com`](https://learn.microsoft.com/azure/attestation/author-sign-policy).
         /// </summary>
         [Output("sevSnpPolicyBase64")]
         public Output<string?> SevSnpPolicyBase64 { get; private set; } = null!;
@@ -191,7 +198,7 @@ namespace Pulumi.Azure.Attestation
         /// <summary>
         /// A valid X.509 certificate (Section 4 of [RFC4648](https://tools.ietf.org/html/rfc4648)). Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** If the `policy_signing_certificate_data` argument contains more than one valid X.509 certificate only the first certificate will be used.
+        /// &gt; **Note:** If the `policy_signing_certificate_data` argument contains more than one valid X.509 certificate only the first certificate will be used.
         /// </summary>
         [Input("policySigningCertificateData")]
         public Input<string>? PolicySigningCertificateData { get; set; }
@@ -205,7 +212,7 @@ namespace Pulumi.Azure.Attestation
         /// <summary>
         /// Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
         /// 
-        /// &gt; [More information on the JWT Policies can be found in this article on `learn.microsoft.com`](https://learn.microsoft.com/azure/attestation/author-sign-policy).
+        /// &gt; **Note:** [More information on the JWT Policies can be found in this article on `learn.microsoft.com`](https://learn.microsoft.com/azure/attestation/author-sign-policy).
         /// </summary>
         [Input("sevSnpPolicyBase64")]
         public Input<string>? SevSnpPolicyBase64 { get; set; }
@@ -269,7 +276,7 @@ namespace Pulumi.Azure.Attestation
         /// <summary>
         /// A valid X.509 certificate (Section 4 of [RFC4648](https://tools.ietf.org/html/rfc4648)). Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** If the `policy_signing_certificate_data` argument contains more than one valid X.509 certificate only the first certificate will be used.
+        /// &gt; **Note:** If the `policy_signing_certificate_data` argument contains more than one valid X.509 certificate only the first certificate will be used.
         /// </summary>
         [Input("policySigningCertificateData")]
         public Input<string>? PolicySigningCertificateData { get; set; }
@@ -283,7 +290,7 @@ namespace Pulumi.Azure.Attestation
         /// <summary>
         /// Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
         /// 
-        /// &gt; [More information on the JWT Policies can be found in this article on `learn.microsoft.com`](https://learn.microsoft.com/azure/attestation/author-sign-policy).
+        /// &gt; **Note:** [More information on the JWT Policies can be found in this article on `learn.microsoft.com`](https://learn.microsoft.com/azure/attestation/author-sign-policy).
         /// </summary>
         [Input("sevSnpPolicyBase64")]
         public Input<string>? SevSnpPolicyBase64 { get; set; }

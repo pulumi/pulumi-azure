@@ -17,7 +17,7 @@ public final class GroupInitContainerSecurityArgs extends com.pulumi.resources.R
     /**
      * Whether the container&#39;s permission is elevated to privileged? Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** Currently, this only applies when the `os_type` is `Linux` and the `sku` is `Confidential`.
+     * &gt; **Note:** Currently, this only applies when the `os_type` is `Linux` and the `sku` is `Confidential`.
      * 
      */
     @Import(name="privilegeEnabled", required=true)
@@ -26,7 +26,7 @@ public final class GroupInitContainerSecurityArgs extends com.pulumi.resources.R
     /**
      * @return Whether the container&#39;s permission is elevated to privileged? Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** Currently, this only applies when the `os_type` is `Linux` and the `sku` is `Confidential`.
+     * &gt; **Note:** Currently, this only applies when the `os_type` is `Linux` and the `sku` is `Confidential`.
      * 
      */
     public Output<Boolean> privilegeEnabled() {
@@ -60,7 +60,7 @@ public final class GroupInitContainerSecurityArgs extends com.pulumi.resources.R
         /**
          * @param privilegeEnabled Whether the container&#39;s permission is elevated to privileged? Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** Currently, this only applies when the `os_type` is `Linux` and the `sku` is `Confidential`.
+         * &gt; **Note:** Currently, this only applies when the `os_type` is `Linux` and the `sku` is `Confidential`.
          * 
          * @return builder
          * 
@@ -73,7 +73,7 @@ public final class GroupInitContainerSecurityArgs extends com.pulumi.resources.R
         /**
          * @param privilegeEnabled Whether the container&#39;s permission is elevated to privileged? Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** Currently, this only applies when the `os_type` is `Linux` and the `sku` is `Confidential`.
+         * &gt; **Note:** Currently, this only applies when the `os_type` is `Linux` and the `sku` is `Confidential`.
          * 
          * @return builder
          * 

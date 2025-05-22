@@ -185,6 +185,13 @@ def get_service(name: Optional[builtins.str] = None,
     pulumi.export("privateLinkServiceId", example.id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Network`: 2024-05-01
+
 
     :param builtins.str name: The name of the private link service.
     :param builtins.str resource_group_name: The name of the resource group in which the private link service resides.
@@ -223,6 +230,13 @@ def get_service_output(name: Optional[pulumi.Input[builtins.str]] = None,
         resource_group_name="PrivateLinkServiceRG")
     pulumi.export("privateLinkServiceId", example.id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Network`: 2024-05-01
 
 
     :param builtins.str name: The name of the private link service.

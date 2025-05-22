@@ -38,7 +38,7 @@ export interface GetAlertRuleTemplateArgs {
     /**
      * The display name of this Sentinel Alert Rule Template. Either `displayName` or `name` have to be specified.
      *
-     * > **NOTE** As `displayName` is not unique, errors may occur when there are multiple Sentinel Alert Rule Template with same `displayName`.
+     * > **Note:** As `displayName` is not unique, errors may occur when there are multiple Sentinel Alert Rule Template with same `displayName`.
      */
     displayName?: string;
     /**
@@ -107,7 +107,7 @@ export interface GetAlertRuleTemplateOutputArgs {
     /**
      * The display name of this Sentinel Alert Rule Template. Either `displayName` or `name` have to be specified.
      *
-     * > **NOTE** As `displayName` is not unique, errors may occur when there are multiple Sentinel Alert Rule Template with same `displayName`.
+     * > **Note:** As `displayName` is not unique, errors may occur when there are multiple Sentinel Alert Rule Template with same `displayName`.
      */
     displayName?: pulumi.Input<string>;
     /**

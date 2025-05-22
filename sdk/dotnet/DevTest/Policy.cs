@@ -57,6 +57,13 @@ namespace Pulumi.Azure.DevTest
     /// });
     /// ```
     /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.DevTestLab`: 2018-09-15
+    /// 
     /// ## Import
     /// 
     /// Dev Test Policies can be imported using the `resource id`, e.g.

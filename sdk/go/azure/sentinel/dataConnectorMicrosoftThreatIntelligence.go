@@ -84,7 +84,7 @@ type DataConnectorMicrosoftThreatIntelligence struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The ID of the tenant that this Microsoft Threat Intelligence Data Connector connects to. Changing this forces a new Microsoft Threat Intelligence Data Connector to be created.
 	//
-	// > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
+	// > **Note:** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
 	TenantId pulumi.StringOutput `pulumi:"tenantId"`
 }
 
@@ -132,7 +132,7 @@ type dataConnectorMicrosoftThreatIntelligenceState struct {
 	Name *string `pulumi:"name"`
 	// The ID of the tenant that this Microsoft Threat Intelligence Data Connector connects to. Changing this forces a new Microsoft Threat Intelligence Data Connector to be created.
 	//
-	// > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
+	// > **Note:** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
 	TenantId *string `pulumi:"tenantId"`
 }
 
@@ -145,7 +145,7 @@ type DataConnectorMicrosoftThreatIntelligenceState struct {
 	Name pulumi.StringPtrInput
 	// The ID of the tenant that this Microsoft Threat Intelligence Data Connector connects to. Changing this forces a new Microsoft Threat Intelligence Data Connector to be created.
 	//
-	// > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
+	// > **Note:** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
 	TenantId pulumi.StringPtrInput
 }
 
@@ -162,7 +162,7 @@ type dataConnectorMicrosoftThreatIntelligenceArgs struct {
 	Name *string `pulumi:"name"`
 	// The ID of the tenant that this Microsoft Threat Intelligence Data Connector connects to. Changing this forces a new Microsoft Threat Intelligence Data Connector to be created.
 	//
-	// > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
+	// > **Note:** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
 	TenantId *string `pulumi:"tenantId"`
 }
 
@@ -176,7 +176,7 @@ type DataConnectorMicrosoftThreatIntelligenceArgs struct {
 	Name pulumi.StringPtrInput
 	// The ID of the tenant that this Microsoft Threat Intelligence Data Connector connects to. Changing this forces a new Microsoft Threat Intelligence Data Connector to be created.
 	//
-	// > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
+	// > **Note:** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
 	TenantId pulumi.StringPtrInput
 }
 
@@ -288,7 +288,7 @@ func (o DataConnectorMicrosoftThreatIntelligenceOutput) Name() pulumi.StringOutp
 
 // The ID of the tenant that this Microsoft Threat Intelligence Data Connector connects to. Changing this forces a new Microsoft Threat Intelligence Data Connector to be created.
 //
-// > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
+// > **Note:** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
 func (o DataConnectorMicrosoftThreatIntelligenceOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataConnectorMicrosoftThreatIntelligence) pulumi.StringOutput { return v.TenantId }).(pulumi.StringOutput)
 }

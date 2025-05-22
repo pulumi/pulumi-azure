@@ -82,7 +82,7 @@ class GetNamespaceAuthorizationRuleResult:
 
     @property
     @pulumi.getter(name="namespaceName")
-    @_utilities.deprecated("""`namespace_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.""")
+    @_utilities.deprecated("""`namespace_name` will be removed in favour of the property `namespace_id` in v5.0 of the AzureRM Provider.""")
     def namespace_name(self) -> Optional[builtins.str]:
         return pulumi.get(self, "namespace_name")
 
@@ -112,7 +112,7 @@ class GetNamespaceAuthorizationRuleResult:
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    @_utilities.deprecated("""`resource_group_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.""")
+    @_utilities.deprecated("""`resource_group_name` will be removed in favour of the property `namespace_id` in v5.0 of the AzureRM Provider.""")
     def resource_group_name(self) -> Optional[builtins.str]:
         return pulumi.get(self, "resource_group_name")
 
@@ -179,6 +179,13 @@ def get_namespace_authorization_rule(name: Optional[builtins.str] = None,
     pulumi.export("ruleId", example.id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.ServiceBus`: 2021-06-01-preview
+
 
     :param builtins.str name: Specifies the name of the ServiceBus Namespace Authorization Rule.
     :param builtins.str namespace_id: Specifies the ID of the ServiceBus Namespace where the Service Bus Namespace Authorization Rule exists.
@@ -221,6 +228,13 @@ def get_namespace_authorization_rule_output(name: Optional[pulumi.Input[builtins
         namespace_id="examplenamespace")
     pulumi.export("ruleId", example.id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.ServiceBus`: 2021-06-01-preview
 
 
     :param builtins.str name: Specifies the name of the ServiceBus Namespace Authorization Rule.

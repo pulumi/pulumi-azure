@@ -11,38 +11,38 @@ import java.util.Objects;
 @CustomType
 public final class DeploymentFrontendPrivate {
     /**
-     * @return Specify the method for allocating the private IP. Possible values are `Static` and `Dynamic`. Changing this forces a new NGINX Deployment to be created.
+     * @return Specify the method for allocating the private IP. Possible values are `Static` and `Dynamic`.
      * 
      */
     private String allocationMethod;
     /**
-     * @return Specify the private IP Address. Changing this forces a new NGINX Deployment to be created.
+     * @return Specify the private IP Address.
      * 
      */
     private String ipAddress;
     /**
-     * @return Specify the Subnet Resource ID for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
+     * @return Specify the Subnet Resource ID for this NGINX Deployment.
      * 
      */
     private String subnetId;
 
     private DeploymentFrontendPrivate() {}
     /**
-     * @return Specify the method for allocating the private IP. Possible values are `Static` and `Dynamic`. Changing this forces a new NGINX Deployment to be created.
+     * @return Specify the method for allocating the private IP. Possible values are `Static` and `Dynamic`.
      * 
      */
     public String allocationMethod() {
         return this.allocationMethod;
     }
     /**
-     * @return Specify the private IP Address. Changing this forces a new NGINX Deployment to be created.
+     * @return Specify the private IP Address.
      * 
      */
     public String ipAddress() {
         return this.ipAddress;
     }
     /**
-     * @return Specify the Subnet Resource ID for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
+     * @return Specify the Subnet Resource ID for this NGINX Deployment.
      * 
      */
     public String subnetId() {

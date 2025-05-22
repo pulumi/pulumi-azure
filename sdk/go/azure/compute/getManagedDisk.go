@@ -40,6 +40,13 @@ import (
 //	}
 //
 // ```
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This data source uses the following Azure API Providers:
+//
+// * `Microsoft.Compute`: 2023-04-02
 func LookupManagedDisk(ctx *pulumi.Context, args *LookupManagedDiskArgs, opts ...pulumi.InvokeOption) (*LookupManagedDiskResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupManagedDiskResult
@@ -77,7 +84,9 @@ type LookupManagedDiskResult struct {
 	Id string `pulumi:"id"`
 	// The ID of the source image used for creating this Managed Disk.
 	ImageReferenceId string `pulumi:"imageReferenceId"`
-	Name             string `pulumi:"name"`
+	// The Azure location of the Managed Disk.
+	Location string `pulumi:"location"`
+	Name     string `pulumi:"name"`
 	// Policy for accessing the disk via network.
 	NetworkAccessPolicy string `pulumi:"networkAccessPolicy"`
 	// The operating system used for this Managed Disk.
@@ -175,6 +184,11 @@ func (o LookupManagedDiskResultOutput) Id() pulumi.StringOutput {
 // The ID of the source image used for creating this Managed Disk.
 func (o LookupManagedDiskResultOutput) ImageReferenceId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupManagedDiskResult) string { return v.ImageReferenceId }).(pulumi.StringOutput)
+}
+
+// The Azure location of the Managed Disk.
+func (o LookupManagedDiskResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupManagedDiskResult) string { return v.Location }).(pulumi.StringOutput)
 }
 
 func (o LookupManagedDiskResultOutput) Name() pulumi.StringOutput {

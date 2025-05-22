@@ -48,7 +48,7 @@ if not MYPY:
         """
         Specifies the ID of the Subnet which should be used for the Private Link Service.
 
-        > **NOTE:** Verify that the Subnet's `enforce_private_link_service_network_policies` attribute is set to `true`.
+        > **Note:** Verify that the Subnet's `enforce_private_link_service_network_policies` attribute is set to `true`.
         """
         private_ip_address: NotRequired[pulumi.Input[builtins.str]]
         """
@@ -74,7 +74,7 @@ class LinkServiceNatIpConfigurationArgs:
         :param pulumi.Input[builtins.bool] primary: Is this is the Primary IP Configuration? Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] subnet_id: Specifies the ID of the Subnet which should be used for the Private Link Service.
                
-               > **NOTE:** Verify that the Subnet's `enforce_private_link_service_network_policies` attribute is set to `true`.
+               > **Note:** Verify that the Subnet's `enforce_private_link_service_network_policies` attribute is set to `true`.
         :param pulumi.Input[builtins.str] private_ip_address: Specifies a Private Static IP Address for this IP Configuration.
         :param pulumi.Input[builtins.str] private_ip_address_version: The version of the IP Protocol which should be used. At this time the only supported value is `IPv4`. Defaults to `IPv4`.
         """
@@ -116,7 +116,7 @@ class LinkServiceNatIpConfigurationArgs:
         """
         Specifies the ID of the Subnet which should be used for the Private Link Service.
 
-        > **NOTE:** Verify that the Subnet's `enforce_private_link_service_network_policies` attribute is set to `true`.
+        > **Note:** Verify that the Subnet's `enforce_private_link_service_network_policies` attribute is set to `true`.
         """
         return pulumi.get(self, "subnet_id")
 

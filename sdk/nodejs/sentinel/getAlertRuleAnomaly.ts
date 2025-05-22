@@ -52,7 +52,7 @@ export interface GetAlertRuleAnomalyArgs {
     /**
      * The display name of this Sentinel Alert Rule Template. Either `displayName` or `name` have to be specified.
      *
-     * > **NOTE** One of `name` or `displayName` must be specified.
+     * > **Note:** One of `name` or `displayName` must be specified.
      */
     displayName?: string;
     /**
@@ -179,7 +179,7 @@ export interface GetAlertRuleAnomalyOutputArgs {
     /**
      * The display name of this Sentinel Alert Rule Template. Either `displayName` or `name` have to be specified.
      *
-     * > **NOTE** One of `name` or `displayName` must be specified.
+     * > **Note:** One of `name` or `displayName` must be specified.
      */
     displayName?: pulumi.Input<string>;
     /**

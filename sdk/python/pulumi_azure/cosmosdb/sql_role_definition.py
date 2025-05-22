@@ -34,7 +34,7 @@ class SqlRoleDefinitionArgs:
         :param pulumi.Input[builtins.str] account_name: The name of the Cosmos DB Account. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] assignable_scopes: A list of fully qualified scopes at or below which Role Assignments may be created using this Cosmos DB SQL Role Definition. It will allow application of this Cosmos DB SQL Role Definition on the entire Database Account or any underlying Database/Collection. Scopes higher than Database Account are not enforceable as assignable scopes.
                
-               > **NOTE:** The resources referenced in assignable scopes need not exist.
+               > **Note:** The resources referenced in assignable scopes need not exist.
         :param pulumi.Input[Sequence[pulumi.Input['SqlRoleDefinitionPermissionArgs']]] permissions: A `permissions` block as defined below.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the Resource Group in which the Cosmos DB SQL Role Definition is created. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] name: An user-friendly name for the Cosmos DB SQL Role Definition which must be unique for the Database Account.
@@ -70,7 +70,7 @@ class SqlRoleDefinitionArgs:
         """
         A list of fully qualified scopes at or below which Role Assignments may be created using this Cosmos DB SQL Role Definition. It will allow application of this Cosmos DB SQL Role Definition on the entire Database Account or any underlying Database/Collection. Scopes higher than Database Account are not enforceable as assignable scopes.
 
-        > **NOTE:** The resources referenced in assignable scopes need not exist.
+        > **Note:** The resources referenced in assignable scopes need not exist.
         """
         return pulumi.get(self, "assignable_scopes")
 
@@ -154,7 +154,7 @@ class _SqlRoleDefinitionState:
         :param pulumi.Input[builtins.str] account_name: The name of the Cosmos DB Account. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] assignable_scopes: A list of fully qualified scopes at or below which Role Assignments may be created using this Cosmos DB SQL Role Definition. It will allow application of this Cosmos DB SQL Role Definition on the entire Database Account or any underlying Database/Collection. Scopes higher than Database Account are not enforceable as assignable scopes.
                
-               > **NOTE:** The resources referenced in assignable scopes need not exist.
+               > **Note:** The resources referenced in assignable scopes need not exist.
         :param pulumi.Input[builtins.str] name: An user-friendly name for the Cosmos DB SQL Role Definition which must be unique for the Database Account.
         :param pulumi.Input[Sequence[pulumi.Input['SqlRoleDefinitionPermissionArgs']]] permissions: A `permissions` block as defined below.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the Resource Group in which the Cosmos DB SQL Role Definition is created. Changing this forces a new resource to be created.
@@ -194,7 +194,7 @@ class _SqlRoleDefinitionState:
         """
         A list of fully qualified scopes at or below which Role Assignments may be created using this Cosmos DB SQL Role Definition. It will allow application of this Cosmos DB SQL Role Definition on the entire Database Account or any underlying Database/Collection. Scopes higher than Database Account are not enforceable as assignable scopes.
 
-        > **NOTE:** The resources referenced in assignable scopes need not exist.
+        > **Note:** The resources referenced in assignable scopes need not exist.
         """
         return pulumi.get(self, "assignable_scopes")
 
@@ -327,7 +327,7 @@ class SqlRoleDefinition(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] account_name: The name of the Cosmos DB Account. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] assignable_scopes: A list of fully qualified scopes at or below which Role Assignments may be created using this Cosmos DB SQL Role Definition. It will allow application of this Cosmos DB SQL Role Definition on the entire Database Account or any underlying Database/Collection. Scopes higher than Database Account are not enforceable as assignable scopes.
                
-               > **NOTE:** The resources referenced in assignable scopes need not exist.
+               > **Note:** The resources referenced in assignable scopes need not exist.
         :param pulumi.Input[builtins.str] name: An user-friendly name for the Cosmos DB SQL Role Definition which must be unique for the Database Account.
         :param pulumi.Input[Sequence[pulumi.Input[Union['SqlRoleDefinitionPermissionArgs', 'SqlRoleDefinitionPermissionArgsDict']]]] permissions: A `permissions` block as defined below.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the Resource Group in which the Cosmos DB SQL Role Definition is created. Changing this forces a new resource to be created.
@@ -458,7 +458,7 @@ class SqlRoleDefinition(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] account_name: The name of the Cosmos DB Account. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] assignable_scopes: A list of fully qualified scopes at or below which Role Assignments may be created using this Cosmos DB SQL Role Definition. It will allow application of this Cosmos DB SQL Role Definition on the entire Database Account or any underlying Database/Collection. Scopes higher than Database Account are not enforceable as assignable scopes.
                
-               > **NOTE:** The resources referenced in assignable scopes need not exist.
+               > **Note:** The resources referenced in assignable scopes need not exist.
         :param pulumi.Input[builtins.str] name: An user-friendly name for the Cosmos DB SQL Role Definition which must be unique for the Database Account.
         :param pulumi.Input[Sequence[pulumi.Input[Union['SqlRoleDefinitionPermissionArgs', 'SqlRoleDefinitionPermissionArgsDict']]]] permissions: A `permissions` block as defined below.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the Resource Group in which the Cosmos DB SQL Role Definition is created. Changing this forces a new resource to be created.
@@ -492,7 +492,7 @@ class SqlRoleDefinition(pulumi.CustomResource):
         """
         A list of fully qualified scopes at or below which Role Assignments may be created using this Cosmos DB SQL Role Definition. It will allow application of this Cosmos DB SQL Role Definition on the entire Database Account or any underlying Database/Collection. Scopes higher than Database Account are not enforceable as assignable scopes.
 
-        > **NOTE:** The resources referenced in assignable scopes need not exist.
+        > **Note:** The resources referenced in assignable scopes need not exist.
         """
         return pulumi.get(self, "assignable_scopes")
 

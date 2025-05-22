@@ -35,6 +35,13 @@ namespace Pulumi.Azure.Dns
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Network`: 2018-05-01
         /// </summary>
         public static Task<GetMxRecordResult> InvokeAsync(GetMxRecordArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMxRecordResult>("azure:dns/getMxRecord:getMxRecord", args ?? new GetMxRecordArgs(), options.WithDefaults());
@@ -63,6 +70,13 @@ namespace Pulumi.Azure.Dns
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Network`: 2018-05-01
         /// </summary>
         public static Output<GetMxRecordResult> Invoke(GetMxRecordInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMxRecordResult>("azure:dns/getMxRecord:getMxRecord", args ?? new GetMxRecordInvokeArgs(), options.WithDefaults());
@@ -91,6 +105,13 @@ namespace Pulumi.Azure.Dns
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Network`: 2018-05-01
         /// </summary>
         public static Output<GetMxRecordResult> Invoke(GetMxRecordInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetMxRecordResult>("azure:dns/getMxRecord:getMxRecord", args ?? new GetMxRecordInvokeArgs(), options.WithDefaults());

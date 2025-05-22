@@ -66,7 +66,7 @@ public final class ExpressRouteCircuitPeeringIpv6Args extends com.pulumi.resourc
     /**
      * The ID of the Route Filter. Only available when `peering_type` is set to `MicrosoftPeering`.
      * 
-     * &gt; **NOTE:** `ipv6` can be specified when `peering_type` is `MicrosoftPeering` or `AzurePrivatePeering`
+     * &gt; **Note:** `ipv6` can be specified when `peering_type` is `MicrosoftPeering` or `AzurePrivatePeering`
      * 
      */
     @Import(name="routeFilterId")
@@ -75,7 +75,7 @@ public final class ExpressRouteCircuitPeeringIpv6Args extends com.pulumi.resourc
     /**
      * @return The ID of the Route Filter. Only available when `peering_type` is set to `MicrosoftPeering`.
      * 
-     * &gt; **NOTE:** `ipv6` can be specified when `peering_type` is `MicrosoftPeering` or `AzurePrivatePeering`
+     * &gt; **Note:** `ipv6` can be specified when `peering_type` is `MicrosoftPeering` or `AzurePrivatePeering`
      * 
      */
     public Optional<Output<String>> routeFilterId() {
@@ -191,7 +191,7 @@ public final class ExpressRouteCircuitPeeringIpv6Args extends com.pulumi.resourc
         /**
          * @param routeFilterId The ID of the Route Filter. Only available when `peering_type` is set to `MicrosoftPeering`.
          * 
-         * &gt; **NOTE:** `ipv6` can be specified when `peering_type` is `MicrosoftPeering` or `AzurePrivatePeering`
+         * &gt; **Note:** `ipv6` can be specified when `peering_type` is `MicrosoftPeering` or `AzurePrivatePeering`
          * 
          * @return builder
          * 
@@ -204,7 +204,7 @@ public final class ExpressRouteCircuitPeeringIpv6Args extends com.pulumi.resourc
         /**
          * @param routeFilterId The ID of the Route Filter. Only available when `peering_type` is set to `MicrosoftPeering`.
          * 
-         * &gt; **NOTE:** `ipv6` can be specified when `peering_type` is `MicrosoftPeering` or `AzurePrivatePeering`
+         * &gt; **Note:** `ipv6` can be specified when `peering_type` is `MicrosoftPeering` or `AzurePrivatePeering`
          * 
          * @return builder
          * 

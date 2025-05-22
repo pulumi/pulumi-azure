@@ -9,6 +9,7 @@ import com.pulumi.azure.nginx.outputs.GetDeploymentFrontendPublic;
 import com.pulumi.azure.nginx.outputs.GetDeploymentIdentity;
 import com.pulumi.azure.nginx.outputs.GetDeploymentLoggingStorageAccount;
 import com.pulumi.azure.nginx.outputs.GetDeploymentNetworkInterface;
+import com.pulumi.azure.nginx.outputs.GetDeploymentWebApplicationFirewall;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
@@ -120,6 +121,11 @@ public final class GetDeploymentResult {
      * 
      */
     private Map<String,String> tags;
+    /**
+     * @return A `web_application_firewall` block as defined below.
+     * 
+     */
+    private List<GetDeploymentWebApplicationFirewall> webApplicationFirewalls;
 
     private GetDeploymentResult() {}
     /**
@@ -262,6 +268,13 @@ public final class GetDeploymentResult {
     public Map<String,String> tags() {
         return this.tags;
     }
+    /**
+     * @return A `web_application_firewall` block as defined below.
+     * 
+     */
+    public List<GetDeploymentWebApplicationFirewall> webApplicationFirewalls() {
+        return this.webApplicationFirewalls;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -292,6 +305,7 @@ public final class GetDeploymentResult {
         private String resourceGroupName;
         private String sku;
         private Map<String,String> tags;
+        private List<GetDeploymentWebApplicationFirewall> webApplicationFirewalls;
         public Builder() {}
         public Builder(GetDeploymentResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -315,6 +329,7 @@ public final class GetDeploymentResult {
     	      this.resourceGroupName = defaults.resourceGroupName;
     	      this.sku = defaults.sku;
     	      this.tags = defaults.tags;
+    	      this.webApplicationFirewalls = defaults.webApplicationFirewalls;
         }
 
         @CustomType.Setter
@@ -495,6 +510,17 @@ public final class GetDeploymentResult {
             this.tags = tags;
             return this;
         }
+        @CustomType.Setter
+        public Builder webApplicationFirewalls(List<GetDeploymentWebApplicationFirewall> webApplicationFirewalls) {
+            if (webApplicationFirewalls == null) {
+              throw new MissingRequiredPropertyException("GetDeploymentResult", "webApplicationFirewalls");
+            }
+            this.webApplicationFirewalls = webApplicationFirewalls;
+            return this;
+        }
+        public Builder webApplicationFirewalls(GetDeploymentWebApplicationFirewall... webApplicationFirewalls) {
+            return webApplicationFirewalls(List.of(webApplicationFirewalls));
+        }
         public GetDeploymentResult build() {
             final var _resultValue = new GetDeploymentResult();
             _resultValue.autoScaleProfiles = autoScaleProfiles;
@@ -517,6 +543,7 @@ public final class GetDeploymentResult {
             _resultValue.resourceGroupName = resourceGroupName;
             _resultValue.sku = sku;
             _resultValue.tags = tags;
+            _resultValue.webApplicationFirewalls = webApplicationFirewalls;
             return _resultValue;
         }
     }

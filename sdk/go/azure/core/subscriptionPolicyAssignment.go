@@ -70,6 +70,13 @@ import (
 //
 // ```
 //
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.Authorization`: 2022-06-01
+//
 // ## Import
 //
 // Subscription Policy Assignments can be imported using the `resource id`, e.g.

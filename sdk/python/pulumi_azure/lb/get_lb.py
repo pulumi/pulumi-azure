@@ -161,6 +161,13 @@ def get_lb(name: Optional[builtins.str] = None,
     pulumi.export("loadbalancerId", example.id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Network`: 2023-09-01
+
 
     :param builtins.str name: Specifies the name of the Load Balancer.
     :param builtins.str resource_group_name: The name of the Resource Group in which the Load Balancer exists.
@@ -197,6 +204,13 @@ def get_lb_output(name: Optional[pulumi.Input[builtins.str]] = None,
         resource_group_name="example-resources")
     pulumi.export("loadbalancerId", example.id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Network`: 2023-09-01
 
 
     :param builtins.str name: Specifies the name of the Load Balancer.

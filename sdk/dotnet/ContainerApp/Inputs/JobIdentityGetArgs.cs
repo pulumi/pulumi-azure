@@ -24,9 +24,15 @@ namespace Pulumi.Azure.ContainerApp.Inputs
             set => _identityIds = value;
         }
 
+        /// <summary>
+        /// The Principal ID associated with this Managed Service Identity.
+        /// </summary>
         [Input("principalId")]
         public Input<string>? PrincipalId { get; set; }
 
+        /// <summary>
+        /// The Tenant ID associated with this Managed Service Identity.
+        /// </summary>
         [Input("tenantId")]
         public Input<string>? TenantId { get; set; }
 

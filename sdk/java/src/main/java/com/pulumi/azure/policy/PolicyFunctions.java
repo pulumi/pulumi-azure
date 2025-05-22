@@ -67,6 +67,13 @@ public final class PolicyFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Authorization`: 2022-06-01
+     * 
      */
     public static Output<GetPolicyAssignmentResult> getPolicyAssignment(GetPolicyAssignmentArgs args) {
         return getPolicyAssignment(args, InvokeOptions.Empty);
@@ -110,6 +117,13 @@ public final class PolicyFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Authorization`: 2022-06-01
      * 
      */
     public static CompletableFuture<GetPolicyAssignmentResult> getPolicyAssignmentPlain(GetPolicyAssignmentPlainArgs args) {
@@ -155,6 +169,13 @@ public final class PolicyFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Authorization`: 2022-06-01
+     * 
      */
     public static Output<GetPolicyAssignmentResult> getPolicyAssignment(GetPolicyAssignmentArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:policy/getPolicyAssignment:getPolicyAssignment", TypeShape.of(GetPolicyAssignmentResult.class), args, Utilities.withVersion(options));
@@ -199,6 +220,13 @@ public final class PolicyFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Authorization`: 2022-06-01
+     * 
      */
     public static Output<GetPolicyAssignmentResult> getPolicyAssignment(GetPolicyAssignmentArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:policy/getPolicyAssignment:getPolicyAssignment", TypeShape.of(GetPolicyAssignmentResult.class), args, Utilities.withVersion(options));
@@ -242,6 +270,13 @@ public final class PolicyFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Authorization`: 2022-06-01
      * 
      */
     public static CompletableFuture<GetPolicyAssignmentResult> getPolicyAssignmentPlain(GetPolicyAssignmentPlainArgs args, InvokeOptions options) {
@@ -1191,6 +1226,13 @@ public final class PolicyFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Compute`: 2020-06-25
+     * 
      */
     public static Output<GetVirtualMachineConfigurationAssignmentResult> getVirtualMachineConfigurationAssignment(GetVirtualMachineConfigurationAssignmentArgs args) {
         return getVirtualMachineConfigurationAssignment(args, InvokeOptions.Empty);
@@ -1235,6 +1277,13 @@ public final class PolicyFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Compute`: 2020-06-25
      * 
      */
     public static CompletableFuture<GetVirtualMachineConfigurationAssignmentResult> getVirtualMachineConfigurationAssignmentPlain(GetVirtualMachineConfigurationAssignmentPlainArgs args) {
@@ -1281,6 +1330,13 @@ public final class PolicyFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Compute`: 2020-06-25
+     * 
      */
     public static Output<GetVirtualMachineConfigurationAssignmentResult> getVirtualMachineConfigurationAssignment(GetVirtualMachineConfigurationAssignmentArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:policy/getVirtualMachineConfigurationAssignment:getVirtualMachineConfigurationAssignment", TypeShape.of(GetVirtualMachineConfigurationAssignmentResult.class), args, Utilities.withVersion(options));
@@ -1326,6 +1382,13 @@ public final class PolicyFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Compute`: 2020-06-25
+     * 
      */
     public static Output<GetVirtualMachineConfigurationAssignmentResult> getVirtualMachineConfigurationAssignment(GetVirtualMachineConfigurationAssignmentArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:policy/getVirtualMachineConfigurationAssignment:getVirtualMachineConfigurationAssignment", TypeShape.of(GetVirtualMachineConfigurationAssignmentResult.class), args, Utilities.withVersion(options));
@@ -1370,6 +1433,13 @@ public final class PolicyFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Compute`: 2020-06-25
      * 
      */
     public static CompletableFuture<GetVirtualMachineConfigurationAssignmentResult> getVirtualMachineConfigurationAssignmentPlain(GetVirtualMachineConfigurationAssignmentPlainArgs args, InvokeOptions options) {

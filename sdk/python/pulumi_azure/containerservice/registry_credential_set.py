@@ -210,7 +210,7 @@ class RegistryCredentialSet(pulumi.CustomResource):
 
         ### Minimal)
 
-        > NOTE: Be aware that you will need to permit the Identity that is created for the Container Registry to have `get` on secrets to the Key Vault, e.g. using the `keyvault.AccessPolicy` resource.
+        > **Note:** Be aware that you will need to permit the Identity that is created for the Container Registry to have `get` on secrets to the Key Vault, e.g. using the `keyvault.AccessPolicy` resource.
 
         ```python
         import pulumi
@@ -298,6 +298,13 @@ class RegistryCredentialSet(pulumi.CustomResource):
             object_id=example_registry_credential_set.identity.principal_id,
             secret_permissions=["Get"])
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ContainerRegistry`: 2023-07-01
 
         ## Import
 
@@ -328,7 +335,7 @@ class RegistryCredentialSet(pulumi.CustomResource):
 
         ### Minimal)
 
-        > NOTE: Be aware that you will need to permit the Identity that is created for the Container Registry to have `get` on secrets to the Key Vault, e.g. using the `keyvault.AccessPolicy` resource.
+        > **Note:** Be aware that you will need to permit the Identity that is created for the Container Registry to have `get` on secrets to the Key Vault, e.g. using the `keyvault.AccessPolicy` resource.
 
         ```python
         import pulumi
@@ -416,6 +423,13 @@ class RegistryCredentialSet(pulumi.CustomResource):
             object_id=example_registry_credential_set.identity.principal_id,
             secret_permissions=["Get"])
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ContainerRegistry`: 2023-07-01
 
         ## Import
 

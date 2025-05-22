@@ -33,6 +33,13 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.CostManagement`: 2023-08-01
+ *
  * ## Import
  *
  * Cost Management View for a Subscriptions can be imported using the `resource id`, e.g.

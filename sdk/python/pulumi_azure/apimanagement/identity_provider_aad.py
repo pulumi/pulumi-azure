@@ -293,6 +293,13 @@ class IdentityProviderAad(pulumi.CustomResource):
             allowed_tenants=["00000000-0000-0000-0000-000000000000"])
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ApiManagement`: 2022-08-01
+
         ## Import
 
         API Management AAD Identity Provider can be imported using the `resource id`, e.g.
@@ -343,6 +350,13 @@ class IdentityProviderAad(pulumi.CustomResource):
             client_secret="00000000000000000000000000000000",
             allowed_tenants=["00000000-0000-0000-0000-000000000000"])
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ApiManagement`: 2022-08-01
 
         ## Import
 

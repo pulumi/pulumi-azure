@@ -103,7 +103,7 @@ class IPGroupCIDR(pulumi.CustomResource):
         """
         Manages IP Group CIDR records.
 
-        > Warning Do not use this resource at the same time as the `cidrs` property of the
+        > **Note:** Warning Do not use this resource at the same time as the `cidrs` property of the
         `network.IPGroup` resource for the same IP Group. Doing so will cause a conflict and
         CIDRS will be removed.
 
@@ -149,7 +149,7 @@ class IPGroupCIDR(pulumi.CustomResource):
         """
         Manages IP Group CIDR records.
 
-        > Warning Do not use this resource at the same time as the `cidrs` property of the
+        > **Note:** Warning Do not use this resource at the same time as the `cidrs` property of the
         `network.IPGroup` resource for the same IP Group. Doing so will cause a conflict and
         CIDRS will be removed.
 

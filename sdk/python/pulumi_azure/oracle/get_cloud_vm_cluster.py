@@ -675,6 +675,13 @@ def get_cloud_vm_cluster(name: Optional[builtins.str] = None,
     pulumi.export("id", example.id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Oracle.Database`: 2024-06-01
+
 
     :param builtins.str name: The name of this Cloud VM Cluster.
     :param builtins.str resource_group_name: The name of the Resource Group where the Cloud VM Cluster exists.
@@ -754,6 +761,13 @@ def get_cloud_vm_cluster_output(name: Optional[pulumi.Input[builtins.str]] = Non
         resource_group_name="existing")
     pulumi.export("id", example.id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Oracle.Database`: 2024-06-01
 
 
     :param builtins.str name: The name of this Cloud VM Cluster.
