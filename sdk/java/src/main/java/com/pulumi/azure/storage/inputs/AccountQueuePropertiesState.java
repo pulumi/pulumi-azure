@@ -38,7 +38,7 @@ public final class AccountQueuePropertiesState extends com.pulumi.resources.Reso
     /**
      * A `hour_metrics` block as defined below.
      * 
-     * &gt; **NOTE:** At least one of `cors_rule`, `logging`, `minute_metrics`, or `hour_metrics` must be specified.
+     * &gt; **Note:** At least one of `cors_rule`, `logging`, `minute_metrics`, or `hour_metrics` must be specified.
      * 
      */
     @Import(name="hourMetrics")
@@ -47,7 +47,7 @@ public final class AccountQueuePropertiesState extends com.pulumi.resources.Reso
     /**
      * @return A `hour_metrics` block as defined below.
      * 
-     * &gt; **NOTE:** At least one of `cors_rule`, `logging`, `minute_metrics`, or `hour_metrics` must be specified.
+     * &gt; **Note:** At least one of `cors_rule`, `logging`, `minute_metrics`, or `hour_metrics` must be specified.
      * 
      */
     public Optional<Output<AccountQueuePropertiesHourMetricsArgs>> hourMetrics() {
@@ -161,7 +161,7 @@ public final class AccountQueuePropertiesState extends com.pulumi.resources.Reso
         /**
          * @param hourMetrics A `hour_metrics` block as defined below.
          * 
-         * &gt; **NOTE:** At least one of `cors_rule`, `logging`, `minute_metrics`, or `hour_metrics` must be specified.
+         * &gt; **Note:** At least one of `cors_rule`, `logging`, `minute_metrics`, or `hour_metrics` must be specified.
          * 
          * @return builder
          * 
@@ -174,7 +174,7 @@ public final class AccountQueuePropertiesState extends com.pulumi.resources.Reso
         /**
          * @param hourMetrics A `hour_metrics` block as defined below.
          * 
-         * &gt; **NOTE:** At least one of `cors_rule`, `logging`, `minute_metrics`, or `hour_metrics` must be specified.
+         * &gt; **Note:** At least one of `cors_rule`, `logging`, `minute_metrics`, or `hour_metrics` must be specified.
          * 
          * @return builder
          * 

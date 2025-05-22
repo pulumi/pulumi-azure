@@ -135,6 +135,13 @@ def get_network_slice(mobile_network_id: Optional[builtins.str] = None,
         mobile_network_id=test["id"])
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.MobileNetwork`: 2022-11-01
+
 
     :param builtins.str mobile_network_id: The ID of Mobile Network which the Mobile Network Slice belongs to.
     :param builtins.str name: Specifies the name which should be used for this Mobile Network Slice.
@@ -170,6 +177,13 @@ def get_network_slice_output(mobile_network_id: Optional[pulumi.Input[builtins.s
     example_get_network_slice = azure.mobile.get_network_slice(name="example-mns",
         mobile_network_id=test["id"])
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.MobileNetwork`: 2022-11-01
 
 
     :param builtins.str mobile_network_id: The ID of Mobile Network which the Mobile Network Slice belongs to.

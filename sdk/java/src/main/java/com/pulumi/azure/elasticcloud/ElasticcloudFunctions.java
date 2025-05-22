@@ -56,6 +56,13 @@ public final class ElasticcloudFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Elastic`: 2023-06-01
+     * 
      */
     public static Output<GetElasticsearchResult> getElasticsearch(GetElasticsearchArgs args) {
         return getElasticsearch(args, InvokeOptions.Empty);
@@ -100,6 +107,13 @@ public final class ElasticcloudFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Elastic`: 2023-06-01
      * 
      */
     public static CompletableFuture<GetElasticsearchResult> getElasticsearchPlain(GetElasticsearchPlainArgs args) {
@@ -146,6 +160,13 @@ public final class ElasticcloudFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Elastic`: 2023-06-01
+     * 
      */
     public static Output<GetElasticsearchResult> getElasticsearch(GetElasticsearchArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:elasticcloud/getElasticsearch:getElasticsearch", TypeShape.of(GetElasticsearchResult.class), args, Utilities.withVersion(options));
@@ -191,6 +212,13 @@ public final class ElasticcloudFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Elastic`: 2023-06-01
+     * 
      */
     public static Output<GetElasticsearchResult> getElasticsearch(GetElasticsearchArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:elasticcloud/getElasticsearch:getElasticsearch", TypeShape.of(GetElasticsearchResult.class), args, Utilities.withVersion(options));
@@ -235,6 +263,13 @@ public final class ElasticcloudFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Elastic`: 2023-06-01
      * 
      */
     public static CompletableFuture<GetElasticsearchResult> getElasticsearchPlain(GetElasticsearchPlainArgs args, InvokeOptions options) {

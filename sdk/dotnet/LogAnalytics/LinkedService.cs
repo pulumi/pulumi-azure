@@ -59,6 +59,13 @@ namespace Pulumi.Azure.LogAnalytics
     /// });
     /// ```
     /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.OperationalInsights`: 2020-08-01
+    /// 
     /// ## Import
     /// 
     /// Log Analytics Workspaces can be imported using the `resource id`, e.g.
@@ -105,7 +112,7 @@ namespace Pulumi.Azure.LogAnalytics
         /// <summary>
         /// The ID of the writable Resource that will be linked to the workspace. This should be used for linking to a Log Analytics Cluster resource.
         /// 
-        /// &gt; **NOTE:** You must define at least one of the above access resource id attributes (e.g. `read_access_id` or `write_access_id`).
+        /// &gt; **Note:** You must define at least one of the above access resource id attributes (e.g. `read_access_id` or `write_access_id`).
         /// </summary>
         [Output("writeAccessId")]
         public Output<string?> WriteAccessId { get; private set; } = null!;
@@ -177,7 +184,7 @@ namespace Pulumi.Azure.LogAnalytics
         /// <summary>
         /// The ID of the writable Resource that will be linked to the workspace. This should be used for linking to a Log Analytics Cluster resource.
         /// 
-        /// &gt; **NOTE:** You must define at least one of the above access resource id attributes (e.g. `read_access_id` or `write_access_id`).
+        /// &gt; **Note:** You must define at least one of the above access resource id attributes (e.g. `read_access_id` or `write_access_id`).
         /// </summary>
         [Input("writeAccessId")]
         public Input<string>? WriteAccessId { get; set; }
@@ -217,7 +224,7 @@ namespace Pulumi.Azure.LogAnalytics
         /// <summary>
         /// The ID of the writable Resource that will be linked to the workspace. This should be used for linking to a Log Analytics Cluster resource.
         /// 
-        /// &gt; **NOTE:** You must define at least one of the above access resource id attributes (e.g. `read_access_id` or `write_access_id`).
+        /// &gt; **Note:** You must define at least one of the above access resource id attributes (e.g. `read_access_id` or `write_access_id`).
         /// </summary>
         [Input("writeAccessId")]
         public Input<string>? WriteAccessId { get; set; }

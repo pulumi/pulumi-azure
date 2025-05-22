@@ -14,21 +14,53 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class NextGenerationFirewallVirtualHubPanoramaDestinationNat {
+    /**
+     * @return A `backend_config` block as defined above.
+     * 
+     */
     private @Nullable NextGenerationFirewallVirtualHubPanoramaDestinationNatBackendConfig backendConfig;
+    /**
+     * @return A `frontend_config` block as defined below.
+     * 
+     */
     private @Nullable NextGenerationFirewallVirtualHubPanoramaDestinationNatFrontendConfig frontendConfig;
+    /**
+     * @return The name which should be used for this NAT.
+     * 
+     */
     private String name;
+    /**
+     * @return The protocol used for this Destination NAT. Possible values include `TCP` and `UDP`.
+     * 
+     */
     private String protocol;
 
     private NextGenerationFirewallVirtualHubPanoramaDestinationNat() {}
+    /**
+     * @return A `backend_config` block as defined above.
+     * 
+     */
     public Optional<NextGenerationFirewallVirtualHubPanoramaDestinationNatBackendConfig> backendConfig() {
         return Optional.ofNullable(this.backendConfig);
     }
+    /**
+     * @return A `frontend_config` block as defined below.
+     * 
+     */
     public Optional<NextGenerationFirewallVirtualHubPanoramaDestinationNatFrontendConfig> frontendConfig() {
         return Optional.ofNullable(this.frontendConfig);
     }
+    /**
+     * @return The name which should be used for this NAT.
+     * 
+     */
     public String name() {
         return this.name;
     }
+    /**
+     * @return The protocol used for this Destination NAT. Possible values include `TCP` and `UDP`.
+     * 
+     */
     public String protocol() {
         return this.protocol;
     }

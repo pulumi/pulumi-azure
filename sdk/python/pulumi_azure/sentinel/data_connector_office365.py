@@ -34,10 +34,10 @@ class DataConnectorOffice365Args:
         :param pulumi.Input[builtins.bool] sharepoint_enabled: Should the SharePoint data connector be enabled? Defaults to `true`.
         :param pulumi.Input[builtins.bool] teams_enabled: Should the Microsoft Teams data connector be enabled? Defaults to `true`.
                
-               > **NOTE:** At least one of `exchange_enabled`, `sharedpoint_enabled` and `teams_enabled` has to be specified.
+               > **Note:** At least one of `exchange_enabled`, `sharedpoint_enabled` and `teams_enabled` has to be specified.
         :param pulumi.Input[builtins.str] tenant_id: The ID of the Tenant that this Office 365 Data Connector connects to. Changing this forces a new Office 365 Data Connector to be created.
                
-               > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
+               > **Note:** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
         """
         pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
         if exchange_enabled is not None:
@@ -105,7 +105,7 @@ class DataConnectorOffice365Args:
         """
         Should the Microsoft Teams data connector be enabled? Defaults to `true`.
 
-        > **NOTE:** At least one of `exchange_enabled`, `sharedpoint_enabled` and `teams_enabled` has to be specified.
+        > **Note:** At least one of `exchange_enabled`, `sharedpoint_enabled` and `teams_enabled` has to be specified.
         """
         return pulumi.get(self, "teams_enabled")
 
@@ -119,7 +119,7 @@ class DataConnectorOffice365Args:
         """
         The ID of the Tenant that this Office 365 Data Connector connects to. Changing this forces a new Office 365 Data Connector to be created.
 
-        > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
+        > **Note:** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
         """
         return pulumi.get(self, "tenant_id")
 
@@ -145,10 +145,10 @@ class _DataConnectorOffice365State:
         :param pulumi.Input[builtins.bool] sharepoint_enabled: Should the SharePoint data connector be enabled? Defaults to `true`.
         :param pulumi.Input[builtins.bool] teams_enabled: Should the Microsoft Teams data connector be enabled? Defaults to `true`.
                
-               > **NOTE:** At least one of `exchange_enabled`, `sharedpoint_enabled` and `teams_enabled` has to be specified.
+               > **Note:** At least one of `exchange_enabled`, `sharedpoint_enabled` and `teams_enabled` has to be specified.
         :param pulumi.Input[builtins.str] tenant_id: The ID of the Tenant that this Office 365 Data Connector connects to. Changing this forces a new Office 365 Data Connector to be created.
                
-               > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
+               > **Note:** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
         """
         if exchange_enabled is not None:
             pulumi.set(__self__, "exchange_enabled", exchange_enabled)
@@ -217,7 +217,7 @@ class _DataConnectorOffice365State:
         """
         Should the Microsoft Teams data connector be enabled? Defaults to `true`.
 
-        > **NOTE:** At least one of `exchange_enabled`, `sharedpoint_enabled` and `teams_enabled` has to be specified.
+        > **Note:** At least one of `exchange_enabled`, `sharedpoint_enabled` and `teams_enabled` has to be specified.
         """
         return pulumi.get(self, "teams_enabled")
 
@@ -231,7 +231,7 @@ class _DataConnectorOffice365State:
         """
         The ID of the Tenant that this Office 365 Data Connector connects to. Changing this forces a new Office 365 Data Connector to be created.
 
-        > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
+        > **Note:** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
         """
         return pulumi.get(self, "tenant_id")
 
@@ -292,10 +292,10 @@ class DataConnectorOffice365(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] sharepoint_enabled: Should the SharePoint data connector be enabled? Defaults to `true`.
         :param pulumi.Input[builtins.bool] teams_enabled: Should the Microsoft Teams data connector be enabled? Defaults to `true`.
                
-               > **NOTE:** At least one of `exchange_enabled`, `sharedpoint_enabled` and `teams_enabled` has to be specified.
+               > **Note:** At least one of `exchange_enabled`, `sharedpoint_enabled` and `teams_enabled` has to be specified.
         :param pulumi.Input[builtins.str] tenant_id: The ID of the Tenant that this Office 365 Data Connector connects to. Changing this forces a new Office 365 Data Connector to be created.
                
-               > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
+               > **Note:** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
         """
         ...
     @overload
@@ -401,10 +401,10 @@ class DataConnectorOffice365(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] sharepoint_enabled: Should the SharePoint data connector be enabled? Defaults to `true`.
         :param pulumi.Input[builtins.bool] teams_enabled: Should the Microsoft Teams data connector be enabled? Defaults to `true`.
                
-               > **NOTE:** At least one of `exchange_enabled`, `sharedpoint_enabled` and `teams_enabled` has to be specified.
+               > **Note:** At least one of `exchange_enabled`, `sharedpoint_enabled` and `teams_enabled` has to be specified.
         :param pulumi.Input[builtins.str] tenant_id: The ID of the Tenant that this Office 365 Data Connector connects to. Changing this forces a new Office 365 Data Connector to be created.
                
-               > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
+               > **Note:** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -456,7 +456,7 @@ class DataConnectorOffice365(pulumi.CustomResource):
         """
         Should the Microsoft Teams data connector be enabled? Defaults to `true`.
 
-        > **NOTE:** At least one of `exchange_enabled`, `sharedpoint_enabled` and `teams_enabled` has to be specified.
+        > **Note:** At least one of `exchange_enabled`, `sharedpoint_enabled` and `teams_enabled` has to be specified.
         """
         return pulumi.get(self, "teams_enabled")
 
@@ -466,7 +466,7 @@ class DataConnectorOffice365(pulumi.CustomResource):
         """
         The ID of the Tenant that this Office 365 Data Connector connects to. Changing this forces a new Office 365 Data Connector to be created.
 
-        > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
+        > **Note:** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
         """
         return pulumi.get(self, "tenant_id")
 

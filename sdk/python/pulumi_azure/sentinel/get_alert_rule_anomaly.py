@@ -278,7 +278,7 @@ def get_alert_rule_anomaly(display_name: Optional[builtins.str] = None,
 
     :param builtins.str display_name: The display name of this Sentinel Alert Rule Template. Either `display_name` or `name` have to be specified.
            
-           > **NOTE** One of `name` or `display_name` must be specified.
+           > **Note:** One of `name` or `display_name` must be specified.
     :param builtins.str log_analytics_workspace_id: The ID of the Log Analytics Workspace.
     :param builtins.str name: The guid of this Sentinel Alert Rule Template. Either `display_name` or `name` have to be specified.
     """
@@ -340,7 +340,7 @@ def get_alert_rule_anomaly_output(display_name: Optional[pulumi.Input[Optional[b
 
     :param builtins.str display_name: The display name of this Sentinel Alert Rule Template. Either `display_name` or `name` have to be specified.
            
-           > **NOTE** One of `name` or `display_name` must be specified.
+           > **Note:** One of `name` or `display_name` must be specified.
     :param builtins.str log_analytics_workspace_id: The ID of the Log Analytics Workspace.
     :param builtins.str name: The guid of this Sentinel Alert Rule Template. Either `display_name` or `name` have to be specified.
     """

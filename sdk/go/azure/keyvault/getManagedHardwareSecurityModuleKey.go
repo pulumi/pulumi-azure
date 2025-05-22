@@ -57,7 +57,7 @@ func LookupManagedHardwareSecurityModuleKey(ctx *pulumi.Context, args *LookupMan
 type LookupManagedHardwareSecurityModuleKeyArgs struct {
 	// Specifies the ID of the Managed Hardware Security Module instance where the Secret resides, available on the `keyvault.ManagedHardwareSecurityModuleKey` Data Source / Resource.
 	//
-	// **NOTE:** The Managed Hardware Security Module must be in the same subscription as the provider. If the Managed Hardware Security Module is in another subscription, you must create an aliased provider for that subscription.
+	// > **Note:** The Managed Hardware Security Module must be in the same subscription as the provider. If the Managed Hardware Security Module is in another subscription, you must create an aliased provider for that subscription.
 	ManagedHsmId string `pulumi:"managedHsmId"`
 	// Specifies the name of the Managed Hardware Security Module Key.
 	Name string `pulumi:"name"`
@@ -100,7 +100,7 @@ func LookupManagedHardwareSecurityModuleKeyOutput(ctx *pulumi.Context, args Look
 type LookupManagedHardwareSecurityModuleKeyOutputArgs struct {
 	// Specifies the ID of the Managed Hardware Security Module instance where the Secret resides, available on the `keyvault.ManagedHardwareSecurityModuleKey` Data Source / Resource.
 	//
-	// **NOTE:** The Managed Hardware Security Module must be in the same subscription as the provider. If the Managed Hardware Security Module is in another subscription, you must create an aliased provider for that subscription.
+	// > **Note:** The Managed Hardware Security Module must be in the same subscription as the provider. If the Managed Hardware Security Module is in another subscription, you must create an aliased provider for that subscription.
 	ManagedHsmId pulumi.StringInput `pulumi:"managedHsmId"`
 	// Specifies the name of the Managed Hardware Security Module Key.
 	Name pulumi.StringInput `pulumi:"name"`

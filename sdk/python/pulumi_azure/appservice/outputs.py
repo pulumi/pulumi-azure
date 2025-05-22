@@ -19,6 +19,7 @@ from . import outputs
 __all__ = [
     'AppConnectionAuthentication',
     'AppConnectionSecretStore',
+    'AppFlexConsumptionAlwaysReady',
     'AppFlexConsumptionAuthSettings',
     'AppFlexConsumptionAuthSettingsActiveDirectory',
     'AppFlexConsumptionAuthSettingsFacebook',
@@ -790,6 +791,53 @@ class AppConnectionSecretStore(dict):
         The key vault id to store secret.
         """
         return pulumi.get(self, "key_vault_id")
+
+
+@pulumi.output_type
+class AppFlexConsumptionAlwaysReady(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "instanceCount":
+            suggest = "instance_count"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AppFlexConsumptionAlwaysReady. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AppFlexConsumptionAlwaysReady.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AppFlexConsumptionAlwaysReady.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: builtins.str,
+                 instance_count: Optional[builtins.int] = None):
+        """
+        :param builtins.str name: The name of the `always_ready` of the Function App.
+        :param builtins.int instance_count: The instance count of the `always_ready` of the  Function App. The minimum number is `0`. The total number of `instance_count` should not exceed the `maximum_instance_count`.
+        """
+        pulumi.set(__self__, "name", name)
+        if instance_count is not None:
+            pulumi.set(__self__, "instance_count", instance_count)
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        The name of the `always_ready` of the Function App.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="instanceCount")
+    def instance_count(self) -> Optional[builtins.int]:
+        """
+        The instance count of the `always_ready` of the  Function App. The minimum number is `0`. The total number of `instance_count` should not exceed the `maximum_instance_count`.
+        """
+        return pulumi.get(self, "instance_count")
 
 
 @pulumi.output_type
@@ -3080,10 +3128,10 @@ class AppFlexConsumptionSiteConfig(dict):
                > **Note:** Functions runtime scale monitoring can only be enabled for Elastic Premium Function Apps or Workflow Standard Logic Apps and requires a minimum prewarmed instance count of 1.
         :param builtins.str scm_ip_restriction_default_action: The Default action for traffic that does not match any `scm_ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
         :param Sequence['AppFlexConsumptionSiteConfigScmIpRestrictionArgs'] scm_ip_restrictions: One or more `scm_ip_restriction` blocks as defined above.
-        :param builtins.str scm_minimum_tls_version: Configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+        :param builtins.str scm_minimum_tls_version: The minimum version of TLS required for SSL requests to the SCM site. Possible values include `1.0`, `1.1`, `1.2` and `1.3`. Defaults to `1.2`.
         :param builtins.str scm_type: The SCM Type in use by the Linux Function App.
         :param builtins.bool scm_use_main_ip_restriction: Should the Linux Function App `ip_restriction` configuration be used for the SCM also.
-        :param builtins.bool use32_bit_worker: Should the Linux Web App use a 32-bit worker.
+        :param builtins.bool use32_bit_worker: Should the Linux Web App use a 32-bit worker. Defaults to `false`.
         :param builtins.bool websockets_enabled: Should Web Sockets be enabled. Defaults to `false`.
         :param builtins.int worker_count: The number of Workers for this Linux Function App.
         """
@@ -3356,7 +3404,7 @@ class AppFlexConsumptionSiteConfig(dict):
     @pulumi.getter(name="scmMinimumTlsVersion")
     def scm_minimum_tls_version(self) -> Optional[builtins.str]:
         """
-        Configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+        The minimum version of TLS required for SSL requests to the SCM site. Possible values include `1.0`, `1.1`, `1.2` and `1.3`. Defaults to `1.2`.
         """
         return pulumi.get(self, "scm_minimum_tls_version")
 
@@ -3380,7 +3428,7 @@ class AppFlexConsumptionSiteConfig(dict):
     @pulumi.getter(name="use32BitWorker")
     def use32_bit_worker(self) -> Optional[builtins.bool]:
         """
-        Should the Linux Web App use a 32-bit worker.
+        Should the Linux Web App use a 32-bit worker. Defaults to `false`.
         """
         return pulumi.get(self, "use32_bit_worker")
 
@@ -9586,13 +9634,13 @@ class LinuxFunctionAppAuthSettings(dict):
         :param Sequence[builtins.str] allowed_external_redirect_urls: Specifies a list of External URLs that can be redirected to as part of logging in or logging out of the Linux Web App.
         :param builtins.str default_provider: The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`
                
-               > **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to "RedirectToLoginPage".
+               > **Note:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to "RedirectToLoginPage".
         :param 'LinuxFunctionAppAuthSettingsFacebookArgs' facebook: A `facebook` block as defined below.
         :param 'LinuxFunctionAppAuthSettingsGithubArgs' github: A `github` block as defined below.
         :param 'LinuxFunctionAppAuthSettingsGoogleArgs' google: A `google` block as defined below.
         :param builtins.str issuer: The OpenID Connect Issuer URI that represents the entity which issues access tokens for this Linux Web App.
                
-               > **NOTE:** When using Azure Active Directory, this value is the URI of the directory tenant, e.g. <https://sts.windows.net/{tenant-guid}/>.
+               > **Note:** When using Azure Active Directory, this value is the URI of the directory tenant, e.g. <https://sts.windows.net/{tenant-guid}/>.
         :param 'LinuxFunctionAppAuthSettingsMicrosoftArgs' microsoft: A `microsoft` block as defined below.
         :param builtins.str runtime_version: The RuntimeVersion of the Authentication / Authorization feature in use for the Linux Web App.
         :param builtins.float token_refresh_extension_hours: The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72` hours.
@@ -9668,7 +9716,7 @@ class LinuxFunctionAppAuthSettings(dict):
         """
         The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`
 
-        > **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to "RedirectToLoginPage".
+        > **Note:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to "RedirectToLoginPage".
         """
         return pulumi.get(self, "default_provider")
 
@@ -9702,7 +9750,7 @@ class LinuxFunctionAppAuthSettings(dict):
         """
         The OpenID Connect Issuer URI that represents the entity which issues access tokens for this Linux Web App.
 
-        > **NOTE:** When using Azure Active Directory, this value is the URI of the directory tenant, e.g. <https://sts.windows.net/{tenant-guid}/>.
+        > **Note:** When using Azure Active Directory, this value is the URI of the directory tenant, e.g. <https://sts.windows.net/{tenant-guid}/>.
         """
         return pulumi.get(self, "issuer")
 
@@ -10301,10 +10349,10 @@ class LinuxFunctionAppAuthSettingsV2(dict):
         :param Sequence['LinuxFunctionAppAuthSettingsV2CustomOidcV2Args'] custom_oidc_v2s: Zero or more `custom_oidc_v2` blocks as defined below.
         :param builtins.str default_provider: The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
                
-               > **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
+               > **Note:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
         :param Sequence[builtins.str] excluded_paths: The paths which should be excluded from the `unauthenticated_action` when it is set to `RedirectToLoginPage`.
                
-               > **NOTE:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
+               > **Note:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
         :param 'LinuxFunctionAppAuthSettingsV2FacebookV2Args' facebook_v2: A `facebook_v2` block as defined below.
         :param builtins.str forward_proxy_convention: The convention used to determine the url of the request made. Possible values include `NoProxy`, `Standard`, `Custom`. Defaults to `NoProxy`.
         :param builtins.str forward_proxy_custom_host_header_name: The name of the custom header containing the host of the request.
@@ -10427,7 +10475,7 @@ class LinuxFunctionAppAuthSettingsV2(dict):
         """
         The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
 
-        > **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
+        > **Note:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
         """
         return pulumi.get(self, "default_provider")
 
@@ -10437,7 +10485,7 @@ class LinuxFunctionAppAuthSettingsV2(dict):
         """
         The paths which should be excluded from the `unauthenticated_action` when it is set to `RedirectToLoginPage`.
 
-        > **NOTE:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
+        > **Note:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
         """
         return pulumi.get(self, "excluded_paths")
 
@@ -10604,17 +10652,17 @@ class LinuxFunctionAppAuthSettingsV2ActiveDirectoryV2(dict):
         :param builtins.str client_id: The ID of the Client to use to authenticate with Azure Active Directory.
         :param builtins.str tenant_auth_endpoint: The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
                
-               > **NOTE:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
+               > **Note:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
         :param Sequence[builtins.str] allowed_applications: The list of allowed Applications for the Default Authorisation Policy.
         :param Sequence[builtins.str] allowed_audiences: Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
                
-               > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+               > **Note:** This is configured on the Authentication Provider side and is Read Only here.
         :param Sequence[builtins.str] allowed_groups: The list of allowed Group Names for the Default Authorisation Policy.
         :param Sequence[builtins.str] allowed_identities: The list of allowed Identities for the Default Authorisation Policy.
         :param builtins.str client_secret_certificate_thumbprint: The thumbprint of the certificate used for signing purposes.
         :param builtins.str client_secret_setting_name: The App Setting name that contains the client secret of the Client.
                
-               !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+               !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
         :param Sequence[builtins.str] jwt_allowed_client_applications: A list of Allowed Client Applications in the JWT Claim.
         :param Sequence[builtins.str] jwt_allowed_groups: A list of Allowed Groups in the JWT Claim.
         :param Mapping[str, builtins.str] login_parameters: A map of key-value pairs to send to the Authorisation Endpoint when a user logs in.
@@ -10657,7 +10705,7 @@ class LinuxFunctionAppAuthSettingsV2ActiveDirectoryV2(dict):
         """
         The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
 
-        > **NOTE:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
+        > **Note:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
         """
         return pulumi.get(self, "tenant_auth_endpoint")
 
@@ -10675,7 +10723,7 @@ class LinuxFunctionAppAuthSettingsV2ActiveDirectoryV2(dict):
         """
         Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
 
-        > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+        > **Note:** This is configured on the Authentication Provider side and is Read Only here.
         """
         return pulumi.get(self, "allowed_audiences")
 
@@ -10709,7 +10757,7 @@ class LinuxFunctionAppAuthSettingsV2ActiveDirectoryV2(dict):
         """
         The App Setting name that contains the client secret of the Client.
 
-        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
         """
         return pulumi.get(self, "client_secret_setting_name")
 
@@ -10777,10 +10825,10 @@ class LinuxFunctionAppAuthSettingsV2AppleV2(dict):
         :param builtins.str client_id: The OpenID Connect Client ID for the Apple web application.
         :param builtins.str client_secret_setting_name: The app setting name that contains the `client_secret` value used for Apple Login.
                
-               !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+               !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
         :param Sequence[builtins.str] login_scopes: A list of Login Scopes provided by this Authentication Provider.
                
-               > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+               > **Note:** This is configured on the Authentication Provider side and is Read Only here.
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "client_secret_setting_name", client_secret_setting_name)
@@ -10801,7 +10849,7 @@ class LinuxFunctionAppAuthSettingsV2AppleV2(dict):
         """
         The app setting name that contains the `client_secret` value used for Apple Login.
 
-        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
         """
         return pulumi.get(self, "client_secret_setting_name")
 
@@ -10811,7 +10859,7 @@ class LinuxFunctionAppAuthSettingsV2AppleV2(dict):
         """
         A list of Login Scopes provided by this Authentication Provider.
 
-        > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+        > **Note:** This is configured on the Authentication Provider side and is Read Only here.
         """
         return pulumi.get(self, "login_scopes")
 
@@ -10902,7 +10950,7 @@ class LinuxFunctionAppAuthSettingsV2CustomOidcV2(dict):
         :param builtins.str client_id: The ID of the Client to use to authenticate with the Custom OIDC.
         :param builtins.str name: The name of the Custom OIDC Authentication Provider.
                
-               > **NOTE:** An `app_setting` matching this value in upper case with the suffix of `_PROVIDER_AUTHENTICATION_SECRET` is required. e.g. `MYOIDC_PROVIDER_AUTHENTICATION_SECRET` for a value of `myoidc`.
+               > **Note:** An `app_setting` matching this value in upper case with the suffix of `_PROVIDER_AUTHENTICATION_SECRET` is required. e.g. `MYOIDC_PROVIDER_AUTHENTICATION_SECRET` for a value of `myoidc`.
         :param builtins.str openid_configuration_endpoint: The app setting name that contains the `client_secret` value used for the Custom OIDC Login.
         :param builtins.str authorisation_endpoint: The endpoint to make the Authorisation Request as supplied by `openid_configuration_endpoint` response.
         :param builtins.str certification_uri: The endpoint that provides the keys necessary to validate the token as supplied by `openid_configuration_endpoint` response.
@@ -10947,7 +10995,7 @@ class LinuxFunctionAppAuthSettingsV2CustomOidcV2(dict):
         """
         The name of the Custom OIDC Authentication Provider.
 
-        > **NOTE:** An `app_setting` matching this value in upper case with the suffix of `_PROVIDER_AUTHENTICATION_SECRET` is required. e.g. `MYOIDC_PROVIDER_AUTHENTICATION_SECRET` for a value of `myoidc`.
+        > **Note:** An `app_setting` matching this value in upper case with the suffix of `_PROVIDER_AUTHENTICATION_SECRET` is required. e.g. `MYOIDC_PROVIDER_AUTHENTICATION_SECRET` for a value of `myoidc`.
         """
         return pulumi.get(self, "name")
 
@@ -11058,7 +11106,7 @@ class LinuxFunctionAppAuthSettingsV2FacebookV2(dict):
         :param builtins.str app_id: The App ID of the Facebook app used for login.
         :param builtins.str app_secret_setting_name: The app setting name that contains the `app_secret` value used for Facebook Login.
                
-               !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+               !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
         :param builtins.str graph_api_version: The version of the Facebook API to be used while logging in.
         :param Sequence[builtins.str] login_scopes: The list of scopes that should be requested as part of Facebook Login authentication.
         """
@@ -11083,7 +11131,7 @@ class LinuxFunctionAppAuthSettingsV2FacebookV2(dict):
         """
         The app setting name that contains the `app_secret` value used for Facebook Login.
 
-        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
         """
         return pulumi.get(self, "app_secret_setting_name")
 
@@ -11135,7 +11183,7 @@ class LinuxFunctionAppAuthSettingsV2GithubV2(dict):
         :param builtins.str client_id: The ID of the GitHub app used for login..
         :param builtins.str client_secret_setting_name: The app setting name that contains the `client_secret` value used for GitHub Login.
                
-               !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+               !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
         :param Sequence[builtins.str] login_scopes: The list of OAuth 2.0 scopes that should be requested as part of GitHub Login authentication.
         """
         pulumi.set(__self__, "client_id", client_id)
@@ -11157,7 +11205,7 @@ class LinuxFunctionAppAuthSettingsV2GithubV2(dict):
         """
         The app setting name that contains the `client_secret` value used for GitHub Login.
 
-        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
         """
         return pulumi.get(self, "client_secret_setting_name")
 
@@ -11204,7 +11252,7 @@ class LinuxFunctionAppAuthSettingsV2GoogleV2(dict):
         :param builtins.str client_id: The OpenID Connect Client ID for the Google web application.
         :param builtins.str client_secret_setting_name: The app setting name that contains the `client_secret` value used for Google Login.
                
-               !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+               !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
         :param Sequence[builtins.str] allowed_audiences: Specifies a list of Allowed Audiences that should be requested as part of Google Sign-In authentication.
         :param Sequence[builtins.str] login_scopes: The list of OAuth 2.0 scopes that should be requested as part of Google Sign-In authentication.
         """
@@ -11229,7 +11277,7 @@ class LinuxFunctionAppAuthSettingsV2GoogleV2(dict):
         """
         The app setting name that contains the `client_secret` value used for Google Login.
 
-        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
         """
         return pulumi.get(self, "client_secret_setting_name")
 
@@ -11464,7 +11512,7 @@ class LinuxFunctionAppAuthSettingsV2MicrosoftV2(dict):
         :param builtins.str client_id: The OAuth 2.0 client ID that was created for the app used for authentication.
         :param builtins.str client_secret_setting_name: The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
                
-               !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+               !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
         :param Sequence[builtins.str] allowed_audiences: Specifies a list of Allowed Audiences that will be requested as part of Microsoft Sign-In authentication.
         :param Sequence[builtins.str] login_scopes: The list of Login scopes that should be requested as part of Microsoft Account authentication.
         """
@@ -11489,7 +11537,7 @@ class LinuxFunctionAppAuthSettingsV2MicrosoftV2(dict):
         """
         The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
 
-        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
         """
         return pulumi.get(self, "client_secret_setting_name")
 
@@ -11538,7 +11586,7 @@ class LinuxFunctionAppAuthSettingsV2TwitterV2(dict):
         :param builtins.str consumer_key: The OAuth 1.0a consumer key of the Twitter application used for sign-in.
         :param builtins.str consumer_secret_setting_name: The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in.
                
-               !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+               !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
         """
         pulumi.set(__self__, "consumer_key", consumer_key)
         pulumi.set(__self__, "consumer_secret_setting_name", consumer_secret_setting_name)
@@ -11557,7 +11605,7 @@ class LinuxFunctionAppAuthSettingsV2TwitterV2(dict):
         """
         The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in.
 
-        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
         """
         return pulumi.get(self, "consumer_secret_setting_name")
 
@@ -11670,7 +11718,7 @@ class LinuxFunctionAppBackupSchedule(dict):
         """
         :param builtins.int frequency_interval: How often the backup should be executed (e.g. for weekly backup, this should be set to `7` and `frequency_unit` should be set to `Day`).
                
-               > **NOTE:** Not all intervals are supported on all Linux Function App SKUs. Please refer to the official documentation for appropriate values.
+               > **Note:** Not all intervals are supported on all Linux Function App SKUs. Please refer to the official documentation for appropriate values.
         :param builtins.str frequency_unit: The unit of time for how often the backup should take place. Possible values include: `Day` and `Hour`.
         :param builtins.bool keep_at_least_one_backup: Should the service keep at least one backup, regardless of age of backup. Defaults to `false`.
         :param builtins.str last_execution_time: The time the backup was last attempted.
@@ -11694,7 +11742,7 @@ class LinuxFunctionAppBackupSchedule(dict):
         """
         How often the backup should be executed (e.g. for weekly backup, this should be set to `7` and `frequency_unit` should be set to `Day`).
 
-        > **NOTE:** Not all intervals are supported on all Linux Function App SKUs. Please refer to the official documentation for appropriate values.
+        > **Note:** Not all intervals are supported on all Linux Function App SKUs. Please refer to the official documentation for appropriate values.
         """
         return pulumi.get(self, "frequency_interval")
 
@@ -11811,7 +11859,7 @@ class LinuxFunctionAppIdentity(dict):
         :param builtins.str type: Specifies the type of Managed Service Identity that should be configured on this Linux Function App. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
         :param Sequence[builtins.str] identity_ids: A list of User Assigned Managed Identity IDs to be assigned to this Linux Function App.
                
-               > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+               > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         :param builtins.str principal_id: The Principal ID associated with this Managed Service Identity.
         :param builtins.str tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
@@ -11837,7 +11885,7 @@ class LinuxFunctionAppIdentity(dict):
         """
         A list of User Assigned Managed Identity IDs to be assigned to this Linux Function App.
 
-        > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+        > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         """
         return pulumi.get(self, "identity_ids")
 
@@ -11991,7 +12039,7 @@ class LinuxFunctionAppSiteConfig(dict):
         """
         :param builtins.bool always_on: If this Linux Web App is Always On enabled. Defaults to `false`.
                
-               > **NOTE:** when running in a Consumption or Premium Plan, `always_on` feature should be turned off. Please turn it off before upgrading the service plan from standard to premium.
+               > **Note:** when running in a Consumption or Premium Plan, `always_on` feature should be turned off. Please turn it off before upgrading the service plan from standard to premium.
         :param builtins.str api_definition_url: The URL of the API definition that describes this Linux Function App.
         :param builtins.str api_management_api_id: The ID of the API Management API for this Linux Function App.
         :param builtins.str app_command_line: The App command line to launch.
@@ -12023,7 +12071,7 @@ class LinuxFunctionAppSiteConfig(dict):
         :param builtins.str remote_debugging_version: The Remote Debugging Version. Currently only `VS2022` is supported.
         :param builtins.bool runtime_scale_monitoring_enabled: Should Scale Monitoring of the Functions Runtime be enabled?
                
-               > **NOTE:** Functions runtime scale monitoring can only be enabled for Elastic Premium Function Apps or Workflow Standard Logic Apps and requires a minimum prewarmed instance count of 1.
+               > **Note:** Functions runtime scale monitoring can only be enabled for Elastic Premium Function Apps or Workflow Standard Logic Apps and requires a minimum prewarmed instance count of 1.
         :param builtins.str scm_ip_restriction_default_action: The Default action for traffic that does not match any `scm_ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
         :param Sequence['LinuxFunctionAppSiteConfigScmIpRestrictionArgs'] scm_ip_restrictions: One or more `scm_ip_restriction` blocks as defined above.
         :param builtins.str scm_minimum_tls_version: Configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, `1.2` and `1.3`. Defaults to `1.2`.
@@ -12117,7 +12165,7 @@ class LinuxFunctionAppSiteConfig(dict):
         """
         If this Linux Web App is Always On enabled. Defaults to `false`.
 
-        > **NOTE:** when running in a Consumption or Premium Plan, `always_on` feature should be turned off. Please turn it off before upgrading the service plan from standard to premium.
+        > **Note:** when running in a Consumption or Premium Plan, `always_on` feature should be turned off. Please turn it off before upgrading the service plan from standard to premium.
         """
         return pulumi.get(self, "always_on")
 
@@ -12345,7 +12393,7 @@ class LinuxFunctionAppSiteConfig(dict):
         """
         Should Scale Monitoring of the Functions Runtime be enabled?
 
-        > **NOTE:** Functions runtime scale monitoring can only be enabled for Elastic Premium Function Apps or Workflow Standard Logic Apps and requires a minimum prewarmed instance count of 1.
+        > **Note:** Functions runtime scale monitoring can only be enabled for Elastic Premium Function Apps or Workflow Standard Logic Apps and requires a minimum prewarmed instance count of 1.
         """
         return pulumi.get(self, "runtime_scale_monitoring_enabled")
 
@@ -12450,7 +12498,7 @@ class LinuxFunctionAppSiteConfigAppServiceLogs(dict):
         :param builtins.int disk_quota_mb: The amount of disk space to use for logs. Valid values are between `25` and `100`. Defaults to `35`.
         :param builtins.int retention_period_days: The retention period for logs in days. Valid values are between `0` and `99999`.(never delete).
                
-               > **NOTE:** This block is not supported on Consumption plans.
+               > **Note:** This block is not supported on Consumption plans.
         """
         if disk_quota_mb is not None:
             pulumi.set(__self__, "disk_quota_mb", disk_quota_mb)
@@ -12471,7 +12519,7 @@ class LinuxFunctionAppSiteConfigAppServiceLogs(dict):
         """
         The retention period for logs in days. Valid values are between `0` and `99999`.(never delete).
 
-        > **NOTE:** This block is not supported on Consumption plans.
+        > **Note:** This block is not supported on Consumption plans.
         """
         return pulumi.get(self, "retention_period_days")
 
@@ -12521,7 +12569,7 @@ class LinuxFunctionAppSiteConfigApplicationStack(dict):
         :param builtins.str dotnet_version: The version of .NET to use. Possible values include `3.1`, `6.0`, `7.0`, `8.0` and `9.0`.
         :param builtins.str java_version: The Version of Java to use. Supported versions include `8`, `11`, `17`, `21`.
                
-               > **NOTE:** The value `21` is currently in Preview for `java_version`.
+               > **Note:** The value `21` is currently in Preview for `java_version`.
         :param builtins.str node_version: The version of Node to run. Possible values include `12`, `14`, `16`, `18` `20` and `22`.
         :param builtins.str powershell_core_version: The version of PowerShell Core to run. Possible values are `7`, `7.2`, and `7.4`.
         :param builtins.str python_version: The version of Python to run. Possible values are `3.13`, `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
@@ -12567,7 +12615,7 @@ class LinuxFunctionAppSiteConfigApplicationStack(dict):
         """
         The Version of Java to use. Supported versions include `8`, `11`, `17`, `21`.
 
-        > **NOTE:** The value `21` is currently in Preview for `java_version`.
+        > **Note:** The value `21` is currently in Preview for `java_version`.
         """
         return pulumi.get(self, "java_version")
 
@@ -12651,10 +12699,10 @@ class LinuxFunctionAppSiteConfigApplicationStackDocker(dict):
         :param builtins.str registry_url: The URL of the docker registry.
         :param builtins.str registry_password: The password for the account to use to connect to the registry.
                
-               > **NOTE:** This value is required if `container_registry_use_managed_identity` is not set to `true`.
+               > **Note:** This value is required if `container_registry_use_managed_identity` is not set to `true`.
         :param builtins.str registry_username: The username to use for connections to the registry.
                
-               > **NOTE:** This value is required if `container_registry_use_managed_identity` is not set to `true`.
+               > **Note:** This value is required if `container_registry_use_managed_identity` is not set to `true`.
         """
         pulumi.set(__self__, "image_name", image_name)
         pulumi.set(__self__, "image_tag", image_tag)
@@ -12694,7 +12742,7 @@ class LinuxFunctionAppSiteConfigApplicationStackDocker(dict):
         """
         The password for the account to use to connect to the registry.
 
-        > **NOTE:** This value is required if `container_registry_use_managed_identity` is not set to `true`.
+        > **Note:** This value is required if `container_registry_use_managed_identity` is not set to `true`.
         """
         return pulumi.get(self, "registry_password")
 
@@ -12704,7 +12752,7 @@ class LinuxFunctionAppSiteConfigApplicationStackDocker(dict):
         """
         The username to use for connections to the registry.
 
-        > **NOTE:** This value is required if `container_registry_use_managed_identity` is not set to `true`.
+        > **Note:** This value is required if `container_registry_use_managed_identity` is not set to `true`.
         """
         return pulumi.get(self, "registry_username")
 
@@ -12801,7 +12849,7 @@ class LinuxFunctionAppSiteConfigIpRestriction(dict):
         :param builtins.str service_tag: The Service Tag used for this IP Restriction.
         :param builtins.str virtual_network_subnet_id: The Virtual Network Subnet ID used for this IP Restriction.
                
-               > **NOTE:** One and only one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
+               > **Note:** One and only one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
         """
         if action is not None:
             pulumi.set(__self__, "action", action)
@@ -12882,7 +12930,7 @@ class LinuxFunctionAppSiteConfigIpRestriction(dict):
         """
         The Virtual Network Subnet ID used for this IP Restriction.
 
-        > **NOTE:** One and only one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
+        > **Note:** One and only one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
         """
         return pulumi.get(self, "virtual_network_subnet_id")
 
@@ -13007,7 +13055,7 @@ class LinuxFunctionAppSiteConfigScmIpRestriction(dict):
         :param builtins.str service_tag: The Service Tag used for this IP Restriction.
         :param builtins.str virtual_network_subnet_id: The Virtual Network Subnet ID used for this IP Restriction.
                
-               > **NOTE:** One and only one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
+               > **Note:** One and only one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
         """
         if action is not None:
             pulumi.set(__self__, "action", action)
@@ -13088,7 +13136,7 @@ class LinuxFunctionAppSiteConfigScmIpRestriction(dict):
         """
         The Virtual Network Subnet ID used for this IP Restriction.
 
-        > **NOTE:** One and only one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
+        > **Note:** One and only one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
         """
         return pulumi.get(self, "virtual_network_subnet_id")
 
@@ -13258,13 +13306,13 @@ class LinuxFunctionAppSlotAuthSettings(dict):
         :param Sequence[builtins.str] allowed_external_redirect_urls: Specifies a list of External URLs that can be redirected to as part of logging in or logging out of the Windows Web App.
         :param builtins.str default_provider: The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`.
                
-               > **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to "RedirectToLoginPage".
+               > **Note:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to "RedirectToLoginPage".
         :param 'LinuxFunctionAppSlotAuthSettingsFacebookArgs' facebook: a `facebook` block as detailed below.
         :param 'LinuxFunctionAppSlotAuthSettingsGithubArgs' github: a `github` block as detailed below.
         :param 'LinuxFunctionAppSlotAuthSettingsGoogleArgs' google: a `google` block as detailed below.
         :param builtins.str issuer: The OpenID Connect Issuer URI that represents the entity which issues access tokens.
                
-               > **NOTE:** When using Azure Active Directory, this value is the URI of the directory tenant, e.g. <https://sts.windows.net/{tenant-guid}/>.
+               > **Note:** When using Azure Active Directory, this value is the URI of the directory tenant, e.g. <https://sts.windows.net/{tenant-guid}/>.
         :param 'LinuxFunctionAppSlotAuthSettingsMicrosoftArgs' microsoft: a `microsoft` block as detailed below.
         :param builtins.str runtime_version: The RuntimeVersion of the Authentication / Authorization feature in use.
         :param builtins.float token_refresh_extension_hours: The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72` hours.
@@ -13340,7 +13388,7 @@ class LinuxFunctionAppSlotAuthSettings(dict):
         """
         The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`.
 
-        > **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to "RedirectToLoginPage".
+        > **Note:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to "RedirectToLoginPage".
         """
         return pulumi.get(self, "default_provider")
 
@@ -13374,7 +13422,7 @@ class LinuxFunctionAppSlotAuthSettings(dict):
         """
         The OpenID Connect Issuer URI that represents the entity which issues access tokens.
 
-        > **NOTE:** When using Azure Active Directory, this value is the URI of the directory tenant, e.g. <https://sts.windows.net/{tenant-guid}/>.
+        > **Note:** When using Azure Active Directory, this value is the URI of the directory tenant, e.g. <https://sts.windows.net/{tenant-guid}/>.
         """
         return pulumi.get(self, "issuer")
 
@@ -13973,10 +14021,10 @@ class LinuxFunctionAppSlotAuthSettingsV2(dict):
         :param Sequence['LinuxFunctionAppSlotAuthSettingsV2CustomOidcV2Args'] custom_oidc_v2s: Zero or more `custom_oidc_v2` blocks as defined below.
         :param builtins.str default_provider: The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
                
-               > **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
+               > **Note:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
         :param Sequence[builtins.str] excluded_paths: The paths which should be excluded from the `unauthenticated_action` when it is set to `RedirectToLoginPage`.
                
-               > **NOTE:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
+               > **Note:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
         :param 'LinuxFunctionAppSlotAuthSettingsV2FacebookV2Args' facebook_v2: A `facebook_v2` block as defined below.
         :param builtins.str forward_proxy_convention: The convention used to determine the url of the request made. Possible values include `NoProxy`, `Standard`, `Custom`. Defaults to `NoProxy`.
         :param builtins.str forward_proxy_custom_host_header_name: The name of the custom header containing the host of the request.
@@ -14099,7 +14147,7 @@ class LinuxFunctionAppSlotAuthSettingsV2(dict):
         """
         The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
 
-        > **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
+        > **Note:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
         """
         return pulumi.get(self, "default_provider")
 
@@ -14109,7 +14157,7 @@ class LinuxFunctionAppSlotAuthSettingsV2(dict):
         """
         The paths which should be excluded from the `unauthenticated_action` when it is set to `RedirectToLoginPage`.
 
-        > **NOTE:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
+        > **Note:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
         """
         return pulumi.get(self, "excluded_paths")
 
@@ -14276,17 +14324,17 @@ class LinuxFunctionAppSlotAuthSettingsV2ActiveDirectoryV2(dict):
         :param builtins.str client_id: The ID of the Client to use to authenticate with Azure Active Directory.
         :param builtins.str tenant_auth_endpoint: The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
                
-               > **NOTE:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
+               > **Note:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
         :param Sequence[builtins.str] allowed_applications: The list of allowed Applications for the Default Authorisation Policy.
         :param Sequence[builtins.str] allowed_audiences: Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
                
-               > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+               > **Note:** This is configured on the Authentication Provider side and is Read Only here.
         :param Sequence[builtins.str] allowed_groups: The list of allowed Group Names for the Default Authorisation Policy.
         :param Sequence[builtins.str] allowed_identities: The list of allowed Identities for the Default Authorisation Policy.
         :param builtins.str client_secret_certificate_thumbprint: The thumbprint of the certificate used for signing purposes.
         :param builtins.str client_secret_setting_name: The App Setting name that contains the client secret of the Client.
                
-               !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+               !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
         :param Sequence[builtins.str] jwt_allowed_client_applications: A list of Allowed Client Applications in the JWT Claim.
         :param Sequence[builtins.str] jwt_allowed_groups: A list of Allowed Groups in the JWT Claim.
         :param Mapping[str, builtins.str] login_parameters: A map of key-value pairs to send to the Authorisation Endpoint when a user logs in.
@@ -14329,7 +14377,7 @@ class LinuxFunctionAppSlotAuthSettingsV2ActiveDirectoryV2(dict):
         """
         The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
 
-        > **NOTE:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
+        > **Note:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
         """
         return pulumi.get(self, "tenant_auth_endpoint")
 
@@ -14347,7 +14395,7 @@ class LinuxFunctionAppSlotAuthSettingsV2ActiveDirectoryV2(dict):
         """
         Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
 
-        > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+        > **Note:** This is configured on the Authentication Provider side and is Read Only here.
         """
         return pulumi.get(self, "allowed_audiences")
 
@@ -14381,7 +14429,7 @@ class LinuxFunctionAppSlotAuthSettingsV2ActiveDirectoryV2(dict):
         """
         The App Setting name that contains the client secret of the Client.
 
-        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
         """
         return pulumi.get(self, "client_secret_setting_name")
 
@@ -14449,10 +14497,10 @@ class LinuxFunctionAppSlotAuthSettingsV2AppleV2(dict):
         :param builtins.str client_id: The OpenID Connect Client ID for the Apple web application.
         :param builtins.str client_secret_setting_name: The app setting name that contains the `client_secret` value used for Apple Login.
                
-               !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+               !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
         :param Sequence[builtins.str] login_scopes: A list of Login Scopes provided by this Authentication Provider.
                
-               > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+               > **Note:** This is configured on the Authentication Provider side and is Read Only here.
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "client_secret_setting_name", client_secret_setting_name)
@@ -14473,7 +14521,7 @@ class LinuxFunctionAppSlotAuthSettingsV2AppleV2(dict):
         """
         The app setting name that contains the `client_secret` value used for Apple Login.
 
-        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
         """
         return pulumi.get(self, "client_secret_setting_name")
 
@@ -14483,7 +14531,7 @@ class LinuxFunctionAppSlotAuthSettingsV2AppleV2(dict):
         """
         A list of Login Scopes provided by this Authentication Provider.
 
-        > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+        > **Note:** This is configured on the Authentication Provider side and is Read Only here.
         """
         return pulumi.get(self, "login_scopes")
 
@@ -14574,7 +14622,7 @@ class LinuxFunctionAppSlotAuthSettingsV2CustomOidcV2(dict):
         :param builtins.str client_id: The ID of the Client to use to authenticate with the Custom OIDC.
         :param builtins.str name: The name of the Custom OIDC Authentication Provider.
                
-               > **NOTE:** An `app_setting` matching this value in upper case with the suffix of `_PROVIDER_AUTHENTICATION_SECRET` is required. e.g. `MYOIDC_PROVIDER_AUTHENTICATION_SECRET` for a value of `myoidc`.
+               > **Note:** An `app_setting` matching this value in upper case with the suffix of `_PROVIDER_AUTHENTICATION_SECRET` is required. e.g. `MYOIDC_PROVIDER_AUTHENTICATION_SECRET` for a value of `myoidc`.
         :param builtins.str openid_configuration_endpoint: The app setting name that contains the `client_secret` value used for the Custom OIDC Login.
         :param builtins.str authorisation_endpoint: The endpoint to make the Authorisation Request as supplied by `openid_configuration_endpoint` response.
         :param builtins.str certification_uri: The endpoint that provides the keys necessary to validate the token as supplied by `openid_configuration_endpoint` response.
@@ -14619,7 +14667,7 @@ class LinuxFunctionAppSlotAuthSettingsV2CustomOidcV2(dict):
         """
         The name of the Custom OIDC Authentication Provider.
 
-        > **NOTE:** An `app_setting` matching this value in upper case with the suffix of `_PROVIDER_AUTHENTICATION_SECRET` is required. e.g. `MYOIDC_PROVIDER_AUTHENTICATION_SECRET` for a value of `myoidc`.
+        > **Note:** An `app_setting` matching this value in upper case with the suffix of `_PROVIDER_AUTHENTICATION_SECRET` is required. e.g. `MYOIDC_PROVIDER_AUTHENTICATION_SECRET` for a value of `myoidc`.
         """
         return pulumi.get(self, "name")
 
@@ -14730,7 +14778,7 @@ class LinuxFunctionAppSlotAuthSettingsV2FacebookV2(dict):
         :param builtins.str app_id: The App ID of the Facebook app used for login.
         :param builtins.str app_secret_setting_name: The app setting name that contains the `app_secret` value used for Facebook Login.
                
-               !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+               !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
         :param builtins.str graph_api_version: The version of the Facebook API to be used while logging in.
         :param Sequence[builtins.str] login_scopes: The list of scopes that should be requested as part of Facebook Login authentication.
         """
@@ -14755,7 +14803,7 @@ class LinuxFunctionAppSlotAuthSettingsV2FacebookV2(dict):
         """
         The app setting name that contains the `app_secret` value used for Facebook Login.
 
-        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
         """
         return pulumi.get(self, "app_secret_setting_name")
 
@@ -14807,7 +14855,7 @@ class LinuxFunctionAppSlotAuthSettingsV2GithubV2(dict):
         :param builtins.str client_id: The ID of the GitHub app used for login.
         :param builtins.str client_secret_setting_name: The app setting name that contains the `client_secret` value used for GitHub Login.
                
-               !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+               !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
         :param Sequence[builtins.str] login_scopes: The list of OAuth 2.0 scopes that should be requested as part of GitHub Login authentication.
         """
         pulumi.set(__self__, "client_id", client_id)
@@ -14829,7 +14877,7 @@ class LinuxFunctionAppSlotAuthSettingsV2GithubV2(dict):
         """
         The app setting name that contains the `client_secret` value used for GitHub Login.
 
-        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
         """
         return pulumi.get(self, "client_secret_setting_name")
 
@@ -14876,7 +14924,7 @@ class LinuxFunctionAppSlotAuthSettingsV2GoogleV2(dict):
         :param builtins.str client_id: The OpenID Connect Client ID for the Google web application.
         :param builtins.str client_secret_setting_name: The app setting name that contains the `client_secret` value used for Google Login.
                
-               !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+               !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
         :param Sequence[builtins.str] allowed_audiences: Specifies a list of Allowed Audiences that should be requested as part of Google Sign-In authentication.
         :param Sequence[builtins.str] login_scopes: The list of OAuth 2.0 scopes that should be requested as part of Google Sign-In authentication.
         """
@@ -14901,7 +14949,7 @@ class LinuxFunctionAppSlotAuthSettingsV2GoogleV2(dict):
         """
         The app setting name that contains the `client_secret` value used for Google Login.
 
-        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
         """
         return pulumi.get(self, "client_secret_setting_name")
 
@@ -15136,7 +15184,7 @@ class LinuxFunctionAppSlotAuthSettingsV2MicrosoftV2(dict):
         :param builtins.str client_id: The OAuth 2.0 client ID that was created for the app used for authentication.
         :param builtins.str client_secret_setting_name: The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
                
-               !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+               !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
         :param Sequence[builtins.str] allowed_audiences: Specifies a list of Allowed Audiences that will be requested as part of Microsoft Sign-In authentication.
         :param Sequence[builtins.str] login_scopes: The list of Login scopes that should be requested as part of Microsoft Account authentication.
         """
@@ -15161,7 +15209,7 @@ class LinuxFunctionAppSlotAuthSettingsV2MicrosoftV2(dict):
         """
         The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
 
-        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
         """
         return pulumi.get(self, "client_secret_setting_name")
 
@@ -15210,7 +15258,7 @@ class LinuxFunctionAppSlotAuthSettingsV2TwitterV2(dict):
         :param builtins.str consumer_key: The OAuth 1.0a consumer key of the Twitter application used for sign-in.
         :param builtins.str consumer_secret_setting_name: The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in.
                
-               !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+               !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
         """
         pulumi.set(__self__, "consumer_key", consumer_key)
         pulumi.set(__self__, "consumer_secret_setting_name", consumer_secret_setting_name)
@@ -15229,7 +15277,7 @@ class LinuxFunctionAppSlotAuthSettingsV2TwitterV2(dict):
         """
         The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in.
 
-        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
         """
         return pulumi.get(self, "consumer_secret_setting_name")
 
@@ -15342,7 +15390,7 @@ class LinuxFunctionAppSlotBackupSchedule(dict):
         """
         :param builtins.int frequency_interval: How often the backup should be executed (e.g. for weekly backup, this should be set to `7` and `frequency_unit` should be set to `Day`).
                
-               > **NOTE:** Not all intervals are supported on all Linux Function App SKUs. Please refer to the official documentation for appropriate values.
+               > **Note:** Not all intervals are supported on all Linux Function App SKUs. Please refer to the official documentation for appropriate values.
         :param builtins.str frequency_unit: The unit of time for how often the backup should take place. Possible values include: `Day` and `Hour`.
         :param builtins.bool keep_at_least_one_backup: Should the service keep at least one backup, regardless of age of backup. Defaults to `false`.
         :param builtins.str last_execution_time: The time the backup was last attempted.
@@ -15366,7 +15414,7 @@ class LinuxFunctionAppSlotBackupSchedule(dict):
         """
         How often the backup should be executed (e.g. for weekly backup, this should be set to `7` and `frequency_unit` should be set to `Day`).
 
-        > **NOTE:** Not all intervals are supported on all Linux Function App SKUs. Please refer to the official documentation for appropriate values.
+        > **Note:** Not all intervals are supported on all Linux Function App SKUs. Please refer to the official documentation for appropriate values.
         """
         return pulumi.get(self, "frequency_interval")
 
@@ -15483,7 +15531,7 @@ class LinuxFunctionAppSlotIdentity(dict):
         :param builtins.str type: Specifies the type of Managed Service Identity that should be configured on this Linux Function App Slot. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
         :param Sequence[builtins.str] identity_ids: A list of User Assigned Managed Identity IDs to be assigned to this Linux Function App Slot.
                
-               > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+               > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         :param builtins.str principal_id: The Principal ID associated with this Managed Service Identity.
         :param builtins.str tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
@@ -15509,7 +15557,7 @@ class LinuxFunctionAppSlotIdentity(dict):
         """
         A list of User Assigned Managed Identity IDs to be assigned to this Linux Function App Slot.
 
-        > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+        > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         """
         return pulumi.get(self, "identity_ids")
 
@@ -15695,7 +15743,7 @@ class LinuxFunctionAppSlotSiteConfig(dict):
         :param builtins.str remote_debugging_version: The Remote Debugging Version. Currently only `VS2022` is supported.
         :param builtins.bool runtime_scale_monitoring_enabled: Should Functions Runtime Scale Monitoring be enabled.
                
-               > **NOTE:** Functions runtime scale monitoring can only be enabled for Elastic Premium Function Apps or Workflow Standard Logic Apps and requires a minimum prewarmed instance count of 1.
+               > **Note:** Functions runtime scale monitoring can only be enabled for Elastic Premium Function Apps or Workflow Standard Logic Apps and requires a minimum prewarmed instance count of 1.
         :param builtins.str scm_ip_restriction_default_action: The Default action for traffic that does not match any `scm_ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
         :param Sequence['LinuxFunctionAppSlotSiteConfigScmIpRestrictionArgs'] scm_ip_restrictions: a `scm_ip_restriction` block as detailed below.
         :param builtins.str scm_minimum_tls_version: Configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, `1.2` and `1.3`. Defaults to `1.2`.
@@ -16023,7 +16071,7 @@ class LinuxFunctionAppSlotSiteConfig(dict):
         """
         Should Functions Runtime Scale Monitoring be enabled.
 
-        > **NOTE:** Functions runtime scale monitoring can only be enabled for Elastic Premium Function Apps or Workflow Standard Logic Apps and requires a minimum prewarmed instance count of 1.
+        > **Note:** Functions runtime scale monitoring can only be enabled for Elastic Premium Function Apps or Workflow Standard Logic Apps and requires a minimum prewarmed instance count of 1.
         """
         return pulumi.get(self, "runtime_scale_monitoring_enabled")
 
@@ -16128,7 +16176,7 @@ class LinuxFunctionAppSlotSiteConfigAppServiceLogs(dict):
         :param builtins.int disk_quota_mb: The amount of disk space to use for logs. Valid values are between `25` and `100`. Defaults to `35`.
         :param builtins.int retention_period_days: The retention period for logs in days. Valid values are between `0` and `99999`.(never delete).
                
-               > **NOTE:** This block is not supported on Consumption plans.
+               > **Note:** This block is not supported on Consumption plans.
         """
         if disk_quota_mb is not None:
             pulumi.set(__self__, "disk_quota_mb", disk_quota_mb)
@@ -16149,7 +16197,7 @@ class LinuxFunctionAppSlotSiteConfigAppServiceLogs(dict):
         """
         The retention period for logs in days. Valid values are between `0` and `99999`.(never delete).
 
-        > **NOTE:** This block is not supported on Consumption plans.
+        > **Note:** This block is not supported on Consumption plans.
         """
         return pulumi.get(self, "retention_period_days")
 
@@ -16325,10 +16373,10 @@ class LinuxFunctionAppSlotSiteConfigApplicationStackDocker(dict):
         :param builtins.str registry_url: The URL of the docker registry.
         :param builtins.str registry_password: The password for the account to use to connect to the registry.
                
-               > **NOTE:** This value is required if `container_registry_use_managed_identity` is not set to `true`.
+               > **Note:** This value is required if `container_registry_use_managed_identity` is not set to `true`.
         :param builtins.str registry_username: The username to use for connections to the registry.
                
-               > **NOTE:** This value is required if `container_registry_use_managed_identity` is not set to `true`.
+               > **Note:** This value is required if `container_registry_use_managed_identity` is not set to `true`.
         """
         pulumi.set(__self__, "image_name", image_name)
         pulumi.set(__self__, "image_tag", image_tag)
@@ -16368,7 +16416,7 @@ class LinuxFunctionAppSlotSiteConfigApplicationStackDocker(dict):
         """
         The password for the account to use to connect to the registry.
 
-        > **NOTE:** This value is required if `container_registry_use_managed_identity` is not set to `true`.
+        > **Note:** This value is required if `container_registry_use_managed_identity` is not set to `true`.
         """
         return pulumi.get(self, "registry_password")
 
@@ -16378,7 +16426,7 @@ class LinuxFunctionAppSlotSiteConfigApplicationStackDocker(dict):
         """
         The username to use for connections to the registry.
 
-        > **NOTE:** This value is required if `container_registry_use_managed_identity` is not set to `true`.
+        > **Note:** This value is required if `container_registry_use_managed_identity` is not set to `true`.
         """
         return pulumi.get(self, "registry_username")
 
@@ -16475,7 +16523,7 @@ class LinuxFunctionAppSlotSiteConfigIpRestriction(dict):
         :param builtins.str service_tag: The Service Tag used for this IP Restriction.
         :param builtins.str virtual_network_subnet_id: The Virtual Network Subnet ID used for this IP Restriction.
                
-               > **NOTE:** One and only one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
+               > **Note:** One and only one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
         """
         if action is not None:
             pulumi.set(__self__, "action", action)
@@ -16556,7 +16604,7 @@ class LinuxFunctionAppSlotSiteConfigIpRestriction(dict):
         """
         The Virtual Network Subnet ID used for this IP Restriction.
 
-        > **NOTE:** One and only one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
+        > **Note:** One and only one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
         """
         return pulumi.get(self, "virtual_network_subnet_id")
 
@@ -16681,7 +16729,7 @@ class LinuxFunctionAppSlotSiteConfigScmIpRestriction(dict):
         :param builtins.str service_tag: The Service Tag used for this IP Restriction.
         :param builtins.str virtual_network_subnet_id: The Virtual Network Subnet ID used for this IP Restriction.
                
-               > **NOTE:** One and only one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
+               > **Note:** One and only one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
         """
         if action is not None:
             pulumi.set(__self__, "action", action)
@@ -16762,7 +16810,7 @@ class LinuxFunctionAppSlotSiteConfigScmIpRestriction(dict):
         """
         The Virtual Network Subnet ID used for this IP Restriction.
 
-        > **NOTE:** One and only one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
+        > **Note:** One and only one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
         """
         return pulumi.get(self, "virtual_network_subnet_id")
 
@@ -17176,13 +17224,13 @@ class LinuxWebAppAuthSettings(dict):
         :param Sequence[builtins.str] allowed_external_redirect_urls: Specifies a list of External URLs that can be redirected to as part of logging in or logging out of the Linux Web App.
         :param builtins.str default_provider: The default authentication provider to use when multiple providers are configured. Possible values include: `BuiltInAuthenticationProviderAzureActiveDirectory`, `BuiltInAuthenticationProviderFacebook`, `BuiltInAuthenticationProviderGoogle`, `BuiltInAuthenticationProviderMicrosoftAccount`, `BuiltInAuthenticationProviderTwitter`, `BuiltInAuthenticationProviderGithub`
                
-               > **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to "RedirectToLoginPage".
+               > **Note:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to "RedirectToLoginPage".
         :param 'LinuxWebAppAuthSettingsFacebookArgs' facebook: A `facebook` block as defined below.
         :param 'LinuxWebAppAuthSettingsGithubArgs' github: A `github` block as defined below.
         :param 'LinuxWebAppAuthSettingsGoogleArgs' google: A `google` block as defined below.
         :param builtins.str issuer: The OpenID Connect Issuer URI that represents the entity that issues access tokens for this Linux Web App.
                
-               > **NOTE:** When using Azure Active Directory, this value is the URI of the directory tenant, e.g. <https://sts.windows.net/{tenant-guid}/>.
+               > **Note:** When using Azure Active Directory, this value is the URI of the directory tenant, e.g. <https://sts.windows.net/{tenant-guid}/>.
         :param 'LinuxWebAppAuthSettingsMicrosoftArgs' microsoft: A `microsoft` block as defined below.
         :param builtins.str runtime_version: The RuntimeVersion of the Authentication / Authorization feature in use for the Linux Web App.
         :param builtins.float token_refresh_extension_hours: The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72` hours.
@@ -17258,7 +17306,7 @@ class LinuxWebAppAuthSettings(dict):
         """
         The default authentication provider to use when multiple providers are configured. Possible values include: `BuiltInAuthenticationProviderAzureActiveDirectory`, `BuiltInAuthenticationProviderFacebook`, `BuiltInAuthenticationProviderGoogle`, `BuiltInAuthenticationProviderMicrosoftAccount`, `BuiltInAuthenticationProviderTwitter`, `BuiltInAuthenticationProviderGithub`
 
-        > **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to "RedirectToLoginPage".
+        > **Note:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to "RedirectToLoginPage".
         """
         return pulumi.get(self, "default_provider")
 
@@ -17292,7 +17340,7 @@ class LinuxWebAppAuthSettings(dict):
         """
         The OpenID Connect Issuer URI that represents the entity that issues access tokens for this Linux Web App.
 
-        > **NOTE:** When using Azure Active Directory, this value is the URI of the directory tenant, e.g. <https://sts.windows.net/{tenant-guid}/>.
+        > **Note:** When using Azure Active Directory, this value is the URI of the directory tenant, e.g. <https://sts.windows.net/{tenant-guid}/>.
         """
         return pulumi.get(self, "issuer")
 
@@ -17891,10 +17939,10 @@ class LinuxWebAppAuthSettingsV2(dict):
         :param Sequence['LinuxWebAppAuthSettingsV2CustomOidcV2Args'] custom_oidc_v2s: Zero or more `custom_oidc_v2` blocks as defined below.
         :param builtins.str default_provider: The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
                
-               > **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
+               > **Note:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
         :param Sequence[builtins.str] excluded_paths: The paths which should be excluded from the `unauthenticated_action` when it is set to `RedirectToLoginPage`.
                
-               > **NOTE:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
+               > **Note:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
         :param 'LinuxWebAppAuthSettingsV2FacebookV2Args' facebook_v2: A `facebook_v2` block as defined below.
         :param builtins.str forward_proxy_convention: The convention used to determine the url of the request made. Possible values include `NoProxy`, `Standard`, `Custom`. Defaults to `NoProxy`.
         :param builtins.str forward_proxy_custom_host_header_name: The name of the custom header containing the host of the request.
@@ -18017,7 +18065,7 @@ class LinuxWebAppAuthSettingsV2(dict):
         """
         The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
 
-        > **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
+        > **Note:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
         """
         return pulumi.get(self, "default_provider")
 
@@ -18027,7 +18075,7 @@ class LinuxWebAppAuthSettingsV2(dict):
         """
         The paths which should be excluded from the `unauthenticated_action` when it is set to `RedirectToLoginPage`.
 
-        > **NOTE:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
+        > **Note:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
         """
         return pulumi.get(self, "excluded_paths")
 
@@ -18194,17 +18242,17 @@ class LinuxWebAppAuthSettingsV2ActiveDirectoryV2(dict):
         :param builtins.str client_id: The ID of the Client to use to authenticate with Azure Active Directory.
         :param builtins.str tenant_auth_endpoint: The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
                
-               > **NOTE:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
+               > **Note:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
         :param Sequence[builtins.str] allowed_applications: The list of allowed Applications for the Default Authorisation Policy.
         :param Sequence[builtins.str] allowed_audiences: Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
                
-               > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+               > **Note:** This is configured on the Authentication Provider side and is Read Only here.
         :param Sequence[builtins.str] allowed_groups: The list of allowed Group Names for the Default Authorisation Policy.
         :param Sequence[builtins.str] allowed_identities: The list of allowed Identities for the Default Authorisation Policy.
         :param builtins.str client_secret_certificate_thumbprint: The thumbprint of the certificate used for signing purposes.
         :param builtins.str client_secret_setting_name: The App Setting name that contains the client secret of the Client.
                
-               !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+               !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
         :param Sequence[builtins.str] jwt_allowed_client_applications: A list of Allowed Client Applications in the JWT Claim.
         :param Sequence[builtins.str] jwt_allowed_groups: A list of Allowed Groups in the JWT Claim.
         :param Mapping[str, builtins.str] login_parameters: A map of key-value pairs to send to the Authorisation Endpoint when a user logs in.
@@ -18247,7 +18295,7 @@ class LinuxWebAppAuthSettingsV2ActiveDirectoryV2(dict):
         """
         The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
 
-        > **NOTE:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
+        > **Note:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
         """
         return pulumi.get(self, "tenant_auth_endpoint")
 
@@ -18265,7 +18313,7 @@ class LinuxWebAppAuthSettingsV2ActiveDirectoryV2(dict):
         """
         Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
 
-        > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+        > **Note:** This is configured on the Authentication Provider side and is Read Only here.
         """
         return pulumi.get(self, "allowed_audiences")
 
@@ -18299,7 +18347,7 @@ class LinuxWebAppAuthSettingsV2ActiveDirectoryV2(dict):
         """
         The App Setting name that contains the client secret of the Client.
 
-        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
         """
         return pulumi.get(self, "client_secret_setting_name")
 
@@ -18367,10 +18415,10 @@ class LinuxWebAppAuthSettingsV2AppleV2(dict):
         :param builtins.str client_id: The OpenID Connect Client ID for the Apple web application.
         :param builtins.str client_secret_setting_name: The app setting name that contains the `client_secret` value used for Apple Login.
                
-               !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+               !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
         :param Sequence[builtins.str] login_scopes: A list of Login Scopes provided by this Authentication Provider.
                
-               > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+               > **Note:** This is configured on the Authentication Provider side and is Read Only here.
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "client_secret_setting_name", client_secret_setting_name)
@@ -18391,7 +18439,7 @@ class LinuxWebAppAuthSettingsV2AppleV2(dict):
         """
         The app setting name that contains the `client_secret` value used for Apple Login.
 
-        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
         """
         return pulumi.get(self, "client_secret_setting_name")
 
@@ -18401,7 +18449,7 @@ class LinuxWebAppAuthSettingsV2AppleV2(dict):
         """
         A list of Login Scopes provided by this Authentication Provider.
 
-        > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+        > **Note:** This is configured on the Authentication Provider side and is Read Only here.
         """
         return pulumi.get(self, "login_scopes")
 
@@ -18492,7 +18540,7 @@ class LinuxWebAppAuthSettingsV2CustomOidcV2(dict):
         :param builtins.str client_id: The ID of the Client to use to authenticate with the Custom OIDC.
         :param builtins.str name: The name of the Custom OIDC Authentication Provider.
                
-               > **NOTE:** An `app_setting` matching this value in upper case with the suffix of `_PROVIDER_AUTHENTICATION_SECRET` is required. e.g. `MYOIDC_PROVIDER_AUTHENTICATION_SECRET` for a value of `myoidc`.
+               > **Note:** An `app_setting` matching this value in upper case with the suffix of `_PROVIDER_AUTHENTICATION_SECRET` is required. e.g. `MYOIDC_PROVIDER_AUTHENTICATION_SECRET` for a value of `myoidc`.
         :param builtins.str openid_configuration_endpoint: Specifies the endpoint used for OpenID Connect Discovery. For example `https://example.com/.well-known/openid-configuration`.
         :param builtins.str authorisation_endpoint: The endpoint to make the Authorisation Request as supplied by `openid_configuration_endpoint` response.
         :param builtins.str certification_uri: The endpoint that provides the keys necessary to validate the token as supplied by `openid_configuration_endpoint` response.
@@ -18537,7 +18585,7 @@ class LinuxWebAppAuthSettingsV2CustomOidcV2(dict):
         """
         The name of the Custom OIDC Authentication Provider.
 
-        > **NOTE:** An `app_setting` matching this value in upper case with the suffix of `_PROVIDER_AUTHENTICATION_SECRET` is required. e.g. `MYOIDC_PROVIDER_AUTHENTICATION_SECRET` for a value of `myoidc`.
+        > **Note:** An `app_setting` matching this value in upper case with the suffix of `_PROVIDER_AUTHENTICATION_SECRET` is required. e.g. `MYOIDC_PROVIDER_AUTHENTICATION_SECRET` for a value of `myoidc`.
         """
         return pulumi.get(self, "name")
 
@@ -18648,7 +18696,7 @@ class LinuxWebAppAuthSettingsV2FacebookV2(dict):
         :param builtins.str app_id: The App ID of the Facebook app used for login.
         :param builtins.str app_secret_setting_name: The app setting name that contains the `app_secret` value used for Facebook Login.
                
-               !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+               !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
         :param builtins.str graph_api_version: The version of the Facebook API to be used while logging in.
         :param Sequence[builtins.str] login_scopes: The list of scopes that should be requested as part of Facebook Login authentication.
         """
@@ -18673,7 +18721,7 @@ class LinuxWebAppAuthSettingsV2FacebookV2(dict):
         """
         The app setting name that contains the `app_secret` value used for Facebook Login.
 
-        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
         """
         return pulumi.get(self, "app_secret_setting_name")
 
@@ -18725,7 +18773,7 @@ class LinuxWebAppAuthSettingsV2GithubV2(dict):
         :param builtins.str client_id: The ID of the GitHub app used for login..
         :param builtins.str client_secret_setting_name: The app setting name that contains the `client_secret` value used for GitHub Login.
                
-               !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+               !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
         :param Sequence[builtins.str] login_scopes: The list of OAuth 2.0 scopes that should be requested as part of GitHub Login authentication.
         """
         pulumi.set(__self__, "client_id", client_id)
@@ -18747,7 +18795,7 @@ class LinuxWebAppAuthSettingsV2GithubV2(dict):
         """
         The app setting name that contains the `client_secret` value used for GitHub Login.
 
-        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
         """
         return pulumi.get(self, "client_secret_setting_name")
 
@@ -18794,7 +18842,7 @@ class LinuxWebAppAuthSettingsV2GoogleV2(dict):
         :param builtins.str client_id: The OpenID Connect Client ID for the Google web application.
         :param builtins.str client_secret_setting_name: The app setting name that contains the `client_secret` value used for Google Login.
                
-               !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+               !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
         :param Sequence[builtins.str] allowed_audiences: Specifies a list of Allowed Audiences that should be requested as part of Google Sign-In authentication.
         :param Sequence[builtins.str] login_scopes: The list of OAuth 2.0 scopes that should be requested as part of Google Sign-In authentication.
         """
@@ -18819,7 +18867,7 @@ class LinuxWebAppAuthSettingsV2GoogleV2(dict):
         """
         The app setting name that contains the `client_secret` value used for Google Login.
 
-        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
         """
         return pulumi.get(self, "client_secret_setting_name")
 
@@ -19054,7 +19102,7 @@ class LinuxWebAppAuthSettingsV2MicrosoftV2(dict):
         :param builtins.str client_id: The OAuth 2.0 client ID that was created for the app used for authentication.
         :param builtins.str client_secret_setting_name: The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
                
-               !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+               !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
         :param Sequence[builtins.str] allowed_audiences: Specifies a list of Allowed Audiences that will be requested as part of Microsoft Sign-In authentication.
         :param Sequence[builtins.str] login_scopes: The list of Login scopes that should be requested as part of Microsoft Account authentication.
         """
@@ -19079,7 +19127,7 @@ class LinuxWebAppAuthSettingsV2MicrosoftV2(dict):
         """
         The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
 
-        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
         """
         return pulumi.get(self, "client_secret_setting_name")
 
@@ -19128,7 +19176,7 @@ class LinuxWebAppAuthSettingsV2TwitterV2(dict):
         :param builtins.str consumer_key: The OAuth 1.0a consumer key of the Twitter application used for sign-in.
         :param builtins.str consumer_secret_setting_name: The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in.
                
-               !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+               !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
         """
         pulumi.set(__self__, "consumer_key", consumer_key)
         pulumi.set(__self__, "consumer_secret_setting_name", consumer_secret_setting_name)
@@ -19147,7 +19195,7 @@ class LinuxWebAppAuthSettingsV2TwitterV2(dict):
         """
         The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in.
 
-        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
         """
         return pulumi.get(self, "consumer_secret_setting_name")
 
@@ -19260,7 +19308,7 @@ class LinuxWebAppBackupSchedule(dict):
         """
         :param builtins.int frequency_interval: How often the backup should be executed (e.g. for weekly backup, this should be set to `7` and `frequency_unit` should be set to `Day`).
                
-               > **NOTE:** Not all intervals are supported on all Linux Web App SKUs. Please refer to the official documentation for appropriate values.
+               > **Note:** Not all intervals are supported on all Linux Web App SKUs. Please refer to the official documentation for appropriate values.
         :param builtins.str frequency_unit: The unit of time for how often the backup should take place. Possible values include: `Day`, `Hour`
         :param builtins.bool keep_at_least_one_backup: Should the service keep at least one backup, regardless of the age of backup? Defaults to `false`.
         :param builtins.str last_execution_time: The time the backup was last attempted.
@@ -19284,7 +19332,7 @@ class LinuxWebAppBackupSchedule(dict):
         """
         How often the backup should be executed (e.g. for weekly backup, this should be set to `7` and `frequency_unit` should be set to `Day`).
 
-        > **NOTE:** Not all intervals are supported on all Linux Web App SKUs. Please refer to the official documentation for appropriate values.
+        > **Note:** Not all intervals are supported on all Linux Web App SKUs. Please refer to the official documentation for appropriate values.
         """
         return pulumi.get(self, "frequency_interval")
 
@@ -19401,7 +19449,7 @@ class LinuxWebAppIdentity(dict):
         :param builtins.str type: Specifies the type of Managed Service Identity that should be configured on this Linux Web App. Possible values are `SystemAssigned`, `UserAssigned`, and `SystemAssigned, UserAssigned` (to enable both).
         :param Sequence[builtins.str] identity_ids: A list of User Assigned Managed Identity IDs to be assigned to this Linux Web App.
                
-               > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+               > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         :param builtins.str principal_id: The Principal ID associated with this Managed Service Identity.
         :param builtins.str tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
@@ -19427,7 +19475,7 @@ class LinuxWebAppIdentity(dict):
         """
         A list of User Assigned Managed Identity IDs to be assigned to this Linux Web App.
 
-        > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+        > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         """
         return pulumi.get(self, "identity_ids")
 
@@ -19899,7 +19947,7 @@ class LinuxWebAppSiteConfig(dict):
         """
         :param builtins.bool always_on: If this Linux Web App is Always On enabled. Defaults to `true`.
                
-               > **NOTE:** `always_on` must be explicitly set to `false` when using `Free`, `F1`, `D1`, or `Shared` Service Plans.
+               > **Note:** `always_on` must be explicitly set to `false` when using `Free`, `F1`, `D1`, or `Shared` Service Plans.
         :param builtins.str api_definition_url: The URL to the API Definition for this Linux Web App.
         :param builtins.str api_management_api_id: The API Management API ID this Linux Web App is associated with.
         :param builtins.str app_command_line: The App command line to launch.
@@ -20002,7 +20050,7 @@ class LinuxWebAppSiteConfig(dict):
         """
         If this Linux Web App is Always On enabled. Defaults to `true`.
 
-        > **NOTE:** `always_on` must be explicitly set to `false` when using `Free`, `F1`, `D1`, or `Shared` Service Plans.
+        > **Note:** `always_on` must be explicitly set to `false` when using `Free`, `F1`, `D1`, or `Shared` Service Plans.
         """
         return pulumi.get(self, "always_on")
 
@@ -20312,26 +20360,26 @@ class LinuxWebAppSiteConfigApplicationStack(dict):
         :param builtins.str docker_image_name: The docker image, including tag, to be used. e.g. `appsvc/staticsite:latest`.
         :param builtins.str docker_registry_password: The User Name to use for authentication against the registry to pull the image.
                
-               > **NOTE:** `docker_registry_url`, `docker_registry_username`, and `docker_registry_password` replace the use of the `app_settings` values of `DOCKER_REGISTRY_SERVER_URL`, `DOCKER_REGISTRY_SERVER_USERNAME` and `DOCKER_REGISTRY_SERVER_PASSWORD` respectively, these values will be managed by the provider and should not be specified in the `app_settings` map.
+               > **Note:** `docker_registry_url`, `docker_registry_username`, and `docker_registry_password` replace the use of the `app_settings` values of `DOCKER_REGISTRY_SERVER_URL`, `DOCKER_REGISTRY_SERVER_USERNAME` and `DOCKER_REGISTRY_SERVER_PASSWORD` respectively, these values will be managed by the provider and should not be specified in the `app_settings` map.
         :param builtins.str docker_registry_url: The URL of the container registry where the `docker_image_name` is located. e.g. `https://index.docker.io` or `https://mcr.microsoft.com`. This value is required with `docker_image_name`.
         :param builtins.str docker_registry_username: The User Name to use for authentication against the registry to pull the image.
         :param builtins.str dotnet_version: The version of .NET to use. Possible values include `3.1`, `5.0`, `6.0`, `7.0`, `8.0` and `9.0`.
         :param builtins.str go_version: The version of Go to use. Possible values include `1.18`, and `1.19`.
         :param builtins.str java_server: The Java server type. Possible values include `JAVA`, `TOMCAT`, and `JBOSSEAP`.
                
-               > **NOTE:** `JBOSSEAP` requires a Premium Service Plan SKU to be a valid option.
+               > **Note:** `JBOSSEAP` requires a Premium Service Plan SKU to be a valid option.
         :param builtins.str java_server_version: The Version of the `java_server` to use.
         :param builtins.str java_version: The Version of Java to use. Possible values include `8`, `11`, `17`, and `21`.
                
-               > **NOTE:** The valid version combinations for `java_version`, `java_server` and `java_server_version` can be checked from the command line via `az webapp list-runtimes --os-type linux`.
+               > **Note:** The valid version combinations for `java_version`, `java_server` and `java_server_version` can be checked from the command line via `az webapp list-runtimes --os-type linux`.
                
-               > **NOTE:** `java_server`, `java_server_version`, and `java_version` must all be specified if building a java app
+               > **Note:** `java_server`, `java_server_version`, and `java_version` must all be specified if building a java app
         :param builtins.str node_version: The version of Node to run. Possible values include `12-lts`, `14-lts`, `16-lts`, `18-lts`, `20-lts` and `22-lts`. This property conflicts with `java_version`.
                
-               > **NOTE:** 10.x versions have been/are being deprecated so may cease to work for new resources in the future and may be removed from the provider.
+               > **Note:** 10.x versions have been/are being deprecated so may cease to work for new resources in the future and may be removed from the provider.
         :param builtins.str php_version: The version of PHP to run. Possible values are `7.4`, `8.0`, `8.1`, `8.2` and `8.3`.
                
-               > **NOTE:** version `7.4` is deprecated and will be removed from the provider in a future version.
+               > **Note:** version `7.4` is deprecated and will be removed from the provider in a future version.
         :param builtins.str python_version: The version of Python to run. Possible values include `3.13`, `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
         :param builtins.str ruby_version: The version of Ruby to run. Possible values include `2.6` and `2.7`.
         """
@@ -20376,7 +20424,7 @@ class LinuxWebAppSiteConfigApplicationStack(dict):
         """
         The User Name to use for authentication against the registry to pull the image.
 
-        > **NOTE:** `docker_registry_url`, `docker_registry_username`, and `docker_registry_password` replace the use of the `app_settings` values of `DOCKER_REGISTRY_SERVER_URL`, `DOCKER_REGISTRY_SERVER_USERNAME` and `DOCKER_REGISTRY_SERVER_PASSWORD` respectively, these values will be managed by the provider and should not be specified in the `app_settings` map.
+        > **Note:** `docker_registry_url`, `docker_registry_username`, and `docker_registry_password` replace the use of the `app_settings` values of `DOCKER_REGISTRY_SERVER_URL`, `DOCKER_REGISTRY_SERVER_USERNAME` and `DOCKER_REGISTRY_SERVER_PASSWORD` respectively, these values will be managed by the provider and should not be specified in the `app_settings` map.
         """
         return pulumi.get(self, "docker_registry_password")
 
@@ -20418,7 +20466,7 @@ class LinuxWebAppSiteConfigApplicationStack(dict):
         """
         The Java server type. Possible values include `JAVA`, `TOMCAT`, and `JBOSSEAP`.
 
-        > **NOTE:** `JBOSSEAP` requires a Premium Service Plan SKU to be a valid option.
+        > **Note:** `JBOSSEAP` requires a Premium Service Plan SKU to be a valid option.
         """
         return pulumi.get(self, "java_server")
 
@@ -20436,9 +20484,9 @@ class LinuxWebAppSiteConfigApplicationStack(dict):
         """
         The Version of Java to use. Possible values include `8`, `11`, `17`, and `21`.
 
-        > **NOTE:** The valid version combinations for `java_version`, `java_server` and `java_server_version` can be checked from the command line via `az webapp list-runtimes --os-type linux`.
+        > **Note:** The valid version combinations for `java_version`, `java_server` and `java_server_version` can be checked from the command line via `az webapp list-runtimes --os-type linux`.
 
-        > **NOTE:** `java_server`, `java_server_version`, and `java_version` must all be specified if building a java app
+        > **Note:** `java_server`, `java_server_version`, and `java_version` must all be specified if building a java app
         """
         return pulumi.get(self, "java_version")
 
@@ -20448,7 +20496,7 @@ class LinuxWebAppSiteConfigApplicationStack(dict):
         """
         The version of Node to run. Possible values include `12-lts`, `14-lts`, `16-lts`, `18-lts`, `20-lts` and `22-lts`. This property conflicts with `java_version`.
 
-        > **NOTE:** 10.x versions have been/are being deprecated so may cease to work for new resources in the future and may be removed from the provider.
+        > **Note:** 10.x versions have been/are being deprecated so may cease to work for new resources in the future and may be removed from the provider.
         """
         return pulumi.get(self, "node_version")
 
@@ -20458,7 +20506,7 @@ class LinuxWebAppSiteConfigApplicationStack(dict):
         """
         The version of PHP to run. Possible values are `7.4`, `8.0`, `8.1`, `8.2` and `8.3`.
 
-        > **NOTE:** version `7.4` is deprecated and will be removed from the provider in a future version.
+        > **Note:** version `7.4` is deprecated and will be removed from the provider in a future version.
         """
         return pulumi.get(self, "php_version")
 
@@ -20979,7 +21027,7 @@ class LinuxWebAppSiteConfigIpRestriction(dict):
         :param builtins.str service_tag: The Service Tag used for this IP Restriction.
         :param builtins.str virtual_network_subnet_id: The Virtual Network Subnet ID used for this IP Restriction.
                
-               > **NOTE:** One and only one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
+               > **Note:** One and only one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
         """
         if action is not None:
             pulumi.set(__self__, "action", action)
@@ -21060,7 +21108,7 @@ class LinuxWebAppSiteConfigIpRestriction(dict):
         """
         The Virtual Network Subnet ID used for this IP Restriction.
 
-        > **NOTE:** One and only one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
+        > **Note:** One and only one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
         """
         return pulumi.get(self, "virtual_network_subnet_id")
 
@@ -21185,7 +21233,7 @@ class LinuxWebAppSiteConfigScmIpRestriction(dict):
         :param builtins.str service_tag: The Service Tag used for this IP Restriction.
         :param builtins.str virtual_network_subnet_id: The Virtual Network Subnet ID used for this IP Restriction.
                
-               > **NOTE:** One and only one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
+               > **Note:** One and only one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
         """
         if action is not None:
             pulumi.set(__self__, "action", action)
@@ -21266,7 +21314,7 @@ class LinuxWebAppSiteConfigScmIpRestriction(dict):
         """
         The Virtual Network Subnet ID used for this IP Restriction.
 
-        > **NOTE:** One and only one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
+        > **Note:** One and only one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
         """
         return pulumi.get(self, "virtual_network_subnet_id")
 
@@ -21436,13 +21484,13 @@ class LinuxWebAppSlotAuthSettings(dict):
         :param Sequence[builtins.str] allowed_external_redirect_urls: Specifies a list of External URLs that can be redirected to as part of logging in or logging out of the Linux Web App.
         :param builtins.str default_provider: The default authentication provider to use when multiple providers are configured. Possible values include: `BuiltInAuthenticationProviderAzureActiveDirectory`, `BuiltInAuthenticationProviderFacebook`, `BuiltInAuthenticationProviderGoogle`, `BuiltInAuthenticationProviderMicrosoftAccount`, `BuiltInAuthenticationProviderTwitter`, `BuiltInAuthenticationProviderGithub`
                
-               > **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to "RedirectToLoginPage".
+               > **Note:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to "RedirectToLoginPage".
         :param 'LinuxWebAppSlotAuthSettingsFacebookArgs' facebook: A `facebook` block as defined below.
         :param 'LinuxWebAppSlotAuthSettingsGithubArgs' github: A `github` block as defined below.
         :param 'LinuxWebAppSlotAuthSettingsGoogleArgs' google: A `google` block as defined below.
         :param builtins.str issuer: The OpenID Connect Issuer URI that represents the entity that issues access tokens for this Linux Web App.
                
-               > **NOTE:** When using Azure Active Directory, this value is the URI of the directory tenant, e.g. <https://sts.windows.net/{tenant-guid}/>.
+               > **Note:** When using Azure Active Directory, this value is the URI of the directory tenant, e.g. <https://sts.windows.net/{tenant-guid}/>.
         :param 'LinuxWebAppSlotAuthSettingsMicrosoftArgs' microsoft: A `microsoft` block as defined below.
         :param builtins.str runtime_version: The RuntimeVersion of the Authentication / Authorization feature in use for the Linux Web App.
         :param builtins.float token_refresh_extension_hours: The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72` hours.
@@ -21518,7 +21566,7 @@ class LinuxWebAppSlotAuthSettings(dict):
         """
         The default authentication provider to use when multiple providers are configured. Possible values include: `BuiltInAuthenticationProviderAzureActiveDirectory`, `BuiltInAuthenticationProviderFacebook`, `BuiltInAuthenticationProviderGoogle`, `BuiltInAuthenticationProviderMicrosoftAccount`, `BuiltInAuthenticationProviderTwitter`, `BuiltInAuthenticationProviderGithub`
 
-        > **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to "RedirectToLoginPage".
+        > **Note:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to "RedirectToLoginPage".
         """
         return pulumi.get(self, "default_provider")
 
@@ -21552,7 +21600,7 @@ class LinuxWebAppSlotAuthSettings(dict):
         """
         The OpenID Connect Issuer URI that represents the entity that issues access tokens for this Linux Web App.
 
-        > **NOTE:** When using Azure Active Directory, this value is the URI of the directory tenant, e.g. <https://sts.windows.net/{tenant-guid}/>.
+        > **Note:** When using Azure Active Directory, this value is the URI of the directory tenant, e.g. <https://sts.windows.net/{tenant-guid}/>.
         """
         return pulumi.get(self, "issuer")
 
@@ -22151,10 +22199,10 @@ class LinuxWebAppSlotAuthSettingsV2(dict):
         :param Sequence['LinuxWebAppSlotAuthSettingsV2CustomOidcV2Args'] custom_oidc_v2s: Zero or more `custom_oidc_v2` blocks as defined below.
         :param builtins.str default_provider: The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
                
-               > **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
+               > **Note:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
         :param Sequence[builtins.str] excluded_paths: The paths which should be excluded from the `unauthenticated_action` when it is set to `RedirectToLoginPage`.
                
-               > **NOTE:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
+               > **Note:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
         :param 'LinuxWebAppSlotAuthSettingsV2FacebookV2Args' facebook_v2: A `facebook_v2` block as defined below.
         :param builtins.str forward_proxy_convention: The convention used to determine the url of the request made. Possible values include `NoProxy`, `Standard`, `Custom`. Defaults to `NoProxy`.
         :param builtins.str forward_proxy_custom_host_header_name: The name of the custom header containing the host of the request.
@@ -22277,7 +22325,7 @@ class LinuxWebAppSlotAuthSettingsV2(dict):
         """
         The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
 
-        > **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
+        > **Note:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
         """
         return pulumi.get(self, "default_provider")
 
@@ -22287,7 +22335,7 @@ class LinuxWebAppSlotAuthSettingsV2(dict):
         """
         The paths which should be excluded from the `unauthenticated_action` when it is set to `RedirectToLoginPage`.
 
-        > **NOTE:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
+        > **Note:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
         """
         return pulumi.get(self, "excluded_paths")
 
@@ -22454,17 +22502,17 @@ class LinuxWebAppSlotAuthSettingsV2ActiveDirectoryV2(dict):
         :param builtins.str client_id: The ID of the Client to use to authenticate with Azure Active Directory.
         :param builtins.str tenant_auth_endpoint: The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
                
-               > **NOTE:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
+               > **Note:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
         :param Sequence[builtins.str] allowed_applications: The list of allowed Applications for the Default Authorisation Policy.
         :param Sequence[builtins.str] allowed_audiences: Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
                
-               > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+               > **Note:** This is configured on the Authentication Provider side and is Read Only here.
         :param Sequence[builtins.str] allowed_groups: The list of allowed Group Names for the Default Authorisation Policy.
         :param Sequence[builtins.str] allowed_identities: The list of allowed Identities for the Default Authorisation Policy.
         :param builtins.str client_secret_certificate_thumbprint: The thumbprint of the certificate used for signing purposes.
         :param builtins.str client_secret_setting_name: The App Setting name that contains the client secret of the Client.
                
-               !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+               !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
         :param Sequence[builtins.str] jwt_allowed_client_applications: A list of Allowed Client Applications in the JWT Claim.
         :param Sequence[builtins.str] jwt_allowed_groups: A list of Allowed Groups in the JWT Claim.
         :param Mapping[str, builtins.str] login_parameters: A map of key-value pairs to send to the Authorisation Endpoint when a user logs in.
@@ -22507,7 +22555,7 @@ class LinuxWebAppSlotAuthSettingsV2ActiveDirectoryV2(dict):
         """
         The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
 
-        > **NOTE:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
+        > **Note:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
         """
         return pulumi.get(self, "tenant_auth_endpoint")
 
@@ -22525,7 +22573,7 @@ class LinuxWebAppSlotAuthSettingsV2ActiveDirectoryV2(dict):
         """
         Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
 
-        > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+        > **Note:** This is configured on the Authentication Provider side and is Read Only here.
         """
         return pulumi.get(self, "allowed_audiences")
 
@@ -22559,7 +22607,7 @@ class LinuxWebAppSlotAuthSettingsV2ActiveDirectoryV2(dict):
         """
         The App Setting name that contains the client secret of the Client.
 
-        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
         """
         return pulumi.get(self, "client_secret_setting_name")
 
@@ -22627,10 +22675,10 @@ class LinuxWebAppSlotAuthSettingsV2AppleV2(dict):
         :param builtins.str client_id: The OpenID Connect Client ID for the Apple web application.
         :param builtins.str client_secret_setting_name: The app setting name that contains the `client_secret` value used for Apple Login.
                
-               !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+               !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
         :param Sequence[builtins.str] login_scopes: A list of Login Scopes provided by this Authentication Provider.
                
-               > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+               > **Note:** This is configured on the Authentication Provider side and is Read Only here.
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "client_secret_setting_name", client_secret_setting_name)
@@ -22651,7 +22699,7 @@ class LinuxWebAppSlotAuthSettingsV2AppleV2(dict):
         """
         The app setting name that contains the `client_secret` value used for Apple Login.
 
-        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
         """
         return pulumi.get(self, "client_secret_setting_name")
 
@@ -22661,7 +22709,7 @@ class LinuxWebAppSlotAuthSettingsV2AppleV2(dict):
         """
         A list of Login Scopes provided by this Authentication Provider.
 
-        > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+        > **Note:** This is configured on the Authentication Provider side and is Read Only here.
         """
         return pulumi.get(self, "login_scopes")
 
@@ -22752,7 +22800,7 @@ class LinuxWebAppSlotAuthSettingsV2CustomOidcV2(dict):
         :param builtins.str client_id: The ID of the Client to use to authenticate with the Custom OIDC.
         :param builtins.str name: The name of the Custom OIDC Authentication Provider.
                
-               > **NOTE:** An `app_setting` matching this value in upper case with the suffix of `_PROVIDER_AUTHENTICATION_SECRET` is required. e.g. `MYOIDC_PROVIDER_AUTHENTICATION_SECRET` for a value of `myoidc`.
+               > **Note:** An `app_setting` matching this value in upper case with the suffix of `_PROVIDER_AUTHENTICATION_SECRET` is required. e.g. `MYOIDC_PROVIDER_AUTHENTICATION_SECRET` for a value of `myoidc`.
         :param builtins.str openid_configuration_endpoint: The app setting name that contains the `client_secret` value used for the Custom OIDC Login.
         :param builtins.str authorisation_endpoint: The endpoint to make the Authorisation Request as supplied by `openid_configuration_endpoint` response.
         :param builtins.str certification_uri: The endpoint that provides the keys necessary to validate the token as supplied by `openid_configuration_endpoint` response.
@@ -22797,7 +22845,7 @@ class LinuxWebAppSlotAuthSettingsV2CustomOidcV2(dict):
         """
         The name of the Custom OIDC Authentication Provider.
 
-        > **NOTE:** An `app_setting` matching this value in upper case with the suffix of `_PROVIDER_AUTHENTICATION_SECRET` is required. e.g. `MYOIDC_PROVIDER_AUTHENTICATION_SECRET` for a value of `myoidc`.
+        > **Note:** An `app_setting` matching this value in upper case with the suffix of `_PROVIDER_AUTHENTICATION_SECRET` is required. e.g. `MYOIDC_PROVIDER_AUTHENTICATION_SECRET` for a value of `myoidc`.
         """
         return pulumi.get(self, "name")
 
@@ -22908,7 +22956,7 @@ class LinuxWebAppSlotAuthSettingsV2FacebookV2(dict):
         :param builtins.str app_id: The App ID of the Facebook app used for login.
         :param builtins.str app_secret_setting_name: The app setting name that contains the `app_secret` value used for Facebook Login.
                
-               !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+               !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
         :param builtins.str graph_api_version: The version of the Facebook API to be used while logging in.
         :param Sequence[builtins.str] login_scopes: The list of scopes that should be requested as part of Facebook Login authentication.
         """
@@ -22933,7 +22981,7 @@ class LinuxWebAppSlotAuthSettingsV2FacebookV2(dict):
         """
         The app setting name that contains the `app_secret` value used for Facebook Login.
 
-        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
         """
         return pulumi.get(self, "app_secret_setting_name")
 
@@ -22985,7 +23033,7 @@ class LinuxWebAppSlotAuthSettingsV2GithubV2(dict):
         :param builtins.str client_id: The ID of the GitHub app used for login.
         :param builtins.str client_secret_setting_name: The app setting name that contains the `client_secret` value used for GitHub Login.
                
-               !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+               !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
         :param Sequence[builtins.str] login_scopes: The list of OAuth 2.0 scopes that should be requested as part of GitHub Login authentication.
         """
         pulumi.set(__self__, "client_id", client_id)
@@ -23007,7 +23055,7 @@ class LinuxWebAppSlotAuthSettingsV2GithubV2(dict):
         """
         The app setting name that contains the `client_secret` value used for GitHub Login.
 
-        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
         """
         return pulumi.get(self, "client_secret_setting_name")
 
@@ -23054,7 +23102,7 @@ class LinuxWebAppSlotAuthSettingsV2GoogleV2(dict):
         :param builtins.str client_id: The OpenID Connect Client ID for the Google web application.
         :param builtins.str client_secret_setting_name: The app setting name that contains the `client_secret` value used for Google Login.
                
-               !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+               !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
         :param Sequence[builtins.str] allowed_audiences: Specifies a list of Allowed Audiences that should be requested as part of Google Sign-In authentication.
         :param Sequence[builtins.str] login_scopes: The list of OAuth 2.0 scopes that should be requested as part of Google Sign-In authentication.
         """
@@ -23079,7 +23127,7 @@ class LinuxWebAppSlotAuthSettingsV2GoogleV2(dict):
         """
         The app setting name that contains the `client_secret` value used for Google Login.
 
-        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
         """
         return pulumi.get(self, "client_secret_setting_name")
 
@@ -23314,7 +23362,7 @@ class LinuxWebAppSlotAuthSettingsV2MicrosoftV2(dict):
         :param builtins.str client_id: The OAuth 2.0 client ID that was created for the app used for authentication.
         :param builtins.str client_secret_setting_name: The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
                
-               !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+               !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
         :param Sequence[builtins.str] allowed_audiences: Specifies a list of Allowed Audiences that will be requested as part of Microsoft Sign-In authentication.
         :param Sequence[builtins.str] login_scopes: The list of Login scopes that should be requested as part of Microsoft Account authentication.
         """
@@ -23339,7 +23387,7 @@ class LinuxWebAppSlotAuthSettingsV2MicrosoftV2(dict):
         """
         The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
 
-        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
         """
         return pulumi.get(self, "client_secret_setting_name")
 
@@ -23388,7 +23436,7 @@ class LinuxWebAppSlotAuthSettingsV2TwitterV2(dict):
         :param builtins.str consumer_key: The OAuth 1.0a consumer key of the Twitter application used for sign-in.
         :param builtins.str consumer_secret_setting_name: The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in.
                
-               !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+               !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
         """
         pulumi.set(__self__, "consumer_key", consumer_key)
         pulumi.set(__self__, "consumer_secret_setting_name", consumer_secret_setting_name)
@@ -23407,7 +23455,7 @@ class LinuxWebAppSlotAuthSettingsV2TwitterV2(dict):
         """
         The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in.
 
-        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
         """
         return pulumi.get(self, "consumer_secret_setting_name")
 
@@ -23520,7 +23568,7 @@ class LinuxWebAppSlotBackupSchedule(dict):
         """
         :param builtins.int frequency_interval: How often the backup should be executed (e.g. for weekly backup, this should be set to `7` and `frequency_unit` should be set to `Day`).
                
-               > **NOTE:** Not all intervals are supported on all Linux Web App SKUs. Please refer to the official documentation for appropriate values.
+               > **Note:** Not all intervals are supported on all Linux Web App SKUs. Please refer to the official documentation for appropriate values.
         :param builtins.str frequency_unit: The unit of time for how often the backup should take place. Possible values include: `Day`, `Hour`
         :param builtins.bool keep_at_least_one_backup: Should the service keep at least one backup, regardless of the age of backup? Defaults to `false`.
         :param builtins.str last_execution_time: The time the backup was last attempted.
@@ -23544,7 +23592,7 @@ class LinuxWebAppSlotBackupSchedule(dict):
         """
         How often the backup should be executed (e.g. for weekly backup, this should be set to `7` and `frequency_unit` should be set to `Day`).
 
-        > **NOTE:** Not all intervals are supported on all Linux Web App SKUs. Please refer to the official documentation for appropriate values.
+        > **Note:** Not all intervals are supported on all Linux Web App SKUs. Please refer to the official documentation for appropriate values.
         """
         return pulumi.get(self, "frequency_interval")
 
@@ -23661,7 +23709,7 @@ class LinuxWebAppSlotIdentity(dict):
         :param builtins.str type: Specifies the type of Managed Service Identity that should be configured on this Linux Web App Slot. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned` (to enable both).
         :param Sequence[builtins.str] identity_ids: A list of User Assigned Managed Identity IDs to be assigned to this Linux Web App Slot.
                
-               > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+               > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         :param builtins.str principal_id: The Principal ID associated with this Managed Service Identity.
         :param builtins.str tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
@@ -23687,7 +23735,7 @@ class LinuxWebAppSlotIdentity(dict):
         """
         A list of User Assigned Managed Identity IDs to be assigned to this Linux Web App Slot.
 
-        > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+        > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         """
         return pulumi.get(self, "identity_ids")
 
@@ -24586,24 +24634,24 @@ class LinuxWebAppSlotSiteConfigApplicationStack(dict):
         :param builtins.str docker_image_name: The docker image, including tag, to be used. e.g. `appsvc/staticsite:latest`.
         :param builtins.str docker_registry_password: The User Name to use for authentication against the registry to pull the image.
                
-               > **NOTE:** `docker_registry_url`, `docker_registry_username`, and `docker_registry_password` replace the use of the `app_settings` values of `DOCKER_REGISTRY_SERVER_URL`, `DOCKER_REGISTRY_SERVER_USERNAME` and `DOCKER_REGISTRY_SERVER_PASSWORD` respectively, these values will be managed by the provider and should not be specified in the `app_settings` map.
+               > **Note:** `docker_registry_url`, `docker_registry_username`, and `docker_registry_password` replace the use of the `app_settings` values of `DOCKER_REGISTRY_SERVER_URL`, `DOCKER_REGISTRY_SERVER_USERNAME` and `DOCKER_REGISTRY_SERVER_PASSWORD` respectively, these values will be managed by the provider and should not be specified in the `app_settings` map.
         :param builtins.str docker_registry_url: The URL of the container registry where the `docker_image_name` is located. e.g. `https://index.docker.io` or `https://mcr.microsoft.com`. This value is required with `docker_image_name`.
         :param builtins.str docker_registry_username: The User Name to use for authentication against the registry to pull the image.
         :param builtins.str dotnet_version: The version of .NET to use. Possible values include `3.1`, `5.0`, `6.0`, `7.0`, `8.0` and `9.0`.
         :param builtins.str go_version: The version of Go to use. Possible values include `1.18`, and `1.19`.
         :param builtins.str java_server: The Java server type. Possible values include `JAVA`, `TOMCAT`, and `JBOSSEAP`.
                
-               > **NOTE:** `JBOSSEAP` requires a Premium Service Plan SKU to be a valid option.
+               > **Note:** `JBOSSEAP` requires a Premium Service Plan SKU to be a valid option.
         :param builtins.str java_server_version: The Version of the `java_server` to use.
         :param builtins.str java_version: The Version of Java to use. Possible values include `8`, `11`, and `17`.
                
-               > **NOTE:** The valid version combinations for `java_version`, `java_server` and `java_server_version` can be checked from the command line via `az webapp list-runtimes --os-type linux`.
+               > **Note:** The valid version combinations for `java_version`, `java_server` and `java_server_version` can be checked from the command line via `az webapp list-runtimes --os-type linux`.
         :param builtins.str node_version: The version of Node to run. Possible values are `12-lts`, `14-lts`, `16-lts`, `18-lts`, `20-lts` and `22-lts`. This property conflicts with `java_version`.
                
-               > **NOTE:** 10.x versions have been/are being deprecated so may cease to work for new resources in the future and may be removed from the provider.
+               > **Note:** 10.x versions have been/are being deprecated so may cease to work for new resources in the future and may be removed from the provider.
         :param builtins.str php_version: The version of PHP to run. Possible values are `7.4`, `8.0`, `8.1`, `8.2` and `8.3`.
                
-               > **NOTE:** version `7.4` is deprecated and will be removed from the provider in a future version.
+               > **Note:** version `7.4` is deprecated and will be removed from the provider in a future version.
         :param builtins.str python_version: The version of Python to run. Possible values include `3.13`, `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
         :param builtins.str ruby_version: The version of Ruby to run. Possible values include `2.6` and `2.7`.
         """
@@ -24648,7 +24696,7 @@ class LinuxWebAppSlotSiteConfigApplicationStack(dict):
         """
         The User Name to use for authentication against the registry to pull the image.
 
-        > **NOTE:** `docker_registry_url`, `docker_registry_username`, and `docker_registry_password` replace the use of the `app_settings` values of `DOCKER_REGISTRY_SERVER_URL`, `DOCKER_REGISTRY_SERVER_USERNAME` and `DOCKER_REGISTRY_SERVER_PASSWORD` respectively, these values will be managed by the provider and should not be specified in the `app_settings` map.
+        > **Note:** `docker_registry_url`, `docker_registry_username`, and `docker_registry_password` replace the use of the `app_settings` values of `DOCKER_REGISTRY_SERVER_URL`, `DOCKER_REGISTRY_SERVER_USERNAME` and `DOCKER_REGISTRY_SERVER_PASSWORD` respectively, these values will be managed by the provider and should not be specified in the `app_settings` map.
         """
         return pulumi.get(self, "docker_registry_password")
 
@@ -24690,7 +24738,7 @@ class LinuxWebAppSlotSiteConfigApplicationStack(dict):
         """
         The Java server type. Possible values include `JAVA`, `TOMCAT`, and `JBOSSEAP`.
 
-        > **NOTE:** `JBOSSEAP` requires a Premium Service Plan SKU to be a valid option.
+        > **Note:** `JBOSSEAP` requires a Premium Service Plan SKU to be a valid option.
         """
         return pulumi.get(self, "java_server")
 
@@ -24708,7 +24756,7 @@ class LinuxWebAppSlotSiteConfigApplicationStack(dict):
         """
         The Version of Java to use. Possible values include `8`, `11`, and `17`.
 
-        > **NOTE:** The valid version combinations for `java_version`, `java_server` and `java_server_version` can be checked from the command line via `az webapp list-runtimes --os-type linux`.
+        > **Note:** The valid version combinations for `java_version`, `java_server` and `java_server_version` can be checked from the command line via `az webapp list-runtimes --os-type linux`.
         """
         return pulumi.get(self, "java_version")
 
@@ -24718,7 +24766,7 @@ class LinuxWebAppSlotSiteConfigApplicationStack(dict):
         """
         The version of Node to run. Possible values are `12-lts`, `14-lts`, `16-lts`, `18-lts`, `20-lts` and `22-lts`. This property conflicts with `java_version`.
 
-        > **NOTE:** 10.x versions have been/are being deprecated so may cease to work for new resources in the future and may be removed from the provider.
+        > **Note:** 10.x versions have been/are being deprecated so may cease to work for new resources in the future and may be removed from the provider.
         """
         return pulumi.get(self, "node_version")
 
@@ -24728,7 +24776,7 @@ class LinuxWebAppSlotSiteConfigApplicationStack(dict):
         """
         The version of PHP to run. Possible values are `7.4`, `8.0`, `8.1`, `8.2` and `8.3`.
 
-        > **NOTE:** version `7.4` is deprecated and will be removed from the provider in a future version.
+        > **Note:** version `7.4` is deprecated and will be removed from the provider in a future version.
         """
         return pulumi.get(self, "php_version")
 
@@ -25249,7 +25297,7 @@ class LinuxWebAppSlotSiteConfigIpRestriction(dict):
         :param builtins.str service_tag: The Service Tag used for this IP Restriction.
         :param builtins.str virtual_network_subnet_id: The Virtual Network Subnet ID used for this IP Restriction.
                
-               > **NOTE:** One and only one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
+               > **Note:** One and only one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
         """
         if action is not None:
             pulumi.set(__self__, "action", action)
@@ -25330,7 +25378,7 @@ class LinuxWebAppSlotSiteConfigIpRestriction(dict):
         """
         The Virtual Network Subnet ID used for this IP Restriction.
 
-        > **NOTE:** One and only one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
+        > **Note:** One and only one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
         """
         return pulumi.get(self, "virtual_network_subnet_id")
 
@@ -25455,7 +25503,7 @@ class LinuxWebAppSlotSiteConfigScmIpRestriction(dict):
         :param builtins.str service_tag: The Service Tag used for this IP Restriction.
         :param builtins.str virtual_network_subnet_id: The Virtual Network Subnet ID used for this IP Restriction.
                
-               > **NOTE:** One and only one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
+               > **Note:** One and only one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
         """
         if action is not None:
             pulumi.set(__self__, "action", action)
@@ -25536,7 +25584,7 @@ class LinuxWebAppSlotSiteConfigScmIpRestriction(dict):
         """
         The Virtual Network Subnet ID used for this IP Restriction.
 
-        > **NOTE:** One and only one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
+        > **Note:** One and only one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
         """
         return pulumi.get(self, "virtual_network_subnet_id")
 
@@ -28571,13 +28619,13 @@ class WindowsFunctionAppAuthSettings(dict):
         :param Sequence[builtins.str] allowed_external_redirect_urls: Specifies a list of External URLs that can be redirected to as part of logging in or logging out of the Windows Function App.
         :param builtins.str default_provider: The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`
                
-               > **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to "RedirectToLoginPage".
+               > **Note:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to "RedirectToLoginPage".
         :param 'WindowsFunctionAppAuthSettingsFacebookArgs' facebook: A `facebook` block as defined below.
         :param 'WindowsFunctionAppAuthSettingsGithubArgs' github: A `github` block as defined below.
         :param 'WindowsFunctionAppAuthSettingsGoogleArgs' google: A `google` block as defined below.
         :param builtins.str issuer: The OpenID Connect Issuer URI that represents the entity which issues access tokens for this Windows Function App.
                
-               > **NOTE:** When using Azure Active Directory, this value is the URI of the directory tenant, e.g. <https://sts.windows.net/{tenant-guid}/>.
+               > **Note:** When using Azure Active Directory, this value is the URI of the directory tenant, e.g. <https://sts.windows.net/{tenant-guid}/>.
         :param 'WindowsFunctionAppAuthSettingsMicrosoftArgs' microsoft: A `microsoft` block as defined below.
         :param builtins.str runtime_version: The Runtime Version of the Authentication / Authorization feature in use for the Windows Function App.
         :param builtins.float token_refresh_extension_hours: The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72` hours.
@@ -28653,7 +28701,7 @@ class WindowsFunctionAppAuthSettings(dict):
         """
         The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`
 
-        > **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to "RedirectToLoginPage".
+        > **Note:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to "RedirectToLoginPage".
         """
         return pulumi.get(self, "default_provider")
 
@@ -28687,7 +28735,7 @@ class WindowsFunctionAppAuthSettings(dict):
         """
         The OpenID Connect Issuer URI that represents the entity which issues access tokens for this Windows Function App.
 
-        > **NOTE:** When using Azure Active Directory, this value is the URI of the directory tenant, e.g. <https://sts.windows.net/{tenant-guid}/>.
+        > **Note:** When using Azure Active Directory, this value is the URI of the directory tenant, e.g. <https://sts.windows.net/{tenant-guid}/>.
         """
         return pulumi.get(self, "issuer")
 
@@ -29286,10 +29334,10 @@ class WindowsFunctionAppAuthSettingsV2(dict):
         :param Sequence['WindowsFunctionAppAuthSettingsV2CustomOidcV2Args'] custom_oidc_v2s: Zero or more `custom_oidc_v2` blocks as defined below.
         :param builtins.str default_provider: The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
                
-               > **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
+               > **Note:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
         :param Sequence[builtins.str] excluded_paths: The paths which should be excluded from the `unauthenticated_action` when it is set to `RedirectToLoginPage`.
                
-               > **NOTE:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
+               > **Note:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
         :param 'WindowsFunctionAppAuthSettingsV2FacebookV2Args' facebook_v2: A `facebook_v2` block as defined below.
         :param builtins.str forward_proxy_convention: The convention used to determine the url of the request made. Possible values include `NoProxy`, `Standard`, `Custom`. Defaults to `NoProxy`.
         :param builtins.str forward_proxy_custom_host_header_name: The name of the custom header containing the host of the request.
@@ -29412,7 +29460,7 @@ class WindowsFunctionAppAuthSettingsV2(dict):
         """
         The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
 
-        > **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
+        > **Note:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
         """
         return pulumi.get(self, "default_provider")
 
@@ -29422,7 +29470,7 @@ class WindowsFunctionAppAuthSettingsV2(dict):
         """
         The paths which should be excluded from the `unauthenticated_action` when it is set to `RedirectToLoginPage`.
 
-        > **NOTE:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
+        > **Note:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
         """
         return pulumi.get(self, "excluded_paths")
 
@@ -29589,17 +29637,17 @@ class WindowsFunctionAppAuthSettingsV2ActiveDirectoryV2(dict):
         :param builtins.str client_id: The ID of the Client to use to authenticate with Azure Active Directory.
         :param builtins.str tenant_auth_endpoint: The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
                
-               > **NOTE:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
+               > **Note:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
         :param Sequence[builtins.str] allowed_applications: The list of allowed Applications for the Default Authorisation Policy.
         :param Sequence[builtins.str] allowed_audiences: Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
                
-               > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+               > **Note:** This is configured on the Authentication Provider side and is Read Only here.
         :param Sequence[builtins.str] allowed_groups: The list of allowed Group Names for the Default Authorisation Policy.
         :param Sequence[builtins.str] allowed_identities: The list of allowed Identities for the Default Authorisation Policy.
         :param builtins.str client_secret_certificate_thumbprint: The thumbprint of the certificate used for signing purposes.
         :param builtins.str client_secret_setting_name: The App Setting name that contains the client secret of the Client.
                
-               !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+               !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
         :param Sequence[builtins.str] jwt_allowed_client_applications: A list of Allowed Client Applications in the JWT Claim.
         :param Sequence[builtins.str] jwt_allowed_groups: A list of Allowed Groups in the JWT Claim.
         :param Mapping[str, builtins.str] login_parameters: A map of key-value pairs to send to the Authorisation Endpoint when a user logs in.
@@ -29642,7 +29690,7 @@ class WindowsFunctionAppAuthSettingsV2ActiveDirectoryV2(dict):
         """
         The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
 
-        > **NOTE:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
+        > **Note:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
         """
         return pulumi.get(self, "tenant_auth_endpoint")
 
@@ -29660,7 +29708,7 @@ class WindowsFunctionAppAuthSettingsV2ActiveDirectoryV2(dict):
         """
         Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
 
-        > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+        > **Note:** This is configured on the Authentication Provider side and is Read Only here.
         """
         return pulumi.get(self, "allowed_audiences")
 
@@ -29694,7 +29742,7 @@ class WindowsFunctionAppAuthSettingsV2ActiveDirectoryV2(dict):
         """
         The App Setting name that contains the client secret of the Client.
 
-        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
         """
         return pulumi.get(self, "client_secret_setting_name")
 
@@ -29762,10 +29810,10 @@ class WindowsFunctionAppAuthSettingsV2AppleV2(dict):
         :param builtins.str client_id: The OpenID Connect Client ID for the Apple web application.
         :param builtins.str client_secret_setting_name: The app setting name that contains the `client_secret` value used for Apple Login.
                
-               !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+               !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
         :param Sequence[builtins.str] login_scopes: A list of Login Scopes provided by this Authentication Provider.
                
-               > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+               > **Note:** This is configured on the Authentication Provider side and is Read Only here.
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "client_secret_setting_name", client_secret_setting_name)
@@ -29786,7 +29834,7 @@ class WindowsFunctionAppAuthSettingsV2AppleV2(dict):
         """
         The app setting name that contains the `client_secret` value used for Apple Login.
 
-        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
         """
         return pulumi.get(self, "client_secret_setting_name")
 
@@ -29796,7 +29844,7 @@ class WindowsFunctionAppAuthSettingsV2AppleV2(dict):
         """
         A list of Login Scopes provided by this Authentication Provider.
 
-        > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+        > **Note:** This is configured on the Authentication Provider side and is Read Only here.
         """
         return pulumi.get(self, "login_scopes")
 
@@ -29887,7 +29935,7 @@ class WindowsFunctionAppAuthSettingsV2CustomOidcV2(dict):
         :param builtins.str client_id: The ID of the Client to use to authenticate with the Custom OIDC.
         :param builtins.str name: The name of the Custom OIDC Authentication Provider.
                
-               > **NOTE:** An `app_setting` matching this value in upper case with the suffix of `_PROVIDER_AUTHENTICATION_SECRET` is required. e.g. `MYOIDC_PROVIDER_AUTHENTICATION_SECRET` for a value of `myoidc`.
+               > **Note:** An `app_setting` matching this value in upper case with the suffix of `_PROVIDER_AUTHENTICATION_SECRET` is required. e.g. `MYOIDC_PROVIDER_AUTHENTICATION_SECRET` for a value of `myoidc`.
         :param builtins.str openid_configuration_endpoint: The app setting name that contains the `client_secret` value used for the Custom OIDC Login.
         :param builtins.str authorisation_endpoint: The endpoint to make the Authorisation Request as supplied by `openid_configuration_endpoint` response.
         :param builtins.str certification_uri: The endpoint that provides the keys necessary to validate the token as supplied by `openid_configuration_endpoint` response.
@@ -29932,7 +29980,7 @@ class WindowsFunctionAppAuthSettingsV2CustomOidcV2(dict):
         """
         The name of the Custom OIDC Authentication Provider.
 
-        > **NOTE:** An `app_setting` matching this value in upper case with the suffix of `_PROVIDER_AUTHENTICATION_SECRET` is required. e.g. `MYOIDC_PROVIDER_AUTHENTICATION_SECRET` for a value of `myoidc`.
+        > **Note:** An `app_setting` matching this value in upper case with the suffix of `_PROVIDER_AUTHENTICATION_SECRET` is required. e.g. `MYOIDC_PROVIDER_AUTHENTICATION_SECRET` for a value of `myoidc`.
         """
         return pulumi.get(self, "name")
 
@@ -30043,7 +30091,7 @@ class WindowsFunctionAppAuthSettingsV2FacebookV2(dict):
         :param builtins.str app_id: The App ID of the Facebook app used for login.
         :param builtins.str app_secret_setting_name: The app setting name that contains the `app_secret` value used for Facebook Login.
                
-               !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+               !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
         :param builtins.str graph_api_version: The version of the Facebook API to be used while logging in.
         :param Sequence[builtins.str] login_scopes: The list of scopes that should be requested as part of Facebook Login authentication.
         """
@@ -30068,7 +30116,7 @@ class WindowsFunctionAppAuthSettingsV2FacebookV2(dict):
         """
         The app setting name that contains the `app_secret` value used for Facebook Login.
 
-        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
         """
         return pulumi.get(self, "app_secret_setting_name")
 
@@ -30120,7 +30168,7 @@ class WindowsFunctionAppAuthSettingsV2GithubV2(dict):
         :param builtins.str client_id: The ID of the GitHub app used for login.
         :param builtins.str client_secret_setting_name: The app setting name that contains the `client_secret` value used for GitHub Login.
                
-               !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+               !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
         :param Sequence[builtins.str] login_scopes: The list of OAuth 2.0 scopes that should be requested as part of GitHub Login authentication.
         """
         pulumi.set(__self__, "client_id", client_id)
@@ -30142,7 +30190,7 @@ class WindowsFunctionAppAuthSettingsV2GithubV2(dict):
         """
         The app setting name that contains the `client_secret` value used for GitHub Login.
 
-        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
         """
         return pulumi.get(self, "client_secret_setting_name")
 
@@ -30189,7 +30237,7 @@ class WindowsFunctionAppAuthSettingsV2GoogleV2(dict):
         :param builtins.str client_id: The OpenID Connect Client ID for the Google web application.
         :param builtins.str client_secret_setting_name: The app setting name that contains the `client_secret` value used for Google Login.
                
-               !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+               !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
         :param Sequence[builtins.str] allowed_audiences: Specifies a list of Allowed Audiences that should be requested as part of Google Sign-In authentication.
         :param Sequence[builtins.str] login_scopes: The list of OAuth 2.0 scopes that should be requested as part of Google Sign-In authentication.
         """
@@ -30214,7 +30262,7 @@ class WindowsFunctionAppAuthSettingsV2GoogleV2(dict):
         """
         The app setting name that contains the `client_secret` value used for Google Login.
 
-        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
         """
         return pulumi.get(self, "client_secret_setting_name")
 
@@ -30449,7 +30497,7 @@ class WindowsFunctionAppAuthSettingsV2MicrosoftV2(dict):
         :param builtins.str client_id: The OAuth 2.0 client ID that was created for the app used for authentication.
         :param builtins.str client_secret_setting_name: The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
                
-               !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+               !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
         :param Sequence[builtins.str] allowed_audiences: Specifies a list of Allowed Audiences that will be requested as part of Microsoft Sign-In authentication.
         :param Sequence[builtins.str] login_scopes: The list of Login scopes that should be requested as part of Microsoft Account authentication.
         """
@@ -30474,7 +30522,7 @@ class WindowsFunctionAppAuthSettingsV2MicrosoftV2(dict):
         """
         The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
 
-        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
         """
         return pulumi.get(self, "client_secret_setting_name")
 
@@ -30523,7 +30571,7 @@ class WindowsFunctionAppAuthSettingsV2TwitterV2(dict):
         :param builtins.str consumer_key: The OAuth 1.0a consumer key of the Twitter application used for sign-in.
         :param builtins.str consumer_secret_setting_name: The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in.
                
-               !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+               !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
         """
         pulumi.set(__self__, "consumer_key", consumer_key)
         pulumi.set(__self__, "consumer_secret_setting_name", consumer_secret_setting_name)
@@ -30542,7 +30590,7 @@ class WindowsFunctionAppAuthSettingsV2TwitterV2(dict):
         """
         The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in.
 
-        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
         """
         return pulumi.get(self, "consumer_secret_setting_name")
 
@@ -30655,7 +30703,7 @@ class WindowsFunctionAppBackupSchedule(dict):
         """
         :param builtins.int frequency_interval: How often the backup should be executed (e.g. for weekly backup, this should be set to `7` and `frequency_unit` should be set to `Day`).
                
-               > **NOTE:** Not all intervals are supported on all Windows Function App SKUs. Please refer to the official documentation for appropriate values.
+               > **Note:** Not all intervals are supported on all Windows Function App SKUs. Please refer to the official documentation for appropriate values.
         :param builtins.str frequency_unit: The unit of time for how often the backup should take place. Possible values include: `Day` and `Hour`.
         :param builtins.bool keep_at_least_one_backup: Should the service keep at least one backup, regardless of age of backup. Defaults to `false`.
         :param builtins.str last_execution_time: The time the backup was last attempted.
@@ -30679,7 +30727,7 @@ class WindowsFunctionAppBackupSchedule(dict):
         """
         How often the backup should be executed (e.g. for weekly backup, this should be set to `7` and `frequency_unit` should be set to `Day`).
 
-        > **NOTE:** Not all intervals are supported on all Windows Function App SKUs. Please refer to the official documentation for appropriate values.
+        > **Note:** Not all intervals are supported on all Windows Function App SKUs. Please refer to the official documentation for appropriate values.
         """
         return pulumi.get(self, "frequency_interval")
 
@@ -30796,7 +30844,7 @@ class WindowsFunctionAppIdentity(dict):
         :param builtins.str type: Specifies the type of Managed Service Identity that should be configured on this Windows Function App. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
         :param Sequence[builtins.str] identity_ids: A list of User Assigned Managed Identity IDs to be assigned to this Windows Function App.
                
-               > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+               > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         :param builtins.str principal_id: The Principal ID associated with this Managed Service Identity.
         :param builtins.str tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
@@ -30822,7 +30870,7 @@ class WindowsFunctionAppIdentity(dict):
         """
         A list of User Assigned Managed Identity IDs to be assigned to this Windows Function App.
 
-        > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+        > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         """
         return pulumi.get(self, "identity_ids")
 
@@ -30970,7 +31018,7 @@ class WindowsFunctionAppSiteConfig(dict):
         """
         :param builtins.bool always_on: If this Windows Function App is Always On enabled. Defaults to `false`.
                
-               > **NOTE:** when running in a Consumption or Premium Plan, `always_on` feature should be turned off. Please turn it off before upgrading the service plan from standard to premium.
+               > **Note:** when running in a Consumption or Premium Plan, `always_on` feature should be turned off. Please turn it off before upgrading the service plan from standard to premium.
         :param builtins.str api_definition_url: The URL of the API definition that describes this Windows Function App.
         :param builtins.str api_management_api_id: The ID of the API Management API for this Windows Function App.
         :param builtins.str app_command_line: The App command line to launch.
@@ -30999,7 +31047,7 @@ class WindowsFunctionAppSiteConfig(dict):
         :param builtins.str remote_debugging_version: The Remote Debugging Version. Currently only `VS2022` is supported.
         :param builtins.bool runtime_scale_monitoring_enabled: Should Scale Monitoring of the Functions Runtime be enabled?
                
-               > **NOTE:** Functions runtime scale monitoring can only be enabled for Elastic Premium Function Apps or Workflow Standard Logic Apps and requires a minimum prewarmed instance count of 1.
+               > **Note:** Functions runtime scale monitoring can only be enabled for Elastic Premium Function Apps or Workflow Standard Logic Apps and requires a minimum prewarmed instance count of 1.
         :param builtins.str scm_ip_restriction_default_action: The Default action for traffic that does not match any `scm_ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
         :param Sequence['WindowsFunctionAppSiteConfigScmIpRestrictionArgs'] scm_ip_restrictions: One or more `scm_ip_restriction` blocks as defined above.
         :param builtins.str scm_minimum_tls_version: Configures the minimum version of TLS required for SSL requests to the SCM site. Possible values include: `1.0`, `1.1`, `1.2` and `1.3`. Defaults to `1.2`.
@@ -31090,7 +31138,7 @@ class WindowsFunctionAppSiteConfig(dict):
         """
         If this Windows Function App is Always On enabled. Defaults to `false`.
 
-        > **NOTE:** when running in a Consumption or Premium Plan, `always_on` feature should be turned off. Please turn it off before upgrading the service plan from standard to premium.
+        > **Note:** when running in a Consumption or Premium Plan, `always_on` feature should be turned off. Please turn it off before upgrading the service plan from standard to premium.
         """
         return pulumi.get(self, "always_on")
 
@@ -31294,7 +31342,7 @@ class WindowsFunctionAppSiteConfig(dict):
         """
         Should Scale Monitoring of the Functions Runtime be enabled?
 
-        > **NOTE:** Functions runtime scale monitoring can only be enabled for Elastic Premium Function Apps or Workflow Standard Logic Apps and requires a minimum prewarmed instance count of 1.
+        > **Note:** Functions runtime scale monitoring can only be enabled for Elastic Premium Function Apps or Workflow Standard Logic Apps and requires a minimum prewarmed instance count of 1.
         """
         return pulumi.get(self, "runtime_scale_monitoring_enabled")
 
@@ -31407,7 +31455,7 @@ class WindowsFunctionAppSiteConfigAppServiceLogs(dict):
         :param builtins.int disk_quota_mb: The amount of disk space to use for logs. Valid values are between `25` and `100`. Defaults to `35`.
         :param builtins.int retention_period_days: The retention period for logs in days. Valid values are between `0` and `99999`.(never delete).
                
-               > **NOTE:** This block is not supported on Consumption plans.
+               > **Note:** This block is not supported on Consumption plans.
         """
         if disk_quota_mb is not None:
             pulumi.set(__self__, "disk_quota_mb", disk_quota_mb)
@@ -31428,7 +31476,7 @@ class WindowsFunctionAppSiteConfigAppServiceLogs(dict):
         """
         The retention period for logs in days. Valid values are between `0` and `99999`.(never delete).
 
-        > **NOTE:** This block is not supported on Consumption plans.
+        > **Note:** This block is not supported on Consumption plans.
         """
         return pulumi.get(self, "retention_period_days")
 
@@ -31475,7 +31523,7 @@ class WindowsFunctionAppSiteConfigApplicationStack(dict):
         :param builtins.str node_version: The version of Node to run. Possible values include `~12`, `~14`, `~16`, `~18` `~20` and `~22`.
         :param builtins.str powershell_core_version: The version of PowerShell Core to run. Possible values are `7`, `7.2`, and `7.4`.
                
-               > **NOTE:** A value of `7` will provide the latest stable version. `7.2` is in preview at the time of writing.
+               > **Note:** A value of `7` will provide the latest stable version. `7.2` is in preview at the time of writing.
         :param builtins.bool use_custom_runtime: Should the Windows Function App use a custom runtime?
         :param builtins.bool use_dotnet_isolated_runtime: Should the DotNet process use an isolated runtime. Defaults to `false`.
         """
@@ -31522,7 +31570,7 @@ class WindowsFunctionAppSiteConfigApplicationStack(dict):
         """
         The version of PowerShell Core to run. Possible values are `7`, `7.2`, and `7.4`.
 
-        > **NOTE:** A value of `7` will provide the latest stable version. `7.2` is in preview at the time of writing.
+        > **Note:** A value of `7` will provide the latest stable version. `7.2` is in preview at the time of writing.
         """
         return pulumi.get(self, "powershell_core_version")
 
@@ -31635,7 +31683,7 @@ class WindowsFunctionAppSiteConfigIpRestriction(dict):
         :param builtins.str service_tag: The Service Tag used for this IP Restriction.
         :param builtins.str virtual_network_subnet_id: The Virtual Network Subnet ID used for this IP Restriction.
                
-               > **NOTE:** One and only one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
+               > **Note:** One and only one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
         """
         if action is not None:
             pulumi.set(__self__, "action", action)
@@ -31716,7 +31764,7 @@ class WindowsFunctionAppSiteConfigIpRestriction(dict):
         """
         The Virtual Network Subnet ID used for this IP Restriction.
 
-        > **NOTE:** One and only one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
+        > **Note:** One and only one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
         """
         return pulumi.get(self, "virtual_network_subnet_id")
 
@@ -31841,7 +31889,7 @@ class WindowsFunctionAppSiteConfigScmIpRestriction(dict):
         :param builtins.str service_tag: The Service Tag used for this IP Restriction.
         :param builtins.str virtual_network_subnet_id: The Virtual Network Subnet ID used for this IP Restriction.
                
-               > **NOTE:** One and only one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
+               > **Note:** One and only one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
         """
         if action is not None:
             pulumi.set(__self__, "action", action)
@@ -31922,7 +31970,7 @@ class WindowsFunctionAppSiteConfigScmIpRestriction(dict):
         """
         The Virtual Network Subnet ID used for this IP Restriction.
 
-        > **NOTE:** One and only one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
+        > **Note:** One and only one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
         """
         return pulumi.get(self, "virtual_network_subnet_id")
 
@@ -32092,13 +32140,13 @@ class WindowsFunctionAppSlotAuthSettings(dict):
         :param Sequence[builtins.str] allowed_external_redirect_urls: Specifies a list of External URLs that can be redirected to as part of logging in or logging out of the Windows Web App.
         :param builtins.str default_provider: The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`.
                
-               > **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to "RedirectToLoginPage".
+               > **Note:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to "RedirectToLoginPage".
         :param 'WindowsFunctionAppSlotAuthSettingsFacebookArgs' facebook: a `facebook` block as detailed below.
         :param 'WindowsFunctionAppSlotAuthSettingsGithubArgs' github: a `github` block as detailed below.
         :param 'WindowsFunctionAppSlotAuthSettingsGoogleArgs' google: a `google` block as detailed below.
         :param builtins.str issuer: The OpenID Connect Issuer URI that represents the entity which issues access tokens.
                
-               > **NOTE:** When using Azure Active Directory, this value is the URI of the directory tenant, e.g. <https://sts.windows.net/{tenant-guid}/>.
+               > **Note:** When using Azure Active Directory, this value is the URI of the directory tenant, e.g. <https://sts.windows.net/{tenant-guid}/>.
         :param 'WindowsFunctionAppSlotAuthSettingsMicrosoftArgs' microsoft: a `microsoft` block as detailed below.
         :param builtins.str runtime_version: The RuntimeVersion of the Authentication / Authorization feature in use.
         :param builtins.float token_refresh_extension_hours: The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72` hours.
@@ -32174,7 +32222,7 @@ class WindowsFunctionAppSlotAuthSettings(dict):
         """
         The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`.
 
-        > **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to "RedirectToLoginPage".
+        > **Note:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to "RedirectToLoginPage".
         """
         return pulumi.get(self, "default_provider")
 
@@ -32208,7 +32256,7 @@ class WindowsFunctionAppSlotAuthSettings(dict):
         """
         The OpenID Connect Issuer URI that represents the entity which issues access tokens.
 
-        > **NOTE:** When using Azure Active Directory, this value is the URI of the directory tenant, e.g. <https://sts.windows.net/{tenant-guid}/>.
+        > **Note:** When using Azure Active Directory, this value is the URI of the directory tenant, e.g. <https://sts.windows.net/{tenant-guid}/>.
         """
         return pulumi.get(self, "issuer")
 
@@ -32807,10 +32855,10 @@ class WindowsFunctionAppSlotAuthSettingsV2(dict):
         :param Sequence['WindowsFunctionAppSlotAuthSettingsV2CustomOidcV2Args'] custom_oidc_v2s: Zero or more `custom_oidc_v2` blocks as defined below.
         :param builtins.str default_provider: The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
                
-               > **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
+               > **Note:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
         :param Sequence[builtins.str] excluded_paths: The paths which should be excluded from the `unauthenticated_action` when it is set to `RedirectToLoginPage`.
                
-               > **NOTE:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
+               > **Note:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
         :param 'WindowsFunctionAppSlotAuthSettingsV2FacebookV2Args' facebook_v2: A `facebook_v2` block as defined below.
         :param builtins.str forward_proxy_convention: The convention used to determine the url of the request made. Possible values include `NoProxy`, `Standard`, `Custom`. Defaults to `NoProxy`.
         :param builtins.str forward_proxy_custom_host_header_name: The name of the custom header containing the host of the request.
@@ -32933,7 +32981,7 @@ class WindowsFunctionAppSlotAuthSettingsV2(dict):
         """
         The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
 
-        > **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
+        > **Note:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
         """
         return pulumi.get(self, "default_provider")
 
@@ -32943,7 +32991,7 @@ class WindowsFunctionAppSlotAuthSettingsV2(dict):
         """
         The paths which should be excluded from the `unauthenticated_action` when it is set to `RedirectToLoginPage`.
 
-        > **NOTE:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
+        > **Note:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
         """
         return pulumi.get(self, "excluded_paths")
 
@@ -33110,17 +33158,17 @@ class WindowsFunctionAppSlotAuthSettingsV2ActiveDirectoryV2(dict):
         :param builtins.str client_id: The ID of the Client to use to authenticate with Azure Active Directory.
         :param builtins.str tenant_auth_endpoint: The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
                
-               > **NOTE:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
+               > **Note:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
         :param Sequence[builtins.str] allowed_applications: The list of allowed Applications for the Default Authorisation Policy.
         :param Sequence[builtins.str] allowed_audiences: Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
                
-               > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+               > **Note:** This is configured on the Authentication Provider side and is Read Only here.
         :param Sequence[builtins.str] allowed_groups: The list of allowed Group Names for the Default Authorisation Policy.
         :param Sequence[builtins.str] allowed_identities: The list of allowed Identities for the Default Authorisation Policy.
         :param builtins.str client_secret_certificate_thumbprint: The thumbprint of the certificate used for signing purposes.
         :param builtins.str client_secret_setting_name: The App Setting name that contains the client secret of the Client.
                
-               !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+               !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
         :param Sequence[builtins.str] jwt_allowed_client_applications: A list of Allowed Client Applications in the JWT Claim.
         :param Sequence[builtins.str] jwt_allowed_groups: A list of Allowed Groups in the JWT Claim.
         :param Mapping[str, builtins.str] login_parameters: A map of key-value pairs to send to the Authorisation Endpoint when a user logs in.
@@ -33163,7 +33211,7 @@ class WindowsFunctionAppSlotAuthSettingsV2ActiveDirectoryV2(dict):
         """
         The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
 
-        > **NOTE:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
+        > **Note:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
         """
         return pulumi.get(self, "tenant_auth_endpoint")
 
@@ -33181,7 +33229,7 @@ class WindowsFunctionAppSlotAuthSettingsV2ActiveDirectoryV2(dict):
         """
         Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
 
-        > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+        > **Note:** This is configured on the Authentication Provider side and is Read Only here.
         """
         return pulumi.get(self, "allowed_audiences")
 
@@ -33215,7 +33263,7 @@ class WindowsFunctionAppSlotAuthSettingsV2ActiveDirectoryV2(dict):
         """
         The App Setting name that contains the client secret of the Client.
 
-        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
         """
         return pulumi.get(self, "client_secret_setting_name")
 
@@ -33283,10 +33331,10 @@ class WindowsFunctionAppSlotAuthSettingsV2AppleV2(dict):
         :param builtins.str client_id: The OpenID Connect Client ID for the Apple web application.
         :param builtins.str client_secret_setting_name: The app setting name that contains the `client_secret` value used for Apple Login.
                
-               !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+               !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
         :param Sequence[builtins.str] login_scopes: A list of Login Scopes provided by this Authentication Provider.
                
-               > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+               > **Note:** This is configured on the Authentication Provider side and is Read Only here.
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "client_secret_setting_name", client_secret_setting_name)
@@ -33307,7 +33355,7 @@ class WindowsFunctionAppSlotAuthSettingsV2AppleV2(dict):
         """
         The app setting name that contains the `client_secret` value used for Apple Login.
 
-        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
         """
         return pulumi.get(self, "client_secret_setting_name")
 
@@ -33317,7 +33365,7 @@ class WindowsFunctionAppSlotAuthSettingsV2AppleV2(dict):
         """
         A list of Login Scopes provided by this Authentication Provider.
 
-        > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+        > **Note:** This is configured on the Authentication Provider side and is Read Only here.
         """
         return pulumi.get(self, "login_scopes")
 
@@ -33408,7 +33456,7 @@ class WindowsFunctionAppSlotAuthSettingsV2CustomOidcV2(dict):
         :param builtins.str client_id: The ID of the Client to use to authenticate with the Custom OIDC.
         :param builtins.str name: The name of the Custom OIDC Authentication Provider.
                
-               > **NOTE:** An `app_setting` matching this value in upper case with the suffix of `_PROVIDER_AUTHENTICATION_SECRET` is required. e.g. `MYOIDC_PROVIDER_AUTHENTICATION_SECRET` for a value of `myoidc`.
+               > **Note:** An `app_setting` matching this value in upper case with the suffix of `_PROVIDER_AUTHENTICATION_SECRET` is required. e.g. `MYOIDC_PROVIDER_AUTHENTICATION_SECRET` for a value of `myoidc`.
         :param builtins.str openid_configuration_endpoint: The app setting name that contains the `client_secret` value used for the Custom OIDC Login.
         :param builtins.str authorisation_endpoint: The endpoint to make the Authorisation Request as supplied by `openid_configuration_endpoint` response.
         :param builtins.str certification_uri: The endpoint that provides the keys necessary to validate the token as supplied by `openid_configuration_endpoint` response.
@@ -33453,7 +33501,7 @@ class WindowsFunctionAppSlotAuthSettingsV2CustomOidcV2(dict):
         """
         The name of the Custom OIDC Authentication Provider.
 
-        > **NOTE:** An `app_setting` matching this value in upper case with the suffix of `_PROVIDER_AUTHENTICATION_SECRET` is required. e.g. `MYOIDC_PROVIDER_AUTHENTICATION_SECRET` for a value of `myoidc`.
+        > **Note:** An `app_setting` matching this value in upper case with the suffix of `_PROVIDER_AUTHENTICATION_SECRET` is required. e.g. `MYOIDC_PROVIDER_AUTHENTICATION_SECRET` for a value of `myoidc`.
         """
         return pulumi.get(self, "name")
 
@@ -33564,7 +33612,7 @@ class WindowsFunctionAppSlotAuthSettingsV2FacebookV2(dict):
         :param builtins.str app_id: The App ID of the Facebook app used for login.
         :param builtins.str app_secret_setting_name: The app setting name that contains the `app_secret` value used for Facebook Login.
                
-               !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+               !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
         :param builtins.str graph_api_version: The version of the Facebook API to be used while logging in.
         :param Sequence[builtins.str] login_scopes: The list of scopes that should be requested as part of Facebook Login authentication.
         """
@@ -33589,7 +33637,7 @@ class WindowsFunctionAppSlotAuthSettingsV2FacebookV2(dict):
         """
         The app setting name that contains the `app_secret` value used for Facebook Login.
 
-        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
         """
         return pulumi.get(self, "app_secret_setting_name")
 
@@ -33641,7 +33689,7 @@ class WindowsFunctionAppSlotAuthSettingsV2GithubV2(dict):
         :param builtins.str client_id: The ID of the GitHub app used for login.
         :param builtins.str client_secret_setting_name: The app setting name that contains the `client_secret` value used for GitHub Login.
                
-               !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+               !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
         :param Sequence[builtins.str] login_scopes: The list of OAuth 2.0 scopes that should be requested as part of GitHub Login authentication.
         """
         pulumi.set(__self__, "client_id", client_id)
@@ -33663,7 +33711,7 @@ class WindowsFunctionAppSlotAuthSettingsV2GithubV2(dict):
         """
         The app setting name that contains the `client_secret` value used for GitHub Login.
 
-        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
         """
         return pulumi.get(self, "client_secret_setting_name")
 
@@ -33710,7 +33758,7 @@ class WindowsFunctionAppSlotAuthSettingsV2GoogleV2(dict):
         :param builtins.str client_id: The OpenID Connect Client ID for the Google web application.
         :param builtins.str client_secret_setting_name: The app setting name that contains the `client_secret` value used for Google Login.
                
-               !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+               !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
         :param Sequence[builtins.str] allowed_audiences: Specifies a list of Allowed Audiences that should be requested as part of Google Sign-In authentication.
         :param Sequence[builtins.str] login_scopes: The list of OAuth 2.0 scopes that should be requested as part of Google Sign-In authentication.
         """
@@ -33735,7 +33783,7 @@ class WindowsFunctionAppSlotAuthSettingsV2GoogleV2(dict):
         """
         The app setting name that contains the `client_secret` value used for Google Login.
 
-        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
         """
         return pulumi.get(self, "client_secret_setting_name")
 
@@ -33970,7 +34018,7 @@ class WindowsFunctionAppSlotAuthSettingsV2MicrosoftV2(dict):
         :param builtins.str client_id: The OAuth 2.0 client ID that was created for the app used for authentication.
         :param builtins.str client_secret_setting_name: The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
                
-               !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+               !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
         :param Sequence[builtins.str] allowed_audiences: Specifies a list of Allowed Audiences that will be requested as part of Microsoft Sign-In authentication.
         :param Sequence[builtins.str] login_scopes: The list of Login scopes that should be requested as part of Microsoft Account authentication.
         """
@@ -33995,7 +34043,7 @@ class WindowsFunctionAppSlotAuthSettingsV2MicrosoftV2(dict):
         """
         The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
 
-        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
         """
         return pulumi.get(self, "client_secret_setting_name")
 
@@ -34044,7 +34092,7 @@ class WindowsFunctionAppSlotAuthSettingsV2TwitterV2(dict):
         :param builtins.str consumer_key: The OAuth 1.0a consumer key of the Twitter application used for sign-in.
         :param builtins.str consumer_secret_setting_name: The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in.
                
-               !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+               !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
         """
         pulumi.set(__self__, "consumer_key", consumer_key)
         pulumi.set(__self__, "consumer_secret_setting_name", consumer_secret_setting_name)
@@ -34063,7 +34111,7 @@ class WindowsFunctionAppSlotAuthSettingsV2TwitterV2(dict):
         """
         The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in.
 
-        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
         """
         return pulumi.get(self, "consumer_secret_setting_name")
 
@@ -34176,7 +34224,7 @@ class WindowsFunctionAppSlotBackupSchedule(dict):
         """
         :param builtins.int frequency_interval: How often the backup should be executed (e.g. for weekly backup, this should be set to `7` and `frequency_unit` should be set to `Day`).
                
-               > **NOTE:** Not all intervals are supported on all SKUs. Please refer to the official documentation for appropriate values.
+               > **Note:** Not all intervals are supported on all SKUs. Please refer to the official documentation for appropriate values.
         :param builtins.str frequency_unit: The unit of time for how often the backup should take place. Possible values include: `Day` and `Hour`.
         :param builtins.bool keep_at_least_one_backup: Should the service keep at least one backup, regardless of age of backup. Defaults to `false`.
         :param builtins.str last_execution_time: The time the backup was last attempted.
@@ -34200,7 +34248,7 @@ class WindowsFunctionAppSlotBackupSchedule(dict):
         """
         How often the backup should be executed (e.g. for weekly backup, this should be set to `7` and `frequency_unit` should be set to `Day`).
 
-        > **NOTE:** Not all intervals are supported on all SKUs. Please refer to the official documentation for appropriate values.
+        > **Note:** Not all intervals are supported on all SKUs. Please refer to the official documentation for appropriate values.
         """
         return pulumi.get(self, "frequency_interval")
 
@@ -34317,7 +34365,7 @@ class WindowsFunctionAppSlotIdentity(dict):
         :param builtins.str type: Specifies the type of Managed Service Identity that should be configured on this Windows Function App Slot. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
         :param Sequence[builtins.str] identity_ids: A list of User Assigned Managed Identity IDs to be assigned to this Windows Function App Slot.
                
-               > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+               > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         :param builtins.str principal_id: The Principal ID associated with this Managed Service Identity.
         :param builtins.str tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
@@ -34343,7 +34391,7 @@ class WindowsFunctionAppSlotIdentity(dict):
         """
         A list of User Assigned Managed Identity IDs to be assigned to this Windows Function App Slot.
 
-        > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+        > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         """
         return pulumi.get(self, "identity_ids")
 
@@ -34520,7 +34568,7 @@ class WindowsFunctionAppSlotSiteConfig(dict):
         :param builtins.str remote_debugging_version: The Remote Debugging Version. Currently only `VS2022` is supported.
         :param builtins.bool runtime_scale_monitoring_enabled: Should Scale Monitoring of the Functions Runtime be enabled?
                
-               > **NOTE:** Functions runtime scale monitoring can only be enabled for Elastic Premium Function Apps or Workflow Standard Logic Apps and requires a minimum prewarmed instance count of 1.
+               > **Note:** Functions runtime scale monitoring can only be enabled for Elastic Premium Function Apps or Workflow Standard Logic Apps and requires a minimum prewarmed instance count of 1.
         :param builtins.str scm_ip_restriction_default_action: The Default action for traffic that does not match any `scm_ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
         :param Sequence['WindowsFunctionAppSlotSiteConfigScmIpRestrictionArgs'] scm_ip_restrictions: a `scm_ip_restriction` block as detailed below.
         :param builtins.str scm_minimum_tls_version: Configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, `1.2` and `1.3`. Defaults to `1.2`.
@@ -34821,7 +34869,7 @@ class WindowsFunctionAppSlotSiteConfig(dict):
         """
         Should Scale Monitoring of the Functions Runtime be enabled?
 
-        > **NOTE:** Functions runtime scale monitoring can only be enabled for Elastic Premium Function Apps or Workflow Standard Logic Apps and requires a minimum prewarmed instance count of 1.
+        > **Note:** Functions runtime scale monitoring can only be enabled for Elastic Premium Function Apps or Workflow Standard Logic Apps and requires a minimum prewarmed instance count of 1.
         """
         return pulumi.get(self, "runtime_scale_monitoring_enabled")
 
@@ -34934,7 +34982,7 @@ class WindowsFunctionAppSlotSiteConfigAppServiceLogs(dict):
         :param builtins.int disk_quota_mb: The amount of disk space to use for logs. Valid values are between `25` and `100`. Defaults to `35`.
         :param builtins.int retention_period_days: The retention period for logs in days. Valid values are between `0` and `99999`.(never delete).
                
-               > **NOTE:** This block is not supported on Consumption plans.
+               > **Note:** This block is not supported on Consumption plans.
         """
         if disk_quota_mb is not None:
             pulumi.set(__self__, "disk_quota_mb", disk_quota_mb)
@@ -34955,7 +35003,7 @@ class WindowsFunctionAppSlotSiteConfigAppServiceLogs(dict):
         """
         The retention period for logs in days. Valid values are between `0` and `99999`.(never delete).
 
-        > **NOTE:** This block is not supported on Consumption plans.
+        > **Note:** This block is not supported on Consumption plans.
         """
         return pulumi.get(self, "retention_period_days")
 
@@ -35158,7 +35206,7 @@ class WindowsFunctionAppSlotSiteConfigIpRestriction(dict):
         :param builtins.str service_tag: The Service Tag used for this IP Restriction.
         :param builtins.str virtual_network_subnet_id: The Virtual Network Subnet ID used for this IP Restriction.
                
-               > **NOTE:** One and only one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
+               > **Note:** One and only one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
         """
         if action is not None:
             pulumi.set(__self__, "action", action)
@@ -35239,7 +35287,7 @@ class WindowsFunctionAppSlotSiteConfigIpRestriction(dict):
         """
         The Virtual Network Subnet ID used for this IP Restriction.
 
-        > **NOTE:** One and only one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
+        > **Note:** One and only one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
         """
         return pulumi.get(self, "virtual_network_subnet_id")
 
@@ -35364,7 +35412,7 @@ class WindowsFunctionAppSlotSiteConfigScmIpRestriction(dict):
         :param builtins.str service_tag: The Service Tag used for this IP Restriction.
         :param builtins.str virtual_network_subnet_id: The Virtual Network Subnet ID used for this IP Restriction.
                
-               > **NOTE:** Exactly one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
+               > **Note:** Exactly one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
         """
         if action is not None:
             pulumi.set(__self__, "action", action)
@@ -35445,7 +35493,7 @@ class WindowsFunctionAppSlotSiteConfigScmIpRestriction(dict):
         """
         The Virtual Network Subnet ID used for this IP Restriction.
 
-        > **NOTE:** Exactly one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
+        > **Note:** Exactly one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
         """
         return pulumi.get(self, "virtual_network_subnet_id")
 
@@ -35859,13 +35907,13 @@ class WindowsWebAppAuthSettings(dict):
         :param Sequence[builtins.str] allowed_external_redirect_urls: Specifies a list of External URLs that can be redirected to as part of logging in or logging out of the Windows Web App.
         :param builtins.str default_provider: The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`
                
-               > **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to "RedirectToLoginPage".
+               > **Note:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to "RedirectToLoginPage".
         :param 'WindowsWebAppAuthSettingsFacebookArgs' facebook: A `facebook` block as defined below.
         :param 'WindowsWebAppAuthSettingsGithubArgs' github: A `github` block as defined below.
         :param 'WindowsWebAppAuthSettingsGoogleArgs' google: A `google` block as defined below.
         :param builtins.str issuer: The OpenID Connect Issuer URI that represents the entity which issues access tokens for this Windows Web App.
                
-               > **NOTE:** When using Azure Active Directory, this value is the URI of the directory tenant, e.g. <https://sts.windows.net/{tenant-guid}/>.
+               > **Note:** When using Azure Active Directory, this value is the URI of the directory tenant, e.g. <https://sts.windows.net/{tenant-guid}/>.
         :param 'WindowsWebAppAuthSettingsMicrosoftArgs' microsoft: A `microsoft` block as defined below.
         :param builtins.str runtime_version: The RuntimeVersion of the Authentication / Authorization feature in use for the Windows Web App.
         :param builtins.float token_refresh_extension_hours: The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72` hours.
@@ -35941,7 +35989,7 @@ class WindowsWebAppAuthSettings(dict):
         """
         The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`
 
-        > **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to "RedirectToLoginPage".
+        > **Note:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to "RedirectToLoginPage".
         """
         return pulumi.get(self, "default_provider")
 
@@ -35975,7 +36023,7 @@ class WindowsWebAppAuthSettings(dict):
         """
         The OpenID Connect Issuer URI that represents the entity which issues access tokens for this Windows Web App.
 
-        > **NOTE:** When using Azure Active Directory, this value is the URI of the directory tenant, e.g. <https://sts.windows.net/{tenant-guid}/>.
+        > **Note:** When using Azure Active Directory, this value is the URI of the directory tenant, e.g. <https://sts.windows.net/{tenant-guid}/>.
         """
         return pulumi.get(self, "issuer")
 
@@ -36574,10 +36622,10 @@ class WindowsWebAppAuthSettingsV2(dict):
         :param Sequence['WindowsWebAppAuthSettingsV2CustomOidcV2Args'] custom_oidc_v2s: Zero or more `custom_oidc_v2` blocks as defined below.
         :param builtins.str default_provider: The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
                
-               > **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
+               > **Note:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
         :param Sequence[builtins.str] excluded_paths: The paths which should be excluded from the `unauthenticated_action` when it is set to `RedirectToLoginPage`.
                
-               > **NOTE:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
+               > **Note:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
         :param 'WindowsWebAppAuthSettingsV2FacebookV2Args' facebook_v2: A `facebook_v2` block as defined below.
         :param builtins.str forward_proxy_convention: The convention used to determine the url of the request made. Possible values include `NoProxy`, `Standard`, `Custom`. Defaults to `NoProxy`.
         :param builtins.str forward_proxy_custom_host_header_name: The name of the custom header containing the host of the request.
@@ -36700,7 +36748,7 @@ class WindowsWebAppAuthSettingsV2(dict):
         """
         The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
 
-        > **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
+        > **Note:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
         """
         return pulumi.get(self, "default_provider")
 
@@ -36710,7 +36758,7 @@ class WindowsWebAppAuthSettingsV2(dict):
         """
         The paths which should be excluded from the `unauthenticated_action` when it is set to `RedirectToLoginPage`.
 
-        > **NOTE:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
+        > **Note:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
         """
         return pulumi.get(self, "excluded_paths")
 
@@ -36877,17 +36925,17 @@ class WindowsWebAppAuthSettingsV2ActiveDirectoryV2(dict):
         :param builtins.str client_id: The ID of the Client to use to authenticate with Azure Active Directory.
         :param builtins.str tenant_auth_endpoint: The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
                
-               > **NOTE:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
+               > **Note:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
         :param Sequence[builtins.str] allowed_applications: The list of allowed Applications for the Default Authorisation Policy.
         :param Sequence[builtins.str] allowed_audiences: Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
                
-               > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+               > **Note:** This is configured on the Authentication Provider side and is Read Only here.
         :param Sequence[builtins.str] allowed_groups: The list of allowed Group Names for the Default Authorisation Policy.
         :param Sequence[builtins.str] allowed_identities: The list of allowed Identities for the Default Authorisation Policy.
         :param builtins.str client_secret_certificate_thumbprint: The thumbprint of the certificate used for signing purposes.
         :param builtins.str client_secret_setting_name: The App Setting name that contains the client secret of the Client.
                
-               !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+               !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
         :param Sequence[builtins.str] jwt_allowed_client_applications: A list of Allowed Client Applications in the JWT Claim.
         :param Sequence[builtins.str] jwt_allowed_groups: A list of Allowed Groups in the JWT Claim.
         :param Mapping[str, builtins.str] login_parameters: A map of key-value pairs to send to the Authorisation Endpoint when a user logs in.
@@ -36930,7 +36978,7 @@ class WindowsWebAppAuthSettingsV2ActiveDirectoryV2(dict):
         """
         The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
 
-        > **NOTE:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
+        > **Note:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
         """
         return pulumi.get(self, "tenant_auth_endpoint")
 
@@ -36948,7 +36996,7 @@ class WindowsWebAppAuthSettingsV2ActiveDirectoryV2(dict):
         """
         Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
 
-        > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+        > **Note:** This is configured on the Authentication Provider side and is Read Only here.
         """
         return pulumi.get(self, "allowed_audiences")
 
@@ -36982,7 +37030,7 @@ class WindowsWebAppAuthSettingsV2ActiveDirectoryV2(dict):
         """
         The App Setting name that contains the client secret of the Client.
 
-        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
         """
         return pulumi.get(self, "client_secret_setting_name")
 
@@ -37050,10 +37098,10 @@ class WindowsWebAppAuthSettingsV2AppleV2(dict):
         :param builtins.str client_id: The OpenID Connect Client ID for the Apple web application.
         :param builtins.str client_secret_setting_name: The app setting name that contains the `client_secret` value used for Apple Login.
                
-               !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+               !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
         :param Sequence[builtins.str] login_scopes: A list of Login Scopes provided by this Authentication Provider.
                
-               > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+               > **Note:** This is configured on the Authentication Provider side and is Read Only here.
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "client_secret_setting_name", client_secret_setting_name)
@@ -37074,7 +37122,7 @@ class WindowsWebAppAuthSettingsV2AppleV2(dict):
         """
         The app setting name that contains the `client_secret` value used for Apple Login.
 
-        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
         """
         return pulumi.get(self, "client_secret_setting_name")
 
@@ -37084,7 +37132,7 @@ class WindowsWebAppAuthSettingsV2AppleV2(dict):
         """
         A list of Login Scopes provided by this Authentication Provider.
 
-        > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+        > **Note:** This is configured on the Authentication Provider side and is Read Only here.
         """
         return pulumi.get(self, "login_scopes")
 
@@ -37175,7 +37223,7 @@ class WindowsWebAppAuthSettingsV2CustomOidcV2(dict):
         :param builtins.str client_id: The ID of the Client to use to authenticate with the Custom OIDC.
         :param builtins.str name: The name of the Custom OIDC Authentication Provider.
                
-               > **NOTE:** An `app_setting` matching this value in upper case with the suffix of `_PROVIDER_AUTHENTICATION_SECRET` is required. e.g. `MYOIDC_PROVIDER_AUTHENTICATION_SECRET` for a value of `myoidc`.
+               > **Note:** An `app_setting` matching this value in upper case with the suffix of `_PROVIDER_AUTHENTICATION_SECRET` is required. e.g. `MYOIDC_PROVIDER_AUTHENTICATION_SECRET` for a value of `myoidc`.
         :param builtins.str openid_configuration_endpoint: The app setting name that contains the `client_secret` value used for the Custom OIDC Login.
         :param builtins.str authorisation_endpoint: The endpoint to make the Authorisation Request as supplied by `openid_configuration_endpoint` response.
         :param builtins.str certification_uri: The endpoint that provides the keys necessary to validate the token as supplied by `openid_configuration_endpoint` response.
@@ -37220,7 +37268,7 @@ class WindowsWebAppAuthSettingsV2CustomOidcV2(dict):
         """
         The name of the Custom OIDC Authentication Provider.
 
-        > **NOTE:** An `app_setting` matching this value in upper case with the suffix of `_PROVIDER_AUTHENTICATION_SECRET` is required. e.g. `MYOIDC_PROVIDER_AUTHENTICATION_SECRET` for a value of `myoidc`.
+        > **Note:** An `app_setting` matching this value in upper case with the suffix of `_PROVIDER_AUTHENTICATION_SECRET` is required. e.g. `MYOIDC_PROVIDER_AUTHENTICATION_SECRET` for a value of `myoidc`.
         """
         return pulumi.get(self, "name")
 
@@ -37331,7 +37379,7 @@ class WindowsWebAppAuthSettingsV2FacebookV2(dict):
         :param builtins.str app_id: The App ID of the Facebook app used for login.
         :param builtins.str app_secret_setting_name: The app setting name that contains the `app_secret` value used for Facebook Login.
                
-               !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+               !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
         :param builtins.str graph_api_version: The version of the Facebook API to be used while logging in.
         :param Sequence[builtins.str] login_scopes: The list of scopes that should be requested as part of Facebook Login authentication.
         """
@@ -37356,7 +37404,7 @@ class WindowsWebAppAuthSettingsV2FacebookV2(dict):
         """
         The app setting name that contains the `app_secret` value used for Facebook Login.
 
-        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
         """
         return pulumi.get(self, "app_secret_setting_name")
 
@@ -37408,7 +37456,7 @@ class WindowsWebAppAuthSettingsV2GithubV2(dict):
         :param builtins.str client_id: The ID of the GitHub app used for login.
         :param builtins.str client_secret_setting_name: The app setting name that contains the `client_secret` value used for GitHub Login.
                
-               !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+               !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
         :param Sequence[builtins.str] login_scopes: The list of OAuth 2.0 scopes that should be requested as part of GitHub Login authentication.
         """
         pulumi.set(__self__, "client_id", client_id)
@@ -37430,7 +37478,7 @@ class WindowsWebAppAuthSettingsV2GithubV2(dict):
         """
         The app setting name that contains the `client_secret` value used for GitHub Login.
 
-        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
         """
         return pulumi.get(self, "client_secret_setting_name")
 
@@ -37477,7 +37525,7 @@ class WindowsWebAppAuthSettingsV2GoogleV2(dict):
         :param builtins.str client_id: The OpenID Connect Client ID for the Google web application.
         :param builtins.str client_secret_setting_name: The app setting name that contains the `client_secret` value used for Google Login.
                
-               !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+               !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
         :param Sequence[builtins.str] allowed_audiences: Specifies a list of Allowed Audiences that should be requested as part of Google Sign-In authentication.
         :param Sequence[builtins.str] login_scopes: The list of OAuth 2.0 scopes that should be requested as part of Google Sign-In authentication.
         """
@@ -37502,7 +37550,7 @@ class WindowsWebAppAuthSettingsV2GoogleV2(dict):
         """
         The app setting name that contains the `client_secret` value used for Google Login.
 
-        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
         """
         return pulumi.get(self, "client_secret_setting_name")
 
@@ -37737,7 +37785,7 @@ class WindowsWebAppAuthSettingsV2MicrosoftV2(dict):
         :param builtins.str client_id: The OAuth 2.0 client ID that was created for the app used for authentication.
         :param builtins.str client_secret_setting_name: The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
                
-               !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+               !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
         :param Sequence[builtins.str] allowed_audiences: Specifies a list of Allowed Audiences that will be requested as part of Microsoft Sign-In authentication.
         :param Sequence[builtins.str] login_scopes: The list of Login scopes that should be requested as part of Microsoft Account authentication.
         """
@@ -37762,7 +37810,7 @@ class WindowsWebAppAuthSettingsV2MicrosoftV2(dict):
         """
         The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
 
-        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
         """
         return pulumi.get(self, "client_secret_setting_name")
 
@@ -37811,7 +37859,7 @@ class WindowsWebAppAuthSettingsV2TwitterV2(dict):
         :param builtins.str consumer_key: The OAuth 1.0a consumer key of the Twitter application used for sign-in.
         :param builtins.str consumer_secret_setting_name: The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in.
                
-               !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+               !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
         """
         pulumi.set(__self__, "consumer_key", consumer_key)
         pulumi.set(__self__, "consumer_secret_setting_name", consumer_secret_setting_name)
@@ -37830,7 +37878,7 @@ class WindowsWebAppAuthSettingsV2TwitterV2(dict):
         """
         The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in.
 
-        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
         """
         return pulumi.get(self, "consumer_secret_setting_name")
 
@@ -37943,7 +37991,7 @@ class WindowsWebAppBackupSchedule(dict):
         """
         :param builtins.int frequency_interval: How often the backup should be executed (e.g. for weekly backup, this should be set to `7` and `frequency_unit` should be set to `Day`).
                
-               > **NOTE:** Not all intervals are supported on all Windows Web App SKUs. Please refer to the official documentation for appropriate values.
+               > **Note:** Not all intervals are supported on all Windows Web App SKUs. Please refer to the official documentation for appropriate values.
         :param builtins.str frequency_unit: The unit of time for how often the backup should take place. Possible values include: `Day`, `Hour`
         :param builtins.bool keep_at_least_one_backup: Should the service keep at least one backup, regardless of age of backup. Defaults to `false`.
         :param builtins.str last_execution_time: The time the backup was last attempted.
@@ -37967,7 +38015,7 @@ class WindowsWebAppBackupSchedule(dict):
         """
         How often the backup should be executed (e.g. for weekly backup, this should be set to `7` and `frequency_unit` should be set to `Day`).
 
-        > **NOTE:** Not all intervals are supported on all Windows Web App SKUs. Please refer to the official documentation for appropriate values.
+        > **Note:** Not all intervals are supported on all Windows Web App SKUs. Please refer to the official documentation for appropriate values.
         """
         return pulumi.get(self, "frequency_interval")
 
@@ -38084,7 +38132,7 @@ class WindowsWebAppIdentity(dict):
         :param builtins.str type: Specifies the type of Managed Service Identity that should be configured on this Windows Web App. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
         :param Sequence[builtins.str] identity_ids: A list of User Assigned Managed Identity IDs to be assigned to this Windows Web App.
                
-               > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+               > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         :param builtins.str principal_id: The Principal ID associated with this Managed Service Identity.
         :param builtins.str tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
@@ -38110,7 +38158,7 @@ class WindowsWebAppIdentity(dict):
         """
         A list of User Assigned Managed Identity IDs to be assigned to this Windows Web App.
 
-        > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+        > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         """
         return pulumi.get(self, "identity_ids")
 
@@ -38591,7 +38639,7 @@ class WindowsWebAppSiteConfig(dict):
         """
         :param builtins.bool always_on: If this Windows Web App is Always On enabled. Defaults to `true`.
                
-               > **NOTE:** `always_on` must be explicitly set to `false` when using `Free`, `F1`, `D1`, or `Shared` Service Plans.
+               > **Note:** `always_on` must be explicitly set to `false` when using `Free`, `F1`, `D1`, or `Shared` Service Plans.
         :param builtins.str api_definition_url: The URL to the API Definition for this Windows Web App.
         :param builtins.str api_management_api_id: The API Management API ID this Windows Web App Slot is associated with.
         :param builtins.str app_command_line: The App command line to launch.
@@ -38702,7 +38750,7 @@ class WindowsWebAppSiteConfig(dict):
         """
         If this Windows Web App is Always On enabled. Defaults to `true`.
 
-        > **NOTE:** `always_on` must be explicitly set to `false` when using `Free`, `F1`, `D1`, or `Shared` Service Plans.
+        > **Note:** `always_on` must be explicitly set to `false` when using `Free`, `F1`, `D1`, or `Shared` Service Plans.
         """
         return pulumi.get(self, "always_on")
 
@@ -39036,19 +39084,19 @@ class WindowsWebAppSiteConfigApplicationStack(dict):
         """
         :param builtins.str current_stack: The Application Stack for the Windows Web App. Possible values include `dotnet`, `dotnetcore`, `node`, `python`, `php`, and `java`.
                
-               > **NOTE:** Whilst this property is Optional omitting it can cause unexpected behaviour, in particular for display of settings in the Azure Portal.
+               > **Note:** Whilst this property is Optional omitting it can cause unexpected behaviour, in particular for display of settings in the Azure Portal.
                
-               > **NOTE:** Windows Web apps can configure multiple `app_stack` properties, it is recommended to always configure this `Optional` value and set it to the primary application stack of your app to ensure correct operation of this resource and display the correct metadata in the Azure Portal.
+               > **Note:** Windows Web apps can configure multiple `app_stack` properties, it is recommended to always configure this `Optional` value and set it to the primary application stack of your app to ensure correct operation of this resource and display the correct metadata in the Azure Portal.
         :param builtins.str docker_image_name: The docker image, including tag, to be used. e.g. `azure-app-service/windows/parkingpage:latest`.
         :param builtins.str docker_registry_password: The User Name to use for authentication against the registry to pull the image.
                
-               > **NOTE:** `docker_registry_url`, `docker_registry_username`, and `docker_registry_password` replace the use of the `app_settings` values of `DOCKER_REGISTRY_SERVER_URL`, `DOCKER_REGISTRY_SERVER_USERNAME` and `DOCKER_REGISTRY_SERVER_PASSWORD` respectively, these values will be managed by the provider and should not be specified in the `app_settings` map.
+               > **Note:** `docker_registry_url`, `docker_registry_username`, and `docker_registry_password` replace the use of the `app_settings` values of `DOCKER_REGISTRY_SERVER_URL`, `DOCKER_REGISTRY_SERVER_USERNAME` and `DOCKER_REGISTRY_SERVER_PASSWORD` respectively, these values will be managed by the provider and should not be specified in the `app_settings` map.
         :param builtins.str docker_registry_url: The URL of the container registry where the `docker_image_name` is located. e.g. `https://index.docker.io` or `https://mcr.microsoft.com`. This value is required with `docker_image_name`.
         :param builtins.str docker_registry_username: The User Name to use for authentication against the registry to pull the image.
         :param builtins.str dotnet_core_version: The version of .NET to use when `current_stack` is set to `dotnetcore`. Possible values include `v4.0`.
         :param builtins.str dotnet_version: The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0`, `v7.0`, `v8.0` and `v9.0`.
                
-               > **NOTE:** The Portal displayed values and the actual underlying API values differ for this setting, as follows:
+               > **Note:** The Portal displayed values and the actual underlying API values differ for this setting, as follows:
                Portal Value | API value
                :--|--:
                ASP.NET V3.5 | v2.0
@@ -39060,17 +39108,17 @@ class WindowsWebAppSiteConfigApplicationStack(dict):
         :param builtins.bool java_embedded_server_enabled: Should the Java Embedded Server (Java SE) be used to run the app.
         :param builtins.str java_version: The version of Java to use when `current_stack` is set to `java`. 
                
-               > **NOTE:** For currently supported versions, please see the official documentation. Some example values include: `1.8`, `1.8.0_322`,  `11`, `11.0.14`, `17` and `17.0.2`
+               > **Note:** For currently supported versions, please see the official documentation. Some example values include: `1.8`, `1.8.0_322`,  `11`, `11.0.14`, `17` and `17.0.2`
         :param builtins.str node_version: The version of node to use when `current_stack` is set to `node`. Possible values are `~12`, `~14`, `~16`, `~18`, `~20` and `~22`.
                
-               > **NOTE:** This property conflicts with `java_version`.
+               > **Note:** This property conflicts with `java_version`.
         :param builtins.str php_version: The version of PHP to use when `current_stack` is set to `php`. Possible values are `7.1`, `7.4` and `Off`.
                
-               > **NOTE:** The value `Off` is used to signify latest supported by the service.
+               > **Note:** The value `Off` is used to signify latest supported by the service.
         :param builtins.bool python: Specifies whether this is a Python app. Defaults to `false`.
         :param builtins.str tomcat_version: The version of Tomcat the Java App should use. Conflicts with `java_embedded_server_enabled`
                
-               > **NOTE:** See the official documentation for current supported versions. Some example values include: `10.0`, `10.0.20`.
+               > **Note:** See the official documentation for current supported versions. Some example values include: `10.0`, `10.0.20`.
         """
         if current_stack is not None:
             pulumi.set(__self__, "current_stack", current_stack)
@@ -39109,9 +39157,9 @@ class WindowsWebAppSiteConfigApplicationStack(dict):
         """
         The Application Stack for the Windows Web App. Possible values include `dotnet`, `dotnetcore`, `node`, `python`, `php`, and `java`.
 
-        > **NOTE:** Whilst this property is Optional omitting it can cause unexpected behaviour, in particular for display of settings in the Azure Portal.
+        > **Note:** Whilst this property is Optional omitting it can cause unexpected behaviour, in particular for display of settings in the Azure Portal.
 
-        > **NOTE:** Windows Web apps can configure multiple `app_stack` properties, it is recommended to always configure this `Optional` value and set it to the primary application stack of your app to ensure correct operation of this resource and display the correct metadata in the Azure Portal.
+        > **Note:** Windows Web apps can configure multiple `app_stack` properties, it is recommended to always configure this `Optional` value and set it to the primary application stack of your app to ensure correct operation of this resource and display the correct metadata in the Azure Portal.
         """
         return pulumi.get(self, "current_stack")
 
@@ -39129,7 +39177,7 @@ class WindowsWebAppSiteConfigApplicationStack(dict):
         """
         The User Name to use for authentication against the registry to pull the image.
 
-        > **NOTE:** `docker_registry_url`, `docker_registry_username`, and `docker_registry_password` replace the use of the `app_settings` values of `DOCKER_REGISTRY_SERVER_URL`, `DOCKER_REGISTRY_SERVER_USERNAME` and `DOCKER_REGISTRY_SERVER_PASSWORD` respectively, these values will be managed by the provider and should not be specified in the `app_settings` map.
+        > **Note:** `docker_registry_url`, `docker_registry_username`, and `docker_registry_password` replace the use of the `app_settings` values of `DOCKER_REGISTRY_SERVER_URL`, `DOCKER_REGISTRY_SERVER_USERNAME` and `DOCKER_REGISTRY_SERVER_PASSWORD` respectively, these values will be managed by the provider and should not be specified in the `app_settings` map.
         """
         return pulumi.get(self, "docker_registry_password")
 
@@ -39163,7 +39211,7 @@ class WindowsWebAppSiteConfigApplicationStack(dict):
         """
         The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0`, `v7.0`, `v8.0` and `v9.0`.
 
-        > **NOTE:** The Portal displayed values and the actual underlying API values differ for this setting, as follows:
+        > **Note:** The Portal displayed values and the actual underlying API values differ for this setting, as follows:
         Portal Value | API value
         :--|--:
         ASP.NET V3.5 | v2.0
@@ -39201,7 +39249,7 @@ class WindowsWebAppSiteConfigApplicationStack(dict):
         """
         The version of Java to use when `current_stack` is set to `java`. 
 
-        > **NOTE:** For currently supported versions, please see the official documentation. Some example values include: `1.8`, `1.8.0_322`,  `11`, `11.0.14`, `17` and `17.0.2`
+        > **Note:** For currently supported versions, please see the official documentation. Some example values include: `1.8`, `1.8.0_322`,  `11`, `11.0.14`, `17` and `17.0.2`
         """
         return pulumi.get(self, "java_version")
 
@@ -39211,7 +39259,7 @@ class WindowsWebAppSiteConfigApplicationStack(dict):
         """
         The version of node to use when `current_stack` is set to `node`. Possible values are `~12`, `~14`, `~16`, `~18`, `~20` and `~22`.
 
-        > **NOTE:** This property conflicts with `java_version`.
+        > **Note:** This property conflicts with `java_version`.
         """
         return pulumi.get(self, "node_version")
 
@@ -39221,7 +39269,7 @@ class WindowsWebAppSiteConfigApplicationStack(dict):
         """
         The version of PHP to use when `current_stack` is set to `php`. Possible values are `7.1`, `7.4` and `Off`.
 
-        > **NOTE:** The value `Off` is used to signify latest supported by the service.
+        > **Note:** The value `Off` is used to signify latest supported by the service.
         """
         return pulumi.get(self, "php_version")
 
@@ -39239,7 +39287,7 @@ class WindowsWebAppSiteConfigApplicationStack(dict):
         """
         The version of Tomcat the Java App should use. Conflicts with `java_embedded_server_enabled`
 
-        > **NOTE:** See the official documentation for current supported versions. Some example values include: `10.0`, `10.0.20`.
+        > **Note:** See the official documentation for current supported versions. Some example values include: `10.0`, `10.0.20`.
         """
         return pulumi.get(self, "tomcat_version")
 
@@ -39858,7 +39906,7 @@ class WindowsWebAppSiteConfigIpRestriction(dict):
         :param builtins.str service_tag: The Service Tag used for this IP Restriction.
         :param builtins.str virtual_network_subnet_id: The Virtual Network Subnet ID used for this IP Restriction.
                
-               > **NOTE:** One and only one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
+               > **Note:** One and only one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
         """
         if action is not None:
             pulumi.set(__self__, "action", action)
@@ -39939,7 +39987,7 @@ class WindowsWebAppSiteConfigIpRestriction(dict):
         """
         The Virtual Network Subnet ID used for this IP Restriction.
 
-        > **NOTE:** One and only one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
+        > **Note:** One and only one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
         """
         return pulumi.get(self, "virtual_network_subnet_id")
 
@@ -40064,7 +40112,7 @@ class WindowsWebAppSiteConfigScmIpRestriction(dict):
         :param builtins.str service_tag: The Service Tag used for this IP Restriction.
         :param builtins.str virtual_network_subnet_id: The Virtual Network Subnet ID used for this IP Restriction.
                
-               > **NOTE:** One and only one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
+               > **Note:** One and only one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
         """
         if action is not None:
             pulumi.set(__self__, "action", action)
@@ -40145,7 +40193,7 @@ class WindowsWebAppSiteConfigScmIpRestriction(dict):
         """
         The Virtual Network Subnet ID used for this IP Restriction.
 
-        > **NOTE:** One and only one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
+        > **Note:** One and only one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
         """
         return pulumi.get(self, "virtual_network_subnet_id")
 
@@ -40438,13 +40486,13 @@ class WindowsWebAppSlotAuthSettings(dict):
         :param Sequence[builtins.str] allowed_external_redirect_urls: Specifies a list of External URLs that can be redirected to as part of logging in or logging out of the Windows Web App Slot.
         :param builtins.str default_provider: The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`.
                
-               > **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to "RedirectToLoginPage".
+               > **Note:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to "RedirectToLoginPage".
         :param 'WindowsWebAppSlotAuthSettingsFacebookArgs' facebook: A `facebook` block as defined below.
         :param 'WindowsWebAppSlotAuthSettingsGithubArgs' github: A `github` block as defined below.
         :param 'WindowsWebAppSlotAuthSettingsGoogleArgs' google: A `google` block as defined below.
         :param builtins.str issuer: The OpenID Connect Issuer URI that represents the entity which issues access tokens for this Windows Web App Slot.
                
-               > **NOTE:** When using Azure Active Directory, this value is the URI of the directory tenant, e.g. <https://sts.windows.net/{tenant-guid}/>.
+               > **Note:** When using Azure Active Directory, this value is the URI of the directory tenant, e.g. <https://sts.windows.net/{tenant-guid}/>.
         :param 'WindowsWebAppSlotAuthSettingsMicrosoftArgs' microsoft: A `microsoft` block as defined below.
         :param builtins.str runtime_version: The RuntimeVersion of the Authentication / Authorization feature in use for the Windows Web App Slot.
         :param builtins.float token_refresh_extension_hours: The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72` hours.
@@ -40520,7 +40568,7 @@ class WindowsWebAppSlotAuthSettings(dict):
         """
         The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`.
 
-        > **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to "RedirectToLoginPage".
+        > **Note:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to "RedirectToLoginPage".
         """
         return pulumi.get(self, "default_provider")
 
@@ -40554,7 +40602,7 @@ class WindowsWebAppSlotAuthSettings(dict):
         """
         The OpenID Connect Issuer URI that represents the entity which issues access tokens for this Windows Web App Slot.
 
-        > **NOTE:** When using Azure Active Directory, this value is the URI of the directory tenant, e.g. <https://sts.windows.net/{tenant-guid}/>.
+        > **Note:** When using Azure Active Directory, this value is the URI of the directory tenant, e.g. <https://sts.windows.net/{tenant-guid}/>.
         """
         return pulumi.get(self, "issuer")
 
@@ -41153,10 +41201,10 @@ class WindowsWebAppSlotAuthSettingsV2(dict):
         :param Sequence['WindowsWebAppSlotAuthSettingsV2CustomOidcV2Args'] custom_oidc_v2s: Zero or more `custom_oidc_v2` blocks as defined below.
         :param builtins.str default_provider: The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
                
-               > **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
+               > **Note:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
         :param Sequence[builtins.str] excluded_paths: The paths which should be excluded from the `unauthenticated_action` when it is set to `RedirectToLoginPage`.
                
-               > **NOTE:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
+               > **Note:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
         :param 'WindowsWebAppSlotAuthSettingsV2FacebookV2Args' facebook_v2: A `facebook_v2` block as defined below.
         :param builtins.str forward_proxy_convention: The convention used to determine the url of the request made. Possible values include `NoProxy`, `Standard`, `Custom`. Defaults to `NoProxy`.
         :param builtins.str forward_proxy_custom_host_header_name: The name of the custom header containing the host of the request.
@@ -41279,7 +41327,7 @@ class WindowsWebAppSlotAuthSettingsV2(dict):
         """
         The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
 
-        > **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
+        > **Note:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
         """
         return pulumi.get(self, "default_provider")
 
@@ -41289,7 +41337,7 @@ class WindowsWebAppSlotAuthSettingsV2(dict):
         """
         The paths which should be excluded from the `unauthenticated_action` when it is set to `RedirectToLoginPage`.
 
-        > **NOTE:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
+        > **Note:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
         """
         return pulumi.get(self, "excluded_paths")
 
@@ -41456,17 +41504,17 @@ class WindowsWebAppSlotAuthSettingsV2ActiveDirectoryV2(dict):
         :param builtins.str client_id: The ID of the Client to use to authenticate with Azure Active Directory.
         :param builtins.str tenant_auth_endpoint: The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
                
-               > **NOTE:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
+               > **Note:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
         :param Sequence[builtins.str] allowed_applications: The list of allowed Applications for the Default Authorisation Policy.
         :param Sequence[builtins.str] allowed_audiences: Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
                
-               > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+               > **Note:** This is configured on the Authentication Provider side and is Read Only here.
         :param Sequence[builtins.str] allowed_groups: The list of allowed Group Names for the Default Authorisation Policy.
         :param Sequence[builtins.str] allowed_identities: The list of allowed Identities for the Default Authorisation Policy.
         :param builtins.str client_secret_certificate_thumbprint: The thumbprint of the certificate used for signing purposes.
         :param builtins.str client_secret_setting_name: The App Setting name that contains the client secret of the Client.
                
-               !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+               !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
         :param Sequence[builtins.str] jwt_allowed_client_applications: A list of Allowed Client Applications in the JWT Claim.
         :param Sequence[builtins.str] jwt_allowed_groups: A list of Allowed Groups in the JWT Claim.
         :param Mapping[str, builtins.str] login_parameters: A map of key-value pairs to send to the Authorisation Endpoint when a user logs in.
@@ -41509,7 +41557,7 @@ class WindowsWebAppSlotAuthSettingsV2ActiveDirectoryV2(dict):
         """
         The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
 
-        > **NOTE:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
+        > **Note:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
         """
         return pulumi.get(self, "tenant_auth_endpoint")
 
@@ -41527,7 +41575,7 @@ class WindowsWebAppSlotAuthSettingsV2ActiveDirectoryV2(dict):
         """
         Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
 
-        > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+        > **Note:** This is configured on the Authentication Provider side and is Read Only here.
         """
         return pulumi.get(self, "allowed_audiences")
 
@@ -41561,7 +41609,7 @@ class WindowsWebAppSlotAuthSettingsV2ActiveDirectoryV2(dict):
         """
         The App Setting name that contains the client secret of the Client.
 
-        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
         """
         return pulumi.get(self, "client_secret_setting_name")
 
@@ -41629,10 +41677,10 @@ class WindowsWebAppSlotAuthSettingsV2AppleV2(dict):
         :param builtins.str client_id: The OpenID Connect Client ID for the Apple web application.
         :param builtins.str client_secret_setting_name: The app setting name that contains the `client_secret` value used for Apple Login.
                
-               !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+               !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
         :param Sequence[builtins.str] login_scopes: A list of Login Scopes provided by this Authentication Provider.
                
-               > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+               > **Note:** This is configured on the Authentication Provider side and is Read Only here.
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "client_secret_setting_name", client_secret_setting_name)
@@ -41653,7 +41701,7 @@ class WindowsWebAppSlotAuthSettingsV2AppleV2(dict):
         """
         The app setting name that contains the `client_secret` value used for Apple Login.
 
-        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
         """
         return pulumi.get(self, "client_secret_setting_name")
 
@@ -41663,7 +41711,7 @@ class WindowsWebAppSlotAuthSettingsV2AppleV2(dict):
         """
         A list of Login Scopes provided by this Authentication Provider.
 
-        > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+        > **Note:** This is configured on the Authentication Provider side and is Read Only here.
         """
         return pulumi.get(self, "login_scopes")
 
@@ -41754,7 +41802,7 @@ class WindowsWebAppSlotAuthSettingsV2CustomOidcV2(dict):
         :param builtins.str client_id: The ID of the Client to use to authenticate with the Custom OIDC.
         :param builtins.str name: The name of the Custom OIDC Authentication Provider.
                
-               > **NOTE:** An `app_setting` matching this value in upper case with the suffix of `_PROVIDER_AUTHENTICATION_SECRET` is required. e.g. `MYOIDC_PROVIDER_AUTHENTICATION_SECRET` for a value of `myoidc`.
+               > **Note:** An `app_setting` matching this value in upper case with the suffix of `_PROVIDER_AUTHENTICATION_SECRET` is required. e.g. `MYOIDC_PROVIDER_AUTHENTICATION_SECRET` for a value of `myoidc`.
         :param builtins.str openid_configuration_endpoint: The app setting name that contains the `client_secret` value used for the Custom OIDC Login.
         :param builtins.str authorisation_endpoint: The endpoint to make the Authorisation Request as supplied by `openid_configuration_endpoint` response.
         :param builtins.str certification_uri: The endpoint that provides the keys necessary to validate the token as supplied by `openid_configuration_endpoint` response.
@@ -41799,7 +41847,7 @@ class WindowsWebAppSlotAuthSettingsV2CustomOidcV2(dict):
         """
         The name of the Custom OIDC Authentication Provider.
 
-        > **NOTE:** An `app_setting` matching this value in upper case with the suffix of `_PROVIDER_AUTHENTICATION_SECRET` is required. e.g. `MYOIDC_PROVIDER_AUTHENTICATION_SECRET` for a value of `myoidc`.
+        > **Note:** An `app_setting` matching this value in upper case with the suffix of `_PROVIDER_AUTHENTICATION_SECRET` is required. e.g. `MYOIDC_PROVIDER_AUTHENTICATION_SECRET` for a value of `myoidc`.
         """
         return pulumi.get(self, "name")
 
@@ -41910,7 +41958,7 @@ class WindowsWebAppSlotAuthSettingsV2FacebookV2(dict):
         :param builtins.str app_id: The App ID of the Facebook app used for login.
         :param builtins.str app_secret_setting_name: The app setting name that contains the `app_secret` value used for Facebook Login.
                
-               !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+               !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
         :param builtins.str graph_api_version: The version of the Facebook API to be used while logging in.
         :param Sequence[builtins.str] login_scopes: The list of scopes that should be requested as part of Facebook Login authentication.
         """
@@ -41935,7 +41983,7 @@ class WindowsWebAppSlotAuthSettingsV2FacebookV2(dict):
         """
         The app setting name that contains the `app_secret` value used for Facebook Login.
 
-        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
         """
         return pulumi.get(self, "app_secret_setting_name")
 
@@ -41987,7 +42035,7 @@ class WindowsWebAppSlotAuthSettingsV2GithubV2(dict):
         :param builtins.str client_id: The ID of the GitHub app used for login..
         :param builtins.str client_secret_setting_name: The app setting name that contains the `client_secret` value used for GitHub Login.
                
-               !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+               !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
         :param Sequence[builtins.str] login_scopes: The list of OAuth 2.0 scopes that should be requested as part of GitHub Login authentication.
         """
         pulumi.set(__self__, "client_id", client_id)
@@ -42009,7 +42057,7 @@ class WindowsWebAppSlotAuthSettingsV2GithubV2(dict):
         """
         The app setting name that contains the `client_secret` value used for GitHub Login.
 
-        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
         """
         return pulumi.get(self, "client_secret_setting_name")
 
@@ -42056,7 +42104,7 @@ class WindowsWebAppSlotAuthSettingsV2GoogleV2(dict):
         :param builtins.str client_id: The OpenID Connect Client ID for the Google web application.
         :param builtins.str client_secret_setting_name: The app setting name that contains the `client_secret` value used for Google Login.
                
-               !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+               !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
         :param Sequence[builtins.str] allowed_audiences: Specifies a list of Allowed Audiences that should be requested as part of Google Sign-In authentication.
         :param Sequence[builtins.str] login_scopes: The list of OAuth 2.0 scopes that should be requested as part of Google Sign-In authentication.
         """
@@ -42081,7 +42129,7 @@ class WindowsWebAppSlotAuthSettingsV2GoogleV2(dict):
         """
         The app setting name that contains the `client_secret` value used for Google Login.
 
-        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
         """
         return pulumi.get(self, "client_secret_setting_name")
 
@@ -42316,7 +42364,7 @@ class WindowsWebAppSlotAuthSettingsV2MicrosoftV2(dict):
         :param builtins.str client_id: The OAuth 2.0 client ID that was created for the app used for authentication.
         :param builtins.str client_secret_setting_name: The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
                
-               !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+               !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
         :param Sequence[builtins.str] allowed_audiences: Specifies a list of Allowed Audiences that will be requested as part of Microsoft Sign-In authentication.
         :param Sequence[builtins.str] login_scopes: The list of Login scopes that should be requested as part of Microsoft Account authentication.
         """
@@ -42341,7 +42389,7 @@ class WindowsWebAppSlotAuthSettingsV2MicrosoftV2(dict):
         """
         The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
 
-        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
         """
         return pulumi.get(self, "client_secret_setting_name")
 
@@ -42390,7 +42438,7 @@ class WindowsWebAppSlotAuthSettingsV2TwitterV2(dict):
         :param builtins.str consumer_key: The OAuth 1.0a consumer key of the Twitter application used for sign-in.
         :param builtins.str consumer_secret_setting_name: The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in.
                
-               !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+               !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
         """
         pulumi.set(__self__, "consumer_key", consumer_key)
         pulumi.set(__self__, "consumer_secret_setting_name", consumer_secret_setting_name)
@@ -42409,7 +42457,7 @@ class WindowsWebAppSlotAuthSettingsV2TwitterV2(dict):
         """
         The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in.
 
-        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
         """
         return pulumi.get(self, "consumer_secret_setting_name")
 
@@ -42522,7 +42570,7 @@ class WindowsWebAppSlotBackupSchedule(dict):
         """
         :param builtins.int frequency_interval: How often the backup should be executed (e.g. for weekly backup, this should be set to `7` and `frequency_unit` should be set to `Day`).
                
-               > **NOTE:** Not all intervals are supported on all Windows Web App SKUs. Please refer to the official documentation for appropriate values.
+               > **Note:** Not all intervals are supported on all Windows Web App SKUs. Please refer to the official documentation for appropriate values.
         :param builtins.str frequency_unit: The unit of time for how often the backup should take place. Possible values include: `Day`, `Hour`
         :param builtins.bool keep_at_least_one_backup: Should the service keep at least one backup, regardless of age of backup. Defaults to `false`.
         :param builtins.str last_execution_time: The time the backup was last attempted.
@@ -42546,7 +42594,7 @@ class WindowsWebAppSlotBackupSchedule(dict):
         """
         How often the backup should be executed (e.g. for weekly backup, this should be set to `7` and `frequency_unit` should be set to `Day`).
 
-        > **NOTE:** Not all intervals are supported on all Windows Web App SKUs. Please refer to the official documentation for appropriate values.
+        > **Note:** Not all intervals are supported on all Windows Web App SKUs. Please refer to the official documentation for appropriate values.
         """
         return pulumi.get(self, "frequency_interval")
 
@@ -42663,7 +42711,7 @@ class WindowsWebAppSlotIdentity(dict):
         :param builtins.str type: Specifies the type of Managed Service Identity that should be configured on this Windows Web App Slot. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
         :param Sequence[builtins.str] identity_ids: A list of User Assigned Managed Identity IDs to be assigned to this Windows Web App Slot.
                
-               > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+               > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         :param builtins.str principal_id: The Principal ID associated with this Managed Service Identity.
         :param builtins.str tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
@@ -42689,7 +42737,7 @@ class WindowsWebAppSlotIdentity(dict):
         """
         A list of User Assigned Managed Identity IDs to be assigned to this Windows Web App Slot.
 
-        > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+        > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         """
         return pulumi.get(self, "identity_ids")
 
@@ -43619,11 +43667,11 @@ class WindowsWebAppSlotSiteConfigApplicationStack(dict):
         """
         :param builtins.str current_stack: The Application Stack for the Windows Web App. Possible values include `dotnet`, `dotnetcore`, `node`, `python`, `php`, and `java`.
                
-               > **NOTE:** Whilst this property is Optional omitting it can cause unexpected behaviour, in particular for display of settings in the Azure Portal.
+               > **Note:** Whilst this property is Optional omitting it can cause unexpected behaviour, in particular for display of settings in the Azure Portal.
         :param builtins.str docker_image_name: The docker image, including tag, to be used. e.g. `azure-app-service/windows/parkingpage:latest`.
         :param builtins.str docker_registry_password: The User Name to use for authentication against the registry to pull the image.
                
-               > **NOTE:** `docker_registry_url`, `docker_registry_username`, and `docker_registry_password` replace the use of the `app_settings` values of `DOCKER_REGISTRY_SERVER_URL`, `DOCKER_REGISTRY_SERVER_USERNAME` and `DOCKER_REGISTRY_SERVER_PASSWORD` respectively, these values will be managed by the provider and should not be specified in the `app_settings` map.
+               > **Note:** `docker_registry_url`, `docker_registry_username`, and `docker_registry_password` replace the use of the `app_settings` values of `DOCKER_REGISTRY_SERVER_URL`, `DOCKER_REGISTRY_SERVER_USERNAME` and `DOCKER_REGISTRY_SERVER_PASSWORD` respectively, these values will be managed by the provider and should not be specified in the `app_settings` map.
         :param builtins.str docker_registry_url: The URL of the container registry where the `docker_image_name` is located. e.g. `https://index.docker.io` or `https://mcr.microsoft.com`. This value is required with `docker_image_name`.
         :param builtins.str docker_registry_username: The User Name to use for authentication against the registry to pull the image.
         :param builtins.str dotnet_core_version: The version of .NET to use when `current_stack` is set to `dotnetcore`. Possible values include `v4.0`.
@@ -43631,17 +43679,17 @@ class WindowsWebAppSlotSiteConfigApplicationStack(dict):
         :param builtins.bool java_embedded_server_enabled: Should the Java Embedded Server (Java SE) be used to run the app.
         :param builtins.str java_version: The version of Java to use when `current_stack` is set to `java`. Possible values include `1.7`, `1.8`, `11` and `17`. Required with `java_container` and `java_container_version`.
                
-               > **NOTE:** For compatible combinations of `java_version`, `java_container` and `java_container_version` users can use `az webapp list-runtimes` from command line.
+               > **Note:** For compatible combinations of `java_version`, `java_container` and `java_container_version` users can use `az webapp list-runtimes` from command line.
         :param builtins.str node_version: The version of node to use when `current_stack` is set to `node`. Possible values include `~12`, `~14`, `~16`, `~18`, `~20` and `~22`.
                
-               > **NOTE:** This property conflicts with `java_version`.
+               > **Note:** This property conflicts with `java_version`.
         :param builtins.str php_version: The version of PHP to use when `current_stack` is set to `php`. Possible values are `7.1`, `7.4` and `Off`.
                
-               > **NOTE:** The value `Off` is used to signify latest supported by the service.
+               > **Note:** The value `Off` is used to signify latest supported by the service.
         :param builtins.bool python: The app is a Python app. Defaults to `false`.
         :param builtins.str tomcat_version: The version of Tomcat the Java App should use.
                
-               > **NOTE:** See the official documentation for current supported versions.
+               > **Note:** See the official documentation for current supported versions.
         """
         if current_stack is not None:
             pulumi.set(__self__, "current_stack", current_stack)
@@ -43680,7 +43728,7 @@ class WindowsWebAppSlotSiteConfigApplicationStack(dict):
         """
         The Application Stack for the Windows Web App. Possible values include `dotnet`, `dotnetcore`, `node`, `python`, `php`, and `java`.
 
-        > **NOTE:** Whilst this property is Optional omitting it can cause unexpected behaviour, in particular for display of settings in the Azure Portal.
+        > **Note:** Whilst this property is Optional omitting it can cause unexpected behaviour, in particular for display of settings in the Azure Portal.
         """
         return pulumi.get(self, "current_stack")
 
@@ -43698,7 +43746,7 @@ class WindowsWebAppSlotSiteConfigApplicationStack(dict):
         """
         The User Name to use for authentication against the registry to pull the image.
 
-        > **NOTE:** `docker_registry_url`, `docker_registry_username`, and `docker_registry_password` replace the use of the `app_settings` values of `DOCKER_REGISTRY_SERVER_URL`, `DOCKER_REGISTRY_SERVER_USERNAME` and `DOCKER_REGISTRY_SERVER_PASSWORD` respectively, these values will be managed by the provider and should not be specified in the `app_settings` map.
+        > **Note:** `docker_registry_url`, `docker_registry_username`, and `docker_registry_password` replace the use of the `app_settings` values of `DOCKER_REGISTRY_SERVER_URL`, `DOCKER_REGISTRY_SERVER_USERNAME` and `DOCKER_REGISTRY_SERVER_PASSWORD` respectively, these values will be managed by the provider and should not be specified in the `app_settings` map.
         """
         return pulumi.get(self, "docker_registry_password")
 
@@ -43760,7 +43808,7 @@ class WindowsWebAppSlotSiteConfigApplicationStack(dict):
         """
         The version of Java to use when `current_stack` is set to `java`. Possible values include `1.7`, `1.8`, `11` and `17`. Required with `java_container` and `java_container_version`.
 
-        > **NOTE:** For compatible combinations of `java_version`, `java_container` and `java_container_version` users can use `az webapp list-runtimes` from command line.
+        > **Note:** For compatible combinations of `java_version`, `java_container` and `java_container_version` users can use `az webapp list-runtimes` from command line.
         """
         return pulumi.get(self, "java_version")
 
@@ -43770,7 +43818,7 @@ class WindowsWebAppSlotSiteConfigApplicationStack(dict):
         """
         The version of node to use when `current_stack` is set to `node`. Possible values include `~12`, `~14`, `~16`, `~18`, `~20` and `~22`.
 
-        > **NOTE:** This property conflicts with `java_version`.
+        > **Note:** This property conflicts with `java_version`.
         """
         return pulumi.get(self, "node_version")
 
@@ -43780,7 +43828,7 @@ class WindowsWebAppSlotSiteConfigApplicationStack(dict):
         """
         The version of PHP to use when `current_stack` is set to `php`. Possible values are `7.1`, `7.4` and `Off`.
 
-        > **NOTE:** The value `Off` is used to signify latest supported by the service.
+        > **Note:** The value `Off` is used to signify latest supported by the service.
         """
         return pulumi.get(self, "php_version")
 
@@ -43798,7 +43846,7 @@ class WindowsWebAppSlotSiteConfigApplicationStack(dict):
         """
         The version of Tomcat the Java App should use.
 
-        > **NOTE:** See the official documentation for current supported versions.
+        > **Note:** See the official documentation for current supported versions.
         """
         return pulumi.get(self, "tomcat_version")
 
@@ -44417,7 +44465,7 @@ class WindowsWebAppSlotSiteConfigIpRestriction(dict):
         :param builtins.str service_tag: The Service Tag used for this IP Restriction.
         :param builtins.str virtual_network_subnet_id: The Virtual Network Subnet ID used for this IP Restriction.
                
-               > **NOTE:** One and only one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
+               > **Note:** One and only one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
         """
         if action is not None:
             pulumi.set(__self__, "action", action)
@@ -44498,7 +44546,7 @@ class WindowsWebAppSlotSiteConfigIpRestriction(dict):
         """
         The Virtual Network Subnet ID used for this IP Restriction.
 
-        > **NOTE:** One and only one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
+        > **Note:** One and only one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
         """
         return pulumi.get(self, "virtual_network_subnet_id")
 
@@ -44623,7 +44671,7 @@ class WindowsWebAppSlotSiteConfigScmIpRestriction(dict):
         :param builtins.str service_tag: The Service Tag used for this IP Restriction.
         :param builtins.str virtual_network_subnet_id: The Virtual Network Subnet ID used for this IP Restriction.
                
-               > **NOTE:** One and only one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
+               > **Note:** One and only one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
         """
         if action is not None:
             pulumi.set(__self__, "action", action)
@@ -44704,7 +44752,7 @@ class WindowsWebAppSlotSiteConfigScmIpRestriction(dict):
         """
         The Virtual Network Subnet ID used for this IP Restriction.
 
-        > **NOTE:** One and only one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
+        > **Note:** One and only one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
         """
         return pulumi.get(self, "virtual_network_subnet_id")
 

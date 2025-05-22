@@ -544,6 +544,13 @@ class GroupPolicyAssignment(pulumi.CustomResource):
             management_group_id=example.id)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Authorization`: 2022-06-01
+
         ## Import
 
         Management Group Policy Assignments can be imported using the `resource id`, e.g.
@@ -610,6 +617,13 @@ class GroupPolicyAssignment(pulumi.CustomResource):
             policy_definition_id=example_definition.id,
             management_group_id=example.id)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Authorization`: 2022-06-01
 
         ## Import
 

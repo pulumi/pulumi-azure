@@ -75,7 +75,7 @@ namespace Pulumi.Azure.DataFactory
         public Output<ImmutableArray<string>> Annotations { get; private set; } = null!;
 
         /// <summary>
-        /// The type of authentication used to connect to the web table source. Valid options are `Anonymous`, `Basic` and `ClientCertificate`.
+        /// The type of authentication used to connect to the SFTP server. Valid options are `MultiFactor`, `Basic` and `SshPublicKey`.
         /// </summary>
         [Output("authenticationType")]
         public Output<string> AuthenticationType { get; private set; } = null!;
@@ -111,6 +111,28 @@ namespace Pulumi.Azure.DataFactory
         public Output<string?> IntegrationRuntimeName { get; private set; } = null!;
 
         /// <summary>
+        /// A `key_vault_password` block as defined below.
+        /// 
+        /// &gt; **Note:** Either `password` or `key_vault_password` is required when `authentication_type` is set to `Basic`.
+        /// </summary>
+        [Output("keyVaultPasswords")]
+        public Output<ImmutableArray<Outputs.LinkedServiceSftpKeyVaultPassword>> KeyVaultPasswords { get; private set; } = null!;
+
+        /// <summary>
+        /// A `key_vault_private_key_content_base64` block as defined below.
+        /// </summary>
+        [Output("keyVaultPrivateKeyContentBase64")]
+        public Output<Outputs.LinkedServiceSftpKeyVaultPrivateKeyContentBase64?> KeyVaultPrivateKeyContentBase64 { get; private set; } = null!;
+
+        /// <summary>
+        /// A `key_vault_private_key_passphrase` block as defined below.
+        /// 
+        /// &gt; **Note:** One of `private_key_content_base64` or `private_key_path` (or their Key Vault equivalent) is required when `authentication_type` is set to `SshPublicKey`.
+        /// </summary>
+        [Output("keyVaultPrivateKeyPassphrase")]
+        public Output<Outputs.LinkedServiceSftpKeyVaultPrivateKeyPassphrase?> KeyVaultPrivateKeyPassphrase { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         /// </summary>
         [Output("name")]
@@ -123,16 +145,36 @@ namespace Pulumi.Azure.DataFactory
         public Output<ImmutableDictionary<string, string>?> Parameters { get; private set; } = null!;
 
         /// <summary>
-        /// Password to logon to the SFTP Server for Basic Authentication.
+        /// Password to log on to the SFTP Server for Basic Authentication.
         /// </summary>
         [Output("password")]
-        public Output<string> Password { get; private set; } = null!;
+        public Output<string?> Password { get; private set; } = null!;
 
         /// <summary>
         /// The TCP port number that the SFTP server uses to listen for client connection. Default value is 22.
         /// </summary>
         [Output("port")]
         public Output<int> Port { get; private set; } = null!;
+
+        /// <summary>
+        /// The Base64 encoded private key content in OpenSSH format used to log on to the SFTP server.
+        /// </summary>
+        [Output("privateKeyContentBase64")]
+        public Output<string?> PrivateKeyContentBase64 { get; private set; } = null!;
+
+        /// <summary>
+        /// The passphrase for the private key if the key is encrypted.
+        /// </summary>
+        [Output("privateKeyPassphrase")]
+        public Output<string?> PrivateKeyPassphrase { get; private set; } = null!;
+
+        /// <summary>
+        /// The absolute path to the private key file that the self-hosted integration runtime can access.
+        /// 
+        /// &gt; **Note:** `private_key_path` only applies when using a self-hosted integration runtime (instead of the default Azure provided runtime), as indicated by supplying a value for `integration_runtime_name`.
+        /// </summary>
+        [Output("privateKeyPath")]
+        public Output<string?> PrivateKeyPath { get; private set; } = null!;
 
         /// <summary>
         /// Whether to validate host key fingerprint while connecting. If set to `false`, `host_key_fingerprint` must also be set.
@@ -172,6 +214,8 @@ namespace Pulumi.Azure.DataFactory
                 AdditionalSecretOutputs =
                 {
                     "password",
+                    "privateKeyContentBase64",
+                    "privateKeyPassphrase",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -223,7 +267,7 @@ namespace Pulumi.Azure.DataFactory
         }
 
         /// <summary>
-        /// The type of authentication used to connect to the web table source. Valid options are `Anonymous`, `Basic` and `ClientCertificate`.
+        /// The type of authentication used to connect to the SFTP server. Valid options are `MultiFactor`, `Basic` and `SshPublicKey`.
         /// </summary>
         [Input("authenticationType", required: true)]
         public Input<string> AuthenticationType { get; set; } = null!;
@@ -258,6 +302,34 @@ namespace Pulumi.Azure.DataFactory
         [Input("integrationRuntimeName")]
         public Input<string>? IntegrationRuntimeName { get; set; }
 
+        [Input("keyVaultPasswords")]
+        private InputList<Inputs.LinkedServiceSftpKeyVaultPasswordArgs>? _keyVaultPasswords;
+
+        /// <summary>
+        /// A `key_vault_password` block as defined below.
+        /// 
+        /// &gt; **Note:** Either `password` or `key_vault_password` is required when `authentication_type` is set to `Basic`.
+        /// </summary>
+        public InputList<Inputs.LinkedServiceSftpKeyVaultPasswordArgs> KeyVaultPasswords
+        {
+            get => _keyVaultPasswords ?? (_keyVaultPasswords = new InputList<Inputs.LinkedServiceSftpKeyVaultPasswordArgs>());
+            set => _keyVaultPasswords = value;
+        }
+
+        /// <summary>
+        /// A `key_vault_private_key_content_base64` block as defined below.
+        /// </summary>
+        [Input("keyVaultPrivateKeyContentBase64")]
+        public Input<Inputs.LinkedServiceSftpKeyVaultPrivateKeyContentBase64Args>? KeyVaultPrivateKeyContentBase64 { get; set; }
+
+        /// <summary>
+        /// A `key_vault_private_key_passphrase` block as defined below.
+        /// 
+        /// &gt; **Note:** One of `private_key_content_base64` or `private_key_path` (or their Key Vault equivalent) is required when `authentication_type` is set to `SshPublicKey`.
+        /// </summary>
+        [Input("keyVaultPrivateKeyPassphrase")]
+        public Input<Inputs.LinkedServiceSftpKeyVaultPrivateKeyPassphraseArgs>? KeyVaultPrivateKeyPassphrase { get; set; }
+
         /// <summary>
         /// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         /// </summary>
@@ -276,11 +348,11 @@ namespace Pulumi.Azure.DataFactory
             set => _parameters = value;
         }
 
-        [Input("password", required: true)]
+        [Input("password")]
         private Input<string>? _password;
 
         /// <summary>
-        /// Password to logon to the SFTP Server for Basic Authentication.
+        /// Password to log on to the SFTP Server for Basic Authentication.
         /// </summary>
         public Input<string>? Password
         {
@@ -297,6 +369,46 @@ namespace Pulumi.Azure.DataFactory
         /// </summary>
         [Input("port", required: true)]
         public Input<int> Port { get; set; } = null!;
+
+        [Input("privateKeyContentBase64")]
+        private Input<string>? _privateKeyContentBase64;
+
+        /// <summary>
+        /// The Base64 encoded private key content in OpenSSH format used to log on to the SFTP server.
+        /// </summary>
+        public Input<string>? PrivateKeyContentBase64
+        {
+            get => _privateKeyContentBase64;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _privateKeyContentBase64 = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("privateKeyPassphrase")]
+        private Input<string>? _privateKeyPassphrase;
+
+        /// <summary>
+        /// The passphrase for the private key if the key is encrypted.
+        /// </summary>
+        public Input<string>? PrivateKeyPassphrase
+        {
+            get => _privateKeyPassphrase;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _privateKeyPassphrase = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        /// <summary>
+        /// The absolute path to the private key file that the self-hosted integration runtime can access.
+        /// 
+        /// &gt; **Note:** `private_key_path` only applies when using a self-hosted integration runtime (instead of the default Azure provided runtime), as indicated by supplying a value for `integration_runtime_name`.
+        /// </summary>
+        [Input("privateKeyPath")]
+        public Input<string>? PrivateKeyPath { get; set; }
 
         /// <summary>
         /// Whether to validate host key fingerprint while connecting. If set to `false`, `host_key_fingerprint` must also be set.
@@ -345,7 +457,7 @@ namespace Pulumi.Azure.DataFactory
         }
 
         /// <summary>
-        /// The type of authentication used to connect to the web table source. Valid options are `Anonymous`, `Basic` and `ClientCertificate`.
+        /// The type of authentication used to connect to the SFTP server. Valid options are `MultiFactor`, `Basic` and `SshPublicKey`.
         /// </summary>
         [Input("authenticationType")]
         public Input<string>? AuthenticationType { get; set; }
@@ -380,6 +492,34 @@ namespace Pulumi.Azure.DataFactory
         [Input("integrationRuntimeName")]
         public Input<string>? IntegrationRuntimeName { get; set; }
 
+        [Input("keyVaultPasswords")]
+        private InputList<Inputs.LinkedServiceSftpKeyVaultPasswordGetArgs>? _keyVaultPasswords;
+
+        /// <summary>
+        /// A `key_vault_password` block as defined below.
+        /// 
+        /// &gt; **Note:** Either `password` or `key_vault_password` is required when `authentication_type` is set to `Basic`.
+        /// </summary>
+        public InputList<Inputs.LinkedServiceSftpKeyVaultPasswordGetArgs> KeyVaultPasswords
+        {
+            get => _keyVaultPasswords ?? (_keyVaultPasswords = new InputList<Inputs.LinkedServiceSftpKeyVaultPasswordGetArgs>());
+            set => _keyVaultPasswords = value;
+        }
+
+        /// <summary>
+        /// A `key_vault_private_key_content_base64` block as defined below.
+        /// </summary>
+        [Input("keyVaultPrivateKeyContentBase64")]
+        public Input<Inputs.LinkedServiceSftpKeyVaultPrivateKeyContentBase64GetArgs>? KeyVaultPrivateKeyContentBase64 { get; set; }
+
+        /// <summary>
+        /// A `key_vault_private_key_passphrase` block as defined below.
+        /// 
+        /// &gt; **Note:** One of `private_key_content_base64` or `private_key_path` (or their Key Vault equivalent) is required when `authentication_type` is set to `SshPublicKey`.
+        /// </summary>
+        [Input("keyVaultPrivateKeyPassphrase")]
+        public Input<Inputs.LinkedServiceSftpKeyVaultPrivateKeyPassphraseGetArgs>? KeyVaultPrivateKeyPassphrase { get; set; }
+
         /// <summary>
         /// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         /// </summary>
@@ -402,7 +542,7 @@ namespace Pulumi.Azure.DataFactory
         private Input<string>? _password;
 
         /// <summary>
-        /// Password to logon to the SFTP Server for Basic Authentication.
+        /// Password to log on to the SFTP Server for Basic Authentication.
         /// </summary>
         public Input<string>? Password
         {
@@ -419,6 +559,46 @@ namespace Pulumi.Azure.DataFactory
         /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }
+
+        [Input("privateKeyContentBase64")]
+        private Input<string>? _privateKeyContentBase64;
+
+        /// <summary>
+        /// The Base64 encoded private key content in OpenSSH format used to log on to the SFTP server.
+        /// </summary>
+        public Input<string>? PrivateKeyContentBase64
+        {
+            get => _privateKeyContentBase64;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _privateKeyContentBase64 = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("privateKeyPassphrase")]
+        private Input<string>? _privateKeyPassphrase;
+
+        /// <summary>
+        /// The passphrase for the private key if the key is encrypted.
+        /// </summary>
+        public Input<string>? PrivateKeyPassphrase
+        {
+            get => _privateKeyPassphrase;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _privateKeyPassphrase = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        /// <summary>
+        /// The absolute path to the private key file that the self-hosted integration runtime can access.
+        /// 
+        /// &gt; **Note:** `private_key_path` only applies when using a self-hosted integration runtime (instead of the default Azure provided runtime), as indicated by supplying a value for `integration_runtime_name`.
+        /// </summary>
+        [Input("privateKeyPath")]
+        public Input<string>? PrivateKeyPath { get; set; }
 
         /// <summary>
         /// Whether to validate host key fingerprint while connecting. If set to `false`, `host_key_fingerprint` must also be set.

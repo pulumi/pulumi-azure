@@ -24,6 +24,9 @@ namespace Pulumi.Azure.Inputs
         [Input("cognitiveAccount")]
         public Input<Inputs.ProviderFeaturesCognitiveAccountArgs>? CognitiveAccount { get; set; }
 
+        [Input("databricksWorkspace")]
+        public Input<Inputs.ProviderFeaturesDatabricksWorkspaceArgs>? DatabricksWorkspace { get; set; }
+
         [Input("keyVault")]
         public Input<Inputs.ProviderFeaturesKeyVaultArgs>? KeyVault { get; set; }
 

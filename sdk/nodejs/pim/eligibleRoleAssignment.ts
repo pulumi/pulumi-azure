@@ -73,6 +73,13 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.Authorization`: 2020-10-01
+ *
  * ## Import
  *
  * PIM Eligible Role Assignments can be imported using the following composite resource ID, e.g.
@@ -116,7 +123,7 @@ export class EligibleRoleAssignment extends pulumi.CustomResource {
     /**
      * The version of the condition. Supported values include `2.0`. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** `conditionVersion` is required when specifying `condition` and vice versa.
+     * > **Note:** `conditionVersion` is required when specifying `condition` and vice versa.
      */
     public readonly conditionVersion!: pulumi.Output<string | undefined>;
     /**
@@ -207,7 +214,7 @@ export interface EligibleRoleAssignmentState {
     /**
      * The version of the condition. Supported values include `2.0`. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** `conditionVersion` is required when specifying `condition` and vice versa.
+     * > **Note:** `conditionVersion` is required when specifying `condition` and vice versa.
      */
     conditionVersion?: pulumi.Input<string>;
     /**
@@ -251,7 +258,7 @@ export interface EligibleRoleAssignmentArgs {
     /**
      * The version of the condition. Supported values include `2.0`. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** `conditionVersion` is required when specifying `condition` and vice versa.
+     * > **Note:** `conditionVersion` is required when specifying `condition` and vice versa.
      */
     conditionVersion?: pulumi.Input<string>;
     /**

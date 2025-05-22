@@ -9,10 +9,10 @@ Modified in fork in https://github.com/pulumi/terraform-provider-azurerm/commit/
 This originally included a conditional block to only set the SharedFeatures config if it had a value but this seems to have been lost during the provider config being refactored in https://github.com/hashicorp/terraform-provider-azurerm/commit/57bcf134131514ffcc962f20b12f993fad7d6060#diff-58d6a027753b50994deb7e11e4a99dde423f35844986019bd9cea5e0c94aba22
 
 diff --git a/internal/provider/features.go b/internal/provider/features.go
-index 25b07caab5..9837e1c709 100644
+index 0fd22b10a6..65bfbed6cf 100644
 --- a/internal/provider/features.go
 +++ b/internal/provider/features.go
-@@ -434,7 +434,7 @@ func schemaFeatures(supportLegacyTestSuite bool) *pluginsdk.Schema {
+@@ -454,7 +454,7 @@ func schemaFeatures(supportLegacyTestSuite bool) *pluginsdk.Schema {
  
  	return &pluginsdk.Schema{
  		Type:     pluginsdk.TypeList,

@@ -40,6 +40,13 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.OperationalInsights`: 2020-08-01
+ *
  * ## Import
  *
  * Log Analytics Workspaces can be imported using the `resource id`, e.g.
@@ -103,7 +110,7 @@ export class LinkedService extends pulumi.CustomResource {
     /**
      * The ID of the writable Resource that will be linked to the workspace. This should be used for linking to a Log Analytics Cluster resource.
      *
-     * > **NOTE:** You must define at least one of the above access resource id attributes (e.g. `readAccessId` or `writeAccessId`).
+     * > **Note:** You must define at least one of the above access resource id attributes (e.g. `readAccessId` or `writeAccessId`).
      */
     public readonly writeAccessId!: pulumi.Output<string | undefined>;
 
@@ -167,7 +174,7 @@ export interface LinkedServiceState {
     /**
      * The ID of the writable Resource that will be linked to the workspace. This should be used for linking to a Log Analytics Cluster resource.
      *
-     * > **NOTE:** You must define at least one of the above access resource id attributes (e.g. `readAccessId` or `writeAccessId`).
+     * > **Note:** You must define at least one of the above access resource id attributes (e.g. `readAccessId` or `writeAccessId`).
      */
     writeAccessId?: pulumi.Input<string>;
 }
@@ -191,7 +198,7 @@ export interface LinkedServiceArgs {
     /**
      * The ID of the writable Resource that will be linked to the workspace. This should be used for linking to a Log Analytics Cluster resource.
      *
-     * > **NOTE:** You must define at least one of the above access resource id attributes (e.g. `readAccessId` or `writeAccessId`).
+     * > **Note:** You must define at least one of the above access resource id attributes (e.g. `readAccessId` or `writeAccessId`).
      */
     writeAccessId?: pulumi.Input<string>;
 }

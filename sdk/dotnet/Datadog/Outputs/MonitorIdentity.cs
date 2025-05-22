@@ -24,7 +24,7 @@ namespace Pulumi.Azure.Datadog.Outputs
         /// <summary>
         /// Specifies the identity type of the Datadog Monitor. At this time the only allowed value is `SystemAssigned`.
         /// 
-        /// &gt; **NOTE:** The assigned `principal_id` and `tenant_id` can be retrieved after the identity `type` has been set to `SystemAssigned` and the Datadog Monitor has been created. More details are available below.
+        /// &gt; **Note:** The assigned `principal_id` and `tenant_id` can be retrieved after the identity `type` has been set to `SystemAssigned` and the Datadog Monitor has been created. More details are available below.
         /// </summary>
         public readonly string Type;
 

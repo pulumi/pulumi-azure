@@ -16,7 +16,7 @@ public final class GetManagedHardwareSecurityModuleKeyPlainArgs extends com.pulu
     /**
      * Specifies the ID of the Managed Hardware Security Module instance where the Secret resides, available on the `azure.keyvault.ManagedHardwareSecurityModuleKey` Data Source / Resource.
      * 
-     * **NOTE:** The Managed Hardware Security Module must be in the same subscription as the provider. If the Managed Hardware Security Module is in another subscription, you must create an aliased provider for that subscription.
+     * &gt; **Note:** The Managed Hardware Security Module must be in the same subscription as the provider. If the Managed Hardware Security Module is in another subscription, you must create an aliased provider for that subscription.
      * 
      */
     @Import(name="managedHsmId", required=true)
@@ -25,7 +25,7 @@ public final class GetManagedHardwareSecurityModuleKeyPlainArgs extends com.pulu
     /**
      * @return Specifies the ID of the Managed Hardware Security Module instance where the Secret resides, available on the `azure.keyvault.ManagedHardwareSecurityModuleKey` Data Source / Resource.
      * 
-     * **NOTE:** The Managed Hardware Security Module must be in the same subscription as the provider. If the Managed Hardware Security Module is in another subscription, you must create an aliased provider for that subscription.
+     * &gt; **Note:** The Managed Hardware Security Module must be in the same subscription as the provider. If the Managed Hardware Security Module is in another subscription, you must create an aliased provider for that subscription.
      * 
      */
     public String managedHsmId() {
@@ -75,7 +75,7 @@ public final class GetManagedHardwareSecurityModuleKeyPlainArgs extends com.pulu
         /**
          * @param managedHsmId Specifies the ID of the Managed Hardware Security Module instance where the Secret resides, available on the `azure.keyvault.ManagedHardwareSecurityModuleKey` Data Source / Resource.
          * 
-         * **NOTE:** The Managed Hardware Security Module must be in the same subscription as the provider. If the Managed Hardware Security Module is in another subscription, you must create an aliased provider for that subscription.
+         * &gt; **Note:** The Managed Hardware Security Module must be in the same subscription as the provider. If the Managed Hardware Security Module is in another subscription, you must create an aliased provider for that subscription.
          * 
          * @return builder
          * 

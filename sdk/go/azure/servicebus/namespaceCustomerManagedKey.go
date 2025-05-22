@@ -148,6 +148,13 @@ import (
 //
 // ```
 //
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.ServiceBus`: 2022-10-01-preview
+//
 // ## Import
 //
 // Service Bus Namespace Customer Managed Key can be imported using the `resource id`, e.g.

@@ -14,7 +14,7 @@ import java.util.Objects;
 @CustomType
 public final class GetWorkspaceResult {
     /**
-     * @return A list of Connectivity endpoints for this Synapse Workspace.
+     * @return A map of Connectivity endpoints for this Synapse Workspace.
      * 
      */
     private Map<String,String> connectivityEndpoints;
@@ -43,7 +43,7 @@ public final class GetWorkspaceResult {
 
     private GetWorkspaceResult() {}
     /**
-     * @return A list of Connectivity endpoints for this Synapse Workspace.
+     * @return A map of Connectivity endpoints for this Synapse Workspace.
      * 
      */
     public Map<String,String> connectivityEndpoints() {

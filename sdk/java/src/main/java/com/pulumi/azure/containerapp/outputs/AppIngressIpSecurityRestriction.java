@@ -15,7 +15,7 @@ public final class AppIngressIpSecurityRestriction {
     /**
      * @return The IP-filter action. `Allow` or `Deny`.
      * 
-     * &gt; **NOTE:** The `action` types in an all `ip_security_restriction` blocks must be the same for the `ingress`, mixing `Allow` and `Deny` rules is not currently supported by the service.
+     * &gt; **Note:** The `action` types in an all `ip_security_restriction` blocks must be the same for the `ingress`, mixing `Allow` and `Deny` rules is not currently supported by the service.
      * 
      */
     private String action;
@@ -39,7 +39,7 @@ public final class AppIngressIpSecurityRestriction {
     /**
      * @return The IP-filter action. `Allow` or `Deny`.
      * 
-     * &gt; **NOTE:** The `action` types in an all `ip_security_restriction` blocks must be the same for the `ingress`, mixing `Allow` and `Deny` rules is not currently supported by the service.
+     * &gt; **Note:** The `action` types in an all `ip_security_restriction` blocks must be the same for the `ingress`, mixing `Allow` and `Deny` rules is not currently supported by the service.
      * 
      */
     public String action() {

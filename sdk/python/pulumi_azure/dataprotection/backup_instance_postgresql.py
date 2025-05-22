@@ -351,6 +351,13 @@ class BackupInstancePostgresql(pulumi.CustomResource):
             database_credential_key_vault_secret_id=example_secret.versionless_id)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DataProtection`: 2024-04-01
+
         ## Import
 
         Backup Instance PostgreSQL can be imported using the `resource id`, e.g.
@@ -489,6 +496,13 @@ class BackupInstancePostgresql(pulumi.CustomResource):
             backup_policy_id=example_backup_policy_postgresql.id,
             database_credential_key_vault_secret_id=example_secret.versionless_id)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DataProtection`: 2024-04-01
 
         ## Import
 

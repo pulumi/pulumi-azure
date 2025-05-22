@@ -11,13 +11,29 @@ import java.util.Objects;
 
 @CustomType
 public final class NextGenerationFirewallVirtualHubLocalRulestackDestinationNatBackendConfig {
+    /**
+     * @return The port number to send traffic to.
+     * 
+     */
     private Integer port;
+    /**
+     * @return The Public IP Address to send the traffic to.
+     * 
+     */
     private String publicIpAddress;
 
     private NextGenerationFirewallVirtualHubLocalRulestackDestinationNatBackendConfig() {}
+    /**
+     * @return The port number to send traffic to.
+     * 
+     */
     public Integer port() {
         return this.port;
     }
+    /**
+     * @return The Public IP Address to send the traffic to.
+     * 
+     */
     public String publicIpAddress() {
         return this.publicIpAddress;
     }

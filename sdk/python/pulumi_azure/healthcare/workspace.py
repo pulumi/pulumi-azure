@@ -200,6 +200,13 @@ class Workspace(pulumi.CustomResource):
             location="east us")
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.HealthcareApis`: 2024-03-31
+
         ## Import
 
         Healthcare Workspaces can be imported using the resource`id`, e.g.
@@ -235,6 +242,13 @@ class Workspace(pulumi.CustomResource):
             resource_group_name="tfex-resource_group",
             location="east us")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.HealthcareApis`: 2024-03-31
 
         ## Import
 

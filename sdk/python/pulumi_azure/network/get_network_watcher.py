@@ -109,6 +109,13 @@ def get_network_watcher(name: Optional[builtins.str] = None,
     pulumi.export("networkWatcherId", example.id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Network`: 2024-05-01
+
 
     :param builtins.str name: Specifies the Name of the Network Watcher.
     :param builtins.str resource_group_name: Specifies the Name of the Resource Group within which the Network Watcher exists.
@@ -141,6 +148,13 @@ def get_network_watcher_output(name: Optional[pulumi.Input[builtins.str]] = None
         resource_group_name=example_azurerm_resource_group["name"])
     pulumi.export("networkWatcherId", example.id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Network`: 2024-05-01
 
 
     :param builtins.str name: Specifies the Name of the Network Watcher.

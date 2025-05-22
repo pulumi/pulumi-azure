@@ -133,6 +133,13 @@ def get_zone(name: Optional[builtins.str] = None,
     pulumi.export("dnsZoneId", example.id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Network`: 2018-05-01
+
 
     :param builtins.str name: The name of the DNS Zone.
     :param builtins.str resource_group_name: The Name of the Resource Group where the DNS Zone exists.
@@ -169,6 +176,13 @@ def get_zone_output(name: Optional[pulumi.Input[builtins.str]] = None,
         resource_group_name="search-service")
     pulumi.export("dnsZoneId", example.id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Network`: 2018-05-01
 
 
     :param builtins.str name: The name of the DNS Zone.

@@ -32,6 +32,7 @@ namespace Pulumi.Azure.ApiManagement.Outputs
         /// The Hostname to use for the API Proxy Endpoint.
         /// </summary>
         public readonly string HostName;
+        public readonly string? KeyVaultCertificateId;
         /// <summary>
         /// The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
         /// </summary>
@@ -65,6 +66,8 @@ namespace Pulumi.Azure.ApiManagement.Outputs
 
             string hostName,
 
+            string? keyVaultCertificateId,
+
             string? keyVaultId,
 
             bool? negotiateClientCertificate,
@@ -82,6 +85,7 @@ namespace Pulumi.Azure.ApiManagement.Outputs
             DefaultSslBinding = defaultSslBinding;
             Expiry = expiry;
             HostName = hostName;
+            KeyVaultCertificateId = keyVaultCertificateId;
             KeyVaultId = keyVaultId;
             NegotiateClientCertificate = negotiateClientCertificate;
             SslKeyvaultIdentityClientId = sslKeyvaultIdentityClientId;

@@ -3109,7 +3109,7 @@ func (o ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrOutput) Mo
 type ManagedInstanceIdentity struct {
 	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this SQL Managed Instance. Required when `type` includes `UserAssigned`.
 	//
-	// > The assigned `principalId` and `tenantId` can be retrieved after the identity `type` has been set to `SystemAssigned` and SQL Managed Instance has been created.
+	// > **Note:** The assigned `principalId` and `tenantId` can be retrieved after the identity `type` has been set to `SystemAssigned` and SQL Managed Instance has been created.
 	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID for the Service Principal associated with the Identity of this SQL Managed Instance.
 	PrincipalId *string `pulumi:"principalId"`
@@ -3133,7 +3133,7 @@ type ManagedInstanceIdentityInput interface {
 type ManagedInstanceIdentityArgs struct {
 	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this SQL Managed Instance. Required when `type` includes `UserAssigned`.
 	//
-	// > The assigned `principalId` and `tenantId` can be retrieved after the identity `type` has been set to `SystemAssigned` and SQL Managed Instance has been created.
+	// > **Note:** The assigned `principalId` and `tenantId` can be retrieved after the identity `type` has been set to `SystemAssigned` and SQL Managed Instance has been created.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID for the Service Principal associated with the Identity of this SQL Managed Instance.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
@@ -3222,7 +3222,7 @@ func (o ManagedInstanceIdentityOutput) ToManagedInstanceIdentityPtrOutputWithCon
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this SQL Managed Instance. Required when `type` includes `UserAssigned`.
 //
-// > The assigned `principalId` and `tenantId` can be retrieved after the identity `type` has been set to `SystemAssigned` and SQL Managed Instance has been created.
+// > **Note:** The assigned `principalId` and `tenantId` can be retrieved after the identity `type` has been set to `SystemAssigned` and SQL Managed Instance has been created.
 func (o ManagedInstanceIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ManagedInstanceIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
@@ -3268,7 +3268,7 @@ func (o ManagedInstanceIdentityPtrOutput) Elem() ManagedInstanceIdentityOutput {
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this SQL Managed Instance. Required when `type` includes `UserAssigned`.
 //
-// > The assigned `principalId` and `tenantId` can be retrieved after the identity `type` has been set to `SystemAssigned` and SQL Managed Instance has been created.
+// > **Note:** The assigned `principalId` and `tenantId` can be retrieved after the identity `type` has been set to `SystemAssigned` and SQL Managed Instance has been created.
 func (o ManagedInstanceIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ManagedInstanceIdentity) []string {
 		if v == nil {
@@ -3680,9 +3680,9 @@ func (o ServerAzureadAdministratorPtrOutput) TenantId() pulumi.StringPtrOutput {
 type ServerIdentity struct {
 	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this SQL Server.
 	//
-	// > **NOTE:** This is required when `type` is set to `UserAssigned`
+	// > **Note:** This is required when `type` is set to `UserAssigned`
 	//
-	// > **NOTE:** When `type` is set to `SystemAssigned`, the assigned `principalId` and `tenantId` can be retrieved after the Microsoft SQL Server has been created. More details are available below.
+	// > **Note:** When `type` is set to `SystemAssigned`, the assigned `principalId` and `tenantId` can be retrieved after the Microsoft SQL Server has been created. More details are available below.
 	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID for the Service Principal associated with the Identity of this SQL Server.
 	PrincipalId *string `pulumi:"principalId"`
@@ -3706,9 +3706,9 @@ type ServerIdentityInput interface {
 type ServerIdentityArgs struct {
 	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this SQL Server.
 	//
-	// > **NOTE:** This is required when `type` is set to `UserAssigned`
+	// > **Note:** This is required when `type` is set to `UserAssigned`
 	//
-	// > **NOTE:** When `type` is set to `SystemAssigned`, the assigned `principalId` and `tenantId` can be retrieved after the Microsoft SQL Server has been created. More details are available below.
+	// > **Note:** When `type` is set to `SystemAssigned`, the assigned `principalId` and `tenantId` can be retrieved after the Microsoft SQL Server has been created. More details are available below.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID for the Service Principal associated with the Identity of this SQL Server.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
@@ -3797,9 +3797,9 @@ func (o ServerIdentityOutput) ToServerIdentityPtrOutputWithContext(ctx context.C
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this SQL Server.
 //
-// > **NOTE:** This is required when `type` is set to `UserAssigned`
+// > **Note:** This is required when `type` is set to `UserAssigned`
 //
-// > **NOTE:** When `type` is set to `SystemAssigned`, the assigned `principalId` and `tenantId` can be retrieved after the Microsoft SQL Server has been created. More details are available below.
+// > **Note:** When `type` is set to `SystemAssigned`, the assigned `principalId` and `tenantId` can be retrieved after the Microsoft SQL Server has been created. More details are available below.
 func (o ServerIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ServerIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
@@ -3845,9 +3845,9 @@ func (o ServerIdentityPtrOutput) Elem() ServerIdentityOutput {
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this SQL Server.
 //
-// > **NOTE:** This is required when `type` is set to `UserAssigned`
+// > **Note:** This is required when `type` is set to `UserAssigned`
 //
-// > **NOTE:** When `type` is set to `SystemAssigned`, the assigned `principalId` and `tenantId` can be retrieved after the Microsoft SQL Server has been created. More details are available below.
+// > **Note:** When `type` is set to `SystemAssigned`, the assigned `principalId` and `tenantId` can be retrieved after the Microsoft SQL Server has been created. More details are available below.
 func (o ServerIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ServerIdentity) []string {
 		if v == nil {
@@ -4242,7 +4242,7 @@ type VirtualMachineAssessmentSchedule struct {
 	DayOfWeek string `pulumi:"dayOfWeek"`
 	// How many months between assessment runs. Valid values are between `1` and `5`.
 	//
-	// > **NOTE:** Either one of `weeklyInterval` or `monthlyOccurrence` must be specified.
+	// > **Note:** Either one of `weeklyInterval` or `monthlyOccurrence` must be specified.
 	MonthlyOccurrence *int `pulumi:"monthlyOccurrence"`
 	// What time the assessment will be run. Must be in the format `HH:mm`.
 	StartTime string `pulumi:"startTime"`
@@ -4266,7 +4266,7 @@ type VirtualMachineAssessmentScheduleArgs struct {
 	DayOfWeek pulumi.StringInput `pulumi:"dayOfWeek"`
 	// How many months between assessment runs. Valid values are between `1` and `5`.
 	//
-	// > **NOTE:** Either one of `weeklyInterval` or `monthlyOccurrence` must be specified.
+	// > **Note:** Either one of `weeklyInterval` or `monthlyOccurrence` must be specified.
 	MonthlyOccurrence pulumi.IntPtrInput `pulumi:"monthlyOccurrence"`
 	// What time the assessment will be run. Must be in the format `HH:mm`.
 	StartTime pulumi.StringInput `pulumi:"startTime"`
@@ -4358,7 +4358,7 @@ func (o VirtualMachineAssessmentScheduleOutput) DayOfWeek() pulumi.StringOutput 
 
 // How many months between assessment runs. Valid values are between `1` and `5`.
 //
-// > **NOTE:** Either one of `weeklyInterval` or `monthlyOccurrence` must be specified.
+// > **Note:** Either one of `weeklyInterval` or `monthlyOccurrence` must be specified.
 func (o VirtualMachineAssessmentScheduleOutput) MonthlyOccurrence() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v VirtualMachineAssessmentSchedule) *int { return v.MonthlyOccurrence }).(pulumi.IntPtrOutput)
 }
@@ -4409,7 +4409,7 @@ func (o VirtualMachineAssessmentSchedulePtrOutput) DayOfWeek() pulumi.StringPtrO
 
 // How many months between assessment runs. Valid values are between `1` and `5`.
 //
-// > **NOTE:** Either one of `weeklyInterval` or `monthlyOccurrence` must be specified.
+// > **Note:** Either one of `weeklyInterval` or `monthlyOccurrence` must be specified.
 func (o VirtualMachineAssessmentSchedulePtrOutput) MonthlyOccurrence() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *VirtualMachineAssessmentSchedule) *int {
 		if v == nil {
@@ -4693,7 +4693,7 @@ func (o VirtualMachineAutoBackupPtrOutput) SystemDatabasesBackupEnabled() pulumi
 type VirtualMachineAutoBackupManualSchedule struct {
 	// A list of days on which backup can take place. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`
 	//
-	// > **NOTE:** `daysOfWeek` can only be specified when `manualSchedule` is set to `Weekly`
+	// > **Note:** `daysOfWeek` can only be specified when `manualSchedule` is set to `Weekly`
 	DaysOfWeeks []string `pulumi:"daysOfWeeks"`
 	// Frequency of full backups. Valid values include `Daily` or `Weekly`.
 	FullBackupFrequency string `pulumi:"fullBackupFrequency"`
@@ -4719,7 +4719,7 @@ type VirtualMachineAutoBackupManualScheduleInput interface {
 type VirtualMachineAutoBackupManualScheduleArgs struct {
 	// A list of days on which backup can take place. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`
 	//
-	// > **NOTE:** `daysOfWeek` can only be specified when `manualSchedule` is set to `Weekly`
+	// > **Note:** `daysOfWeek` can only be specified when `manualSchedule` is set to `Weekly`
 	DaysOfWeeks pulumi.StringArrayInput `pulumi:"daysOfWeeks"`
 	// Frequency of full backups. Valid values include `Daily` or `Weekly`.
 	FullBackupFrequency pulumi.StringInput `pulumi:"fullBackupFrequency"`
@@ -4810,7 +4810,7 @@ func (o VirtualMachineAutoBackupManualScheduleOutput) ToVirtualMachineAutoBackup
 
 // A list of days on which backup can take place. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`
 //
-// > **NOTE:** `daysOfWeek` can only be specified when `manualSchedule` is set to `Weekly`
+// > **Note:** `daysOfWeek` can only be specified when `manualSchedule` is set to `Weekly`
 func (o VirtualMachineAutoBackupManualScheduleOutput) DaysOfWeeks() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v VirtualMachineAutoBackupManualSchedule) []string { return v.DaysOfWeeks }).(pulumi.StringArrayOutput)
 }
@@ -4861,7 +4861,7 @@ func (o VirtualMachineAutoBackupManualSchedulePtrOutput) Elem() VirtualMachineAu
 
 // A list of days on which backup can take place. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`
 //
-// > **NOTE:** `daysOfWeek` can only be specified when `manualSchedule` is set to `Weekly`
+// > **Note:** `daysOfWeek` can only be specified when `manualSchedule` is set to `Weekly`
 func (o VirtualMachineAutoBackupManualSchedulePtrOutput) DaysOfWeeks() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VirtualMachineAutoBackupManualSchedule) []string {
 		if v == nil {
@@ -5097,7 +5097,7 @@ type VirtualMachineAvailabilityGroupListenerLoadBalancerConfiguration struct {
 	SqlVirtualMachineIds []string `pulumi:"sqlVirtualMachineIds"`
 	// The ID of the Subnet to create the listener. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** `sqlVirtualMachineIds` should match with the SQL Virtual Machines specified in `replica`.
+	// > **Note:** `sqlVirtualMachineIds` should match with the SQL Virtual Machines specified in `replica`.
 	SubnetId string `pulumi:"subnetId"`
 }
 
@@ -5123,7 +5123,7 @@ type VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationArgs struct
 	SqlVirtualMachineIds pulumi.StringArrayInput `pulumi:"sqlVirtualMachineIds"`
 	// The ID of the Subnet to create the listener. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** `sqlVirtualMachineIds` should match with the SQL Virtual Machines specified in `replica`.
+	// > **Note:** `sqlVirtualMachineIds` should match with the SQL Virtual Machines specified in `replica`.
 	SubnetId pulumi.StringInput `pulumi:"subnetId"`
 }
 
@@ -5232,7 +5232,7 @@ func (o VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationOutput) 
 
 // The ID of the Subnet to create the listener. Changing this forces a new resource to be created.
 //
-// > **NOTE:** `sqlVirtualMachineIds` should match with the SQL Virtual Machines specified in `replica`.
+// > **Note:** `sqlVirtualMachineIds` should match with the SQL Virtual Machines specified in `replica`.
 func (o VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationOutput) SubnetId() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualMachineAvailabilityGroupListenerLoadBalancerConfiguration) string { return v.SubnetId }).(pulumi.StringOutput)
 }
@@ -5303,7 +5303,7 @@ func (o VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationPtrOutpu
 
 // The ID of the Subnet to create the listener. Changing this forces a new resource to be created.
 //
-// > **NOTE:** `sqlVirtualMachineIds` should match with the SQL Virtual Machines specified in `replica`.
+// > **Note:** `sqlVirtualMachineIds` should match with the SQL Virtual Machines specified in `replica`.
 func (o VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationPtrOutput) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualMachineAvailabilityGroupListenerLoadBalancerConfiguration) *string {
 		if v == nil {
@@ -5320,7 +5320,7 @@ type VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfiguration struct {
 	SqlVirtualMachineId string `pulumi:"sqlVirtualMachineId"`
 	// The ID of the Subnet to create the listener. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** `sqlVirtualMachineId` should match with the SQL Virtual Machines specified in `replica`.
+	// > **Note:** `sqlVirtualMachineId` should match with the SQL Virtual Machines specified in `replica`.
 	SubnetId string `pulumi:"subnetId"`
 }
 
@@ -5342,7 +5342,7 @@ type VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArgs struc
 	SqlVirtualMachineId pulumi.StringInput `pulumi:"sqlVirtualMachineId"`
 	// The ID of the Subnet to create the listener. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** `sqlVirtualMachineId` should match with the SQL Virtual Machines specified in `replica`.
+	// > **Note:** `sqlVirtualMachineId` should match with the SQL Virtual Machines specified in `replica`.
 	SubnetId pulumi.StringInput `pulumi:"subnetId"`
 }
 
@@ -5413,7 +5413,7 @@ func (o VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationOutput)
 
 // The ID of the Subnet to create the listener. Changing this forces a new resource to be created.
 //
-// > **NOTE:** `sqlVirtualMachineId` should match with the SQL Virtual Machines specified in `replica`.
+// > **Note:** `sqlVirtualMachineId` should match with the SQL Virtual Machines specified in `replica`.
 func (o VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationOutput) SubnetId() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfiguration) string { return v.SubnetId }).(pulumi.StringOutput)
 }
@@ -6050,7 +6050,7 @@ type VirtualMachineSqlInstance struct {
 	MaxServerMemoryMb *int `pulumi:"maxServerMemoryMb"`
 	// Minimum amount memory that SQL Server Memory Manager can allocate to the SQL Server process. Possible values are between `0` and `2147483647` Defaults to `0`.
 	//
-	// > **NOTE:** `maxServerMemoryMb` must be greater than or equal to `minServerMemoryMb`
+	// > **Note:** `maxServerMemoryMb` must be greater than or equal to `minServerMemoryMb`
 	MinServerMemoryMb *int `pulumi:"minServerMemoryMb"`
 }
 
@@ -6080,7 +6080,7 @@ type VirtualMachineSqlInstanceArgs struct {
 	MaxServerMemoryMb pulumi.IntPtrInput `pulumi:"maxServerMemoryMb"`
 	// Minimum amount memory that SQL Server Memory Manager can allocate to the SQL Server process. Possible values are between `0` and `2147483647` Defaults to `0`.
 	//
-	// > **NOTE:** `maxServerMemoryMb` must be greater than or equal to `minServerMemoryMb`
+	// > **Note:** `maxServerMemoryMb` must be greater than or equal to `minServerMemoryMb`
 	MinServerMemoryMb pulumi.IntPtrInput `pulumi:"minServerMemoryMb"`
 }
 
@@ -6193,7 +6193,7 @@ func (o VirtualMachineSqlInstanceOutput) MaxServerMemoryMb() pulumi.IntPtrOutput
 
 // Minimum amount memory that SQL Server Memory Manager can allocate to the SQL Server process. Possible values are between `0` and `2147483647` Defaults to `0`.
 //
-// > **NOTE:** `maxServerMemoryMb` must be greater than or equal to `minServerMemoryMb`
+// > **Note:** `maxServerMemoryMb` must be greater than or equal to `minServerMemoryMb`
 func (o VirtualMachineSqlInstanceOutput) MinServerMemoryMb() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v VirtualMachineSqlInstance) *int { return v.MinServerMemoryMb }).(pulumi.IntPtrOutput)
 }
@@ -6284,7 +6284,7 @@ func (o VirtualMachineSqlInstancePtrOutput) MaxServerMemoryMb() pulumi.IntPtrOut
 
 // Minimum amount memory that SQL Server Memory Manager can allocate to the SQL Server process. Possible values are between `0` and `2147483647` Defaults to `0`.
 //
-// > **NOTE:** `maxServerMemoryMb` must be greater than or equal to `minServerMemoryMb`
+// > **Note:** `maxServerMemoryMb` must be greater than or equal to `minServerMemoryMb`
 func (o VirtualMachineSqlInstancePtrOutput) MinServerMemoryMb() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *VirtualMachineSqlInstance) *int {
 		if v == nil {

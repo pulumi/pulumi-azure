@@ -491,9 +491,9 @@ class NatRule(pulumi.CustomResource):
         """
         Manages a Load Balancer NAT Rule.
 
-        > **NOTE:** This resource cannot be used with with virtual machine scale sets, instead use the `lb.NatPool` resource.
+        > **Note:** This resource cannot be used with with virtual machine scale sets, instead use the `lb.NatPool` resource.
 
-        > **NOTE** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration Attached
+        > **Note:** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration Attached
 
         ## Example Usage
 
@@ -539,6 +539,13 @@ class NatRule(pulumi.CustomResource):
             backend_address_pool_id=example_backend_address_pool.id,
             frontend_ip_configuration_name="PublicIPAddress")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network`: 2023-09-01
 
         ## Import
 
@@ -573,9 +580,9 @@ class NatRule(pulumi.CustomResource):
         """
         Manages a Load Balancer NAT Rule.
 
-        > **NOTE:** This resource cannot be used with with virtual machine scale sets, instead use the `lb.NatPool` resource.
+        > **Note:** This resource cannot be used with with virtual machine scale sets, instead use the `lb.NatPool` resource.
 
-        > **NOTE** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration Attached
+        > **Note:** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration Attached
 
         ## Example Usage
 
@@ -621,6 +628,13 @@ class NatRule(pulumi.CustomResource):
             backend_address_pool_id=example_backend_address_pool.id,
             frontend_ip_configuration_name="PublicIPAddress")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network`: 2023-09-01
 
         ## Import
 

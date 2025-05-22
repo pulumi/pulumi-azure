@@ -157,6 +157,13 @@ def get_directory(domain_name: Optional[builtins.str] = None,
     pulumi.export("tenantId", example.tenant_id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.AzureActiveDirectory`: 2021-04-01-preview
+
 
     :param builtins.str domain_name: Domain name of the B2C tenant, including the `.onmicrosoft.com` suffix.
     :param builtins.str resource_group_name: The name of the Resource Group where the AAD B2C Directory exists.
@@ -193,6 +200,13 @@ def get_directory_output(domain_name: Optional[pulumi.Input[builtins.str]] = Non
         domain_name="exampleb2ctenant.onmicrosoft.com")
     pulumi.export("tenantId", example.tenant_id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.AzureActiveDirectory`: 2021-04-01-preview
 
 
     :param builtins.str domain_name: Domain name of the B2C tenant, including the `.onmicrosoft.com` suffix.

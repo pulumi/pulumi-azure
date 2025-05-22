@@ -135,7 +135,7 @@ def get_alert_rule_template(display_name: Optional[builtins.str] = None,
 
     :param builtins.str display_name: The display name of this Sentinel Alert Rule Template. Either `display_name` or `name` have to be specified.
            
-           > **NOTE** As `display_name` is not unique, errors may occur when there are multiple Sentinel Alert Rule Template with same `display_name`.
+           > **Note:** As `display_name` is not unique, errors may occur when there are multiple Sentinel Alert Rule Template with same `display_name`.
     :param builtins.str log_analytics_workspace_id: The ID of the Log Analytics Workspace.
     :param builtins.str name: The name of this Sentinel Alert Rule Template. Either `display_name` or `name` have to be specified.
     """
@@ -175,7 +175,7 @@ def get_alert_rule_template_output(display_name: Optional[pulumi.Input[Optional[
 
     :param builtins.str display_name: The display name of this Sentinel Alert Rule Template. Either `display_name` or `name` have to be specified.
            
-           > **NOTE** As `display_name` is not unique, errors may occur when there are multiple Sentinel Alert Rule Template with same `display_name`.
+           > **Note:** As `display_name` is not unique, errors may occur when there are multiple Sentinel Alert Rule Template with same `display_name`.
     :param builtins.str log_analytics_workspace_id: The ID of the Log Analytics Workspace.
     :param builtins.str name: The name of this Sentinel Alert Rule Template. Either `display_name` or `name` have to be specified.
     """

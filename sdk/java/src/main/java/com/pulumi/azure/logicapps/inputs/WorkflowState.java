@@ -173,7 +173,7 @@ public final class WorkflowState extends com.pulumi.resources.ResourceArgs {
     /**
      * A map of Key-Value pairs.
      * 
-     * &gt; **NOTE:** Any parameters specified must exist in the Schema defined in `workflow_parameters`.
+     * &gt; **Note:** Any parameters specified must exist in the Schema defined in `workflow_parameters`.
      * 
      */
     @Import(name="parameters")
@@ -182,7 +182,7 @@ public final class WorkflowState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return A map of Key-Value pairs.
      * 
-     * &gt; **NOTE:** Any parameters specified must exist in the Schema defined in `workflow_parameters`.
+     * &gt; **Note:** Any parameters specified must exist in the Schema defined in `workflow_parameters`.
      * 
      */
     public Optional<Output<Map<String,String>>> parameters() {
@@ -568,7 +568,7 @@ public final class WorkflowState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param parameters A map of Key-Value pairs.
          * 
-         * &gt; **NOTE:** Any parameters specified must exist in the Schema defined in `workflow_parameters`.
+         * &gt; **Note:** Any parameters specified must exist in the Schema defined in `workflow_parameters`.
          * 
          * @return builder
          * 
@@ -581,7 +581,7 @@ public final class WorkflowState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param parameters A map of Key-Value pairs.
          * 
-         * &gt; **NOTE:** Any parameters specified must exist in the Schema defined in `workflow_parameters`.
+         * &gt; **Note:** Any parameters specified must exist in the Schema defined in `workflow_parameters`.
          * 
          * @return builder
          * 

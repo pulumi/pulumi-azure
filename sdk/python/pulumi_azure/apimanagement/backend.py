@@ -461,6 +461,13 @@ class Backend(pulumi.CustomResource):
             url="https://backend.com/api")
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ApiManagement`: 2022-08-01
+
         ## Import
 
         API Management backends can be imported using the `resource id`, e.g.
@@ -516,6 +523,13 @@ class Backend(pulumi.CustomResource):
             protocol="http",
             url="https://backend.com/api")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ApiManagement`: 2022-08-01
 
         ## Import
 

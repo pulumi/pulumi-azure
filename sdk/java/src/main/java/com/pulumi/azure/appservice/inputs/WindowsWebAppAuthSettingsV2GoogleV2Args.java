@@ -50,7 +50,7 @@ public final class WindowsWebAppAuthSettingsV2GoogleV2Args extends com.pulumi.re
     /**
      * The app setting name that contains the `client_secret` value used for Google Login.
      * 
-     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+     * !&gt; **Note:** A setting with this name must exist in `app_settings` to function correctly.
      * 
      */
     @Import(name="clientSecretSettingName", required=true)
@@ -59,7 +59,7 @@ public final class WindowsWebAppAuthSettingsV2GoogleV2Args extends com.pulumi.re
     /**
      * @return The app setting name that contains the `client_secret` value used for Google Login.
      * 
-     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+     * !&gt; **Note:** A setting with this name must exist in `app_settings` to function correctly.
      * 
      */
     public Output<String> clientSecretSettingName() {
@@ -163,7 +163,7 @@ public final class WindowsWebAppAuthSettingsV2GoogleV2Args extends com.pulumi.re
         /**
          * @param clientSecretSettingName The app setting name that contains the `client_secret` value used for Google Login.
          * 
-         * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+         * !&gt; **Note:** A setting with this name must exist in `app_settings` to function correctly.
          * 
          * @return builder
          * 
@@ -176,7 +176,7 @@ public final class WindowsWebAppAuthSettingsV2GoogleV2Args extends com.pulumi.re
         /**
          * @param clientSecretSettingName The app setting name that contains the `client_secret` value used for Google Login.
          * 
-         * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+         * !&gt; **Note:** A setting with this name must exist in `app_settings` to function correctly.
          * 
          * @return builder
          * 

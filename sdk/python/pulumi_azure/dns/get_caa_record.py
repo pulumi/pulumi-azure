@@ -143,6 +143,13 @@ def get_caa_record(name: Optional[builtins.str] = None,
     pulumi.export("dnsCaaRecordId", example.id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Network`: 2018-05-01
+
 
     :param builtins.str name: The name of the DNS CAA Record.
     :param builtins.str resource_group_name: Specifies the resource group where the DNS Zone (parent resource) exists.
@@ -180,6 +187,13 @@ def get_caa_record_output(name: Optional[pulumi.Input[builtins.str]] = None,
         resource_group_name="test-rg")
     pulumi.export("dnsCaaRecordId", example.id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Network`: 2018-05-01
 
 
     :param builtins.str name: The name of the DNS CAA Record.

@@ -12,6 +12,10 @@ namespace Pulumi.Azure.Cdn
     /// <summary>
     /// Manages a Custom Domain for a CDN Endpoint.
     /// 
+    /// !&gt; **Note:** The CDN services from Edgio(formerly Verizon) was shut down on 15 January 2025 and is no longer available .
+    /// 
+    /// !&gt; **Note:** Support for CDN services from Akamai was removed on 31 October 2023.
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp
@@ -42,7 +46,7 @@ namespace Pulumi.Azure.Cdn
     ///         Name = "example-profile",
     ///         Location = exampleResourceGroup.Location,
     ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Sku = "Standard_Verizon",
+    ///         Sku = "Standard_Microsoft",
     ///     });
     /// 
     ///     var exampleEndpoint = new Azure.Cdn.Endpoint("example", new()
@@ -129,7 +133,7 @@ namespace Pulumi.Azure.Cdn
         /// <summary>
         /// A `user_managed_https` block as defined below.
         /// 
-        /// &gt; **NOTE** Only one of `cdn_managed_https` and `user_managed_https` can be specified.
+        /// &gt; **Note:** Only one of `cdn_managed_https` and `user_managed_https` can be specified.
         /// </summary>
         [Output("userManagedHttps")]
         public Output<Outputs.EndpointCustomDomainUserManagedHttps?> UserManagedHttps { get; private set; } = null!;
@@ -207,7 +211,7 @@ namespace Pulumi.Azure.Cdn
         /// <summary>
         /// A `user_managed_https` block as defined below.
         /// 
-        /// &gt; **NOTE** Only one of `cdn_managed_https` and `user_managed_https` can be specified.
+        /// &gt; **Note:** Only one of `cdn_managed_https` and `user_managed_https` can be specified.
         /// </summary>
         [Input("userManagedHttps")]
         public Input<Inputs.EndpointCustomDomainUserManagedHttpsArgs>? UserManagedHttps { get; set; }
@@ -247,7 +251,7 @@ namespace Pulumi.Azure.Cdn
         /// <summary>
         /// A `user_managed_https` block as defined below.
         /// 
-        /// &gt; **NOTE** Only one of `cdn_managed_https` and `user_managed_https` can be specified.
+        /// &gt; **Note:** Only one of `cdn_managed_https` and `user_managed_https` can be specified.
         /// </summary>
         [Input("userManagedHttps")]
         public Input<Inputs.EndpointCustomDomainUserManagedHttpsGetArgs>? UserManagedHttps { get; set; }

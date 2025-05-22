@@ -934,7 +934,7 @@ if not MYPY:
         """
         A list of `ip_restriction` objects representing IP restrictions as defined below.
 
-        > **NOTE** User has to explicitly set `ip_restriction` to empty slice (`[]`) to remove it.
+        > **Note:** User has to explicitly set `ip_restriction` to empty slice (`[]`) to remove it.
         """
         linux_fx_version: NotRequired[pulumi.Input[builtins.str]]
         """
@@ -946,7 +946,7 @@ if not MYPY:
         """
         The minimum supported TLS version for the Logic App. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new Logic Apps.
 
-        > **Note** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
+        > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         """
         pre_warmed_instance_count: NotRequired[pulumi.Input[builtins.int]]
         """
@@ -961,13 +961,13 @@ if not MYPY:
         """
         A list of `scm_ip_restriction` objects representing SCM IP restrictions as defined below.
 
-        > **NOTE** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
+        > **Note:** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
         """
         scm_min_tls_version: NotRequired[pulumi.Input[builtins.str]]
         """
         Configures the minimum version of TLS required for SSL requests to the SCM site. Possible values are `1.0`, `1.1` and `1.2`.
 
-        > **Note** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
+        > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         """
         scm_type: NotRequired[pulumi.Input[builtins.str]]
         """
@@ -1031,21 +1031,21 @@ class StandardSiteConfigArgs:
         :param pulumi.Input[builtins.bool] http2_enabled: Specifies whether the HTTP2 protocol should be enabled. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input['StandardSiteConfigIpRestrictionArgs']]] ip_restrictions: A list of `ip_restriction` objects representing IP restrictions as defined below.
                
-               > **NOTE** User has to explicitly set `ip_restriction` to empty slice (`[]`) to remove it.
+               > **Note:** User has to explicitly set `ip_restriction` to empty slice (`[]`) to remove it.
         :param pulumi.Input[builtins.str] linux_fx_version: Linux App Framework and version for the App Service, e.g. `DOCKER|(golang:latest)`. Setting this value will also set the `kind` of application deployed to `functionapp,linux,container,workflowapp`.
                
                > **Note:** You must set `os_type` in `appservice.ServicePlan` to `Linux` when this property is set.
         :param pulumi.Input[builtins.str] min_tls_version: The minimum supported TLS version for the Logic App. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new Logic Apps.
                
-               > **Note** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
+               > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         :param pulumi.Input[builtins.int] pre_warmed_instance_count: The number of pre-warmed instances for this Logic App Only affects apps on the Premium plan.
         :param pulumi.Input[builtins.bool] runtime_scale_monitoring_enabled: Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input['StandardSiteConfigScmIpRestrictionArgs']]] scm_ip_restrictions: A list of `scm_ip_restriction` objects representing SCM IP restrictions as defined below.
                
-               > **NOTE** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
+               > **Note:** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
         :param pulumi.Input[builtins.str] scm_min_tls_version: Configures the minimum version of TLS required for SSL requests to the SCM site. Possible values are `1.0`, `1.1` and `1.2`.
                
-               > **Note** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
+               > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         :param pulumi.Input[builtins.str] scm_type: The type of Source Control used by the Logic App in use by the Windows Function App. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
         :param pulumi.Input[builtins.bool] scm_use_main_ip_restriction: Should the Logic App `ip_restriction` configuration be used for the SCM too. Defaults to `false`.
         :param pulumi.Input[builtins.bool] use32_bit_worker_process: Should the Logic App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
@@ -1216,7 +1216,7 @@ class StandardSiteConfigArgs:
         """
         A list of `ip_restriction` objects representing IP restrictions as defined below.
 
-        > **NOTE** User has to explicitly set `ip_restriction` to empty slice (`[]`) to remove it.
+        > **Note:** User has to explicitly set `ip_restriction` to empty slice (`[]`) to remove it.
         """
         return pulumi.get(self, "ip_restrictions")
 
@@ -1244,7 +1244,7 @@ class StandardSiteConfigArgs:
         """
         The minimum supported TLS version for the Logic App. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new Logic Apps.
 
-        > **Note** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
+        > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         """
         return pulumi.get(self, "min_tls_version")
 
@@ -1292,7 +1292,7 @@ class StandardSiteConfigArgs:
         """
         A list of `scm_ip_restriction` objects representing SCM IP restrictions as defined below.
 
-        > **NOTE** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
+        > **Note:** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
         """
         return pulumi.get(self, "scm_ip_restrictions")
 
@@ -1306,7 +1306,7 @@ class StandardSiteConfigArgs:
         """
         Configures the minimum version of TLS required for SSL requests to the SCM site. Possible values are `1.0`, `1.1` and `1.2`.
 
-        > **Note** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
+        > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         """
         return pulumi.get(self, "scm_min_tls_version")
 
@@ -2398,7 +2398,7 @@ if not MYPY:
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this Logic App Workflow.
 
-        > **NOTE:** This is required when `type` is set to `UserAssigned`
+        > **Note:** This is required when `type` is set to `UserAssigned`
         """
         principal_id: NotRequired[pulumi.Input[builtins.str]]
         """
@@ -2422,7 +2422,7 @@ class WorkflowIdentityArgs:
         :param pulumi.Input[builtins.str] type: Specifies the type of Managed Service Identity that should be configured on this Logic App Workflow. Possible values are `SystemAssigned`, `UserAssigned`.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this Logic App Workflow.
                
-               > **NOTE:** This is required when `type` is set to `UserAssigned`
+               > **Note:** This is required when `type` is set to `UserAssigned`
         :param pulumi.Input[builtins.str] principal_id: The Principal ID for the Service Principal associated with the Managed Service Identity of this Logic App Workflow.
         :param pulumi.Input[builtins.str] tenant_id: The Tenant ID for the Service Principal associated with the Managed Service Identity of this Logic App Workflow.
         """
@@ -2452,7 +2452,7 @@ class WorkflowIdentityArgs:
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this Logic App Workflow.
 
-        > **NOTE:** This is required when `type` is set to `UserAssigned`
+        > **Note:** This is required when `type` is set to `UserAssigned`
         """
         return pulumi.get(self, "identity_ids")
 

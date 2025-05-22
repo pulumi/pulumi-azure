@@ -21,7 +21,7 @@ namespace Pulumi.Azure.Monitoring.Inputs
         /// <summary>
         /// The maximum number of instances for this resource. Valid values are between `0` and `1000`.
         /// 
-        /// &gt; **NOTE:** The maximum number of instances is also limited by the amount of Cores available in the subscription.
+        /// &gt; **Note:** The maximum number of instances is also limited by the amount of Cores available in the subscription.
         /// </summary>
         [Input("maximum", required: true)]
         public Input<int> Maximum { get; set; } = null!;

@@ -55,6 +55,13 @@ public final class ExpressrouteFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2024-05-01
+     * 
      */
     public static Output<GetCircuitPeeringResult> getCircuitPeering(GetCircuitPeeringArgs args) {
         return getCircuitPeering(args, InvokeOptions.Empty);
@@ -98,6 +105,13 @@ public final class ExpressrouteFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2024-05-01
      * 
      */
     public static CompletableFuture<GetCircuitPeeringResult> getCircuitPeeringPlain(GetCircuitPeeringPlainArgs args) {
@@ -143,6 +157,13 @@ public final class ExpressrouteFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2024-05-01
+     * 
      */
     public static Output<GetCircuitPeeringResult> getCircuitPeering(GetCircuitPeeringArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:expressroute/getCircuitPeering:getCircuitPeering", TypeShape.of(GetCircuitPeeringResult.class), args, Utilities.withVersion(options));
@@ -187,6 +208,13 @@ public final class ExpressrouteFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2024-05-01
+     * 
      */
     public static Output<GetCircuitPeeringResult> getCircuitPeering(GetCircuitPeeringArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:expressroute/getCircuitPeering:getCircuitPeering", TypeShape.of(GetCircuitPeeringResult.class), args, Utilities.withVersion(options));
@@ -230,6 +258,13 @@ public final class ExpressrouteFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2024-05-01
      * 
      */
     public static CompletableFuture<GetCircuitPeeringResult> getCircuitPeeringPlain(GetCircuitPeeringPlainArgs args, InvokeOptions options) {

@@ -174,6 +174,13 @@ class ApiRelease(pulumi.CustomResource):
             api_id=example_api.id)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ApiManagement`: 2022-08-01
+
         ## Import
 
         API Management API Releases can be imported using the `resource id`, e.g.
@@ -229,6 +236,13 @@ class ApiRelease(pulumi.CustomResource):
             name="example-Api-Release",
             api_id=example_api.id)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ApiManagement`: 2022-08-01
 
         ## Import
 

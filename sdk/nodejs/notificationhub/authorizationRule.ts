@@ -41,6 +41,13 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.NotificationHubs`: 2023-09-01
+ *
  * ## Import
  *
  * Notification Hub Authorization Rule can be imported using the `resource id`, e.g.
@@ -84,7 +91,7 @@ export class AuthorizationRule extends pulumi.CustomResource {
     /**
      * Does this Authorization Rule have Manage access to the Notification Hub? Defaults to `false`.
      *
-     * > **NOTE:** If `manage` is set to `true` then both `send` and `listen` must also be set to `true`.
+     * > **Note:** If `manage` is set to `true` then both `send` and `listen` must also be set to `true`.
      */
     public readonly manage!: pulumi.Output<boolean | undefined>;
     /**
@@ -189,7 +196,7 @@ export interface AuthorizationRuleState {
     /**
      * Does this Authorization Rule have Manage access to the Notification Hub? Defaults to `false`.
      *
-     * > **NOTE:** If `manage` is set to `true` then both `send` and `listen` must also be set to `true`.
+     * > **Note:** If `manage` is set to `true` then both `send` and `listen` must also be set to `true`.
      */
     manage?: pulumi.Input<boolean>;
     /**
@@ -241,7 +248,7 @@ export interface AuthorizationRuleArgs {
     /**
      * Does this Authorization Rule have Manage access to the Notification Hub? Defaults to `false`.
      *
-     * > **NOTE:** If `manage` is set to `true` then both `send` and `listen` must also be set to `true`.
+     * > **Note:** If `manage` is set to `true` then both `send` and `listen` must also be set to `true`.
      */
     manage?: pulumi.Input<boolean>;
     /**

@@ -32,7 +32,7 @@ namespace Pulumi.Azure.Fabric
     /// 
     ///     var exampleCapacity = new Azure.Fabric.Capacity("example", new()
     ///     {
-    ///         Name = "example-ffc",
+    ///         Name = "exampleffc",
     ///         ResourceGroupName = example.Name,
     ///         Location = "West Europe",
     ///         AdministrationMembers = new[]
@@ -52,6 +52,13 @@ namespace Pulumi.Azure.Fabric
     /// 
     /// });
     /// ```
+    /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.Fabric`: 2023-11-01
     /// 
     /// ## Import
     /// 

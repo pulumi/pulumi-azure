@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Cognitive.Inputs
     public sealed class DeploymentModelGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The format of the Cognitive Services Account Deployment model. Changing this forces a new resource to be created. Possible value is `OpenAI`.
+        /// The format of the Cognitive Services Account Deployment model. Possible values are `OpenAI` and `Cohere`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("format", required: true)]
         public Input<string> Format { get; set; } = null!;

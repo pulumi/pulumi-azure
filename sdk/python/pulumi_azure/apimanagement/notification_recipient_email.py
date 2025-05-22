@@ -161,6 +161,13 @@ class NotificationRecipientEmail(pulumi.CustomResource):
             email="foo@bar.com")
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ApiManagement`: 2022-08-01
+
         ## Import
 
         API Management Notification Recipient Emails can be imported using the `resource id`, e.g.
@@ -205,6 +212,13 @@ class NotificationRecipientEmail(pulumi.CustomResource):
             notification_type="AccountClosedPublisher",
             email="foo@bar.com")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ApiManagement`: 2022-08-01
 
         ## Import
 

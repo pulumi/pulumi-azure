@@ -266,6 +266,13 @@ def get_job(name: Optional[builtins.str] = None,
     pulumi.export("jobId", example.job_id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.StreamAnalytics`: 2021-10-01-preview
+
 
     :param builtins.str name: Specifies the name of the Stream Analytics Job.
     :param builtins.str resource_group_name: Specifies the name of the resource group the Stream Analytics Job is located in.
@@ -311,6 +318,13 @@ def get_job_output(name: Optional[pulumi.Input[builtins.str]] = None,
         resource_group_name="example-resources")
     pulumi.export("jobId", example.job_id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.StreamAnalytics`: 2021-10-01-preview
 
 
     :param builtins.str name: Specifies the name of the Stream Analytics Job.

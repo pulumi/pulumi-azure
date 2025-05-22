@@ -21,6 +21,13 @@ import * as utilities from "../utilities";
  * });
  * export const id = example.then(example => example.id);
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.ResourceConnector`: 2022-10-27
  */
 export function getResourceBridgeAppliance(args: GetResourceBridgeApplianceArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceBridgeApplianceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -94,6 +101,13 @@ export interface GetResourceBridgeApplianceResult {
  * });
  * export const id = example.then(example => example.id);
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.ResourceConnector`: 2022-10-27
  */
 export function getResourceBridgeApplianceOutput(args: GetResourceBridgeApplianceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetResourceBridgeApplianceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

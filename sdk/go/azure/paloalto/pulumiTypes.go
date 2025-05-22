@@ -601,10 +601,14 @@ func (o LocalRulestackRuleSourcePtrOutput) LocalRulestackPrefixListIds() pulumi.
 }
 
 type NextGenerationFirewallVirtualHubLocalRulestackDestinationNat struct {
-	BackendConfig  *NextGenerationFirewallVirtualHubLocalRulestackDestinationNatBackendConfig  `pulumi:"backendConfig"`
+	// A `backendConfig` block as defined above.
+	BackendConfig *NextGenerationFirewallVirtualHubLocalRulestackDestinationNatBackendConfig `pulumi:"backendConfig"`
+	// A `frontendConfig` block as defined below.
 	FrontendConfig *NextGenerationFirewallVirtualHubLocalRulestackDestinationNatFrontendConfig `pulumi:"frontendConfig"`
-	Name           string                                                                      `pulumi:"name"`
-	Protocol       string                                                                      `pulumi:"protocol"`
+	// The name which should be used for this NAT.
+	Name string `pulumi:"name"`
+	// The protocol used for this Destination NAT. Possible values include `TCP` and `UDP`.
+	Protocol string `pulumi:"protocol"`
 }
 
 // NextGenerationFirewallVirtualHubLocalRulestackDestinationNatInput is an input type that accepts NextGenerationFirewallVirtualHubLocalRulestackDestinationNatArgs and NextGenerationFirewallVirtualHubLocalRulestackDestinationNatOutput values.
@@ -619,10 +623,14 @@ type NextGenerationFirewallVirtualHubLocalRulestackDestinationNatInput interface
 }
 
 type NextGenerationFirewallVirtualHubLocalRulestackDestinationNatArgs struct {
-	BackendConfig  NextGenerationFirewallVirtualHubLocalRulestackDestinationNatBackendConfigPtrInput  `pulumi:"backendConfig"`
+	// A `backendConfig` block as defined above.
+	BackendConfig NextGenerationFirewallVirtualHubLocalRulestackDestinationNatBackendConfigPtrInput `pulumi:"backendConfig"`
+	// A `frontendConfig` block as defined below.
 	FrontendConfig NextGenerationFirewallVirtualHubLocalRulestackDestinationNatFrontendConfigPtrInput `pulumi:"frontendConfig"`
-	Name           pulumi.StringInput                                                                 `pulumi:"name"`
-	Protocol       pulumi.StringInput                                                                 `pulumi:"protocol"`
+	// The name which should be used for this NAT.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The protocol used for this Destination NAT. Possible values include `TCP` and `UDP`.
+	Protocol pulumi.StringInput `pulumi:"protocol"`
 }
 
 func (NextGenerationFirewallVirtualHubLocalRulestackDestinationNatArgs) ElementType() reflect.Type {
@@ -676,22 +684,26 @@ func (o NextGenerationFirewallVirtualHubLocalRulestackDestinationNatOutput) ToNe
 	return o
 }
 
+// A `backendConfig` block as defined above.
 func (o NextGenerationFirewallVirtualHubLocalRulestackDestinationNatOutput) BackendConfig() NextGenerationFirewallVirtualHubLocalRulestackDestinationNatBackendConfigPtrOutput {
 	return o.ApplyT(func(v NextGenerationFirewallVirtualHubLocalRulestackDestinationNat) *NextGenerationFirewallVirtualHubLocalRulestackDestinationNatBackendConfig {
 		return v.BackendConfig
 	}).(NextGenerationFirewallVirtualHubLocalRulestackDestinationNatBackendConfigPtrOutput)
 }
 
+// A `frontendConfig` block as defined below.
 func (o NextGenerationFirewallVirtualHubLocalRulestackDestinationNatOutput) FrontendConfig() NextGenerationFirewallVirtualHubLocalRulestackDestinationNatFrontendConfigPtrOutput {
 	return o.ApplyT(func(v NextGenerationFirewallVirtualHubLocalRulestackDestinationNat) *NextGenerationFirewallVirtualHubLocalRulestackDestinationNatFrontendConfig {
 		return v.FrontendConfig
 	}).(NextGenerationFirewallVirtualHubLocalRulestackDestinationNatFrontendConfigPtrOutput)
 }
 
+// The name which should be used for this NAT.
 func (o NextGenerationFirewallVirtualHubLocalRulestackDestinationNatOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v NextGenerationFirewallVirtualHubLocalRulestackDestinationNat) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The protocol used for this Destination NAT. Possible values include `TCP` and `UDP`.
 func (o NextGenerationFirewallVirtualHubLocalRulestackDestinationNatOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v NextGenerationFirewallVirtualHubLocalRulestackDestinationNat) string { return v.Protocol }).(pulumi.StringOutput)
 }
@@ -717,7 +729,9 @@ func (o NextGenerationFirewallVirtualHubLocalRulestackDestinationNatArrayOutput)
 }
 
 type NextGenerationFirewallVirtualHubLocalRulestackDestinationNatBackendConfig struct {
-	Port            int    `pulumi:"port"`
+	// The port number to send traffic to.
+	Port int `pulumi:"port"`
+	// The Public IP Address to send the traffic to.
 	PublicIpAddress string `pulumi:"publicIpAddress"`
 }
 
@@ -733,7 +747,9 @@ type NextGenerationFirewallVirtualHubLocalRulestackDestinationNatBackendConfigIn
 }
 
 type NextGenerationFirewallVirtualHubLocalRulestackDestinationNatBackendConfigArgs struct {
-	Port            pulumi.IntInput    `pulumi:"port"`
+	// The port number to send traffic to.
+	Port pulumi.IntInput `pulumi:"port"`
+	// The Public IP Address to send the traffic to.
 	PublicIpAddress pulumi.StringInput `pulumi:"publicIpAddress"`
 }
 
@@ -814,10 +830,12 @@ func (o NextGenerationFirewallVirtualHubLocalRulestackDestinationNatBackendConfi
 	}).(NextGenerationFirewallVirtualHubLocalRulestackDestinationNatBackendConfigPtrOutput)
 }
 
+// The port number to send traffic to.
 func (o NextGenerationFirewallVirtualHubLocalRulestackDestinationNatBackendConfigOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v NextGenerationFirewallVirtualHubLocalRulestackDestinationNatBackendConfig) int { return v.Port }).(pulumi.IntOutput)
 }
 
+// The Public IP Address to send the traffic to.
 func (o NextGenerationFirewallVirtualHubLocalRulestackDestinationNatBackendConfigOutput) PublicIpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v NextGenerationFirewallVirtualHubLocalRulestackDestinationNatBackendConfig) string {
 		return v.PublicIpAddress
@@ -848,6 +866,7 @@ func (o NextGenerationFirewallVirtualHubLocalRulestackDestinationNatBackendConfi
 	}).(NextGenerationFirewallVirtualHubLocalRulestackDestinationNatBackendConfigOutput)
 }
 
+// The port number to send traffic to.
 func (o NextGenerationFirewallVirtualHubLocalRulestackDestinationNatBackendConfigPtrOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *NextGenerationFirewallVirtualHubLocalRulestackDestinationNatBackendConfig) *int {
 		if v == nil {
@@ -857,6 +876,7 @@ func (o NextGenerationFirewallVirtualHubLocalRulestackDestinationNatBackendConfi
 	}).(pulumi.IntPtrOutput)
 }
 
+// The Public IP Address to send the traffic to.
 func (o NextGenerationFirewallVirtualHubLocalRulestackDestinationNatBackendConfigPtrOutput) PublicIpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NextGenerationFirewallVirtualHubLocalRulestackDestinationNatBackendConfig) *string {
 		if v == nil {
@@ -867,7 +887,9 @@ func (o NextGenerationFirewallVirtualHubLocalRulestackDestinationNatBackendConfi
 }
 
 type NextGenerationFirewallVirtualHubLocalRulestackDestinationNatFrontendConfig struct {
-	Port              int    `pulumi:"port"`
+	// The port on which traffic will be receiveed.
+	Port int `pulumi:"port"`
+	// The ID of the Public IP Address resource the traffic will be received on.
 	PublicIpAddressId string `pulumi:"publicIpAddressId"`
 }
 
@@ -883,7 +905,9 @@ type NextGenerationFirewallVirtualHubLocalRulestackDestinationNatFrontendConfigI
 }
 
 type NextGenerationFirewallVirtualHubLocalRulestackDestinationNatFrontendConfigArgs struct {
-	Port              pulumi.IntInput    `pulumi:"port"`
+	// The port on which traffic will be receiveed.
+	Port pulumi.IntInput `pulumi:"port"`
+	// The ID of the Public IP Address resource the traffic will be received on.
 	PublicIpAddressId pulumi.StringInput `pulumi:"publicIpAddressId"`
 }
 
@@ -964,10 +988,12 @@ func (o NextGenerationFirewallVirtualHubLocalRulestackDestinationNatFrontendConf
 	}).(NextGenerationFirewallVirtualHubLocalRulestackDestinationNatFrontendConfigPtrOutput)
 }
 
+// The port on which traffic will be receiveed.
 func (o NextGenerationFirewallVirtualHubLocalRulestackDestinationNatFrontendConfigOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v NextGenerationFirewallVirtualHubLocalRulestackDestinationNatFrontendConfig) int { return v.Port }).(pulumi.IntOutput)
 }
 
+// The ID of the Public IP Address resource the traffic will be received on.
 func (o NextGenerationFirewallVirtualHubLocalRulestackDestinationNatFrontendConfigOutput) PublicIpAddressId() pulumi.StringOutput {
 	return o.ApplyT(func(v NextGenerationFirewallVirtualHubLocalRulestackDestinationNatFrontendConfig) string {
 		return v.PublicIpAddressId
@@ -998,6 +1024,7 @@ func (o NextGenerationFirewallVirtualHubLocalRulestackDestinationNatFrontendConf
 	}).(NextGenerationFirewallVirtualHubLocalRulestackDestinationNatFrontendConfigOutput)
 }
 
+// The port on which traffic will be receiveed.
 func (o NextGenerationFirewallVirtualHubLocalRulestackDestinationNatFrontendConfigPtrOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *NextGenerationFirewallVirtualHubLocalRulestackDestinationNatFrontendConfig) *int {
 		if v == nil {
@@ -1007,6 +1034,7 @@ func (o NextGenerationFirewallVirtualHubLocalRulestackDestinationNatFrontendConf
 	}).(pulumi.IntPtrOutput)
 }
 
+// The ID of the Public IP Address resource the traffic will be received on.
 func (o NextGenerationFirewallVirtualHubLocalRulestackDestinationNatFrontendConfigPtrOutput) PublicIpAddressId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NextGenerationFirewallVirtualHubLocalRulestackDestinationNatFrontendConfig) *string {
 		if v == nil {
@@ -1018,8 +1046,10 @@ func (o NextGenerationFirewallVirtualHubLocalRulestackDestinationNatFrontendConf
 
 type NextGenerationFirewallVirtualHubLocalRulestackDnsSettings struct {
 	AzureDnsServers []string `pulumi:"azureDnsServers"`
-	DnsServers      []string `pulumi:"dnsServers"`
-	UseAzureDns     *bool    `pulumi:"useAzureDns"`
+	// Specifies a list of DNS servers to proxy. Conflicts with `dns_settings[0].use_azure_dns`.
+	DnsServers []string `pulumi:"dnsServers"`
+	// Should Azure DNS servers be used? Conflicts with `dns_settings[0].dns_servers`. Defaults to `false`.
+	UseAzureDns *bool `pulumi:"useAzureDns"`
 }
 
 // NextGenerationFirewallVirtualHubLocalRulestackDnsSettingsInput is an input type that accepts NextGenerationFirewallVirtualHubLocalRulestackDnsSettingsArgs and NextGenerationFirewallVirtualHubLocalRulestackDnsSettingsOutput values.
@@ -1035,8 +1065,10 @@ type NextGenerationFirewallVirtualHubLocalRulestackDnsSettingsInput interface {
 
 type NextGenerationFirewallVirtualHubLocalRulestackDnsSettingsArgs struct {
 	AzureDnsServers pulumi.StringArrayInput `pulumi:"azureDnsServers"`
-	DnsServers      pulumi.StringArrayInput `pulumi:"dnsServers"`
-	UseAzureDns     pulumi.BoolPtrInput     `pulumi:"useAzureDns"`
+	// Specifies a list of DNS servers to proxy. Conflicts with `dns_settings[0].use_azure_dns`.
+	DnsServers pulumi.StringArrayInput `pulumi:"dnsServers"`
+	// Should Azure DNS servers be used? Conflicts with `dns_settings[0].dns_servers`. Defaults to `false`.
+	UseAzureDns pulumi.BoolPtrInput `pulumi:"useAzureDns"`
 }
 
 func (NextGenerationFirewallVirtualHubLocalRulestackDnsSettingsArgs) ElementType() reflect.Type {
@@ -1120,10 +1152,12 @@ func (o NextGenerationFirewallVirtualHubLocalRulestackDnsSettingsOutput) AzureDn
 	return o.ApplyT(func(v NextGenerationFirewallVirtualHubLocalRulestackDnsSettings) []string { return v.AzureDnsServers }).(pulumi.StringArrayOutput)
 }
 
+// Specifies a list of DNS servers to proxy. Conflicts with `dns_settings[0].use_azure_dns`.
 func (o NextGenerationFirewallVirtualHubLocalRulestackDnsSettingsOutput) DnsServers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v NextGenerationFirewallVirtualHubLocalRulestackDnsSettings) []string { return v.DnsServers }).(pulumi.StringArrayOutput)
 }
 
+// Should Azure DNS servers be used? Conflicts with `dns_settings[0].dns_servers`. Defaults to `false`.
 func (o NextGenerationFirewallVirtualHubLocalRulestackDnsSettingsOutput) UseAzureDns() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v NextGenerationFirewallVirtualHubLocalRulestackDnsSettings) *bool { return v.UseAzureDns }).(pulumi.BoolPtrOutput)
 }
@@ -1161,6 +1195,7 @@ func (o NextGenerationFirewallVirtualHubLocalRulestackDnsSettingsPtrOutput) Azur
 	}).(pulumi.StringArrayOutput)
 }
 
+// Specifies a list of DNS servers to proxy. Conflicts with `dns_settings[0].use_azure_dns`.
 func (o NextGenerationFirewallVirtualHubLocalRulestackDnsSettingsPtrOutput) DnsServers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *NextGenerationFirewallVirtualHubLocalRulestackDnsSettings) []string {
 		if v == nil {
@@ -1170,6 +1205,7 @@ func (o NextGenerationFirewallVirtualHubLocalRulestackDnsSettingsPtrOutput) DnsS
 	}).(pulumi.StringArrayOutput)
 }
 
+// Should Azure DNS servers be used? Conflicts with `dns_settings[0].dns_servers`. Defaults to `false`.
 func (o NextGenerationFirewallVirtualHubLocalRulestackDnsSettingsPtrOutput) UseAzureDns() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *NextGenerationFirewallVirtualHubLocalRulestackDnsSettings) *bool {
 		if v == nil {
@@ -1180,16 +1216,21 @@ func (o NextGenerationFirewallVirtualHubLocalRulestackDnsSettingsPtrOutput) UseA
 }
 
 type NextGenerationFirewallVirtualHubLocalRulestackNetworkProfile struct {
+	// Specifies a list of Public IP IDs to use for Egress NAT.
 	EgressNatIpAddressIds         []string `pulumi:"egressNatIpAddressIds"`
 	EgressNatIpAddresses          []string `pulumi:"egressNatIpAddresses"`
 	IpOfTrustForUserDefinedRoutes *string  `pulumi:"ipOfTrustForUserDefinedRoutes"`
-	NetworkVirtualApplianceId     string   `pulumi:"networkVirtualApplianceId"`
-	PublicIpAddressIds            []string `pulumi:"publicIpAddressIds"`
-	PublicIpAddresses             []string `pulumi:"publicIpAddresses"`
-	TrustedAddressRanges          []string `pulumi:"trustedAddressRanges"`
-	TrustedSubnetId               *string  `pulumi:"trustedSubnetId"`
-	UntrustedSubnetId             *string  `pulumi:"untrustedSubnetId"`
-	VirtualHubId                  string   `pulumi:"virtualHubId"`
+	// The ID of the Palo Alto Network Virtual Appliance in the VHub. Changing this forces a new Palo Alto Next Generation Firewall VHub Local Rulestack to be created.
+	NetworkVirtualApplianceId string `pulumi:"networkVirtualApplianceId"`
+	// Specifies a list of Public IP IDs to use for this Next Generation Firewall.
+	PublicIpAddressIds []string `pulumi:"publicIpAddressIds"`
+	PublicIpAddresses  []string `pulumi:"publicIpAddresses"`
+	// Specifies a list of trusted ranges to use for the Network.
+	TrustedAddressRanges []string `pulumi:"trustedAddressRanges"`
+	TrustedSubnetId      *string  `pulumi:"trustedSubnetId"`
+	UntrustedSubnetId    *string  `pulumi:"untrustedSubnetId"`
+	// The ID of the Virtual Hub this Next generation Fireall will be deployed in. Changing this forces a new Palo Alto Next Generation Firewall VHub Local Rulestack to be created.
+	VirtualHubId string `pulumi:"virtualHubId"`
 }
 
 // NextGenerationFirewallVirtualHubLocalRulestackNetworkProfileInput is an input type that accepts NextGenerationFirewallVirtualHubLocalRulestackNetworkProfileArgs and NextGenerationFirewallVirtualHubLocalRulestackNetworkProfileOutput values.
@@ -1204,16 +1245,21 @@ type NextGenerationFirewallVirtualHubLocalRulestackNetworkProfileInput interface
 }
 
 type NextGenerationFirewallVirtualHubLocalRulestackNetworkProfileArgs struct {
+	// Specifies a list of Public IP IDs to use for Egress NAT.
 	EgressNatIpAddressIds         pulumi.StringArrayInput `pulumi:"egressNatIpAddressIds"`
 	EgressNatIpAddresses          pulumi.StringArrayInput `pulumi:"egressNatIpAddresses"`
 	IpOfTrustForUserDefinedRoutes pulumi.StringPtrInput   `pulumi:"ipOfTrustForUserDefinedRoutes"`
-	NetworkVirtualApplianceId     pulumi.StringInput      `pulumi:"networkVirtualApplianceId"`
-	PublicIpAddressIds            pulumi.StringArrayInput `pulumi:"publicIpAddressIds"`
-	PublicIpAddresses             pulumi.StringArrayInput `pulumi:"publicIpAddresses"`
-	TrustedAddressRanges          pulumi.StringArrayInput `pulumi:"trustedAddressRanges"`
-	TrustedSubnetId               pulumi.StringPtrInput   `pulumi:"trustedSubnetId"`
-	UntrustedSubnetId             pulumi.StringPtrInput   `pulumi:"untrustedSubnetId"`
-	VirtualHubId                  pulumi.StringInput      `pulumi:"virtualHubId"`
+	// The ID of the Palo Alto Network Virtual Appliance in the VHub. Changing this forces a new Palo Alto Next Generation Firewall VHub Local Rulestack to be created.
+	NetworkVirtualApplianceId pulumi.StringInput `pulumi:"networkVirtualApplianceId"`
+	// Specifies a list of Public IP IDs to use for this Next Generation Firewall.
+	PublicIpAddressIds pulumi.StringArrayInput `pulumi:"publicIpAddressIds"`
+	PublicIpAddresses  pulumi.StringArrayInput `pulumi:"publicIpAddresses"`
+	// Specifies a list of trusted ranges to use for the Network.
+	TrustedAddressRanges pulumi.StringArrayInput `pulumi:"trustedAddressRanges"`
+	TrustedSubnetId      pulumi.StringPtrInput   `pulumi:"trustedSubnetId"`
+	UntrustedSubnetId    pulumi.StringPtrInput   `pulumi:"untrustedSubnetId"`
+	// The ID of the Virtual Hub this Next generation Fireall will be deployed in. Changing this forces a new Palo Alto Next Generation Firewall VHub Local Rulestack to be created.
+	VirtualHubId pulumi.StringInput `pulumi:"virtualHubId"`
 }
 
 func (NextGenerationFirewallVirtualHubLocalRulestackNetworkProfileArgs) ElementType() reflect.Type {
@@ -1293,6 +1339,7 @@ func (o NextGenerationFirewallVirtualHubLocalRulestackNetworkProfileOutput) ToNe
 	}).(NextGenerationFirewallVirtualHubLocalRulestackNetworkProfilePtrOutput)
 }
 
+// Specifies a list of Public IP IDs to use for Egress NAT.
 func (o NextGenerationFirewallVirtualHubLocalRulestackNetworkProfileOutput) EgressNatIpAddressIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v NextGenerationFirewallVirtualHubLocalRulestackNetworkProfile) []string {
 		return v.EgressNatIpAddressIds
@@ -1311,12 +1358,14 @@ func (o NextGenerationFirewallVirtualHubLocalRulestackNetworkProfileOutput) IpOf
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ID of the Palo Alto Network Virtual Appliance in the VHub. Changing this forces a new Palo Alto Next Generation Firewall VHub Local Rulestack to be created.
 func (o NextGenerationFirewallVirtualHubLocalRulestackNetworkProfileOutput) NetworkVirtualApplianceId() pulumi.StringOutput {
 	return o.ApplyT(func(v NextGenerationFirewallVirtualHubLocalRulestackNetworkProfile) string {
 		return v.NetworkVirtualApplianceId
 	}).(pulumi.StringOutput)
 }
 
+// Specifies a list of Public IP IDs to use for this Next Generation Firewall.
 func (o NextGenerationFirewallVirtualHubLocalRulestackNetworkProfileOutput) PublicIpAddressIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v NextGenerationFirewallVirtualHubLocalRulestackNetworkProfile) []string {
 		return v.PublicIpAddressIds
@@ -1329,6 +1378,7 @@ func (o NextGenerationFirewallVirtualHubLocalRulestackNetworkProfileOutput) Publ
 	}).(pulumi.StringArrayOutput)
 }
 
+// Specifies a list of trusted ranges to use for the Network.
 func (o NextGenerationFirewallVirtualHubLocalRulestackNetworkProfileOutput) TrustedAddressRanges() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v NextGenerationFirewallVirtualHubLocalRulestackNetworkProfile) []string {
 		return v.TrustedAddressRanges
@@ -1345,6 +1395,7 @@ func (o NextGenerationFirewallVirtualHubLocalRulestackNetworkProfileOutput) Untr
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ID of the Virtual Hub this Next generation Fireall will be deployed in. Changing this forces a new Palo Alto Next Generation Firewall VHub Local Rulestack to be created.
 func (o NextGenerationFirewallVirtualHubLocalRulestackNetworkProfileOutput) VirtualHubId() pulumi.StringOutput {
 	return o.ApplyT(func(v NextGenerationFirewallVirtualHubLocalRulestackNetworkProfile) string { return v.VirtualHubId }).(pulumi.StringOutput)
 }
@@ -1373,6 +1424,7 @@ func (o NextGenerationFirewallVirtualHubLocalRulestackNetworkProfilePtrOutput) E
 	}).(NextGenerationFirewallVirtualHubLocalRulestackNetworkProfileOutput)
 }
 
+// Specifies a list of Public IP IDs to use for Egress NAT.
 func (o NextGenerationFirewallVirtualHubLocalRulestackNetworkProfilePtrOutput) EgressNatIpAddressIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *NextGenerationFirewallVirtualHubLocalRulestackNetworkProfile) []string {
 		if v == nil {
@@ -1400,6 +1452,7 @@ func (o NextGenerationFirewallVirtualHubLocalRulestackNetworkProfilePtrOutput) I
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ID of the Palo Alto Network Virtual Appliance in the VHub. Changing this forces a new Palo Alto Next Generation Firewall VHub Local Rulestack to be created.
 func (o NextGenerationFirewallVirtualHubLocalRulestackNetworkProfilePtrOutput) NetworkVirtualApplianceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NextGenerationFirewallVirtualHubLocalRulestackNetworkProfile) *string {
 		if v == nil {
@@ -1409,6 +1462,7 @@ func (o NextGenerationFirewallVirtualHubLocalRulestackNetworkProfilePtrOutput) N
 	}).(pulumi.StringPtrOutput)
 }
 
+// Specifies a list of Public IP IDs to use for this Next Generation Firewall.
 func (o NextGenerationFirewallVirtualHubLocalRulestackNetworkProfilePtrOutput) PublicIpAddressIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *NextGenerationFirewallVirtualHubLocalRulestackNetworkProfile) []string {
 		if v == nil {
@@ -1427,6 +1481,7 @@ func (o NextGenerationFirewallVirtualHubLocalRulestackNetworkProfilePtrOutput) P
 	}).(pulumi.StringArrayOutput)
 }
 
+// Specifies a list of trusted ranges to use for the Network.
 func (o NextGenerationFirewallVirtualHubLocalRulestackNetworkProfilePtrOutput) TrustedAddressRanges() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *NextGenerationFirewallVirtualHubLocalRulestackNetworkProfile) []string {
 		if v == nil {
@@ -1454,6 +1509,7 @@ func (o NextGenerationFirewallVirtualHubLocalRulestackNetworkProfilePtrOutput) U
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ID of the Virtual Hub this Next generation Fireall will be deployed in. Changing this forces a new Palo Alto Next Generation Firewall VHub Local Rulestack to be created.
 func (o NextGenerationFirewallVirtualHubLocalRulestackNetworkProfilePtrOutput) VirtualHubId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NextGenerationFirewallVirtualHubLocalRulestackNetworkProfile) *string {
 		if v == nil {
@@ -1464,10 +1520,14 @@ func (o NextGenerationFirewallVirtualHubLocalRulestackNetworkProfilePtrOutput) V
 }
 
 type NextGenerationFirewallVirtualHubPanoramaDestinationNat struct {
-	BackendConfig  *NextGenerationFirewallVirtualHubPanoramaDestinationNatBackendConfig  `pulumi:"backendConfig"`
+	// A `backendConfig` block as defined above.
+	BackendConfig *NextGenerationFirewallVirtualHubPanoramaDestinationNatBackendConfig `pulumi:"backendConfig"`
+	// A `frontendConfig` block as defined below.
 	FrontendConfig *NextGenerationFirewallVirtualHubPanoramaDestinationNatFrontendConfig `pulumi:"frontendConfig"`
-	Name           string                                                                `pulumi:"name"`
-	Protocol       string                                                                `pulumi:"protocol"`
+	// The name which should be used for this NAT.
+	Name string `pulumi:"name"`
+	// The protocol used for this Destination NAT. Possible values include `TCP` and `UDP`.
+	Protocol string `pulumi:"protocol"`
 }
 
 // NextGenerationFirewallVirtualHubPanoramaDestinationNatInput is an input type that accepts NextGenerationFirewallVirtualHubPanoramaDestinationNatArgs and NextGenerationFirewallVirtualHubPanoramaDestinationNatOutput values.
@@ -1482,10 +1542,14 @@ type NextGenerationFirewallVirtualHubPanoramaDestinationNatInput interface {
 }
 
 type NextGenerationFirewallVirtualHubPanoramaDestinationNatArgs struct {
-	BackendConfig  NextGenerationFirewallVirtualHubPanoramaDestinationNatBackendConfigPtrInput  `pulumi:"backendConfig"`
+	// A `backendConfig` block as defined above.
+	BackendConfig NextGenerationFirewallVirtualHubPanoramaDestinationNatBackendConfigPtrInput `pulumi:"backendConfig"`
+	// A `frontendConfig` block as defined below.
 	FrontendConfig NextGenerationFirewallVirtualHubPanoramaDestinationNatFrontendConfigPtrInput `pulumi:"frontendConfig"`
-	Name           pulumi.StringInput                                                           `pulumi:"name"`
-	Protocol       pulumi.StringInput                                                           `pulumi:"protocol"`
+	// The name which should be used for this NAT.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The protocol used for this Destination NAT. Possible values include `TCP` and `UDP`.
+	Protocol pulumi.StringInput `pulumi:"protocol"`
 }
 
 func (NextGenerationFirewallVirtualHubPanoramaDestinationNatArgs) ElementType() reflect.Type {
@@ -1539,22 +1603,26 @@ func (o NextGenerationFirewallVirtualHubPanoramaDestinationNatOutput) ToNextGene
 	return o
 }
 
+// A `backendConfig` block as defined above.
 func (o NextGenerationFirewallVirtualHubPanoramaDestinationNatOutput) BackendConfig() NextGenerationFirewallVirtualHubPanoramaDestinationNatBackendConfigPtrOutput {
 	return o.ApplyT(func(v NextGenerationFirewallVirtualHubPanoramaDestinationNat) *NextGenerationFirewallVirtualHubPanoramaDestinationNatBackendConfig {
 		return v.BackendConfig
 	}).(NextGenerationFirewallVirtualHubPanoramaDestinationNatBackendConfigPtrOutput)
 }
 
+// A `frontendConfig` block as defined below.
 func (o NextGenerationFirewallVirtualHubPanoramaDestinationNatOutput) FrontendConfig() NextGenerationFirewallVirtualHubPanoramaDestinationNatFrontendConfigPtrOutput {
 	return o.ApplyT(func(v NextGenerationFirewallVirtualHubPanoramaDestinationNat) *NextGenerationFirewallVirtualHubPanoramaDestinationNatFrontendConfig {
 		return v.FrontendConfig
 	}).(NextGenerationFirewallVirtualHubPanoramaDestinationNatFrontendConfigPtrOutput)
 }
 
+// The name which should be used for this NAT.
 func (o NextGenerationFirewallVirtualHubPanoramaDestinationNatOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v NextGenerationFirewallVirtualHubPanoramaDestinationNat) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The protocol used for this Destination NAT. Possible values include `TCP` and `UDP`.
 func (o NextGenerationFirewallVirtualHubPanoramaDestinationNatOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v NextGenerationFirewallVirtualHubPanoramaDestinationNat) string { return v.Protocol }).(pulumi.StringOutput)
 }
@@ -1580,7 +1648,9 @@ func (o NextGenerationFirewallVirtualHubPanoramaDestinationNatArrayOutput) Index
 }
 
 type NextGenerationFirewallVirtualHubPanoramaDestinationNatBackendConfig struct {
-	Port            int    `pulumi:"port"`
+	// The port number to send traffic to.
+	Port int `pulumi:"port"`
+	// The Public IP Address to send the traffic to.
 	PublicIpAddress string `pulumi:"publicIpAddress"`
 }
 
@@ -1596,7 +1666,9 @@ type NextGenerationFirewallVirtualHubPanoramaDestinationNatBackendConfigInput in
 }
 
 type NextGenerationFirewallVirtualHubPanoramaDestinationNatBackendConfigArgs struct {
-	Port            pulumi.IntInput    `pulumi:"port"`
+	// The port number to send traffic to.
+	Port pulumi.IntInput `pulumi:"port"`
+	// The Public IP Address to send the traffic to.
 	PublicIpAddress pulumi.StringInput `pulumi:"publicIpAddress"`
 }
 
@@ -1677,10 +1749,12 @@ func (o NextGenerationFirewallVirtualHubPanoramaDestinationNatBackendConfigOutpu
 	}).(NextGenerationFirewallVirtualHubPanoramaDestinationNatBackendConfigPtrOutput)
 }
 
+// The port number to send traffic to.
 func (o NextGenerationFirewallVirtualHubPanoramaDestinationNatBackendConfigOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v NextGenerationFirewallVirtualHubPanoramaDestinationNatBackendConfig) int { return v.Port }).(pulumi.IntOutput)
 }
 
+// The Public IP Address to send the traffic to.
 func (o NextGenerationFirewallVirtualHubPanoramaDestinationNatBackendConfigOutput) PublicIpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v NextGenerationFirewallVirtualHubPanoramaDestinationNatBackendConfig) string {
 		return v.PublicIpAddress
@@ -1711,6 +1785,7 @@ func (o NextGenerationFirewallVirtualHubPanoramaDestinationNatBackendConfigPtrOu
 	}).(NextGenerationFirewallVirtualHubPanoramaDestinationNatBackendConfigOutput)
 }
 
+// The port number to send traffic to.
 func (o NextGenerationFirewallVirtualHubPanoramaDestinationNatBackendConfigPtrOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *NextGenerationFirewallVirtualHubPanoramaDestinationNatBackendConfig) *int {
 		if v == nil {
@@ -1720,6 +1795,7 @@ func (o NextGenerationFirewallVirtualHubPanoramaDestinationNatBackendConfigPtrOu
 	}).(pulumi.IntPtrOutput)
 }
 
+// The Public IP Address to send the traffic to.
 func (o NextGenerationFirewallVirtualHubPanoramaDestinationNatBackendConfigPtrOutput) PublicIpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NextGenerationFirewallVirtualHubPanoramaDestinationNatBackendConfig) *string {
 		if v == nil {
@@ -1730,7 +1806,9 @@ func (o NextGenerationFirewallVirtualHubPanoramaDestinationNatBackendConfigPtrOu
 }
 
 type NextGenerationFirewallVirtualHubPanoramaDestinationNatFrontendConfig struct {
-	Port              int    `pulumi:"port"`
+	// The port on which traffic will be receiveed.
+	Port int `pulumi:"port"`
+	// The ID of the Public IP Address resource the traffic will be received on.
 	PublicIpAddressId string `pulumi:"publicIpAddressId"`
 }
 
@@ -1746,7 +1824,9 @@ type NextGenerationFirewallVirtualHubPanoramaDestinationNatFrontendConfigInput i
 }
 
 type NextGenerationFirewallVirtualHubPanoramaDestinationNatFrontendConfigArgs struct {
-	Port              pulumi.IntInput    `pulumi:"port"`
+	// The port on which traffic will be receiveed.
+	Port pulumi.IntInput `pulumi:"port"`
+	// The ID of the Public IP Address resource the traffic will be received on.
 	PublicIpAddressId pulumi.StringInput `pulumi:"publicIpAddressId"`
 }
 
@@ -1827,10 +1907,12 @@ func (o NextGenerationFirewallVirtualHubPanoramaDestinationNatFrontendConfigOutp
 	}).(NextGenerationFirewallVirtualHubPanoramaDestinationNatFrontendConfigPtrOutput)
 }
 
+// The port on which traffic will be receiveed.
 func (o NextGenerationFirewallVirtualHubPanoramaDestinationNatFrontendConfigOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v NextGenerationFirewallVirtualHubPanoramaDestinationNatFrontendConfig) int { return v.Port }).(pulumi.IntOutput)
 }
 
+// The ID of the Public IP Address resource the traffic will be received on.
 func (o NextGenerationFirewallVirtualHubPanoramaDestinationNatFrontendConfigOutput) PublicIpAddressId() pulumi.StringOutput {
 	return o.ApplyT(func(v NextGenerationFirewallVirtualHubPanoramaDestinationNatFrontendConfig) string {
 		return v.PublicIpAddressId
@@ -1861,6 +1943,7 @@ func (o NextGenerationFirewallVirtualHubPanoramaDestinationNatFrontendConfigPtrO
 	}).(NextGenerationFirewallVirtualHubPanoramaDestinationNatFrontendConfigOutput)
 }
 
+// The port on which traffic will be receiveed.
 func (o NextGenerationFirewallVirtualHubPanoramaDestinationNatFrontendConfigPtrOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *NextGenerationFirewallVirtualHubPanoramaDestinationNatFrontendConfig) *int {
 		if v == nil {
@@ -1870,6 +1953,7 @@ func (o NextGenerationFirewallVirtualHubPanoramaDestinationNatFrontendConfigPtrO
 	}).(pulumi.IntPtrOutput)
 }
 
+// The ID of the Public IP Address resource the traffic will be received on.
 func (o NextGenerationFirewallVirtualHubPanoramaDestinationNatFrontendConfigPtrOutput) PublicIpAddressId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NextGenerationFirewallVirtualHubPanoramaDestinationNatFrontendConfig) *string {
 		if v == nil {
@@ -1881,8 +1965,10 @@ func (o NextGenerationFirewallVirtualHubPanoramaDestinationNatFrontendConfigPtrO
 
 type NextGenerationFirewallVirtualHubPanoramaDnsSettings struct {
 	AzureDnsServers []string `pulumi:"azureDnsServers"`
-	DnsServers      []string `pulumi:"dnsServers"`
-	UseAzureDns     *bool    `pulumi:"useAzureDns"`
+	// Specifies a list of DNS servers to proxy. Conflicts with `dns_settings[0].use_azure_dns`.
+	DnsServers []string `pulumi:"dnsServers"`
+	// Should Azure DNS servers be used? Conflicts with `dns_settings[0].dns_servers`. Defaults to `false`.
+	UseAzureDns *bool `pulumi:"useAzureDns"`
 }
 
 // NextGenerationFirewallVirtualHubPanoramaDnsSettingsInput is an input type that accepts NextGenerationFirewallVirtualHubPanoramaDnsSettingsArgs and NextGenerationFirewallVirtualHubPanoramaDnsSettingsOutput values.
@@ -1898,8 +1984,10 @@ type NextGenerationFirewallVirtualHubPanoramaDnsSettingsInput interface {
 
 type NextGenerationFirewallVirtualHubPanoramaDnsSettingsArgs struct {
 	AzureDnsServers pulumi.StringArrayInput `pulumi:"azureDnsServers"`
-	DnsServers      pulumi.StringArrayInput `pulumi:"dnsServers"`
-	UseAzureDns     pulumi.BoolPtrInput     `pulumi:"useAzureDns"`
+	// Specifies a list of DNS servers to proxy. Conflicts with `dns_settings[0].use_azure_dns`.
+	DnsServers pulumi.StringArrayInput `pulumi:"dnsServers"`
+	// Should Azure DNS servers be used? Conflicts with `dns_settings[0].dns_servers`. Defaults to `false`.
+	UseAzureDns pulumi.BoolPtrInput `pulumi:"useAzureDns"`
 }
 
 func (NextGenerationFirewallVirtualHubPanoramaDnsSettingsArgs) ElementType() reflect.Type {
@@ -1983,10 +2071,12 @@ func (o NextGenerationFirewallVirtualHubPanoramaDnsSettingsOutput) AzureDnsServe
 	return o.ApplyT(func(v NextGenerationFirewallVirtualHubPanoramaDnsSettings) []string { return v.AzureDnsServers }).(pulumi.StringArrayOutput)
 }
 
+// Specifies a list of DNS servers to proxy. Conflicts with `dns_settings[0].use_azure_dns`.
 func (o NextGenerationFirewallVirtualHubPanoramaDnsSettingsOutput) DnsServers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v NextGenerationFirewallVirtualHubPanoramaDnsSettings) []string { return v.DnsServers }).(pulumi.StringArrayOutput)
 }
 
+// Should Azure DNS servers be used? Conflicts with `dns_settings[0].dns_servers`. Defaults to `false`.
 func (o NextGenerationFirewallVirtualHubPanoramaDnsSettingsOutput) UseAzureDns() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v NextGenerationFirewallVirtualHubPanoramaDnsSettings) *bool { return v.UseAzureDns }).(pulumi.BoolPtrOutput)
 }
@@ -2024,6 +2114,7 @@ func (o NextGenerationFirewallVirtualHubPanoramaDnsSettingsPtrOutput) AzureDnsSe
 	}).(pulumi.StringArrayOutput)
 }
 
+// Specifies a list of DNS servers to proxy. Conflicts with `dns_settings[0].use_azure_dns`.
 func (o NextGenerationFirewallVirtualHubPanoramaDnsSettingsPtrOutput) DnsServers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *NextGenerationFirewallVirtualHubPanoramaDnsSettings) []string {
 		if v == nil {
@@ -2033,6 +2124,7 @@ func (o NextGenerationFirewallVirtualHubPanoramaDnsSettingsPtrOutput) DnsServers
 	}).(pulumi.StringArrayOutput)
 }
 
+// Should Azure DNS servers be used? Conflicts with `dns_settings[0].dns_servers`. Defaults to `false`.
 func (o NextGenerationFirewallVirtualHubPanoramaDnsSettingsPtrOutput) UseAzureDns() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *NextGenerationFirewallVirtualHubPanoramaDnsSettings) *bool {
 		if v == nil {
@@ -2043,16 +2135,21 @@ func (o NextGenerationFirewallVirtualHubPanoramaDnsSettingsPtrOutput) UseAzureDn
 }
 
 type NextGenerationFirewallVirtualHubPanoramaNetworkProfile struct {
+	// Specifies a list of Public IP IDs to use for Egress NAT.
 	EgressNatIpAddressIds         []string `pulumi:"egressNatIpAddressIds"`
 	EgressNatIpAddresses          []string `pulumi:"egressNatIpAddresses"`
 	IpOfTrustForUserDefinedRoutes *string  `pulumi:"ipOfTrustForUserDefinedRoutes"`
-	NetworkVirtualApplianceId     string   `pulumi:"networkVirtualApplianceId"`
-	PublicIpAddressIds            []string `pulumi:"publicIpAddressIds"`
-	PublicIpAddresses             []string `pulumi:"publicIpAddresses"`
-	TrustedAddressRanges          []string `pulumi:"trustedAddressRanges"`
-	TrustedSubnetId               *string  `pulumi:"trustedSubnetId"`
-	UntrustedSubnetId             *string  `pulumi:"untrustedSubnetId"`
-	VirtualHubId                  string   `pulumi:"virtualHubId"`
+	// The ID of the Palo Alto Network Virtual Appliance in the VHub. Changing this forces a new Palo Alto Next Generation Firewall VHub Panorama to be created.
+	NetworkVirtualApplianceId string `pulumi:"networkVirtualApplianceId"`
+	// Specifies a list of Public IP IDs to use for this Next Generation Firewall.
+	PublicIpAddressIds []string `pulumi:"publicIpAddressIds"`
+	PublicIpAddresses  []string `pulumi:"publicIpAddresses"`
+	// Specifies a list of trusted ranges to use for the Network.
+	TrustedAddressRanges []string `pulumi:"trustedAddressRanges"`
+	TrustedSubnetId      *string  `pulumi:"trustedSubnetId"`
+	UntrustedSubnetId    *string  `pulumi:"untrustedSubnetId"`
+	// The ID of the Virtual Hub this Next generation Fireall will be deployed in. Changing this forces a new Palo Alto Next Generation Firewall VHub Local Rulestack to be created.
+	VirtualHubId string `pulumi:"virtualHubId"`
 }
 
 // NextGenerationFirewallVirtualHubPanoramaNetworkProfileInput is an input type that accepts NextGenerationFirewallVirtualHubPanoramaNetworkProfileArgs and NextGenerationFirewallVirtualHubPanoramaNetworkProfileOutput values.
@@ -2067,16 +2164,21 @@ type NextGenerationFirewallVirtualHubPanoramaNetworkProfileInput interface {
 }
 
 type NextGenerationFirewallVirtualHubPanoramaNetworkProfileArgs struct {
+	// Specifies a list of Public IP IDs to use for Egress NAT.
 	EgressNatIpAddressIds         pulumi.StringArrayInput `pulumi:"egressNatIpAddressIds"`
 	EgressNatIpAddresses          pulumi.StringArrayInput `pulumi:"egressNatIpAddresses"`
 	IpOfTrustForUserDefinedRoutes pulumi.StringPtrInput   `pulumi:"ipOfTrustForUserDefinedRoutes"`
-	NetworkVirtualApplianceId     pulumi.StringInput      `pulumi:"networkVirtualApplianceId"`
-	PublicIpAddressIds            pulumi.StringArrayInput `pulumi:"publicIpAddressIds"`
-	PublicIpAddresses             pulumi.StringArrayInput `pulumi:"publicIpAddresses"`
-	TrustedAddressRanges          pulumi.StringArrayInput `pulumi:"trustedAddressRanges"`
-	TrustedSubnetId               pulumi.StringPtrInput   `pulumi:"trustedSubnetId"`
-	UntrustedSubnetId             pulumi.StringPtrInput   `pulumi:"untrustedSubnetId"`
-	VirtualHubId                  pulumi.StringInput      `pulumi:"virtualHubId"`
+	// The ID of the Palo Alto Network Virtual Appliance in the VHub. Changing this forces a new Palo Alto Next Generation Firewall VHub Panorama to be created.
+	NetworkVirtualApplianceId pulumi.StringInput `pulumi:"networkVirtualApplianceId"`
+	// Specifies a list of Public IP IDs to use for this Next Generation Firewall.
+	PublicIpAddressIds pulumi.StringArrayInput `pulumi:"publicIpAddressIds"`
+	PublicIpAddresses  pulumi.StringArrayInput `pulumi:"publicIpAddresses"`
+	// Specifies a list of trusted ranges to use for the Network.
+	TrustedAddressRanges pulumi.StringArrayInput `pulumi:"trustedAddressRanges"`
+	TrustedSubnetId      pulumi.StringPtrInput   `pulumi:"trustedSubnetId"`
+	UntrustedSubnetId    pulumi.StringPtrInput   `pulumi:"untrustedSubnetId"`
+	// The ID of the Virtual Hub this Next generation Fireall will be deployed in. Changing this forces a new Palo Alto Next Generation Firewall VHub Local Rulestack to be created.
+	VirtualHubId pulumi.StringInput `pulumi:"virtualHubId"`
 }
 
 func (NextGenerationFirewallVirtualHubPanoramaNetworkProfileArgs) ElementType() reflect.Type {
@@ -2156,6 +2258,7 @@ func (o NextGenerationFirewallVirtualHubPanoramaNetworkProfileOutput) ToNextGene
 	}).(NextGenerationFirewallVirtualHubPanoramaNetworkProfilePtrOutput)
 }
 
+// Specifies a list of Public IP IDs to use for Egress NAT.
 func (o NextGenerationFirewallVirtualHubPanoramaNetworkProfileOutput) EgressNatIpAddressIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v NextGenerationFirewallVirtualHubPanoramaNetworkProfile) []string {
 		return v.EgressNatIpAddressIds
@@ -2172,12 +2275,14 @@ func (o NextGenerationFirewallVirtualHubPanoramaNetworkProfileOutput) IpOfTrustF
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ID of the Palo Alto Network Virtual Appliance in the VHub. Changing this forces a new Palo Alto Next Generation Firewall VHub Panorama to be created.
 func (o NextGenerationFirewallVirtualHubPanoramaNetworkProfileOutput) NetworkVirtualApplianceId() pulumi.StringOutput {
 	return o.ApplyT(func(v NextGenerationFirewallVirtualHubPanoramaNetworkProfile) string {
 		return v.NetworkVirtualApplianceId
 	}).(pulumi.StringOutput)
 }
 
+// Specifies a list of Public IP IDs to use for this Next Generation Firewall.
 func (o NextGenerationFirewallVirtualHubPanoramaNetworkProfileOutput) PublicIpAddressIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v NextGenerationFirewallVirtualHubPanoramaNetworkProfile) []string { return v.PublicIpAddressIds }).(pulumi.StringArrayOutput)
 }
@@ -2186,6 +2291,7 @@ func (o NextGenerationFirewallVirtualHubPanoramaNetworkProfileOutput) PublicIpAd
 	return o.ApplyT(func(v NextGenerationFirewallVirtualHubPanoramaNetworkProfile) []string { return v.PublicIpAddresses }).(pulumi.StringArrayOutput)
 }
 
+// Specifies a list of trusted ranges to use for the Network.
 func (o NextGenerationFirewallVirtualHubPanoramaNetworkProfileOutput) TrustedAddressRanges() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v NextGenerationFirewallVirtualHubPanoramaNetworkProfile) []string { return v.TrustedAddressRanges }).(pulumi.StringArrayOutput)
 }
@@ -2198,6 +2304,7 @@ func (o NextGenerationFirewallVirtualHubPanoramaNetworkProfileOutput) UntrustedS
 	return o.ApplyT(func(v NextGenerationFirewallVirtualHubPanoramaNetworkProfile) *string { return v.UntrustedSubnetId }).(pulumi.StringPtrOutput)
 }
 
+// The ID of the Virtual Hub this Next generation Fireall will be deployed in. Changing this forces a new Palo Alto Next Generation Firewall VHub Local Rulestack to be created.
 func (o NextGenerationFirewallVirtualHubPanoramaNetworkProfileOutput) VirtualHubId() pulumi.StringOutput {
 	return o.ApplyT(func(v NextGenerationFirewallVirtualHubPanoramaNetworkProfile) string { return v.VirtualHubId }).(pulumi.StringOutput)
 }
@@ -2226,6 +2333,7 @@ func (o NextGenerationFirewallVirtualHubPanoramaNetworkProfilePtrOutput) Elem() 
 	}).(NextGenerationFirewallVirtualHubPanoramaNetworkProfileOutput)
 }
 
+// Specifies a list of Public IP IDs to use for Egress NAT.
 func (o NextGenerationFirewallVirtualHubPanoramaNetworkProfilePtrOutput) EgressNatIpAddressIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *NextGenerationFirewallVirtualHubPanoramaNetworkProfile) []string {
 		if v == nil {
@@ -2253,6 +2361,7 @@ func (o NextGenerationFirewallVirtualHubPanoramaNetworkProfilePtrOutput) IpOfTru
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ID of the Palo Alto Network Virtual Appliance in the VHub. Changing this forces a new Palo Alto Next Generation Firewall VHub Panorama to be created.
 func (o NextGenerationFirewallVirtualHubPanoramaNetworkProfilePtrOutput) NetworkVirtualApplianceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NextGenerationFirewallVirtualHubPanoramaNetworkProfile) *string {
 		if v == nil {
@@ -2262,6 +2371,7 @@ func (o NextGenerationFirewallVirtualHubPanoramaNetworkProfilePtrOutput) Network
 	}).(pulumi.StringPtrOutput)
 }
 
+// Specifies a list of Public IP IDs to use for this Next Generation Firewall.
 func (o NextGenerationFirewallVirtualHubPanoramaNetworkProfilePtrOutput) PublicIpAddressIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *NextGenerationFirewallVirtualHubPanoramaNetworkProfile) []string {
 		if v == nil {
@@ -2280,6 +2390,7 @@ func (o NextGenerationFirewallVirtualHubPanoramaNetworkProfilePtrOutput) PublicI
 	}).(pulumi.StringArrayOutput)
 }
 
+// Specifies a list of trusted ranges to use for the Network.
 func (o NextGenerationFirewallVirtualHubPanoramaNetworkProfilePtrOutput) TrustedAddressRanges() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *NextGenerationFirewallVirtualHubPanoramaNetworkProfile) []string {
 		if v == nil {
@@ -2307,6 +2418,7 @@ func (o NextGenerationFirewallVirtualHubPanoramaNetworkProfilePtrOutput) Untrust
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ID of the Virtual Hub this Next generation Fireall will be deployed in. Changing this forces a new Palo Alto Next Generation Firewall VHub Local Rulestack to be created.
 func (o NextGenerationFirewallVirtualHubPanoramaNetworkProfilePtrOutput) VirtualHubId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NextGenerationFirewallVirtualHubPanoramaNetworkProfile) *string {
 		if v == nil {
@@ -2317,8 +2429,9 @@ func (o NextGenerationFirewallVirtualHubPanoramaNetworkProfilePtrOutput) Virtual
 }
 
 type NextGenerationFirewallVirtualHubPanoramaPanorama struct {
-	DeviceGroupName      *string `pulumi:"deviceGroupName"`
-	HostName             *string `pulumi:"hostName"`
+	DeviceGroupName *string `pulumi:"deviceGroupName"`
+	HostName        *string `pulumi:"hostName"`
+	// The name which should be used for this Palo Alto Next Generation Firewall VHub Panorama. Changing this forces a new Palo Alto Next Generation Firewall VHub Panorama to be created.
 	Name                 *string `pulumi:"name"`
 	PanoramaServer1      *string `pulumi:"panoramaServer1"`
 	PanoramaServer2      *string `pulumi:"panoramaServer2"`
@@ -2338,8 +2451,9 @@ type NextGenerationFirewallVirtualHubPanoramaPanoramaInput interface {
 }
 
 type NextGenerationFirewallVirtualHubPanoramaPanoramaArgs struct {
-	DeviceGroupName      pulumi.StringPtrInput `pulumi:"deviceGroupName"`
-	HostName             pulumi.StringPtrInput `pulumi:"hostName"`
+	DeviceGroupName pulumi.StringPtrInput `pulumi:"deviceGroupName"`
+	HostName        pulumi.StringPtrInput `pulumi:"hostName"`
+	// The name which should be used for this Palo Alto Next Generation Firewall VHub Panorama. Changing this forces a new Palo Alto Next Generation Firewall VHub Panorama to be created.
 	Name                 pulumi.StringPtrInput `pulumi:"name"`
 	PanoramaServer1      pulumi.StringPtrInput `pulumi:"panoramaServer1"`
 	PanoramaServer2      pulumi.StringPtrInput `pulumi:"panoramaServer2"`
@@ -2406,6 +2520,7 @@ func (o NextGenerationFirewallVirtualHubPanoramaPanoramaOutput) HostName() pulum
 	return o.ApplyT(func(v NextGenerationFirewallVirtualHubPanoramaPanorama) *string { return v.HostName }).(pulumi.StringPtrOutput)
 }
 
+// The name which should be used for this Palo Alto Next Generation Firewall VHub Panorama. Changing this forces a new Palo Alto Next Generation Firewall VHub Panorama to be created.
 func (o NextGenerationFirewallVirtualHubPanoramaPanoramaOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NextGenerationFirewallVirtualHubPanoramaPanorama) *string { return v.Name }).(pulumi.StringPtrOutput)
 }

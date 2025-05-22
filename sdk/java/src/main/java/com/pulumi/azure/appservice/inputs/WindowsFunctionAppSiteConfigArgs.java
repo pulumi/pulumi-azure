@@ -26,7 +26,7 @@ public final class WindowsFunctionAppSiteConfigArgs extends com.pulumi.resources
     /**
      * If this Windows Function App is Always On enabled. Defaults to `false`.
      * 
-     * &gt; **NOTE:** when running in a Consumption or Premium Plan, `always_on` feature should be turned off. Please turn it off before upgrading the service plan from standard to premium.
+     * &gt; **Note:** when running in a Consumption or Premium Plan, `always_on` feature should be turned off. Please turn it off before upgrading the service plan from standard to premium.
      * 
      */
     @Import(name="alwaysOn")
@@ -35,7 +35,7 @@ public final class WindowsFunctionAppSiteConfigArgs extends com.pulumi.resources
     /**
      * @return If this Windows Function App is Always On enabled. Defaults to `false`.
      * 
-     * &gt; **NOTE:** when running in a Consumption or Premium Plan, `always_on` feature should be turned off. Please turn it off before upgrading the service plan from standard to premium.
+     * &gt; **Note:** when running in a Consumption or Premium Plan, `always_on` feature should be turned off. Please turn it off before upgrading the service plan from standard to premium.
      * 
      */
     public Optional<Output<Boolean>> alwaysOn() {
@@ -409,7 +409,7 @@ public final class WindowsFunctionAppSiteConfigArgs extends com.pulumi.resources
     /**
      * Should Scale Monitoring of the Functions Runtime be enabled?
      * 
-     * &gt; **NOTE:** Functions runtime scale monitoring can only be enabled for Elastic Premium Function Apps or Workflow Standard Logic Apps and requires a minimum prewarmed instance count of 1.
+     * &gt; **Note:** Functions runtime scale monitoring can only be enabled for Elastic Premium Function Apps or Workflow Standard Logic Apps and requires a minimum prewarmed instance count of 1.
      * 
      */
     @Import(name="runtimeScaleMonitoringEnabled")
@@ -418,7 +418,7 @@ public final class WindowsFunctionAppSiteConfigArgs extends com.pulumi.resources
     /**
      * @return Should Scale Monitoring of the Functions Runtime be enabled?
      * 
-     * &gt; **NOTE:** Functions runtime scale monitoring can only be enabled for Elastic Premium Function Apps or Workflow Standard Logic Apps and requires a minimum prewarmed instance count of 1.
+     * &gt; **Note:** Functions runtime scale monitoring can only be enabled for Elastic Premium Function Apps or Workflow Standard Logic Apps and requires a minimum prewarmed instance count of 1.
      * 
      */
     public Optional<Output<Boolean>> runtimeScaleMonitoringEnabled() {
@@ -637,7 +637,7 @@ public final class WindowsFunctionAppSiteConfigArgs extends com.pulumi.resources
         /**
          * @param alwaysOn If this Windows Function App is Always On enabled. Defaults to `false`.
          * 
-         * &gt; **NOTE:** when running in a Consumption or Premium Plan, `always_on` feature should be turned off. Please turn it off before upgrading the service plan from standard to premium.
+         * &gt; **Note:** when running in a Consumption or Premium Plan, `always_on` feature should be turned off. Please turn it off before upgrading the service plan from standard to premium.
          * 
          * @return builder
          * 
@@ -650,7 +650,7 @@ public final class WindowsFunctionAppSiteConfigArgs extends com.pulumi.resources
         /**
          * @param alwaysOn If this Windows Function App is Always On enabled. Defaults to `false`.
          * 
-         * &gt; **NOTE:** when running in a Consumption or Premium Plan, `always_on` feature should be turned off. Please turn it off before upgrading the service plan from standard to premium.
+         * &gt; **Note:** when running in a Consumption or Premium Plan, `always_on` feature should be turned off. Please turn it off before upgrading the service plan from standard to premium.
          * 
          * @return builder
          * 
@@ -1190,7 +1190,7 @@ public final class WindowsFunctionAppSiteConfigArgs extends com.pulumi.resources
         /**
          * @param runtimeScaleMonitoringEnabled Should Scale Monitoring of the Functions Runtime be enabled?
          * 
-         * &gt; **NOTE:** Functions runtime scale monitoring can only be enabled for Elastic Premium Function Apps or Workflow Standard Logic Apps and requires a minimum prewarmed instance count of 1.
+         * &gt; **Note:** Functions runtime scale monitoring can only be enabled for Elastic Premium Function Apps or Workflow Standard Logic Apps and requires a minimum prewarmed instance count of 1.
          * 
          * @return builder
          * 
@@ -1203,7 +1203,7 @@ public final class WindowsFunctionAppSiteConfigArgs extends com.pulumi.resources
         /**
          * @param runtimeScaleMonitoringEnabled Should Scale Monitoring of the Functions Runtime be enabled?
          * 
-         * &gt; **NOTE:** Functions runtime scale monitoring can only be enabled for Elastic Premium Function Apps or Workflow Standard Logic Apps and requires a minimum prewarmed instance count of 1.
+         * &gt; **Note:** Functions runtime scale monitoring can only be enabled for Elastic Premium Function Apps or Workflow Standard Logic Apps and requires a minimum prewarmed instance count of 1.
          * 
          * @return builder
          * 

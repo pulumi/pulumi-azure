@@ -20,6 +20,11 @@ public final class GetTopicResult {
      */
     private String autoDeleteOnIdle;
     /**
+     * @return Boolean flag which controls if server-side batched operations are enabled.
+     * 
+     */
+    private Boolean batchedOperationsEnabled;
+    /**
      * @return The ISO 8601 timespan duration of TTL of messages sent to this topic if no TTL value is set on the message itself.
      * 
      */
@@ -29,21 +34,14 @@ public final class GetTopicResult {
      * 
      */
     private String duplicateDetectionHistoryTimeWindow;
-    /**
-     * @return Boolean flag which controls if server-side batched operations are enabled.
-     * 
-     */
     private Boolean enableBatchedOperations;
+    private Boolean enableExpress;
+    private Boolean enablePartitioning;
     /**
      * @return Boolean flag which controls whether Express Entities are enabled. An express topic holds a message in memory temporarily before writing it to persistent storage.
      * 
      */
-    private Boolean enableExpress;
-    /**
-     * @return Boolean flag which controls whether to enable the topic to be partitioned across multiple message brokers.
-     * 
-     */
-    private Boolean enablePartitioning;
+    private Boolean expressEnabled;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -58,11 +56,16 @@ public final class GetTopicResult {
     private @Nullable String namespaceId;
     /**
      * @deprecated
-     * `namespace_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
+     * `namespace_name` will be removed in favour of the `namespace_id` property in v5.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* `namespace_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider. */
+    @Deprecated /* `namespace_name` will be removed in favour of the `namespace_id` property in v5.0 of the AzureRM Provider. */
     private @Nullable String namespaceName;
+    /**
+     * @return Boolean flag which controls whether to enable the topic to be partitioned across multiple message brokers.
+     * 
+     */
+    private Boolean partitioningEnabled;
     /**
      * @return Boolean flag which controls whether the Topic requires duplicate detection.
      * 
@@ -70,10 +73,10 @@ public final class GetTopicResult {
     private Boolean requiresDuplicateDetection;
     /**
      * @deprecated
-     * `resource_group_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
+     * `resource_group_name` will be removed in favour of the `namespace_id` property in v5.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* `resource_group_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider. */
+    @Deprecated /* `resource_group_name` will be removed in favour of the `namespace_id` property in v5.0 of the AzureRM Provider. */
     private @Nullable String resourceGroupName;
     /**
      * @return The Status of the Service Bus Topic. Acceptable values are Active or Disabled.
@@ -95,6 +98,13 @@ public final class GetTopicResult {
         return this.autoDeleteOnIdle;
     }
     /**
+     * @return Boolean flag which controls if server-side batched operations are enabled.
+     * 
+     */
+    public Boolean batchedOperationsEnabled() {
+        return this.batchedOperationsEnabled;
+    }
+    /**
      * @return The ISO 8601 timespan duration of TTL of messages sent to this topic if no TTL value is set on the message itself.
      * 
      */
@@ -108,26 +118,21 @@ public final class GetTopicResult {
     public String duplicateDetectionHistoryTimeWindow() {
         return this.duplicateDetectionHistoryTimeWindow;
     }
-    /**
-     * @return Boolean flag which controls if server-side batched operations are enabled.
-     * 
-     */
     public Boolean enableBatchedOperations() {
         return this.enableBatchedOperations;
+    }
+    public Boolean enableExpress() {
+        return this.enableExpress;
+    }
+    public Boolean enablePartitioning() {
+        return this.enablePartitioning;
     }
     /**
      * @return Boolean flag which controls whether Express Entities are enabled. An express topic holds a message in memory temporarily before writing it to persistent storage.
      * 
      */
-    public Boolean enableExpress() {
-        return this.enableExpress;
-    }
-    /**
-     * @return Boolean flag which controls whether to enable the topic to be partitioned across multiple message brokers.
-     * 
-     */
-    public Boolean enablePartitioning() {
-        return this.enablePartitioning;
+    public Boolean expressEnabled() {
+        return this.expressEnabled;
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -151,12 +156,19 @@ public final class GetTopicResult {
     }
     /**
      * @deprecated
-     * `namespace_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
+     * `namespace_name` will be removed in favour of the `namespace_id` property in v5.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* `namespace_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider. */
+    @Deprecated /* `namespace_name` will be removed in favour of the `namespace_id` property in v5.0 of the AzureRM Provider. */
     public Optional<String> namespaceName() {
         return Optional.ofNullable(this.namespaceName);
+    }
+    /**
+     * @return Boolean flag which controls whether to enable the topic to be partitioned across multiple message brokers.
+     * 
+     */
+    public Boolean partitioningEnabled() {
+        return this.partitioningEnabled;
     }
     /**
      * @return Boolean flag which controls whether the Topic requires duplicate detection.
@@ -167,10 +179,10 @@ public final class GetTopicResult {
     }
     /**
      * @deprecated
-     * `resource_group_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
+     * `resource_group_name` will be removed in favour of the `namespace_id` property in v5.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* `resource_group_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider. */
+    @Deprecated /* `resource_group_name` will be removed in favour of the `namespace_id` property in v5.0 of the AzureRM Provider. */
     public Optional<String> resourceGroupName() {
         return Optional.ofNullable(this.resourceGroupName);
     }
@@ -199,16 +211,19 @@ public final class GetTopicResult {
     @CustomType.Builder
     public static final class Builder {
         private String autoDeleteOnIdle;
+        private Boolean batchedOperationsEnabled;
         private String defaultMessageTtl;
         private String duplicateDetectionHistoryTimeWindow;
         private Boolean enableBatchedOperations;
         private Boolean enableExpress;
         private Boolean enablePartitioning;
+        private Boolean expressEnabled;
         private String id;
         private Integer maxSizeInMegabytes;
         private String name;
         private @Nullable String namespaceId;
         private @Nullable String namespaceName;
+        private Boolean partitioningEnabled;
         private Boolean requiresDuplicateDetection;
         private @Nullable String resourceGroupName;
         private String status;
@@ -217,16 +232,19 @@ public final class GetTopicResult {
         public Builder(GetTopicResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.autoDeleteOnIdle = defaults.autoDeleteOnIdle;
+    	      this.batchedOperationsEnabled = defaults.batchedOperationsEnabled;
     	      this.defaultMessageTtl = defaults.defaultMessageTtl;
     	      this.duplicateDetectionHistoryTimeWindow = defaults.duplicateDetectionHistoryTimeWindow;
     	      this.enableBatchedOperations = defaults.enableBatchedOperations;
     	      this.enableExpress = defaults.enableExpress;
     	      this.enablePartitioning = defaults.enablePartitioning;
+    	      this.expressEnabled = defaults.expressEnabled;
     	      this.id = defaults.id;
     	      this.maxSizeInMegabytes = defaults.maxSizeInMegabytes;
     	      this.name = defaults.name;
     	      this.namespaceId = defaults.namespaceId;
     	      this.namespaceName = defaults.namespaceName;
+    	      this.partitioningEnabled = defaults.partitioningEnabled;
     	      this.requiresDuplicateDetection = defaults.requiresDuplicateDetection;
     	      this.resourceGroupName = defaults.resourceGroupName;
     	      this.status = defaults.status;
@@ -239,6 +257,14 @@ public final class GetTopicResult {
               throw new MissingRequiredPropertyException("GetTopicResult", "autoDeleteOnIdle");
             }
             this.autoDeleteOnIdle = autoDeleteOnIdle;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder batchedOperationsEnabled(Boolean batchedOperationsEnabled) {
+            if (batchedOperationsEnabled == null) {
+              throw new MissingRequiredPropertyException("GetTopicResult", "batchedOperationsEnabled");
+            }
+            this.batchedOperationsEnabled = batchedOperationsEnabled;
             return this;
         }
         @CustomType.Setter
@@ -282,6 +308,14 @@ public final class GetTopicResult {
             return this;
         }
         @CustomType.Setter
+        public Builder expressEnabled(Boolean expressEnabled) {
+            if (expressEnabled == null) {
+              throw new MissingRequiredPropertyException("GetTopicResult", "expressEnabled");
+            }
+            this.expressEnabled = expressEnabled;
+            return this;
+        }
+        @CustomType.Setter
         public Builder id(String id) {
             if (id == null) {
               throw new MissingRequiredPropertyException("GetTopicResult", "id");
@@ -318,6 +352,14 @@ public final class GetTopicResult {
             return this;
         }
         @CustomType.Setter
+        public Builder partitioningEnabled(Boolean partitioningEnabled) {
+            if (partitioningEnabled == null) {
+              throw new MissingRequiredPropertyException("GetTopicResult", "partitioningEnabled");
+            }
+            this.partitioningEnabled = partitioningEnabled;
+            return this;
+        }
+        @CustomType.Setter
         public Builder requiresDuplicateDetection(Boolean requiresDuplicateDetection) {
             if (requiresDuplicateDetection == null) {
               throw new MissingRequiredPropertyException("GetTopicResult", "requiresDuplicateDetection");
@@ -350,16 +392,19 @@ public final class GetTopicResult {
         public GetTopicResult build() {
             final var _resultValue = new GetTopicResult();
             _resultValue.autoDeleteOnIdle = autoDeleteOnIdle;
+            _resultValue.batchedOperationsEnabled = batchedOperationsEnabled;
             _resultValue.defaultMessageTtl = defaultMessageTtl;
             _resultValue.duplicateDetectionHistoryTimeWindow = duplicateDetectionHistoryTimeWindow;
             _resultValue.enableBatchedOperations = enableBatchedOperations;
             _resultValue.enableExpress = enableExpress;
             _resultValue.enablePartitioning = enablePartitioning;
+            _resultValue.expressEnabled = expressEnabled;
             _resultValue.id = id;
             _resultValue.maxSizeInMegabytes = maxSizeInMegabytes;
             _resultValue.name = name;
             _resultValue.namespaceId = namespaceId;
             _resultValue.namespaceName = namespaceName;
+            _resultValue.partitioningEnabled = partitioningEnabled;
             _resultValue.requiresDuplicateDetection = requiresDuplicateDetection;
             _resultValue.resourceGroupName = resourceGroupName;
             _resultValue.status = status;

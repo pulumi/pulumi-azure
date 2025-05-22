@@ -16,7 +16,7 @@ namespace Pulumi.Azure.ServiceBus.Outputs
         /// <summary>
         /// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Service Bus namespace.
         /// 
-        /// &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+        /// &gt; **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         /// </summary>
         public readonly ImmutableArray<string> IdentityIds;
         /// <summary>

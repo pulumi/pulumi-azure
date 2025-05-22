@@ -16,7 +16,7 @@ public final class ApplicationGatewaySslPolicy {
     /**
      * @return A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1`, `TLSv1_2` and `TLSv1_3`.
      * 
-     * &gt; **NOTE:** `disabled_protocols` cannot be set when `policy_name` or `policy_type` are set.
+     * &gt; **Note:** `disabled_protocols` cannot be set when `policy_name` or `policy_type` are set.
      * 
      */
     private @Nullable List<String> disabledProtocols;
@@ -25,7 +25,7 @@ public final class ApplicationGatewaySslPolicy {
     /**
      * @return The Type of the Policy. Possible values are `Predefined`, `Custom` and `CustomV2`.
      * 
-     * &gt; **NOTE:** `policy_type` is Required when `policy_name` is set - cannot be set if `disabled_protocols` is set.
+     * &gt; **Note:** `policy_type` is Required when `policy_name` is set - cannot be set if `disabled_protocols` is set.
      * 
      */
     private @Nullable String policyType;
@@ -37,7 +37,7 @@ public final class ApplicationGatewaySslPolicy {
     /**
      * @return A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1`, `TLSv1_2` and `TLSv1_3`.
      * 
-     * &gt; **NOTE:** `disabled_protocols` cannot be set when `policy_name` or `policy_type` are set.
+     * &gt; **Note:** `disabled_protocols` cannot be set when `policy_name` or `policy_type` are set.
      * 
      */
     public List<String> disabledProtocols() {
@@ -52,7 +52,7 @@ public final class ApplicationGatewaySslPolicy {
     /**
      * @return The Type of the Policy. Possible values are `Predefined`, `Custom` and `CustomV2`.
      * 
-     * &gt; **NOTE:** `policy_type` is Required when `policy_name` is set - cannot be set if `disabled_protocols` is set.
+     * &gt; **Note:** `policy_type` is Required when `policy_name` is set - cannot be set if `disabled_protocols` is set.
      * 
      */
     public Optional<String> policyType() {

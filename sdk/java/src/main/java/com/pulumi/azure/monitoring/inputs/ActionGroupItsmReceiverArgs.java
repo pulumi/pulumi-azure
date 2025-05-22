@@ -47,7 +47,7 @@ public final class ActionGroupItsmReceiverArgs extends com.pulumi.resources.Reso
     /**
      * The region of the workspace.
      * 
-     * &gt; **NOTE** `ticket_configuration` should be JSON blob with `PayloadRevision` and `WorkItemType` keys (e.g., `ticket_configuration=&#34;{\&#34;PayloadRevision\&#34;:0,\&#34;WorkItemType\&#34;:\&#34;Incident\&#34;}&#34;`), and `ticket_configuration=&#34;{}&#34;` will return an error, see more at this [REST API issue](https://github.com/Azure/azure-rest-api-specs/issues/20488)
+     * &gt; **Note:** `ticket_configuration` should be JSON blob with `PayloadRevision` and `WorkItemType` keys (e.g., `ticket_configuration=&#34;{\&#34;PayloadRevision\&#34;:0,\&#34;WorkItemType\&#34;:\&#34;Incident\&#34;}&#34;`), and `ticket_configuration=&#34;{}&#34;` will return an error, see more at this [REST API issue](https://github.com/Azure/azure-rest-api-specs/issues/20488)
      * 
      */
     @Import(name="region", required=true)
@@ -56,7 +56,7 @@ public final class ActionGroupItsmReceiverArgs extends com.pulumi.resources.Reso
     /**
      * @return The region of the workspace.
      * 
-     * &gt; **NOTE** `ticket_configuration` should be JSON blob with `PayloadRevision` and `WorkItemType` keys (e.g., `ticket_configuration=&#34;{\&#34;PayloadRevision\&#34;:0,\&#34;WorkItemType\&#34;:\&#34;Incident\&#34;}&#34;`), and `ticket_configuration=&#34;{}&#34;` will return an error, see more at this [REST API issue](https://github.com/Azure/azure-rest-api-specs/issues/20488)
+     * &gt; **Note:** `ticket_configuration` should be JSON blob with `PayloadRevision` and `WorkItemType` keys (e.g., `ticket_configuration=&#34;{\&#34;PayloadRevision\&#34;:0,\&#34;WorkItemType\&#34;:\&#34;Incident\&#34;}&#34;`), and `ticket_configuration=&#34;{}&#34;` will return an error, see more at this [REST API issue](https://github.com/Azure/azure-rest-api-specs/issues/20488)
      * 
      */
     public Output<String> region() {
@@ -166,7 +166,7 @@ public final class ActionGroupItsmReceiverArgs extends com.pulumi.resources.Reso
         /**
          * @param region The region of the workspace.
          * 
-         * &gt; **NOTE** `ticket_configuration` should be JSON blob with `PayloadRevision` and `WorkItemType` keys (e.g., `ticket_configuration=&#34;{\&#34;PayloadRevision\&#34;:0,\&#34;WorkItemType\&#34;:\&#34;Incident\&#34;}&#34;`), and `ticket_configuration=&#34;{}&#34;` will return an error, see more at this [REST API issue](https://github.com/Azure/azure-rest-api-specs/issues/20488)
+         * &gt; **Note:** `ticket_configuration` should be JSON blob with `PayloadRevision` and `WorkItemType` keys (e.g., `ticket_configuration=&#34;{\&#34;PayloadRevision\&#34;:0,\&#34;WorkItemType\&#34;:\&#34;Incident\&#34;}&#34;`), and `ticket_configuration=&#34;{}&#34;` will return an error, see more at this [REST API issue](https://github.com/Azure/azure-rest-api-specs/issues/20488)
          * 
          * @return builder
          * 
@@ -179,7 +179,7 @@ public final class ActionGroupItsmReceiverArgs extends com.pulumi.resources.Reso
         /**
          * @param region The region of the workspace.
          * 
-         * &gt; **NOTE** `ticket_configuration` should be JSON blob with `PayloadRevision` and `WorkItemType` keys (e.g., `ticket_configuration=&#34;{\&#34;PayloadRevision\&#34;:0,\&#34;WorkItemType\&#34;:\&#34;Incident\&#34;}&#34;`), and `ticket_configuration=&#34;{}&#34;` will return an error, see more at this [REST API issue](https://github.com/Azure/azure-rest-api-specs/issues/20488)
+         * &gt; **Note:** `ticket_configuration` should be JSON blob with `PayloadRevision` and `WorkItemType` keys (e.g., `ticket_configuration=&#34;{\&#34;PayloadRevision\&#34;:0,\&#34;WorkItemType\&#34;:\&#34;Incident\&#34;}&#34;`), and `ticket_configuration=&#34;{}&#34;` will return an error, see more at this [REST API issue](https://github.com/Azure/azure-rest-api-specs/issues/20488)
          * 
          * @return builder
          * 

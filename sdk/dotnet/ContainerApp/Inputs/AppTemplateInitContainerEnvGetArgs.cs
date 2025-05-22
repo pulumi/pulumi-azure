@@ -27,7 +27,7 @@ namespace Pulumi.Azure.ContainerApp.Inputs
         /// <summary>
         /// The value for this environment variable.
         /// 
-        /// &gt; **NOTE:** This value is ignored if `secret_name` is used
+        /// &gt; **Note:** This value is ignored if `secret_name` is used
         /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }

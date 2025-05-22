@@ -79,7 +79,7 @@ export class IntegrationRuntimeSsis extends pulumi.CustomResource {
     /**
      * The name of a Data Factory Credential that the SSIS integration will use to access data sources. For example, `azure.datafactory.CredentialUserManagedIdentity`
      *
-     * > **NOTE** If `credentialName` is omitted, the integration runtime will use the Data Factory assigned identity.
+     * > **Note:** If `credentialName` is omitted, the integration runtime will use the Data Factory assigned identity.
      */
     public readonly credentialName!: pulumi.Output<string | undefined>;
     /**
@@ -229,7 +229,7 @@ export interface IntegrationRuntimeSsisState {
     /**
      * The name of a Data Factory Credential that the SSIS integration will use to access data sources. For example, `azure.datafactory.CredentialUserManagedIdentity`
      *
-     * > **NOTE** If `credentialName` is omitted, the integration runtime will use the Data Factory assigned identity.
+     * > **Note:** If `credentialName` is omitted, the integration runtime will use the Data Factory assigned identity.
      */
     credentialName?: pulumi.Input<string>;
     /**
@@ -313,7 +313,7 @@ export interface IntegrationRuntimeSsisArgs {
     /**
      * The name of a Data Factory Credential that the SSIS integration will use to access data sources. For example, `azure.datafactory.CredentialUserManagedIdentity`
      *
-     * > **NOTE** If `credentialName` is omitted, the integration runtime will use the Data Factory assigned identity.
+     * > **Note:** If `credentialName` is omitted, the integration runtime will use the Data Factory assigned identity.
      */
     credentialName?: pulumi.Input<string>;
     /**

@@ -33,7 +33,7 @@ class VirtualNetworkRuleArgs:
         :param pulumi.Input[builtins.bool] ignore_missing_vnet_service_endpoint: Should the Virtual Network Rule be created before the Subnet has the Virtual Network Service Endpoint enabled?
         :param pulumi.Input[builtins.str] name: The name of the PostgreSQL virtual network rule. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen. Changing this forces a new resource to be created.
                
-               > **NOTE:** `name` must be between 1-128 characters long and must satisfy all of the requirements below:
+               > **Note:** `name` must be between 1-128 characters long and must satisfy all of the requirements below:
                
                1. Contains only alphanumeric and hyphen characters
                2. Cannot start with a number or hyphen
@@ -101,7 +101,7 @@ class VirtualNetworkRuleArgs:
         """
         The name of the PostgreSQL virtual network rule. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen. Changing this forces a new resource to be created.
 
-        > **NOTE:** `name` must be between 1-128 characters long and must satisfy all of the requirements below:
+        > **Note:** `name` must be between 1-128 characters long and must satisfy all of the requirements below:
 
         1. Contains only alphanumeric and hyphen characters
         2. Cannot start with a number or hyphen
@@ -127,7 +127,7 @@ class _VirtualNetworkRuleState:
         :param pulumi.Input[builtins.bool] ignore_missing_vnet_service_endpoint: Should the Virtual Network Rule be created before the Subnet has the Virtual Network Service Endpoint enabled?
         :param pulumi.Input[builtins.str] name: The name of the PostgreSQL virtual network rule. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen. Changing this forces a new resource to be created.
                
-               > **NOTE:** `name` must be between 1-128 characters long and must satisfy all of the requirements below:
+               > **Note:** `name` must be between 1-128 characters long and must satisfy all of the requirements below:
                
                1. Contains only alphanumeric and hyphen characters
                2. Cannot start with a number or hyphen
@@ -165,7 +165,7 @@ class _VirtualNetworkRuleState:
         """
         The name of the PostgreSQL virtual network rule. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen. Changing this forces a new resource to be created.
 
-        > **NOTE:** `name` must be between 1-128 characters long and must satisfy all of the requirements below:
+        > **Note:** `name` must be between 1-128 characters long and must satisfy all of the requirements below:
 
         1. Contains only alphanumeric and hyphen characters
         2. Cannot start with a number or hyphen
@@ -229,7 +229,7 @@ class VirtualNetworkRule(pulumi.CustomResource):
         """
         Manages a PostgreSQL Virtual Network Rule.
 
-        > **NOTE:** PostgreSQL Virtual Network Rules [can only be used with SKU Tiers of `GeneralPurpose` or `MemoryOptimized`](https://docs.microsoft.com/azure/postgresql/concepts-data-access-and-security-vnet)
+        > **Note:** PostgreSQL Virtual Network Rules [can only be used with SKU Tiers of `GeneralPurpose` or `MemoryOptimized`](https://docs.microsoft.com/azure/postgresql/concepts-data-access-and-security-vnet)
 
         ## Example Usage
 
@@ -270,6 +270,13 @@ class VirtualNetworkRule(pulumi.CustomResource):
             ignore_missing_vnet_service_endpoint=True)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DBforPostgreSQL`: 2017-12-01
+
         ## Import
 
         PostgreSQL Virtual Network Rules can be imported using the `resource id`, e.g.
@@ -283,7 +290,7 @@ class VirtualNetworkRule(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] ignore_missing_vnet_service_endpoint: Should the Virtual Network Rule be created before the Subnet has the Virtual Network Service Endpoint enabled?
         :param pulumi.Input[builtins.str] name: The name of the PostgreSQL virtual network rule. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen. Changing this forces a new resource to be created.
                
-               > **NOTE:** `name` must be between 1-128 characters long and must satisfy all of the requirements below:
+               > **Note:** `name` must be between 1-128 characters long and must satisfy all of the requirements below:
                
                1. Contains only alphanumeric and hyphen characters
                2. Cannot start with a number or hyphen
@@ -301,7 +308,7 @@ class VirtualNetworkRule(pulumi.CustomResource):
         """
         Manages a PostgreSQL Virtual Network Rule.
 
-        > **NOTE:** PostgreSQL Virtual Network Rules [can only be used with SKU Tiers of `GeneralPurpose` or `MemoryOptimized`](https://docs.microsoft.com/azure/postgresql/concepts-data-access-and-security-vnet)
+        > **Note:** PostgreSQL Virtual Network Rules [can only be used with SKU Tiers of `GeneralPurpose` or `MemoryOptimized`](https://docs.microsoft.com/azure/postgresql/concepts-data-access-and-security-vnet)
 
         ## Example Usage
 
@@ -341,6 +348,13 @@ class VirtualNetworkRule(pulumi.CustomResource):
             subnet_id=internal.id,
             ignore_missing_vnet_service_endpoint=True)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DBforPostgreSQL`: 2017-12-01
 
         ## Import
 
@@ -415,7 +429,7 @@ class VirtualNetworkRule(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] ignore_missing_vnet_service_endpoint: Should the Virtual Network Rule be created before the Subnet has the Virtual Network Service Endpoint enabled?
         :param pulumi.Input[builtins.str] name: The name of the PostgreSQL virtual network rule. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen. Changing this forces a new resource to be created.
                
-               > **NOTE:** `name` must be between 1-128 characters long and must satisfy all of the requirements below:
+               > **Note:** `name` must be between 1-128 characters long and must satisfy all of the requirements below:
                
                1. Contains only alphanumeric and hyphen characters
                2. Cannot start with a number or hyphen
@@ -449,7 +463,7 @@ class VirtualNetworkRule(pulumi.CustomResource):
         """
         The name of the PostgreSQL virtual network rule. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen. Changing this forces a new resource to be created.
 
-        > **NOTE:** `name` must be between 1-128 characters long and must satisfy all of the requirements below:
+        > **Note:** `name` must be between 1-128 characters long and must satisfy all of the requirements below:
 
         1. Contains only alphanumeric and hyphen characters
         2. Cannot start with a number or hyphen

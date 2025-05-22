@@ -63,7 +63,7 @@ namespace Pulumi.Azure.Network.Inputs
         /// <summary>
         /// Rule evaluation order can be dictated by specifying an integer value from `1` to `20000` with `1` being the highest priority and `20000` being the lowest priority.
         /// 
-        /// &gt; **NOTE:** `priority` is required when `sku[0].tier` is set to `*_v2`.
+        /// &gt; **Note:** `priority` is required when `sku[0].tier` is set to `*_v2`.
         /// </summary>
         [Input("priority")]
         public Input<int>? Priority { get; set; }
@@ -89,7 +89,7 @@ namespace Pulumi.Azure.Network.Inputs
         /// <summary>
         /// The Name of the Rewrite Rule Set which should be used for this Routing Rule. Only valid for v2 SKUs.
         /// 
-        /// &gt; **NOTE:** `backend_address_pool_name`, `backend_http_settings_name`, `redirect_configuration_name`, and `rewrite_rule_set_name` are applicable only when `rule_type` is `Basic`.
+        /// &gt; **Note:** `backend_address_pool_name`, `backend_http_settings_name`, `redirect_configuration_name`, and `rewrite_rule_set_name` are applicable only when `rule_type` is `Basic`.
         /// </summary>
         [Input("rewriteRuleSetName")]
         public Input<string>? RewriteRuleSetName { get; set; }

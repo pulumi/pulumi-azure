@@ -12,7 +12,7 @@ namespace Pulumi.Azure.Bot
     /// <summary>
     /// Manages a SMS integration for a Bot Channel
     /// 
-    /// &gt; **Note** A bot can only have a single SMS Channel associated with it.
+    /// &gt; **Note:** A bot can only have a single SMS Channel associated with it.
     /// 
     /// ## Example Usage
     /// 

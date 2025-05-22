@@ -59,6 +59,13 @@ namespace Pulumi.Azure.ContainerService
     /// });
     /// ```
     /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.ContainerRegistry`: 2023-11-01-preview, 2019-06-01-preview
+    /// 
     /// ## Import
     /// 
     /// Container Registry Tasks can be imported using the `resource id`, e.g.
@@ -79,7 +86,7 @@ namespace Pulumi.Azure.ContainerService
         /// <summary>
         /// A `agent_setting` block as defined below.
         /// 
-        /// &gt; **NOTE:** Only one of `agent_pool_name` and `agent_setting` can be specified.
+        /// &gt; **Note:** Only one of `agent_pool_name` and `agent_setting` can be specified.
         /// </summary>
         [Output("agentSetting")]
         public Output<Outputs.RegistryTaskAgentSetting?> AgentSetting { get; private set; } = null!;
@@ -117,7 +124,7 @@ namespace Pulumi.Azure.ContainerService
         /// <summary>
         /// A `file_step` block as defined below.
         /// 
-        /// &gt; **NOTE:** For non-system task (when `is_system_task` is set to `false`), one and only one of the `docker_step`, `encoded_step` and `file_step` should be specified.
+        /// &gt; **Note:** For non-system task (when `is_system_task` is set to `false`), one and only one of the `docker_step`, `encoded_step` and `file_step` should be specified.
         /// </summary>
         [Output("fileStep")]
         public Output<Outputs.RegistryTaskFileStep?> FileStep { get; private set; } = null!;
@@ -146,7 +153,7 @@ namespace Pulumi.Azure.ContainerService
         /// <summary>
         /// A `platform` block as defined below.
         /// 
-        /// &gt; **NOTE:** The `platform` is required for non-system task (when `is_system_task` is set to `false`).
+        /// &gt; **Note:** The `platform` is required for non-system task (when `is_system_task` is set to `false`).
         /// </summary>
         [Output("platform")]
         public Output<Outputs.RegistryTaskPlatform?> Platform { get; private set; } = null!;
@@ -227,7 +234,7 @@ namespace Pulumi.Azure.ContainerService
         /// <summary>
         /// A `agent_setting` block as defined below.
         /// 
-        /// &gt; **NOTE:** Only one of `agent_pool_name` and `agent_setting` can be specified.
+        /// &gt; **Note:** Only one of `agent_pool_name` and `agent_setting` can be specified.
         /// </summary>
         [Input("agentSetting")]
         public Input<Inputs.RegistryTaskAgentSettingArgs>? AgentSetting { get; set; }
@@ -265,7 +272,7 @@ namespace Pulumi.Azure.ContainerService
         /// <summary>
         /// A `file_step` block as defined below.
         /// 
-        /// &gt; **NOTE:** For non-system task (when `is_system_task` is set to `false`), one and only one of the `docker_step`, `encoded_step` and `file_step` should be specified.
+        /// &gt; **Note:** For non-system task (when `is_system_task` is set to `false`), one and only one of the `docker_step`, `encoded_step` and `file_step` should be specified.
         /// </summary>
         [Input("fileStep")]
         public Input<Inputs.RegistryTaskFileStepArgs>? FileStep { get; set; }
@@ -294,7 +301,7 @@ namespace Pulumi.Azure.ContainerService
         /// <summary>
         /// A `platform` block as defined below.
         /// 
-        /// &gt; **NOTE:** The `platform` is required for non-system task (when `is_system_task` is set to `false`).
+        /// &gt; **Note:** The `platform` is required for non-system task (when `is_system_task` is set to `false`).
         /// </summary>
         [Input("platform")]
         public Input<Inputs.RegistryTaskPlatformArgs>? Platform { get; set; }
@@ -354,7 +361,7 @@ namespace Pulumi.Azure.ContainerService
         /// <summary>
         /// A `agent_setting` block as defined below.
         /// 
-        /// &gt; **NOTE:** Only one of `agent_pool_name` and `agent_setting` can be specified.
+        /// &gt; **Note:** Only one of `agent_pool_name` and `agent_setting` can be specified.
         /// </summary>
         [Input("agentSetting")]
         public Input<Inputs.RegistryTaskAgentSettingGetArgs>? AgentSetting { get; set; }
@@ -392,7 +399,7 @@ namespace Pulumi.Azure.ContainerService
         /// <summary>
         /// A `file_step` block as defined below.
         /// 
-        /// &gt; **NOTE:** For non-system task (when `is_system_task` is set to `false`), one and only one of the `docker_step`, `encoded_step` and `file_step` should be specified.
+        /// &gt; **Note:** For non-system task (when `is_system_task` is set to `false`), one and only one of the `docker_step`, `encoded_step` and `file_step` should be specified.
         /// </summary>
         [Input("fileStep")]
         public Input<Inputs.RegistryTaskFileStepGetArgs>? FileStep { get; set; }
@@ -421,7 +428,7 @@ namespace Pulumi.Azure.ContainerService
         /// <summary>
         /// A `platform` block as defined below.
         /// 
-        /// &gt; **NOTE:** The `platform` is required for non-system task (when `is_system_task` is set to `false`).
+        /// &gt; **Note:** The `platform` is required for non-system task (when `is_system_task` is set to `false`).
         /// </summary>
         [Input("platform")]
         public Input<Inputs.RegistryTaskPlatformGetArgs>? Platform { get; set; }

@@ -76,6 +76,13 @@ def get_traffic_manager(name: Optional[builtins.str] = None,
     pulumi.export("locationCode", example.id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Network`: 2022-04-01
+
 
     :param builtins.str name: Specifies the name of the Location, for example `World`, `Europe` or `Germany`.
     """
@@ -103,6 +110,13 @@ def get_traffic_manager_output(name: Optional[pulumi.Input[builtins.str]] = None
     example = azure.network.get_traffic_manager(name="World")
     pulumi.export("locationCode", example.id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Network`: 2022-04-01
 
 
     :param builtins.str name: Specifies the name of the Location, for example `World`, `Europe` or `Germany`.

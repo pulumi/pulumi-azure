@@ -17,7 +17,7 @@ import javax.annotation.Nullable;
 /**
  * Applies a Guest Configuration Policy to a Virtual Machine.
  * 
- * &gt; **NOTE:** You can create Guest Configuration Policies without defining a `azure.compute.Extension` resource, however the policies will not be executed until a `azure.compute.Extension` has been provisioned to the virtual machine.
+ * &gt; **Note:** You can create Guest Configuration Policies without defining a `azure.compute.Extension` resource, however the policies will not be executed until a `azure.compute.Extension` has been provisioned to the virtual machine.
  * 
  * ## Example Usage
  * 
@@ -159,6 +159,13 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.Compute`: 2020-06-25
  * 
  * ## Import
  * 

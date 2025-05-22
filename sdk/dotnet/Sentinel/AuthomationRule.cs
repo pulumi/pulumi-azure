@@ -60,6 +60,13 @@ namespace Pulumi.Azure.Sentinel
     /// });
     /// ```
     /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.OperationalInsights`: 2024-09-01
+    /// 
     /// ## Import
     /// 
     /// Sentinel Automation Rules can be imported using the `resource id`, e.g.

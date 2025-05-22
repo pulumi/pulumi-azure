@@ -60,6 +60,13 @@ namespace Pulumi.Azure.ApiManagement
     /// });
     /// ```
     /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.ApiManagement`: 2022-08-01
+    /// 
     /// ## Import
     /// 
     /// API Management API's can be imported using the `resource id`, e.g.
@@ -104,7 +111,7 @@ namespace Pulumi.Azure.ApiManagement
         /// <summary>
         /// A `import` block as documented below.
         /// 
-        /// &gt; **NOTE:** The `display_name`, `description`, `contact`, and `license` fields can be imported by the `import` block, which might cause a drift if these fields are set along with the `import` block.
+        /// &gt; **Note:** The `display_name`, `description`, `contact`, and `license` fields can be imported by the `import` block, which might cause a drift if these fields are set along with the `import` block.
         /// </summary>
         [Output("import")]
         public Output<Outputs.ApiImport?> Import { get; private set; } = null!;
@@ -154,7 +161,7 @@ namespace Pulumi.Azure.ApiManagement
         /// <summary>
         /// A list of protocols the operations in this API can be invoked. Possible values are `http`, `https`, `ws`, and `wss`.
         /// 
-        /// &gt; **NOTE:** `display_name`, `path` and `protocols` are required when `source_api_id` is not set.
+        /// &gt; **Note:** `display_name`, `path` and `protocols` are required when `source_api_id` is not set.
         /// </summary>
         [Output("protocols")]
         public Output<ImmutableArray<string>> Protocols { get; private set; } = null!;
@@ -222,7 +229,7 @@ namespace Pulumi.Azure.ApiManagement
         /// <summary>
         /// The ID of the Version Set which this API is associated with.
         /// 
-        /// &gt; **NOTE:** When `version` is set, `version_set_id` must also be specified
+        /// &gt; **Note:** When `version` is set, `version_set_id` must also be specified
         /// </summary>
         [Output("versionSetId")]
         public Output<string> VersionSetId { get; private set; } = null!;
@@ -306,7 +313,7 @@ namespace Pulumi.Azure.ApiManagement
         /// <summary>
         /// A `import` block as documented below.
         /// 
-        /// &gt; **NOTE:** The `display_name`, `description`, `contact`, and `license` fields can be imported by the `import` block, which might cause a drift if these fields are set along with the `import` block.
+        /// &gt; **Note:** The `display_name`, `description`, `contact`, and `license` fields can be imported by the `import` block, which might cause a drift if these fields are set along with the `import` block.
         /// </summary>
         [Input("import")]
         public Input<Inputs.ApiImportArgs>? Import { get; set; }
@@ -347,7 +354,7 @@ namespace Pulumi.Azure.ApiManagement
         /// <summary>
         /// A list of protocols the operations in this API can be invoked. Possible values are `http`, `https`, `ws`, and `wss`.
         /// 
-        /// &gt; **NOTE:** `display_name`, `path` and `protocols` are required when `source_api_id` is not set.
+        /// &gt; **Note:** `display_name`, `path` and `protocols` are required when `source_api_id` is not set.
         /// </summary>
         public InputList<string> Protocols
         {
@@ -418,7 +425,7 @@ namespace Pulumi.Azure.ApiManagement
         /// <summary>
         /// The ID of the Version Set which this API is associated with.
         /// 
-        /// &gt; **NOTE:** When `version` is set, `version_set_id` must also be specified
+        /// &gt; **Note:** When `version` is set, `version_set_id` must also be specified
         /// </summary>
         [Input("versionSetId")]
         public Input<string>? VersionSetId { get; set; }
@@ -464,7 +471,7 @@ namespace Pulumi.Azure.ApiManagement
         /// <summary>
         /// A `import` block as documented below.
         /// 
-        /// &gt; **NOTE:** The `display_name`, `description`, `contact`, and `license` fields can be imported by the `import` block, which might cause a drift if these fields are set along with the `import` block.
+        /// &gt; **Note:** The `display_name`, `description`, `contact`, and `license` fields can be imported by the `import` block, which might cause a drift if these fields are set along with the `import` block.
         /// </summary>
         [Input("import")]
         public Input<Inputs.ApiImportGetArgs>? Import { get; set; }
@@ -517,7 +524,7 @@ namespace Pulumi.Azure.ApiManagement
         /// <summary>
         /// A list of protocols the operations in this API can be invoked. Possible values are `http`, `https`, `ws`, and `wss`.
         /// 
-        /// &gt; **NOTE:** `display_name`, `path` and `protocols` are required when `source_api_id` is not set.
+        /// &gt; **Note:** `display_name`, `path` and `protocols` are required when `source_api_id` is not set.
         /// </summary>
         public InputList<string> Protocols
         {
@@ -588,7 +595,7 @@ namespace Pulumi.Azure.ApiManagement
         /// <summary>
         /// The ID of the Version Set which this API is associated with.
         /// 
-        /// &gt; **NOTE:** When `version` is set, `version_set_id` must also be specified
+        /// &gt; **Note:** When `version` is set, `version_set_id` must also be specified
         /// </summary>
         [Input("versionSetId")]
         public Input<string>? VersionSetId { get; set; }

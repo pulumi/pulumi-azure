@@ -20,7 +20,7 @@ public final class DataCollectionRuleIdentityArgs extends com.pulumi.resources.R
     /**
      * A list of User Assigned Managed Identity IDs to be assigned to this Data Collection Rule. Currently, up to 1 identity is supported.
      * 
-     * &gt; **NOTE:** This is required when `type` is set to `UserAssigned`.
+     * &gt; **Note:** This is required when `type` is set to `UserAssigned`.
      * 
      */
     @Import(name="identityIds")
@@ -29,7 +29,7 @@ public final class DataCollectionRuleIdentityArgs extends com.pulumi.resources.R
     /**
      * @return A list of User Assigned Managed Identity IDs to be assigned to this Data Collection Rule. Currently, up to 1 identity is supported.
      * 
-     * &gt; **NOTE:** This is required when `type` is set to `UserAssigned`.
+     * &gt; **Note:** This is required when `type` is set to `UserAssigned`.
      * 
      */
     public Optional<Output<List<String>>> identityIds() {
@@ -111,7 +111,7 @@ public final class DataCollectionRuleIdentityArgs extends com.pulumi.resources.R
         /**
          * @param identityIds A list of User Assigned Managed Identity IDs to be assigned to this Data Collection Rule. Currently, up to 1 identity is supported.
          * 
-         * &gt; **NOTE:** This is required when `type` is set to `UserAssigned`.
+         * &gt; **Note:** This is required when `type` is set to `UserAssigned`.
          * 
          * @return builder
          * 
@@ -124,7 +124,7 @@ public final class DataCollectionRuleIdentityArgs extends com.pulumi.resources.R
         /**
          * @param identityIds A list of User Assigned Managed Identity IDs to be assigned to this Data Collection Rule. Currently, up to 1 identity is supported.
          * 
-         * &gt; **NOTE:** This is required when `type` is set to `UserAssigned`.
+         * &gt; **Note:** This is required when `type` is set to `UserAssigned`.
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class DataCollectionRuleIdentityArgs extends com.pulumi.resources.R
         /**
          * @param identityIds A list of User Assigned Managed Identity IDs to be assigned to this Data Collection Rule. Currently, up to 1 identity is supported.
          * 
-         * &gt; **NOTE:** This is required when `type` is set to `UserAssigned`.
+         * &gt; **Note:** This is required when `type` is set to `UserAssigned`.
          * 
          * @return builder
          * 

@@ -12,7 +12,7 @@ namespace Pulumi.Azure.Iot
     /// <summary>
     /// Manages the File Upload of an IoT Hub.
     /// 
-    /// &gt; **NOTE:** File upload can be defined either directly on the `azure.iot.IoTHub` resource, or using the `azure.iot.FileUpload` resource - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
+    /// &gt; **Note:** File upload can be defined either directly on the `azure.iot.IoTHub` resource, or using the `azure.iot.FileUpload` resource - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
     /// 
     /// ## Example Usage
     /// 
@@ -106,7 +106,7 @@ namespace Pulumi.Azure.Iot
         /// <summary>
         /// The ID of the User Managed Identity used to authenticate against the storage account.
         /// 
-        /// &gt; **NOTE:** `identity_id` can only be specified when `authentication_type` is `identityBased`. It must be one of the `identity_ids` of the IoT Hub. If `identity_id` is omitted when `authentication_type` is `identityBased`, then the System-Assigned Managed Identity of the IoT Hub will be used.
+        /// &gt; **Note:** `identity_id` can only be specified when `authentication_type` is `identityBased`. It must be one of the `identity_ids` of the IoT Hub. If `identity_id` is omitted when `authentication_type` is `identityBased`, then the System-Assigned Managed Identity of the IoT Hub will be used.
         /// </summary>
         [Output("identityId")]
         public Output<string?> IdentityId { get; private set; } = null!;
@@ -228,7 +228,7 @@ namespace Pulumi.Azure.Iot
         /// <summary>
         /// The ID of the User Managed Identity used to authenticate against the storage account.
         /// 
-        /// &gt; **NOTE:** `identity_id` can only be specified when `authentication_type` is `identityBased`. It must be one of the `identity_ids` of the IoT Hub. If `identity_id` is omitted when `authentication_type` is `identityBased`, then the System-Assigned Managed Identity of the IoT Hub will be used.
+        /// &gt; **Note:** `identity_id` can only be specified when `authentication_type` is `identityBased`. It must be one of the `identity_ids` of the IoT Hub. If `identity_id` is omitted when `authentication_type` is `identityBased`, then the System-Assigned Managed Identity of the IoT Hub will be used.
         /// </summary>
         [Input("identityId")]
         public Input<string>? IdentityId { get; set; }
@@ -308,7 +308,7 @@ namespace Pulumi.Azure.Iot
         /// <summary>
         /// The ID of the User Managed Identity used to authenticate against the storage account.
         /// 
-        /// &gt; **NOTE:** `identity_id` can only be specified when `authentication_type` is `identityBased`. It must be one of the `identity_ids` of the IoT Hub. If `identity_id` is omitted when `authentication_type` is `identityBased`, then the System-Assigned Managed Identity of the IoT Hub will be used.
+        /// &gt; **Note:** `identity_id` can only be specified when `authentication_type` is `identityBased`. It must be one of the `identity_ids` of the IoT Hub. If `identity_id` is omitted when `authentication_type` is `identityBased`, then the System-Assigned Managed Identity of the IoT Hub will be used.
         /// </summary>
         [Input("identityId")]
         public Input<string>? IdentityId { get; set; }

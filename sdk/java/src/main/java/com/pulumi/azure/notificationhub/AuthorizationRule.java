@@ -86,6 +86,13 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.NotificationHubs`: 2023-09-01
+ * 
  * ## Import
  * 
  * Notification Hub Authorization Rule can be imported using the `resource id`, e.g.
@@ -114,7 +121,7 @@ public class AuthorizationRule extends com.pulumi.resources.CustomResource {
     /**
      * Does this Authorization Rule have Manage access to the Notification Hub? Defaults to `false`.
      * 
-     * &gt; **NOTE:** If `manage` is set to `true` then both `send` and `listen` must also be set to `true`.
+     * &gt; **Note:** If `manage` is set to `true` then both `send` and `listen` must also be set to `true`.
      * 
      */
     @Export(name="manage", refs={Boolean.class}, tree="[0]")
@@ -123,7 +130,7 @@ public class AuthorizationRule extends com.pulumi.resources.CustomResource {
     /**
      * @return Does this Authorization Rule have Manage access to the Notification Hub? Defaults to `false`.
      * 
-     * &gt; **NOTE:** If `manage` is set to `true` then both `send` and `listen` must also be set to `true`.
+     * &gt; **Note:** If `manage` is set to `true` then both `send` and `listen` must also be set to `true`.
      * 
      */
     public Output<Optional<Boolean>> manage() {

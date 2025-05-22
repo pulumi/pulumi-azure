@@ -116,7 +116,7 @@ type PolicyVM struct {
 	InstantRestoreResourceGroup PolicyVMInstantRestoreResourceGroupPtrOutput `pulumi:"instantRestoreResourceGroup"`
 	// Specifies the instant restore retention range in days. Possible values are between `1` and `5` when `policyType` is `V1`, and `1` to `30` when `policyType` is `V2`.
 	//
-	// > **NOTE:** `instantRestoreRetentionDays` **must** be set to `5` if the backup frequency is set to `Weekly`.
+	// > **Note:** `instantRestoreRetentionDays` **must** be set to `5` if the backup frequency is set to `Weekly`.
 	InstantRestoreRetentionDays pulumi.IntOutput `pulumi:"instantRestoreRetentionDays"`
 	// Specifies the name of the Backup Policy. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -185,7 +185,7 @@ type policyVMState struct {
 	InstantRestoreResourceGroup *PolicyVMInstantRestoreResourceGroup `pulumi:"instantRestoreResourceGroup"`
 	// Specifies the instant restore retention range in days. Possible values are between `1` and `5` when `policyType` is `V1`, and `1` to `30` when `policyType` is `V2`.
 	//
-	// > **NOTE:** `instantRestoreRetentionDays` **must** be set to `5` if the backup frequency is set to `Weekly`.
+	// > **Note:** `instantRestoreRetentionDays` **must** be set to `5` if the backup frequency is set to `Weekly`.
 	InstantRestoreRetentionDays *int `pulumi:"instantRestoreRetentionDays"`
 	// Specifies the name of the Backup Policy. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -216,7 +216,7 @@ type PolicyVMState struct {
 	InstantRestoreResourceGroup PolicyVMInstantRestoreResourceGroupPtrInput
 	// Specifies the instant restore retention range in days. Possible values are between `1` and `5` when `policyType` is `V1`, and `1` to `30` when `policyType` is `V2`.
 	//
-	// > **NOTE:** `instantRestoreRetentionDays` **must** be set to `5` if the backup frequency is set to `Weekly`.
+	// > **Note:** `instantRestoreRetentionDays` **must** be set to `5` if the backup frequency is set to `Weekly`.
 	InstantRestoreRetentionDays pulumi.IntPtrInput
 	// Specifies the name of the Backup Policy. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -251,7 +251,7 @@ type policyVMArgs struct {
 	InstantRestoreResourceGroup *PolicyVMInstantRestoreResourceGroup `pulumi:"instantRestoreResourceGroup"`
 	// Specifies the instant restore retention range in days. Possible values are between `1` and `5` when `policyType` is `V1`, and `1` to `30` when `policyType` is `V2`.
 	//
-	// > **NOTE:** `instantRestoreRetentionDays` **must** be set to `5` if the backup frequency is set to `Weekly`.
+	// > **Note:** `instantRestoreRetentionDays` **must** be set to `5` if the backup frequency is set to `Weekly`.
 	InstantRestoreRetentionDays *int `pulumi:"instantRestoreRetentionDays"`
 	// Specifies the name of the Backup Policy. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -283,7 +283,7 @@ type PolicyVMArgs struct {
 	InstantRestoreResourceGroup PolicyVMInstantRestoreResourceGroupPtrInput
 	// Specifies the instant restore retention range in days. Possible values are between `1` and `5` when `policyType` is `V1`, and `1` to `30` when `policyType` is `V2`.
 	//
-	// > **NOTE:** `instantRestoreRetentionDays` **must** be set to `5` if the backup frequency is set to `Weekly`.
+	// > **Note:** `instantRestoreRetentionDays` **must** be set to `5` if the backup frequency is set to `Weekly`.
 	InstantRestoreRetentionDays pulumi.IntPtrInput
 	// Specifies the name of the Backup Policy. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -406,7 +406,7 @@ func (o PolicyVMOutput) InstantRestoreResourceGroup() PolicyVMInstantRestoreReso
 
 // Specifies the instant restore retention range in days. Possible values are between `1` and `5` when `policyType` is `V1`, and `1` to `30` when `policyType` is `V2`.
 //
-// > **NOTE:** `instantRestoreRetentionDays` **must** be set to `5` if the backup frequency is set to `Weekly`.
+// > **Note:** `instantRestoreRetentionDays` **must** be set to `5` if the backup frequency is set to `Weekly`.
 func (o PolicyVMOutput) InstantRestoreRetentionDays() pulumi.IntOutput {
 	return o.ApplyT(func(v *PolicyVM) pulumi.IntOutput { return v.InstantRestoreRetentionDays }).(pulumi.IntOutput)
 }

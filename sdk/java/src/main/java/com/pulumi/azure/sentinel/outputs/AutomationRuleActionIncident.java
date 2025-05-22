@@ -46,7 +46,7 @@ public final class AutomationRuleActionIncident {
     /**
      * @return The severity to add to the incident. Possible values are `High`, `Informational`, `Low` and `Medium`.
      * 
-     * &gt; **Note:**: At least one of `status`, `labels`, `owner_id` and `severity` has to be set.
+     * &gt; **Note:** At least one of `status`, `labels`, `owner_id` and `severity` has to be set.
      * 
      */
     private @Nullable String severity;
@@ -99,7 +99,7 @@ public final class AutomationRuleActionIncident {
     /**
      * @return The severity to add to the incident. Possible values are `High`, `Informational`, `Low` and `Medium`.
      * 
-     * &gt; **Note:**: At least one of `status`, `labels`, `owner_id` and `severity` has to be set.
+     * &gt; **Note:** At least one of `status`, `labels`, `owner_id` and `severity` has to be set.
      * 
      */
     public Optional<String> severity() {

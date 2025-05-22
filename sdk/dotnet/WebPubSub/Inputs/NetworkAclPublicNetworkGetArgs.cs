@@ -30,7 +30,7 @@ namespace Pulumi.Azure.WebPubSub.Inputs
         /// <summary>
         /// The denied request types for the public network. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
         /// 
-        /// &gt; **NOTE:** When `default_action` is `Allow`, `allowed_request_types`cannot be set. When `default_action` is `Deny`, `denied_request_types`cannot be set.
+        /// &gt; **Note:** When `default_action` is `Allow`, `allowed_request_types`cannot be set. When `default_action` is `Deny`, `denied_request_types`cannot be set.
         /// </summary>
         public InputList<string> DeniedRequestTypes
         {

@@ -15,7 +15,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
         /// <summary>
         /// Whether the container's permission is elevated to privileged? Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** Currently, this only applies when the `os_type` is `Linux` and the `sku` is `Confidential`.
+        /// &gt; **Note:** Currently, this only applies when the `os_type` is `Linux` and the `sku` is `Confidential`.
         /// </summary>
         [Input("privilegeEnabled", required: true)]
         public Input<bool> PrivilegeEnabled { get; set; } = null!;

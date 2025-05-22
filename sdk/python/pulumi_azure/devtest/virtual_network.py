@@ -283,6 +283,13 @@ class VirtualNetwork(pulumi.CustomResource):
             })
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DevTestLab`: 2018-09-15
+
         ## Import
 
         DevTest Virtual Networks can be imported using the `resource id`, e.g.
@@ -334,6 +341,13 @@ class VirtualNetwork(pulumi.CustomResource):
                 "use_in_virtual_machine_creation": "Allow",
             })
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DevTestLab`: 2018-09-15
 
         ## Import
 

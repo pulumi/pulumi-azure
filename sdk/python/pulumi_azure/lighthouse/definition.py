@@ -325,6 +325,13 @@ class Definition(pulumi.CustomResource):
             }])
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ManagedServices`: 2022-10-01
+
         ## Import
 
         Lighthouse Definitions can be imported using the `resource id`, e.g.
@@ -371,6 +378,13 @@ class Definition(pulumi.CustomResource):
                 "principal_display_name": "Tier 1 Support",
             }])
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ManagedServices`: 2022-10-01
 
         ## Import
 

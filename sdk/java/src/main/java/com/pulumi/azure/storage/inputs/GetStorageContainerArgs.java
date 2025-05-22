@@ -50,7 +50,7 @@ public final class GetStorageContainerArgs extends com.pulumi.resources.InvokeAr
     /**
      * The id of the Storage Account where the Container exists. This property will become Required in version 5.0 of the Provider.
      * 
-     * &gt; **NOTE:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
+     * &gt; **Note:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
      * 
      */
     @Import(name="storageAccountId")
@@ -59,7 +59,7 @@ public final class GetStorageContainerArgs extends com.pulumi.resources.InvokeAr
     /**
      * @return The id of the Storage Account where the Container exists. This property will become Required in version 5.0 of the Provider.
      * 
-     * &gt; **NOTE:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
+     * &gt; **Note:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
      * 
      */
     public Optional<Output<String>> storageAccountId() {
@@ -153,7 +153,7 @@ public final class GetStorageContainerArgs extends com.pulumi.resources.InvokeAr
         /**
          * @param storageAccountId The id of the Storage Account where the Container exists. This property will become Required in version 5.0 of the Provider.
          * 
-         * &gt; **NOTE:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
+         * &gt; **Note:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
          * 
          * @return builder
          * 
@@ -166,7 +166,7 @@ public final class GetStorageContainerArgs extends com.pulumi.resources.InvokeAr
         /**
          * @param storageAccountId The id of the Storage Account where the Container exists. This property will become Required in version 5.0 of the Provider.
          * 
-         * &gt; **NOTE:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
+         * &gt; **Note:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
          * 
          * @return builder
          * 

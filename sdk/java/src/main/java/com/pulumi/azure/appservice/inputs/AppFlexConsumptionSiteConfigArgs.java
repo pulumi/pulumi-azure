@@ -402,14 +402,14 @@ public final class AppFlexConsumptionSiteConfigArgs extends com.pulumi.resources
     }
 
     /**
-     * Configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+     * The minimum version of TLS required for SSL requests to the SCM site. Possible values include `1.0`, `1.1`, `1.2` and `1.3`. Defaults to `1.2`.
      * 
      */
     @Import(name="scmMinimumTlsVersion")
     private @Nullable Output<String> scmMinimumTlsVersion;
 
     /**
-     * @return Configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+     * @return The minimum version of TLS required for SSL requests to the SCM site. Possible values include `1.0`, `1.1`, `1.2` and `1.3`. Defaults to `1.2`.
      * 
      */
     public Optional<Output<String>> scmMinimumTlsVersion() {
@@ -447,14 +447,14 @@ public final class AppFlexConsumptionSiteConfigArgs extends com.pulumi.resources
     }
 
     /**
-     * Should the Linux Web App use a 32-bit worker.
+     * Should the Linux Web App use a 32-bit worker. Defaults to `false`.
      * 
      */
     @Import(name="use32BitWorker")
     private @Nullable Output<Boolean> use32BitWorker;
 
     /**
-     * @return Should the Linux Web App use a 32-bit worker.
+     * @return Should the Linux Web App use a 32-bit worker. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> use32BitWorker() {
@@ -1105,7 +1105,7 @@ public final class AppFlexConsumptionSiteConfigArgs extends com.pulumi.resources
         }
 
         /**
-         * @param scmMinimumTlsVersion Configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+         * @param scmMinimumTlsVersion The minimum version of TLS required for SSL requests to the SCM site. Possible values include `1.0`, `1.1`, `1.2` and `1.3`. Defaults to `1.2`.
          * 
          * @return builder
          * 
@@ -1116,7 +1116,7 @@ public final class AppFlexConsumptionSiteConfigArgs extends com.pulumi.resources
         }
 
         /**
-         * @param scmMinimumTlsVersion Configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+         * @param scmMinimumTlsVersion The minimum version of TLS required for SSL requests to the SCM site. Possible values include `1.0`, `1.1`, `1.2` and `1.3`. Defaults to `1.2`.
          * 
          * @return builder
          * 
@@ -1168,7 +1168,7 @@ public final class AppFlexConsumptionSiteConfigArgs extends com.pulumi.resources
         }
 
         /**
-         * @param use32BitWorker Should the Linux Web App use a 32-bit worker.
+         * @param use32BitWorker Should the Linux Web App use a 32-bit worker. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -1179,7 +1179,7 @@ public final class AppFlexConsumptionSiteConfigArgs extends com.pulumi.resources
         }
 
         /**
-         * @param use32BitWorker Should the Linux Web App use a 32-bit worker.
+         * @param use32BitWorker Should the Linux Web App use a 32-bit worker. Defaults to `false`.
          * 
          * @return builder
          * 

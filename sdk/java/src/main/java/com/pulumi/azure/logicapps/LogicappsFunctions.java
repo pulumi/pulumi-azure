@@ -61,6 +61,13 @@ public final class LogicappsFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Logic`: 2019-05-01
+     * 
      */
     public static Output<GetIntegrationAccountResult> getIntegrationAccount(GetIntegrationAccountArgs args) {
         return getIntegrationAccount(args, InvokeOptions.Empty);
@@ -104,6 +111,13 @@ public final class LogicappsFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Logic`: 2019-05-01
      * 
      */
     public static CompletableFuture<GetIntegrationAccountResult> getIntegrationAccountPlain(GetIntegrationAccountPlainArgs args) {
@@ -149,6 +163,13 @@ public final class LogicappsFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Logic`: 2019-05-01
+     * 
      */
     public static Output<GetIntegrationAccountResult> getIntegrationAccount(GetIntegrationAccountArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:logicapps/getIntegrationAccount:getIntegrationAccount", TypeShape.of(GetIntegrationAccountResult.class), args, Utilities.withVersion(options));
@@ -192,6 +213,13 @@ public final class LogicappsFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Logic`: 2019-05-01
      * 
      */
     public static Output<GetIntegrationAccountResult> getIntegrationAccount(GetIntegrationAccountArgs args, InvokeOutputOptions options) {
@@ -237,6 +265,13 @@ public final class LogicappsFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Logic`: 2019-05-01
+     * 
      */
     public static CompletableFuture<GetIntegrationAccountResult> getIntegrationAccountPlain(GetIntegrationAccountPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:logicapps/getIntegrationAccount:getIntegrationAccount", TypeShape.of(GetIntegrationAccountResult.class), args, Utilities.withVersion(options));
@@ -280,6 +315,13 @@ public final class LogicappsFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Web`: 2023-12-01
      * 
      */
     public static Output<GetStandardResult> getStandard(GetStandardArgs args) {
@@ -325,6 +367,13 @@ public final class LogicappsFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Web`: 2023-12-01
+     * 
      */
     public static CompletableFuture<GetStandardResult> getStandardPlain(GetStandardPlainArgs args) {
         return getStandardPlain(args, InvokeOptions.Empty);
@@ -368,6 +417,13 @@ public final class LogicappsFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Web`: 2023-12-01
      * 
      */
     public static Output<GetStandardResult> getStandard(GetStandardArgs args, InvokeOptions options) {
@@ -413,6 +469,13 @@ public final class LogicappsFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Web`: 2023-12-01
+     * 
      */
     public static Output<GetStandardResult> getStandard(GetStandardArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:logicapps/getStandard:getStandard", TypeShape.of(GetStandardResult.class), args, Utilities.withVersion(options));
@@ -456,6 +519,13 @@ public final class LogicappsFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Web`: 2023-12-01
      * 
      */
     public static CompletableFuture<GetStandardResult> getStandardPlain(GetStandardPlainArgs args, InvokeOptions options) {
@@ -501,6 +571,13 @@ public final class LogicappsFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Logic`: 2019-05-01
+     * 
      */
     public static Output<GetWorkflowResult> getWorkflow(GetWorkflowArgs args) {
         return getWorkflow(args, InvokeOptions.Empty);
@@ -544,6 +621,13 @@ public final class LogicappsFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Logic`: 2019-05-01
      * 
      */
     public static CompletableFuture<GetWorkflowResult> getWorkflowPlain(GetWorkflowPlainArgs args) {
@@ -589,6 +673,13 @@ public final class LogicappsFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Logic`: 2019-05-01
+     * 
      */
     public static Output<GetWorkflowResult> getWorkflow(GetWorkflowArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:logicapps/getWorkflow:getWorkflow", TypeShape.of(GetWorkflowResult.class), args, Utilities.withVersion(options));
@@ -633,6 +724,13 @@ public final class LogicappsFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Logic`: 2019-05-01
+     * 
      */
     public static Output<GetWorkflowResult> getWorkflow(GetWorkflowArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:logicapps/getWorkflow:getWorkflow", TypeShape.of(GetWorkflowResult.class), args, Utilities.withVersion(options));
@@ -676,6 +774,13 @@ public final class LogicappsFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Logic`: 2019-05-01
      * 
      */
     public static CompletableFuture<GetWorkflowResult> getWorkflowPlain(GetWorkflowPlainArgs args, InvokeOptions options) {

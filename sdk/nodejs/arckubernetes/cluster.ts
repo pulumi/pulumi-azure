@@ -40,6 +40,13 @@ import * as utilities from "../utilities";
  *
  * > **Note:** An extensive example on connecting the `azure.arckubernetes.Cluster` to an external kubernetes cluster can be found in the `./examples/arckubernetes` directory within the GitHub Repository.
  *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.Kubernetes`: 2024-01-01
+ *
  * ## Import
  *
  * Arc Kubernetes Cluster can be imported using the `resource id`, e.g.

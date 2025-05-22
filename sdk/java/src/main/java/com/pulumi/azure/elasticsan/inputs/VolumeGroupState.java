@@ -37,7 +37,7 @@ public final class VolumeGroupState extends com.pulumi.resources.ResourceArgs {
     /**
      * An `encryption` block as defined below.
      * 
-     * &gt; **NOTE:** The `encryption` block can only be set when `encryption_type` is set to `EncryptionAtRestWithCustomerManagedKey`.
+     * &gt; **Note:** The `encryption` block can only be set when `encryption_type` is set to `EncryptionAtRestWithCustomerManagedKey`.
      * 
      */
     @Import(name="encryption")
@@ -46,7 +46,7 @@ public final class VolumeGroupState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return An `encryption` block as defined below.
      * 
-     * &gt; **NOTE:** The `encryption` block can only be set when `encryption_type` is set to `EncryptionAtRestWithCustomerManagedKey`.
+     * &gt; **Note:** The `encryption` block can only be set when `encryption_type` is set to `EncryptionAtRestWithCustomerManagedKey`.
      * 
      */
     public Optional<Output<VolumeGroupEncryptionArgs>> encryption() {
@@ -182,7 +182,7 @@ public final class VolumeGroupState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param encryption An `encryption` block as defined below.
          * 
-         * &gt; **NOTE:** The `encryption` block can only be set when `encryption_type` is set to `EncryptionAtRestWithCustomerManagedKey`.
+         * &gt; **Note:** The `encryption` block can only be set when `encryption_type` is set to `EncryptionAtRestWithCustomerManagedKey`.
          * 
          * @return builder
          * 
@@ -195,7 +195,7 @@ public final class VolumeGroupState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param encryption An `encryption` block as defined below.
          * 
-         * &gt; **NOTE:** The `encryption` block can only be set when `encryption_type` is set to `EncryptionAtRestWithCustomerManagedKey`.
+         * &gt; **Note:** The `encryption` block can only be set when `encryption_type` is set to `EncryptionAtRestWithCustomerManagedKey`.
          * 
          * @return builder
          * 

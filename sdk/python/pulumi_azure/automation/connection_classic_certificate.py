@@ -293,6 +293,13 @@ class ConnectionClassicCertificate(pulumi.CustomResource):
             subscription_id=example.subscription_id)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Automation`: 2023-11-01
+
         ## Import
 
         Automation Connection can be imported using the `resource id`, e.g.
@@ -343,6 +350,13 @@ class ConnectionClassicCertificate(pulumi.CustomResource):
             subscription_name="subs1",
             subscription_id=example.subscription_id)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Automation`: 2023-11-01
 
         ## Import
 

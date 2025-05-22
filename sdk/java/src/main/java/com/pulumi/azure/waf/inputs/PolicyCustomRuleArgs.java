@@ -21,7 +21,7 @@ public final class PolicyCustomRuleArgs extends com.pulumi.resources.ResourceArg
     public static final PolicyCustomRuleArgs Empty = new PolicyCustomRuleArgs();
 
     /**
-     * Type of action. Possible values are `Allow`, `Block` and `Log`.
+     * Type of action. Possible values are `Allow`, `Block`, `JSChallenge` and `Log`.
      * 
      * &gt; **Note:** If the `rule_type` is specified as `RateLimitRule`, the `Allow` is not supported.
      * 
@@ -30,7 +30,7 @@ public final class PolicyCustomRuleArgs extends com.pulumi.resources.ResourceArg
     private Output<String> action;
 
     /**
-     * @return Type of action. Possible values are `Allow`, `Block` and `Log`.
+     * @return Type of action. Possible values are `Allow`, `Block`, `JSChallenge` and `Log`.
      * 
      * &gt; **Note:** If the `rule_type` is specified as `RateLimitRule`, the `Allow` is not supported.
      * 
@@ -192,7 +192,7 @@ public final class PolicyCustomRuleArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param action Type of action. Possible values are `Allow`, `Block` and `Log`.
+         * @param action Type of action. Possible values are `Allow`, `Block`, `JSChallenge` and `Log`.
          * 
          * &gt; **Note:** If the `rule_type` is specified as `RateLimitRule`, the `Allow` is not supported.
          * 
@@ -205,7 +205,7 @@ public final class PolicyCustomRuleArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param action Type of action. Possible values are `Allow`, `Block` and `Log`.
+         * @param action Type of action. Possible values are `Allow`, `Block`, `JSChallenge` and `Log`.
          * 
          * &gt; **Note:** If the `rule_type` is specified as `RateLimitRule`, the `Allow` is not supported.
          * 

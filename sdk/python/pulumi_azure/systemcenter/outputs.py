@@ -302,10 +302,10 @@ class VirtualMachineManagerVirtualMachineInstanceOperatingSystem(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "computerName":
-            suggest = "computer_name"
-        elif key == "adminPassword":
+        if key == "adminPassword":
             suggest = "admin_password"
+        elif key == "computerName":
+            suggest = "computer_name"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in VirtualMachineManagerVirtualMachineInstanceOperatingSystem. Access the value via the '{suggest}' property getter instead.")
@@ -319,23 +319,16 @@ class VirtualMachineManagerVirtualMachineInstanceOperatingSystem(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 computer_name: builtins.str,
-                 admin_password: Optional[builtins.str] = None):
+                 admin_password: Optional[builtins.str] = None,
+                 computer_name: Optional[builtins.str] = None):
         """
-        :param builtins.str computer_name: The computer name of the Virtual Machine. Changing this forces a new resource to be created.
         :param builtins.str admin_password: The admin password of the Virtual Machine. Changing this forces a new resource to be created.
+        :param builtins.str computer_name: The computer name of the Virtual Machine. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "computer_name", computer_name)
         if admin_password is not None:
             pulumi.set(__self__, "admin_password", admin_password)
-
-    @property
-    @pulumi.getter(name="computerName")
-    def computer_name(self) -> builtins.str:
-        """
-        The computer name of the Virtual Machine. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "computer_name")
+        if computer_name is not None:
+            pulumi.set(__self__, "computer_name", computer_name)
 
     @property
     @pulumi.getter(name="adminPassword")
@@ -344,6 +337,14 @@ class VirtualMachineManagerVirtualMachineInstanceOperatingSystem(dict):
         The admin password of the Virtual Machine. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "admin_password")
+
+    @property
+    @pulumi.getter(name="computerName")
+    def computer_name(self) -> Optional[builtins.str]:
+        """
+        The computer name of the Virtual Machine. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "computer_name")
 
 
 @pulumi.output_type

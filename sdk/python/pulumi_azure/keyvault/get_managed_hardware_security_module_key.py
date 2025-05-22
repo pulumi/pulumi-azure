@@ -193,7 +193,7 @@ def get_managed_hardware_security_module_key(managed_hsm_id: Optional[builtins.s
 
     :param builtins.str managed_hsm_id: Specifies the ID of the Managed Hardware Security Module instance where the Secret resides, available on the `keyvault.ManagedHardwareSecurityModuleKey` Data Source / Resource.
            
-           **NOTE:** The Managed Hardware Security Module must be in the same subscription as the provider. If the Managed Hardware Security Module is in another subscription, you must create an aliased provider for that subscription.
+           > **Note:** The Managed Hardware Security Module must be in the same subscription as the provider. If the Managed Hardware Security Module is in another subscription, you must create an aliased provider for that subscription.
     :param builtins.str name: Specifies the name of the Managed Hardware Security Module Key.
     """
     __args__ = dict()
@@ -238,7 +238,7 @@ def get_managed_hardware_security_module_key_output(managed_hsm_id: Optional[pul
 
     :param builtins.str managed_hsm_id: Specifies the ID of the Managed Hardware Security Module instance where the Secret resides, available on the `keyvault.ManagedHardwareSecurityModuleKey` Data Source / Resource.
            
-           **NOTE:** The Managed Hardware Security Module must be in the same subscription as the provider. If the Managed Hardware Security Module is in another subscription, you must create an aliased provider for that subscription.
+           > **Note:** The Managed Hardware Security Module must be in the same subscription as the provider. If the Managed Hardware Security Module is in another subscription, you must create an aliased provider for that subscription.
     :param builtins.str name: Specifies the name of the Managed Hardware Security Module Key.
     """
     __args__ = dict()

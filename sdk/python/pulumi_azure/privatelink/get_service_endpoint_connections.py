@@ -116,6 +116,13 @@ def get_service_endpoint_connections(resource_group_name: Optional[builtins.str]
     pulumi.export("privateEndpointStatus", example.private_endpoint_connections[0].status)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Network`: 2024-05-01
+
 
     :param builtins.str resource_group_name: The name of the resource group in which the private link service resides.
     :param builtins.str service_id: The resource ID of the private link service.
@@ -149,6 +156,13 @@ def get_service_endpoint_connections_output(resource_group_name: Optional[pulumi
         resource_group_name=example_azurerm_resource_group["name"])
     pulumi.export("privateEndpointStatus", example.private_endpoint_connections[0].status)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Network`: 2024-05-01
 
 
     :param builtins.str resource_group_name: The name of the resource group in which the private link service resides.

@@ -33,7 +33,7 @@ class AccountQueuePropertiesInitArgs:
         :param pulumi.Input[Sequence[pulumi.Input['AccountQueuePropertiesCorsRuleArgs']]] cors_rules: A `cors_rule` block as defined above.
         :param pulumi.Input['AccountQueuePropertiesHourMetricsArgs'] hour_metrics: A `hour_metrics` block as defined below.
                
-               > **NOTE:** At least one of `cors_rule`, `logging`, `minute_metrics`, or `hour_metrics` must be specified.
+               > **Note:** At least one of `cors_rule`, `logging`, `minute_metrics`, or `hour_metrics` must be specified.
         :param pulumi.Input['AccountQueuePropertiesLoggingArgs'] logging: A `logging` block as defined below.
         :param pulumi.Input['AccountQueuePropertiesMinuteMetricsArgs'] minute_metrics: A `minute_metrics` block as defined below.
         """
@@ -77,7 +77,7 @@ class AccountQueuePropertiesInitArgs:
         """
         A `hour_metrics` block as defined below.
 
-        > **NOTE:** At least one of `cors_rule`, `logging`, `minute_metrics`, or `hour_metrics` must be specified.
+        > **Note:** At least one of `cors_rule`, `logging`, `minute_metrics`, or `hour_metrics` must be specified.
         """
         return pulumi.get(self, "hour_metrics")
 
@@ -123,7 +123,7 @@ class _AccountQueuePropertiesState:
         :param pulumi.Input[Sequence[pulumi.Input['AccountQueuePropertiesCorsRuleArgs']]] cors_rules: A `cors_rule` block as defined above.
         :param pulumi.Input['AccountQueuePropertiesHourMetricsArgs'] hour_metrics: A `hour_metrics` block as defined below.
                
-               > **NOTE:** At least one of `cors_rule`, `logging`, `minute_metrics`, or `hour_metrics` must be specified.
+               > **Note:** At least one of `cors_rule`, `logging`, `minute_metrics`, or `hour_metrics` must be specified.
         :param pulumi.Input['AccountQueuePropertiesLoggingArgs'] logging: A `logging` block as defined below.
         :param pulumi.Input['AccountQueuePropertiesMinuteMetricsArgs'] minute_metrics: A `minute_metrics` block as defined below.
         :param pulumi.Input[builtins.str] storage_account_id: The ID of the Storage Account to set Queue Properties on. Changing this forces a new resource to be created.
@@ -157,7 +157,7 @@ class _AccountQueuePropertiesState:
         """
         A `hour_metrics` block as defined below.
 
-        > **NOTE:** At least one of `cors_rule`, `logging`, `minute_metrics`, or `hour_metrics` must be specified.
+        > **Note:** At least one of `cors_rule`, `logging`, `minute_metrics`, or `hour_metrics` must be specified.
         """
         return pulumi.get(self, "hour_metrics")
 
@@ -277,7 +277,7 @@ class AccountQueueProperties(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['AccountQueuePropertiesCorsRuleArgs', 'AccountQueuePropertiesCorsRuleArgsDict']]]] cors_rules: A `cors_rule` block as defined above.
         :param pulumi.Input[Union['AccountQueuePropertiesHourMetricsArgs', 'AccountQueuePropertiesHourMetricsArgsDict']] hour_metrics: A `hour_metrics` block as defined below.
                
-               > **NOTE:** At least one of `cors_rule`, `logging`, `minute_metrics`, or `hour_metrics` must be specified.
+               > **Note:** At least one of `cors_rule`, `logging`, `minute_metrics`, or `hour_metrics` must be specified.
         :param pulumi.Input[Union['AccountQueuePropertiesLoggingArgs', 'AccountQueuePropertiesLoggingArgsDict']] logging: A `logging` block as defined below.
         :param pulumi.Input[Union['AccountQueuePropertiesMinuteMetricsArgs', 'AccountQueuePropertiesMinuteMetricsArgsDict']] minute_metrics: A `minute_metrics` block as defined below.
         :param pulumi.Input[builtins.str] storage_account_id: The ID of the Storage Account to set Queue Properties on. Changing this forces a new resource to be created.
@@ -407,7 +407,7 @@ class AccountQueueProperties(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['AccountQueuePropertiesCorsRuleArgs', 'AccountQueuePropertiesCorsRuleArgsDict']]]] cors_rules: A `cors_rule` block as defined above.
         :param pulumi.Input[Union['AccountQueuePropertiesHourMetricsArgs', 'AccountQueuePropertiesHourMetricsArgsDict']] hour_metrics: A `hour_metrics` block as defined below.
                
-               > **NOTE:** At least one of `cors_rule`, `logging`, `minute_metrics`, or `hour_metrics` must be specified.
+               > **Note:** At least one of `cors_rule`, `logging`, `minute_metrics`, or `hour_metrics` must be specified.
         :param pulumi.Input[Union['AccountQueuePropertiesLoggingArgs', 'AccountQueuePropertiesLoggingArgsDict']] logging: A `logging` block as defined below.
         :param pulumi.Input[Union['AccountQueuePropertiesMinuteMetricsArgs', 'AccountQueuePropertiesMinuteMetricsArgsDict']] minute_metrics: A `minute_metrics` block as defined below.
         :param pulumi.Input[builtins.str] storage_account_id: The ID of the Storage Account to set Queue Properties on. Changing this forces a new resource to be created.
@@ -437,7 +437,7 @@ class AccountQueueProperties(pulumi.CustomResource):
         """
         A `hour_metrics` block as defined below.
 
-        > **NOTE:** At least one of `cors_rule`, `logging`, `minute_metrics`, or `hour_metrics` must be specified.
+        > **Note:** At least one of `cors_rule`, `logging`, `minute_metrics`, or `hour_metrics` must be specified.
         """
         return pulumi.get(self, "hour_metrics")
 

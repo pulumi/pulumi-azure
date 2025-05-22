@@ -38,14 +38,14 @@ public final class IotHubDpsArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies if the IoT Device Provisioning Service has data residency and disaster recovery enabled. Defaults to `false`. Changing this forces a new resource to be created.
+     * Specifies if the IoT Device Provisioning Service has data residency enabled, removing the cross geo-pair disaster recovery. Defaults to `false`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="dataResidencyEnabled")
     private @Nullable Output<Boolean> dataResidencyEnabled;
 
     /**
-     * @return Specifies if the IoT Device Provisioning Service has data residency and disaster recovery enabled. Defaults to `false`. Changing this forces a new resource to be created.
+     * @return Specifies if the IoT Device Provisioning Service has data residency enabled, removing the cross geo-pair disaster recovery. Defaults to `false`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<Boolean>> dataResidencyEnabled() {
@@ -227,7 +227,7 @@ public final class IotHubDpsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dataResidencyEnabled Specifies if the IoT Device Provisioning Service has data residency and disaster recovery enabled. Defaults to `false`. Changing this forces a new resource to be created.
+         * @param dataResidencyEnabled Specifies if the IoT Device Provisioning Service has data residency enabled, removing the cross geo-pair disaster recovery. Defaults to `false`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -238,7 +238,7 @@ public final class IotHubDpsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dataResidencyEnabled Specifies if the IoT Device Provisioning Service has data residency and disaster recovery enabled. Defaults to `false`. Changing this forces a new resource to be created.
+         * @param dataResidencyEnabled Specifies if the IoT Device Provisioning Service has data residency enabled, removing the cross geo-pair disaster recovery. Defaults to `false`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

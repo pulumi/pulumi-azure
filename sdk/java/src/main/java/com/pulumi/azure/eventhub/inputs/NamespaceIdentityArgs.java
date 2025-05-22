@@ -20,7 +20,7 @@ public final class NamespaceIdentityArgs extends com.pulumi.resources.ResourceAr
     /**
      * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Service Bus namespace.
      * 
-     * &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+     * &gt; **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
      * 
      */
     @Import(name="identityIds")
@@ -29,7 +29,7 @@ public final class NamespaceIdentityArgs extends com.pulumi.resources.ResourceAr
     /**
      * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this Service Bus namespace.
      * 
-     * &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+     * &gt; **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
      * 
      */
     public Optional<Output<List<String>>> identityIds() {
@@ -111,7 +111,7 @@ public final class NamespaceIdentityArgs extends com.pulumi.resources.ResourceAr
         /**
          * @param identityIds Specifies a list of User Assigned Managed Identity IDs to be assigned to this Service Bus namespace.
          * 
-         * &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+         * &gt; **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
          * 
          * @return builder
          * 
@@ -124,7 +124,7 @@ public final class NamespaceIdentityArgs extends com.pulumi.resources.ResourceAr
         /**
          * @param identityIds Specifies a list of User Assigned Managed Identity IDs to be assigned to this Service Bus namespace.
          * 
-         * &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+         * &gt; **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class NamespaceIdentityArgs extends com.pulumi.resources.ResourceAr
         /**
          * @param identityIds Specifies a list of User Assigned Managed Identity IDs to be assigned to this Service Bus namespace.
          * 
-         * &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+         * &gt; **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
          * 
          * @return builder
          * 

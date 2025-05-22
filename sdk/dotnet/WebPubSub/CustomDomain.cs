@@ -26,7 +26,7 @@ namespace Pulumi.Azure.WebPubSub
         /// <summary>
         /// Specifies the custom domain name of the Web PubSub Custom Domain. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** Please ensure the custom domain name is included in the Subject Alternative Names of the selected Web PubSub Custom Certificate.
+        /// &gt; **Note:** Please ensure the custom domain name is included in the Subject Alternative Names of the selected Web PubSub Custom Certificate.
         /// </summary>
         [Output("domainName")]
         public Output<string> DomainName { get; private set; } = null!;
@@ -98,7 +98,7 @@ namespace Pulumi.Azure.WebPubSub
         /// <summary>
         /// Specifies the custom domain name of the Web PubSub Custom Domain. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** Please ensure the custom domain name is included in the Subject Alternative Names of the selected Web PubSub Custom Certificate.
+        /// &gt; **Note:** Please ensure the custom domain name is included in the Subject Alternative Names of the selected Web PubSub Custom Certificate.
         /// </summary>
         [Input("domainName", required: true)]
         public Input<string> DomainName { get; set; } = null!;
@@ -132,7 +132,7 @@ namespace Pulumi.Azure.WebPubSub
         /// <summary>
         /// Specifies the custom domain name of the Web PubSub Custom Domain. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** Please ensure the custom domain name is included in the Subject Alternative Names of the selected Web PubSub Custom Certificate.
+        /// &gt; **Note:** Please ensure the custom domain name is included in the Subject Alternative Names of the selected Web PubSub Custom Certificate.
         /// </summary>
         [Input("domainName")]
         public Input<string>? DomainName { get; set; }

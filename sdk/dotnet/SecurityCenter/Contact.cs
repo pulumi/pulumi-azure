@@ -12,7 +12,7 @@ namespace Pulumi.Azure.SecurityCenter
     /// <summary>
     /// Manages the subscription's Security Center Contact.
     /// 
-    /// &gt; **NOTE:** Owner access permission is required.
+    /// &gt; **Note:** Owner access permission is required.
     /// 
     /// ## Example Usage
     /// 

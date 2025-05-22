@@ -36,7 +36,7 @@ class ElasticsearchArgs:
         :param pulumi.Input[builtins.str] resource_group_name: The name of the Resource Group where the Elasticsearch resource should exist. Changing this forces a new Elasticsearch to be created.
         :param pulumi.Input[builtins.str] sku_name: Specifies the name of the SKU for this Elasticsearch. Changing this forces a new Elasticsearch to be created.
                
-               > **NOTE:** The SKU depends on the Elasticsearch Plans available for your account and is a combination of PlanID_Term.
+               > **Note:** The SKU depends on the Elasticsearch Plans available for your account and is a combination of PlanID_Term.
                Ex: If the plan ID is "planXYZ" and term is "Yearly", the SKU will be "planXYZ_Yearly".
                You may find your eligible plans [here](https://portal.azure.com/#view/Microsoft_Azure_Marketplace/GalleryItemDetailsBladeNopdl/id/elastic.ec-azure-pp) or in the online documentation [here](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/elastic.ec-azure-pp?tab=PlansAndPrice) for more details or in case of any issues with the SKU.
         :param pulumi.Input[builtins.str] location: The Azure Region where the Elasticsearch resource should exist. Changing this forces a new Elasticsearch to be created.
@@ -89,7 +89,7 @@ class ElasticsearchArgs:
         """
         Specifies the name of the SKU for this Elasticsearch. Changing this forces a new Elasticsearch to be created.
 
-        > **NOTE:** The SKU depends on the Elasticsearch Plans available for your account and is a combination of PlanID_Term.
+        > **Note:** The SKU depends on the Elasticsearch Plans available for your account and is a combination of PlanID_Term.
         Ex: If the plan ID is "planXYZ" and term is "Yearly", the SKU will be "planXYZ_Yearly".
         You may find your eligible plans [here](https://portal.azure.com/#view/Microsoft_Azure_Marketplace/GalleryItemDetailsBladeNopdl/id/elastic.ec-azure-pp) or in the online documentation [here](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/elastic.ec-azure-pp?tab=PlansAndPrice) for more details or in case of any issues with the SKU.
         """
@@ -193,7 +193,7 @@ class _ElasticsearchState:
         :param pulumi.Input[builtins.str] resource_group_name: The name of the Resource Group where the Elasticsearch resource should exist. Changing this forces a new Elasticsearch to be created.
         :param pulumi.Input[builtins.str] sku_name: Specifies the name of the SKU for this Elasticsearch. Changing this forces a new Elasticsearch to be created.
                
-               > **NOTE:** The SKU depends on the Elasticsearch Plans available for your account and is a combination of PlanID_Term.
+               > **Note:** The SKU depends on the Elasticsearch Plans available for your account and is a combination of PlanID_Term.
                Ex: If the plan ID is "planXYZ" and term is "Yearly", the SKU will be "planXYZ_Yearly".
                You may find your eligible plans [here](https://portal.azure.com/#view/Microsoft_Azure_Marketplace/GalleryItemDetailsBladeNopdl/id/elastic.ec-azure-pp) or in the online documentation [here](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/elastic.ec-azure-pp?tab=PlansAndPrice) for more details or in case of any issues with the SKU.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags which should be assigned to the Elasticsearch resource.
@@ -377,7 +377,7 @@ class _ElasticsearchState:
         """
         Specifies the name of the SKU for this Elasticsearch. Changing this forces a new Elasticsearch to be created.
 
-        > **NOTE:** The SKU depends on the Elasticsearch Plans available for your account and is a combination of PlanID_Term.
+        > **Note:** The SKU depends on the Elasticsearch Plans available for your account and is a combination of PlanID_Term.
         Ex: If the plan ID is "planXYZ" and term is "Yearly", the SKU will be "planXYZ_Yearly".
         You may find your eligible plans [here](https://portal.azure.com/#view/Microsoft_Azure_Marketplace/GalleryItemDetailsBladeNopdl/id/elastic.ec-azure-pp) or in the online documentation [here](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/elastic.ec-azure-pp?tab=PlansAndPrice) for more details or in case of any issues with the SKU.
         """
@@ -435,6 +435,13 @@ class Elasticsearch(pulumi.CustomResource):
             elastic_cloud_email_address="user@example.com")
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Elastic`: 2023-06-01
+
         ## Import
 
         Elasticsearch's can be imported using the `resource id`, e.g.
@@ -453,7 +460,7 @@ class Elasticsearch(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] resource_group_name: The name of the Resource Group where the Elasticsearch resource should exist. Changing this forces a new Elasticsearch to be created.
         :param pulumi.Input[builtins.str] sku_name: Specifies the name of the SKU for this Elasticsearch. Changing this forces a new Elasticsearch to be created.
                
-               > **NOTE:** The SKU depends on the Elasticsearch Plans available for your account and is a combination of PlanID_Term.
+               > **Note:** The SKU depends on the Elasticsearch Plans available for your account and is a combination of PlanID_Term.
                Ex: If the plan ID is "planXYZ" and term is "Yearly", the SKU will be "planXYZ_Yearly".
                You may find your eligible plans [here](https://portal.azure.com/#view/Microsoft_Azure_Marketplace/GalleryItemDetailsBladeNopdl/id/elastic.ec-azure-pp) or in the online documentation [here](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/elastic.ec-azure-pp?tab=PlansAndPrice) for more details or in case of any issues with the SKU.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags which should be assigned to the Elasticsearch resource.
@@ -483,6 +490,13 @@ class Elasticsearch(pulumi.CustomResource):
             sku_name="ess-consumption-2024_Monthly",
             elastic_cloud_email_address="user@example.com")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Elastic`: 2023-06-01
 
         ## Import
 
@@ -589,7 +603,7 @@ class Elasticsearch(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] resource_group_name: The name of the Resource Group where the Elasticsearch resource should exist. Changing this forces a new Elasticsearch to be created.
         :param pulumi.Input[builtins.str] sku_name: Specifies the name of the SKU for this Elasticsearch. Changing this forces a new Elasticsearch to be created.
                
-               > **NOTE:** The SKU depends on the Elasticsearch Plans available for your account and is a combination of PlanID_Term.
+               > **Note:** The SKU depends on the Elasticsearch Plans available for your account and is a combination of PlanID_Term.
                Ex: If the plan ID is "planXYZ" and term is "Yearly", the SKU will be "planXYZ_Yearly".
                You may find your eligible plans [here](https://portal.azure.com/#view/Microsoft_Azure_Marketplace/GalleryItemDetailsBladeNopdl/id/elastic.ec-azure-pp) or in the online documentation [here](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/elastic.ec-azure-pp?tab=PlansAndPrice) for more details or in case of any issues with the SKU.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags which should be assigned to the Elasticsearch resource.
@@ -716,7 +730,7 @@ class Elasticsearch(pulumi.CustomResource):
         """
         Specifies the name of the SKU for this Elasticsearch. Changing this forces a new Elasticsearch to be created.
 
-        > **NOTE:** The SKU depends on the Elasticsearch Plans available for your account and is a combination of PlanID_Term.
+        > **Note:** The SKU depends on the Elasticsearch Plans available for your account and is a combination of PlanID_Term.
         Ex: If the plan ID is "planXYZ" and term is "Yearly", the SKU will be "planXYZ_Yearly".
         You may find your eligible plans [here](https://portal.azure.com/#view/Microsoft_Azure_Marketplace/GalleryItemDetailsBladeNopdl/id/elastic.ec-azure-pp) or in the online documentation [here](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/elastic.ec-azure-pp?tab=PlansAndPrice) for more details or in case of any issues with the SKU.
         """

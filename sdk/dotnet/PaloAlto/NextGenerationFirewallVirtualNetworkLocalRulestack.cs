@@ -179,6 +179,13 @@ namespace Pulumi.Azure.PaloAlto
     /// });
     /// ```
     /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `PaloAltoNetworks.Cloudngfw`: 2023-09-01, 2022-08-29
+    /// 
     /// ## Import
     /// 
     /// Palo Alto Next Generation Firewall Virtual Network Local Rulestacks can be imported using the `resource id`, e.g.
@@ -223,7 +230,7 @@ namespace Pulumi.Azure.PaloAlto
         /// <summary>
         /// The billing plan ID as published by Liftr.PAN. Defaults to `panw-cloud-ngfw-payg`.
         /// 
-        /// &gt; **NOTE:** The former `plan_id` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `plan_id` to `panw-cngfw-payg` when creating new resources.
+        /// &gt; **Note:** The former `plan_id` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `plan_id` to `panw-cngfw-payg` when creating new resources.
         /// </summary>
         [Output("planId")]
         public Output<string?> PlanId { get; private set; } = null!;
@@ -331,7 +338,7 @@ namespace Pulumi.Azure.PaloAlto
         /// <summary>
         /// The billing plan ID as published by Liftr.PAN. Defaults to `panw-cloud-ngfw-payg`.
         /// 
-        /// &gt; **NOTE:** The former `plan_id` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `plan_id` to `panw-cngfw-payg` when creating new resources.
+        /// &gt; **Note:** The former `plan_id` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `plan_id` to `panw-cngfw-payg` when creating new resources.
         /// </summary>
         [Input("planId")]
         public Input<string>? PlanId { get; set; }
@@ -407,7 +414,7 @@ namespace Pulumi.Azure.PaloAlto
         /// <summary>
         /// The billing plan ID as published by Liftr.PAN. Defaults to `panw-cloud-ngfw-payg`.
         /// 
-        /// &gt; **NOTE:** The former `plan_id` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `plan_id` to `panw-cngfw-payg` when creating new resources.
+        /// &gt; **Note:** The former `plan_id` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `plan_id` to `panw-cngfw-payg` when creating new resources.
         /// </summary>
         [Input("planId")]
         public Input<string>? PlanId { get; set; }

@@ -262,6 +262,13 @@ class DevBoxDefinition(pulumi.CustomResource):
             sku_name="general_i_8c32gb256ssd_v2")
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DevCenter`: 2025-02-01
+
         ## Import
 
         An existing Dev Center Dev Box Definition can be imported into Pulumi using the `resource id`, e.g.
@@ -311,6 +318,13 @@ class DevBoxDefinition(pulumi.CustomResource):
             image_reference_id=example_dev_center.id.apply(lambda id: f"{id}/galleries/default/images/microsoftvisualstudio_visualstudioplustools_vs-2022-ent-general-win10-m365-gen2"),
             sku_name="general_i_8c32gb256ssd_v2")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DevCenter`: 2025-02-01
 
         ## Import
 

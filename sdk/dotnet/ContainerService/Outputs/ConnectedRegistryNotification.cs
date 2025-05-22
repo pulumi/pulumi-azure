@@ -20,7 +20,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// <summary>
         /// The digest of the artifact that wants to be subscribed for the Connected Registry.
         /// 
-        /// &gt; **NOTE:** One of either `tag` or `digest` can be specified.
+        /// &gt; **Note:** One of either `tag` or `digest` can be specified.
         /// </summary>
         public readonly string? Digest;
         /// <summary>

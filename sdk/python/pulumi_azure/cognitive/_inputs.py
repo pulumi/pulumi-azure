@@ -128,7 +128,7 @@ if not MYPY:
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this AI Services Account.
 
-        > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+        > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         """
         principal_id: NotRequired[pulumi.Input[builtins.str]]
         """
@@ -152,7 +152,7 @@ class AIServicesIdentityArgs:
         :param pulumi.Input[builtins.str] type: Specifies the type of Managed Service Identity that should be configured on this AI Services Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned`
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this AI Services Account.
                
-               > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+               > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         :param pulumi.Input[builtins.str] principal_id: The Principal ID associated with this Managed Service Identity.
         :param pulumi.Input[builtins.str] tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
@@ -182,7 +182,7 @@ class AIServicesIdentityArgs:
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this AI Services Account.
 
-        > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+        > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         """
         return pulumi.get(self, "identity_ids")
 
@@ -472,7 +472,7 @@ if not MYPY:
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this Cognitive Account.
 
-        > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+        > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         """
         principal_id: NotRequired[pulumi.Input[builtins.str]]
         """
@@ -496,7 +496,7 @@ class AccountIdentityArgs:
         :param pulumi.Input[builtins.str] type: Specifies the type of Managed Service Identity that should be configured on this Cognitive Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this Cognitive Account.
                
-               > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+               > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         :param pulumi.Input[builtins.str] principal_id: The Principal ID associated with this Managed Service Identity.
         :param pulumi.Input[builtins.str] tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
@@ -526,7 +526,7 @@ class AccountIdentityArgs:
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this Cognitive Account.
 
-        > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+        > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         """
         return pulumi.get(self, "identity_ids")
 
@@ -569,7 +569,7 @@ if not MYPY:
         """
         Whether to allow trusted Azure Services to access the service. Possible values are `None` and `AzureServices`.
 
-        > **NOTE:** `bypass` can only be set when `kind` is set to `OpenAI`
+        > **Note:** `bypass` can only be set when `kind` is set to `OpenAI`
         """
         ip_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
         """
@@ -593,7 +593,7 @@ class AccountNetworkAclsArgs:
         :param pulumi.Input[builtins.str] default_action: The Default Action to use when no rules match from `ip_rules` / `virtual_network_rules`. Possible values are `Allow` and `Deny`.
         :param pulumi.Input[builtins.str] bypass: Whether to allow trusted Azure Services to access the service. Possible values are `None` and `AzureServices`.
                
-               > **NOTE:** `bypass` can only be set when `kind` is set to `OpenAI`
+               > **Note:** `bypass` can only be set when `kind` is set to `OpenAI`
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] ip_rules: One or more IP Addresses, or CIDR Blocks which should be able to access the Cognitive Account.
         :param pulumi.Input[Sequence[pulumi.Input['AccountNetworkAclsVirtualNetworkRuleArgs']]] virtual_network_rules: A `virtual_network_rules` block as defined below.
         """
@@ -623,7 +623,7 @@ class AccountNetworkAclsArgs:
         """
         Whether to allow trusted Azure Services to access the service. Possible values are `None` and `AzureServices`.
 
-        > **NOTE:** `bypass` can only be set when `kind` is set to `OpenAI`
+        > **Note:** `bypass` can only be set when `kind` is set to `OpenAI`
         """
         return pulumi.get(self, "bypass")
 
@@ -824,7 +824,7 @@ if not MYPY:
         """
         The client ID of the managed identity associated with the storage resource.
 
-        > **NOTE:** Not all `kind` support a `storage` block. For example the `kind` `OpenAI` does not support it.
+        > **Note:** Not all `kind` support a `storage` block. For example the `kind` `OpenAI` does not support it.
         """
 elif False:
     AccountStorageArgsDict: TypeAlias = Mapping[str, Any]
@@ -838,7 +838,7 @@ class AccountStorageArgs:
         :param pulumi.Input[builtins.str] storage_account_id: Full resource id of a Microsoft.Storage resource.
         :param pulumi.Input[builtins.str] identity_client_id: The client ID of the managed identity associated with the storage resource.
                
-               > **NOTE:** Not all `kind` support a `storage` block. For example the `kind` `OpenAI` does not support it.
+               > **Note:** Not all `kind` support a `storage` block. For example the `kind` `OpenAI` does not support it.
         """
         pulumi.set(__self__, "storage_account_id", storage_account_id)
         if identity_client_id is not None:
@@ -862,7 +862,7 @@ class AccountStorageArgs:
         """
         The client ID of the managed identity associated with the storage resource.
 
-        > **NOTE:** Not all `kind` support a `storage` block. For example the `kind` `OpenAI` does not support it.
+        > **Note:** Not all `kind` support a `storage` block. For example the `kind` `OpenAI` does not support it.
         """
         return pulumi.get(self, "identity_client_id")
 
@@ -875,7 +875,7 @@ if not MYPY:
     class DeploymentModelArgsDict(TypedDict):
         format: pulumi.Input[builtins.str]
         """
-        The format of the Cognitive Services Account Deployment model. Changing this forces a new resource to be created. Possible value is `OpenAI`.
+        The format of the Cognitive Services Account Deployment model. Possible values are `OpenAI` and `Cohere`. Changing this forces a new resource to be created.
         """
         name: pulumi.Input[builtins.str]
         """
@@ -895,7 +895,7 @@ class DeploymentModelArgs:
                  name: pulumi.Input[builtins.str],
                  version: Optional[pulumi.Input[builtins.str]] = None):
         """
-        :param pulumi.Input[builtins.str] format: The format of the Cognitive Services Account Deployment model. Changing this forces a new resource to be created. Possible value is `OpenAI`.
+        :param pulumi.Input[builtins.str] format: The format of the Cognitive Services Account Deployment model. Possible values are `OpenAI` and `Cohere`. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] name: The name of the Cognitive Services Account Deployment model. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] version: The version of Cognitive Services Account Deployment model. If `version` is not specified, the default version of the model at the time will be assigned.
         """
@@ -908,7 +908,7 @@ class DeploymentModelArgs:
     @pulumi.getter
     def format(self) -> pulumi.Input[builtins.str]:
         """
-        The format of the Cognitive Services Account Deployment model. Changing this forces a new resource to be created. Possible value is `OpenAI`.
+        The format of the Cognitive Services Account Deployment model. Possible values are `OpenAI` and `Cohere`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "format")
 

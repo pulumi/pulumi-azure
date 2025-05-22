@@ -169,6 +169,13 @@ def get_image(name: Optional[builtins.str] = None,
     pulumi.export("imageId", search.id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Compute`: 2022-03-01
+
 
     :param builtins.str name: The name of the Image.
     :param builtins.str name_regex: Regex pattern of the image to match.
@@ -212,6 +219,13 @@ def get_image_output(name: Optional[pulumi.Input[Optional[builtins.str]]] = None
         resource_group_name="packerimages")
     pulumi.export("imageId", search.id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Compute`: 2022-03-01
 
 
     :param builtins.str name: The name of the Image.

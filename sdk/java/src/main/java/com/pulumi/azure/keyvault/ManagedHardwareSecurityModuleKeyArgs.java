@@ -50,14 +50,14 @@ public final class ManagedHardwareSecurityModuleKeyArgs extends com.pulumi.resou
     }
 
     /**
-     * A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify` and `wrapKey`. Please note these values are case-sensitive.
+     * A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify`, `wrapKey` and `import`. Please note these values are case-sensitive.
      * 
      */
     @Import(name="keyOpts", required=true)
     private Output<List<String>> keyOpts;
 
     /**
-     * @return A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify` and `wrapKey`. Please note these values are case-sensitive.
+     * @return A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify`, `wrapKey` and `import`. Please note these values are case-sensitive.
      * 
      */
     public Output<List<String>> keyOpts() {
@@ -233,7 +233,7 @@ public final class ManagedHardwareSecurityModuleKeyArgs extends com.pulumi.resou
         }
 
         /**
-         * @param keyOpts A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify` and `wrapKey`. Please note these values are case-sensitive.
+         * @param keyOpts A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify`, `wrapKey` and `import`. Please note these values are case-sensitive.
          * 
          * @return builder
          * 
@@ -244,7 +244,7 @@ public final class ManagedHardwareSecurityModuleKeyArgs extends com.pulumi.resou
         }
 
         /**
-         * @param keyOpts A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify` and `wrapKey`. Please note these values are case-sensitive.
+         * @param keyOpts A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify`, `wrapKey` and `import`. Please note these values are case-sensitive.
          * 
          * @return builder
          * 
@@ -254,7 +254,7 @@ public final class ManagedHardwareSecurityModuleKeyArgs extends com.pulumi.resou
         }
 
         /**
-         * @param keyOpts A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify` and `wrapKey`. Please note these values are case-sensitive.
+         * @param keyOpts A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify`, `wrapKey` and `import`. Please note these values are case-sensitive.
          * 
          * @return builder
          * 

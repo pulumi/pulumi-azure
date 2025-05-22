@@ -13,7 +13,7 @@ import (
 
 // Manages an Azure Active Directory Diagnostic Setting for Azure Monitor.
 //
-// !> **Authentication** The API for this resource does not support service principal authentication. This resource can only be used with Azure CLI authentication.
+// !> **Note:** The API for this resource does not support service principal authentication. This resource can only be used with Azure CLI authentication.
 //
 // ## Example Usage
 //
@@ -90,7 +90,7 @@ type AadDiagnosticSetting struct {
 	EnabledLogs AadDiagnosticSettingEnabledLogArrayOutput `pulumi:"enabledLogs"`
 	// Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** This can be sourced from the `eventhub.EventHubNamespaceAuthorizationRule` resource and is different from a `eventhub.AuthorizationRule` resource.
+	// > **Note:** This can be sourced from the `eventhub.EventHubNamespaceAuthorizationRule` resource and is different from a `eventhub.AuthorizationRule` resource.
 	EventhubAuthorizationRuleId pulumi.StringPtrOutput `pulumi:"eventhubAuthorizationRuleId"`
 	// Specifies the name of the Event Hub where Diagnostics Data should be sent. If not specified, the default Event Hub will be used. Changing this forces a new resource to be created.
 	EventhubName pulumi.StringPtrOutput `pulumi:"eventhubName"`
@@ -100,7 +100,7 @@ type AadDiagnosticSetting struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The ID of the Storage Account where logs should be sent. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** One of `eventhubAuthorizationRuleId`, `logAnalyticsWorkspaceId` and `storageAccountId` must be specified.
+	// > **Note:** One of `eventhubAuthorizationRuleId`, `logAnalyticsWorkspaceId` and `storageAccountId` must be specified.
 	StorageAccountId pulumi.StringPtrOutput `pulumi:"storageAccountId"`
 }
 
@@ -138,7 +138,7 @@ type aadDiagnosticSettingState struct {
 	EnabledLogs []AadDiagnosticSettingEnabledLog `pulumi:"enabledLogs"`
 	// Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** This can be sourced from the `eventhub.EventHubNamespaceAuthorizationRule` resource and is different from a `eventhub.AuthorizationRule` resource.
+	// > **Note:** This can be sourced from the `eventhub.EventHubNamespaceAuthorizationRule` resource and is different from a `eventhub.AuthorizationRule` resource.
 	EventhubAuthorizationRuleId *string `pulumi:"eventhubAuthorizationRuleId"`
 	// Specifies the name of the Event Hub where Diagnostics Data should be sent. If not specified, the default Event Hub will be used. Changing this forces a new resource to be created.
 	EventhubName *string `pulumi:"eventhubName"`
@@ -148,7 +148,7 @@ type aadDiagnosticSettingState struct {
 	Name *string `pulumi:"name"`
 	// The ID of the Storage Account where logs should be sent. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** One of `eventhubAuthorizationRuleId`, `logAnalyticsWorkspaceId` and `storageAccountId` must be specified.
+	// > **Note:** One of `eventhubAuthorizationRuleId`, `logAnalyticsWorkspaceId` and `storageAccountId` must be specified.
 	StorageAccountId *string `pulumi:"storageAccountId"`
 }
 
@@ -157,7 +157,7 @@ type AadDiagnosticSettingState struct {
 	EnabledLogs AadDiagnosticSettingEnabledLogArrayInput
 	// Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** This can be sourced from the `eventhub.EventHubNamespaceAuthorizationRule` resource and is different from a `eventhub.AuthorizationRule` resource.
+	// > **Note:** This can be sourced from the `eventhub.EventHubNamespaceAuthorizationRule` resource and is different from a `eventhub.AuthorizationRule` resource.
 	EventhubAuthorizationRuleId pulumi.StringPtrInput
 	// Specifies the name of the Event Hub where Diagnostics Data should be sent. If not specified, the default Event Hub will be used. Changing this forces a new resource to be created.
 	EventhubName pulumi.StringPtrInput
@@ -167,7 +167,7 @@ type AadDiagnosticSettingState struct {
 	Name pulumi.StringPtrInput
 	// The ID of the Storage Account where logs should be sent. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** One of `eventhubAuthorizationRuleId`, `logAnalyticsWorkspaceId` and `storageAccountId` must be specified.
+	// > **Note:** One of `eventhubAuthorizationRuleId`, `logAnalyticsWorkspaceId` and `storageAccountId` must be specified.
 	StorageAccountId pulumi.StringPtrInput
 }
 
@@ -180,7 +180,7 @@ type aadDiagnosticSettingArgs struct {
 	EnabledLogs []AadDiagnosticSettingEnabledLog `pulumi:"enabledLogs"`
 	// Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** This can be sourced from the `eventhub.EventHubNamespaceAuthorizationRule` resource and is different from a `eventhub.AuthorizationRule` resource.
+	// > **Note:** This can be sourced from the `eventhub.EventHubNamespaceAuthorizationRule` resource and is different from a `eventhub.AuthorizationRule` resource.
 	EventhubAuthorizationRuleId *string `pulumi:"eventhubAuthorizationRuleId"`
 	// Specifies the name of the Event Hub where Diagnostics Data should be sent. If not specified, the default Event Hub will be used. Changing this forces a new resource to be created.
 	EventhubName *string `pulumi:"eventhubName"`
@@ -190,7 +190,7 @@ type aadDiagnosticSettingArgs struct {
 	Name *string `pulumi:"name"`
 	// The ID of the Storage Account where logs should be sent. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** One of `eventhubAuthorizationRuleId`, `logAnalyticsWorkspaceId` and `storageAccountId` must be specified.
+	// > **Note:** One of `eventhubAuthorizationRuleId`, `logAnalyticsWorkspaceId` and `storageAccountId` must be specified.
 	StorageAccountId *string `pulumi:"storageAccountId"`
 }
 
@@ -200,7 +200,7 @@ type AadDiagnosticSettingArgs struct {
 	EnabledLogs AadDiagnosticSettingEnabledLogArrayInput
 	// Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** This can be sourced from the `eventhub.EventHubNamespaceAuthorizationRule` resource and is different from a `eventhub.AuthorizationRule` resource.
+	// > **Note:** This can be sourced from the `eventhub.EventHubNamespaceAuthorizationRule` resource and is different from a `eventhub.AuthorizationRule` resource.
 	EventhubAuthorizationRuleId pulumi.StringPtrInput
 	// Specifies the name of the Event Hub where Diagnostics Data should be sent. If not specified, the default Event Hub will be used. Changing this forces a new resource to be created.
 	EventhubName pulumi.StringPtrInput
@@ -210,7 +210,7 @@ type AadDiagnosticSettingArgs struct {
 	Name pulumi.StringPtrInput
 	// The ID of the Storage Account where logs should be sent. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** One of `eventhubAuthorizationRuleId`, `logAnalyticsWorkspaceId` and `storageAccountId` must be specified.
+	// > **Note:** One of `eventhubAuthorizationRuleId`, `logAnalyticsWorkspaceId` and `storageAccountId` must be specified.
 	StorageAccountId pulumi.StringPtrInput
 }
 
@@ -308,7 +308,7 @@ func (o AadDiagnosticSettingOutput) EnabledLogs() AadDiagnosticSettingEnabledLog
 
 // Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
 //
-// > **NOTE:** This can be sourced from the `eventhub.EventHubNamespaceAuthorizationRule` resource and is different from a `eventhub.AuthorizationRule` resource.
+// > **Note:** This can be sourced from the `eventhub.EventHubNamespaceAuthorizationRule` resource and is different from a `eventhub.AuthorizationRule` resource.
 func (o AadDiagnosticSettingOutput) EventhubAuthorizationRuleId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AadDiagnosticSetting) pulumi.StringPtrOutput { return v.EventhubAuthorizationRuleId }).(pulumi.StringPtrOutput)
 }
@@ -330,7 +330,7 @@ func (o AadDiagnosticSettingOutput) Name() pulumi.StringOutput {
 
 // The ID of the Storage Account where logs should be sent. Changing this forces a new resource to be created.
 //
-// > **NOTE:** One of `eventhubAuthorizationRuleId`, `logAnalyticsWorkspaceId` and `storageAccountId` must be specified.
+// > **Note:** One of `eventhubAuthorizationRuleId`, `logAnalyticsWorkspaceId` and `storageAccountId` must be specified.
 func (o AadDiagnosticSettingOutput) StorageAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AadDiagnosticSetting) pulumi.StringPtrOutput { return v.StorageAccountId }).(pulumi.StringPtrOutput)
 }

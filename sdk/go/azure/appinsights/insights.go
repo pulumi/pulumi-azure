@@ -104,6 +104,15 @@ import (
 //
 // ```
 //
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.AlertsManagement`: 2019-06-01
+//
+// * `Microsoft.Insights`: 2020-02-02, 2015-05-01
+//
 // ## Import
 //
 // Application Insights instances can be imported using the `resource id`, e.g.
@@ -150,8 +159,8 @@ type Insights struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Specifies the id of a log analytics workspace resource.
 	//
-	// > **NOTE:** `workspaceId` cannot be removed after set. More details can be found at [Migrate to workspace-based Application Insights resources](https://docs.microsoft.com/azure/azure-monitor/app/convert-classic-resource#migration-process). If `workspaceId` is not specified but you encounter a diff, this might indicate a Microsoft initiated automatic migration from classic resources to workspace-based resources. If this is the case, please update `workspaceId` in the config file to the new value.
-	WorkspaceId pulumi.StringPtrOutput `pulumi:"workspaceId"`
+	// > **Note:** `workspaceId` cannot be removed after set. More details can be found at [Migrate to workspace-based Application Insights resources](https://docs.microsoft.com/azure/azure-monitor/app/convert-classic-resource#migration-process). If `workspaceId` is not specified but you encounter a diff, this might indicate a Microsoft initiated automatic migration from classic resources to workspace-based resources. If this is the case, please update `workspaceId` in the config file to the new value.
+	WorkspaceId pulumi.StringOutput `pulumi:"workspaceId"`
 }
 
 // NewInsights registers a new resource with the given unique name, arguments, and options.
@@ -231,7 +240,7 @@ type insightsState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Specifies the id of a log analytics workspace resource.
 	//
-	// > **NOTE:** `workspaceId` cannot be removed after set. More details can be found at [Migrate to workspace-based Application Insights resources](https://docs.microsoft.com/azure/azure-monitor/app/convert-classic-resource#migration-process). If `workspaceId` is not specified but you encounter a diff, this might indicate a Microsoft initiated automatic migration from classic resources to workspace-based resources. If this is the case, please update `workspaceId` in the config file to the new value.
+	// > **Note:** `workspaceId` cannot be removed after set. More details can be found at [Migrate to workspace-based Application Insights resources](https://docs.microsoft.com/azure/azure-monitor/app/convert-classic-resource#migration-process). If `workspaceId` is not specified but you encounter a diff, this might indicate a Microsoft initiated automatic migration from classic resources to workspace-based resources. If this is the case, please update `workspaceId` in the config file to the new value.
 	WorkspaceId *string `pulumi:"workspaceId"`
 }
 
@@ -272,7 +281,7 @@ type InsightsState struct {
 	Tags pulumi.StringMapInput
 	// Specifies the id of a log analytics workspace resource.
 	//
-	// > **NOTE:** `workspaceId` cannot be removed after set. More details can be found at [Migrate to workspace-based Application Insights resources](https://docs.microsoft.com/azure/azure-monitor/app/convert-classic-resource#migration-process). If `workspaceId` is not specified but you encounter a diff, this might indicate a Microsoft initiated automatic migration from classic resources to workspace-based resources. If this is the case, please update `workspaceId` in the config file to the new value.
+	// > **Note:** `workspaceId` cannot be removed after set. More details can be found at [Migrate to workspace-based Application Insights resources](https://docs.microsoft.com/azure/azure-monitor/app/convert-classic-resource#migration-process). If `workspaceId` is not specified but you encounter a diff, this might indicate a Microsoft initiated automatic migration from classic resources to workspace-based resources. If this is the case, please update `workspaceId` in the config file to the new value.
 	WorkspaceId pulumi.StringPtrInput
 }
 
@@ -311,7 +320,7 @@ type insightsArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Specifies the id of a log analytics workspace resource.
 	//
-	// > **NOTE:** `workspaceId` cannot be removed after set. More details can be found at [Migrate to workspace-based Application Insights resources](https://docs.microsoft.com/azure/azure-monitor/app/convert-classic-resource#migration-process). If `workspaceId` is not specified but you encounter a diff, this might indicate a Microsoft initiated automatic migration from classic resources to workspace-based resources. If this is the case, please update `workspaceId` in the config file to the new value.
+	// > **Note:** `workspaceId` cannot be removed after set. More details can be found at [Migrate to workspace-based Application Insights resources](https://docs.microsoft.com/azure/azure-monitor/app/convert-classic-resource#migration-process). If `workspaceId` is not specified but you encounter a diff, this might indicate a Microsoft initiated automatic migration from classic resources to workspace-based resources. If this is the case, please update `workspaceId` in the config file to the new value.
 	WorkspaceId *string `pulumi:"workspaceId"`
 }
 
@@ -347,7 +356,7 @@ type InsightsArgs struct {
 	Tags pulumi.StringMapInput
 	// Specifies the id of a log analytics workspace resource.
 	//
-	// > **NOTE:** `workspaceId` cannot be removed after set. More details can be found at [Migrate to workspace-based Application Insights resources](https://docs.microsoft.com/azure/azure-monitor/app/convert-classic-resource#migration-process). If `workspaceId` is not specified but you encounter a diff, this might indicate a Microsoft initiated automatic migration from classic resources to workspace-based resources. If this is the case, please update `workspaceId` in the config file to the new value.
+	// > **Note:** `workspaceId` cannot be removed after set. More details can be found at [Migrate to workspace-based Application Insights resources](https://docs.microsoft.com/azure/azure-monitor/app/convert-classic-resource#migration-process). If `workspaceId` is not specified but you encounter a diff, this might indicate a Microsoft initiated automatic migration from classic resources to workspace-based resources. If this is the case, please update `workspaceId` in the config file to the new value.
 	WorkspaceId pulumi.StringPtrInput
 }
 
@@ -525,9 +534,9 @@ func (o InsightsOutput) Tags() pulumi.StringMapOutput {
 
 // Specifies the id of a log analytics workspace resource.
 //
-// > **NOTE:** `workspaceId` cannot be removed after set. More details can be found at [Migrate to workspace-based Application Insights resources](https://docs.microsoft.com/azure/azure-monitor/app/convert-classic-resource#migration-process). If `workspaceId` is not specified but you encounter a diff, this might indicate a Microsoft initiated automatic migration from classic resources to workspace-based resources. If this is the case, please update `workspaceId` in the config file to the new value.
-func (o InsightsOutput) WorkspaceId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Insights) pulumi.StringPtrOutput { return v.WorkspaceId }).(pulumi.StringPtrOutput)
+// > **Note:** `workspaceId` cannot be removed after set. More details can be found at [Migrate to workspace-based Application Insights resources](https://docs.microsoft.com/azure/azure-monitor/app/convert-classic-resource#migration-process). If `workspaceId` is not specified but you encounter a diff, this might indicate a Microsoft initiated automatic migration from classic resources to workspace-based resources. If this is the case, please update `workspaceId` in the config file to the new value.
+func (o InsightsOutput) WorkspaceId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Insights) pulumi.StringOutput { return v.WorkspaceId }).(pulumi.StringOutput)
 }
 
 type InsightsArrayOutput struct{ *pulumi.OutputState }

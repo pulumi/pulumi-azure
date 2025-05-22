@@ -146,7 +146,7 @@ def get_definition(name: Optional[builtins.str] = None,
     """
     Use this data source to access information about an existing Azure Blueprint Definition
 
-    > **NOTE:** Azure Blueprints are in Preview and potentially subject to breaking change without notice.
+    > **Note:** Azure Blueprints are in Preview and potentially subject to breaking change without notice.
 
     ## Example Usage
 
@@ -159,6 +159,13 @@ def get_definition(name: Optional[builtins.str] = None,
     example = azure.blueprint.get_definition(name="exampleManagementGroupBP",
         scope_id=root.id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Blueprint`: 2018-11-01-preview
 
 
     :param builtins.str name: The name of the Blueprint.
@@ -186,7 +193,7 @@ def get_definition_output(name: Optional[pulumi.Input[builtins.str]] = None,
     """
     Use this data source to access information about an existing Azure Blueprint Definition
 
-    > **NOTE:** Azure Blueprints are in Preview and potentially subject to breaking change without notice.
+    > **Note:** Azure Blueprints are in Preview and potentially subject to breaking change without notice.
 
     ## Example Usage
 
@@ -199,6 +206,13 @@ def get_definition_output(name: Optional[pulumi.Input[builtins.str]] = None,
     example = azure.blueprint.get_definition(name="exampleManagementGroupBP",
         scope_id=root.id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Blueprint`: 2018-11-01-preview
 
 
     :param builtins.str name: The name of the Blueprint.

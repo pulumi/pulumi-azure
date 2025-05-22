@@ -194,6 +194,13 @@ class IdentityProviderMicrosoft(pulumi.CustomResource):
             client_secret="00000000000000000000000000000000")
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ApiManagement`: 2022-08-01
+
         ## Import
 
         API Management Microsoft Identity Provider can be imported using the `resource id`, e.g.
@@ -240,6 +247,13 @@ class IdentityProviderMicrosoft(pulumi.CustomResource):
             client_id="00000000-0000-0000-0000-000000000000",
             client_secret="00000000000000000000000000000000")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ApiManagement`: 2022-08-01
 
         ## Import
 

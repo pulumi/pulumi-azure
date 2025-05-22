@@ -75,7 +75,7 @@ import javax.annotation.Nullable;
  *             .purgeProtectionEnabled(true)
  *             .build());
  * 
- *         var test = new AccessPolicy("test", AccessPolicyArgs.builder()
+ *         var exampleAccessPolicy = new AccessPolicy("exampleAccessPolicy", AccessPolicyArgs.builder()
  *             .keyVaultId(exampleKeyVault.id())
  *             .tenantId(current.tenantId())
  *             .objectId(current.objectId())
@@ -124,6 +124,13 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.MachineLearningServices`: 2024-04-01
  * 
  * ## Import
  * 
@@ -233,6 +240,20 @@ public class Project extends com.pulumi.resources.CustomResource {
      */
     public Output<String> name() {
         return this.name;
+    }
+    /**
+     * The user assigned identity ID that represents the AI Foundry Hub identity. This must be set when enabling encryption with a user assigned identity.
+     * 
+     */
+    @Export(name="primaryUserAssignedIdentity", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> primaryUserAssignedIdentity;
+
+    /**
+     * @return The user assigned identity ID that represents the AI Foundry Hub identity. This must be set when enabling encryption with a user assigned identity.
+     * 
+     */
+    public Output<Optional<String>> primaryUserAssignedIdentity() {
+        return Codegen.optional(this.primaryUserAssignedIdentity);
     }
     /**
      * The immutable project ID associated with this AI Foundry Project.

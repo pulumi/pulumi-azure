@@ -149,6 +149,13 @@ def get_budget_resource_group(name: Optional[builtins.str] = None,
     pulumi.export("id", example.id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Consumption`: 2019-10-01
+
 
     :param builtins.str name: The name of this Consumption Budget.
     :param builtins.str resource_group_id: The ID of the subscription.
@@ -184,6 +191,13 @@ def get_budget_resource_group_output(name: Optional[pulumi.Input[builtins.str]] 
         resource_group_id=example_azurerm_resource_group["id"])
     pulumi.export("id", example.id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Consumption`: 2019-10-01
 
 
     :param builtins.str name: The name of this Consumption Budget.

@@ -112,14 +112,14 @@ public final class EventHubNamespaceArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from `1` - `20`.
+     * Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from `1` - `40`.
      * 
      */
     @Import(name="maximumThroughputUnits")
     private @Nullable Output<Integer> maximumThroughputUnits;
 
     /**
-     * @return Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from `1` - `20`.
+     * @return Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from `1` - `40`.
      * 
      */
     public Optional<Output<Integer>> maximumThroughputUnits() {
@@ -129,7 +129,7 @@ public final class EventHubNamespaceArgs extends com.pulumi.resources.ResourceAr
     /**
      * The minimum supported TLS version for this EventHub Namespace. Valid values are: `1.0`, `1.1` and `1.2`. Defaults to `1.2`.
      * 
-     * &gt; **Note** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
+     * &gt; **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
      * 
      */
     @Import(name="minimumTlsVersion")
@@ -138,7 +138,7 @@ public final class EventHubNamespaceArgs extends com.pulumi.resources.ResourceAr
     /**
      * @return The minimum supported TLS version for this EventHub Namespace. Valid values are: `1.0`, `1.1` and `1.2`. Defaults to `1.2`.
      * 
-     * &gt; **Note** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
+     * &gt; **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
      * 
      */
     public Optional<Output<String>> minimumTlsVersion() {
@@ -399,7 +399,7 @@ public final class EventHubNamespaceArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param maximumThroughputUnits Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from `1` - `20`.
+         * @param maximumThroughputUnits Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from `1` - `40`.
          * 
          * @return builder
          * 
@@ -410,7 +410,7 @@ public final class EventHubNamespaceArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param maximumThroughputUnits Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from `1` - `20`.
+         * @param maximumThroughputUnits Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from `1` - `40`.
          * 
          * @return builder
          * 
@@ -422,7 +422,7 @@ public final class EventHubNamespaceArgs extends com.pulumi.resources.ResourceAr
         /**
          * @param minimumTlsVersion The minimum supported TLS version for this EventHub Namespace. Valid values are: `1.0`, `1.1` and `1.2`. Defaults to `1.2`.
          * 
-         * &gt; **Note** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
+         * &gt; **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
          * 
          * @return builder
          * 
@@ -435,7 +435,7 @@ public final class EventHubNamespaceArgs extends com.pulumi.resources.ResourceAr
         /**
          * @param minimumTlsVersion The minimum supported TLS version for this EventHub Namespace. Valid values are: `1.0`, `1.1` and `1.2`. Defaults to `1.2`.
          * 
-         * &gt; **Note** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
+         * &gt; **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
          * 
          * @return builder
          * 

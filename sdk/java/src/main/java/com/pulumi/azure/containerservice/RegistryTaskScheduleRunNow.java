@@ -85,6 +85,13 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.ContainerRegistry`: 2019-06-01-preview
+ * 
  */
 @ResourceType(type="azure:containerservice/registryTaskScheduleRunNow:RegistryTaskScheduleRunNow")
 public class RegistryTaskScheduleRunNow extends com.pulumi.resources.CustomResource {

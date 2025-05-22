@@ -347,6 +347,13 @@ class HybridRunbookWorker(pulumi.CustomResource):
             worker_id="00000000-0000-0000-0000-000000000000")
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Automation`: 2023-11-01
+
         ## Import
 
         Automations can be imported using the `resource id`, e.g.
@@ -435,6 +442,13 @@ class HybridRunbookWorker(pulumi.CustomResource):
             vm_resource_id=example_linux_virtual_machine.id,
             worker_id="00000000-0000-0000-0000-000000000000")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Automation`: 2023-11-01
 
         ## Import
 

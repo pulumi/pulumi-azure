@@ -34,7 +34,7 @@ public final class SystemTopicEventSubscriptionAdvancedFilterNumberNotInArgs ext
     /**
      * Specifies an array of values to compare to when using a multiple values operator.
      * 
-     * &gt; **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+     * &gt; **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
      * 
      */
     @Import(name="values", required=true)
@@ -43,7 +43,7 @@ public final class SystemTopicEventSubscriptionAdvancedFilterNumberNotInArgs ext
     /**
      * @return Specifies an array of values to compare to when using a multiple values operator.
      * 
-     * &gt; **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+     * &gt; **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
      * 
      */
     public Output<List<Double>> values() {
@@ -99,7 +99,7 @@ public final class SystemTopicEventSubscriptionAdvancedFilterNumberNotInArgs ext
         /**
          * @param values Specifies an array of values to compare to when using a multiple values operator.
          * 
-         * &gt; **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+         * &gt; **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
          * 
          * @return builder
          * 
@@ -112,7 +112,7 @@ public final class SystemTopicEventSubscriptionAdvancedFilterNumberNotInArgs ext
         /**
          * @param values Specifies an array of values to compare to when using a multiple values operator.
          * 
-         * &gt; **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+         * &gt; **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
          * 
          * @return builder
          * 
@@ -124,7 +124,7 @@ public final class SystemTopicEventSubscriptionAdvancedFilterNumberNotInArgs ext
         /**
          * @param values Specifies an array of values to compare to when using a multiple values operator.
          * 
-         * &gt; **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+         * &gt; **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
          * 
          * @return builder
          * 

@@ -15,14 +15,14 @@ public final class TagRulesMetricRuleFilteringTagArgs extends com.pulumi.resourc
     public static final TagRulesMetricRuleFilteringTagArgs Empty = new TagRulesMetricRuleFilteringTagArgs();
 
     /**
-     * Action of the filtering tag. Possible values are `Include` and `Exclude`. Changing this forces a new resource to be created.
+     * Action of the filtering tag. Possible values are `Include` and `Exclude`.
      * 
      */
     @Import(name="action", required=true)
     private Output<String> action;
 
     /**
-     * @return Action of the filtering tag. Possible values are `Include` and `Exclude`. Changing this forces a new resource to be created.
+     * @return Action of the filtering tag. Possible values are `Include` and `Exclude`.
      * 
      */
     public Output<String> action() {
@@ -30,14 +30,14 @@ public final class TagRulesMetricRuleFilteringTagArgs extends com.pulumi.resourc
     }
 
     /**
-     * Name of the filtering tag. Changing this forces a new resource to be created.
+     * Name of the filtering tag.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Name of the filtering tag. Changing this forces a new resource to be created.
+     * @return Name of the filtering tag.
      * 
      */
     public Output<String> name() {
@@ -45,14 +45,14 @@ public final class TagRulesMetricRuleFilteringTagArgs extends com.pulumi.resourc
     }
 
     /**
-     * Value of the filtering tag. Changing this forces a new resource to be created.
+     * Value of the filtering tag.
      * 
      */
     @Import(name="value", required=true)
     private Output<String> value;
 
     /**
-     * @return Value of the filtering tag. Changing this forces a new resource to be created.
+     * @return Value of the filtering tag.
      * 
      */
     public Output<String> value() {
@@ -86,7 +86,7 @@ public final class TagRulesMetricRuleFilteringTagArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param action Action of the filtering tag. Possible values are `Include` and `Exclude`. Changing this forces a new resource to be created.
+         * @param action Action of the filtering tag. Possible values are `Include` and `Exclude`.
          * 
          * @return builder
          * 
@@ -97,7 +97,7 @@ public final class TagRulesMetricRuleFilteringTagArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param action Action of the filtering tag. Possible values are `Include` and `Exclude`. Changing this forces a new resource to be created.
+         * @param action Action of the filtering tag. Possible values are `Include` and `Exclude`.
          * 
          * @return builder
          * 
@@ -107,7 +107,7 @@ public final class TagRulesMetricRuleFilteringTagArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param name Name of the filtering tag. Changing this forces a new resource to be created.
+         * @param name Name of the filtering tag.
          * 
          * @return builder
          * 
@@ -118,7 +118,7 @@ public final class TagRulesMetricRuleFilteringTagArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param name Name of the filtering tag. Changing this forces a new resource to be created.
+         * @param name Name of the filtering tag.
          * 
          * @return builder
          * 
@@ -128,7 +128,7 @@ public final class TagRulesMetricRuleFilteringTagArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param value Value of the filtering tag. Changing this forces a new resource to be created.
+         * @param value Value of the filtering tag.
          * 
          * @return builder
          * 
@@ -139,7 +139,7 @@ public final class TagRulesMetricRuleFilteringTagArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param value Value of the filtering tag. Changing this forces a new resource to be created.
+         * @param value Value of the filtering tag.
          * 
          * @return builder
          * 

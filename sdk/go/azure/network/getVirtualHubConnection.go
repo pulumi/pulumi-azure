@@ -41,6 +41,13 @@ import (
 //	}
 //
 // ```
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This data source uses the following Azure API Providers:
+//
+// * `Microsoft.Network`: 2024-05-01
 func LookupVirtualHubConnection(ctx *pulumi.Context, args *LookupVirtualHubConnectionArgs, opts ...pulumi.InvokeOption) (*LookupVirtualHubConnectionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupVirtualHubConnectionResult

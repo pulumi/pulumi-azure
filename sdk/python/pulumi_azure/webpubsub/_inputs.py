@@ -135,7 +135,7 @@ if not MYPY:
         """
         Specify the identity ID of the target resource.
 
-        > **NOTE:** `managed_identity_id` is required if the auth block is defined
+        > **Note:** `managed_identity_id` is required if the auth block is defined
         """
 elif False:
     HubEventHandlerAuthArgsDict: TypeAlias = Mapping[str, Any]
@@ -147,7 +147,7 @@ class HubEventHandlerAuthArgs:
         """
         :param pulumi.Input[builtins.str] managed_identity_id: Specify the identity ID of the target resource.
                
-               > **NOTE:** `managed_identity_id` is required if the auth block is defined
+               > **Note:** `managed_identity_id` is required if the auth block is defined
         """
         pulumi.set(__self__, "managed_identity_id", managed_identity_id)
 
@@ -157,7 +157,7 @@ class HubEventHandlerAuthArgs:
         """
         Specify the identity ID of the target resource.
 
-        > **NOTE:** `managed_identity_id` is required if the auth block is defined
+        > **Note:** `managed_identity_id` is required if the auth block is defined
         """
         return pulumi.get(self, "managed_identity_id")
 
@@ -270,7 +270,7 @@ if not MYPY:
         """
         The denied request types for the Private Endpoint Connection. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
 
-        > **NOTE:** When `default_action` is `Allow`, `allowed_request_types`cannot be set. When `default_action` is `Deny`, `denied_request_types`cannot be set.
+        > **Note:** When `default_action` is `Allow`, `allowed_request_types`cannot be set. When `default_action` is `Deny`, `denied_request_types`cannot be set.
         """
 elif False:
     NetworkAclPrivateEndpointArgsDict: TypeAlias = Mapping[str, Any]
@@ -286,7 +286,7 @@ class NetworkAclPrivateEndpointArgs:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] allowed_request_types: The allowed request types for the Private Endpoint Connection. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] denied_request_types: The denied request types for the Private Endpoint Connection. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
                
-               > **NOTE:** When `default_action` is `Allow`, `allowed_request_types`cannot be set. When `default_action` is `Deny`, `denied_request_types`cannot be set.
+               > **Note:** When `default_action` is `Allow`, `allowed_request_types`cannot be set. When `default_action` is `Deny`, `denied_request_types`cannot be set.
         """
         pulumi.set(__self__, "id", id)
         if allowed_request_types is not None:
@@ -324,7 +324,7 @@ class NetworkAclPrivateEndpointArgs:
         """
         The denied request types for the Private Endpoint Connection. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
 
-        > **NOTE:** When `default_action` is `Allow`, `allowed_request_types`cannot be set. When `default_action` is `Deny`, `denied_request_types`cannot be set.
+        > **Note:** When `default_action` is `Allow`, `allowed_request_types`cannot be set. When `default_action` is `Deny`, `denied_request_types`cannot be set.
         """
         return pulumi.get(self, "denied_request_types")
 
@@ -343,7 +343,7 @@ if not MYPY:
         """
         The denied request types for the public network. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
 
-        > **NOTE:** When `default_action` is `Allow`, `allowed_request_types`cannot be set. When `default_action` is `Deny`, `denied_request_types`cannot be set.
+        > **Note:** When `default_action` is `Allow`, `allowed_request_types`cannot be set. When `default_action` is `Deny`, `denied_request_types`cannot be set.
         """
 elif False:
     NetworkAclPublicNetworkArgsDict: TypeAlias = Mapping[str, Any]
@@ -357,7 +357,7 @@ class NetworkAclPublicNetworkArgs:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] allowed_request_types: The allowed request types for the public network. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] denied_request_types: The denied request types for the public network. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
                
-               > **NOTE:** When `default_action` is `Allow`, `allowed_request_types`cannot be set. When `default_action` is `Deny`, `denied_request_types`cannot be set.
+               > **Note:** When `default_action` is `Allow`, `allowed_request_types`cannot be set. When `default_action` is `Deny`, `denied_request_types`cannot be set.
         """
         if allowed_request_types is not None:
             pulumi.set(__self__, "allowed_request_types", allowed_request_types)
@@ -382,7 +382,7 @@ class NetworkAclPublicNetworkArgs:
         """
         The denied request types for the public network. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
 
-        > **NOTE:** When `default_action` is `Allow`, `allowed_request_types`cannot be set. When `default_action` is `Deny`, `denied_request_types`cannot be set.
+        > **Note:** When `default_action` is `Allow`, `allowed_request_types`cannot be set. When `default_action` is `Deny`, `denied_request_types`cannot be set.
         """
         return pulumi.get(self, "denied_request_types")
 
@@ -401,7 +401,7 @@ if not MYPY:
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this Web PubSub.
 
-        > **NOTE:** This is required when `type` is set to `UserAssigned`
+        > **Note:** This is required when `type` is set to `UserAssigned`
         """
         principal_id: NotRequired[pulumi.Input[builtins.str]]
         """
@@ -425,7 +425,7 @@ class ServiceIdentityArgs:
         :param pulumi.Input[builtins.str] type: Specifies the type of Managed Service Identity that should be configured on this Web PubSub. Possible values are `SystemAssigned`, `UserAssigned`.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this Web PubSub.
                
-               > **NOTE:** This is required when `type` is set to `UserAssigned`
+               > **Note:** This is required when `type` is set to `UserAssigned`
         :param pulumi.Input[builtins.str] principal_id: The Principal ID associated with this Managed Service Identity.
         :param pulumi.Input[builtins.str] tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
@@ -455,7 +455,7 @@ class ServiceIdentityArgs:
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this Web PubSub.
 
-        > **NOTE:** This is required when `type` is set to `UserAssigned`
+        > **Note:** This is required when `type` is set to `UserAssigned`
         """
         return pulumi.get(self, "identity_ids")
 

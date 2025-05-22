@@ -39,7 +39,7 @@ class CertificateOrderArgs:
         :param pulumi.Input[builtins.str] csr: Last CSR that was created for this order.
         :param pulumi.Input[builtins.str] distinguished_name: The Distinguished Name for the App Service Certificate Order.
                
-               > **NOTE:** Either `csr` or `distinguished_name` must be set - but not both.
+               > **Note:** Either `csr` or `distinguished_name` must be set - but not both.
         :param pulumi.Input[builtins.int] key_size: Certificate key size. Defaults to `2048`.
         :param pulumi.Input[builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. Currently the only valid value is `global`.
         :param pulumi.Input[builtins.str] name: Specifies the name of the certificate. Changing this forces a new resource to be created.
@@ -109,7 +109,7 @@ class CertificateOrderArgs:
         """
         The Distinguished Name for the App Service Certificate Order.
 
-        > **NOTE:** Either `csr` or `distinguished_name` must be set - but not both.
+        > **Note:** Either `csr` or `distinguished_name` must be set - but not both.
         """
         return pulumi.get(self, "distinguished_name")
 
@@ -220,7 +220,7 @@ class _CertificateOrderState:
         :param pulumi.Input[builtins.str] csr: Last CSR that was created for this order.
         :param pulumi.Input[builtins.str] distinguished_name: The Distinguished Name for the App Service Certificate Order.
                
-               > **NOTE:** Either `csr` or `distinguished_name` must be set - but not both.
+               > **Note:** Either `csr` or `distinguished_name` must be set - but not both.
         :param pulumi.Input[builtins.str] domain_verification_token: Domain verification token.
         :param pulumi.Input[builtins.str] expiration_time: Certificate expiration time.
         :param pulumi.Input[builtins.str] intermediate_thumbprint: Certificate thumbprint intermediate certificate.
@@ -329,7 +329,7 @@ class _CertificateOrderState:
         """
         The Distinguished Name for the App Service Certificate Order.
 
-        > **NOTE:** Either `csr` or `distinguished_name` must be set - but not both.
+        > **Note:** Either `csr` or `distinguished_name` must be set - but not both.
         """
         return pulumi.get(self, "distinguished_name")
 
@@ -557,7 +557,7 @@ class CertificateOrder(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] csr: Last CSR that was created for this order.
         :param pulumi.Input[builtins.str] distinguished_name: The Distinguished Name for the App Service Certificate Order.
                
-               > **NOTE:** Either `csr` or `distinguished_name` must be set - but not both.
+               > **Note:** Either `csr` or `distinguished_name` must be set - but not both.
         :param pulumi.Input[builtins.int] key_size: Certificate key size. Defaults to `2048`.
         :param pulumi.Input[builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. Currently the only valid value is `global`.
         :param pulumi.Input[builtins.str] name: Specifies the name of the certificate. Changing this forces a new resource to be created.
@@ -697,7 +697,7 @@ class CertificateOrder(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] csr: Last CSR that was created for this order.
         :param pulumi.Input[builtins.str] distinguished_name: The Distinguished Name for the App Service Certificate Order.
                
-               > **NOTE:** Either `csr` or `distinguished_name` must be set - but not both.
+               > **Note:** Either `csr` or `distinguished_name` must be set - but not both.
         :param pulumi.Input[builtins.str] domain_verification_token: Domain verification token.
         :param pulumi.Input[builtins.str] expiration_time: Certificate expiration time.
         :param pulumi.Input[builtins.str] intermediate_thumbprint: Certificate thumbprint intermediate certificate.
@@ -776,7 +776,7 @@ class CertificateOrder(pulumi.CustomResource):
         """
         The Distinguished Name for the App Service Certificate Order.
 
-        > **NOTE:** Either `csr` or `distinguished_name` must be set - but not both.
+        > **Note:** Either `csr` or `distinguished_name` must be set - but not both.
         """
         return pulumi.get(self, "distinguished_name")
 

@@ -45,6 +45,13 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.EventHub`: 2024-01-01
+ *
  * ## Import
  *
  * EventHub Authorization Rules can be imported using the `resource id`, e.g.
@@ -119,7 +126,7 @@ export class EventHubAuthorizationRule extends pulumi.CustomResource {
     /**
      * The name of the resource group in which the EventHub Namespace exists. Changing this forces a new resource to be created.
      *
-     * > **NOTE** At least one of the 3 permissions below needs to be set.
+     * > **Note:** At least one of the 3 permissions below needs to be set.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
@@ -239,7 +246,7 @@ export interface EventHubAuthorizationRuleState {
     /**
      * The name of the resource group in which the EventHub Namespace exists. Changing this forces a new resource to be created.
      *
-     * > **NOTE** At least one of the 3 permissions below needs to be set.
+     * > **Note:** At least one of the 3 permissions below needs to be set.
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
@@ -287,7 +294,7 @@ export interface EventHubAuthorizationRuleArgs {
     /**
      * The name of the resource group in which the EventHub Namespace exists. Changing this forces a new resource to be created.
      *
-     * > **NOTE** At least one of the 3 permissions below needs to be set.
+     * > **Note:** At least one of the 3 permissions below needs to be set.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

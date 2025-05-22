@@ -147,6 +147,13 @@ def get_backup_vault(name: Optional[builtins.str] = None,
     pulumi.export("azurermDataProtectionBackupVaultPrincipalId", example.identities[0].principal_id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.DataProtection`: 2024-04-01
+
 
     :param builtins.str name: Specifies the name of the Backup Vault.
     :param builtins.str resource_group_name: The name of the Resource Group where the Backup Vault exists.
@@ -183,6 +190,13 @@ def get_backup_vault_output(name: Optional[pulumi.Input[builtins.str]] = None,
     pulumi.export("azurermDataProtectionBackupVaultId", example_azurerm_vpn_gateway["id"])
     pulumi.export("azurermDataProtectionBackupVaultPrincipalId", example.identities[0].principal_id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.DataProtection`: 2024-04-01
 
 
     :param builtins.str name: Specifies the name of the Backup Vault.

@@ -52,6 +52,13 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.DigitalTwins`: 2023-01-31
+ *
  * ## Import
  *
  * Digital Twins Eventhub Endpoints can be imported using the `resource id`, e.g.

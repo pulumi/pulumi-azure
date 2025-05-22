@@ -36,6 +36,13 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.AVS`: 2022-05-01
+ *
  * ## Import
  *
  * Azure VMware Solution ExpressRoute Circuit Authorizations can be imported using the `resource id`, e.g.

@@ -17,7 +17,7 @@ public final class HostPoolScheduledAgentUpdates {
     /**
      * @return Enables or disables scheduled updates of the AVD agent components (RDAgent, Geneva Monitoring agent, and side-by-side stack) on session hosts. If this is enabled then up to two `schedule` blocks must be defined. Default is `false`.
      * 
-     * &gt; **NOTE:** if `enabled` is set to `true` then at least one and a maximum of two `schedule` blocks must be provided.
+     * &gt; **Note:** if `enabled` is set to `true` then at least one and a maximum of two `schedule` blocks must be provided.
      * 
      */
     private @Nullable Boolean enabled;
@@ -41,7 +41,7 @@ public final class HostPoolScheduledAgentUpdates {
     /**
      * @return Enables or disables scheduled updates of the AVD agent components (RDAgent, Geneva Monitoring agent, and side-by-side stack) on session hosts. If this is enabled then up to two `schedule` blocks must be defined. Default is `false`.
      * 
-     * &gt; **NOTE:** if `enabled` is set to `true` then at least one and a maximum of two `schedule` blocks must be provided.
+     * &gt; **Note:** if `enabled` is set to `true` then at least one and a maximum of two `schedule` blocks must be provided.
      * 
      */
     public Optional<Boolean> enabled() {

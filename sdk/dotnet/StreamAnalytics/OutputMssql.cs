@@ -19,7 +19,6 @@ namespace Pulumi.Azure.StreamAnalytics
     /// using System.Linq;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
-    /// using Azurerm = Pulumi.Azurerm;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
@@ -35,7 +34,7 @@ namespace Pulumi.Azure.StreamAnalytics
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///     });
     /// 
-    ///     var exampleSqlServer = new Azurerm.Index.SqlServer("example", new()
+    ///     var exampleServer = new Azure.MSSql.Server("example", new()
     ///     {
     ///         Name = "example-server",
     ///         ResourceGroupName = exampleResourceGroup.Name,
@@ -45,16 +44,10 @@ namespace Pulumi.Azure.StreamAnalytics
     ///         AdministratorLoginPassword = "example-password",
     ///     });
     /// 
-    ///     var exampleSqlDatabase = new Azurerm.Index.SqlDatabase("example", new()
+    ///     var exampleDatabase = new Azure.MSSql.Database("example", new()
     ///     {
     ///         Name = "exampledb",
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
-    ///         ServerName = exampleSqlServer.Name,
-    ///         RequestedServiceObjectiveName = "S0",
-    ///         Collation = "SQL_LATIN1_GENERAL_CP1_CI_AS",
-    ///         MaxSizeBytes = "268435456000",
-    ///         CreateMode = "Default",
+    ///         ServerId = test.Id,
     ///     });
     /// 
     ///     var exampleOutputMssql = new Azure.StreamAnalytics.OutputMssql("example", new()
@@ -62,15 +55,22 @@ namespace Pulumi.Azure.StreamAnalytics
     ///         Name = "example-output-sql",
     ///         StreamAnalyticsJobName = example.Apply(getJobResult =&gt; getJobResult.Name),
     ///         ResourceGroupName = example.Apply(getJobResult =&gt; getJobResult.ResourceGroupName),
-    ///         Server = exampleSqlServer.FullyQualifiedDomainName,
-    ///         User = exampleSqlServer.AdministratorLogin,
-    ///         Password = exampleSqlServer.AdministratorLoginPassword,
-    ///         Database = exampleSqlDatabase.Name,
+    ///         Server = exampleServer.FullyQualifiedDomainName,
+    ///         User = exampleServer.AdministratorLogin,
+    ///         Password = exampleServer.AdministratorLoginPassword,
+    ///         Database = exampleDatabase.Name,
     ///         Table = "ExampleTable",
     ///     });
     /// 
     /// });
     /// ```
+    /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.StreamAnalytics`: 2021-10-01-preview
     /// 
     /// ## Import
     /// 

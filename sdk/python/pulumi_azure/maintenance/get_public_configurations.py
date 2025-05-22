@@ -115,6 +115,13 @@ def get_public_configurations(location: Optional[builtins.str] = None,
     pulumi.export("name", existing.configs[0].name)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Maintenance`: 2023-04-01
+
 
     :param builtins.str location: The Azure location to filter the list of Public Maintenance Configurations against.
     :param builtins.str recur_every: The recurring window to filter the list of Public Maintenance Configurations against. Possible values are `Monday-Thursday` and `Friday-Sunday`
@@ -151,6 +158,13 @@ def get_public_configurations_output(location: Optional[pulumi.Input[Optional[bu
         recur_every="Monday-Thursday")
     pulumi.export("name", existing.configs[0].name)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Maintenance`: 2023-04-01
 
 
     :param builtins.str location: The Azure location to filter the list of Public Maintenance Configurations against.

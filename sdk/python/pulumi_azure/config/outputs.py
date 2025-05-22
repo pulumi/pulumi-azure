@@ -22,6 +22,7 @@ __all__ = [
     'FeaturesAppConfiguration',
     'FeaturesApplicationInsights',
     'FeaturesCognitiveAccount',
+    'FeaturesDatabricksWorkspace',
     'FeaturesKeyVault',
     'FeaturesLogAnalyticsWorkspace',
     'FeaturesMachineLearning',
@@ -45,6 +46,7 @@ class Features(dict):
                  app_configuration: Optional['outputs.FeaturesAppConfiguration'] = None,
                  application_insights: Optional['outputs.FeaturesApplicationInsights'] = None,
                  cognitive_account: Optional['outputs.FeaturesCognitiveAccount'] = None,
+                 databricks_workspace: Optional['outputs.FeaturesDatabricksWorkspace'] = None,
                  key_vault: Optional['outputs.FeaturesKeyVault'] = None,
                  log_analytics_workspace: Optional['outputs.FeaturesLogAnalyticsWorkspace'] = None,
                  machine_learning: Optional['outputs.FeaturesMachineLearning'] = None,
@@ -67,6 +69,8 @@ class Features(dict):
             pulumi.set(__self__, "application_insights", application_insights)
         if cognitive_account is not None:
             pulumi.set(__self__, "cognitive_account", cognitive_account)
+        if databricks_workspace is not None:
+            pulumi.set(__self__, "databricks_workspace", databricks_workspace)
         if key_vault is not None:
             pulumi.set(__self__, "key_vault", key_vault)
         if log_analytics_workspace is not None:
@@ -115,6 +119,11 @@ class Features(dict):
     @pulumi.getter(name="cognitiveAccount")
     def cognitive_account(self) -> Optional['outputs.FeaturesCognitiveAccount']:
         return pulumi.get(self, "cognitive_account")
+
+    @property
+    @pulumi.getter(name="databricksWorkspace")
+    def databricks_workspace(self) -> Optional['outputs.FeaturesDatabricksWorkspace']:
+        return pulumi.get(self, "databricks_workspace")
 
     @property
     @pulumi.getter(name="keyVault")
@@ -253,6 +262,25 @@ class FeaturesCognitiveAccount(dict):
     @pulumi.getter(name="purgeSoftDeleteOnDestroy")
     def purge_soft_delete_on_destroy(self) -> Optional[builtins.bool]:
         return pulumi.get(self, "purge_soft_delete_on_destroy")
+
+
+@pulumi.output_type
+class FeaturesDatabricksWorkspace(dict):
+    def __init__(__self__, *,
+                 force_delete: Optional[builtins.bool] = None):
+        """
+        :param builtins.bool force_delete: When enabled, the managed resource group that contains the Unity Catalog data will be forcibly deleted when the workspace is destroyed, regardless of contents.
+        """
+        if force_delete is not None:
+            pulumi.set(__self__, "force_delete", force_delete)
+
+    @property
+    @pulumi.getter(name="forceDelete")
+    def force_delete(self) -> Optional[builtins.bool]:
+        """
+        When enabled, the managed resource group that contains the Unity Catalog data will be forcibly deleted when the workspace is destroyed, regardless of contents.
+        """
+        return pulumi.get(self, "force_delete")
 
 
 @pulumi.output_type
@@ -598,6 +626,7 @@ class FeaturesVirtualMachine(dict):
 
     @property
     @pulumi.getter(name="gracefulShutdown")
+    @_utilities.deprecated("""'graceful_shutdown' has been deprecated and will be removed from v5.0 of the AzureRM provider.""")
     def graceful_shutdown(self) -> Optional[builtins.bool]:
         return pulumi.get(self, "graceful_shutdown")
 

@@ -24,6 +24,13 @@ import javax.annotation.Nullable;
  * &lt;!--Start PulumiCodeChooser --&gt;
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Dynatrace.Observability`: 2023-04-27
+ * 
  * ## Import
  * 
  * Dynatrace tag rules can be imported using the `resource id`, e.g.
@@ -36,28 +43,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:dynatrace/tagRules:TagRules")
 public class TagRules extends com.pulumi.resources.CustomResource {
     /**
-     * Set of rules for sending logs for the Monitor resource. Changing this forces a new resource to be created. A `log_rule` block as defined below.
+     * Set of rules for sending logs for the Monitor resource. A `log_rule` block as defined below.
      * 
      */
     @Export(name="logRule", refs={TagRulesLogRule.class}, tree="[0]")
     private Output</* @Nullable */ TagRulesLogRule> logRule;
 
     /**
-     * @return Set of rules for sending logs for the Monitor resource. Changing this forces a new resource to be created. A `log_rule` block as defined below.
+     * @return Set of rules for sending logs for the Monitor resource. A `log_rule` block as defined below.
      * 
      */
     public Output<Optional<TagRulesLogRule>> logRule() {
         return Codegen.optional(this.logRule);
     }
     /**
-     * Set of rules for sending metrics for the Monitor resource. Changing this forces a new resource to be created. A `metric_rule` block as defined below.
+     * Set of rules for sending metrics for the Monitor resource. A `metric_rule` block as defined below.
      * 
      */
     @Export(name="metricRule", refs={TagRulesMetricRule.class}, tree="[0]")
     private Output</* @Nullable */ TagRulesMetricRule> metricRule;
 
     /**
-     * @return Set of rules for sending metrics for the Monitor resource. Changing this forces a new resource to be created. A `metric_rule` block as defined below.
+     * @return Set of rules for sending metrics for the Monitor resource. A `metric_rule` block as defined below.
      * 
      */
     public Output<Optional<TagRulesMetricRule>> metricRule() {

@@ -59,7 +59,7 @@ class AlertRuleNrtArgs:
         :param pulumi.Input[builtins.str] name: The name which should be used for this Sentinel NRT Alert Rule. Changing this forces a new Sentinel NRT Alert Rule to be created.
         :param pulumi.Input[Sequence[pulumi.Input['AlertRuleNrtSentinelEntityMappingArgs']]] sentinel_entity_mappings: A list of `sentinel_entity_mapping` blocks as defined below.
                
-               > **NOTE:** `entity_mapping` and `sentinel_entity_mapping` together can't exceed 5.
+               > **Note:** `entity_mapping` and `sentinel_entity_mapping` together can't exceed 5.
         :param pulumi.Input[builtins.str] suppression_duration: If `suppression_enabled` is `true`, this is ISO 8601 timespan duration, which specifies the amount of time the query should stop running after alert is generated. Defaults to `PT5H`.
         :param pulumi.Input[builtins.bool] suppression_enabled: Should the Sentinel NRT Alert Rulea stop running query after alert is generated? Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] tactics: A list of categories of attacks by which to classify the rule. Possible values are `Collection`, `CommandAndControl`, `CredentialAccess`, `DefenseEvasion`, `Discovery`, `Execution`, `Exfiltration`, `Impact`, `ImpairProcessControl`, `InhibitResponseFunction`, `InitialAccess`, `LateralMovement`, `Persistence`, `PreAttack`, `PrivilegeEscalation`, `Reconnaissance` and `ResourceDevelopment`.
@@ -273,7 +273,7 @@ class AlertRuleNrtArgs:
         """
         A list of `sentinel_entity_mapping` blocks as defined below.
 
-        > **NOTE:** `entity_mapping` and `sentinel_entity_mapping` together can't exceed 5.
+        > **Note:** `entity_mapping` and `sentinel_entity_mapping` together can't exceed 5.
         """
         return pulumi.get(self, "sentinel_entity_mappings")
 
@@ -369,7 +369,7 @@ class _AlertRuleNrtState:
         :param pulumi.Input[builtins.str] query: The query of this Sentinel NRT Alert Rule.
         :param pulumi.Input[Sequence[pulumi.Input['AlertRuleNrtSentinelEntityMappingArgs']]] sentinel_entity_mappings: A list of `sentinel_entity_mapping` blocks as defined below.
                
-               > **NOTE:** `entity_mapping` and `sentinel_entity_mapping` together can't exceed 5.
+               > **Note:** `entity_mapping` and `sentinel_entity_mapping` together can't exceed 5.
         :param pulumi.Input[builtins.str] severity: The alert severity of this Sentinel NRT Alert Rule. Possible values are `High`, `Medium`, `Low` and `Informational`.
         :param pulumi.Input[builtins.str] suppression_duration: If `suppression_enabled` is `true`, this is ISO 8601 timespan duration, which specifies the amount of time the query should stop running after alert is generated. Defaults to `PT5H`.
         :param pulumi.Input[builtins.bool] suppression_enabled: Should the Sentinel NRT Alert Rulea stop running query after alert is generated? Defaults to `false`.
@@ -577,7 +577,7 @@ class _AlertRuleNrtState:
         """
         A list of `sentinel_entity_mapping` blocks as defined below.
 
-        > **NOTE:** `entity_mapping` and `sentinel_entity_mapping` together can't exceed 5.
+        > **Note:** `entity_mapping` and `sentinel_entity_mapping` together can't exceed 5.
         """
         return pulumi.get(self, "sentinel_entity_mappings")
 
@@ -702,6 +702,13 @@ class AlertRuleNrt(pulumi.CustomResource):
         \"\"\")
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.OperationalInsights`: 2023-12-01-preview
+
         ## Import
 
         Sentinel NRT Alert Rules can be imported using the `resource id`, e.g.
@@ -727,7 +734,7 @@ class AlertRuleNrt(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] query: The query of this Sentinel NRT Alert Rule.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AlertRuleNrtSentinelEntityMappingArgs', 'AlertRuleNrtSentinelEntityMappingArgsDict']]]] sentinel_entity_mappings: A list of `sentinel_entity_mapping` blocks as defined below.
                
-               > **NOTE:** `entity_mapping` and `sentinel_entity_mapping` together can't exceed 5.
+               > **Note:** `entity_mapping` and `sentinel_entity_mapping` together can't exceed 5.
         :param pulumi.Input[builtins.str] severity: The alert severity of this Sentinel NRT Alert Rule. Possible values are `High`, `Medium`, `Low` and `Informational`.
         :param pulumi.Input[builtins.str] suppression_duration: If `suppression_enabled` is `true`, this is ISO 8601 timespan duration, which specifies the amount of time the query should stop running after alert is generated. Defaults to `PT5H`.
         :param pulumi.Input[builtins.bool] suppression_enabled: Should the Sentinel NRT Alert Rulea stop running query after alert is generated? Defaults to `false`.
@@ -769,6 +776,13 @@ class AlertRuleNrt(pulumi.CustomResource):
           make-series dcount(ResourceId) default=0 on EventSubmissionTimestamp in range(ago(7d), now(), 1d) by Caller
         \"\"\")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.OperationalInsights`: 2023-12-01-preview
 
         ## Import
 
@@ -901,7 +915,7 @@ class AlertRuleNrt(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] query: The query of this Sentinel NRT Alert Rule.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AlertRuleNrtSentinelEntityMappingArgs', 'AlertRuleNrtSentinelEntityMappingArgsDict']]]] sentinel_entity_mappings: A list of `sentinel_entity_mapping` blocks as defined below.
                
-               > **NOTE:** `entity_mapping` and `sentinel_entity_mapping` together can't exceed 5.
+               > **Note:** `entity_mapping` and `sentinel_entity_mapping` together can't exceed 5.
         :param pulumi.Input[builtins.str] severity: The alert severity of this Sentinel NRT Alert Rule. Possible values are `High`, `Medium`, `Low` and `Informational`.
         :param pulumi.Input[builtins.str] suppression_duration: If `suppression_enabled` is `true`, this is ISO 8601 timespan duration, which specifies the amount of time the query should stop running after alert is generated. Defaults to `PT5H`.
         :param pulumi.Input[builtins.bool] suppression_enabled: Should the Sentinel NRT Alert Rulea stop running query after alert is generated? Defaults to `false`.
@@ -1043,7 +1057,7 @@ class AlertRuleNrt(pulumi.CustomResource):
         """
         A list of `sentinel_entity_mapping` blocks as defined below.
 
-        > **NOTE:** `entity_mapping` and `sentinel_entity_mapping` together can't exceed 5.
+        > **Note:** `entity_mapping` and `sentinel_entity_mapping` together can't exceed 5.
         """
         return pulumi.get(self, "sentinel_entity_mappings")
 

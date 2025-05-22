@@ -132,6 +132,13 @@ import (
 //
 // ```
 //
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.Compute`: 2024-03-01
+//
 // ## Import
 //
 // Virtual Machine Restore Point can be imported using the `resource id`, e.g.

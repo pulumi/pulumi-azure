@@ -79,7 +79,7 @@ public final class DataConnectorOffice365State extends com.pulumi.resources.Reso
     /**
      * Should the Microsoft Teams data connector be enabled? Defaults to `true`.
      * 
-     * &gt; **NOTE:** At least one of `exchange_enabled`, `sharedpoint_enabled` and `teams_enabled` has to be specified.
+     * &gt; **Note:** At least one of `exchange_enabled`, `sharedpoint_enabled` and `teams_enabled` has to be specified.
      * 
      */
     @Import(name="teamsEnabled")
@@ -88,7 +88,7 @@ public final class DataConnectorOffice365State extends com.pulumi.resources.Reso
     /**
      * @return Should the Microsoft Teams data connector be enabled? Defaults to `true`.
      * 
-     * &gt; **NOTE:** At least one of `exchange_enabled`, `sharedpoint_enabled` and `teams_enabled` has to be specified.
+     * &gt; **Note:** At least one of `exchange_enabled`, `sharedpoint_enabled` and `teams_enabled` has to be specified.
      * 
      */
     public Optional<Output<Boolean>> teamsEnabled() {
@@ -98,7 +98,7 @@ public final class DataConnectorOffice365State extends com.pulumi.resources.Reso
     /**
      * The ID of the Tenant that this Office 365 Data Connector connects to. Changing this forces a new Office 365 Data Connector to be created.
      * 
-     * &gt; **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
+     * &gt; **Note:** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
      * 
      */
     @Import(name="tenantId")
@@ -107,7 +107,7 @@ public final class DataConnectorOffice365State extends com.pulumi.resources.Reso
     /**
      * @return The ID of the Tenant that this Office 365 Data Connector connects to. Changing this forces a new Office 365 Data Connector to be created.
      * 
-     * &gt; **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
+     * &gt; **Note:** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
      * 
      */
     public Optional<Output<String>> tenantId() {
@@ -230,7 +230,7 @@ public final class DataConnectorOffice365State extends com.pulumi.resources.Reso
         /**
          * @param teamsEnabled Should the Microsoft Teams data connector be enabled? Defaults to `true`.
          * 
-         * &gt; **NOTE:** At least one of `exchange_enabled`, `sharedpoint_enabled` and `teams_enabled` has to be specified.
+         * &gt; **Note:** At least one of `exchange_enabled`, `sharedpoint_enabled` and `teams_enabled` has to be specified.
          * 
          * @return builder
          * 
@@ -243,7 +243,7 @@ public final class DataConnectorOffice365State extends com.pulumi.resources.Reso
         /**
          * @param teamsEnabled Should the Microsoft Teams data connector be enabled? Defaults to `true`.
          * 
-         * &gt; **NOTE:** At least one of `exchange_enabled`, `sharedpoint_enabled` and `teams_enabled` has to be specified.
+         * &gt; **Note:** At least one of `exchange_enabled`, `sharedpoint_enabled` and `teams_enabled` has to be specified.
          * 
          * @return builder
          * 
@@ -255,7 +255,7 @@ public final class DataConnectorOffice365State extends com.pulumi.resources.Reso
         /**
          * @param tenantId The ID of the Tenant that this Office 365 Data Connector connects to. Changing this forces a new Office 365 Data Connector to be created.
          * 
-         * &gt; **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
+         * &gt; **Note:** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
          * 
          * @return builder
          * 
@@ -268,7 +268,7 @@ public final class DataConnectorOffice365State extends com.pulumi.resources.Reso
         /**
          * @param tenantId The ID of the Tenant that this Office 365 Data Connector connects to. Changing this forces a new Office 365 Data Connector to be created.
          * 
-         * &gt; **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
+         * &gt; **Note:** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
          * 
          * @return builder
          * 

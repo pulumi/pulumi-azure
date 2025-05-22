@@ -27,7 +27,7 @@ class FrontdoorCustomDomainAssociationArgs:
         :param pulumi.Input[builtins.str] cdn_frontdoor_custom_domain_id: The ID of the Front Door Custom Domain that should be managed by the association resource. Changing this forces a new association resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] cdn_frontdoor_route_ids: One or more IDs of the Front Door Route to which the Front Door Custom Domain is associated with.
                
-               > **NOTE:** This should include all of the Front Door Route resources that the Front Door Custom Domain is associated with. If the list of Front Door Routes is not complete you will receive the service side error `This resource is still associated with a route. Please delete the association with the route first before deleting this resource` when you attempt to `destroy`/`delete` your Front Door Custom Domain.
+               > **Note:** This should include all of the Front Door Route resources that the Front Door Custom Domain is associated with. If the list of Front Door Routes is not complete you will receive the service side error `This resource is still associated with a route. Please delete the association with the route first before deleting this resource` when you attempt to `destroy`/`delete` your Front Door Custom Domain.
         """
         pulumi.set(__self__, "cdn_frontdoor_custom_domain_id", cdn_frontdoor_custom_domain_id)
         pulumi.set(__self__, "cdn_frontdoor_route_ids", cdn_frontdoor_route_ids)
@@ -50,7 +50,7 @@ class FrontdoorCustomDomainAssociationArgs:
         """
         One or more IDs of the Front Door Route to which the Front Door Custom Domain is associated with.
 
-        > **NOTE:** This should include all of the Front Door Route resources that the Front Door Custom Domain is associated with. If the list of Front Door Routes is not complete you will receive the service side error `This resource is still associated with a route. Please delete the association with the route first before deleting this resource` when you attempt to `destroy`/`delete` your Front Door Custom Domain.
+        > **Note:** This should include all of the Front Door Route resources that the Front Door Custom Domain is associated with. If the list of Front Door Routes is not complete you will receive the service side error `This resource is still associated with a route. Please delete the association with the route first before deleting this resource` when you attempt to `destroy`/`delete` your Front Door Custom Domain.
         """
         return pulumi.get(self, "cdn_frontdoor_route_ids")
 
@@ -69,7 +69,7 @@ class _FrontdoorCustomDomainAssociationState:
         :param pulumi.Input[builtins.str] cdn_frontdoor_custom_domain_id: The ID of the Front Door Custom Domain that should be managed by the association resource. Changing this forces a new association resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] cdn_frontdoor_route_ids: One or more IDs of the Front Door Route to which the Front Door Custom Domain is associated with.
                
-               > **NOTE:** This should include all of the Front Door Route resources that the Front Door Custom Domain is associated with. If the list of Front Door Routes is not complete you will receive the service side error `This resource is still associated with a route. Please delete the association with the route first before deleting this resource` when you attempt to `destroy`/`delete` your Front Door Custom Domain.
+               > **Note:** This should include all of the Front Door Route resources that the Front Door Custom Domain is associated with. If the list of Front Door Routes is not complete you will receive the service side error `This resource is still associated with a route. Please delete the association with the route first before deleting this resource` when you attempt to `destroy`/`delete` your Front Door Custom Domain.
         """
         if cdn_frontdoor_custom_domain_id is not None:
             pulumi.set(__self__, "cdn_frontdoor_custom_domain_id", cdn_frontdoor_custom_domain_id)
@@ -94,7 +94,7 @@ class _FrontdoorCustomDomainAssociationState:
         """
         One or more IDs of the Front Door Route to which the Front Door Custom Domain is associated with.
 
-        > **NOTE:** This should include all of the Front Door Route resources that the Front Door Custom Domain is associated with. If the list of Front Door Routes is not complete you will receive the service side error `This resource is still associated with a route. Please delete the association with the route first before deleting this resource` when you attempt to `destroy`/`delete` your Front Door Custom Domain.
+        > **Note:** This should include all of the Front Door Route resources that the Front Door Custom Domain is associated with. If the list of Front Door Routes is not complete you will receive the service side error `This resource is still associated with a route. Please delete the association with the route first before deleting this resource` when you attempt to `destroy`/`delete` your Front Door Custom Domain.
         """
         return pulumi.get(self, "cdn_frontdoor_route_ids")
 
@@ -212,7 +212,7 @@ class FrontdoorCustomDomainAssociation(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] cdn_frontdoor_custom_domain_id: The ID of the Front Door Custom Domain that should be managed by the association resource. Changing this forces a new association resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] cdn_frontdoor_route_ids: One or more IDs of the Front Door Route to which the Front Door Custom Domain is associated with.
                
-               > **NOTE:** This should include all of the Front Door Route resources that the Front Door Custom Domain is associated with. If the list of Front Door Routes is not complete you will receive the service side error `This resource is still associated with a route. Please delete the association with the route first before deleting this resource` when you attempt to `destroy`/`delete` your Front Door Custom Domain.
+               > **Note:** This should include all of the Front Door Route resources that the Front Door Custom Domain is associated with. If the list of Front Door Routes is not complete you will receive the service side error `This resource is still associated with a route. Please delete the association with the route first before deleting this resource` when you attempt to `destroy`/`delete` your Front Door Custom Domain.
         """
         ...
     @overload
@@ -369,7 +369,7 @@ class FrontdoorCustomDomainAssociation(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] cdn_frontdoor_custom_domain_id: The ID of the Front Door Custom Domain that should be managed by the association resource. Changing this forces a new association resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] cdn_frontdoor_route_ids: One or more IDs of the Front Door Route to which the Front Door Custom Domain is associated with.
                
-               > **NOTE:** This should include all of the Front Door Route resources that the Front Door Custom Domain is associated with. If the list of Front Door Routes is not complete you will receive the service side error `This resource is still associated with a route. Please delete the association with the route first before deleting this resource` when you attempt to `destroy`/`delete` your Front Door Custom Domain.
+               > **Note:** This should include all of the Front Door Route resources that the Front Door Custom Domain is associated with. If the list of Front Door Routes is not complete you will receive the service side error `This resource is still associated with a route. Please delete the association with the route first before deleting this resource` when you attempt to `destroy`/`delete` your Front Door Custom Domain.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -393,7 +393,7 @@ class FrontdoorCustomDomainAssociation(pulumi.CustomResource):
         """
         One or more IDs of the Front Door Route to which the Front Door Custom Domain is associated with.
 
-        > **NOTE:** This should include all of the Front Door Route resources that the Front Door Custom Domain is associated with. If the list of Front Door Routes is not complete you will receive the service side error `This resource is still associated with a route. Please delete the association with the route first before deleting this resource` when you attempt to `destroy`/`delete` your Front Door Custom Domain.
+        > **Note:** This should include all of the Front Door Route resources that the Front Door Custom Domain is associated with. If the list of Front Door Routes is not complete you will receive the service side error `This resource is still associated with a route. Please delete the association with the route first before deleting this resource` when you attempt to `destroy`/`delete` your Front Door Custom Domain.
         """
         return pulumi.get(self, "cdn_frontdoor_route_ids")
 

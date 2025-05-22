@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * import * as azurerm from "@pulumi/azurerm";
  *
  * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     name: "rg-example",
@@ -22,7 +21,7 @@ import * as utilities from "../utilities";
  *     name: "example-job",
  *     resourceGroupName: exampleResourceGroup.name,
  * });
- * const exampleSqlServer = new azurerm.index.SqlServer("example", {
+ * const exampleServer = new azure.mssql.Server("example", {
  *     name: "example-server",
  *     resourceGroupName: exampleResourceGroup.name,
  *     location: exampleResourceGroup.location,
@@ -30,27 +29,28 @@ import * as utilities from "../utilities";
  *     administratorLogin: "dbadmin",
  *     administratorLoginPassword: "example-password",
  * });
- * const exampleSqlDatabase = new azurerm.index.SqlDatabase("example", {
+ * const exampleDatabase = new azure.mssql.Database("example", {
  *     name: "exampledb",
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     serverName: exampleSqlServer.name,
- *     requestedServiceObjectiveName: "S0",
- *     collation: "SQL_LATIN1_GENERAL_CP1_CI_AS",
- *     maxSizeBytes: "268435456000",
- *     createMode: "Default",
+ *     serverId: test.id,
  * });
  * const exampleOutputMssql = new azure.streamanalytics.OutputMssql("example", {
  *     name: "example-output-sql",
  *     streamAnalyticsJobName: example.apply(example => example.name),
  *     resourceGroupName: example.apply(example => example.resourceGroupName),
- *     server: exampleSqlServer.fullyQualifiedDomainName,
- *     user: exampleSqlServer.administratorLogin,
- *     password: exampleSqlServer.administratorLoginPassword,
- *     database: exampleSqlDatabase.name,
+ *     server: exampleServer.fullyQualifiedDomainName,
+ *     user: exampleServer.administratorLogin,
+ *     password: exampleServer.administratorLoginPassword,
+ *     database: exampleDatabase.name,
  *     table: "ExampleTable",
  * });
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.StreamAnalytics`: 2021-10-01-preview
  *
  * ## Import
  *

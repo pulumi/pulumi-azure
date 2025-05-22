@@ -22,7 +22,7 @@ public final class HciDeploymentSettingScaleUnitInfrastructureNetworkArgs extend
     /**
      * Whether DHCP is enabled for hosts and cluster IPs. Possible values are `true` and `false`. defaults to `false`. Changing this forces a new Stack HCI Deployment Setting to be created.
      * 
-     * &gt; **NOTE:** If `dhcp_enabled` is set to `false`, the deployment will use static IPs. If set to `true`, the gateway and DNS servers are not required.
+     * &gt; **Note:** If `dhcp_enabled` is set to `false`, the deployment will use static IPs. If set to `true`, the gateway and DNS servers are not required.
      * 
      */
     @Import(name="dhcpEnabled")
@@ -31,7 +31,7 @@ public final class HciDeploymentSettingScaleUnitInfrastructureNetworkArgs extend
     /**
      * @return Whether DHCP is enabled for hosts and cluster IPs. Possible values are `true` and `false`. defaults to `false`. Changing this forces a new Stack HCI Deployment Setting to be created.
      * 
-     * &gt; **NOTE:** If `dhcp_enabled` is set to `false`, the deployment will use static IPs. If set to `true`, the gateway and DNS servers are not required.
+     * &gt; **Note:** If `dhcp_enabled` is set to `false`, the deployment will use static IPs. If set to `true`, the gateway and DNS servers are not required.
      * 
      */
     public Optional<Output<Boolean>> dhcpEnabled() {
@@ -129,7 +129,7 @@ public final class HciDeploymentSettingScaleUnitInfrastructureNetworkArgs extend
         /**
          * @param dhcpEnabled Whether DHCP is enabled for hosts and cluster IPs. Possible values are `true` and `false`. defaults to `false`. Changing this forces a new Stack HCI Deployment Setting to be created.
          * 
-         * &gt; **NOTE:** If `dhcp_enabled` is set to `false`, the deployment will use static IPs. If set to `true`, the gateway and DNS servers are not required.
+         * &gt; **Note:** If `dhcp_enabled` is set to `false`, the deployment will use static IPs. If set to `true`, the gateway and DNS servers are not required.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class HciDeploymentSettingScaleUnitInfrastructureNetworkArgs extend
         /**
          * @param dhcpEnabled Whether DHCP is enabled for hosts and cluster IPs. Possible values are `true` and `false`. defaults to `false`. Changing this forces a new Stack HCI Deployment Setting to be created.
          * 
-         * &gt; **NOTE:** If `dhcp_enabled` is set to `false`, the deployment will use static IPs. If set to `true`, the gateway and DNS servers are not required.
+         * &gt; **Note:** If `dhcp_enabled` is set to `false`, the deployment will use static IPs. If set to `true`, the gateway and DNS servers are not required.
          * 
          * @return builder
          * 

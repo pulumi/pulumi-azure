@@ -10,21 +10,53 @@ import java.util.Objects;
 
 @CustomType
 public final class CatalogCatalogAdogit {
+    /**
+     * @return The Git branch of the Dev Center Catalog.
+     * 
+     */
     private String branch;
+    /**
+     * @return A reference to the Key Vault secret containing a security token to authenticate to a Git repository.
+     * 
+     */
     private String keyVaultKeyUrl;
+    /**
+     * @return The folder where the catalog items can be found inside the repository.
+     * 
+     */
     private String path;
+    /**
+     * @return The Git URI of the Dev Center Catalog.
+     * 
+     */
     private String uri;
 
     private CatalogCatalogAdogit() {}
+    /**
+     * @return The Git branch of the Dev Center Catalog.
+     * 
+     */
     public String branch() {
         return this.branch;
     }
+    /**
+     * @return A reference to the Key Vault secret containing a security token to authenticate to a Git repository.
+     * 
+     */
     public String keyVaultKeyUrl() {
         return this.keyVaultKeyUrl;
     }
+    /**
+     * @return The folder where the catalog items can be found inside the repository.
+     * 
+     */
     public String path() {
         return this.path;
     }
+    /**
+     * @return The Git URI of the Dev Center Catalog.
+     * 
+     */
     public String uri() {
         return this.uri;
     }

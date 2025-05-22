@@ -158,6 +158,13 @@ def get_namespace(name: Optional[builtins.str] = None,
     pulumi.export("servicebusEndpoint", example.servicebus_endpoint)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.NotificationHubs`: 2023-09-01
+
 
     :param builtins.str name: Specifies the Name of the Notification Hub Namespace.
     :param builtins.str resource_group_name: Specifies the Name of the Resource Group within which the Notification Hub exists.
@@ -194,6 +201,13 @@ def get_namespace_output(name: Optional[pulumi.Input[builtins.str]] = None,
         resource_group_name="my-resource-group")
     pulumi.export("servicebusEndpoint", example.servicebus_endpoint)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.NotificationHubs`: 2023-09-01
 
 
     :param builtins.str name: Specifies the Name of the Notification Hub Namespace.

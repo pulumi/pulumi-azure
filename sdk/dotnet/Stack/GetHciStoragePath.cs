@@ -36,6 +36,13 @@ namespace Pulumi.Azure.Stack
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.AzureStackHCI`: 2024-01-01
         /// </summary>
         public static Task<GetHciStoragePathResult> InvokeAsync(GetHciStoragePathArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetHciStoragePathResult>("azure:stack/getHciStoragePath:getHciStoragePath", args ?? new GetHciStoragePathArgs(), options.WithDefaults());
@@ -65,6 +72,13 @@ namespace Pulumi.Azure.Stack
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.AzureStackHCI`: 2024-01-01
         /// </summary>
         public static Output<GetHciStoragePathResult> Invoke(GetHciStoragePathInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetHciStoragePathResult>("azure:stack/getHciStoragePath:getHciStoragePath", args ?? new GetHciStoragePathInvokeArgs(), options.WithDefaults());
@@ -94,6 +108,13 @@ namespace Pulumi.Azure.Stack
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.AzureStackHCI`: 2024-01-01
         /// </summary>
         public static Output<GetHciStoragePathResult> Invoke(GetHciStoragePathInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetHciStoragePathResult>("azure:stack/getHciStoragePath:getHciStoragePath", args ?? new GetHciStoragePathInvokeArgs(), options.WithDefaults());

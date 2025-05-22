@@ -81,6 +81,13 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.DesktopVirtualization`: 2024-04-03
+ * 
  * ## Import
  * 
  * Virtual Desktop Host Pools can be imported using the `resource id`, e.g.
@@ -201,7 +208,7 @@ public class HostPool extends com.pulumi.resources.CustomResource {
     /**
      * `Automatic` assignment – The service will select an available host and assign it to an user. Possible values are `Automatic` and `Direct`. `Direct` Assignment – Admin selects a specific host to assign to an user. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** `personal_desktop_assignment_type` is required if the `type` of your Virtual Desktop Host Pool is `Personal`
+     * &gt; **Note:** `personal_desktop_assignment_type` is required if the `type` of your Virtual Desktop Host Pool is `Personal`
      * 
      */
     @Export(name="personalDesktopAssignmentType", refs={String.class}, tree="[0]")
@@ -210,7 +217,7 @@ public class HostPool extends com.pulumi.resources.CustomResource {
     /**
      * @return `Automatic` assignment – The service will select an available host and assign it to an user. Possible values are `Automatic` and `Direct`. `Direct` Assignment – Admin selects a specific host to assign to an user. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** `personal_desktop_assignment_type` is required if the `type` of your Virtual Desktop Host Pool is `Personal`
+     * &gt; **Note:** `personal_desktop_assignment_type` is required if the `type` of your Virtual Desktop Host Pool is `Personal`
      * 
      */
     public Output<Optional<String>> personalDesktopAssignmentType() {

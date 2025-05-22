@@ -116,7 +116,7 @@ public class DataConnectorMicrosoftDefenderAdvancedThreatProtection extends com.
     /**
      * The ID of the tenant that this Microsoft Defender Advanced Threat Protection Data Connector connects to. Changing this forces a new Microsoft Defender Advanced Threat Protection Data Connector to be created.
      * 
-     * &gt; **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
+     * &gt; **Note:** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
      * 
      */
     @Export(name="tenantId", refs={String.class}, tree="[0]")
@@ -125,7 +125,7 @@ public class DataConnectorMicrosoftDefenderAdvancedThreatProtection extends com.
     /**
      * @return The ID of the tenant that this Microsoft Defender Advanced Threat Protection Data Connector connects to. Changing this forces a new Microsoft Defender Advanced Threat Protection Data Connector to be created.
      * 
-     * &gt; **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
+     * &gt; **Note:** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
      * 
      */
     public Output<String> tenantId() {

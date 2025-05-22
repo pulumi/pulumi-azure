@@ -138,9 +138,9 @@ type LinkedServiceKusto struct {
 	ServicePrincipalKey pulumi.StringPtrOutput `pulumi:"servicePrincipalKey"`
 	// The service principal tenant id or name in which to authenticate against the Kusto Database.
 	//
-	// > **NOTE** If `servicePrincipalId` is used, `servicePrincipalKey` and `tenant` is also required.
+	// > **Note:** If `servicePrincipalId` is used, `servicePrincipalKey` and `tenant` is also required.
 	//
-	// > **NOTE** One of Managed Identity authentication and Service Principal authentication must be set.
+	// > **Note:** One of Managed Identity authentication and Service Principal authentication must be set.
 	Tenant pulumi.StringPtrOutput `pulumi:"tenant"`
 	// Whether to use the Data Factory's managed identity to authenticate against the Kusto Database.
 	UseManagedIdentity pulumi.BoolPtrOutput `pulumi:"useManagedIdentity"`
@@ -218,9 +218,9 @@ type linkedServiceKustoState struct {
 	ServicePrincipalKey *string `pulumi:"servicePrincipalKey"`
 	// The service principal tenant id or name in which to authenticate against the Kusto Database.
 	//
-	// > **NOTE** If `servicePrincipalId` is used, `servicePrincipalKey` and `tenant` is also required.
+	// > **Note:** If `servicePrincipalId` is used, `servicePrincipalKey` and `tenant` is also required.
 	//
-	// > **NOTE** One of Managed Identity authentication and Service Principal authentication must be set.
+	// > **Note:** One of Managed Identity authentication and Service Principal authentication must be set.
 	Tenant *string `pulumi:"tenant"`
 	// Whether to use the Data Factory's managed identity to authenticate against the Kusto Database.
 	UseManagedIdentity *bool `pulumi:"useManagedIdentity"`
@@ -253,9 +253,9 @@ type LinkedServiceKustoState struct {
 	ServicePrincipalKey pulumi.StringPtrInput
 	// The service principal tenant id or name in which to authenticate against the Kusto Database.
 	//
-	// > **NOTE** If `servicePrincipalId` is used, `servicePrincipalKey` and `tenant` is also required.
+	// > **Note:** If `servicePrincipalId` is used, `servicePrincipalKey` and `tenant` is also required.
 	//
-	// > **NOTE** One of Managed Identity authentication and Service Principal authentication must be set.
+	// > **Note:** One of Managed Identity authentication and Service Principal authentication must be set.
 	Tenant pulumi.StringPtrInput
 	// Whether to use the Data Factory's managed identity to authenticate against the Kusto Database.
 	UseManagedIdentity pulumi.BoolPtrInput
@@ -292,9 +292,9 @@ type linkedServiceKustoArgs struct {
 	ServicePrincipalKey *string `pulumi:"servicePrincipalKey"`
 	// The service principal tenant id or name in which to authenticate against the Kusto Database.
 	//
-	// > **NOTE** If `servicePrincipalId` is used, `servicePrincipalKey` and `tenant` is also required.
+	// > **Note:** If `servicePrincipalId` is used, `servicePrincipalKey` and `tenant` is also required.
 	//
-	// > **NOTE** One of Managed Identity authentication and Service Principal authentication must be set.
+	// > **Note:** One of Managed Identity authentication and Service Principal authentication must be set.
 	Tenant *string `pulumi:"tenant"`
 	// Whether to use the Data Factory's managed identity to authenticate against the Kusto Database.
 	UseManagedIdentity *bool `pulumi:"useManagedIdentity"`
@@ -328,9 +328,9 @@ type LinkedServiceKustoArgs struct {
 	ServicePrincipalKey pulumi.StringPtrInput
 	// The service principal tenant id or name in which to authenticate against the Kusto Database.
 	//
-	// > **NOTE** If `servicePrincipalId` is used, `servicePrincipalKey` and `tenant` is also required.
+	// > **Note:** If `servicePrincipalId` is used, `servicePrincipalKey` and `tenant` is also required.
 	//
-	// > **NOTE** One of Managed Identity authentication and Service Principal authentication must be set.
+	// > **Note:** One of Managed Identity authentication and Service Principal authentication must be set.
 	Tenant pulumi.StringPtrInput
 	// Whether to use the Data Factory's managed identity to authenticate against the Kusto Database.
 	UseManagedIdentity pulumi.BoolPtrInput
@@ -482,9 +482,9 @@ func (o LinkedServiceKustoOutput) ServicePrincipalKey() pulumi.StringPtrOutput {
 
 // The service principal tenant id or name in which to authenticate against the Kusto Database.
 //
-// > **NOTE** If `servicePrincipalId` is used, `servicePrincipalKey` and `tenant` is also required.
+// > **Note:** If `servicePrincipalId` is used, `servicePrincipalKey` and `tenant` is also required.
 //
-// > **NOTE** One of Managed Identity authentication and Service Principal authentication must be set.
+// > **Note:** One of Managed Identity authentication and Service Principal authentication must be set.
 func (o LinkedServiceKustoOutput) Tenant() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinkedServiceKusto) pulumi.StringPtrOutput { return v.Tenant }).(pulumi.StringPtrOutput)
 }

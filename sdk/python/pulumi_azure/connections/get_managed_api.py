@@ -94,6 +94,13 @@ def get_managed_api(location: Optional[builtins.str] = None,
     pulumi.export("id", example.id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Web`: 2016-06-01
+
 
     :param builtins.str location: The Azure location for this Managed API.
     :param builtins.str name: Specifies the name of the Managed API.
@@ -125,6 +132,13 @@ def get_managed_api_output(location: Optional[pulumi.Input[builtins.str]] = None
         location="West Europe")
     pulumi.export("id", example.id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Web`: 2016-06-01
 
 
     :param builtins.str location: The Azure location for this Managed API.

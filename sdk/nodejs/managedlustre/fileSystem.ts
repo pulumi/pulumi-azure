@@ -48,7 +48,7 @@ export class FileSystem extends pulumi.CustomResource {
     /**
      * An `encryptionKey` block as defined below.
      *
-     * > **NOTE:** Removing `encryptionKey` forces a new resource to be created.
+     * > **Note:** Removing `encryptionKey` forces a new resource to be created.
      */
     public readonly encryptionKey!: pulumi.Output<outputs.managedlustre.FileSystemEncryptionKey | undefined>;
     /**
@@ -172,7 +172,7 @@ export interface FileSystemState {
     /**
      * An `encryptionKey` block as defined below.
      *
-     * > **NOTE:** Removing `encryptionKey` forces a new resource to be created.
+     * > **Note:** Removing `encryptionKey` forces a new resource to be created.
      */
     encryptionKey?: pulumi.Input<inputs.managedlustre.FileSystemEncryptionKey>;
     /**
@@ -232,7 +232,7 @@ export interface FileSystemArgs {
     /**
      * An `encryptionKey` block as defined below.
      *
-     * > **NOTE:** Removing `encryptionKey` forces a new resource to be created.
+     * > **Note:** Removing `encryptionKey` forces a new resource to be created.
      */
     encryptionKey?: pulumi.Input<inputs.managedlustre.FileSystemEncryptionKey>;
     /**

@@ -80,6 +80,13 @@ namespace Pulumi.Azure.WebPubSub
     /// });
     /// ```
     /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.SignalRService`: 2024-03-01
+    /// 
     /// ## Import
     /// 
     /// Web Pubsub Shared Private Link Resource can be imported using the `resource id`, e.g.
@@ -112,7 +119,7 @@ namespace Pulumi.Azure.WebPubSub
         /// <summary>
         /// Specify the sub resource name which the Web Pubsub Private Endpoint is able to connect to. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** The available sub resource can be retrieved by using `azure.webpubsub.getPrivateLinkResource` data source.
+        /// &gt; **Note:** The available sub resource can be retrieved by using `azure.webpubsub.getPrivateLinkResource` data source.
         /// </summary>
         [Output("subresourceName")]
         public Output<string> SubresourceName { get; private set; } = null!;
@@ -120,7 +127,7 @@ namespace Pulumi.Azure.WebPubSub
         /// <summary>
         /// Specify the ID of the Shared Private Link Enabled Remote Resource which this Web Pubsub Private Endpoint should be connected to. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** The sub resource name should match with the type of the target resource id that's being specified.
+        /// &gt; **Note:** The sub resource name should match with the type of the target resource id that's being specified.
         /// </summary>
         [Output("targetResourceId")]
         public Output<string> TargetResourceId { get; private set; } = null!;
@@ -192,7 +199,7 @@ namespace Pulumi.Azure.WebPubSub
         /// <summary>
         /// Specify the sub resource name which the Web Pubsub Private Endpoint is able to connect to. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** The available sub resource can be retrieved by using `azure.webpubsub.getPrivateLinkResource` data source.
+        /// &gt; **Note:** The available sub resource can be retrieved by using `azure.webpubsub.getPrivateLinkResource` data source.
         /// </summary>
         [Input("subresourceName", required: true)]
         public Input<string> SubresourceName { get; set; } = null!;
@@ -200,7 +207,7 @@ namespace Pulumi.Azure.WebPubSub
         /// <summary>
         /// Specify the ID of the Shared Private Link Enabled Remote Resource which this Web Pubsub Private Endpoint should be connected to. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** The sub resource name should match with the type of the target resource id that's being specified.
+        /// &gt; **Note:** The sub resource name should match with the type of the target resource id that's being specified.
         /// </summary>
         [Input("targetResourceId", required: true)]
         public Input<string> TargetResourceId { get; set; } = null!;
@@ -240,7 +247,7 @@ namespace Pulumi.Azure.WebPubSub
         /// <summary>
         /// Specify the sub resource name which the Web Pubsub Private Endpoint is able to connect to. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** The available sub resource can be retrieved by using `azure.webpubsub.getPrivateLinkResource` data source.
+        /// &gt; **Note:** The available sub resource can be retrieved by using `azure.webpubsub.getPrivateLinkResource` data source.
         /// </summary>
         [Input("subresourceName")]
         public Input<string>? SubresourceName { get; set; }
@@ -248,7 +255,7 @@ namespace Pulumi.Azure.WebPubSub
         /// <summary>
         /// Specify the ID of the Shared Private Link Enabled Remote Resource which this Web Pubsub Private Endpoint should be connected to. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** The sub resource name should match with the type of the target resource id that's being specified.
+        /// &gt; **Note:** The sub resource name should match with the type of the target resource id that's being specified.
         /// </summary>
         [Input("targetResourceId")]
         public Input<string>? TargetResourceId { get; set; }

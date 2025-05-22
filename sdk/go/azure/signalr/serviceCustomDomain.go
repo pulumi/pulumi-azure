@@ -137,6 +137,13 @@ import (
 //
 // ```
 //
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.SignalRService`: 2024-03-01
+//
 // ## Import
 //
 // Custom Domain for a SignalR service can be imported using the `resource id`, e.g.
@@ -149,7 +156,7 @@ type ServiceCustomDomain struct {
 
 	// Specifies the custom domain name of the SignalR Custom Domain. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Please ensure the custom domain name is included in the Subject Alternative Names of the selected SignalR Custom Certificate.
+	// > **Note:** Please ensure the custom domain name is included in the Subject Alternative Names of the selected SignalR Custom Certificate.
 	DomainName pulumi.StringOutput `pulumi:"domainName"`
 	// Specifies the name of the SignalR Custom Domain. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -200,7 +207,7 @@ func GetServiceCustomDomain(ctx *pulumi.Context,
 type serviceCustomDomainState struct {
 	// Specifies the custom domain name of the SignalR Custom Domain. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Please ensure the custom domain name is included in the Subject Alternative Names of the selected SignalR Custom Certificate.
+	// > **Note:** Please ensure the custom domain name is included in the Subject Alternative Names of the selected SignalR Custom Certificate.
 	DomainName *string `pulumi:"domainName"`
 	// Specifies the name of the SignalR Custom Domain. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -213,7 +220,7 @@ type serviceCustomDomainState struct {
 type ServiceCustomDomainState struct {
 	// Specifies the custom domain name of the SignalR Custom Domain. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Please ensure the custom domain name is included in the Subject Alternative Names of the selected SignalR Custom Certificate.
+	// > **Note:** Please ensure the custom domain name is included in the Subject Alternative Names of the selected SignalR Custom Certificate.
 	DomainName pulumi.StringPtrInput
 	// Specifies the name of the SignalR Custom Domain. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -230,7 +237,7 @@ func (ServiceCustomDomainState) ElementType() reflect.Type {
 type serviceCustomDomainArgs struct {
 	// Specifies the custom domain name of the SignalR Custom Domain. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Please ensure the custom domain name is included in the Subject Alternative Names of the selected SignalR Custom Certificate.
+	// > **Note:** Please ensure the custom domain name is included in the Subject Alternative Names of the selected SignalR Custom Certificate.
 	DomainName string `pulumi:"domainName"`
 	// Specifies the name of the SignalR Custom Domain. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -244,7 +251,7 @@ type serviceCustomDomainArgs struct {
 type ServiceCustomDomainArgs struct {
 	// Specifies the custom domain name of the SignalR Custom Domain. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Please ensure the custom domain name is included in the Subject Alternative Names of the selected SignalR Custom Certificate.
+	// > **Note:** Please ensure the custom domain name is included in the Subject Alternative Names of the selected SignalR Custom Certificate.
 	DomainName pulumi.StringInput
 	// Specifies the name of the SignalR Custom Domain. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -343,7 +350,7 @@ func (o ServiceCustomDomainOutput) ToServiceCustomDomainOutputWithContext(ctx co
 
 // Specifies the custom domain name of the SignalR Custom Domain. Changing this forces a new resource to be created.
 //
-// > **NOTE:** Please ensure the custom domain name is included in the Subject Alternative Names of the selected SignalR Custom Certificate.
+// > **Note:** Please ensure the custom domain name is included in the Subject Alternative Names of the selected SignalR Custom Certificate.
 func (o ServiceCustomDomainOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceCustomDomain) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
 }

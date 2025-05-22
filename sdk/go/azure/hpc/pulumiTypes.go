@@ -26,7 +26,7 @@ type CacheAccessPolicyAccessRule struct {
 	RootSquashEnabled *bool `pulumi:"rootSquashEnabled"`
 	// The scope of this rule. The `scope` and (potentially) the `filter` determine which clients match the rule. Possible values are: `default`, `network`, `host`.
 	//
-	// > **NOTE:** Each `accessRule` should set a unique `scope`.
+	// > **Note:** Each `accessRule` should set a unique `scope`.
 	Scope string `pulumi:"scope"`
 	// Whether allow access to subdirectories under the root export?
 	SubmountAccessEnabled *bool `pulumi:"submountAccessEnabled"`
@@ -58,7 +58,7 @@ type CacheAccessPolicyAccessRuleArgs struct {
 	RootSquashEnabled pulumi.BoolPtrInput `pulumi:"rootSquashEnabled"`
 	// The scope of this rule. The `scope` and (potentially) the `filter` determine which clients match the rule. Possible values are: `default`, `network`, `host`.
 	//
-	// > **NOTE:** Each `accessRule` should set a unique `scope`.
+	// > **Note:** Each `accessRule` should set a unique `scope`.
 	Scope pulumi.StringInput `pulumi:"scope"`
 	// Whether allow access to subdirectories under the root export?
 	SubmountAccessEnabled pulumi.BoolPtrInput `pulumi:"submountAccessEnabled"`
@@ -144,7 +144,7 @@ func (o CacheAccessPolicyAccessRuleOutput) RootSquashEnabled() pulumi.BoolPtrOut
 
 // The scope of this rule. The `scope` and (potentially) the `filter` determine which clients match the rule. Possible values are: `default`, `network`, `host`.
 //
-// > **NOTE:** Each `accessRule` should set a unique `scope`.
+// > **Note:** Each `accessRule` should set a unique `scope`.
 func (o CacheAccessPolicyAccessRuleOutput) Scope() pulumi.StringOutput {
 	return o.ApplyT(func(v CacheAccessPolicyAccessRule) string { return v.Scope }).(pulumi.StringOutput)
 }
@@ -1436,7 +1436,7 @@ func (o CacheDnsPtrOutput) Servers() pulumi.StringArrayOutput {
 type CacheIdentity struct {
 	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this HPC Cache. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+	// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId *string `pulumi:"principalId"`
@@ -1460,7 +1460,7 @@ type CacheIdentityInput interface {
 type CacheIdentityArgs struct {
 	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this HPC Cache. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+	// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
@@ -1549,7 +1549,7 @@ func (o CacheIdentityOutput) ToCacheIdentityPtrOutputWithContext(ctx context.Con
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this HPC Cache. Changing this forces a new resource to be created.
 //
-// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 func (o CacheIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CacheIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
@@ -1595,7 +1595,7 @@ func (o CacheIdentityPtrOutput) Elem() CacheIdentityOutput {
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this HPC Cache. Changing this forces a new resource to be created.
 //
-// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 func (o CacheIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CacheIdentity) []string {
 		if v == nil {

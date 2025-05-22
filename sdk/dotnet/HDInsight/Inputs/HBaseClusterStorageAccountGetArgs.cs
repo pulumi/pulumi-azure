@@ -15,7 +15,7 @@ namespace Pulumi.Azure.HDInsight.Inputs
         /// <summary>
         /// Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** One of the `storage_account` or `storage_account_gen2` blocks must be marked as the default.
+        /// &gt; **Note:** One of the `storage_account` or `storage_account_gen2` blocks must be marked as the default.
         /// </summary>
         [Input("isDefault", required: true)]
         public Input<bool> IsDefault { get; set; } = null!;
@@ -39,7 +39,7 @@ namespace Pulumi.Azure.HDInsight.Inputs
         /// <summary>
         /// The ID of the Storage Container. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** This can be obtained from the `id` of the `azure.storage.Container` resource.
+        /// &gt; **Note:** This can be obtained from the `id` of the `azure.storage.Container` resource.
         /// </summary>
         [Input("storageContainerId", required: true)]
         public Input<string> StorageContainerId { get; set; } = null!;

@@ -79,7 +79,7 @@ export class LocalNetworkGateway extends pulumi.CustomResource {
     /**
      * The gateway FQDN to connect with.
      *
-     * > **NOTE:** Either `gatewayAddress` or `gatewayFqdn` should be specified.
+     * > **Note:** Either `gatewayAddress` or `gatewayFqdn` should be specified.
      */
     public readonly gatewayFqdn!: pulumi.Output<string | undefined>;
     /**
@@ -158,7 +158,7 @@ export interface LocalNetworkGatewayState {
     /**
      * The gateway FQDN to connect with.
      *
-     * > **NOTE:** Either `gatewayAddress` or `gatewayFqdn` should be specified.
+     * > **Note:** Either `gatewayAddress` or `gatewayFqdn` should be specified.
      */
     gatewayFqdn?: pulumi.Input<string>;
     /**
@@ -198,7 +198,7 @@ export interface LocalNetworkGatewayArgs {
     /**
      * The gateway FQDN to connect with.
      *
-     * > **NOTE:** Either `gatewayAddress` or `gatewayFqdn` should be specified.
+     * > **Note:** Either `gatewayAddress` or `gatewayFqdn` should be specified.
      */
     gatewayFqdn?: pulumi.Input<string>;
     /**

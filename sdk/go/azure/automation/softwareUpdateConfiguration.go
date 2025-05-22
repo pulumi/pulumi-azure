@@ -92,6 +92,13 @@ import (
 //
 // ```
 //
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.Automation`: 2019-06-01
+//
 // ## Import
 //
 // Automations Software Update Configuration can be imported using the `resource id`, e.g.
@@ -128,7 +135,7 @@ type SoftwareUpdateConfiguration struct {
 	VirtualMachineIds pulumi.StringArrayOutput `pulumi:"virtualMachineIds"`
 	// A `windows` block as defined below.
 	//
-	// > **NOTE:** One of `linux` or `windows` must be specified.
+	// > **Note:** One of `linux` or `windows` must be specified.
 	Windows SoftwareUpdateConfigurationWindowsPtrOutput `pulumi:"windows"`
 }
 
@@ -194,7 +201,7 @@ type softwareUpdateConfigurationState struct {
 	VirtualMachineIds []string `pulumi:"virtualMachineIds"`
 	// A `windows` block as defined below.
 	//
-	// > **NOTE:** One of `linux` or `windows` must be specified.
+	// > **Note:** One of `linux` or `windows` must be specified.
 	Windows *SoftwareUpdateConfigurationWindows `pulumi:"windows"`
 }
 
@@ -225,7 +232,7 @@ type SoftwareUpdateConfigurationState struct {
 	VirtualMachineIds pulumi.StringArrayInput
 	// A `windows` block as defined below.
 	//
-	// > **NOTE:** One of `linux` or `windows` must be specified.
+	// > **Note:** One of `linux` or `windows` must be specified.
 	Windows SoftwareUpdateConfigurationWindowsPtrInput
 }
 
@@ -256,7 +263,7 @@ type softwareUpdateConfigurationArgs struct {
 	VirtualMachineIds []string `pulumi:"virtualMachineIds"`
 	// A `windows` block as defined below.
 	//
-	// > **NOTE:** One of `linux` or `windows` must be specified.
+	// > **Note:** One of `linux` or `windows` must be specified.
 	Windows *SoftwareUpdateConfigurationWindows `pulumi:"windows"`
 }
 
@@ -284,7 +291,7 @@ type SoftwareUpdateConfigurationArgs struct {
 	VirtualMachineIds pulumi.StringArrayInput
 	// A `windows` block as defined below.
 	//
-	// > **NOTE:** One of `linux` or `windows` must be specified.
+	// > **Note:** One of `linux` or `windows` must be specified.
 	Windows SoftwareUpdateConfigurationWindowsPtrInput
 }
 
@@ -437,7 +444,7 @@ func (o SoftwareUpdateConfigurationOutput) VirtualMachineIds() pulumi.StringArra
 
 // A `windows` block as defined below.
 //
-// > **NOTE:** One of `linux` or `windows` must be specified.
+// > **Note:** One of `linux` or `windows` must be specified.
 func (o SoftwareUpdateConfigurationOutput) Windows() SoftwareUpdateConfigurationWindowsPtrOutput {
 	return o.ApplyT(func(v *SoftwareUpdateConfiguration) SoftwareUpdateConfigurationWindowsPtrOutput { return v.Windows }).(SoftwareUpdateConfigurationWindowsPtrOutput)
 }

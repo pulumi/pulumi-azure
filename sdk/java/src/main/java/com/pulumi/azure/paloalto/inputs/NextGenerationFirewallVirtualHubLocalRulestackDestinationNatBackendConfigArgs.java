@@ -15,16 +15,32 @@ public final class NextGenerationFirewallVirtualHubLocalRulestackDestinationNatB
 
     public static final NextGenerationFirewallVirtualHubLocalRulestackDestinationNatBackendConfigArgs Empty = new NextGenerationFirewallVirtualHubLocalRulestackDestinationNatBackendConfigArgs();
 
+    /**
+     * The port number to send traffic to.
+     * 
+     */
     @Import(name="port", required=true)
     private Output<Integer> port;
 
+    /**
+     * @return The port number to send traffic to.
+     * 
+     */
     public Output<Integer> port() {
         return this.port;
     }
 
+    /**
+     * The Public IP Address to send the traffic to.
+     * 
+     */
     @Import(name="publicIpAddress", required=true)
     private Output<String> publicIpAddress;
 
+    /**
+     * @return The Public IP Address to send the traffic to.
+     * 
+     */
     public Output<String> publicIpAddress() {
         return this.publicIpAddress;
     }
@@ -54,20 +70,44 @@ public final class NextGenerationFirewallVirtualHubLocalRulestackDestinationNatB
             $ = new NextGenerationFirewallVirtualHubLocalRulestackDestinationNatBackendConfigArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param port The port number to send traffic to.
+         * 
+         * @return builder
+         * 
+         */
         public Builder port(Output<Integer> port) {
             $.port = port;
             return this;
         }
 
+        /**
+         * @param port The port number to send traffic to.
+         * 
+         * @return builder
+         * 
+         */
         public Builder port(Integer port) {
             return port(Output.of(port));
         }
 
+        /**
+         * @param publicIpAddress The Public IP Address to send the traffic to.
+         * 
+         * @return builder
+         * 
+         */
         public Builder publicIpAddress(Output<String> publicIpAddress) {
             $.publicIpAddress = publicIpAddress;
             return this;
         }
 
+        /**
+         * @param publicIpAddress The Public IP Address to send the traffic to.
+         * 
+         * @return builder
+         * 
+         */
         public Builder publicIpAddress(String publicIpAddress) {
             return publicIpAddress(Output.of(publicIpAddress));
         }

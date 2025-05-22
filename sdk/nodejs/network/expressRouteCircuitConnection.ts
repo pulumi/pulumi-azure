@@ -127,7 +127,7 @@ export class ExpressRouteCircuitConnection extends pulumi.CustomResource {
     /**
      * The IPv6 address space from which to allocate customer addresses for global reach.
      *
-     * > **NOTE:** `addressPrefixIpv6` cannot be set when ExpressRoute Circuit Connection with ExpressRoute Circuit based on ExpressRoute Port.
+     * > **Note:** `addressPrefixIpv6` cannot be set when ExpressRoute Circuit Connection with ExpressRoute Circuit based on ExpressRoute Port.
      */
     public readonly addressPrefixIpv6!: pulumi.Output<string | undefined>;
     /**
@@ -202,7 +202,7 @@ export interface ExpressRouteCircuitConnectionState {
     /**
      * The IPv6 address space from which to allocate customer addresses for global reach.
      *
-     * > **NOTE:** `addressPrefixIpv6` cannot be set when ExpressRoute Circuit Connection with ExpressRoute Circuit based on ExpressRoute Port.
+     * > **Note:** `addressPrefixIpv6` cannot be set when ExpressRoute Circuit Connection with ExpressRoute Circuit based on ExpressRoute Port.
      */
     addressPrefixIpv6?: pulumi.Input<string>;
     /**
@@ -234,7 +234,7 @@ export interface ExpressRouteCircuitConnectionArgs {
     /**
      * The IPv6 address space from which to allocate customer addresses for global reach.
      *
-     * > **NOTE:** `addressPrefixIpv6` cannot be set when ExpressRoute Circuit Connection with ExpressRoute Circuit based on ExpressRoute Port.
+     * > **Note:** `addressPrefixIpv6` cannot be set when ExpressRoute Circuit Connection with ExpressRoute Circuit based on ExpressRoute Port.
      */
     addressPrefixIpv6?: pulumi.Input<string>;
     /**

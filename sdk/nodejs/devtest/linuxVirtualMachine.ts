@@ -60,6 +60,13 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.DevTestLab`: 2018-09-15
+ *
  * ## Import
  *
  * Dev Test Linux Virtual Machines can be imported using the `resource id`, e.g.
@@ -115,7 +122,7 @@ export class LinuxVirtualMachine extends pulumi.CustomResource {
     /**
      * One or more `inboundNatRule` blocks as defined below. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** If any `inboundNatRule` blocks are specified then `disallowPublicIpAddress` must be set to `true`.
+     * > **Note:** If any `inboundNatRule` blocks are specified then `disallowPublicIpAddress` must be set to `true`.
      */
     public readonly inboundNatRules!: pulumi.Output<outputs.devtest.LinuxVirtualMachineInboundNatRule[] | undefined>;
     /**
@@ -137,7 +144,7 @@ export class LinuxVirtualMachine extends pulumi.CustomResource {
     /**
      * Specifies the name of the Dev Test Machine. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** The validation requirements for the Name change based on the `osType` used in this Virtual Machine. For a Linux VM the name must be between 1-62 characters, and for a Windows VM the name must be between 1-15 characters. It must begin and end with a letter or number, and cannot be all numbers.
+     * > **Note:** The validation requirements for the Name change based on the `osType` used in this Virtual Machine. For a Linux VM the name must be between 1-62 characters, and for a Windows VM the name must be between 1-15 characters. It must begin and end with a letter or number, and cannot be all numbers.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -159,7 +166,7 @@ export class LinuxVirtualMachine extends pulumi.CustomResource {
     /**
      * The SSH Key associated with the `username` used to login to this Virtual Machine. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** One or either `password` or `sshKey` must be specified.
+     * > **Note:** One or either `password` or `sshKey` must be specified.
      */
     public readonly sshKey!: pulumi.Output<string | undefined>;
     /**
@@ -287,7 +294,7 @@ export interface LinuxVirtualMachineState {
     /**
      * One or more `inboundNatRule` blocks as defined below. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** If any `inboundNatRule` blocks are specified then `disallowPublicIpAddress` must be set to `true`.
+     * > **Note:** If any `inboundNatRule` blocks are specified then `disallowPublicIpAddress` must be set to `true`.
      */
     inboundNatRules?: pulumi.Input<pulumi.Input<inputs.devtest.LinuxVirtualMachineInboundNatRule>[]>;
     /**
@@ -309,7 +316,7 @@ export interface LinuxVirtualMachineState {
     /**
      * Specifies the name of the Dev Test Machine. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** The validation requirements for the Name change based on the `osType` used in this Virtual Machine. For a Linux VM the name must be between 1-62 characters, and for a Windows VM the name must be between 1-15 characters. It must begin and end with a letter or number, and cannot be all numbers.
+     * > **Note:** The validation requirements for the Name change based on the `osType` used in this Virtual Machine. For a Linux VM the name must be between 1-62 characters, and for a Windows VM the name must be between 1-15 characters. It must begin and end with a letter or number, and cannot be all numbers.
      */
     name?: pulumi.Input<string>;
     /**
@@ -331,7 +338,7 @@ export interface LinuxVirtualMachineState {
     /**
      * The SSH Key associated with the `username` used to login to this Virtual Machine. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** One or either `password` or `sshKey` must be specified.
+     * > **Note:** One or either `password` or `sshKey` must be specified.
      */
     sshKey?: pulumi.Input<string>;
     /**
@@ -371,7 +378,7 @@ export interface LinuxVirtualMachineArgs {
     /**
      * One or more `inboundNatRule` blocks as defined below. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** If any `inboundNatRule` blocks are specified then `disallowPublicIpAddress` must be set to `true`.
+     * > **Note:** If any `inboundNatRule` blocks are specified then `disallowPublicIpAddress` must be set to `true`.
      */
     inboundNatRules?: pulumi.Input<pulumi.Input<inputs.devtest.LinuxVirtualMachineInboundNatRule>[]>;
     /**
@@ -393,7 +400,7 @@ export interface LinuxVirtualMachineArgs {
     /**
      * Specifies the name of the Dev Test Machine. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** The validation requirements for the Name change based on the `osType` used in this Virtual Machine. For a Linux VM the name must be between 1-62 characters, and for a Windows VM the name must be between 1-15 characters. It must begin and end with a letter or number, and cannot be all numbers.
+     * > **Note:** The validation requirements for the Name change based on the `osType` used in this Virtual Machine. For a Linux VM the name must be between 1-62 characters, and for a Windows VM the name must be between 1-15 characters. It must begin and end with a letter or number, and cannot be all numbers.
      */
     name?: pulumi.Input<string>;
     /**
@@ -415,7 +422,7 @@ export interface LinuxVirtualMachineArgs {
     /**
      * The SSH Key associated with the `username` used to login to this Virtual Machine. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** One or either `password` or `sshKey` must be specified.
+     * > **Note:** One or either `password` or `sshKey` must be specified.
      */
     sshKey?: pulumi.Input<string>;
     /**

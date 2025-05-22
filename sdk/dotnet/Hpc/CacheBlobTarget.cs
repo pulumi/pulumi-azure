@@ -12,7 +12,9 @@ namespace Pulumi.Azure.Hpc
     /// <summary>
     /// Manages a Blob Target within a HPC Cache.
     /// 
-    /// &gt; **NOTE:**: By request of the service team the provider no longer automatically registering the `Microsoft.StorageCache` Resource Provider for this resource. To register it you can run `az provider register --namespace 'Microsoft.StorageCache'`.
+    /// !&gt; **Note:** The `azure.hpc.CacheBlobTarget` resource has been deprecated because the service is retiring on 2025-09-30. This resource will be removed in v5.0 of the AzureRM Provider. See https://aka.ms/hpccacheretirement for more information.
+    /// 
+    /// &gt; **Note:** By request of the service team the provider no longer automatically registering the `Microsoft.StorageCache` Resource Provider for this resource. To register it you can run `az provider register --namespace 'Microsoft.StorageCache'`.
     /// 
     /// ## Example Usage
     /// 
@@ -108,6 +110,13 @@ namespace Pulumi.Azure.Hpc
     /// 
     /// });
     /// ```
+    /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.StorageCache`: 2023-05-01
     /// 
     /// ## Import
     /// 

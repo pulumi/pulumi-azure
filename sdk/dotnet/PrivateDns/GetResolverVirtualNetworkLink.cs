@@ -32,6 +32,13 @@ namespace Pulumi.Azure.PrivateDns
         /// 
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Network`: 2022-07-01
         /// </summary>
         public static Task<GetResolverVirtualNetworkLinkResult> InvokeAsync(GetResolverVirtualNetworkLinkArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetResolverVirtualNetworkLinkResult>("azure:privatedns/getResolverVirtualNetworkLink:getResolverVirtualNetworkLink", args ?? new GetResolverVirtualNetworkLinkArgs(), options.WithDefaults());
@@ -57,6 +64,13 @@ namespace Pulumi.Azure.PrivateDns
         /// 
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Network`: 2022-07-01
         /// </summary>
         public static Output<GetResolverVirtualNetworkLinkResult> Invoke(GetResolverVirtualNetworkLinkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetResolverVirtualNetworkLinkResult>("azure:privatedns/getResolverVirtualNetworkLink:getResolverVirtualNetworkLink", args ?? new GetResolverVirtualNetworkLinkInvokeArgs(), options.WithDefaults());
@@ -82,6 +96,13 @@ namespace Pulumi.Azure.PrivateDns
         /// 
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Network`: 2022-07-01
         /// </summary>
         public static Output<GetResolverVirtualNetworkLinkResult> Invoke(GetResolverVirtualNetworkLinkInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetResolverVirtualNetworkLinkResult>("azure:privatedns/getResolverVirtualNetworkLink:getResolverVirtualNetworkLink", args ?? new GetResolverVirtualNetworkLinkInvokeArgs(), options.WithDefaults());

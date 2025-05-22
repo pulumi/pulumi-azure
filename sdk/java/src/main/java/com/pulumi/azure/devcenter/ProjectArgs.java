@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.devcenter;
 
+import com.pulumi.azure.devcenter.inputs.ProjectIdentityArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -46,6 +47,21 @@ public final class ProjectArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Output<String> devCenterId() {
         return this.devCenterId;
+    }
+
+    /**
+     * An `identity` block as defined below.
+     * 
+     */
+    @Import(name="identity")
+    private @Nullable Output<ProjectIdentityArgs> identity;
+
+    /**
+     * @return An `identity` block as defined below.
+     * 
+     */
+    public Optional<Output<ProjectIdentityArgs>> identity() {
+        return Optional.ofNullable(this.identity);
     }
 
     /**
@@ -128,6 +144,7 @@ public final class ProjectArgs extends com.pulumi.resources.ResourceArgs {
     private ProjectArgs(ProjectArgs $) {
         this.description = $.description;
         this.devCenterId = $.devCenterId;
+        this.identity = $.identity;
         this.location = $.location;
         this.maximumDevBoxesPerUser = $.maximumDevBoxesPerUser;
         this.name = $.name;
@@ -193,6 +210,27 @@ public final class ProjectArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder devCenterId(String devCenterId) {
             return devCenterId(Output.of(devCenterId));
+        }
+
+        /**
+         * @param identity An `identity` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder identity(@Nullable Output<ProjectIdentityArgs> identity) {
+            $.identity = identity;
+            return this;
+        }
+
+        /**
+         * @param identity An `identity` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder identity(ProjectIdentityArgs identity) {
+            return identity(Output.of(identity));
         }
 
         /**

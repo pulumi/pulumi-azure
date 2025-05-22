@@ -34,21 +34,21 @@ class ShareArgs:
         The set of arguments for constructing a Share resource.
         :param pulumi.Input[builtins.int] quota: The maximum size of the share, in gigabytes.
                
-               ~>**NOTE:** For Standard storage accounts, by default this must be `1` GB (or higher) and at most `5120` GB (`5` TB). This can be set to a value larger than `5120` GB if `large_file_share_enabled` is set to `true` in the parent `storage.Account`.
+               > **Note:** For Standard storage accounts, by default this must be `1` GB (or higher) and at most `5120` GB (`5` TB). This can be set to a value larger than `5120` GB if `large_file_share_enabled` is set to `true` in the parent `storage.Account`.
                
-               ~>**NOTE:** For Premium FileStorage storage accounts, this must be greater than `100` GB and at most `102400` GB (`100` TB).
+               > **Note:** For Premium FileStorage storage accounts, this must be greater than `100` GB and at most `102400` GB (`100` TB).
         :param pulumi.Input[builtins.str] access_tier: The access tier of the File Share. Possible values are `Hot`, `Cool` and `TransactionOptimized`, `Premium`.
                
-               ~>**NOTE:** The `FileStorage` `account_kind` of the `storage.Account` requires `Premium` `access_tier`.
+               > **Note:** The `FileStorage` `account_kind` of the `storage.Account` requires `Premium` `access_tier`.
         :param pulumi.Input[Sequence[pulumi.Input['ShareAclArgs']]] acls: One or more `acl` blocks as defined below.
         :param pulumi.Input[builtins.str] enabled_protocol: The protocol used for the share. Possible values are `SMB` and `NFS`. The `SMB` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created.
                
-               ~>**NOTE:** The `FileStorage` `account_kind` of the `storage.Account` is required for the `NFS` protocol.
+               > **Note:** The `FileStorage` `account_kind` of the `storage.Account` is required for the `NFS` protocol.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] metadata: A mapping of MetaData for this File Share.
         :param pulumi.Input[builtins.str] name: The name of the share. Must be unique within the storage account where the share is located. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] storage_account_id: Specifies the storage account in which to create the share. Changing this forces a new resource to be created.
                
-               > **NOTE:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
+               > **Note:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
         :param pulumi.Input[builtins.str] storage_account_name: Specifies the storage account in which to create the share. Changing this forces a new resource to be created. This property is deprecated in favour of `storage_account_id`.
                
                > **Note:** Migrating from the deprecated `storage_account_name` to `storage_account_id` is supported without recreation. Any other change to either property will result in the resource being recreated.
@@ -78,9 +78,9 @@ class ShareArgs:
         """
         The maximum size of the share, in gigabytes.
 
-        ~>**NOTE:** For Standard storage accounts, by default this must be `1` GB (or higher) and at most `5120` GB (`5` TB). This can be set to a value larger than `5120` GB if `large_file_share_enabled` is set to `true` in the parent `storage.Account`.
+        > **Note:** For Standard storage accounts, by default this must be `1` GB (or higher) and at most `5120` GB (`5` TB). This can be set to a value larger than `5120` GB if `large_file_share_enabled` is set to `true` in the parent `storage.Account`.
 
-        ~>**NOTE:** For Premium FileStorage storage accounts, this must be greater than `100` GB and at most `102400` GB (`100` TB).
+        > **Note:** For Premium FileStorage storage accounts, this must be greater than `100` GB and at most `102400` GB (`100` TB).
         """
         return pulumi.get(self, "quota")
 
@@ -94,7 +94,7 @@ class ShareArgs:
         """
         The access tier of the File Share. Possible values are `Hot`, `Cool` and `TransactionOptimized`, `Premium`.
 
-        ~>**NOTE:** The `FileStorage` `account_kind` of the `storage.Account` requires `Premium` `access_tier`.
+        > **Note:** The `FileStorage` `account_kind` of the `storage.Account` requires `Premium` `access_tier`.
         """
         return pulumi.get(self, "access_tier")
 
@@ -120,7 +120,7 @@ class ShareArgs:
         """
         The protocol used for the share. Possible values are `SMB` and `NFS`. The `SMB` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created.
 
-        ~>**NOTE:** The `FileStorage` `account_kind` of the `storage.Account` is required for the `NFS` protocol.
+        > **Note:** The `FileStorage` `account_kind` of the `storage.Account` is required for the `NFS` protocol.
         """
         return pulumi.get(self, "enabled_protocol")
 
@@ -158,7 +158,7 @@ class ShareArgs:
         """
         Specifies the storage account in which to create the share. Changing this forces a new resource to be created.
 
-        > **NOTE:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
+        > **Note:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
         """
         return pulumi.get(self, "storage_account_id")
 
@@ -199,22 +199,22 @@ class _ShareState:
         Input properties used for looking up and filtering Share resources.
         :param pulumi.Input[builtins.str] access_tier: The access tier of the File Share. Possible values are `Hot`, `Cool` and `TransactionOptimized`, `Premium`.
                
-               ~>**NOTE:** The `FileStorage` `account_kind` of the `storage.Account` requires `Premium` `access_tier`.
+               > **Note:** The `FileStorage` `account_kind` of the `storage.Account` requires `Premium` `access_tier`.
         :param pulumi.Input[Sequence[pulumi.Input['ShareAclArgs']]] acls: One or more `acl` blocks as defined below.
         :param pulumi.Input[builtins.str] enabled_protocol: The protocol used for the share. Possible values are `SMB` and `NFS`. The `SMB` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created.
                
-               ~>**NOTE:** The `FileStorage` `account_kind` of the `storage.Account` is required for the `NFS` protocol.
+               > **Note:** The `FileStorage` `account_kind` of the `storage.Account` is required for the `NFS` protocol.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] metadata: A mapping of MetaData for this File Share.
         :param pulumi.Input[builtins.str] name: The name of the share. Must be unique within the storage account where the share is located. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.int] quota: The maximum size of the share, in gigabytes.
                
-               ~>**NOTE:** For Standard storage accounts, by default this must be `1` GB (or higher) and at most `5120` GB (`5` TB). This can be set to a value larger than `5120` GB if `large_file_share_enabled` is set to `true` in the parent `storage.Account`.
+               > **Note:** For Standard storage accounts, by default this must be `1` GB (or higher) and at most `5120` GB (`5` TB). This can be set to a value larger than `5120` GB if `large_file_share_enabled` is set to `true` in the parent `storage.Account`.
                
-               ~>**NOTE:** For Premium FileStorage storage accounts, this must be greater than `100` GB and at most `102400` GB (`100` TB).
+               > **Note:** For Premium FileStorage storage accounts, this must be greater than `100` GB and at most `102400` GB (`100` TB).
         :param pulumi.Input[builtins.str] resource_manager_id: The Resource Manager ID of this File Share.
         :param pulumi.Input[builtins.str] storage_account_id: Specifies the storage account in which to create the share. Changing this forces a new resource to be created.
                
-               > **NOTE:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
+               > **Note:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
         :param pulumi.Input[builtins.str] storage_account_name: Specifies the storage account in which to create the share. Changing this forces a new resource to be created. This property is deprecated in favour of `storage_account_id`.
                
                > **Note:** Migrating from the deprecated `storage_account_name` to `storage_account_id` is supported without recreation. Any other change to either property will result in the resource being recreated.
@@ -253,7 +253,7 @@ class _ShareState:
         """
         The access tier of the File Share. Possible values are `Hot`, `Cool` and `TransactionOptimized`, `Premium`.
 
-        ~>**NOTE:** The `FileStorage` `account_kind` of the `storage.Account` requires `Premium` `access_tier`.
+        > **Note:** The `FileStorage` `account_kind` of the `storage.Account` requires `Premium` `access_tier`.
         """
         return pulumi.get(self, "access_tier")
 
@@ -279,7 +279,7 @@ class _ShareState:
         """
         The protocol used for the share. Possible values are `SMB` and `NFS`. The `SMB` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created.
 
-        ~>**NOTE:** The `FileStorage` `account_kind` of the `storage.Account` is required for the `NFS` protocol.
+        > **Note:** The `FileStorage` `account_kind` of the `storage.Account` is required for the `NFS` protocol.
         """
         return pulumi.get(self, "enabled_protocol")
 
@@ -317,9 +317,9 @@ class _ShareState:
         """
         The maximum size of the share, in gigabytes.
 
-        ~>**NOTE:** For Standard storage accounts, by default this must be `1` GB (or higher) and at most `5120` GB (`5` TB). This can be set to a value larger than `5120` GB if `large_file_share_enabled` is set to `true` in the parent `storage.Account`.
+        > **Note:** For Standard storage accounts, by default this must be `1` GB (or higher) and at most `5120` GB (`5` TB). This can be set to a value larger than `5120` GB if `large_file_share_enabled` is set to `true` in the parent `storage.Account`.
 
-        ~>**NOTE:** For Premium FileStorage storage accounts, this must be greater than `100` GB and at most `102400` GB (`100` TB).
+        > **Note:** For Premium FileStorage storage accounts, this must be greater than `100` GB and at most `102400` GB (`100` TB).
         """
         return pulumi.get(self, "quota")
 
@@ -346,7 +346,7 @@ class _ShareState:
         """
         Specifies the storage account in which to create the share. Changing this forces a new resource to be created.
 
-        > **NOTE:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
+        > **Note:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
         """
         return pulumi.get(self, "storage_account_id")
 
@@ -400,9 +400,9 @@ class Share(pulumi.CustomResource):
         """
         Manages a File Share within Azure Storage.
 
-        > **Note** The storage share supports two storage tiers: premium and standard. Standard file shares are created in general purpose (GPv1 or GPv2) storage accounts and premium file shares are created in FileStorage storage accounts. For further information, refer to the section "What storage tiers are supported in Azure Files?" of [documentation](https://docs.microsoft.com/azure/storage/files/storage-files-faq#general).
+        > **Note:** The storage share supports two storage tiers: premium and standard. Standard file shares are created in general purpose (GPv1 or GPv2) storage accounts and premium file shares are created in FileStorage storage accounts. For further information, refer to the section "What storage tiers are supported in Azure Files?" of [documentation](https://docs.microsoft.com/azure/storage/files/storage-files-faq#general).
 
-        > **Note on Authentication** Shared Key authentication will always be used for this resource, as AzureAD authentication is not supported by the Storage API for files.
+        > **Note:** Shared Key authentication will always be used for this resource, as AzureAD authentication is not supported by the Storage API for files.
 
         ## Example Usage
 
@@ -432,6 +432,13 @@ class Share(pulumi.CustomResource):
                 }],
             }])
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Storage`: 2023-05-01
 
         ## Import
 
@@ -445,21 +452,21 @@ class Share(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] access_tier: The access tier of the File Share. Possible values are `Hot`, `Cool` and `TransactionOptimized`, `Premium`.
                
-               ~>**NOTE:** The `FileStorage` `account_kind` of the `storage.Account` requires `Premium` `access_tier`.
+               > **Note:** The `FileStorage` `account_kind` of the `storage.Account` requires `Premium` `access_tier`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ShareAclArgs', 'ShareAclArgsDict']]]] acls: One or more `acl` blocks as defined below.
         :param pulumi.Input[builtins.str] enabled_protocol: The protocol used for the share. Possible values are `SMB` and `NFS`. The `SMB` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created.
                
-               ~>**NOTE:** The `FileStorage` `account_kind` of the `storage.Account` is required for the `NFS` protocol.
+               > **Note:** The `FileStorage` `account_kind` of the `storage.Account` is required for the `NFS` protocol.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] metadata: A mapping of MetaData for this File Share.
         :param pulumi.Input[builtins.str] name: The name of the share. Must be unique within the storage account where the share is located. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.int] quota: The maximum size of the share, in gigabytes.
                
-               ~>**NOTE:** For Standard storage accounts, by default this must be `1` GB (or higher) and at most `5120` GB (`5` TB). This can be set to a value larger than `5120` GB if `large_file_share_enabled` is set to `true` in the parent `storage.Account`.
+               > **Note:** For Standard storage accounts, by default this must be `1` GB (or higher) and at most `5120` GB (`5` TB). This can be set to a value larger than `5120` GB if `large_file_share_enabled` is set to `true` in the parent `storage.Account`.
                
-               ~>**NOTE:** For Premium FileStorage storage accounts, this must be greater than `100` GB and at most `102400` GB (`100` TB).
+               > **Note:** For Premium FileStorage storage accounts, this must be greater than `100` GB and at most `102400` GB (`100` TB).
         :param pulumi.Input[builtins.str] storage_account_id: Specifies the storage account in which to create the share. Changing this forces a new resource to be created.
                
-               > **NOTE:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
+               > **Note:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
         :param pulumi.Input[builtins.str] storage_account_name: Specifies the storage account in which to create the share. Changing this forces a new resource to be created. This property is deprecated in favour of `storage_account_id`.
                
                > **Note:** Migrating from the deprecated `storage_account_name` to `storage_account_id` is supported without recreation. Any other change to either property will result in the resource being recreated.
@@ -473,9 +480,9 @@ class Share(pulumi.CustomResource):
         """
         Manages a File Share within Azure Storage.
 
-        > **Note** The storage share supports two storage tiers: premium and standard. Standard file shares are created in general purpose (GPv1 or GPv2) storage accounts and premium file shares are created in FileStorage storage accounts. For further information, refer to the section "What storage tiers are supported in Azure Files?" of [documentation](https://docs.microsoft.com/azure/storage/files/storage-files-faq#general).
+        > **Note:** The storage share supports two storage tiers: premium and standard. Standard file shares are created in general purpose (GPv1 or GPv2) storage accounts and premium file shares are created in FileStorage storage accounts. For further information, refer to the section "What storage tiers are supported in Azure Files?" of [documentation](https://docs.microsoft.com/azure/storage/files/storage-files-faq#general).
 
-        > **Note on Authentication** Shared Key authentication will always be used for this resource, as AzureAD authentication is not supported by the Storage API for files.
+        > **Note:** Shared Key authentication will always be used for this resource, as AzureAD authentication is not supported by the Storage API for files.
 
         ## Example Usage
 
@@ -505,6 +512,13 @@ class Share(pulumi.CustomResource):
                 }],
             }])
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Storage`: 2023-05-01
 
         ## Import
 
@@ -587,22 +601,22 @@ class Share(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] access_tier: The access tier of the File Share. Possible values are `Hot`, `Cool` and `TransactionOptimized`, `Premium`.
                
-               ~>**NOTE:** The `FileStorage` `account_kind` of the `storage.Account` requires `Premium` `access_tier`.
+               > **Note:** The `FileStorage` `account_kind` of the `storage.Account` requires `Premium` `access_tier`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ShareAclArgs', 'ShareAclArgsDict']]]] acls: One or more `acl` blocks as defined below.
         :param pulumi.Input[builtins.str] enabled_protocol: The protocol used for the share. Possible values are `SMB` and `NFS`. The `SMB` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created.
                
-               ~>**NOTE:** The `FileStorage` `account_kind` of the `storage.Account` is required for the `NFS` protocol.
+               > **Note:** The `FileStorage` `account_kind` of the `storage.Account` is required for the `NFS` protocol.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] metadata: A mapping of MetaData for this File Share.
         :param pulumi.Input[builtins.str] name: The name of the share. Must be unique within the storage account where the share is located. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.int] quota: The maximum size of the share, in gigabytes.
                
-               ~>**NOTE:** For Standard storage accounts, by default this must be `1` GB (or higher) and at most `5120` GB (`5` TB). This can be set to a value larger than `5120` GB if `large_file_share_enabled` is set to `true` in the parent `storage.Account`.
+               > **Note:** For Standard storage accounts, by default this must be `1` GB (or higher) and at most `5120` GB (`5` TB). This can be set to a value larger than `5120` GB if `large_file_share_enabled` is set to `true` in the parent `storage.Account`.
                
-               ~>**NOTE:** For Premium FileStorage storage accounts, this must be greater than `100` GB and at most `102400` GB (`100` TB).
+               > **Note:** For Premium FileStorage storage accounts, this must be greater than `100` GB and at most `102400` GB (`100` TB).
         :param pulumi.Input[builtins.str] resource_manager_id: The Resource Manager ID of this File Share.
         :param pulumi.Input[builtins.str] storage_account_id: Specifies the storage account in which to create the share. Changing this forces a new resource to be created.
                
-               > **NOTE:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
+               > **Note:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
         :param pulumi.Input[builtins.str] storage_account_name: Specifies the storage account in which to create the share. Changing this forces a new resource to be created. This property is deprecated in favour of `storage_account_id`.
                
                > **Note:** Migrating from the deprecated `storage_account_name` to `storage_account_id` is supported without recreation. Any other change to either property will result in the resource being recreated.
@@ -630,7 +644,7 @@ class Share(pulumi.CustomResource):
         """
         The access tier of the File Share. Possible values are `Hot`, `Cool` and `TransactionOptimized`, `Premium`.
 
-        ~>**NOTE:** The `FileStorage` `account_kind` of the `storage.Account` requires `Premium` `access_tier`.
+        > **Note:** The `FileStorage` `account_kind` of the `storage.Account` requires `Premium` `access_tier`.
         """
         return pulumi.get(self, "access_tier")
 
@@ -648,7 +662,7 @@ class Share(pulumi.CustomResource):
         """
         The protocol used for the share. Possible values are `SMB` and `NFS`. The `SMB` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created.
 
-        ~>**NOTE:** The `FileStorage` `account_kind` of the `storage.Account` is required for the `NFS` protocol.
+        > **Note:** The `FileStorage` `account_kind` of the `storage.Account` is required for the `NFS` protocol.
         """
         return pulumi.get(self, "enabled_protocol")
 
@@ -674,9 +688,9 @@ class Share(pulumi.CustomResource):
         """
         The maximum size of the share, in gigabytes.
 
-        ~>**NOTE:** For Standard storage accounts, by default this must be `1` GB (or higher) and at most `5120` GB (`5` TB). This can be set to a value larger than `5120` GB if `large_file_share_enabled` is set to `true` in the parent `storage.Account`.
+        > **Note:** For Standard storage accounts, by default this must be `1` GB (or higher) and at most `5120` GB (`5` TB). This can be set to a value larger than `5120` GB if `large_file_share_enabled` is set to `true` in the parent `storage.Account`.
 
-        ~>**NOTE:** For Premium FileStorage storage accounts, this must be greater than `100` GB and at most `102400` GB (`100` TB).
+        > **Note:** For Premium FileStorage storage accounts, this must be greater than `100` GB and at most `102400` GB (`100` TB).
         """
         return pulumi.get(self, "quota")
 
@@ -695,7 +709,7 @@ class Share(pulumi.CustomResource):
         """
         Specifies the storage account in which to create the share. Changing this forces a new resource to be created.
 
-        > **NOTE:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
+        > **Note:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
         """
         return pulumi.get(self, "storage_account_id")
 

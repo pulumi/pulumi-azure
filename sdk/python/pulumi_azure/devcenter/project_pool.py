@@ -360,6 +360,13 @@ class ProjectPool(pulumi.CustomResource):
             stop_on_disconnect_grace_period_minutes=60)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DevCenter`: 2025-02-01
+
         ## Import
 
         An existing Dev Center Project Pool can be imported into Pulumi using the `resource id`, e.g.
@@ -444,6 +451,13 @@ class ProjectPool(pulumi.CustomResource):
             dev_center_attached_network_name=example_attached_network.name,
             stop_on_disconnect_grace_period_minutes=60)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DevCenter`: 2025-02-01
 
         ## Import
 

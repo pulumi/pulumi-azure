@@ -18,7 +18,15 @@ public final class JobIdentity {
      * 
      */
     private @Nullable List<String> identityIds;
+    /**
+     * @return The Principal ID associated with this Managed Service Identity.
+     * 
+     */
     private @Nullable String principalId;
+    /**
+     * @return The Tenant ID associated with this Managed Service Identity.
+     * 
+     */
     private @Nullable String tenantId;
     /**
      * @return The type of identity used for the Container App Job. Possible values are `SystemAssigned`, `UserAssigned` and `None`. Defaults to `None`.
@@ -34,9 +42,17 @@ public final class JobIdentity {
     public List<String> identityIds() {
         return this.identityIds == null ? List.of() : this.identityIds;
     }
+    /**
+     * @return The Principal ID associated with this Managed Service Identity.
+     * 
+     */
     public Optional<String> principalId() {
         return Optional.ofNullable(this.principalId);
     }
+    /**
+     * @return The Tenant ID associated with this Managed Service Identity.
+     * 
+     */
     public Optional<String> tenantId() {
         return Optional.ofNullable(this.tenantId);
     }

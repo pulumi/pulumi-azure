@@ -295,6 +295,13 @@ class Group(pulumi.CustomResource):
             description="This is an example API management group.")
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ApiManagement`: 2022-08-01
+
         ## Import
 
         API Management Groups can be imported using the `resource id`, e.g.
@@ -345,6 +352,13 @@ class Group(pulumi.CustomResource):
             display_name="Example Group",
             description="This is an example API management group.")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ApiManagement`: 2022-08-01
 
         ## Import
 

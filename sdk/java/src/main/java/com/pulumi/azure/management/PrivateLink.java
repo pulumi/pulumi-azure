@@ -60,6 +60,13 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.Authorization`: 2020-05-01
+ * 
  * ## Import
  * 
  * An existing Resource Management Private Link can be imported into Pulumi using the `resource id`, e.g.

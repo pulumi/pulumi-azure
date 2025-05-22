@@ -148,6 +148,13 @@ def get_virtual_hub_connection(name: Optional[builtins.str] = None,
     pulumi.export("virtualHubConnectionId", example.id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Network`: 2024-05-01
+
 
     :param builtins.str name: The name of the Connection which should be retrieved.
     :param builtins.str resource_group_name: The Name of the Resource Group where the Virtual Hub Connection exists.
@@ -187,6 +194,13 @@ def get_virtual_hub_connection_output(name: Optional[pulumi.Input[builtins.str]]
         virtual_hub_name="example-hub-name")
     pulumi.export("virtualHubConnectionId", example.id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Network`: 2024-05-01
 
 
     :param builtins.str name: The name of the Connection which should be retrieved.

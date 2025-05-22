@@ -18,7 +18,7 @@ import javax.annotation.Nullable;
 /**
  * Manages a PostgreSQL Virtual Network Rule.
  * 
- * &gt; **NOTE:** PostgreSQL Virtual Network Rules [can only be used with SKU Tiers of `GeneralPurpose` or `MemoryOptimized`](https://docs.microsoft.com/azure/postgresql/concepts-data-access-and-security-vnet)
+ * &gt; **Note:** PostgreSQL Virtual Network Rules [can only be used with SKU Tiers of `GeneralPurpose` or `MemoryOptimized`](https://docs.microsoft.com/azure/postgresql/concepts-data-access-and-security-vnet)
  * 
  * ## Example Usage
  * 
@@ -100,6 +100,13 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.DBforPostgreSQL`: 2017-12-01
+ * 
  * ## Import
  * 
  * PostgreSQL Virtual Network Rules can be imported using the `resource id`, e.g.
@@ -128,7 +135,7 @@ public class VirtualNetworkRule extends com.pulumi.resources.CustomResource {
     /**
      * The name of the PostgreSQL virtual network rule. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** `name` must be between 1-128 characters long and must satisfy all of the requirements below:
+     * &gt; **Note:** `name` must be between 1-128 characters long and must satisfy all of the requirements below:
      * 
      * 1. Contains only alphanumeric and hyphen characters
      * 2. Cannot start with a number or hyphen
@@ -141,7 +148,7 @@ public class VirtualNetworkRule extends com.pulumi.resources.CustomResource {
     /**
      * @return The name of the PostgreSQL virtual network rule. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** `name` must be between 1-128 characters long and must satisfy all of the requirements below:
+     * &gt; **Note:** `name` must be between 1-128 characters long and must satisfy all of the requirements below:
      * 
      * 1. Contains only alphanumeric and hyphen characters
      * 2. Cannot start with a number or hyphen

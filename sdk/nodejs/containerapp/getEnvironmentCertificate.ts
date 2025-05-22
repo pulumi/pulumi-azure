@@ -22,6 +22,13 @@ import * as utilities from "../utilities";
  *     containerAppEnvironmentId: example.id,
  * }));
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.App`: 2025-01-01
  */
 export function getEnvironmentCertificate(args: GetEnvironmentCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetEnvironmentCertificateResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -98,6 +105,13 @@ export interface GetEnvironmentCertificateResult {
  *     containerAppEnvironmentId: example.id,
  * }));
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.App`: 2025-01-01
  */
 export function getEnvironmentCertificateOutput(args: GetEnvironmentCertificateOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEnvironmentCertificateResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

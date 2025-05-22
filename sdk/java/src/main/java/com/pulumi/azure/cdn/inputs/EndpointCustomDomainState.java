@@ -80,7 +80,7 @@ public final class EndpointCustomDomainState extends com.pulumi.resources.Resour
     /**
      * A `user_managed_https` block as defined below.
      * 
-     * &gt; **NOTE** Only one of `cdn_managed_https` and `user_managed_https` can be specified.
+     * &gt; **Note:** Only one of `cdn_managed_https` and `user_managed_https` can be specified.
      * 
      */
     @Import(name="userManagedHttps")
@@ -89,7 +89,7 @@ public final class EndpointCustomDomainState extends com.pulumi.resources.Resour
     /**
      * @return A `user_managed_https` block as defined below.
      * 
-     * &gt; **NOTE** Only one of `cdn_managed_https` and `user_managed_https` can be specified.
+     * &gt; **Note:** Only one of `cdn_managed_https` and `user_managed_https` can be specified.
      * 
      */
     public Optional<Output<EndpointCustomDomainUserManagedHttpsArgs>> userManagedHttps() {
@@ -211,7 +211,7 @@ public final class EndpointCustomDomainState extends com.pulumi.resources.Resour
         /**
          * @param userManagedHttps A `user_managed_https` block as defined below.
          * 
-         * &gt; **NOTE** Only one of `cdn_managed_https` and `user_managed_https` can be specified.
+         * &gt; **Note:** Only one of `cdn_managed_https` and `user_managed_https` can be specified.
          * 
          * @return builder
          * 
@@ -224,7 +224,7 @@ public final class EndpointCustomDomainState extends com.pulumi.resources.Resour
         /**
          * @param userManagedHttps A `user_managed_https` block as defined below.
          * 
-         * &gt; **NOTE** Only one of `cdn_managed_https` and `user_managed_https` can be specified.
+         * &gt; **Note:** Only one of `cdn_managed_https` and `user_managed_https` can be specified.
          * 
          * @return builder
          * 

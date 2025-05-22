@@ -63,6 +63,13 @@ namespace Pulumi.Azure.ContainerService
     /// 
     /// });
     /// ```
+    /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.ContainerRegistry`: 2019-06-01-preview
     /// </summary>
     [AzureResourceType("azure:containerservice/registryTaskScheduleRunNow:RegistryTaskScheduleRunNow")]
     public partial class RegistryTaskScheduleRunNow : global::Pulumi.CustomResource

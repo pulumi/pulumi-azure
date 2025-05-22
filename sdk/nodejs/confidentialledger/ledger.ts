@@ -33,6 +33,13 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.ConfidentialLedger`: 2022-05-13
+ *
  * ## Import
  *
  * Confidential Ledgers can be imported using the `resource id`, e.g.

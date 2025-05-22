@@ -201,7 +201,7 @@ public final class ElasticsearchState extends com.pulumi.resources.ResourceArgs 
     /**
      * Specifies the name of the SKU for this Elasticsearch. Changing this forces a new Elasticsearch to be created.
      * 
-     * &gt; **NOTE:** The SKU depends on the Elasticsearch Plans available for your account and is a combination of PlanID_Term.
+     * &gt; **Note:** The SKU depends on the Elasticsearch Plans available for your account and is a combination of PlanID_Term.
      * Ex: If the plan ID is &#34;planXYZ&#34; and term is &#34;Yearly&#34;, the SKU will be &#34;planXYZ_Yearly&#34;.
      * You may find your eligible plans [here](https://portal.azure.com/#view/Microsoft_Azure_Marketplace/GalleryItemDetailsBladeNopdl/id/elastic.ec-azure-pp) or in the online documentation [here](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/elastic.ec-azure-pp?tab=PlansAndPrice) for more details or in case of any issues with the SKU.
      * 
@@ -212,7 +212,7 @@ public final class ElasticsearchState extends com.pulumi.resources.ResourceArgs 
     /**
      * @return Specifies the name of the SKU for this Elasticsearch. Changing this forces a new Elasticsearch to be created.
      * 
-     * &gt; **NOTE:** The SKU depends on the Elasticsearch Plans available for your account and is a combination of PlanID_Term.
+     * &gt; **Note:** The SKU depends on the Elasticsearch Plans available for your account and is a combination of PlanID_Term.
      * Ex: If the plan ID is &#34;planXYZ&#34; and term is &#34;Yearly&#34;, the SKU will be &#34;planXYZ_Yearly&#34;.
      * You may find your eligible plans [here](https://portal.azure.com/#view/Microsoft_Azure_Marketplace/GalleryItemDetailsBladeNopdl/id/elastic.ec-azure-pp) or in the online documentation [here](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/elastic.ec-azure-pp?tab=PlansAndPrice) for more details or in case of any issues with the SKU.
      * 
@@ -528,7 +528,7 @@ public final class ElasticsearchState extends com.pulumi.resources.ResourceArgs 
         /**
          * @param skuName Specifies the name of the SKU for this Elasticsearch. Changing this forces a new Elasticsearch to be created.
          * 
-         * &gt; **NOTE:** The SKU depends on the Elasticsearch Plans available for your account and is a combination of PlanID_Term.
+         * &gt; **Note:** The SKU depends on the Elasticsearch Plans available for your account and is a combination of PlanID_Term.
          * Ex: If the plan ID is &#34;planXYZ&#34; and term is &#34;Yearly&#34;, the SKU will be &#34;planXYZ_Yearly&#34;.
          * You may find your eligible plans [here](https://portal.azure.com/#view/Microsoft_Azure_Marketplace/GalleryItemDetailsBladeNopdl/id/elastic.ec-azure-pp) or in the online documentation [here](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/elastic.ec-azure-pp?tab=PlansAndPrice) for more details or in case of any issues with the SKU.
          * 
@@ -543,7 +543,7 @@ public final class ElasticsearchState extends com.pulumi.resources.ResourceArgs 
         /**
          * @param skuName Specifies the name of the SKU for this Elasticsearch. Changing this forces a new Elasticsearch to be created.
          * 
-         * &gt; **NOTE:** The SKU depends on the Elasticsearch Plans available for your account and is a combination of PlanID_Term.
+         * &gt; **Note:** The SKU depends on the Elasticsearch Plans available for your account and is a combination of PlanID_Term.
          * Ex: If the plan ID is &#34;planXYZ&#34; and term is &#34;Yearly&#34;, the SKU will be &#34;planXYZ_Yearly&#34;.
          * You may find your eligible plans [here](https://portal.azure.com/#view/Microsoft_Azure_Marketplace/GalleryItemDetailsBladeNopdl/id/elastic.ec-azure-pp) or in the online documentation [here](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/elastic.ec-azure-pp?tab=PlansAndPrice) for more details or in case of any issues with the SKU.
          * 

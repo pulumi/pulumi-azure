@@ -58,6 +58,13 @@ public final class MaintenanceFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Maintenance`: 2023-04-01
+     * 
      */
     public static Output<GetConfigurationResult> getConfiguration(GetConfigurationArgs args) {
         return getConfiguration(args, InvokeOptions.Empty);
@@ -101,6 +108,13 @@ public final class MaintenanceFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Maintenance`: 2023-04-01
      * 
      */
     public static CompletableFuture<GetConfigurationResult> getConfigurationPlain(GetConfigurationPlainArgs args) {
@@ -146,6 +160,13 @@ public final class MaintenanceFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Maintenance`: 2023-04-01
+     * 
      */
     public static Output<GetConfigurationResult> getConfiguration(GetConfigurationArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:maintenance/getConfiguration:getConfiguration", TypeShape.of(GetConfigurationResult.class), args, Utilities.withVersion(options));
@@ -190,6 +211,13 @@ public final class MaintenanceFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Maintenance`: 2023-04-01
+     * 
      */
     public static Output<GetConfigurationResult> getConfiguration(GetConfigurationArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:maintenance/getConfiguration:getConfiguration", TypeShape.of(GetConfigurationResult.class), args, Utilities.withVersion(options));
@@ -233,6 +261,13 @@ public final class MaintenanceFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Maintenance`: 2023-04-01
      * 
      */
     public static CompletableFuture<GetConfigurationResult> getConfigurationPlain(GetConfigurationPlainArgs args, InvokeOptions options) {
@@ -279,6 +314,13 @@ public final class MaintenanceFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Maintenance`: 2023-04-01
+     * 
      */
     public static Output<GetPublicConfigurationsResult> getPublicConfigurations() {
         return getPublicConfigurations(GetPublicConfigurationsArgs.Empty, InvokeOptions.Empty);
@@ -323,6 +365,13 @@ public final class MaintenanceFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Maintenance`: 2023-04-01
      * 
      */
     public static CompletableFuture<GetPublicConfigurationsResult> getPublicConfigurationsPlain() {
@@ -369,6 +418,13 @@ public final class MaintenanceFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Maintenance`: 2023-04-01
+     * 
      */
     public static Output<GetPublicConfigurationsResult> getPublicConfigurations(GetPublicConfigurationsArgs args) {
         return getPublicConfigurations(args, InvokeOptions.Empty);
@@ -413,6 +469,13 @@ public final class MaintenanceFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Maintenance`: 2023-04-01
      * 
      */
     public static CompletableFuture<GetPublicConfigurationsResult> getPublicConfigurationsPlain(GetPublicConfigurationsPlainArgs args) {
@@ -459,6 +522,13 @@ public final class MaintenanceFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Maintenance`: 2023-04-01
+     * 
      */
     public static Output<GetPublicConfigurationsResult> getPublicConfigurations(GetPublicConfigurationsArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:maintenance/getPublicConfigurations:getPublicConfigurations", TypeShape.of(GetPublicConfigurationsResult.class), args, Utilities.withVersion(options));
@@ -504,6 +574,13 @@ public final class MaintenanceFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Maintenance`: 2023-04-01
+     * 
      */
     public static Output<GetPublicConfigurationsResult> getPublicConfigurations(GetPublicConfigurationsArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:maintenance/getPublicConfigurations:getPublicConfigurations", TypeShape.of(GetPublicConfigurationsResult.class), args, Utilities.withVersion(options));
@@ -548,6 +625,13 @@ public final class MaintenanceFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Maintenance`: 2023-04-01
      * 
      */
     public static CompletableFuture<GetPublicConfigurationsResult> getPublicConfigurationsPlain(GetPublicConfigurationsPlainArgs args, InvokeOptions options) {

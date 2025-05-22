@@ -799,14 +799,22 @@ public final class LinuxVirtualMachineArgs extends com.pulumi.resources.Resource
     /**
      * Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.
      * 
+     * @deprecated
+     * this property has been deprecated due to a breaking change introduced by the Service team, which redefined it as a read-only field within the API
+     * 
      */
+    @Deprecated /* this property has been deprecated due to a breaking change introduced by the Service team, which redefined it as a read-only field within the API */
     @Import(name="vmAgentPlatformUpdatesEnabled")
     private @Nullable Output<Boolean> vmAgentPlatformUpdatesEnabled;
 
     /**
      * @return Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.
      * 
+     * @deprecated
+     * this property has been deprecated due to a breaking change introduced by the Service team, which redefined it as a read-only field within the API
+     * 
      */
+    @Deprecated /* this property has been deprecated due to a breaking change introduced by the Service team, which redefined it as a read-only field within the API */
     public Optional<Output<Boolean>> vmAgentPlatformUpdatesEnabled() {
         return Optional.ofNullable(this.vmAgentPlatformUpdatesEnabled);
     }
@@ -2002,7 +2010,11 @@ public final class LinuxVirtualMachineArgs extends com.pulumi.resources.Resource
          * 
          * @return builder
          * 
+         * @deprecated
+         * this property has been deprecated due to a breaking change introduced by the Service team, which redefined it as a read-only field within the API
+         * 
          */
+        @Deprecated /* this property has been deprecated due to a breaking change introduced by the Service team, which redefined it as a read-only field within the API */
         public Builder vmAgentPlatformUpdatesEnabled(@Nullable Output<Boolean> vmAgentPlatformUpdatesEnabled) {
             $.vmAgentPlatformUpdatesEnabled = vmAgentPlatformUpdatesEnabled;
             return this;
@@ -2013,7 +2025,11 @@ public final class LinuxVirtualMachineArgs extends com.pulumi.resources.Resource
          * 
          * @return builder
          * 
+         * @deprecated
+         * this property has been deprecated due to a breaking change introduced by the Service team, which redefined it as a read-only field within the API
+         * 
          */
+        @Deprecated /* this property has been deprecated due to a breaking change introduced by the Service team, which redefined it as a read-only field within the API */
         public Builder vmAgentPlatformUpdatesEnabled(Boolean vmAgentPlatformUpdatesEnabled) {
             return vmAgentPlatformUpdatesEnabled(Output.of(vmAgentPlatformUpdatesEnabled));
         }

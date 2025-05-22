@@ -158,6 +158,13 @@ def get_network_packet_core_data_plane(mobile_network_packet_core_control_plane_
         mobile_network_packet_core_control_plane_id=example.id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.MobileNetwork`: 2022-11-01
+
 
     :param builtins.str mobile_network_packet_core_control_plane_id: The ID of the Mobile Network Packet Core Data Plane.
     :param builtins.str name: The name of the Mobile Network Packet Core Data Plane.
@@ -195,6 +202,13 @@ def get_network_packet_core_data_plane_output(mobile_network_packet_core_control
     example_get_network_packet_core_data_plane = azure.mobile.get_network_packet_core_data_plane(name="example-mnpcdp",
         mobile_network_packet_core_control_plane_id=example.id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.MobileNetwork`: 2022-11-01
 
 
     :param builtins.str mobile_network_packet_core_control_plane_id: The ID of the Mobile Network Packet Core Data Plane.

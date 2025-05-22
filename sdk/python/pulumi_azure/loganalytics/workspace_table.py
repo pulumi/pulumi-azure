@@ -255,6 +255,13 @@ class WorkspaceTable(pulumi.CustomResource):
             total_retention_in_days=180)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.OperationalInsights`: 2022-10-01
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] name: Specifies the name of a table in a Log Analytics Workspace.
@@ -301,6 +308,13 @@ class WorkspaceTable(pulumi.CustomResource):
             retention_in_days=60,
             total_retention_in_days=180)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.OperationalInsights`: 2022-10-01
 
         :param str resource_name: The name of the resource.
         :param WorkspaceTableArgs args: The arguments to use to populate this resource's properties.

@@ -250,6 +250,13 @@ class AccountEncryption(pulumi.CustomResource):
             encryption_key=example_key.versionless_id)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.NetApp`: 2025-01-01
+
         ## Import
 
         Account Encryption Resources can be imported using the `resource id`, e.g.
@@ -350,6 +357,13 @@ class AccountEncryption(pulumi.CustomResource):
             user_assigned_identity_id=example_user_assigned_identity.id,
             encryption_key=example_key.versionless_id)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.NetApp`: 2025-01-01
 
         ## Import
 

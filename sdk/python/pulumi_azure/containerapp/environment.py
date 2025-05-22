@@ -627,7 +627,7 @@ class Environment(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("example",
-            name="acctest-01",
+            name="example-workspace",
             location=example.location,
             resource_group_name=example.name,
             sku="PerGB2018",
@@ -639,6 +639,15 @@ class Environment(pulumi.CustomResource):
             logs_destination="log-analytics",
             log_analytics_workspace_id=example_analytics_workspace.id)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.App`: 2025-01-01
+
+        * `Microsoft.OperationalInsights`: 2020-08-01
 
         ## Import
 
@@ -695,7 +704,7 @@ class Environment(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("example",
-            name="acctest-01",
+            name="example-workspace",
             location=example.location,
             resource_group_name=example.name,
             sku="PerGB2018",
@@ -707,6 +716,15 @@ class Environment(pulumi.CustomResource):
             logs_destination="log-analytics",
             log_analytics_workspace_id=example_analytics_workspace.id)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.App`: 2025-01-01
+
+        * `Microsoft.OperationalInsights`: 2020-08-01
 
         ## Import
 

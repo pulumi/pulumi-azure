@@ -397,6 +397,13 @@ class OutputTable(pulumi.CustomResource):
             batch_size=100)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.StreamAnalytics`: 2021-10-01-preview
+
         ## Import
 
         Stream Analytics Output to Table can be imported using the `resource id`, e.g.
@@ -458,6 +465,13 @@ class OutputTable(pulumi.CustomResource):
             row_key="bar",
             batch_size=100)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.StreamAnalytics`: 2021-10-01-preview
 
         ## Import
 

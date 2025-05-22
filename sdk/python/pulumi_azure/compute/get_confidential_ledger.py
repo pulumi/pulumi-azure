@@ -164,6 +164,13 @@ def get_confidential_ledger(name: Optional[builtins.str] = None,
     pulumi.export("ledgerEndpoint", current.ledger_endpoint)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.ConfidentialLedger`: 2022-05-13
+
 
     :param builtins.str name: Specifies the name of this Confidential Ledger.
     :param builtins.str resource_group_name: Specifies the name of the Resource Group where this Confidential Ledger exists.
@@ -201,6 +208,13 @@ def get_confidential_ledger_output(name: Optional[pulumi.Input[builtins.str]] = 
         resource_group_name="example-resources")
     pulumi.export("ledgerEndpoint", current.ledger_endpoint)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.ConfidentialLedger`: 2022-05-13
 
 
     :param builtins.str name: Specifies the name of this Confidential Ledger.

@@ -9,6 +9,7 @@ import com.pulumi.azure.nginx.inputs.DeploymentFrontendPublicArgs;
 import com.pulumi.azure.nginx.inputs.DeploymentIdentityArgs;
 import com.pulumi.azure.nginx.inputs.DeploymentLoggingStorageAccountArgs;
 import com.pulumi.azure.nginx.inputs.DeploymentNetworkInterfaceArgs;
+import com.pulumi.azure.nginx.inputs.DeploymentWebApplicationFirewallArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
@@ -58,7 +59,7 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
     /**
      * Specify the number of NGINX capacity units for this NGINX deployment.
      * 
-     * &gt; **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
+     * &gt; **Note:** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
      * 
      */
     @Import(name="capacity")
@@ -67,7 +68,7 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Specify the number of NGINX capacity units for this NGINX deployment.
      * 
-     * &gt; **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
+     * &gt; **Note:** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
      * 
      */
     public Optional<Output<Integer>> capacity() {
@@ -120,14 +121,14 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * One or more `frontend_private` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
+     * One or more `frontend_private` blocks as defined below.
      * 
      */
     @Import(name="frontendPrivates")
     private @Nullable Output<List<DeploymentFrontendPrivateArgs>> frontendPrivates;
 
     /**
-     * @return One or more `frontend_private` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
+     * @return One or more `frontend_private` blocks as defined below.
      * 
      */
     public Optional<Output<List<DeploymentFrontendPrivateArgs>>> frontendPrivates() {
@@ -135,14 +136,14 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `frontend_public` block as defined below. Changing this forces a new NGINX Deployment to be created.
+     * A `frontend_public` block as defined below.
      * 
      */
     @Import(name="frontendPublic")
     private @Nullable Output<DeploymentFrontendPublicArgs> frontendPublic;
 
     /**
-     * @return A `frontend_public` block as defined below. Changing this forces a new NGINX Deployment to be created.
+     * @return A `frontend_public` block as defined below.
      * 
      */
     public Optional<Output<DeploymentFrontendPublicArgs>> frontendPublic() {
@@ -248,14 +249,14 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * One or more `network_interface` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
+     * One or more `network_interface` blocks as defined below.
      * 
      */
     @Import(name="networkInterfaces")
     private @Nullable Output<List<DeploymentNetworkInterfaceArgs>> networkInterfaces;
 
     /**
-     * @return One or more `network_interface` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
+     * @return One or more `network_interface` blocks as defined below.
      * 
      */
     public Optional<Output<List<DeploymentNetworkInterfaceArgs>>> networkInterfaces() {
@@ -314,6 +315,21 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.tags);
     }
 
+    /**
+     * A `web_application_firewall` blocks as defined below.
+     * 
+     */
+    @Import(name="webApplicationFirewall")
+    private @Nullable Output<DeploymentWebApplicationFirewallArgs> webApplicationFirewall;
+
+    /**
+     * @return A `web_application_firewall` blocks as defined below.
+     * 
+     */
+    public Optional<Output<DeploymentWebApplicationFirewallArgs>> webApplicationFirewall() {
+        return Optional.ofNullable(this.webApplicationFirewall);
+    }
+
     private DeploymentState() {}
 
     private DeploymentState(DeploymentState $) {
@@ -336,6 +352,7 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
         this.resourceGroupName = $.resourceGroupName;
         this.sku = $.sku;
         this.tags = $.tags;
+        this.webApplicationFirewall = $.webApplicationFirewall;
     }
 
     public static Builder builder() {
@@ -411,7 +428,7 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param capacity Specify the number of NGINX capacity units for this NGINX deployment.
          * 
-         * &gt; **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
+         * &gt; **Note:** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
          * 
          * @return builder
          * 
@@ -424,7 +441,7 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param capacity Specify the number of NGINX capacity units for this NGINX deployment.
          * 
-         * &gt; **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
+         * &gt; **Note:** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
          * 
          * @return builder
          * 
@@ -497,7 +514,7 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param frontendPrivates One or more `frontend_private` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
+         * @param frontendPrivates One or more `frontend_private` blocks as defined below.
          * 
          * @return builder
          * 
@@ -508,7 +525,7 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param frontendPrivates One or more `frontend_private` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
+         * @param frontendPrivates One or more `frontend_private` blocks as defined below.
          * 
          * @return builder
          * 
@@ -518,7 +535,7 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param frontendPrivates One or more `frontend_private` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
+         * @param frontendPrivates One or more `frontend_private` blocks as defined below.
          * 
          * @return builder
          * 
@@ -528,7 +545,7 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param frontendPublic A `frontend_public` block as defined below. Changing this forces a new NGINX Deployment to be created.
+         * @param frontendPublic A `frontend_public` block as defined below.
          * 
          * @return builder
          * 
@@ -539,7 +556,7 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param frontendPublic A `frontend_public` block as defined below. Changing this forces a new NGINX Deployment to be created.
+         * @param frontendPublic A `frontend_public` block as defined below.
          * 
          * @return builder
          * 
@@ -695,7 +712,7 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkInterfaces One or more `network_interface` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
+         * @param networkInterfaces One or more `network_interface` blocks as defined below.
          * 
          * @return builder
          * 
@@ -706,7 +723,7 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkInterfaces One or more `network_interface` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
+         * @param networkInterfaces One or more `network_interface` blocks as defined below.
          * 
          * @return builder
          * 
@@ -716,7 +733,7 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkInterfaces One or more `network_interface` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
+         * @param networkInterfaces One or more `network_interface` blocks as defined below.
          * 
          * @return builder
          * 
@@ -795,6 +812,27 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
+        }
+
+        /**
+         * @param webApplicationFirewall A `web_application_firewall` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder webApplicationFirewall(@Nullable Output<DeploymentWebApplicationFirewallArgs> webApplicationFirewall) {
+            $.webApplicationFirewall = webApplicationFirewall;
+            return this;
+        }
+
+        /**
+         * @param webApplicationFirewall A `web_application_firewall` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder webApplicationFirewall(DeploymentWebApplicationFirewallArgs webApplicationFirewall) {
+            return webApplicationFirewall(Output.of(webApplicationFirewall));
         }
 
         public DeploymentState build() {

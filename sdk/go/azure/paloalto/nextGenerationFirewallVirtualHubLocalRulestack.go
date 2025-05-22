@@ -12,18 +12,129 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Manages a Palo Alto Next Generation Firewall VHub Local Rulestack.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/network"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/paloalto"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			examplePublicIp, err := network.NewPublicIp(ctx, "example", &network.PublicIpArgs{
+//				Name:              pulumi.String("acceptanceTestPublicIp1"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
+//				AllocationMethod:  pulumi.String("Static"),
+//				Tags: pulumi.StringMap{
+//					"environment": pulumi.String("Production"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVirtualWan, err := network.NewVirtualWan(ctx, "example", &network.VirtualWanArgs{
+//				Name:              pulumi.String("example-virtualwan"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVirtualHub, err := network.NewVirtualHub(ctx, "example", &network.VirtualHubArgs{
+//				Name:              pulumi.String("example-virtualhub"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
+//				VirtualWanId:      exampleVirtualWan.ID(),
+//				AddressPrefix:     pulumi.String("10.0.0.0/23"),
+//				Tags: pulumi.StringMap{
+//					"hubSaaSPreview": pulumi.String("true"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVirtualNetworkAppliance, err := paloalto.NewVirtualNetworkAppliance(ctx, "example", &paloalto.VirtualNetworkApplianceArgs{
+//				Name:         pulumi.String("example-appliance"),
+//				VirtualHubId: exampleVirtualHub.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = paloalto.NewNextGenerationFirewallVirtualHubLocalRulestack(ctx, "example", &paloalto.NextGenerationFirewallVirtualHubLocalRulestackArgs{
+//				Name:              pulumi.String("example-ngfwvn"),
+//				ResourceGroupName: example.Name,
+//				RulestackId:       pulumi.Any(exampleAzurermPaloAltoLocalRulestack.Id),
+//				NetworkProfile: &paloalto.NextGenerationFirewallVirtualHubLocalRulestackNetworkProfileArgs{
+//					PublicIpAddressIds: pulumi.StringArray{
+//						examplePublicIp.ID(),
+//					},
+//					VirtualHubId:              exampleVirtualHub.ID(),
+//					NetworkVirtualApplianceId: exampleVirtualNetworkAppliance.ID(),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `PaloAltoNetworks.Cloudngfw`: 2023-09-01, 2022-08-29
+//
+// ## Import
+//
+// Palo Alto Next Generation Firewall VHub Local Rulestacks can be imported using the `resource id`, e.g.
+//
+// ```sh
+// $ pulumi import azure:paloalto/nextGenerationFirewallVirtualHubLocalRulestack:NextGenerationFirewallVirtualHubLocalRulestack example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/PaloAltoNetworks.Cloudngfw/firewalls/myVhubRulestackFW
+// ```
 type NextGenerationFirewallVirtualHubLocalRulestack struct {
 	pulumi.CustomResourceState
 
-	DestinationNats    NextGenerationFirewallVirtualHubLocalRulestackDestinationNatArrayOutput `pulumi:"destinationNats"`
-	DnsSettings        NextGenerationFirewallVirtualHubLocalRulestackDnsSettingsPtrOutput      `pulumi:"dnsSettings"`
-	MarketplaceOfferId pulumi.StringPtrOutput                                                  `pulumi:"marketplaceOfferId"`
-	Name               pulumi.StringOutput                                                     `pulumi:"name"`
-	NetworkProfile     NextGenerationFirewallVirtualHubLocalRulestackNetworkProfileOutput      `pulumi:"networkProfile"`
-	PlanId             pulumi.StringPtrOutput                                                  `pulumi:"planId"`
-	ResourceGroupName  pulumi.StringOutput                                                     `pulumi:"resourceGroupName"`
-	RulestackId        pulumi.StringOutput                                                     `pulumi:"rulestackId"`
-	Tags               pulumi.StringMapOutput                                                  `pulumi:"tags"`
+	// One or more `destinationNat` blocks as defined below.
+	DestinationNats NextGenerationFirewallVirtualHubLocalRulestackDestinationNatArrayOutput `pulumi:"destinationNats"`
+	// A `dnsSettings` block as defined below.
+	DnsSettings NextGenerationFirewallVirtualHubLocalRulestackDnsSettingsPtrOutput `pulumi:"dnsSettings"`
+	// The marketplace offer ID. Defaults to `panSwfwCloudNgfw`. Changing this forces a new resource to be created.
+	MarketplaceOfferId pulumi.StringPtrOutput `pulumi:"marketplaceOfferId"`
+	// The name which should be used for this Palo Alto Next Generation Firewall VHub Local Rulestack. Changing this forces a new Palo Alto Next Generation Firewall VHub Local Rulestack to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// A `networkProfile` block as defined below.
+	NetworkProfile NextGenerationFirewallVirtualHubLocalRulestackNetworkProfileOutput `pulumi:"networkProfile"`
+	// The billing plan ID as published by Liftr.PAN. Defaults to `panw-cloud-ngfw-payg`.
+	//
+	// > **Note:** The former `planId` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `planId` to `panw-cngfw-payg` when creating new resources.
+	PlanId pulumi.StringPtrOutput `pulumi:"planId"`
+	// The name of the Resource Group where the Palo Alto Next Generation Firewall VHub Local Rulestack should exist. Changing this forces a new Palo Alto Next Generation Firewall VHub Local Rulestack to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+	// The ID of the Local Rulestack to be used for this Next Generation Firewall.
+	RulestackId pulumi.StringOutput `pulumi:"rulestackId"`
+	// A mapping of tags which should be assigned to the Palo Alto Next Generation Firewall VHub Local Rulestack.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewNextGenerationFirewallVirtualHubLocalRulestack registers a new resource with the given unique name, arguments, and options.
@@ -65,27 +176,49 @@ func GetNextGenerationFirewallVirtualHubLocalRulestack(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering NextGenerationFirewallVirtualHubLocalRulestack resources.
 type nextGenerationFirewallVirtualHubLocalRulestackState struct {
-	DestinationNats    []NextGenerationFirewallVirtualHubLocalRulestackDestinationNat `pulumi:"destinationNats"`
-	DnsSettings        *NextGenerationFirewallVirtualHubLocalRulestackDnsSettings     `pulumi:"dnsSettings"`
-	MarketplaceOfferId *string                                                        `pulumi:"marketplaceOfferId"`
-	Name               *string                                                        `pulumi:"name"`
-	NetworkProfile     *NextGenerationFirewallVirtualHubLocalRulestackNetworkProfile  `pulumi:"networkProfile"`
-	PlanId             *string                                                        `pulumi:"planId"`
-	ResourceGroupName  *string                                                        `pulumi:"resourceGroupName"`
-	RulestackId        *string                                                        `pulumi:"rulestackId"`
-	Tags               map[string]string                                              `pulumi:"tags"`
+	// One or more `destinationNat` blocks as defined below.
+	DestinationNats []NextGenerationFirewallVirtualHubLocalRulestackDestinationNat `pulumi:"destinationNats"`
+	// A `dnsSettings` block as defined below.
+	DnsSettings *NextGenerationFirewallVirtualHubLocalRulestackDnsSettings `pulumi:"dnsSettings"`
+	// The marketplace offer ID. Defaults to `panSwfwCloudNgfw`. Changing this forces a new resource to be created.
+	MarketplaceOfferId *string `pulumi:"marketplaceOfferId"`
+	// The name which should be used for this Palo Alto Next Generation Firewall VHub Local Rulestack. Changing this forces a new Palo Alto Next Generation Firewall VHub Local Rulestack to be created.
+	Name *string `pulumi:"name"`
+	// A `networkProfile` block as defined below.
+	NetworkProfile *NextGenerationFirewallVirtualHubLocalRulestackNetworkProfile `pulumi:"networkProfile"`
+	// The billing plan ID as published by Liftr.PAN. Defaults to `panw-cloud-ngfw-payg`.
+	//
+	// > **Note:** The former `planId` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `planId` to `panw-cngfw-payg` when creating new resources.
+	PlanId *string `pulumi:"planId"`
+	// The name of the Resource Group where the Palo Alto Next Generation Firewall VHub Local Rulestack should exist. Changing this forces a new Palo Alto Next Generation Firewall VHub Local Rulestack to be created.
+	ResourceGroupName *string `pulumi:"resourceGroupName"`
+	// The ID of the Local Rulestack to be used for this Next Generation Firewall.
+	RulestackId *string `pulumi:"rulestackId"`
+	// A mapping of tags which should be assigned to the Palo Alto Next Generation Firewall VHub Local Rulestack.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type NextGenerationFirewallVirtualHubLocalRulestackState struct {
-	DestinationNats    NextGenerationFirewallVirtualHubLocalRulestackDestinationNatArrayInput
-	DnsSettings        NextGenerationFirewallVirtualHubLocalRulestackDnsSettingsPtrInput
+	// One or more `destinationNat` blocks as defined below.
+	DestinationNats NextGenerationFirewallVirtualHubLocalRulestackDestinationNatArrayInput
+	// A `dnsSettings` block as defined below.
+	DnsSettings NextGenerationFirewallVirtualHubLocalRulestackDnsSettingsPtrInput
+	// The marketplace offer ID. Defaults to `panSwfwCloudNgfw`. Changing this forces a new resource to be created.
 	MarketplaceOfferId pulumi.StringPtrInput
-	Name               pulumi.StringPtrInput
-	NetworkProfile     NextGenerationFirewallVirtualHubLocalRulestackNetworkProfilePtrInput
-	PlanId             pulumi.StringPtrInput
-	ResourceGroupName  pulumi.StringPtrInput
-	RulestackId        pulumi.StringPtrInput
-	Tags               pulumi.StringMapInput
+	// The name which should be used for this Palo Alto Next Generation Firewall VHub Local Rulestack. Changing this forces a new Palo Alto Next Generation Firewall VHub Local Rulestack to be created.
+	Name pulumi.StringPtrInput
+	// A `networkProfile` block as defined below.
+	NetworkProfile NextGenerationFirewallVirtualHubLocalRulestackNetworkProfilePtrInput
+	// The billing plan ID as published by Liftr.PAN. Defaults to `panw-cloud-ngfw-payg`.
+	//
+	// > **Note:** The former `planId` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `planId` to `panw-cngfw-payg` when creating new resources.
+	PlanId pulumi.StringPtrInput
+	// The name of the Resource Group where the Palo Alto Next Generation Firewall VHub Local Rulestack should exist. Changing this forces a new Palo Alto Next Generation Firewall VHub Local Rulestack to be created.
+	ResourceGroupName pulumi.StringPtrInput
+	// The ID of the Local Rulestack to be used for this Next Generation Firewall.
+	RulestackId pulumi.StringPtrInput
+	// A mapping of tags which should be assigned to the Palo Alto Next Generation Firewall VHub Local Rulestack.
+	Tags pulumi.StringMapInput
 }
 
 func (NextGenerationFirewallVirtualHubLocalRulestackState) ElementType() reflect.Type {
@@ -93,28 +226,50 @@ func (NextGenerationFirewallVirtualHubLocalRulestackState) ElementType() reflect
 }
 
 type nextGenerationFirewallVirtualHubLocalRulestackArgs struct {
-	DestinationNats    []NextGenerationFirewallVirtualHubLocalRulestackDestinationNat `pulumi:"destinationNats"`
-	DnsSettings        *NextGenerationFirewallVirtualHubLocalRulestackDnsSettings     `pulumi:"dnsSettings"`
-	MarketplaceOfferId *string                                                        `pulumi:"marketplaceOfferId"`
-	Name               *string                                                        `pulumi:"name"`
-	NetworkProfile     NextGenerationFirewallVirtualHubLocalRulestackNetworkProfile   `pulumi:"networkProfile"`
-	PlanId             *string                                                        `pulumi:"planId"`
-	ResourceGroupName  string                                                         `pulumi:"resourceGroupName"`
-	RulestackId        string                                                         `pulumi:"rulestackId"`
-	Tags               map[string]string                                              `pulumi:"tags"`
+	// One or more `destinationNat` blocks as defined below.
+	DestinationNats []NextGenerationFirewallVirtualHubLocalRulestackDestinationNat `pulumi:"destinationNats"`
+	// A `dnsSettings` block as defined below.
+	DnsSettings *NextGenerationFirewallVirtualHubLocalRulestackDnsSettings `pulumi:"dnsSettings"`
+	// The marketplace offer ID. Defaults to `panSwfwCloudNgfw`. Changing this forces a new resource to be created.
+	MarketplaceOfferId *string `pulumi:"marketplaceOfferId"`
+	// The name which should be used for this Palo Alto Next Generation Firewall VHub Local Rulestack. Changing this forces a new Palo Alto Next Generation Firewall VHub Local Rulestack to be created.
+	Name *string `pulumi:"name"`
+	// A `networkProfile` block as defined below.
+	NetworkProfile NextGenerationFirewallVirtualHubLocalRulestackNetworkProfile `pulumi:"networkProfile"`
+	// The billing plan ID as published by Liftr.PAN. Defaults to `panw-cloud-ngfw-payg`.
+	//
+	// > **Note:** The former `planId` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `planId` to `panw-cngfw-payg` when creating new resources.
+	PlanId *string `pulumi:"planId"`
+	// The name of the Resource Group where the Palo Alto Next Generation Firewall VHub Local Rulestack should exist. Changing this forces a new Palo Alto Next Generation Firewall VHub Local Rulestack to be created.
+	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The ID of the Local Rulestack to be used for this Next Generation Firewall.
+	RulestackId string `pulumi:"rulestackId"`
+	// A mapping of tags which should be assigned to the Palo Alto Next Generation Firewall VHub Local Rulestack.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a NextGenerationFirewallVirtualHubLocalRulestack resource.
 type NextGenerationFirewallVirtualHubLocalRulestackArgs struct {
-	DestinationNats    NextGenerationFirewallVirtualHubLocalRulestackDestinationNatArrayInput
-	DnsSettings        NextGenerationFirewallVirtualHubLocalRulestackDnsSettingsPtrInput
+	// One or more `destinationNat` blocks as defined below.
+	DestinationNats NextGenerationFirewallVirtualHubLocalRulestackDestinationNatArrayInput
+	// A `dnsSettings` block as defined below.
+	DnsSettings NextGenerationFirewallVirtualHubLocalRulestackDnsSettingsPtrInput
+	// The marketplace offer ID. Defaults to `panSwfwCloudNgfw`. Changing this forces a new resource to be created.
 	MarketplaceOfferId pulumi.StringPtrInput
-	Name               pulumi.StringPtrInput
-	NetworkProfile     NextGenerationFirewallVirtualHubLocalRulestackNetworkProfileInput
-	PlanId             pulumi.StringPtrInput
-	ResourceGroupName  pulumi.StringInput
-	RulestackId        pulumi.StringInput
-	Tags               pulumi.StringMapInput
+	// The name which should be used for this Palo Alto Next Generation Firewall VHub Local Rulestack. Changing this forces a new Palo Alto Next Generation Firewall VHub Local Rulestack to be created.
+	Name pulumi.StringPtrInput
+	// A `networkProfile` block as defined below.
+	NetworkProfile NextGenerationFirewallVirtualHubLocalRulestackNetworkProfileInput
+	// The billing plan ID as published by Liftr.PAN. Defaults to `panw-cloud-ngfw-payg`.
+	//
+	// > **Note:** The former `planId` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `planId` to `panw-cngfw-payg` when creating new resources.
+	PlanId pulumi.StringPtrInput
+	// The name of the Resource Group where the Palo Alto Next Generation Firewall VHub Local Rulestack should exist. Changing this forces a new Palo Alto Next Generation Firewall VHub Local Rulestack to be created.
+	ResourceGroupName pulumi.StringInput
+	// The ID of the Local Rulestack to be used for this Next Generation Firewall.
+	RulestackId pulumi.StringInput
+	// A mapping of tags which should be assigned to the Palo Alto Next Generation Firewall VHub Local Rulestack.
+	Tags pulumi.StringMapInput
 }
 
 func (NextGenerationFirewallVirtualHubLocalRulestackArgs) ElementType() reflect.Type {
@@ -204,48 +359,59 @@ func (o NextGenerationFirewallVirtualHubLocalRulestackOutput) ToNextGenerationFi
 	return o
 }
 
+// One or more `destinationNat` blocks as defined below.
 func (o NextGenerationFirewallVirtualHubLocalRulestackOutput) DestinationNats() NextGenerationFirewallVirtualHubLocalRulestackDestinationNatArrayOutput {
 	return o.ApplyT(func(v *NextGenerationFirewallVirtualHubLocalRulestack) NextGenerationFirewallVirtualHubLocalRulestackDestinationNatArrayOutput {
 		return v.DestinationNats
 	}).(NextGenerationFirewallVirtualHubLocalRulestackDestinationNatArrayOutput)
 }
 
+// A `dnsSettings` block as defined below.
 func (o NextGenerationFirewallVirtualHubLocalRulestackOutput) DnsSettings() NextGenerationFirewallVirtualHubLocalRulestackDnsSettingsPtrOutput {
 	return o.ApplyT(func(v *NextGenerationFirewallVirtualHubLocalRulestack) NextGenerationFirewallVirtualHubLocalRulestackDnsSettingsPtrOutput {
 		return v.DnsSettings
 	}).(NextGenerationFirewallVirtualHubLocalRulestackDnsSettingsPtrOutput)
 }
 
+// The marketplace offer ID. Defaults to `panSwfwCloudNgfw`. Changing this forces a new resource to be created.
 func (o NextGenerationFirewallVirtualHubLocalRulestackOutput) MarketplaceOfferId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NextGenerationFirewallVirtualHubLocalRulestack) pulumi.StringPtrOutput {
 		return v.MarketplaceOfferId
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name which should be used for this Palo Alto Next Generation Firewall VHub Local Rulestack. Changing this forces a new Palo Alto Next Generation Firewall VHub Local Rulestack to be created.
 func (o NextGenerationFirewallVirtualHubLocalRulestackOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *NextGenerationFirewallVirtualHubLocalRulestack) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// A `networkProfile` block as defined below.
 func (o NextGenerationFirewallVirtualHubLocalRulestackOutput) NetworkProfile() NextGenerationFirewallVirtualHubLocalRulestackNetworkProfileOutput {
 	return o.ApplyT(func(v *NextGenerationFirewallVirtualHubLocalRulestack) NextGenerationFirewallVirtualHubLocalRulestackNetworkProfileOutput {
 		return v.NetworkProfile
 	}).(NextGenerationFirewallVirtualHubLocalRulestackNetworkProfileOutput)
 }
 
+// The billing plan ID as published by Liftr.PAN. Defaults to `panw-cloud-ngfw-payg`.
+//
+// > **Note:** The former `planId` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `planId` to `panw-cngfw-payg` when creating new resources.
 func (o NextGenerationFirewallVirtualHubLocalRulestackOutput) PlanId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NextGenerationFirewallVirtualHubLocalRulestack) pulumi.StringPtrOutput { return v.PlanId }).(pulumi.StringPtrOutput)
 }
 
+// The name of the Resource Group where the Palo Alto Next Generation Firewall VHub Local Rulestack should exist. Changing this forces a new Palo Alto Next Generation Firewall VHub Local Rulestack to be created.
 func (o NextGenerationFirewallVirtualHubLocalRulestackOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *NextGenerationFirewallVirtualHubLocalRulestack) pulumi.StringOutput {
 		return v.ResourceGroupName
 	}).(pulumi.StringOutput)
 }
 
+// The ID of the Local Rulestack to be used for this Next Generation Firewall.
 func (o NextGenerationFirewallVirtualHubLocalRulestackOutput) RulestackId() pulumi.StringOutput {
 	return o.ApplyT(func(v *NextGenerationFirewallVirtualHubLocalRulestack) pulumi.StringOutput { return v.RulestackId }).(pulumi.StringOutput)
 }
 
+// A mapping of tags which should be assigned to the Palo Alto Next Generation Firewall VHub Local Rulestack.
 func (o NextGenerationFirewallVirtualHubLocalRulestackOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *NextGenerationFirewallVirtualHubLocalRulestack) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

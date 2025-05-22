@@ -304,9 +304,11 @@ class SpringCloudApplicationInsightsApplicationPerformanceMonitoring(pulumi.Cust
                  spring_cloud_service_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
-        > **NOTE:** This resource is only applicable for Spring Cloud Service enterprise tier
+        > **Note:** This resource is only applicable for Spring Cloud Service enterprise tier
 
         Manages a Spring Cloud Application Performance Monitoring resource for Application Insights.
+
+        !> **Note:** Azure Spring Apps is now deprecated and will be retired on 2028-05-31 - as such the `appplatform.SpringCloudApplicationInsightsApplicationPerformanceMonitoring` resource is deprecated and will be removed in a future major version of the AzureRM Provider. See https://aka.ms/asaretirement for more information.
 
         ## Example Usage
 
@@ -337,6 +339,13 @@ class SpringCloudApplicationInsightsApplicationPerformanceMonitoring(pulumi.Cust
             sampling_percentage=50,
             sampling_requests_per_second=10)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.AppPlatform`: 2024-01-01-preview
 
         ## Import
 
@@ -364,9 +373,11 @@ class SpringCloudApplicationInsightsApplicationPerformanceMonitoring(pulumi.Cust
                  args: SpringCloudApplicationInsightsApplicationPerformanceMonitoringArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        > **NOTE:** This resource is only applicable for Spring Cloud Service enterprise tier
+        > **Note:** This resource is only applicable for Spring Cloud Service enterprise tier
 
         Manages a Spring Cloud Application Performance Monitoring resource for Application Insights.
+
+        !> **Note:** Azure Spring Apps is now deprecated and will be retired on 2028-05-31 - as such the `appplatform.SpringCloudApplicationInsightsApplicationPerformanceMonitoring` resource is deprecated and will be removed in a future major version of the AzureRM Provider. See https://aka.ms/asaretirement for more information.
 
         ## Example Usage
 
@@ -397,6 +408,13 @@ class SpringCloudApplicationInsightsApplicationPerformanceMonitoring(pulumi.Cust
             sampling_percentage=50,
             sampling_requests_per_second=10)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.AppPlatform`: 2024-01-01-preview
 
         ## Import
 

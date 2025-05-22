@@ -16,7 +16,7 @@ import javax.annotation.Nullable;
 /**
  * Manages the subscription&#39;s Security Center Workspace.
  * 
- * &gt; **NOTE:** Owner access permission is required.
+ * &gt; **Note:** Owner access permission is required.
  * 
  * ## Example Usage
  * 

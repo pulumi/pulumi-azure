@@ -40,6 +40,13 @@ import (
 //	}
 //
 // ```
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This data source uses the following Azure API Providers:
+//
+// * `Microsoft.ServiceBus`: 2021-06-01-preview
 func LookupNamespaceAuthorizationRule(ctx *pulumi.Context, args *LookupNamespaceAuthorizationRuleArgs, opts ...pulumi.InvokeOption) (*LookupNamespaceAuthorizationRuleResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupNamespaceAuthorizationRuleResult
@@ -56,9 +63,9 @@ type LookupNamespaceAuthorizationRuleArgs struct {
 	Name string `pulumi:"name"`
 	// Specifies the ID of the ServiceBus Namespace where the Service Bus Namespace Authorization Rule exists.
 	NamespaceId *string `pulumi:"namespaceId"`
-	// Deprecated: `namespaceName` will be removed in favour of the property `namespaceId` in version 4.0 of the AzureRM Provider.
+	// Deprecated: `namespaceName` will be removed in favour of the property `namespaceId` in v5.0 of the AzureRM Provider.
 	NamespaceName *string `pulumi:"namespaceName"`
-	// Deprecated: `resourceGroupName` will be removed in favour of the property `namespaceId` in version 4.0 of the AzureRM Provider.
+	// Deprecated: `resourceGroupName` will be removed in favour of the property `namespaceId` in v5.0 of the AzureRM Provider.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 }
 
@@ -68,7 +75,7 @@ type LookupNamespaceAuthorizationRuleResult struct {
 	Id          string  `pulumi:"id"`
 	Name        string  `pulumi:"name"`
 	NamespaceId *string `pulumi:"namespaceId"`
-	// Deprecated: `namespaceName` will be removed in favour of the property `namespaceId` in version 4.0 of the AzureRM Provider.
+	// Deprecated: `namespaceName` will be removed in favour of the property `namespaceId` in v5.0 of the AzureRM Provider.
 	NamespaceName *string `pulumi:"namespaceName"`
 	// The primary connection string for the authorization rule.
 	PrimaryConnectionString string `pulumi:"primaryConnectionString"`
@@ -76,7 +83,7 @@ type LookupNamespaceAuthorizationRuleResult struct {
 	PrimaryConnectionStringAlias string `pulumi:"primaryConnectionStringAlias"`
 	// The primary access key for the authorization rule.
 	PrimaryKey string `pulumi:"primaryKey"`
-	// Deprecated: `resourceGroupName` will be removed in favour of the property `namespaceId` in version 4.0 of the AzureRM Provider.
+	// Deprecated: `resourceGroupName` will be removed in favour of the property `namespaceId` in v5.0 of the AzureRM Provider.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The secondary connection string for the authorization rule.
 	SecondaryConnectionString string `pulumi:"secondaryConnectionString"`
@@ -101,9 +108,9 @@ type LookupNamespaceAuthorizationRuleOutputArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// Specifies the ID of the ServiceBus Namespace where the Service Bus Namespace Authorization Rule exists.
 	NamespaceId pulumi.StringPtrInput `pulumi:"namespaceId"`
-	// Deprecated: `namespaceName` will be removed in favour of the property `namespaceId` in version 4.0 of the AzureRM Provider.
+	// Deprecated: `namespaceName` will be removed in favour of the property `namespaceId` in v5.0 of the AzureRM Provider.
 	NamespaceName pulumi.StringPtrInput `pulumi:"namespaceName"`
-	// Deprecated: `resourceGroupName` will be removed in favour of the property `namespaceId` in version 4.0 of the AzureRM Provider.
+	// Deprecated: `resourceGroupName` will be removed in favour of the property `namespaceId` in v5.0 of the AzureRM Provider.
 	ResourceGroupName pulumi.StringPtrInput `pulumi:"resourceGroupName"`
 }
 
@@ -139,7 +146,7 @@ func (o LookupNamespaceAuthorizationRuleResultOutput) NamespaceId() pulumi.Strin
 	return o.ApplyT(func(v LookupNamespaceAuthorizationRuleResult) *string { return v.NamespaceId }).(pulumi.StringPtrOutput)
 }
 
-// Deprecated: `namespaceName` will be removed in favour of the property `namespaceId` in version 4.0 of the AzureRM Provider.
+// Deprecated: `namespaceName` will be removed in favour of the property `namespaceId` in v5.0 of the AzureRM Provider.
 func (o LookupNamespaceAuthorizationRuleResultOutput) NamespaceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupNamespaceAuthorizationRuleResult) *string { return v.NamespaceName }).(pulumi.StringPtrOutput)
 }
@@ -159,7 +166,7 @@ func (o LookupNamespaceAuthorizationRuleResultOutput) PrimaryKey() pulumi.String
 	return o.ApplyT(func(v LookupNamespaceAuthorizationRuleResult) string { return v.PrimaryKey }).(pulumi.StringOutput)
 }
 
-// Deprecated: `resourceGroupName` will be removed in favour of the property `namespaceId` in version 4.0 of the AzureRM Provider.
+// Deprecated: `resourceGroupName` will be removed in favour of the property `namespaceId` in v5.0 of the AzureRM Provider.
 func (o LookupNamespaceAuthorizationRuleResultOutput) ResourceGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupNamespaceAuthorizationRuleResult) *string { return v.ResourceGroupName }).(pulumi.StringPtrOutput)
 }

@@ -264,6 +264,13 @@ class BackendAddressPoolAddress(pulumi.CustomResource):
             backend_address_ip_configuration_id=backend_lb__r2["frontendIpConfiguration"][0]["id"])
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network`: 2023-09-01
+
         ## Import
 
         Backend Address Pool Addresses can be imported using the `resource id`, e.g.
@@ -321,6 +328,13 @@ class BackendAddressPoolAddress(pulumi.CustomResource):
             backend_address_pool_id=backend_pool_cr.id,
             backend_address_ip_configuration_id=backend_lb__r2["frontendIpConfiguration"][0]["id"])
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network`: 2023-09-01
 
         ## Import
 

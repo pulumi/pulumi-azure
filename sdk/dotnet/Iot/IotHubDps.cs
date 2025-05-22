@@ -44,6 +44,13 @@ namespace Pulumi.Azure.Iot
     /// });
     /// ```
     /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.Devices`: 2022-02-05
+    /// 
     /// ## Import
     /// 
     /// IoT Device Provisioning Service can be imported using the `resource id`, e.g.
@@ -62,7 +69,7 @@ namespace Pulumi.Azure.Iot
         public Output<string?> AllocationPolicy { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies if the IoT Device Provisioning Service has data residency and disaster recovery enabled. Defaults to `false`. Changing this forces a new resource to be created.
+        /// Specifies if the IoT Device Provisioning Service has data residency enabled, removing the cross geo-pair disaster recovery. Defaults to `false`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("dataResidencyEnabled")]
         public Output<bool?> DataResidencyEnabled { get; private set; } = null!;
@@ -186,7 +193,7 @@ namespace Pulumi.Azure.Iot
         public Input<string>? AllocationPolicy { get; set; }
 
         /// <summary>
-        /// Specifies if the IoT Device Provisioning Service has data residency and disaster recovery enabled. Defaults to `false`. Changing this forces a new resource to be created.
+        /// Specifies if the IoT Device Provisioning Service has data residency enabled, removing the cross geo-pair disaster recovery. Defaults to `false`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("dataResidencyEnabled")]
         public Input<bool>? DataResidencyEnabled { get; set; }
@@ -272,7 +279,7 @@ namespace Pulumi.Azure.Iot
         public Input<string>? AllocationPolicy { get; set; }
 
         /// <summary>
-        /// Specifies if the IoT Device Provisioning Service has data residency and disaster recovery enabled. Defaults to `false`. Changing this forces a new resource to be created.
+        /// Specifies if the IoT Device Provisioning Service has data residency enabled, removing the cross geo-pair disaster recovery. Defaults to `false`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("dataResidencyEnabled")]
         public Input<bool>? DataResidencyEnabled { get; set; }

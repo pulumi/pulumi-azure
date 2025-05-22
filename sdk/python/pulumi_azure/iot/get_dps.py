@@ -154,6 +154,13 @@ def get_dps(name: Optional[builtins.str] = None,
         resource_group_name="iothub_dps_rg")
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Devices`: 2022-02-05
+
 
     :param builtins.str name: Specifies the name of the Iot Device Provisioning Service resource.
     :param builtins.str resource_group_name: The name of the resource group under which the Iot Device Provisioning Service is located in.
@@ -191,6 +198,13 @@ def get_dps_output(name: Optional[pulumi.Input[builtins.str]] = None,
     example = azure.iot.get_dps(name="iot_hub_dps_test",
         resource_group_name="iothub_dps_rg")
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Devices`: 2022-02-05
 
 
     :param builtins.str name: Specifies the name of the Iot Device Provisioning Service resource.

@@ -34,6 +34,13 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.ApiManagement`: 2022-08-01
+ *
  * ## Import
  *
  * API Version Set can be imported using the `resource id`, e.g.
@@ -93,13 +100,13 @@ export class ApiVersionSet extends pulumi.CustomResource {
     /**
      * The name of the Header which should be read from Inbound Requests which defines the API Version.
      *
-     * > **NOTE:** This must be specified when `versioningScheme` is set to `Header`.
+     * > **Note:** This must be specified when `versioningScheme` is set to `Header`.
      */
     public readonly versionHeaderName!: pulumi.Output<string | undefined>;
     /**
      * The name of the Query String which should be read from Inbound Requests which defines the API Version.
      *
-     * > **NOTE:** This must be specified when `versioningScheme` is set to `Query`.
+     * > **Note:** This must be specified when `versioningScheme` is set to `Query`.
      */
     public readonly versionQueryName!: pulumi.Output<string | undefined>;
     /**
@@ -183,13 +190,13 @@ export interface ApiVersionSetState {
     /**
      * The name of the Header which should be read from Inbound Requests which defines the API Version.
      *
-     * > **NOTE:** This must be specified when `versioningScheme` is set to `Header`.
+     * > **Note:** This must be specified when `versioningScheme` is set to `Header`.
      */
     versionHeaderName?: pulumi.Input<string>;
     /**
      * The name of the Query String which should be read from Inbound Requests which defines the API Version.
      *
-     * > **NOTE:** This must be specified when `versioningScheme` is set to `Query`.
+     * > **Note:** This must be specified when `versioningScheme` is set to `Query`.
      */
     versionQueryName?: pulumi.Input<string>;
     /**
@@ -225,13 +232,13 @@ export interface ApiVersionSetArgs {
     /**
      * The name of the Header which should be read from Inbound Requests which defines the API Version.
      *
-     * > **NOTE:** This must be specified when `versioningScheme` is set to `Header`.
+     * > **Note:** This must be specified when `versioningScheme` is set to `Header`.
      */
     versionHeaderName?: pulumi.Input<string>;
     /**
      * The name of the Query String which should be read from Inbound Requests which defines the API Version.
      *
-     * > **NOTE:** This must be specified when `versioningScheme` is set to `Query`.
+     * > **Note:** This must be specified when `versioningScheme` is set to `Query`.
      */
     versionQueryName?: pulumi.Input<string>;
     /**

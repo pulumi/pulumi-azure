@@ -19,7 +19,7 @@ public final class GetAlertRuleTemplateArgs extends com.pulumi.resources.InvokeA
     /**
      * The display name of this Sentinel Alert Rule Template. Either `display_name` or `name` have to be specified.
      * 
-     * &gt; **NOTE** As `display_name` is not unique, errors may occur when there are multiple Sentinel Alert Rule Template with same `display_name`.
+     * &gt; **Note:** As `display_name` is not unique, errors may occur when there are multiple Sentinel Alert Rule Template with same `display_name`.
      * 
      */
     @Import(name="displayName")
@@ -28,7 +28,7 @@ public final class GetAlertRuleTemplateArgs extends com.pulumi.resources.InvokeA
     /**
      * @return The display name of this Sentinel Alert Rule Template. Either `display_name` or `name` have to be specified.
      * 
-     * &gt; **NOTE** As `display_name` is not unique, errors may occur when there are multiple Sentinel Alert Rule Template with same `display_name`.
+     * &gt; **Note:** As `display_name` is not unique, errors may occur when there are multiple Sentinel Alert Rule Template with same `display_name`.
      * 
      */
     public Optional<Output<String>> displayName() {
@@ -94,7 +94,7 @@ public final class GetAlertRuleTemplateArgs extends com.pulumi.resources.InvokeA
         /**
          * @param displayName The display name of this Sentinel Alert Rule Template. Either `display_name` or `name` have to be specified.
          * 
-         * &gt; **NOTE** As `display_name` is not unique, errors may occur when there are multiple Sentinel Alert Rule Template with same `display_name`.
+         * &gt; **Note:** As `display_name` is not unique, errors may occur when there are multiple Sentinel Alert Rule Template with same `display_name`.
          * 
          * @return builder
          * 
@@ -107,7 +107,7 @@ public final class GetAlertRuleTemplateArgs extends com.pulumi.resources.InvokeA
         /**
          * @param displayName The display name of this Sentinel Alert Rule Template. Either `display_name` or `name` have to be specified.
          * 
-         * &gt; **NOTE** As `display_name` is not unique, errors may occur when there are multiple Sentinel Alert Rule Template with same `display_name`.
+         * &gt; **Note:** As `display_name` is not unique, errors may occur when there are multiple Sentinel Alert Rule Template with same `display_name`.
          * 
          * @return builder
          * 

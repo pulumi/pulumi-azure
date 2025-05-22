@@ -17,37 +17,77 @@ public final class CatalogState extends com.pulumi.resources.ResourceArgs {
 
     public static final CatalogState Empty = new CatalogState();
 
+    /**
+     * A `catalog_adogit` block as defined below.
+     * 
+     */
     @Import(name="catalogAdogit")
     private @Nullable Output<CatalogCatalogAdogitArgs> catalogAdogit;
 
+    /**
+     * @return A `catalog_adogit` block as defined below.
+     * 
+     */
     public Optional<Output<CatalogCatalogAdogitArgs>> catalogAdogit() {
         return Optional.ofNullable(this.catalogAdogit);
     }
 
+    /**
+     * A `catalog_github` block as defined below.
+     * 
+     */
     @Import(name="catalogGithub")
     private @Nullable Output<CatalogCatalogGithubArgs> catalogGithub;
 
+    /**
+     * @return A `catalog_github` block as defined below.
+     * 
+     */
     public Optional<Output<CatalogCatalogGithubArgs>> catalogGithub() {
         return Optional.ofNullable(this.catalogGithub);
     }
 
+    /**
+     * Specifies the Dev Center Id within which this Dev Center Catalog should exist. Changing this forces a new Dev Center Catalog to be created.
+     * 
+     */
     @Import(name="devCenterId")
     private @Nullable Output<String> devCenterId;
 
+    /**
+     * @return Specifies the Dev Center Id within which this Dev Center Catalog should exist. Changing this forces a new Dev Center Catalog to be created.
+     * 
+     */
     public Optional<Output<String>> devCenterId() {
         return Optional.ofNullable(this.devCenterId);
     }
 
+    /**
+     * Specifies the name of this Dev Center Catalog. Changing this forces a new Dev Center to be created.
+     * 
+     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
+    /**
+     * @return Specifies the name of this Dev Center Catalog. Changing this forces a new Dev Center to be created.
+     * 
+     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * Specifies the name of the Resource Group within which this Dev Center Catalog should exist. Changing this forces a new Dev Center to be created.
+     * 
+     */
     @Import(name="resourceGroupName")
     private @Nullable Output<String> resourceGroupName;
 
+    /**
+     * @return Specifies the name of the Resource Group within which this Dev Center Catalog should exist. Changing this forces a new Dev Center to be created.
+     * 
+     */
     public Optional<Output<String>> resourceGroupName() {
         return Optional.ofNullable(this.resourceGroupName);
     }
@@ -80,47 +120,107 @@ public final class CatalogState extends com.pulumi.resources.ResourceArgs {
             $ = new CatalogState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param catalogAdogit A `catalog_adogit` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder catalogAdogit(@Nullable Output<CatalogCatalogAdogitArgs> catalogAdogit) {
             $.catalogAdogit = catalogAdogit;
             return this;
         }
 
+        /**
+         * @param catalogAdogit A `catalog_adogit` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder catalogAdogit(CatalogCatalogAdogitArgs catalogAdogit) {
             return catalogAdogit(Output.of(catalogAdogit));
         }
 
+        /**
+         * @param catalogGithub A `catalog_github` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder catalogGithub(@Nullable Output<CatalogCatalogGithubArgs> catalogGithub) {
             $.catalogGithub = catalogGithub;
             return this;
         }
 
+        /**
+         * @param catalogGithub A `catalog_github` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder catalogGithub(CatalogCatalogGithubArgs catalogGithub) {
             return catalogGithub(Output.of(catalogGithub));
         }
 
+        /**
+         * @param devCenterId Specifies the Dev Center Id within which this Dev Center Catalog should exist. Changing this forces a new Dev Center Catalog to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder devCenterId(@Nullable Output<String> devCenterId) {
             $.devCenterId = devCenterId;
             return this;
         }
 
+        /**
+         * @param devCenterId Specifies the Dev Center Id within which this Dev Center Catalog should exist. Changing this forces a new Dev Center Catalog to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder devCenterId(String devCenterId) {
             return devCenterId(Output.of(devCenterId));
         }
 
+        /**
+         * @param name Specifies the name of this Dev Center Catalog. Changing this forces a new Dev Center to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name Specifies the name of this Dev Center Catalog. Changing this forces a new Dev Center to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
+        /**
+         * @param resourceGroupName Specifies the name of the Resource Group within which this Dev Center Catalog should exist. Changing this forces a new Dev Center to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder resourceGroupName(@Nullable Output<String> resourceGroupName) {
             $.resourceGroupName = resourceGroupName;
             return this;
         }
 
+        /**
+         * @param resourceGroupName Specifies the name of the Resource Group within which this Dev Center Catalog should exist. Changing this forces a new Dev Center to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder resourceGroupName(String resourceGroupName) {
             return resourceGroupName(Output.of(resourceGroupName));
         }

@@ -141,6 +141,13 @@ def get_shared_image_gallery(name: Optional[builtins.str] = None,
         resource_group_name="example-resources")
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Compute`: 2022-03-03
+
 
     :param builtins.str name: The name of the Shared Image Gallery.
     :param builtins.str resource_group_name: The name of the Resource Group in which the Shared Image Gallery exists.
@@ -175,6 +182,13 @@ def get_shared_image_gallery_output(name: Optional[pulumi.Input[builtins.str]] =
     example = azure.compute.get_shared_image_gallery(name="my-image-gallery",
         resource_group_name="example-resources")
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Compute`: 2022-03-03
 
 
     :param builtins.str name: The name of the Shared Image Gallery.

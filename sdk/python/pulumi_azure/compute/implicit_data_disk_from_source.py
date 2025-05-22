@@ -31,7 +31,6 @@ class ImplicitDataDiskFromSourceArgs:
         """
         The set of arguments for constructing a ImplicitDataDiskFromSource resource.
         :param pulumi.Input[builtins.str] create_option: Specifies the Create Option of the Data Disk. The only possible value is `Copy`. Changing this forces a new resource to be created.
-        :param pulumi.Input[builtins.int] disk_size_gb: Specifies the size of the Data Disk in gigabytes. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.int] lun: The Logical Unit Number of the Data Disk, which needs to be unique within the Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] source_resource_id: The ID of the source resource which this Data Disk was created from. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] virtual_machine_id: The ID of the Virtual Machine to which the Data Disk should be attached. Changing this forces a new resource to be created.
@@ -66,9 +65,6 @@ class ImplicitDataDiskFromSourceArgs:
     @property
     @pulumi.getter(name="diskSizeGb")
     def disk_size_gb(self) -> pulumi.Input[builtins.int]:
-        """
-        Specifies the size of the Data Disk in gigabytes. Changing this forces a new resource to be created.
-        """
         return pulumi.get(self, "disk_size_gb")
 
     @disk_size_gb.setter
@@ -163,7 +159,6 @@ class _ImplicitDataDiskFromSourceState:
         Input properties used for looking up and filtering ImplicitDataDiskFromSource resources.
         :param pulumi.Input[builtins.str] caching: Specifies the caching requirements for this Data Disk. Possible values are `ReadOnly` and `ReadWrite`.
         :param pulumi.Input[builtins.str] create_option: Specifies the Create Option of the Data Disk. The only possible value is `Copy`. Changing this forces a new resource to be created.
-        :param pulumi.Input[builtins.int] disk_size_gb: Specifies the size of the Data Disk in gigabytes. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.int] lun: The Logical Unit Number of the Data Disk, which needs to be unique within the Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] name: Specifies the name of this Data Disk. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] source_resource_id: The ID of the source resource which this Data Disk was created from. Changing this forces a new resource to be created.
@@ -214,9 +209,6 @@ class _ImplicitDataDiskFromSourceState:
     @property
     @pulumi.getter(name="diskSizeGb")
     def disk_size_gb(self) -> Optional[pulumi.Input[builtins.int]]:
-        """
-        Specifies the size of the Data Disk in gigabytes. Changing this forces a new resource to be created.
-        """
         return pulumi.get(self, "disk_size_gb")
 
     @disk_size_gb.setter
@@ -386,6 +378,13 @@ class ImplicitDataDiskFromSource(pulumi.CustomResource):
             source_resource_id=test["id"])
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Compute`: 2024-03-01, 2023-04-02
+
         ## Import
 
         The implicit Data Disk of the Virtual Machine can be imported using the `resource id`, e.g.
@@ -398,7 +397,6 @@ class ImplicitDataDiskFromSource(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] caching: Specifies the caching requirements for this Data Disk. Possible values are `ReadOnly` and `ReadWrite`.
         :param pulumi.Input[builtins.str] create_option: Specifies the Create Option of the Data Disk. The only possible value is `Copy`. Changing this forces a new resource to be created.
-        :param pulumi.Input[builtins.int] disk_size_gb: Specifies the size of the Data Disk in gigabytes. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.int] lun: The Logical Unit Number of the Data Disk, which needs to be unique within the Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] name: Specifies the name of this Data Disk. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] source_resource_id: The ID of the source resource which this Data Disk was created from. Changing this forces a new resource to be created.
@@ -498,6 +496,13 @@ class ImplicitDataDiskFromSource(pulumi.CustomResource):
             source_resource_id=test["id"])
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Compute`: 2024-03-01, 2023-04-02
+
         ## Import
 
         The implicit Data Disk of the Virtual Machine can be imported using the `resource id`, e.g.
@@ -583,7 +588,6 @@ class ImplicitDataDiskFromSource(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] caching: Specifies the caching requirements for this Data Disk. Possible values are `ReadOnly` and `ReadWrite`.
         :param pulumi.Input[builtins.str] create_option: Specifies the Create Option of the Data Disk. The only possible value is `Copy`. Changing this forces a new resource to be created.
-        :param pulumi.Input[builtins.int] disk_size_gb: Specifies the size of the Data Disk in gigabytes. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.int] lun: The Logical Unit Number of the Data Disk, which needs to be unique within the Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] name: Specifies the name of this Data Disk. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] source_resource_id: The ID of the source resource which this Data Disk was created from. Changing this forces a new resource to be created.
@@ -623,9 +627,6 @@ class ImplicitDataDiskFromSource(pulumi.CustomResource):
     @property
     @pulumi.getter(name="diskSizeGb")
     def disk_size_gb(self) -> pulumi.Output[builtins.int]:
-        """
-        Specifies the size of the Data Disk in gigabytes. Changing this forces a new resource to be created.
-        """
         return pulumi.get(self, "disk_size_gb")
 
     @property

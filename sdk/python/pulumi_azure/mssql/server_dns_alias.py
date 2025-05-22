@@ -145,6 +145,13 @@ class ServerDnsAlias(pulumi.CustomResource):
             mssql_server_id=example_server.id)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Sql`: 2023-08-01-preview
+
         ## Import
 
         MSSQL Server DNS Aliass can be imported using the `resource id`, e.g.
@@ -187,6 +194,13 @@ class ServerDnsAlias(pulumi.CustomResource):
             name="example-dns-alias",
             mssql_server_id=example_server.id)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Sql`: 2023-08-01-preview
 
         ## Import
 

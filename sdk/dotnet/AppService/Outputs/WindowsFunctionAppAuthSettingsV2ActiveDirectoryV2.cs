@@ -20,7 +20,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// <summary>
         /// Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
         /// 
-        /// &gt; **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+        /// &gt; **Note:** This is configured on the Authentication Provider side and is Read Only here.
         /// </summary>
         public readonly ImmutableArray<string> AllowedAudiences;
         /// <summary>
@@ -42,7 +42,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// <summary>
         /// The App Setting name that contains the client secret of the Client.
         /// 
-        /// !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        /// !&gt; **Note:** A setting with this name must exist in `app_settings` to function correctly.
         /// </summary>
         public readonly string? ClientSecretSettingName;
         /// <summary>
@@ -60,7 +60,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// <summary>
         /// The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
         /// 
-        /// &gt; **NOTE:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
+        /// &gt; **Note:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
         /// </summary>
         public readonly string TenantAuthEndpoint;
         /// <summary>

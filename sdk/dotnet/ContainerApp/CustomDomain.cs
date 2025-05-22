@@ -40,6 +40,13 @@ namespace Pulumi.Azure.ContainerApp
     /// });
     /// ```
     /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.App`: 2025-01-01
+    /// 
     /// ## Import
     /// 
     /// A Container App Custom Domain can be imported using the `resource id`, e.g.
@@ -60,7 +67,7 @@ namespace Pulumi.Azure.ContainerApp
         /// <summary>
         /// The ID of the Container App Environment Certificate to use. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** Omit this value if you wish to use an Azure Managed certificate. You must create the relevant DNS verification steps before this process will be successful.
+        /// &gt; **Note:** Omit this value if you wish to use an Azure Managed certificate. You must create the relevant DNS verification steps before this process will be successful.
         /// </summary>
         [Output("containerAppEnvironmentCertificateId")]
         public Output<string?> ContainerAppEnvironmentCertificateId { get; private set; } = null!;
@@ -140,7 +147,7 @@ namespace Pulumi.Azure.ContainerApp
         /// <summary>
         /// The ID of the Container App Environment Certificate to use. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** Omit this value if you wish to use an Azure Managed certificate. You must create the relevant DNS verification steps before this process will be successful.
+        /// &gt; **Note:** Omit this value if you wish to use an Azure Managed certificate. You must create the relevant DNS verification steps before this process will be successful.
         /// </summary>
         [Input("containerAppEnvironmentCertificateId")]
         public Input<string>? ContainerAppEnvironmentCertificateId { get; set; }
@@ -176,7 +183,7 @@ namespace Pulumi.Azure.ContainerApp
         /// <summary>
         /// The ID of the Container App Environment Certificate to use. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** Omit this value if you wish to use an Azure Managed certificate. You must create the relevant DNS verification steps before this process will be successful.
+        /// &gt; **Note:** Omit this value if you wish to use an Azure Managed certificate. You must create the relevant DNS verification steps before this process will be successful.
         /// </summary>
         [Input("containerAppEnvironmentCertificateId")]
         public Input<string>? ContainerAppEnvironmentCertificateId { get; set; }

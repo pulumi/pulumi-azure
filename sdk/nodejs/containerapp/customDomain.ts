@@ -26,6 +26,13 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.App`: 2025-01-01
+ *
  * ## Import
  *
  * A Container App Custom Domain can be imported using the `resource id`, e.g.
@@ -69,7 +76,7 @@ export class CustomDomain extends pulumi.CustomResource {
     /**
      * The ID of the Container App Environment Certificate to use. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** Omit this value if you wish to use an Azure Managed certificate. You must create the relevant DNS verification steps before this process will be successful.
+     * > **Note:** Omit this value if you wish to use an Azure Managed certificate. You must create the relevant DNS verification steps before this process will be successful.
      */
     public readonly containerAppEnvironmentCertificateId!: pulumi.Output<string | undefined>;
     /**
@@ -132,7 +139,7 @@ export interface CustomDomainState {
     /**
      * The ID of the Container App Environment Certificate to use. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** Omit this value if you wish to use an Azure Managed certificate. You must create the relevant DNS verification steps before this process will be successful.
+     * > **Note:** Omit this value if you wish to use an Azure Managed certificate. You must create the relevant DNS verification steps before this process will be successful.
      */
     containerAppEnvironmentCertificateId?: pulumi.Input<string>;
     /**
@@ -162,7 +169,7 @@ export interface CustomDomainArgs {
     /**
      * The ID of the Container App Environment Certificate to use. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** Omit this value if you wish to use an Azure Managed certificate. You must create the relevant DNS verification steps before this process will be successful.
+     * > **Note:** Omit this value if you wish to use an Azure Managed certificate. You must create the relevant DNS verification steps before this process will be successful.
      */
     containerAppEnvironmentCertificateId?: pulumi.Input<string>;
     /**

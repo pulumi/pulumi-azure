@@ -59,6 +59,13 @@ public final class NotificationhubFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.NotificationHubs`: 2023-09-01
+     * 
      */
     public static Output<GetHubResult> getHub(GetHubArgs args) {
         return getHub(args, InvokeOptions.Empty);
@@ -103,6 +110,13 @@ public final class NotificationhubFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.NotificationHubs`: 2023-09-01
      * 
      */
     public static CompletableFuture<GetHubResult> getHubPlain(GetHubPlainArgs args) {
@@ -149,6 +163,13 @@ public final class NotificationhubFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.NotificationHubs`: 2023-09-01
+     * 
      */
     public static Output<GetHubResult> getHub(GetHubArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:notificationhub/getHub:getHub", TypeShape.of(GetHubResult.class), args, Utilities.withVersion(options));
@@ -193,6 +214,13 @@ public final class NotificationhubFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.NotificationHubs`: 2023-09-01
      * 
      */
     public static Output<GetHubResult> getHub(GetHubArgs args, InvokeOutputOptions options) {
@@ -239,6 +267,13 @@ public final class NotificationhubFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.NotificationHubs`: 2023-09-01
+     * 
      */
     public static CompletableFuture<GetHubResult> getHubPlain(GetHubPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:notificationhub/getHub:getHub", TypeShape.of(GetHubResult.class), args, Utilities.withVersion(options));
@@ -282,6 +317,13 @@ public final class NotificationhubFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.NotificationHubs`: 2023-09-01
      * 
      */
     public static Output<GetNamespaceResult> getNamespace(GetNamespaceArgs args) {
@@ -327,6 +369,13 @@ public final class NotificationhubFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.NotificationHubs`: 2023-09-01
+     * 
      */
     public static CompletableFuture<GetNamespaceResult> getNamespacePlain(GetNamespacePlainArgs args) {
         return getNamespacePlain(args, InvokeOptions.Empty);
@@ -370,6 +419,13 @@ public final class NotificationhubFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.NotificationHubs`: 2023-09-01
      * 
      */
     public static Output<GetNamespaceResult> getNamespace(GetNamespaceArgs args, InvokeOptions options) {
@@ -415,6 +471,13 @@ public final class NotificationhubFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.NotificationHubs`: 2023-09-01
+     * 
      */
     public static Output<GetNamespaceResult> getNamespace(GetNamespaceArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:notificationhub/getNamespace:getNamespace", TypeShape.of(GetNamespaceResult.class), args, Utilities.withVersion(options));
@@ -458,6 +521,13 @@ public final class NotificationhubFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.NotificationHubs`: 2023-09-01
      * 
      */
     public static CompletableFuture<GetNamespaceResult> getNamespacePlain(GetNamespacePlainArgs args, InvokeOptions options) {

@@ -29,6 +29,13 @@ import javax.annotation.Nullable;
  * &lt;!--Start PulumiCodeChooser --&gt;
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.StorageCache`: 2023-05-01
+ * 
  * ## Import
  * 
  * Azure Managed Lustre File Systems can be imported using the `resource id`, e.g.
@@ -43,7 +50,7 @@ public class FileSystem extends com.pulumi.resources.CustomResource {
     /**
      * An `encryption_key` block as defined below.
      * 
-     * &gt; **NOTE:** Removing `encryption_key` forces a new resource to be created.
+     * &gt; **Note:** Removing `encryption_key` forces a new resource to be created.
      * 
      */
     @Export(name="encryptionKey", refs={FileSystemEncryptionKey.class}, tree="[0]")
@@ -52,7 +59,7 @@ public class FileSystem extends com.pulumi.resources.CustomResource {
     /**
      * @return An `encryption_key` block as defined below.
      * 
-     * &gt; **NOTE:** Removing `encryption_key` forces a new resource to be created.
+     * &gt; **Note:** Removing `encryption_key` forces a new resource to be created.
      * 
      */
     public Output<Optional<FileSystemEncryptionKey>> encryptionKey() {

@@ -182,6 +182,13 @@ def get_configuration(name: Optional[builtins.str] = None,
     pulumi.export("id", existing_azurerm_maintenance_configuration["id"])
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Maintenance`: 2023-04-01
+
 
     :param builtins.str name: Specifies the name of the Maintenance Configuration.
     :param builtins.str resource_group_name: Specifies the name of the Resource Group where this Maintenance Configuration exists.
@@ -220,6 +227,13 @@ def get_configuration_output(name: Optional[pulumi.Input[builtins.str]] = None,
         resource_group_name="example-resources")
     pulumi.export("id", existing_azurerm_maintenance_configuration["id"])
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Maintenance`: 2023-04-01
 
 
     :param builtins.str name: Specifies the name of the Maintenance Configuration.

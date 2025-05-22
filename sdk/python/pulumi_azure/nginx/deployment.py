@@ -37,7 +37,8 @@ class DeploymentArgs:
                  managed_resource_group: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentNetworkInterfaceArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 web_application_firewall: Optional[pulumi.Input['DeploymentWebApplicationFirewallArgs']] = None):
         """
         The set of arguments for constructing a Deployment resource.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the Resource Group where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
@@ -45,16 +46,17 @@ class DeploymentArgs:
         :param pulumi.Input[builtins.str] automatic_upgrade_channel: Specify the automatic upgrade channel for the NGINX deployment. Defaults to `stable`. The possible values are `stable` and `preview`.
         :param pulumi.Input[builtins.int] capacity: Specify the number of NGINX capacity units for this NGINX deployment.
                
-               > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
+               > **Note:** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
         :param pulumi.Input[builtins.bool] diagnose_support_enabled: Should the metrics be exported to Azure Monitor?
         :param pulumi.Input[builtins.str] email: Specify the preferred support contact email address for receiving alerts and notifications.
-        :param pulumi.Input[Sequence[pulumi.Input['DeploymentFrontendPrivateArgs']]] frontend_privates: One or more `frontend_private` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
-        :param pulumi.Input['DeploymentFrontendPublicArgs'] frontend_public: A `frontend_public` block as defined below. Changing this forces a new NGINX Deployment to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['DeploymentFrontendPrivateArgs']]] frontend_privates: One or more `frontend_private` blocks as defined below.
+        :param pulumi.Input['DeploymentFrontendPublicArgs'] frontend_public: A `frontend_public` block as defined below.
         :param pulumi.Input['DeploymentIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[builtins.str] location: The Azure Region where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
         :param pulumi.Input[builtins.str] name: The name which should be used for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['DeploymentNetworkInterfaceArgs']]] network_interfaces: One or more `network_interface` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['DeploymentNetworkInterfaceArgs']]] network_interfaces: One or more `network_interface` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags which should be assigned to the NGINX Deployment.
+        :param pulumi.Input['DeploymentWebApplicationFirewallArgs'] web_application_firewall: A `web_application_firewall` blocks as defined below.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "sku", sku)
@@ -92,6 +94,8 @@ class DeploymentArgs:
             pulumi.set(__self__, "network_interfaces", network_interfaces)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if web_application_firewall is not None:
+            pulumi.set(__self__, "web_application_firewall", web_application_firewall)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -144,7 +148,7 @@ class DeploymentArgs:
         """
         Specify the number of NGINX capacity units for this NGINX deployment.
 
-        > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
+        > **Note:** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
         """
         return pulumi.get(self, "capacity")
 
@@ -180,7 +184,7 @@ class DeploymentArgs:
     @pulumi.getter(name="frontendPrivates")
     def frontend_privates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentFrontendPrivateArgs']]]]:
         """
-        One or more `frontend_private` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
+        One or more `frontend_private` blocks as defined below.
         """
         return pulumi.get(self, "frontend_privates")
 
@@ -192,7 +196,7 @@ class DeploymentArgs:
     @pulumi.getter(name="frontendPublic")
     def frontend_public(self) -> Optional[pulumi.Input['DeploymentFrontendPublicArgs']]:
         """
-        A `frontend_public` block as defined below. Changing this forces a new NGINX Deployment to be created.
+        A `frontend_public` block as defined below.
         """
         return pulumi.get(self, "frontend_public")
 
@@ -260,7 +264,7 @@ class DeploymentArgs:
     @pulumi.getter(name="networkInterfaces")
     def network_interfaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentNetworkInterfaceArgs']]]]:
         """
-        One or more `network_interface` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
+        One or more `network_interface` blocks as defined below.
         """
         return pulumi.get(self, "network_interfaces")
 
@@ -279,6 +283,18 @@ class DeploymentArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="webApplicationFirewall")
+    def web_application_firewall(self) -> Optional[pulumi.Input['DeploymentWebApplicationFirewallArgs']]:
+        """
+        A `web_application_firewall` blocks as defined below.
+        """
+        return pulumi.get(self, "web_application_firewall")
+
+    @web_application_firewall.setter
+    def web_application_firewall(self, value: Optional[pulumi.Input['DeploymentWebApplicationFirewallArgs']]):
+        pulumi.set(self, "web_application_firewall", value)
 
 
 @pulumi.input_type
@@ -302,27 +318,29 @@ class _DeploymentState:
                  nginx_version: Optional[pulumi.Input[builtins.str]] = None,
                  resource_group_name: Optional[pulumi.Input[builtins.str]] = None,
                  sku: Optional[pulumi.Input[builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 web_application_firewall: Optional[pulumi.Input['DeploymentWebApplicationFirewallArgs']] = None):
         """
         Input properties used for looking up and filtering Deployment resources.
         :param pulumi.Input[Sequence[pulumi.Input['DeploymentAutoScaleProfileArgs']]] auto_scale_profiles: An `auto_scale_profile` block as defined below.
         :param pulumi.Input[builtins.str] automatic_upgrade_channel: Specify the automatic upgrade channel for the NGINX deployment. Defaults to `stable`. The possible values are `stable` and `preview`.
         :param pulumi.Input[builtins.int] capacity: Specify the number of NGINX capacity units for this NGINX deployment.
                
-               > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
+               > **Note:** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
         :param pulumi.Input[builtins.str] dataplane_api_endpoint: The dataplane API endpoint of the NGINX Deployment.
         :param pulumi.Input[builtins.bool] diagnose_support_enabled: Should the metrics be exported to Azure Monitor?
         :param pulumi.Input[builtins.str] email: Specify the preferred support contact email address for receiving alerts and notifications.
-        :param pulumi.Input[Sequence[pulumi.Input['DeploymentFrontendPrivateArgs']]] frontend_privates: One or more `frontend_private` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
-        :param pulumi.Input['DeploymentFrontendPublicArgs'] frontend_public: A `frontend_public` block as defined below. Changing this forces a new NGINX Deployment to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['DeploymentFrontendPrivateArgs']]] frontend_privates: One or more `frontend_private` blocks as defined below.
+        :param pulumi.Input['DeploymentFrontendPublicArgs'] frontend_public: A `frontend_public` block as defined below.
         :param pulumi.Input['DeploymentIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[builtins.str] ip_address: The IP address of the NGINX Deployment.
         :param pulumi.Input[builtins.str] location: The Azure Region where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
         :param pulumi.Input[builtins.str] name: The name which should be used for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['DeploymentNetworkInterfaceArgs']]] network_interfaces: One or more `network_interface` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['DeploymentNetworkInterfaceArgs']]] network_interfaces: One or more `network_interface` blocks as defined below.
         :param pulumi.Input[builtins.str] nginx_version: The version of the NGINX Deployment.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the Resource Group where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags which should be assigned to the NGINX Deployment.
+        :param pulumi.Input['DeploymentWebApplicationFirewallArgs'] web_application_firewall: A `web_application_firewall` blocks as defined below.
         """
         if auto_scale_profiles is not None:
             pulumi.set(__self__, "auto_scale_profiles", auto_scale_profiles)
@@ -368,6 +386,8 @@ class _DeploymentState:
             pulumi.set(__self__, "sku", sku)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if web_application_firewall is not None:
+            pulumi.set(__self__, "web_application_firewall", web_application_firewall)
 
     @property
     @pulumi.getter(name="autoScaleProfiles")
@@ -399,7 +419,7 @@ class _DeploymentState:
         """
         Specify the number of NGINX capacity units for this NGINX deployment.
 
-        > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
+        > **Note:** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
         """
         return pulumi.get(self, "capacity")
 
@@ -447,7 +467,7 @@ class _DeploymentState:
     @pulumi.getter(name="frontendPrivates")
     def frontend_privates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentFrontendPrivateArgs']]]]:
         """
-        One or more `frontend_private` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
+        One or more `frontend_private` blocks as defined below.
         """
         return pulumi.get(self, "frontend_privates")
 
@@ -459,7 +479,7 @@ class _DeploymentState:
     @pulumi.getter(name="frontendPublic")
     def frontend_public(self) -> Optional[pulumi.Input['DeploymentFrontendPublicArgs']]:
         """
-        A `frontend_public` block as defined below. Changing this forces a new NGINX Deployment to be created.
+        A `frontend_public` block as defined below.
         """
         return pulumi.get(self, "frontend_public")
 
@@ -539,7 +559,7 @@ class _DeploymentState:
     @pulumi.getter(name="networkInterfaces")
     def network_interfaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentNetworkInterfaceArgs']]]]:
         """
-        One or more `network_interface` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
+        One or more `network_interface` blocks as defined below.
         """
         return pulumi.get(self, "network_interfaces")
 
@@ -592,6 +612,18 @@ class _DeploymentState:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="webApplicationFirewall")
+    def web_application_firewall(self) -> Optional[pulumi.Input['DeploymentWebApplicationFirewallArgs']]:
+        """
+        A `web_application_firewall` blocks as defined below.
+        """
+        return pulumi.get(self, "web_application_firewall")
+
+    @web_application_firewall.setter
+    def web_application_firewall(self, value: Optional[pulumi.Input['DeploymentWebApplicationFirewallArgs']]):
+        pulumi.set(self, "web_application_firewall", value)
+
 
 @pulumi.type_token("azure:nginx/deployment:Deployment")
 class Deployment(pulumi.CustomResource):
@@ -615,6 +647,7 @@ class Deployment(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[builtins.str]] = None,
                  sku: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 web_application_firewall: Optional[pulumi.Input[Union['DeploymentWebApplicationFirewallArgs', 'DeploymentWebApplicationFirewallArgsDict']]] = None,
                  __props__=None):
         """
         Manages an NGINX Deployment.
@@ -671,6 +704,13 @@ class Deployment(pulumi.CustomResource):
             email="user@test.com")
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Nginx.NginxPlus`: 2024-11-01-preview
+
         ## Import
 
         NGINX Deployments can be imported using the `resource id`, e.g.
@@ -685,17 +725,18 @@ class Deployment(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] automatic_upgrade_channel: Specify the automatic upgrade channel for the NGINX deployment. Defaults to `stable`. The possible values are `stable` and `preview`.
         :param pulumi.Input[builtins.int] capacity: Specify the number of NGINX capacity units for this NGINX deployment.
                
-               > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
+               > **Note:** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
         :param pulumi.Input[builtins.bool] diagnose_support_enabled: Should the metrics be exported to Azure Monitor?
         :param pulumi.Input[builtins.str] email: Specify the preferred support contact email address for receiving alerts and notifications.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DeploymentFrontendPrivateArgs', 'DeploymentFrontendPrivateArgsDict']]]] frontend_privates: One or more `frontend_private` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
-        :param pulumi.Input[Union['DeploymentFrontendPublicArgs', 'DeploymentFrontendPublicArgsDict']] frontend_public: A `frontend_public` block as defined below. Changing this forces a new NGINX Deployment to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DeploymentFrontendPrivateArgs', 'DeploymentFrontendPrivateArgsDict']]]] frontend_privates: One or more `frontend_private` blocks as defined below.
+        :param pulumi.Input[Union['DeploymentFrontendPublicArgs', 'DeploymentFrontendPublicArgsDict']] frontend_public: A `frontend_public` block as defined below.
         :param pulumi.Input[Union['DeploymentIdentityArgs', 'DeploymentIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[builtins.str] location: The Azure Region where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
         :param pulumi.Input[builtins.str] name: The name which should be used for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DeploymentNetworkInterfaceArgs', 'DeploymentNetworkInterfaceArgsDict']]]] network_interfaces: One or more `network_interface` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DeploymentNetworkInterfaceArgs', 'DeploymentNetworkInterfaceArgsDict']]]] network_interfaces: One or more `network_interface` blocks as defined below.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the Resource Group where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags which should be assigned to the NGINX Deployment.
+        :param pulumi.Input[Union['DeploymentWebApplicationFirewallArgs', 'DeploymentWebApplicationFirewallArgsDict']] web_application_firewall: A `web_application_firewall` blocks as defined below.
         """
         ...
     @overload
@@ -758,6 +799,13 @@ class Deployment(pulumi.CustomResource):
             email="user@test.com")
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Nginx.NginxPlus`: 2024-11-01-preview
+
         ## Import
 
         NGINX Deployments can be imported using the `resource id`, e.g.
@@ -797,6 +845,7 @@ class Deployment(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[builtins.str]] = None,
                  sku: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 web_application_firewall: Optional[pulumi.Input[Union['DeploymentWebApplicationFirewallArgs', 'DeploymentWebApplicationFirewallArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -826,6 +875,7 @@ class Deployment(pulumi.CustomResource):
                 raise TypeError("Missing required property 'sku'")
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["web_application_firewall"] = web_application_firewall
             __props__.__dict__["dataplane_api_endpoint"] = None
             __props__.__dict__["ip_address"] = None
             __props__.__dict__["nginx_version"] = None
@@ -857,7 +907,8 @@ class Deployment(pulumi.CustomResource):
             nginx_version: Optional[pulumi.Input[builtins.str]] = None,
             resource_group_name: Optional[pulumi.Input[builtins.str]] = None,
             sku: Optional[pulumi.Input[builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None) -> 'Deployment':
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+            web_application_firewall: Optional[pulumi.Input[Union['DeploymentWebApplicationFirewallArgs', 'DeploymentWebApplicationFirewallArgsDict']]] = None) -> 'Deployment':
         """
         Get an existing Deployment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -869,20 +920,21 @@ class Deployment(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] automatic_upgrade_channel: Specify the automatic upgrade channel for the NGINX deployment. Defaults to `stable`. The possible values are `stable` and `preview`.
         :param pulumi.Input[builtins.int] capacity: Specify the number of NGINX capacity units for this NGINX deployment.
                
-               > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
+               > **Note:** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
         :param pulumi.Input[builtins.str] dataplane_api_endpoint: The dataplane API endpoint of the NGINX Deployment.
         :param pulumi.Input[builtins.bool] diagnose_support_enabled: Should the metrics be exported to Azure Monitor?
         :param pulumi.Input[builtins.str] email: Specify the preferred support contact email address for receiving alerts and notifications.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DeploymentFrontendPrivateArgs', 'DeploymentFrontendPrivateArgsDict']]]] frontend_privates: One or more `frontend_private` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
-        :param pulumi.Input[Union['DeploymentFrontendPublicArgs', 'DeploymentFrontendPublicArgsDict']] frontend_public: A `frontend_public` block as defined below. Changing this forces a new NGINX Deployment to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DeploymentFrontendPrivateArgs', 'DeploymentFrontendPrivateArgsDict']]]] frontend_privates: One or more `frontend_private` blocks as defined below.
+        :param pulumi.Input[Union['DeploymentFrontendPublicArgs', 'DeploymentFrontendPublicArgsDict']] frontend_public: A `frontend_public` block as defined below.
         :param pulumi.Input[Union['DeploymentIdentityArgs', 'DeploymentIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[builtins.str] ip_address: The IP address of the NGINX Deployment.
         :param pulumi.Input[builtins.str] location: The Azure Region where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
         :param pulumi.Input[builtins.str] name: The name which should be used for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DeploymentNetworkInterfaceArgs', 'DeploymentNetworkInterfaceArgsDict']]]] network_interfaces: One or more `network_interface` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DeploymentNetworkInterfaceArgs', 'DeploymentNetworkInterfaceArgsDict']]]] network_interfaces: One or more `network_interface` blocks as defined below.
         :param pulumi.Input[builtins.str] nginx_version: The version of the NGINX Deployment.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the Resource Group where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags which should be assigned to the NGINX Deployment.
+        :param pulumi.Input[Union['DeploymentWebApplicationFirewallArgs', 'DeploymentWebApplicationFirewallArgsDict']] web_application_firewall: A `web_application_firewall` blocks as defined below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -907,6 +959,7 @@ class Deployment(pulumi.CustomResource):
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["sku"] = sku
         __props__.__dict__["tags"] = tags
+        __props__.__dict__["web_application_firewall"] = web_application_firewall
         return Deployment(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -931,7 +984,7 @@ class Deployment(pulumi.CustomResource):
         """
         Specify the number of NGINX capacity units for this NGINX deployment.
 
-        > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
+        > **Note:** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
         """
         return pulumi.get(self, "capacity")
 
@@ -963,7 +1016,7 @@ class Deployment(pulumi.CustomResource):
     @pulumi.getter(name="frontendPrivates")
     def frontend_privates(self) -> pulumi.Output[Optional[Sequence['outputs.DeploymentFrontendPrivate']]]:
         """
-        One or more `frontend_private` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
+        One or more `frontend_private` blocks as defined below.
         """
         return pulumi.get(self, "frontend_privates")
 
@@ -971,7 +1024,7 @@ class Deployment(pulumi.CustomResource):
     @pulumi.getter(name="frontendPublic")
     def frontend_public(self) -> pulumi.Output[Optional['outputs.DeploymentFrontendPublic']]:
         """
-        A `frontend_public` block as defined below. Changing this forces a new NGINX Deployment to be created.
+        A `frontend_public` block as defined below.
         """
         return pulumi.get(self, "frontend_public")
 
@@ -1023,7 +1076,7 @@ class Deployment(pulumi.CustomResource):
     @pulumi.getter(name="networkInterfaces")
     def network_interfaces(self) -> pulumi.Output[Optional[Sequence['outputs.DeploymentNetworkInterface']]]:
         """
-        One or more `network_interface` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
+        One or more `network_interface` blocks as defined below.
         """
         return pulumi.get(self, "network_interfaces")
 
@@ -1055,4 +1108,12 @@ class Deployment(pulumi.CustomResource):
         A mapping of tags which should be assigned to the NGINX Deployment.
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="webApplicationFirewall")
+    def web_application_firewall(self) -> pulumi.Output[Optional['outputs.DeploymentWebApplicationFirewall']]:
+        """
+        A `web_application_firewall` blocks as defined below.
+        """
+        return pulumi.get(self, "web_application_firewall")
 

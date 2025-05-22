@@ -17,7 +17,7 @@ public final class ActionGroupWebhookReceiver {
     /**
      * @return The `aad_auth` block as defined below.
      * 
-     * &gt; **NOTE:** Before adding a secure webhook receiver by setting `aad_auth`, please read [the configuration instruction of the AAD application](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups#secure-webhook).
+     * &gt; **Note:** Before adding a secure webhook receiver by setting `aad_auth`, please read [the configuration instruction of the AAD application](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups#secure-webhook).
      * 
      */
     private @Nullable ActionGroupWebhookReceiverAadAuth aadAuth;
@@ -41,7 +41,7 @@ public final class ActionGroupWebhookReceiver {
     /**
      * @return The `aad_auth` block as defined below.
      * 
-     * &gt; **NOTE:** Before adding a secure webhook receiver by setting `aad_auth`, please read [the configuration instruction of the AAD application](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups#secure-webhook).
+     * &gt; **Note:** Before adding a secure webhook receiver by setting `aad_auth`, please read [the configuration instruction of the AAD application](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups#secure-webhook).
      * 
      */
     public Optional<ActionGroupWebhookReceiverAadAuth> aadAuth() {

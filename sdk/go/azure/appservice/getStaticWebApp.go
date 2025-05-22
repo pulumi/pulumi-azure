@@ -39,6 +39,13 @@ import (
 //	}
 //
 // ```
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This data source uses the following Azure API Providers:
+//
+// * `Microsoft.Web`: 2023-01-01
 func LookupStaticWebApp(ctx *pulumi.Context, args *LookupStaticWebAppArgs, opts ...pulumi.InvokeOption) (*LookupStaticWebAppResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupStaticWebAppResult

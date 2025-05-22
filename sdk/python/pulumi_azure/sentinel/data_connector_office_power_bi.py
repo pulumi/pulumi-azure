@@ -29,7 +29,7 @@ class DataConnectorOfficePowerBiArgs:
         :param pulumi.Input[builtins.str] name: The name which should be used for this Office Power BI Data Connector. Changing this forces a new Office Power BI Data Connector to be created.
         :param pulumi.Input[builtins.str] tenant_id: The ID of the tenant that this Office Power BI Data Connector connects to. Changing this forces a new Office Power BI Data Connector to be created.
                
-               > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
+               > **Note:** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
         """
         pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
         if name is not None:
@@ -67,7 +67,7 @@ class DataConnectorOfficePowerBiArgs:
         """
         The ID of the tenant that this Office Power BI Data Connector connects to. Changing this forces a new Office Power BI Data Connector to be created.
 
-        > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
+        > **Note:** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
         """
         return pulumi.get(self, "tenant_id")
 
@@ -88,7 +88,7 @@ class _DataConnectorOfficePowerBiState:
         :param pulumi.Input[builtins.str] name: The name which should be used for this Office Power BI Data Connector. Changing this forces a new Office Power BI Data Connector to be created.
         :param pulumi.Input[builtins.str] tenant_id: The ID of the tenant that this Office Power BI Data Connector connects to. Changing this forces a new Office Power BI Data Connector to be created.
                
-               > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
+               > **Note:** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
         """
         if log_analytics_workspace_id is not None:
             pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
@@ -127,7 +127,7 @@ class _DataConnectorOfficePowerBiState:
         """
         The ID of the tenant that this Office Power BI Data Connector connects to. Changing this forces a new Office Power BI Data Connector to be created.
 
-        > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
+        > **Note:** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
         """
         return pulumi.get(self, "tenant_id")
 
@@ -183,7 +183,7 @@ class DataConnectorOfficePowerBi(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: The name which should be used for this Office Power BI Data Connector. Changing this forces a new Office Power BI Data Connector to be created.
         :param pulumi.Input[builtins.str] tenant_id: The ID of the tenant that this Office Power BI Data Connector connects to. Changing this forces a new Office Power BI Data Connector to be created.
                
-               > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
+               > **Note:** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
         """
         ...
     @overload
@@ -278,7 +278,7 @@ class DataConnectorOfficePowerBi(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: The name which should be used for this Office Power BI Data Connector. Changing this forces a new Office Power BI Data Connector to be created.
         :param pulumi.Input[builtins.str] tenant_id: The ID of the tenant that this Office Power BI Data Connector connects to. Changing this forces a new Office Power BI Data Connector to be created.
                
-               > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
+               > **Note:** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -311,7 +311,7 @@ class DataConnectorOfficePowerBi(pulumi.CustomResource):
         """
         The ID of the tenant that this Office Power BI Data Connector connects to. Changing this forces a new Office Power BI Data Connector to be created.
 
-        > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
+        > **Note:** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
         """
         return pulumi.get(self, "tenant_id")
 

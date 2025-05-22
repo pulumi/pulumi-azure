@@ -118,7 +118,7 @@ import (
 //
 // ## Example CNAME Record Usage
 //
-// !>**IMPORTANT:** You **must** include the `dependsOn` meta-argument which references both the `cdn.FrontdoorRoute` and the `cdn.FrontdoorSecurityPolicy` that are associated with your Custom Domain. The reason for these `dependsOn` meta-arguments is because all of the resources for the Custom Domain need to be associated within Front Door before the CNAME record can be written to the domains DNS, else the CNAME validation will fail and Front Door will not enable traffic to the Domain.
+// !> **Note:** You **must** include the `dependsOn` meta-argument which references both the `cdn.FrontdoorRoute` and the `cdn.FrontdoorSecurityPolicy` that are associated with your Custom Domain. The reason for these `dependsOn` meta-arguments is because all of the resources for the Custom Domain need to be associated within Front Door before the CNAME record can be written to the domains DNS, else the CNAME validation will fail and Front Door will not enable traffic to the Domain.
 //
 // ```go
 // package main
@@ -167,7 +167,7 @@ type FrontdoorCustomDomain struct {
 	//
 	// <!-- * `preValidatedCdnFrontdoorCustomDomainId` - (Optional) The resource ID of the pre-validated Front Door Custom Domain. This domain type is used when you wish to onboard a validated Azure service domain, and then configure the Azure service behind an Azure Front Door.
 	//
-	// ->**Note:** Currently `preValidatedCdnFrontdoorCustomDomainId` only supports domains validated by Static Web App. -->
+	// > **Note:** Currently `preValidatedCdnFrontdoorCustomDomainId` only supports domains validated by Static Web App. -->
 	DnsZoneId pulumi.StringPtrOutput `pulumi:"dnsZoneId"`
 	// The date time that the token expires.
 	ExpirationDate pulumi.StringOutput `pulumi:"expirationDate"`
@@ -232,7 +232,7 @@ type frontdoorCustomDomainState struct {
 	//
 	// <!-- * `preValidatedCdnFrontdoorCustomDomainId` - (Optional) The resource ID of the pre-validated Front Door Custom Domain. This domain type is used when you wish to onboard a validated Azure service domain, and then configure the Azure service behind an Azure Front Door.
 	//
-	// ->**Note:** Currently `preValidatedCdnFrontdoorCustomDomainId` only supports domains validated by Static Web App. -->
+	// > **Note:** Currently `preValidatedCdnFrontdoorCustomDomainId` only supports domains validated by Static Web App. -->
 	DnsZoneId *string `pulumi:"dnsZoneId"`
 	// The date time that the token expires.
 	ExpirationDate *string `pulumi:"expirationDate"`
@@ -253,7 +253,7 @@ type FrontdoorCustomDomainState struct {
 	//
 	// <!-- * `preValidatedCdnFrontdoorCustomDomainId` - (Optional) The resource ID of the pre-validated Front Door Custom Domain. This domain type is used when you wish to onboard a validated Azure service domain, and then configure the Azure service behind an Azure Front Door.
 	//
-	// ->**Note:** Currently `preValidatedCdnFrontdoorCustomDomainId` only supports domains validated by Static Web App. -->
+	// > **Note:** Currently `preValidatedCdnFrontdoorCustomDomainId` only supports domains validated by Static Web App. -->
 	DnsZoneId pulumi.StringPtrInput
 	// The date time that the token expires.
 	ExpirationDate pulumi.StringPtrInput
@@ -278,7 +278,7 @@ type frontdoorCustomDomainArgs struct {
 	//
 	// <!-- * `preValidatedCdnFrontdoorCustomDomainId` - (Optional) The resource ID of the pre-validated Front Door Custom Domain. This domain type is used when you wish to onboard a validated Azure service domain, and then configure the Azure service behind an Azure Front Door.
 	//
-	// ->**Note:** Currently `preValidatedCdnFrontdoorCustomDomainId` only supports domains validated by Static Web App. -->
+	// > **Note:** Currently `preValidatedCdnFrontdoorCustomDomainId` only supports domains validated by Static Web App. -->
 	DnsZoneId *string `pulumi:"dnsZoneId"`
 	// The host name of the domain. The `hostName` field must be the FQDN of your domain(e.g. `contoso.fabrikam.com`). Changing this forces a new Front Door Custom Domain to be created.
 	HostName string `pulumi:"hostName"`
@@ -296,7 +296,7 @@ type FrontdoorCustomDomainArgs struct {
 	//
 	// <!-- * `preValidatedCdnFrontdoorCustomDomainId` - (Optional) The resource ID of the pre-validated Front Door Custom Domain. This domain type is used when you wish to onboard a validated Azure service domain, and then configure the Azure service behind an Azure Front Door.
 	//
-	// ->**Note:** Currently `preValidatedCdnFrontdoorCustomDomainId` only supports domains validated by Static Web App. -->
+	// > **Note:** Currently `preValidatedCdnFrontdoorCustomDomainId` only supports domains validated by Static Web App. -->
 	DnsZoneId pulumi.StringPtrInput
 	// The host name of the domain. The `hostName` field must be the FQDN of your domain(e.g. `contoso.fabrikam.com`). Changing this forces a new Front Door Custom Domain to be created.
 	HostName pulumi.StringInput
@@ -402,7 +402,7 @@ func (o FrontdoorCustomDomainOutput) CdnFrontdoorProfileId() pulumi.StringOutput
 //
 // <!-- * `preValidatedCdnFrontdoorCustomDomainId` - (Optional) The resource ID of the pre-validated Front Door Custom Domain. This domain type is used when you wish to onboard a validated Azure service domain, and then configure the Azure service behind an Azure Front Door.
 //
-// ->**Note:** Currently `preValidatedCdnFrontdoorCustomDomainId` only supports domains validated by Static Web App. -->
+// > **Note:** Currently `preValidatedCdnFrontdoorCustomDomainId` only supports domains validated by Static Web App. -->
 func (o FrontdoorCustomDomainOutput) DnsZoneId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FrontdoorCustomDomain) pulumi.StringPtrOutput { return v.DnsZoneId }).(pulumi.StringPtrOutput)
 }

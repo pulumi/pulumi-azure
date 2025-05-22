@@ -37,10 +37,10 @@ class ProviderArgs:
         :param pulumi.Input[builtins.str] open_enclave_policy_base64: Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
         :param pulumi.Input[builtins.str] policy_signing_certificate_data: A valid X.509 certificate (Section 4 of [RFC4648](https://tools.ietf.org/html/rfc4648)). Changing this forces a new resource to be created.
                
-               > **NOTE:** If the `policy_signing_certificate_data` argument contains more than one valid X.509 certificate only the first certificate will be used.
+               > **Note:** If the `policy_signing_certificate_data` argument contains more than one valid X.509 certificate only the first certificate will be used.
         :param pulumi.Input[builtins.str] sev_snp_policy_base64: Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
                
-               > [More information on the JWT Policies can be found in this article on `learn.microsoft.com`](https://learn.microsoft.com/azure/attestation/author-sign-policy).
+               > **Note:** [More information on the JWT Policies can be found in this article on `learn.microsoft.com`](https://learn.microsoft.com/azure/attestation/author-sign-policy).
         :param pulumi.Input[builtins.str] sgx_enclave_policy_base64: Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags which should be assigned to the Attestation Provider.
         :param pulumi.Input[builtins.str] tpm_policy_base64: Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
@@ -117,7 +117,7 @@ class ProviderArgs:
         """
         A valid X.509 certificate (Section 4 of [RFC4648](https://tools.ietf.org/html/rfc4648)). Changing this forces a new resource to be created.
 
-        > **NOTE:** If the `policy_signing_certificate_data` argument contains more than one valid X.509 certificate only the first certificate will be used.
+        > **Note:** If the `policy_signing_certificate_data` argument contains more than one valid X.509 certificate only the first certificate will be used.
         """
         return pulumi.get(self, "policy_signing_certificate_data")
 
@@ -131,7 +131,7 @@ class ProviderArgs:
         """
         Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
 
-        > [More information on the JWT Policies can be found in this article on `learn.microsoft.com`](https://learn.microsoft.com/azure/attestation/author-sign-policy).
+        > **Note:** [More information on the JWT Policies can be found in this article on `learn.microsoft.com`](https://learn.microsoft.com/azure/attestation/author-sign-policy).
         """
         return pulumi.get(self, "sev_snp_policy_base64")
 
@@ -198,11 +198,11 @@ class _ProviderState:
         :param pulumi.Input[builtins.str] open_enclave_policy_base64: Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
         :param pulumi.Input[builtins.str] policy_signing_certificate_data: A valid X.509 certificate (Section 4 of [RFC4648](https://tools.ietf.org/html/rfc4648)). Changing this forces a new resource to be created.
                
-               > **NOTE:** If the `policy_signing_certificate_data` argument contains more than one valid X.509 certificate only the first certificate will be used.
+               > **Note:** If the `policy_signing_certificate_data` argument contains more than one valid X.509 certificate only the first certificate will be used.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the Resource Group where the attestation provider should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] sev_snp_policy_base64: Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
                
-               > [More information on the JWT Policies can be found in this article on `learn.microsoft.com`](https://learn.microsoft.com/azure/attestation/author-sign-policy).
+               > **Note:** [More information on the JWT Policies can be found in this article on `learn.microsoft.com`](https://learn.microsoft.com/azure/attestation/author-sign-policy).
         :param pulumi.Input[builtins.str] sgx_enclave_policy_base64: Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags which should be assigned to the Attestation Provider.
         :param pulumi.Input[builtins.str] tpm_policy_base64: Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
@@ -285,7 +285,7 @@ class _ProviderState:
         """
         A valid X.509 certificate (Section 4 of [RFC4648](https://tools.ietf.org/html/rfc4648)). Changing this forces a new resource to be created.
 
-        > **NOTE:** If the `policy_signing_certificate_data` argument contains more than one valid X.509 certificate only the first certificate will be used.
+        > **Note:** If the `policy_signing_certificate_data` argument contains more than one valid X.509 certificate only the first certificate will be used.
         """
         return pulumi.get(self, "policy_signing_certificate_data")
 
@@ -311,7 +311,7 @@ class _ProviderState:
         """
         Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
 
-        > [More information on the JWT Policies can be found in this article on `learn.microsoft.com`](https://learn.microsoft.com/azure/attestation/author-sign-policy).
+        > **Note:** [More information on the JWT Policies can be found in this article on `learn.microsoft.com`](https://learn.microsoft.com/azure/attestation/author-sign-policy).
         """
         return pulumi.get(self, "sev_snp_policy_base64")
 
@@ -404,6 +404,13 @@ class Provider(pulumi.CustomResource):
             policy_signing_certificate_data=std.file(input="./example/cert.pem").result)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Attestation`: 2020-10-01
+
         ## Import
 
         Attestation Providers can be imported using the `resource id`, e.g.
@@ -419,11 +426,11 @@ class Provider(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] open_enclave_policy_base64: Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
         :param pulumi.Input[builtins.str] policy_signing_certificate_data: A valid X.509 certificate (Section 4 of [RFC4648](https://tools.ietf.org/html/rfc4648)). Changing this forces a new resource to be created.
                
-               > **NOTE:** If the `policy_signing_certificate_data` argument contains more than one valid X.509 certificate only the first certificate will be used.
+               > **Note:** If the `policy_signing_certificate_data` argument contains more than one valid X.509 certificate only the first certificate will be used.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the Resource Group where the attestation provider should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] sev_snp_policy_base64: Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
                
-               > [More information on the JWT Policies can be found in this article on `learn.microsoft.com`](https://learn.microsoft.com/azure/attestation/author-sign-policy).
+               > **Note:** [More information on the JWT Policies can be found in this article on `learn.microsoft.com`](https://learn.microsoft.com/azure/attestation/author-sign-policy).
         :param pulumi.Input[builtins.str] sgx_enclave_policy_base64: Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags which should be assigned to the Attestation Provider.
         :param pulumi.Input[builtins.str] tpm_policy_base64: Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
@@ -453,6 +460,13 @@ class Provider(pulumi.CustomResource):
             location=example.location,
             policy_signing_certificate_data=std.file(input="./example/cert.pem").result)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Attestation`: 2020-10-01
 
         ## Import
 
@@ -542,11 +556,11 @@ class Provider(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] open_enclave_policy_base64: Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
         :param pulumi.Input[builtins.str] policy_signing_certificate_data: A valid X.509 certificate (Section 4 of [RFC4648](https://tools.ietf.org/html/rfc4648)). Changing this forces a new resource to be created.
                
-               > **NOTE:** If the `policy_signing_certificate_data` argument contains more than one valid X.509 certificate only the first certificate will be used.
+               > **Note:** If the `policy_signing_certificate_data` argument contains more than one valid X.509 certificate only the first certificate will be used.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the Resource Group where the attestation provider should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] sev_snp_policy_base64: Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
                
-               > [More information on the JWT Policies can be found in this article on `learn.microsoft.com`](https://learn.microsoft.com/azure/attestation/author-sign-policy).
+               > **Note:** [More information on the JWT Policies can be found in this article on `learn.microsoft.com`](https://learn.microsoft.com/azure/attestation/author-sign-policy).
         :param pulumi.Input[builtins.str] sgx_enclave_policy_base64: Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags which should be assigned to the Attestation Provider.
         :param pulumi.Input[builtins.str] tpm_policy_base64: Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
@@ -607,7 +621,7 @@ class Provider(pulumi.CustomResource):
         """
         A valid X.509 certificate (Section 4 of [RFC4648](https://tools.ietf.org/html/rfc4648)). Changing this forces a new resource to be created.
 
-        > **NOTE:** If the `policy_signing_certificate_data` argument contains more than one valid X.509 certificate only the first certificate will be used.
+        > **Note:** If the `policy_signing_certificate_data` argument contains more than one valid X.509 certificate only the first certificate will be used.
         """
         return pulumi.get(self, "policy_signing_certificate_data")
 
@@ -625,7 +639,7 @@ class Provider(pulumi.CustomResource):
         """
         Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
 
-        > [More information on the JWT Policies can be found in this article on `learn.microsoft.com`](https://learn.microsoft.com/azure/attestation/author-sign-policy).
+        > **Note:** [More information on the JWT Policies can be found in this article on `learn.microsoft.com`](https://learn.microsoft.com/azure/attestation/author-sign-policy).
         """
         return pulumi.get(self, "sev_snp_policy_base64")
 

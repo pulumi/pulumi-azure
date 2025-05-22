@@ -164,6 +164,8 @@ __all__ = [
     'OrchestratedVirtualMachineScaleSetPlanArgsDict',
     'OrchestratedVirtualMachineScaleSetPriorityMixArgs',
     'OrchestratedVirtualMachineScaleSetPriorityMixArgsDict',
+    'OrchestratedVirtualMachineScaleSetRollingUpgradePolicyArgs',
+    'OrchestratedVirtualMachineScaleSetRollingUpgradePolicyArgsDict',
     'OrchestratedVirtualMachineScaleSetSkuProfileArgs',
     'OrchestratedVirtualMachineScaleSetSkuProfileArgsDict',
     'OrchestratedVirtualMachineScaleSetSourceImageReferenceArgs',
@@ -503,7 +505,7 @@ if not MYPY:
         """
         A list of User Assigned Managed Identity IDs to be assigned to this Disk Encryption Set.
 
-        > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+        > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         """
         principal_id: NotRequired[pulumi.Input[builtins.str]]
         """
@@ -527,7 +529,7 @@ class DiskEncryptionSetIdentityArgs:
         :param pulumi.Input[builtins.str] type: The type of Managed Service Identity that is configured on this Disk Encryption Set. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] identity_ids: A list of User Assigned Managed Identity IDs to be assigned to this Disk Encryption Set.
                
-               > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+               > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         :param pulumi.Input[builtins.str] principal_id: The (Client) ID of the Service Principal.
         :param pulumi.Input[builtins.str] tenant_id: The ID of the Tenant the Service Principal is assigned in.
         """
@@ -557,7 +559,7 @@ class DiskEncryptionSetIdentityArgs:
         """
         A list of User Assigned Managed Identity IDs to be assigned to this Disk Encryption Set.
 
-        > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+        > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         """
         return pulumi.get(self, "identity_ids")
 
@@ -2049,15 +2051,15 @@ if not MYPY:
         """
         The repair action that will be used for repairing unhealthy virtual machines in the scale set. Possible values include `Replace`, `Restart`, `Reimage`.
 
-        > **Note:**  Once the `action` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
+        > **Note:** Once the `action` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
 
-        > **Note:**  If you wish to update the repair `action` of an existing `automatic_instance_repair` policy, you must first `disable` the `automatic_instance_repair` policy before you can re-enable the `automatic_instance_repair` policy with the new repair `action` defined.
+        > **Note:** If you wish to update the repair `action` of an existing `automatic_instance_repair` policy, you must first `disable` the `automatic_instance_repair` policy before you can re-enable the `automatic_instance_repair` policy with the new repair `action` defined.
         """
         grace_period: NotRequired[pulumi.Input[builtins.str]]
         """
         Amount of time for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. Possible values are between `10` and `90` minutes. The time duration should be specified in `ISO 8601` format (e.g. `PT10M` to `PT90M`).
 
-        > **Note:**  Once the `grace_period` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
+        > **Note:** Once the `grace_period` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
         """
 elif False:
     LinuxVirtualMachineScaleSetAutomaticInstanceRepairArgsDict: TypeAlias = Mapping[str, Any]
@@ -2072,12 +2074,12 @@ class LinuxVirtualMachineScaleSetAutomaticInstanceRepairArgs:
         :param pulumi.Input[builtins.bool] enabled: Should the automatic instance repair be enabled on this Virtual Machine Scale Set?
         :param pulumi.Input[builtins.str] action: The repair action that will be used for repairing unhealthy virtual machines in the scale set. Possible values include `Replace`, `Restart`, `Reimage`.
                
-               > **Note:**  Once the `action` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
+               > **Note:** Once the `action` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
                
-               > **Note:**  If you wish to update the repair `action` of an existing `automatic_instance_repair` policy, you must first `disable` the `automatic_instance_repair` policy before you can re-enable the `automatic_instance_repair` policy with the new repair `action` defined.
+               > **Note:** If you wish to update the repair `action` of an existing `automatic_instance_repair` policy, you must first `disable` the `automatic_instance_repair` policy before you can re-enable the `automatic_instance_repair` policy with the new repair `action` defined.
         :param pulumi.Input[builtins.str] grace_period: Amount of time for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. Possible values are between `10` and `90` minutes. The time duration should be specified in `ISO 8601` format (e.g. `PT10M` to `PT90M`).
                
-               > **Note:**  Once the `grace_period` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
+               > **Note:** Once the `grace_period` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
         """
         pulumi.set(__self__, "enabled", enabled)
         if action is not None:
@@ -2103,9 +2105,9 @@ class LinuxVirtualMachineScaleSetAutomaticInstanceRepairArgs:
         """
         The repair action that will be used for repairing unhealthy virtual machines in the scale set. Possible values include `Replace`, `Restart`, `Reimage`.
 
-        > **Note:**  Once the `action` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
+        > **Note:** Once the `action` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
 
-        > **Note:**  If you wish to update the repair `action` of an existing `automatic_instance_repair` policy, you must first `disable` the `automatic_instance_repair` policy before you can re-enable the `automatic_instance_repair` policy with the new repair `action` defined.
+        > **Note:** If you wish to update the repair `action` of an existing `automatic_instance_repair` policy, you must first `disable` the `automatic_instance_repair` policy before you can re-enable the `automatic_instance_repair` policy with the new repair `action` defined.
         """
         return pulumi.get(self, "action")
 
@@ -2119,7 +2121,7 @@ class LinuxVirtualMachineScaleSetAutomaticInstanceRepairArgs:
         """
         Amount of time for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. Possible values are between `10` and `90` minutes. The time duration should be specified in `ISO 8601` format (e.g. `PT10M` to `PT90M`).
 
-        > **Note:**  Once the `grace_period` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
+        > **Note:** Once the `grace_period` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
         """
         return pulumi.get(self, "grace_period")
 
@@ -3106,7 +3108,7 @@ if not MYPY:
         """
         A list of Backend Address Pools ID's from a Load Balancer which this Virtual Machine Scale Set should be connected to.
 
-        > **Note:**  When the Virtual Machine Scale Set is configured to have public IPs per instance are created with a load balancer, the SKU of the Virtual Machine instance IPs is determined by the SKU of the Virtual Machine Scale Sets Load Balancer (e.g. `Basic` or `Standard`). Alternatively, you may use the `public_ip_prefix_id` field to generate instance-level IPs in a virtual machine scale set as well. The zonal properties of the prefix will be passed to the Virtual Machine instance IPs, though they will not be shown in the output. To view the public IP addresses assigned to the Virtual Machine Scale Sets Virtual Machine instances use the **az vmss list-instance-public-ips --resource-group `ResourceGroupName` --name `VirtualMachineScaleSetName`** CLI command.
+        > **Note:** When the Virtual Machine Scale Set is configured to have public IPs per instance are created with a load balancer, the SKU of the Virtual Machine instance IPs is determined by the SKU of the Virtual Machine Scale Sets Load Balancer (e.g. `Basic` or `Standard`). Alternatively, you may use the `public_ip_prefix_id` field to generate instance-level IPs in a virtual machine scale set as well. The zonal properties of the prefix will be passed to the Virtual Machine instance IPs, though they will not be shown in the output. To view the public IP addresses assigned to the Virtual Machine Scale Sets Virtual Machine instances use the **az vmss list-instance-public-ips --resource-group `ResourceGroupName` --name `VirtualMachineScaleSetName`** CLI command.
 
         > **Note:** When using this field you'll also need to configure a Rule for the Load Balancer, and use a `depends_on` between this resource and the Load Balancer Rule.
         """
@@ -3130,7 +3132,7 @@ if not MYPY:
         """
         The ID of the Subnet which this IP Configuration should be connected to.
 
-        > `subnet_id` is required if `version` is set to `IPv4`.
+        > **Note:** `subnet_id` is required if `version` is set to `IPv4`.
         """
         version: NotRequired[pulumi.Input[builtins.str]]
         """
@@ -3157,7 +3159,7 @@ class LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] application_security_group_ids: A list of Application Security Group ID's which this Virtual Machine Scale Set should be connected to.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] load_balancer_backend_address_pool_ids: A list of Backend Address Pools ID's from a Load Balancer which this Virtual Machine Scale Set should be connected to.
                
-               > **Note:**  When the Virtual Machine Scale Set is configured to have public IPs per instance are created with a load balancer, the SKU of the Virtual Machine instance IPs is determined by the SKU of the Virtual Machine Scale Sets Load Balancer (e.g. `Basic` or `Standard`). Alternatively, you may use the `public_ip_prefix_id` field to generate instance-level IPs in a virtual machine scale set as well. The zonal properties of the prefix will be passed to the Virtual Machine instance IPs, though they will not be shown in the output. To view the public IP addresses assigned to the Virtual Machine Scale Sets Virtual Machine instances use the **az vmss list-instance-public-ips --resource-group `ResourceGroupName` --name `VirtualMachineScaleSetName`** CLI command.
+               > **Note:** When the Virtual Machine Scale Set is configured to have public IPs per instance are created with a load balancer, the SKU of the Virtual Machine instance IPs is determined by the SKU of the Virtual Machine Scale Sets Load Balancer (e.g. `Basic` or `Standard`). Alternatively, you may use the `public_ip_prefix_id` field to generate instance-level IPs in a virtual machine scale set as well. The zonal properties of the prefix will be passed to the Virtual Machine instance IPs, though they will not be shown in the output. To view the public IP addresses assigned to the Virtual Machine Scale Sets Virtual Machine instances use the **az vmss list-instance-public-ips --resource-group `ResourceGroupName` --name `VirtualMachineScaleSetName`** CLI command.
                
                > **Note:** When using this field you'll also need to configure a Rule for the Load Balancer, and use a `depends_on` between this resource and the Load Balancer Rule.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] load_balancer_inbound_nat_rules_ids: A list of NAT Rule ID's from a Load Balancer which this Virtual Machine Scale Set should be connected to.
@@ -3169,7 +3171,7 @@ class LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs:
         :param pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs']]] public_ip_addresses: A `public_ip_address` block as defined below.
         :param pulumi.Input[builtins.str] subnet_id: The ID of the Subnet which this IP Configuration should be connected to.
                
-               > `subnet_id` is required if `version` is set to `IPv4`.
+               > **Note:** `subnet_id` is required if `version` is set to `IPv4`.
         :param pulumi.Input[builtins.str] version: The Internet Protocol Version which should be used for this IP Configuration. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
         """
         pulumi.set(__self__, "name", name)
@@ -3232,7 +3234,7 @@ class LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs:
         """
         A list of Backend Address Pools ID's from a Load Balancer which this Virtual Machine Scale Set should be connected to.
 
-        > **Note:**  When the Virtual Machine Scale Set is configured to have public IPs per instance are created with a load balancer, the SKU of the Virtual Machine instance IPs is determined by the SKU of the Virtual Machine Scale Sets Load Balancer (e.g. `Basic` or `Standard`). Alternatively, you may use the `public_ip_prefix_id` field to generate instance-level IPs in a virtual machine scale set as well. The zonal properties of the prefix will be passed to the Virtual Machine instance IPs, though they will not be shown in the output. To view the public IP addresses assigned to the Virtual Machine Scale Sets Virtual Machine instances use the **az vmss list-instance-public-ips --resource-group `ResourceGroupName` --name `VirtualMachineScaleSetName`** CLI command.
+        > **Note:** When the Virtual Machine Scale Set is configured to have public IPs per instance are created with a load balancer, the SKU of the Virtual Machine instance IPs is determined by the SKU of the Virtual Machine Scale Sets Load Balancer (e.g. `Basic` or `Standard`). Alternatively, you may use the `public_ip_prefix_id` field to generate instance-level IPs in a virtual machine scale set as well. The zonal properties of the prefix will be passed to the Virtual Machine instance IPs, though they will not be shown in the output. To view the public IP addresses assigned to the Virtual Machine Scale Sets Virtual Machine instances use the **az vmss list-instance-public-ips --resource-group `ResourceGroupName` --name `VirtualMachineScaleSetName`** CLI command.
 
         > **Note:** When using this field you'll also need to configure a Rule for the Load Balancer, and use a `depends_on` between this resource and the Load Balancer Rule.
         """
@@ -3288,7 +3290,7 @@ class LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs:
         """
         The ID of the Subnet which this IP Configuration should be connected to.
 
-        > `subnet_id` is required if `version` is set to `IPv4`.
+        > **Note:** `subnet_id` is required if `version` is set to `IPv4`.
         """
         return pulumi.get(self, "subnet_id")
 
@@ -4749,15 +4751,15 @@ if not MYPY:
         """
         The repair action that will be used for repairing unhealthy virtual machines in the scale set. Possible values include `Replace`, `Restart`, `Reimage`.
 
-        > **Note:**  Once the `action` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
+        > **Note:** Once the `action` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
 
-        > **Note:**  If you wish to update the repair `action` of an existing `automatic_instance_repair` policy, you must first `disable` the `automatic_instance_repair` policy before you can re-enable the `automatic_instance_repair` policy with the new repair `action` defined.
+        > **Note:** If you wish to update the repair `action` of an existing `automatic_instance_repair` policy, you must first `disable` the `automatic_instance_repair` policy before you can re-enable the `automatic_instance_repair` policy with the new repair `action` defined.
         """
         grace_period: NotRequired[pulumi.Input[builtins.str]]
         """
         Amount of time for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. Possible values are between `10` and `90` minutes. The time duration should be specified in `ISO 8601` format (e.g. `PT10M` to `PT90M`).
 
-        > **Note:**  Once the `grace_period` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
+        > **Note:** Once the `grace_period` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
         """
 elif False:
     OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgsDict: TypeAlias = Mapping[str, Any]
@@ -4772,12 +4774,12 @@ class OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs:
         :param pulumi.Input[builtins.bool] enabled: Should the automatic instance repair be enabled on this Virtual Machine Scale Set? Possible values are `true` and `false`.
         :param pulumi.Input[builtins.str] action: The repair action that will be used for repairing unhealthy virtual machines in the scale set. Possible values include `Replace`, `Restart`, `Reimage`.
                
-               > **Note:**  Once the `action` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
+               > **Note:** Once the `action` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
                
-               > **Note:**  If you wish to update the repair `action` of an existing `automatic_instance_repair` policy, you must first `disable` the `automatic_instance_repair` policy before you can re-enable the `automatic_instance_repair` policy with the new repair `action` defined.
+               > **Note:** If you wish to update the repair `action` of an existing `automatic_instance_repair` policy, you must first `disable` the `automatic_instance_repair` policy before you can re-enable the `automatic_instance_repair` policy with the new repair `action` defined.
         :param pulumi.Input[builtins.str] grace_period: Amount of time for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. Possible values are between `10` and `90` minutes. The time duration should be specified in `ISO 8601` format (e.g. `PT10M` to `PT90M`).
                
-               > **Note:**  Once the `grace_period` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
+               > **Note:** Once the `grace_period` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
         """
         pulumi.set(__self__, "enabled", enabled)
         if action is not None:
@@ -4803,9 +4805,9 @@ class OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs:
         """
         The repair action that will be used for repairing unhealthy virtual machines in the scale set. Possible values include `Replace`, `Restart`, `Reimage`.
 
-        > **Note:**  Once the `action` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
+        > **Note:** Once the `action` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
 
-        > **Note:**  If you wish to update the repair `action` of an existing `automatic_instance_repair` policy, you must first `disable` the `automatic_instance_repair` policy before you can re-enable the `automatic_instance_repair` policy with the new repair `action` defined.
+        > **Note:** If you wish to update the repair `action` of an existing `automatic_instance_repair` policy, you must first `disable` the `automatic_instance_repair` policy before you can re-enable the `automatic_instance_repair` policy with the new repair `action` defined.
         """
         return pulumi.get(self, "action")
 
@@ -4819,7 +4821,7 @@ class OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs:
         """
         Amount of time for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. Possible values are between `10` and `90` minutes. The time duration should be specified in `ISO 8601` format (e.g. `PT10M` to `PT90M`).
 
-        > **Note:**  Once the `grace_period` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
+        > **Note:** Once the `grace_period` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
         """
         return pulumi.get(self, "grace_period")
 
@@ -7162,6 +7164,154 @@ class OrchestratedVirtualMachineScaleSetPriorityMixArgs:
 
 
 if not MYPY:
+    class OrchestratedVirtualMachineScaleSetRollingUpgradePolicyArgsDict(TypedDict):
+        max_batch_instance_percent: pulumi.Input[builtins.int]
+        """
+        The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability.
+        """
+        max_unhealthy_instance_percent: pulumi.Input[builtins.int]
+        """
+        The maximum percentage of the total virtual machine instances in the scale set that can be simultaneously unhealthy, either as a result of being upgraded, or by being found in an unhealthy state by the virtual machine health checks before the rolling upgrade aborts. This constraint will be checked prior to starting any batch.
+        """
+        max_unhealthy_upgraded_instance_percent: pulumi.Input[builtins.int]
+        """
+        The maximum percentage of upgraded virtual machine instances that can be found to be in an unhealthy state. This check will happen after each batch is upgraded. If this percentage is ever exceeded, the rolling update aborts.
+        """
+        pause_time_between_batches: pulumi.Input[builtins.str]
+        """
+        The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 duration format.
+        """
+        cross_zone_upgrades_enabled: NotRequired[pulumi.Input[builtins.bool]]
+        """
+        Should the Virtual Machine Scale Set ignore the Azure Zone boundaries when constructing upgrade batches? Possible values are `true` or `false`.
+        """
+        maximum_surge_instances_enabled: NotRequired[pulumi.Input[builtins.bool]]
+        """
+        Create new virtual machines to upgrade the scale set, rather than updating the existing virtual machines. Existing virtual machines will be deleted once the new virtual machines are created for each batch. Possible values are `true` or `false`.
+        """
+        prioritize_unhealthy_instances_enabled: NotRequired[pulumi.Input[builtins.bool]]
+        """
+        Upgrade all unhealthy instances in a scale set before any healthy instances. Possible values are `true` or `false`.
+        """
+elif False:
+    OrchestratedVirtualMachineScaleSetRollingUpgradePolicyArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class OrchestratedVirtualMachineScaleSetRollingUpgradePolicyArgs:
+    def __init__(__self__, *,
+                 max_batch_instance_percent: pulumi.Input[builtins.int],
+                 max_unhealthy_instance_percent: pulumi.Input[builtins.int],
+                 max_unhealthy_upgraded_instance_percent: pulumi.Input[builtins.int],
+                 pause_time_between_batches: pulumi.Input[builtins.str],
+                 cross_zone_upgrades_enabled: Optional[pulumi.Input[builtins.bool]] = None,
+                 maximum_surge_instances_enabled: Optional[pulumi.Input[builtins.bool]] = None,
+                 prioritize_unhealthy_instances_enabled: Optional[pulumi.Input[builtins.bool]] = None):
+        """
+        :param pulumi.Input[builtins.int] max_batch_instance_percent: The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability.
+        :param pulumi.Input[builtins.int] max_unhealthy_instance_percent: The maximum percentage of the total virtual machine instances in the scale set that can be simultaneously unhealthy, either as a result of being upgraded, or by being found in an unhealthy state by the virtual machine health checks before the rolling upgrade aborts. This constraint will be checked prior to starting any batch.
+        :param pulumi.Input[builtins.int] max_unhealthy_upgraded_instance_percent: The maximum percentage of upgraded virtual machine instances that can be found to be in an unhealthy state. This check will happen after each batch is upgraded. If this percentage is ever exceeded, the rolling update aborts.
+        :param pulumi.Input[builtins.str] pause_time_between_batches: The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 duration format.
+        :param pulumi.Input[builtins.bool] cross_zone_upgrades_enabled: Should the Virtual Machine Scale Set ignore the Azure Zone boundaries when constructing upgrade batches? Possible values are `true` or `false`.
+        :param pulumi.Input[builtins.bool] maximum_surge_instances_enabled: Create new virtual machines to upgrade the scale set, rather than updating the existing virtual machines. Existing virtual machines will be deleted once the new virtual machines are created for each batch. Possible values are `true` or `false`.
+        :param pulumi.Input[builtins.bool] prioritize_unhealthy_instances_enabled: Upgrade all unhealthy instances in a scale set before any healthy instances. Possible values are `true` or `false`.
+        """
+        pulumi.set(__self__, "max_batch_instance_percent", max_batch_instance_percent)
+        pulumi.set(__self__, "max_unhealthy_instance_percent", max_unhealthy_instance_percent)
+        pulumi.set(__self__, "max_unhealthy_upgraded_instance_percent", max_unhealthy_upgraded_instance_percent)
+        pulumi.set(__self__, "pause_time_between_batches", pause_time_between_batches)
+        if cross_zone_upgrades_enabled is not None:
+            pulumi.set(__self__, "cross_zone_upgrades_enabled", cross_zone_upgrades_enabled)
+        if maximum_surge_instances_enabled is not None:
+            pulumi.set(__self__, "maximum_surge_instances_enabled", maximum_surge_instances_enabled)
+        if prioritize_unhealthy_instances_enabled is not None:
+            pulumi.set(__self__, "prioritize_unhealthy_instances_enabled", prioritize_unhealthy_instances_enabled)
+
+    @property
+    @pulumi.getter(name="maxBatchInstancePercent")
+    def max_batch_instance_percent(self) -> pulumi.Input[builtins.int]:
+        """
+        The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability.
+        """
+        return pulumi.get(self, "max_batch_instance_percent")
+
+    @max_batch_instance_percent.setter
+    def max_batch_instance_percent(self, value: pulumi.Input[builtins.int]):
+        pulumi.set(self, "max_batch_instance_percent", value)
+
+    @property
+    @pulumi.getter(name="maxUnhealthyInstancePercent")
+    def max_unhealthy_instance_percent(self) -> pulumi.Input[builtins.int]:
+        """
+        The maximum percentage of the total virtual machine instances in the scale set that can be simultaneously unhealthy, either as a result of being upgraded, or by being found in an unhealthy state by the virtual machine health checks before the rolling upgrade aborts. This constraint will be checked prior to starting any batch.
+        """
+        return pulumi.get(self, "max_unhealthy_instance_percent")
+
+    @max_unhealthy_instance_percent.setter
+    def max_unhealthy_instance_percent(self, value: pulumi.Input[builtins.int]):
+        pulumi.set(self, "max_unhealthy_instance_percent", value)
+
+    @property
+    @pulumi.getter(name="maxUnhealthyUpgradedInstancePercent")
+    def max_unhealthy_upgraded_instance_percent(self) -> pulumi.Input[builtins.int]:
+        """
+        The maximum percentage of upgraded virtual machine instances that can be found to be in an unhealthy state. This check will happen after each batch is upgraded. If this percentage is ever exceeded, the rolling update aborts.
+        """
+        return pulumi.get(self, "max_unhealthy_upgraded_instance_percent")
+
+    @max_unhealthy_upgraded_instance_percent.setter
+    def max_unhealthy_upgraded_instance_percent(self, value: pulumi.Input[builtins.int]):
+        pulumi.set(self, "max_unhealthy_upgraded_instance_percent", value)
+
+    @property
+    @pulumi.getter(name="pauseTimeBetweenBatches")
+    def pause_time_between_batches(self) -> pulumi.Input[builtins.str]:
+        """
+        The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 duration format.
+        """
+        return pulumi.get(self, "pause_time_between_batches")
+
+    @pause_time_between_batches.setter
+    def pause_time_between_batches(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "pause_time_between_batches", value)
+
+    @property
+    @pulumi.getter(name="crossZoneUpgradesEnabled")
+    def cross_zone_upgrades_enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        Should the Virtual Machine Scale Set ignore the Azure Zone boundaries when constructing upgrade batches? Possible values are `true` or `false`.
+        """
+        return pulumi.get(self, "cross_zone_upgrades_enabled")
+
+    @cross_zone_upgrades_enabled.setter
+    def cross_zone_upgrades_enabled(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "cross_zone_upgrades_enabled", value)
+
+    @property
+    @pulumi.getter(name="maximumSurgeInstancesEnabled")
+    def maximum_surge_instances_enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        Create new virtual machines to upgrade the scale set, rather than updating the existing virtual machines. Existing virtual machines will be deleted once the new virtual machines are created for each batch. Possible values are `true` or `false`.
+        """
+        return pulumi.get(self, "maximum_surge_instances_enabled")
+
+    @maximum_surge_instances_enabled.setter
+    def maximum_surge_instances_enabled(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "maximum_surge_instances_enabled", value)
+
+    @property
+    @pulumi.getter(name="prioritizeUnhealthyInstancesEnabled")
+    def prioritize_unhealthy_instances_enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        Upgrade all unhealthy instances in a scale set before any healthy instances. Possible values are `true` or `false`.
+        """
+        return pulumi.get(self, "prioritize_unhealthy_instances_enabled")
+
+    @prioritize_unhealthy_instances_enabled.setter
+    def prioritize_unhealthy_instances_enabled(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "prioritize_unhealthy_instances_enabled", value)
+
+
+if not MYPY:
     class OrchestratedVirtualMachineScaleSetSkuProfileArgsDict(TypedDict):
         allocation_strategy: pulumi.Input[builtins.str]
         """
@@ -7471,7 +7621,7 @@ if not MYPY:
         """
         The ID of the storage account where the packet capture sessions should be saved to.
 
-        > **NOTE:** At least one of `file_path` or `storage_account_id` must be specified.
+        > **Note:** At least one of `file_path` or `storage_account_id` must be specified.
         """
         storage_path: NotRequired[pulumi.Input[builtins.str]]
         """
@@ -7490,7 +7640,7 @@ class PacketCaptureStorageLocationArgs:
         :param pulumi.Input[builtins.str] file_path: A valid local path on the target Virtual Machine. Must include the name of the capture file (*.cap). For Linux Virtual Machines it must start with `/var/captures`.
         :param pulumi.Input[builtins.str] storage_account_id: The ID of the storage account where the packet capture sessions should be saved to.
                
-               > **NOTE:** At least one of `file_path` or `storage_account_id` must be specified.
+               > **Note:** At least one of `file_path` or `storage_account_id` must be specified.
         :param pulumi.Input[builtins.str] storage_path: The URI of the storage path where the packet capture sessions are saved to.
         """
         if file_path is not None:
@@ -7518,7 +7668,7 @@ class PacketCaptureStorageLocationArgs:
         """
         The ID of the storage account where the packet capture sessions should be saved to.
 
-        > **NOTE:** At least one of `file_path` or `storage_account_id` must be specified.
+        > **Note:** At least one of `file_path` or `storage_account_id` must be specified.
         """
         return pulumi.get(self, "storage_account_id")
 
@@ -9500,7 +9650,7 @@ if not MYPY:
         """
         The ID of the storage account to save the packet capture session
 
-        > **NOTE:** At least one of `file_path` or `storage_account_id` must be specified.
+        > **Note:** At least one of `file_path` or `storage_account_id` must be specified.
         """
         storage_path: NotRequired[pulumi.Input[builtins.str]]
         """
@@ -9519,7 +9669,7 @@ class ScaleSetPacketCaptureStorageLocationArgs:
         :param pulumi.Input[builtins.str] file_path: A valid local path on the targeting VM. Must include the name of the capture file (*.cap). For Linux virtual machine it must start with `/var/captures`.
         :param pulumi.Input[builtins.str] storage_account_id: The ID of the storage account to save the packet capture session
                
-               > **NOTE:** At least one of `file_path` or `storage_account_id` must be specified.
+               > **Note:** At least one of `file_path` or `storage_account_id` must be specified.
         :param pulumi.Input[builtins.str] storage_path: The URI of the storage path where the packet capture sessions are saved to.
         """
         if file_path is not None:
@@ -9547,7 +9697,7 @@ class ScaleSetPacketCaptureStorageLocationArgs:
         """
         The ID of the storage account to save the packet capture session
 
-        > **NOTE:** At least one of `file_path` or `storage_account_id` must be specified.
+        > **Note:** At least one of `file_path` or `storage_account_id` must be specified.
         """
         return pulumi.get(self, "storage_account_id")
 
@@ -9809,7 +9959,7 @@ if not MYPY:
         """
         Specifies the desired minimum number of virtual machines in the standby pool.
 
-        > **NOTE** `min_ready_capacity` cannot exceed `max_ready_capacity`.
+        > **Note:** `min_ready_capacity` cannot exceed `max_ready_capacity`.
         """
 elif False:
     ScaleSetStandbyPoolElasticityProfileArgsDict: TypeAlias = Mapping[str, Any]
@@ -9823,7 +9973,7 @@ class ScaleSetStandbyPoolElasticityProfileArgs:
         :param pulumi.Input[builtins.int] max_ready_capacity: Specifies the maximum number of virtual machines in the standby pool.
         :param pulumi.Input[builtins.int] min_ready_capacity: Specifies the desired minimum number of virtual machines in the standby pool.
                
-               > **NOTE** `min_ready_capacity` cannot exceed `max_ready_capacity`.
+               > **Note:** `min_ready_capacity` cannot exceed `max_ready_capacity`.
         """
         pulumi.set(__self__, "max_ready_capacity", max_ready_capacity)
         pulumi.set(__self__, "min_ready_capacity", min_ready_capacity)
@@ -9846,7 +9996,7 @@ class ScaleSetStandbyPoolElasticityProfileArgs:
         """
         Specifies the desired minimum number of virtual machines in the standby pool.
 
-        > **NOTE** `min_ready_capacity` cannot exceed `max_ready_capacity`.
+        > **Note:** `min_ready_capacity` cannot exceed `max_ready_capacity`.
         """
         return pulumi.get(self, "min_ready_capacity")
 
@@ -10246,7 +10396,7 @@ if not MYPY:
         """
         A `community_gallery` block as defined below. Changing this forces a new resource to be created.
 
-        > **NOTE:** `community_gallery` must be set when `permission` is set to `Community`.
+        > **Note:** `community_gallery` must be set when `permission` is set to `Community`.
         """
 elif False:
     SharedImageGallerySharingArgsDict: TypeAlias = Mapping[str, Any]
@@ -10262,7 +10412,7 @@ class SharedImageGallerySharingArgs:
                > **Note:** This requires that the Preview Feature `Microsoft.Compute/CommunityGalleries` is enabled, see [the documentation](https://learn.microsoft.com/azure/virtual-machines/share-gallery-community?tabs=cli) for more information.
         :param pulumi.Input['SharedImageGallerySharingCommunityGalleryArgs'] community_gallery: A `community_gallery` block as defined below. Changing this forces a new resource to be created.
                
-               > **NOTE:** `community_gallery` must be set when `permission` is set to `Community`.
+               > **Note:** `community_gallery` must be set when `permission` is set to `Community`.
         """
         pulumi.set(__self__, "permission", permission)
         if community_gallery is not None:
@@ -10288,7 +10438,7 @@ class SharedImageGallerySharingArgs:
         """
         A `community_gallery` block as defined below. Changing this forces a new resource to be created.
 
-        > **NOTE:** `community_gallery` must be set when `permission` is set to `Community`.
+        > **Note:** `community_gallery` must be set when `permission` is set to `Community`.
         """
         return pulumi.get(self, "community_gallery")
 
@@ -13147,15 +13297,15 @@ if not MYPY:
         """
         The repair action that will be used for repairing unhealthy virtual machines in the scale set. Possible values include `Replace`, `Restart`, `Reimage`.
 
-        > **Note:**  Once the `action` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
+        > **Note:** Once the `action` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
 
-        > **Note:**  If you wish to update the repair `action` of an existing `automatic_instance_repair` policy, you must first `disable` the `automatic_instance_repair` policy before you can re-enable the `automatic_instance_repair` policy with the new repair `action` defined.
+        > **Note:** If you wish to update the repair `action` of an existing `automatic_instance_repair` policy, you must first `disable` the `automatic_instance_repair` policy before you can re-enable the `automatic_instance_repair` policy with the new repair `action` defined.
         """
         grace_period: NotRequired[pulumi.Input[builtins.str]]
         """
         Amount of time for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. Possible values are between `10` and `90` minutes. The time duration should be specified in `ISO 8601` format (e.g. `PT10M` to `PT90M`).
 
-        > **Note:**  Once the `grace_period` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
+        > **Note:** Once the `grace_period` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
         """
 elif False:
     WindowsVirtualMachineScaleSetAutomaticInstanceRepairArgsDict: TypeAlias = Mapping[str, Any]
@@ -13170,12 +13320,12 @@ class WindowsVirtualMachineScaleSetAutomaticInstanceRepairArgs:
         :param pulumi.Input[builtins.bool] enabled: Should the automatic instance repair be enabled on this Virtual Machine Scale Set?
         :param pulumi.Input[builtins.str] action: The repair action that will be used for repairing unhealthy virtual machines in the scale set. Possible values include `Replace`, `Restart`, `Reimage`.
                
-               > **Note:**  Once the `action` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
+               > **Note:** Once the `action` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
                
-               > **Note:**  If you wish to update the repair `action` of an existing `automatic_instance_repair` policy, you must first `disable` the `automatic_instance_repair` policy before you can re-enable the `automatic_instance_repair` policy with the new repair `action` defined.
+               > **Note:** If you wish to update the repair `action` of an existing `automatic_instance_repair` policy, you must first `disable` the `automatic_instance_repair` policy before you can re-enable the `automatic_instance_repair` policy with the new repair `action` defined.
         :param pulumi.Input[builtins.str] grace_period: Amount of time for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. Possible values are between `10` and `90` minutes. The time duration should be specified in `ISO 8601` format (e.g. `PT10M` to `PT90M`).
                
-               > **Note:**  Once the `grace_period` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
+               > **Note:** Once the `grace_period` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
         """
         pulumi.set(__self__, "enabled", enabled)
         if action is not None:
@@ -13201,9 +13351,9 @@ class WindowsVirtualMachineScaleSetAutomaticInstanceRepairArgs:
         """
         The repair action that will be used for repairing unhealthy virtual machines in the scale set. Possible values include `Replace`, `Restart`, `Reimage`.
 
-        > **Note:**  Once the `action` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
+        > **Note:** Once the `action` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
 
-        > **Note:**  If you wish to update the repair `action` of an existing `automatic_instance_repair` policy, you must first `disable` the `automatic_instance_repair` policy before you can re-enable the `automatic_instance_repair` policy with the new repair `action` defined.
+        > **Note:** If you wish to update the repair `action` of an existing `automatic_instance_repair` policy, you must first `disable` the `automatic_instance_repair` policy before you can re-enable the `automatic_instance_repair` policy with the new repair `action` defined.
         """
         return pulumi.get(self, "action")
 
@@ -13217,7 +13367,7 @@ class WindowsVirtualMachineScaleSetAutomaticInstanceRepairArgs:
         """
         Amount of time for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. Possible values are between `10` and `90` minutes. The time duration should be specified in `ISO 8601` format (e.g. `PT10M` to `PT90M`).
 
-        > **Note:**  Once the `grace_period` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
+        > **Note:** Once the `grace_period` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
         """
         return pulumi.get(self, "grace_period")
 
@@ -14204,7 +14354,7 @@ if not MYPY:
         """
         A list of Backend Address Pools ID's from a Load Balancer which this Virtual Machine Scale Set should be connected to.
 
-        > **Note:**  When the Virtual Machine Scale Set is configured to have public IPs per instance are created with a load balancer, the SKU of the Virtual Machine instance IPs is determined by the SKU of the Virtual Machine Scale Sets Load Balancer (e.g. `Basic` or `Standard`). Alternatively, you may use the `public_ip_prefix_id` field to generate instance-level IPs in a virtual machine scale set as well. The zonal properties of the prefix will be passed to the Virtual Machine instance IPs, though they will not be shown in the output. To view the public IP addresses assigned to the Virtual Machine Scale Sets Virtual Machine instances use the **az vmss list-instance-public-ips --resource-group `ResourceGroupName` --name `VirtualMachineScaleSetName`** CLI command.
+        > **Note:** When the Virtual Machine Scale Set is configured to have public IPs per instance are created with a load balancer, the SKU of the Virtual Machine instance IPs is determined by the SKU of the Virtual Machine Scale Sets Load Balancer (e.g. `Basic` or `Standard`). Alternatively, you may use the `public_ip_prefix_id` field to generate instance-level IPs in a virtual machine scale set as well. The zonal properties of the prefix will be passed to the Virtual Machine instance IPs, though they will not be shown in the output. To view the public IP addresses assigned to the Virtual Machine Scale Sets Virtual Machine instances use the **az vmss list-instance-public-ips --resource-group `ResourceGroupName` --name `VirtualMachineScaleSetName`** CLI command.
 
         > **Note:** When using this field you'll also need to configure a Rule for the Load Balancer, and use a `depends_on` between this resource and the Load Balancer Rule.
         """
@@ -14228,7 +14378,7 @@ if not MYPY:
         """
         The ID of the Subnet which this IP Configuration should be connected to.
 
-        > `subnet_id` is required if `version` is set to `IPv4`.
+        > **Note:** `subnet_id` is required if `version` is set to `IPv4`.
         """
         version: NotRequired[pulumi.Input[builtins.str]]
         """
@@ -14255,7 +14405,7 @@ class WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] application_security_group_ids: A list of Application Security Group ID's which this Virtual Machine Scale Set should be connected to.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] load_balancer_backend_address_pool_ids: A list of Backend Address Pools ID's from a Load Balancer which this Virtual Machine Scale Set should be connected to.
                
-               > **Note:**  When the Virtual Machine Scale Set is configured to have public IPs per instance are created with a load balancer, the SKU of the Virtual Machine instance IPs is determined by the SKU of the Virtual Machine Scale Sets Load Balancer (e.g. `Basic` or `Standard`). Alternatively, you may use the `public_ip_prefix_id` field to generate instance-level IPs in a virtual machine scale set as well. The zonal properties of the prefix will be passed to the Virtual Machine instance IPs, though they will not be shown in the output. To view the public IP addresses assigned to the Virtual Machine Scale Sets Virtual Machine instances use the **az vmss list-instance-public-ips --resource-group `ResourceGroupName` --name `VirtualMachineScaleSetName`** CLI command.
+               > **Note:** When the Virtual Machine Scale Set is configured to have public IPs per instance are created with a load balancer, the SKU of the Virtual Machine instance IPs is determined by the SKU of the Virtual Machine Scale Sets Load Balancer (e.g. `Basic` or `Standard`). Alternatively, you may use the `public_ip_prefix_id` field to generate instance-level IPs in a virtual machine scale set as well. The zonal properties of the prefix will be passed to the Virtual Machine instance IPs, though they will not be shown in the output. To view the public IP addresses assigned to the Virtual Machine Scale Sets Virtual Machine instances use the **az vmss list-instance-public-ips --resource-group `ResourceGroupName` --name `VirtualMachineScaleSetName`** CLI command.
                
                > **Note:** When using this field you'll also need to configure a Rule for the Load Balancer, and use a `depends_on` between this resource and the Load Balancer Rule.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] load_balancer_inbound_nat_rules_ids: A list of NAT Rule ID's from a Load Balancer which this Virtual Machine Scale Set should be connected to.
@@ -14267,7 +14417,7 @@ class WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs:
         :param pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs']]] public_ip_addresses: A `public_ip_address` block as defined below.
         :param pulumi.Input[builtins.str] subnet_id: The ID of the Subnet which this IP Configuration should be connected to.
                
-               > `subnet_id` is required if `version` is set to `IPv4`.
+               > **Note:** `subnet_id` is required if `version` is set to `IPv4`.
         :param pulumi.Input[builtins.str] version: The Internet Protocol Version which should be used for this IP Configuration. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
         """
         pulumi.set(__self__, "name", name)
@@ -14330,7 +14480,7 @@ class WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs:
         """
         A list of Backend Address Pools ID's from a Load Balancer which this Virtual Machine Scale Set should be connected to.
 
-        > **Note:**  When the Virtual Machine Scale Set is configured to have public IPs per instance are created with a load balancer, the SKU of the Virtual Machine instance IPs is determined by the SKU of the Virtual Machine Scale Sets Load Balancer (e.g. `Basic` or `Standard`). Alternatively, you may use the `public_ip_prefix_id` field to generate instance-level IPs in a virtual machine scale set as well. The zonal properties of the prefix will be passed to the Virtual Machine instance IPs, though they will not be shown in the output. To view the public IP addresses assigned to the Virtual Machine Scale Sets Virtual Machine instances use the **az vmss list-instance-public-ips --resource-group `ResourceGroupName` --name `VirtualMachineScaleSetName`** CLI command.
+        > **Note:** When the Virtual Machine Scale Set is configured to have public IPs per instance are created with a load balancer, the SKU of the Virtual Machine instance IPs is determined by the SKU of the Virtual Machine Scale Sets Load Balancer (e.g. `Basic` or `Standard`). Alternatively, you may use the `public_ip_prefix_id` field to generate instance-level IPs in a virtual machine scale set as well. The zonal properties of the prefix will be passed to the Virtual Machine instance IPs, though they will not be shown in the output. To view the public IP addresses assigned to the Virtual Machine Scale Sets Virtual Machine instances use the **az vmss list-instance-public-ips --resource-group `ResourceGroupName` --name `VirtualMachineScaleSetName`** CLI command.
 
         > **Note:** When using this field you'll also need to configure a Rule for the Load Balancer, and use a `depends_on` between this resource and the Load Balancer Rule.
         """
@@ -14386,7 +14536,7 @@ class WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs:
         """
         The ID of the Subnet which this IP Configuration should be connected to.
 
-        > `subnet_id` is required if `version` is set to `IPv4`.
+        > **Note:** `subnet_id` is required if `version` is set to `IPv4`.
         """
         return pulumi.get(self, "subnet_id")
 

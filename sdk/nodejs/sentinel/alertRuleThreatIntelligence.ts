@@ -45,6 +45,13 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.OperationalInsights`: 2023-12-01-preview
+ *
  * ## Import
  *
  * Sentinel Threat Intelligence Alert Rules can be imported using the `resource id`, e.g.

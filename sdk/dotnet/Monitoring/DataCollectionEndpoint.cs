@@ -45,6 +45,13 @@ namespace Pulumi.Azure.Monitoring
     /// });
     /// ```
     /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.Insights`: 2023-03-11
+    /// 
     /// ## Import
     /// 
     /// Data Collection Endpoints can be imported using the `resource id`, e.g.
@@ -91,6 +98,12 @@ namespace Pulumi.Azure.Monitoring
         /// </summary>
         [Output("logsIngestionEndpoint")]
         public Output<string> LogsIngestionEndpoint { get; private set; } = null!;
+
+        /// <summary>
+        /// The endpoint used for ingesting metrics, e.g., `https://mydce-abcd.eastus-1.metrics.ingest.monitor.azure.com`.
+        /// </summary>
+        [Output("metricsIngestionEndpoint")]
+        public Output<string> MetricsIngestionEndpoint { get; private set; } = null!;
 
         /// <summary>
         /// The name which should be used for this Data Collection Endpoint. Changing this forces a new Data Collection Endpoint to be created.
@@ -253,6 +266,12 @@ namespace Pulumi.Azure.Monitoring
         /// </summary>
         [Input("logsIngestionEndpoint")]
         public Input<string>? LogsIngestionEndpoint { get; set; }
+
+        /// <summary>
+        /// The endpoint used for ingesting metrics, e.g., `https://mydce-abcd.eastus-1.metrics.ingest.monitor.azure.com`.
+        /// </summary>
+        [Input("metricsIngestionEndpoint")]
+        public Input<string>? MetricsIngestionEndpoint { get; set; }
 
         /// <summary>
         /// The name which should be used for this Data Collection Endpoint. Changing this forces a new Data Collection Endpoint to be created.

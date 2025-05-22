@@ -76,7 +76,7 @@ type SharedAccessPolicy struct {
 
 	// Adds `DeviceConnect` permission to this Shared Access Account. It allows sending and receiving on the device-side endpoints.
 	//
-	// > **NOTE** At least one of `registryRead`, `registryWrite`, `serviceConnect`, `deviceConnect` permissions must be set to `true`.
+	// > **Note:** At least one of `registryRead`, `registryWrite`, `serviceConnect`, `deviceConnect` permissions must be set to `true`.
 	DeviceConnect pulumi.BoolPtrOutput `pulumi:"deviceConnect"`
 	// The name of the IoTHub to which this Shared Access Policy belongs. Changing this forces a new resource to be created.
 	IothubName pulumi.StringOutput `pulumi:"iothubName"`
@@ -90,7 +90,7 @@ type SharedAccessPolicy struct {
 	RegistryRead pulumi.BoolPtrOutput `pulumi:"registryRead"`
 	// Adds `RegistryWrite` permission to this Shared Access Account. It allows write access to the identity registry.
 	//
-	// > **NOTE** When `registryWrite` is set to `true`, `registryRead` must also be set to true. This is a limitation of the Azure REST API
+	// > **Note:** When `registryWrite` is set to `true`, `registryRead` must also be set to true. This is a limitation of the Azure REST API
 	RegistryWrite pulumi.BoolPtrOutput `pulumi:"registryWrite"`
 	// The name of the resource group under which the IotHub Shared Access Policy resource has to be created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -147,7 +147,7 @@ func GetSharedAccessPolicy(ctx *pulumi.Context,
 type sharedAccessPolicyState struct {
 	// Adds `DeviceConnect` permission to this Shared Access Account. It allows sending and receiving on the device-side endpoints.
 	//
-	// > **NOTE** At least one of `registryRead`, `registryWrite`, `serviceConnect`, `deviceConnect` permissions must be set to `true`.
+	// > **Note:** At least one of `registryRead`, `registryWrite`, `serviceConnect`, `deviceConnect` permissions must be set to `true`.
 	DeviceConnect *bool `pulumi:"deviceConnect"`
 	// The name of the IoTHub to which this Shared Access Policy belongs. Changing this forces a new resource to be created.
 	IothubName *string `pulumi:"iothubName"`
@@ -161,7 +161,7 @@ type sharedAccessPolicyState struct {
 	RegistryRead *bool `pulumi:"registryRead"`
 	// Adds `RegistryWrite` permission to this Shared Access Account. It allows write access to the identity registry.
 	//
-	// > **NOTE** When `registryWrite` is set to `true`, `registryRead` must also be set to true. This is a limitation of the Azure REST API
+	// > **Note:** When `registryWrite` is set to `true`, `registryRead` must also be set to true. This is a limitation of the Azure REST API
 	RegistryWrite *bool `pulumi:"registryWrite"`
 	// The name of the resource group under which the IotHub Shared Access Policy resource has to be created. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -176,7 +176,7 @@ type sharedAccessPolicyState struct {
 type SharedAccessPolicyState struct {
 	// Adds `DeviceConnect` permission to this Shared Access Account. It allows sending and receiving on the device-side endpoints.
 	//
-	// > **NOTE** At least one of `registryRead`, `registryWrite`, `serviceConnect`, `deviceConnect` permissions must be set to `true`.
+	// > **Note:** At least one of `registryRead`, `registryWrite`, `serviceConnect`, `deviceConnect` permissions must be set to `true`.
 	DeviceConnect pulumi.BoolPtrInput
 	// The name of the IoTHub to which this Shared Access Policy belongs. Changing this forces a new resource to be created.
 	IothubName pulumi.StringPtrInput
@@ -190,7 +190,7 @@ type SharedAccessPolicyState struct {
 	RegistryRead pulumi.BoolPtrInput
 	// Adds `RegistryWrite` permission to this Shared Access Account. It allows write access to the identity registry.
 	//
-	// > **NOTE** When `registryWrite` is set to `true`, `registryRead` must also be set to true. This is a limitation of the Azure REST API
+	// > **Note:** When `registryWrite` is set to `true`, `registryRead` must also be set to true. This is a limitation of the Azure REST API
 	RegistryWrite pulumi.BoolPtrInput
 	// The name of the resource group under which the IotHub Shared Access Policy resource has to be created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -209,7 +209,7 @@ func (SharedAccessPolicyState) ElementType() reflect.Type {
 type sharedAccessPolicyArgs struct {
 	// Adds `DeviceConnect` permission to this Shared Access Account. It allows sending and receiving on the device-side endpoints.
 	//
-	// > **NOTE** At least one of `registryRead`, `registryWrite`, `serviceConnect`, `deviceConnect` permissions must be set to `true`.
+	// > **Note:** At least one of `registryRead`, `registryWrite`, `serviceConnect`, `deviceConnect` permissions must be set to `true`.
 	DeviceConnect *bool `pulumi:"deviceConnect"`
 	// The name of the IoTHub to which this Shared Access Policy belongs. Changing this forces a new resource to be created.
 	IothubName string `pulumi:"iothubName"`
@@ -219,7 +219,7 @@ type sharedAccessPolicyArgs struct {
 	RegistryRead *bool `pulumi:"registryRead"`
 	// Adds `RegistryWrite` permission to this Shared Access Account. It allows write access to the identity registry.
 	//
-	// > **NOTE** When `registryWrite` is set to `true`, `registryRead` must also be set to true. This is a limitation of the Azure REST API
+	// > **Note:** When `registryWrite` is set to `true`, `registryRead` must also be set to true. This is a limitation of the Azure REST API
 	RegistryWrite *bool `pulumi:"registryWrite"`
 	// The name of the resource group under which the IotHub Shared Access Policy resource has to be created. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -231,7 +231,7 @@ type sharedAccessPolicyArgs struct {
 type SharedAccessPolicyArgs struct {
 	// Adds `DeviceConnect` permission to this Shared Access Account. It allows sending and receiving on the device-side endpoints.
 	//
-	// > **NOTE** At least one of `registryRead`, `registryWrite`, `serviceConnect`, `deviceConnect` permissions must be set to `true`.
+	// > **Note:** At least one of `registryRead`, `registryWrite`, `serviceConnect`, `deviceConnect` permissions must be set to `true`.
 	DeviceConnect pulumi.BoolPtrInput
 	// The name of the IoTHub to which this Shared Access Policy belongs. Changing this forces a new resource to be created.
 	IothubName pulumi.StringInput
@@ -241,7 +241,7 @@ type SharedAccessPolicyArgs struct {
 	RegistryRead pulumi.BoolPtrInput
 	// Adds `RegistryWrite` permission to this Shared Access Account. It allows write access to the identity registry.
 	//
-	// > **NOTE** When `registryWrite` is set to `true`, `registryRead` must also be set to true. This is a limitation of the Azure REST API
+	// > **Note:** When `registryWrite` is set to `true`, `registryRead` must also be set to true. This is a limitation of the Azure REST API
 	RegistryWrite pulumi.BoolPtrInput
 	// The name of the resource group under which the IotHub Shared Access Policy resource has to be created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
@@ -338,7 +338,7 @@ func (o SharedAccessPolicyOutput) ToSharedAccessPolicyOutputWithContext(ctx cont
 
 // Adds `DeviceConnect` permission to this Shared Access Account. It allows sending and receiving on the device-side endpoints.
 //
-// > **NOTE** At least one of `registryRead`, `registryWrite`, `serviceConnect`, `deviceConnect` permissions must be set to `true`.
+// > **Note:** At least one of `registryRead`, `registryWrite`, `serviceConnect`, `deviceConnect` permissions must be set to `true`.
 func (o SharedAccessPolicyOutput) DeviceConnect() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SharedAccessPolicy) pulumi.BoolPtrOutput { return v.DeviceConnect }).(pulumi.BoolPtrOutput)
 }
@@ -370,7 +370,7 @@ func (o SharedAccessPolicyOutput) RegistryRead() pulumi.BoolPtrOutput {
 
 // Adds `RegistryWrite` permission to this Shared Access Account. It allows write access to the identity registry.
 //
-// > **NOTE** When `registryWrite` is set to `true`, `registryRead` must also be set to true. This is a limitation of the Azure REST API
+// > **Note:** When `registryWrite` is set to `true`, `registryRead` must also be set to true. This is a limitation of the Azure REST API
 func (o SharedAccessPolicyOutput) RegistryWrite() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SharedAccessPolicy) pulumi.BoolPtrOutput { return v.RegistryWrite }).(pulumi.BoolPtrOutput)
 }

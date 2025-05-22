@@ -108,7 +108,7 @@ type AccountQueueProperties struct {
 	CorsRules AccountQueuePropertiesCorsRuleArrayOutput `pulumi:"corsRules"`
 	// A `hourMetrics` block as defined below.
 	//
-	// > **NOTE:** At least one of `corsRule`, `logging`, `minuteMetrics`, or `hourMetrics` must be specified.
+	// > **Note:** At least one of `corsRule`, `logging`, `minuteMetrics`, or `hourMetrics` must be specified.
 	HourMetrics AccountQueuePropertiesHourMetricsOutput `pulumi:"hourMetrics"`
 	// A `logging` block as defined below.
 	Logging AccountQueuePropertiesLoggingOutput `pulumi:"logging"`
@@ -155,7 +155,7 @@ type accountQueuePropertiesState struct {
 	CorsRules []AccountQueuePropertiesCorsRule `pulumi:"corsRules"`
 	// A `hourMetrics` block as defined below.
 	//
-	// > **NOTE:** At least one of `corsRule`, `logging`, `minuteMetrics`, or `hourMetrics` must be specified.
+	// > **Note:** At least one of `corsRule`, `logging`, `minuteMetrics`, or `hourMetrics` must be specified.
 	HourMetrics *AccountQueuePropertiesHourMetrics `pulumi:"hourMetrics"`
 	// A `logging` block as defined below.
 	Logging *AccountQueuePropertiesLogging `pulumi:"logging"`
@@ -170,7 +170,7 @@ type AccountQueuePropertiesState struct {
 	CorsRules AccountQueuePropertiesCorsRuleArrayInput
 	// A `hourMetrics` block as defined below.
 	//
-	// > **NOTE:** At least one of `corsRule`, `logging`, `minuteMetrics`, or `hourMetrics` must be specified.
+	// > **Note:** At least one of `corsRule`, `logging`, `minuteMetrics`, or `hourMetrics` must be specified.
 	HourMetrics AccountQueuePropertiesHourMetricsPtrInput
 	// A `logging` block as defined below.
 	Logging AccountQueuePropertiesLoggingPtrInput
@@ -189,7 +189,7 @@ type accountQueuePropertiesArgs struct {
 	CorsRules []AccountQueuePropertiesCorsRule `pulumi:"corsRules"`
 	// A `hourMetrics` block as defined below.
 	//
-	// > **NOTE:** At least one of `corsRule`, `logging`, `minuteMetrics`, or `hourMetrics` must be specified.
+	// > **Note:** At least one of `corsRule`, `logging`, `minuteMetrics`, or `hourMetrics` must be specified.
 	HourMetrics *AccountQueuePropertiesHourMetrics `pulumi:"hourMetrics"`
 	// A `logging` block as defined below.
 	Logging *AccountQueuePropertiesLogging `pulumi:"logging"`
@@ -205,7 +205,7 @@ type AccountQueuePropertiesArgs struct {
 	CorsRules AccountQueuePropertiesCorsRuleArrayInput
 	// A `hourMetrics` block as defined below.
 	//
-	// > **NOTE:** At least one of `corsRule`, `logging`, `minuteMetrics`, or `hourMetrics` must be specified.
+	// > **Note:** At least one of `corsRule`, `logging`, `minuteMetrics`, or `hourMetrics` must be specified.
 	HourMetrics AccountQueuePropertiesHourMetricsPtrInput
 	// A `logging` block as defined below.
 	Logging AccountQueuePropertiesLoggingPtrInput
@@ -309,7 +309,7 @@ func (o AccountQueuePropertiesOutput) CorsRules() AccountQueuePropertiesCorsRule
 
 // A `hourMetrics` block as defined below.
 //
-// > **NOTE:** At least one of `corsRule`, `logging`, `minuteMetrics`, or `hourMetrics` must be specified.
+// > **Note:** At least one of `corsRule`, `logging`, `minuteMetrics`, or `hourMetrics` must be specified.
 func (o AccountQueuePropertiesOutput) HourMetrics() AccountQueuePropertiesHourMetricsOutput {
 	return o.ApplyT(func(v *AccountQueueProperties) AccountQueuePropertiesHourMetricsOutput { return v.HourMetrics }).(AccountQueuePropertiesHourMetricsOutput)
 }

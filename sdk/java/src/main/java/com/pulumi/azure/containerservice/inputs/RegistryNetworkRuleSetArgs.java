@@ -35,9 +35,9 @@ public final class RegistryNetworkRuleSetArgs extends com.pulumi.resources.Resou
     /**
      * One or more `ip_rule` blocks as defined below.
      * 
-     * &gt; **NOTE:** `network_rule_set` is only supported with the `Premium` SKU at this time.
+     * &gt; **Note:** `network_rule_set` is only supported with the `Premium` SKU at this time.
      * 
-     * &gt; **NOTE:** Azure automatically configures Network Rules - to remove these you&#39;ll need to specify an `network_rule_set` block with `default_action` set to `Deny`.
+     * &gt; **Note:** Azure automatically configures Network Rules - to remove these you&#39;ll need to specify an `network_rule_set` block with `default_action` set to `Deny`.
      * 
      */
     @Import(name="ipRules")
@@ -46,9 +46,9 @@ public final class RegistryNetworkRuleSetArgs extends com.pulumi.resources.Resou
     /**
      * @return One or more `ip_rule` blocks as defined below.
      * 
-     * &gt; **NOTE:** `network_rule_set` is only supported with the `Premium` SKU at this time.
+     * &gt; **Note:** `network_rule_set` is only supported with the `Premium` SKU at this time.
      * 
-     * &gt; **NOTE:** Azure automatically configures Network Rules - to remove these you&#39;ll need to specify an `network_rule_set` block with `default_action` set to `Deny`.
+     * &gt; **Note:** Azure automatically configures Network Rules - to remove these you&#39;ll need to specify an `network_rule_set` block with `default_action` set to `Deny`.
      * 
      */
     public Optional<Output<List<RegistryNetworkRuleSetIpRuleArgs>>> ipRules() {
@@ -104,9 +104,9 @@ public final class RegistryNetworkRuleSetArgs extends com.pulumi.resources.Resou
         /**
          * @param ipRules One or more `ip_rule` blocks as defined below.
          * 
-         * &gt; **NOTE:** `network_rule_set` is only supported with the `Premium` SKU at this time.
+         * &gt; **Note:** `network_rule_set` is only supported with the `Premium` SKU at this time.
          * 
-         * &gt; **NOTE:** Azure automatically configures Network Rules - to remove these you&#39;ll need to specify an `network_rule_set` block with `default_action` set to `Deny`.
+         * &gt; **Note:** Azure automatically configures Network Rules - to remove these you&#39;ll need to specify an `network_rule_set` block with `default_action` set to `Deny`.
          * 
          * @return builder
          * 
@@ -119,9 +119,9 @@ public final class RegistryNetworkRuleSetArgs extends com.pulumi.resources.Resou
         /**
          * @param ipRules One or more `ip_rule` blocks as defined below.
          * 
-         * &gt; **NOTE:** `network_rule_set` is only supported with the `Premium` SKU at this time.
+         * &gt; **Note:** `network_rule_set` is only supported with the `Premium` SKU at this time.
          * 
-         * &gt; **NOTE:** Azure automatically configures Network Rules - to remove these you&#39;ll need to specify an `network_rule_set` block with `default_action` set to `Deny`.
+         * &gt; **Note:** Azure automatically configures Network Rules - to remove these you&#39;ll need to specify an `network_rule_set` block with `default_action` set to `Deny`.
          * 
          * @return builder
          * 
@@ -133,9 +133,9 @@ public final class RegistryNetworkRuleSetArgs extends com.pulumi.resources.Resou
         /**
          * @param ipRules One or more `ip_rule` blocks as defined below.
          * 
-         * &gt; **NOTE:** `network_rule_set` is only supported with the `Premium` SKU at this time.
+         * &gt; **Note:** `network_rule_set` is only supported with the `Premium` SKU at this time.
          * 
-         * &gt; **NOTE:** Azure automatically configures Network Rules - to remove these you&#39;ll need to specify an `network_rule_set` block with `default_action` set to `Deny`.
+         * &gt; **Note:** Azure automatically configures Network Rules - to remove these you&#39;ll need to specify an `network_rule_set` block with `default_action` set to `Deny`.
          * 
          * @return builder
          * 

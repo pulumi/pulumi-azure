@@ -316,6 +316,13 @@ class NetworkMapping(pulumi.CustomResource):
             target_network_id=secondary_virtual_network.id)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.RecoveryServices`: 2024-04-01
+
         ## Import
 
         Site Recovery Network Mapping can be imported using the `resource id`, e.g.
@@ -390,6 +397,13 @@ class NetworkMapping(pulumi.CustomResource):
             source_network_id=primary_virtual_network.id,
             target_network_id=secondary_virtual_network.id)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.RecoveryServices`: 2024-04-01
 
         ## Import
 

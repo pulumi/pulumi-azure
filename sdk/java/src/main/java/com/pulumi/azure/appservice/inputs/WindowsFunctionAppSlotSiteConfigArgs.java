@@ -416,7 +416,7 @@ public final class WindowsFunctionAppSlotSiteConfigArgs extends com.pulumi.resou
     /**
      * Should Scale Monitoring of the Functions Runtime be enabled?
      * 
-     * &gt; **NOTE:** Functions runtime scale monitoring can only be enabled for Elastic Premium Function Apps or Workflow Standard Logic Apps and requires a minimum prewarmed instance count of 1.
+     * &gt; **Note:** Functions runtime scale monitoring can only be enabled for Elastic Premium Function Apps or Workflow Standard Logic Apps and requires a minimum prewarmed instance count of 1.
      * 
      */
     @Import(name="runtimeScaleMonitoringEnabled")
@@ -425,7 +425,7 @@ public final class WindowsFunctionAppSlotSiteConfigArgs extends com.pulumi.resou
     /**
      * @return Should Scale Monitoring of the Functions Runtime be enabled?
      * 
-     * &gt; **NOTE:** Functions runtime scale monitoring can only be enabled for Elastic Premium Function Apps or Workflow Standard Logic Apps and requires a minimum prewarmed instance count of 1.
+     * &gt; **Note:** Functions runtime scale monitoring can only be enabled for Elastic Premium Function Apps or Workflow Standard Logic Apps and requires a minimum prewarmed instance count of 1.
      * 
      */
     public Optional<Output<Boolean>> runtimeScaleMonitoringEnabled() {
@@ -1211,7 +1211,7 @@ public final class WindowsFunctionAppSlotSiteConfigArgs extends com.pulumi.resou
         /**
          * @param runtimeScaleMonitoringEnabled Should Scale Monitoring of the Functions Runtime be enabled?
          * 
-         * &gt; **NOTE:** Functions runtime scale monitoring can only be enabled for Elastic Premium Function Apps or Workflow Standard Logic Apps and requires a minimum prewarmed instance count of 1.
+         * &gt; **Note:** Functions runtime scale monitoring can only be enabled for Elastic Premium Function Apps or Workflow Standard Logic Apps and requires a minimum prewarmed instance count of 1.
          * 
          * @return builder
          * 
@@ -1224,7 +1224,7 @@ public final class WindowsFunctionAppSlotSiteConfigArgs extends com.pulumi.resou
         /**
          * @param runtimeScaleMonitoringEnabled Should Scale Monitoring of the Functions Runtime be enabled?
          * 
-         * &gt; **NOTE:** Functions runtime scale monitoring can only be enabled for Elastic Premium Function Apps or Workflow Standard Logic Apps and requires a minimum prewarmed instance count of 1.
+         * &gt; **Note:** Functions runtime scale monitoring can only be enabled for Elastic Premium Function Apps or Workflow Standard Logic Apps and requires a minimum prewarmed instance count of 1.
          * 
          * @return builder
          * 

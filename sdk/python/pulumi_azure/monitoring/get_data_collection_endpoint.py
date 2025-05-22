@@ -27,7 +27,7 @@ class GetDataCollectionEndpointResult:
     """
     A collection of values returned by getDataCollectionEndpoint.
     """
-    def __init__(__self__, configuration_access_endpoint=None, description=None, id=None, immutable_id=None, kind=None, location=None, logs_ingestion_endpoint=None, name=None, public_network_access_enabled=None, resource_group_name=None, tags=None):
+    def __init__(__self__, configuration_access_endpoint=None, description=None, id=None, immutable_id=None, kind=None, location=None, logs_ingestion_endpoint=None, metrics_ingestion_endpoint=None, name=None, public_network_access_enabled=None, resource_group_name=None, tags=None):
         if configuration_access_endpoint and not isinstance(configuration_access_endpoint, str):
             raise TypeError("Expected argument 'configuration_access_endpoint' to be a str")
         pulumi.set(__self__, "configuration_access_endpoint", configuration_access_endpoint)
@@ -49,6 +49,9 @@ class GetDataCollectionEndpointResult:
         if logs_ingestion_endpoint and not isinstance(logs_ingestion_endpoint, str):
             raise TypeError("Expected argument 'logs_ingestion_endpoint' to be a str")
         pulumi.set(__self__, "logs_ingestion_endpoint", logs_ingestion_endpoint)
+        if metrics_ingestion_endpoint and not isinstance(metrics_ingestion_endpoint, str):
+            raise TypeError("Expected argument 'metrics_ingestion_endpoint' to be a str")
+        pulumi.set(__self__, "metrics_ingestion_endpoint", metrics_ingestion_endpoint)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -119,6 +122,14 @@ class GetDataCollectionEndpointResult:
         return pulumi.get(self, "logs_ingestion_endpoint")
 
     @property
+    @pulumi.getter(name="metricsIngestionEndpoint")
+    def metrics_ingestion_endpoint(self) -> builtins.str:
+        """
+        The endpoint used for ingesting metrics, e.g., `https://mydce-abcd.eastus-1.metrics.ingest.monitor.azure.com`.
+        """
+        return pulumi.get(self, "metrics_ingestion_endpoint")
+
+    @property
     @pulumi.getter
     def name(self) -> builtins.str:
         return pulumi.get(self, "name")
@@ -158,6 +169,7 @@ class AwaitableGetDataCollectionEndpointResult(GetDataCollectionEndpointResult):
             kind=self.kind,
             location=self.location,
             logs_ingestion_endpoint=self.logs_ingestion_endpoint,
+            metrics_ingestion_endpoint=self.metrics_ingestion_endpoint,
             name=self.name,
             public_network_access_enabled=self.public_network_access_enabled,
             resource_group_name=self.resource_group_name,
@@ -181,6 +193,13 @@ def get_data_collection_endpoint(name: Optional[builtins.str] = None,
     pulumi.export("endpointId", example.id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Insights`: 2023-03-11
+
 
     :param builtins.str name: Specifies the name of the Data Collection Endpoint.
     :param builtins.str resource_group_name: Specifies the name of the resource group the Data Collection Endpoint is located in.
@@ -199,6 +218,7 @@ def get_data_collection_endpoint(name: Optional[builtins.str] = None,
         kind=pulumi.get(__ret__, 'kind'),
         location=pulumi.get(__ret__, 'location'),
         logs_ingestion_endpoint=pulumi.get(__ret__, 'logs_ingestion_endpoint'),
+        metrics_ingestion_endpoint=pulumi.get(__ret__, 'metrics_ingestion_endpoint'),
         name=pulumi.get(__ret__, 'name'),
         public_network_access_enabled=pulumi.get(__ret__, 'public_network_access_enabled'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
@@ -220,6 +240,13 @@ def get_data_collection_endpoint_output(name: Optional[pulumi.Input[builtins.str
     pulumi.export("endpointId", example.id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Insights`: 2023-03-11
+
 
     :param builtins.str name: Specifies the name of the Data Collection Endpoint.
     :param builtins.str resource_group_name: Specifies the name of the resource group the Data Collection Endpoint is located in.
@@ -237,6 +264,7 @@ def get_data_collection_endpoint_output(name: Optional[pulumi.Input[builtins.str
         kind=pulumi.get(__response__, 'kind'),
         location=pulumi.get(__response__, 'location'),
         logs_ingestion_endpoint=pulumi.get(__response__, 'logs_ingestion_endpoint'),
+        metrics_ingestion_endpoint=pulumi.get(__response__, 'metrics_ingestion_endpoint'),
         name=pulumi.get(__response__, 'name'),
         public_network_access_enabled=pulumi.get(__response__, 'public_network_access_enabled'),
         resource_group_name=pulumi.get(__response__, 'resource_group_name'),

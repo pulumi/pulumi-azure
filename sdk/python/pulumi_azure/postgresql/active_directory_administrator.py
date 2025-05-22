@@ -230,6 +230,13 @@ class ActiveDirectoryAdministrator(pulumi.CustomResource):
             object_id=current.object_id)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DBforPostgreSQL`: 2017-12-01
+
         ## Import
 
         A PostgreSQL Active Directory Administrator can be imported using the `resource id`, e.g.
@@ -281,6 +288,13 @@ class ActiveDirectoryAdministrator(pulumi.CustomResource):
             tenant_id=current.tenant_id,
             object_id=current.object_id)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DBforPostgreSQL`: 2017-12-01
 
         ## Import
 

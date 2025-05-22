@@ -16,7 +16,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// <summary>
         /// How often the backup should be executed (e.g. for weekly backup, this should be set to `7` and `frequency_unit` should be set to `Day`).
         /// 
-        /// &gt; **NOTE:** Not all intervals are supported on all Linux Web App SKUs. Please refer to the official documentation for appropriate values.
+        /// &gt; **Note:** Not all intervals are supported on all Linux Web App SKUs. Please refer to the official documentation for appropriate values.
         /// </summary>
         public readonly int FrequencyInterval;
         /// <summary>

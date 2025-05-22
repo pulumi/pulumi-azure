@@ -3,6 +3,9 @@
 
 package com.pulumi.azure.datafactory;
 
+import com.pulumi.azure.datafactory.inputs.LinkedServiceSftpKeyVaultPasswordArgs;
+import com.pulumi.azure.datafactory.inputs.LinkedServiceSftpKeyVaultPrivateKeyContentBase64Args;
+import com.pulumi.azure.datafactory.inputs.LinkedServiceSftpKeyVaultPrivateKeyPassphraseArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -55,14 +58,14 @@ public final class LinkedServiceSftpArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The type of authentication used to connect to the web table source. Valid options are `Anonymous`, `Basic` and `ClientCertificate`.
+     * The type of authentication used to connect to the SFTP server. Valid options are `MultiFactor`, `Basic` and `SshPublicKey`.
      * 
      */
     @Import(name="authenticationType", required=true)
     private Output<String> authenticationType;
 
     /**
-     * @return The type of authentication used to connect to the web table source. Valid options are `Anonymous`, `Basic` and `ClientCertificate`.
+     * @return The type of authentication used to connect to the SFTP server. Valid options are `MultiFactor`, `Basic` and `SshPublicKey`.
      * 
      */
     public Output<String> authenticationType() {
@@ -145,6 +148,59 @@ public final class LinkedServiceSftpArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
+     * A `key_vault_password` block as defined below.
+     * 
+     * &gt; **Note:** Either `password` or `key_vault_password` is required when `authentication_type` is set to `Basic`.
+     * 
+     */
+    @Import(name="keyVaultPasswords")
+    private @Nullable Output<List<LinkedServiceSftpKeyVaultPasswordArgs>> keyVaultPasswords;
+
+    /**
+     * @return A `key_vault_password` block as defined below.
+     * 
+     * &gt; **Note:** Either `password` or `key_vault_password` is required when `authentication_type` is set to `Basic`.
+     * 
+     */
+    public Optional<Output<List<LinkedServiceSftpKeyVaultPasswordArgs>>> keyVaultPasswords() {
+        return Optional.ofNullable(this.keyVaultPasswords);
+    }
+
+    /**
+     * A `key_vault_private_key_content_base64` block as defined below.
+     * 
+     */
+    @Import(name="keyVaultPrivateKeyContentBase64")
+    private @Nullable Output<LinkedServiceSftpKeyVaultPrivateKeyContentBase64Args> keyVaultPrivateKeyContentBase64;
+
+    /**
+     * @return A `key_vault_private_key_content_base64` block as defined below.
+     * 
+     */
+    public Optional<Output<LinkedServiceSftpKeyVaultPrivateKeyContentBase64Args>> keyVaultPrivateKeyContentBase64() {
+        return Optional.ofNullable(this.keyVaultPrivateKeyContentBase64);
+    }
+
+    /**
+     * A `key_vault_private_key_passphrase` block as defined below.
+     * 
+     * &gt; **Note:** One of `private_key_content_base64` or `private_key_path` (or their Key Vault equivalent) is required when `authentication_type` is set to `SshPublicKey`.
+     * 
+     */
+    @Import(name="keyVaultPrivateKeyPassphrase")
+    private @Nullable Output<LinkedServiceSftpKeyVaultPrivateKeyPassphraseArgs> keyVaultPrivateKeyPassphrase;
+
+    /**
+     * @return A `key_vault_private_key_passphrase` block as defined below.
+     * 
+     * &gt; **Note:** One of `private_key_content_base64` or `private_key_path` (or their Key Vault equivalent) is required when `authentication_type` is set to `SshPublicKey`.
+     * 
+     */
+    public Optional<Output<LinkedServiceSftpKeyVaultPrivateKeyPassphraseArgs>> keyVaultPrivateKeyPassphrase() {
+        return Optional.ofNullable(this.keyVaultPrivateKeyPassphrase);
+    }
+
+    /**
      * Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      * 
      */
@@ -175,18 +231,18 @@ public final class LinkedServiceSftpArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Password to logon to the SFTP Server for Basic Authentication.
+     * Password to log on to the SFTP Server for Basic Authentication.
      * 
      */
-    @Import(name="password", required=true)
-    private Output<String> password;
+    @Import(name="password")
+    private @Nullable Output<String> password;
 
     /**
-     * @return Password to logon to the SFTP Server for Basic Authentication.
+     * @return Password to log on to the SFTP Server for Basic Authentication.
      * 
      */
-    public Output<String> password() {
-        return this.password;
+    public Optional<Output<String>> password() {
+        return Optional.ofNullable(this.password);
     }
 
     /**
@@ -202,6 +258,55 @@ public final class LinkedServiceSftpArgs extends com.pulumi.resources.ResourceAr
      */
     public Output<Integer> port() {
         return this.port;
+    }
+
+    /**
+     * The Base64 encoded private key content in OpenSSH format used to log on to the SFTP server.
+     * 
+     */
+    @Import(name="privateKeyContentBase64")
+    private @Nullable Output<String> privateKeyContentBase64;
+
+    /**
+     * @return The Base64 encoded private key content in OpenSSH format used to log on to the SFTP server.
+     * 
+     */
+    public Optional<Output<String>> privateKeyContentBase64() {
+        return Optional.ofNullable(this.privateKeyContentBase64);
+    }
+
+    /**
+     * The passphrase for the private key if the key is encrypted.
+     * 
+     */
+    @Import(name="privateKeyPassphrase")
+    private @Nullable Output<String> privateKeyPassphrase;
+
+    /**
+     * @return The passphrase for the private key if the key is encrypted.
+     * 
+     */
+    public Optional<Output<String>> privateKeyPassphrase() {
+        return Optional.ofNullable(this.privateKeyPassphrase);
+    }
+
+    /**
+     * The absolute path to the private key file that the self-hosted integration runtime can access.
+     * 
+     * &gt; **Note:** `private_key_path` only applies when using a self-hosted integration runtime (instead of the default Azure provided runtime), as indicated by supplying a value for `integration_runtime_name`.
+     * 
+     */
+    @Import(name="privateKeyPath")
+    private @Nullable Output<String> privateKeyPath;
+
+    /**
+     * @return The absolute path to the private key file that the self-hosted integration runtime can access.
+     * 
+     * &gt; **Note:** `private_key_path` only applies when using a self-hosted integration runtime (instead of the default Azure provided runtime), as indicated by supplying a value for `integration_runtime_name`.
+     * 
+     */
+    public Optional<Output<String>> privateKeyPath() {
+        return Optional.ofNullable(this.privateKeyPath);
     }
 
     /**
@@ -245,10 +350,16 @@ public final class LinkedServiceSftpArgs extends com.pulumi.resources.ResourceAr
         this.host = $.host;
         this.hostKeyFingerprint = $.hostKeyFingerprint;
         this.integrationRuntimeName = $.integrationRuntimeName;
+        this.keyVaultPasswords = $.keyVaultPasswords;
+        this.keyVaultPrivateKeyContentBase64 = $.keyVaultPrivateKeyContentBase64;
+        this.keyVaultPrivateKeyPassphrase = $.keyVaultPrivateKeyPassphrase;
         this.name = $.name;
         this.parameters = $.parameters;
         this.password = $.password;
         this.port = $.port;
+        this.privateKeyContentBase64 = $.privateKeyContentBase64;
+        this.privateKeyPassphrase = $.privateKeyPassphrase;
+        this.privateKeyPath = $.privateKeyPath;
         this.skipHostKeyValidation = $.skipHostKeyValidation;
         this.username = $.username;
     }
@@ -328,7 +439,7 @@ public final class LinkedServiceSftpArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param authenticationType The type of authentication used to connect to the web table source. Valid options are `Anonymous`, `Basic` and `ClientCertificate`.
+         * @param authenticationType The type of authentication used to connect to the SFTP server. Valid options are `MultiFactor`, `Basic` and `SshPublicKey`.
          * 
          * @return builder
          * 
@@ -339,7 +450,7 @@ public final class LinkedServiceSftpArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param authenticationType The type of authentication used to connect to the web table source. Valid options are `Anonymous`, `Basic` and `ClientCertificate`.
+         * @param authenticationType The type of authentication used to connect to the SFTP server. Valid options are `MultiFactor`, `Basic` and `SshPublicKey`.
          * 
          * @return builder
          * 
@@ -454,6 +565,89 @@ public final class LinkedServiceSftpArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
+         * @param keyVaultPasswords A `key_vault_password` block as defined below.
+         * 
+         * &gt; **Note:** Either `password` or `key_vault_password` is required when `authentication_type` is set to `Basic`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder keyVaultPasswords(@Nullable Output<List<LinkedServiceSftpKeyVaultPasswordArgs>> keyVaultPasswords) {
+            $.keyVaultPasswords = keyVaultPasswords;
+            return this;
+        }
+
+        /**
+         * @param keyVaultPasswords A `key_vault_password` block as defined below.
+         * 
+         * &gt; **Note:** Either `password` or `key_vault_password` is required when `authentication_type` is set to `Basic`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder keyVaultPasswords(List<LinkedServiceSftpKeyVaultPasswordArgs> keyVaultPasswords) {
+            return keyVaultPasswords(Output.of(keyVaultPasswords));
+        }
+
+        /**
+         * @param keyVaultPasswords A `key_vault_password` block as defined below.
+         * 
+         * &gt; **Note:** Either `password` or `key_vault_password` is required when `authentication_type` is set to `Basic`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder keyVaultPasswords(LinkedServiceSftpKeyVaultPasswordArgs... keyVaultPasswords) {
+            return keyVaultPasswords(List.of(keyVaultPasswords));
+        }
+
+        /**
+         * @param keyVaultPrivateKeyContentBase64 A `key_vault_private_key_content_base64` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder keyVaultPrivateKeyContentBase64(@Nullable Output<LinkedServiceSftpKeyVaultPrivateKeyContentBase64Args> keyVaultPrivateKeyContentBase64) {
+            $.keyVaultPrivateKeyContentBase64 = keyVaultPrivateKeyContentBase64;
+            return this;
+        }
+
+        /**
+         * @param keyVaultPrivateKeyContentBase64 A `key_vault_private_key_content_base64` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder keyVaultPrivateKeyContentBase64(LinkedServiceSftpKeyVaultPrivateKeyContentBase64Args keyVaultPrivateKeyContentBase64) {
+            return keyVaultPrivateKeyContentBase64(Output.of(keyVaultPrivateKeyContentBase64));
+        }
+
+        /**
+         * @param keyVaultPrivateKeyPassphrase A `key_vault_private_key_passphrase` block as defined below.
+         * 
+         * &gt; **Note:** One of `private_key_content_base64` or `private_key_path` (or their Key Vault equivalent) is required when `authentication_type` is set to `SshPublicKey`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder keyVaultPrivateKeyPassphrase(@Nullable Output<LinkedServiceSftpKeyVaultPrivateKeyPassphraseArgs> keyVaultPrivateKeyPassphrase) {
+            $.keyVaultPrivateKeyPassphrase = keyVaultPrivateKeyPassphrase;
+            return this;
+        }
+
+        /**
+         * @param keyVaultPrivateKeyPassphrase A `key_vault_private_key_passphrase` block as defined below.
+         * 
+         * &gt; **Note:** One of `private_key_content_base64` or `private_key_path` (or their Key Vault equivalent) is required when `authentication_type` is set to `SshPublicKey`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder keyVaultPrivateKeyPassphrase(LinkedServiceSftpKeyVaultPrivateKeyPassphraseArgs keyVaultPrivateKeyPassphrase) {
+            return keyVaultPrivateKeyPassphrase(Output.of(keyVaultPrivateKeyPassphrase));
+        }
+
+        /**
          * @param name Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
          * 
          * @return builder
@@ -496,18 +690,18 @@ public final class LinkedServiceSftpArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param password Password to logon to the SFTP Server for Basic Authentication.
+         * @param password Password to log on to the SFTP Server for Basic Authentication.
          * 
          * @return builder
          * 
          */
-        public Builder password(Output<String> password) {
+        public Builder password(@Nullable Output<String> password) {
             $.password = password;
             return this;
         }
 
         /**
-         * @param password Password to logon to the SFTP Server for Basic Authentication.
+         * @param password Password to log on to the SFTP Server for Basic Authentication.
          * 
          * @return builder
          * 
@@ -535,6 +729,73 @@ public final class LinkedServiceSftpArgs extends com.pulumi.resources.ResourceAr
          */
         public Builder port(Integer port) {
             return port(Output.of(port));
+        }
+
+        /**
+         * @param privateKeyContentBase64 The Base64 encoded private key content in OpenSSH format used to log on to the SFTP server.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder privateKeyContentBase64(@Nullable Output<String> privateKeyContentBase64) {
+            $.privateKeyContentBase64 = privateKeyContentBase64;
+            return this;
+        }
+
+        /**
+         * @param privateKeyContentBase64 The Base64 encoded private key content in OpenSSH format used to log on to the SFTP server.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder privateKeyContentBase64(String privateKeyContentBase64) {
+            return privateKeyContentBase64(Output.of(privateKeyContentBase64));
+        }
+
+        /**
+         * @param privateKeyPassphrase The passphrase for the private key if the key is encrypted.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder privateKeyPassphrase(@Nullable Output<String> privateKeyPassphrase) {
+            $.privateKeyPassphrase = privateKeyPassphrase;
+            return this;
+        }
+
+        /**
+         * @param privateKeyPassphrase The passphrase for the private key if the key is encrypted.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder privateKeyPassphrase(String privateKeyPassphrase) {
+            return privateKeyPassphrase(Output.of(privateKeyPassphrase));
+        }
+
+        /**
+         * @param privateKeyPath The absolute path to the private key file that the self-hosted integration runtime can access.
+         * 
+         * &gt; **Note:** `private_key_path` only applies when using a self-hosted integration runtime (instead of the default Azure provided runtime), as indicated by supplying a value for `integration_runtime_name`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder privateKeyPath(@Nullable Output<String> privateKeyPath) {
+            $.privateKeyPath = privateKeyPath;
+            return this;
+        }
+
+        /**
+         * @param privateKeyPath The absolute path to the private key file that the self-hosted integration runtime can access.
+         * 
+         * &gt; **Note:** `private_key_path` only applies when using a self-hosted integration runtime (instead of the default Azure provided runtime), as indicated by supplying a value for `integration_runtime_name`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder privateKeyPath(String privateKeyPath) {
+            return privateKeyPath(Output.of(privateKeyPath));
         }
 
         /**
@@ -588,9 +849,6 @@ public final class LinkedServiceSftpArgs extends com.pulumi.resources.ResourceAr
             }
             if ($.host == null) {
                 throw new MissingRequiredPropertyException("LinkedServiceSftpArgs", "host");
-            }
-            if ($.password == null) {
-                throw new MissingRequiredPropertyException("LinkedServiceSftpArgs", "password");
             }
             if ($.port == null) {
                 throw new MissingRequiredPropertyException("LinkedServiceSftpArgs", "port");

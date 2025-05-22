@@ -105,6 +105,13 @@ import (
 //
 // ```
 //
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.PolicyInsights`: 2021-10-01
+//
 // ## Import
 //
 // Policy Remediations can be imported using the `resource id`, e.g.

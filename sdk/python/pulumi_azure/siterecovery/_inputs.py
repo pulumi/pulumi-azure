@@ -178,7 +178,7 @@ if not MYPY:
         """
         The Disk Encryption Set that the Managed Disk will be associated with. Changing this forces a new resource to be created.
 
-        > **NOTE:** Creating replicated vm with `target_disk_encryption_set_id` wil take more time (up to 5 hours), please extend the `timeout` for `create`.
+        > **Note:** Creating replicated vm with `target_disk_encryption_set_id` wil take more time (up to 5 hours), please extend the `timeout` for `create`.
         """
 elif False:
     ReplicatedVMManagedDiskArgsDict: TypeAlias = Mapping[str, Any]
@@ -202,7 +202,7 @@ class ReplicatedVMManagedDiskArgs:
         :param pulumi.Input['ReplicatedVMManagedDiskTargetDiskEncryptionArgs'] target_disk_encryption: A `target_disk_encryption` block as defined below.
         :param pulumi.Input[builtins.str] target_disk_encryption_set_id: The Disk Encryption Set that the Managed Disk will be associated with. Changing this forces a new resource to be created.
                
-               > **NOTE:** Creating replicated vm with `target_disk_encryption_set_id` wil take more time (up to 5 hours), please extend the `timeout` for `create`.
+               > **Note:** Creating replicated vm with `target_disk_encryption_set_id` wil take more time (up to 5 hours), please extend the `timeout` for `create`.
         """
         pulumi.set(__self__, "disk_id", disk_id)
         pulumi.set(__self__, "staging_storage_account_id", staging_storage_account_id)
@@ -292,7 +292,7 @@ class ReplicatedVMManagedDiskArgs:
         """
         The Disk Encryption Set that the Managed Disk will be associated with. Changing this forces a new resource to be created.
 
-        > **NOTE:** Creating replicated vm with `target_disk_encryption_set_id` wil take more time (up to 5 hours), please extend the `timeout` for `create`.
+        > **Note:** Creating replicated vm with `target_disk_encryption_set_id` wil take more time (up to 5 hours), please extend the `timeout` for `create`.
         """
         return pulumi.get(self, "target_disk_encryption_set_id")
 
@@ -891,25 +891,25 @@ if not MYPY:
         """
         The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
 
-        > **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
+        > **Note:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
         """
         manual_action_instruction: NotRequired[pulumi.Input[builtins.str]]
         """
         Instructions of manual action.
 
-        > **NOTE:** This property is required when `type` is set to `ManualActionDetails`.
+        > **Note:** This property is required when `type` is set to `ManualActionDetails`.
         """
         runbook_id: NotRequired[pulumi.Input[builtins.str]]
         """
         Id of runbook.
 
-        > **NOTE:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
+        > **Note:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
         """
         script_path: NotRequired[pulumi.Input[builtins.str]]
         """
         Path of action script.
 
-        > **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
+        > **Note:** This property is required when `type` is set to `ScriptActionDetails`.
         """
 elif False:
     ReplicationRecoveryPlanBootRecoveryGroupPostActionArgsDict: TypeAlias = Mapping[str, Any]
@@ -932,16 +932,16 @@ class ReplicationRecoveryPlanBootRecoveryGroupPostActionArgs:
         :param pulumi.Input[builtins.str] type: Type of the action detail. Possible values are `AutomationRunbookActionDetails`, `ManualActionDetails` and `ScriptActionDetails`.
         :param pulumi.Input[builtins.str] fabric_location: The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
                
-               > **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
+               > **Note:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
         :param pulumi.Input[builtins.str] manual_action_instruction: Instructions of manual action.
                
-               > **NOTE:** This property is required when `type` is set to `ManualActionDetails`.
+               > **Note:** This property is required when `type` is set to `ManualActionDetails`.
         :param pulumi.Input[builtins.str] runbook_id: Id of runbook.
                
-               > **NOTE:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
+               > **Note:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
         :param pulumi.Input[builtins.str] script_path: Path of action script.
                
-               > **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
+               > **Note:** This property is required when `type` is set to `ScriptActionDetails`.
         """
         pulumi.set(__self__, "fail_over_directions", fail_over_directions)
         pulumi.set(__self__, "fail_over_types", fail_over_types)
@@ -1010,7 +1010,7 @@ class ReplicationRecoveryPlanBootRecoveryGroupPostActionArgs:
         """
         The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
 
-        > **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
+        > **Note:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
         """
         return pulumi.get(self, "fabric_location")
 
@@ -1024,7 +1024,7 @@ class ReplicationRecoveryPlanBootRecoveryGroupPostActionArgs:
         """
         Instructions of manual action.
 
-        > **NOTE:** This property is required when `type` is set to `ManualActionDetails`.
+        > **Note:** This property is required when `type` is set to `ManualActionDetails`.
         """
         return pulumi.get(self, "manual_action_instruction")
 
@@ -1038,7 +1038,7 @@ class ReplicationRecoveryPlanBootRecoveryGroupPostActionArgs:
         """
         Id of runbook.
 
-        > **NOTE:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
+        > **Note:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
         """
         return pulumi.get(self, "runbook_id")
 
@@ -1052,7 +1052,7 @@ class ReplicationRecoveryPlanBootRecoveryGroupPostActionArgs:
         """
         Path of action script.
 
-        > **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
+        > **Note:** This property is required when `type` is set to `ScriptActionDetails`.
         """
         return pulumi.get(self, "script_path")
 
@@ -1083,25 +1083,25 @@ if not MYPY:
         """
         The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
 
-        > **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
+        > **Note:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
         """
         manual_action_instruction: NotRequired[pulumi.Input[builtins.str]]
         """
         Instructions of manual action.
 
-        > **NOTE:** This property is required when `type` is set to `ManualActionDetails`.
+        > **Note:** This property is required when `type` is set to `ManualActionDetails`.
         """
         runbook_id: NotRequired[pulumi.Input[builtins.str]]
         """
         Id of runbook.
 
-        > **NOTE:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
+        > **Note:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
         """
         script_path: NotRequired[pulumi.Input[builtins.str]]
         """
         Path of action script.
 
-        > **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
+        > **Note:** This property is required when `type` is set to `ScriptActionDetails`.
         """
 elif False:
     ReplicationRecoveryPlanBootRecoveryGroupPreActionArgsDict: TypeAlias = Mapping[str, Any]
@@ -1124,16 +1124,16 @@ class ReplicationRecoveryPlanBootRecoveryGroupPreActionArgs:
         :param pulumi.Input[builtins.str] type: Type of the action detail. Possible values are `AutomationRunbookActionDetails`, `ManualActionDetails` and `ScriptActionDetails`.
         :param pulumi.Input[builtins.str] fabric_location: The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
                
-               > **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
+               > **Note:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
         :param pulumi.Input[builtins.str] manual_action_instruction: Instructions of manual action.
                
-               > **NOTE:** This property is required when `type` is set to `ManualActionDetails`.
+               > **Note:** This property is required when `type` is set to `ManualActionDetails`.
         :param pulumi.Input[builtins.str] runbook_id: Id of runbook.
                
-               > **NOTE:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
+               > **Note:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
         :param pulumi.Input[builtins.str] script_path: Path of action script.
                
-               > **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
+               > **Note:** This property is required when `type` is set to `ScriptActionDetails`.
         """
         pulumi.set(__self__, "fail_over_directions", fail_over_directions)
         pulumi.set(__self__, "fail_over_types", fail_over_types)
@@ -1202,7 +1202,7 @@ class ReplicationRecoveryPlanBootRecoveryGroupPreActionArgs:
         """
         The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
 
-        > **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
+        > **Note:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
         """
         return pulumi.get(self, "fabric_location")
 
@@ -1216,7 +1216,7 @@ class ReplicationRecoveryPlanBootRecoveryGroupPreActionArgs:
         """
         Instructions of manual action.
 
-        > **NOTE:** This property is required when `type` is set to `ManualActionDetails`.
+        > **Note:** This property is required when `type` is set to `ManualActionDetails`.
         """
         return pulumi.get(self, "manual_action_instruction")
 
@@ -1230,7 +1230,7 @@ class ReplicationRecoveryPlanBootRecoveryGroupPreActionArgs:
         """
         Id of runbook.
 
-        > **NOTE:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
+        > **Note:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
         """
         return pulumi.get(self, "runbook_id")
 
@@ -1244,7 +1244,7 @@ class ReplicationRecoveryPlanBootRecoveryGroupPreActionArgs:
         """
         Path of action script.
 
-        > **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
+        > **Note:** This property is required when `type` is set to `ScriptActionDetails`.
         """
         return pulumi.get(self, "script_path")
 
@@ -1327,25 +1327,25 @@ if not MYPY:
         """
         The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
 
-        > **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
+        > **Note:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
         """
         manual_action_instruction: NotRequired[pulumi.Input[builtins.str]]
         """
         Instructions of manual action.
 
-        > **NOTE:** This property is required when `type` is set to `ManualActionDetails`.
+        > **Note:** This property is required when `type` is set to `ManualActionDetails`.
         """
         runbook_id: NotRequired[pulumi.Input[builtins.str]]
         """
         Id of runbook.
 
-        > **NOTE:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
+        > **Note:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
         """
         script_path: NotRequired[pulumi.Input[builtins.str]]
         """
         Path of action script.
 
-        > **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
+        > **Note:** This property is required when `type` is set to `ScriptActionDetails`.
         """
 elif False:
     ReplicationRecoveryPlanFailoverRecoveryGroupPostActionArgsDict: TypeAlias = Mapping[str, Any]
@@ -1368,16 +1368,16 @@ class ReplicationRecoveryPlanFailoverRecoveryGroupPostActionArgs:
         :param pulumi.Input[builtins.str] type: Type of the action detail. Possible values are `AutomationRunbookActionDetails`, `ManualActionDetails` and `ScriptActionDetails`.
         :param pulumi.Input[builtins.str] fabric_location: The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
                
-               > **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
+               > **Note:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
         :param pulumi.Input[builtins.str] manual_action_instruction: Instructions of manual action.
                
-               > **NOTE:** This property is required when `type` is set to `ManualActionDetails`.
+               > **Note:** This property is required when `type` is set to `ManualActionDetails`.
         :param pulumi.Input[builtins.str] runbook_id: Id of runbook.
                
-               > **NOTE:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
+               > **Note:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
         :param pulumi.Input[builtins.str] script_path: Path of action script.
                
-               > **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
+               > **Note:** This property is required when `type` is set to `ScriptActionDetails`.
         """
         pulumi.set(__self__, "fail_over_directions", fail_over_directions)
         pulumi.set(__self__, "fail_over_types", fail_over_types)
@@ -1446,7 +1446,7 @@ class ReplicationRecoveryPlanFailoverRecoveryGroupPostActionArgs:
         """
         The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
 
-        > **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
+        > **Note:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
         """
         return pulumi.get(self, "fabric_location")
 
@@ -1460,7 +1460,7 @@ class ReplicationRecoveryPlanFailoverRecoveryGroupPostActionArgs:
         """
         Instructions of manual action.
 
-        > **NOTE:** This property is required when `type` is set to `ManualActionDetails`.
+        > **Note:** This property is required when `type` is set to `ManualActionDetails`.
         """
         return pulumi.get(self, "manual_action_instruction")
 
@@ -1474,7 +1474,7 @@ class ReplicationRecoveryPlanFailoverRecoveryGroupPostActionArgs:
         """
         Id of runbook.
 
-        > **NOTE:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
+        > **Note:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
         """
         return pulumi.get(self, "runbook_id")
 
@@ -1488,7 +1488,7 @@ class ReplicationRecoveryPlanFailoverRecoveryGroupPostActionArgs:
         """
         Path of action script.
 
-        > **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
+        > **Note:** This property is required when `type` is set to `ScriptActionDetails`.
         """
         return pulumi.get(self, "script_path")
 
@@ -1519,25 +1519,25 @@ if not MYPY:
         """
         The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
 
-        > **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
+        > **Note:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
         """
         manual_action_instruction: NotRequired[pulumi.Input[builtins.str]]
         """
         Instructions of manual action.
 
-        > **NOTE:** This property is required when `type` is set to `ManualActionDetails`.
+        > **Note:** This property is required when `type` is set to `ManualActionDetails`.
         """
         runbook_id: NotRequired[pulumi.Input[builtins.str]]
         """
         Id of runbook.
 
-        > **NOTE:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
+        > **Note:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
         """
         script_path: NotRequired[pulumi.Input[builtins.str]]
         """
         Path of action script.
 
-        > **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
+        > **Note:** This property is required when `type` is set to `ScriptActionDetails`.
         """
 elif False:
     ReplicationRecoveryPlanFailoverRecoveryGroupPreActionArgsDict: TypeAlias = Mapping[str, Any]
@@ -1560,16 +1560,16 @@ class ReplicationRecoveryPlanFailoverRecoveryGroupPreActionArgs:
         :param pulumi.Input[builtins.str] type: Type of the action detail. Possible values are `AutomationRunbookActionDetails`, `ManualActionDetails` and `ScriptActionDetails`.
         :param pulumi.Input[builtins.str] fabric_location: The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
                
-               > **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
+               > **Note:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
         :param pulumi.Input[builtins.str] manual_action_instruction: Instructions of manual action.
                
-               > **NOTE:** This property is required when `type` is set to `ManualActionDetails`.
+               > **Note:** This property is required when `type` is set to `ManualActionDetails`.
         :param pulumi.Input[builtins.str] runbook_id: Id of runbook.
                
-               > **NOTE:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
+               > **Note:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
         :param pulumi.Input[builtins.str] script_path: Path of action script.
                
-               > **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
+               > **Note:** This property is required when `type` is set to `ScriptActionDetails`.
         """
         pulumi.set(__self__, "fail_over_directions", fail_over_directions)
         pulumi.set(__self__, "fail_over_types", fail_over_types)
@@ -1638,7 +1638,7 @@ class ReplicationRecoveryPlanFailoverRecoveryGroupPreActionArgs:
         """
         The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
 
-        > **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
+        > **Note:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
         """
         return pulumi.get(self, "fabric_location")
 
@@ -1652,7 +1652,7 @@ class ReplicationRecoveryPlanFailoverRecoveryGroupPreActionArgs:
         """
         Instructions of manual action.
 
-        > **NOTE:** This property is required when `type` is set to `ManualActionDetails`.
+        > **Note:** This property is required when `type` is set to `ManualActionDetails`.
         """
         return pulumi.get(self, "manual_action_instruction")
 
@@ -1666,7 +1666,7 @@ class ReplicationRecoveryPlanFailoverRecoveryGroupPreActionArgs:
         """
         Id of runbook.
 
-        > **NOTE:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
+        > **Note:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
         """
         return pulumi.get(self, "runbook_id")
 
@@ -1680,7 +1680,7 @@ class ReplicationRecoveryPlanFailoverRecoveryGroupPreActionArgs:
         """
         Path of action script.
 
-        > **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
+        > **Note:** This property is required when `type` is set to `ScriptActionDetails`.
         """
         return pulumi.get(self, "script_path")
 
@@ -1763,25 +1763,25 @@ if not MYPY:
         """
         The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
 
-        > **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
+        > **Note:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
         """
         manual_action_instruction: NotRequired[pulumi.Input[builtins.str]]
         """
         Instructions of manual action.
 
-        > **NOTE:** This property is required when `type` is set to `ManualActionDetails`.
+        > **Note:** This property is required when `type` is set to `ManualActionDetails`.
         """
         runbook_id: NotRequired[pulumi.Input[builtins.str]]
         """
         Id of runbook.
 
-        > **NOTE:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
+        > **Note:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
         """
         script_path: NotRequired[pulumi.Input[builtins.str]]
         """
         Path of action script.
 
-        > **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
+        > **Note:** This property is required when `type` is set to `ScriptActionDetails`.
         """
 elif False:
     ReplicationRecoveryPlanShutdownRecoveryGroupPostActionArgsDict: TypeAlias = Mapping[str, Any]
@@ -1804,16 +1804,16 @@ class ReplicationRecoveryPlanShutdownRecoveryGroupPostActionArgs:
         :param pulumi.Input[builtins.str] type: Type of the action detail. Possible values are `AutomationRunbookActionDetails`, `ManualActionDetails` and `ScriptActionDetails`.
         :param pulumi.Input[builtins.str] fabric_location: The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
                
-               > **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
+               > **Note:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
         :param pulumi.Input[builtins.str] manual_action_instruction: Instructions of manual action.
                
-               > **NOTE:** This property is required when `type` is set to `ManualActionDetails`.
+               > **Note:** This property is required when `type` is set to `ManualActionDetails`.
         :param pulumi.Input[builtins.str] runbook_id: Id of runbook.
                
-               > **NOTE:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
+               > **Note:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
         :param pulumi.Input[builtins.str] script_path: Path of action script.
                
-               > **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
+               > **Note:** This property is required when `type` is set to `ScriptActionDetails`.
         """
         pulumi.set(__self__, "fail_over_directions", fail_over_directions)
         pulumi.set(__self__, "fail_over_types", fail_over_types)
@@ -1882,7 +1882,7 @@ class ReplicationRecoveryPlanShutdownRecoveryGroupPostActionArgs:
         """
         The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
 
-        > **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
+        > **Note:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
         """
         return pulumi.get(self, "fabric_location")
 
@@ -1896,7 +1896,7 @@ class ReplicationRecoveryPlanShutdownRecoveryGroupPostActionArgs:
         """
         Instructions of manual action.
 
-        > **NOTE:** This property is required when `type` is set to `ManualActionDetails`.
+        > **Note:** This property is required when `type` is set to `ManualActionDetails`.
         """
         return pulumi.get(self, "manual_action_instruction")
 
@@ -1910,7 +1910,7 @@ class ReplicationRecoveryPlanShutdownRecoveryGroupPostActionArgs:
         """
         Id of runbook.
 
-        > **NOTE:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
+        > **Note:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
         """
         return pulumi.get(self, "runbook_id")
 
@@ -1924,7 +1924,7 @@ class ReplicationRecoveryPlanShutdownRecoveryGroupPostActionArgs:
         """
         Path of action script.
 
-        > **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
+        > **Note:** This property is required when `type` is set to `ScriptActionDetails`.
         """
         return pulumi.get(self, "script_path")
 
@@ -1955,25 +1955,25 @@ if not MYPY:
         """
         The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
 
-        > **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
+        > **Note:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
         """
         manual_action_instruction: NotRequired[pulumi.Input[builtins.str]]
         """
         Instructions of manual action.
 
-        > **NOTE:** This property is required when `type` is set to `ManualActionDetails`.
+        > **Note:** This property is required when `type` is set to `ManualActionDetails`.
         """
         runbook_id: NotRequired[pulumi.Input[builtins.str]]
         """
         Id of runbook.
 
-        > **NOTE:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
+        > **Note:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
         """
         script_path: NotRequired[pulumi.Input[builtins.str]]
         """
         Path of action script.
 
-        > **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
+        > **Note:** This property is required when `type` is set to `ScriptActionDetails`.
         """
 elif False:
     ReplicationRecoveryPlanShutdownRecoveryGroupPreActionArgsDict: TypeAlias = Mapping[str, Any]
@@ -1996,16 +1996,16 @@ class ReplicationRecoveryPlanShutdownRecoveryGroupPreActionArgs:
         :param pulumi.Input[builtins.str] type: Type of the action detail. Possible values are `AutomationRunbookActionDetails`, `ManualActionDetails` and `ScriptActionDetails`.
         :param pulumi.Input[builtins.str] fabric_location: The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
                
-               > **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
+               > **Note:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
         :param pulumi.Input[builtins.str] manual_action_instruction: Instructions of manual action.
                
-               > **NOTE:** This property is required when `type` is set to `ManualActionDetails`.
+               > **Note:** This property is required when `type` is set to `ManualActionDetails`.
         :param pulumi.Input[builtins.str] runbook_id: Id of runbook.
                
-               > **NOTE:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
+               > **Note:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
         :param pulumi.Input[builtins.str] script_path: Path of action script.
                
-               > **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
+               > **Note:** This property is required when `type` is set to `ScriptActionDetails`.
         """
         pulumi.set(__self__, "fail_over_directions", fail_over_directions)
         pulumi.set(__self__, "fail_over_types", fail_over_types)
@@ -2074,7 +2074,7 @@ class ReplicationRecoveryPlanShutdownRecoveryGroupPreActionArgs:
         """
         The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
 
-        > **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
+        > **Note:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
         """
         return pulumi.get(self, "fabric_location")
 
@@ -2088,7 +2088,7 @@ class ReplicationRecoveryPlanShutdownRecoveryGroupPreActionArgs:
         """
         Instructions of manual action.
 
-        > **NOTE:** This property is required when `type` is set to `ManualActionDetails`.
+        > **Note:** This property is required when `type` is set to `ManualActionDetails`.
         """
         return pulumi.get(self, "manual_action_instruction")
 
@@ -2102,7 +2102,7 @@ class ReplicationRecoveryPlanShutdownRecoveryGroupPreActionArgs:
         """
         Id of runbook.
 
-        > **NOTE:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
+        > **Note:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
         """
         return pulumi.get(self, "runbook_id")
 
@@ -2116,7 +2116,7 @@ class ReplicationRecoveryPlanShutdownRecoveryGroupPreActionArgs:
         """
         Path of action script.
 
-        > **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
+        > **Note:** This property is required when `type` is set to `ScriptActionDetails`.
         """
         return pulumi.get(self, "script_path")
 

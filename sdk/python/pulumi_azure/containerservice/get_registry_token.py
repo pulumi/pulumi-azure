@@ -120,6 +120,13 @@ def get_registry_token(container_registry_name: Optional[builtins.str] = None,
     pulumi.export("scopeMapId", example.scope_map_id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.ContainerRegistry`: 2023-11-01-preview
+
 
     :param builtins.str container_registry_name: The Name of the Container Registry where the token exists.
     :param builtins.str name: The name of the Container Registry token.
@@ -157,6 +164,13 @@ def get_registry_token_output(container_registry_name: Optional[pulumi.Input[bui
         container_registry_name="example-registry")
     pulumi.export("scopeMapId", example.scope_map_id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.ContainerRegistry`: 2023-11-01-preview
 
 
     :param builtins.str container_registry_name: The Name of the Container Registry where the token exists.

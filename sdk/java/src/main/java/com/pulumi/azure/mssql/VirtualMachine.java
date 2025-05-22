@@ -84,6 +84,15 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.Compute`: 2024-03-01
+ * 
+ * * `Microsoft.SqlVirtualMachine`: 2023-10-01
+ * 
  * ## Import
  * 
  * Microsoft SQL Virtual Machines can be imported using the `resource id`, e.g.

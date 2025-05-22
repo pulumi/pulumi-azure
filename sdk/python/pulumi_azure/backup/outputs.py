@@ -50,11 +50,11 @@ class PolicyFileShareBackup(dict):
         """
         :param builtins.str frequency: Sets the backup frequency. Possible values are `Daily` and `Hourly`. 
                
-               > **NOTE:** This argument is made available for consistency with VM backup policies and to allow for potential future support of weekly backups
+               > **Note:** This argument is made available for consistency with VM backup policies and to allow for potential future support of weekly backups
         :param 'PolicyFileShareBackupHourlyArgs' hourly: A `hourly` block defined as below. This is required when `frequency` is set to `Hourly`.
         :param builtins.str time: The time of day to perform the backup in 24-hour format. Times must be either on the hour or half hour (e.g. 12:00, 12:30, 13:00, etc.)
                
-               > **NOTE:** `time` is required when `frequency` is set to `Daily`.
+               > **Note:** `time` is required when `frequency` is set to `Daily`.
         """
         pulumi.set(__self__, "frequency", frequency)
         if hourly is not None:
@@ -68,7 +68,7 @@ class PolicyFileShareBackup(dict):
         """
         Sets the backup frequency. Possible values are `Daily` and `Hourly`. 
 
-        > **NOTE:** This argument is made available for consistency with VM backup policies and to allow for potential future support of weekly backups
+        > **Note:** This argument is made available for consistency with VM backup policies and to allow for potential future support of weekly backups
         """
         return pulumi.get(self, "frequency")
 
@@ -86,7 +86,7 @@ class PolicyFileShareBackup(dict):
         """
         The time of day to perform the backup in 24-hour format. Times must be either on the hour or half hour (e.g. 12:00, 12:30, 13:00, etc.)
 
-        > **NOTE:** `time` is required when `frequency` is set to `Daily`.
+        > **Note:** `time` is required when `frequency` is set to `Daily`.
         """
         return pulumi.get(self, "time")
 
@@ -198,7 +198,7 @@ class PolicyFileShareRetentionMonthly(dict):
         :param Sequence[builtins.int] days: The days of the month to retain backups of. Must be between `1` and `31`.
         :param builtins.bool include_last_days: Including the last day of the month, default to `false`.
                
-               > **NOTE:**: Either `weekdays` and `weeks` or `days` and `include_last_days` must be specified.
+               > **Note:** Either `weekdays` and `weeks` or `days` and `include_last_days` must be specified.
         :param Sequence[builtins.str] weekdays: The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
         :param Sequence[builtins.str] weeks: The weeks of the month to retain backups of. Must be one of `First`, `Second`, `Third`, `Fourth`, `Last`.
         """
@@ -234,7 +234,7 @@ class PolicyFileShareRetentionMonthly(dict):
         """
         Including the last day of the month, default to `false`.
 
-        > **NOTE:**: Either `weekdays` and `weeks` or `days` and `include_last_days` must be specified.
+        > **Note:** Either `weekdays` and `weeks` or `days` and `include_last_days` must be specified.
         """
         return pulumi.get(self, "include_last_days")
 
@@ -316,7 +316,7 @@ class PolicyFileShareRetentionYearly(dict):
         :param Sequence[builtins.int] days: The days of the month to retain backups of. Must be between `1` and `31`.
         :param builtins.bool include_last_days: Including the last day of the month, default to `false`.
                
-               > **NOTE:**: Either `weekdays` and `weeks` or `days` and `include_last_days` must be specified.
+               > **Note:** Either `weekdays` and `weeks` or `days` and `include_last_days` must be specified.
         :param Sequence[builtins.str] weekdays: The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
         :param Sequence[builtins.str] weeks: The weeks of the month to retain backups of. Must be one of `First`, `Second`, `Third`, `Fourth`, `Last`.
         """
@@ -361,7 +361,7 @@ class PolicyFileShareRetentionYearly(dict):
         """
         Including the last day of the month, default to `false`.
 
-        > **NOTE:**: Either `weekdays` and `weeks` or `days` and `include_last_days` must be specified.
+        > **Note:** Either `weekdays` and `weeks` or `days` and `include_last_days` must be specified.
         """
         return pulumi.get(self, "include_last_days")
 
@@ -414,7 +414,7 @@ class PolicyVMBackup(dict):
         :param builtins.str time: The time of day to perform the backup in 24hour format.
         :param builtins.int hour_duration: Duration of the backup window in hours. Possible values are between `4` and `24` This is used when `frequency` is `Hourly`.
                
-               > **NOTE:** `hour_duration` must be multiplier of `hour_interval`
+               > **Note:** `hour_duration` must be multiplier of `hour_interval`
         :param builtins.int hour_interval: Interval in hour at which backup is triggered. Possible values are `4`, `6`, `8` and `12`. This is used when `frequency` is `Hourly`.
         :param Sequence[builtins.str] weekdays: The days of the week to perform backups on. Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`. This is used when `frequency` is `Weekly`.
         """
@@ -449,7 +449,7 @@ class PolicyVMBackup(dict):
         """
         Duration of the backup window in hours. Possible values are between `4` and `24` This is used when `frequency` is `Hourly`.
 
-        > **NOTE:** `hour_duration` must be multiplier of `hour_interval`
+        > **Note:** `hour_duration` must be multiplier of `hour_interval`
         """
         return pulumi.get(self, "hour_duration")
 
@@ -552,7 +552,7 @@ class PolicyVMRetentionMonthly(dict):
         :param Sequence[builtins.int] days: The days of the month to retain backups of. Must be between `1` and `31`.
         :param builtins.bool include_last_days: Including the last day of the month, default to `false`.
                
-               > **NOTE:**: Either `weekdays` and `weeks` or `days` and `include_last_days` must be specified.
+               > **Note:** Either `weekdays` and `weeks` or `days` and `include_last_days` must be specified.
         :param Sequence[builtins.str] weekdays: The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
         :param Sequence[builtins.str] weeks: The weeks of the month to retain backups of. Must be one of `First`, `Second`, `Third`, `Fourth`, `Last`.
         """
@@ -588,7 +588,7 @@ class PolicyVMRetentionMonthly(dict):
         """
         Including the last day of the month, default to `false`.
 
-        > **NOTE:**: Either `weekdays` and `weeks` or `days` and `include_last_days` must be specified.
+        > **Note:** Either `weekdays` and `weeks` or `days` and `include_last_days` must be specified.
         """
         return pulumi.get(self, "include_last_days")
 
@@ -670,7 +670,7 @@ class PolicyVMRetentionYearly(dict):
         :param Sequence[builtins.int] days: The days of the month to retain backups of. Must be between `1` and `31`.
         :param builtins.bool include_last_days: Including the last day of the month, default to `false`.
                
-               > **NOTE:**: Either `weekdays` and `weeks` or `days` and `include_last_days` must be specified.
+               > **Note:** Either `weekdays` and `weeks` or `days` and `include_last_days` must be specified.
         :param Sequence[builtins.str] weekdays: The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
         :param Sequence[builtins.str] weeks: The weeks of the month to retain backups of. Must be one of `First`, `Second`, `Third`, `Fourth`, `Last`.
         """
@@ -715,7 +715,7 @@ class PolicyVMRetentionYearly(dict):
         """
         Including the last day of the month, default to `false`.
 
-        > **NOTE:**: Either `weekdays` and `weeks` or `days` and `include_last_days` must be specified.
+        > **Note:** Either `weekdays` and `weeks` or `days` and `include_last_days` must be specified.
         """
         return pulumi.get(self, "include_last_days")
 

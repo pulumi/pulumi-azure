@@ -67,7 +67,7 @@ public final class IntegrationRuntimeSsisExpressCustomSetupArgs extends com.pulu
     /**
      * The version of Azure Powershell installed for the Azure-SSIS Integration Runtime.
      * 
-     * &gt; **NOTE** At least one of `env`, `powershell_version`, `component` and `command_key` should be specified.
+     * &gt; **Note:** At least one of `env`, `powershell_version`, `component` and `command_key` should be specified.
      * 
      */
     @Import(name="powershellVersion")
@@ -76,7 +76,7 @@ public final class IntegrationRuntimeSsisExpressCustomSetupArgs extends com.pulu
     /**
      * @return The version of Azure Powershell installed for the Azure-SSIS Integration Runtime.
      * 
-     * &gt; **NOTE** At least one of `env`, `powershell_version`, `component` and `command_key` should be specified.
+     * &gt; **Note:** At least one of `env`, `powershell_version`, `component` and `command_key` should be specified.
      * 
      */
     public Optional<Output<String>> powershellVersion() {
@@ -196,7 +196,7 @@ public final class IntegrationRuntimeSsisExpressCustomSetupArgs extends com.pulu
         /**
          * @param powershellVersion The version of Azure Powershell installed for the Azure-SSIS Integration Runtime.
          * 
-         * &gt; **NOTE** At least one of `env`, `powershell_version`, `component` and `command_key` should be specified.
+         * &gt; **Note:** At least one of `env`, `powershell_version`, `component` and `command_key` should be specified.
          * 
          * @return builder
          * 
@@ -209,7 +209,7 @@ public final class IntegrationRuntimeSsisExpressCustomSetupArgs extends com.pulu
         /**
          * @param powershellVersion The version of Azure Powershell installed for the Azure-SSIS Integration Runtime.
          * 
-         * &gt; **NOTE** At least one of `env`, `powershell_version`, `component` and `command_key` should be specified.
+         * &gt; **Note:** At least one of `env`, `powershell_version`, `component` and `command_key` should be specified.
          * 
          * @return builder
          * 

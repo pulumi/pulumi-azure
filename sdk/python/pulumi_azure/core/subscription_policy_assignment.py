@@ -543,6 +543,13 @@ class SubscriptionPolicyAssignment(pulumi.CustomResource):
             subscription_id=current.id)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Authorization`: 2022-06-01
+
         ## Import
 
         Subscription Policy Assignments can be imported using the `resource id`, e.g.
@@ -608,6 +615,13 @@ class SubscriptionPolicyAssignment(pulumi.CustomResource):
             policy_definition_id=example.id,
             subscription_id=current.id)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Authorization`: 2022-06-01
 
         ## Import
 

@@ -223,7 +223,7 @@ class FlexibleServerActiveDirectoryAdministratory(pulumi.CustomResource):
             location=example.location,
             administrator_login="_admin_Terraform_892123456789312",
             administrator_password="QAZwsx123",
-            sku_name="B_Standard_B1s",
+            sku_name="B_Standard_B1ms",
             zone="2",
             identity={
                 "type": "UserAssigned",
@@ -236,6 +236,13 @@ class FlexibleServerActiveDirectoryAdministratory(pulumi.CustomResource):
             object_id=current.client_id,
             tenant_id=current.tenant_id)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DBforMySQL`: 2023-12-30
 
         ## Import
 
@@ -282,7 +289,7 @@ class FlexibleServerActiveDirectoryAdministratory(pulumi.CustomResource):
             location=example.location,
             administrator_login="_admin_Terraform_892123456789312",
             administrator_password="QAZwsx123",
-            sku_name="B_Standard_B1s",
+            sku_name="B_Standard_B1ms",
             zone="2",
             identity={
                 "type": "UserAssigned",
@@ -295,6 +302,13 @@ class FlexibleServerActiveDirectoryAdministratory(pulumi.CustomResource):
             object_id=current.client_id,
             tenant_id=current.tenant_id)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DBforMySQL`: 2023-12-30
 
         ## Import
 

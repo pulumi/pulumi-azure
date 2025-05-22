@@ -37,6 +37,13 @@ namespace Pulumi.Azure.NetApp
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.NetApp`: 2025-01-01
         /// </summary>
         public static Task<GetVolumeGroupSapHanaResult> InvokeAsync(GetVolumeGroupSapHanaArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVolumeGroupSapHanaResult>("azure:netapp/getVolumeGroupSapHana:getVolumeGroupSapHana", args ?? new GetVolumeGroupSapHanaArgs(), options.WithDefaults());
@@ -67,6 +74,13 @@ namespace Pulumi.Azure.NetApp
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.NetApp`: 2025-01-01
         /// </summary>
         public static Output<GetVolumeGroupSapHanaResult> Invoke(GetVolumeGroupSapHanaInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVolumeGroupSapHanaResult>("azure:netapp/getVolumeGroupSapHana:getVolumeGroupSapHana", args ?? new GetVolumeGroupSapHanaInvokeArgs(), options.WithDefaults());
@@ -97,6 +111,13 @@ namespace Pulumi.Azure.NetApp
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.NetApp`: 2025-01-01
         /// </summary>
         public static Output<GetVolumeGroupSapHanaResult> Invoke(GetVolumeGroupSapHanaInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetVolumeGroupSapHanaResult>("azure:netapp/getVolumeGroupSapHana:getVolumeGroupSapHana", args ?? new GetVolumeGroupSapHanaInvokeArgs(), options.WithDefaults());

@@ -164,6 +164,13 @@ namespace Pulumi.Azure.NetApp
     /// });
     /// ```
     /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.NetApp`: 2025-01-01
+    /// 
     /// ## Import
     /// 
     /// Application Volume Groups can be imported using the `resource id`, e.g.

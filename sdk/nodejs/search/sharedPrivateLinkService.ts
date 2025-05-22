@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  *     sku: "standard",
  * });
  * const testAccount = new azure.storage.Account("test", {
- *     name: "xiaxintestsaforsearchspl",
+ *     name: "example",
  *     resourceGroupName: test.name,
  *     location: test.location,
  *     accountTier: "Standard",
@@ -38,6 +38,13 @@ import * as utilities from "../utilities";
  *     requestMessage: "please approve",
  * });
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.Search`: 2024-06-01-preview
  *
  * ## Import
  *
@@ -98,7 +105,7 @@ export class SharedPrivateLinkService extends pulumi.CustomResource {
     /**
      * Specify the ID of the Shared Private Link Enabled Remote Resource which this Azure Search Private Endpoint should be connected to. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** The sub resource name should match with the type of the target resource id that's being specified.
+     * > **Note:** The sub resource name should match with the type of the target resource id that's being specified.
      */
     public readonly targetResourceId!: pulumi.Output<string>;
 
@@ -171,7 +178,7 @@ export interface SharedPrivateLinkServiceState {
     /**
      * Specify the ID of the Shared Private Link Enabled Remote Resource which this Azure Search Private Endpoint should be connected to. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** The sub resource name should match with the type of the target resource id that's being specified.
+     * > **Note:** The sub resource name should match with the type of the target resource id that's being specified.
      */
     targetResourceId?: pulumi.Input<string>;
 }
@@ -199,7 +206,7 @@ export interface SharedPrivateLinkServiceArgs {
     /**
      * Specify the ID of the Shared Private Link Enabled Remote Resource which this Azure Search Private Endpoint should be connected to. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** The sub resource name should match with the type of the target resource id that's being specified.
+     * > **Note:** The sub resource name should match with the type of the target resource id that's being specified.
      */
     targetResourceId: pulumi.Input<string>;
 }

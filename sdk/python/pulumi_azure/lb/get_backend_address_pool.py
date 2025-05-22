@@ -152,6 +152,13 @@ def get_backend_address_pool(loadbalancer_id: Optional[builtins.str] = None,
     pulumi.export("backendIpConfigurationIds", [__item["id"] for __item in beap["backendIpConfigurations"]])
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Network`: 2023-09-01
+
 
     :param builtins.str loadbalancer_id: The ID of the Load Balancer in which the Backend Address Pool exists.
     :param builtins.str name: Specifies the name of the Backend Address Pool.
@@ -190,6 +197,13 @@ def get_backend_address_pool_output(loadbalancer_id: Optional[pulumi.Input[built
     pulumi.export("backendAddressPoolId", example_get_backend_address_pool.id)
     pulumi.export("backendIpConfigurationIds", [__item["id"] for __item in beap["backendIpConfigurations"]])
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Network`: 2023-09-01
 
 
     :param builtins.str loadbalancer_id: The ID of the Load Balancer in which the Backend Address Pool exists.

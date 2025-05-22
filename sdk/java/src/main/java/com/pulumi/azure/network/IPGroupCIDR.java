@@ -16,7 +16,7 @@ import javax.annotation.Nullable;
 /**
  * Manages IP Group CIDR records.
  * 
- * &gt; Warning Do not use this resource at the same time as the `cidrs` property of the
+ * &gt; **Note:** Warning Do not use this resource at the same time as the `cidrs` property of the
  * `azure.network.IPGroup` resource for the same IP Group. Doing so will cause a conflict and
  * CIDRS will be removed.
  * 

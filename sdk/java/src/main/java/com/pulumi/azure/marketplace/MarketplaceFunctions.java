@@ -56,6 +56,13 @@ public final class MarketplaceFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.MarketplaceOrdering`: 2015-06-01
+     * 
      */
     public static Output<GetAgreementResult> getAgreement(GetAgreementArgs args) {
         return getAgreement(args, InvokeOptions.Empty);
@@ -100,6 +107,13 @@ public final class MarketplaceFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.MarketplaceOrdering`: 2015-06-01
      * 
      */
     public static CompletableFuture<GetAgreementResult> getAgreementPlain(GetAgreementPlainArgs args) {
@@ -146,6 +160,13 @@ public final class MarketplaceFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.MarketplaceOrdering`: 2015-06-01
+     * 
      */
     public static Output<GetAgreementResult> getAgreement(GetAgreementArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:marketplace/getAgreement:getAgreement", TypeShape.of(GetAgreementResult.class), args, Utilities.withVersion(options));
@@ -191,6 +212,13 @@ public final class MarketplaceFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.MarketplaceOrdering`: 2015-06-01
+     * 
      */
     public static Output<GetAgreementResult> getAgreement(GetAgreementArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:marketplace/getAgreement:getAgreement", TypeShape.of(GetAgreementResult.class), args, Utilities.withVersion(options));
@@ -235,6 +263,13 @@ public final class MarketplaceFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.MarketplaceOrdering`: 2015-06-01
      * 
      */
     public static CompletableFuture<GetAgreementResult> getAgreementPlain(GetAgreementPlainArgs args, InvokeOptions options) {

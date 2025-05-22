@@ -524,7 +524,7 @@ type ClusterCertificateCommonNamesCommonName struct {
 	CertificateCommonName string `pulumi:"certificateCommonName"`
 	// The Issuer Thumbprint of the Certificate.
 	//
-	// > **NOTE:** Certificate Issuer Thumbprint may become required in the future, `https://docs.microsoft.com/azure/service-fabric/service-fabric-create-cluster-using-cert-cn#download-and-update-a-sample-template`.
+	// > **Note:** Certificate Issuer Thumbprint may become required in the future, `https://docs.microsoft.com/azure/service-fabric/service-fabric-create-cluster-using-cert-cn#download-and-update-a-sample-template`.
 	CertificateIssuerThumbprint *string `pulumi:"certificateIssuerThumbprint"`
 }
 
@@ -544,7 +544,7 @@ type ClusterCertificateCommonNamesCommonNameArgs struct {
 	CertificateCommonName pulumi.StringInput `pulumi:"certificateCommonName"`
 	// The Issuer Thumbprint of the Certificate.
 	//
-	// > **NOTE:** Certificate Issuer Thumbprint may become required in the future, `https://docs.microsoft.com/azure/service-fabric/service-fabric-create-cluster-using-cert-cn#download-and-update-a-sample-template`.
+	// > **Note:** Certificate Issuer Thumbprint may become required in the future, `https://docs.microsoft.com/azure/service-fabric/service-fabric-create-cluster-using-cert-cn#download-and-update-a-sample-template`.
 	CertificateIssuerThumbprint pulumi.StringPtrInput `pulumi:"certificateIssuerThumbprint"`
 }
 
@@ -606,7 +606,7 @@ func (o ClusterCertificateCommonNamesCommonNameOutput) CertificateCommonName() p
 
 // The Issuer Thumbprint of the Certificate.
 //
-// > **NOTE:** Certificate Issuer Thumbprint may become required in the future, `https://docs.microsoft.com/azure/service-fabric/service-fabric-create-cluster-using-cert-cn#download-and-update-a-sample-template`.
+// > **Note:** Certificate Issuer Thumbprint may become required in the future, `https://docs.microsoft.com/azure/service-fabric/service-fabric-create-cluster-using-cert-cn#download-and-update-a-sample-template`.
 func (o ClusterCertificateCommonNamesCommonNameOutput) CertificateIssuerThumbprint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterCertificateCommonNamesCommonName) *string { return v.CertificateIssuerThumbprint }).(pulumi.StringPtrOutput)
 }
@@ -638,7 +638,7 @@ type ClusterClientCertificateCommonName struct {
 	IsAdmin bool `pulumi:"isAdmin"`
 	// The Issuer Thumbprint of the Certificate.
 	//
-	// > **NOTE:** Certificate Issuer Thumbprint may become required in the future, `https://docs.microsoft.com/azure/service-fabric/service-fabric-create-cluster-using-cert-cn#download-and-update-a-sample-template`.
+	// > **Note:** Certificate Issuer Thumbprint may become required in the future, `https://docs.microsoft.com/azure/service-fabric/service-fabric-create-cluster-using-cert-cn#download-and-update-a-sample-template`.
 	IssuerThumbprint *string `pulumi:"issuerThumbprint"`
 }
 
@@ -660,7 +660,7 @@ type ClusterClientCertificateCommonNameArgs struct {
 	IsAdmin pulumi.BoolInput `pulumi:"isAdmin"`
 	// The Issuer Thumbprint of the Certificate.
 	//
-	// > **NOTE:** Certificate Issuer Thumbprint may become required in the future, `https://docs.microsoft.com/azure/service-fabric/service-fabric-create-cluster-using-cert-cn#download-and-update-a-sample-template`.
+	// > **Note:** Certificate Issuer Thumbprint may become required in the future, `https://docs.microsoft.com/azure/service-fabric/service-fabric-create-cluster-using-cert-cn#download-and-update-a-sample-template`.
 	IssuerThumbprint pulumi.StringPtrInput `pulumi:"issuerThumbprint"`
 }
 
@@ -727,7 +727,7 @@ func (o ClusterClientCertificateCommonNameOutput) IsAdmin() pulumi.BoolOutput {
 
 // The Issuer Thumbprint of the Certificate.
 //
-// > **NOTE:** Certificate Issuer Thumbprint may become required in the future, `https://docs.microsoft.com/azure/service-fabric/service-fabric-create-cluster-using-cert-cn#download-and-update-a-sample-template`.
+// > **Note:** Certificate Issuer Thumbprint may become required in the future, `https://docs.microsoft.com/azure/service-fabric/service-fabric-create-cluster-using-cert-cn#download-and-update-a-sample-template`.
 func (o ClusterClientCertificateCommonNameOutput) IssuerThumbprint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterClientCertificateCommonName) *string { return v.IssuerThumbprint }).(pulumi.StringPtrOutput)
 }
@@ -2032,7 +2032,7 @@ type ClusterReverseProxyCertificateCommonNamesCommonName struct {
 	CertificateCommonName string `pulumi:"certificateCommonName"`
 	// The Issuer Thumbprint of the Certificate.
 	//
-	// > **NOTE:** Certificate Issuer Thumbprint may become required in the future, `https://docs.microsoft.com/azure/service-fabric/service-fabric-create-cluster-using-cert-cn#download-and-update-a-sample-template`.
+	// > **Note:** Certificate Issuer Thumbprint may become required in the future, `https://docs.microsoft.com/azure/service-fabric/service-fabric-create-cluster-using-cert-cn#download-and-update-a-sample-template`.
 	CertificateIssuerThumbprint *string `pulumi:"certificateIssuerThumbprint"`
 }
 
@@ -2052,7 +2052,7 @@ type ClusterReverseProxyCertificateCommonNamesCommonNameArgs struct {
 	CertificateCommonName pulumi.StringInput `pulumi:"certificateCommonName"`
 	// The Issuer Thumbprint of the Certificate.
 	//
-	// > **NOTE:** Certificate Issuer Thumbprint may become required in the future, `https://docs.microsoft.com/azure/service-fabric/service-fabric-create-cluster-using-cert-cn#download-and-update-a-sample-template`.
+	// > **Note:** Certificate Issuer Thumbprint may become required in the future, `https://docs.microsoft.com/azure/service-fabric/service-fabric-create-cluster-using-cert-cn#download-and-update-a-sample-template`.
 	CertificateIssuerThumbprint pulumi.StringPtrInput `pulumi:"certificateIssuerThumbprint"`
 }
 
@@ -2114,7 +2114,7 @@ func (o ClusterReverseProxyCertificateCommonNamesCommonNameOutput) CertificateCo
 
 // The Issuer Thumbprint of the Certificate.
 //
-// > **NOTE:** Certificate Issuer Thumbprint may become required in the future, `https://docs.microsoft.com/azure/service-fabric/service-fabric-create-cluster-using-cert-cn#download-and-update-a-sample-template`.
+// > **Note:** Certificate Issuer Thumbprint may become required in the future, `https://docs.microsoft.com/azure/service-fabric/service-fabric-create-cluster-using-cert-cn#download-and-update-a-sample-template`.
 func (o ClusterReverseProxyCertificateCommonNamesCommonNameOutput) CertificateIssuerThumbprint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterReverseProxyCertificateCommonNamesCommonName) *string {
 		return v.CertificateIssuerThumbprint

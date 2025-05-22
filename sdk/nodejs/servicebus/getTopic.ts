@@ -19,6 +19,13 @@ import * as utilities from "../utilities";
  * });
  * export const id = example.then(example => example.id);
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.ServiceBus`: 2022-10-01-preview, 2021-06-01-preview
  */
 export function getTopic(args: GetTopicArgs, opts?: pulumi.InvokeOptions): Promise<GetTopicResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -43,11 +50,11 @@ export interface GetTopicArgs {
      */
     namespaceId?: string;
     /**
-     * @deprecated `namespaceName` will be removed in favour of the property `namespaceId` in version 4.0 of the AzureRM Provider.
+     * @deprecated `namespaceName` will be removed in favour of the `namespaceId` property in v5.0 of the AzureRM Provider.
      */
     namespaceName?: string;
     /**
-     * @deprecated `resourceGroupName` will be removed in favour of the property `namespaceId` in version 4.0 of the AzureRM Provider.
+     * @deprecated `resourceGroupName` will be removed in favour of the `namespaceId` property in v5.0 of the AzureRM Provider.
      */
     resourceGroupName?: string;
 }
@@ -61,6 +68,10 @@ export interface GetTopicResult {
      */
     readonly autoDeleteOnIdle: string;
     /**
+     * Boolean flag which controls if server-side batched operations are enabled.
+     */
+    readonly batchedOperationsEnabled: boolean;
+    /**
      * The ISO 8601 timespan duration of TTL of messages sent to this topic if no TTL value is set on the message itself.
      */
     readonly defaultMessageTtl: string;
@@ -68,18 +79,13 @@ export interface GetTopicResult {
      * The ISO 8601 timespan duration during which duplicates can be detected.
      */
     readonly duplicateDetectionHistoryTimeWindow: string;
-    /**
-     * Boolean flag which controls if server-side batched operations are enabled.
-     */
     readonly enableBatchedOperations: boolean;
+    readonly enableExpress: boolean;
+    readonly enablePartitioning: boolean;
     /**
      * Boolean flag which controls whether Express Entities are enabled. An express topic holds a message in memory temporarily before writing it to persistent storage.
      */
-    readonly enableExpress: boolean;
-    /**
-     * Boolean flag which controls whether to enable the topic to be partitioned across multiple message brokers.
-     */
-    readonly enablePartitioning: boolean;
+    readonly expressEnabled: boolean;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
@@ -91,15 +97,19 @@ export interface GetTopicResult {
     readonly name: string;
     readonly namespaceId?: string;
     /**
-     * @deprecated `namespaceName` will be removed in favour of the property `namespaceId` in version 4.0 of the AzureRM Provider.
+     * @deprecated `namespaceName` will be removed in favour of the `namespaceId` property in v5.0 of the AzureRM Provider.
      */
     readonly namespaceName?: string;
+    /**
+     * Boolean flag which controls whether to enable the topic to be partitioned across multiple message brokers.
+     */
+    readonly partitioningEnabled: boolean;
     /**
      * Boolean flag which controls whether the Topic requires duplicate detection.
      */
     readonly requiresDuplicateDetection: boolean;
     /**
-     * @deprecated `resourceGroupName` will be removed in favour of the property `namespaceId` in version 4.0 of the AzureRM Provider.
+     * @deprecated `resourceGroupName` will be removed in favour of the `namespaceId` property in v5.0 of the AzureRM Provider.
      */
     readonly resourceGroupName?: string;
     /**
@@ -126,6 +136,13 @@ export interface GetTopicResult {
  * });
  * export const id = example.then(example => example.id);
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.ServiceBus`: 2022-10-01-preview, 2021-06-01-preview
  */
 export function getTopicOutput(args: GetTopicOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTopicResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -150,11 +167,11 @@ export interface GetTopicOutputArgs {
      */
     namespaceId?: pulumi.Input<string>;
     /**
-     * @deprecated `namespaceName` will be removed in favour of the property `namespaceId` in version 4.0 of the AzureRM Provider.
+     * @deprecated `namespaceName` will be removed in favour of the `namespaceId` property in v5.0 of the AzureRM Provider.
      */
     namespaceName?: pulumi.Input<string>;
     /**
-     * @deprecated `resourceGroupName` will be removed in favour of the property `namespaceId` in version 4.0 of the AzureRM Provider.
+     * @deprecated `resourceGroupName` will be removed in favour of the `namespaceId` property in v5.0 of the AzureRM Provider.
      */
     resourceGroupName?: pulumi.Input<string>;
 }

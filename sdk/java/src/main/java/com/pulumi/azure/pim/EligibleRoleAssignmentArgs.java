@@ -36,7 +36,7 @@ public final class EligibleRoleAssignmentArgs extends com.pulumi.resources.Resou
     /**
      * The version of the condition. Supported values include `2.0`. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** `condition_version` is required when specifying `condition` and vice versa.
+     * &gt; **Note:** `condition_version` is required when specifying `condition` and vice versa.
      * 
      */
     @Import(name="conditionVersion")
@@ -45,7 +45,7 @@ public final class EligibleRoleAssignmentArgs extends com.pulumi.resources.Resou
     /**
      * @return The version of the condition. Supported values include `2.0`. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** `condition_version` is required when specifying `condition` and vice versa.
+     * &gt; **Note:** `condition_version` is required when specifying `condition` and vice versa.
      * 
      */
     public Optional<Output<String>> conditionVersion() {
@@ -197,7 +197,7 @@ public final class EligibleRoleAssignmentArgs extends com.pulumi.resources.Resou
         /**
          * @param conditionVersion The version of the condition. Supported values include `2.0`. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** `condition_version` is required when specifying `condition` and vice versa.
+         * &gt; **Note:** `condition_version` is required when specifying `condition` and vice versa.
          * 
          * @return builder
          * 
@@ -210,7 +210,7 @@ public final class EligibleRoleAssignmentArgs extends com.pulumi.resources.Resou
         /**
          * @param conditionVersion The version of the condition. Supported values include `2.0`. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** `condition_version` is required when specifying `condition` and vice versa.
+         * &gt; **Note:** `condition_version` is required when specifying `condition` and vice versa.
          * 
          * @return builder
          * 

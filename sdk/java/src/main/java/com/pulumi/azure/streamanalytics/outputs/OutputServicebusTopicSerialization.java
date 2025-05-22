@@ -15,21 +15,21 @@ public final class OutputServicebusTopicSerialization {
     /**
      * @return The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
      * 
-     * &gt; **NOTE:** This is required when `type` is set to `Csv` or `Json`.
+     * &gt; **Note:** This is required when `type` is set to `Csv` or `Json`.
      * 
      */
     private @Nullable String encoding;
     /**
      * @return The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `	` (tab), `|` (pipe) and `;`.
      * 
-     * &gt; **NOTE:** This is required when `type` is set to `Csv`.
+     * &gt; **Note:** This is required when `type` is set to `Csv`.
      * 
      */
     private @Nullable String fieldDelimiter;
     /**
      * @return Specifies the format of the JSON the output will be written in. Possible values are `Array` and `LineSeparated`.
      * 
-     * &gt; **NOTE:** This is Required and can only be specified when `type` is set to `Json`.
+     * &gt; **Note:** This is Required and can only be specified when `type` is set to `Json`.
      * 
      */
     private @Nullable String format;
@@ -43,7 +43,7 @@ public final class OutputServicebusTopicSerialization {
     /**
      * @return The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
      * 
-     * &gt; **NOTE:** This is required when `type` is set to `Csv` or `Json`.
+     * &gt; **Note:** This is required when `type` is set to `Csv` or `Json`.
      * 
      */
     public Optional<String> encoding() {
@@ -52,7 +52,7 @@ public final class OutputServicebusTopicSerialization {
     /**
      * @return The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `	` (tab), `|` (pipe) and `;`.
      * 
-     * &gt; **NOTE:** This is required when `type` is set to `Csv`.
+     * &gt; **Note:** This is required when `type` is set to `Csv`.
      * 
      */
     public Optional<String> fieldDelimiter() {
@@ -61,7 +61,7 @@ public final class OutputServicebusTopicSerialization {
     /**
      * @return Specifies the format of the JSON the output will be written in. Possible values are `Array` and `LineSeparated`.
      * 
-     * &gt; **NOTE:** This is Required and can only be specified when `type` is set to `Json`.
+     * &gt; **Note:** This is Required and can only be specified when `type` is set to `Json`.
      * 
      */
     public Optional<String> format() {

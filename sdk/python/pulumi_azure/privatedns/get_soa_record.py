@@ -217,6 +217,13 @@ def get_soa_record(name: Optional[builtins.str] = None,
     pulumi.export("privateDnsSoaRecordId", example_azurerm_private_dns_soa_record["id"])
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Network`: 2024-06-01
+
 
     :param builtins.str name: The name of the Private DNS SOA Record.
     :param builtins.str resource_group_name: Specifies the resource group where the Private DNS Zone (parent resource) exists.
@@ -260,6 +267,13 @@ def get_soa_record_output(name: Optional[pulumi.Input[Optional[builtins.str]]] =
         resource_group_name=test-rg)
     pulumi.export("privateDnsSoaRecordId", example_azurerm_private_dns_soa_record["id"])
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Network`: 2024-06-01
 
 
     :param builtins.str name: The name of the Private DNS SOA Record.

@@ -22,6 +22,13 @@ import * as utilities from "../utilities";
  * export const elasticsearchEndpoint = example.then(example => example.elasticsearchServiceUrl);
  * export const kibanaEndpoint = example.then(example => example.kibanaServiceUrl);
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.Elastic`: 2023-06-01
  */
 export function getElasticsearch(args: GetElasticsearchArgs, opts?: pulumi.InvokeOptions): Promise<GetElasticsearchResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -128,6 +135,13 @@ export interface GetElasticsearchResult {
  * export const elasticsearchEndpoint = example.then(example => example.elasticsearchServiceUrl);
  * export const kibanaEndpoint = example.then(example => example.kibanaServiceUrl);
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.Elastic`: 2023-06-01
  */
 export function getElasticsearchOutput(args: GetElasticsearchOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetElasticsearchResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

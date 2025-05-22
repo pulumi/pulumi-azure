@@ -158,7 +158,7 @@ public final class LinkServiceArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * A list of Subscription UUID/GUID&#39;s that will be able to see this Private Link Service.
      * 
-     * &gt; **NOTE:** If no Subscription IDs are specified then Azure allows every Subscription to see this Private Link Service.
+     * &gt; **Note:** If no Subscription IDs are specified then Azure allows every Subscription to see this Private Link Service.
      * 
      */
     @Import(name="visibilitySubscriptionIds")
@@ -167,7 +167,7 @@ public final class LinkServiceArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return A list of Subscription UUID/GUID&#39;s that will be able to see this Private Link Service.
      * 
-     * &gt; **NOTE:** If no Subscription IDs are specified then Azure allows every Subscription to see this Private Link Service.
+     * &gt; **Note:** If no Subscription IDs are specified then Azure allows every Subscription to see this Private Link Service.
      * 
      */
     public Optional<Output<List<String>>> visibilitySubscriptionIds() {
@@ -439,7 +439,7 @@ public final class LinkServiceArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param visibilitySubscriptionIds A list of Subscription UUID/GUID&#39;s that will be able to see this Private Link Service.
          * 
-         * &gt; **NOTE:** If no Subscription IDs are specified then Azure allows every Subscription to see this Private Link Service.
+         * &gt; **Note:** If no Subscription IDs are specified then Azure allows every Subscription to see this Private Link Service.
          * 
          * @return builder
          * 
@@ -452,7 +452,7 @@ public final class LinkServiceArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param visibilitySubscriptionIds A list of Subscription UUID/GUID&#39;s that will be able to see this Private Link Service.
          * 
-         * &gt; **NOTE:** If no Subscription IDs are specified then Azure allows every Subscription to see this Private Link Service.
+         * &gt; **Note:** If no Subscription IDs are specified then Azure allows every Subscription to see this Private Link Service.
          * 
          * @return builder
          * 
@@ -464,7 +464,7 @@ public final class LinkServiceArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param visibilitySubscriptionIds A list of Subscription UUID/GUID&#39;s that will be able to see this Private Link Service.
          * 
-         * &gt; **NOTE:** If no Subscription IDs are specified then Azure allows every Subscription to see this Private Link Service.
+         * &gt; **Note:** If no Subscription IDs are specified then Azure allows every Subscription to see this Private Link Service.
          * 
          * @return builder
          * 

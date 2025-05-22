@@ -130,6 +130,13 @@ import (
 //
 // ```
 //
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.Search`: 2024-06-01-preview
+//
 // ## Import
 //
 // Search Services can be imported using the `resource id`, e.g.
@@ -142,11 +149,11 @@ type Service struct {
 
 	// Specifies a list of inbound IPv4 or CIDRs that are allowed to access the Search Service. If the incoming IP request is from an IP address which is not included in the `allowedIps` it will be blocked by the Search Services firewall.
 	//
-	// > **NOTE:** The `allowedIps` are only applied if the `publicNetworkAccessEnabled` field has been set to `true`, else all traffic over the public interface will be rejected, even if the `allowedIps` field has been defined. When the `publicNetworkAccessEnabled` field has been set to `false` the private endpoint connections are the only allowed access point to the Search Service.
+	// > **Note:** The `allowedIps` are only applied if the `publicNetworkAccessEnabled` field has been set to `true`, else all traffic over the public interface will be rejected, even if the `allowedIps` field has been defined. When the `publicNetworkAccessEnabled` field has been set to `false` the private endpoint connections are the only allowed access point to the Search Service.
 	AllowedIps pulumi.StringArrayOutput `pulumi:"allowedIps"`
 	// Specifies the response that the Search Service should return for requests that fail authentication. Possible values include `http401WithBearerChallenge` or `http403`.
 	//
-	// > **NOTE:** `authenticationFailureMode` can only be configured when using `localAuthenticationEnabled` is set to `true` - which when set together specifies that both API Keys and AzureAD Authentication should be supported.
+	// > **Note:** `authenticationFailureMode` can only be configured when using `localAuthenticationEnabled` is set to `true` - which when set together specifies that both API Keys and AzureAD Authentication should be supported.
 	AuthenticationFailureMode pulumi.StringPtrOutput `pulumi:"authenticationFailureMode"`
 	// Describes whether the search service is compliant or not with respect to having non-customer encrypted resources. If a service has more than one non-customer encrypted resource and `Enforcement` is `enabled` then the service will be marked as `NonCompliant`. If all the resources are customer encrypted, then the service will be marked as `Compliant`.
 	CustomerManagedKeyEncryptionComplianceStatus pulumi.StringOutput `pulumi:"customerManagedKeyEncryptionComplianceStatus"`
@@ -154,7 +161,7 @@ type Service struct {
 	CustomerManagedKeyEnforcementEnabled pulumi.BoolPtrOutput `pulumi:"customerManagedKeyEnforcementEnabled"`
 	// Specifies the Hosting Mode, which allows for High Density partitions (that allow for up to 1000 indexes) should be supported. Possible values are `highDensity` or `default`. Defaults to `default`. Changing this forces a new Search Service to be created.
 	//
-	// > **NOTE:** `hostingMode` can only be configured when `sku` is set to `standard3`.
+	// > **Note:** `hostingMode` can only be configured when `sku` is set to `standard3`.
 	HostingMode pulumi.StringPtrOutput `pulumi:"hostingMode"`
 	// An `identity` block as defined below.
 	Identity ServiceIdentityPtrOutput `pulumi:"identity"`
@@ -168,7 +175,7 @@ type Service struct {
 	NetworkRuleBypassOption pulumi.StringPtrOutput `pulumi:"networkRuleBypassOption"`
 	// Specifies the number of partitions which should be created. This field cannot be set when using a `free` sku ([see the Microsoft documentation](https://learn.microsoft.com/azure/search/search-sku-tier)). Possible values include `1`, `2`, `3`, `4`, `6`, or `12`. Defaults to `1`.
 	//
-	// > **NOTE:** when `hostingMode` is set to `highDensity` the maximum number of partitions allowed is `3`.
+	// > **Note:** when `hostingMode` is set to `highDensity` the maximum number of partitions allowed is `3`.
 	PartitionCount pulumi.IntPtrOutput `pulumi:"partitionCount"`
 	// The Primary Key used for Search Service Administration.
 	PrimaryKey pulumi.StringOutput `pulumi:"primaryKey"`
@@ -184,13 +191,13 @@ type Service struct {
 	SecondaryKey pulumi.StringOutput `pulumi:"secondaryKey"`
 	// Specifies the Semantic Search SKU which should be used for this Search Service. Possible values include `free` and `standard`.
 	//
-	// > **NOTE:** The `semanticSearchSku` cannot be defined if your Search Services `sku` is set to `free`. The Semantic Search feature is only available in certain regions, please see the [product documentation](https://learn.microsoft.com/azure/search/semantic-search-overview#availability-and-pricing) for more information.
+	// > **Note:** The `semanticSearchSku` cannot be defined if your Search Services `sku` is set to `free`. The Semantic Search feature is only available in certain regions, please see the [product documentation](https://learn.microsoft.com/azure/search/semantic-search-overview#availability-and-pricing) for more information.
 	SemanticSearchSku pulumi.StringPtrOutput `pulumi:"semanticSearchSku"`
 	// The SKU which should be used for this Search Service. Possible values include `basic`, `free`, `standard`, `standard2`, `standard3`, `storageOptimizedL1` and `storageOptimizedL2`. Changing this forces a new Search Service to be created.
 	//
-	// > The `basic` and `free` SKUs provision the Search Service in a Shared Cluster - the `standard` SKUs use a Dedicated Cluster.
+	// > **Note:** The `basic` and `free` SKUs provision the Search Service in a Shared Cluster - the `standard` SKUs use a Dedicated Cluster.
 	//
-	// > **NOTE:** The SKUs `standard2`, `standard3`, `storageOptimizedL1` and `storageOptimizedL2` are only available by submitting a quota increase request to Microsoft. Please see the [product documentation](https://learn.microsoft.com/azure/azure-resource-manager/troubleshooting/error-resource-quota?tabs=azure-cli) on how to submit a quota increase request.
+	// > **Note:** The SKUs `standard2`, `standard3`, `storageOptimizedL1` and `storageOptimizedL2` are only available by submitting a quota increase request to Microsoft. Please see the [product documentation](https://learn.microsoft.com/azure/azure-resource-manager/troubleshooting/error-resource-quota?tabs=azure-cli) on how to submit a quota increase request.
 	Sku pulumi.StringOutput `pulumi:"sku"`
 	// Specifies a mapping of tags which should be assigned to this Search Service.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -239,11 +246,11 @@ func GetService(ctx *pulumi.Context,
 type serviceState struct {
 	// Specifies a list of inbound IPv4 or CIDRs that are allowed to access the Search Service. If the incoming IP request is from an IP address which is not included in the `allowedIps` it will be blocked by the Search Services firewall.
 	//
-	// > **NOTE:** The `allowedIps` are only applied if the `publicNetworkAccessEnabled` field has been set to `true`, else all traffic over the public interface will be rejected, even if the `allowedIps` field has been defined. When the `publicNetworkAccessEnabled` field has been set to `false` the private endpoint connections are the only allowed access point to the Search Service.
+	// > **Note:** The `allowedIps` are only applied if the `publicNetworkAccessEnabled` field has been set to `true`, else all traffic over the public interface will be rejected, even if the `allowedIps` field has been defined. When the `publicNetworkAccessEnabled` field has been set to `false` the private endpoint connections are the only allowed access point to the Search Service.
 	AllowedIps []string `pulumi:"allowedIps"`
 	// Specifies the response that the Search Service should return for requests that fail authentication. Possible values include `http401WithBearerChallenge` or `http403`.
 	//
-	// > **NOTE:** `authenticationFailureMode` can only be configured when using `localAuthenticationEnabled` is set to `true` - which when set together specifies that both API Keys and AzureAD Authentication should be supported.
+	// > **Note:** `authenticationFailureMode` can only be configured when using `localAuthenticationEnabled` is set to `true` - which when set together specifies that both API Keys and AzureAD Authentication should be supported.
 	AuthenticationFailureMode *string `pulumi:"authenticationFailureMode"`
 	// Describes whether the search service is compliant or not with respect to having non-customer encrypted resources. If a service has more than one non-customer encrypted resource and `Enforcement` is `enabled` then the service will be marked as `NonCompliant`. If all the resources are customer encrypted, then the service will be marked as `Compliant`.
 	CustomerManagedKeyEncryptionComplianceStatus *string `pulumi:"customerManagedKeyEncryptionComplianceStatus"`
@@ -251,7 +258,7 @@ type serviceState struct {
 	CustomerManagedKeyEnforcementEnabled *bool `pulumi:"customerManagedKeyEnforcementEnabled"`
 	// Specifies the Hosting Mode, which allows for High Density partitions (that allow for up to 1000 indexes) should be supported. Possible values are `highDensity` or `default`. Defaults to `default`. Changing this forces a new Search Service to be created.
 	//
-	// > **NOTE:** `hostingMode` can only be configured when `sku` is set to `standard3`.
+	// > **Note:** `hostingMode` can only be configured when `sku` is set to `standard3`.
 	HostingMode *string `pulumi:"hostingMode"`
 	// An `identity` block as defined below.
 	Identity *ServiceIdentity `pulumi:"identity"`
@@ -265,7 +272,7 @@ type serviceState struct {
 	NetworkRuleBypassOption *string `pulumi:"networkRuleBypassOption"`
 	// Specifies the number of partitions which should be created. This field cannot be set when using a `free` sku ([see the Microsoft documentation](https://learn.microsoft.com/azure/search/search-sku-tier)). Possible values include `1`, `2`, `3`, `4`, `6`, or `12`. Defaults to `1`.
 	//
-	// > **NOTE:** when `hostingMode` is set to `highDensity` the maximum number of partitions allowed is `3`.
+	// > **Note:** when `hostingMode` is set to `highDensity` the maximum number of partitions allowed is `3`.
 	PartitionCount *int `pulumi:"partitionCount"`
 	// The Primary Key used for Search Service Administration.
 	PrimaryKey *string `pulumi:"primaryKey"`
@@ -281,13 +288,13 @@ type serviceState struct {
 	SecondaryKey *string `pulumi:"secondaryKey"`
 	// Specifies the Semantic Search SKU which should be used for this Search Service. Possible values include `free` and `standard`.
 	//
-	// > **NOTE:** The `semanticSearchSku` cannot be defined if your Search Services `sku` is set to `free`. The Semantic Search feature is only available in certain regions, please see the [product documentation](https://learn.microsoft.com/azure/search/semantic-search-overview#availability-and-pricing) for more information.
+	// > **Note:** The `semanticSearchSku` cannot be defined if your Search Services `sku` is set to `free`. The Semantic Search feature is only available in certain regions, please see the [product documentation](https://learn.microsoft.com/azure/search/semantic-search-overview#availability-and-pricing) for more information.
 	SemanticSearchSku *string `pulumi:"semanticSearchSku"`
 	// The SKU which should be used for this Search Service. Possible values include `basic`, `free`, `standard`, `standard2`, `standard3`, `storageOptimizedL1` and `storageOptimizedL2`. Changing this forces a new Search Service to be created.
 	//
-	// > The `basic` and `free` SKUs provision the Search Service in a Shared Cluster - the `standard` SKUs use a Dedicated Cluster.
+	// > **Note:** The `basic` and `free` SKUs provision the Search Service in a Shared Cluster - the `standard` SKUs use a Dedicated Cluster.
 	//
-	// > **NOTE:** The SKUs `standard2`, `standard3`, `storageOptimizedL1` and `storageOptimizedL2` are only available by submitting a quota increase request to Microsoft. Please see the [product documentation](https://learn.microsoft.com/azure/azure-resource-manager/troubleshooting/error-resource-quota?tabs=azure-cli) on how to submit a quota increase request.
+	// > **Note:** The SKUs `standard2`, `standard3`, `storageOptimizedL1` and `storageOptimizedL2` are only available by submitting a quota increase request to Microsoft. Please see the [product documentation](https://learn.microsoft.com/azure/azure-resource-manager/troubleshooting/error-resource-quota?tabs=azure-cli) on how to submit a quota increase request.
 	Sku *string `pulumi:"sku"`
 	// Specifies a mapping of tags which should be assigned to this Search Service.
 	Tags map[string]string `pulumi:"tags"`
@@ -296,11 +303,11 @@ type serviceState struct {
 type ServiceState struct {
 	// Specifies a list of inbound IPv4 or CIDRs that are allowed to access the Search Service. If the incoming IP request is from an IP address which is not included in the `allowedIps` it will be blocked by the Search Services firewall.
 	//
-	// > **NOTE:** The `allowedIps` are only applied if the `publicNetworkAccessEnabled` field has been set to `true`, else all traffic over the public interface will be rejected, even if the `allowedIps` field has been defined. When the `publicNetworkAccessEnabled` field has been set to `false` the private endpoint connections are the only allowed access point to the Search Service.
+	// > **Note:** The `allowedIps` are only applied if the `publicNetworkAccessEnabled` field has been set to `true`, else all traffic over the public interface will be rejected, even if the `allowedIps` field has been defined. When the `publicNetworkAccessEnabled` field has been set to `false` the private endpoint connections are the only allowed access point to the Search Service.
 	AllowedIps pulumi.StringArrayInput
 	// Specifies the response that the Search Service should return for requests that fail authentication. Possible values include `http401WithBearerChallenge` or `http403`.
 	//
-	// > **NOTE:** `authenticationFailureMode` can only be configured when using `localAuthenticationEnabled` is set to `true` - which when set together specifies that both API Keys and AzureAD Authentication should be supported.
+	// > **Note:** `authenticationFailureMode` can only be configured when using `localAuthenticationEnabled` is set to `true` - which when set together specifies that both API Keys and AzureAD Authentication should be supported.
 	AuthenticationFailureMode pulumi.StringPtrInput
 	// Describes whether the search service is compliant or not with respect to having non-customer encrypted resources. If a service has more than one non-customer encrypted resource and `Enforcement` is `enabled` then the service will be marked as `NonCompliant`. If all the resources are customer encrypted, then the service will be marked as `Compliant`.
 	CustomerManagedKeyEncryptionComplianceStatus pulumi.StringPtrInput
@@ -308,7 +315,7 @@ type ServiceState struct {
 	CustomerManagedKeyEnforcementEnabled pulumi.BoolPtrInput
 	// Specifies the Hosting Mode, which allows for High Density partitions (that allow for up to 1000 indexes) should be supported. Possible values are `highDensity` or `default`. Defaults to `default`. Changing this forces a new Search Service to be created.
 	//
-	// > **NOTE:** `hostingMode` can only be configured when `sku` is set to `standard3`.
+	// > **Note:** `hostingMode` can only be configured when `sku` is set to `standard3`.
 	HostingMode pulumi.StringPtrInput
 	// An `identity` block as defined below.
 	Identity ServiceIdentityPtrInput
@@ -322,7 +329,7 @@ type ServiceState struct {
 	NetworkRuleBypassOption pulumi.StringPtrInput
 	// Specifies the number of partitions which should be created. This field cannot be set when using a `free` sku ([see the Microsoft documentation](https://learn.microsoft.com/azure/search/search-sku-tier)). Possible values include `1`, `2`, `3`, `4`, `6`, or `12`. Defaults to `1`.
 	//
-	// > **NOTE:** when `hostingMode` is set to `highDensity` the maximum number of partitions allowed is `3`.
+	// > **Note:** when `hostingMode` is set to `highDensity` the maximum number of partitions allowed is `3`.
 	PartitionCount pulumi.IntPtrInput
 	// The Primary Key used for Search Service Administration.
 	PrimaryKey pulumi.StringPtrInput
@@ -338,13 +345,13 @@ type ServiceState struct {
 	SecondaryKey pulumi.StringPtrInput
 	// Specifies the Semantic Search SKU which should be used for this Search Service. Possible values include `free` and `standard`.
 	//
-	// > **NOTE:** The `semanticSearchSku` cannot be defined if your Search Services `sku` is set to `free`. The Semantic Search feature is only available in certain regions, please see the [product documentation](https://learn.microsoft.com/azure/search/semantic-search-overview#availability-and-pricing) for more information.
+	// > **Note:** The `semanticSearchSku` cannot be defined if your Search Services `sku` is set to `free`. The Semantic Search feature is only available in certain regions, please see the [product documentation](https://learn.microsoft.com/azure/search/semantic-search-overview#availability-and-pricing) for more information.
 	SemanticSearchSku pulumi.StringPtrInput
 	// The SKU which should be used for this Search Service. Possible values include `basic`, `free`, `standard`, `standard2`, `standard3`, `storageOptimizedL1` and `storageOptimizedL2`. Changing this forces a new Search Service to be created.
 	//
-	// > The `basic` and `free` SKUs provision the Search Service in a Shared Cluster - the `standard` SKUs use a Dedicated Cluster.
+	// > **Note:** The `basic` and `free` SKUs provision the Search Service in a Shared Cluster - the `standard` SKUs use a Dedicated Cluster.
 	//
-	// > **NOTE:** The SKUs `standard2`, `standard3`, `storageOptimizedL1` and `storageOptimizedL2` are only available by submitting a quota increase request to Microsoft. Please see the [product documentation](https://learn.microsoft.com/azure/azure-resource-manager/troubleshooting/error-resource-quota?tabs=azure-cli) on how to submit a quota increase request.
+	// > **Note:** The SKUs `standard2`, `standard3`, `storageOptimizedL1` and `storageOptimizedL2` are only available by submitting a quota increase request to Microsoft. Please see the [product documentation](https://learn.microsoft.com/azure/azure-resource-manager/troubleshooting/error-resource-quota?tabs=azure-cli) on how to submit a quota increase request.
 	Sku pulumi.StringPtrInput
 	// Specifies a mapping of tags which should be assigned to this Search Service.
 	Tags pulumi.StringMapInput
@@ -357,17 +364,17 @@ func (ServiceState) ElementType() reflect.Type {
 type serviceArgs struct {
 	// Specifies a list of inbound IPv4 or CIDRs that are allowed to access the Search Service. If the incoming IP request is from an IP address which is not included in the `allowedIps` it will be blocked by the Search Services firewall.
 	//
-	// > **NOTE:** The `allowedIps` are only applied if the `publicNetworkAccessEnabled` field has been set to `true`, else all traffic over the public interface will be rejected, even if the `allowedIps` field has been defined. When the `publicNetworkAccessEnabled` field has been set to `false` the private endpoint connections are the only allowed access point to the Search Service.
+	// > **Note:** The `allowedIps` are only applied if the `publicNetworkAccessEnabled` field has been set to `true`, else all traffic over the public interface will be rejected, even if the `allowedIps` field has been defined. When the `publicNetworkAccessEnabled` field has been set to `false` the private endpoint connections are the only allowed access point to the Search Service.
 	AllowedIps []string `pulumi:"allowedIps"`
 	// Specifies the response that the Search Service should return for requests that fail authentication. Possible values include `http401WithBearerChallenge` or `http403`.
 	//
-	// > **NOTE:** `authenticationFailureMode` can only be configured when using `localAuthenticationEnabled` is set to `true` - which when set together specifies that both API Keys and AzureAD Authentication should be supported.
+	// > **Note:** `authenticationFailureMode` can only be configured when using `localAuthenticationEnabled` is set to `true` - which when set together specifies that both API Keys and AzureAD Authentication should be supported.
 	AuthenticationFailureMode *string `pulumi:"authenticationFailureMode"`
 	// Specifies whether the Search Service should enforce that non-customer resources are encrypted. Defaults to `false`.
 	CustomerManagedKeyEnforcementEnabled *bool `pulumi:"customerManagedKeyEnforcementEnabled"`
 	// Specifies the Hosting Mode, which allows for High Density partitions (that allow for up to 1000 indexes) should be supported. Possible values are `highDensity` or `default`. Defaults to `default`. Changing this forces a new Search Service to be created.
 	//
-	// > **NOTE:** `hostingMode` can only be configured when `sku` is set to `standard3`.
+	// > **Note:** `hostingMode` can only be configured when `sku` is set to `standard3`.
 	HostingMode *string `pulumi:"hostingMode"`
 	// An `identity` block as defined below.
 	Identity *ServiceIdentity `pulumi:"identity"`
@@ -381,7 +388,7 @@ type serviceArgs struct {
 	NetworkRuleBypassOption *string `pulumi:"networkRuleBypassOption"`
 	// Specifies the number of partitions which should be created. This field cannot be set when using a `free` sku ([see the Microsoft documentation](https://learn.microsoft.com/azure/search/search-sku-tier)). Possible values include `1`, `2`, `3`, `4`, `6`, or `12`. Defaults to `1`.
 	//
-	// > **NOTE:** when `hostingMode` is set to `highDensity` the maximum number of partitions allowed is `3`.
+	// > **Note:** when `hostingMode` is set to `highDensity` the maximum number of partitions allowed is `3`.
 	PartitionCount *int `pulumi:"partitionCount"`
 	// Specifies whether Public Network Access is allowed for this resource. Defaults to `true`.
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
@@ -391,13 +398,13 @@ type serviceArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Specifies the Semantic Search SKU which should be used for this Search Service. Possible values include `free` and `standard`.
 	//
-	// > **NOTE:** The `semanticSearchSku` cannot be defined if your Search Services `sku` is set to `free`. The Semantic Search feature is only available in certain regions, please see the [product documentation](https://learn.microsoft.com/azure/search/semantic-search-overview#availability-and-pricing) for more information.
+	// > **Note:** The `semanticSearchSku` cannot be defined if your Search Services `sku` is set to `free`. The Semantic Search feature is only available in certain regions, please see the [product documentation](https://learn.microsoft.com/azure/search/semantic-search-overview#availability-and-pricing) for more information.
 	SemanticSearchSku *string `pulumi:"semanticSearchSku"`
 	// The SKU which should be used for this Search Service. Possible values include `basic`, `free`, `standard`, `standard2`, `standard3`, `storageOptimizedL1` and `storageOptimizedL2`. Changing this forces a new Search Service to be created.
 	//
-	// > The `basic` and `free` SKUs provision the Search Service in a Shared Cluster - the `standard` SKUs use a Dedicated Cluster.
+	// > **Note:** The `basic` and `free` SKUs provision the Search Service in a Shared Cluster - the `standard` SKUs use a Dedicated Cluster.
 	//
-	// > **NOTE:** The SKUs `standard2`, `standard3`, `storageOptimizedL1` and `storageOptimizedL2` are only available by submitting a quota increase request to Microsoft. Please see the [product documentation](https://learn.microsoft.com/azure/azure-resource-manager/troubleshooting/error-resource-quota?tabs=azure-cli) on how to submit a quota increase request.
+	// > **Note:** The SKUs `standard2`, `standard3`, `storageOptimizedL1` and `storageOptimizedL2` are only available by submitting a quota increase request to Microsoft. Please see the [product documentation](https://learn.microsoft.com/azure/azure-resource-manager/troubleshooting/error-resource-quota?tabs=azure-cli) on how to submit a quota increase request.
 	Sku string `pulumi:"sku"`
 	// Specifies a mapping of tags which should be assigned to this Search Service.
 	Tags map[string]string `pulumi:"tags"`
@@ -407,17 +414,17 @@ type serviceArgs struct {
 type ServiceArgs struct {
 	// Specifies a list of inbound IPv4 or CIDRs that are allowed to access the Search Service. If the incoming IP request is from an IP address which is not included in the `allowedIps` it will be blocked by the Search Services firewall.
 	//
-	// > **NOTE:** The `allowedIps` are only applied if the `publicNetworkAccessEnabled` field has been set to `true`, else all traffic over the public interface will be rejected, even if the `allowedIps` field has been defined. When the `publicNetworkAccessEnabled` field has been set to `false` the private endpoint connections are the only allowed access point to the Search Service.
+	// > **Note:** The `allowedIps` are only applied if the `publicNetworkAccessEnabled` field has been set to `true`, else all traffic over the public interface will be rejected, even if the `allowedIps` field has been defined. When the `publicNetworkAccessEnabled` field has been set to `false` the private endpoint connections are the only allowed access point to the Search Service.
 	AllowedIps pulumi.StringArrayInput
 	// Specifies the response that the Search Service should return for requests that fail authentication. Possible values include `http401WithBearerChallenge` or `http403`.
 	//
-	// > **NOTE:** `authenticationFailureMode` can only be configured when using `localAuthenticationEnabled` is set to `true` - which when set together specifies that both API Keys and AzureAD Authentication should be supported.
+	// > **Note:** `authenticationFailureMode` can only be configured when using `localAuthenticationEnabled` is set to `true` - which when set together specifies that both API Keys and AzureAD Authentication should be supported.
 	AuthenticationFailureMode pulumi.StringPtrInput
 	// Specifies whether the Search Service should enforce that non-customer resources are encrypted. Defaults to `false`.
 	CustomerManagedKeyEnforcementEnabled pulumi.BoolPtrInput
 	// Specifies the Hosting Mode, which allows for High Density partitions (that allow for up to 1000 indexes) should be supported. Possible values are `highDensity` or `default`. Defaults to `default`. Changing this forces a new Search Service to be created.
 	//
-	// > **NOTE:** `hostingMode` can only be configured when `sku` is set to `standard3`.
+	// > **Note:** `hostingMode` can only be configured when `sku` is set to `standard3`.
 	HostingMode pulumi.StringPtrInput
 	// An `identity` block as defined below.
 	Identity ServiceIdentityPtrInput
@@ -431,7 +438,7 @@ type ServiceArgs struct {
 	NetworkRuleBypassOption pulumi.StringPtrInput
 	// Specifies the number of partitions which should be created. This field cannot be set when using a `free` sku ([see the Microsoft documentation](https://learn.microsoft.com/azure/search/search-sku-tier)). Possible values include `1`, `2`, `3`, `4`, `6`, or `12`. Defaults to `1`.
 	//
-	// > **NOTE:** when `hostingMode` is set to `highDensity` the maximum number of partitions allowed is `3`.
+	// > **Note:** when `hostingMode` is set to `highDensity` the maximum number of partitions allowed is `3`.
 	PartitionCount pulumi.IntPtrInput
 	// Specifies whether Public Network Access is allowed for this resource. Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
@@ -441,13 +448,13 @@ type ServiceArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// Specifies the Semantic Search SKU which should be used for this Search Service. Possible values include `free` and `standard`.
 	//
-	// > **NOTE:** The `semanticSearchSku` cannot be defined if your Search Services `sku` is set to `free`. The Semantic Search feature is only available in certain regions, please see the [product documentation](https://learn.microsoft.com/azure/search/semantic-search-overview#availability-and-pricing) for more information.
+	// > **Note:** The `semanticSearchSku` cannot be defined if your Search Services `sku` is set to `free`. The Semantic Search feature is only available in certain regions, please see the [product documentation](https://learn.microsoft.com/azure/search/semantic-search-overview#availability-and-pricing) for more information.
 	SemanticSearchSku pulumi.StringPtrInput
 	// The SKU which should be used for this Search Service. Possible values include `basic`, `free`, `standard`, `standard2`, `standard3`, `storageOptimizedL1` and `storageOptimizedL2`. Changing this forces a new Search Service to be created.
 	//
-	// > The `basic` and `free` SKUs provision the Search Service in a Shared Cluster - the `standard` SKUs use a Dedicated Cluster.
+	// > **Note:** The `basic` and `free` SKUs provision the Search Service in a Shared Cluster - the `standard` SKUs use a Dedicated Cluster.
 	//
-	// > **NOTE:** The SKUs `standard2`, `standard3`, `storageOptimizedL1` and `storageOptimizedL2` are only available by submitting a quota increase request to Microsoft. Please see the [product documentation](https://learn.microsoft.com/azure/azure-resource-manager/troubleshooting/error-resource-quota?tabs=azure-cli) on how to submit a quota increase request.
+	// > **Note:** The SKUs `standard2`, `standard3`, `storageOptimizedL1` and `storageOptimizedL2` are only available by submitting a quota increase request to Microsoft. Please see the [product documentation](https://learn.microsoft.com/azure/azure-resource-manager/troubleshooting/error-resource-quota?tabs=azure-cli) on how to submit a quota increase request.
 	Sku pulumi.StringInput
 	// Specifies a mapping of tags which should be assigned to this Search Service.
 	Tags pulumi.StringMapInput
@@ -542,14 +549,14 @@ func (o ServiceOutput) ToServiceOutputWithContext(ctx context.Context) ServiceOu
 
 // Specifies a list of inbound IPv4 or CIDRs that are allowed to access the Search Service. If the incoming IP request is from an IP address which is not included in the `allowedIps` it will be blocked by the Search Services firewall.
 //
-// > **NOTE:** The `allowedIps` are only applied if the `publicNetworkAccessEnabled` field has been set to `true`, else all traffic over the public interface will be rejected, even if the `allowedIps` field has been defined. When the `publicNetworkAccessEnabled` field has been set to `false` the private endpoint connections are the only allowed access point to the Search Service.
+// > **Note:** The `allowedIps` are only applied if the `publicNetworkAccessEnabled` field has been set to `true`, else all traffic over the public interface will be rejected, even if the `allowedIps` field has been defined. When the `publicNetworkAccessEnabled` field has been set to `false` the private endpoint connections are the only allowed access point to the Search Service.
 func (o ServiceOutput) AllowedIps() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringArrayOutput { return v.AllowedIps }).(pulumi.StringArrayOutput)
 }
 
 // Specifies the response that the Search Service should return for requests that fail authentication. Possible values include `http401WithBearerChallenge` or `http403`.
 //
-// > **NOTE:** `authenticationFailureMode` can only be configured when using `localAuthenticationEnabled` is set to `true` - which when set together specifies that both API Keys and AzureAD Authentication should be supported.
+// > **Note:** `authenticationFailureMode` can only be configured when using `localAuthenticationEnabled` is set to `true` - which when set together specifies that both API Keys and AzureAD Authentication should be supported.
 func (o ServiceOutput) AuthenticationFailureMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.AuthenticationFailureMode }).(pulumi.StringPtrOutput)
 }
@@ -566,7 +573,7 @@ func (o ServiceOutput) CustomerManagedKeyEnforcementEnabled() pulumi.BoolPtrOutp
 
 // Specifies the Hosting Mode, which allows for High Density partitions (that allow for up to 1000 indexes) should be supported. Possible values are `highDensity` or `default`. Defaults to `default`. Changing this forces a new Search Service to be created.
 //
-// > **NOTE:** `hostingMode` can only be configured when `sku` is set to `standard3`.
+// > **Note:** `hostingMode` can only be configured when `sku` is set to `standard3`.
 func (o ServiceOutput) HostingMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.HostingMode }).(pulumi.StringPtrOutput)
 }
@@ -598,7 +605,7 @@ func (o ServiceOutput) NetworkRuleBypassOption() pulumi.StringPtrOutput {
 
 // Specifies the number of partitions which should be created. This field cannot be set when using a `free` sku ([see the Microsoft documentation](https://learn.microsoft.com/azure/search/search-sku-tier)). Possible values include `1`, `2`, `3`, `4`, `6`, or `12`. Defaults to `1`.
 //
-// > **NOTE:** when `hostingMode` is set to `highDensity` the maximum number of partitions allowed is `3`.
+// > **Note:** when `hostingMode` is set to `highDensity` the maximum number of partitions allowed is `3`.
 func (o ServiceOutput) PartitionCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Service) pulumi.IntPtrOutput { return v.PartitionCount }).(pulumi.IntPtrOutput)
 }
@@ -635,16 +642,16 @@ func (o ServiceOutput) SecondaryKey() pulumi.StringOutput {
 
 // Specifies the Semantic Search SKU which should be used for this Search Service. Possible values include `free` and `standard`.
 //
-// > **NOTE:** The `semanticSearchSku` cannot be defined if your Search Services `sku` is set to `free`. The Semantic Search feature is only available in certain regions, please see the [product documentation](https://learn.microsoft.com/azure/search/semantic-search-overview#availability-and-pricing) for more information.
+// > **Note:** The `semanticSearchSku` cannot be defined if your Search Services `sku` is set to `free`. The Semantic Search feature is only available in certain regions, please see the [product documentation](https://learn.microsoft.com/azure/search/semantic-search-overview#availability-and-pricing) for more information.
 func (o ServiceOutput) SemanticSearchSku() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.SemanticSearchSku }).(pulumi.StringPtrOutput)
 }
 
 // The SKU which should be used for this Search Service. Possible values include `basic`, `free`, `standard`, `standard2`, `standard3`, `storageOptimizedL1` and `storageOptimizedL2`. Changing this forces a new Search Service to be created.
 //
-// > The `basic` and `free` SKUs provision the Search Service in a Shared Cluster - the `standard` SKUs use a Dedicated Cluster.
+// > **Note:** The `basic` and `free` SKUs provision the Search Service in a Shared Cluster - the `standard` SKUs use a Dedicated Cluster.
 //
-// > **NOTE:** The SKUs `standard2`, `standard3`, `storageOptimizedL1` and `storageOptimizedL2` are only available by submitting a quota increase request to Microsoft. Please see the [product documentation](https://learn.microsoft.com/azure/azure-resource-manager/troubleshooting/error-resource-quota?tabs=azure-cli) on how to submit a quota increase request.
+// > **Note:** The SKUs `standard2`, `standard3`, `storageOptimizedL1` and `storageOptimizedL2` are only available by submitting a quota increase request to Microsoft. Please see the [product documentation](https://learn.microsoft.com/azure/azure-resource-manager/troubleshooting/error-resource-quota?tabs=azure-cli) on how to submit a quota increase request.
 func (o ServiceOutput) Sku() pulumi.StringOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.Sku }).(pulumi.StringOutput)
 }

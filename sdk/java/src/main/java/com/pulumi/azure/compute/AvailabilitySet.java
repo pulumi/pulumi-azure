@@ -121,7 +121,7 @@ public class AvailabilitySet extends com.pulumi.resources.CustomResource {
     /**
      * Specifies the number of fault domains that are used. Defaults to `3`. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** The number of Fault Domains varies depending on which Azure Region you&#39;re using. More information about update and fault domains and how they work can be found [here](https://learn.microsoft.com/en-us/azure/virtual-machines/availability-set-overview).
+     * &gt; **Note:** The number of Fault Domains varies depending on which Azure Region you&#39;re using. More information about update and fault domains and how they work can be found [here](https://learn.microsoft.com/en-us/azure/virtual-machines/availability-set-overview).
      * 
      */
     @Export(name="platformFaultDomainCount", refs={Integer.class}, tree="[0]")
@@ -130,7 +130,7 @@ public class AvailabilitySet extends com.pulumi.resources.CustomResource {
     /**
      * @return Specifies the number of fault domains that are used. Defaults to `3`. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** The number of Fault Domains varies depending on which Azure Region you&#39;re using. More information about update and fault domains and how they work can be found [here](https://learn.microsoft.com/en-us/azure/virtual-machines/availability-set-overview).
+     * &gt; **Note:** The number of Fault Domains varies depending on which Azure Region you&#39;re using. More information about update and fault domains and how they work can be found [here](https://learn.microsoft.com/en-us/azure/virtual-machines/availability-set-overview).
      * 
      */
     public Output<Optional<Integer>> platformFaultDomainCount() {
@@ -139,7 +139,7 @@ public class AvailabilitySet extends com.pulumi.resources.CustomResource {
     /**
      * Specifies the number of update domains that are used. Defaults to `5`. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** The number of Update Domains varies depending on which Azure Region you&#39;re using. More information about update and fault domains and how they work can be found [here](https://learn.microsoft.com/en-us/azure/virtual-machines/availability-set-overview).
+     * &gt; **Note:** The number of Update Domains varies depending on which Azure Region you&#39;re using. More information about update and fault domains and how they work can be found [here](https://learn.microsoft.com/en-us/azure/virtual-machines/availability-set-overview).
      * 
      */
     @Export(name="platformUpdateDomainCount", refs={Integer.class}, tree="[0]")
@@ -148,7 +148,7 @@ public class AvailabilitySet extends com.pulumi.resources.CustomResource {
     /**
      * @return Specifies the number of update domains that are used. Defaults to `5`. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** The number of Update Domains varies depending on which Azure Region you&#39;re using. More information about update and fault domains and how they work can be found [here](https://learn.microsoft.com/en-us/azure/virtual-machines/availability-set-overview).
+     * &gt; **Note:** The number of Update Domains varies depending on which Azure Region you&#39;re using. More information about update and fault domains and how they work can be found [here](https://learn.microsoft.com/en-us/azure/virtual-machines/availability-set-overview).
      * 
      */
     public Output<Optional<Integer>> platformUpdateDomainCount() {

@@ -22,7 +22,7 @@ public final class ElasticSanState extends com.pulumi.resources.ResourceArgs {
     /**
      * Specifies the base size of the Elastic SAN resource in TiB. Possible values are between `1` and `100`.
      * 
-     * &gt; **NOTE** When updating `base_size_in_tib`, the new value should be greater than the existing one.
+     * &gt; **Note:** When updating `base_size_in_tib`, the new value should be greater than the existing one.
      * 
      */
     @Import(name="baseSizeInTib")
@@ -31,7 +31,7 @@ public final class ElasticSanState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Specifies the base size of the Elastic SAN resource in TiB. Possible values are between `1` and `100`.
      * 
-     * &gt; **NOTE** When updating `base_size_in_tib`, the new value should be greater than the existing one.
+     * &gt; **Note:** When updating `base_size_in_tib`, the new value should be greater than the existing one.
      * 
      */
     public Optional<Output<Integer>> baseSizeInTib() {
@@ -41,7 +41,7 @@ public final class ElasticSanState extends com.pulumi.resources.ResourceArgs {
     /**
      * Specifies the extended size of the Elastic SAN resource in TiB. Possible values are between `1` and `100`.
      * 
-     * &gt; **NOTE** `extended_size_in_tib` cannot be removed and when updating, the new value should be greater than the existing one.
+     * &gt; **Note:** `extended_size_in_tib` cannot be removed and when updating, the new value should be greater than the existing one.
      * 
      */
     @Import(name="extendedSizeInTib")
@@ -50,7 +50,7 @@ public final class ElasticSanState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Specifies the extended size of the Elastic SAN resource in TiB. Possible values are between `1` and `100`.
      * 
-     * &gt; **NOTE** `extended_size_in_tib` cannot be removed and when updating, the new value should be greater than the existing one.
+     * &gt; **Note:** `extended_size_in_tib` cannot be removed and when updating, the new value should be greater than the existing one.
      * 
      */
     public Optional<Output<Integer>> extendedSizeInTib() {
@@ -210,7 +210,7 @@ public final class ElasticSanState extends com.pulumi.resources.ResourceArgs {
     /**
      * Logical zone for the Elastic SAN resource. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE** `zones` cannot be specified if `sku.name` is set to `Premium_ZRS`.
+     * &gt; **Note:** `zones` cannot be specified if `sku.name` is set to `Premium_ZRS`.
      * 
      */
     @Import(name="zones")
@@ -219,7 +219,7 @@ public final class ElasticSanState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Logical zone for the Elastic SAN resource. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE** `zones` cannot be specified if `sku.name` is set to `Premium_ZRS`.
+     * &gt; **Note:** `zones` cannot be specified if `sku.name` is set to `Premium_ZRS`.
      * 
      */
     public Optional<Output<List<String>>> zones() {
@@ -265,7 +265,7 @@ public final class ElasticSanState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param baseSizeInTib Specifies the base size of the Elastic SAN resource in TiB. Possible values are between `1` and `100`.
          * 
-         * &gt; **NOTE** When updating `base_size_in_tib`, the new value should be greater than the existing one.
+         * &gt; **Note:** When updating `base_size_in_tib`, the new value should be greater than the existing one.
          * 
          * @return builder
          * 
@@ -278,7 +278,7 @@ public final class ElasticSanState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param baseSizeInTib Specifies the base size of the Elastic SAN resource in TiB. Possible values are between `1` and `100`.
          * 
-         * &gt; **NOTE** When updating `base_size_in_tib`, the new value should be greater than the existing one.
+         * &gt; **Note:** When updating `base_size_in_tib`, the new value should be greater than the existing one.
          * 
          * @return builder
          * 
@@ -290,7 +290,7 @@ public final class ElasticSanState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param extendedSizeInTib Specifies the extended size of the Elastic SAN resource in TiB. Possible values are between `1` and `100`.
          * 
-         * &gt; **NOTE** `extended_size_in_tib` cannot be removed and when updating, the new value should be greater than the existing one.
+         * &gt; **Note:** `extended_size_in_tib` cannot be removed and when updating, the new value should be greater than the existing one.
          * 
          * @return builder
          * 
@@ -303,7 +303,7 @@ public final class ElasticSanState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param extendedSizeInTib Specifies the extended size of the Elastic SAN resource in TiB. Possible values are between `1` and `100`.
          * 
-         * &gt; **NOTE** `extended_size_in_tib` cannot be removed and when updating, the new value should be greater than the existing one.
+         * &gt; **Note:** `extended_size_in_tib` cannot be removed and when updating, the new value should be greater than the existing one.
          * 
          * @return builder
          * 
@@ -525,7 +525,7 @@ public final class ElasticSanState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param zones Logical zone for the Elastic SAN resource. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE** `zones` cannot be specified if `sku.name` is set to `Premium_ZRS`.
+         * &gt; **Note:** `zones` cannot be specified if `sku.name` is set to `Premium_ZRS`.
          * 
          * @return builder
          * 
@@ -538,7 +538,7 @@ public final class ElasticSanState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param zones Logical zone for the Elastic SAN resource. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE** `zones` cannot be specified if `sku.name` is set to `Premium_ZRS`.
+         * &gt; **Note:** `zones` cannot be specified if `sku.name` is set to `Premium_ZRS`.
          * 
          * @return builder
          * 
@@ -550,7 +550,7 @@ public final class ElasticSanState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param zones Logical zone for the Elastic SAN resource. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE** `zones` cannot be specified if `sku.name` is set to `Premium_ZRS`.
+         * &gt; **Note:** `zones` cannot be specified if `sku.name` is set to `Premium_ZRS`.
          * 
          * @return builder
          * 

@@ -72,6 +72,13 @@ namespace Pulumi.Azure.ContainerService
     /// });
     /// ```
     /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.ContainerInstance`: 2023-05-01
+    /// 
     /// ## Import
     /// 
     /// Container Group's can be imported using the `resource id`, e.g.
@@ -199,7 +206,7 @@ namespace Pulumi.Azure.ContainerService
         /// <summary>
         /// The priority of the Container Group. Possible values are `Regular` and `Spot`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** When `priority` is set to `Spot`, the `ip_address_type` has to be `None`.
+        /// &gt; **Note:** When `priority` is set to `Spot`, the `ip_address_type` has to be `None`.
         /// </summary>
         [Output("priority")]
         public Output<string?> Priority { get; private set; } = null!;
@@ -414,7 +421,7 @@ namespace Pulumi.Azure.ContainerService
         /// <summary>
         /// The priority of the Container Group. Possible values are `Regular` and `Spot`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** When `priority` is set to `Spot`, the `ip_address_type` has to be `None`.
+        /// &gt; **Note:** When `priority` is set to `Spot`, the `ip_address_type` has to be `None`.
         /// </summary>
         [Input("priority")]
         public Input<string>? Priority { get; set; }
@@ -615,7 +622,7 @@ namespace Pulumi.Azure.ContainerService
         /// <summary>
         /// The priority of the Container Group. Possible values are `Regular` and `Spot`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** When `priority` is set to `Spot`, the `ip_address_type` has to be `None`.
+        /// &gt; **Note:** When `priority` is set to `Spot`, the `ip_address_type` has to be `None`.
         /// </summary>
         [Input("priority")]
         public Input<string>? Priority { get; set; }

@@ -71,6 +71,13 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.HDInsight`: 2021-06-01
+ *
  * ## Import
  *
  * HDInsight Kafka Clusters can be imported using the `resource id`, e.g.
@@ -122,7 +129,7 @@ export class KafkaCluster extends pulumi.CustomResource {
     /**
      * One or more `diskEncryption` block as defined below.
      *
-     * > **NOTE:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
+     * > **Note:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
      */
     public readonly diskEncryptions!: pulumi.Output<outputs.hdinsight.KafkaClusterDiskEncryption[] | undefined>;
     /**
@@ -318,7 +325,7 @@ export interface KafkaClusterState {
     /**
      * One or more `diskEncryption` block as defined below.
      *
-     * > **NOTE:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
+     * > **Note:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
      */
     diskEncryptions?: pulumi.Input<pulumi.Input<inputs.hdinsight.KafkaClusterDiskEncryption>[]>;
     /**
@@ -426,7 +433,7 @@ export interface KafkaClusterArgs {
     /**
      * One or more `diskEncryption` block as defined below.
      *
-     * > **NOTE:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
+     * > **Note:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
      */
     diskEncryptions?: pulumi.Input<pulumi.Input<inputs.hdinsight.KafkaClusterDiskEncryption>[]>;
     /**

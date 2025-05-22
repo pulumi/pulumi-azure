@@ -57,6 +57,13 @@ import (
 //
 // ```
 //
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.StorageSync`: 2020-03-01
+//
 // ## Import
 //
 // Storage Sync Groups can be imported using the `resource id`, e.g.

@@ -16,7 +16,7 @@ import javax.annotation.Nullable;
 /**
  * Manages a Azure Advanced Threat Protection Data Connector.
  * 
- * !&gt; **NOTE:** This resource requires that [Enterprise Mobility + Security E5](https://www.microsoft.com/en-us/microsoft-365/enterprise-mobility-security) is enabled on the tenant being connected to.
+ * !&gt; **Note:** This resource requires that [Enterprise Mobility + Security E5](https://www.microsoft.com/en-us/microsoft-365/enterprise-mobility-security) is enabled on the tenant being connected to.
  * 
  * ## Example Usage
  * 
@@ -118,7 +118,7 @@ public class DataConnectorAzureAdvancedThreadProtection extends com.pulumi.resou
     /**
      * The ID of the tenant that this Azure Advanced Threat Protection Data Connector connects to. Changing this forces a new Azure Advanced Threat Protection Data Connector to be created.
      * 
-     * &gt; **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
+     * &gt; **Note:** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
      * 
      */
     @Export(name="tenantId", refs={String.class}, tree="[0]")
@@ -127,7 +127,7 @@ public class DataConnectorAzureAdvancedThreadProtection extends com.pulumi.resou
     /**
      * @return The ID of the tenant that this Azure Advanced Threat Protection Data Connector connects to. Changing this forces a new Azure Advanced Threat Protection Data Connector to be created.
      * 
-     * &gt; **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
+     * &gt; **Note:** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
      * 
      */
     public Output<String> tenantId() {

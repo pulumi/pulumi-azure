@@ -327,6 +327,13 @@ class OpenIdConnectProvider(pulumi.CustomResource):
             metadata_endpoint="https://example.com/example")
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ApiManagement`: 2022-08-01
+
         ## Import
 
         API Management OpenID Connect Providers can be imported using the `resource id`, e.g.
@@ -380,6 +387,13 @@ class OpenIdConnectProvider(pulumi.CustomResource):
             display_name="Example Provider",
             metadata_endpoint="https://example.com/example")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ApiManagement`: 2022-08-01
 
         ## Import
 

@@ -28,6 +28,13 @@ import * as utilities from "../utilities";
  * }));
  * export const hostName = exampleGetGatewayHostNameConfiguration.then(exampleGetGatewayHostNameConfiguration => exampleGetGatewayHostNameConfiguration.hostName);
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.ApiManagement`: 2022-08-01
  */
 export function getGatewayHostNameConfiguration(args: GetGatewayHostNameConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetGatewayHostNameConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -117,6 +124,13 @@ export interface GetGatewayHostNameConfigurationResult {
  * }));
  * export const hostName = exampleGetGatewayHostNameConfiguration.then(exampleGetGatewayHostNameConfiguration => exampleGetGatewayHostNameConfiguration.hostName);
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.ApiManagement`: 2022-08-01
  */
 export function getGatewayHostNameConfigurationOutput(args: GetGatewayHostNameConfigurationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGatewayHostNameConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -169,6 +169,13 @@ class HyperVReplicationPolicyAssociation(pulumi.CustomResource):
             policy_id=example_hyper_v_replication_policy.id)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.RecoveryServices`: 2024-04-01
+
         ## Import
 
         Site Recovery Replication Policies can be imported using the `resource id`, e.g.
@@ -220,6 +227,13 @@ class HyperVReplicationPolicyAssociation(pulumi.CustomResource):
             hyperv_site_id=example_hyper_v_site.id,
             policy_id=example_hyper_v_replication_policy.id)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.RecoveryServices`: 2024-04-01
 
         ## Import
 

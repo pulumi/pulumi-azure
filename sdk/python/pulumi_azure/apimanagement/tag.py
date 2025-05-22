@@ -162,6 +162,13 @@ class Tag(pulumi.CustomResource):
             name="example-Tag")
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ApiManagement`: 2022-08-01
+
         ## Import
 
         API Management Tags can be imported using the `resource id`, e.g.
@@ -205,6 +212,13 @@ class Tag(pulumi.CustomResource):
             api_management_id=example_service.id,
             name="example-Tag")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ApiManagement`: 2022-08-01
 
         ## Import
 

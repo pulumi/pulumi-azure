@@ -106,9 +106,11 @@ class SpringCloudApplicationLiveView(pulumi.CustomResource):
                  spring_cloud_service_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
-        > **NOTE:** This resource is applicable only for Spring Cloud Service with enterprise tier.
+        > **Note:** This resource is applicable only for Spring Cloud Service with enterprise tier.
 
         Manages a Spring Cloud Application Live View.
+
+        !> **Note:** Azure Spring Apps is now deprecated and will be retired on 2028-05-31 - as such the `appplatform.SpringCloudApplicationLiveView` resource is deprecated and will be removed in a future major version of the AzureRM Provider. See https://aka.ms/asaretirement for more information.
 
         ## Example Usage
 
@@ -151,9 +153,11 @@ class SpringCloudApplicationLiveView(pulumi.CustomResource):
                  args: SpringCloudApplicationLiveViewArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        > **NOTE:** This resource is applicable only for Spring Cloud Service with enterprise tier.
+        > **Note:** This resource is applicable only for Spring Cloud Service with enterprise tier.
 
         Manages a Spring Cloud Application Live View.
+
+        !> **Note:** Azure Spring Apps is now deprecated and will be retired on 2028-05-31 - as such the `appplatform.SpringCloudApplicationLiveView` resource is deprecated and will be removed in a future major version of the AzureRM Provider. See https://aka.ms/asaretirement for more information.
 
         ## Example Usage
 

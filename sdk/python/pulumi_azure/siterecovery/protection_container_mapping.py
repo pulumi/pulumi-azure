@@ -356,6 +356,13 @@ class ProtectionContainerMapping(pulumi.CustomResource):
             recovery_replication_policy_id=policy.id)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.RecoveryServices`: 2024-04-01
+
         ## Import
 
         Site Recovery Protection Container Mappings can be imported using the `resource id`, e.g.
@@ -436,6 +443,13 @@ class ProtectionContainerMapping(pulumi.CustomResource):
             recovery_target_protection_container_id=secondary_protection_container.id,
             recovery_replication_policy_id=policy.id)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.RecoveryServices`: 2024-04-01
 
         ## Import
 

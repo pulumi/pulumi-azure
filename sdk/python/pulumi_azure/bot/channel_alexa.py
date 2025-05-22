@@ -172,7 +172,7 @@ class ChannelAlexa(pulumi.CustomResource):
         """
         Manages an Alexa integration for a Bot Channel
 
-        > **Note** A bot can only have a single Alexa Channel associated with it.
+        > **Note:** A bot can only have a single Alexa Channel associated with it.
 
         ## Example Usage
 
@@ -221,7 +221,7 @@ class ChannelAlexa(pulumi.CustomResource):
         """
         Manages an Alexa integration for a Bot Channel
 
-        > **Note** A bot can only have a single Alexa Channel associated with it.
+        > **Note:** A bot can only have a single Alexa Channel associated with it.
 
         ## Example Usage
 

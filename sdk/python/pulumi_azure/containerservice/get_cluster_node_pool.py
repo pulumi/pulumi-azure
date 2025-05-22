@@ -373,6 +373,13 @@ def get_cluster_node_pool(kubernetes_cluster_name: Optional[builtins.str] = None
     pulumi.export("id", example.id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.ContainerService`: 2024-09-01
+
 
     :param builtins.str kubernetes_cluster_name: The Name of the Kubernetes Cluster where this Node Pool is located.
     :param builtins.str name: The name of this Kubernetes Cluster Node Pool.
@@ -431,6 +438,13 @@ def get_cluster_node_pool_output(kubernetes_cluster_name: Optional[pulumi.Input[
         resource_group_name="existing-resource-group")
     pulumi.export("id", example.id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.ContainerService`: 2024-09-01
 
 
     :param builtins.str kubernetes_cluster_name: The Name of the Kubernetes Cluster where this Node Pool is located.

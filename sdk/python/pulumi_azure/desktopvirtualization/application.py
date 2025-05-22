@@ -413,6 +413,13 @@ class Application(pulumi.CustomResource):
             icon_index=0)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DesktopVirtualization`: 2024-04-03
+
         ## Import
 
         Virtual Desktop Application can be imported using the `resource id`, e.g.
@@ -485,6 +492,13 @@ class Application(pulumi.CustomResource):
             icon_path="C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe",
             icon_index=0)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DesktopVirtualization`: 2024-04-03
 
         ## Import
 

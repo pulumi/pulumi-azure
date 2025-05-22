@@ -28,9 +28,9 @@ class FirewallRuleArgs:
         The set of arguments for constructing a FirewallRule resource.
         :param pulumi.Input[builtins.str] end_ip_address: The ending IP address to allow through the firewall for this rule.
                
-               > **NOTE:** The Azure feature `Allow access to Azure services` can be enabled by setting `start_ip_address` and `end_ip_address` to `0.0.0.0`.
+               > **Note:** The Azure feature `Allow access to Azure services` can be enabled by setting `start_ip_address` and `end_ip_address` to `0.0.0.0`.
                
-               > **NOTE:** The Azure feature `Allow access to Azure services` requires the `name` to be `AllowAllWindowsAzureIps`.
+               > **Note:** The Azure feature `Allow access to Azure services` requires the `name` to be `AllowAllWindowsAzureIps`.
         :param pulumi.Input[builtins.str] start_ip_address: The starting IP address to allow through the firewall for this rule.
         :param pulumi.Input[builtins.str] synapse_workspace_id: The ID of the Synapse Workspace on which to create the Firewall Rule. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] name: The Name of the firewall rule. Changing this forces a new resource to be created.
@@ -47,9 +47,9 @@ class FirewallRuleArgs:
         """
         The ending IP address to allow through the firewall for this rule.
 
-        > **NOTE:** The Azure feature `Allow access to Azure services` can be enabled by setting `start_ip_address` and `end_ip_address` to `0.0.0.0`.
+        > **Note:** The Azure feature `Allow access to Azure services` can be enabled by setting `start_ip_address` and `end_ip_address` to `0.0.0.0`.
 
-        > **NOTE:** The Azure feature `Allow access to Azure services` requires the `name` to be `AllowAllWindowsAzureIps`.
+        > **Note:** The Azure feature `Allow access to Azure services` requires the `name` to be `AllowAllWindowsAzureIps`.
         """
         return pulumi.get(self, "end_ip_address")
 
@@ -105,9 +105,9 @@ class _FirewallRuleState:
         Input properties used for looking up and filtering FirewallRule resources.
         :param pulumi.Input[builtins.str] end_ip_address: The ending IP address to allow through the firewall for this rule.
                
-               > **NOTE:** The Azure feature `Allow access to Azure services` can be enabled by setting `start_ip_address` and `end_ip_address` to `0.0.0.0`.
+               > **Note:** The Azure feature `Allow access to Azure services` can be enabled by setting `start_ip_address` and `end_ip_address` to `0.0.0.0`.
                
-               > **NOTE:** The Azure feature `Allow access to Azure services` requires the `name` to be `AllowAllWindowsAzureIps`.
+               > **Note:** The Azure feature `Allow access to Azure services` requires the `name` to be `AllowAllWindowsAzureIps`.
         :param pulumi.Input[builtins.str] name: The Name of the firewall rule. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] start_ip_address: The starting IP address to allow through the firewall for this rule.
         :param pulumi.Input[builtins.str] synapse_workspace_id: The ID of the Synapse Workspace on which to create the Firewall Rule. Changing this forces a new resource to be created.
@@ -127,9 +127,9 @@ class _FirewallRuleState:
         """
         The ending IP address to allow through the firewall for this rule.
 
-        > **NOTE:** The Azure feature `Allow access to Azure services` can be enabled by setting `start_ip_address` and `end_ip_address` to `0.0.0.0`.
+        > **Note:** The Azure feature `Allow access to Azure services` can be enabled by setting `start_ip_address` and `end_ip_address` to `0.0.0.0`.
 
-        > **NOTE:** The Azure feature `Allow access to Azure services` requires the `name` to be `AllowAllWindowsAzureIps`.
+        > **Note:** The Azure feature `Allow access to Azure services` requires the `name` to be `AllowAllWindowsAzureIps`.
         """
         return pulumi.get(self, "end_ip_address")
 
@@ -237,9 +237,9 @@ class FirewallRule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] end_ip_address: The ending IP address to allow through the firewall for this rule.
                
-               > **NOTE:** The Azure feature `Allow access to Azure services` can be enabled by setting `start_ip_address` and `end_ip_address` to `0.0.0.0`.
+               > **Note:** The Azure feature `Allow access to Azure services` can be enabled by setting `start_ip_address` and `end_ip_address` to `0.0.0.0`.
                
-               > **NOTE:** The Azure feature `Allow access to Azure services` requires the `name` to be `AllowAllWindowsAzureIps`.
+               > **Note:** The Azure feature `Allow access to Azure services` requires the `name` to be `AllowAllWindowsAzureIps`.
         :param pulumi.Input[builtins.str] name: The Name of the firewall rule. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] start_ip_address: The starting IP address to allow through the firewall for this rule.
         :param pulumi.Input[builtins.str] synapse_workspace_id: The ID of the Synapse Workspace on which to create the Firewall Rule. Changing this forces a new resource to be created.
@@ -359,9 +359,9 @@ class FirewallRule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] end_ip_address: The ending IP address to allow through the firewall for this rule.
                
-               > **NOTE:** The Azure feature `Allow access to Azure services` can be enabled by setting `start_ip_address` and `end_ip_address` to `0.0.0.0`.
+               > **Note:** The Azure feature `Allow access to Azure services` can be enabled by setting `start_ip_address` and `end_ip_address` to `0.0.0.0`.
                
-               > **NOTE:** The Azure feature `Allow access to Azure services` requires the `name` to be `AllowAllWindowsAzureIps`.
+               > **Note:** The Azure feature `Allow access to Azure services` requires the `name` to be `AllowAllWindowsAzureIps`.
         :param pulumi.Input[builtins.str] name: The Name of the firewall rule. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] start_ip_address: The starting IP address to allow through the firewall for this rule.
         :param pulumi.Input[builtins.str] synapse_workspace_id: The ID of the Synapse Workspace on which to create the Firewall Rule. Changing this forces a new resource to be created.
@@ -382,9 +382,9 @@ class FirewallRule(pulumi.CustomResource):
         """
         The ending IP address to allow through the firewall for this rule.
 
-        > **NOTE:** The Azure feature `Allow access to Azure services` can be enabled by setting `start_ip_address` and `end_ip_address` to `0.0.0.0`.
+        > **Note:** The Azure feature `Allow access to Azure services` can be enabled by setting `start_ip_address` and `end_ip_address` to `0.0.0.0`.
 
-        > **NOTE:** The Azure feature `Allow access to Azure services` requires the `name` to be `AllowAllWindowsAzureIps`.
+        > **Note:** The Azure feature `Allow access to Azure services` requires the `name` to be `AllowAllWindowsAzureIps`.
         """
         return pulumi.get(self, "end_ip_address")
 

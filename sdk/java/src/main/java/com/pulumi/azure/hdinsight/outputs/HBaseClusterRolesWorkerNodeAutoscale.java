@@ -14,7 +14,7 @@ public final class HBaseClusterRolesWorkerNodeAutoscale {
     /**
      * @return A `recurrence` block as defined below.
      * 
-     * &gt; **NOTE:** Either a `capacity` or `recurrence` block must be specified - but not both.
+     * &gt; **Note:** Either a `capacity` or `recurrence` block must be specified - but not both.
      * 
      */
     private @Nullable HBaseClusterRolesWorkerNodeAutoscaleRecurrence recurrence;
@@ -23,7 +23,7 @@ public final class HBaseClusterRolesWorkerNodeAutoscale {
     /**
      * @return A `recurrence` block as defined below.
      * 
-     * &gt; **NOTE:** Either a `capacity` or `recurrence` block must be specified - but not both.
+     * &gt; **Note:** Either a `capacity` or `recurrence` block must be specified - but not both.
      * 
      */
     public Optional<HBaseClusterRolesWorkerNodeAutoscaleRecurrence> recurrence() {

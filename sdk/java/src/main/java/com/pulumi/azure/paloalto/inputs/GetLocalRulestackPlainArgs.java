@@ -13,16 +13,32 @@ public final class GetLocalRulestackPlainArgs extends com.pulumi.resources.Invok
 
     public static final GetLocalRulestackPlainArgs Empty = new GetLocalRulestackPlainArgs();
 
+    /**
+     * The name of this Palo Alto Networks Rulestack.
+     * 
+     */
     @Import(name="name", required=true)
     private String name;
 
+    /**
+     * @return The name of this Palo Alto Networks Rulestack.
+     * 
+     */
     public String name() {
         return this.name;
     }
 
+    /**
+     * The name of the Resource Group where the Palo Alto Networks Rulestack exists.
+     * 
+     */
     @Import(name="resourceGroupName", required=true)
     private String resourceGroupName;
 
+    /**
+     * @return The name of the Resource Group where the Palo Alto Networks Rulestack exists.
+     * 
+     */
     public String resourceGroupName() {
         return this.resourceGroupName;
     }
@@ -52,11 +68,23 @@ public final class GetLocalRulestackPlainArgs extends com.pulumi.resources.Invok
             $ = new GetLocalRulestackPlainArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param name The name of this Palo Alto Networks Rulestack.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param resourceGroupName The name of the Resource Group where the Palo Alto Networks Rulestack exists.
+         * 
+         * @return builder
+         * 
+         */
         public Builder resourceGroupName(String resourceGroupName) {
             $.resourceGroupName = resourceGroupName;
             return this;

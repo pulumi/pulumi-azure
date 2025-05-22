@@ -36,6 +36,13 @@ namespace Pulumi.Azure.Portal
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Portal`: 2019-01-01-preview
         /// </summary>
         public static Task<Azurerm_portal_dashboardResult> InvokeAsync(Azurerm_portal_dashboardArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<Azurerm_portal_dashboardResult>("azure:portal/azurerm_portal_dashboard:azurerm_portal_dashboard", args ?? new Azurerm_portal_dashboardArgs(), options.WithDefaults());
@@ -65,6 +72,13 @@ namespace Pulumi.Azure.Portal
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Portal`: 2019-01-01-preview
         /// </summary>
         public static Output<Azurerm_portal_dashboardResult> Invoke(Azurerm_portal_dashboardInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<Azurerm_portal_dashboardResult>("azure:portal/azurerm_portal_dashboard:azurerm_portal_dashboard", args ?? new Azurerm_portal_dashboardInvokeArgs(), options.WithDefaults());
@@ -94,6 +108,13 @@ namespace Pulumi.Azure.Portal
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Portal`: 2019-01-01-preview
         /// </summary>
         public static Output<Azurerm_portal_dashboardResult> Invoke(Azurerm_portal_dashboardInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<Azurerm_portal_dashboardResult>("azure:portal/azurerm_portal_dashboard:azurerm_portal_dashboard", args ?? new Azurerm_portal_dashboardInvokeArgs(), options.WithDefaults());

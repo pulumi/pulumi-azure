@@ -28,21 +28,21 @@ public final class ApiOperationResponseRepresentation {
     /**
      * @return One or more `form_parameter` block as defined above.
      * 
-     * &gt; **NOTE:** This is Required when `content_type` is set to `application/x-www-form-urlencoded` or `multipart/form-data`.
+     * &gt; **Note:** This is Required when `content_type` is set to `application/x-www-form-urlencoded` or `multipart/form-data`.
      * 
      */
     private @Nullable List<ApiOperationResponseRepresentationFormParameter> formParameters;
     /**
      * @return The ID of an API Management Schema which represents this Response.
      * 
-     * &gt; **NOTE:** This can only be specified when `content_type` is not set to `application/x-www-form-urlencoded` or `multipart/form-data`.
+     * &gt; **Note:** This can only be specified when `content_type` is not set to `application/x-www-form-urlencoded` or `multipart/form-data`.
      * 
      */
     private @Nullable String schemaId;
     /**
      * @return The Type Name defined by the Schema.
      * 
-     * &gt; **NOTE:** This can only be specified when `content_type` is not set to `application/x-www-form-urlencoded` or `multipart/form-data`.
+     * &gt; **Note:** This can only be specified when `content_type` is not set to `application/x-www-form-urlencoded` or `multipart/form-data`.
      * 
      */
     private @Nullable String typeName;
@@ -65,7 +65,7 @@ public final class ApiOperationResponseRepresentation {
     /**
      * @return One or more `form_parameter` block as defined above.
      * 
-     * &gt; **NOTE:** This is Required when `content_type` is set to `application/x-www-form-urlencoded` or `multipart/form-data`.
+     * &gt; **Note:** This is Required when `content_type` is set to `application/x-www-form-urlencoded` or `multipart/form-data`.
      * 
      */
     public List<ApiOperationResponseRepresentationFormParameter> formParameters() {
@@ -74,7 +74,7 @@ public final class ApiOperationResponseRepresentation {
     /**
      * @return The ID of an API Management Schema which represents this Response.
      * 
-     * &gt; **NOTE:** This can only be specified when `content_type` is not set to `application/x-www-form-urlencoded` or `multipart/form-data`.
+     * &gt; **Note:** This can only be specified when `content_type` is not set to `application/x-www-form-urlencoded` or `multipart/form-data`.
      * 
      */
     public Optional<String> schemaId() {
@@ -83,7 +83,7 @@ public final class ApiOperationResponseRepresentation {
     /**
      * @return The Type Name defined by the Schema.
      * 
-     * &gt; **NOTE:** This can only be specified when `content_type` is not set to `application/x-www-form-urlencoded` or `multipart/form-data`.
+     * &gt; **Note:** This can only be specified when `content_type` is not set to `application/x-www-form-urlencoded` or `multipart/form-data`.
      * 
      */
     public Optional<String> typeName() {

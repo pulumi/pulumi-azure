@@ -4,6 +4,29 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Use this data source to access information about an existing Palo Alto Networks Rulestack.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.paloalto.getLocalRulestack({
+ *     name: "existing",
+ *     resourceGroupName: "existing",
+ * });
+ * export const id = example.then(example => example.id);
+ * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `PaloAltoNetworks.Cloudngfw`: 2022-08-29
+ */
 export function getLocalRulestack(args: GetLocalRulestackArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalRulestackResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:paloalto/getLocalRulestack:getLocalRulestack", {
@@ -16,7 +39,13 @@ export function getLocalRulestack(args: GetLocalRulestackArgs, opts?: pulumi.Inv
  * A collection of arguments for invoking getLocalRulestack.
  */
 export interface GetLocalRulestackArgs {
+    /**
+     * The name of this Palo Alto Networks Rulestack.
+     */
     name: string;
+    /**
+     * The name of the Resource Group where the Palo Alto Networks Rulestack exists.
+     */
     resourceGroupName: string;
 }
 
@@ -24,23 +53,76 @@ export interface GetLocalRulestackArgs {
  * A collection of values returned by getLocalRulestack.
  */
 export interface GetLocalRulestackResult {
+    /**
+     * The Anti-Spyware setting used by the Palo Alto Networks Rulestack.
+     */
     readonly antiSpywareProfile: string;
+    /**
+     * The Anti-Virus setting used by the Palo Alto Networks Rulestack.
+     */
     readonly antiVirusProfile: string;
+    /**
+     * The description of the Palo Alto Networks Rulestack.
+     */
     readonly description: string;
+    /**
+     * The DNS Subscription setting used by the Palo Alto Networks Rulestack.
+     */
     readonly dnsSubscription: string;
+    /**
+     * The File Blocking Profile used by the Palo Alto Networks Rulestack.
+     */
     readonly fileBlockingProfile: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * The Azure Region where the Palo Alto Networks Rulestack exists.
+     */
     readonly location: string;
     readonly name: string;
+    /**
+     * The trusted egress decryption profile data for the Palo Alto Networks Rulestack.
+     */
     readonly outboundTrustCertificate: string;
+    /**
+     * The untrusted egress decryption profile data for the Palo Alto Networks Rulestack.
+     */
     readonly outboundUntrustCertificate: string;
     readonly resourceGroupName: string;
+    /**
+     * The URL Filtering Profile used by the Palo Alto Networks Rulestack.
+     */
     readonly urlFilteringProfile: string;
+    /**
+     * The Vulnerability Profile used by the Palo Alto Networks Rulestack.
+     */
     readonly vulnerabilityProfile: string;
 }
+/**
+ * Use this data source to access information about an existing Palo Alto Networks Rulestack.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.paloalto.getLocalRulestack({
+ *     name: "existing",
+ *     resourceGroupName: "existing",
+ * });
+ * export const id = example.then(example => example.id);
+ * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `PaloAltoNetworks.Cloudngfw`: 2022-08-29
+ */
 export function getLocalRulestackOutput(args: GetLocalRulestackOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLocalRulestackResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:paloalto/getLocalRulestack:getLocalRulestack", {
@@ -53,6 +135,12 @@ export function getLocalRulestackOutput(args: GetLocalRulestackOutputArgs, opts?
  * A collection of arguments for invoking getLocalRulestack.
  */
 export interface GetLocalRulestackOutputArgs {
+    /**
+     * The name of this Palo Alto Networks Rulestack.
+     */
     name: pulumi.Input<string>;
+    /**
+     * The name of the Resource Group where the Palo Alto Networks Rulestack exists.
+     */
     resourceGroupName: pulumi.Input<string>;
 }

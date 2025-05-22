@@ -153,6 +153,13 @@ def get_api_version_set(api_management_name: Optional[builtins.str] = None,
     pulumi.export("apiManagementApiVersionSetId", example.id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.ApiManagement`: 2022-08-01
+
 
     :param builtins.str api_management_name: The name of the API Management Service where the API Version Set exists.
     :param builtins.str name: The name of the API Version Set.
@@ -193,6 +200,13 @@ def get_api_version_set_output(api_management_name: Optional[pulumi.Input[builti
         name="example-api-version-set")
     pulumi.export("apiManagementApiVersionSetId", example.id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.ApiManagement`: 2022-08-01
 
 
     :param builtins.str api_management_name: The name of the API Management Service where the API Version Set exists.

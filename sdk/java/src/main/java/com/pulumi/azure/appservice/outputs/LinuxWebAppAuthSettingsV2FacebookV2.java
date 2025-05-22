@@ -21,7 +21,7 @@ public final class LinuxWebAppAuthSettingsV2FacebookV2 {
     /**
      * @return The app setting name that contains the `app_secret` value used for Facebook Login.
      * 
-     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+     * !&gt; **Note:** A setting with this name must exist in `app_settings` to function correctly.
      * 
      */
     private String appSecretSettingName;
@@ -47,7 +47,7 @@ public final class LinuxWebAppAuthSettingsV2FacebookV2 {
     /**
      * @return The app setting name that contains the `app_secret` value used for Facebook Login.
      * 
-     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+     * !&gt; **Note:** A setting with this name must exist in `app_settings` to function correctly.
      * 
      */
     public String appSecretSettingName() {

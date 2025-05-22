@@ -16,7 +16,7 @@ var _ = internal.GetEnvOrDefault
 type CaaRecordRecord struct {
 	// Extensible CAA flags, currently only 1 is implemented to set the issuer critical flag.
 	Flags int `pulumi:"flags"`
-	// A property tag, options are `issue`, `issuewild` and `iodef`.
+	// A property tag, options are `issue`, `issuewild`, `iodef`, and `contactemail`.
 	Tag string `pulumi:"tag"`
 	// A property value such as a registrar domain.
 	Value string `pulumi:"value"`
@@ -36,7 +36,7 @@ type CaaRecordRecordInput interface {
 type CaaRecordRecordArgs struct {
 	// Extensible CAA flags, currently only 1 is implemented to set the issuer critical flag.
 	Flags pulumi.IntInput `pulumi:"flags"`
-	// A property tag, options are `issue`, `issuewild` and `iodef`.
+	// A property tag, options are `issue`, `issuewild`, `iodef`, and `contactemail`.
 	Tag pulumi.StringInput `pulumi:"tag"`
 	// A property value such as a registrar domain.
 	Value pulumi.StringInput `pulumi:"value"`
@@ -98,7 +98,7 @@ func (o CaaRecordRecordOutput) Flags() pulumi.IntOutput {
 	return o.ApplyT(func(v CaaRecordRecord) int { return v.Flags }).(pulumi.IntOutput)
 }
 
-// A property tag, options are `issue`, `issuewild` and `iodef`.
+// A property tag, options are `issue`, `issuewild`, `iodef`, and `contactemail`.
 func (o CaaRecordRecordOutput) Tag() pulumi.StringOutput {
 	return o.ApplyT(func(v CaaRecordRecord) string { return v.Tag }).(pulumi.StringOutput)
 }
@@ -762,7 +762,7 @@ func (o ZoneSoaRecordPtrOutput) Ttl() pulumi.IntPtrOutput {
 type GetCAARecordRecord struct {
 	// Extensible CAA flags, currently only 1 is implemented to set the issuer critical flag.
 	Flags int `pulumi:"flags"`
-	// A property tag, options are `issue`, `issuewild` and `iodef`.
+	// A property tag, options are `issue`, `issuewild`, `iodef`, and `contactemail`.
 	Tag string `pulumi:"tag"`
 	// A property value such as a registrar domain.
 	Value string `pulumi:"value"`
@@ -782,7 +782,7 @@ type GetCAARecordRecordInput interface {
 type GetCAARecordRecordArgs struct {
 	// Extensible CAA flags, currently only 1 is implemented to set the issuer critical flag.
 	Flags pulumi.IntInput `pulumi:"flags"`
-	// A property tag, options are `issue`, `issuewild` and `iodef`.
+	// A property tag, options are `issue`, `issuewild`, `iodef`, and `contactemail`.
 	Tag pulumi.StringInput `pulumi:"tag"`
 	// A property value such as a registrar domain.
 	Value pulumi.StringInput `pulumi:"value"`
@@ -844,7 +844,7 @@ func (o GetCAARecordRecordOutput) Flags() pulumi.IntOutput {
 	return o.ApplyT(func(v GetCAARecordRecord) int { return v.Flags }).(pulumi.IntOutput)
 }
 
-// A property tag, options are `issue`, `issuewild` and `iodef`.
+// A property tag, options are `issue`, `issuewild`, `iodef`, and `contactemail`.
 func (o GetCAARecordRecordOutput) Tag() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCAARecordRecord) string { return v.Tag }).(pulumi.StringOutput)
 }

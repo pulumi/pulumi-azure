@@ -28,7 +28,7 @@ public final class PolicyVMRetentionYearly {
     /**
      * @return Including the last day of the month, default to `false`.
      * 
-     * &gt; **NOTE:**: Either `weekdays` and `weeks` or `days` and `include_last_days` must be specified.
+     * &gt; **Note:** Either `weekdays` and `weeks` or `days` and `include_last_days` must be specified.
      * 
      */
     private @Nullable Boolean includeLastDays;
@@ -66,7 +66,7 @@ public final class PolicyVMRetentionYearly {
     /**
      * @return Including the last day of the month, default to `false`.
      * 
-     * &gt; **NOTE:**: Either `weekdays` and `weeks` or `days` and `include_last_days` must be specified.
+     * &gt; **Note:** Either `weekdays` and `weeks` or `days` and `include_last_days` must be specified.
      * 
      */
     public Optional<Boolean> includeLastDays() {

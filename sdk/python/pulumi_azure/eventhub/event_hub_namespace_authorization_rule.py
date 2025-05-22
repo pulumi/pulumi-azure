@@ -31,7 +31,7 @@ class EventHubNamespaceAuthorizationRuleArgs:
         :param pulumi.Input[builtins.str] namespace_name: Specifies the name of the EventHub Namespace. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group in which the EventHub Namespace exists. Changing this forces a new resource to be created.
                
-               > **NOTE** At least one of the 3 permissions below needs to be set.
+               > **Note:** At least one of the 3 permissions below needs to be set.
         :param pulumi.Input[builtins.bool] listen: Grants listen access to this this Authorization Rule. Defaults to `false`.
         :param pulumi.Input[builtins.bool] manage: Grants manage access to this this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
         :param pulumi.Input[builtins.str] name: Specifies the name of the Authorization Rule. Changing this forces a new resource to be created.
@@ -66,7 +66,7 @@ class EventHubNamespaceAuthorizationRuleArgs:
         """
         The name of the resource group in which the EventHub Namespace exists. Changing this forces a new resource to be created.
 
-        > **NOTE** At least one of the 3 permissions below needs to be set.
+        > **Note:** At least one of the 3 permissions below needs to be set.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -149,7 +149,7 @@ class _EventHubNamespaceAuthorizationRuleState:
         :param pulumi.Input[builtins.str] primary_key: The Primary Key for the Authorization Rule.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group in which the EventHub Namespace exists. Changing this forces a new resource to be created.
                
-               > **NOTE** At least one of the 3 permissions below needs to be set.
+               > **Note:** At least one of the 3 permissions below needs to be set.
         :param pulumi.Input[builtins.str] secondary_connection_string: The Secondary Connection String for the Authorization Rule.
         :param pulumi.Input[builtins.str] secondary_connection_string_alias: The alias of the Secondary Connection String for the Authorization Rule, which is generated when disaster recovery is enabled.
         :param pulumi.Input[builtins.str] secondary_key: The Secondary Key for the Authorization Rule.
@@ -270,7 +270,7 @@ class _EventHubNamespaceAuthorizationRuleState:
         """
         The name of the resource group in which the EventHub Namespace exists. Changing this forces a new resource to be created.
 
-        > **NOTE** At least one of the 3 permissions below needs to be set.
+        > **Note:** At least one of the 3 permissions below needs to be set.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -370,6 +370,13 @@ class EventHubNamespaceAuthorizationRule(pulumi.CustomResource):
             manage=False)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.EventHub`: 2024-01-01
+
         ## Import
 
         EventHub Namespace Authorization Rules can be imported using the `resource id`, e.g.
@@ -386,7 +393,7 @@ class EventHubNamespaceAuthorizationRule(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] namespace_name: Specifies the name of the EventHub Namespace. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group in which the EventHub Namespace exists. Changing this forces a new resource to be created.
                
-               > **NOTE** At least one of the 3 permissions below needs to be set.
+               > **Note:** At least one of the 3 permissions below needs to be set.
         :param pulumi.Input[builtins.bool] send: Grants send access to this this Authorization Rule. Defaults to `false`.
         """
         ...
@@ -424,6 +431,13 @@ class EventHubNamespaceAuthorizationRule(pulumi.CustomResource):
             send=False,
             manage=False)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.EventHub`: 2024-01-01
 
         ## Import
 
@@ -519,7 +533,7 @@ class EventHubNamespaceAuthorizationRule(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] primary_key: The Primary Key for the Authorization Rule.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group in which the EventHub Namespace exists. Changing this forces a new resource to be created.
                
-               > **NOTE** At least one of the 3 permissions below needs to be set.
+               > **Note:** At least one of the 3 permissions below needs to be set.
         :param pulumi.Input[builtins.str] secondary_connection_string: The Secondary Connection String for the Authorization Rule.
         :param pulumi.Input[builtins.str] secondary_connection_string_alias: The alias of the Secondary Connection String for the Authorization Rule, which is generated when disaster recovery is enabled.
         :param pulumi.Input[builtins.str] secondary_key: The Secondary Key for the Authorization Rule.
@@ -605,7 +619,7 @@ class EventHubNamespaceAuthorizationRule(pulumi.CustomResource):
         """
         The name of the resource group in which the EventHub Namespace exists. Changing this forces a new resource to be created.
 
-        > **NOTE** At least one of the 3 permissions below needs to be set.
+        > **Note:** At least one of the 3 permissions below needs to be set.
         """
         return pulumi.get(self, "resource_group_name")
 

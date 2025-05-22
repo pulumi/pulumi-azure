@@ -620,7 +620,7 @@ if not MYPY:
         """
         Should the notification be enabled? Defaults to `true`.
 
-        > **NOTE:** A `notification` block cannot have all of `contact_emails`, `contact_roles`, and `contact_groups` empty. This means that at least one of the three must be specified.
+        > **Note:** A `notification` block cannot have all of `contact_emails`, `contact_roles`, and `contact_groups` empty. This means that at least one of the three must be specified.
         """
         threshold_type: NotRequired[pulumi.Input[builtins.str]]
         """
@@ -647,7 +647,7 @@ class BudgetResourceGroupNotificationArgs:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] contact_roles: Specifies a list of contact roles to send the budget notification to when the threshold is exceeded.
         :param pulumi.Input[builtins.bool] enabled: Should the notification be enabled? Defaults to `true`.
                
-               > **NOTE:** A `notification` block cannot have all of `contact_emails`, `contact_roles`, and `contact_groups` empty. This means that at least one of the three must be specified.
+               > **Note:** A `notification` block cannot have all of `contact_emails`, `contact_roles`, and `contact_groups` empty. This means that at least one of the three must be specified.
         :param pulumi.Input[builtins.str] threshold_type: The type of threshold for the notification. This determines whether the notification is triggered by forecasted costs or actual costs. The allowed values are `Actual` and `Forecasted`. Default is `Actual`.
         """
         pulumi.set(__self__, "operator", operator)
@@ -729,7 +729,7 @@ class BudgetResourceGroupNotificationArgs:
         """
         Should the notification be enabled? Defaults to `true`.
 
-        > **NOTE:** A `notification` block cannot have all of `contact_emails`, `contact_roles`, and `contact_groups` empty. This means that at least one of the three must be specified.
+        > **Note:** A `notification` block cannot have all of `contact_emails`, `contact_roles`, and `contact_groups` empty. This means that at least one of the three must be specified.
         """
         return pulumi.get(self, "enabled")
 
@@ -1019,7 +1019,7 @@ if not MYPY:
         """
         Should the notification be enabled? Defaults to `true`.
 
-        > **NOTE:** A `notification` block cannot have all of `contact_emails`, `contact_roles`, and `contact_groups` empty. This means that at least one of the three must be specified.
+        > **Note:** A `notification` block cannot have all of `contact_emails`, `contact_roles`, and `contact_groups` empty. This means that at least one of the three must be specified.
         """
         threshold_type: NotRequired[pulumi.Input[builtins.str]]
         """
@@ -1046,7 +1046,7 @@ class BudgetSubscriptionNotificationArgs:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] contact_roles: Specifies a list of contact roles to send the budget notification to when the threshold is exceeded.
         :param pulumi.Input[builtins.bool] enabled: Should the notification be enabled? Defaults to `true`.
                
-               > **NOTE:** A `notification` block cannot have all of `contact_emails`, `contact_roles`, and `contact_groups` empty. This means that at least one of the three must be specified.
+               > **Note:** A `notification` block cannot have all of `contact_emails`, `contact_roles`, and `contact_groups` empty. This means that at least one of the three must be specified.
         :param pulumi.Input[builtins.str] threshold_type: The type of threshold for the notification. This determines whether the notification is triggered by forecasted costs or actual costs. The allowed values are `Actual` and `Forecasted`. Default is `Actual`.
         """
         pulumi.set(__self__, "operator", operator)
@@ -1128,7 +1128,7 @@ class BudgetSubscriptionNotificationArgs:
         """
         Should the notification be enabled? Defaults to `true`.
 
-        > **NOTE:** A `notification` block cannot have all of `contact_emails`, `contact_roles`, and `contact_groups` empty. This means that at least one of the three must be specified.
+        > **Note:** A `notification` block cannot have all of `contact_emails`, `contact_roles`, and `contact_groups` empty. This means that at least one of the three must be specified.
         """
         return pulumi.get(self, "enabled")
 

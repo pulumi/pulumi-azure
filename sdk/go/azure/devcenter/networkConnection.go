@@ -75,6 +75,13 @@ import (
 //
 // ```
 //
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.DevCenter`: 2025-02-01
+//
 // ## Import
 //
 // An existing Dev Center Network Connection can be imported into Pulumi using the `resource id`, e.g.

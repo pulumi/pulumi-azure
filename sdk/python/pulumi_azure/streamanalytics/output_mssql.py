@@ -406,39 +406,39 @@ class OutputMssql(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_azure as azure
-        import pulumi_azurerm as azurerm
 
         example_resource_group = azure.core.ResourceGroup("example",
             name="rg-example",
             location="West Europe")
         example = azure.streamanalytics.get_job_output(name="example-job",
             resource_group_name=example_resource_group.name)
-        example_sql_server = azurerm.index.SqlServer("example",
-            name=example-server,
+        example_server = azure.mssql.Server("example",
+            name="example-server",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
-            version=12.0,
-            administrator_login=dbadmin,
-            administrator_login_password=example-password)
-        example_sql_database = azurerm.index.SqlDatabase("example",
-            name=exampledb,
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            server_name=example_sql_server.name,
-            requested_service_objective_name=S0,
-            collation=SQL_LATIN1_GENERAL_CP1_CI_AS,
-            max_size_bytes=268435456000,
-            create_mode=Default)
+            version="12.0",
+            administrator_login="dbadmin",
+            administrator_login_password="example-password")
+        example_database = azure.mssql.Database("example",
+            name="exampledb",
+            server_id=test["id"])
         example_output_mssql = azure.streamanalytics.OutputMssql("example",
             name="example-output-sql",
             stream_analytics_job_name=example.name,
             resource_group_name=example.resource_group_name,
-            server=example_sql_server["fullyQualifiedDomainName"],
-            user=example_sql_server["administratorLogin"],
-            password=example_sql_server["administratorLoginPassword"],
-            database=example_sql_database["name"],
+            server=example_server.fully_qualified_domain_name,
+            user=example_server.administrator_login,
+            password=example_server.administrator_login_password,
+            database=example_database.name,
             table="ExampleTable")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.StreamAnalytics`: 2021-10-01-preview
 
         ## Import
 
@@ -476,39 +476,39 @@ class OutputMssql(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_azure as azure
-        import pulumi_azurerm as azurerm
 
         example_resource_group = azure.core.ResourceGroup("example",
             name="rg-example",
             location="West Europe")
         example = azure.streamanalytics.get_job_output(name="example-job",
             resource_group_name=example_resource_group.name)
-        example_sql_server = azurerm.index.SqlServer("example",
-            name=example-server,
+        example_server = azure.mssql.Server("example",
+            name="example-server",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
-            version=12.0,
-            administrator_login=dbadmin,
-            administrator_login_password=example-password)
-        example_sql_database = azurerm.index.SqlDatabase("example",
-            name=exampledb,
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            server_name=example_sql_server.name,
-            requested_service_objective_name=S0,
-            collation=SQL_LATIN1_GENERAL_CP1_CI_AS,
-            max_size_bytes=268435456000,
-            create_mode=Default)
+            version="12.0",
+            administrator_login="dbadmin",
+            administrator_login_password="example-password")
+        example_database = azure.mssql.Database("example",
+            name="exampledb",
+            server_id=test["id"])
         example_output_mssql = azure.streamanalytics.OutputMssql("example",
             name="example-output-sql",
             stream_analytics_job_name=example.name,
             resource_group_name=example.resource_group_name,
-            server=example_sql_server["fullyQualifiedDomainName"],
-            user=example_sql_server["administratorLogin"],
-            password=example_sql_server["administratorLoginPassword"],
-            database=example_sql_database["name"],
+            server=example_server.fully_qualified_domain_name,
+            user=example_server.administrator_login,
+            password=example_server.administrator_login_password,
+            database=example_database.name,
             table="ExampleTable")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.StreamAnalytics`: 2021-10-01-preview
 
         ## Import
 

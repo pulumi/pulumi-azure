@@ -255,6 +255,13 @@ class ManagedInstanceActiveDirectoryAdministrator(pulumi.CustomResource):
             tenant_id=current.tenant_id)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Sql`: 2023-08-01-preview
+
         ## Import
 
         An Azure SQL Active Directory Administrator can be imported using the `resource id`, e.g.
@@ -330,6 +337,13 @@ class ManagedInstanceActiveDirectoryAdministrator(pulumi.CustomResource):
             object_id=admin.object_id,
             tenant_id=current.tenant_id)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Sql`: 2023-08-01-preview
 
         ## Import
 

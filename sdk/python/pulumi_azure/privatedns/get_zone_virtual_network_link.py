@@ -132,6 +132,13 @@ def get_zone_virtual_network_link(name: Optional[builtins.str] = None,
     pulumi.export("privateDnsARecordId", example.id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Network`: 2024-06-01
+
 
     :param builtins.str name: The name of the Private DNS Zone Virtual Network Link.
     :param builtins.str private_dns_zone_name: The name of the Private DNS zone (without a terminating dot).
@@ -170,6 +177,13 @@ def get_zone_virtual_network_link_output(name: Optional[pulumi.Input[builtins.st
         private_dns_zone_name="test-zone")
     pulumi.export("privateDnsARecordId", example.id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Network`: 2024-06-01
 
 
     :param builtins.str name: The name of the Private DNS Zone Virtual Network Link.

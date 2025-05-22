@@ -25,7 +25,7 @@ public final class ActiveRoleAssignmentScheduleExpiration {
     /**
      * @return The end date/time of the role assignment. Changing this forces a new resource to be created.
      * 
-     * &gt; Note: Only one of `duration_days`, `duration_hours` or `end_date_time` should be specified.
+     * &gt; **Note:** Only one of `duration_days`, `duration_hours` or `end_date_time` should be specified.
      * 
      */
     private @Nullable String endDateTime;
@@ -48,7 +48,7 @@ public final class ActiveRoleAssignmentScheduleExpiration {
     /**
      * @return The end date/time of the role assignment. Changing this forces a new resource to be created.
      * 
-     * &gt; Note: Only one of `duration_days`, `duration_hours` or `end_date_time` should be specified.
+     * &gt; **Note:** Only one of `duration_days`, `duration_hours` or `end_date_time` should be specified.
      * 
      */
     public Optional<String> endDateTime() {

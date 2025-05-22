@@ -49,7 +49,7 @@ class IoTHubArgs:
         :param pulumi.Input[builtins.int] event_hub_retention_in_days: The event hub retention to use in days. Must be between `1` and `7`. Defaults to `1`.
         :param pulumi.Input['IoTHubFallbackRouteArgs'] fallback_route: A `fallback_route` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
                
-               > **NOTE:** If `fallback_route` isn't explicitly specified, the fallback route wouldn't be enabled by default.
+               > **Note:** If `fallback_route` isn't explicitly specified, the fallback route wouldn't be enabled by default.
         :param pulumi.Input['IoTHubFileUploadArgs'] file_upload: A `file_upload` block as defined below.
         :param pulumi.Input['IoTHubIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[builtins.bool] local_authentication_enabled: If false, SAS tokens with Iot hub scoped SAS keys cannot be used for authentication. Defaults to `true`.
@@ -176,7 +176,7 @@ class IoTHubArgs:
         """
         A `fallback_route` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
 
-        > **NOTE:** If `fallback_route` isn't explicitly specified, the fallback route wouldn't be enabled by default.
+        > **Note:** If `fallback_route` isn't explicitly specified, the fallback route wouldn't be enabled by default.
         """
         return pulumi.get(self, "fallback_route")
 
@@ -334,7 +334,7 @@ class _IoTHubState:
         :param pulumi.Input[builtins.int] event_hub_retention_in_days: The event hub retention to use in days. Must be between `1` and `7`. Defaults to `1`.
         :param pulumi.Input['IoTHubFallbackRouteArgs'] fallback_route: A `fallback_route` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
                
-               > **NOTE:** If `fallback_route` isn't explicitly specified, the fallback route wouldn't be enabled by default.
+               > **Note:** If `fallback_route` isn't explicitly specified, the fallback route wouldn't be enabled by default.
         :param pulumi.Input['IoTHubFileUploadArgs'] file_upload: A `file_upload` block as defined below.
         :param pulumi.Input[builtins.str] hostname: The hostname of the IotHub Resource.
         :param pulumi.Input['IoTHubIdentityArgs'] identity: An `identity` block as defined below.
@@ -519,7 +519,7 @@ class _IoTHubState:
         """
         A `fallback_route` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
 
-        > **NOTE:** If `fallback_route` isn't explicitly specified, the fallback route wouldn't be enabled by default.
+        > **Note:** If `fallback_route` isn't explicitly specified, the fallback route wouldn't be enabled by default.
         """
         return pulumi.get(self, "fallback_route")
 
@@ -721,15 +721,15 @@ class IoTHub(pulumi.CustomResource):
         """
         Manages an IotHub
 
-        > **NOTE:** Endpoints can be defined either directly on the `iot.IoTHub` resource, or using the `azurerm_iothub_endpoint_*` resources - but the two ways of defining the endpoints cannot be used together. If both are used against the same IoTHub, spurious changes will occur. Also, defining a `azurerm_iothub_endpoint_*` resource and another endpoint of a different type directly on the `iot.IoTHub` resource is not supported.
+        > **Note:** Endpoints can be defined either directly on the `iot.IoTHub` resource, or using the `azurerm_iothub_endpoint_*` resources - but the two ways of defining the endpoints cannot be used together. If both are used against the same IoTHub, spurious changes will occur. Also, defining a `azurerm_iothub_endpoint_*` resource and another endpoint of a different type directly on the `iot.IoTHub` resource is not supported.
 
-        > **NOTE:** Routes can be defined either directly on the `iot.IoTHub` resource, or using the `iot.Route` resource - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
+        > **Note:** Routes can be defined either directly on the `iot.IoTHub` resource, or using the `iot.Route` resource - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
 
-        > **NOTE:** Enrichments can be defined either directly on the `iot.IoTHub` resource, or using the `iot.Enrichment` resource - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
+        > **Note:** Enrichments can be defined either directly on the `iot.IoTHub` resource, or using the `iot.Enrichment` resource - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
 
-        > **NOTE:** Fallback route can be defined either directly on the `iot.IoTHub` resource, or using the `iot.FallbackRoute` resource - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
+        > **Note:** Fallback route can be defined either directly on the `iot.IoTHub` resource, or using the `iot.FallbackRoute` resource - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
 
-        > **NOTE:** File upload can be defined either directly on the `iot.IoTHub` resource, or using the `iot.FileUpload` resource - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
+        > **Note:** File upload can be defined either directly on the `iot.IoTHub` resource, or using the `iot.FileUpload` resource - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
 
         ## Example Usage
 
@@ -846,7 +846,7 @@ class IoTHub(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] event_hub_retention_in_days: The event hub retention to use in days. Must be between `1` and `7`. Defaults to `1`.
         :param pulumi.Input[Union['IoTHubFallbackRouteArgs', 'IoTHubFallbackRouteArgsDict']] fallback_route: A `fallback_route` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
                
-               > **NOTE:** If `fallback_route` isn't explicitly specified, the fallback route wouldn't be enabled by default.
+               > **Note:** If `fallback_route` isn't explicitly specified, the fallback route wouldn't be enabled by default.
         :param pulumi.Input[Union['IoTHubFileUploadArgs', 'IoTHubFileUploadArgsDict']] file_upload: A `file_upload` block as defined below.
         :param pulumi.Input[Union['IoTHubIdentityArgs', 'IoTHubIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[builtins.bool] local_authentication_enabled: If false, SAS tokens with Iot hub scoped SAS keys cannot be used for authentication. Defaults to `true`.
@@ -865,15 +865,15 @@ class IoTHub(pulumi.CustomResource):
         """
         Manages an IotHub
 
-        > **NOTE:** Endpoints can be defined either directly on the `iot.IoTHub` resource, or using the `azurerm_iothub_endpoint_*` resources - but the two ways of defining the endpoints cannot be used together. If both are used against the same IoTHub, spurious changes will occur. Also, defining a `azurerm_iothub_endpoint_*` resource and another endpoint of a different type directly on the `iot.IoTHub` resource is not supported.
+        > **Note:** Endpoints can be defined either directly on the `iot.IoTHub` resource, or using the `azurerm_iothub_endpoint_*` resources - but the two ways of defining the endpoints cannot be used together. If both are used against the same IoTHub, spurious changes will occur. Also, defining a `azurerm_iothub_endpoint_*` resource and another endpoint of a different type directly on the `iot.IoTHub` resource is not supported.
 
-        > **NOTE:** Routes can be defined either directly on the `iot.IoTHub` resource, or using the `iot.Route` resource - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
+        > **Note:** Routes can be defined either directly on the `iot.IoTHub` resource, or using the `iot.Route` resource - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
 
-        > **NOTE:** Enrichments can be defined either directly on the `iot.IoTHub` resource, or using the `iot.Enrichment` resource - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
+        > **Note:** Enrichments can be defined either directly on the `iot.IoTHub` resource, or using the `iot.Enrichment` resource - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
 
-        > **NOTE:** Fallback route can be defined either directly on the `iot.IoTHub` resource, or using the `iot.FallbackRoute` resource - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
+        > **Note:** Fallback route can be defined either directly on the `iot.IoTHub` resource, or using the `iot.FallbackRoute` resource - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
 
-        > **NOTE:** File upload can be defined either directly on the `iot.IoTHub` resource, or using the `iot.FileUpload` resource - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
+        > **Note:** File upload can be defined either directly on the `iot.IoTHub` resource, or using the `iot.FileUpload` resource - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
 
         ## Example Usage
 
@@ -1108,7 +1108,7 @@ class IoTHub(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] event_hub_retention_in_days: The event hub retention to use in days. Must be between `1` and `7`. Defaults to `1`.
         :param pulumi.Input[Union['IoTHubFallbackRouteArgs', 'IoTHubFallbackRouteArgsDict']] fallback_route: A `fallback_route` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
                
-               > **NOTE:** If `fallback_route` isn't explicitly specified, the fallback route wouldn't be enabled by default.
+               > **Note:** If `fallback_route` isn't explicitly specified, the fallback route wouldn't be enabled by default.
         :param pulumi.Input[Union['IoTHubFileUploadArgs', 'IoTHubFileUploadArgsDict']] file_upload: A `file_upload` block as defined below.
         :param pulumi.Input[builtins.str] hostname: The hostname of the IotHub Resource.
         :param pulumi.Input[Union['IoTHubIdentityArgs', 'IoTHubIdentityArgsDict']] identity: An `identity` block as defined below.
@@ -1232,7 +1232,7 @@ class IoTHub(pulumi.CustomResource):
         """
         A `fallback_route` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
 
-        > **NOTE:** If `fallback_route` isn't explicitly specified, the fallback route wouldn't be enabled by default.
+        > **Note:** If `fallback_route` isn't explicitly specified, the fallback route wouldn't be enabled by default.
         """
         return pulumi.get(self, "fallback_route")
 

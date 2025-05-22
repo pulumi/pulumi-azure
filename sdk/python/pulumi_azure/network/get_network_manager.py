@@ -173,6 +173,13 @@ def get_network_manager(name: Optional[builtins.str] = None,
         resource_group_name=example_network_manager.resource_group_name)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Network`: 2024-05-01
+
 
     :param builtins.str name: The name of the Network Manager.
     :param builtins.str resource_group_name: The Name of the Resource Group where the Network Manager exists.
@@ -224,6 +231,13 @@ def get_network_manager_output(name: Optional[pulumi.Input[builtins.str]] = None
     example = azure.network.get_network_manager_output(name=example_network_manager.name,
         resource_group_name=example_network_manager.resource_group_name)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Network`: 2024-05-01
 
 
     :param builtins.str name: The name of the Network Manager.

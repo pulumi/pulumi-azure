@@ -57,6 +57,13 @@ namespace Pulumi.Azure.SystemCenter
     /// });
     /// ```
     /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.ScVmm`: 2023-10-07
+    /// 
     /// ## Import
     /// 
     /// System Center Virtual Machine Manager Virtual Machine Templates can be imported into Pulumi using the `resource id`, e.g.

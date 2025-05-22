@@ -66,7 +66,7 @@ namespace Pulumi.Azure.Iot
         /// <summary>
         /// Adds `DeviceConnect` permission to this Shared Access Account. It allows sending and receiving on the device-side endpoints.
         /// 
-        /// &gt; **NOTE** At least one of `registry_read`, `registry_write`, `service_connect`, `device_connect` permissions must be set to `true`.
+        /// &gt; **Note:** At least one of `registry_read`, `registry_write`, `service_connect`, `device_connect` permissions must be set to `true`.
         /// </summary>
         [Output("deviceConnect")]
         public Output<bool?> DeviceConnect { get; private set; } = null!;
@@ -104,7 +104,7 @@ namespace Pulumi.Azure.Iot
         /// <summary>
         /// Adds `RegistryWrite` permission to this Shared Access Account. It allows write access to the identity registry.
         /// 
-        /// &gt; **NOTE** When `registry_write` is set to `true`, `registry_read` must also be set to true. This is a limitation of the Azure REST API
+        /// &gt; **Note:** When `registry_write` is set to `true`, `registry_read` must also be set to true. This is a limitation of the Azure REST API
         /// </summary>
         [Output("registryWrite")]
         public Output<bool?> RegistryWrite { get; private set; } = null!;
@@ -189,7 +189,7 @@ namespace Pulumi.Azure.Iot
         /// <summary>
         /// Adds `DeviceConnect` permission to this Shared Access Account. It allows sending and receiving on the device-side endpoints.
         /// 
-        /// &gt; **NOTE** At least one of `registry_read`, `registry_write`, `service_connect`, `device_connect` permissions must be set to `true`.
+        /// &gt; **Note:** At least one of `registry_read`, `registry_write`, `service_connect`, `device_connect` permissions must be set to `true`.
         /// </summary>
         [Input("deviceConnect")]
         public Input<bool>? DeviceConnect { get; set; }
@@ -215,7 +215,7 @@ namespace Pulumi.Azure.Iot
         /// <summary>
         /// Adds `RegistryWrite` permission to this Shared Access Account. It allows write access to the identity registry.
         /// 
-        /// &gt; **NOTE** When `registry_write` is set to `true`, `registry_read` must also be set to true. This is a limitation of the Azure REST API
+        /// &gt; **Note:** When `registry_write` is set to `true`, `registry_read` must also be set to true. This is a limitation of the Azure REST API
         /// </summary>
         [Input("registryWrite")]
         public Input<bool>? RegistryWrite { get; set; }
@@ -243,7 +243,7 @@ namespace Pulumi.Azure.Iot
         /// <summary>
         /// Adds `DeviceConnect` permission to this Shared Access Account. It allows sending and receiving on the device-side endpoints.
         /// 
-        /// &gt; **NOTE** At least one of `registry_read`, `registry_write`, `service_connect`, `device_connect` permissions must be set to `true`.
+        /// &gt; **Note:** At least one of `registry_read`, `registry_write`, `service_connect`, `device_connect` permissions must be set to `true`.
         /// </summary>
         [Input("deviceConnect")]
         public Input<bool>? DeviceConnect { get; set; }
@@ -301,7 +301,7 @@ namespace Pulumi.Azure.Iot
         /// <summary>
         /// Adds `RegistryWrite` permission to this Shared Access Account. It allows write access to the identity registry.
         /// 
-        /// &gt; **NOTE** When `registry_write` is set to `true`, `registry_read` must also be set to true. This is a limitation of the Azure REST API
+        /// &gt; **Note:** When `registry_write` is set to `true`, `registry_read` must also be set to true. This is a limitation of the Azure REST API
         /// </summary>
         [Input("registryWrite")]
         public Input<bool>? RegistryWrite { get; set; }

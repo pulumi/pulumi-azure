@@ -262,6 +262,13 @@ class EndpointEventGrid(pulumi.CustomResource):
             eventgrid_topic_secondary_access_key=example_topic.secondary_access_key)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DigitalTwins`: 2023-01-31
+
         ## Import
 
         Digital Twins Eventgrid Endpoints can be imported using the `resource id`, e.g.
@@ -312,6 +319,13 @@ class EndpointEventGrid(pulumi.CustomResource):
             eventgrid_topic_primary_access_key=example_topic.primary_access_key,
             eventgrid_topic_secondary_access_key=example_topic.secondary_access_key)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DigitalTwins`: 2023-01-31
 
         ## Import
 

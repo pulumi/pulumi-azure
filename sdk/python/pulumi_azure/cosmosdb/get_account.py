@@ -428,6 +428,13 @@ def get_account(name: Optional[builtins.str] = None,
     pulumi.export("cosmosdbAccountEndpoint", example.endpoint)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.DocumentDB`: 2024-08-15
+
 
     :param builtins.str name: Specifies the name of the CosmosDB Account.
     :param builtins.str resource_group_name: Specifies the name of the resource group in which the CosmosDB Account resides.
@@ -487,6 +494,13 @@ def get_account_output(name: Optional[pulumi.Input[builtins.str]] = None,
         resource_group_name="tfex-cosmosdb-account-rg")
     pulumi.export("cosmosdbAccountEndpoint", example.endpoint)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.DocumentDB`: 2024-08-15
 
 
     :param builtins.str name: Specifies the name of the CosmosDB Account.

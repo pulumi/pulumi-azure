@@ -40,6 +40,13 @@ import * as utilities from "../utilities";
  *     networkManagerId: exampleNetworkManager.id,
  * });
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.Network`: 2024-05-01
  */
 export function getNetworkManagerNetworkGroup(args: GetNetworkManagerNetworkGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkManagerNetworkGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -114,6 +121,13 @@ export interface GetNetworkManagerNetworkGroupResult {
  *     networkManagerId: exampleNetworkManager.id,
  * });
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.Network`: 2024-05-01
  */
 export function getNetworkManagerNetworkGroupOutput(args: GetNetworkManagerNetworkGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNetworkManagerNetworkGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.devcenter.inputs;
 
+import com.pulumi.azure.devcenter.inputs.ProjectIdentityArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Integer;
@@ -60,6 +61,21 @@ public final class ProjectState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> devCenterUri() {
         return Optional.ofNullable(this.devCenterUri);
+    }
+
+    /**
+     * An `identity` block as defined below.
+     * 
+     */
+    @Import(name="identity")
+    private @Nullable Output<ProjectIdentityArgs> identity;
+
+    /**
+     * @return An `identity` block as defined below.
+     * 
+     */
+    public Optional<Output<ProjectIdentityArgs>> identity() {
+        return Optional.ofNullable(this.identity);
     }
 
     /**
@@ -143,6 +159,7 @@ public final class ProjectState extends com.pulumi.resources.ResourceArgs {
         this.description = $.description;
         this.devCenterId = $.devCenterId;
         this.devCenterUri = $.devCenterUri;
+        this.identity = $.identity;
         this.location = $.location;
         this.maximumDevBoxesPerUser = $.maximumDevBoxesPerUser;
         this.name = $.name;
@@ -229,6 +246,27 @@ public final class ProjectState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder devCenterUri(String devCenterUri) {
             return devCenterUri(Output.of(devCenterUri));
+        }
+
+        /**
+         * @param identity An `identity` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder identity(@Nullable Output<ProjectIdentityArgs> identity) {
+            $.identity = identity;
+            return this;
+        }
+
+        /**
+         * @param identity An `identity` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder identity(ProjectIdentityArgs identity) {
+            return identity(Output.of(identity));
         }
 
         /**

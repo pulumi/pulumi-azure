@@ -13,7 +13,7 @@ import (
 
 // Use this data source to access information about an existing Blueprint Published Version
 //
-// > **NOTE:** Azure Blueprints are in Preview and potentially subject to breaking change without notice.
+// > **Note:** Azure Blueprints are in Preview and potentially subject to breaking change without notice.
 //
 // ## Example Usage
 //
@@ -47,6 +47,13 @@ import (
 //	}
 //
 // ```
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This data source uses the following Azure API Providers:
+//
+// * `Microsoft.Blueprint`: 2018-11-01-preview
 func GetPublishedVersion(ctx *pulumi.Context, args *GetPublishedVersionArgs, opts ...pulumi.InvokeOption) (*GetPublishedVersionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetPublishedVersionResult

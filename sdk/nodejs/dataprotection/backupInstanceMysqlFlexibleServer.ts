@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  *     administratorLogin: "adminTerraform",
  *     administratorPassword: "QAZwsx123",
  *     version: "8.0.21",
- *     skuName: "B_Standard_B1s",
+ *     skuName: "B_Standard_B1ms",
  *     zone: "1",
  * });
  * const exampleBackupVault = new azure.dataprotection.BackupVault("example", {
@@ -72,6 +72,13 @@ import * as utilities from "../utilities";
  *     backupPolicyId: exampleBackupPolicyMysqlFlexibleServer.id,
  * });
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.DataProtection`: 2024-04-01
  *
  * ## Import
  *

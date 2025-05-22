@@ -92,6 +92,13 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.OperationalInsights`: 2023-12-01-preview
+ * 
  * ## Import
  * 
  * Sentinel Scheduled Alert Rules can be imported using the `resource id`, e.g.
@@ -302,7 +309,7 @@ public class AlertRuleScheduled extends com.pulumi.resources.CustomResource {
     /**
      * The ISO 8601 timespan duration, which determine the time period of the data covered by the query. For example, it can query the past 10 minutes of data, or the past 6 hours of data. Defaults to `PT5H`.
      * 
-     * &gt; **NOTE** `query_period` must larger than or equal to `query_frequency`, which ensures there is no gaps in the overall query coverage.
+     * &gt; **Note:** `query_period` must larger than or equal to `query_frequency`, which ensures there is no gaps in the overall query coverage.
      * 
      */
     @Export(name="queryPeriod", refs={String.class}, tree="[0]")
@@ -311,7 +318,7 @@ public class AlertRuleScheduled extends com.pulumi.resources.CustomResource {
     /**
      * @return The ISO 8601 timespan duration, which determine the time period of the data covered by the query. For example, it can query the past 10 minutes of data, or the past 6 hours of data. Defaults to `PT5H`.
      * 
-     * &gt; **NOTE** `query_period` must larger than or equal to `query_frequency`, which ensures there is no gaps in the overall query coverage.
+     * &gt; **Note:** `query_period` must larger than or equal to `query_frequency`, which ensures there is no gaps in the overall query coverage.
      * 
      */
     public Output<Optional<String>> queryPeriod() {
@@ -320,7 +327,7 @@ public class AlertRuleScheduled extends com.pulumi.resources.CustomResource {
     /**
      * A list of `sentinel_entity_mapping` blocks as defined below.
      * 
-     * &gt; **NOTE:** `entity_mapping` and `sentinel_entity_mapping` together can&#39;t exceed 10.
+     * &gt; **Note:** `entity_mapping` and `sentinel_entity_mapping` together can&#39;t exceed 10.
      * 
      */
     @Export(name="sentinelEntityMappings", refs={List.class,AlertRuleScheduledSentinelEntityMapping.class}, tree="[0,1]")
@@ -329,7 +336,7 @@ public class AlertRuleScheduled extends com.pulumi.resources.CustomResource {
     /**
      * @return A list of `sentinel_entity_mapping` blocks as defined below.
      * 
-     * &gt; **NOTE:** `entity_mapping` and `sentinel_entity_mapping` together can&#39;t exceed 10.
+     * &gt; **Note:** `entity_mapping` and `sentinel_entity_mapping` together can&#39;t exceed 10.
      * 
      */
     public Output<Optional<List<AlertRuleScheduledSentinelEntityMapping>>> sentinelEntityMappings() {
@@ -352,7 +359,7 @@ public class AlertRuleScheduled extends com.pulumi.resources.CustomResource {
     /**
      * If `suppression_enabled` is `true`, this is ISO 8601 timespan duration, which specifies the amount of time the query should stop running after alert is generated. Defaults to `PT5H`.
      * 
-     * &gt; **NOTE** `suppression_duration` must larger than or equal to `query_frequency`, otherwise the suppression has no actual effect since no query will happen during the suppression duration.
+     * &gt; **Note:** `suppression_duration` must larger than or equal to `query_frequency`, otherwise the suppression has no actual effect since no query will happen during the suppression duration.
      * 
      */
     @Export(name="suppressionDuration", refs={String.class}, tree="[0]")
@@ -361,7 +368,7 @@ public class AlertRuleScheduled extends com.pulumi.resources.CustomResource {
     /**
      * @return If `suppression_enabled` is `true`, this is ISO 8601 timespan duration, which specifies the amount of time the query should stop running after alert is generated. Defaults to `PT5H`.
      * 
-     * &gt; **NOTE** `suppression_duration` must larger than or equal to `query_frequency`, otherwise the suppression has no actual effect since no query will happen during the suppression duration.
+     * &gt; **Note:** `suppression_duration` must larger than or equal to `query_frequency`, otherwise the suppression has no actual effect since no query will happen during the suppression duration.
      * 
      */
     public Output<Optional<String>> suppressionDuration() {

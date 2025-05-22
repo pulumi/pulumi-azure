@@ -79,7 +79,7 @@ public final class EndpointEventhubArgs extends com.pulumi.resources.ResourceArg
     /**
      * ID of the User Managed Identity used to authenticate against the Event Hub endpoint.
      * 
-     * &gt; **NOTE:** `identity_id` can only be specified when `authentication_type` is `identityBased`. It must be one of the `identity_ids` of the Iot Hub. If not specified when `authentication_type` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
+     * &gt; **Note:** `identity_id` can only be specified when `authentication_type` is `identityBased`. It must be one of the `identity_ids` of the Iot Hub. If not specified when `authentication_type` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
      * 
      */
     @Import(name="identityId")
@@ -88,7 +88,7 @@ public final class EndpointEventhubArgs extends com.pulumi.resources.ResourceArg
     /**
      * @return ID of the User Managed Identity used to authenticate against the Event Hub endpoint.
      * 
-     * &gt; **NOTE:** `identity_id` can only be specified when `authentication_type` is `identityBased`. It must be one of the `identity_ids` of the Iot Hub. If not specified when `authentication_type` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
+     * &gt; **Note:** `identity_id` can only be specified when `authentication_type` is `identityBased`. It must be one of the `identity_ids` of the Iot Hub. If not specified when `authentication_type` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
      * 
      */
     public Optional<Output<String>> identityId() {
@@ -258,7 +258,7 @@ public final class EndpointEventhubArgs extends com.pulumi.resources.ResourceArg
         /**
          * @param identityId ID of the User Managed Identity used to authenticate against the Event Hub endpoint.
          * 
-         * &gt; **NOTE:** `identity_id` can only be specified when `authentication_type` is `identityBased`. It must be one of the `identity_ids` of the Iot Hub. If not specified when `authentication_type` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
+         * &gt; **Note:** `identity_id` can only be specified when `authentication_type` is `identityBased`. It must be one of the `identity_ids` of the Iot Hub. If not specified when `authentication_type` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
          * 
          * @return builder
          * 
@@ -271,7 +271,7 @@ public final class EndpointEventhubArgs extends com.pulumi.resources.ResourceArg
         /**
          * @param identityId ID of the User Managed Identity used to authenticate against the Event Hub endpoint.
          * 
-         * &gt; **NOTE:** `identity_id` can only be specified when `authentication_type` is `identityBased`. It must be one of the `identity_ids` of the Iot Hub. If not specified when `authentication_type` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
+         * &gt; **Note:** `identity_id` can only be specified when `authentication_type` is `identityBased`. It must be one of the `identity_ids` of the Iot Hub. If not specified when `authentication_type` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
          * 
          * @return builder
          * 

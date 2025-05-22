@@ -71,7 +71,7 @@ public final class SnapshotState extends com.pulumi.resources.ResourceArgs {
     /**
      * A `encryption_settings` block as defined below.
      * 
-     * &gt; **NOTE:** Removing `encryption_settings` forces a new resource to be created.
+     * &gt; **Note:** Removing `encryption_settings` forces a new resource to be created.
      * 
      */
     @Import(name="encryptionSettings")
@@ -80,7 +80,7 @@ public final class SnapshotState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return A `encryption_settings` block as defined below.
      * 
-     * &gt; **NOTE:** Removing `encryption_settings` forces a new resource to be created.
+     * &gt; **Note:** Removing `encryption_settings` forces a new resource to be created.
      * 
      */
     public Optional<Output<SnapshotEncryptionSettingsArgs>> encryptionSettings() {
@@ -360,7 +360,7 @@ public final class SnapshotState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param encryptionSettings A `encryption_settings` block as defined below.
          * 
-         * &gt; **NOTE:** Removing `encryption_settings` forces a new resource to be created.
+         * &gt; **Note:** Removing `encryption_settings` forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -373,7 +373,7 @@ public final class SnapshotState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param encryptionSettings A `encryption_settings` block as defined below.
          * 
-         * &gt; **NOTE:** Removing `encryption_settings` forces a new resource to be created.
+         * &gt; **Note:** Removing `encryption_settings` forces a new resource to be created.
          * 
          * @return builder
          * 

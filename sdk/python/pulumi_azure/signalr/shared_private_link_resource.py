@@ -31,7 +31,7 @@ class SharedPrivateLinkResourceArgs:
         :param pulumi.Input[builtins.str] sub_resource_name: The sub resource name which the Signalr Private Endpoint can connect to. Possible values are `sites`, `vault`. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] target_resource_id: The ID of the Shared Private Link Enabled Remote Resource which this Signalr Private Endpoint should be connected to. Changing this forces a new resource to be created.
                
-               > **NOTE:** The `sub_resource_name` should match with the type of the `target_resource_id` that's being specified.
+               > **Note:** The `sub_resource_name` should match with the type of the `target_resource_id` that's being specified.
         :param pulumi.Input[builtins.str] name: The name of the Signalr Shared Private Link Resource. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] request_message: The request message for requesting approval of the Shared Private Link Enabled Remote Resource.
         """
@@ -73,7 +73,7 @@ class SharedPrivateLinkResourceArgs:
         """
         The ID of the Shared Private Link Enabled Remote Resource which this Signalr Private Endpoint should be connected to. Changing this forces a new resource to be created.
 
-        > **NOTE:** The `sub_resource_name` should match with the type of the `target_resource_id` that's being specified.
+        > **Note:** The `sub_resource_name` should match with the type of the `target_resource_id` that's being specified.
         """
         return pulumi.get(self, "target_resource_id")
 
@@ -124,7 +124,7 @@ class _SharedPrivateLinkResourceState:
         :param pulumi.Input[builtins.str] sub_resource_name: The sub resource name which the Signalr Private Endpoint can connect to. Possible values are `sites`, `vault`. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] target_resource_id: The ID of the Shared Private Link Enabled Remote Resource which this Signalr Private Endpoint should be connected to. Changing this forces a new resource to be created.
                
-               > **NOTE:** The `sub_resource_name` should match with the type of the `target_resource_id` that's being specified.
+               > **Note:** The `sub_resource_name` should match with the type of the `target_resource_id` that's being specified.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -205,7 +205,7 @@ class _SharedPrivateLinkResourceState:
         """
         The ID of the Shared Private Link Enabled Remote Resource which this Signalr Private Endpoint should be connected to. Changing this forces a new resource to be created.
 
-        > **NOTE:** The `sub_resource_name` should match with the type of the `target_resource_id` that's being specified.
+        > **Note:** The `sub_resource_name` should match with the type of the `target_resource_id` that's being specified.
         """
         return pulumi.get(self, "target_resource_id")
 
@@ -268,6 +268,13 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
             target_resource_id=example_key_vault.id)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.SignalRService`: 2024-03-01
+
         ## Import
 
         Signalr Shared Private Link Resource can be imported using the `resource id`, e.g.
@@ -284,7 +291,7 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] sub_resource_name: The sub resource name which the Signalr Private Endpoint can connect to. Possible values are `sites`, `vault`. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] target_resource_id: The ID of the Shared Private Link Enabled Remote Resource which this Signalr Private Endpoint should be connected to. Changing this forces a new resource to be created.
                
-               > **NOTE:** The `sub_resource_name` should match with the type of the `target_resource_id` that's being specified.
+               > **Note:** The `sub_resource_name` should match with the type of the `target_resource_id` that's being specified.
         """
         ...
     @overload
@@ -333,6 +340,13 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
             sub_resource_name="vault",
             target_resource_id=example_key_vault.id)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.SignalRService`: 2024-03-01
 
         ## Import
 
@@ -413,7 +427,7 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] sub_resource_name: The sub resource name which the Signalr Private Endpoint can connect to. Possible values are `sites`, `vault`. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] target_resource_id: The ID of the Shared Private Link Enabled Remote Resource which this Signalr Private Endpoint should be connected to. Changing this forces a new resource to be created.
                
-               > **NOTE:** The `sub_resource_name` should match with the type of the `target_resource_id` that's being specified.
+               > **Note:** The `sub_resource_name` should match with the type of the `target_resource_id` that's being specified.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -473,7 +487,7 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
         """
         The ID of the Shared Private Link Enabled Remote Resource which this Signalr Private Endpoint should be connected to. Changing this forces a new resource to be created.
 
-        > **NOTE:** The `sub_resource_name` should match with the type of the `target_resource_id` that's being specified.
+        > **Note:** The `sub_resource_name` should match with the type of the `target_resource_id` that's being specified.
         """
         return pulumi.get(self, "target_resource_id")
 

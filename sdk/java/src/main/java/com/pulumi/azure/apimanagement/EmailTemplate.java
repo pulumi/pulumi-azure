@@ -84,6 +84,13 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.ApiManagement`: 2022-08-01
+ * 
  * ## Import
  * 
  * API Management Email Templates can be imported using the `resource id`, e.g.
@@ -112,7 +119,7 @@ public class EmailTemplate extends com.pulumi.resources.CustomResource {
     /**
      * The body of the Email. Its format has to be a well-formed HTML document.
      * 
-     * &gt; **NOTE:** In `subject` and `body` predefined parameters can be used. The available parameters depend on the template. Schema to use a parameter: `$` followed by the `parameter.name` - `$&lt;parameter.name&gt;`. The available parameters can be seen in the Notification templates section of the API-Management Service instance within the Azure Portal.
+     * &gt; **Note:** In `subject` and `body` predefined parameters can be used. The available parameters depend on the template. Schema to use a parameter: `$` followed by the `parameter.name` - `$&lt;parameter.name&gt;`. The available parameters can be seen in the Notification templates section of the API-Management Service instance within the Azure Portal.
      * 
      */
     @Export(name="body", refs={String.class}, tree="[0]")
@@ -121,7 +128,7 @@ public class EmailTemplate extends com.pulumi.resources.CustomResource {
     /**
      * @return The body of the Email. Its format has to be a well-formed HTML document.
      * 
-     * &gt; **NOTE:** In `subject` and `body` predefined parameters can be used. The available parameters depend on the template. Schema to use a parameter: `$` followed by the `parameter.name` - `$&lt;parameter.name&gt;`. The available parameters can be seen in the Notification templates section of the API-Management Service instance within the Azure Portal.
+     * &gt; **Note:** In `subject` and `body` predefined parameters can be used. The available parameters depend on the template. Schema to use a parameter: `$` followed by the `parameter.name` - `$&lt;parameter.name&gt;`. The available parameters can be seen in the Notification templates section of the API-Management Service instance within the Azure Portal.
      * 
      */
     public Output<String> body() {

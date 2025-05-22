@@ -38,7 +38,7 @@ public final class VirtualMachineAvailabilityGroupListenerState extends com.pulu
     /**
      * A `load_balancer_configuration` block as defined below. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** Either one of `load_balancer_configuration` or `multi_subnet_ip_configuration` must be specified.
+     * &gt; **Note:** Either one of `load_balancer_configuration` or `multi_subnet_ip_configuration` must be specified.
      * 
      */
     @Import(name="loadBalancerConfiguration")
@@ -47,7 +47,7 @@ public final class VirtualMachineAvailabilityGroupListenerState extends com.pulu
     /**
      * @return A `load_balancer_configuration` block as defined below. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** Either one of `load_balancer_configuration` or `multi_subnet_ip_configuration` must be specified.
+     * &gt; **Note:** Either one of `load_balancer_configuration` or `multi_subnet_ip_configuration` must be specified.
      * 
      */
     public Optional<Output<VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationArgs>> loadBalancerConfiguration() {
@@ -183,7 +183,7 @@ public final class VirtualMachineAvailabilityGroupListenerState extends com.pulu
         /**
          * @param loadBalancerConfiguration A `load_balancer_configuration` block as defined below. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** Either one of `load_balancer_configuration` or `multi_subnet_ip_configuration` must be specified.
+         * &gt; **Note:** Either one of `load_balancer_configuration` or `multi_subnet_ip_configuration` must be specified.
          * 
          * @return builder
          * 
@@ -196,7 +196,7 @@ public final class VirtualMachineAvailabilityGroupListenerState extends com.pulu
         /**
          * @param loadBalancerConfiguration A `load_balancer_configuration` block as defined below. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** Either one of `load_balancer_configuration` or `multi_subnet_ip_configuration` must be specified.
+         * &gt; **Note:** Either one of `load_balancer_configuration` or `multi_subnet_ip_configuration` must be specified.
          * 
          * @return builder
          * 

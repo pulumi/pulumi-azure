@@ -49,7 +49,7 @@ class IntegrationRuntimeSsisArgs:
         :param pulumi.Input['IntegrationRuntimeSsisCopyComputeScaleArgs'] copy_compute_scale: One `copy_compute_scale` block as defined below.
         :param pulumi.Input[builtins.str] credential_name: The name of a Data Factory Credential that the SSIS integration will use to access data sources. For example, `datafactory.CredentialUserManagedIdentity`
                
-               > **NOTE** If `credential_name` is omitted, the integration runtime will use the Data Factory assigned identity.
+               > **Note:** If `credential_name` is omitted, the integration runtime will use the Data Factory assigned identity.
         :param pulumi.Input['IntegrationRuntimeSsisCustomSetupScriptArgs'] custom_setup_script: A `custom_setup_script` block as defined below.
         :param pulumi.Input[builtins.str] description: Integration runtime description.
         :param pulumi.Input[builtins.str] edition: The Azure-SSIS Integration Runtime edition. Valid values are `Standard` and `Enterprise`. Defaults to `Standard`.
@@ -156,7 +156,7 @@ class IntegrationRuntimeSsisArgs:
         """
         The name of a Data Factory Credential that the SSIS integration will use to access data sources. For example, `datafactory.CredentialUserManagedIdentity`
 
-        > **NOTE** If `credential_name` is omitted, the integration runtime will use the Data Factory assigned identity.
+        > **Note:** If `credential_name` is omitted, the integration runtime will use the Data Factory assigned identity.
         """
         return pulumi.get(self, "credential_name")
 
@@ -361,7 +361,7 @@ class _IntegrationRuntimeSsisState:
         :param pulumi.Input['IntegrationRuntimeSsisCopyComputeScaleArgs'] copy_compute_scale: One `copy_compute_scale` block as defined below.
         :param pulumi.Input[builtins.str] credential_name: The name of a Data Factory Credential that the SSIS integration will use to access data sources. For example, `datafactory.CredentialUserManagedIdentity`
                
-               > **NOTE** If `credential_name` is omitted, the integration runtime will use the Data Factory assigned identity.
+               > **Note:** If `credential_name` is omitted, the integration runtime will use the Data Factory assigned identity.
         :param pulumi.Input['IntegrationRuntimeSsisCustomSetupScriptArgs'] custom_setup_script: A `custom_setup_script` block as defined below.
         :param pulumi.Input[builtins.str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[builtins.str] description: Integration runtime description.
@@ -448,7 +448,7 @@ class _IntegrationRuntimeSsisState:
         """
         The name of a Data Factory Credential that the SSIS integration will use to access data sources. For example, `datafactory.CredentialUserManagedIdentity`
 
-        > **NOTE** If `credential_name` is omitted, the integration runtime will use the Data Factory assigned identity.
+        > **Note:** If `credential_name` is omitted, the integration runtime will use the Data Factory assigned identity.
         """
         return pulumi.get(self, "credential_name")
 
@@ -712,7 +712,7 @@ class IntegrationRuntimeSsis(pulumi.CustomResource):
         :param pulumi.Input[Union['IntegrationRuntimeSsisCopyComputeScaleArgs', 'IntegrationRuntimeSsisCopyComputeScaleArgsDict']] copy_compute_scale: One `copy_compute_scale` block as defined below.
         :param pulumi.Input[builtins.str] credential_name: The name of a Data Factory Credential that the SSIS integration will use to access data sources. For example, `datafactory.CredentialUserManagedIdentity`
                
-               > **NOTE** If `credential_name` is omitted, the integration runtime will use the Data Factory assigned identity.
+               > **Note:** If `credential_name` is omitted, the integration runtime will use the Data Factory assigned identity.
         :param pulumi.Input[Union['IntegrationRuntimeSsisCustomSetupScriptArgs', 'IntegrationRuntimeSsisCustomSetupScriptArgsDict']] custom_setup_script: A `custom_setup_script` block as defined below.
         :param pulumi.Input[builtins.str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[builtins.str] description: Integration runtime description.
@@ -875,7 +875,7 @@ class IntegrationRuntimeSsis(pulumi.CustomResource):
         :param pulumi.Input[Union['IntegrationRuntimeSsisCopyComputeScaleArgs', 'IntegrationRuntimeSsisCopyComputeScaleArgsDict']] copy_compute_scale: One `copy_compute_scale` block as defined below.
         :param pulumi.Input[builtins.str] credential_name: The name of a Data Factory Credential that the SSIS integration will use to access data sources. For example, `datafactory.CredentialUserManagedIdentity`
                
-               > **NOTE** If `credential_name` is omitted, the integration runtime will use the Data Factory assigned identity.
+               > **Note:** If `credential_name` is omitted, the integration runtime will use the Data Factory assigned identity.
         :param pulumi.Input[Union['IntegrationRuntimeSsisCustomSetupScriptArgs', 'IntegrationRuntimeSsisCustomSetupScriptArgsDict']] custom_setup_script: A `custom_setup_script` block as defined below.
         :param pulumi.Input[builtins.str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[builtins.str] description: Integration runtime description.
@@ -940,7 +940,7 @@ class IntegrationRuntimeSsis(pulumi.CustomResource):
         """
         The name of a Data Factory Credential that the SSIS integration will use to access data sources. For example, `datafactory.CredentialUserManagedIdentity`
 
-        > **NOTE** If `credential_name` is omitted, the integration runtime will use the Data Factory assigned identity.
+        > **Note:** If `credential_name` is omitted, the integration runtime will use the Data Factory assigned identity.
         """
         return pulumi.get(self, "credential_name")
 

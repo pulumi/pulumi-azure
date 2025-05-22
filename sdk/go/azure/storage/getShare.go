@@ -13,7 +13,7 @@ import (
 
 // Use this data source to access information about an existing File Share.
 //
-// > **Note on Authentication** Shared Key authentication will always be used for this data source, as AzureAD authentication is not supported by the Storage API for files.
+// > **Note:** Shared Key authentication will always be used for this data source, as AzureAD authentication is not supported by the Storage API for files.
 //
 // ## Example Usage
 //
@@ -48,6 +48,13 @@ import (
 //	}
 //
 // ```
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This data source uses the following Azure API Providers:
+//
+// * `Microsoft.Storage`: 2023-05-01
 func LookupShare(ctx *pulumi.Context, args *LookupShareArgs, opts ...pulumi.InvokeOption) (*LookupShareResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupShareResult
@@ -68,7 +75,7 @@ type LookupShareArgs struct {
 	Name string `pulumi:"name"`
 	// The ID of the storage account in which the share exists.
 	//
-	// > **NOTE:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
+	// > **Note:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
 	StorageAccountId *string `pulumi:"storageAccountId"`
 	// The name of the storage account in which the share exists. This property is deprecated in favour of `storageAccountId`.
 	StorageAccountName *string `pulumi:"storageAccountName"`
@@ -110,7 +117,7 @@ type LookupShareOutputArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// The ID of the storage account in which the share exists.
 	//
-	// > **NOTE:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
+	// > **Note:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
 	StorageAccountId pulumi.StringPtrInput `pulumi:"storageAccountId"`
 	// The name of the storage account in which the share exists. This property is deprecated in favour of `storageAccountId`.
 	StorageAccountName pulumi.StringPtrInput `pulumi:"storageAccountName"`

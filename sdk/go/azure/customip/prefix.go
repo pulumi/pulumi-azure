@@ -137,11 +137,11 @@ type Prefix struct {
 	Cidr pulumi.StringOutput `pulumi:"cidr"`
 	// Specifies that the custom IP prefix should be commissioned after provisioning in Azure. Defaults to `false`.
 	//
-	// !> **Warning** Changing the value of `commissioningEnabled` from `true` to `false` causes the IP prefix to stop being advertised by Azure and is functionally equivalent to deleting it when used in a production setting.
+	// !> **Note:** Changing the value of `commissioningEnabled` from `true` to `false` causes the IP prefix to stop being advertised by Azure and is functionally equivalent to deleting it when used in a production setting.
 	CommissioningEnabled pulumi.BoolPtrOutput `pulumi:"commissioningEnabled"`
 	// Specifies that the custom IP prefix should not be publicly advertised on the Internet when commissioned (regional commissioning feature). Defaults to `false`.
 	//
-	// !> **Warning** Changing the value of `internetAdvertisingDisabled` from `true` to `false` causes the IP prefix to stop being advertised by Azure and is functionally equivalent to deleting it when used in a production setting.
+	// !> **Note:** Changing the value of `internetAdvertisingDisabled` from `true` to `false` causes the IP prefix to stop being advertised by Azure and is functionally equivalent to deleting it when used in a production setting.
 	InternetAdvertisingDisabled pulumi.BoolPtrOutput `pulumi:"internetAdvertisingDisabled"`
 	// The location where the Custom IP Prefix should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -203,11 +203,11 @@ type prefixState struct {
 	Cidr *string `pulumi:"cidr"`
 	// Specifies that the custom IP prefix should be commissioned after provisioning in Azure. Defaults to `false`.
 	//
-	// !> **Warning** Changing the value of `commissioningEnabled` from `true` to `false` causes the IP prefix to stop being advertised by Azure and is functionally equivalent to deleting it when used in a production setting.
+	// !> **Note:** Changing the value of `commissioningEnabled` from `true` to `false` causes the IP prefix to stop being advertised by Azure and is functionally equivalent to deleting it when used in a production setting.
 	CommissioningEnabled *bool `pulumi:"commissioningEnabled"`
 	// Specifies that the custom IP prefix should not be publicly advertised on the Internet when commissioned (regional commissioning feature). Defaults to `false`.
 	//
-	// !> **Warning** Changing the value of `internetAdvertisingDisabled` from `true` to `false` causes the IP prefix to stop being advertised by Azure and is functionally equivalent to deleting it when used in a production setting.
+	// !> **Note:** Changing the value of `internetAdvertisingDisabled` from `true` to `false` causes the IP prefix to stop being advertised by Azure and is functionally equivalent to deleting it when used in a production setting.
 	InternetAdvertisingDisabled *bool `pulumi:"internetAdvertisingDisabled"`
 	// The location where the Custom IP Prefix should exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -234,11 +234,11 @@ type PrefixState struct {
 	Cidr pulumi.StringPtrInput
 	// Specifies that the custom IP prefix should be commissioned after provisioning in Azure. Defaults to `false`.
 	//
-	// !> **Warning** Changing the value of `commissioningEnabled` from `true` to `false` causes the IP prefix to stop being advertised by Azure and is functionally equivalent to deleting it when used in a production setting.
+	// !> **Note:** Changing the value of `commissioningEnabled` from `true` to `false` causes the IP prefix to stop being advertised by Azure and is functionally equivalent to deleting it when used in a production setting.
 	CommissioningEnabled pulumi.BoolPtrInput
 	// Specifies that the custom IP prefix should not be publicly advertised on the Internet when commissioned (regional commissioning feature). Defaults to `false`.
 	//
-	// !> **Warning** Changing the value of `internetAdvertisingDisabled` from `true` to `false` causes the IP prefix to stop being advertised by Azure and is functionally equivalent to deleting it when used in a production setting.
+	// !> **Note:** Changing the value of `internetAdvertisingDisabled` from `true` to `false` causes the IP prefix to stop being advertised by Azure and is functionally equivalent to deleting it when used in a production setting.
 	InternetAdvertisingDisabled pulumi.BoolPtrInput
 	// The location where the Custom IP Prefix should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -269,11 +269,11 @@ type prefixArgs struct {
 	Cidr string `pulumi:"cidr"`
 	// Specifies that the custom IP prefix should be commissioned after provisioning in Azure. Defaults to `false`.
 	//
-	// !> **Warning** Changing the value of `commissioningEnabled` from `true` to `false` causes the IP prefix to stop being advertised by Azure and is functionally equivalent to deleting it when used in a production setting.
+	// !> **Note:** Changing the value of `commissioningEnabled` from `true` to `false` causes the IP prefix to stop being advertised by Azure and is functionally equivalent to deleting it when used in a production setting.
 	CommissioningEnabled *bool `pulumi:"commissioningEnabled"`
 	// Specifies that the custom IP prefix should not be publicly advertised on the Internet when commissioned (regional commissioning feature). Defaults to `false`.
 	//
-	// !> **Warning** Changing the value of `internetAdvertisingDisabled` from `true` to `false` causes the IP prefix to stop being advertised by Azure and is functionally equivalent to deleting it when used in a production setting.
+	// !> **Note:** Changing the value of `internetAdvertisingDisabled` from `true` to `false` causes the IP prefix to stop being advertised by Azure and is functionally equivalent to deleting it when used in a production setting.
 	InternetAdvertisingDisabled *bool `pulumi:"internetAdvertisingDisabled"`
 	// The location where the Custom IP Prefix should exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -301,11 +301,11 @@ type PrefixArgs struct {
 	Cidr pulumi.StringInput
 	// Specifies that the custom IP prefix should be commissioned after provisioning in Azure. Defaults to `false`.
 	//
-	// !> **Warning** Changing the value of `commissioningEnabled` from `true` to `false` causes the IP prefix to stop being advertised by Azure and is functionally equivalent to deleting it when used in a production setting.
+	// !> **Note:** Changing the value of `commissioningEnabled` from `true` to `false` causes the IP prefix to stop being advertised by Azure and is functionally equivalent to deleting it when used in a production setting.
 	CommissioningEnabled pulumi.BoolPtrInput
 	// Specifies that the custom IP prefix should not be publicly advertised on the Internet when commissioned (regional commissioning feature). Defaults to `false`.
 	//
-	// !> **Warning** Changing the value of `internetAdvertisingDisabled` from `true` to `false` causes the IP prefix to stop being advertised by Azure and is functionally equivalent to deleting it when used in a production setting.
+	// !> **Note:** Changing the value of `internetAdvertisingDisabled` from `true` to `false` causes the IP prefix to stop being advertised by Azure and is functionally equivalent to deleting it when used in a production setting.
 	InternetAdvertisingDisabled pulumi.BoolPtrInput
 	// The location where the Custom IP Prefix should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -421,14 +421,14 @@ func (o PrefixOutput) Cidr() pulumi.StringOutput {
 
 // Specifies that the custom IP prefix should be commissioned after provisioning in Azure. Defaults to `false`.
 //
-// !> **Warning** Changing the value of `commissioningEnabled` from `true` to `false` causes the IP prefix to stop being advertised by Azure and is functionally equivalent to deleting it when used in a production setting.
+// !> **Note:** Changing the value of `commissioningEnabled` from `true` to `false` causes the IP prefix to stop being advertised by Azure and is functionally equivalent to deleting it when used in a production setting.
 func (o PrefixOutput) CommissioningEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Prefix) pulumi.BoolPtrOutput { return v.CommissioningEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Specifies that the custom IP prefix should not be publicly advertised on the Internet when commissioned (regional commissioning feature). Defaults to `false`.
 //
-// !> **Warning** Changing the value of `internetAdvertisingDisabled` from `true` to `false` causes the IP prefix to stop being advertised by Azure and is functionally equivalent to deleting it when used in a production setting.
+// !> **Note:** Changing the value of `internetAdvertisingDisabled` from `true` to `false` causes the IP prefix to stop being advertised by Azure and is functionally equivalent to deleting it when used in a production setting.
 func (o PrefixOutput) InternetAdvertisingDisabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Prefix) pulumi.BoolPtrOutput { return v.InternetAdvertisingDisabled }).(pulumi.BoolPtrOutput)
 }

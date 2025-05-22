@@ -206,6 +206,13 @@ class ProductTag(pulumi.CustomResource):
             name=example_tag.name)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ApiManagement`: 2022-08-01
+
         ## Import
 
         API Management Products can be imported using the `resource id`, e.g.
@@ -263,6 +270,13 @@ class ProductTag(pulumi.CustomResource):
             resource_group_name=example.name,
             name=example_tag.name)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ApiManagement`: 2022-08-01
 
         ## Import
 

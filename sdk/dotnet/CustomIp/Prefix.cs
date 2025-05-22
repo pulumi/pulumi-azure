@@ -120,7 +120,7 @@ namespace Pulumi.Azure.CustomIp
         /// <summary>
         /// Specifies that the custom IP prefix should be commissioned after provisioning in Azure. Defaults to `false`.
         /// 
-        /// !&gt; **Warning** Changing the value of `commissioning_enabled` from `true` to `false` causes the IP prefix to stop being advertised by Azure and is functionally equivalent to deleting it when used in a production setting.
+        /// !&gt; **Note:** Changing the value of `commissioning_enabled` from `true` to `false` causes the IP prefix to stop being advertised by Azure and is functionally equivalent to deleting it when used in a production setting.
         /// </summary>
         [Output("commissioningEnabled")]
         public Output<bool?> CommissioningEnabled { get; private set; } = null!;
@@ -128,7 +128,7 @@ namespace Pulumi.Azure.CustomIp
         /// <summary>
         /// Specifies that the custom IP prefix should not be publicly advertised on the Internet when commissioned (regional commissioning feature). Defaults to `false`.
         /// 
-        /// !&gt; **Warning** Changing the value of `internet_advertising_disabled` from `true` to `false` causes the IP prefix to stop being advertised by Azure and is functionally equivalent to deleting it when used in a production setting.
+        /// !&gt; **Note:** Changing the value of `internet_advertising_disabled` from `true` to `false` causes the IP prefix to stop being advertised by Azure and is functionally equivalent to deleting it when used in a production setting.
         /// </summary>
         [Output("internetAdvertisingDisabled")]
         public Output<bool?> InternetAdvertisingDisabled { get; private set; } = null!;
@@ -238,7 +238,7 @@ namespace Pulumi.Azure.CustomIp
         /// <summary>
         /// Specifies that the custom IP prefix should be commissioned after provisioning in Azure. Defaults to `false`.
         /// 
-        /// !&gt; **Warning** Changing the value of `commissioning_enabled` from `true` to `false` causes the IP prefix to stop being advertised by Azure and is functionally equivalent to deleting it when used in a production setting.
+        /// !&gt; **Note:** Changing the value of `commissioning_enabled` from `true` to `false` causes the IP prefix to stop being advertised by Azure and is functionally equivalent to deleting it when used in a production setting.
         /// </summary>
         [Input("commissioningEnabled")]
         public Input<bool>? CommissioningEnabled { get; set; }
@@ -246,7 +246,7 @@ namespace Pulumi.Azure.CustomIp
         /// <summary>
         /// Specifies that the custom IP prefix should not be publicly advertised on the Internet when commissioned (regional commissioning feature). Defaults to `false`.
         /// 
-        /// !&gt; **Warning** Changing the value of `internet_advertising_disabled` from `true` to `false` causes the IP prefix to stop being advertised by Azure and is functionally equivalent to deleting it when used in a production setting.
+        /// !&gt; **Note:** Changing the value of `internet_advertising_disabled` from `true` to `false` causes the IP prefix to stop being advertised by Azure and is functionally equivalent to deleting it when used in a production setting.
         /// </summary>
         [Input("internetAdvertisingDisabled")]
         public Input<bool>? InternetAdvertisingDisabled { get; set; }
@@ -330,7 +330,7 @@ namespace Pulumi.Azure.CustomIp
         /// <summary>
         /// Specifies that the custom IP prefix should be commissioned after provisioning in Azure. Defaults to `false`.
         /// 
-        /// !&gt; **Warning** Changing the value of `commissioning_enabled` from `true` to `false` causes the IP prefix to stop being advertised by Azure and is functionally equivalent to deleting it when used in a production setting.
+        /// !&gt; **Note:** Changing the value of `commissioning_enabled` from `true` to `false` causes the IP prefix to stop being advertised by Azure and is functionally equivalent to deleting it when used in a production setting.
         /// </summary>
         [Input("commissioningEnabled")]
         public Input<bool>? CommissioningEnabled { get; set; }
@@ -338,7 +338,7 @@ namespace Pulumi.Azure.CustomIp
         /// <summary>
         /// Specifies that the custom IP prefix should not be publicly advertised on the Internet when commissioned (regional commissioning feature). Defaults to `false`.
         /// 
-        /// !&gt; **Warning** Changing the value of `internet_advertising_disabled` from `true` to `false` causes the IP prefix to stop being advertised by Azure and is functionally equivalent to deleting it when used in a production setting.
+        /// !&gt; **Note:** Changing the value of `internet_advertising_disabled` from `true` to `false` causes the IP prefix to stop being advertised by Azure and is functionally equivalent to deleting it when used in a production setting.
         /// </summary>
         [Input("internetAdvertisingDisabled")]
         public Input<bool>? InternetAdvertisingDisabled { get; set; }

@@ -207,6 +207,13 @@ class NetworkManagerAdminRuleCollection(pulumi.CustomResource):
             network_group_ids=[example_network_manager_network_group.id])
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network`: 2024-05-01
+
         ## Import
 
         Network Manager Admin Rule Collection can be imported using the `resource id`, e.g.
@@ -264,6 +271,13 @@ class NetworkManagerAdminRuleCollection(pulumi.CustomResource):
             security_admin_configuration_id=example_network_manager_security_admin_configuration.id,
             network_group_ids=[example_network_manager_network_group.id])
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network`: 2024-05-01
 
         ## Import
 

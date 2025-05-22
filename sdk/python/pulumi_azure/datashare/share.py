@@ -273,6 +273,13 @@ class Share(pulumi.CustomResource):
             })
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DataShare`: 2019-11-01
+
         ## Import
 
         Data Shares can be imported using the `resource id`, e.g.
@@ -330,6 +337,13 @@ class Share(pulumi.CustomResource):
                 "start_time": "2020-04-17T04:47:52.9614956Z",
             })
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DataShare`: 2019-11-01
 
         ## Import
 

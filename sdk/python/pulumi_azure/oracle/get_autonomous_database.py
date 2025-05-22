@@ -754,6 +754,13 @@ def get_autonomous_database(name: Optional[builtins.str] = None,
     pulumi.export("id", example.id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Oracle.Database`: 2024-06-01
+
 
     :param builtins.str name: The name of this Autonomous Database.
     :param builtins.str resource_group_name: The name of the Resource Group where the Autonomous Database exists.
@@ -840,6 +847,13 @@ def get_autonomous_database_output(name: Optional[pulumi.Input[builtins.str]] = 
         resource_group_name="existing")
     pulumi.export("id", example.id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Oracle.Database`: 2024-06-01
 
 
     :param builtins.str name: The name of this Autonomous Database.

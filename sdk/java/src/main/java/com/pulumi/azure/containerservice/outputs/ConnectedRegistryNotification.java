@@ -20,7 +20,7 @@ public final class ConnectedRegistryNotification {
     /**
      * @return The digest of the artifact that wants to be subscribed for the Connected Registry.
      * 
-     * &gt; **NOTE:** One of either `tag` or `digest` can be specified.
+     * &gt; **Note:** One of either `tag` or `digest` can be specified.
      * 
      */
     private @Nullable String digest;
@@ -46,7 +46,7 @@ public final class ConnectedRegistryNotification {
     /**
      * @return The digest of the artifact that wants to be subscribed for the Connected Registry.
      * 
-     * &gt; **NOTE:** One of either `tag` or `digest` can be specified.
+     * &gt; **Note:** One of either `tag` or `digest` can be specified.
      * 
      */
     public Optional<String> digest() {

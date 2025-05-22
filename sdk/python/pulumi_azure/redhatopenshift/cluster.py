@@ -504,6 +504,13 @@ class Cluster(pulumi.CustomResource):
         pulumi.export("consoleUrl", example_cluster.console_url)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.RedHatOpenShift`: 2023-09-04
+
         ## Import
 
         Red Hat OpenShift Clusters can be imported using the `resource id`, e.g.
@@ -622,6 +629,13 @@ class Cluster(pulumi.CustomResource):
                 ]))
         pulumi.export("consoleUrl", example_cluster.console_url)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.RedHatOpenShift`: 2023-09-04
 
         ## Import
 

@@ -849,6 +849,13 @@ class Service(pulumi.CustomResource):
             }])
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.SignalRService`: 2024-03-01
+
         ## Import
 
         SignalR services can be imported using the `resource id`, e.g.
@@ -925,6 +932,13 @@ class Service(pulumi.CustomResource):
                 "url_template": "http://foo.com",
             }])
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.SignalRService`: 2024-03-01
 
         ## Import
 

@@ -210,13 +210,13 @@ type ConfigurationKey struct {
 	Type pulumi.StringPtrOutput `pulumi:"type"`
 	// The value of the App Configuration Key. This should only be set when type is set to `kv`.
 	//
-	// > **NOTE:** `value` and `vaultKeyReference` are mutually exclusive.
+	// > **Note:** `value` and `vaultKeyReference` are mutually exclusive.
 	Value pulumi.StringPtrOutput `pulumi:"value"`
 	// The ID of the vault secret this App Configuration Key refers to. This should only be set when `type` is set to `vault`.
 	//
-	// > **NOTE:** `vaultKeyReference` and `value` are mutually exclusive.
+	// > **Note:** `vaultKeyReference` and `value` are mutually exclusive.
 	//
-	// > **NOTE:** When setting the `vaultKeyReference` using the `id` will pin the value to specific version of the secret, to reference latest secret value use `versionlessId`
+	// > **Note:** When setting the `vaultKeyReference` using the `id` will pin the value to specific version of the secret, to reference latest secret value use `versionlessId`
 	VaultKeyReference pulumi.StringPtrOutput `pulumi:"vaultKeyReference"`
 }
 
@@ -274,13 +274,13 @@ type configurationKeyState struct {
 	Type *string `pulumi:"type"`
 	// The value of the App Configuration Key. This should only be set when type is set to `kv`.
 	//
-	// > **NOTE:** `value` and `vaultKeyReference` are mutually exclusive.
+	// > **Note:** `value` and `vaultKeyReference` are mutually exclusive.
 	Value *string `pulumi:"value"`
 	// The ID of the vault secret this App Configuration Key refers to. This should only be set when `type` is set to `vault`.
 	//
-	// > **NOTE:** `vaultKeyReference` and `value` are mutually exclusive.
+	// > **Note:** `vaultKeyReference` and `value` are mutually exclusive.
 	//
-	// > **NOTE:** When setting the `vaultKeyReference` using the `id` will pin the value to specific version of the secret, to reference latest secret value use `versionlessId`
+	// > **Note:** When setting the `vaultKeyReference` using the `id` will pin the value to specific version of the secret, to reference latest secret value use `versionlessId`
 	VaultKeyReference *string `pulumi:"vaultKeyReference"`
 }
 
@@ -303,13 +303,13 @@ type ConfigurationKeyState struct {
 	Type pulumi.StringPtrInput
 	// The value of the App Configuration Key. This should only be set when type is set to `kv`.
 	//
-	// > **NOTE:** `value` and `vaultKeyReference` are mutually exclusive.
+	// > **Note:** `value` and `vaultKeyReference` are mutually exclusive.
 	Value pulumi.StringPtrInput
 	// The ID of the vault secret this App Configuration Key refers to. This should only be set when `type` is set to `vault`.
 	//
-	// > **NOTE:** `vaultKeyReference` and `value` are mutually exclusive.
+	// > **Note:** `vaultKeyReference` and `value` are mutually exclusive.
 	//
-	// > **NOTE:** When setting the `vaultKeyReference` using the `id` will pin the value to specific version of the secret, to reference latest secret value use `versionlessId`
+	// > **Note:** When setting the `vaultKeyReference` using the `id` will pin the value to specific version of the secret, to reference latest secret value use `versionlessId`
 	VaultKeyReference pulumi.StringPtrInput
 }
 
@@ -336,13 +336,13 @@ type configurationKeyArgs struct {
 	Type *string `pulumi:"type"`
 	// The value of the App Configuration Key. This should only be set when type is set to `kv`.
 	//
-	// > **NOTE:** `value` and `vaultKeyReference` are mutually exclusive.
+	// > **Note:** `value` and `vaultKeyReference` are mutually exclusive.
 	Value *string `pulumi:"value"`
 	// The ID of the vault secret this App Configuration Key refers to. This should only be set when `type` is set to `vault`.
 	//
-	// > **NOTE:** `vaultKeyReference` and `value` are mutually exclusive.
+	// > **Note:** `vaultKeyReference` and `value` are mutually exclusive.
 	//
-	// > **NOTE:** When setting the `vaultKeyReference` using the `id` will pin the value to specific version of the secret, to reference latest secret value use `versionlessId`
+	// > **Note:** When setting the `vaultKeyReference` using the `id` will pin the value to specific version of the secret, to reference latest secret value use `versionlessId`
 	VaultKeyReference *string `pulumi:"vaultKeyReference"`
 }
 
@@ -366,13 +366,13 @@ type ConfigurationKeyArgs struct {
 	Type pulumi.StringPtrInput
 	// The value of the App Configuration Key. This should only be set when type is set to `kv`.
 	//
-	// > **NOTE:** `value` and `vaultKeyReference` are mutually exclusive.
+	// > **Note:** `value` and `vaultKeyReference` are mutually exclusive.
 	Value pulumi.StringPtrInput
 	// The ID of the vault secret this App Configuration Key refers to. This should only be set when `type` is set to `vault`.
 	//
-	// > **NOTE:** `vaultKeyReference` and `value` are mutually exclusive.
+	// > **Note:** `vaultKeyReference` and `value` are mutually exclusive.
 	//
-	// > **NOTE:** When setting the `vaultKeyReference` using the `id` will pin the value to specific version of the secret, to reference latest secret value use `versionlessId`
+	// > **Note:** When setting the `vaultKeyReference` using the `id` will pin the value to specific version of the secret, to reference latest secret value use `versionlessId`
 	VaultKeyReference pulumi.StringPtrInput
 }
 
@@ -505,16 +505,16 @@ func (o ConfigurationKeyOutput) Type() pulumi.StringPtrOutput {
 
 // The value of the App Configuration Key. This should only be set when type is set to `kv`.
 //
-// > **NOTE:** `value` and `vaultKeyReference` are mutually exclusive.
+// > **Note:** `value` and `vaultKeyReference` are mutually exclusive.
 func (o ConfigurationKeyOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationKey) pulumi.StringPtrOutput { return v.Value }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the vault secret this App Configuration Key refers to. This should only be set when `type` is set to `vault`.
 //
-// > **NOTE:** `vaultKeyReference` and `value` are mutually exclusive.
+// > **Note:** `vaultKeyReference` and `value` are mutually exclusive.
 //
-// > **NOTE:** When setting the `vaultKeyReference` using the `id` will pin the value to specific version of the secret, to reference latest secret value use `versionlessId`
+// > **Note:** When setting the `vaultKeyReference` using the `id` will pin the value to specific version of the secret, to reference latest secret value use `versionlessId`
 func (o ConfigurationKeyOutput) VaultKeyReference() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationKey) pulumi.StringPtrOutput { return v.VaultKeyReference }).(pulumi.StringPtrOutput)
 }

@@ -76,15 +76,15 @@ import (
 type NamespaceAuthorizationRule struct {
 	pulumi.CustomResourceState
 
-	// Grants listen access to this this Authorization Rule. Defaults to `false`.
+	// Grants listen access to this Authorization Rule. Defaults to `false`.
 	Listen pulumi.BoolPtrOutput `pulumi:"listen"`
-	// Grants manage access to this this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
+	// Grants manage access to this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
 	Manage pulumi.BoolPtrOutput `pulumi:"manage"`
 	// Specifies the name of the ServiceBus Namespace Authorization Rule resource. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies the ID of the ServiceBus Namespace. Changing this forces a new resource to be created.
 	//
-	// > **NOTE** At least one of the 3 permissions below needs to be set.
+	// > **Note:** At least one of the 3 permissions below needs to be set.
 	NamespaceId pulumi.StringOutput `pulumi:"namespaceId"`
 	// The Primary Connection String for the ServiceBus Namespace authorization Rule.
 	PrimaryConnectionString pulumi.StringOutput `pulumi:"primaryConnectionString"`
@@ -98,7 +98,7 @@ type NamespaceAuthorizationRule struct {
 	SecondaryConnectionStringAlias pulumi.StringOutput `pulumi:"secondaryConnectionStringAlias"`
 	// The Secondary Key for the ServiceBus Namespace authorization Rule.
 	SecondaryKey pulumi.StringOutput `pulumi:"secondaryKey"`
-	// Grants send access to this this Authorization Rule. Defaults to `false`.
+	// Grants send access to this Authorization Rule. Defaults to `false`.
 	Send pulumi.BoolPtrOutput `pulumi:"send"`
 }
 
@@ -144,15 +144,15 @@ func GetNamespaceAuthorizationRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering NamespaceAuthorizationRule resources.
 type namespaceAuthorizationRuleState struct {
-	// Grants listen access to this this Authorization Rule. Defaults to `false`.
+	// Grants listen access to this Authorization Rule. Defaults to `false`.
 	Listen *bool `pulumi:"listen"`
-	// Grants manage access to this this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
+	// Grants manage access to this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
 	Manage *bool `pulumi:"manage"`
 	// Specifies the name of the ServiceBus Namespace Authorization Rule resource. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Specifies the ID of the ServiceBus Namespace. Changing this forces a new resource to be created.
 	//
-	// > **NOTE** At least one of the 3 permissions below needs to be set.
+	// > **Note:** At least one of the 3 permissions below needs to be set.
 	NamespaceId *string `pulumi:"namespaceId"`
 	// The Primary Connection String for the ServiceBus Namespace authorization Rule.
 	PrimaryConnectionString *string `pulumi:"primaryConnectionString"`
@@ -166,20 +166,20 @@ type namespaceAuthorizationRuleState struct {
 	SecondaryConnectionStringAlias *string `pulumi:"secondaryConnectionStringAlias"`
 	// The Secondary Key for the ServiceBus Namespace authorization Rule.
 	SecondaryKey *string `pulumi:"secondaryKey"`
-	// Grants send access to this this Authorization Rule. Defaults to `false`.
+	// Grants send access to this Authorization Rule. Defaults to `false`.
 	Send *bool `pulumi:"send"`
 }
 
 type NamespaceAuthorizationRuleState struct {
-	// Grants listen access to this this Authorization Rule. Defaults to `false`.
+	// Grants listen access to this Authorization Rule. Defaults to `false`.
 	Listen pulumi.BoolPtrInput
-	// Grants manage access to this this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
+	// Grants manage access to this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
 	Manage pulumi.BoolPtrInput
 	// Specifies the name of the ServiceBus Namespace Authorization Rule resource. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Specifies the ID of the ServiceBus Namespace. Changing this forces a new resource to be created.
 	//
-	// > **NOTE** At least one of the 3 permissions below needs to be set.
+	// > **Note:** At least one of the 3 permissions below needs to be set.
 	NamespaceId pulumi.StringPtrInput
 	// The Primary Connection String for the ServiceBus Namespace authorization Rule.
 	PrimaryConnectionString pulumi.StringPtrInput
@@ -193,7 +193,7 @@ type NamespaceAuthorizationRuleState struct {
 	SecondaryConnectionStringAlias pulumi.StringPtrInput
 	// The Secondary Key for the ServiceBus Namespace authorization Rule.
 	SecondaryKey pulumi.StringPtrInput
-	// Grants send access to this this Authorization Rule. Defaults to `false`.
+	// Grants send access to this Authorization Rule. Defaults to `false`.
 	Send pulumi.BoolPtrInput
 }
 
@@ -202,33 +202,33 @@ func (NamespaceAuthorizationRuleState) ElementType() reflect.Type {
 }
 
 type namespaceAuthorizationRuleArgs struct {
-	// Grants listen access to this this Authorization Rule. Defaults to `false`.
+	// Grants listen access to this Authorization Rule. Defaults to `false`.
 	Listen *bool `pulumi:"listen"`
-	// Grants manage access to this this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
+	// Grants manage access to this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
 	Manage *bool `pulumi:"manage"`
 	// Specifies the name of the ServiceBus Namespace Authorization Rule resource. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Specifies the ID of the ServiceBus Namespace. Changing this forces a new resource to be created.
 	//
-	// > **NOTE** At least one of the 3 permissions below needs to be set.
+	// > **Note:** At least one of the 3 permissions below needs to be set.
 	NamespaceId string `pulumi:"namespaceId"`
-	// Grants send access to this this Authorization Rule. Defaults to `false`.
+	// Grants send access to this Authorization Rule. Defaults to `false`.
 	Send *bool `pulumi:"send"`
 }
 
 // The set of arguments for constructing a NamespaceAuthorizationRule resource.
 type NamespaceAuthorizationRuleArgs struct {
-	// Grants listen access to this this Authorization Rule. Defaults to `false`.
+	// Grants listen access to this Authorization Rule. Defaults to `false`.
 	Listen pulumi.BoolPtrInput
-	// Grants manage access to this this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
+	// Grants manage access to this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
 	Manage pulumi.BoolPtrInput
 	// Specifies the name of the ServiceBus Namespace Authorization Rule resource. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Specifies the ID of the ServiceBus Namespace. Changing this forces a new resource to be created.
 	//
-	// > **NOTE** At least one of the 3 permissions below needs to be set.
+	// > **Note:** At least one of the 3 permissions below needs to be set.
 	NamespaceId pulumi.StringInput
-	// Grants send access to this this Authorization Rule. Defaults to `false`.
+	// Grants send access to this Authorization Rule. Defaults to `false`.
 	Send pulumi.BoolPtrInput
 }
 
@@ -319,12 +319,12 @@ func (o NamespaceAuthorizationRuleOutput) ToNamespaceAuthorizationRuleOutputWith
 	return o
 }
 
-// Grants listen access to this this Authorization Rule. Defaults to `false`.
+// Grants listen access to this Authorization Rule. Defaults to `false`.
 func (o NamespaceAuthorizationRuleOutput) Listen() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *NamespaceAuthorizationRule) pulumi.BoolPtrOutput { return v.Listen }).(pulumi.BoolPtrOutput)
 }
 
-// Grants manage access to this this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
+// Grants manage access to this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
 func (o NamespaceAuthorizationRuleOutput) Manage() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *NamespaceAuthorizationRule) pulumi.BoolPtrOutput { return v.Manage }).(pulumi.BoolPtrOutput)
 }
@@ -336,7 +336,7 @@ func (o NamespaceAuthorizationRuleOutput) Name() pulumi.StringOutput {
 
 // Specifies the ID of the ServiceBus Namespace. Changing this forces a new resource to be created.
 //
-// > **NOTE** At least one of the 3 permissions below needs to be set.
+// > **Note:** At least one of the 3 permissions below needs to be set.
 func (o NamespaceAuthorizationRuleOutput) NamespaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *NamespaceAuthorizationRule) pulumi.StringOutput { return v.NamespaceId }).(pulumi.StringOutput)
 }
@@ -371,7 +371,7 @@ func (o NamespaceAuthorizationRuleOutput) SecondaryKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *NamespaceAuthorizationRule) pulumi.StringOutput { return v.SecondaryKey }).(pulumi.StringOutput)
 }
 
-// Grants send access to this this Authorization Rule. Defaults to `false`.
+// Grants send access to this Authorization Rule. Defaults to `false`.
 func (o NamespaceAuthorizationRuleOutput) Send() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *NamespaceAuthorizationRule) pulumi.BoolPtrOutput { return v.Send }).(pulumi.BoolPtrOutput)
 }

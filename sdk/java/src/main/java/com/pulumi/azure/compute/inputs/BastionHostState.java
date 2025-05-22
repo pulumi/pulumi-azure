@@ -227,7 +227,7 @@ public final class BastionHostState extends com.pulumi.resources.ResourceArgs {
     /**
      * The SKU of the Bastion Host. Accepted values are `Developer`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
      * 
-     * &gt; **Note** Downgrading the SKU will force a new resource to be created.
+     * &gt; **Note:** Downgrading the SKU will force a new resource to be created.
      * 
      */
     @Import(name="sku")
@@ -236,7 +236,7 @@ public final class BastionHostState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return The SKU of the Bastion Host. Accepted values are `Developer`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
      * 
-     * &gt; **Note** Downgrading the SKU will force a new resource to be created.
+     * &gt; **Note:** Downgrading the SKU will force a new resource to be created.
      * 
      */
     public Optional<Output<String>> sku() {
@@ -626,7 +626,7 @@ public final class BastionHostState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param sku The SKU of the Bastion Host. Accepted values are `Developer`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
          * 
-         * &gt; **Note** Downgrading the SKU will force a new resource to be created.
+         * &gt; **Note:** Downgrading the SKU will force a new resource to be created.
          * 
          * @return builder
          * 
@@ -639,7 +639,7 @@ public final class BastionHostState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param sku The SKU of the Bastion Host. Accepted values are `Developer`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
          * 
-         * &gt; **Note** Downgrading the SKU will force a new resource to be created.
+         * &gt; **Note:** Downgrading the SKU will force a new resource to be created.
          * 
          * @return builder
          * 

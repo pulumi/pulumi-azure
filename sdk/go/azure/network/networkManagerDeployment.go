@@ -14,7 +14,7 @@ import (
 
 // Manages a Network Manager Deployment.
 //
-// > **NOTE on Virtual Network Peering:** Using Network Manager Deployment to deploy Connectivity Configuration may modify or delete existing Virtual Network Peering. At this time you should not use Network Peering resource in conjunction with Network Manager Deployment. Doing so may cause a conflict of Peering configurations.
+// > **Note:** Using Network Manager Deployment to deploy Connectivity Configuration may modify or delete existing Virtual Network Peering. At this time you should not use Network Peering resource in conjunction with Network Manager Deployment. Doing so may cause a conflict of Peering configurations.
 //
 // ## Example Usage
 //
@@ -254,6 +254,13 @@ import (
 //
 // ```
 //
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.Network`: 2024-05-01
+//
 // ## Import
 //
 // Network Manager Deployment can be imported using the `resource id`, e.g.
@@ -270,7 +277,7 @@ type NetworkManagerDeployment struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the ID of the Network Manager. Changing this forces a new Network Manager Deployment to be created.
 	NetworkManagerId pulumi.StringOutput `pulumi:"networkManagerId"`
-	// Specifies the configuration deployment type. Possible values are `Connectivity` and `SecurityAdmin`. Changing this forces a new Network Manager Deployment to be created.
+	// Specifies the configuration deployment type. Possible values are `Connectivity`, `SecurityAdmin` and `Routing`. Changing this forces a new Network Manager Deployment to be created.
 	ScopeAccess pulumi.StringOutput `pulumi:"scopeAccess"`
 	// A mapping of key values pairs that can be used to keep the deployment up with the Network Manager configurations and rules.
 	Triggers pulumi.StringMapOutput `pulumi:"triggers"`
@@ -321,7 +328,7 @@ type networkManagerDeploymentState struct {
 	Location *string `pulumi:"location"`
 	// Specifies the ID of the Network Manager. Changing this forces a new Network Manager Deployment to be created.
 	NetworkManagerId *string `pulumi:"networkManagerId"`
-	// Specifies the configuration deployment type. Possible values are `Connectivity` and `SecurityAdmin`. Changing this forces a new Network Manager Deployment to be created.
+	// Specifies the configuration deployment type. Possible values are `Connectivity`, `SecurityAdmin` and `Routing`. Changing this forces a new Network Manager Deployment to be created.
 	ScopeAccess *string `pulumi:"scopeAccess"`
 	// A mapping of key values pairs that can be used to keep the deployment up with the Network Manager configurations and rules.
 	Triggers map[string]string `pulumi:"triggers"`
@@ -334,7 +341,7 @@ type NetworkManagerDeploymentState struct {
 	Location pulumi.StringPtrInput
 	// Specifies the ID of the Network Manager. Changing this forces a new Network Manager Deployment to be created.
 	NetworkManagerId pulumi.StringPtrInput
-	// Specifies the configuration deployment type. Possible values are `Connectivity` and `SecurityAdmin`. Changing this forces a new Network Manager Deployment to be created.
+	// Specifies the configuration deployment type. Possible values are `Connectivity`, `SecurityAdmin` and `Routing`. Changing this forces a new Network Manager Deployment to be created.
 	ScopeAccess pulumi.StringPtrInput
 	// A mapping of key values pairs that can be used to keep the deployment up with the Network Manager configurations and rules.
 	Triggers pulumi.StringMapInput
@@ -351,7 +358,7 @@ type networkManagerDeploymentArgs struct {
 	Location *string `pulumi:"location"`
 	// Specifies the ID of the Network Manager. Changing this forces a new Network Manager Deployment to be created.
 	NetworkManagerId string `pulumi:"networkManagerId"`
-	// Specifies the configuration deployment type. Possible values are `Connectivity` and `SecurityAdmin`. Changing this forces a new Network Manager Deployment to be created.
+	// Specifies the configuration deployment type. Possible values are `Connectivity`, `SecurityAdmin` and `Routing`. Changing this forces a new Network Manager Deployment to be created.
 	ScopeAccess string `pulumi:"scopeAccess"`
 	// A mapping of key values pairs that can be used to keep the deployment up with the Network Manager configurations and rules.
 	Triggers map[string]string `pulumi:"triggers"`
@@ -365,7 +372,7 @@ type NetworkManagerDeploymentArgs struct {
 	Location pulumi.StringPtrInput
 	// Specifies the ID of the Network Manager. Changing this forces a new Network Manager Deployment to be created.
 	NetworkManagerId pulumi.StringInput
-	// Specifies the configuration deployment type. Possible values are `Connectivity` and `SecurityAdmin`. Changing this forces a new Network Manager Deployment to be created.
+	// Specifies the configuration deployment type. Possible values are `Connectivity`, `SecurityAdmin` and `Routing`. Changing this forces a new Network Manager Deployment to be created.
 	ScopeAccess pulumi.StringInput
 	// A mapping of key values pairs that can be used to keep the deployment up with the Network Manager configurations and rules.
 	Triggers pulumi.StringMapInput
@@ -473,7 +480,7 @@ func (o NetworkManagerDeploymentOutput) NetworkManagerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkManagerDeployment) pulumi.StringOutput { return v.NetworkManagerId }).(pulumi.StringOutput)
 }
 
-// Specifies the configuration deployment type. Possible values are `Connectivity` and `SecurityAdmin`. Changing this forces a new Network Manager Deployment to be created.
+// Specifies the configuration deployment type. Possible values are `Connectivity`, `SecurityAdmin` and `Routing`. Changing this forces a new Network Manager Deployment to be created.
 func (o NetworkManagerDeploymentOutput) ScopeAccess() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkManagerDeployment) pulumi.StringOutput { return v.ScopeAccess }).(pulumi.StringOutput)
 }

@@ -65,6 +65,13 @@ namespace Pulumi.Azure.PaloAlto
     /// });
     /// ```
     /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `PaloAltoNetworks.Cloudngfw`: 2022-08-29
+    /// 
     /// ## Import
     /// 
     /// Palo Alto Local Rulestack Rules can be imported using the `resource id`, e.g.
@@ -157,7 +164,7 @@ namespace Pulumi.Azure.PaloAlto
         /// <summary>
         /// The Priority of this rule. Rules are executed in numerical order. Changing this forces a new Palo Alto Local Rulestack Rule to be created.
         /// 
-        /// &gt; **NOTE:** This is the primary identifier of a rule, as such it is not possible to change the Priority of a rule once created.
+        /// &gt; **Note:** This is the primary identifier of a rule, as such it is not possible to change the Priority of a rule once created.
         /// </summary>
         [Output("priority")]
         public Output<int> Priority { get; private set; } = null!;
@@ -165,7 +172,7 @@ namespace Pulumi.Azure.PaloAlto
         /// <summary>
         /// The Protocol and port to use in the form `[protocol]:[port_number]` e.g. `TCP:8080` or `UDP:53`. Conflicts with `protocol_ports`. Defaults to `application-default`.
         /// 
-        /// &gt; **NOTE** In 4.0 or later versions, the default of `protocol` will no longer be set by provider, exactly one of `protocol` and `protocol_ports` must be specified. You need to explicitly specify `protocol="application-default"` to keep the the current default of the `protocol`.
+        /// &gt; **Note:** In 4.0 or later versions, the default of `protocol` will no longer be set by provider, exactly one of `protocol` and `protocol_ports` must be specified. You need to explicitly specify `protocol="application-default"` to keep the the current default of the `protocol`.
         /// </summary>
         [Output("protocol")]
         public Output<string?> Protocol { get; private set; } = null!;
@@ -327,7 +334,7 @@ namespace Pulumi.Azure.PaloAlto
         /// <summary>
         /// The Priority of this rule. Rules are executed in numerical order. Changing this forces a new Palo Alto Local Rulestack Rule to be created.
         /// 
-        /// &gt; **NOTE:** This is the primary identifier of a rule, as such it is not possible to change the Priority of a rule once created.
+        /// &gt; **Note:** This is the primary identifier of a rule, as such it is not possible to change the Priority of a rule once created.
         /// </summary>
         [Input("priority", required: true)]
         public Input<int> Priority { get; set; } = null!;
@@ -335,7 +342,7 @@ namespace Pulumi.Azure.PaloAlto
         /// <summary>
         /// The Protocol and port to use in the form `[protocol]:[port_number]` e.g. `TCP:8080` or `UDP:53`. Conflicts with `protocol_ports`. Defaults to `application-default`.
         /// 
-        /// &gt; **NOTE** In 4.0 or later versions, the default of `protocol` will no longer be set by provider, exactly one of `protocol` and `protocol_ports` must be specified. You need to explicitly specify `protocol="application-default"` to keep the the current default of the `protocol`.
+        /// &gt; **Note:** In 4.0 or later versions, the default of `protocol` will no longer be set by provider, exactly one of `protocol` and `protocol_ports` must be specified. You need to explicitly specify `protocol="application-default"` to keep the the current default of the `protocol`.
         /// </summary>
         [Input("protocol")]
         public Input<string>? Protocol { get; set; }
@@ -471,7 +478,7 @@ namespace Pulumi.Azure.PaloAlto
         /// <summary>
         /// The Priority of this rule. Rules are executed in numerical order. Changing this forces a new Palo Alto Local Rulestack Rule to be created.
         /// 
-        /// &gt; **NOTE:** This is the primary identifier of a rule, as such it is not possible to change the Priority of a rule once created.
+        /// &gt; **Note:** This is the primary identifier of a rule, as such it is not possible to change the Priority of a rule once created.
         /// </summary>
         [Input("priority")]
         public Input<int>? Priority { get; set; }
@@ -479,7 +486,7 @@ namespace Pulumi.Azure.PaloAlto
         /// <summary>
         /// The Protocol and port to use in the form `[protocol]:[port_number]` e.g. `TCP:8080` or `UDP:53`. Conflicts with `protocol_ports`. Defaults to `application-default`.
         /// 
-        /// &gt; **NOTE** In 4.0 or later versions, the default of `protocol` will no longer be set by provider, exactly one of `protocol` and `protocol_ports` must be specified. You need to explicitly specify `protocol="application-default"` to keep the the current default of the `protocol`.
+        /// &gt; **Note:** In 4.0 or later versions, the default of `protocol` will no longer be set by provider, exactly one of `protocol` and `protocol_ports` must be specified. You need to explicitly specify `protocol="application-default"` to keep the the current default of the `protocol`.
         /// </summary>
         [Input("protocol")]
         public Input<string>? Protocol { get; set; }

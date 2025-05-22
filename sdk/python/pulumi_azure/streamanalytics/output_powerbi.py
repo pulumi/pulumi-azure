@@ -320,6 +320,13 @@ class OutputPowerbi(pulumi.CustomResource):
             group_name="some-group-name")
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.StreamAnalytics`: 2021-10-01-preview
+
         ## Import
 
         Stream Analytics Output to Power BI can be imported using the `resource id`, e.g.
@@ -365,6 +372,13 @@ class OutputPowerbi(pulumi.CustomResource):
             group_id="00000000-0000-0000-0000-000000000000",
             group_name="some-group-name")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.StreamAnalytics`: 2021-10-01-preview
 
         ## Import
 

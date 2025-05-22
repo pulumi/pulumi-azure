@@ -52,6 +52,13 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.ContainerInstance`: 2023-05-01
+ *
  * ## Import
  *
  * Container Group's can be imported using the `resource id`, e.g.
@@ -171,7 +178,7 @@ export class Group extends pulumi.CustomResource {
     /**
      * The priority of the Container Group. Possible values are `Regular` and `Spot`. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** When `priority` is set to `Spot`, the `ipAddressType` has to be `None`.
+     * > **Note:** When `priority` is set to `Spot`, the `ipAddressType` has to be `None`.
      */
     public readonly priority!: pulumi.Output<string | undefined>;
     /**
@@ -366,7 +373,7 @@ export interface GroupState {
     /**
      * The priority of the Container Group. Possible values are `Regular` and `Spot`. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** When `priority` is set to `Spot`, the `ipAddressType` has to be `None`.
+     * > **Note:** When `priority` is set to `Spot`, the `ipAddressType` has to be `None`.
      */
     priority?: pulumi.Input<string>;
     /**
@@ -474,7 +481,7 @@ export interface GroupArgs {
     /**
      * The priority of the Container Group. Possible values are `Regular` and `Spot`. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** When `priority` is set to `Spot`, the `ipAddressType` has to be `None`.
+     * > **Note:** When `priority` is set to `Spot`, the `ipAddressType` has to be `None`.
      */
     priority?: pulumi.Input<string>;
     /**

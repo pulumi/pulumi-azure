@@ -23,9 +23,9 @@ import javax.annotation.Nullable;
  * 
  * ## Disclaimers
  * 
- * &gt; **Note** Scaling Plans are currently in preview and are only supported in a limited number of regions. Both the Scaling Plan and any referenced Host Pools must be deployed in a supported region. [Autoscale (preview) for Azure Virtual Desktop host pools](https://docs.microsoft.com/azure/virtual-desktop/autoscale-scaling-plan).
+ * &gt; **Note:** Scaling Plans are currently in preview and are only supported in a limited number of regions. Both the Scaling Plan and any referenced Host Pools must be deployed in a supported region. [Autoscale (preview) for Azure Virtual Desktop host pools](https://docs.microsoft.com/azure/virtual-desktop/autoscale-scaling-plan).
  * 
- * &gt; **Note** Scaling Plans require specific permissions to be granted to the Windows Virtual Desktop application before a &#39;host_pool&#39; can be configured. [Required Permissions for Scaling Plans](https://docs.microsoft.com/azure/virtual-desktop/autoscale-scaling-plan#create-a-custom-rbac-role).
+ * &gt; **Note:** Scaling Plans require specific permissions to be granted to the Windows Virtual Desktop application before a &#39;host_pool&#39; can be configured. [Required Permissions for Scaling Plans](https://docs.microsoft.com/azure/virtual-desktop/autoscale-scaling-plan#create-a-custom-rbac-role).
  * 
  * ## Example Usage
  * 
@@ -162,6 +162,13 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.DesktopVirtualization`: 2024-04-03
  * 
  * ## Import
  * 

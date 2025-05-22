@@ -145,6 +145,13 @@ def get_dedicated_host_group(name: Optional[builtins.str] = None,
     pulumi.export("id", example.id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Compute`: 2024-03-01
+
 
     :param builtins.str name: Specifies the name of the Dedicated Host Group.
     :param builtins.str resource_group_name: Specifies the name of the resource group the Dedicated Host Group is located in.
@@ -180,6 +187,13 @@ def get_dedicated_host_group_output(name: Optional[pulumi.Input[builtins.str]] =
         resource_group_name="example-rg")
     pulumi.export("id", example.id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Compute`: 2024-03-01
 
 
     :param builtins.str name: Specifies the name of the Dedicated Host Group.

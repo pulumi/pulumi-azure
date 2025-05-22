@@ -308,7 +308,7 @@ public class BastionHost extends com.pulumi.resources.CustomResource {
     /**
      * The SKU of the Bastion Host. Accepted values are `Developer`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
      * 
-     * &gt; **Note** Downgrading the SKU will force a new resource to be created.
+     * &gt; **Note:** Downgrading the SKU will force a new resource to be created.
      * 
      */
     @Export(name="sku", refs={String.class}, tree="[0]")
@@ -317,7 +317,7 @@ public class BastionHost extends com.pulumi.resources.CustomResource {
     /**
      * @return The SKU of the Bastion Host. Accepted values are `Developer`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
      * 
-     * &gt; **Note** Downgrading the SKU will force a new resource to be created.
+     * &gt; **Note:** Downgrading the SKU will force a new resource to be created.
      * 
      */
     public Output<Optional<String>> sku() {

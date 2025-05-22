@@ -92,7 +92,7 @@ import (
 //
 // ### With Data Encryption
 //
-// > **NOTE:** The Key Vault must enable purge protection.
+// > **Note:** The Key Vault must enable purge protection.
 //
 // ```go
 // package main
@@ -212,7 +212,7 @@ import (
 //
 // ### With User Assigned Identity And Data Encryption
 //
-// > **NOTE:** The Key Vault must enable purge protection.
+// > **Note:** The Key Vault must enable purge protection.
 //
 // ```go
 // package main
@@ -431,6 +431,13 @@ import (
 //
 // ```
 //
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.MachineLearningServices`: 2024-04-01
+//
 // ## Import
 //
 // Machine Learning Workspace can be imported using the `resource id`, e.g.
@@ -445,7 +452,7 @@ type Workspace struct {
 	ApplicationInsightsId pulumi.StringOutput `pulumi:"applicationInsightsId"`
 	// The ID of the container registry associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** The `adminEnabled` should be `true` in order to associate the Container Registry to this Machine Learning Workspace.
+	// > **Note:** The `adminEnabled` should be `true` in order to associate the Container Registry to this Machine Learning Workspace.
 	ContainerRegistryId pulumi.StringPtrOutput `pulumi:"containerRegistryId"`
 	// The description of this Machine Learning Workspace.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -477,7 +484,7 @@ type Workspace struct {
 	PrimaryUserAssignedIdentity pulumi.StringPtrOutput `pulumi:"primaryUserAssignedIdentity"`
 	// Enable public access when this Machine Learning Workspace is behind VNet. Defaults to `true`.
 	//
-	// > **NOTE:** `publicAccessBehindVirtualNetworkEnabled` is deprecated and will be removed in favour of the property `publicNetworkAccessEnabled`.
+	// > **Note:** `publicAccessBehindVirtualNetworkEnabled` is deprecated and will be removed in favour of the property `publicNetworkAccessEnabled`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
 	// Specifies the name of the Resource Group in which the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -487,7 +494,7 @@ type Workspace struct {
 	SkuName pulumi.StringPtrOutput `pulumi:"skuName"`
 	// The ID of the Storage Account associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** The `accountTier` cannot be `Premium` in order to associate the Storage Account to this Machine Learning Workspace.
+	// > **Note:** The `accountTier` cannot be `Premium` in order to associate the Storage Account to this Machine Learning Workspace.
 	StorageAccountId pulumi.StringOutput `pulumi:"storageAccountId"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -546,7 +553,7 @@ type workspaceState struct {
 	ApplicationInsightsId *string `pulumi:"applicationInsightsId"`
 	// The ID of the container registry associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** The `adminEnabled` should be `true` in order to associate the Container Registry to this Machine Learning Workspace.
+	// > **Note:** The `adminEnabled` should be `true` in order to associate the Container Registry to this Machine Learning Workspace.
 	ContainerRegistryId *string `pulumi:"containerRegistryId"`
 	// The description of this Machine Learning Workspace.
 	Description *string `pulumi:"description"`
@@ -578,7 +585,7 @@ type workspaceState struct {
 	PrimaryUserAssignedIdentity *string `pulumi:"primaryUserAssignedIdentity"`
 	// Enable public access when this Machine Learning Workspace is behind VNet. Defaults to `true`.
 	//
-	// > **NOTE:** `publicAccessBehindVirtualNetworkEnabled` is deprecated and will be removed in favour of the property `publicNetworkAccessEnabled`.
+	// > **Note:** `publicAccessBehindVirtualNetworkEnabled` is deprecated and will be removed in favour of the property `publicNetworkAccessEnabled`.
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// Specifies the name of the Resource Group in which the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -588,7 +595,7 @@ type workspaceState struct {
 	SkuName *string `pulumi:"skuName"`
 	// The ID of the Storage Account associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** The `accountTier` cannot be `Premium` in order to associate the Storage Account to this Machine Learning Workspace.
+	// > **Note:** The `accountTier` cannot be `Premium` in order to associate the Storage Account to this Machine Learning Workspace.
 	StorageAccountId *string `pulumi:"storageAccountId"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -603,7 +610,7 @@ type WorkspaceState struct {
 	ApplicationInsightsId pulumi.StringPtrInput
 	// The ID of the container registry associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** The `adminEnabled` should be `true` in order to associate the Container Registry to this Machine Learning Workspace.
+	// > **Note:** The `adminEnabled` should be `true` in order to associate the Container Registry to this Machine Learning Workspace.
 	ContainerRegistryId pulumi.StringPtrInput
 	// The description of this Machine Learning Workspace.
 	Description pulumi.StringPtrInput
@@ -635,7 +642,7 @@ type WorkspaceState struct {
 	PrimaryUserAssignedIdentity pulumi.StringPtrInput
 	// Enable public access when this Machine Learning Workspace is behind VNet. Defaults to `true`.
 	//
-	// > **NOTE:** `publicAccessBehindVirtualNetworkEnabled` is deprecated and will be removed in favour of the property `publicNetworkAccessEnabled`.
+	// > **Note:** `publicAccessBehindVirtualNetworkEnabled` is deprecated and will be removed in favour of the property `publicNetworkAccessEnabled`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// Specifies the name of the Resource Group in which the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -645,7 +652,7 @@ type WorkspaceState struct {
 	SkuName pulumi.StringPtrInput
 	// The ID of the Storage Account associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** The `accountTier` cannot be `Premium` in order to associate the Storage Account to this Machine Learning Workspace.
+	// > **Note:** The `accountTier` cannot be `Premium` in order to associate the Storage Account to this Machine Learning Workspace.
 	StorageAccountId pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -664,7 +671,7 @@ type workspaceArgs struct {
 	ApplicationInsightsId string `pulumi:"applicationInsightsId"`
 	// The ID of the container registry associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** The `adminEnabled` should be `true` in order to associate the Container Registry to this Machine Learning Workspace.
+	// > **Note:** The `adminEnabled` should be `true` in order to associate the Container Registry to this Machine Learning Workspace.
 	ContainerRegistryId *string `pulumi:"containerRegistryId"`
 	// The description of this Machine Learning Workspace.
 	Description *string `pulumi:"description"`
@@ -694,7 +701,7 @@ type workspaceArgs struct {
 	PrimaryUserAssignedIdentity *string `pulumi:"primaryUserAssignedIdentity"`
 	// Enable public access when this Machine Learning Workspace is behind VNet. Defaults to `true`.
 	//
-	// > **NOTE:** `publicAccessBehindVirtualNetworkEnabled` is deprecated and will be removed in favour of the property `publicNetworkAccessEnabled`.
+	// > **Note:** `publicAccessBehindVirtualNetworkEnabled` is deprecated and will be removed in favour of the property `publicNetworkAccessEnabled`.
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// Specifies the name of the Resource Group in which the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -704,7 +711,7 @@ type workspaceArgs struct {
 	SkuName *string `pulumi:"skuName"`
 	// The ID of the Storage Account associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** The `accountTier` cannot be `Premium` in order to associate the Storage Account to this Machine Learning Workspace.
+	// > **Note:** The `accountTier` cannot be `Premium` in order to associate the Storage Account to this Machine Learning Workspace.
 	StorageAccountId string `pulumi:"storageAccountId"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -718,7 +725,7 @@ type WorkspaceArgs struct {
 	ApplicationInsightsId pulumi.StringInput
 	// The ID of the container registry associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** The `adminEnabled` should be `true` in order to associate the Container Registry to this Machine Learning Workspace.
+	// > **Note:** The `adminEnabled` should be `true` in order to associate the Container Registry to this Machine Learning Workspace.
 	ContainerRegistryId pulumi.StringPtrInput
 	// The description of this Machine Learning Workspace.
 	Description pulumi.StringPtrInput
@@ -748,7 +755,7 @@ type WorkspaceArgs struct {
 	PrimaryUserAssignedIdentity pulumi.StringPtrInput
 	// Enable public access when this Machine Learning Workspace is behind VNet. Defaults to `true`.
 	//
-	// > **NOTE:** `publicAccessBehindVirtualNetworkEnabled` is deprecated and will be removed in favour of the property `publicNetworkAccessEnabled`.
+	// > **Note:** `publicAccessBehindVirtualNetworkEnabled` is deprecated and will be removed in favour of the property `publicNetworkAccessEnabled`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// Specifies the name of the Resource Group in which the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
@@ -758,7 +765,7 @@ type WorkspaceArgs struct {
 	SkuName pulumi.StringPtrInput
 	// The ID of the Storage Account associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** The `accountTier` cannot be `Premium` in order to associate the Storage Account to this Machine Learning Workspace.
+	// > **Note:** The `accountTier` cannot be `Premium` in order to associate the Storage Account to this Machine Learning Workspace.
 	StorageAccountId pulumi.StringInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -860,7 +867,7 @@ func (o WorkspaceOutput) ApplicationInsightsId() pulumi.StringOutput {
 
 // The ID of the container registry associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
 //
-// > **NOTE:** The `adminEnabled` should be `true` in order to associate the Container Registry to this Machine Learning Workspace.
+// > **Note:** The `adminEnabled` should be `true` in order to associate the Container Registry to this Machine Learning Workspace.
 func (o WorkspaceOutput) ContainerRegistryId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringPtrOutput { return v.ContainerRegistryId }).(pulumi.StringPtrOutput)
 }
@@ -937,7 +944,7 @@ func (o WorkspaceOutput) PrimaryUserAssignedIdentity() pulumi.StringPtrOutput {
 
 // Enable public access when this Machine Learning Workspace is behind VNet. Defaults to `true`.
 //
-// > **NOTE:** `publicAccessBehindVirtualNetworkEnabled` is deprecated and will be removed in favour of the property `publicNetworkAccessEnabled`.
+// > **Note:** `publicAccessBehindVirtualNetworkEnabled` is deprecated and will be removed in favour of the property `publicNetworkAccessEnabled`.
 func (o WorkspaceOutput) PublicNetworkAccessEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.BoolPtrOutput { return v.PublicNetworkAccessEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -959,7 +966,7 @@ func (o WorkspaceOutput) SkuName() pulumi.StringPtrOutput {
 
 // The ID of the Storage Account associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
 //
-// > **NOTE:** The `accountTier` cannot be `Premium` in order to associate the Storage Account to this Machine Learning Workspace.
+// > **Note:** The `accountTier` cannot be `Premium` in order to associate the Storage Account to this Machine Learning Workspace.
 func (o WorkspaceOutput) StorageAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.StorageAccountId }).(pulumi.StringOutput)
 }

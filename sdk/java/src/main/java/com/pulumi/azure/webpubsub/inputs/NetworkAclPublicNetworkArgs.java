@@ -34,7 +34,7 @@ public final class NetworkAclPublicNetworkArgs extends com.pulumi.resources.Reso
     /**
      * The denied request types for the public network. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
      * 
-     * &gt; **NOTE:** When `default_action` is `Allow`, `allowed_request_types`cannot be set. When `default_action` is `Deny`, `denied_request_types`cannot be set.
+     * &gt; **Note:** When `default_action` is `Allow`, `allowed_request_types`cannot be set. When `default_action` is `Deny`, `denied_request_types`cannot be set.
      * 
      */
     @Import(name="deniedRequestTypes")
@@ -43,7 +43,7 @@ public final class NetworkAclPublicNetworkArgs extends com.pulumi.resources.Reso
     /**
      * @return The denied request types for the public network. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
      * 
-     * &gt; **NOTE:** When `default_action` is `Allow`, `allowed_request_types`cannot be set. When `default_action` is `Deny`, `denied_request_types`cannot be set.
+     * &gt; **Note:** When `default_action` is `Allow`, `allowed_request_types`cannot be set. When `default_action` is `Deny`, `denied_request_types`cannot be set.
      * 
      */
     public Optional<Output<List<String>>> deniedRequestTypes() {
@@ -109,7 +109,7 @@ public final class NetworkAclPublicNetworkArgs extends com.pulumi.resources.Reso
         /**
          * @param deniedRequestTypes The denied request types for the public network. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
          * 
-         * &gt; **NOTE:** When `default_action` is `Allow`, `allowed_request_types`cannot be set. When `default_action` is `Deny`, `denied_request_types`cannot be set.
+         * &gt; **Note:** When `default_action` is `Allow`, `allowed_request_types`cannot be set. When `default_action` is `Deny`, `denied_request_types`cannot be set.
          * 
          * @return builder
          * 
@@ -122,7 +122,7 @@ public final class NetworkAclPublicNetworkArgs extends com.pulumi.resources.Reso
         /**
          * @param deniedRequestTypes The denied request types for the public network. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
          * 
-         * &gt; **NOTE:** When `default_action` is `Allow`, `allowed_request_types`cannot be set. When `default_action` is `Deny`, `denied_request_types`cannot be set.
+         * &gt; **Note:** When `default_action` is `Allow`, `allowed_request_types`cannot be set. When `default_action` is `Deny`, `denied_request_types`cannot be set.
          * 
          * @return builder
          * 
@@ -134,7 +134,7 @@ public final class NetworkAclPublicNetworkArgs extends com.pulumi.resources.Reso
         /**
          * @param deniedRequestTypes The denied request types for the public network. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
          * 
-         * &gt; **NOTE:** When `default_action` is `Allow`, `allowed_request_types`cannot be set. When `default_action` is `Deny`, `denied_request_types`cannot be set.
+         * &gt; **Note:** When `default_action` is `Allow`, `allowed_request_types`cannot be set. When `default_action` is `Deny`, `denied_request_types`cannot be set.
          * 
          * @return builder
          * 

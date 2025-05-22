@@ -44,9 +44,9 @@ namespace Pulumi.Azure.Monitoring.Outputs
         /// <summary>
         /// One or more `storage_table_direct` blocks as defined below.
         /// 
-        /// &gt; **NOTE** `event_hub_direct`, `storage_blob_direct`, and `storage_table_direct` are only available for rules of kind `AgentDirectToStore`.
+        /// &gt; **Note:** `event_hub_direct`, `storage_blob_direct`, and `storage_table_direct` are only available for rules of kind `AgentDirectToStore`.
         /// 
-        /// &gt; **NOTE** At least one of `azure_monitor_metrics`, `event_hub`, `event_hub_direct`, `log_analytics`, `monitor_account`, `storage_blob`, `storage_blob_direct`,and `storage_table_direct` blocks must be specified.
+        /// &gt; **Note:** At least one of `azure_monitor_metrics`, `event_hub`, `event_hub_direct`, `log_analytics`, `monitor_account`, `storage_blob`, `storage_blob_direct`,and `storage_table_direct` blocks must be specified.
         /// </summary>
         public readonly ImmutableArray<Outputs.DataCollectionRuleDestinationsStorageTableDirect> StorageTableDirects;
 

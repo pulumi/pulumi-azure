@@ -176,7 +176,7 @@ type ActiveRoleAssignmentScheduleExpiration struct {
 	DurationHours *int `pulumi:"durationHours"`
 	// The end date/time of the role assignment. Changing this forces a new resource to be created.
 	//
-	// > Note: Only one of `durationDays`, `durationHours` or `endDateTime` should be specified.
+	// > **Note:** Only one of `durationDays`, `durationHours` or `endDateTime` should be specified.
 	EndDateTime *string `pulumi:"endDateTime"`
 }
 
@@ -198,7 +198,7 @@ type ActiveRoleAssignmentScheduleExpirationArgs struct {
 	DurationHours pulumi.IntPtrInput `pulumi:"durationHours"`
 	// The end date/time of the role assignment. Changing this forces a new resource to be created.
 	//
-	// > Note: Only one of `durationDays`, `durationHours` or `endDateTime` should be specified.
+	// > **Note:** Only one of `durationDays`, `durationHours` or `endDateTime` should be specified.
 	EndDateTime pulumi.StringPtrInput `pulumi:"endDateTime"`
 }
 
@@ -291,7 +291,7 @@ func (o ActiveRoleAssignmentScheduleExpirationOutput) DurationHours() pulumi.Int
 
 // The end date/time of the role assignment. Changing this forces a new resource to be created.
 //
-// > Note: Only one of `durationDays`, `durationHours` or `endDateTime` should be specified.
+// > **Note:** Only one of `durationDays`, `durationHours` or `endDateTime` should be specified.
 func (o ActiveRoleAssignmentScheduleExpirationOutput) EndDateTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActiveRoleAssignmentScheduleExpiration) *string { return v.EndDateTime }).(pulumi.StringPtrOutput)
 }
@@ -342,7 +342,7 @@ func (o ActiveRoleAssignmentScheduleExpirationPtrOutput) DurationHours() pulumi.
 
 // The end date/time of the role assignment. Changing this forces a new resource to be created.
 //
-// > Note: Only one of `durationDays`, `durationHours` or `endDateTime` should be specified.
+// > **Note:** Only one of `durationDays`, `durationHours` or `endDateTime` should be specified.
 func (o ActiveRoleAssignmentScheduleExpirationPtrOutput) EndDateTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ActiveRoleAssignmentScheduleExpiration) *string {
 		if v == nil {
@@ -671,7 +671,7 @@ type EligibleRoleAssignmentScheduleExpiration struct {
 	DurationHours *int `pulumi:"durationHours"`
 	// The end date/time of the role assignment. Changing this forces a new resource to be created.
 	//
-	// > Note: Only one of `durationDays`, `durationHours` or `endDateTime` should be specified.
+	// > **Note:** Only one of `durationDays`, `durationHours` or `endDateTime` should be specified.
 	EndDateTime *string `pulumi:"endDateTime"`
 }
 
@@ -693,7 +693,7 @@ type EligibleRoleAssignmentScheduleExpirationArgs struct {
 	DurationHours pulumi.IntPtrInput `pulumi:"durationHours"`
 	// The end date/time of the role assignment. Changing this forces a new resource to be created.
 	//
-	// > Note: Only one of `durationDays`, `durationHours` or `endDateTime` should be specified.
+	// > **Note:** Only one of `durationDays`, `durationHours` or `endDateTime` should be specified.
 	EndDateTime pulumi.StringPtrInput `pulumi:"endDateTime"`
 }
 
@@ -786,7 +786,7 @@ func (o EligibleRoleAssignmentScheduleExpirationOutput) DurationHours() pulumi.I
 
 // The end date/time of the role assignment. Changing this forces a new resource to be created.
 //
-// > Note: Only one of `durationDays`, `durationHours` or `endDateTime` should be specified.
+// > **Note:** Only one of `durationDays`, `durationHours` or `endDateTime` should be specified.
 func (o EligibleRoleAssignmentScheduleExpirationOutput) EndDateTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EligibleRoleAssignmentScheduleExpiration) *string { return v.EndDateTime }).(pulumi.StringPtrOutput)
 }
@@ -837,7 +837,7 @@ func (o EligibleRoleAssignmentScheduleExpirationPtrOutput) DurationHours() pulum
 
 // The end date/time of the role assignment. Changing this forces a new resource to be created.
 //
-// > Note: Only one of `durationDays`, `durationHours` or `endDateTime` should be specified.
+// > **Note:** Only one of `durationDays`, `durationHours` or `endDateTime` should be specified.
 func (o EligibleRoleAssignmentScheduleExpirationPtrOutput) EndDateTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EligibleRoleAssignmentScheduleExpiration) *string {
 		if v == nil {
@@ -4249,6 +4249,184 @@ func (o RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotifica
 	}).(pulumi.StringPtrOutput)
 }
 
+type GetRoleAssignmentsRoleAssignment struct {
+	// The condition that limits the resource the role can be assigned to.
+	Condition string `pulumi:"condition"`
+	// The version of the condition.
+	ConditionVersion string `pulumi:"conditionVersion"`
+	// The ID of the delegated managed identity resource.
+	DelegatedManagedIdentityResourceId string `pulumi:"delegatedManagedIdentityResourceId"`
+	// The description for this Role Assignment.
+	Description string `pulumi:"description"`
+	// The principal ID to filter the list of Role Assignments against.
+	PrincipalId string `pulumi:"principalId"`
+	// The type of the `principalId`.
+	PrincipalType string `pulumi:"principalType"`
+	// The ID of the Role Assignment.
+	RoleAssignmentId string `pulumi:"roleAssignmentId"`
+	// The name of the Role Assignment.
+	RoleAssignmentName string `pulumi:"roleAssignmentName"`
+	// The scope of the Role Assignment.
+	RoleAssignmentScope string `pulumi:"roleAssignmentScope"`
+	// The ID of the Role Definition.
+	RoleDefinitionId string `pulumi:"roleDefinitionId"`
+}
+
+// GetRoleAssignmentsRoleAssignmentInput is an input type that accepts GetRoleAssignmentsRoleAssignmentArgs and GetRoleAssignmentsRoleAssignmentOutput values.
+// You can construct a concrete instance of `GetRoleAssignmentsRoleAssignmentInput` via:
+//
+//	GetRoleAssignmentsRoleAssignmentArgs{...}
+type GetRoleAssignmentsRoleAssignmentInput interface {
+	pulumi.Input
+
+	ToGetRoleAssignmentsRoleAssignmentOutput() GetRoleAssignmentsRoleAssignmentOutput
+	ToGetRoleAssignmentsRoleAssignmentOutputWithContext(context.Context) GetRoleAssignmentsRoleAssignmentOutput
+}
+
+type GetRoleAssignmentsRoleAssignmentArgs struct {
+	// The condition that limits the resource the role can be assigned to.
+	Condition pulumi.StringInput `pulumi:"condition"`
+	// The version of the condition.
+	ConditionVersion pulumi.StringInput `pulumi:"conditionVersion"`
+	// The ID of the delegated managed identity resource.
+	DelegatedManagedIdentityResourceId pulumi.StringInput `pulumi:"delegatedManagedIdentityResourceId"`
+	// The description for this Role Assignment.
+	Description pulumi.StringInput `pulumi:"description"`
+	// The principal ID to filter the list of Role Assignments against.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// The type of the `principalId`.
+	PrincipalType pulumi.StringInput `pulumi:"principalType"`
+	// The ID of the Role Assignment.
+	RoleAssignmentId pulumi.StringInput `pulumi:"roleAssignmentId"`
+	// The name of the Role Assignment.
+	RoleAssignmentName pulumi.StringInput `pulumi:"roleAssignmentName"`
+	// The scope of the Role Assignment.
+	RoleAssignmentScope pulumi.StringInput `pulumi:"roleAssignmentScope"`
+	// The ID of the Role Definition.
+	RoleDefinitionId pulumi.StringInput `pulumi:"roleDefinitionId"`
+}
+
+func (GetRoleAssignmentsRoleAssignmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRoleAssignmentsRoleAssignment)(nil)).Elem()
+}
+
+func (i GetRoleAssignmentsRoleAssignmentArgs) ToGetRoleAssignmentsRoleAssignmentOutput() GetRoleAssignmentsRoleAssignmentOutput {
+	return i.ToGetRoleAssignmentsRoleAssignmentOutputWithContext(context.Background())
+}
+
+func (i GetRoleAssignmentsRoleAssignmentArgs) ToGetRoleAssignmentsRoleAssignmentOutputWithContext(ctx context.Context) GetRoleAssignmentsRoleAssignmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRoleAssignmentsRoleAssignmentOutput)
+}
+
+// GetRoleAssignmentsRoleAssignmentArrayInput is an input type that accepts GetRoleAssignmentsRoleAssignmentArray and GetRoleAssignmentsRoleAssignmentArrayOutput values.
+// You can construct a concrete instance of `GetRoleAssignmentsRoleAssignmentArrayInput` via:
+//
+//	GetRoleAssignmentsRoleAssignmentArray{ GetRoleAssignmentsRoleAssignmentArgs{...} }
+type GetRoleAssignmentsRoleAssignmentArrayInput interface {
+	pulumi.Input
+
+	ToGetRoleAssignmentsRoleAssignmentArrayOutput() GetRoleAssignmentsRoleAssignmentArrayOutput
+	ToGetRoleAssignmentsRoleAssignmentArrayOutputWithContext(context.Context) GetRoleAssignmentsRoleAssignmentArrayOutput
+}
+
+type GetRoleAssignmentsRoleAssignmentArray []GetRoleAssignmentsRoleAssignmentInput
+
+func (GetRoleAssignmentsRoleAssignmentArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRoleAssignmentsRoleAssignment)(nil)).Elem()
+}
+
+func (i GetRoleAssignmentsRoleAssignmentArray) ToGetRoleAssignmentsRoleAssignmentArrayOutput() GetRoleAssignmentsRoleAssignmentArrayOutput {
+	return i.ToGetRoleAssignmentsRoleAssignmentArrayOutputWithContext(context.Background())
+}
+
+func (i GetRoleAssignmentsRoleAssignmentArray) ToGetRoleAssignmentsRoleAssignmentArrayOutputWithContext(ctx context.Context) GetRoleAssignmentsRoleAssignmentArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRoleAssignmentsRoleAssignmentArrayOutput)
+}
+
+type GetRoleAssignmentsRoleAssignmentOutput struct{ *pulumi.OutputState }
+
+func (GetRoleAssignmentsRoleAssignmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRoleAssignmentsRoleAssignment)(nil)).Elem()
+}
+
+func (o GetRoleAssignmentsRoleAssignmentOutput) ToGetRoleAssignmentsRoleAssignmentOutput() GetRoleAssignmentsRoleAssignmentOutput {
+	return o
+}
+
+func (o GetRoleAssignmentsRoleAssignmentOutput) ToGetRoleAssignmentsRoleAssignmentOutputWithContext(ctx context.Context) GetRoleAssignmentsRoleAssignmentOutput {
+	return o
+}
+
+// The condition that limits the resource the role can be assigned to.
+func (o GetRoleAssignmentsRoleAssignmentOutput) Condition() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRoleAssignmentsRoleAssignment) string { return v.Condition }).(pulumi.StringOutput)
+}
+
+// The version of the condition.
+func (o GetRoleAssignmentsRoleAssignmentOutput) ConditionVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRoleAssignmentsRoleAssignment) string { return v.ConditionVersion }).(pulumi.StringOutput)
+}
+
+// The ID of the delegated managed identity resource.
+func (o GetRoleAssignmentsRoleAssignmentOutput) DelegatedManagedIdentityResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRoleAssignmentsRoleAssignment) string { return v.DelegatedManagedIdentityResourceId }).(pulumi.StringOutput)
+}
+
+// The description for this Role Assignment.
+func (o GetRoleAssignmentsRoleAssignmentOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRoleAssignmentsRoleAssignment) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// The principal ID to filter the list of Role Assignments against.
+func (o GetRoleAssignmentsRoleAssignmentOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRoleAssignmentsRoleAssignment) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// The type of the `principalId`.
+func (o GetRoleAssignmentsRoleAssignmentOutput) PrincipalType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRoleAssignmentsRoleAssignment) string { return v.PrincipalType }).(pulumi.StringOutput)
+}
+
+// The ID of the Role Assignment.
+func (o GetRoleAssignmentsRoleAssignmentOutput) RoleAssignmentId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRoleAssignmentsRoleAssignment) string { return v.RoleAssignmentId }).(pulumi.StringOutput)
+}
+
+// The name of the Role Assignment.
+func (o GetRoleAssignmentsRoleAssignmentOutput) RoleAssignmentName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRoleAssignmentsRoleAssignment) string { return v.RoleAssignmentName }).(pulumi.StringOutput)
+}
+
+// The scope of the Role Assignment.
+func (o GetRoleAssignmentsRoleAssignmentOutput) RoleAssignmentScope() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRoleAssignmentsRoleAssignment) string { return v.RoleAssignmentScope }).(pulumi.StringOutput)
+}
+
+// The ID of the Role Definition.
+func (o GetRoleAssignmentsRoleAssignmentOutput) RoleDefinitionId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRoleAssignmentsRoleAssignment) string { return v.RoleDefinitionId }).(pulumi.StringOutput)
+}
+
+type GetRoleAssignmentsRoleAssignmentArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRoleAssignmentsRoleAssignmentArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRoleAssignmentsRoleAssignment)(nil)).Elem()
+}
+
+func (o GetRoleAssignmentsRoleAssignmentArrayOutput) ToGetRoleAssignmentsRoleAssignmentArrayOutput() GetRoleAssignmentsRoleAssignmentArrayOutput {
+	return o
+}
+
+func (o GetRoleAssignmentsRoleAssignmentArrayOutput) ToGetRoleAssignmentsRoleAssignmentArrayOutputWithContext(ctx context.Context) GetRoleAssignmentsRoleAssignmentArrayOutput {
+	return o
+}
+
+func (o GetRoleAssignmentsRoleAssignmentArrayOutput) Index(i pulumi.IntInput) GetRoleAssignmentsRoleAssignmentOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRoleAssignmentsRoleAssignment {
+		return vs[0].([]GetRoleAssignmentsRoleAssignment)[vs[1].(int)]
+	}).(GetRoleAssignmentsRoleAssignmentOutput)
+}
+
 type GetRoleManagementPolicyActivationRule struct {
 	// An `approvalStage` block as defined below.
 	ApprovalStages []GetRoleManagementPolicyActivationRuleApprovalStage `pulumi:"approvalStages"`
@@ -6470,6 +6648,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsPtrInput)(nil)).Elem(), RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsInput)(nil)).Elem(), RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsPtrInput)(nil)).Elem(), RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRoleAssignmentsRoleAssignmentInput)(nil)).Elem(), GetRoleAssignmentsRoleAssignmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRoleAssignmentsRoleAssignmentArrayInput)(nil)).Elem(), GetRoleAssignmentsRoleAssignmentArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRoleManagementPolicyActivationRuleInput)(nil)).Elem(), GetRoleManagementPolicyActivationRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRoleManagementPolicyActivationRuleArrayInput)(nil)).Elem(), GetRoleManagementPolicyActivationRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRoleManagementPolicyActivationRuleApprovalStageInput)(nil)).Elem(), GetRoleManagementPolicyActivationRuleApprovalStageArgs{})
@@ -6554,6 +6734,8 @@ func init() {
 	pulumi.RegisterOutputType(RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsPtrOutput{})
 	pulumi.RegisterOutputType(RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsOutput{})
 	pulumi.RegisterOutputType(RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsPtrOutput{})
+	pulumi.RegisterOutputType(GetRoleAssignmentsRoleAssignmentOutput{})
+	pulumi.RegisterOutputType(GetRoleAssignmentsRoleAssignmentArrayOutput{})
 	pulumi.RegisterOutputType(GetRoleManagementPolicyActivationRuleOutput{})
 	pulumi.RegisterOutputType(GetRoleManagementPolicyActivationRuleArrayOutput{})
 	pulumi.RegisterOutputType(GetRoleManagementPolicyActivationRuleApprovalStageOutput{})

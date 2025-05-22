@@ -85,6 +85,13 @@ import (
 //
 // ```
 //
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.EventGrid`: 2022-06-15
+//
 // ## Import
 //
 // EventGrid System Topic Event Subscriptions can be imported using the `resource id`, e.g.
@@ -141,7 +148,7 @@ type SystemTopicEventSubscription struct {
 	SystemTopic pulumi.StringOutput `pulumi:"systemTopic"`
 	// A `webhookEndpoint` block as defined below.
 	//
-	// > **NOTE:** One of `azureFunctionEndpoint`, `eventhubEndpointId`, `hybridConnectionEndpoint`, `hybridConnectionEndpointId`, `serviceBusQueueEndpointId`, `serviceBusTopicEndpointId`, `storageQueueEndpoint` or `webhookEndpoint` must be specified.
+	// > **Note:** One of `azureFunctionEndpoint`, `eventhubEndpointId`, `hybridConnectionEndpoint`, `hybridConnectionEndpointId`, `serviceBusQueueEndpointId`, `serviceBusTopicEndpointId`, `storageQueueEndpoint` or `webhookEndpoint` must be specified.
 	WebhookEndpoint SystemTopicEventSubscriptionWebhookEndpointPtrOutput `pulumi:"webhookEndpoint"`
 }
 
@@ -227,7 +234,7 @@ type systemTopicEventSubscriptionState struct {
 	SystemTopic *string `pulumi:"systemTopic"`
 	// A `webhookEndpoint` block as defined below.
 	//
-	// > **NOTE:** One of `azureFunctionEndpoint`, `eventhubEndpointId`, `hybridConnectionEndpoint`, `hybridConnectionEndpointId`, `serviceBusQueueEndpointId`, `serviceBusTopicEndpointId`, `storageQueueEndpoint` or `webhookEndpoint` must be specified.
+	// > **Note:** One of `azureFunctionEndpoint`, `eventhubEndpointId`, `hybridConnectionEndpoint`, `hybridConnectionEndpointId`, `serviceBusQueueEndpointId`, `serviceBusTopicEndpointId`, `storageQueueEndpoint` or `webhookEndpoint` must be specified.
 	WebhookEndpoint *SystemTopicEventSubscriptionWebhookEndpoint `pulumi:"webhookEndpoint"`
 }
 
@@ -278,7 +285,7 @@ type SystemTopicEventSubscriptionState struct {
 	SystemTopic pulumi.StringPtrInput
 	// A `webhookEndpoint` block as defined below.
 	//
-	// > **NOTE:** One of `azureFunctionEndpoint`, `eventhubEndpointId`, `hybridConnectionEndpoint`, `hybridConnectionEndpointId`, `serviceBusQueueEndpointId`, `serviceBusTopicEndpointId`, `storageQueueEndpoint` or `webhookEndpoint` must be specified.
+	// > **Note:** One of `azureFunctionEndpoint`, `eventhubEndpointId`, `hybridConnectionEndpoint`, `hybridConnectionEndpointId`, `serviceBusQueueEndpointId`, `serviceBusTopicEndpointId`, `storageQueueEndpoint` or `webhookEndpoint` must be specified.
 	WebhookEndpoint SystemTopicEventSubscriptionWebhookEndpointPtrInput
 }
 
@@ -333,7 +340,7 @@ type systemTopicEventSubscriptionArgs struct {
 	SystemTopic string `pulumi:"systemTopic"`
 	// A `webhookEndpoint` block as defined below.
 	//
-	// > **NOTE:** One of `azureFunctionEndpoint`, `eventhubEndpointId`, `hybridConnectionEndpoint`, `hybridConnectionEndpointId`, `serviceBusQueueEndpointId`, `serviceBusTopicEndpointId`, `storageQueueEndpoint` or `webhookEndpoint` must be specified.
+	// > **Note:** One of `azureFunctionEndpoint`, `eventhubEndpointId`, `hybridConnectionEndpoint`, `hybridConnectionEndpointId`, `serviceBusQueueEndpointId`, `serviceBusTopicEndpointId`, `storageQueueEndpoint` or `webhookEndpoint` must be specified.
 	WebhookEndpoint *SystemTopicEventSubscriptionWebhookEndpoint `pulumi:"webhookEndpoint"`
 }
 
@@ -385,7 +392,7 @@ type SystemTopicEventSubscriptionArgs struct {
 	SystemTopic pulumi.StringInput
 	// A `webhookEndpoint` block as defined below.
 	//
-	// > **NOTE:** One of `azureFunctionEndpoint`, `eventhubEndpointId`, `hybridConnectionEndpoint`, `hybridConnectionEndpointId`, `serviceBusQueueEndpointId`, `serviceBusTopicEndpointId`, `storageQueueEndpoint` or `webhookEndpoint` must be specified.
+	// > **Note:** One of `azureFunctionEndpoint`, `eventhubEndpointId`, `hybridConnectionEndpoint`, `hybridConnectionEndpointId`, `serviceBusQueueEndpointId`, `serviceBusTopicEndpointId`, `storageQueueEndpoint` or `webhookEndpoint` must be specified.
 	WebhookEndpoint SystemTopicEventSubscriptionWebhookEndpointPtrInput
 }
 
@@ -603,7 +610,7 @@ func (o SystemTopicEventSubscriptionOutput) SystemTopic() pulumi.StringOutput {
 
 // A `webhookEndpoint` block as defined below.
 //
-// > **NOTE:** One of `azureFunctionEndpoint`, `eventhubEndpointId`, `hybridConnectionEndpoint`, `hybridConnectionEndpointId`, `serviceBusQueueEndpointId`, `serviceBusTopicEndpointId`, `storageQueueEndpoint` or `webhookEndpoint` must be specified.
+// > **Note:** One of `azureFunctionEndpoint`, `eventhubEndpointId`, `hybridConnectionEndpoint`, `hybridConnectionEndpointId`, `serviceBusQueueEndpointId`, `serviceBusTopicEndpointId`, `storageQueueEndpoint` or `webhookEndpoint` must be specified.
 func (o SystemTopicEventSubscriptionOutput) WebhookEndpoint() SystemTopicEventSubscriptionWebhookEndpointPtrOutput {
 	return o.ApplyT(func(v *SystemTopicEventSubscription) SystemTopicEventSubscriptionWebhookEndpointPtrOutput {
 		return v.WebhookEndpoint

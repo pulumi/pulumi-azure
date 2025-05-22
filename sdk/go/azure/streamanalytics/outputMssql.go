@@ -22,8 +22,8 @@ import (
 // import (
 //
 //	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/mssql"
 //	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/streamanalytics"
-//	"github.com/pulumi/pulumi-azurerm/sdk/go/azurerm"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -41,26 +41,20 @@ import (
 //				Name:              pulumi.String("example-job"),
 //				ResourceGroupName: exampleResourceGroup.Name,
 //			}, nil)
-//			exampleSqlServer, err := azurerm.NewSqlServer(ctx, "example", &azurerm.SqlServerArgs{
-//				Name:                       "example-server",
+//			exampleServer, err := mssql.NewServer(ctx, "example", &mssql.ServerArgs{
+//				Name:                       pulumi.String("example-server"),
 //				ResourceGroupName:          exampleResourceGroup.Name,
 //				Location:                   exampleResourceGroup.Location,
-//				Version:                    "12.0",
-//				AdministratorLogin:         "dbadmin",
-//				AdministratorLoginPassword: "example-password",
+//				Version:                    pulumi.String("12.0"),
+//				AdministratorLogin:         pulumi.String("dbadmin"),
+//				AdministratorLoginPassword: pulumi.String("example-password"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleSqlDatabase, err := azurerm.NewSqlDatabase(ctx, "example", &azurerm.SqlDatabaseArgs{
-//				Name:                          "exampledb",
-//				ResourceGroupName:             exampleResourceGroup.Name,
-//				Location:                      exampleResourceGroup.Location,
-//				ServerName:                    exampleSqlServer.Name,
-//				RequestedServiceObjectiveName: "S0",
-//				Collation:                     "SQL_LATIN1_GENERAL_CP1_CI_AS",
-//				MaxSizeBytes:                  "268435456000",
-//				CreateMode:                    "Default",
+//			exampleDatabase, err := mssql.NewDatabase(ctx, "example", &mssql.DatabaseArgs{
+//				Name:     pulumi.String("exampledb"),
+//				ServerId: pulumi.Any(test.Id),
 //			})
 //			if err != nil {
 //				return err
@@ -73,10 +67,10 @@ import (
 //				ResourceGroupName: pulumi.String(example.ApplyT(func(example streamanalytics.GetJobResult) (*string, error) {
 //					return &example.ResourceGroupName, nil
 //				}).(pulumi.StringPtrOutput)),
-//				Server:   exampleSqlServer.FullyQualifiedDomainName,
-//				User:     exampleSqlServer.AdministratorLogin,
-//				Password: exampleSqlServer.AdministratorLoginPassword,
-//				Database: exampleSqlDatabase.Name,
+//				Server:   exampleServer.FullyQualifiedDomainName,
+//				User:     exampleServer.AdministratorLogin,
+//				Password: exampleServer.AdministratorLoginPassword,
+//				Database: exampleDatabase.Name,
 //				Table:    pulumi.String("ExampleTable"),
 //			})
 //			if err != nil {
@@ -87,6 +81,13 @@ import (
 //	}
 //
 // ```
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.StreamAnalytics`: 2021-10-01-preview
 //
 // ## Import
 //

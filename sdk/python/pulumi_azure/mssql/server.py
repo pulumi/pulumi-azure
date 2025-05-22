@@ -29,6 +29,7 @@ class ServerArgs:
                  administrator_login_password_wo_version: Optional[pulumi.Input[builtins.int]] = None,
                  azuread_administrator: Optional[pulumi.Input['ServerAzureadAdministratorArgs']] = None,
                  connection_policy: Optional[pulumi.Input[builtins.str]] = None,
+                 express_vulnerability_assessment_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  identity: Optional[pulumi.Input['ServerIdentityArgs']] = None,
                  location: Optional[pulumi.Input[builtins.str]] = None,
                  minimum_tls_version: Optional[pulumi.Input[builtins.str]] = None,
@@ -47,13 +48,16 @@ class ServerArgs:
         :param pulumi.Input[builtins.int] administrator_login_password_wo_version: An integer value used to trigger an update for `administrator_login_password_wo`. This property should be incremented when updating `administrator_login_password_wo`.
         :param pulumi.Input['ServerAzureadAdministratorArgs'] azuread_administrator: An `azuread_administrator` block as defined below.
         :param pulumi.Input[builtins.str] connection_policy: The connection policy the server will use. Possible values are `Default`, `Proxy`, and `Redirect`. Defaults to `Default`.
+        :param pulumi.Input[builtins.bool] express_vulnerability_assessment_enabled: Whether to enable the Express Vulnerability Assessment Configuration. Defaults to `false`.
+               
+               > **Note:** If you have enabled the Classic SQL Vulnerability Assessment configuration using the `mssql.ServerVulnerabilityAssessment` resource, you must first delete it before enabling `express_vulnerability_assessment_enabled`. If you wish to revert back to using the Classic SQL Vulnerability Assessment configuration you must first disable this setting.
         :param pulumi.Input['ServerIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] minimum_tls_version: The Minimum TLS Version for all SQL Database and SQL Data Warehouse databases associated with the server. Valid values are: `1.0`, `1.1` , `1.2` and `Disabled`. Defaults to `1.2`.
                
-               > **NOTE:** The `minimum_tls_version` is set to `Disabled` means all TLS versions are allowed. After you enforce a version of `minimum_tls_version`, it's not possible to revert to `Disabled`.
+               > **Note:** The `minimum_tls_version` is set to `Disabled` means all TLS versions are allowed. After you enforce a version of `minimum_tls_version`, it's not possible to revert to `Disabled`.
                
-               > **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
+               > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         :param pulumi.Input[builtins.str] name: The name of the Microsoft SQL Server. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.bool] outbound_network_restriction_enabled: Whether outbound network traffic is restricted for this server. Defaults to `false`.
         :param pulumi.Input[builtins.str] primary_user_assigned_identity_id: Specifies the primary user managed identity id. Required if `type` within the `identity` block is set to either `SystemAssigned, UserAssigned` or `UserAssigned` and should be set at same time as setting `identity_ids`.
@@ -61,11 +65,11 @@ class ServerArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[builtins.str] transparent_data_encryption_key_vault_key_id: The fully versioned `Key Vault` `Key` URL (e.g. `'https://<YourVaultName>.vault.azure.net/keys/<YourKeyName>/<YourKeyVersion>`) to be used as the `Customer Managed Key`(CMK/BYOK) for the `Transparent Data Encryption`(TDE) layer.
                
-               > **NOTE:** To successfully deploy a `Microsoft SQL Server` in CMK/BYOK TDE the `Key Vault` must have `Soft-delete` and `purge protection` enabled to protect from data loss due to accidental key and/or key vault deletion. The `Key Vault` and the `Microsoft SQL Server` `User Managed Identity Instance` must belong to the same `Azure Active Directory` `tenant`.
+               > **Note:** To successfully deploy a `Microsoft SQL Server` in CMK/BYOK TDE the `Key Vault` must have `Soft-delete` and `purge protection` enabled to protect from data loss due to accidental key and/or key vault deletion. The `Key Vault` and the `Microsoft SQL Server` `User Managed Identity Instance` must belong to the same `Azure Active Directory` `tenant`.
                
-               > **NOTE:**  Cross-tenant `Key Vault` and `Microsoft SQL Server` interactions are not supported. Please see the [product documentation](https://learn.microsoft.com/azure/azure-sql/database/transparent-data-encryption-byok-overview?view=azuresql#requirements-for-configuring-customer-managed-tde) for more information.
+               > **Note:** Cross-tenant `Key Vault` and `Microsoft SQL Server` interactions are not supported. Please see the [product documentation](https://learn.microsoft.com/azure/azure-sql/database/transparent-data-encryption-byok-overview?view=azuresql#requirements-for-configuring-customer-managed-tde) for more information.
                
-               > **NOTE:** When using a firewall with a `Key Vault`, you must enable the option `Allow trusted Microsoft services to bypass the firewall`.
+               > **Note:** When using a firewall with a `Key Vault`, you must enable the option `Allow trusted Microsoft services to bypass the firewall`.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "version", version)
@@ -79,6 +83,8 @@ class ServerArgs:
             pulumi.set(__self__, "azuread_administrator", azuread_administrator)
         if connection_policy is not None:
             pulumi.set(__self__, "connection_policy", connection_policy)
+        if express_vulnerability_assessment_enabled is not None:
+            pulumi.set(__self__, "express_vulnerability_assessment_enabled", express_vulnerability_assessment_enabled)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if location is not None:
@@ -183,6 +189,20 @@ class ServerArgs:
         pulumi.set(self, "connection_policy", value)
 
     @property
+    @pulumi.getter(name="expressVulnerabilityAssessmentEnabled")
+    def express_vulnerability_assessment_enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        Whether to enable the Express Vulnerability Assessment Configuration. Defaults to `false`.
+
+        > **Note:** If you have enabled the Classic SQL Vulnerability Assessment configuration using the `mssql.ServerVulnerabilityAssessment` resource, you must first delete it before enabling `express_vulnerability_assessment_enabled`. If you wish to revert back to using the Classic SQL Vulnerability Assessment configuration you must first disable this setting.
+        """
+        return pulumi.get(self, "express_vulnerability_assessment_enabled")
+
+    @express_vulnerability_assessment_enabled.setter
+    def express_vulnerability_assessment_enabled(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "express_vulnerability_assessment_enabled", value)
+
+    @property
     @pulumi.getter
     def identity(self) -> Optional[pulumi.Input['ServerIdentityArgs']]:
         """
@@ -212,9 +232,9 @@ class ServerArgs:
         """
         The Minimum TLS Version for all SQL Database and SQL Data Warehouse databases associated with the server. Valid values are: `1.0`, `1.1` , `1.2` and `Disabled`. Defaults to `1.2`.
 
-        > **NOTE:** The `minimum_tls_version` is set to `Disabled` means all TLS versions are allowed. After you enforce a version of `minimum_tls_version`, it's not possible to revert to `Disabled`.
+        > **Note:** The `minimum_tls_version` is set to `Disabled` means all TLS versions are allowed. After you enforce a version of `minimum_tls_version`, it's not possible to revert to `Disabled`.
 
-        > **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
+        > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         """
         return pulumi.get(self, "minimum_tls_version")
 
@@ -288,11 +308,11 @@ class ServerArgs:
         """
         The fully versioned `Key Vault` `Key` URL (e.g. `'https://<YourVaultName>.vault.azure.net/keys/<YourKeyName>/<YourKeyVersion>`) to be used as the `Customer Managed Key`(CMK/BYOK) for the `Transparent Data Encryption`(TDE) layer.
 
-        > **NOTE:** To successfully deploy a `Microsoft SQL Server` in CMK/BYOK TDE the `Key Vault` must have `Soft-delete` and `purge protection` enabled to protect from data loss due to accidental key and/or key vault deletion. The `Key Vault` and the `Microsoft SQL Server` `User Managed Identity Instance` must belong to the same `Azure Active Directory` `tenant`.
+        > **Note:** To successfully deploy a `Microsoft SQL Server` in CMK/BYOK TDE the `Key Vault` must have `Soft-delete` and `purge protection` enabled to protect from data loss due to accidental key and/or key vault deletion. The `Key Vault` and the `Microsoft SQL Server` `User Managed Identity Instance` must belong to the same `Azure Active Directory` `tenant`.
 
-        > **NOTE:**  Cross-tenant `Key Vault` and `Microsoft SQL Server` interactions are not supported. Please see the [product documentation](https://learn.microsoft.com/azure/azure-sql/database/transparent-data-encryption-byok-overview?view=azuresql#requirements-for-configuring-customer-managed-tde) for more information.
+        > **Note:** Cross-tenant `Key Vault` and `Microsoft SQL Server` interactions are not supported. Please see the [product documentation](https://learn.microsoft.com/azure/azure-sql/database/transparent-data-encryption-byok-overview?view=azuresql#requirements-for-configuring-customer-managed-tde) for more information.
 
-        > **NOTE:** When using a firewall with a `Key Vault`, you must enable the option `Allow trusted Microsoft services to bypass the firewall`.
+        > **Note:** When using a firewall with a `Key Vault`, you must enable the option `Allow trusted Microsoft services to bypass the firewall`.
         """
         return pulumi.get(self, "transparent_data_encryption_key_vault_key_id")
 
@@ -309,6 +329,7 @@ class _ServerState:
                  administrator_login_password_wo_version: Optional[pulumi.Input[builtins.int]] = None,
                  azuread_administrator: Optional[pulumi.Input['ServerAzureadAdministratorArgs']] = None,
                  connection_policy: Optional[pulumi.Input[builtins.str]] = None,
+                 express_vulnerability_assessment_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  fully_qualified_domain_name: Optional[pulumi.Input[builtins.str]] = None,
                  identity: Optional[pulumi.Input['ServerIdentityArgs']] = None,
                  location: Optional[pulumi.Input[builtins.str]] = None,
@@ -329,14 +350,17 @@ class _ServerState:
         :param pulumi.Input[builtins.int] administrator_login_password_wo_version: An integer value used to trigger an update for `administrator_login_password_wo`. This property should be incremented when updating `administrator_login_password_wo`.
         :param pulumi.Input['ServerAzureadAdministratorArgs'] azuread_administrator: An `azuread_administrator` block as defined below.
         :param pulumi.Input[builtins.str] connection_policy: The connection policy the server will use. Possible values are `Default`, `Proxy`, and `Redirect`. Defaults to `Default`.
+        :param pulumi.Input[builtins.bool] express_vulnerability_assessment_enabled: Whether to enable the Express Vulnerability Assessment Configuration. Defaults to `false`.
+               
+               > **Note:** If you have enabled the Classic SQL Vulnerability Assessment configuration using the `mssql.ServerVulnerabilityAssessment` resource, you must first delete it before enabling `express_vulnerability_assessment_enabled`. If you wish to revert back to using the Classic SQL Vulnerability Assessment configuration you must first disable this setting.
         :param pulumi.Input[builtins.str] fully_qualified_domain_name: The fully qualified domain name of the Azure SQL Server (e.g. myServerName.database.windows.net)
         :param pulumi.Input['ServerIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] minimum_tls_version: The Minimum TLS Version for all SQL Database and SQL Data Warehouse databases associated with the server. Valid values are: `1.0`, `1.1` , `1.2` and `Disabled`. Defaults to `1.2`.
                
-               > **NOTE:** The `minimum_tls_version` is set to `Disabled` means all TLS versions are allowed. After you enforce a version of `minimum_tls_version`, it's not possible to revert to `Disabled`.
+               > **Note:** The `minimum_tls_version` is set to `Disabled` means all TLS versions are allowed. After you enforce a version of `minimum_tls_version`, it's not possible to revert to `Disabled`.
                
-               > **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
+               > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         :param pulumi.Input[builtins.str] name: The name of the Microsoft SQL Server. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.bool] outbound_network_restriction_enabled: Whether outbound network traffic is restricted for this server. Defaults to `false`.
         :param pulumi.Input[builtins.str] primary_user_assigned_identity_id: Specifies the primary user managed identity id. Required if `type` within the `identity` block is set to either `SystemAssigned, UserAssigned` or `UserAssigned` and should be set at same time as setting `identity_ids`.
@@ -346,11 +370,11 @@ class _ServerState:
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[builtins.str] transparent_data_encryption_key_vault_key_id: The fully versioned `Key Vault` `Key` URL (e.g. `'https://<YourVaultName>.vault.azure.net/keys/<YourKeyName>/<YourKeyVersion>`) to be used as the `Customer Managed Key`(CMK/BYOK) for the `Transparent Data Encryption`(TDE) layer.
                
-               > **NOTE:** To successfully deploy a `Microsoft SQL Server` in CMK/BYOK TDE the `Key Vault` must have `Soft-delete` and `purge protection` enabled to protect from data loss due to accidental key and/or key vault deletion. The `Key Vault` and the `Microsoft SQL Server` `User Managed Identity Instance` must belong to the same `Azure Active Directory` `tenant`.
+               > **Note:** To successfully deploy a `Microsoft SQL Server` in CMK/BYOK TDE the `Key Vault` must have `Soft-delete` and `purge protection` enabled to protect from data loss due to accidental key and/or key vault deletion. The `Key Vault` and the `Microsoft SQL Server` `User Managed Identity Instance` must belong to the same `Azure Active Directory` `tenant`.
                
-               > **NOTE:**  Cross-tenant `Key Vault` and `Microsoft SQL Server` interactions are not supported. Please see the [product documentation](https://learn.microsoft.com/azure/azure-sql/database/transparent-data-encryption-byok-overview?view=azuresql#requirements-for-configuring-customer-managed-tde) for more information.
+               > **Note:** Cross-tenant `Key Vault` and `Microsoft SQL Server` interactions are not supported. Please see the [product documentation](https://learn.microsoft.com/azure/azure-sql/database/transparent-data-encryption-byok-overview?view=azuresql#requirements-for-configuring-customer-managed-tde) for more information.
                
-               > **NOTE:** When using a firewall with a `Key Vault`, you must enable the option `Allow trusted Microsoft services to bypass the firewall`.
+               > **Note:** When using a firewall with a `Key Vault`, you must enable the option `Allow trusted Microsoft services to bypass the firewall`.
         :param pulumi.Input[builtins.str] version: The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server). Changing this forces a new resource to be created.
         """
         if administrator_login is not None:
@@ -363,6 +387,8 @@ class _ServerState:
             pulumi.set(__self__, "azuread_administrator", azuread_administrator)
         if connection_policy is not None:
             pulumi.set(__self__, "connection_policy", connection_policy)
+        if express_vulnerability_assessment_enabled is not None:
+            pulumi.set(__self__, "express_vulnerability_assessment_enabled", express_vulnerability_assessment_enabled)
         if fully_qualified_domain_name is not None:
             pulumi.set(__self__, "fully_qualified_domain_name", fully_qualified_domain_name)
         if identity is not None:
@@ -451,6 +477,20 @@ class _ServerState:
         pulumi.set(self, "connection_policy", value)
 
     @property
+    @pulumi.getter(name="expressVulnerabilityAssessmentEnabled")
+    def express_vulnerability_assessment_enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        Whether to enable the Express Vulnerability Assessment Configuration. Defaults to `false`.
+
+        > **Note:** If you have enabled the Classic SQL Vulnerability Assessment configuration using the `mssql.ServerVulnerabilityAssessment` resource, you must first delete it before enabling `express_vulnerability_assessment_enabled`. If you wish to revert back to using the Classic SQL Vulnerability Assessment configuration you must first disable this setting.
+        """
+        return pulumi.get(self, "express_vulnerability_assessment_enabled")
+
+    @express_vulnerability_assessment_enabled.setter
+    def express_vulnerability_assessment_enabled(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "express_vulnerability_assessment_enabled", value)
+
+    @property
     @pulumi.getter(name="fullyQualifiedDomainName")
     def fully_qualified_domain_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -492,9 +532,9 @@ class _ServerState:
         """
         The Minimum TLS Version for all SQL Database and SQL Data Warehouse databases associated with the server. Valid values are: `1.0`, `1.1` , `1.2` and `Disabled`. Defaults to `1.2`.
 
-        > **NOTE:** The `minimum_tls_version` is set to `Disabled` means all TLS versions are allowed. After you enforce a version of `minimum_tls_version`, it's not possible to revert to `Disabled`.
+        > **Note:** The `minimum_tls_version` is set to `Disabled` means all TLS versions are allowed. After you enforce a version of `minimum_tls_version`, it's not possible to revert to `Disabled`.
 
-        > **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
+        > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         """
         return pulumi.get(self, "minimum_tls_version")
 
@@ -592,11 +632,11 @@ class _ServerState:
         """
         The fully versioned `Key Vault` `Key` URL (e.g. `'https://<YourVaultName>.vault.azure.net/keys/<YourKeyName>/<YourKeyVersion>`) to be used as the `Customer Managed Key`(CMK/BYOK) for the `Transparent Data Encryption`(TDE) layer.
 
-        > **NOTE:** To successfully deploy a `Microsoft SQL Server` in CMK/BYOK TDE the `Key Vault` must have `Soft-delete` and `purge protection` enabled to protect from data loss due to accidental key and/or key vault deletion. The `Key Vault` and the `Microsoft SQL Server` `User Managed Identity Instance` must belong to the same `Azure Active Directory` `tenant`.
+        > **Note:** To successfully deploy a `Microsoft SQL Server` in CMK/BYOK TDE the `Key Vault` must have `Soft-delete` and `purge protection` enabled to protect from data loss due to accidental key and/or key vault deletion. The `Key Vault` and the `Microsoft SQL Server` `User Managed Identity Instance` must belong to the same `Azure Active Directory` `tenant`.
 
-        > **NOTE:**  Cross-tenant `Key Vault` and `Microsoft SQL Server` interactions are not supported. Please see the [product documentation](https://learn.microsoft.com/azure/azure-sql/database/transparent-data-encryption-byok-overview?view=azuresql#requirements-for-configuring-customer-managed-tde) for more information.
+        > **Note:** Cross-tenant `Key Vault` and `Microsoft SQL Server` interactions are not supported. Please see the [product documentation](https://learn.microsoft.com/azure/azure-sql/database/transparent-data-encryption-byok-overview?view=azuresql#requirements-for-configuring-customer-managed-tde) for more information.
 
-        > **NOTE:** When using a firewall with a `Key Vault`, you must enable the option `Allow trusted Microsoft services to bypass the firewall`.
+        > **Note:** When using a firewall with a `Key Vault`, you must enable the option `Allow trusted Microsoft services to bypass the firewall`.
         """
         return pulumi.get(self, "transparent_data_encryption_key_vault_key_id")
 
@@ -628,6 +668,7 @@ class Server(pulumi.CustomResource):
                  administrator_login_password_wo_version: Optional[pulumi.Input[builtins.int]] = None,
                  azuread_administrator: Optional[pulumi.Input[Union['ServerAzureadAdministratorArgs', 'ServerAzureadAdministratorArgsDict']]] = None,
                  connection_policy: Optional[pulumi.Input[builtins.str]] = None,
+                 express_vulnerability_assessment_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  identity: Optional[pulumi.Input[Union['ServerIdentityArgs', 'ServerIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[builtins.str]] = None,
                  minimum_tls_version: Optional[pulumi.Input[builtins.str]] = None,
@@ -669,7 +710,7 @@ class Server(pulumi.CustomResource):
             })
         ```
 
-        ### Transparent Data Encryption(TDE) With A Customer Managed Key(CMK) During Create
+        ### Transparent Data Encryption (TDE) With A Customer Managed Key (CMK) During Create
 
         ```python
         import pulumi
@@ -748,6 +789,13 @@ class Server(pulumi.CustomResource):
             transparent_data_encryption_key_vault_key_id=example_key.id)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Sql`: 2023-08-01-preview
+
         ## Import
 
         SQL Servers can be imported using the `resource id`, e.g.
@@ -763,13 +811,16 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] administrator_login_password_wo_version: An integer value used to trigger an update for `administrator_login_password_wo`. This property should be incremented when updating `administrator_login_password_wo`.
         :param pulumi.Input[Union['ServerAzureadAdministratorArgs', 'ServerAzureadAdministratorArgsDict']] azuread_administrator: An `azuread_administrator` block as defined below.
         :param pulumi.Input[builtins.str] connection_policy: The connection policy the server will use. Possible values are `Default`, `Proxy`, and `Redirect`. Defaults to `Default`.
+        :param pulumi.Input[builtins.bool] express_vulnerability_assessment_enabled: Whether to enable the Express Vulnerability Assessment Configuration. Defaults to `false`.
+               
+               > **Note:** If you have enabled the Classic SQL Vulnerability Assessment configuration using the `mssql.ServerVulnerabilityAssessment` resource, you must first delete it before enabling `express_vulnerability_assessment_enabled`. If you wish to revert back to using the Classic SQL Vulnerability Assessment configuration you must first disable this setting.
         :param pulumi.Input[Union['ServerIdentityArgs', 'ServerIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] minimum_tls_version: The Minimum TLS Version for all SQL Database and SQL Data Warehouse databases associated with the server. Valid values are: `1.0`, `1.1` , `1.2` and `Disabled`. Defaults to `1.2`.
                
-               > **NOTE:** The `minimum_tls_version` is set to `Disabled` means all TLS versions are allowed. After you enforce a version of `minimum_tls_version`, it's not possible to revert to `Disabled`.
+               > **Note:** The `minimum_tls_version` is set to `Disabled` means all TLS versions are allowed. After you enforce a version of `minimum_tls_version`, it's not possible to revert to `Disabled`.
                
-               > **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
+               > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         :param pulumi.Input[builtins.str] name: The name of the Microsoft SQL Server. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.bool] outbound_network_restriction_enabled: Whether outbound network traffic is restricted for this server. Defaults to `false`.
         :param pulumi.Input[builtins.str] primary_user_assigned_identity_id: Specifies the primary user managed identity id. Required if `type` within the `identity` block is set to either `SystemAssigned, UserAssigned` or `UserAssigned` and should be set at same time as setting `identity_ids`.
@@ -778,11 +829,11 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[builtins.str] transparent_data_encryption_key_vault_key_id: The fully versioned `Key Vault` `Key` URL (e.g. `'https://<YourVaultName>.vault.azure.net/keys/<YourKeyName>/<YourKeyVersion>`) to be used as the `Customer Managed Key`(CMK/BYOK) for the `Transparent Data Encryption`(TDE) layer.
                
-               > **NOTE:** To successfully deploy a `Microsoft SQL Server` in CMK/BYOK TDE the `Key Vault` must have `Soft-delete` and `purge protection` enabled to protect from data loss due to accidental key and/or key vault deletion. The `Key Vault` and the `Microsoft SQL Server` `User Managed Identity Instance` must belong to the same `Azure Active Directory` `tenant`.
+               > **Note:** To successfully deploy a `Microsoft SQL Server` in CMK/BYOK TDE the `Key Vault` must have `Soft-delete` and `purge protection` enabled to protect from data loss due to accidental key and/or key vault deletion. The `Key Vault` and the `Microsoft SQL Server` `User Managed Identity Instance` must belong to the same `Azure Active Directory` `tenant`.
                
-               > **NOTE:**  Cross-tenant `Key Vault` and `Microsoft SQL Server` interactions are not supported. Please see the [product documentation](https://learn.microsoft.com/azure/azure-sql/database/transparent-data-encryption-byok-overview?view=azuresql#requirements-for-configuring-customer-managed-tde) for more information.
+               > **Note:** Cross-tenant `Key Vault` and `Microsoft SQL Server` interactions are not supported. Please see the [product documentation](https://learn.microsoft.com/azure/azure-sql/database/transparent-data-encryption-byok-overview?view=azuresql#requirements-for-configuring-customer-managed-tde) for more information.
                
-               > **NOTE:** When using a firewall with a `Key Vault`, you must enable the option `Allow trusted Microsoft services to bypass the firewall`.
+               > **Note:** When using a firewall with a `Key Vault`, you must enable the option `Allow trusted Microsoft services to bypass the firewall`.
         :param pulumi.Input[builtins.str] version: The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server). Changing this forces a new resource to be created.
         """
         ...
@@ -820,7 +871,7 @@ class Server(pulumi.CustomResource):
             })
         ```
 
-        ### Transparent Data Encryption(TDE) With A Customer Managed Key(CMK) During Create
+        ### Transparent Data Encryption (TDE) With A Customer Managed Key (CMK) During Create
 
         ```python
         import pulumi
@@ -899,6 +950,13 @@ class Server(pulumi.CustomResource):
             transparent_data_encryption_key_vault_key_id=example_key.id)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Sql`: 2023-08-01-preview
+
         ## Import
 
         SQL Servers can be imported using the `resource id`, e.g.
@@ -927,6 +985,7 @@ class Server(pulumi.CustomResource):
                  administrator_login_password_wo_version: Optional[pulumi.Input[builtins.int]] = None,
                  azuread_administrator: Optional[pulumi.Input[Union['ServerAzureadAdministratorArgs', 'ServerAzureadAdministratorArgsDict']]] = None,
                  connection_policy: Optional[pulumi.Input[builtins.str]] = None,
+                 express_vulnerability_assessment_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  identity: Optional[pulumi.Input[Union['ServerIdentityArgs', 'ServerIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[builtins.str]] = None,
                  minimum_tls_version: Optional[pulumi.Input[builtins.str]] = None,
@@ -952,6 +1011,7 @@ class Server(pulumi.CustomResource):
             __props__.__dict__["administrator_login_password_wo_version"] = administrator_login_password_wo_version
             __props__.__dict__["azuread_administrator"] = azuread_administrator
             __props__.__dict__["connection_policy"] = connection_policy
+            __props__.__dict__["express_vulnerability_assessment_enabled"] = express_vulnerability_assessment_enabled
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["minimum_tls_version"] = minimum_tls_version
@@ -988,6 +1048,7 @@ class Server(pulumi.CustomResource):
             administrator_login_password_wo_version: Optional[pulumi.Input[builtins.int]] = None,
             azuread_administrator: Optional[pulumi.Input[Union['ServerAzureadAdministratorArgs', 'ServerAzureadAdministratorArgsDict']]] = None,
             connection_policy: Optional[pulumi.Input[builtins.str]] = None,
+            express_vulnerability_assessment_enabled: Optional[pulumi.Input[builtins.bool]] = None,
             fully_qualified_domain_name: Optional[pulumi.Input[builtins.str]] = None,
             identity: Optional[pulumi.Input[Union['ServerIdentityArgs', 'ServerIdentityArgsDict']]] = None,
             location: Optional[pulumi.Input[builtins.str]] = None,
@@ -1013,14 +1074,17 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] administrator_login_password_wo_version: An integer value used to trigger an update for `administrator_login_password_wo`. This property should be incremented when updating `administrator_login_password_wo`.
         :param pulumi.Input[Union['ServerAzureadAdministratorArgs', 'ServerAzureadAdministratorArgsDict']] azuread_administrator: An `azuread_administrator` block as defined below.
         :param pulumi.Input[builtins.str] connection_policy: The connection policy the server will use. Possible values are `Default`, `Proxy`, and `Redirect`. Defaults to `Default`.
+        :param pulumi.Input[builtins.bool] express_vulnerability_assessment_enabled: Whether to enable the Express Vulnerability Assessment Configuration. Defaults to `false`.
+               
+               > **Note:** If you have enabled the Classic SQL Vulnerability Assessment configuration using the `mssql.ServerVulnerabilityAssessment` resource, you must first delete it before enabling `express_vulnerability_assessment_enabled`. If you wish to revert back to using the Classic SQL Vulnerability Assessment configuration you must first disable this setting.
         :param pulumi.Input[builtins.str] fully_qualified_domain_name: The fully qualified domain name of the Azure SQL Server (e.g. myServerName.database.windows.net)
         :param pulumi.Input[Union['ServerIdentityArgs', 'ServerIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] minimum_tls_version: The Minimum TLS Version for all SQL Database and SQL Data Warehouse databases associated with the server. Valid values are: `1.0`, `1.1` , `1.2` and `Disabled`. Defaults to `1.2`.
                
-               > **NOTE:** The `minimum_tls_version` is set to `Disabled` means all TLS versions are allowed. After you enforce a version of `minimum_tls_version`, it's not possible to revert to `Disabled`.
+               > **Note:** The `minimum_tls_version` is set to `Disabled` means all TLS versions are allowed. After you enforce a version of `minimum_tls_version`, it's not possible to revert to `Disabled`.
                
-               > **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
+               > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         :param pulumi.Input[builtins.str] name: The name of the Microsoft SQL Server. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.bool] outbound_network_restriction_enabled: Whether outbound network traffic is restricted for this server. Defaults to `false`.
         :param pulumi.Input[builtins.str] primary_user_assigned_identity_id: Specifies the primary user managed identity id. Required if `type` within the `identity` block is set to either `SystemAssigned, UserAssigned` or `UserAssigned` and should be set at same time as setting `identity_ids`.
@@ -1030,11 +1094,11 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[builtins.str] transparent_data_encryption_key_vault_key_id: The fully versioned `Key Vault` `Key` URL (e.g. `'https://<YourVaultName>.vault.azure.net/keys/<YourKeyName>/<YourKeyVersion>`) to be used as the `Customer Managed Key`(CMK/BYOK) for the `Transparent Data Encryption`(TDE) layer.
                
-               > **NOTE:** To successfully deploy a `Microsoft SQL Server` in CMK/BYOK TDE the `Key Vault` must have `Soft-delete` and `purge protection` enabled to protect from data loss due to accidental key and/or key vault deletion. The `Key Vault` and the `Microsoft SQL Server` `User Managed Identity Instance` must belong to the same `Azure Active Directory` `tenant`.
+               > **Note:** To successfully deploy a `Microsoft SQL Server` in CMK/BYOK TDE the `Key Vault` must have `Soft-delete` and `purge protection` enabled to protect from data loss due to accidental key and/or key vault deletion. The `Key Vault` and the `Microsoft SQL Server` `User Managed Identity Instance` must belong to the same `Azure Active Directory` `tenant`.
                
-               > **NOTE:**  Cross-tenant `Key Vault` and `Microsoft SQL Server` interactions are not supported. Please see the [product documentation](https://learn.microsoft.com/azure/azure-sql/database/transparent-data-encryption-byok-overview?view=azuresql#requirements-for-configuring-customer-managed-tde) for more information.
+               > **Note:** Cross-tenant `Key Vault` and `Microsoft SQL Server` interactions are not supported. Please see the [product documentation](https://learn.microsoft.com/azure/azure-sql/database/transparent-data-encryption-byok-overview?view=azuresql#requirements-for-configuring-customer-managed-tde) for more information.
                
-               > **NOTE:** When using a firewall with a `Key Vault`, you must enable the option `Allow trusted Microsoft services to bypass the firewall`.
+               > **Note:** When using a firewall with a `Key Vault`, you must enable the option `Allow trusted Microsoft services to bypass the firewall`.
         :param pulumi.Input[builtins.str] version: The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server). Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -1046,6 +1110,7 @@ class Server(pulumi.CustomResource):
         __props__.__dict__["administrator_login_password_wo_version"] = administrator_login_password_wo_version
         __props__.__dict__["azuread_administrator"] = azuread_administrator
         __props__.__dict__["connection_policy"] = connection_policy
+        __props__.__dict__["express_vulnerability_assessment_enabled"] = express_vulnerability_assessment_enabled
         __props__.__dict__["fully_qualified_domain_name"] = fully_qualified_domain_name
         __props__.__dict__["identity"] = identity
         __props__.__dict__["location"] = location
@@ -1102,6 +1167,16 @@ class Server(pulumi.CustomResource):
         return pulumi.get(self, "connection_policy")
 
     @property
+    @pulumi.getter(name="expressVulnerabilityAssessmentEnabled")
+    def express_vulnerability_assessment_enabled(self) -> pulumi.Output[Optional[builtins.bool]]:
+        """
+        Whether to enable the Express Vulnerability Assessment Configuration. Defaults to `false`.
+
+        > **Note:** If you have enabled the Classic SQL Vulnerability Assessment configuration using the `mssql.ServerVulnerabilityAssessment` resource, you must first delete it before enabling `express_vulnerability_assessment_enabled`. If you wish to revert back to using the Classic SQL Vulnerability Assessment configuration you must first disable this setting.
+        """
+        return pulumi.get(self, "express_vulnerability_assessment_enabled")
+
+    @property
     @pulumi.getter(name="fullyQualifiedDomainName")
     def fully_qualified_domain_name(self) -> pulumi.Output[builtins.str]:
         """
@@ -1131,9 +1206,9 @@ class Server(pulumi.CustomResource):
         """
         The Minimum TLS Version for all SQL Database and SQL Data Warehouse databases associated with the server. Valid values are: `1.0`, `1.1` , `1.2` and `Disabled`. Defaults to `1.2`.
 
-        > **NOTE:** The `minimum_tls_version` is set to `Disabled` means all TLS versions are allowed. After you enforce a version of `minimum_tls_version`, it's not possible to revert to `Disabled`.
+        > **Note:** The `minimum_tls_version` is set to `Disabled` means all TLS versions are allowed. After you enforce a version of `minimum_tls_version`, it's not possible to revert to `Disabled`.
 
-        > **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
+        > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         """
         return pulumi.get(self, "minimum_tls_version")
 
@@ -1199,11 +1274,11 @@ class Server(pulumi.CustomResource):
         """
         The fully versioned `Key Vault` `Key` URL (e.g. `'https://<YourVaultName>.vault.azure.net/keys/<YourKeyName>/<YourKeyVersion>`) to be used as the `Customer Managed Key`(CMK/BYOK) for the `Transparent Data Encryption`(TDE) layer.
 
-        > **NOTE:** To successfully deploy a `Microsoft SQL Server` in CMK/BYOK TDE the `Key Vault` must have `Soft-delete` and `purge protection` enabled to protect from data loss due to accidental key and/or key vault deletion. The `Key Vault` and the `Microsoft SQL Server` `User Managed Identity Instance` must belong to the same `Azure Active Directory` `tenant`.
+        > **Note:** To successfully deploy a `Microsoft SQL Server` in CMK/BYOK TDE the `Key Vault` must have `Soft-delete` and `purge protection` enabled to protect from data loss due to accidental key and/or key vault deletion. The `Key Vault` and the `Microsoft SQL Server` `User Managed Identity Instance` must belong to the same `Azure Active Directory` `tenant`.
 
-        > **NOTE:**  Cross-tenant `Key Vault` and `Microsoft SQL Server` interactions are not supported. Please see the [product documentation](https://learn.microsoft.com/azure/azure-sql/database/transparent-data-encryption-byok-overview?view=azuresql#requirements-for-configuring-customer-managed-tde) for more information.
+        > **Note:** Cross-tenant `Key Vault` and `Microsoft SQL Server` interactions are not supported. Please see the [product documentation](https://learn.microsoft.com/azure/azure-sql/database/transparent-data-encryption-byok-overview?view=azuresql#requirements-for-configuring-customer-managed-tde) for more information.
 
-        > **NOTE:** When using a firewall with a `Key Vault`, you must enable the option `Allow trusted Microsoft services to bypass the firewall`.
+        > **Note:** When using a firewall with a `Key Vault`, you must enable the option `Allow trusted Microsoft services to bypass the firewall`.
         """
         return pulumi.get(self, "transparent_data_encryption_key_vault_key_id")
 

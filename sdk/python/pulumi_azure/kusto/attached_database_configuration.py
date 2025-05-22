@@ -407,6 +407,13 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
             })
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Kusto`: 2024-04-13
+
         ## Import
 
         Kusto Attached Database Configurations can be imported using the `resource id`, e.g.
@@ -486,6 +493,13 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
                 "tables_to_includes": ["Table1"],
             })
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Kusto`: 2024-04-13
 
         ## Import
 

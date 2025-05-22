@@ -37,7 +37,7 @@ public final class AccountActiveDirectory {
     /**
      * @return kdc server IP addresses for the active directory machine.
      * 
-     * &gt; **IMPORTANT:** If you plan on using **Kerberos** volumes, both `ad_name` and `kdc_ip` are required in order to create the volume.
+     * &gt; **Note:** If you plan on using **Kerberos** volumes, both `ad_name` and `kdc_ip` are required in order to create the volume.
      * 
      */
     private @Nullable String kerberosKdcIp;
@@ -119,7 +119,7 @@ public final class AccountActiveDirectory {
     /**
      * @return kdc server IP addresses for the active directory machine.
      * 
-     * &gt; **IMPORTANT:** If you plan on using **Kerberos** volumes, both `ad_name` and `kdc_ip` are required in order to create the volume.
+     * &gt; **Note:** If you plan on using **Kerberos** volumes, both `ad_name` and `kdc_ip` are required in order to create the volume.
      * 
      */
     public Optional<String> kerberosKdcIp() {

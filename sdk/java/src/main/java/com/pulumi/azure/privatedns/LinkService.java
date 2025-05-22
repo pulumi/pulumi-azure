@@ -21,7 +21,7 @@ import javax.annotation.Nullable;
 /**
  * Manages a Private Link Service.
  * 
- * &gt; **NOTE** Private Link is now in [GA](https://docs.microsoft.com/en-gb/azure/private-link/).
+ * &gt; **Note:** Private Link is now in [GA](https://docs.microsoft.com/en-gb/azure/private-link/).
  * 
  * ## Example Usage
  * 
@@ -182,7 +182,7 @@ public class LinkService extends com.pulumi.resources.CustomResource {
     /**
      * A list of Subscription UUID/GUID&#39;s that will be able to see this Private Link Service.
      * 
-     * &gt; **NOTE:** If no Subscription IDs are specified then Azure allows every Subscription to see this Private Link Service.
+     * &gt; **Note:** If no Subscription IDs are specified then Azure allows every Subscription to see this Private Link Service.
      * 
      */
     @Export(name="visibilitySubscriptionIds", refs={List.class,String.class}, tree="[0,1]")
@@ -191,7 +191,7 @@ public class LinkService extends com.pulumi.resources.CustomResource {
     /**
      * @return A list of Subscription UUID/GUID&#39;s that will be able to see this Private Link Service.
      * 
-     * &gt; **NOTE:** If no Subscription IDs are specified then Azure allows every Subscription to see this Private Link Service.
+     * &gt; **Note:** If no Subscription IDs are specified then Azure allows every Subscription to see this Private Link Service.
      * 
      */
     public Output<Optional<List<String>>> visibilitySubscriptionIds() {

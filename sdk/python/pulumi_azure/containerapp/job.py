@@ -52,7 +52,7 @@ class JobArgs:
         :param pulumi.Input[builtins.int] replica_retry_limit: The maximum number of times a replica is allowed to retry.
         :param pulumi.Input['JobScheduleTriggerConfigArgs'] schedule_trigger_config: A `schedule_trigger_config` block as defined below.
                
-               > ** NOTE **: Only one of `manual_trigger_config`, `event_trigger_config` or `schedule_trigger_config` can be specified.
+               > **Note:** Only one of `manual_trigger_config`, `event_trigger_config` or `schedule_trigger_config` can be specified.
         :param pulumi.Input[Sequence[pulumi.Input['JobSecretArgs']]] secrets: One or more `secret` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[builtins.str] workload_profile_name: The name of the workload profile to use for the Container App Job.
@@ -222,7 +222,7 @@ class JobArgs:
         """
         A `schedule_trigger_config` block as defined below.
 
-        > ** NOTE **: Only one of `manual_trigger_config`, `event_trigger_config` or `schedule_trigger_config` can be specified.
+        > **Note:** Only one of `manual_trigger_config`, `event_trigger_config` or `schedule_trigger_config` can be specified.
         """
         return pulumi.get(self, "schedule_trigger_config")
 
@@ -303,7 +303,7 @@ class _JobState:
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group in which to create the Container App Job. Changing this forces a new resource to be created.
         :param pulumi.Input['JobScheduleTriggerConfigArgs'] schedule_trigger_config: A `schedule_trigger_config` block as defined below.
                
-               > ** NOTE **: Only one of `manual_trigger_config`, `event_trigger_config` or `schedule_trigger_config` can be specified.
+               > **Note:** Only one of `manual_trigger_config`, `event_trigger_config` or `schedule_trigger_config` can be specified.
         :param pulumi.Input[Sequence[pulumi.Input['JobSecretArgs']]] secrets: One or more `secret` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input['JobTemplateArgs'] template: A `template` block as defined below.
@@ -494,7 +494,7 @@ class _JobState:
         """
         A `schedule_trigger_config` block as defined below.
 
-        > ** NOTE **: Only one of `manual_trigger_config`, `event_trigger_config` or `schedule_trigger_config` can be specified.
+        > **Note:** Only one of `manual_trigger_config`, `event_trigger_config` or `schedule_trigger_config` can be specified.
         """
         return pulumi.get(self, "schedule_trigger_config")
 
@@ -638,6 +638,13 @@ class Job(pulumi.CustomResource):
             })
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.App`: 2025-01-01
+
         ## Import
 
         A Container App Job can be imported using the resource id, e.g.
@@ -660,7 +667,7 @@ class Job(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group in which to create the Container App Job. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['JobScheduleTriggerConfigArgs', 'JobScheduleTriggerConfigArgsDict']] schedule_trigger_config: A `schedule_trigger_config` block as defined below.
                
-               > ** NOTE **: Only one of `manual_trigger_config`, `event_trigger_config` or `schedule_trigger_config` can be specified.
+               > **Note:** Only one of `manual_trigger_config`, `event_trigger_config` or `schedule_trigger_config` can be specified.
         :param pulumi.Input[Sequence[pulumi.Input[Union['JobSecretArgs', 'JobSecretArgsDict']]]] secrets: One or more `secret` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[Union['JobTemplateArgs', 'JobTemplateArgsDict']] template: A `template` block as defined below.
@@ -736,6 +743,13 @@ class Job(pulumi.CustomResource):
                 }],
             })
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.App`: 2025-01-01
 
         ## Import
 
@@ -859,7 +873,7 @@ class Job(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group in which to create the Container App Job. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['JobScheduleTriggerConfigArgs', 'JobScheduleTriggerConfigArgsDict']] schedule_trigger_config: A `schedule_trigger_config` block as defined below.
                
-               > ** NOTE **: Only one of `manual_trigger_config`, `event_trigger_config` or `schedule_trigger_config` can be specified.
+               > **Note:** Only one of `manual_trigger_config`, `event_trigger_config` or `schedule_trigger_config` can be specified.
         :param pulumi.Input[Sequence[pulumi.Input[Union['JobSecretArgs', 'JobSecretArgsDict']]]] secrets: One or more `secret` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[Union['JobTemplateArgs', 'JobTemplateArgsDict']] template: A `template` block as defined below.
@@ -990,7 +1004,7 @@ class Job(pulumi.CustomResource):
         """
         A `schedule_trigger_config` block as defined below.
 
-        > ** NOTE **: Only one of `manual_trigger_config`, `event_trigger_config` or `schedule_trigger_config` can be specified.
+        > **Note:** Only one of `manual_trigger_config`, `event_trigger_config` or `schedule_trigger_config` can be specified.
         """
         return pulumi.get(self, "schedule_trigger_config")
 

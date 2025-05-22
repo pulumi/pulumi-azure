@@ -304,6 +304,13 @@ class Namespace(pulumi.CustomResource):
             sku_name="Free")
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.NotificationHubs`: 2023-09-01
+
         ## Import
 
         Notification Hub Namespaces can be imported using the `resource id`, e.g.
@@ -347,6 +354,13 @@ class Namespace(pulumi.CustomResource):
             namespace_type="NotificationHub",
             sku_name="Free")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.NotificationHubs`: 2023-09-01
 
         ## Import
 

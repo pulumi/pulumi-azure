@@ -16,7 +16,7 @@ var _ = internal.GetEnvOrDefault
 type AccessConnectorIdentity struct {
 	// Specifies a list of User Assigned Managed Identity IDs to be assigned to the Databricks Access Connector. Only one User Assigned Managed Identity ID is supported per Databricks Access Connector resource.
 	//
-	// > **NOTE:** `identityIds` are required when `type` is set to `UserAssigned`.
+	// > **Note:** `identityIds` are required when `type` is set to `UserAssigned`.
 	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID of the System Assigned Managed Service Identity that is configured on this Access Connector.
 	PrincipalId *string `pulumi:"principalId"`
@@ -40,7 +40,7 @@ type AccessConnectorIdentityInput interface {
 type AccessConnectorIdentityArgs struct {
 	// Specifies a list of User Assigned Managed Identity IDs to be assigned to the Databricks Access Connector. Only one User Assigned Managed Identity ID is supported per Databricks Access Connector resource.
 	//
-	// > **NOTE:** `identityIds` are required when `type` is set to `UserAssigned`.
+	// > **Note:** `identityIds` are required when `type` is set to `UserAssigned`.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID of the System Assigned Managed Service Identity that is configured on this Access Connector.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
@@ -129,7 +129,7 @@ func (o AccessConnectorIdentityOutput) ToAccessConnectorIdentityPtrOutputWithCon
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to the Databricks Access Connector. Only one User Assigned Managed Identity ID is supported per Databricks Access Connector resource.
 //
-// > **NOTE:** `identityIds` are required when `type` is set to `UserAssigned`.
+// > **Note:** `identityIds` are required when `type` is set to `UserAssigned`.
 func (o AccessConnectorIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AccessConnectorIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
@@ -175,7 +175,7 @@ func (o AccessConnectorIdentityPtrOutput) Elem() AccessConnectorIdentityOutput {
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to the Databricks Access Connector. Only one User Assigned Managed Identity ID is supported per Databricks Access Connector resource.
 //
-// > **NOTE:** `identityIds` are required when `type` is set to `UserAssigned`.
+// > **Note:** `identityIds` are required when `type` is set to `UserAssigned`.
 func (o AccessConnectorIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AccessConnectorIdentity) []string {
 		if v == nil {

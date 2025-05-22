@@ -12,8 +12,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// <!-- Note: This documentation is generated. Any manual changes will be overwritten -->
-//
 // Manages a Dev Center.
 //
 // ## Example Usage
@@ -74,6 +72,13 @@ import (
 //
 // * `principalId` - The Principal ID for the System-Assigned Managed Identity assigned to this Dev Center.
 // * `tenantId` - The Tenant ID for the System-Assigned Managed Identity assigned to this Dev Center.
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.DevCenter`: 2025-02-01
 //
 // ## Import
 //

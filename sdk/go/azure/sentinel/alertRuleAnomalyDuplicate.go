@@ -128,7 +128,7 @@ type AlertRuleAnomalyDuplicate struct {
 	Techniques pulumi.StringArrayOutput `pulumi:"techniques"`
 	// A list of `thresholdObservation` blocks as defined below.
 	//
-	// > **NOTE:** un-specified `multiSelectObservation`, `singleSelectObservation`, `prioritizedExcludeObservation` and `thresholdObservation` will be inherited from the built-in Anomaly Alert Rule.
+	// > **Note:** un-specified `multiSelectObservation`, `singleSelectObservation`, `prioritizedExcludeObservation` and `thresholdObservation` will be inherited from the built-in Anomaly Alert Rule.
 	ThresholdObservations AlertRuleAnomalyDuplicateThresholdObservationArrayOutput `pulumi:"thresholdObservations"`
 }
 
@@ -214,7 +214,7 @@ type alertRuleAnomalyDuplicateState struct {
 	Techniques []string `pulumi:"techniques"`
 	// A list of `thresholdObservation` blocks as defined below.
 	//
-	// > **NOTE:** un-specified `multiSelectObservation`, `singleSelectObservation`, `prioritizedExcludeObservation` and `thresholdObservation` will be inherited from the built-in Anomaly Alert Rule.
+	// > **Note:** un-specified `multiSelectObservation`, `singleSelectObservation`, `prioritizedExcludeObservation` and `thresholdObservation` will be inherited from the built-in Anomaly Alert Rule.
 	ThresholdObservations []AlertRuleAnomalyDuplicateThresholdObservation `pulumi:"thresholdObservations"`
 }
 
@@ -256,7 +256,7 @@ type AlertRuleAnomalyDuplicateState struct {
 	Techniques pulumi.StringArrayInput
 	// A list of `thresholdObservation` blocks as defined below.
 	//
-	// > **NOTE:** un-specified `multiSelectObservation`, `singleSelectObservation`, `prioritizedExcludeObservation` and `thresholdObservation` will be inherited from the built-in Anomaly Alert Rule.
+	// > **Note:** un-specified `multiSelectObservation`, `singleSelectObservation`, `prioritizedExcludeObservation` and `thresholdObservation` will be inherited from the built-in Anomaly Alert Rule.
 	ThresholdObservations AlertRuleAnomalyDuplicateThresholdObservationArrayInput
 }
 
@@ -283,7 +283,7 @@ type alertRuleAnomalyDuplicateArgs struct {
 	SingleSelectObservations []AlertRuleAnomalyDuplicateSingleSelectObservation `pulumi:"singleSelectObservations"`
 	// A list of `thresholdObservation` blocks as defined below.
 	//
-	// > **NOTE:** un-specified `multiSelectObservation`, `singleSelectObservation`, `prioritizedExcludeObservation` and `thresholdObservation` will be inherited from the built-in Anomaly Alert Rule.
+	// > **Note:** un-specified `multiSelectObservation`, `singleSelectObservation`, `prioritizedExcludeObservation` and `thresholdObservation` will be inherited from the built-in Anomaly Alert Rule.
 	ThresholdObservations []AlertRuleAnomalyDuplicateThresholdObservation `pulumi:"thresholdObservations"`
 }
 
@@ -307,7 +307,7 @@ type AlertRuleAnomalyDuplicateArgs struct {
 	SingleSelectObservations AlertRuleAnomalyDuplicateSingleSelectObservationArrayInput
 	// A list of `thresholdObservation` blocks as defined below.
 	//
-	// > **NOTE:** un-specified `multiSelectObservation`, `singleSelectObservation`, `prioritizedExcludeObservation` and `thresholdObservation` will be inherited from the built-in Anomaly Alert Rule.
+	// > **Note:** un-specified `multiSelectObservation`, `singleSelectObservation`, `prioritizedExcludeObservation` and `thresholdObservation` will be inherited from the built-in Anomaly Alert Rule.
 	ThresholdObservations AlertRuleAnomalyDuplicateThresholdObservationArrayInput
 }
 
@@ -497,7 +497,7 @@ func (o AlertRuleAnomalyDuplicateOutput) Techniques() pulumi.StringArrayOutput {
 
 // A list of `thresholdObservation` blocks as defined below.
 //
-// > **NOTE:** un-specified `multiSelectObservation`, `singleSelectObservation`, `prioritizedExcludeObservation` and `thresholdObservation` will be inherited from the built-in Anomaly Alert Rule.
+// > **Note:** un-specified `multiSelectObservation`, `singleSelectObservation`, `prioritizedExcludeObservation` and `thresholdObservation` will be inherited from the built-in Anomaly Alert Rule.
 func (o AlertRuleAnomalyDuplicateOutput) ThresholdObservations() AlertRuleAnomalyDuplicateThresholdObservationArrayOutput {
 	return o.ApplyT(func(v *AlertRuleAnomalyDuplicate) AlertRuleAnomalyDuplicateThresholdObservationArrayOutput {
 		return v.ThresholdObservations

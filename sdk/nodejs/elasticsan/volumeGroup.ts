@@ -128,6 +128,13 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.ElasticSan`: 2023-01-01
+ *
  * ## Import
  *
  * An existing Elastic SAN Volume Group can be imported into Pulumi using the `resource id`, e.g.
@@ -171,7 +178,7 @@ export class VolumeGroup extends pulumi.CustomResource {
     /**
      * An `encryption` block as defined below.
      *
-     * > **NOTE:** The `encryption` block can only be set when `encryptionType` is set to `EncryptionAtRestWithCustomerManagedKey`.
+     * > **Note:** The `encryption` block can only be set when `encryptionType` is set to `EncryptionAtRestWithCustomerManagedKey`.
      */
     public readonly encryption!: pulumi.Output<outputs.elasticsan.VolumeGroupEncryption | undefined>;
     /**
@@ -244,7 +251,7 @@ export interface VolumeGroupState {
     /**
      * An `encryption` block as defined below.
      *
-     * > **NOTE:** The `encryption` block can only be set when `encryptionType` is set to `EncryptionAtRestWithCustomerManagedKey`.
+     * > **Note:** The `encryption` block can only be set when `encryptionType` is set to `EncryptionAtRestWithCustomerManagedKey`.
      */
     encryption?: pulumi.Input<inputs.elasticsan.VolumeGroupEncryption>;
     /**
@@ -280,7 +287,7 @@ export interface VolumeGroupArgs {
     /**
      * An `encryption` block as defined below.
      *
-     * > **NOTE:** The `encryption` block can only be set when `encryptionType` is set to `EncryptionAtRestWithCustomerManagedKey`.
+     * > **Note:** The `encryption` block can only be set when `encryptionType` is set to `EncryptionAtRestWithCustomerManagedKey`.
      */
     encryption?: pulumi.Input<inputs.elasticsan.VolumeGroupEncryption>;
     /**

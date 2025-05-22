@@ -173,6 +173,13 @@ class ApiOperationTag(pulumi.CustomResource):
             display_name="example-Tag")
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ApiManagement`: 2022-08-01
+
         ## Import
 
         API Management API Operation Tags can be imported using the `resource id`, e.g.
@@ -228,6 +235,13 @@ class ApiOperationTag(pulumi.CustomResource):
             api_operation_id=example_api_operation.id,
             display_name="example-Tag")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ApiManagement`: 2022-08-01
 
         ## Import
 

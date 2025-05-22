@@ -59,6 +59,13 @@ namespace Pulumi.Azure.NotificationHub
     /// });
     /// ```
     /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.NotificationHubs`: 2023-09-01
+    /// 
     /// ## Import
     /// 
     /// Notification Hub Authorization Rule can be imported using the `resource id`, e.g.
@@ -79,7 +86,7 @@ namespace Pulumi.Azure.NotificationHub
         /// <summary>
         /// Does this Authorization Rule have Manage access to the Notification Hub? Defaults to `false`.
         /// 
-        /// &gt; **NOTE:** If `manage` is set to `true` then both `send` and `listen` must also be set to `true`.
+        /// &gt; **Note:** If `manage` is set to `true` then both `send` and `listen` must also be set to `true`.
         /// </summary>
         [Output("manage")]
         public Output<bool?> Manage { get; private set; } = null!;
@@ -200,7 +207,7 @@ namespace Pulumi.Azure.NotificationHub
         /// <summary>
         /// Does this Authorization Rule have Manage access to the Notification Hub? Defaults to `false`.
         /// 
-        /// &gt; **NOTE:** If `manage` is set to `true` then both `send` and `listen` must also be set to `true`.
+        /// &gt; **Note:** If `manage` is set to `true` then both `send` and `listen` must also be set to `true`.
         /// </summary>
         [Input("manage")]
         public Input<bool>? Manage { get; set; }
@@ -252,7 +259,7 @@ namespace Pulumi.Azure.NotificationHub
         /// <summary>
         /// Does this Authorization Rule have Manage access to the Notification Hub? Defaults to `false`.
         /// 
-        /// &gt; **NOTE:** If `manage` is set to `true` then both `send` and `listen` must also be set to `true`.
+        /// &gt; **Note:** If `manage` is set to `true` then both `send` and `listen` must also be set to `true`.
         /// </summary>
         [Input("manage")]
         public Input<bool>? Manage { get; set; }

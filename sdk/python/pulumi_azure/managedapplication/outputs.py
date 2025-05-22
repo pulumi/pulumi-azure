@@ -52,7 +52,7 @@ class ApplicationPlan(dict):
         :param builtins.str version: Specifies the version of the plan from the marketplace. Changing this forces a new resource to be created.
         :param builtins.str promotion_code: Specifies the promotion code to use with the plan. Changing this forces a new resource to be created.
                
-               > **NOTE:** When `plan` is specified, legal terms must be accepted for this item on this subscription before creating the Managed Application. The `marketplace.Agreement` resource or AZ CLI tool can be used to do this.
+               > **Note:** When `plan` is specified, legal terms must be accepted for this item on this subscription before creating the Managed Application. The `marketplace.Agreement` resource or AZ CLI tool can be used to do this.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "product", product)
@@ -99,7 +99,7 @@ class ApplicationPlan(dict):
         """
         Specifies the promotion code to use with the plan. Changing this forces a new resource to be created.
 
-        > **NOTE:** When `plan` is specified, legal terms must be accepted for this item on this subscription before creating the Managed Application. The `marketplace.Agreement` resource or AZ CLI tool can be used to do this.
+        > **Note:** When `plan` is specified, legal terms must be accepted for this item on this subscription before creating the Managed Application. The `marketplace.Agreement` resource or AZ CLI tool can be used to do this.
         """
         return pulumi.get(self, "promotion_code")
 

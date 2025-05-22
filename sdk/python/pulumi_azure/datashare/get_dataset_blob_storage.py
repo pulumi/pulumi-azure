@@ -149,6 +149,13 @@ def get_dataset_blob_storage(data_share_id: Optional[builtins.str] = None,
     pulumi.export("id", example.id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.DataShare`: 2019-11-01
+
 
     :param builtins.str data_share_id: The ID of the Data Share in which this Data Share Blob Storage Dataset should be created.
     :param builtins.str name: The name of this Data Share Blob Storage Dataset.
@@ -184,6 +191,13 @@ def get_dataset_blob_storage_output(data_share_id: Optional[pulumi.Input[builtin
         data_share_id="example-share-id")
     pulumi.export("id", example.id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.DataShare`: 2019-11-01
 
 
     :param builtins.str data_share_id: The ID of the Data Share in which this Data Share Blob Storage Dataset should be created.

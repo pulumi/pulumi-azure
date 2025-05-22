@@ -10,37 +10,97 @@ import java.util.Objects;
 
 @CustomType
 public final class GetLocalRulestackResult {
+    /**
+     * @return The Anti-Spyware setting used by the Palo Alto Networks Rulestack.
+     * 
+     */
     private String antiSpywareProfile;
+    /**
+     * @return The Anti-Virus setting used by the Palo Alto Networks Rulestack.
+     * 
+     */
     private String antiVirusProfile;
+    /**
+     * @return The description of the Palo Alto Networks Rulestack.
+     * 
+     */
     private String description;
+    /**
+     * @return The DNS Subscription setting used by the Palo Alto Networks Rulestack.
+     * 
+     */
     private String dnsSubscription;
+    /**
+     * @return The File Blocking Profile used by the Palo Alto Networks Rulestack.
+     * 
+     */
     private String fileBlockingProfile;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
+    /**
+     * @return The Azure Region where the Palo Alto Networks Rulestack exists.
+     * 
+     */
     private String location;
     private String name;
+    /**
+     * @return The trusted egress decryption profile data for the Palo Alto Networks Rulestack.
+     * 
+     */
     private String outboundTrustCertificate;
+    /**
+     * @return The untrusted egress decryption profile data for the Palo Alto Networks Rulestack.
+     * 
+     */
     private String outboundUntrustCertificate;
     private String resourceGroupName;
+    /**
+     * @return The URL Filtering Profile used by the Palo Alto Networks Rulestack.
+     * 
+     */
     private String urlFilteringProfile;
+    /**
+     * @return The Vulnerability Profile used by the Palo Alto Networks Rulestack.
+     * 
+     */
     private String vulnerabilityProfile;
 
     private GetLocalRulestackResult() {}
+    /**
+     * @return The Anti-Spyware setting used by the Palo Alto Networks Rulestack.
+     * 
+     */
     public String antiSpywareProfile() {
         return this.antiSpywareProfile;
     }
+    /**
+     * @return The Anti-Virus setting used by the Palo Alto Networks Rulestack.
+     * 
+     */
     public String antiVirusProfile() {
         return this.antiVirusProfile;
     }
+    /**
+     * @return The description of the Palo Alto Networks Rulestack.
+     * 
+     */
     public String description() {
         return this.description;
     }
+    /**
+     * @return The DNS Subscription setting used by the Palo Alto Networks Rulestack.
+     * 
+     */
     public String dnsSubscription() {
         return this.dnsSubscription;
     }
+    /**
+     * @return The File Blocking Profile used by the Palo Alto Networks Rulestack.
+     * 
+     */
     public String fileBlockingProfile() {
         return this.fileBlockingProfile;
     }
@@ -51,24 +111,44 @@ public final class GetLocalRulestackResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return The Azure Region where the Palo Alto Networks Rulestack exists.
+     * 
+     */
     public String location() {
         return this.location;
     }
     public String name() {
         return this.name;
     }
+    /**
+     * @return The trusted egress decryption profile data for the Palo Alto Networks Rulestack.
+     * 
+     */
     public String outboundTrustCertificate() {
         return this.outboundTrustCertificate;
     }
+    /**
+     * @return The untrusted egress decryption profile data for the Palo Alto Networks Rulestack.
+     * 
+     */
     public String outboundUntrustCertificate() {
         return this.outboundUntrustCertificate;
     }
     public String resourceGroupName() {
         return this.resourceGroupName;
     }
+    /**
+     * @return The URL Filtering Profile used by the Palo Alto Networks Rulestack.
+     * 
+     */
     public String urlFilteringProfile() {
         return this.urlFilteringProfile;
     }
+    /**
+     * @return The Vulnerability Profile used by the Palo Alto Networks Rulestack.
+     * 
+     */
     public String vulnerabilityProfile() {
         return this.vulnerabilityProfile;
     }

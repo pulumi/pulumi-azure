@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Manages a MS Teams integration for a Bot Channel
  *
- * > **Note** A bot can only have a single MS Teams Channel associated with it.
+ * > **Note:** A bot can only have a single MS Teams Channel associated with it.
  *
  * ## Example Usage
  *

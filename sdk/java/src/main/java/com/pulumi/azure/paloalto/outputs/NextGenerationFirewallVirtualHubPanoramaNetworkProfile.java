@@ -13,18 +13,42 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class NextGenerationFirewallVirtualHubPanoramaNetworkProfile {
+    /**
+     * @return Specifies a list of Public IP IDs to use for Egress NAT.
+     * 
+     */
     private @Nullable List<String> egressNatIpAddressIds;
     private @Nullable List<String> egressNatIpAddresses;
     private @Nullable String ipOfTrustForUserDefinedRoutes;
+    /**
+     * @return The ID of the Palo Alto Network Virtual Appliance in the VHub. Changing this forces a new Palo Alto Next Generation Firewall VHub Panorama to be created.
+     * 
+     */
     private String networkVirtualApplianceId;
+    /**
+     * @return Specifies a list of Public IP IDs to use for this Next Generation Firewall.
+     * 
+     */
     private List<String> publicIpAddressIds;
     private @Nullable List<String> publicIpAddresses;
+    /**
+     * @return Specifies a list of trusted ranges to use for the Network.
+     * 
+     */
     private @Nullable List<String> trustedAddressRanges;
     private @Nullable String trustedSubnetId;
     private @Nullable String untrustedSubnetId;
+    /**
+     * @return The ID of the Virtual Hub this Next generation Fireall will be deployed in. Changing this forces a new Palo Alto Next Generation Firewall VHub Local Rulestack to be created.
+     * 
+     */
     private String virtualHubId;
 
     private NextGenerationFirewallVirtualHubPanoramaNetworkProfile() {}
+    /**
+     * @return Specifies a list of Public IP IDs to use for Egress NAT.
+     * 
+     */
     public List<String> egressNatIpAddressIds() {
         return this.egressNatIpAddressIds == null ? List.of() : this.egressNatIpAddressIds;
     }
@@ -34,15 +58,27 @@ public final class NextGenerationFirewallVirtualHubPanoramaNetworkProfile {
     public Optional<String> ipOfTrustForUserDefinedRoutes() {
         return Optional.ofNullable(this.ipOfTrustForUserDefinedRoutes);
     }
+    /**
+     * @return The ID of the Palo Alto Network Virtual Appliance in the VHub. Changing this forces a new Palo Alto Next Generation Firewall VHub Panorama to be created.
+     * 
+     */
     public String networkVirtualApplianceId() {
         return this.networkVirtualApplianceId;
     }
+    /**
+     * @return Specifies a list of Public IP IDs to use for this Next Generation Firewall.
+     * 
+     */
     public List<String> publicIpAddressIds() {
         return this.publicIpAddressIds;
     }
     public List<String> publicIpAddresses() {
         return this.publicIpAddresses == null ? List.of() : this.publicIpAddresses;
     }
+    /**
+     * @return Specifies a list of trusted ranges to use for the Network.
+     * 
+     */
     public List<String> trustedAddressRanges() {
         return this.trustedAddressRanges == null ? List.of() : this.trustedAddressRanges;
     }
@@ -52,6 +88,10 @@ public final class NextGenerationFirewallVirtualHubPanoramaNetworkProfile {
     public Optional<String> untrustedSubnetId() {
         return Optional.ofNullable(this.untrustedSubnetId);
     }
+    /**
+     * @return The ID of the Virtual Hub this Next generation Fireall will be deployed in. Changing this forces a new Palo Alto Next Generation Firewall VHub Local Rulestack to be created.
+     * 
+     */
     public String virtualHubId() {
         return this.virtualHubId;
     }

@@ -94,6 +94,13 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.ContainerRegistry`: 2023-11-01-preview, 2019-06-01-preview
+ * 
  * ## Import
  * 
  * Container Registry Tasks can be imported using the `resource id`, e.g.
@@ -122,7 +129,7 @@ public class RegistryTask extends com.pulumi.resources.CustomResource {
     /**
      * A `agent_setting` block as defined below.
      * 
-     * &gt; **NOTE:** Only one of `agent_pool_name` and `agent_setting` can be specified.
+     * &gt; **Note:** Only one of `agent_pool_name` and `agent_setting` can be specified.
      * 
      */
     @Export(name="agentSetting", refs={RegistryTaskAgentSetting.class}, tree="[0]")
@@ -131,7 +138,7 @@ public class RegistryTask extends com.pulumi.resources.CustomResource {
     /**
      * @return A `agent_setting` block as defined below.
      * 
-     * &gt; **NOTE:** Only one of `agent_pool_name` and `agent_setting` can be specified.
+     * &gt; **Note:** Only one of `agent_pool_name` and `agent_setting` can be specified.
      * 
      */
     public Output<Optional<RegistryTaskAgentSetting>> agentSetting() {
@@ -210,7 +217,7 @@ public class RegistryTask extends com.pulumi.resources.CustomResource {
     /**
      * A `file_step` block as defined below.
      * 
-     * &gt; **NOTE:** For non-system task (when `is_system_task` is set to `false`), one and only one of the `docker_step`, `encoded_step` and `file_step` should be specified.
+     * &gt; **Note:** For non-system task (when `is_system_task` is set to `false`), one and only one of the `docker_step`, `encoded_step` and `file_step` should be specified.
      * 
      */
     @Export(name="fileStep", refs={RegistryTaskFileStep.class}, tree="[0]")
@@ -219,7 +226,7 @@ public class RegistryTask extends com.pulumi.resources.CustomResource {
     /**
      * @return A `file_step` block as defined below.
      * 
-     * &gt; **NOTE:** For non-system task (when `is_system_task` is set to `false`), one and only one of the `docker_step`, `encoded_step` and `file_step` should be specified.
+     * &gt; **Note:** For non-system task (when `is_system_task` is set to `false`), one and only one of the `docker_step`, `encoded_step` and `file_step` should be specified.
      * 
      */
     public Output<Optional<RegistryTaskFileStep>> fileStep() {
@@ -276,7 +283,7 @@ public class RegistryTask extends com.pulumi.resources.CustomResource {
     /**
      * A `platform` block as defined below.
      * 
-     * &gt; **NOTE:** The `platform` is required for non-system task (when `is_system_task` is set to `false`).
+     * &gt; **Note:** The `platform` is required for non-system task (when `is_system_task` is set to `false`).
      * 
      */
     @Export(name="platform", refs={RegistryTaskPlatform.class}, tree="[0]")
@@ -285,7 +292,7 @@ public class RegistryTask extends com.pulumi.resources.CustomResource {
     /**
      * @return A `platform` block as defined below.
      * 
-     * &gt; **NOTE:** The `platform` is required for non-system task (when `is_system_task` is set to `false`).
+     * &gt; **Note:** The `platform` is required for non-system task (when `is_system_task` is set to `false`).
      * 
      */
     public Output<Optional<RegistryTaskPlatform>> platform() {

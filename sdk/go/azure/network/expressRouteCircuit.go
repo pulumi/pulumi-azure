@@ -76,13 +76,13 @@ type ExpressRouteCircuit struct {
 	AuthorizationKey pulumi.StringPtrOutput `pulumi:"authorizationKey"`
 	// The bandwidth in Gbps of the circuit being created on the Express Route Port.
 	//
-	// > **NOTE:** The `expressRoutePortId` and the `bandwidthInGbps` should be set together and they conflict with `serviceProviderName`, `peeringLocation` and `bandwidthInMbps`.
+	// > **Note:** The `expressRoutePortId` and the `bandwidthInGbps` should be set together and they conflict with `serviceProviderName`, `peeringLocation` and `bandwidthInMbps`.
 	BandwidthInGbps pulumi.Float64PtrOutput `pulumi:"bandwidthInGbps"`
 	// The bandwidth in Mbps of the circuit being created on the Service Provider.
 	//
-	// > **NOTE:** Once you increase your bandwidth, you will not be able to decrease it to its previous value.
+	// > **Note:** Once you increase your bandwidth, you will not be able to decrease it to its previous value.
 	//
-	// > **NOTE:** The `serviceProviderName`, the `peeringLocation` and the `bandwidthInMbps` should be set together and they conflict with `expressRoutePortId` and `bandwidthInGbps`.
+	// > **Note:** The `serviceProviderName`, the `peeringLocation` and the `bandwidthInMbps` should be set together and they conflict with `expressRoutePortId` and `bandwidthInGbps`.
 	BandwidthInMbps pulumi.IntPtrOutput `pulumi:"bandwidthInMbps"`
 	// The ID of the Express Route Port this Express Route Circuit is based on. Changing this forces a new resource to be created.
 	ExpressRoutePortId pulumi.StringPtrOutput `pulumi:"expressRoutePortId"`
@@ -158,13 +158,13 @@ type expressRouteCircuitState struct {
 	AuthorizationKey *string `pulumi:"authorizationKey"`
 	// The bandwidth in Gbps of the circuit being created on the Express Route Port.
 	//
-	// > **NOTE:** The `expressRoutePortId` and the `bandwidthInGbps` should be set together and they conflict with `serviceProviderName`, `peeringLocation` and `bandwidthInMbps`.
+	// > **Note:** The `expressRoutePortId` and the `bandwidthInGbps` should be set together and they conflict with `serviceProviderName`, `peeringLocation` and `bandwidthInMbps`.
 	BandwidthInGbps *float64 `pulumi:"bandwidthInGbps"`
 	// The bandwidth in Mbps of the circuit being created on the Service Provider.
 	//
-	// > **NOTE:** Once you increase your bandwidth, you will not be able to decrease it to its previous value.
+	// > **Note:** Once you increase your bandwidth, you will not be able to decrease it to its previous value.
 	//
-	// > **NOTE:** The `serviceProviderName`, the `peeringLocation` and the `bandwidthInMbps` should be set together and they conflict with `expressRoutePortId` and `bandwidthInGbps`.
+	// > **Note:** The `serviceProviderName`, the `peeringLocation` and the `bandwidthInMbps` should be set together and they conflict with `expressRoutePortId` and `bandwidthInGbps`.
 	BandwidthInMbps *int `pulumi:"bandwidthInMbps"`
 	// The ID of the Express Route Port this Express Route Circuit is based on. Changing this forces a new resource to be created.
 	ExpressRoutePortId *string `pulumi:"expressRoutePortId"`
@@ -197,13 +197,13 @@ type ExpressRouteCircuitState struct {
 	AuthorizationKey pulumi.StringPtrInput
 	// The bandwidth in Gbps of the circuit being created on the Express Route Port.
 	//
-	// > **NOTE:** The `expressRoutePortId` and the `bandwidthInGbps` should be set together and they conflict with `serviceProviderName`, `peeringLocation` and `bandwidthInMbps`.
+	// > **Note:** The `expressRoutePortId` and the `bandwidthInGbps` should be set together and they conflict with `serviceProviderName`, `peeringLocation` and `bandwidthInMbps`.
 	BandwidthInGbps pulumi.Float64PtrInput
 	// The bandwidth in Mbps of the circuit being created on the Service Provider.
 	//
-	// > **NOTE:** Once you increase your bandwidth, you will not be able to decrease it to its previous value.
+	// > **Note:** Once you increase your bandwidth, you will not be able to decrease it to its previous value.
 	//
-	// > **NOTE:** The `serviceProviderName`, the `peeringLocation` and the `bandwidthInMbps` should be set together and they conflict with `expressRoutePortId` and `bandwidthInGbps`.
+	// > **Note:** The `serviceProviderName`, the `peeringLocation` and the `bandwidthInMbps` should be set together and they conflict with `expressRoutePortId` and `bandwidthInGbps`.
 	BandwidthInMbps pulumi.IntPtrInput
 	// The ID of the Express Route Port this Express Route Circuit is based on. Changing this forces a new resource to be created.
 	ExpressRoutePortId pulumi.StringPtrInput
@@ -240,13 +240,13 @@ type expressRouteCircuitArgs struct {
 	AuthorizationKey *string `pulumi:"authorizationKey"`
 	// The bandwidth in Gbps of the circuit being created on the Express Route Port.
 	//
-	// > **NOTE:** The `expressRoutePortId` and the `bandwidthInGbps` should be set together and they conflict with `serviceProviderName`, `peeringLocation` and `bandwidthInMbps`.
+	// > **Note:** The `expressRoutePortId` and the `bandwidthInGbps` should be set together and they conflict with `serviceProviderName`, `peeringLocation` and `bandwidthInMbps`.
 	BandwidthInGbps *float64 `pulumi:"bandwidthInGbps"`
 	// The bandwidth in Mbps of the circuit being created on the Service Provider.
 	//
-	// > **NOTE:** Once you increase your bandwidth, you will not be able to decrease it to its previous value.
+	// > **Note:** Once you increase your bandwidth, you will not be able to decrease it to its previous value.
 	//
-	// > **NOTE:** The `serviceProviderName`, the `peeringLocation` and the `bandwidthInMbps` should be set together and they conflict with `expressRoutePortId` and `bandwidthInGbps`.
+	// > **Note:** The `serviceProviderName`, the `peeringLocation` and the `bandwidthInMbps` should be set together and they conflict with `expressRoutePortId` and `bandwidthInGbps`.
 	BandwidthInMbps *int `pulumi:"bandwidthInMbps"`
 	// The ID of the Express Route Port this Express Route Circuit is based on. Changing this forces a new resource to be created.
 	ExpressRoutePortId *string `pulumi:"expressRoutePortId"`
@@ -276,13 +276,13 @@ type ExpressRouteCircuitArgs struct {
 	AuthorizationKey pulumi.StringPtrInput
 	// The bandwidth in Gbps of the circuit being created on the Express Route Port.
 	//
-	// > **NOTE:** The `expressRoutePortId` and the `bandwidthInGbps` should be set together and they conflict with `serviceProviderName`, `peeringLocation` and `bandwidthInMbps`.
+	// > **Note:** The `expressRoutePortId` and the `bandwidthInGbps` should be set together and they conflict with `serviceProviderName`, `peeringLocation` and `bandwidthInMbps`.
 	BandwidthInGbps pulumi.Float64PtrInput
 	// The bandwidth in Mbps of the circuit being created on the Service Provider.
 	//
-	// > **NOTE:** Once you increase your bandwidth, you will not be able to decrease it to its previous value.
+	// > **Note:** Once you increase your bandwidth, you will not be able to decrease it to its previous value.
 	//
-	// > **NOTE:** The `serviceProviderName`, the `peeringLocation` and the `bandwidthInMbps` should be set together and they conflict with `expressRoutePortId` and `bandwidthInGbps`.
+	// > **Note:** The `serviceProviderName`, the `peeringLocation` and the `bandwidthInMbps` should be set together and they conflict with `expressRoutePortId` and `bandwidthInGbps`.
 	BandwidthInMbps pulumi.IntPtrInput
 	// The ID of the Express Route Port this Express Route Circuit is based on. Changing this forces a new resource to be created.
 	ExpressRoutePortId pulumi.StringPtrInput
@@ -403,16 +403,16 @@ func (o ExpressRouteCircuitOutput) AuthorizationKey() pulumi.StringPtrOutput {
 
 // The bandwidth in Gbps of the circuit being created on the Express Route Port.
 //
-// > **NOTE:** The `expressRoutePortId` and the `bandwidthInGbps` should be set together and they conflict with `serviceProviderName`, `peeringLocation` and `bandwidthInMbps`.
+// > **Note:** The `expressRoutePortId` and the `bandwidthInGbps` should be set together and they conflict with `serviceProviderName`, `peeringLocation` and `bandwidthInMbps`.
 func (o ExpressRouteCircuitOutput) BandwidthInGbps() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *ExpressRouteCircuit) pulumi.Float64PtrOutput { return v.BandwidthInGbps }).(pulumi.Float64PtrOutput)
 }
 
 // The bandwidth in Mbps of the circuit being created on the Service Provider.
 //
-// > **NOTE:** Once you increase your bandwidth, you will not be able to decrease it to its previous value.
+// > **Note:** Once you increase your bandwidth, you will not be able to decrease it to its previous value.
 //
-// > **NOTE:** The `serviceProviderName`, the `peeringLocation` and the `bandwidthInMbps` should be set together and they conflict with `expressRoutePortId` and `bandwidthInGbps`.
+// > **Note:** The `serviceProviderName`, the `peeringLocation` and the `bandwidthInMbps` should be set together and they conflict with `expressRoutePortId` and `bandwidthInGbps`.
 func (o ExpressRouteCircuitOutput) BandwidthInMbps() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ExpressRouteCircuit) pulumi.IntPtrOutput { return v.BandwidthInMbps }).(pulumi.IntPtrOutput)
 }

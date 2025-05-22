@@ -49,7 +49,7 @@ public final class FirewallManagementIpConfigurationArgs extends com.pulumi.reso
     /**
      * The ID of the Public IP Address associated with the firewall.
      * 
-     * &gt; **NOTE** The Public IP must have a `Static` allocation and `Standard` SKU.
+     * &gt; **Note:** The Public IP must have a `Static` allocation and `Standard` SKU.
      * 
      */
     @Import(name="publicIpAddressId", required=true)
@@ -58,7 +58,7 @@ public final class FirewallManagementIpConfigurationArgs extends com.pulumi.reso
     /**
      * @return The ID of the Public IP Address associated with the firewall.
      * 
-     * &gt; **NOTE** The Public IP must have a `Static` allocation and `Standard` SKU.
+     * &gt; **Note:** The Public IP must have a `Static` allocation and `Standard` SKU.
      * 
      */
     public Output<String> publicIpAddressId() {
@@ -68,7 +68,7 @@ public final class FirewallManagementIpConfigurationArgs extends com.pulumi.reso
     /**
      * Reference to the subnet associated with the IP Configuration. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE** The Management Subnet used for the Firewall must have the name `AzureFirewallManagementSubnet` and the subnet mask must be at least a `/26`.
+     * &gt; **Note:** The Management Subnet used for the Firewall must have the name `AzureFirewallManagementSubnet` and the subnet mask must be at least a `/26`.
      * 
      */
     @Import(name="subnetId", required=true)
@@ -77,7 +77,7 @@ public final class FirewallManagementIpConfigurationArgs extends com.pulumi.reso
     /**
      * @return Reference to the subnet associated with the IP Configuration. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE** The Management Subnet used for the Firewall must have the name `AzureFirewallManagementSubnet` and the subnet mask must be at least a `/26`.
+     * &gt; **Note:** The Management Subnet used for the Firewall must have the name `AzureFirewallManagementSubnet` and the subnet mask must be at least a `/26`.
      * 
      */
     public Output<String> subnetId() {
@@ -156,7 +156,7 @@ public final class FirewallManagementIpConfigurationArgs extends com.pulumi.reso
         /**
          * @param publicIpAddressId The ID of the Public IP Address associated with the firewall.
          * 
-         * &gt; **NOTE** The Public IP must have a `Static` allocation and `Standard` SKU.
+         * &gt; **Note:** The Public IP must have a `Static` allocation and `Standard` SKU.
          * 
          * @return builder
          * 
@@ -169,7 +169,7 @@ public final class FirewallManagementIpConfigurationArgs extends com.pulumi.reso
         /**
          * @param publicIpAddressId The ID of the Public IP Address associated with the firewall.
          * 
-         * &gt; **NOTE** The Public IP must have a `Static` allocation and `Standard` SKU.
+         * &gt; **Note:** The Public IP must have a `Static` allocation and `Standard` SKU.
          * 
          * @return builder
          * 
@@ -181,7 +181,7 @@ public final class FirewallManagementIpConfigurationArgs extends com.pulumi.reso
         /**
          * @param subnetId Reference to the subnet associated with the IP Configuration. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE** The Management Subnet used for the Firewall must have the name `AzureFirewallManagementSubnet` and the subnet mask must be at least a `/26`.
+         * &gt; **Note:** The Management Subnet used for the Firewall must have the name `AzureFirewallManagementSubnet` and the subnet mask must be at least a `/26`.
          * 
          * @return builder
          * 
@@ -194,7 +194,7 @@ public final class FirewallManagementIpConfigurationArgs extends com.pulumi.reso
         /**
          * @param subnetId Reference to the subnet associated with the IP Configuration. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE** The Management Subnet used for the Firewall must have the name `AzureFirewallManagementSubnet` and the subnet mask must be at least a `/26`.
+         * &gt; **Note:** The Management Subnet used for the Firewall must have the name `AzureFirewallManagementSubnet` and the subnet mask must be at least a `/26`.
          * 
          * @return builder
          * 

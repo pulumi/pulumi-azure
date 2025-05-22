@@ -28,6 +28,11 @@ public final class FlexibleServerStorage {
      */
     private @Nullable Integer iops;
     /**
+     * @return Should Storage Log On Disk be enabled? Defaults to `false`.
+     * 
+     */
+    private @Nullable Boolean logOnDiskEnabled;
+    /**
      * @return The max storage allowed for the MySQL Flexible Server. Possible values are between `20` and `16384`.
      * 
      * &gt; **Note:** Decreasing `size_gb` forces a new resource to be created.
@@ -58,6 +63,13 @@ public final class FlexibleServerStorage {
         return Optional.ofNullable(this.iops);
     }
     /**
+     * @return Should Storage Log On Disk be enabled? Defaults to `false`.
+     * 
+     */
+    public Optional<Boolean> logOnDiskEnabled() {
+        return Optional.ofNullable(this.logOnDiskEnabled);
+    }
+    /**
      * @return The max storage allowed for the MySQL Flexible Server. Possible values are between `20` and `16384`.
      * 
      * &gt; **Note:** Decreasing `size_gb` forces a new resource to be created.
@@ -79,6 +91,7 @@ public final class FlexibleServerStorage {
         private @Nullable Boolean autoGrowEnabled;
         private @Nullable Boolean ioScalingEnabled;
         private @Nullable Integer iops;
+        private @Nullable Boolean logOnDiskEnabled;
         private @Nullable Integer sizeGb;
         public Builder() {}
         public Builder(FlexibleServerStorage defaults) {
@@ -86,6 +99,7 @@ public final class FlexibleServerStorage {
     	      this.autoGrowEnabled = defaults.autoGrowEnabled;
     	      this.ioScalingEnabled = defaults.ioScalingEnabled;
     	      this.iops = defaults.iops;
+    	      this.logOnDiskEnabled = defaults.logOnDiskEnabled;
     	      this.sizeGb = defaults.sizeGb;
         }
 
@@ -108,6 +122,12 @@ public final class FlexibleServerStorage {
             return this;
         }
         @CustomType.Setter
+        public Builder logOnDiskEnabled(@Nullable Boolean logOnDiskEnabled) {
+
+            this.logOnDiskEnabled = logOnDiskEnabled;
+            return this;
+        }
+        @CustomType.Setter
         public Builder sizeGb(@Nullable Integer sizeGb) {
 
             this.sizeGb = sizeGb;
@@ -118,6 +138,7 @@ public final class FlexibleServerStorage {
             _resultValue.autoGrowEnabled = autoGrowEnabled;
             _resultValue.ioScalingEnabled = ioScalingEnabled;
             _resultValue.iops = iops;
+            _resultValue.logOnDiskEnabled = logOnDiskEnabled;
             _resultValue.sizeGb = sizeGb;
             return _resultValue;
         }

@@ -290,6 +290,13 @@ class Workspace(pulumi.CustomResource):
             description="A description of my workspace")
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DesktopVirtualization`: 2024-04-03
+
         ## Import
 
         Virtual Desktop Workspaces can be imported using the `resource id`, e.g.
@@ -333,6 +340,13 @@ class Workspace(pulumi.CustomResource):
             friendly_name="FriendlyName",
             description="A description of my workspace")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DesktopVirtualization`: 2024-04-03
 
         ## Import
 

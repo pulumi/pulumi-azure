@@ -20,7 +20,7 @@ import javax.annotation.Nullable;
 /**
  * Manages an Extension for a Virtual Machine Scale Set.
  * 
- * &gt; **NOTE:** This resource is not intended to be used with the `azure.compute.ScaleSet` resource - instead it&#39;s intended for this to be used with the `azure.compute.LinuxVirtualMachineScaleSet` and `azure.compute.WindowsVirtualMachineScaleSet` resources.
+ * &gt; **Note:** This resource is not intended to be used with the `azure.compute.ScaleSet` resource - instead it&#39;s intended for this to be used with the `azure.compute.LinuxVirtualMachineScaleSet` and `azure.compute.WindowsVirtualMachineScaleSet` resources.
  * 
  * ## Example Usage
  * 
@@ -145,7 +145,7 @@ public class VirtualMachineScaleSetExtension extends com.pulumi.resources.Custom
     /**
      * Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
      * 
-     * &gt; **NOTE:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `failure_suppression_enabled` value.
+     * &gt; **Note:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `failure_suppression_enabled` value.
      * 
      */
     @Export(name="failureSuppressionEnabled", refs={Boolean.class}, tree="[0]")
@@ -154,7 +154,7 @@ public class VirtualMachineScaleSetExtension extends com.pulumi.resources.Custom
     /**
      * @return Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
      * 
-     * &gt; **NOTE:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `failure_suppression_enabled` value.
+     * &gt; **Note:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `failure_suppression_enabled` value.
      * 
      */
     public Output<Optional<Boolean>> failureSuppressionEnabled() {
@@ -191,7 +191,7 @@ public class VirtualMachineScaleSetExtension extends com.pulumi.resources.Custom
     /**
      * A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
      * 
-     * &gt; **NOTE:** Keys within the `protected_settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you&#39;re looking to use for more information.
+     * &gt; **Note:** Keys within the `protected_settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you&#39;re looking to use for more information.
      * 
      */
     @Export(name="protectedSettings", refs={String.class}, tree="[0]")
@@ -200,7 +200,7 @@ public class VirtualMachineScaleSetExtension extends com.pulumi.resources.Custom
     /**
      * @return A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
      * 
-     * &gt; **NOTE:** Keys within the `protected_settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you&#39;re looking to use for more information.
+     * &gt; **Note:** Keys within the `protected_settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you&#39;re looking to use for more information.
      * 
      */
     public Output<Optional<String>> protectedSettings() {
@@ -255,7 +255,7 @@ public class VirtualMachineScaleSetExtension extends com.pulumi.resources.Custom
     /**
      * A JSON String which specifies Settings for the Extension.
      * 
-     * &gt; **NOTE:** Keys within the `settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you&#39;re looking to use for more information.
+     * &gt; **Note:** Keys within the `settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you&#39;re looking to use for more information.
      * 
      */
     @Export(name="settings", refs={String.class}, tree="[0]")
@@ -264,7 +264,7 @@ public class VirtualMachineScaleSetExtension extends com.pulumi.resources.Custom
     /**
      * @return A JSON String which specifies Settings for the Extension.
      * 
-     * &gt; **NOTE:** Keys within the `settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you&#39;re looking to use for more information.
+     * &gt; **Note:** Keys within the `settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you&#39;re looking to use for more information.
      * 
      */
     public Output<Optional<String>> settings() {
@@ -305,7 +305,7 @@ public class VirtualMachineScaleSetExtension extends com.pulumi.resources.Custom
     /**
      * The ID of the Virtual Machine Scale Set. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** This should be the ID from the `azure.compute.LinuxVirtualMachineScaleSet` or `azure.compute.WindowsVirtualMachineScaleSet` resource - when using the older `azure.compute.ScaleSet` resource extensions should instead be defined inline.
+     * &gt; **Note:** This should be the ID from the `azure.compute.LinuxVirtualMachineScaleSet` or `azure.compute.WindowsVirtualMachineScaleSet` resource - when using the older `azure.compute.ScaleSet` resource extensions should instead be defined inline.
      * 
      */
     @Export(name="virtualMachineScaleSetId", refs={String.class}, tree="[0]")
@@ -314,7 +314,7 @@ public class VirtualMachineScaleSetExtension extends com.pulumi.resources.Custom
     /**
      * @return The ID of the Virtual Machine Scale Set. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** This should be the ID from the `azure.compute.LinuxVirtualMachineScaleSet` or `azure.compute.WindowsVirtualMachineScaleSet` resource - when using the older `azure.compute.ScaleSet` resource extensions should instead be defined inline.
+     * &gt; **Note:** This should be the ID from the `azure.compute.LinuxVirtualMachineScaleSet` or `azure.compute.WindowsVirtualMachineScaleSet` resource - when using the older `azure.compute.ScaleSet` resource extensions should instead be defined inline.
      * 
      */
     public Output<String> virtualMachineScaleSetId() {

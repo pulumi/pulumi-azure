@@ -186,7 +186,7 @@ public final class VirtualNetworkPeeringState extends com.pulumi.resources.Resou
     /**
      * Controls if remote gateways can be used on the local virtual network. If the flag is set to `true`, and `allow_gateway_transit` on the remote peering is also `true`, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to `true`. This flag cannot be set if virtual network already has a gateway. Defaults to `false`.
      * 
-     * &gt; **NOTE:** `use_remote_gateways` must be set to `false` if using Global Virtual Network Peerings.
+     * &gt; **Note:** `use_remote_gateways` must be set to `false` if using Global Virtual Network Peerings.
      * 
      */
     @Import(name="useRemoteGateways")
@@ -195,7 +195,7 @@ public final class VirtualNetworkPeeringState extends com.pulumi.resources.Resou
     /**
      * @return Controls if remote gateways can be used on the local virtual network. If the flag is set to `true`, and `allow_gateway_transit` on the remote peering is also `true`, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to `true`. This flag cannot be set if virtual network already has a gateway. Defaults to `false`.
      * 
-     * &gt; **NOTE:** `use_remote_gateways` must be set to `false` if using Global Virtual Network Peerings.
+     * &gt; **Note:** `use_remote_gateways` must be set to `false` if using Global Virtual Network Peerings.
      * 
      */
     public Optional<Output<Boolean>> useRemoteGateways() {
@@ -507,7 +507,7 @@ public final class VirtualNetworkPeeringState extends com.pulumi.resources.Resou
         /**
          * @param useRemoteGateways Controls if remote gateways can be used on the local virtual network. If the flag is set to `true`, and `allow_gateway_transit` on the remote peering is also `true`, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to `true`. This flag cannot be set if virtual network already has a gateway. Defaults to `false`.
          * 
-         * &gt; **NOTE:** `use_remote_gateways` must be set to `false` if using Global Virtual Network Peerings.
+         * &gt; **Note:** `use_remote_gateways` must be set to `false` if using Global Virtual Network Peerings.
          * 
          * @return builder
          * 
@@ -520,7 +520,7 @@ public final class VirtualNetworkPeeringState extends com.pulumi.resources.Resou
         /**
          * @param useRemoteGateways Controls if remote gateways can be used on the local virtual network. If the flag is set to `true`, and `allow_gateway_transit` on the remote peering is also `true`, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to `true`. This flag cannot be set if virtual network already has a gateway. Defaults to `false`.
          * 
-         * &gt; **NOTE:** `use_remote_gateways` must be set to `false` if using Global Virtual Network Peerings.
+         * &gt; **Note:** `use_remote_gateways` must be set to `false` if using Global Virtual Network Peerings.
          * 
          * @return builder
          * 

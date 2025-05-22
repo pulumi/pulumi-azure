@@ -622,6 +622,13 @@ class Service(pulumi.CustomResource):
                 ]))
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.AAD`: 2021-05-01
+
         ## Import
 
         Domain Services can be imported using the resource ID, together with the Replica Set ID that you wish to designate as the initial replica set, e.g.
@@ -770,6 +777,13 @@ class Service(pulumi.CustomResource):
                     deploy_subnet_network_security_group_association,
                 ]))
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.AAD`: 2021-05-01
 
         ## Import
 

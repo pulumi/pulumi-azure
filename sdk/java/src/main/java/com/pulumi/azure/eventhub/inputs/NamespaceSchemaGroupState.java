@@ -61,14 +61,18 @@ public final class NamespaceSchemaGroupState extends com.pulumi.resources.Resour
     }
 
     /**
-     * Specifies the Type of this schema group. Possible values are `Avro`, `Unknown`. Changing this forces a new resource to be created.
+     * Specifies the Type of this schema group. Possible values are `Avro`, `Unknown` and `Json`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** When `schema_type` is specified as `Json`, `schema_compatibility` must be set to `None`.
      * 
      */
     @Import(name="schemaType")
     private @Nullable Output<String> schemaType;
 
     /**
-     * @return Specifies the Type of this schema group. Possible values are `Avro`, `Unknown`. Changing this forces a new resource to be created.
+     * @return Specifies the Type of this schema group. Possible values are `Avro`, `Unknown` and `Json`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** When `schema_type` is specified as `Json`, `schema_compatibility` must be set to `None`.
      * 
      */
     public Optional<Output<String>> schemaType() {
@@ -166,7 +170,9 @@ public final class NamespaceSchemaGroupState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param schemaType Specifies the Type of this schema group. Possible values are `Avro`, `Unknown`. Changing this forces a new resource to be created.
+         * @param schemaType Specifies the Type of this schema group. Possible values are `Avro`, `Unknown` and `Json`. Changing this forces a new resource to be created.
+         * 
+         * &gt; **Note:** When `schema_type` is specified as `Json`, `schema_compatibility` must be set to `None`.
          * 
          * @return builder
          * 
@@ -177,7 +183,9 @@ public final class NamespaceSchemaGroupState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param schemaType Specifies the Type of this schema group. Possible values are `Avro`, `Unknown`. Changing this forces a new resource to be created.
+         * @param schemaType Specifies the Type of this schema group. Possible values are `Avro`, `Unknown` and `Json`. Changing this forces a new resource to be created.
+         * 
+         * &gt; **Note:** When `schema_type` is specified as `Json`, `schema_compatibility` must be set to `None`.
          * 
          * @return builder
          * 

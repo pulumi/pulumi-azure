@@ -81,7 +81,7 @@ type DataConnectorOfficeIrm struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The ID of the tenant that this Office IRM Data Connector connects to. Changing this forces a new Office IRM Data Connector to be created.
 	//
-	// > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
+	// > **Note:** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
 	TenantId pulumi.StringOutput `pulumi:"tenantId"`
 }
 
@@ -124,7 +124,7 @@ type dataConnectorOfficeIrmState struct {
 	Name *string `pulumi:"name"`
 	// The ID of the tenant that this Office IRM Data Connector connects to. Changing this forces a new Office IRM Data Connector to be created.
 	//
-	// > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
+	// > **Note:** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
 	TenantId *string `pulumi:"tenantId"`
 }
 
@@ -135,7 +135,7 @@ type DataConnectorOfficeIrmState struct {
 	Name pulumi.StringPtrInput
 	// The ID of the tenant that this Office IRM Data Connector connects to. Changing this forces a new Office IRM Data Connector to be created.
 	//
-	// > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
+	// > **Note:** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
 	TenantId pulumi.StringPtrInput
 }
 
@@ -150,7 +150,7 @@ type dataConnectorOfficeIrmArgs struct {
 	Name *string `pulumi:"name"`
 	// The ID of the tenant that this Office IRM Data Connector connects to. Changing this forces a new Office IRM Data Connector to be created.
 	//
-	// > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
+	// > **Note:** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
 	TenantId *string `pulumi:"tenantId"`
 }
 
@@ -162,7 +162,7 @@ type DataConnectorOfficeIrmArgs struct {
 	Name pulumi.StringPtrInput
 	// The ID of the tenant that this Office IRM Data Connector connects to. Changing this forces a new Office IRM Data Connector to be created.
 	//
-	// > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
+	// > **Note:** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
 	TenantId pulumi.StringPtrInput
 }
 
@@ -265,7 +265,7 @@ func (o DataConnectorOfficeIrmOutput) Name() pulumi.StringOutput {
 
 // The ID of the tenant that this Office IRM Data Connector connects to. Changing this forces a new Office IRM Data Connector to be created.
 //
-// > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
+// > **Note:** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
 func (o DataConnectorOfficeIrmOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataConnectorOfficeIrm) pulumi.StringOutput { return v.TenantId }).(pulumi.StringOutput)
 }

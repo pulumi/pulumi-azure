@@ -106,6 +106,13 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.EventGrid`: 2022-06-15
+ * 
  * ## Import
  * 
  * EventGrid System Topic Event Subscriptions can be imported using the `resource id`, e.g.
@@ -418,7 +425,7 @@ public class SystemTopicEventSubscription extends com.pulumi.resources.CustomRes
     /**
      * A `webhook_endpoint` block as defined below.
      * 
-     * &gt; **NOTE:** One of `azure_function_endpoint`, `eventhub_endpoint_id`, `hybrid_connection_endpoint`, `hybrid_connection_endpoint_id`, `service_bus_queue_endpoint_id`, `service_bus_topic_endpoint_id`, `storage_queue_endpoint` or `webhook_endpoint` must be specified.
+     * &gt; **Note:** One of `azure_function_endpoint`, `eventhub_endpoint_id`, `hybrid_connection_endpoint`, `hybrid_connection_endpoint_id`, `service_bus_queue_endpoint_id`, `service_bus_topic_endpoint_id`, `storage_queue_endpoint` or `webhook_endpoint` must be specified.
      * 
      */
     @Export(name="webhookEndpoint", refs={SystemTopicEventSubscriptionWebhookEndpoint.class}, tree="[0]")
@@ -427,7 +434,7 @@ public class SystemTopicEventSubscription extends com.pulumi.resources.CustomRes
     /**
      * @return A `webhook_endpoint` block as defined below.
      * 
-     * &gt; **NOTE:** One of `azure_function_endpoint`, `eventhub_endpoint_id`, `hybrid_connection_endpoint`, `hybrid_connection_endpoint_id`, `service_bus_queue_endpoint_id`, `service_bus_topic_endpoint_id`, `storage_queue_endpoint` or `webhook_endpoint` must be specified.
+     * &gt; **Note:** One of `azure_function_endpoint`, `eventhub_endpoint_id`, `hybrid_connection_endpoint`, `hybrid_connection_endpoint_id`, `service_bus_queue_endpoint_id`, `service_bus_topic_endpoint_id`, `storage_queue_endpoint` or `webhook_endpoint` must be specified.
      * 
      */
     public Output<Optional<SystemTopicEventSubscriptionWebhookEndpoint>> webhookEndpoint() {

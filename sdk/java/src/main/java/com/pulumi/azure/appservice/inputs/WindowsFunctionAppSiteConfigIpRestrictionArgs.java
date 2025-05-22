@@ -125,7 +125,7 @@ public final class WindowsFunctionAppSiteConfigIpRestrictionArgs extends com.pul
     /**
      * The Virtual Network Subnet ID used for this IP Restriction.
      * 
-     * &gt; **NOTE:** One and only one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
+     * &gt; **Note:** One and only one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
      * 
      */
     @Import(name="virtualNetworkSubnetId")
@@ -134,7 +134,7 @@ public final class WindowsFunctionAppSiteConfigIpRestrictionArgs extends com.pul
     /**
      * @return The Virtual Network Subnet ID used for this IP Restriction.
      * 
-     * &gt; **NOTE:** One and only one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
+     * &gt; **Note:** One and only one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
      * 
      */
     public Optional<Output<String>> virtualNetworkSubnetId() {
@@ -322,7 +322,7 @@ public final class WindowsFunctionAppSiteConfigIpRestrictionArgs extends com.pul
         /**
          * @param virtualNetworkSubnetId The Virtual Network Subnet ID used for this IP Restriction.
          * 
-         * &gt; **NOTE:** One and only one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
+         * &gt; **Note:** One and only one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
          * 
          * @return builder
          * 
@@ -335,7 +335,7 @@ public final class WindowsFunctionAppSiteConfigIpRestrictionArgs extends com.pul
         /**
          * @param virtualNetworkSubnetId The Virtual Network Subnet ID used for this IP Restriction.
          * 
-         * &gt; **NOTE:** One and only one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
+         * &gt; **Note:** One and only one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
          * 
          * @return builder
          * 

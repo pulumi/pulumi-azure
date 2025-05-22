@@ -129,6 +129,13 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.Kusto`: 2024-04-13
+ * 
  * ## Import
  * 
  * Kusto IotHub Data Connections can be imported using the `resource id`, e.g.
@@ -211,14 +218,14 @@ public class IotHubDataConnection extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.databaseRoutingType);
     }
     /**
-     * Specifies the System Properties that each IoT Hub message should contain. Changing this forces a new resource to be created. Possible values are `message-id`, `sequence-number`, `to`, `absolute-expiry-time`, `iothub-enqueuedtime`, `correlation-id`, `user-id`, `iothub-ack`, `iothub-connection-device-id`, `iothub-connection-auth-generation-id` and `iothub-connection-auth-method`.
+     * Specifies the System Properties that each IoT Hub message should contain. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="eventSystemProperties", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> eventSystemProperties;
 
     /**
-     * @return Specifies the System Properties that each IoT Hub message should contain. Changing this forces a new resource to be created. Possible values are `message-id`, `sequence-number`, `to`, `absolute-expiry-time`, `iothub-enqueuedtime`, `correlation-id`, `user-id`, `iothub-ack`, `iothub-connection-device-id`, `iothub-connection-auth-generation-id` and `iothub-connection-auth-method`.
+     * @return Specifies the System Properties that each IoT Hub message should contain. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<List<String>>> eventSystemProperties() {

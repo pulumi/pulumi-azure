@@ -48,6 +48,13 @@ namespace Pulumi.Azure.Management
     /// });
     /// ```
     /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.Management`: 2020-05-01
+    /// 
     /// ## Import
     /// 
     /// Management Groups can be imported using the `management group resource id`, e.g.

@@ -133,6 +133,13 @@ def get_volume_quota_rule(name: Optional[builtins.str] = None,
     pulumi.export("id", example.id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.NetApp`: 2025-01-01
+
 
     :param builtins.str name: The name of this Volume Quota Rule.
     :param builtins.str volume_id: The NetApp volume ID where the Volume Quota Rule is assigned to.
@@ -167,6 +174,13 @@ def get_volume_quota_rule_output(name: Optional[pulumi.Input[builtins.str]] = No
         volume_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.NetApp/netAppAccounts/account1/capacityPools/pool1/volumes/vol1")
     pulumi.export("id", example.id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.NetApp`: 2025-01-01
 
 
     :param builtins.str name: The name of this Volume Quota Rule.

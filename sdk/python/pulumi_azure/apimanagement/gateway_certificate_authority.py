@@ -211,6 +211,13 @@ class GatewayCertificateAuthority(pulumi.CustomResource):
             is_trusted=True)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ApiManagement`: 2022-08-01
+
         ## Import
 
         API Management Gateway Certificate Authority can be imported using the `resource id`, e.g.
@@ -273,6 +280,13 @@ class GatewayCertificateAuthority(pulumi.CustomResource):
             gateway_name=example_gateway.name,
             is_trusted=True)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ApiManagement`: 2022-08-01
 
         ## Import
 

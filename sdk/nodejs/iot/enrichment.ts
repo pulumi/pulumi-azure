@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Manages an IotHub Enrichment
  *
- * > **NOTE:** Enrichment can be defined either directly on the `azure.iot.IoTHub` resource, or using the `azure.iot.Enrichment` resources - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
+ * > **Note:** Enrichment can be defined either directly on the `azure.iot.IoTHub` resource, or using the `azure.iot.Enrichment` resources - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
  *
  * ## Example Usage
  *

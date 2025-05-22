@@ -98,6 +98,13 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.HardwareSecurityModules`: 2021-11-30
+ *
  * ## Import
  *
  * Dedicated Hardware Security Module can be imported using the `resource id`, e.g.
@@ -141,7 +148,7 @@ export class Module extends pulumi.CustomResource {
     /**
      * A `managementNetworkProfile` block as defined below.
      *
-     * ->**NOTE:**  The `managementNetworkProfile` should not be specified when `skuName` is `SafeNet Luna Network HSM A790`.
+     * > **Note:** The `managementNetworkProfile` should not be specified when `skuName` is `SafeNet Luna Network HSM A790`.
      */
     public readonly managementNetworkProfile!: pulumi.Output<outputs.hsm.ModuleManagementNetworkProfile | undefined>;
     /**
@@ -232,7 +239,7 @@ export interface ModuleState {
     /**
      * A `managementNetworkProfile` block as defined below.
      *
-     * ->**NOTE:**  The `managementNetworkProfile` should not be specified when `skuName` is `SafeNet Luna Network HSM A790`.
+     * > **Note:** The `managementNetworkProfile` should not be specified when `skuName` is `SafeNet Luna Network HSM A790`.
      */
     managementNetworkProfile?: pulumi.Input<inputs.hsm.ModuleManagementNetworkProfile>;
     /**
@@ -276,7 +283,7 @@ export interface ModuleArgs {
     /**
      * A `managementNetworkProfile` block as defined below.
      *
-     * ->**NOTE:**  The `managementNetworkProfile` should not be specified when `skuName` is `SafeNet Luna Network HSM A790`.
+     * > **Note:** The `managementNetworkProfile` should not be specified when `skuName` is `SafeNet Luna Network HSM A790`.
      */
     managementNetworkProfile?: pulumi.Input<inputs.hsm.ModuleManagementNetworkProfile>;
     /**

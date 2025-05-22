@@ -36,6 +36,13 @@ namespace Pulumi.Azure.Compute
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Compute`: 2024-07-01
         /// </summary>
         public static Task<GetOrchestratedVirtualMachineScaleSetResult> InvokeAsync(GetOrchestratedVirtualMachineScaleSetArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetOrchestratedVirtualMachineScaleSetResult>("azure:compute/getOrchestratedVirtualMachineScaleSet:getOrchestratedVirtualMachineScaleSet", args ?? new GetOrchestratedVirtualMachineScaleSetArgs(), options.WithDefaults());
@@ -65,6 +72,13 @@ namespace Pulumi.Azure.Compute
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Compute`: 2024-07-01
         /// </summary>
         public static Output<GetOrchestratedVirtualMachineScaleSetResult> Invoke(GetOrchestratedVirtualMachineScaleSetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOrchestratedVirtualMachineScaleSetResult>("azure:compute/getOrchestratedVirtualMachineScaleSet:getOrchestratedVirtualMachineScaleSet", args ?? new GetOrchestratedVirtualMachineScaleSetInvokeArgs(), options.WithDefaults());
@@ -94,6 +108,13 @@ namespace Pulumi.Azure.Compute
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Compute`: 2024-07-01
         /// </summary>
         public static Output<GetOrchestratedVirtualMachineScaleSetResult> Invoke(GetOrchestratedVirtualMachineScaleSetInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetOrchestratedVirtualMachineScaleSetResult>("azure:compute/getOrchestratedVirtualMachineScaleSet:getOrchestratedVirtualMachineScaleSet", args ?? new GetOrchestratedVirtualMachineScaleSetInvokeArgs(), options.WithDefaults());

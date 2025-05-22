@@ -125,6 +125,13 @@ def get_orchestrated_virtual_machine_scale_set(name: Optional[builtins.str] = No
     pulumi.export("id", example.id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Compute`: 2024-07-01
+
 
     :param builtins.str name: The name of this Orchestrated Virtual Machine Scale Set.
     :param builtins.str resource_group_name: The name of the Resource Group where the Orchestrated Virtual Machine Scale Set exists.
@@ -158,6 +165,13 @@ def get_orchestrated_virtual_machine_scale_set_output(name: Optional[pulumi.Inpu
         resource_group_name="existing")
     pulumi.export("id", example.id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Compute`: 2024-07-01
 
 
     :param builtins.str name: The name of this Orchestrated Virtual Machine Scale Set.

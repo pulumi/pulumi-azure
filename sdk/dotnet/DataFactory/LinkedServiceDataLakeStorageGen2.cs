@@ -126,7 +126,7 @@ namespace Pulumi.Azure.DataFactory
         /// <summary>
         /// The tenant id or name in which the service principal exists to authenticate against the Azure Data Lake Storage Gen2 account.
         /// 
-        /// &gt; **NOTE** If `service_principal_id` is used, `service_principal_key` and `tenant` are also required.
+        /// &gt; **Note:** If `service_principal_id` is used, `service_principal_key` and `tenant` are also required.
         /// </summary>
         [Output("tenant")]
         public Output<string?> Tenant { get; private set; } = null!;
@@ -134,7 +134,7 @@ namespace Pulumi.Azure.DataFactory
         /// <summary>
         /// The endpoint for the Azure Data Lake Storage Gen2 service.
         /// 
-        /// &gt; **NOTE** Users should specify only one of the following three authentication strategies: storage account key, managed identity, service principal.
+        /// &gt; **Note:** Users should specify only one of the following three authentication strategies: storage account key, managed identity, service principal.
         /// </summary>
         [Output("url")]
         public Output<string> Url { get; private set; } = null!;
@@ -274,7 +274,7 @@ namespace Pulumi.Azure.DataFactory
         /// <summary>
         /// The tenant id or name in which the service principal exists to authenticate against the Azure Data Lake Storage Gen2 account.
         /// 
-        /// &gt; **NOTE** If `service_principal_id` is used, `service_principal_key` and `tenant` are also required.
+        /// &gt; **Note:** If `service_principal_id` is used, `service_principal_key` and `tenant` are also required.
         /// </summary>
         [Input("tenant")]
         public Input<string>? Tenant { get; set; }
@@ -282,7 +282,7 @@ namespace Pulumi.Azure.DataFactory
         /// <summary>
         /// The endpoint for the Azure Data Lake Storage Gen2 service.
         /// 
-        /// &gt; **NOTE** Users should specify only one of the following three authentication strategies: storage account key, managed identity, service principal.
+        /// &gt; **Note:** Users should specify only one of the following three authentication strategies: storage account key, managed identity, service principal.
         /// </summary>
         [Input("url", required: true)]
         public Input<string> Url { get; set; } = null!;
@@ -384,7 +384,7 @@ namespace Pulumi.Azure.DataFactory
         /// <summary>
         /// The tenant id or name in which the service principal exists to authenticate against the Azure Data Lake Storage Gen2 account.
         /// 
-        /// &gt; **NOTE** If `service_principal_id` is used, `service_principal_key` and `tenant` are also required.
+        /// &gt; **Note:** If `service_principal_id` is used, `service_principal_key` and `tenant` are also required.
         /// </summary>
         [Input("tenant")]
         public Input<string>? Tenant { get; set; }
@@ -392,7 +392,7 @@ namespace Pulumi.Azure.DataFactory
         /// <summary>
         /// The endpoint for the Azure Data Lake Storage Gen2 service.
         /// 
-        /// &gt; **NOTE** Users should specify only one of the following three authentication strategies: storage account key, managed identity, service principal.
+        /// &gt; **Note:** Users should specify only one of the following three authentication strategies: storage account key, managed identity, service principal.
         /// </summary>
         [Input("url")]
         public Input<string>? Url { get; set; }

@@ -183,6 +183,13 @@ def get_workspace(name: Optional[builtins.str] = None,
     pulumi.export("databricksWorkspaceId", example.workspace_id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Databricks`: 2024-05-01
+
 
     :param builtins.str name: The name of the Databricks Workspace.
     :param builtins.str resource_group_name: The Name of the Resource Group where the Databricks Workspace exists.
@@ -224,6 +231,13 @@ def get_workspace_output(name: Optional[pulumi.Input[builtins.str]] = None,
         resource_group_name="example-rg")
     pulumi.export("databricksWorkspaceId", example.workspace_id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Databricks`: 2024-05-01
 
 
     :param builtins.str name: The name of the Databricks Workspace.

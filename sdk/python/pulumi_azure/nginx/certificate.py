@@ -293,6 +293,13 @@ class Certificate(pulumi.CustomResource):
             key_vault_secret_id=example_certificate.secret_id)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Nginx.NginxPlus`: 2024-11-01-preview
+
         ## Import
 
         An NGINX Certificate can be imported using the `resource id`, e.g.
@@ -406,6 +413,13 @@ class Certificate(pulumi.CustomResource):
             certificate_virtual_path="/src/cert/server.cert",
             key_vault_secret_id=example_certificate.secret_id)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Nginx.NginxPlus`: 2024-11-01-preview
 
         ## Import
 

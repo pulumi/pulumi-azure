@@ -86,6 +86,13 @@ namespace Pulumi.Azure.Automation
     /// });
     /// ```
     /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.Automation`: 2019-06-01
+    /// 
     /// ## Import
     /// 
     /// Automations Software Update Configuration can be imported using the `resource id`, e.g.
@@ -172,7 +179,7 @@ namespace Pulumi.Azure.Automation
         /// <summary>
         /// A `windows` block as defined below.
         /// 
-        /// &gt; **NOTE:** One of `linux` or `windows` must be specified.
+        /// &gt; **Note:** One of `linux` or `windows` must be specified.
         /// </summary>
         [Output("windows")]
         public Output<Outputs.SoftwareUpdateConfigurationWindows?> Windows { get; private set; } = null!;
@@ -298,7 +305,7 @@ namespace Pulumi.Azure.Automation
         /// <summary>
         /// A `windows` block as defined below.
         /// 
-        /// &gt; **NOTE:** One of `linux` or `windows` must be specified.
+        /// &gt; **Note:** One of `linux` or `windows` must be specified.
         /// </summary>
         [Input("windows")]
         public Input<Inputs.SoftwareUpdateConfigurationWindowsArgs>? Windows { get; set; }
@@ -398,7 +405,7 @@ namespace Pulumi.Azure.Automation
         /// <summary>
         /// A `windows` block as defined below.
         /// 
-        /// &gt; **NOTE:** One of `linux` or `windows` must be specified.
+        /// &gt; **Note:** One of `linux` or `windows` must be specified.
         /// </summary>
         [Input("windows")]
         public Input<Inputs.SoftwareUpdateConfigurationWindowsGetArgs>? Windows { get; set; }

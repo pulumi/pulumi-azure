@@ -16,7 +16,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// <summary>
         /// Whether the container's permission is elevated to privileged? Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** Currently, this only applies when the `os_type` is `Linux` and the `sku` is `Confidential`.
+        /// &gt; **Note:** Currently, this only applies when the `os_type` is `Linux` and the `sku` is `Confidential`.
         /// </summary>
         public readonly bool PrivilegeEnabled;
 

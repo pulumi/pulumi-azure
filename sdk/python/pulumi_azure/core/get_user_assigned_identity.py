@@ -151,6 +151,13 @@ def get_user_assigned_identity(name: Optional[builtins.str] = None,
     pulumi.export("uaiTenantId", example.tenant_id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.ManagedIdentity`: 2023-01-31
+
 
     :param builtins.str name: The name of the User Assigned Identity.
     :param builtins.str resource_group_name: The name of the Resource Group in which the User Assigned Identity exists.
@@ -191,6 +198,13 @@ def get_user_assigned_identity_output(name: Optional[pulumi.Input[builtins.str]]
     pulumi.export("uaiPrincipalId", example.principal_id)
     pulumi.export("uaiTenantId", example.tenant_id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.ManagedIdentity`: 2023-01-31
 
 
     :param builtins.str name: The name of the User Assigned Identity.

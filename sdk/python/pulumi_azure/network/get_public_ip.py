@@ -305,6 +305,13 @@ def get_public_ip(name: Optional[builtins.str] = None,
     pulumi.export("publicIpAddress", example.ip_address)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Network`: 2024-05-01
+
 
     :param builtins.str name: Specifies the name of the public IP address.
     :param builtins.str resource_group_name: Specifies the name of the resource group.
@@ -401,6 +408,13 @@ def get_public_ip_output(name: Optional[pulumi.Input[builtins.str]] = None,
         resource_group_name=example_virtual_machine.resource_group_name)
     pulumi.export("publicIpAddress", example.ip_address)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Network`: 2024-05-01
 
 
     :param builtins.str name: Specifies the name of the public IP address.

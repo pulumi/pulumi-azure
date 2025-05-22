@@ -71,6 +71,13 @@ import (
 //
 // ```
 //
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.Network`: 2024-06-01
+//
 // ## Import
 //
 // Private DNS MX Records can be imported using the `resource id`, e.g.

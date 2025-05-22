@@ -133,6 +133,13 @@ def get_hci_storage_path(name: Optional[builtins.str] = None,
     pulumi.export("id", example.id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.AzureStackHCI`: 2024-01-01
+
 
     :param builtins.str name: The name of this Stack HCI Storage Path.
     :param builtins.str resource_group_name: The name of the Resource Group where the Stack HCI Storage Path exists.
@@ -167,6 +174,13 @@ def get_hci_storage_path_output(name: Optional[pulumi.Input[builtins.str]] = Non
         resource_group_name="example-rg")
     pulumi.export("id", example.id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.AzureStackHCI`: 2024-01-01
 
 
     :param builtins.str name: The name of this Stack HCI Storage Path.

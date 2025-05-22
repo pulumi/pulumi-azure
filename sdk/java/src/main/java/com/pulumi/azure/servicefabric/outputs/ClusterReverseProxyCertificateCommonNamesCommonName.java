@@ -20,7 +20,7 @@ public final class ClusterReverseProxyCertificateCommonNamesCommonName {
     /**
      * @return The Issuer Thumbprint of the Certificate.
      * 
-     * &gt; **NOTE:** Certificate Issuer Thumbprint may become required in the future, `https://docs.microsoft.com/azure/service-fabric/service-fabric-create-cluster-using-cert-cn#download-and-update-a-sample-template`.
+     * &gt; **Note:** Certificate Issuer Thumbprint may become required in the future, `https://docs.microsoft.com/azure/service-fabric/service-fabric-create-cluster-using-cert-cn#download-and-update-a-sample-template`.
      * 
      */
     private @Nullable String certificateIssuerThumbprint;
@@ -36,7 +36,7 @@ public final class ClusterReverseProxyCertificateCommonNamesCommonName {
     /**
      * @return The Issuer Thumbprint of the Certificate.
      * 
-     * &gt; **NOTE:** Certificate Issuer Thumbprint may become required in the future, `https://docs.microsoft.com/azure/service-fabric/service-fabric-create-cluster-using-cert-cn#download-and-update-a-sample-template`.
+     * &gt; **Note:** Certificate Issuer Thumbprint may become required in the future, `https://docs.microsoft.com/azure/service-fabric/service-fabric-create-cluster-using-cert-cn#download-and-update-a-sample-template`.
      * 
      */
     public Optional<String> certificateIssuerThumbprint() {

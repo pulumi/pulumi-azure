@@ -14,7 +14,7 @@ import (
 
 // Manages a Front Door (standard/premium) Origin.
 //
-// !>**IMPORTANT:** If you are attempting to implement an Origin that uses its own Private Link Service with a Load Balancer the Profile resource in your configuration file **must** have a `dependsOn` meta-argument which references the `privatedns.LinkService`, see `Example Usage With Private Link Service` below.
+// !> **Note:** If you are attempting to implement an Origin that uses its own Private Link Service with a Load Balancer the Profile resource in your configuration file **must** have a `dependsOn` meta-argument which references the `privatedns.LinkService`, see `Example Usage With Private Link Service` below.
 //
 // ## Example Usage
 //
@@ -329,7 +329,7 @@ type FrontdoorOrigin struct {
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// The IPv4 address, IPv6 address or Domain name of the Origin.
 	//
-	// !> **IMPORTANT:** This must be unique across all Front Door Origins within a Front Door Endpoint.
+	// !> **Note:** This must be unique across all Front Door Origins within a Front Door Endpoint.
 	HostName pulumi.StringOutput `pulumi:"hostName"`
 	// The value of the HTTP port. Must be between `1` and `65535`. Defaults to `80`.
 	HttpPort pulumi.IntPtrOutput `pulumi:"httpPort"`
@@ -339,13 +339,13 @@ type FrontdoorOrigin struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The host header value (an IPv4 address, IPv6 address or Domain name) which is sent to the origin with each request. If unspecified the hostname from the request will be used.
 	//
-	// > Azure Front Door Origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin's hostname. This field's value overrides the host header defined in the Front Door Endpoint. For more information on how to properly set the origin host header value please see the [product documentation](https://docs.microsoft.com/azure/frontdoor/origin?pivots=front-door-standard-premium#origin-host-header).
+	// > **Note:** Azure Front Door Origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin's hostname. This field's value overrides the host header defined in the Front Door Endpoint. For more information on how to properly set the origin host header value please see the [product documentation](https://docs.microsoft.com/azure/frontdoor/origin?pivots=front-door-standard-premium#origin-host-header).
 	OriginHostHeader pulumi.StringPtrOutput `pulumi:"originHostHeader"`
 	// Priority of origin in given origin group for load balancing. Higher priorities will not be used for load balancing if any lower priority origin is healthy. Must be between `1` and `5` (inclusive). Defaults to `1`.
 	Priority pulumi.IntPtrOutput `pulumi:"priority"`
 	// A `privateLink` block as defined below.
 	//
-	// > **NOTE:** Private Link requires that the Front Door Profile this Origin is hosted within is using the SKU `Premium_AzureFrontDoor` and that the `certificateNameCheckEnabled` field is set to `true`.
+	// > **Note:** Private Link requires that the Front Door Profile this Origin is hosted within is using the SKU `Premium_AzureFrontDoor` and that the `certificateNameCheckEnabled` field is set to `true`.
 	PrivateLink FrontdoorOriginPrivateLinkPtrOutput `pulumi:"privateLink"`
 	// The weight of the origin in a given origin group for load balancing. Must be between `1` and `1000`. Defaults to `500`.
 	Weight pulumi.IntPtrOutput `pulumi:"weight"`
@@ -398,7 +398,7 @@ type frontdoorOriginState struct {
 	Enabled *bool `pulumi:"enabled"`
 	// The IPv4 address, IPv6 address or Domain name of the Origin.
 	//
-	// !> **IMPORTANT:** This must be unique across all Front Door Origins within a Front Door Endpoint.
+	// !> **Note:** This must be unique across all Front Door Origins within a Front Door Endpoint.
 	HostName *string `pulumi:"hostName"`
 	// The value of the HTTP port. Must be between `1` and `65535`. Defaults to `80`.
 	HttpPort *int `pulumi:"httpPort"`
@@ -408,13 +408,13 @@ type frontdoorOriginState struct {
 	Name *string `pulumi:"name"`
 	// The host header value (an IPv4 address, IPv6 address or Domain name) which is sent to the origin with each request. If unspecified the hostname from the request will be used.
 	//
-	// > Azure Front Door Origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin's hostname. This field's value overrides the host header defined in the Front Door Endpoint. For more information on how to properly set the origin host header value please see the [product documentation](https://docs.microsoft.com/azure/frontdoor/origin?pivots=front-door-standard-premium#origin-host-header).
+	// > **Note:** Azure Front Door Origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin's hostname. This field's value overrides the host header defined in the Front Door Endpoint. For more information on how to properly set the origin host header value please see the [product documentation](https://docs.microsoft.com/azure/frontdoor/origin?pivots=front-door-standard-premium#origin-host-header).
 	OriginHostHeader *string `pulumi:"originHostHeader"`
 	// Priority of origin in given origin group for load balancing. Higher priorities will not be used for load balancing if any lower priority origin is healthy. Must be between `1` and `5` (inclusive). Defaults to `1`.
 	Priority *int `pulumi:"priority"`
 	// A `privateLink` block as defined below.
 	//
-	// > **NOTE:** Private Link requires that the Front Door Profile this Origin is hosted within is using the SKU `Premium_AzureFrontDoor` and that the `certificateNameCheckEnabled` field is set to `true`.
+	// > **Note:** Private Link requires that the Front Door Profile this Origin is hosted within is using the SKU `Premium_AzureFrontDoor` and that the `certificateNameCheckEnabled` field is set to `true`.
 	PrivateLink *FrontdoorOriginPrivateLink `pulumi:"privateLink"`
 	// The weight of the origin in a given origin group for load balancing. Must be between `1` and `1000`. Defaults to `500`.
 	Weight *int `pulumi:"weight"`
@@ -429,7 +429,7 @@ type FrontdoorOriginState struct {
 	Enabled pulumi.BoolPtrInput
 	// The IPv4 address, IPv6 address or Domain name of the Origin.
 	//
-	// !> **IMPORTANT:** This must be unique across all Front Door Origins within a Front Door Endpoint.
+	// !> **Note:** This must be unique across all Front Door Origins within a Front Door Endpoint.
 	HostName pulumi.StringPtrInput
 	// The value of the HTTP port. Must be between `1` and `65535`. Defaults to `80`.
 	HttpPort pulumi.IntPtrInput
@@ -439,13 +439,13 @@ type FrontdoorOriginState struct {
 	Name pulumi.StringPtrInput
 	// The host header value (an IPv4 address, IPv6 address or Domain name) which is sent to the origin with each request. If unspecified the hostname from the request will be used.
 	//
-	// > Azure Front Door Origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin's hostname. This field's value overrides the host header defined in the Front Door Endpoint. For more information on how to properly set the origin host header value please see the [product documentation](https://docs.microsoft.com/azure/frontdoor/origin?pivots=front-door-standard-premium#origin-host-header).
+	// > **Note:** Azure Front Door Origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin's hostname. This field's value overrides the host header defined in the Front Door Endpoint. For more information on how to properly set the origin host header value please see the [product documentation](https://docs.microsoft.com/azure/frontdoor/origin?pivots=front-door-standard-premium#origin-host-header).
 	OriginHostHeader pulumi.StringPtrInput
 	// Priority of origin in given origin group for load balancing. Higher priorities will not be used for load balancing if any lower priority origin is healthy. Must be between `1` and `5` (inclusive). Defaults to `1`.
 	Priority pulumi.IntPtrInput
 	// A `privateLink` block as defined below.
 	//
-	// > **NOTE:** Private Link requires that the Front Door Profile this Origin is hosted within is using the SKU `Premium_AzureFrontDoor` and that the `certificateNameCheckEnabled` field is set to `true`.
+	// > **Note:** Private Link requires that the Front Door Profile this Origin is hosted within is using the SKU `Premium_AzureFrontDoor` and that the `certificateNameCheckEnabled` field is set to `true`.
 	PrivateLink FrontdoorOriginPrivateLinkPtrInput
 	// The weight of the origin in a given origin group for load balancing. Must be between `1` and `1000`. Defaults to `500`.
 	Weight pulumi.IntPtrInput
@@ -464,7 +464,7 @@ type frontdoorOriginArgs struct {
 	Enabled *bool `pulumi:"enabled"`
 	// The IPv4 address, IPv6 address or Domain name of the Origin.
 	//
-	// !> **IMPORTANT:** This must be unique across all Front Door Origins within a Front Door Endpoint.
+	// !> **Note:** This must be unique across all Front Door Origins within a Front Door Endpoint.
 	HostName string `pulumi:"hostName"`
 	// The value of the HTTP port. Must be between `1` and `65535`. Defaults to `80`.
 	HttpPort *int `pulumi:"httpPort"`
@@ -474,13 +474,13 @@ type frontdoorOriginArgs struct {
 	Name *string `pulumi:"name"`
 	// The host header value (an IPv4 address, IPv6 address or Domain name) which is sent to the origin with each request. If unspecified the hostname from the request will be used.
 	//
-	// > Azure Front Door Origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin's hostname. This field's value overrides the host header defined in the Front Door Endpoint. For more information on how to properly set the origin host header value please see the [product documentation](https://docs.microsoft.com/azure/frontdoor/origin?pivots=front-door-standard-premium#origin-host-header).
+	// > **Note:** Azure Front Door Origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin's hostname. This field's value overrides the host header defined in the Front Door Endpoint. For more information on how to properly set the origin host header value please see the [product documentation](https://docs.microsoft.com/azure/frontdoor/origin?pivots=front-door-standard-premium#origin-host-header).
 	OriginHostHeader *string `pulumi:"originHostHeader"`
 	// Priority of origin in given origin group for load balancing. Higher priorities will not be used for load balancing if any lower priority origin is healthy. Must be between `1` and `5` (inclusive). Defaults to `1`.
 	Priority *int `pulumi:"priority"`
 	// A `privateLink` block as defined below.
 	//
-	// > **NOTE:** Private Link requires that the Front Door Profile this Origin is hosted within is using the SKU `Premium_AzureFrontDoor` and that the `certificateNameCheckEnabled` field is set to `true`.
+	// > **Note:** Private Link requires that the Front Door Profile this Origin is hosted within is using the SKU `Premium_AzureFrontDoor` and that the `certificateNameCheckEnabled` field is set to `true`.
 	PrivateLink *FrontdoorOriginPrivateLink `pulumi:"privateLink"`
 	// The weight of the origin in a given origin group for load balancing. Must be between `1` and `1000`. Defaults to `500`.
 	Weight *int `pulumi:"weight"`
@@ -496,7 +496,7 @@ type FrontdoorOriginArgs struct {
 	Enabled pulumi.BoolPtrInput
 	// The IPv4 address, IPv6 address or Domain name of the Origin.
 	//
-	// !> **IMPORTANT:** This must be unique across all Front Door Origins within a Front Door Endpoint.
+	// !> **Note:** This must be unique across all Front Door Origins within a Front Door Endpoint.
 	HostName pulumi.StringInput
 	// The value of the HTTP port. Must be between `1` and `65535`. Defaults to `80`.
 	HttpPort pulumi.IntPtrInput
@@ -506,13 +506,13 @@ type FrontdoorOriginArgs struct {
 	Name pulumi.StringPtrInput
 	// The host header value (an IPv4 address, IPv6 address or Domain name) which is sent to the origin with each request. If unspecified the hostname from the request will be used.
 	//
-	// > Azure Front Door Origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin's hostname. This field's value overrides the host header defined in the Front Door Endpoint. For more information on how to properly set the origin host header value please see the [product documentation](https://docs.microsoft.com/azure/frontdoor/origin?pivots=front-door-standard-premium#origin-host-header).
+	// > **Note:** Azure Front Door Origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin's hostname. This field's value overrides the host header defined in the Front Door Endpoint. For more information on how to properly set the origin host header value please see the [product documentation](https://docs.microsoft.com/azure/frontdoor/origin?pivots=front-door-standard-premium#origin-host-header).
 	OriginHostHeader pulumi.StringPtrInput
 	// Priority of origin in given origin group for load balancing. Higher priorities will not be used for load balancing if any lower priority origin is healthy. Must be between `1` and `5` (inclusive). Defaults to `1`.
 	Priority pulumi.IntPtrInput
 	// A `privateLink` block as defined below.
 	//
-	// > **NOTE:** Private Link requires that the Front Door Profile this Origin is hosted within is using the SKU `Premium_AzureFrontDoor` and that the `certificateNameCheckEnabled` field is set to `true`.
+	// > **Note:** Private Link requires that the Front Door Profile this Origin is hosted within is using the SKU `Premium_AzureFrontDoor` and that the `certificateNameCheckEnabled` field is set to `true`.
 	PrivateLink FrontdoorOriginPrivateLinkPtrInput
 	// The weight of the origin in a given origin group for load balancing. Must be between `1` and `1000`. Defaults to `500`.
 	Weight pulumi.IntPtrInput
@@ -622,7 +622,7 @@ func (o FrontdoorOriginOutput) Enabled() pulumi.BoolPtrOutput {
 
 // The IPv4 address, IPv6 address or Domain name of the Origin.
 //
-// !> **IMPORTANT:** This must be unique across all Front Door Origins within a Front Door Endpoint.
+// !> **Note:** This must be unique across all Front Door Origins within a Front Door Endpoint.
 func (o FrontdoorOriginOutput) HostName() pulumi.StringOutput {
 	return o.ApplyT(func(v *FrontdoorOrigin) pulumi.StringOutput { return v.HostName }).(pulumi.StringOutput)
 }
@@ -644,7 +644,7 @@ func (o FrontdoorOriginOutput) Name() pulumi.StringOutput {
 
 // The host header value (an IPv4 address, IPv6 address or Domain name) which is sent to the origin with each request. If unspecified the hostname from the request will be used.
 //
-// > Azure Front Door Origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin's hostname. This field's value overrides the host header defined in the Front Door Endpoint. For more information on how to properly set the origin host header value please see the [product documentation](https://docs.microsoft.com/azure/frontdoor/origin?pivots=front-door-standard-premium#origin-host-header).
+// > **Note:** Azure Front Door Origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin's hostname. This field's value overrides the host header defined in the Front Door Endpoint. For more information on how to properly set the origin host header value please see the [product documentation](https://docs.microsoft.com/azure/frontdoor/origin?pivots=front-door-standard-premium#origin-host-header).
 func (o FrontdoorOriginOutput) OriginHostHeader() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FrontdoorOrigin) pulumi.StringPtrOutput { return v.OriginHostHeader }).(pulumi.StringPtrOutput)
 }
@@ -656,7 +656,7 @@ func (o FrontdoorOriginOutput) Priority() pulumi.IntPtrOutput {
 
 // A `privateLink` block as defined below.
 //
-// > **NOTE:** Private Link requires that the Front Door Profile this Origin is hosted within is using the SKU `Premium_AzureFrontDoor` and that the `certificateNameCheckEnabled` field is set to `true`.
+// > **Note:** Private Link requires that the Front Door Profile this Origin is hosted within is using the SKU `Premium_AzureFrontDoor` and that the `certificateNameCheckEnabled` field is set to `true`.
 func (o FrontdoorOriginOutput) PrivateLink() FrontdoorOriginPrivateLinkPtrOutput {
 	return o.ApplyT(func(v *FrontdoorOrigin) FrontdoorOriginPrivateLinkPtrOutput { return v.PrivateLink }).(FrontdoorOriginPrivateLinkPtrOutput)
 }

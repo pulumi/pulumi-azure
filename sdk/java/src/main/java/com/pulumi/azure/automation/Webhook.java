@@ -94,6 +94,13 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.Automation`: 2015-10-31
+ * 
  * ## Import
  * 
  * Automation Webhooks can be imported using the `resource id`, e.g.

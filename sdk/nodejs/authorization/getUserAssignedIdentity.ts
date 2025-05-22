@@ -23,6 +23,13 @@ import * as utilities from "../utilities";
  * export const uaiPrincipalId = example.then(example => example.principalId);
  * export const uaiTenantId = example.then(example => example.tenantId);
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.ManagedIdentity`: 2023-01-31
  */
 export function getUserAssignedIdentity(args: GetUserAssignedIdentityArgs, opts?: pulumi.InvokeOptions): Promise<GetUserAssignedIdentityResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -96,6 +103,13 @@ export interface GetUserAssignedIdentityResult {
  * export const uaiPrincipalId = example.then(example => example.principalId);
  * export const uaiTenantId = example.then(example => example.tenantId);
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.ManagedIdentity`: 2023-01-31
  */
 export function getUserAssignedIdentityOutput(args: GetUserAssignedIdentityOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetUserAssignedIdentityResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

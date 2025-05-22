@@ -261,6 +261,13 @@ class GlobalSchema(pulumi.CustomResource):
             value=std.file(input="api_management_api_schema.xml").result)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ApiManagement`: 2022-08-01
+
         ## Import
 
         API Management API Schema's can be imported using the `resource id`, e.g.
@@ -311,6 +318,13 @@ class GlobalSchema(pulumi.CustomResource):
             type="xml",
             value=std.file(input="api_management_api_schema.xml").result)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ApiManagement`: 2022-08-01
 
         ## Import
 

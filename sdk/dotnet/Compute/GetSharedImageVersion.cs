@@ -34,6 +34,13 @@ namespace Pulumi.Azure.Compute
         /// 
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Compute`: 2023-07-03
         /// </summary>
         public static Task<GetSharedImageVersionResult> InvokeAsync(GetSharedImageVersionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSharedImageVersionResult>("azure:compute/getSharedImageVersion:getSharedImageVersion", args ?? new GetSharedImageVersionArgs(), options.WithDefaults());
@@ -61,6 +68,13 @@ namespace Pulumi.Azure.Compute
         /// 
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Compute`: 2023-07-03
         /// </summary>
         public static Output<GetSharedImageVersionResult> Invoke(GetSharedImageVersionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSharedImageVersionResult>("azure:compute/getSharedImageVersion:getSharedImageVersion", args ?? new GetSharedImageVersionInvokeArgs(), options.WithDefaults());
@@ -88,6 +102,13 @@ namespace Pulumi.Azure.Compute
         /// 
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Compute`: 2023-07-03
         /// </summary>
         public static Output<GetSharedImageVersionResult> Invoke(GetSharedImageVersionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSharedImageVersionResult>("azure:compute/getSharedImageVersion:getSharedImageVersion", args ?? new GetSharedImageVersionInvokeArgs(), options.WithDefaults());

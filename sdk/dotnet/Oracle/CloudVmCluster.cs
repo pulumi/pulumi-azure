@@ -118,6 +118,13 @@ namespace Pulumi.Azure.Oracle
     /// });
     /// ```
     /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Oracle.Database`: 2024-06-01
+    /// 
     /// ## Import
     /// 
     /// Cloud VM Clusters can be imported using the `resource id`, e.g.

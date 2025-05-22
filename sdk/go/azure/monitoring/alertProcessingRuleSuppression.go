@@ -92,6 +92,13 @@ import (
 //
 // ```
 //
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.AlertsManagement`: 2021-08-08
+//
 // ## Import
 //
 // Alert Processing Rules can be imported using the `resource id`, e.g.

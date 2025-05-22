@@ -112,6 +112,13 @@ import (
 //
 // ```
 //
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Nginx.NginxPlus`: 2024-11-01-preview
+//
 // ## Import
 //
 // NGINX Deployments can be imported using the `resource id`, e.g.
@@ -128,7 +135,7 @@ type Deployment struct {
 	AutomaticUpgradeChannel pulumi.StringPtrOutput `pulumi:"automaticUpgradeChannel"`
 	// Specify the number of NGINX capacity units for this NGINX deployment.
 	//
-	// > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
+	// > **Note:** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
 	Capacity pulumi.IntPtrOutput `pulumi:"capacity"`
 	// The dataplane API endpoint of the NGINX Deployment.
 	DataplaneApiEndpoint pulumi.StringOutput `pulumi:"dataplaneApiEndpoint"`
@@ -136,9 +143,9 @@ type Deployment struct {
 	DiagnoseSupportEnabled pulumi.BoolPtrOutput `pulumi:"diagnoseSupportEnabled"`
 	// Specify the preferred support contact email address for receiving alerts and notifications.
 	Email pulumi.StringPtrOutput `pulumi:"email"`
-	// One or more `frontendPrivate` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
+	// One or more `frontendPrivate` blocks as defined below.
 	FrontendPrivates DeploymentFrontendPrivateArrayOutput `pulumi:"frontendPrivates"`
-	// A `frontendPublic` block as defined below. Changing this forces a new NGINX Deployment to be created.
+	// A `frontendPublic` block as defined below.
 	FrontendPublic DeploymentFrontendPublicPtrOutput `pulumi:"frontendPublic"`
 	// An `identity` block as defined below.
 	Identity DeploymentIdentityPtrOutput `pulumi:"identity"`
@@ -152,7 +159,7 @@ type Deployment struct {
 	ManagedResourceGroup pulumi.StringOutput `pulumi:"managedResourceGroup"`
 	// The name which should be used for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// One or more `networkInterface` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
+	// One or more `networkInterface` blocks as defined below.
 	NetworkInterfaces DeploymentNetworkInterfaceArrayOutput `pulumi:"networkInterfaces"`
 	// The version of the NGINX Deployment.
 	NginxVersion pulumi.StringOutput `pulumi:"nginxVersion"`
@@ -161,6 +168,8 @@ type Deployment struct {
 	Sku               pulumi.StringOutput `pulumi:"sku"`
 	// A mapping of tags which should be assigned to the NGINX Deployment.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A `webApplicationFirewall` blocks as defined below.
+	WebApplicationFirewall DeploymentWebApplicationFirewallPtrOutput `pulumi:"webApplicationFirewall"`
 }
 
 // NewDeployment registers a new resource with the given unique name, arguments, and options.
@@ -205,7 +214,7 @@ type deploymentState struct {
 	AutomaticUpgradeChannel *string `pulumi:"automaticUpgradeChannel"`
 	// Specify the number of NGINX capacity units for this NGINX deployment.
 	//
-	// > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
+	// > **Note:** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
 	Capacity *int `pulumi:"capacity"`
 	// The dataplane API endpoint of the NGINX Deployment.
 	DataplaneApiEndpoint *string `pulumi:"dataplaneApiEndpoint"`
@@ -213,9 +222,9 @@ type deploymentState struct {
 	DiagnoseSupportEnabled *bool `pulumi:"diagnoseSupportEnabled"`
 	// Specify the preferred support contact email address for receiving alerts and notifications.
 	Email *string `pulumi:"email"`
-	// One or more `frontendPrivate` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
+	// One or more `frontendPrivate` blocks as defined below.
 	FrontendPrivates []DeploymentFrontendPrivate `pulumi:"frontendPrivates"`
-	// A `frontendPublic` block as defined below. Changing this forces a new NGINX Deployment to be created.
+	// A `frontendPublic` block as defined below.
 	FrontendPublic *DeploymentFrontendPublic `pulumi:"frontendPublic"`
 	// An `identity` block as defined below.
 	Identity *DeploymentIdentity `pulumi:"identity"`
@@ -229,7 +238,7 @@ type deploymentState struct {
 	ManagedResourceGroup *string `pulumi:"managedResourceGroup"`
 	// The name which should be used for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
 	Name *string `pulumi:"name"`
-	// One or more `networkInterface` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
+	// One or more `networkInterface` blocks as defined below.
 	NetworkInterfaces []DeploymentNetworkInterface `pulumi:"networkInterfaces"`
 	// The version of the NGINX Deployment.
 	NginxVersion *string `pulumi:"nginxVersion"`
@@ -238,6 +247,8 @@ type deploymentState struct {
 	Sku               *string `pulumi:"sku"`
 	// A mapping of tags which should be assigned to the NGINX Deployment.
 	Tags map[string]string `pulumi:"tags"`
+	// A `webApplicationFirewall` blocks as defined below.
+	WebApplicationFirewall *DeploymentWebApplicationFirewall `pulumi:"webApplicationFirewall"`
 }
 
 type DeploymentState struct {
@@ -247,7 +258,7 @@ type DeploymentState struct {
 	AutomaticUpgradeChannel pulumi.StringPtrInput
 	// Specify the number of NGINX capacity units for this NGINX deployment.
 	//
-	// > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
+	// > **Note:** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
 	Capacity pulumi.IntPtrInput
 	// The dataplane API endpoint of the NGINX Deployment.
 	DataplaneApiEndpoint pulumi.StringPtrInput
@@ -255,9 +266,9 @@ type DeploymentState struct {
 	DiagnoseSupportEnabled pulumi.BoolPtrInput
 	// Specify the preferred support contact email address for receiving alerts and notifications.
 	Email pulumi.StringPtrInput
-	// One or more `frontendPrivate` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
+	// One or more `frontendPrivate` blocks as defined below.
 	FrontendPrivates DeploymentFrontendPrivateArrayInput
-	// A `frontendPublic` block as defined below. Changing this forces a new NGINX Deployment to be created.
+	// A `frontendPublic` block as defined below.
 	FrontendPublic DeploymentFrontendPublicPtrInput
 	// An `identity` block as defined below.
 	Identity DeploymentIdentityPtrInput
@@ -271,7 +282,7 @@ type DeploymentState struct {
 	ManagedResourceGroup pulumi.StringPtrInput
 	// The name which should be used for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
 	Name pulumi.StringPtrInput
-	// One or more `networkInterface` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
+	// One or more `networkInterface` blocks as defined below.
 	NetworkInterfaces DeploymentNetworkInterfaceArrayInput
 	// The version of the NGINX Deployment.
 	NginxVersion pulumi.StringPtrInput
@@ -280,6 +291,8 @@ type DeploymentState struct {
 	Sku               pulumi.StringPtrInput
 	// A mapping of tags which should be assigned to the NGINX Deployment.
 	Tags pulumi.StringMapInput
+	// A `webApplicationFirewall` blocks as defined below.
+	WebApplicationFirewall DeploymentWebApplicationFirewallPtrInput
 }
 
 func (DeploymentState) ElementType() reflect.Type {
@@ -293,15 +306,15 @@ type deploymentArgs struct {
 	AutomaticUpgradeChannel *string `pulumi:"automaticUpgradeChannel"`
 	// Specify the number of NGINX capacity units for this NGINX deployment.
 	//
-	// > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
+	// > **Note:** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
 	Capacity *int `pulumi:"capacity"`
 	// Should the metrics be exported to Azure Monitor?
 	DiagnoseSupportEnabled *bool `pulumi:"diagnoseSupportEnabled"`
 	// Specify the preferred support contact email address for receiving alerts and notifications.
 	Email *string `pulumi:"email"`
-	// One or more `frontendPrivate` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
+	// One or more `frontendPrivate` blocks as defined below.
 	FrontendPrivates []DeploymentFrontendPrivate `pulumi:"frontendPrivates"`
-	// A `frontendPublic` block as defined below. Changing this forces a new NGINX Deployment to be created.
+	// A `frontendPublic` block as defined below.
 	FrontendPublic *DeploymentFrontendPublic `pulumi:"frontendPublic"`
 	// An `identity` block as defined below.
 	Identity *DeploymentIdentity `pulumi:"identity"`
@@ -313,13 +326,15 @@ type deploymentArgs struct {
 	ManagedResourceGroup *string `pulumi:"managedResourceGroup"`
 	// The name which should be used for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
 	Name *string `pulumi:"name"`
-	// One or more `networkInterface` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
+	// One or more `networkInterface` blocks as defined below.
 	NetworkInterfaces []DeploymentNetworkInterface `pulumi:"networkInterfaces"`
 	// The name of the Resource Group where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	Sku               string `pulumi:"sku"`
 	// A mapping of tags which should be assigned to the NGINX Deployment.
 	Tags map[string]string `pulumi:"tags"`
+	// A `webApplicationFirewall` blocks as defined below.
+	WebApplicationFirewall *DeploymentWebApplicationFirewall `pulumi:"webApplicationFirewall"`
 }
 
 // The set of arguments for constructing a Deployment resource.
@@ -330,15 +345,15 @@ type DeploymentArgs struct {
 	AutomaticUpgradeChannel pulumi.StringPtrInput
 	// Specify the number of NGINX capacity units for this NGINX deployment.
 	//
-	// > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
+	// > **Note:** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
 	Capacity pulumi.IntPtrInput
 	// Should the metrics be exported to Azure Monitor?
 	DiagnoseSupportEnabled pulumi.BoolPtrInput
 	// Specify the preferred support contact email address for receiving alerts and notifications.
 	Email pulumi.StringPtrInput
-	// One or more `frontendPrivate` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
+	// One or more `frontendPrivate` blocks as defined below.
 	FrontendPrivates DeploymentFrontendPrivateArrayInput
-	// A `frontendPublic` block as defined below. Changing this forces a new NGINX Deployment to be created.
+	// A `frontendPublic` block as defined below.
 	FrontendPublic DeploymentFrontendPublicPtrInput
 	// An `identity` block as defined below.
 	Identity DeploymentIdentityPtrInput
@@ -350,13 +365,15 @@ type DeploymentArgs struct {
 	ManagedResourceGroup pulumi.StringPtrInput
 	// The name which should be used for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
 	Name pulumi.StringPtrInput
-	// One or more `networkInterface` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
+	// One or more `networkInterface` blocks as defined below.
 	NetworkInterfaces DeploymentNetworkInterfaceArrayInput
 	// The name of the Resource Group where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
 	ResourceGroupName pulumi.StringInput
 	Sku               pulumi.StringInput
 	// A mapping of tags which should be assigned to the NGINX Deployment.
 	Tags pulumi.StringMapInput
+	// A `webApplicationFirewall` blocks as defined below.
+	WebApplicationFirewall DeploymentWebApplicationFirewallPtrInput
 }
 
 func (DeploymentArgs) ElementType() reflect.Type {
@@ -458,7 +475,7 @@ func (o DeploymentOutput) AutomaticUpgradeChannel() pulumi.StringPtrOutput {
 
 // Specify the number of NGINX capacity units for this NGINX deployment.
 //
-// > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
+// > **Note:** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
 func (o DeploymentOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.IntPtrOutput { return v.Capacity }).(pulumi.IntPtrOutput)
 }
@@ -478,12 +495,12 @@ func (o DeploymentOutput) Email() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringPtrOutput { return v.Email }).(pulumi.StringPtrOutput)
 }
 
-// One or more `frontendPrivate` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
+// One or more `frontendPrivate` blocks as defined below.
 func (o DeploymentOutput) FrontendPrivates() DeploymentFrontendPrivateArrayOutput {
 	return o.ApplyT(func(v *Deployment) DeploymentFrontendPrivateArrayOutput { return v.FrontendPrivates }).(DeploymentFrontendPrivateArrayOutput)
 }
 
-// A `frontendPublic` block as defined below. Changing this forces a new NGINX Deployment to be created.
+// A `frontendPublic` block as defined below.
 func (o DeploymentOutput) FrontendPublic() DeploymentFrontendPublicPtrOutput {
 	return o.ApplyT(func(v *Deployment) DeploymentFrontendPublicPtrOutput { return v.FrontendPublic }).(DeploymentFrontendPublicPtrOutput)
 }
@@ -518,7 +535,7 @@ func (o DeploymentOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// One or more `networkInterface` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
+// One or more `networkInterface` blocks as defined below.
 func (o DeploymentOutput) NetworkInterfaces() DeploymentNetworkInterfaceArrayOutput {
 	return o.ApplyT(func(v *Deployment) DeploymentNetworkInterfaceArrayOutput { return v.NetworkInterfaces }).(DeploymentNetworkInterfaceArrayOutput)
 }
@@ -540,6 +557,11 @@ func (o DeploymentOutput) Sku() pulumi.StringOutput {
 // A mapping of tags which should be assigned to the NGINX Deployment.
 func (o DeploymentOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// A `webApplicationFirewall` blocks as defined below.
+func (o DeploymentOutput) WebApplicationFirewall() DeploymentWebApplicationFirewallPtrOutput {
+	return o.ApplyT(func(v *Deployment) DeploymentWebApplicationFirewallPtrOutput { return v.WebApplicationFirewall }).(DeploymentWebApplicationFirewallPtrOutput)
 }
 
 type DeploymentArrayOutput struct{ *pulumi.OutputState }

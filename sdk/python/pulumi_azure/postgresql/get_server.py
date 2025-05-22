@@ -170,6 +170,13 @@ def get_server(name: Optional[builtins.str] = None,
     pulumi.export("postgresqlServerId", example.id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.DBforPostgreSQL`: 2017-12-01
+
 
     :param builtins.str name: The name of the PostgreSQL Server.
     :param builtins.str resource_group_name: Specifies the name of the Resource Group where the PostgreSQL Server exists.
@@ -207,6 +214,13 @@ def get_server_output(name: Optional[pulumi.Input[builtins.str]] = None,
         resource_group_name="api-rg-pro")
     pulumi.export("postgresqlServerId", example.id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.DBforPostgreSQL`: 2017-12-01
 
 
     :param builtins.str name: The name of the PostgreSQL Server.

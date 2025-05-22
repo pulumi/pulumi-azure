@@ -391,6 +391,13 @@ class GalleryApplication(pulumi.CustomResource):
             supported_os_type="Linux")
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Compute`: 2022-03-03
+
         ## Import
 
         Gallery Applications can be imported using the `resource id`, e.g.
@@ -440,6 +447,13 @@ class GalleryApplication(pulumi.CustomResource):
             location=example.location,
             supported_os_type="Linux")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Compute`: 2022-03-03
 
         ## Import
 

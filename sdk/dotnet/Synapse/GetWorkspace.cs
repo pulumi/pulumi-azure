@@ -145,7 +145,7 @@ namespace Pulumi.Azure.Synapse
     public sealed class GetWorkspaceResult
     {
         /// <summary>
-        /// A list of Connectivity endpoints for this Synapse Workspace.
+        /// A map of Connectivity endpoints for this Synapse Workspace.
         /// </summary>
         public readonly ImmutableDictionary<string, string> ConnectivityEndpoints;
         /// <summary>

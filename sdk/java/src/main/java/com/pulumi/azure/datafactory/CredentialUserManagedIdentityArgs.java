@@ -18,14 +18,18 @@ public final class CredentialUserManagedIdentityArgs extends com.pulumi.resource
     public static final CredentialUserManagedIdentityArgs Empty = new CredentialUserManagedIdentityArgs();
 
     /**
-     * (Optional) List of string annotations.
+     * List of tags that can be used for describing the Data Factory Credential.
+     * 
+     * &gt; **Note:** Manually altering a Credential resource will cause annotations to be lost, resulting in a change being detected on the next run.
      * 
      */
     @Import(name="annotations")
     private @Nullable Output<List<String>> annotations;
 
     /**
-     * @return (Optional) List of string annotations.
+     * @return List of tags that can be used for describing the Data Factory Credential.
+     * 
+     * &gt; **Note:** Manually altering a Credential resource will cause annotations to be lost, resulting in a change being detected on the next run.
      * 
      */
     public Optional<Output<List<String>>> annotations() {
@@ -33,14 +37,14 @@ public final class CredentialUserManagedIdentityArgs extends com.pulumi.resource
     }
 
     /**
-     * The resource ID of the parent Data Factory
+     * The Data Factory ID in which to associate the Credential with. Changing this forces a new resource.
      * 
      */
     @Import(name="dataFactoryId", required=true)
     private Output<String> dataFactoryId;
 
     /**
-     * @return The resource ID of the parent Data Factory
+     * @return The Data Factory ID in which to associate the Credential with. Changing this forces a new resource.
      * 
      */
     public Output<String> dataFactoryId() {
@@ -48,14 +52,14 @@ public final class CredentialUserManagedIdentityArgs extends com.pulumi.resource
     }
 
     /**
-     * (Optional) Short text description
+     * The description for the Data Factory Credential.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return (Optional) Short text description
+     * @return The description for the Data Factory Credential.
      * 
      */
     public Optional<Output<String>> description() {
@@ -63,14 +67,18 @@ public final class CredentialUserManagedIdentityArgs extends com.pulumi.resource
     }
 
     /**
-     * The resource ID of the User Assigned Managed Identity
+     * The Resouce ID of an existing User Assigned Managed Identity. This can be changed without recreating the resource. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** Attempting to create a Credential resource without first assigning the identity to the parent Data Factory will result in an Azure API error.
      * 
      */
     @Import(name="identityId", required=true)
     private Output<String> identityId;
 
     /**
-     * @return The resource ID of the User Assigned Managed Identity
+     * @return The Resouce ID of an existing User Assigned Managed Identity. This can be changed without recreating the resource. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** Attempting to create a Credential resource without first assigning the identity to the parent Data Factory will result in an Azure API error.
      * 
      */
     public Output<String> identityId() {
@@ -78,14 +86,14 @@ public final class CredentialUserManagedIdentityArgs extends com.pulumi.resource
     }
 
     /**
-     * The desired name of the credential resource
+     * Specifies the name of the Credential. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The desired name of the credential resource
+     * @return Specifies the name of the Credential. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -121,7 +129,9 @@ public final class CredentialUserManagedIdentityArgs extends com.pulumi.resource
         }
 
         /**
-         * @param annotations (Optional) List of string annotations.
+         * @param annotations List of tags that can be used for describing the Data Factory Credential.
+         * 
+         * &gt; **Note:** Manually altering a Credential resource will cause annotations to be lost, resulting in a change being detected on the next run.
          * 
          * @return builder
          * 
@@ -132,7 +142,9 @@ public final class CredentialUserManagedIdentityArgs extends com.pulumi.resource
         }
 
         /**
-         * @param annotations (Optional) List of string annotations.
+         * @param annotations List of tags that can be used for describing the Data Factory Credential.
+         * 
+         * &gt; **Note:** Manually altering a Credential resource will cause annotations to be lost, resulting in a change being detected on the next run.
          * 
          * @return builder
          * 
@@ -142,7 +154,9 @@ public final class CredentialUserManagedIdentityArgs extends com.pulumi.resource
         }
 
         /**
-         * @param annotations (Optional) List of string annotations.
+         * @param annotations List of tags that can be used for describing the Data Factory Credential.
+         * 
+         * &gt; **Note:** Manually altering a Credential resource will cause annotations to be lost, resulting in a change being detected on the next run.
          * 
          * @return builder
          * 
@@ -152,7 +166,7 @@ public final class CredentialUserManagedIdentityArgs extends com.pulumi.resource
         }
 
         /**
-         * @param dataFactoryId The resource ID of the parent Data Factory
+         * @param dataFactoryId The Data Factory ID in which to associate the Credential with. Changing this forces a new resource.
          * 
          * @return builder
          * 
@@ -163,7 +177,7 @@ public final class CredentialUserManagedIdentityArgs extends com.pulumi.resource
         }
 
         /**
-         * @param dataFactoryId The resource ID of the parent Data Factory
+         * @param dataFactoryId The Data Factory ID in which to associate the Credential with. Changing this forces a new resource.
          * 
          * @return builder
          * 
@@ -173,7 +187,7 @@ public final class CredentialUserManagedIdentityArgs extends com.pulumi.resource
         }
 
         /**
-         * @param description (Optional) Short text description
+         * @param description The description for the Data Factory Credential.
          * 
          * @return builder
          * 
@@ -184,7 +198,7 @@ public final class CredentialUserManagedIdentityArgs extends com.pulumi.resource
         }
 
         /**
-         * @param description (Optional) Short text description
+         * @param description The description for the Data Factory Credential.
          * 
          * @return builder
          * 
@@ -194,7 +208,9 @@ public final class CredentialUserManagedIdentityArgs extends com.pulumi.resource
         }
 
         /**
-         * @param identityId The resource ID of the User Assigned Managed Identity
+         * @param identityId The Resouce ID of an existing User Assigned Managed Identity. This can be changed without recreating the resource. Changing this forces a new resource to be created.
+         * 
+         * &gt; **Note:** Attempting to create a Credential resource without first assigning the identity to the parent Data Factory will result in an Azure API error.
          * 
          * @return builder
          * 
@@ -205,7 +221,9 @@ public final class CredentialUserManagedIdentityArgs extends com.pulumi.resource
         }
 
         /**
-         * @param identityId The resource ID of the User Assigned Managed Identity
+         * @param identityId The Resouce ID of an existing User Assigned Managed Identity. This can be changed without recreating the resource. Changing this forces a new resource to be created.
+         * 
+         * &gt; **Note:** Attempting to create a Credential resource without first assigning the identity to the parent Data Factory will result in an Azure API error.
          * 
          * @return builder
          * 
@@ -215,7 +233,7 @@ public final class CredentialUserManagedIdentityArgs extends com.pulumi.resource
         }
 
         /**
-         * @param name The desired name of the credential resource
+         * @param name Specifies the name of the Credential. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -226,7 +244,7 @@ public final class CredentialUserManagedIdentityArgs extends com.pulumi.resource
         }
 
         /**
-         * @param name The desired name of the credential resource
+         * @param name Specifies the name of the Credential. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

@@ -260,7 +260,7 @@ class Capacity(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_capacity = azure.fabric.Capacity("example",
-            name="example-ffc",
+            name="exampleffc",
             resource_group_name=example.name,
             location="West Europe",
             administration_members=[current.object_id],
@@ -272,6 +272,13 @@ class Capacity(pulumi.CustomResource):
                 "environment": "test",
             })
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Fabric`: 2023-11-01
 
         ## Import
 
@@ -312,7 +319,7 @@ class Capacity(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_capacity = azure.fabric.Capacity("example",
-            name="example-ffc",
+            name="exampleffc",
             resource_group_name=example.name,
             location="West Europe",
             administration_members=[current.object_id],
@@ -324,6 +331,13 @@ class Capacity(pulumi.CustomResource):
                 "environment": "test",
             })
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Fabric`: 2023-11-01
 
         ## Import
 

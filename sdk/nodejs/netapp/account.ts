@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 /**
  * Manages a NetApp Account.
  *
- * > **NOTE:** Azure allows only one active directory can be joined to a single subscription at a time for NetApp Account.
+ * > **Note:** Azure allows only one active directory can be joined to a single subscription at a time for NetApp Account.
  *
  * ## NetApp Account Usage
  *
@@ -46,6 +46,13 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.NetApp`: 2025-01-01
+ *
  * ## Import
  *
  * NetApp Accounts can be imported using the `resource id`, e.g.
@@ -53,8 +60,6 @@ import * as utilities from "../utilities";
  * ```sh
  * $ pulumi import azure:netapp/account:Account example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.NetApp/netAppAccounts/account1
  * ```
- *
- * ~> **IMPORTANT:** When importing a NetApp account, the `active_directory.password` and `active_directory.server_root_ca_certificate` values *cannot* be retrieved from the Azure API and will need to be redeclared within the resource.
  */
 export class Account extends pulumi.CustomResource {
     /**

@@ -349,6 +349,13 @@ class NamespaceCustomerManagedKey(pulumi.CustomResource):
             user_assigned_identity_id=example_user_assigned_identity.id)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.EventHub`: 2024-01-01
+
         ## Import
 
         Customer Managed Keys for a EventHub Namespace can be imported using the `resource id`, e.g.
@@ -536,6 +543,13 @@ class NamespaceCustomerManagedKey(pulumi.CustomResource):
             key_vault_key_ids=[example_key.id],
             user_assigned_identity_id=example_user_assigned_identity.id)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.EventHub`: 2024-01-01
 
         ## Import
 

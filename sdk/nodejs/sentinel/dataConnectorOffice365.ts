@@ -85,13 +85,13 @@ export class DataConnectorOffice365 extends pulumi.CustomResource {
     /**
      * Should the Microsoft Teams data connector be enabled? Defaults to `true`.
      *
-     * > **NOTE:** At least one of `exchangeEnabled`, `sharedpointEnabled` and `teamsEnabled` has to be specified.
+     * > **Note:** At least one of `exchangeEnabled`, `sharedpointEnabled` and `teamsEnabled` has to be specified.
      */
     public readonly teamsEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * The ID of the Tenant that this Office 365 Data Connector connects to. Changing this forces a new Office 365 Data Connector to be created.
      *
-     * > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
+     * > **Note:** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
      */
     public readonly tenantId!: pulumi.Output<string>;
 
@@ -154,13 +154,13 @@ export interface DataConnectorOffice365State {
     /**
      * Should the Microsoft Teams data connector be enabled? Defaults to `true`.
      *
-     * > **NOTE:** At least one of `exchangeEnabled`, `sharedpointEnabled` and `teamsEnabled` has to be specified.
+     * > **Note:** At least one of `exchangeEnabled`, `sharedpointEnabled` and `teamsEnabled` has to be specified.
      */
     teamsEnabled?: pulumi.Input<boolean>;
     /**
      * The ID of the Tenant that this Office 365 Data Connector connects to. Changing this forces a new Office 365 Data Connector to be created.
      *
-     * > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
+     * > **Note:** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
      */
     tenantId?: pulumi.Input<string>;
 }
@@ -188,13 +188,13 @@ export interface DataConnectorOffice365Args {
     /**
      * Should the Microsoft Teams data connector be enabled? Defaults to `true`.
      *
-     * > **NOTE:** At least one of `exchangeEnabled`, `sharedpointEnabled` and `teamsEnabled` has to be specified.
+     * > **Note:** At least one of `exchangeEnabled`, `sharedpointEnabled` and `teamsEnabled` has to be specified.
      */
     teamsEnabled?: pulumi.Input<boolean>;
     /**
      * The ID of the Tenant that this Office 365 Data Connector connects to. Changing this forces a new Office 365 Data Connector to be created.
      *
-     * > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
+     * > **Note:** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
      */
     tenantId?: pulumi.Input<string>;
 }

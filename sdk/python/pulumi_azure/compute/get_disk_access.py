@@ -94,6 +94,13 @@ def get_disk_access(name: Optional[builtins.str] = None,
     pulumi.export("id", example.id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Compute`: 2022-03-02
+
 
     :param builtins.str name: The name of this Disk Access.
     :param builtins.str resource_group_name: The name of the Resource Group where the Disk Access exists.
@@ -125,6 +132,13 @@ def get_disk_access_output(name: Optional[pulumi.Input[builtins.str]] = None,
         resource_group_name="existing")
     pulumi.export("id", example.id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Compute`: 2022-03-02
 
 
     :param builtins.str name: The name of this Disk Access.

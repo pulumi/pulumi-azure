@@ -34,7 +34,7 @@ class NetworkSimGroupArgs:
         :param pulumi.Input[builtins.str] encryption_key_url: A key to encrypt the SIM data that belongs to this SIM group.
         :param pulumi.Input['NetworkSimGroupIdentityArgs'] identity: An `identity` block as defined below.
                
-               > **NOTE:** A `UserAssigned` identity must be specified when `encryption_key_url` is specified.
+               > **Note:** A `UserAssigned` identity must be specified when `encryption_key_url` is specified.
         :param pulumi.Input[builtins.str] location: Specifies the Azure Region where the Mobile Network Sim Groups should exist. Changing this forces a new Mobile Network Sim Group to be created.
         :param pulumi.Input[builtins.str] name: Specifies the name which should be used for this Mobile Network Sim Groups. Changing this forces a new Mobile Network Sim Group to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags which should be assigned to the Mobile Network Sim Groups.
@@ -81,7 +81,7 @@ class NetworkSimGroupArgs:
         """
         An `identity` block as defined below.
 
-        > **NOTE:** A `UserAssigned` identity must be specified when `encryption_key_url` is specified.
+        > **Note:** A `UserAssigned` identity must be specified when `encryption_key_url` is specified.
         """
         return pulumi.get(self, "identity")
 
@@ -140,7 +140,7 @@ class _NetworkSimGroupState:
         :param pulumi.Input[builtins.str] encryption_key_url: A key to encrypt the SIM data that belongs to this SIM group.
         :param pulumi.Input['NetworkSimGroupIdentityArgs'] identity: An `identity` block as defined below.
                
-               > **NOTE:** A `UserAssigned` identity must be specified when `encryption_key_url` is specified.
+               > **Note:** A `UserAssigned` identity must be specified when `encryption_key_url` is specified.
         :param pulumi.Input[builtins.str] location: Specifies the Azure Region where the Mobile Network Sim Groups should exist. Changing this forces a new Mobile Network Sim Group to be created.
         :param pulumi.Input[builtins.str] mobile_network_id: The ID of Mobile Network which the Mobile Network Sim Group belongs to. Changing this forces a new Mobile Network Slice to be created.
         :param pulumi.Input[builtins.str] name: Specifies the name which should be used for this Mobile Network Sim Groups. Changing this forces a new Mobile Network Sim Group to be created.
@@ -177,7 +177,7 @@ class _NetworkSimGroupState:
         """
         An `identity` block as defined below.
 
-        > **NOTE:** A `UserAssigned` identity must be specified when `encryption_key_url` is specified.
+        > **Note:** A `UserAssigned` identity must be specified when `encryption_key_url` is specified.
         """
         return pulumi.get(self, "identity")
 
@@ -285,6 +285,13 @@ class NetworkSimGroup(pulumi.CustomResource):
             })
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.MobileNetwork`: 2022-11-01
+
         ## Import
 
         Mobile Network Sim Groups can be imported using the `resource id`, e.g.
@@ -298,7 +305,7 @@ class NetworkSimGroup(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] encryption_key_url: A key to encrypt the SIM data that belongs to this SIM group.
         :param pulumi.Input[Union['NetworkSimGroupIdentityArgs', 'NetworkSimGroupIdentityArgsDict']] identity: An `identity` block as defined below.
                
-               > **NOTE:** A `UserAssigned` identity must be specified when `encryption_key_url` is specified.
+               > **Note:** A `UserAssigned` identity must be specified when `encryption_key_url` is specified.
         :param pulumi.Input[builtins.str] location: Specifies the Azure Region where the Mobile Network Sim Groups should exist. Changing this forces a new Mobile Network Sim Group to be created.
         :param pulumi.Input[builtins.str] mobile_network_id: The ID of Mobile Network which the Mobile Network Sim Group belongs to. Changing this forces a new Mobile Network Slice to be created.
         :param pulumi.Input[builtins.str] name: Specifies the name which should be used for this Mobile Network Sim Groups. Changing this forces a new Mobile Network Sim Group to be created.
@@ -347,6 +354,13 @@ class NetworkSimGroup(pulumi.CustomResource):
                 "key": "value",
             })
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.MobileNetwork`: 2022-11-01
 
         ## Import
 
@@ -420,7 +434,7 @@ class NetworkSimGroup(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] encryption_key_url: A key to encrypt the SIM data that belongs to this SIM group.
         :param pulumi.Input[Union['NetworkSimGroupIdentityArgs', 'NetworkSimGroupIdentityArgsDict']] identity: An `identity` block as defined below.
                
-               > **NOTE:** A `UserAssigned` identity must be specified when `encryption_key_url` is specified.
+               > **Note:** A `UserAssigned` identity must be specified when `encryption_key_url` is specified.
         :param pulumi.Input[builtins.str] location: Specifies the Azure Region where the Mobile Network Sim Groups should exist. Changing this forces a new Mobile Network Sim Group to be created.
         :param pulumi.Input[builtins.str] mobile_network_id: The ID of Mobile Network which the Mobile Network Sim Group belongs to. Changing this forces a new Mobile Network Slice to be created.
         :param pulumi.Input[builtins.str] name: Specifies the name which should be used for this Mobile Network Sim Groups. Changing this forces a new Mobile Network Sim Group to be created.
@@ -452,7 +466,7 @@ class NetworkSimGroup(pulumi.CustomResource):
         """
         An `identity` block as defined below.
 
-        > **NOTE:** A `UserAssigned` identity must be specified when `encryption_key_url` is specified.
+        > **Note:** A `UserAssigned` identity must be specified when `encryption_key_url` is specified.
         """
         return pulumi.get(self, "identity")
 

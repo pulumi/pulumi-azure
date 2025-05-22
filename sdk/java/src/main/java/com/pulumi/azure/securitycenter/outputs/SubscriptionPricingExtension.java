@@ -15,9 +15,9 @@ public final class SubscriptionPricingExtension {
     /**
      * @return Key/Value pairs that are required for some extensions.
      * 
-     * &gt; **NOTE:** If an extension is not defined, it will not be enabled.
+     * &gt; **Note:** If an extension is not defined, it will not be enabled.
      * 
-     * &gt; **NOTE:** Changing the pricing tier to `Standard` affects all resources of the given type in the subscription and could be quite costly.
+     * &gt; **Note:** Changing the pricing tier to `Standard` affects all resources of the given type in the subscription and could be quite costly.
      * 
      */
     private @Nullable Map<String,String> additionalExtensionProperties;
@@ -31,9 +31,9 @@ public final class SubscriptionPricingExtension {
     /**
      * @return Key/Value pairs that are required for some extensions.
      * 
-     * &gt; **NOTE:** If an extension is not defined, it will not be enabled.
+     * &gt; **Note:** If an extension is not defined, it will not be enabled.
      * 
-     * &gt; **NOTE:** Changing the pricing tier to `Standard` affects all resources of the given type in the subscription and could be quite costly.
+     * &gt; **Note:** Changing the pricing tier to `Standard` affects all resources of the given type in the subscription and could be quite costly.
      * 
      */
     public Map<String,String> additionalExtensionProperties() {

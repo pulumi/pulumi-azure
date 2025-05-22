@@ -327,6 +327,13 @@ def get_cache(name: Optional[builtins.str] = None,
     pulumi.export("hostname", example.hostname)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Cache`: 2024-11-01
+
 
     :param builtins.str name: The name of the Redis cache
     :param builtins.str resource_group_name: The name of the resource group the Redis cache instance is located in.
@@ -379,6 +386,13 @@ def get_cache_output(name: Optional[pulumi.Input[builtins.str]] = None,
     pulumi.export("primaryAccessKey", example.primary_access_key)
     pulumi.export("hostname", example.hostname)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Cache`: 2024-11-01
 
 
     :param builtins.str name: The name of the Redis cache

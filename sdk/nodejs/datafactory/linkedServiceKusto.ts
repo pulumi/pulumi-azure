@@ -144,9 +144,9 @@ export class LinkedServiceKusto extends pulumi.CustomResource {
     /**
      * The service principal tenant id or name in which to authenticate against the Kusto Database.
      *
-     * > **NOTE** If `servicePrincipalId` is used, `servicePrincipalKey` and `tenant` is also required.
+     * > **Note:** If `servicePrincipalId` is used, `servicePrincipalKey` and `tenant` is also required.
      *
-     * > **NOTE** One of Managed Identity authentication and Service Principal authentication must be set.
+     * > **Note:** One of Managed Identity authentication and Service Principal authentication must be set.
      */
     public readonly tenant!: pulumi.Output<string | undefined>;
     /**
@@ -265,9 +265,9 @@ export interface LinkedServiceKustoState {
     /**
      * The service principal tenant id or name in which to authenticate against the Kusto Database.
      *
-     * > **NOTE** If `servicePrincipalId` is used, `servicePrincipalKey` and `tenant` is also required.
+     * > **Note:** If `servicePrincipalId` is used, `servicePrincipalKey` and `tenant` is also required.
      *
-     * > **NOTE** One of Managed Identity authentication and Service Principal authentication must be set.
+     * > **Note:** One of Managed Identity authentication and Service Principal authentication must be set.
      */
     tenant?: pulumi.Input<string>;
     /**
@@ -329,9 +329,9 @@ export interface LinkedServiceKustoArgs {
     /**
      * The service principal tenant id or name in which to authenticate against the Kusto Database.
      *
-     * > **NOTE** If `servicePrincipalId` is used, `servicePrincipalKey` and `tenant` is also required.
+     * > **Note:** If `servicePrincipalId` is used, `servicePrincipalKey` and `tenant` is also required.
      *
-     * > **NOTE** One of Managed Identity authentication and Service Principal authentication must be set.
+     * > **Note:** One of Managed Identity authentication and Service Principal authentication must be set.
      */
     tenant?: pulumi.Input<string>;
     /**

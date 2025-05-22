@@ -38,6 +38,13 @@ namespace Pulumi.Azure.DataProtection
     /// });
     /// ```
     /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.DataProtection`: 2024-04-01
+    /// 
     /// ## Import
     /// 
     /// Resource Guards can be imported using the `resource id`, e.g.

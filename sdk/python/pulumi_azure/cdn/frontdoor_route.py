@@ -44,10 +44,10 @@ class FrontdoorRouteArgs:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] patterns_to_matches: The route patterns of the rule.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] supported_protocols: One or more Protocols supported by this Front Door Route. Possible values are `Http` or `Https`.
                
-               > **NOTE:** If `https_redirect_enabled` is set to `true` the `supported_protocols` field must contain both `Http` and `Https` values.
+               > **Note:** If `https_redirect_enabled` is set to `true` the `supported_protocols` field must contain both `Http` and `Https` values.
         :param pulumi.Input['FrontdoorRouteCacheArgs'] cache: A `cache` block as defined below.
                
-               > **NOTE:** To disable caching, do not provide the `cache` block in the configuration file.
+               > **Note:** To disable caching, do not provide the `cache` block in the configuration file.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] cdn_frontdoor_custom_domain_ids: The IDs of the Front Door Custom Domains which are associated with this Front Door Route.
         :param pulumi.Input[builtins.str] cdn_frontdoor_origin_path: A directory path on the Front Door Origin that can be used to retrieve content (e.g. `contoso.cloudapp.net/originpath`).
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] cdn_frontdoor_rule_set_ids: A list of the Front Door Rule Set IDs which should be assigned to this Front Door Route.
@@ -55,7 +55,7 @@ class FrontdoorRouteArgs:
         :param pulumi.Input[builtins.str] forwarding_protocol: The Protocol that will be use when forwarding traffic to backends. Possible values are `HttpOnly`, `HttpsOnly` or `MatchRequest`. Defaults to `MatchRequest`.
         :param pulumi.Input[builtins.bool] https_redirect_enabled: Automatically redirect HTTP traffic to HTTPS traffic? Possible values are `true` or `false`. Defaults to `true`.
                
-               > **NOTE:** The `https_redirect_enabled` rule is the first rule that will be executed.
+               > **Note:** The `https_redirect_enabled` rule is the first rule that will be executed.
         :param pulumi.Input[builtins.bool] link_to_default_domain: Should this Front Door Route be linked to the default endpoint? Possible values include `true` or `false`. Defaults to `true`.
         :param pulumi.Input[builtins.str] name: The name which should be used for this Front Door Route. Valid values must begin with a letter or number, end with a letter or number and may only contain letters, numbers and hyphens with a maximum length of 90 characters. Changing this forces a new Front Door Route to be created.
         """
@@ -137,7 +137,7 @@ class FrontdoorRouteArgs:
         """
         One or more Protocols supported by this Front Door Route. Possible values are `Http` or `Https`.
 
-        > **NOTE:** If `https_redirect_enabled` is set to `true` the `supported_protocols` field must contain both `Http` and `Https` values.
+        > **Note:** If `https_redirect_enabled` is set to `true` the `supported_protocols` field must contain both `Http` and `Https` values.
         """
         return pulumi.get(self, "supported_protocols")
 
@@ -151,7 +151,7 @@ class FrontdoorRouteArgs:
         """
         A `cache` block as defined below.
 
-        > **NOTE:** To disable caching, do not provide the `cache` block in the configuration file.
+        > **Note:** To disable caching, do not provide the `cache` block in the configuration file.
         """
         return pulumi.get(self, "cache")
 
@@ -225,7 +225,7 @@ class FrontdoorRouteArgs:
         """
         Automatically redirect HTTP traffic to HTTPS traffic? Possible values are `true` or `false`. Defaults to `true`.
 
-        > **NOTE:** The `https_redirect_enabled` rule is the first rule that will be executed.
+        > **Note:** The `https_redirect_enabled` rule is the first rule that will be executed.
         """
         return pulumi.get(self, "https_redirect_enabled")
 
@@ -279,7 +279,7 @@ class _FrontdoorRouteState:
         Input properties used for looking up and filtering FrontdoorRoute resources.
         :param pulumi.Input['FrontdoorRouteCacheArgs'] cache: A `cache` block as defined below.
                
-               > **NOTE:** To disable caching, do not provide the `cache` block in the configuration file.
+               > **Note:** To disable caching, do not provide the `cache` block in the configuration file.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] cdn_frontdoor_custom_domain_ids: The IDs of the Front Door Custom Domains which are associated with this Front Door Route.
         :param pulumi.Input[builtins.str] cdn_frontdoor_endpoint_id: The resource ID of the Front Door Endpoint where this Front Door Route should exist. Changing this forces a new Front Door Route to be created.
         :param pulumi.Input[builtins.str] cdn_frontdoor_origin_group_id: The resource ID of the Front Door Origin Group where this Front Door Route should be created.
@@ -290,13 +290,13 @@ class _FrontdoorRouteState:
         :param pulumi.Input[builtins.str] forwarding_protocol: The Protocol that will be use when forwarding traffic to backends. Possible values are `HttpOnly`, `HttpsOnly` or `MatchRequest`. Defaults to `MatchRequest`.
         :param pulumi.Input[builtins.bool] https_redirect_enabled: Automatically redirect HTTP traffic to HTTPS traffic? Possible values are `true` or `false`. Defaults to `true`.
                
-               > **NOTE:** The `https_redirect_enabled` rule is the first rule that will be executed.
+               > **Note:** The `https_redirect_enabled` rule is the first rule that will be executed.
         :param pulumi.Input[builtins.bool] link_to_default_domain: Should this Front Door Route be linked to the default endpoint? Possible values include `true` or `false`. Defaults to `true`.
         :param pulumi.Input[builtins.str] name: The name which should be used for this Front Door Route. Valid values must begin with a letter or number, end with a letter or number and may only contain letters, numbers and hyphens with a maximum length of 90 characters. Changing this forces a new Front Door Route to be created.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] patterns_to_matches: The route patterns of the rule.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] supported_protocols: One or more Protocols supported by this Front Door Route. Possible values are `Http` or `Https`.
                
-               > **NOTE:** If `https_redirect_enabled` is set to `true` the `supported_protocols` field must contain both `Http` and `Https` values.
+               > **Note:** If `https_redirect_enabled` is set to `true` the `supported_protocols` field must contain both `Http` and `Https` values.
         """
         if cache is not None:
             pulumi.set(__self__, "cache", cache)
@@ -333,7 +333,7 @@ class _FrontdoorRouteState:
         """
         A `cache` block as defined below.
 
-        > **NOTE:** To disable caching, do not provide the `cache` block in the configuration file.
+        > **Note:** To disable caching, do not provide the `cache` block in the configuration file.
         """
         return pulumi.get(self, "cache")
 
@@ -443,7 +443,7 @@ class _FrontdoorRouteState:
         """
         Automatically redirect HTTP traffic to HTTPS traffic? Possible values are `true` or `false`. Defaults to `true`.
 
-        > **NOTE:** The `https_redirect_enabled` rule is the first rule that will be executed.
+        > **Note:** The `https_redirect_enabled` rule is the first rule that will be executed.
         """
         return pulumi.get(self, "https_redirect_enabled")
 
@@ -493,7 +493,7 @@ class _FrontdoorRouteState:
         """
         One or more Protocols supported by this Front Door Route. Possible values are `Http` or `Https`.
 
-        > **NOTE:** If `https_redirect_enabled` is set to `true` the `supported_protocols` field must contain both `Http` and `Https` values.
+        > **Note:** If `https_redirect_enabled` is set to `true` the `supported_protocols` field must contain both `Http` and `Https` values.
         """
         return pulumi.get(self, "supported_protocols")
 
@@ -646,7 +646,7 @@ class FrontdoorRoute(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['FrontdoorRouteCacheArgs', 'FrontdoorRouteCacheArgsDict']] cache: A `cache` block as defined below.
                
-               > **NOTE:** To disable caching, do not provide the `cache` block in the configuration file.
+               > **Note:** To disable caching, do not provide the `cache` block in the configuration file.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] cdn_frontdoor_custom_domain_ids: The IDs of the Front Door Custom Domains which are associated with this Front Door Route.
         :param pulumi.Input[builtins.str] cdn_frontdoor_endpoint_id: The resource ID of the Front Door Endpoint where this Front Door Route should exist. Changing this forces a new Front Door Route to be created.
         :param pulumi.Input[builtins.str] cdn_frontdoor_origin_group_id: The resource ID of the Front Door Origin Group where this Front Door Route should be created.
@@ -657,13 +657,13 @@ class FrontdoorRoute(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] forwarding_protocol: The Protocol that will be use when forwarding traffic to backends. Possible values are `HttpOnly`, `HttpsOnly` or `MatchRequest`. Defaults to `MatchRequest`.
         :param pulumi.Input[builtins.bool] https_redirect_enabled: Automatically redirect HTTP traffic to HTTPS traffic? Possible values are `true` or `false`. Defaults to `true`.
                
-               > **NOTE:** The `https_redirect_enabled` rule is the first rule that will be executed.
+               > **Note:** The `https_redirect_enabled` rule is the first rule that will be executed.
         :param pulumi.Input[builtins.bool] link_to_default_domain: Should this Front Door Route be linked to the default endpoint? Possible values include `true` or `false`. Defaults to `true`.
         :param pulumi.Input[builtins.str] name: The name which should be used for this Front Door Route. Valid values must begin with a letter or number, end with a letter or number and may only contain letters, numbers and hyphens with a maximum length of 90 characters. Changing this forces a new Front Door Route to be created.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] patterns_to_matches: The route patterns of the rule.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] supported_protocols: One or more Protocols supported by this Front Door Route. Possible values are `Http` or `Https`.
                
-               > **NOTE:** If `https_redirect_enabled` is set to `true` the `supported_protocols` field must contain both `Http` and `Https` values.
+               > **Note:** If `https_redirect_enabled` is set to `true` the `supported_protocols` field must contain both `Http` and `Https` values.
         """
         ...
     @overload
@@ -885,7 +885,7 @@ class FrontdoorRoute(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['FrontdoorRouteCacheArgs', 'FrontdoorRouteCacheArgsDict']] cache: A `cache` block as defined below.
                
-               > **NOTE:** To disable caching, do not provide the `cache` block in the configuration file.
+               > **Note:** To disable caching, do not provide the `cache` block in the configuration file.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] cdn_frontdoor_custom_domain_ids: The IDs of the Front Door Custom Domains which are associated with this Front Door Route.
         :param pulumi.Input[builtins.str] cdn_frontdoor_endpoint_id: The resource ID of the Front Door Endpoint where this Front Door Route should exist. Changing this forces a new Front Door Route to be created.
         :param pulumi.Input[builtins.str] cdn_frontdoor_origin_group_id: The resource ID of the Front Door Origin Group where this Front Door Route should be created.
@@ -896,13 +896,13 @@ class FrontdoorRoute(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] forwarding_protocol: The Protocol that will be use when forwarding traffic to backends. Possible values are `HttpOnly`, `HttpsOnly` or `MatchRequest`. Defaults to `MatchRequest`.
         :param pulumi.Input[builtins.bool] https_redirect_enabled: Automatically redirect HTTP traffic to HTTPS traffic? Possible values are `true` or `false`. Defaults to `true`.
                
-               > **NOTE:** The `https_redirect_enabled` rule is the first rule that will be executed.
+               > **Note:** The `https_redirect_enabled` rule is the first rule that will be executed.
         :param pulumi.Input[builtins.bool] link_to_default_domain: Should this Front Door Route be linked to the default endpoint? Possible values include `true` or `false`. Defaults to `true`.
         :param pulumi.Input[builtins.str] name: The name which should be used for this Front Door Route. Valid values must begin with a letter or number, end with a letter or number and may only contain letters, numbers and hyphens with a maximum length of 90 characters. Changing this forces a new Front Door Route to be created.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] patterns_to_matches: The route patterns of the rule.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] supported_protocols: One or more Protocols supported by this Front Door Route. Possible values are `Http` or `Https`.
                
-               > **NOTE:** If `https_redirect_enabled` is set to `true` the `supported_protocols` field must contain both `Http` and `Https` values.
+               > **Note:** If `https_redirect_enabled` is set to `true` the `supported_protocols` field must contain both `Http` and `Https` values.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -930,7 +930,7 @@ class FrontdoorRoute(pulumi.CustomResource):
         """
         A `cache` block as defined below.
 
-        > **NOTE:** To disable caching, do not provide the `cache` block in the configuration file.
+        > **Note:** To disable caching, do not provide the `cache` block in the configuration file.
         """
         return pulumi.get(self, "cache")
 
@@ -1004,7 +1004,7 @@ class FrontdoorRoute(pulumi.CustomResource):
         """
         Automatically redirect HTTP traffic to HTTPS traffic? Possible values are `true` or `false`. Defaults to `true`.
 
-        > **NOTE:** The `https_redirect_enabled` rule is the first rule that will be executed.
+        > **Note:** The `https_redirect_enabled` rule is the first rule that will be executed.
         """
         return pulumi.get(self, "https_redirect_enabled")
 
@@ -1038,7 +1038,7 @@ class FrontdoorRoute(pulumi.CustomResource):
         """
         One or more Protocols supported by this Front Door Route. Possible values are `Http` or `Https`.
 
-        > **NOTE:** If `https_redirect_enabled` is set to `true` the `supported_protocols` field must contain both `Http` and `Https` values.
+        > **Note:** If `https_redirect_enabled` is set to `true` the `supported_protocols` field must contain both `Http` and `Https` values.
         """
         return pulumi.get(self, "supported_protocols")
 

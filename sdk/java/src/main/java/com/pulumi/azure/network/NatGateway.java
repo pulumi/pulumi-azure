@@ -181,7 +181,7 @@ public class NatGateway extends com.pulumi.resources.CustomResource {
     /**
      * A list of Availability Zones in which this NAT Gateway should be located. Changing this forces a new NAT Gateway to be created.
      * 
-     * &gt; **NOTE:** Only one Availability Zone can be defined. For more information, please check out the [Azure documentation](https://learn.microsoft.com/en-us/azure/nat-gateway/nat-overview#availability-zones)
+     * &gt; **Note:** Only one Availability Zone can be defined. For more information, please check out the [Azure documentation](https://learn.microsoft.com/en-us/azure/nat-gateway/nat-overview#availability-zones)
      * 
      */
     @Export(name="zones", refs={List.class,String.class}, tree="[0,1]")
@@ -190,7 +190,7 @@ public class NatGateway extends com.pulumi.resources.CustomResource {
     /**
      * @return A list of Availability Zones in which this NAT Gateway should be located. Changing this forces a new NAT Gateway to be created.
      * 
-     * &gt; **NOTE:** Only one Availability Zone can be defined. For more information, please check out the [Azure documentation](https://learn.microsoft.com/en-us/azure/nat-gateway/nat-overview#availability-zones)
+     * &gt; **Note:** Only one Availability Zone can be defined. For more information, please check out the [Azure documentation](https://learn.microsoft.com/en-us/azure/nat-gateway/nat-overview#availability-zones)
      * 
      */
     public Output<Optional<List<String>>> zones() {

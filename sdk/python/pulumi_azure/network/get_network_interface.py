@@ -245,6 +245,13 @@ def get_network_interface(name: Optional[builtins.str] = None,
     pulumi.export("networkInterfaceId", example.id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Network`: 2024-05-01
+
 
     :param builtins.str name: Specifies the name of the Network Interface.
     :param builtins.str resource_group_name: Specifies the name of the resource group the Network Interface is located in.
@@ -288,6 +295,13 @@ def get_network_interface_output(name: Optional[pulumi.Input[builtins.str]] = No
         resource_group_name="networking")
     pulumi.export("networkInterfaceId", example.id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Network`: 2024-05-01
 
 
     :param builtins.str name: Specifies the name of the Network Interface.

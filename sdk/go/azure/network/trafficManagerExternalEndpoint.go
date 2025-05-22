@@ -75,6 +75,13 @@ import (
 //
 // ```
 //
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.Network`: 2022-04-01
+//
 // ## Import
 //
 // External Endpoints can be imported using the `resource id`, e.g.

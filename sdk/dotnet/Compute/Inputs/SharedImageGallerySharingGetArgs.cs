@@ -15,7 +15,7 @@ namespace Pulumi.Azure.Compute.Inputs
         /// <summary>
         /// A `community_gallery` block as defined below. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** `community_gallery` must be set when `permission` is set to `Community`.
+        /// &gt; **Note:** `community_gallery` must be set when `permission` is set to `Community`.
         /// </summary>
         [Input("communityGallery")]
         public Input<Inputs.SharedImageGallerySharingCommunityGalleryGetArgs>? CommunityGallery { get; set; }

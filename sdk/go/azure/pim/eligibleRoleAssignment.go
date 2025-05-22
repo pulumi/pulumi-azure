@@ -141,6 +141,13 @@ import (
 //
 // ```
 //
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.Authorization`: 2020-10-01
+//
 // ## Import
 //
 // PIM Eligible Role Assignments can be imported using the following composite resource ID, e.g.
@@ -155,7 +162,7 @@ type EligibleRoleAssignment struct {
 	Condition pulumi.StringPtrOutput `pulumi:"condition"`
 	// The version of the condition. Supported values include `2.0`. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** `conditionVersion` is required when specifying `condition` and vice versa.
+	// > **Note:** `conditionVersion` is required when specifying `condition` and vice versa.
 	ConditionVersion pulumi.StringPtrOutput `pulumi:"conditionVersion"`
 	// The justification of the role assignment. Changing this forces a new resource to be created.
 	Justification pulumi.StringOutput `pulumi:"justification"`
@@ -216,7 +223,7 @@ type eligibleRoleAssignmentState struct {
 	Condition *string `pulumi:"condition"`
 	// The version of the condition. Supported values include `2.0`. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** `conditionVersion` is required when specifying `condition` and vice versa.
+	// > **Note:** `conditionVersion` is required when specifying `condition` and vice versa.
 	ConditionVersion *string `pulumi:"conditionVersion"`
 	// The justification of the role assignment. Changing this forces a new resource to be created.
 	Justification *string `pulumi:"justification"`
@@ -239,7 +246,7 @@ type EligibleRoleAssignmentState struct {
 	Condition pulumi.StringPtrInput
 	// The version of the condition. Supported values include `2.0`. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** `conditionVersion` is required when specifying `condition` and vice versa.
+	// > **Note:** `conditionVersion` is required when specifying `condition` and vice versa.
 	ConditionVersion pulumi.StringPtrInput
 	// The justification of the role assignment. Changing this forces a new resource to be created.
 	Justification pulumi.StringPtrInput
@@ -266,7 +273,7 @@ type eligibleRoleAssignmentArgs struct {
 	Condition *string `pulumi:"condition"`
 	// The version of the condition. Supported values include `2.0`. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** `conditionVersion` is required when specifying `condition` and vice versa.
+	// > **Note:** `conditionVersion` is required when specifying `condition` and vice versa.
 	ConditionVersion *string `pulumi:"conditionVersion"`
 	// The justification of the role assignment. Changing this forces a new resource to be created.
 	Justification *string `pulumi:"justification"`
@@ -288,7 +295,7 @@ type EligibleRoleAssignmentArgs struct {
 	Condition pulumi.StringPtrInput
 	// The version of the condition. Supported values include `2.0`. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** `conditionVersion` is required when specifying `condition` and vice versa.
+	// > **Note:** `conditionVersion` is required when specifying `condition` and vice versa.
 	ConditionVersion pulumi.StringPtrInput
 	// The justification of the role assignment. Changing this forces a new resource to be created.
 	Justification pulumi.StringPtrInput
@@ -398,7 +405,7 @@ func (o EligibleRoleAssignmentOutput) Condition() pulumi.StringPtrOutput {
 
 // The version of the condition. Supported values include `2.0`. Changing this forces a new resource to be created.
 //
-// > **NOTE:** `conditionVersion` is required when specifying `condition` and vice versa.
+// > **Note:** `conditionVersion` is required when specifying `condition` and vice versa.
 func (o EligibleRoleAssignmentOutput) ConditionVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EligibleRoleAssignment) pulumi.StringPtrOutput { return v.ConditionVersion }).(pulumi.StringPtrOutput)
 }

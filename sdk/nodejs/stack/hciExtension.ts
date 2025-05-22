@@ -28,6 +28,13 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.AzureStackHCI`: 2024-01-01
+ *
  * ## Import
  *
  * Azure Stack HCI Extension can be imported using the `resource id`, e.g.
@@ -99,7 +106,7 @@ export class HciExtension extends pulumi.CustomResource {
     /**
      * Specifies the version of the script handler.
      *
-     * > **NOTE:** `typeHandlerVersion` cannot be set when `automaticUpgradeEnabled` is set to `true`.
+     * > **Note:** `typeHandlerVersion` cannot be set when `automaticUpgradeEnabled` is set to `true`.
      */
     public readonly typeHandlerVersion!: pulumi.Output<string | undefined>;
 
@@ -192,7 +199,7 @@ export interface HciExtensionState {
     /**
      * Specifies the version of the script handler.
      *
-     * > **NOTE:** `typeHandlerVersion` cannot be set when `automaticUpgradeEnabled` is set to `true`.
+     * > **Note:** `typeHandlerVersion` cannot be set when `automaticUpgradeEnabled` is set to `true`.
      */
     typeHandlerVersion?: pulumi.Input<string>;
 }
@@ -236,7 +243,7 @@ export interface HciExtensionArgs {
     /**
      * Specifies the version of the script handler.
      *
-     * > **NOTE:** `typeHandlerVersion` cannot be set when `automaticUpgradeEnabled` is set to `true`.
+     * > **Note:** `typeHandlerVersion` cannot be set when `automaticUpgradeEnabled` is set to `true`.
      */
     typeHandlerVersion?: pulumi.Input<string>;
 }

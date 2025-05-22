@@ -461,7 +461,7 @@ public final class LinuxFunctionAppSlotSiteConfigArgs extends com.pulumi.resourc
     /**
      * Should Functions Runtime Scale Monitoring be enabled.
      * 
-     * &gt; **NOTE:** Functions runtime scale monitoring can only be enabled for Elastic Premium Function Apps or Workflow Standard Logic Apps and requires a minimum prewarmed instance count of 1.
+     * &gt; **Note:** Functions runtime scale monitoring can only be enabled for Elastic Premium Function Apps or Workflow Standard Logic Apps and requires a minimum prewarmed instance count of 1.
      * 
      */
     @Import(name="runtimeScaleMonitoringEnabled")
@@ -470,7 +470,7 @@ public final class LinuxFunctionAppSlotSiteConfigArgs extends com.pulumi.resourc
     /**
      * @return Should Functions Runtime Scale Monitoring be enabled.
      * 
-     * &gt; **NOTE:** Functions runtime scale monitoring can only be enabled for Elastic Premium Function Apps or Workflow Standard Logic Apps and requires a minimum prewarmed instance count of 1.
+     * &gt; **Note:** Functions runtime scale monitoring can only be enabled for Elastic Premium Function Apps or Workflow Standard Logic Apps and requires a minimum prewarmed instance count of 1.
      * 
      */
     public Optional<Output<Boolean>> runtimeScaleMonitoringEnabled() {
@@ -1306,7 +1306,7 @@ public final class LinuxFunctionAppSlotSiteConfigArgs extends com.pulumi.resourc
         /**
          * @param runtimeScaleMonitoringEnabled Should Functions Runtime Scale Monitoring be enabled.
          * 
-         * &gt; **NOTE:** Functions runtime scale monitoring can only be enabled for Elastic Premium Function Apps or Workflow Standard Logic Apps and requires a minimum prewarmed instance count of 1.
+         * &gt; **Note:** Functions runtime scale monitoring can only be enabled for Elastic Premium Function Apps or Workflow Standard Logic Apps and requires a minimum prewarmed instance count of 1.
          * 
          * @return builder
          * 
@@ -1319,7 +1319,7 @@ public final class LinuxFunctionAppSlotSiteConfigArgs extends com.pulumi.resourc
         /**
          * @param runtimeScaleMonitoringEnabled Should Functions Runtime Scale Monitoring be enabled.
          * 
-         * &gt; **NOTE:** Functions runtime scale monitoring can only be enabled for Elastic Premium Function Apps or Workflow Standard Logic Apps and requires a minimum prewarmed instance count of 1.
+         * &gt; **Note:** Functions runtime scale monitoring can only be enabled for Elastic Premium Function Apps or Workflow Standard Logic Apps and requires a minimum prewarmed instance count of 1.
          * 
          * @return builder
          * 

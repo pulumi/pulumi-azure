@@ -263,6 +263,13 @@ class RestorePointCollection(pulumi.CustomResource):
             source_virtual_machine_id=example_linux_virtual_machine.id)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Compute`: 2024-03-01
+
         ## Import
 
         Virtual Machine Restore Point Collections can be imported using the `resource id`, e.g.
@@ -344,6 +351,13 @@ class RestorePointCollection(pulumi.CustomResource):
             location=example_linux_virtual_machine.location,
             source_virtual_machine_id=example_linux_virtual_machine.id)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Compute`: 2024-03-01
 
         ## Import
 

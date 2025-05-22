@@ -25,7 +25,7 @@ public final class LinuxWebAppAuthSettingsV2GoogleV2 {
     /**
      * @return The app setting name that contains the `client_secret` value used for Google Login.
      * 
-     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+     * !&gt; **Note:** A setting with this name must exist in `app_settings` to function correctly.
      * 
      */
     private String clientSecretSettingName;
@@ -53,7 +53,7 @@ public final class LinuxWebAppAuthSettingsV2GoogleV2 {
     /**
      * @return The app setting name that contains the `client_secret` value used for Google Login.
      * 
-     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+     * !&gt; **Note:** A setting with this name must exist in `app_settings` to function correctly.
      * 
      */
     public String clientSecretSettingName() {

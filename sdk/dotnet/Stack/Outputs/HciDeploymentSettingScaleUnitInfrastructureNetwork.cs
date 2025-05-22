@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Stack.Outputs
         /// <summary>
         /// Whether DHCP is enabled for hosts and cluster IPs. Possible values are `true` and `false`. defaults to `false`. Changing this forces a new Stack HCI Deployment Setting to be created.
         /// 
-        /// &gt; **NOTE:** If `dhcp_enabled` is set to `false`, the deployment will use static IPs. If set to `true`, the gateway and DNS servers are not required.
+        /// &gt; **Note:** If `dhcp_enabled` is set to `false`, the deployment will use static IPs. If set to `true`, the gateway and DNS servers are not required.
         /// </summary>
         public readonly bool? DhcpEnabled;
         /// <summary>

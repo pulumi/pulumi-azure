@@ -237,7 +237,7 @@ public class TopicAuthorizationRule extends com.pulumi.resources.CustomResource 
     /**
      * Specifies the ID of the ServiceBus Topic. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE** At least one of the 3 permissions below needs to be set.
+     * &gt; **Note:** At least one of the 3 permissions below needs to be set.
      * 
      */
     @Export(name="topicId", refs={String.class}, tree="[0]")
@@ -246,7 +246,7 @@ public class TopicAuthorizationRule extends com.pulumi.resources.CustomResource 
     /**
      * @return Specifies the ID of the ServiceBus Topic. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE** At least one of the 3 permissions below needs to be set.
+     * &gt; **Note:** At least one of the 3 permissions below needs to be set.
      * 
      */
     public Output<String> topicId() {

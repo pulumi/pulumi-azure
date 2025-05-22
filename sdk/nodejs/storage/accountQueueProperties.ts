@@ -102,7 +102,7 @@ export class AccountQueueProperties extends pulumi.CustomResource {
     /**
      * A `hourMetrics` block as defined below.
      *
-     * > **NOTE:** At least one of `corsRule`, `logging`, `minuteMetrics`, or `hourMetrics` must be specified.
+     * > **Note:** At least one of `corsRule`, `logging`, `minuteMetrics`, or `hourMetrics` must be specified.
      */
     public readonly hourMetrics!: pulumi.Output<outputs.storage.AccountQueuePropertiesHourMetrics>;
     /**
@@ -163,7 +163,7 @@ export interface AccountQueuePropertiesState {
     /**
      * A `hourMetrics` block as defined below.
      *
-     * > **NOTE:** At least one of `corsRule`, `logging`, `minuteMetrics`, or `hourMetrics` must be specified.
+     * > **Note:** At least one of `corsRule`, `logging`, `minuteMetrics`, or `hourMetrics` must be specified.
      */
     hourMetrics?: pulumi.Input<inputs.storage.AccountQueuePropertiesHourMetrics>;
     /**
@@ -191,7 +191,7 @@ export interface AccountQueuePropertiesArgs {
     /**
      * A `hourMetrics` block as defined below.
      *
-     * > **NOTE:** At least one of `corsRule`, `logging`, `minuteMetrics`, or `hourMetrics` must be specified.
+     * > **Note:** At least one of `corsRule`, `logging`, `minuteMetrics`, or `hourMetrics` must be specified.
      */
     hourMetrics?: pulumi.Input<inputs.storage.AccountQueuePropertiesHourMetrics>;
     /**

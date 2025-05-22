@@ -5,7 +5,6 @@ package com.pulumi.azure.systemcenter.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -35,15 +34,15 @@ public final class VirtualMachineManagerVirtualMachineInstanceOperatingSystemArg
      * The computer name of the Virtual Machine. Changing this forces a new resource to be created.
      * 
      */
-    @Import(name="computerName", required=true)
-    private Output<String> computerName;
+    @Import(name="computerName")
+    private @Nullable Output<String> computerName;
 
     /**
      * @return The computer name of the Virtual Machine. Changing this forces a new resource to be created.
      * 
      */
-    public Output<String> computerName() {
-        return this.computerName;
+    public Optional<Output<String>> computerName() {
+        return Optional.ofNullable(this.computerName);
     }
 
     private VirtualMachineManagerVirtualMachineInstanceOperatingSystemArgs() {}
@@ -98,7 +97,7 @@ public final class VirtualMachineManagerVirtualMachineInstanceOperatingSystemArg
          * @return builder
          * 
          */
-        public Builder computerName(Output<String> computerName) {
+        public Builder computerName(@Nullable Output<String> computerName) {
             $.computerName = computerName;
             return this;
         }
@@ -114,9 +113,6 @@ public final class VirtualMachineManagerVirtualMachineInstanceOperatingSystemArg
         }
 
         public VirtualMachineManagerVirtualMachineInstanceOperatingSystemArgs build() {
-            if ($.computerName == null) {
-                throw new MissingRequiredPropertyException("VirtualMachineManagerVirtualMachineInstanceOperatingSystemArgs", "computerName");
-            }
             return $;
         }
     }

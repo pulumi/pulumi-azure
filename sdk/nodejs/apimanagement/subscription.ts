@@ -36,6 +36,13 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.ApiManagement`: 2022-08-01
+ *
  * ## Import
  *
  * API Management Subscriptions can be imported using the `resource id`, e.g.
@@ -79,7 +86,7 @@ export class Subscription extends pulumi.CustomResource {
     /**
      * The ID of the API which should be assigned to this Subscription. Changing this forces a new resource to be created.
      *
-     * > **Info:** Only one of `productId` and `apiId` can be set. If both are missing `/apis` scope is used for the subscription and all apis are accessible.
+     * > **Note:** Only one of `productId` and `apiId` can be set. If both are missing `/apis` scope is used for the subscription and all apis are accessible.
      */
     public readonly apiId!: pulumi.Output<string | undefined>;
     /**
@@ -97,7 +104,7 @@ export class Subscription extends pulumi.CustomResource {
     /**
      * The ID of the Product which should be assigned to this Subscription. Changing this forces a new resource to be created.
      *
-     * > **Info:** Only one of `productId` and `apiId` can be set. If both are missing `allApis` scope is used for the subscription.
+     * > **Note:** Only one of `productId` and `apiId` can be set. If both are missing `allApis` scope is used for the subscription.
      */
     public readonly productId!: pulumi.Output<string | undefined>;
     /**
@@ -186,7 +193,7 @@ export interface SubscriptionState {
     /**
      * The ID of the API which should be assigned to this Subscription. Changing this forces a new resource to be created.
      *
-     * > **Info:** Only one of `productId` and `apiId` can be set. If both are missing `/apis` scope is used for the subscription and all apis are accessible.
+     * > **Note:** Only one of `productId` and `apiId` can be set. If both are missing `/apis` scope is used for the subscription and all apis are accessible.
      */
     apiId?: pulumi.Input<string>;
     /**
@@ -204,7 +211,7 @@ export interface SubscriptionState {
     /**
      * The ID of the Product which should be assigned to this Subscription. Changing this forces a new resource to be created.
      *
-     * > **Info:** Only one of `productId` and `apiId` can be set. If both are missing `allApis` scope is used for the subscription.
+     * > **Note:** Only one of `productId` and `apiId` can be set. If both are missing `allApis` scope is used for the subscription.
      */
     productId?: pulumi.Input<string>;
     /**
@@ -240,7 +247,7 @@ export interface SubscriptionArgs {
     /**
      * The ID of the API which should be assigned to this Subscription. Changing this forces a new resource to be created.
      *
-     * > **Info:** Only one of `productId` and `apiId` can be set. If both are missing `/apis` scope is used for the subscription and all apis are accessible.
+     * > **Note:** Only one of `productId` and `apiId` can be set. If both are missing `/apis` scope is used for the subscription and all apis are accessible.
      */
     apiId?: pulumi.Input<string>;
     /**
@@ -258,7 +265,7 @@ export interface SubscriptionArgs {
     /**
      * The ID of the Product which should be assigned to this Subscription. Changing this forces a new resource to be created.
      *
-     * > **Info:** Only one of `productId` and `apiId` can be set. If both are missing `allApis` scope is used for the subscription.
+     * > **Note:** Only one of `productId` and `apiId` can be set. If both are missing `allApis` scope is used for the subscription.
      */
     productId?: pulumi.Input<string>;
     /**

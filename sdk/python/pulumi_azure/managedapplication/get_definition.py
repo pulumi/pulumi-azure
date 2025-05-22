@@ -94,6 +94,13 @@ def get_definition(name: Optional[builtins.str] = None,
     pulumi.export("id", example.id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Solutions`: 2021-07-01
+
 
     :param builtins.str name: Specifies the name of the Managed Application Definition.
     :param builtins.str resource_group_name: Specifies the name of the Resource Group where this Managed Application Definition exists.
@@ -125,6 +132,13 @@ def get_definition_output(name: Optional[pulumi.Input[builtins.str]] = None,
         resource_group_name="exampleresources")
     pulumi.export("id", example.id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Solutions`: 2021-07-01
 
 
     :param builtins.str name: Specifies the name of the Managed Application Definition.

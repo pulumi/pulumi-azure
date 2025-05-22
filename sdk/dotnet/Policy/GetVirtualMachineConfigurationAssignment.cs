@@ -37,6 +37,13 @@ namespace Pulumi.Azure.Policy
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Compute`: 2020-06-25
         /// </summary>
         public static Task<GetVirtualMachineConfigurationAssignmentResult> InvokeAsync(GetVirtualMachineConfigurationAssignmentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineConfigurationAssignmentResult>("azure:policy/getVirtualMachineConfigurationAssignment:getVirtualMachineConfigurationAssignment", args ?? new GetVirtualMachineConfigurationAssignmentArgs(), options.WithDefaults());
@@ -67,6 +74,13 @@ namespace Pulumi.Azure.Policy
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Compute`: 2020-06-25
         /// </summary>
         public static Output<GetVirtualMachineConfigurationAssignmentResult> Invoke(GetVirtualMachineConfigurationAssignmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualMachineConfigurationAssignmentResult>("azure:policy/getVirtualMachineConfigurationAssignment:getVirtualMachineConfigurationAssignment", args ?? new GetVirtualMachineConfigurationAssignmentInvokeArgs(), options.WithDefaults());
@@ -97,6 +111,13 @@ namespace Pulumi.Azure.Policy
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Compute`: 2020-06-25
         /// </summary>
         public static Output<GetVirtualMachineConfigurationAssignmentResult> Invoke(GetVirtualMachineConfigurationAssignmentInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualMachineConfigurationAssignmentResult>("azure:policy/getVirtualMachineConfigurationAssignment:getVirtualMachineConfigurationAssignment", args ?? new GetVirtualMachineConfigurationAssignmentInvokeArgs(), options.WithDefaults());

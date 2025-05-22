@@ -154,6 +154,13 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.HardwareSecurityModules`: 2021-11-30
+ * 
  * ## Import
  * 
  * Dedicated Hardware Security Module can be imported using the `resource id`, e.g.
@@ -182,7 +189,7 @@ public class Module extends com.pulumi.resources.CustomResource {
     /**
      * A `management_network_profile` block as defined below.
      * 
-     * -&gt;**NOTE:**  The `management_network_profile` should not be specified when `sku_name` is `SafeNet Luna Network HSM A790`.
+     * &gt; **Note:** The `management_network_profile` should not be specified when `sku_name` is `SafeNet Luna Network HSM A790`.
      * 
      */
     @Export(name="managementNetworkProfile", refs={ModuleManagementNetworkProfile.class}, tree="[0]")
@@ -191,7 +198,7 @@ public class Module extends com.pulumi.resources.CustomResource {
     /**
      * @return A `management_network_profile` block as defined below.
      * 
-     * -&gt;**NOTE:**  The `management_network_profile` should not be specified when `sku_name` is `SafeNet Luna Network HSM A790`.
+     * &gt; **Note:** The `management_network_profile` should not be specified when `sku_name` is `SafeNet Luna Network HSM A790`.
      * 
      */
     public Output<Optional<ModuleManagementNetworkProfile>> managementNetworkProfile() {

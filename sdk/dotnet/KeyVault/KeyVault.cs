@@ -85,7 +85,7 @@ namespace Pulumi.Azure.KeyVault
         /// <summary>
         /// A list of up to 1024 objects describing access policies, as described below.
         /// 
-        /// &gt; **NOTE** Since `access_policy` can be configured both inline and via the separate `azure.keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+        /// &gt; **Note:** Since `access_policy` can be configured both inline and via the separate `azure.keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
         /// </summary>
         [Output("accessPolicies")]
         public Output<ImmutableArray<Outputs.KeyVaultAccessPolicy>> AccessPolicies { get; private set; } = null!;
@@ -239,7 +239,7 @@ namespace Pulumi.Azure.KeyVault
         /// <summary>
         /// A list of up to 1024 objects describing access policies, as described below.
         /// 
-        /// &gt; **NOTE** Since `access_policy` can be configured both inline and via the separate `azure.keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+        /// &gt; **Note:** Since `access_policy` can be configured both inline and via the separate `azure.keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
         /// </summary>
         public InputList<Inputs.KeyVaultAccessPolicyArgs> AccessPolicies
         {
@@ -364,7 +364,7 @@ namespace Pulumi.Azure.KeyVault
         /// <summary>
         /// A list of up to 1024 objects describing access policies, as described below.
         /// 
-        /// &gt; **NOTE** Since `access_policy` can be configured both inline and via the separate `azure.keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+        /// &gt; **Note:** Since `access_policy` can be configured both inline and via the separate `azure.keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
         /// </summary>
         public InputList<Inputs.KeyVaultAccessPolicyGetArgs> AccessPolicies
         {

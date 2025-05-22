@@ -42,13 +42,13 @@ namespace Pulumi.Azure.AppService.Outputs
         /// <summary>
         /// The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
         /// 
-        /// &gt; **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
+        /// &gt; **Note:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
         /// </summary>
         public readonly string? DefaultProvider;
         /// <summary>
         /// The paths which should be excluded from the `unauthenticated_action` when it is set to `RedirectToLoginPage`.
         /// 
-        /// &gt; **NOTE:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
+        /// &gt; **Note:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
         /// </summary>
         public readonly ImmutableArray<string> ExcludedPaths;
         /// <summary>

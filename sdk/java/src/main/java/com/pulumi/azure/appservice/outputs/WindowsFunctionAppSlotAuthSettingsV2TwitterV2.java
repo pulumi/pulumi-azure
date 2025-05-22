@@ -18,7 +18,7 @@ public final class WindowsFunctionAppSlotAuthSettingsV2TwitterV2 {
     /**
      * @return The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in.
      * 
-     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+     * !&gt; **Note:** A setting with this name must exist in `app_settings` to function correctly.
      * 
      */
     private String consumerSecretSettingName;
@@ -34,7 +34,7 @@ public final class WindowsFunctionAppSlotAuthSettingsV2TwitterV2 {
     /**
      * @return The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in.
      * 
-     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+     * !&gt; **Note:** A setting with this name must exist in `app_settings` to function correctly.
      * 
      */
     public String consumerSecretSettingName() {

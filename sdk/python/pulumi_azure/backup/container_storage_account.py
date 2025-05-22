@@ -29,7 +29,7 @@ class ContainerStorageAccountArgs:
         :param pulumi.Input[builtins.str] resource_group_name: Name of the resource group where the vault is located. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] storage_account_id: The ID of the Storage Account to be registered Changing this forces a new resource to be created.
                
-               > **NOTE** Azure Backup places a Resource Lock on the storage account that will cause deletion to fail until the account is unregistered from Azure Backup
+               > **Note:** Azure Backup places a Resource Lock on the storage account that will cause deletion to fail until the account is unregistered from Azure Backup
         """
         pulumi.set(__self__, "recovery_vault_name", recovery_vault_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -65,7 +65,7 @@ class ContainerStorageAccountArgs:
         """
         The ID of the Storage Account to be registered Changing this forces a new resource to be created.
 
-        > **NOTE** Azure Backup places a Resource Lock on the storage account that will cause deletion to fail until the account is unregistered from Azure Backup
+        > **Note:** Azure Backup places a Resource Lock on the storage account that will cause deletion to fail until the account is unregistered from Azure Backup
         """
         return pulumi.get(self, "storage_account_id")
 
@@ -86,7 +86,7 @@ class _ContainerStorageAccountState:
         :param pulumi.Input[builtins.str] resource_group_name: Name of the resource group where the vault is located. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] storage_account_id: The ID of the Storage Account to be registered Changing this forces a new resource to be created.
                
-               > **NOTE** Azure Backup places a Resource Lock on the storage account that will cause deletion to fail until the account is unregistered from Azure Backup
+               > **Note:** Azure Backup places a Resource Lock on the storage account that will cause deletion to fail until the account is unregistered from Azure Backup
         """
         if recovery_vault_name is not None:
             pulumi.set(__self__, "recovery_vault_name", recovery_vault_name)
@@ -125,7 +125,7 @@ class _ContainerStorageAccountState:
         """
         The ID of the Storage Account to be registered Changing this forces a new resource to be created.
 
-        > **NOTE** Azure Backup places a Resource Lock on the storage account that will cause deletion to fail until the account is unregistered from Azure Backup
+        > **Note:** Azure Backup places a Resource Lock on the storage account that will cause deletion to fail until the account is unregistered from Azure Backup
         """
         return pulumi.get(self, "storage_account_id")
 
@@ -189,7 +189,7 @@ class ContainerStorageAccount(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] resource_group_name: Name of the resource group where the vault is located. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] storage_account_id: The ID of the Storage Account to be registered Changing this forces a new resource to be created.
                
-               > **NOTE** Azure Backup places a Resource Lock on the storage account that will cause deletion to fail until the account is unregistered from Azure Backup
+               > **Note:** Azure Backup places a Resource Lock on the storage account that will cause deletion to fail until the account is unregistered from Azure Backup
         """
         ...
     @overload
@@ -296,7 +296,7 @@ class ContainerStorageAccount(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] resource_group_name: Name of the resource group where the vault is located. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] storage_account_id: The ID of the Storage Account to be registered Changing this forces a new resource to be created.
                
-               > **NOTE** Azure Backup places a Resource Lock on the storage account that will cause deletion to fail until the account is unregistered from Azure Backup
+               > **Note:** Azure Backup places a Resource Lock on the storage account that will cause deletion to fail until the account is unregistered from Azure Backup
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -329,7 +329,7 @@ class ContainerStorageAccount(pulumi.CustomResource):
         """
         The ID of the Storage Account to be registered Changing this forces a new resource to be created.
 
-        > **NOTE** Azure Backup places a Resource Lock on the storage account that will cause deletion to fail until the account is unregistered from Azure Backup
+        > **Note:** Azure Backup places a Resource Lock on the storage account that will cause deletion to fail until the account is unregistered from Azure Backup
         """
         return pulumi.get(self, "storage_account_id")
 

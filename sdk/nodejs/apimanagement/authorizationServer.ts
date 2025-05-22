@@ -32,6 +32,13 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.ApiManagement`: 2022-08-01
+ *
  * ## Import
  *
  * API Management Authorization Servers can be imported using the `resource id`, e.g.
@@ -79,7 +86,7 @@ export class AuthorizationServer extends pulumi.CustomResource {
     /**
      * The HTTP Verbs supported by the Authorization Endpoint. Possible values are `DELETE`, `GET`, `HEAD`, `OPTIONS`, `PATCH`, `POST`, `PUT` and `TRACE`.
      *
-     * > **NOTE:** `GET` must always be present.
+     * > **Note:** `GET` must always be present.
      */
     public readonly authorizationMethods!: pulumi.Output<string[]>;
     /**
@@ -129,13 +136,13 @@ export class AuthorizationServer extends pulumi.CustomResource {
     /**
      * The password associated with the Resource Owner.
      *
-     * > **NOTE:** This can only be specified when `grantType` includes `resourceOwnerPassword`.
+     * > **Note:** This can only be specified when `grantType` includes `resourceOwnerPassword`.
      */
     public readonly resourceOwnerPassword!: pulumi.Output<string | undefined>;
     /**
      * The username associated with the Resource Owner.
      *
-     * > **NOTE:** This can only be specified when `grantType` includes `resourceOwnerPassword`.
+     * > **Note:** This can only be specified when `grantType` includes `resourceOwnerPassword`.
      */
     public readonly resourceOwnerUsername!: pulumi.Output<string | undefined>;
     /**
@@ -251,7 +258,7 @@ export interface AuthorizationServerState {
     /**
      * The HTTP Verbs supported by the Authorization Endpoint. Possible values are `DELETE`, `GET`, `HEAD`, `OPTIONS`, `PATCH`, `POST`, `PUT` and `TRACE`.
      *
-     * > **NOTE:** `GET` must always be present.
+     * > **Note:** `GET` must always be present.
      */
     authorizationMethods?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -301,13 +308,13 @@ export interface AuthorizationServerState {
     /**
      * The password associated with the Resource Owner.
      *
-     * > **NOTE:** This can only be specified when `grantType` includes `resourceOwnerPassword`.
+     * > **Note:** This can only be specified when `grantType` includes `resourceOwnerPassword`.
      */
     resourceOwnerPassword?: pulumi.Input<string>;
     /**
      * The username associated with the Resource Owner.
      *
-     * > **NOTE:** This can only be specified when `grantType` includes `resourceOwnerPassword`.
+     * > **Note:** This can only be specified when `grantType` includes `resourceOwnerPassword`.
      */
     resourceOwnerUsername?: pulumi.Input<string>;
     /**
@@ -339,7 +346,7 @@ export interface AuthorizationServerArgs {
     /**
      * The HTTP Verbs supported by the Authorization Endpoint. Possible values are `DELETE`, `GET`, `HEAD`, `OPTIONS`, `PATCH`, `POST`, `PUT` and `TRACE`.
      *
-     * > **NOTE:** `GET` must always be present.
+     * > **Note:** `GET` must always be present.
      */
     authorizationMethods: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -389,13 +396,13 @@ export interface AuthorizationServerArgs {
     /**
      * The password associated with the Resource Owner.
      *
-     * > **NOTE:** This can only be specified when `grantType` includes `resourceOwnerPassword`.
+     * > **Note:** This can only be specified when `grantType` includes `resourceOwnerPassword`.
      */
     resourceOwnerPassword?: pulumi.Input<string>;
     /**
      * The username associated with the Resource Owner.
      *
-     * > **NOTE:** This can only be specified when `grantType` includes `resourceOwnerPassword`.
+     * > **Note:** This can only be specified when `grantType` includes `resourceOwnerPassword`.
      */
     resourceOwnerUsername?: pulumi.Input<string>;
     /**

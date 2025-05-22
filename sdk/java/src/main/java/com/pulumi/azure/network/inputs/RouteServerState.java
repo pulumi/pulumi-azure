@@ -134,7 +134,7 @@ public final class RouteServerState extends com.pulumi.resources.ResourceArgs {
     /**
      * The ID of the Subnet that the Route Server will reside. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** Azure Route Server requires a dedicated subnet named RouteServerSubnet. The subnet size has to be at least /27 or short prefix (such as /26 or /25) and cannot be attached to any security group, otherwise, you&#39;ll receive an error message when deploying the Route Server.
+     * &gt; **Note:** Azure Route Server requires a dedicated subnet named RouteServerSubnet. The subnet size has to be at least /27 or short prefix (such as /26 or /25) and cannot be attached to any security group, otherwise, you&#39;ll receive an error message when deploying the Route Server.
      * 
      */
     @Import(name="subnetId")
@@ -143,7 +143,7 @@ public final class RouteServerState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return The ID of the Subnet that the Route Server will reside. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** Azure Route Server requires a dedicated subnet named RouteServerSubnet. The subnet size has to be at least /27 or short prefix (such as /26 or /25) and cannot be attached to any security group, otherwise, you&#39;ll receive an error message when deploying the Route Server.
+     * &gt; **Note:** Azure Route Server requires a dedicated subnet named RouteServerSubnet. The subnet size has to be at least /27 or short prefix (such as /26 or /25) and cannot be attached to any security group, otherwise, you&#39;ll receive an error message when deploying the Route Server.
      * 
      */
     public Optional<Output<String>> subnetId() {
@@ -373,7 +373,7 @@ public final class RouteServerState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param subnetId The ID of the Subnet that the Route Server will reside. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** Azure Route Server requires a dedicated subnet named RouteServerSubnet. The subnet size has to be at least /27 or short prefix (such as /26 or /25) and cannot be attached to any security group, otherwise, you&#39;ll receive an error message when deploying the Route Server.
+         * &gt; **Note:** Azure Route Server requires a dedicated subnet named RouteServerSubnet. The subnet size has to be at least /27 or short prefix (such as /26 or /25) and cannot be attached to any security group, otherwise, you&#39;ll receive an error message when deploying the Route Server.
          * 
          * @return builder
          * 
@@ -386,7 +386,7 @@ public final class RouteServerState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param subnetId The ID of the Subnet that the Route Server will reside. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** Azure Route Server requires a dedicated subnet named RouteServerSubnet. The subnet size has to be at least /27 or short prefix (such as /26 or /25) and cannot be attached to any security group, otherwise, you&#39;ll receive an error message when deploying the Route Server.
+         * &gt; **Note:** Azure Route Server requires a dedicated subnet named RouteServerSubnet. The subnet size has to be at least /27 or short prefix (such as /26 or /25) and cannot be attached to any security group, otherwise, you&#39;ll receive an error message when deploying the Route Server.
          * 
          * @return builder
          * 

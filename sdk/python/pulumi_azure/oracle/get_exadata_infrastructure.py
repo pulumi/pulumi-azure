@@ -482,6 +482,13 @@ def get_exadata_infrastructure(name: Optional[builtins.str] = None,
     pulumi.export("id", example.id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Oracle.Database`: 2024-06-01
+
 
     :param builtins.str name: The name of this Cloud Exadata Infrastructure.
     :param builtins.str resource_group_name: The name of the Resource Group where the Cloud Exadata Infrastructure exists.
@@ -545,6 +552,13 @@ def get_exadata_infrastructure_output(name: Optional[pulumi.Input[builtins.str]]
         resource_group_name="existing")
     pulumi.export("id", example.id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Oracle.Database`: 2024-06-01
 
 
     :param builtins.str name: The name of this Cloud Exadata Infrastructure.

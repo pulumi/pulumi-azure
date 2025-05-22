@@ -79,6 +79,13 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.ApiManagement`: 2022-08-01
+ * 
  * ## Import
  * 
  * API Management Subscriptions can be imported using the `resource id`, e.g.
@@ -107,7 +114,7 @@ public class Subscription extends com.pulumi.resources.CustomResource {
     /**
      * The ID of the API which should be assigned to this Subscription. Changing this forces a new resource to be created.
      * 
-     * &gt; **Info:** Only one of `product_id` and `api_id` can be set. If both are missing `/apis` scope is used for the subscription and all apis are accessible.
+     * &gt; **Note:** Only one of `product_id` and `api_id` can be set. If both are missing `/apis` scope is used for the subscription and all apis are accessible.
      * 
      */
     @Export(name="apiId", refs={String.class}, tree="[0]")
@@ -116,7 +123,7 @@ public class Subscription extends com.pulumi.resources.CustomResource {
     /**
      * @return The ID of the API which should be assigned to this Subscription. Changing this forces a new resource to be created.
      * 
-     * &gt; **Info:** Only one of `product_id` and `api_id` can be set. If both are missing `/apis` scope is used for the subscription and all apis are accessible.
+     * &gt; **Note:** Only one of `product_id` and `api_id` can be set. If both are missing `/apis` scope is used for the subscription and all apis are accessible.
      * 
      */
     public Output<Optional<String>> apiId() {
@@ -167,7 +174,7 @@ public class Subscription extends com.pulumi.resources.CustomResource {
     /**
      * The ID of the Product which should be assigned to this Subscription. Changing this forces a new resource to be created.
      * 
-     * &gt; **Info:** Only one of `product_id` and `api_id` can be set. If both are missing `all_apis` scope is used for the subscription.
+     * &gt; **Note:** Only one of `product_id` and `api_id` can be set. If both are missing `all_apis` scope is used for the subscription.
      * 
      */
     @Export(name="productId", refs={String.class}, tree="[0]")
@@ -176,7 +183,7 @@ public class Subscription extends com.pulumi.resources.CustomResource {
     /**
      * @return The ID of the Product which should be assigned to this Subscription. Changing this forces a new resource to be created.
      * 
-     * &gt; **Info:** Only one of `product_id` and `api_id` can be set. If both are missing `all_apis` scope is used for the subscription.
+     * &gt; **Note:** Only one of `product_id` and `api_id` can be set. If both are missing `all_apis` scope is used for the subscription.
      * 
      */
     public Output<Optional<String>> productId() {

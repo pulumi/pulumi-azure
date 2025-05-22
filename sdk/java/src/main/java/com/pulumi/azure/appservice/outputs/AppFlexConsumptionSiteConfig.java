@@ -146,7 +146,7 @@ public final class AppFlexConsumptionSiteConfig {
      */
     private @Nullable List<AppFlexConsumptionSiteConfigScmIpRestriction> scmIpRestrictions;
     /**
-     * @return Configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+     * @return The minimum version of TLS required for SSL requests to the SCM site. Possible values include `1.0`, `1.1`, `1.2` and `1.3`. Defaults to `1.2`.
      * 
      */
     private @Nullable String scmMinimumTlsVersion;
@@ -161,7 +161,7 @@ public final class AppFlexConsumptionSiteConfig {
      */
     private @Nullable Boolean scmUseMainIpRestriction;
     /**
-     * @return Should the Linux Web App use a 32-bit worker.
+     * @return Should the Linux Web App use a 32-bit worker. Defaults to `false`.
      * 
      */
     private @Nullable Boolean use32BitWorker;
@@ -355,7 +355,7 @@ public final class AppFlexConsumptionSiteConfig {
         return this.scmIpRestrictions == null ? List.of() : this.scmIpRestrictions;
     }
     /**
-     * @return Configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+     * @return The minimum version of TLS required for SSL requests to the SCM site. Possible values include `1.0`, `1.1`, `1.2` and `1.3`. Defaults to `1.2`.
      * 
      */
     public Optional<String> scmMinimumTlsVersion() {
@@ -376,7 +376,7 @@ public final class AppFlexConsumptionSiteConfig {
         return Optional.ofNullable(this.scmUseMainIpRestriction);
     }
     /**
-     * @return Should the Linux Web App use a 32-bit worker.
+     * @return Should the Linux Web App use a 32-bit worker. Defaults to `false`.
      * 
      */
     public Optional<Boolean> use32BitWorker() {

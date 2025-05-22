@@ -44,6 +44,13 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.DataShare`: 2019-11-01
+ *
  * ## Import
  *
  * Data Shares can be imported using the `resource id`, e.g.

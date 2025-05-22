@@ -30,7 +30,7 @@ class CustomDomainArgs:
         :param pulumi.Input[builtins.str] certificate_binding_type: The Binding type. Possible values include `Disabled` and `SniEnabled`.
         :param pulumi.Input[builtins.str] container_app_environment_certificate_id: The ID of the Container App Environment Certificate to use. Changing this forces a new resource to be created.
                
-               > **NOTE:** Omit this value if you wish to use an Azure Managed certificate. You must create the relevant DNS verification steps before this process will be successful.
+               > **Note:** Omit this value if you wish to use an Azure Managed certificate. You must create the relevant DNS verification steps before this process will be successful.
         :param pulumi.Input[builtins.str] name: The fully qualified name of the Custom Domain. Must be the CN or a named SAN in the certificate specified by the `container_app_environment_certificate_id`. Changing this forces a new resource to be created.
                
                > **Note:** The Custom Domain verification TXT record requires a prefix of `asuid.`, however, this must be trimmed from the `name` property here. See the [official docs](https://learn.microsoft.com/en-us/azure/container-apps/custom-domains-certificates) for more information.
@@ -73,7 +73,7 @@ class CustomDomainArgs:
         """
         The ID of the Container App Environment Certificate to use. Changing this forces a new resource to be created.
 
-        > **NOTE:** Omit this value if you wish to use an Azure Managed certificate. You must create the relevant DNS verification steps before this process will be successful.
+        > **Note:** Omit this value if you wish to use an Azure Managed certificate. You must create the relevant DNS verification steps before this process will be successful.
         """
         return pulumi.get(self, "container_app_environment_certificate_id")
 
@@ -109,7 +109,7 @@ class _CustomDomainState:
         :param pulumi.Input[builtins.str] certificate_binding_type: The Binding type. Possible values include `Disabled` and `SniEnabled`.
         :param pulumi.Input[builtins.str] container_app_environment_certificate_id: The ID of the Container App Environment Certificate to use. Changing this forces a new resource to be created.
                
-               > **NOTE:** Omit this value if you wish to use an Azure Managed certificate. You must create the relevant DNS verification steps before this process will be successful.
+               > **Note:** Omit this value if you wish to use an Azure Managed certificate. You must create the relevant DNS verification steps before this process will be successful.
         :param pulumi.Input[builtins.str] container_app_environment_managed_certificate_id: The ID of the Container App Environment Managed Certificate to use.
         :param pulumi.Input[builtins.str] container_app_id: The ID of the Container App to which this Custom Domain should be bound. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] name: The fully qualified name of the Custom Domain. Must be the CN or a named SAN in the certificate specified by the `container_app_environment_certificate_id`. Changing this forces a new resource to be created.
@@ -145,7 +145,7 @@ class _CustomDomainState:
         """
         The ID of the Container App Environment Certificate to use. Changing this forces a new resource to be created.
 
-        > **NOTE:** Omit this value if you wish to use an Azure Managed certificate. You must create the relevant DNS verification steps before this process will be successful.
+        > **Note:** Omit this value if you wish to use an Azure Managed certificate. You must create the relevant DNS verification steps before this process will be successful.
         """
         return pulumi.get(self, "container_app_environment_certificate_id")
 
@@ -220,6 +220,13 @@ class CustomDomain(pulumi.CustomResource):
             container_app_id=example_azurerm_container_app["id"])
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.App`: 2025-01-01
+
         ## Import
 
         A Container App Custom Domain can be imported using the `resource id`, e.g.
@@ -233,7 +240,7 @@ class CustomDomain(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] certificate_binding_type: The Binding type. Possible values include `Disabled` and `SniEnabled`.
         :param pulumi.Input[builtins.str] container_app_environment_certificate_id: The ID of the Container App Environment Certificate to use. Changing this forces a new resource to be created.
                
-               > **NOTE:** Omit this value if you wish to use an Azure Managed certificate. You must create the relevant DNS verification steps before this process will be successful.
+               > **Note:** Omit this value if you wish to use an Azure Managed certificate. You must create the relevant DNS verification steps before this process will be successful.
         :param pulumi.Input[builtins.str] container_app_id: The ID of the Container App to which this Custom Domain should be bound. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] name: The fully qualified name of the Custom Domain. Must be the CN or a named SAN in the certificate specified by the `container_app_environment_certificate_id`. Changing this forces a new resource to be created.
                
@@ -261,6 +268,13 @@ class CustomDomain(pulumi.CustomResource):
                 suffix=".").result,
             container_app_id=example_azurerm_container_app["id"])
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.App`: 2025-01-01
 
         ## Import
 
@@ -330,7 +344,7 @@ class CustomDomain(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] certificate_binding_type: The Binding type. Possible values include `Disabled` and `SniEnabled`.
         :param pulumi.Input[builtins.str] container_app_environment_certificate_id: The ID of the Container App Environment Certificate to use. Changing this forces a new resource to be created.
                
-               > **NOTE:** Omit this value if you wish to use an Azure Managed certificate. You must create the relevant DNS verification steps before this process will be successful.
+               > **Note:** Omit this value if you wish to use an Azure Managed certificate. You must create the relevant DNS verification steps before this process will be successful.
         :param pulumi.Input[builtins.str] container_app_environment_managed_certificate_id: The ID of the Container App Environment Managed Certificate to use.
         :param pulumi.Input[builtins.str] container_app_id: The ID of the Container App to which this Custom Domain should be bound. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] name: The fully qualified name of the Custom Domain. Must be the CN or a named SAN in the certificate specified by the `container_app_environment_certificate_id`. Changing this forces a new resource to be created.
@@ -362,7 +376,7 @@ class CustomDomain(pulumi.CustomResource):
         """
         The ID of the Container App Environment Certificate to use. Changing this forces a new resource to be created.
 
-        > **NOTE:** Omit this value if you wish to use an Azure Managed certificate. You must create the relevant DNS verification steps before this process will be successful.
+        > **Note:** Omit this value if you wish to use an Azure Managed certificate. You must create the relevant DNS verification steps before this process will be successful.
         """
         return pulumi.get(self, "container_app_environment_certificate_id")
 

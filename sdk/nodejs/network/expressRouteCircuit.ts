@@ -83,15 +83,15 @@ export class ExpressRouteCircuit extends pulumi.CustomResource {
     /**
      * The bandwidth in Gbps of the circuit being created on the Express Route Port.
      *
-     * > **NOTE:** The `expressRoutePortId` and the `bandwidthInGbps` should be set together and they conflict with `serviceProviderName`, `peeringLocation` and `bandwidthInMbps`.
+     * > **Note:** The `expressRoutePortId` and the `bandwidthInGbps` should be set together and they conflict with `serviceProviderName`, `peeringLocation` and `bandwidthInMbps`.
      */
     public readonly bandwidthInGbps!: pulumi.Output<number | undefined>;
     /**
      * The bandwidth in Mbps of the circuit being created on the Service Provider.
      *
-     * > **NOTE:** Once you increase your bandwidth, you will not be able to decrease it to its previous value.
+     * > **Note:** Once you increase your bandwidth, you will not be able to decrease it to its previous value.
      *
-     * > **NOTE:** The `serviceProviderName`, the `peeringLocation` and the `bandwidthInMbps` should be set together and they conflict with `expressRoutePortId` and `bandwidthInGbps`.
+     * > **Note:** The `serviceProviderName`, the `peeringLocation` and the `bandwidthInMbps` should be set together and they conflict with `expressRoutePortId` and `bandwidthInGbps`.
      */
     public readonly bandwidthInMbps!: pulumi.Output<number | undefined>;
     /**
@@ -213,15 +213,15 @@ export interface ExpressRouteCircuitState {
     /**
      * The bandwidth in Gbps of the circuit being created on the Express Route Port.
      *
-     * > **NOTE:** The `expressRoutePortId` and the `bandwidthInGbps` should be set together and they conflict with `serviceProviderName`, `peeringLocation` and `bandwidthInMbps`.
+     * > **Note:** The `expressRoutePortId` and the `bandwidthInGbps` should be set together and they conflict with `serviceProviderName`, `peeringLocation` and `bandwidthInMbps`.
      */
     bandwidthInGbps?: pulumi.Input<number>;
     /**
      * The bandwidth in Mbps of the circuit being created on the Service Provider.
      *
-     * > **NOTE:** Once you increase your bandwidth, you will not be able to decrease it to its previous value.
+     * > **Note:** Once you increase your bandwidth, you will not be able to decrease it to its previous value.
      *
-     * > **NOTE:** The `serviceProviderName`, the `peeringLocation` and the `bandwidthInMbps` should be set together and they conflict with `expressRoutePortId` and `bandwidthInGbps`.
+     * > **Note:** The `serviceProviderName`, the `peeringLocation` and the `bandwidthInMbps` should be set together and they conflict with `expressRoutePortId` and `bandwidthInGbps`.
      */
     bandwidthInMbps?: pulumi.Input<number>;
     /**
@@ -285,15 +285,15 @@ export interface ExpressRouteCircuitArgs {
     /**
      * The bandwidth in Gbps of the circuit being created on the Express Route Port.
      *
-     * > **NOTE:** The `expressRoutePortId` and the `bandwidthInGbps` should be set together and they conflict with `serviceProviderName`, `peeringLocation` and `bandwidthInMbps`.
+     * > **Note:** The `expressRoutePortId` and the `bandwidthInGbps` should be set together and they conflict with `serviceProviderName`, `peeringLocation` and `bandwidthInMbps`.
      */
     bandwidthInGbps?: pulumi.Input<number>;
     /**
      * The bandwidth in Mbps of the circuit being created on the Service Provider.
      *
-     * > **NOTE:** Once you increase your bandwidth, you will not be able to decrease it to its previous value.
+     * > **Note:** Once you increase your bandwidth, you will not be able to decrease it to its previous value.
      *
-     * > **NOTE:** The `serviceProviderName`, the `peeringLocation` and the `bandwidthInMbps` should be set together and they conflict with `expressRoutePortId` and `bandwidthInGbps`.
+     * > **Note:** The `serviceProviderName`, the `peeringLocation` and the `bandwidthInMbps` should be set together and they conflict with `expressRoutePortId` and `bandwidthInGbps`.
      */
     bandwidthInMbps?: pulumi.Input<number>;
     /**

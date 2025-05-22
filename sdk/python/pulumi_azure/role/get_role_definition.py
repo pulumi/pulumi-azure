@@ -155,10 +155,17 @@ def get_role_definition(name: Optional[builtins.str] = None,
     pulumi.export("contributorRoleDefinitionId", builtin.id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Authorization`: 2022-05-01-preview
+
 
     :param builtins.str name: Specifies the Name of either a built-in or custom Role Definition.
            
-           > You can also use this for built-in roles such as `Contributor`, `Owner`, `Reader` and `Virtual Machine Contributor`
+           > **Note:** You can also use this for built-in roles such as `Contributor`, `Owner`, `Reader` and `Virtual Machine Contributor`
     :param builtins.str role_definition_id: Specifies the ID of the Role Definition as a UUID/GUID.
     :param builtins.str scope: Specifies the Scope at which the Custom Role Definition exists.
            
@@ -208,10 +215,17 @@ def get_role_definition_output(name: Optional[pulumi.Input[Optional[builtins.str
     pulumi.export("contributorRoleDefinitionId", builtin.id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Authorization`: 2022-05-01-preview
+
 
     :param builtins.str name: Specifies the Name of either a built-in or custom Role Definition.
            
-           > You can also use this for built-in roles such as `Contributor`, `Owner`, `Reader` and `Virtual Machine Contributor`
+           > **Note:** You can also use this for built-in roles such as `Contributor`, `Owner`, `Reader` and `Virtual Machine Contributor`
     :param builtins.str role_definition_id: Specifies the ID of the Role Definition as a UUID/GUID.
     :param builtins.str scope: Specifies the Scope at which the Custom Role Definition exists.
            

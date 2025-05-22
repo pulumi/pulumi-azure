@@ -83,6 +83,13 @@ namespace Pulumi.Azure.SignalR
     /// });
     /// ```
     /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.SignalRService`: 2024-03-01
+    /// 
     /// ## Import
     /// 
     /// Signalr Shared Private Link Resource can be imported using the `resource id`, e.g.
@@ -127,7 +134,7 @@ namespace Pulumi.Azure.SignalR
         /// <summary>
         /// The ID of the Shared Private Link Enabled Remote Resource which this Signalr Private Endpoint should be connected to. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** The `sub_resource_name` should match with the type of the `target_resource_id` that's being specified.
+        /// &gt; **Note:** The `sub_resource_name` should match with the type of the `target_resource_id` that's being specified.
         /// </summary>
         [Output("targetResourceId")]
         public Output<string> TargetResourceId { get; private set; } = null!;
@@ -205,7 +212,7 @@ namespace Pulumi.Azure.SignalR
         /// <summary>
         /// The ID of the Shared Private Link Enabled Remote Resource which this Signalr Private Endpoint should be connected to. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** The `sub_resource_name` should match with the type of the `target_resource_id` that's being specified.
+        /// &gt; **Note:** The `sub_resource_name` should match with the type of the `target_resource_id` that's being specified.
         /// </summary>
         [Input("targetResourceId", required: true)]
         public Input<string> TargetResourceId { get; set; } = null!;
@@ -251,7 +258,7 @@ namespace Pulumi.Azure.SignalR
         /// <summary>
         /// The ID of the Shared Private Link Enabled Remote Resource which this Signalr Private Endpoint should be connected to. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** The `sub_resource_name` should match with the type of the `target_resource_id` that's being specified.
+        /// &gt; **Note:** The `sub_resource_name` should match with the type of the `target_resource_id` that's being specified.
         /// </summary>
         [Input("targetResourceId")]
         public Input<string>? TargetResourceId { get; set; }

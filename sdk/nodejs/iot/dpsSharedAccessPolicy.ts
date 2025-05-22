@@ -35,6 +35,13 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.Devices`: 2022-02-05
+ *
  * ## Import
  *
  * IoTHub Device Provisioning Service Shared Access Policies can be imported using the `resource id`, e.g.
@@ -74,13 +81,13 @@ export class DpsSharedAccessPolicy extends pulumi.CustomResource {
     /**
      * Adds `EnrollmentRead` permission to this Shared Access Account. It allows read access to enrollment data.
      *
-     * > **NOTE** When `enrollmentRead` is set to `true`, `registrationRead` must also be set to true. This is a limitation of the Azure REST API
+     * > **Note:** When `enrollmentRead` is set to `true`, `registrationRead` must also be set to true. This is a limitation of the Azure REST API
      */
     public readonly enrollmentRead!: pulumi.Output<boolean | undefined>;
     /**
      * Adds `EnrollmentWrite` permission to this Shared Access Account. It allows write access to enrollment data.
      *
-     * > **NOTE** When `registrationWrite` is set to `true`, `enrollmentRead`, `registrationRead`, and `registrationWrite` must also be set to true. This is a requirement of the Azure API.
+     * > **Note:** When `registrationWrite` is set to `true`, `enrollmentRead`, `registrationRead`, and `registrationWrite` must also be set to true. This is a requirement of the Azure API.
      */
     public readonly enrollmentWrite!: pulumi.Output<boolean | undefined>;
     /**
@@ -106,7 +113,7 @@ export class DpsSharedAccessPolicy extends pulumi.CustomResource {
     /**
      * Adds `RegistrationStatusWrite` permission to this Shared Access Account. It allows write access to device registrations.
      *
-     * > **NOTE** When `registrationWrite` is set to `true`, `registrationRead` must also be set to true. This is a requirement of the Azure API.
+     * > **Note:** When `registrationWrite` is set to `true`, `registrationRead` must also be set to true. This is a requirement of the Azure API.
      */
     public readonly registrationWrite!: pulumi.Output<boolean | undefined>;
     /**
@@ -124,7 +131,7 @@ export class DpsSharedAccessPolicy extends pulumi.CustomResource {
     /**
      * Adds `ServiceConfig` permission to this Shared Access Account. It allows configuration of the Device Provisioning Service.
      *
-     * > **NOTE** At least one of `registrationRead`, `registrationWrite`, `serviceConfig`, `enrollmentRead`, `enrollmentWrite` permissions must be set to `true`.
+     * > **Note:** At least one of `registrationRead`, `registrationWrite`, `serviceConfig`, `enrollmentRead`, `enrollmentWrite` permissions must be set to `true`.
      */
     public readonly serviceConfig!: pulumi.Output<boolean | undefined>;
 
@@ -188,13 +195,13 @@ export interface DpsSharedAccessPolicyState {
     /**
      * Adds `EnrollmentRead` permission to this Shared Access Account. It allows read access to enrollment data.
      *
-     * > **NOTE** When `enrollmentRead` is set to `true`, `registrationRead` must also be set to true. This is a limitation of the Azure REST API
+     * > **Note:** When `enrollmentRead` is set to `true`, `registrationRead` must also be set to true. This is a limitation of the Azure REST API
      */
     enrollmentRead?: pulumi.Input<boolean>;
     /**
      * Adds `EnrollmentWrite` permission to this Shared Access Account. It allows write access to enrollment data.
      *
-     * > **NOTE** When `registrationWrite` is set to `true`, `enrollmentRead`, `registrationRead`, and `registrationWrite` must also be set to true. This is a requirement of the Azure API.
+     * > **Note:** When `registrationWrite` is set to `true`, `enrollmentRead`, `registrationRead`, and `registrationWrite` must also be set to true. This is a requirement of the Azure API.
      */
     enrollmentWrite?: pulumi.Input<boolean>;
     /**
@@ -220,7 +227,7 @@ export interface DpsSharedAccessPolicyState {
     /**
      * Adds `RegistrationStatusWrite` permission to this Shared Access Account. It allows write access to device registrations.
      *
-     * > **NOTE** When `registrationWrite` is set to `true`, `registrationRead` must also be set to true. This is a requirement of the Azure API.
+     * > **Note:** When `registrationWrite` is set to `true`, `registrationRead` must also be set to true. This is a requirement of the Azure API.
      */
     registrationWrite?: pulumi.Input<boolean>;
     /**
@@ -238,7 +245,7 @@ export interface DpsSharedAccessPolicyState {
     /**
      * Adds `ServiceConfig` permission to this Shared Access Account. It allows configuration of the Device Provisioning Service.
      *
-     * > **NOTE** At least one of `registrationRead`, `registrationWrite`, `serviceConfig`, `enrollmentRead`, `enrollmentWrite` permissions must be set to `true`.
+     * > **Note:** At least one of `registrationRead`, `registrationWrite`, `serviceConfig`, `enrollmentRead`, `enrollmentWrite` permissions must be set to `true`.
      */
     serviceConfig?: pulumi.Input<boolean>;
 }
@@ -250,13 +257,13 @@ export interface DpsSharedAccessPolicyArgs {
     /**
      * Adds `EnrollmentRead` permission to this Shared Access Account. It allows read access to enrollment data.
      *
-     * > **NOTE** When `enrollmentRead` is set to `true`, `registrationRead` must also be set to true. This is a limitation of the Azure REST API
+     * > **Note:** When `enrollmentRead` is set to `true`, `registrationRead` must also be set to true. This is a limitation of the Azure REST API
      */
     enrollmentRead?: pulumi.Input<boolean>;
     /**
      * Adds `EnrollmentWrite` permission to this Shared Access Account. It allows write access to enrollment data.
      *
-     * > **NOTE** When `registrationWrite` is set to `true`, `enrollmentRead`, `registrationRead`, and `registrationWrite` must also be set to true. This is a requirement of the Azure API.
+     * > **Note:** When `registrationWrite` is set to `true`, `enrollmentRead`, `registrationRead`, and `registrationWrite` must also be set to true. This is a requirement of the Azure API.
      */
     enrollmentWrite?: pulumi.Input<boolean>;
     /**
@@ -274,7 +281,7 @@ export interface DpsSharedAccessPolicyArgs {
     /**
      * Adds `RegistrationStatusWrite` permission to this Shared Access Account. It allows write access to device registrations.
      *
-     * > **NOTE** When `registrationWrite` is set to `true`, `registrationRead` must also be set to true. This is a requirement of the Azure API.
+     * > **Note:** When `registrationWrite` is set to `true`, `registrationRead` must also be set to true. This is a requirement of the Azure API.
      */
     registrationWrite?: pulumi.Input<boolean>;
     /**
@@ -284,7 +291,7 @@ export interface DpsSharedAccessPolicyArgs {
     /**
      * Adds `ServiceConfig` permission to this Shared Access Account. It allows configuration of the Device Provisioning Service.
      *
-     * > **NOTE** At least one of `registrationRead`, `registrationWrite`, `serviceConfig`, `enrollmentRead`, `enrollmentWrite` permissions must be set to `true`.
+     * > **Note:** At least one of `registrationRead`, `registrationWrite`, `serviceConfig`, `enrollmentRead`, `enrollmentWrite` permissions must be set to `true`.
      */
     serviceConfig?: pulumi.Input<boolean>;
 }

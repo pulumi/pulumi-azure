@@ -27,6 +27,13 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.Monitor`: 2023-04-03
+ *
  * ## Import
  *
  * Azure Monitor Workspace can be imported using the `resource id`, e.g.

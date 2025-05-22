@@ -287,6 +287,13 @@ class AnomalyAlert(pulumi.CustomResource):
             email_addresses=["example@test.net"])
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.CostManagement`: 2023-08-01
+
         ## Import
 
         Cost Anomaly Alerts can be imported using the `resource id`, e.g.
@@ -329,6 +336,13 @@ class AnomalyAlert(pulumi.CustomResource):
             email_subject="My Test Anomaly Alert",
             email_addresses=["example@test.net"])
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.CostManagement`: 2023-08-01
 
         ## Import
 

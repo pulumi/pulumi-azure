@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 /**
  * Manages an Azure Active Directory Diagnostic Setting for Azure Monitor.
  *
- * !> **Authentication** The API for this resource does not support service principal authentication. This resource can only be used with Azure CLI authentication.
+ * !> **Note:** The API for this resource does not support service principal authentication. This resource can only be used with Azure CLI authentication.
  *
  * ## Example Usage
  *
@@ -92,7 +92,7 @@ export class AadDiagnosticSetting extends pulumi.CustomResource {
     /**
      * Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** This can be sourced from the `azure.eventhub.EventHubNamespaceAuthorizationRule` resource and is different from a `azure.eventhub.AuthorizationRule` resource.
+     * > **Note:** This can be sourced from the `azure.eventhub.EventHubNamespaceAuthorizationRule` resource and is different from a `azure.eventhub.AuthorizationRule` resource.
      */
     public readonly eventhubAuthorizationRuleId!: pulumi.Output<string | undefined>;
     /**
@@ -110,7 +110,7 @@ export class AadDiagnosticSetting extends pulumi.CustomResource {
     /**
      * The ID of the Storage Account where logs should be sent. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** One of `eventhubAuthorizationRuleId`, `logAnalyticsWorkspaceId` and `storageAccountId` must be specified.
+     * > **Note:** One of `eventhubAuthorizationRuleId`, `logAnalyticsWorkspaceId` and `storageAccountId` must be specified.
      */
     public readonly storageAccountId!: pulumi.Output<string | undefined>;
 
@@ -158,7 +158,7 @@ export interface AadDiagnosticSettingState {
     /**
      * Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** This can be sourced from the `azure.eventhub.EventHubNamespaceAuthorizationRule` resource and is different from a `azure.eventhub.AuthorizationRule` resource.
+     * > **Note:** This can be sourced from the `azure.eventhub.EventHubNamespaceAuthorizationRule` resource and is different from a `azure.eventhub.AuthorizationRule` resource.
      */
     eventhubAuthorizationRuleId?: pulumi.Input<string>;
     /**
@@ -176,7 +176,7 @@ export interface AadDiagnosticSettingState {
     /**
      * The ID of the Storage Account where logs should be sent. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** One of `eventhubAuthorizationRuleId`, `logAnalyticsWorkspaceId` and `storageAccountId` must be specified.
+     * > **Note:** One of `eventhubAuthorizationRuleId`, `logAnalyticsWorkspaceId` and `storageAccountId` must be specified.
      */
     storageAccountId?: pulumi.Input<string>;
 }
@@ -192,7 +192,7 @@ export interface AadDiagnosticSettingArgs {
     /**
      * Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** This can be sourced from the `azure.eventhub.EventHubNamespaceAuthorizationRule` resource and is different from a `azure.eventhub.AuthorizationRule` resource.
+     * > **Note:** This can be sourced from the `azure.eventhub.EventHubNamespaceAuthorizationRule` resource and is different from a `azure.eventhub.AuthorizationRule` resource.
      */
     eventhubAuthorizationRuleId?: pulumi.Input<string>;
     /**
@@ -210,7 +210,7 @@ export interface AadDiagnosticSettingArgs {
     /**
      * The ID of the Storage Account where logs should be sent. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** One of `eventhubAuthorizationRuleId`, `logAnalyticsWorkspaceId` and `storageAccountId` must be specified.
+     * > **Note:** One of `eventhubAuthorizationRuleId`, `logAnalyticsWorkspaceId` and `storageAccountId` must be specified.
      */
     storageAccountId?: pulumi.Input<string>;
 }

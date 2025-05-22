@@ -14,7 +14,7 @@ import (
 
 // Manages the Pricing Tier for Azure Security Center in the current subscription.
 //
-// > **NOTE:** Deletion of this resource will reset the pricing tier to `Free`
+// > **Note:** Deletion of this resource will reset the pricing tier to `Free`
 //
 // ## Example Usage
 //
@@ -101,7 +101,7 @@ type SubscriptionPricing struct {
 
 	// One or more `extension` blocks as defined below.
 	Extensions SubscriptionPricingExtensionArrayOutput `pulumi:"extensions"`
-	// The resource type this setting affects. Possible values are `Api`, `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, `VirtualMachines`, `Arm`, `Dns`, `OpenSourceRelationalDatabases`, `Containers`, `CosmosDbs` and `CloudPosture`. Defaults to `VirtualMachines`
+	// The resource type this setting affects. Possible values are `AI`, `Api`, `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, `VirtualMachines`, `Arm`, `Dns`, `OpenSourceRelationalDatabases`, `Containers`, `CosmosDbs` and `CloudPosture`. Defaults to `VirtualMachines`
 	ResourceType pulumi.StringPtrOutput `pulumi:"resourceType"`
 	// Resource type pricing subplan. Contact your MSFT representative for possible values. Changing this forces a new resource to be created.
 	Subplan pulumi.StringPtrOutput `pulumi:"subplan"`
@@ -144,7 +144,7 @@ func GetSubscriptionPricing(ctx *pulumi.Context,
 type subscriptionPricingState struct {
 	// One or more `extension` blocks as defined below.
 	Extensions []SubscriptionPricingExtension `pulumi:"extensions"`
-	// The resource type this setting affects. Possible values are `Api`, `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, `VirtualMachines`, `Arm`, `Dns`, `OpenSourceRelationalDatabases`, `Containers`, `CosmosDbs` and `CloudPosture`. Defaults to `VirtualMachines`
+	// The resource type this setting affects. Possible values are `AI`, `Api`, `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, `VirtualMachines`, `Arm`, `Dns`, `OpenSourceRelationalDatabases`, `Containers`, `CosmosDbs` and `CloudPosture`. Defaults to `VirtualMachines`
 	ResourceType *string `pulumi:"resourceType"`
 	// Resource type pricing subplan. Contact your MSFT representative for possible values. Changing this forces a new resource to be created.
 	Subplan *string `pulumi:"subplan"`
@@ -155,7 +155,7 @@ type subscriptionPricingState struct {
 type SubscriptionPricingState struct {
 	// One or more `extension` blocks as defined below.
 	Extensions SubscriptionPricingExtensionArrayInput
-	// The resource type this setting affects. Possible values are `Api`, `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, `VirtualMachines`, `Arm`, `Dns`, `OpenSourceRelationalDatabases`, `Containers`, `CosmosDbs` and `CloudPosture`. Defaults to `VirtualMachines`
+	// The resource type this setting affects. Possible values are `AI`, `Api`, `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, `VirtualMachines`, `Arm`, `Dns`, `OpenSourceRelationalDatabases`, `Containers`, `CosmosDbs` and `CloudPosture`. Defaults to `VirtualMachines`
 	ResourceType pulumi.StringPtrInput
 	// Resource type pricing subplan. Contact your MSFT representative for possible values. Changing this forces a new resource to be created.
 	Subplan pulumi.StringPtrInput
@@ -170,7 +170,7 @@ func (SubscriptionPricingState) ElementType() reflect.Type {
 type subscriptionPricingArgs struct {
 	// One or more `extension` blocks as defined below.
 	Extensions []SubscriptionPricingExtension `pulumi:"extensions"`
-	// The resource type this setting affects. Possible values are `Api`, `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, `VirtualMachines`, `Arm`, `Dns`, `OpenSourceRelationalDatabases`, `Containers`, `CosmosDbs` and `CloudPosture`. Defaults to `VirtualMachines`
+	// The resource type this setting affects. Possible values are `AI`, `Api`, `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, `VirtualMachines`, `Arm`, `Dns`, `OpenSourceRelationalDatabases`, `Containers`, `CosmosDbs` and `CloudPosture`. Defaults to `VirtualMachines`
 	ResourceType *string `pulumi:"resourceType"`
 	// Resource type pricing subplan. Contact your MSFT representative for possible values. Changing this forces a new resource to be created.
 	Subplan *string `pulumi:"subplan"`
@@ -182,7 +182,7 @@ type subscriptionPricingArgs struct {
 type SubscriptionPricingArgs struct {
 	// One or more `extension` blocks as defined below.
 	Extensions SubscriptionPricingExtensionArrayInput
-	// The resource type this setting affects. Possible values are `Api`, `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, `VirtualMachines`, `Arm`, `Dns`, `OpenSourceRelationalDatabases`, `Containers`, `CosmosDbs` and `CloudPosture`. Defaults to `VirtualMachines`
+	// The resource type this setting affects. Possible values are `AI`, `Api`, `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, `VirtualMachines`, `Arm`, `Dns`, `OpenSourceRelationalDatabases`, `Containers`, `CosmosDbs` and `CloudPosture`. Defaults to `VirtualMachines`
 	ResourceType pulumi.StringPtrInput
 	// Resource type pricing subplan. Contact your MSFT representative for possible values. Changing this forces a new resource to be created.
 	Subplan pulumi.StringPtrInput
@@ -282,7 +282,7 @@ func (o SubscriptionPricingOutput) Extensions() SubscriptionPricingExtensionArra
 	return o.ApplyT(func(v *SubscriptionPricing) SubscriptionPricingExtensionArrayOutput { return v.Extensions }).(SubscriptionPricingExtensionArrayOutput)
 }
 
-// The resource type this setting affects. Possible values are `Api`, `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, `VirtualMachines`, `Arm`, `Dns`, `OpenSourceRelationalDatabases`, `Containers`, `CosmosDbs` and `CloudPosture`. Defaults to `VirtualMachines`
+// The resource type this setting affects. Possible values are `AI`, `Api`, `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, `VirtualMachines`, `Arm`, `Dns`, `OpenSourceRelationalDatabases`, `Containers`, `CosmosDbs` and `CloudPosture`. Defaults to `VirtualMachines`
 func (o SubscriptionPricingOutput) ResourceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SubscriptionPricing) pulumi.StringPtrOutput { return v.ResourceType }).(pulumi.StringPtrOutput)
 }

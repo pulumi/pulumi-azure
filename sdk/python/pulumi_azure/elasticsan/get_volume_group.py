@@ -148,6 +148,13 @@ def get_volume_group(elastic_san_id: Optional[builtins.str] = None,
     pulumi.export("id", example_get_volume_group.id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.ElasticSan`: 2023-01-01
+
 
     :param builtins.str elastic_san_id: The Elastic SAN ID within which the Elastic SAN Volume Group exists.
     :param builtins.str name: The name of the Elastic SAN Volume Group.
@@ -185,6 +192,13 @@ def get_volume_group_output(elastic_san_id: Optional[pulumi.Input[builtins.str]]
         elastic_san_id=example.id)
     pulumi.export("id", example_get_volume_group.id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.ElasticSan`: 2023-01-01
 
 
     :param builtins.str elastic_san_id: The Elastic SAN ID within which the Elastic SAN Volume Group exists.

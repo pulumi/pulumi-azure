@@ -19,6 +19,13 @@ import * as utilities from "../utilities";
  * });
  * export const ruleId = example.then(example => example.id);
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.ServiceBus`: 2021-06-01-preview
  */
 export function getNamespaceAuthorizationRule(args: GetNamespaceAuthorizationRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetNamespaceAuthorizationRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -43,11 +50,11 @@ export interface GetNamespaceAuthorizationRuleArgs {
      */
     namespaceId?: string;
     /**
-     * @deprecated `namespaceName` will be removed in favour of the property `namespaceId` in version 4.0 of the AzureRM Provider.
+     * @deprecated `namespaceName` will be removed in favour of the property `namespaceId` in v5.0 of the AzureRM Provider.
      */
     namespaceName?: string;
     /**
-     * @deprecated `resourceGroupName` will be removed in favour of the property `namespaceId` in version 4.0 of the AzureRM Provider.
+     * @deprecated `resourceGroupName` will be removed in favour of the property `namespaceId` in v5.0 of the AzureRM Provider.
      */
     resourceGroupName?: string;
 }
@@ -63,7 +70,7 @@ export interface GetNamespaceAuthorizationRuleResult {
     readonly name: string;
     readonly namespaceId?: string;
     /**
-     * @deprecated `namespaceName` will be removed in favour of the property `namespaceId` in version 4.0 of the AzureRM Provider.
+     * @deprecated `namespaceName` will be removed in favour of the property `namespaceId` in v5.0 of the AzureRM Provider.
      */
     readonly namespaceName?: string;
     /**
@@ -79,7 +86,7 @@ export interface GetNamespaceAuthorizationRuleResult {
      */
     readonly primaryKey: string;
     /**
-     * @deprecated `resourceGroupName` will be removed in favour of the property `namespaceId` in version 4.0 of the AzureRM Provider.
+     * @deprecated `resourceGroupName` will be removed in favour of the property `namespaceId` in v5.0 of the AzureRM Provider.
      */
     readonly resourceGroupName?: string;
     /**
@@ -110,6 +117,13 @@ export interface GetNamespaceAuthorizationRuleResult {
  * });
  * export const ruleId = example.then(example => example.id);
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.ServiceBus`: 2021-06-01-preview
  */
 export function getNamespaceAuthorizationRuleOutput(args: GetNamespaceAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNamespaceAuthorizationRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -134,11 +148,11 @@ export interface GetNamespaceAuthorizationRuleOutputArgs {
      */
     namespaceId?: pulumi.Input<string>;
     /**
-     * @deprecated `namespaceName` will be removed in favour of the property `namespaceId` in version 4.0 of the AzureRM Provider.
+     * @deprecated `namespaceName` will be removed in favour of the property `namespaceId` in v5.0 of the AzureRM Provider.
      */
     namespaceName?: pulumi.Input<string>;
     /**
-     * @deprecated `resourceGroupName` will be removed in favour of the property `namespaceId` in version 4.0 of the AzureRM Provider.
+     * @deprecated `resourceGroupName` will be removed in favour of the property `namespaceId` in v5.0 of the AzureRM Provider.
      */
     resourceGroupName?: pulumi.Input<string>;
 }

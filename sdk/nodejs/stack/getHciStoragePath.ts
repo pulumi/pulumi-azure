@@ -19,6 +19,13 @@ import * as utilities from "../utilities";
  * });
  * export const id = example.then(example => example.id);
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.AzureStackHCI`: 2024-01-01
  */
 export function getHciStoragePath(args: GetHciStoragePathArgs, opts?: pulumi.InvokeOptions): Promise<GetHciStoragePathResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -84,6 +91,13 @@ export interface GetHciStoragePathResult {
  * });
  * export const id = example.then(example => example.id);
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.AzureStackHCI`: 2024-01-01
  */
 export function getHciStoragePathOutput(args: GetHciStoragePathOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetHciStoragePathResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

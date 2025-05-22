@@ -14,7 +14,7 @@ import (
 
 // Manages a Load Balancer Backend Address Pool.
 //
-// > **NOTE:** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration Attached
+// > **Note:** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration Attached
 //
 // ## Example Usage
 //
@@ -75,6 +75,13 @@ import (
 //
 // ```
 //
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.Network`: 2023-09-01
+//
 // ## Import
 //
 // Load Balancer Backend Address Pools can be imported using the `resource id`, e.g.
@@ -99,7 +106,7 @@ type BackendAddressPool struct {
 	OutboundRules pulumi.StringArrayOutput `pulumi:"outboundRules"`
 	// The backend address synchronous mode for the Backend Address Pool. Possible values are `Automatic` and `Manual`. This is required with `virtualNetworkId`. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** The `synchronousMode` can set only for Load Balancer with `Standard` SKU.
+	// > **Note:** The `synchronousMode` can set only for Load Balancer with `Standard` SKU.
 	SynchronousMode pulumi.StringPtrOutput `pulumi:"synchronousMode"`
 	// One or more `tunnelInterface` blocks as defined below.
 	TunnelInterfaces BackendAddressPoolTunnelInterfaceArrayOutput `pulumi:"tunnelInterfaces"`
@@ -154,7 +161,7 @@ type backendAddressPoolState struct {
 	OutboundRules []string `pulumi:"outboundRules"`
 	// The backend address synchronous mode for the Backend Address Pool. Possible values are `Automatic` and `Manual`. This is required with `virtualNetworkId`. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** The `synchronousMode` can set only for Load Balancer with `Standard` SKU.
+	// > **Note:** The `synchronousMode` can set only for Load Balancer with `Standard` SKU.
 	SynchronousMode *string `pulumi:"synchronousMode"`
 	// One or more `tunnelInterface` blocks as defined below.
 	TunnelInterfaces []BackendAddressPoolTunnelInterface `pulumi:"tunnelInterfaces"`
@@ -177,7 +184,7 @@ type BackendAddressPoolState struct {
 	OutboundRules pulumi.StringArrayInput
 	// The backend address synchronous mode for the Backend Address Pool. Possible values are `Automatic` and `Manual`. This is required with `virtualNetworkId`. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** The `synchronousMode` can set only for Load Balancer with `Standard` SKU.
+	// > **Note:** The `synchronousMode` can set only for Load Balancer with `Standard` SKU.
 	SynchronousMode pulumi.StringPtrInput
 	// One or more `tunnelInterface` blocks as defined below.
 	TunnelInterfaces BackendAddressPoolTunnelInterfaceArrayInput
@@ -196,7 +203,7 @@ type backendAddressPoolArgs struct {
 	Name *string `pulumi:"name"`
 	// The backend address synchronous mode for the Backend Address Pool. Possible values are `Automatic` and `Manual`. This is required with `virtualNetworkId`. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** The `synchronousMode` can set only for Load Balancer with `Standard` SKU.
+	// > **Note:** The `synchronousMode` can set only for Load Balancer with `Standard` SKU.
 	SynchronousMode *string `pulumi:"synchronousMode"`
 	// One or more `tunnelInterface` blocks as defined below.
 	TunnelInterfaces []BackendAddressPoolTunnelInterface `pulumi:"tunnelInterfaces"`
@@ -212,7 +219,7 @@ type BackendAddressPoolArgs struct {
 	Name pulumi.StringPtrInput
 	// The backend address synchronous mode for the Backend Address Pool. Possible values are `Automatic` and `Manual`. This is required with `virtualNetworkId`. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** The `synchronousMode` can set only for Load Balancer with `Standard` SKU.
+	// > **Note:** The `synchronousMode` can set only for Load Balancer with `Standard` SKU.
 	SynchronousMode pulumi.StringPtrInput
 	// One or more `tunnelInterface` blocks as defined below.
 	TunnelInterfaces BackendAddressPoolTunnelInterfaceArrayInput
@@ -339,7 +346,7 @@ func (o BackendAddressPoolOutput) OutboundRules() pulumi.StringArrayOutput {
 
 // The backend address synchronous mode for the Backend Address Pool. Possible values are `Automatic` and `Manual`. This is required with `virtualNetworkId`. Changing this forces a new resource to be created.
 //
-// > **NOTE:** The `synchronousMode` can set only for Load Balancer with `Standard` SKU.
+// > **Note:** The `synchronousMode` can set only for Load Balancer with `Standard` SKU.
 func (o BackendAddressPoolOutput) SynchronousMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BackendAddressPool) pulumi.StringPtrOutput { return v.SynchronousMode }).(pulumi.StringPtrOutput)
 }

@@ -33,10 +33,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.streamanalytics.StreamanalyticsFunctions;
  * import com.pulumi.azure.streamanalytics.inputs.GetJobArgs;
- * import com.pulumi.azurerm.sqlServer;
- * import com.pulumi.azurerm.sqlServerArgs;
- * import com.pulumi.azurerm.sqlDatabase;
- * import com.pulumi.azurerm.sqlDatabaseArgs;
+ * import com.pulumi.azure.mssql.Server;
+ * import com.pulumi.azure.mssql.ServerArgs;
+ * import com.pulumi.azure.mssql.Database;
+ * import com.pulumi.azure.mssql.DatabaseArgs;
  * import com.pulumi.azure.streamanalytics.OutputMssql;
  * import com.pulumi.azure.streamanalytics.OutputMssqlArgs;
  * import java.util.List;
@@ -62,7 +62,7 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .build());
  * 
- *         var exampleSqlServer = new SqlServer("exampleSqlServer", SqlServerArgs.builder()
+ *         var exampleServer = new Server("exampleServer", ServerArgs.builder()
  *             .name("example-server")
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
@@ -71,25 +71,19 @@ import javax.annotation.Nullable;
  *             .administratorLoginPassword("example-password")
  *             .build());
  * 
- *         var exampleSqlDatabase = new SqlDatabase("exampleSqlDatabase", SqlDatabaseArgs.builder()
+ *         var exampleDatabase = new Database("exampleDatabase", DatabaseArgs.builder()
  *             .name("exampledb")
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
- *             .serverName(exampleSqlServer.name())
- *             .requestedServiceObjectiveName("S0")
- *             .collation("SQL_LATIN1_GENERAL_CP1_CI_AS")
- *             .maxSizeBytes("268435456000")
- *             .createMode("Default")
+ *             .serverId(test.id())
  *             .build());
  * 
  *         var exampleOutputMssql = new OutputMssql("exampleOutputMssql", OutputMssqlArgs.builder()
  *             .name("example-output-sql")
  *             .streamAnalyticsJobName(example.applyValue(_example -> _example.name()))
  *             .resourceGroupName(example.applyValue(_example -> _example.resourceGroupName()))
- *             .server(exampleSqlServer.fullyQualifiedDomainName())
- *             .user(exampleSqlServer.administratorLogin())
- *             .password(exampleSqlServer.administratorLoginPassword())
- *             .database(exampleSqlDatabase.name())
+ *             .server(exampleServer.fullyQualifiedDomainName())
+ *             .user(exampleServer.administratorLogin())
+ *             .password(exampleServer.administratorLoginPassword())
+ *             .database(exampleDatabase.name())
  *             .table("ExampleTable")
  *             .build());
  * 
@@ -98,6 +92,13 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.StreamAnalytics`: 2021-10-01-preview
  * 
  * ## Import
  * 

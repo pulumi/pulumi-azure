@@ -354,6 +354,13 @@ class OutputFunction(pulumi.CustomResource):
             api_key="exampleapikey")
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.StreamAnalytics`: 2021-10-01-preview
+
         ## Import
 
         Stream Analytics Output Functions can be imported using the `resource id`, e.g.
@@ -433,6 +440,13 @@ class OutputFunction(pulumi.CustomResource):
             function_name="examplefunctionname",
             api_key="exampleapikey")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.StreamAnalytics`: 2021-10-01-preview
 
         ## Import
 

@@ -40,6 +40,13 @@ import (
 //	}
 //
 // ```
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This data source uses the following Azure API Providers:
+//
+// * `Microsoft.DataShare`: 2019-11-01
 func LookupDatasetBlobStorage(ctx *pulumi.Context, args *LookupDatasetBlobStorageArgs, opts ...pulumi.InvokeOption) (*LookupDatasetBlobStorageResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDatasetBlobStorageResult

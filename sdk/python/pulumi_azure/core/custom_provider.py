@@ -294,6 +294,13 @@ class CustomProvider(pulumi.CustomResource):
             }])
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.CustomProviders`: 2018-09-01-preview
+
         ## Import
 
         Custom Provider can be imported using the `resource id`, e.g.
@@ -339,6 +346,13 @@ class CustomProvider(pulumi.CustomResource):
                 "endpoint": "https://testendpoint.com/",
             }])
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.CustomProviders`: 2018-09-01-preview
 
         ## Import
 

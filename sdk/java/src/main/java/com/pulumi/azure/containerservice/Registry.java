@@ -229,6 +229,13 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.ContainerRegistry`: 2023-11-01-preview
+ * 
  * ## Import
  * 
  * Container Registries can be imported using the `resource id`, e.g.
@@ -327,7 +334,7 @@ public class Registry extends com.pulumi.resources.CustomResource {
     /**
      * Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `public_network_access_enabled` is also set to `false`.
      * 
-     * &gt; **NOTE:** `quarantine_policy_enabled`, `retention_policy_in_days`, `trust_policy_enabled`, `export_policy_enabled` and `zone_redundancy_enabled` are only supported on resources with the `Premium` SKU.
+     * &gt; **Note:** `quarantine_policy_enabled`, `retention_policy_in_days`, `trust_policy_enabled`, `export_policy_enabled` and `zone_redundancy_enabled` are only supported on resources with the `Premium` SKU.
      * 
      */
     @Export(name="exportPolicyEnabled", refs={Boolean.class}, tree="[0]")
@@ -336,7 +343,7 @@ public class Registry extends com.pulumi.resources.CustomResource {
     /**
      * @return Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `public_network_access_enabled` is also set to `false`.
      * 
-     * &gt; **NOTE:** `quarantine_policy_enabled`, `retention_policy_in_days`, `trust_policy_enabled`, `export_policy_enabled` and `zone_redundancy_enabled` are only supported on resources with the `Premium` SKU.
+     * &gt; **Note:** `quarantine_policy_enabled`, `retention_policy_in_days`, `trust_policy_enabled`, `export_policy_enabled` and `zone_redundancy_enabled` are only supported on resources with the `Premium` SKU.
      * 
      */
     public Output<Optional<Boolean>> exportPolicyEnabled() {
@@ -345,11 +352,11 @@ public class Registry extends com.pulumi.resources.CustomResource {
     /**
      * One or more `georeplications` blocks as documented below.
      * 
-     * &gt; **NOTE:** The `georeplications` is only supported on new resources with the `Premium` SKU.
+     * &gt; **Note:** The `georeplications` is only supported on new resources with the `Premium` SKU.
      * 
-     * &gt; **NOTE:** The `georeplications` list cannot contain the location where the Container Registry exists.
+     * &gt; **Note:** The `georeplications` list cannot contain the location where the Container Registry exists.
      * 
-     * &gt; **NOTE:** If more than one `georeplications` block is specified, they are expected to follow the alphabetic order on the `location` property.
+     * &gt; **Note:** If more than one `georeplications` block is specified, they are expected to follow the alphabetic order on the `location` property.
      * 
      */
     @Export(name="georeplications", refs={List.class,RegistryGeoreplication.class}, tree="[0,1]")
@@ -358,11 +365,11 @@ public class Registry extends com.pulumi.resources.CustomResource {
     /**
      * @return One or more `georeplications` blocks as documented below.
      * 
-     * &gt; **NOTE:** The `georeplications` is only supported on new resources with the `Premium` SKU.
+     * &gt; **Note:** The `georeplications` is only supported on new resources with the `Premium` SKU.
      * 
-     * &gt; **NOTE:** The `georeplications` list cannot contain the location where the Container Registry exists.
+     * &gt; **Note:** The `georeplications` list cannot contain the location where the Container Registry exists.
      * 
-     * &gt; **NOTE:** If more than one `georeplications` block is specified, they are expected to follow the alphabetic order on the `location` property.
+     * &gt; **Note:** If more than one `georeplications` block is specified, they are expected to follow the alphabetic order on the `location` property.
      * 
      */
     public Output<Optional<List<RegistryGeoreplication>>> georeplications() {

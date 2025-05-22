@@ -20,7 +20,7 @@ public final class FrontdoorSecretSecretCustomerCertificateArgs extends com.pulu
     /**
      * The ID of the Key Vault certificate resource to use. Changing this forces a new Front Door Secret to be created.
      * 
-     * -&gt;**NOTE:** If you would like to use the **latest version** of the Key Vault Certificate use the Key Vault Certificates `versionless_id` attribute as the `key_vault_certificate_id` fields value(e.g. `key_vault_certificate_id = azurerm_key_vault_certificate.example.versionless_id`).
+     * &gt; **Note:** If you would like to use the **latest version** of the Key Vault Certificate use the Key Vault Certificates `versionless_id` attribute as the `key_vault_certificate_id` fields value(e.g. `key_vault_certificate_id = azurerm_key_vault_certificate.example.versionless_id`).
      * 
      */
     @Import(name="keyVaultCertificateId", required=true)
@@ -29,7 +29,7 @@ public final class FrontdoorSecretSecretCustomerCertificateArgs extends com.pulu
     /**
      * @return The ID of the Key Vault certificate resource to use. Changing this forces a new Front Door Secret to be created.
      * 
-     * -&gt;**NOTE:** If you would like to use the **latest version** of the Key Vault Certificate use the Key Vault Certificates `versionless_id` attribute as the `key_vault_certificate_id` fields value(e.g. `key_vault_certificate_id = azurerm_key_vault_certificate.example.versionless_id`).
+     * &gt; **Note:** If you would like to use the **latest version** of the Key Vault Certificate use the Key Vault Certificates `versionless_id` attribute as the `key_vault_certificate_id` fields value(e.g. `key_vault_certificate_id = azurerm_key_vault_certificate.example.versionless_id`).
      * 
      */
     public Output<String> keyVaultCertificateId() {
@@ -79,7 +79,7 @@ public final class FrontdoorSecretSecretCustomerCertificateArgs extends com.pulu
         /**
          * @param keyVaultCertificateId The ID of the Key Vault certificate resource to use. Changing this forces a new Front Door Secret to be created.
          * 
-         * -&gt;**NOTE:** If you would like to use the **latest version** of the Key Vault Certificate use the Key Vault Certificates `versionless_id` attribute as the `key_vault_certificate_id` fields value(e.g. `key_vault_certificate_id = azurerm_key_vault_certificate.example.versionless_id`).
+         * &gt; **Note:** If you would like to use the **latest version** of the Key Vault Certificate use the Key Vault Certificates `versionless_id` attribute as the `key_vault_certificate_id` fields value(e.g. `key_vault_certificate_id = azurerm_key_vault_certificate.example.versionless_id`).
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class FrontdoorSecretSecretCustomerCertificateArgs extends com.pulu
         /**
          * @param keyVaultCertificateId The ID of the Key Vault certificate resource to use. Changing this forces a new Front Door Secret to be created.
          * 
-         * -&gt;**NOTE:** If you would like to use the **latest version** of the Key Vault Certificate use the Key Vault Certificates `versionless_id` attribute as the `key_vault_certificate_id` fields value(e.g. `key_vault_certificate_id = azurerm_key_vault_certificate.example.versionless_id`).
+         * &gt; **Note:** If you would like to use the **latest version** of the Key Vault Certificate use the Key Vault Certificates `versionless_id` attribute as the `key_vault_certificate_id` fields value(e.g. `key_vault_certificate_id = azurerm_key_vault_certificate.example.versionless_id`).
          * 
          * @return builder
          * 

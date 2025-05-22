@@ -151,6 +151,13 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.Authorization`: 2022-05-01-preview, 2022-04-01
+ *
  * ## Import
  *
  * Role Assignments can be imported using the `resource id`, e.g.
@@ -205,12 +212,14 @@ export class Assignment extends pulumi.CustomResource {
     public readonly condition!: pulumi.Output<string | undefined>;
     /**
      * The version of the condition. Possible values are `1.0` or `2.0`. Changing this forces a new resource to be created.
+     *
+     * > **Note:** `condition` is required when `conditionVersion` is set.
      */
     public readonly conditionVersion!: pulumi.Output<string>;
     /**
      * The delegated Azure Resource Id which contains a Managed Identity. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** this field is only used in cross tenant scenario.
+     * > **Note:** This field is only used in cross tenant scenarios.
      */
     public readonly delegatedManagedIdentityResourceId!: pulumi.Output<string | undefined>;
     /**
@@ -224,21 +233,21 @@ export class Assignment extends pulumi.CustomResource {
     /**
      * The ID of the Principal (User, Group or Service Principal) to assign the Role Definition to. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** The Principal ID is also known as the Object ID (ie not the "Application ID" for applications).
+     * > **Note:** The Principal ID is also known as the Object ID (i.e. not the "Application ID" for applications).
      */
     public readonly principalId!: pulumi.Output<string>;
     /**
      * The type of the `principalId`. Possible values are `User`, `Group` and `ServicePrincipal`. Changing this forces a new resource to be created. It is necessary to explicitly set this attribute when creating role assignments if the principal creating the assignment is constrained by ABAC rules that filters on the PrincipalType attribute.
-     *
-     * > **NOTE:** If one of `condition` or `conditionVersion` is set both fields must be present.
      */
     public readonly principalType!: pulumi.Output<string>;
     /**
-     * The Scoped-ID of the Role Definition. Changing this forces a new resource to be created. Conflicts with `roleDefinitionName`.
+     * The Scoped-ID of the Role Definition. Changing this forces a new resource to be created.
      */
     public readonly roleDefinitionId!: pulumi.Output<string>;
     /**
-     * The name of a built-in Role. Changing this forces a new resource to be created. Conflicts with `roleDefinitionId`.
+     * The name of a built-in Role. Changing this forces a new resource to be created.
+     *
+     * > **Note:** Either `roleDefinitionId` or `roleDefinitionName` must be set.
      */
     public readonly roleDefinitionName!: pulumi.Output<string>;
     /**
@@ -248,7 +257,7 @@ export class Assignment extends pulumi.CustomResource {
     /**
      * If the `principalId` is a newly provisioned `Service Principal` set this value to `true` to skip the `Azure Active Directory` check which may fail due to replication lag. This argument is only valid if the `principalId` is a `Service Principal` identity. Defaults to `false`.
      *
-     * > **NOTE:** If it is not a `Service Principal` identity it will cause the role assignment to fail.
+     * > **Note:** If it is not a `Service Principal` identity it will cause the role assignment to fail.
      */
     public readonly skipServicePrincipalAadCheck!: pulumi.Output<boolean>;
 
@@ -313,12 +322,14 @@ export interface AssignmentState {
     condition?: pulumi.Input<string>;
     /**
      * The version of the condition. Possible values are `1.0` or `2.0`. Changing this forces a new resource to be created.
+     *
+     * > **Note:** `condition` is required when `conditionVersion` is set.
      */
     conditionVersion?: pulumi.Input<string>;
     /**
      * The delegated Azure Resource Id which contains a Managed Identity. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** this field is only used in cross tenant scenario.
+     * > **Note:** This field is only used in cross tenant scenarios.
      */
     delegatedManagedIdentityResourceId?: pulumi.Input<string>;
     /**
@@ -332,21 +343,21 @@ export interface AssignmentState {
     /**
      * The ID of the Principal (User, Group or Service Principal) to assign the Role Definition to. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** The Principal ID is also known as the Object ID (ie not the "Application ID" for applications).
+     * > **Note:** The Principal ID is also known as the Object ID (i.e. not the "Application ID" for applications).
      */
     principalId?: pulumi.Input<string>;
     /**
      * The type of the `principalId`. Possible values are `User`, `Group` and `ServicePrincipal`. Changing this forces a new resource to be created. It is necessary to explicitly set this attribute when creating role assignments if the principal creating the assignment is constrained by ABAC rules that filters on the PrincipalType attribute.
-     *
-     * > **NOTE:** If one of `condition` or `conditionVersion` is set both fields must be present.
      */
     principalType?: pulumi.Input<string>;
     /**
-     * The Scoped-ID of the Role Definition. Changing this forces a new resource to be created. Conflicts with `roleDefinitionName`.
+     * The Scoped-ID of the Role Definition. Changing this forces a new resource to be created.
      */
     roleDefinitionId?: pulumi.Input<string>;
     /**
-     * The name of a built-in Role. Changing this forces a new resource to be created. Conflicts with `roleDefinitionId`.
+     * The name of a built-in Role. Changing this forces a new resource to be created.
+     *
+     * > **Note:** Either `roleDefinitionId` or `roleDefinitionName` must be set.
      */
     roleDefinitionName?: pulumi.Input<string>;
     /**
@@ -356,7 +367,7 @@ export interface AssignmentState {
     /**
      * If the `principalId` is a newly provisioned `Service Principal` set this value to `true` to skip the `Azure Active Directory` check which may fail due to replication lag. This argument is only valid if the `principalId` is a `Service Principal` identity. Defaults to `false`.
      *
-     * > **NOTE:** If it is not a `Service Principal` identity it will cause the role assignment to fail.
+     * > **Note:** If it is not a `Service Principal` identity it will cause the role assignment to fail.
      */
     skipServicePrincipalAadCheck?: pulumi.Input<boolean>;
 }
@@ -371,12 +382,14 @@ export interface AssignmentArgs {
     condition?: pulumi.Input<string>;
     /**
      * The version of the condition. Possible values are `1.0` or `2.0`. Changing this forces a new resource to be created.
+     *
+     * > **Note:** `condition` is required when `conditionVersion` is set.
      */
     conditionVersion?: pulumi.Input<string>;
     /**
      * The delegated Azure Resource Id which contains a Managed Identity. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** this field is only used in cross tenant scenario.
+     * > **Note:** This field is only used in cross tenant scenarios.
      */
     delegatedManagedIdentityResourceId?: pulumi.Input<string>;
     /**
@@ -390,21 +403,21 @@ export interface AssignmentArgs {
     /**
      * The ID of the Principal (User, Group or Service Principal) to assign the Role Definition to. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** The Principal ID is also known as the Object ID (ie not the "Application ID" for applications).
+     * > **Note:** The Principal ID is also known as the Object ID (i.e. not the "Application ID" for applications).
      */
     principalId: pulumi.Input<string>;
     /**
      * The type of the `principalId`. Possible values are `User`, `Group` and `ServicePrincipal`. Changing this forces a new resource to be created. It is necessary to explicitly set this attribute when creating role assignments if the principal creating the assignment is constrained by ABAC rules that filters on the PrincipalType attribute.
-     *
-     * > **NOTE:** If one of `condition` or `conditionVersion` is set both fields must be present.
      */
     principalType?: pulumi.Input<string>;
     /**
-     * The Scoped-ID of the Role Definition. Changing this forces a new resource to be created. Conflicts with `roleDefinitionName`.
+     * The Scoped-ID of the Role Definition. Changing this forces a new resource to be created.
      */
     roleDefinitionId?: pulumi.Input<string>;
     /**
-     * The name of a built-in Role. Changing this forces a new resource to be created. Conflicts with `roleDefinitionId`.
+     * The name of a built-in Role. Changing this forces a new resource to be created.
+     *
+     * > **Note:** Either `roleDefinitionId` or `roleDefinitionName` must be set.
      */
     roleDefinitionName?: pulumi.Input<string>;
     /**
@@ -414,7 +427,7 @@ export interface AssignmentArgs {
     /**
      * If the `principalId` is a newly provisioned `Service Principal` set this value to `true` to skip the `Azure Active Directory` check which may fail due to replication lag. This argument is only valid if the `principalId` is a `Service Principal` identity. Defaults to `false`.
      *
-     * > **NOTE:** If it is not a `Service Principal` identity it will cause the role assignment to fail.
+     * > **Note:** If it is not a `Service Principal` identity it will cause the role assignment to fail.
      */
     skipServicePrincipalAadCheck?: pulumi.Input<boolean>;
 }

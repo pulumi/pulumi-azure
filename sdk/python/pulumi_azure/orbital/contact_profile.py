@@ -428,6 +428,13 @@ class ContactProfile(pulumi.CustomResource):
             network_configuration_subnet_id=example_subnet.id)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Orbital`: 2022-11-01
+
         ## Import
 
         Contact profile can be imported using the `resource id`, e.g.
@@ -515,6 +522,13 @@ class ContactProfile(pulumi.CustomResource):
             }],
             network_configuration_subnet_id=example_subnet.id)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Orbital`: 2022-11-01
 
         ## Import
 

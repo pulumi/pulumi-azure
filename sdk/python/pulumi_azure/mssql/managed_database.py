@@ -275,6 +275,13 @@ class ManagedDatabase(pulumi.CustomResource):
             managed_instance_id=example_managed_instance.id)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Sql`: 2023-08-01-preview
+
         ## Import
 
         SQL Managed Databases can be imported using the `resource id`, e.g.
@@ -333,6 +340,13 @@ class ManagedDatabase(pulumi.CustomResource):
             name="example",
             managed_instance_id=example_managed_instance.id)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Sql`: 2023-08-01-preview
 
         ## Import
 

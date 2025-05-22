@@ -19,7 +19,7 @@ public final class WindowsWebAppSlotSiteConfigApplicationStackArgs extends com.p
     /**
      * The Application Stack for the Windows Web App. Possible values include `dotnet`, `dotnetcore`, `node`, `python`, `php`, and `java`.
      * 
-     * &gt; **NOTE:** Whilst this property is Optional omitting it can cause unexpected behaviour, in particular for display of settings in the Azure Portal.
+     * &gt; **Note:** Whilst this property is Optional omitting it can cause unexpected behaviour, in particular for display of settings in the Azure Portal.
      * 
      */
     @Import(name="currentStack")
@@ -28,7 +28,7 @@ public final class WindowsWebAppSlotSiteConfigApplicationStackArgs extends com.p
     /**
      * @return The Application Stack for the Windows Web App. Possible values include `dotnet`, `dotnetcore`, `node`, `python`, `php`, and `java`.
      * 
-     * &gt; **NOTE:** Whilst this property is Optional omitting it can cause unexpected behaviour, in particular for display of settings in the Azure Portal.
+     * &gt; **Note:** Whilst this property is Optional omitting it can cause unexpected behaviour, in particular for display of settings in the Azure Portal.
      * 
      */
     public Optional<Output<String>> currentStack() {
@@ -53,7 +53,7 @@ public final class WindowsWebAppSlotSiteConfigApplicationStackArgs extends com.p
     /**
      * The User Name to use for authentication against the registry to pull the image.
      * 
-     * &gt; **NOTE:** `docker_registry_url`, `docker_registry_username`, and `docker_registry_password` replace the use of the `app_settings` values of `DOCKER_REGISTRY_SERVER_URL`, `DOCKER_REGISTRY_SERVER_USERNAME` and `DOCKER_REGISTRY_SERVER_PASSWORD` respectively, these values will be managed by the provider and should not be specified in the `app_settings` map.
+     * &gt; **Note:** `docker_registry_url`, `docker_registry_username`, and `docker_registry_password` replace the use of the `app_settings` values of `DOCKER_REGISTRY_SERVER_URL`, `DOCKER_REGISTRY_SERVER_USERNAME` and `DOCKER_REGISTRY_SERVER_PASSWORD` respectively, these values will be managed by the provider and should not be specified in the `app_settings` map.
      * 
      */
     @Import(name="dockerRegistryPassword")
@@ -62,7 +62,7 @@ public final class WindowsWebAppSlotSiteConfigApplicationStackArgs extends com.p
     /**
      * @return The User Name to use for authentication against the registry to pull the image.
      * 
-     * &gt; **NOTE:** `docker_registry_url`, `docker_registry_username`, and `docker_registry_password` replace the use of the `app_settings` values of `DOCKER_REGISTRY_SERVER_URL`, `DOCKER_REGISTRY_SERVER_USERNAME` and `DOCKER_REGISTRY_SERVER_PASSWORD` respectively, these values will be managed by the provider and should not be specified in the `app_settings` map.
+     * &gt; **Note:** `docker_registry_url`, `docker_registry_username`, and `docker_registry_password` replace the use of the `app_settings` values of `DOCKER_REGISTRY_SERVER_URL`, `DOCKER_REGISTRY_SERVER_USERNAME` and `DOCKER_REGISTRY_SERVER_PASSWORD` respectively, these values will be managed by the provider and should not be specified in the `app_settings` map.
      * 
      */
     public Optional<Output<String>> dockerRegistryPassword() {
@@ -185,7 +185,7 @@ public final class WindowsWebAppSlotSiteConfigApplicationStackArgs extends com.p
     /**
      * The version of Java to use when `current_stack` is set to `java`. Possible values include `1.7`, `1.8`, `11` and `17`. Required with `java_container` and `java_container_version`.
      * 
-     * &gt; **NOTE:** For compatible combinations of `java_version`, `java_container` and `java_container_version` users can use `az webapp list-runtimes` from command line.
+     * &gt; **Note:** For compatible combinations of `java_version`, `java_container` and `java_container_version` users can use `az webapp list-runtimes` from command line.
      * 
      */
     @Import(name="javaVersion")
@@ -194,7 +194,7 @@ public final class WindowsWebAppSlotSiteConfigApplicationStackArgs extends com.p
     /**
      * @return The version of Java to use when `current_stack` is set to `java`. Possible values include `1.7`, `1.8`, `11` and `17`. Required with `java_container` and `java_container_version`.
      * 
-     * &gt; **NOTE:** For compatible combinations of `java_version`, `java_container` and `java_container_version` users can use `az webapp list-runtimes` from command line.
+     * &gt; **Note:** For compatible combinations of `java_version`, `java_container` and `java_container_version` users can use `az webapp list-runtimes` from command line.
      * 
      */
     public Optional<Output<String>> javaVersion() {
@@ -204,7 +204,7 @@ public final class WindowsWebAppSlotSiteConfigApplicationStackArgs extends com.p
     /**
      * The version of node to use when `current_stack` is set to `node`. Possible values include `~12`, `~14`, `~16`, `~18`, `~20` and `~22`.
      * 
-     * &gt; **NOTE:** This property conflicts with `java_version`.
+     * &gt; **Note:** This property conflicts with `java_version`.
      * 
      */
     @Import(name="nodeVersion")
@@ -213,7 +213,7 @@ public final class WindowsWebAppSlotSiteConfigApplicationStackArgs extends com.p
     /**
      * @return The version of node to use when `current_stack` is set to `node`. Possible values include `~12`, `~14`, `~16`, `~18`, `~20` and `~22`.
      * 
-     * &gt; **NOTE:** This property conflicts with `java_version`.
+     * &gt; **Note:** This property conflicts with `java_version`.
      * 
      */
     public Optional<Output<String>> nodeVersion() {
@@ -223,7 +223,7 @@ public final class WindowsWebAppSlotSiteConfigApplicationStackArgs extends com.p
     /**
      * The version of PHP to use when `current_stack` is set to `php`. Possible values are `7.1`, `7.4` and `Off`.
      * 
-     * &gt; **NOTE:** The value `Off` is used to signify latest supported by the service.
+     * &gt; **Note:** The value `Off` is used to signify latest supported by the service.
      * 
      */
     @Import(name="phpVersion")
@@ -232,7 +232,7 @@ public final class WindowsWebAppSlotSiteConfigApplicationStackArgs extends com.p
     /**
      * @return The version of PHP to use when `current_stack` is set to `php`. Possible values are `7.1`, `7.4` and `Off`.
      * 
-     * &gt; **NOTE:** The value `Off` is used to signify latest supported by the service.
+     * &gt; **Note:** The value `Off` is used to signify latest supported by the service.
      * 
      */
     public Optional<Output<String>> phpVersion() {
@@ -257,7 +257,7 @@ public final class WindowsWebAppSlotSiteConfigApplicationStackArgs extends com.p
     /**
      * The version of Tomcat the Java App should use.
      * 
-     * &gt; **NOTE:** See the official documentation for current supported versions.
+     * &gt; **Note:** See the official documentation for current supported versions.
      * 
      */
     @Import(name="tomcatVersion")
@@ -266,7 +266,7 @@ public final class WindowsWebAppSlotSiteConfigApplicationStackArgs extends com.p
     /**
      * @return The version of Tomcat the Java App should use.
      * 
-     * &gt; **NOTE:** See the official documentation for current supported versions.
+     * &gt; **Note:** See the official documentation for current supported versions.
      * 
      */
     public Optional<Output<String>> tomcatVersion() {
@@ -314,7 +314,7 @@ public final class WindowsWebAppSlotSiteConfigApplicationStackArgs extends com.p
         /**
          * @param currentStack The Application Stack for the Windows Web App. Possible values include `dotnet`, `dotnetcore`, `node`, `python`, `php`, and `java`.
          * 
-         * &gt; **NOTE:** Whilst this property is Optional omitting it can cause unexpected behaviour, in particular for display of settings in the Azure Portal.
+         * &gt; **Note:** Whilst this property is Optional omitting it can cause unexpected behaviour, in particular for display of settings in the Azure Portal.
          * 
          * @return builder
          * 
@@ -327,7 +327,7 @@ public final class WindowsWebAppSlotSiteConfigApplicationStackArgs extends com.p
         /**
          * @param currentStack The Application Stack for the Windows Web App. Possible values include `dotnet`, `dotnetcore`, `node`, `python`, `php`, and `java`.
          * 
-         * &gt; **NOTE:** Whilst this property is Optional omitting it can cause unexpected behaviour, in particular for display of settings in the Azure Portal.
+         * &gt; **Note:** Whilst this property is Optional omitting it can cause unexpected behaviour, in particular for display of settings in the Azure Portal.
          * 
          * @return builder
          * 
@@ -360,7 +360,7 @@ public final class WindowsWebAppSlotSiteConfigApplicationStackArgs extends com.p
         /**
          * @param dockerRegistryPassword The User Name to use for authentication against the registry to pull the image.
          * 
-         * &gt; **NOTE:** `docker_registry_url`, `docker_registry_username`, and `docker_registry_password` replace the use of the `app_settings` values of `DOCKER_REGISTRY_SERVER_URL`, `DOCKER_REGISTRY_SERVER_USERNAME` and `DOCKER_REGISTRY_SERVER_PASSWORD` respectively, these values will be managed by the provider and should not be specified in the `app_settings` map.
+         * &gt; **Note:** `docker_registry_url`, `docker_registry_username`, and `docker_registry_password` replace the use of the `app_settings` values of `DOCKER_REGISTRY_SERVER_URL`, `DOCKER_REGISTRY_SERVER_USERNAME` and `DOCKER_REGISTRY_SERVER_PASSWORD` respectively, these values will be managed by the provider and should not be specified in the `app_settings` map.
          * 
          * @return builder
          * 
@@ -373,7 +373,7 @@ public final class WindowsWebAppSlotSiteConfigApplicationStackArgs extends com.p
         /**
          * @param dockerRegistryPassword The User Name to use for authentication against the registry to pull the image.
          * 
-         * &gt; **NOTE:** `docker_registry_url`, `docker_registry_username`, and `docker_registry_password` replace the use of the `app_settings` values of `DOCKER_REGISTRY_SERVER_URL`, `DOCKER_REGISTRY_SERVER_USERNAME` and `DOCKER_REGISTRY_SERVER_PASSWORD` respectively, these values will be managed by the provider and should not be specified in the `app_settings` map.
+         * &gt; **Note:** `docker_registry_url`, `docker_registry_username`, and `docker_registry_password` replace the use of the `app_settings` values of `DOCKER_REGISTRY_SERVER_URL`, `DOCKER_REGISTRY_SERVER_USERNAME` and `DOCKER_REGISTRY_SERVER_PASSWORD` respectively, these values will be managed by the provider and should not be specified in the `app_settings` map.
          * 
          * @return builder
          * 
@@ -540,7 +540,7 @@ public final class WindowsWebAppSlotSiteConfigApplicationStackArgs extends com.p
         /**
          * @param javaVersion The version of Java to use when `current_stack` is set to `java`. Possible values include `1.7`, `1.8`, `11` and `17`. Required with `java_container` and `java_container_version`.
          * 
-         * &gt; **NOTE:** For compatible combinations of `java_version`, `java_container` and `java_container_version` users can use `az webapp list-runtimes` from command line.
+         * &gt; **Note:** For compatible combinations of `java_version`, `java_container` and `java_container_version` users can use `az webapp list-runtimes` from command line.
          * 
          * @return builder
          * 
@@ -553,7 +553,7 @@ public final class WindowsWebAppSlotSiteConfigApplicationStackArgs extends com.p
         /**
          * @param javaVersion The version of Java to use when `current_stack` is set to `java`. Possible values include `1.7`, `1.8`, `11` and `17`. Required with `java_container` and `java_container_version`.
          * 
-         * &gt; **NOTE:** For compatible combinations of `java_version`, `java_container` and `java_container_version` users can use `az webapp list-runtimes` from command line.
+         * &gt; **Note:** For compatible combinations of `java_version`, `java_container` and `java_container_version` users can use `az webapp list-runtimes` from command line.
          * 
          * @return builder
          * 
@@ -565,7 +565,7 @@ public final class WindowsWebAppSlotSiteConfigApplicationStackArgs extends com.p
         /**
          * @param nodeVersion The version of node to use when `current_stack` is set to `node`. Possible values include `~12`, `~14`, `~16`, `~18`, `~20` and `~22`.
          * 
-         * &gt; **NOTE:** This property conflicts with `java_version`.
+         * &gt; **Note:** This property conflicts with `java_version`.
          * 
          * @return builder
          * 
@@ -578,7 +578,7 @@ public final class WindowsWebAppSlotSiteConfigApplicationStackArgs extends com.p
         /**
          * @param nodeVersion The version of node to use when `current_stack` is set to `node`. Possible values include `~12`, `~14`, `~16`, `~18`, `~20` and `~22`.
          * 
-         * &gt; **NOTE:** This property conflicts with `java_version`.
+         * &gt; **Note:** This property conflicts with `java_version`.
          * 
          * @return builder
          * 
@@ -590,7 +590,7 @@ public final class WindowsWebAppSlotSiteConfigApplicationStackArgs extends com.p
         /**
          * @param phpVersion The version of PHP to use when `current_stack` is set to `php`. Possible values are `7.1`, `7.4` and `Off`.
          * 
-         * &gt; **NOTE:** The value `Off` is used to signify latest supported by the service.
+         * &gt; **Note:** The value `Off` is used to signify latest supported by the service.
          * 
          * @return builder
          * 
@@ -603,7 +603,7 @@ public final class WindowsWebAppSlotSiteConfigApplicationStackArgs extends com.p
         /**
          * @param phpVersion The version of PHP to use when `current_stack` is set to `php`. Possible values are `7.1`, `7.4` and `Off`.
          * 
-         * &gt; **NOTE:** The value `Off` is used to signify latest supported by the service.
+         * &gt; **Note:** The value `Off` is used to signify latest supported by the service.
          * 
          * @return builder
          * 
@@ -636,7 +636,7 @@ public final class WindowsWebAppSlotSiteConfigApplicationStackArgs extends com.p
         /**
          * @param tomcatVersion The version of Tomcat the Java App should use.
          * 
-         * &gt; **NOTE:** See the official documentation for current supported versions.
+         * &gt; **Note:** See the official documentation for current supported versions.
          * 
          * @return builder
          * 
@@ -649,7 +649,7 @@ public final class WindowsWebAppSlotSiteConfigApplicationStackArgs extends com.p
         /**
          * @param tomcatVersion The version of Tomcat the Java App should use.
          * 
-         * &gt; **NOTE:** See the official documentation for current supported versions.
+         * &gt; **Note:** See the official documentation for current supported versions.
          * 
          * @return builder
          * 

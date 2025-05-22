@@ -111,7 +111,7 @@ public final class ProtectedVMArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Specifies the ID of the VM to backup. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** After creation, the `source_vm_id` property can be removed without forcing a new resource to be created; however, setting it to a different ID will create a new resource.
+     * &gt; **Note:** After creation, the `source_vm_id` property can be removed without forcing a new resource to be created; however, setting it to a different ID will create a new resource.
      * This allows the source vm to be deleted without having to remove the backup.
      * 
      */
@@ -121,7 +121,7 @@ public final class ProtectedVMArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Specifies the ID of the VM to backup. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** After creation, the `source_vm_id` property can be removed without forcing a new resource to be created; however, setting it to a different ID will create a new resource.
+     * &gt; **Note:** After creation, the `source_vm_id` property can be removed without forcing a new resource to be created; however, setting it to a different ID will create a new resource.
      * This allows the source vm to be deleted without having to remove the backup.
      * 
      */
@@ -308,7 +308,7 @@ public final class ProtectedVMArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param sourceVmId Specifies the ID of the VM to backup. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** After creation, the `source_vm_id` property can be removed without forcing a new resource to be created; however, setting it to a different ID will create a new resource.
+         * &gt; **Note:** After creation, the `source_vm_id` property can be removed without forcing a new resource to be created; however, setting it to a different ID will create a new resource.
          * This allows the source vm to be deleted without having to remove the backup.
          * 
          * @return builder
@@ -322,7 +322,7 @@ public final class ProtectedVMArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param sourceVmId Specifies the ID of the VM to backup. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** After creation, the `source_vm_id` property can be removed without forcing a new resource to be created; however, setting it to a different ID will create a new resource.
+         * &gt; **Note:** After creation, the `source_vm_id` property can be removed without forcing a new resource to be created; however, setting it to a different ID will create a new resource.
          * This allows the source vm to be deleted without having to remove the backup.
          * 
          * @return builder

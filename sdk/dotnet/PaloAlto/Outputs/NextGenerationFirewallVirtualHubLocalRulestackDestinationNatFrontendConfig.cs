@@ -13,7 +13,13 @@ namespace Pulumi.Azure.PaloAlto.Outputs
     [OutputType]
     public sealed class NextGenerationFirewallVirtualHubLocalRulestackDestinationNatFrontendConfig
     {
+        /// <summary>
+        /// The port on which traffic will be receiveed.
+        /// </summary>
         public readonly int Port;
+        /// <summary>
+        /// The ID of the Public IP Address resource the traffic will be received on.
+        /// </summary>
         public readonly string PublicIpAddressId;
 
         [OutputConstructor]

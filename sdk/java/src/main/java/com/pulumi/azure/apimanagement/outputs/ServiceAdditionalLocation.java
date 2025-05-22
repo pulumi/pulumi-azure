@@ -44,7 +44,7 @@ public final class ServiceAdditionalLocation {
     /**
      * @return ID of a standard SKU IPv4 Public IP.
      * 
-     * &gt; **NOTE:** Availability zones and custom public IPs are only supported in the Premium tier.
+     * &gt; **Note:** Availability zones and custom public IPs are only supported in the Premium tier.
      * 
      */
     private @Nullable String publicIpAddressId;
@@ -103,7 +103,7 @@ public final class ServiceAdditionalLocation {
     /**
      * @return ID of a standard SKU IPv4 Public IP.
      * 
-     * &gt; **NOTE:** Availability zones and custom public IPs are only supported in the Premium tier.
+     * &gt; **Note:** Availability zones and custom public IPs are only supported in the Premium tier.
      * 
      */
     public Optional<String> publicIpAddressId() {

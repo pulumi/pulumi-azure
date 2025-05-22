@@ -950,6 +950,13 @@ public final class CdnFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Cdn`: 2024-02-01
+     * 
      */
     public static Output<GetFrontdoorProfileResult> getFrontdoorProfile(GetFrontdoorProfileArgs args) {
         return getFrontdoorProfile(args, InvokeOptions.Empty);
@@ -992,6 +999,13 @@ public final class CdnFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Cdn`: 2024-02-01
      * 
      */
     public static CompletableFuture<GetFrontdoorProfileResult> getFrontdoorProfilePlain(GetFrontdoorProfilePlainArgs args) {
@@ -1036,6 +1050,13 @@ public final class CdnFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Cdn`: 2024-02-01
+     * 
      */
     public static Output<GetFrontdoorProfileResult> getFrontdoorProfile(GetFrontdoorProfileArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:cdn/getFrontdoorProfile:getFrontdoorProfile", TypeShape.of(GetFrontdoorProfileResult.class), args, Utilities.withVersion(options));
@@ -1079,6 +1100,13 @@ public final class CdnFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Cdn`: 2024-02-01
+     * 
      */
     public static Output<GetFrontdoorProfileResult> getFrontdoorProfile(GetFrontdoorProfileArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:cdn/getFrontdoorProfile:getFrontdoorProfile", TypeShape.of(GetFrontdoorProfileResult.class), args, Utilities.withVersion(options));
@@ -1121,6 +1149,13 @@ public final class CdnFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Cdn`: 2024-02-01
      * 
      */
     public static CompletableFuture<GetFrontdoorProfileResult> getFrontdoorProfilePlain(GetFrontdoorProfilePlainArgs args, InvokeOptions options) {
@@ -1166,6 +1201,13 @@ public final class CdnFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Cdn`: 2024-02-01
+     * 
      */
     public static Output<GetFrontdoorRuleSetResult> getFrontdoorRuleSet(GetFrontdoorRuleSetArgs args) {
         return getFrontdoorRuleSet(args, InvokeOptions.Empty);
@@ -1209,6 +1251,13 @@ public final class CdnFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Cdn`: 2024-02-01
      * 
      */
     public static CompletableFuture<GetFrontdoorRuleSetResult> getFrontdoorRuleSetPlain(GetFrontdoorRuleSetPlainArgs args) {
@@ -1254,6 +1303,13 @@ public final class CdnFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Cdn`: 2024-02-01
+     * 
      */
     public static Output<GetFrontdoorRuleSetResult> getFrontdoorRuleSet(GetFrontdoorRuleSetArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:cdn/getFrontdoorRuleSet:getFrontdoorRuleSet", TypeShape.of(GetFrontdoorRuleSetResult.class), args, Utilities.withVersion(options));
@@ -1298,6 +1354,13 @@ public final class CdnFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Cdn`: 2024-02-01
+     * 
      */
     public static Output<GetFrontdoorRuleSetResult> getFrontdoorRuleSet(GetFrontdoorRuleSetArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:cdn/getFrontdoorRuleSet:getFrontdoorRuleSet", TypeShape.of(GetFrontdoorRuleSetResult.class), args, Utilities.withVersion(options));
@@ -1341,6 +1404,13 @@ public final class CdnFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Cdn`: 2024-02-01
      * 
      */
     public static CompletableFuture<GetFrontdoorRuleSetResult> getFrontdoorRuleSetPlain(GetFrontdoorRuleSetPlainArgs args, InvokeOptions options) {

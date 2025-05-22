@@ -335,7 +335,7 @@ public final class EventSubscriptionArgs extends com.pulumi.resources.ResourceAr
     /**
      * A `webhook_endpoint` block as defined below.
      * 
-     * &gt; **NOTE:** One of `eventhub_endpoint_id`, `hybrid_connection_endpoint_id`, `service_bus_queue_endpoint_id`, `service_bus_topic_endpoint_id`, `storage_queue_endpoint`, `webhook_endpoint` or `azure_function_endpoint` must be specified.
+     * &gt; **Note:** One of `eventhub_endpoint_id`, `hybrid_connection_endpoint_id`, `service_bus_queue_endpoint_id`, `service_bus_topic_endpoint_id`, `storage_queue_endpoint`, `webhook_endpoint` or `azure_function_endpoint` must be specified.
      * 
      */
     @Import(name="webhookEndpoint")
@@ -344,7 +344,7 @@ public final class EventSubscriptionArgs extends com.pulumi.resources.ResourceAr
     /**
      * @return A `webhook_endpoint` block as defined below.
      * 
-     * &gt; **NOTE:** One of `eventhub_endpoint_id`, `hybrid_connection_endpoint_id`, `service_bus_queue_endpoint_id`, `service_bus_topic_endpoint_id`, `storage_queue_endpoint`, `webhook_endpoint` or `azure_function_endpoint` must be specified.
+     * &gt; **Note:** One of `eventhub_endpoint_id`, `hybrid_connection_endpoint_id`, `service_bus_queue_endpoint_id`, `service_bus_topic_endpoint_id`, `storage_queue_endpoint`, `webhook_endpoint` or `azure_function_endpoint` must be specified.
      * 
      */
     public Optional<Output<EventSubscriptionWebhookEndpointArgs>> webhookEndpoint() {
@@ -852,7 +852,7 @@ public final class EventSubscriptionArgs extends com.pulumi.resources.ResourceAr
         /**
          * @param webhookEndpoint A `webhook_endpoint` block as defined below.
          * 
-         * &gt; **NOTE:** One of `eventhub_endpoint_id`, `hybrid_connection_endpoint_id`, `service_bus_queue_endpoint_id`, `service_bus_topic_endpoint_id`, `storage_queue_endpoint`, `webhook_endpoint` or `azure_function_endpoint` must be specified.
+         * &gt; **Note:** One of `eventhub_endpoint_id`, `hybrid_connection_endpoint_id`, `service_bus_queue_endpoint_id`, `service_bus_topic_endpoint_id`, `storage_queue_endpoint`, `webhook_endpoint` or `azure_function_endpoint` must be specified.
          * 
          * @return builder
          * 
@@ -865,7 +865,7 @@ public final class EventSubscriptionArgs extends com.pulumi.resources.ResourceAr
         /**
          * @param webhookEndpoint A `webhook_endpoint` block as defined below.
          * 
-         * &gt; **NOTE:** One of `eventhub_endpoint_id`, `hybrid_connection_endpoint_id`, `service_bus_queue_endpoint_id`, `service_bus_topic_endpoint_id`, `storage_queue_endpoint`, `webhook_endpoint` or `azure_function_endpoint` must be specified.
+         * &gt; **Note:** One of `eventhub_endpoint_id`, `hybrid_connection_endpoint_id`, `service_bus_queue_endpoint_id`, `service_bus_topic_endpoint_id`, `storage_queue_endpoint`, `webhook_endpoint` or `azure_function_endpoint` must be specified.
          * 
          * @return builder
          * 

@@ -84,6 +84,7 @@ import (
 //				RuntimeVersion:            pulumi.String("20"),
 //				MaximumInstanceCount:      pulumi.Int(50),
 //				InstanceMemoryInMb:        pulumi.Int(2048),
+//				SiteConfig:                &appservice.AppFlexConsumptionSiteConfigArgs{},
 //			})
 //			if err != nil {
 //				return err
@@ -93,6 +94,13 @@ import (
 //	}
 //
 // ```
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.Web`: 2023-12-01, 2023-01-01
 //
 // ## Import
 //
@@ -104,6 +112,8 @@ import (
 type AppFlexConsumption struct {
 	pulumi.CustomResourceState
 
+	// One or more `alwaysReady` blocks as defined below.
+	AlwaysReadies AppFlexConsumptionAlwaysReadyArrayOutput `pulumi:"alwaysReadies"`
 	// A map of key-value pairs for [App
 	// Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
 	AppSettings pulumi.StringMapOutput `pulumi:"appSettings"`
@@ -151,11 +161,11 @@ type AppFlexConsumption struct {
 	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the Resource Group where the Function App should exist. Changing this forces a new Linux Function App to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// The Runtime of the Linux Function App. Possible values are `node`, `dotnet-isolated`, `powershell`, `python`, `java`.
+	// The Runtime of the Linux Function App. Possible values are `node`, `dotnet-isolated`, `powershell`, `python`, `java` and `custom`.
 	RuntimeName pulumi.StringOutput `pulumi:"runtimeName"`
 	// The Runtime version of the Linux Function App. The values are diff from different runtime version. The supported values are `8.0`, `9.0` for `dotnet-isolated`, `20` for `node`, `3.10`, `3.11` for `python`, `11`, `17` for `java`, `7.4` for `powershell`.
 	RuntimeVersion pulumi.StringOutput `pulumi:"runtimeVersion"`
-	// The ID of the App Service Plan within which to create this Function App.
+	// The ID of the App Service Plan within which to create this Function App. Changing this forces a new Linux Function App to be created.
 	ServicePlanId pulumi.StringOutput `pulumi:"servicePlanId"`
 	// A `siteConfig` block as defined below.
 	SiteConfig AppFlexConsumptionSiteConfigOutput `pulumi:"siteConfig"`
@@ -173,7 +183,7 @@ type AppFlexConsumption struct {
 	StorageContainerEndpoint pulumi.StringOutput `pulumi:"storageContainerEndpoint"`
 	// The storage container type used for the Function App. The current supported type is `blobContainer`.
 	StorageContainerType pulumi.StringOutput `pulumi:"storageContainerType"`
-	// The user assigned Managed Identity to access the storage account. Conflicts with `storageAccountAccessKey`.
+	// The user assigned Managed Identity to access the storage account. Conflicts with `storageAccessKey`.
 	//
 	// > **Note:** The `storageUserAssignedIdentityId` must be specified when `storageAuthenticationType` is set to `UserAssignedIdentity`.
 	StorageUserAssignedIdentityId pulumi.StringPtrOutput `pulumi:"storageUserAssignedIdentityId"`
@@ -249,6 +259,8 @@ func GetAppFlexConsumption(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AppFlexConsumption resources.
 type appFlexConsumptionState struct {
+	// One or more `alwaysReady` blocks as defined below.
+	AlwaysReadies []AppFlexConsumptionAlwaysReady `pulumi:"alwaysReadies"`
 	// A map of key-value pairs for [App
 	// Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
 	AppSettings map[string]string `pulumi:"appSettings"`
@@ -296,11 +308,11 @@ type appFlexConsumptionState struct {
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the Resource Group where the Function App should exist. Changing this forces a new Linux Function App to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// The Runtime of the Linux Function App. Possible values are `node`, `dotnet-isolated`, `powershell`, `python`, `java`.
+	// The Runtime of the Linux Function App. Possible values are `node`, `dotnet-isolated`, `powershell`, `python`, `java` and `custom`.
 	RuntimeName *string `pulumi:"runtimeName"`
 	// The Runtime version of the Linux Function App. The values are diff from different runtime version. The supported values are `8.0`, `9.0` for `dotnet-isolated`, `20` for `node`, `3.10`, `3.11` for `python`, `11`, `17` for `java`, `7.4` for `powershell`.
 	RuntimeVersion *string `pulumi:"runtimeVersion"`
-	// The ID of the App Service Plan within which to create this Function App.
+	// The ID of the App Service Plan within which to create this Function App. Changing this forces a new Linux Function App to be created.
 	ServicePlanId *string `pulumi:"servicePlanId"`
 	// A `siteConfig` block as defined below.
 	SiteConfig *AppFlexConsumptionSiteConfig `pulumi:"siteConfig"`
@@ -318,7 +330,7 @@ type appFlexConsumptionState struct {
 	StorageContainerEndpoint *string `pulumi:"storageContainerEndpoint"`
 	// The storage container type used for the Function App. The current supported type is `blobContainer`.
 	StorageContainerType *string `pulumi:"storageContainerType"`
-	// The user assigned Managed Identity to access the storage account. Conflicts with `storageAccountAccessKey`.
+	// The user assigned Managed Identity to access the storage account. Conflicts with `storageAccessKey`.
 	//
 	// > **Note:** The `storageUserAssignedIdentityId` must be specified when `storageAuthenticationType` is set to `UserAssignedIdentity`.
 	StorageUserAssignedIdentityId *string `pulumi:"storageUserAssignedIdentityId"`
@@ -336,6 +348,8 @@ type appFlexConsumptionState struct {
 }
 
 type AppFlexConsumptionState struct {
+	// One or more `alwaysReady` blocks as defined below.
+	AlwaysReadies AppFlexConsumptionAlwaysReadyArrayInput
 	// A map of key-value pairs for [App
 	// Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
 	AppSettings pulumi.StringMapInput
@@ -383,11 +397,11 @@ type AppFlexConsumptionState struct {
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The name of the Resource Group where the Function App should exist. Changing this forces a new Linux Function App to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// The Runtime of the Linux Function App. Possible values are `node`, `dotnet-isolated`, `powershell`, `python`, `java`.
+	// The Runtime of the Linux Function App. Possible values are `node`, `dotnet-isolated`, `powershell`, `python`, `java` and `custom`.
 	RuntimeName pulumi.StringPtrInput
 	// The Runtime version of the Linux Function App. The values are diff from different runtime version. The supported values are `8.0`, `9.0` for `dotnet-isolated`, `20` for `node`, `3.10`, `3.11` for `python`, `11`, `17` for `java`, `7.4` for `powershell`.
 	RuntimeVersion pulumi.StringPtrInput
-	// The ID of the App Service Plan within which to create this Function App.
+	// The ID of the App Service Plan within which to create this Function App. Changing this forces a new Linux Function App to be created.
 	ServicePlanId pulumi.StringPtrInput
 	// A `siteConfig` block as defined below.
 	SiteConfig AppFlexConsumptionSiteConfigPtrInput
@@ -405,7 +419,7 @@ type AppFlexConsumptionState struct {
 	StorageContainerEndpoint pulumi.StringPtrInput
 	// The storage container type used for the Function App. The current supported type is `blobContainer`.
 	StorageContainerType pulumi.StringPtrInput
-	// The user assigned Managed Identity to access the storage account. Conflicts with `storageAccountAccessKey`.
+	// The user assigned Managed Identity to access the storage account. Conflicts with `storageAccessKey`.
 	//
 	// > **Note:** The `storageUserAssignedIdentityId` must be specified when `storageAuthenticationType` is set to `UserAssignedIdentity`.
 	StorageUserAssignedIdentityId pulumi.StringPtrInput
@@ -427,6 +441,8 @@ func (AppFlexConsumptionState) ElementType() reflect.Type {
 }
 
 type appFlexConsumptionArgs struct {
+	// One or more `alwaysReady` blocks as defined below.
+	AlwaysReadies []AppFlexConsumptionAlwaysReady `pulumi:"alwaysReadies"`
 	// A map of key-value pairs for [App
 	// Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
 	AppSettings map[string]string `pulumi:"appSettings"`
@@ -458,11 +474,11 @@ type appFlexConsumptionArgs struct {
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the Resource Group where the Function App should exist. Changing this forces a new Linux Function App to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The Runtime of the Linux Function App. Possible values are `node`, `dotnet-isolated`, `powershell`, `python`, `java`.
+	// The Runtime of the Linux Function App. Possible values are `node`, `dotnet-isolated`, `powershell`, `python`, `java` and `custom`.
 	RuntimeName string `pulumi:"runtimeName"`
 	// The Runtime version of the Linux Function App. The values are diff from different runtime version. The supported values are `8.0`, `9.0` for `dotnet-isolated`, `20` for `node`, `3.10`, `3.11` for `python`, `11`, `17` for `java`, `7.4` for `powershell`.
 	RuntimeVersion string `pulumi:"runtimeVersion"`
-	// The ID of the App Service Plan within which to create this Function App.
+	// The ID of the App Service Plan within which to create this Function App. Changing this forces a new Linux Function App to be created.
 	ServicePlanId string `pulumi:"servicePlanId"`
 	// A `siteConfig` block as defined below.
 	SiteConfig AppFlexConsumptionSiteConfig `pulumi:"siteConfig"`
@@ -478,7 +494,7 @@ type appFlexConsumptionArgs struct {
 	StorageContainerEndpoint string `pulumi:"storageContainerEndpoint"`
 	// The storage container type used for the Function App. The current supported type is `blobContainer`.
 	StorageContainerType string `pulumi:"storageContainerType"`
-	// The user assigned Managed Identity to access the storage account. Conflicts with `storageAccountAccessKey`.
+	// The user assigned Managed Identity to access the storage account. Conflicts with `storageAccessKey`.
 	//
 	// > **Note:** The `storageUserAssignedIdentityId` must be specified when `storageAuthenticationType` is set to `UserAssignedIdentity`.
 	StorageUserAssignedIdentityId *string `pulumi:"storageUserAssignedIdentityId"`
@@ -497,6 +513,8 @@ type appFlexConsumptionArgs struct {
 
 // The set of arguments for constructing a AppFlexConsumption resource.
 type AppFlexConsumptionArgs struct {
+	// One or more `alwaysReady` blocks as defined below.
+	AlwaysReadies AppFlexConsumptionAlwaysReadyArrayInput
 	// A map of key-value pairs for [App
 	// Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
 	AppSettings pulumi.StringMapInput
@@ -528,11 +546,11 @@ type AppFlexConsumptionArgs struct {
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The name of the Resource Group where the Function App should exist. Changing this forces a new Linux Function App to be created.
 	ResourceGroupName pulumi.StringInput
-	// The Runtime of the Linux Function App. Possible values are `node`, `dotnet-isolated`, `powershell`, `python`, `java`.
+	// The Runtime of the Linux Function App. Possible values are `node`, `dotnet-isolated`, `powershell`, `python`, `java` and `custom`.
 	RuntimeName pulumi.StringInput
 	// The Runtime version of the Linux Function App. The values are diff from different runtime version. The supported values are `8.0`, `9.0` for `dotnet-isolated`, `20` for `node`, `3.10`, `3.11` for `python`, `11`, `17` for `java`, `7.4` for `powershell`.
 	RuntimeVersion pulumi.StringInput
-	// The ID of the App Service Plan within which to create this Function App.
+	// The ID of the App Service Plan within which to create this Function App. Changing this forces a new Linux Function App to be created.
 	ServicePlanId pulumi.StringInput
 	// A `siteConfig` block as defined below.
 	SiteConfig AppFlexConsumptionSiteConfigInput
@@ -548,7 +566,7 @@ type AppFlexConsumptionArgs struct {
 	StorageContainerEndpoint pulumi.StringInput
 	// The storage container type used for the Function App. The current supported type is `blobContainer`.
 	StorageContainerType pulumi.StringInput
-	// The user assigned Managed Identity to access the storage account. Conflicts with `storageAccountAccessKey`.
+	// The user assigned Managed Identity to access the storage account. Conflicts with `storageAccessKey`.
 	//
 	// > **Note:** The `storageUserAssignedIdentityId` must be specified when `storageAuthenticationType` is set to `UserAssignedIdentity`.
 	StorageUserAssignedIdentityId pulumi.StringPtrInput
@@ -650,6 +668,11 @@ func (o AppFlexConsumptionOutput) ToAppFlexConsumptionOutput() AppFlexConsumptio
 
 func (o AppFlexConsumptionOutput) ToAppFlexConsumptionOutputWithContext(ctx context.Context) AppFlexConsumptionOutput {
 	return o
+}
+
+// One or more `alwaysReady` blocks as defined below.
+func (o AppFlexConsumptionOutput) AlwaysReadies() AppFlexConsumptionAlwaysReadyArrayOutput {
+	return o.ApplyT(func(v *AppFlexConsumption) AppFlexConsumptionAlwaysReadyArrayOutput { return v.AlwaysReadies }).(AppFlexConsumptionAlwaysReadyArrayOutput)
 }
 
 // A map of key-value pairs for [App
@@ -768,7 +791,7 @@ func (o AppFlexConsumptionOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *AppFlexConsumption) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// The Runtime of the Linux Function App. Possible values are `node`, `dotnet-isolated`, `powershell`, `python`, `java`.
+// The Runtime of the Linux Function App. Possible values are `node`, `dotnet-isolated`, `powershell`, `python`, `java` and `custom`.
 func (o AppFlexConsumptionOutput) RuntimeName() pulumi.StringOutput {
 	return o.ApplyT(func(v *AppFlexConsumption) pulumi.StringOutput { return v.RuntimeName }).(pulumi.StringOutput)
 }
@@ -778,7 +801,7 @@ func (o AppFlexConsumptionOutput) RuntimeVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *AppFlexConsumption) pulumi.StringOutput { return v.RuntimeVersion }).(pulumi.StringOutput)
 }
 
-// The ID of the App Service Plan within which to create this Function App.
+// The ID of the App Service Plan within which to create this Function App. Changing this forces a new Linux Function App to be created.
 func (o AppFlexConsumptionOutput) ServicePlanId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AppFlexConsumption) pulumi.StringOutput { return v.ServicePlanId }).(pulumi.StringOutput)
 }
@@ -820,7 +843,7 @@ func (o AppFlexConsumptionOutput) StorageContainerType() pulumi.StringOutput {
 	return o.ApplyT(func(v *AppFlexConsumption) pulumi.StringOutput { return v.StorageContainerType }).(pulumi.StringOutput)
 }
 
-// The user assigned Managed Identity to access the storage account. Conflicts with `storageAccountAccessKey`.
+// The user assigned Managed Identity to access the storage account. Conflicts with `storageAccessKey`.
 //
 // > **Note:** The `storageUserAssignedIdentityId` must be specified when `storageAuthenticationType` is set to `UserAssignedIdentity`.
 func (o AppFlexConsumptionOutput) StorageUserAssignedIdentityId() pulumi.StringPtrOutput {

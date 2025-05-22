@@ -28,7 +28,7 @@ class CustomDomainArgs:
         The set of arguments for constructing a CustomDomain resource.
         :param pulumi.Input[builtins.str] domain_name: Specifies the custom domain name of the Web PubSub Custom Domain. Changing this forces a new resource to be created.
                
-               > **NOTE:** Please ensure the custom domain name is included in the Subject Alternative Names of the selected Web PubSub Custom Certificate.
+               > **Note:** Please ensure the custom domain name is included in the Subject Alternative Names of the selected Web PubSub Custom Certificate.
         :param pulumi.Input[builtins.str] web_pubsub_custom_certificate_id: Specifies the Web PubSub Custom Certificate ID of the Web PubSub Custom Domain. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] web_pubsub_id: Specifies the Web PubSub ID of the Web PubSub Custom Domain. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] name: Specifies the name of the Web PubSub Custom Domain. Changing this forces a new resource to be created.
@@ -45,7 +45,7 @@ class CustomDomainArgs:
         """
         Specifies the custom domain name of the Web PubSub Custom Domain. Changing this forces a new resource to be created.
 
-        > **NOTE:** Please ensure the custom domain name is included in the Subject Alternative Names of the selected Web PubSub Custom Certificate.
+        > **Note:** Please ensure the custom domain name is included in the Subject Alternative Names of the selected Web PubSub Custom Certificate.
         """
         return pulumi.get(self, "domain_name")
 
@@ -101,7 +101,7 @@ class _CustomDomainState:
         Input properties used for looking up and filtering CustomDomain resources.
         :param pulumi.Input[builtins.str] domain_name: Specifies the custom domain name of the Web PubSub Custom Domain. Changing this forces a new resource to be created.
                
-               > **NOTE:** Please ensure the custom domain name is included in the Subject Alternative Names of the selected Web PubSub Custom Certificate.
+               > **Note:** Please ensure the custom domain name is included in the Subject Alternative Names of the selected Web PubSub Custom Certificate.
         :param pulumi.Input[builtins.str] name: Specifies the name of the Web PubSub Custom Domain. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] web_pubsub_custom_certificate_id: Specifies the Web PubSub Custom Certificate ID of the Web PubSub Custom Domain. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] web_pubsub_id: Specifies the Web PubSub ID of the Web PubSub Custom Domain. Changing this forces a new resource to be created.
@@ -121,7 +121,7 @@ class _CustomDomainState:
         """
         Specifies the custom domain name of the Web PubSub Custom Domain. Changing this forces a new resource to be created.
 
-        > **NOTE:** Please ensure the custom domain name is included in the Subject Alternative Names of the selected Web PubSub Custom Certificate.
+        > **Note:** Please ensure the custom domain name is included in the Subject Alternative Names of the selected Web PubSub Custom Certificate.
         """
         return pulumi.get(self, "domain_name")
 
@@ -192,7 +192,7 @@ class CustomDomain(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] domain_name: Specifies the custom domain name of the Web PubSub Custom Domain. Changing this forces a new resource to be created.
                
-               > **NOTE:** Please ensure the custom domain name is included in the Subject Alternative Names of the selected Web PubSub Custom Certificate.
+               > **Note:** Please ensure the custom domain name is included in the Subject Alternative Names of the selected Web PubSub Custom Certificate.
         :param pulumi.Input[builtins.str] name: Specifies the name of the Web PubSub Custom Domain. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] web_pubsub_custom_certificate_id: Specifies the Web PubSub Custom Certificate ID of the Web PubSub Custom Domain. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] web_pubsub_id: Specifies the Web PubSub ID of the Web PubSub Custom Domain. Changing this forces a new resource to be created.
@@ -275,7 +275,7 @@ class CustomDomain(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] domain_name: Specifies the custom domain name of the Web PubSub Custom Domain. Changing this forces a new resource to be created.
                
-               > **NOTE:** Please ensure the custom domain name is included in the Subject Alternative Names of the selected Web PubSub Custom Certificate.
+               > **Note:** Please ensure the custom domain name is included in the Subject Alternative Names of the selected Web PubSub Custom Certificate.
         :param pulumi.Input[builtins.str] name: Specifies the name of the Web PubSub Custom Domain. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] web_pubsub_custom_certificate_id: Specifies the Web PubSub Custom Certificate ID of the Web PubSub Custom Domain. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] web_pubsub_id: Specifies the Web PubSub ID of the Web PubSub Custom Domain. Changing this forces a new resource to be created.
@@ -296,7 +296,7 @@ class CustomDomain(pulumi.CustomResource):
         """
         Specifies the custom domain name of the Web PubSub Custom Domain. Changing this forces a new resource to be created.
 
-        > **NOTE:** Please ensure the custom domain name is included in the Subject Alternative Names of the selected Web PubSub Custom Certificate.
+        > **Note:** Please ensure the custom domain name is included in the Subject Alternative Names of the selected Web PubSub Custom Certificate.
         """
         return pulumi.get(self, "domain_name")
 

@@ -214,7 +214,7 @@ type FrontdoorRoute struct {
 
 	// A `cache` block as defined below.
 	//
-	// > **NOTE:** To disable caching, do not provide the `cache` block in the configuration file.
+	// > **Note:** To disable caching, do not provide the `cache` block in the configuration file.
 	Cache FrontdoorRouteCachePtrOutput `pulumi:"cache"`
 	// The IDs of the Front Door Custom Domains which are associated with this Front Door Route.
 	CdnFrontdoorCustomDomainIds pulumi.StringArrayOutput `pulumi:"cdnFrontdoorCustomDomainIds"`
@@ -234,7 +234,7 @@ type FrontdoorRoute struct {
 	ForwardingProtocol pulumi.StringPtrOutput `pulumi:"forwardingProtocol"`
 	// Automatically redirect HTTP traffic to HTTPS traffic? Possible values are `true` or `false`. Defaults to `true`.
 	//
-	// > **NOTE:** The `httpsRedirectEnabled` rule is the first rule that will be executed.
+	// > **Note:** The `httpsRedirectEnabled` rule is the first rule that will be executed.
 	HttpsRedirectEnabled pulumi.BoolPtrOutput `pulumi:"httpsRedirectEnabled"`
 	// Should this Front Door Route be linked to the default endpoint? Possible values include `true` or `false`. Defaults to `true`.
 	LinkToDefaultDomain pulumi.BoolPtrOutput `pulumi:"linkToDefaultDomain"`
@@ -244,7 +244,7 @@ type FrontdoorRoute struct {
 	PatternsToMatches pulumi.StringArrayOutput `pulumi:"patternsToMatches"`
 	// One or more Protocols supported by this Front Door Route. Possible values are `Http` or `Https`.
 	//
-	// > **NOTE:** If `httpsRedirectEnabled` is set to `true` the `supportedProtocols` field must contain both `Http` and `Https` values.
+	// > **Note:** If `httpsRedirectEnabled` is set to `true` the `supportedProtocols` field must contain both `Http` and `Https` values.
 	SupportedProtocols pulumi.StringArrayOutput `pulumi:"supportedProtocols"`
 }
 
@@ -295,7 +295,7 @@ func GetFrontdoorRoute(ctx *pulumi.Context,
 type frontdoorRouteState struct {
 	// A `cache` block as defined below.
 	//
-	// > **NOTE:** To disable caching, do not provide the `cache` block in the configuration file.
+	// > **Note:** To disable caching, do not provide the `cache` block in the configuration file.
 	Cache *FrontdoorRouteCache `pulumi:"cache"`
 	// The IDs of the Front Door Custom Domains which are associated with this Front Door Route.
 	CdnFrontdoorCustomDomainIds []string `pulumi:"cdnFrontdoorCustomDomainIds"`
@@ -315,7 +315,7 @@ type frontdoorRouteState struct {
 	ForwardingProtocol *string `pulumi:"forwardingProtocol"`
 	// Automatically redirect HTTP traffic to HTTPS traffic? Possible values are `true` or `false`. Defaults to `true`.
 	//
-	// > **NOTE:** The `httpsRedirectEnabled` rule is the first rule that will be executed.
+	// > **Note:** The `httpsRedirectEnabled` rule is the first rule that will be executed.
 	HttpsRedirectEnabled *bool `pulumi:"httpsRedirectEnabled"`
 	// Should this Front Door Route be linked to the default endpoint? Possible values include `true` or `false`. Defaults to `true`.
 	LinkToDefaultDomain *bool `pulumi:"linkToDefaultDomain"`
@@ -325,14 +325,14 @@ type frontdoorRouteState struct {
 	PatternsToMatches []string `pulumi:"patternsToMatches"`
 	// One or more Protocols supported by this Front Door Route. Possible values are `Http` or `Https`.
 	//
-	// > **NOTE:** If `httpsRedirectEnabled` is set to `true` the `supportedProtocols` field must contain both `Http` and `Https` values.
+	// > **Note:** If `httpsRedirectEnabled` is set to `true` the `supportedProtocols` field must contain both `Http` and `Https` values.
 	SupportedProtocols []string `pulumi:"supportedProtocols"`
 }
 
 type FrontdoorRouteState struct {
 	// A `cache` block as defined below.
 	//
-	// > **NOTE:** To disable caching, do not provide the `cache` block in the configuration file.
+	// > **Note:** To disable caching, do not provide the `cache` block in the configuration file.
 	Cache FrontdoorRouteCachePtrInput
 	// The IDs of the Front Door Custom Domains which are associated with this Front Door Route.
 	CdnFrontdoorCustomDomainIds pulumi.StringArrayInput
@@ -352,7 +352,7 @@ type FrontdoorRouteState struct {
 	ForwardingProtocol pulumi.StringPtrInput
 	// Automatically redirect HTTP traffic to HTTPS traffic? Possible values are `true` or `false`. Defaults to `true`.
 	//
-	// > **NOTE:** The `httpsRedirectEnabled` rule is the first rule that will be executed.
+	// > **Note:** The `httpsRedirectEnabled` rule is the first rule that will be executed.
 	HttpsRedirectEnabled pulumi.BoolPtrInput
 	// Should this Front Door Route be linked to the default endpoint? Possible values include `true` or `false`. Defaults to `true`.
 	LinkToDefaultDomain pulumi.BoolPtrInput
@@ -362,7 +362,7 @@ type FrontdoorRouteState struct {
 	PatternsToMatches pulumi.StringArrayInput
 	// One or more Protocols supported by this Front Door Route. Possible values are `Http` or `Https`.
 	//
-	// > **NOTE:** If `httpsRedirectEnabled` is set to `true` the `supportedProtocols` field must contain both `Http` and `Https` values.
+	// > **Note:** If `httpsRedirectEnabled` is set to `true` the `supportedProtocols` field must contain both `Http` and `Https` values.
 	SupportedProtocols pulumi.StringArrayInput
 }
 
@@ -373,7 +373,7 @@ func (FrontdoorRouteState) ElementType() reflect.Type {
 type frontdoorRouteArgs struct {
 	// A `cache` block as defined below.
 	//
-	// > **NOTE:** To disable caching, do not provide the `cache` block in the configuration file.
+	// > **Note:** To disable caching, do not provide the `cache` block in the configuration file.
 	Cache *FrontdoorRouteCache `pulumi:"cache"`
 	// The IDs of the Front Door Custom Domains which are associated with this Front Door Route.
 	CdnFrontdoorCustomDomainIds []string `pulumi:"cdnFrontdoorCustomDomainIds"`
@@ -393,7 +393,7 @@ type frontdoorRouteArgs struct {
 	ForwardingProtocol *string `pulumi:"forwardingProtocol"`
 	// Automatically redirect HTTP traffic to HTTPS traffic? Possible values are `true` or `false`. Defaults to `true`.
 	//
-	// > **NOTE:** The `httpsRedirectEnabled` rule is the first rule that will be executed.
+	// > **Note:** The `httpsRedirectEnabled` rule is the first rule that will be executed.
 	HttpsRedirectEnabled *bool `pulumi:"httpsRedirectEnabled"`
 	// Should this Front Door Route be linked to the default endpoint? Possible values include `true` or `false`. Defaults to `true`.
 	LinkToDefaultDomain *bool `pulumi:"linkToDefaultDomain"`
@@ -403,7 +403,7 @@ type frontdoorRouteArgs struct {
 	PatternsToMatches []string `pulumi:"patternsToMatches"`
 	// One or more Protocols supported by this Front Door Route. Possible values are `Http` or `Https`.
 	//
-	// > **NOTE:** If `httpsRedirectEnabled` is set to `true` the `supportedProtocols` field must contain both `Http` and `Https` values.
+	// > **Note:** If `httpsRedirectEnabled` is set to `true` the `supportedProtocols` field must contain both `Http` and `Https` values.
 	SupportedProtocols []string `pulumi:"supportedProtocols"`
 }
 
@@ -411,7 +411,7 @@ type frontdoorRouteArgs struct {
 type FrontdoorRouteArgs struct {
 	// A `cache` block as defined below.
 	//
-	// > **NOTE:** To disable caching, do not provide the `cache` block in the configuration file.
+	// > **Note:** To disable caching, do not provide the `cache` block in the configuration file.
 	Cache FrontdoorRouteCachePtrInput
 	// The IDs of the Front Door Custom Domains which are associated with this Front Door Route.
 	CdnFrontdoorCustomDomainIds pulumi.StringArrayInput
@@ -431,7 +431,7 @@ type FrontdoorRouteArgs struct {
 	ForwardingProtocol pulumi.StringPtrInput
 	// Automatically redirect HTTP traffic to HTTPS traffic? Possible values are `true` or `false`. Defaults to `true`.
 	//
-	// > **NOTE:** The `httpsRedirectEnabled` rule is the first rule that will be executed.
+	// > **Note:** The `httpsRedirectEnabled` rule is the first rule that will be executed.
 	HttpsRedirectEnabled pulumi.BoolPtrInput
 	// Should this Front Door Route be linked to the default endpoint? Possible values include `true` or `false`. Defaults to `true`.
 	LinkToDefaultDomain pulumi.BoolPtrInput
@@ -441,7 +441,7 @@ type FrontdoorRouteArgs struct {
 	PatternsToMatches pulumi.StringArrayInput
 	// One or more Protocols supported by this Front Door Route. Possible values are `Http` or `Https`.
 	//
-	// > **NOTE:** If `httpsRedirectEnabled` is set to `true` the `supportedProtocols` field must contain both `Http` and `Https` values.
+	// > **Note:** If `httpsRedirectEnabled` is set to `true` the `supportedProtocols` field must contain both `Http` and `Https` values.
 	SupportedProtocols pulumi.StringArrayInput
 }
 
@@ -534,7 +534,7 @@ func (o FrontdoorRouteOutput) ToFrontdoorRouteOutputWithContext(ctx context.Cont
 
 // A `cache` block as defined below.
 //
-// > **NOTE:** To disable caching, do not provide the `cache` block in the configuration file.
+// > **Note:** To disable caching, do not provide the `cache` block in the configuration file.
 func (o FrontdoorRouteOutput) Cache() FrontdoorRouteCachePtrOutput {
 	return o.ApplyT(func(v *FrontdoorRoute) FrontdoorRouteCachePtrOutput { return v.Cache }).(FrontdoorRouteCachePtrOutput)
 }
@@ -581,7 +581,7 @@ func (o FrontdoorRouteOutput) ForwardingProtocol() pulumi.StringPtrOutput {
 
 // Automatically redirect HTTP traffic to HTTPS traffic? Possible values are `true` or `false`. Defaults to `true`.
 //
-// > **NOTE:** The `httpsRedirectEnabled` rule is the first rule that will be executed.
+// > **Note:** The `httpsRedirectEnabled` rule is the first rule that will be executed.
 func (o FrontdoorRouteOutput) HttpsRedirectEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FrontdoorRoute) pulumi.BoolPtrOutput { return v.HttpsRedirectEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -603,7 +603,7 @@ func (o FrontdoorRouteOutput) PatternsToMatches() pulumi.StringArrayOutput {
 
 // One or more Protocols supported by this Front Door Route. Possible values are `Http` or `Https`.
 //
-// > **NOTE:** If `httpsRedirectEnabled` is set to `true` the `supportedProtocols` field must contain both `Http` and `Https` values.
+// > **Note:** If `httpsRedirectEnabled` is set to `true` the `supportedProtocols` field must contain both `Http` and `Https` values.
 func (o FrontdoorRouteOutput) SupportedProtocols() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FrontdoorRoute) pulumi.StringArrayOutput { return v.SupportedProtocols }).(pulumi.StringArrayOutput)
 }

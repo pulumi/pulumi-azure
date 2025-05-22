@@ -64,6 +64,13 @@ public final class SiterecoveryFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.RecoveryServices`: 2024-04-01
+     * 
      */
     public static Output<GetFabricResult> getFabric(GetFabricArgs args) {
         return getFabric(args, InvokeOptions.Empty);
@@ -107,6 +114,13 @@ public final class SiterecoveryFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.RecoveryServices`: 2024-04-01
      * 
      */
     public static CompletableFuture<GetFabricResult> getFabricPlain(GetFabricPlainArgs args) {
@@ -152,6 +166,13 @@ public final class SiterecoveryFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.RecoveryServices`: 2024-04-01
+     * 
      */
     public static Output<GetFabricResult> getFabric(GetFabricArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:siterecovery/getFabric:getFabric", TypeShape.of(GetFabricResult.class), args, Utilities.withVersion(options));
@@ -196,6 +217,13 @@ public final class SiterecoveryFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.RecoveryServices`: 2024-04-01
+     * 
      */
     public static Output<GetFabricResult> getFabric(GetFabricArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:siterecovery/getFabric:getFabric", TypeShape.of(GetFabricResult.class), args, Utilities.withVersion(options));
@@ -239,6 +267,13 @@ public final class SiterecoveryFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.RecoveryServices`: 2024-04-01
      * 
      */
     public static CompletableFuture<GetFabricResult> getFabricPlain(GetFabricPlainArgs args, InvokeOptions options) {
@@ -285,6 +320,13 @@ public final class SiterecoveryFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.RecoveryServices`: 2024-04-01
+     * 
      */
     public static Output<GetProtectionContainerResult> getProtectionContainer(GetProtectionContainerArgs args) {
         return getProtectionContainer(args, InvokeOptions.Empty);
@@ -329,6 +371,13 @@ public final class SiterecoveryFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.RecoveryServices`: 2024-04-01
      * 
      */
     public static CompletableFuture<GetProtectionContainerResult> getProtectionContainerPlain(GetProtectionContainerPlainArgs args) {
@@ -375,6 +424,13 @@ public final class SiterecoveryFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.RecoveryServices`: 2024-04-01
+     * 
      */
     public static Output<GetProtectionContainerResult> getProtectionContainer(GetProtectionContainerArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:siterecovery/getProtectionContainer:getProtectionContainer", TypeShape.of(GetProtectionContainerResult.class), args, Utilities.withVersion(options));
@@ -419,6 +475,13 @@ public final class SiterecoveryFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.RecoveryServices`: 2024-04-01
      * 
      */
     public static Output<GetProtectionContainerResult> getProtectionContainer(GetProtectionContainerArgs args, InvokeOutputOptions options) {
@@ -465,6 +528,13 @@ public final class SiterecoveryFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.RecoveryServices`: 2024-04-01
+     * 
      */
     public static CompletableFuture<GetProtectionContainerResult> getProtectionContainerPlain(GetProtectionContainerPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:siterecovery/getProtectionContainer:getProtectionContainer", TypeShape.of(GetProtectionContainerResult.class), args, Utilities.withVersion(options));
@@ -508,6 +578,13 @@ public final class SiterecoveryFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.RecoveryServices`: 2024-04-01
      * 
      */
     public static Output<GetReplicationPolicyResult> getReplicationPolicy(GetReplicationPolicyArgs args) {
@@ -553,6 +630,13 @@ public final class SiterecoveryFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.RecoveryServices`: 2024-04-01
+     * 
      */
     public static CompletableFuture<GetReplicationPolicyResult> getReplicationPolicyPlain(GetReplicationPolicyPlainArgs args) {
         return getReplicationPolicyPlain(args, InvokeOptions.Empty);
@@ -596,6 +680,13 @@ public final class SiterecoveryFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.RecoveryServices`: 2024-04-01
      * 
      */
     public static Output<GetReplicationPolicyResult> getReplicationPolicy(GetReplicationPolicyArgs args, InvokeOptions options) {
@@ -641,6 +732,13 @@ public final class SiterecoveryFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.RecoveryServices`: 2024-04-01
+     * 
      */
     public static Output<GetReplicationPolicyResult> getReplicationPolicy(GetReplicationPolicyArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:siterecovery/getReplicationPolicy:getReplicationPolicy", TypeShape.of(GetReplicationPolicyResult.class), args, Utilities.withVersion(options));
@@ -684,6 +782,13 @@ public final class SiterecoveryFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.RecoveryServices`: 2024-04-01
      * 
      */
     public static CompletableFuture<GetReplicationPolicyResult> getReplicationPolicyPlain(GetReplicationPolicyPlainArgs args, InvokeOptions options) {
@@ -735,6 +840,13 @@ public final class SiterecoveryFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.RecoveryServices`: 2024-04-01
+     * 
      */
     public static Output<GetReplicationRecoveryPlanResult> getReplicationRecoveryPlan(GetReplicationRecoveryPlanArgs args) {
         return getReplicationRecoveryPlan(args, InvokeOptions.Empty);
@@ -784,6 +896,13 @@ public final class SiterecoveryFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.RecoveryServices`: 2024-04-01
      * 
      */
     public static CompletableFuture<GetReplicationRecoveryPlanResult> getReplicationRecoveryPlanPlain(GetReplicationRecoveryPlanPlainArgs args) {
@@ -835,6 +954,13 @@ public final class SiterecoveryFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.RecoveryServices`: 2024-04-01
+     * 
      */
     public static Output<GetReplicationRecoveryPlanResult> getReplicationRecoveryPlan(GetReplicationRecoveryPlanArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:siterecovery/getReplicationRecoveryPlan:getReplicationRecoveryPlan", TypeShape.of(GetReplicationRecoveryPlanResult.class), args, Utilities.withVersion(options));
@@ -885,6 +1011,13 @@ public final class SiterecoveryFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.RecoveryServices`: 2024-04-01
+     * 
      */
     public static Output<GetReplicationRecoveryPlanResult> getReplicationRecoveryPlan(GetReplicationRecoveryPlanArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:siterecovery/getReplicationRecoveryPlan:getReplicationRecoveryPlan", TypeShape.of(GetReplicationRecoveryPlanResult.class), args, Utilities.withVersion(options));
@@ -934,6 +1067,13 @@ public final class SiterecoveryFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.RecoveryServices`: 2024-04-01
      * 
      */
     public static CompletableFuture<GetReplicationRecoveryPlanResult> getReplicationRecoveryPlanPlain(GetReplicationRecoveryPlanPlainArgs args, InvokeOptions options) {

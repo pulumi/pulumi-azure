@@ -171,6 +171,13 @@ def get_network_sim_policy(mobile_network_id: Optional[builtins.str] = None,
         mobile_network_id=example.id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.MobileNetwork`: 2022-11-01
+
 
     :param builtins.str mobile_network_id: The ID of the Mobile Network which the Sim Policy belongs to.
     :param builtins.str name: The name which should be used for this Mobile Network Sim Policies.
@@ -209,6 +216,13 @@ def get_network_sim_policy_output(mobile_network_id: Optional[pulumi.Input[built
     example_get_network_sim_policy = azure.mobile.get_network_sim_policy(name="example-mnsp",
         mobile_network_id=example.id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.MobileNetwork`: 2022-11-01
 
 
     :param builtins.str mobile_network_id: The ID of the Mobile Network which the Sim Policy belongs to.

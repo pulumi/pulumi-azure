@@ -34,7 +34,7 @@ class VirtualNetworkPeeringArgs:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] remote_address_space_prefixes: A list of address blocks reserved for the remote virtual network in CIDR notation. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] remote_virtual_network_id: The ID of the remote virtual network. Changing this forces a new resource to be created.
                
-               > **NOTE:** The remote virtual network should be in the same region as the databricks workspace. Please see the [product documentation](https://learn.microsoft.com/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering) for more information.
+               > **Note:** The remote virtual network should be in the same region as the databricks workspace. Please see the [product documentation](https://learn.microsoft.com/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering) for more information.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the Resource Group in which the Databricks Virtual Network Peering should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] workspace_id: The ID of the Databricks Workspace that this Databricks Virtual Network Peering is bound. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.bool] allow_forwarded_traffic: Can the forwarded traffic from the VMs in the local virtual network be forwarded to the remote virtual network? Defaults to `false`.
@@ -43,7 +43,7 @@ class VirtualNetworkPeeringArgs:
         :param pulumi.Input[builtins.str] name: Specifies the name of the Databricks Virtual Network Peering resource. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.bool] use_remote_gateways: Can remote gateways be used on the Databricks virtual network? Defaults to `false`.
                
-               > **NOTE:** If the `use_remote_gateways` is set to `true`, and `allow_gateway_transit` on the remote peering is also `true`, the virtual network will use the gateways of the remote virtual network for transit. Only one peering can have this flag set to `true`. `use_remote_gateways` cannot be set if the virtual network already has a gateway.
+               > **Note:** If the `use_remote_gateways` is set to `true`, and `allow_gateway_transit` on the remote peering is also `true`, the virtual network will use the gateways of the remote virtual network for transit. Only one peering can have this flag set to `true`. `use_remote_gateways` cannot be set if the virtual network already has a gateway.
         """
         pulumi.set(__self__, "remote_address_space_prefixes", remote_address_space_prefixes)
         pulumi.set(__self__, "remote_virtual_network_id", remote_virtual_network_id)
@@ -78,7 +78,7 @@ class VirtualNetworkPeeringArgs:
         """
         The ID of the remote virtual network. Changing this forces a new resource to be created.
 
-        > **NOTE:** The remote virtual network should be in the same region as the databricks workspace. Please see the [product documentation](https://learn.microsoft.com/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering) for more information.
+        > **Note:** The remote virtual network should be in the same region as the databricks workspace. Please see the [product documentation](https://learn.microsoft.com/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering) for more information.
         """
         return pulumi.get(self, "remote_virtual_network_id")
 
@@ -164,7 +164,7 @@ class VirtualNetworkPeeringArgs:
         """
         Can remote gateways be used on the Databricks virtual network? Defaults to `false`.
 
-        > **NOTE:** If the `use_remote_gateways` is set to `true`, and `allow_gateway_transit` on the remote peering is also `true`, the virtual network will use the gateways of the remote virtual network for transit. Only one peering can have this flag set to `true`. `use_remote_gateways` cannot be set if the virtual network already has a gateway.
+        > **Note:** If the `use_remote_gateways` is set to `true`, and `allow_gateway_transit` on the remote peering is also `true`, the virtual network will use the gateways of the remote virtual network for transit. Only one peering can have this flag set to `true`. `use_remote_gateways` cannot be set if the virtual network already has a gateway.
         """
         return pulumi.get(self, "use_remote_gateways")
 
@@ -197,14 +197,14 @@ class _VirtualNetworkPeeringState:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] remote_address_space_prefixes: A list of address blocks reserved for the remote virtual network in CIDR notation. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] remote_virtual_network_id: The ID of the remote virtual network. Changing this forces a new resource to be created.
                
-               > **NOTE:** The remote virtual network should be in the same region as the databricks workspace. Please see the [product documentation](https://learn.microsoft.com/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering) for more information.
+               > **Note:** The remote virtual network should be in the same region as the databricks workspace. Please see the [product documentation](https://learn.microsoft.com/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering) for more information.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the Resource Group in which the Databricks Virtual Network Peering should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.bool] use_remote_gateways: Can remote gateways be used on the Databricks virtual network? Defaults to `false`.
                
-               > **NOTE:** If the `use_remote_gateways` is set to `true`, and `allow_gateway_transit` on the remote peering is also `true`, the virtual network will use the gateways of the remote virtual network for transit. Only one peering can have this flag set to `true`. `use_remote_gateways` cannot be set if the virtual network already has a gateway.
+               > **Note:** If the `use_remote_gateways` is set to `true`, and `allow_gateway_transit` on the remote peering is also `true`, the virtual network will use the gateways of the remote virtual network for transit. Only one peering can have this flag set to `true`. `use_remote_gateways` cannot be set if the virtual network already has a gateway.
         :param pulumi.Input[builtins.str] virtual_network_id: The ID of the internal Virtual Network used by the DataBricks Workspace.
                
-               > **NOTE:** The `virtual_network_id` field is the value you must supply to the `network.VirtualNetworkPeering` resources `remote_virtual_network_id` field to successfully peer the Databricks Virtual Network with the remote virtual network.
+               > **Note:** The `virtual_network_id` field is the value you must supply to the `network.VirtualNetworkPeering` resources `remote_virtual_network_id` field to successfully peer the Databricks Virtual Network with the remote virtual network.
         :param pulumi.Input[builtins.str] workspace_id: The ID of the Databricks Workspace that this Databricks Virtual Network Peering is bound. Changing this forces a new resource to be created.
         """
         if address_space_prefixes is not None:
@@ -308,7 +308,7 @@ class _VirtualNetworkPeeringState:
         """
         The ID of the remote virtual network. Changing this forces a new resource to be created.
 
-        > **NOTE:** The remote virtual network should be in the same region as the databricks workspace. Please see the [product documentation](https://learn.microsoft.com/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering) for more information.
+        > **Note:** The remote virtual network should be in the same region as the databricks workspace. Please see the [product documentation](https://learn.microsoft.com/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering) for more information.
         """
         return pulumi.get(self, "remote_virtual_network_id")
 
@@ -334,7 +334,7 @@ class _VirtualNetworkPeeringState:
         """
         Can remote gateways be used on the Databricks virtual network? Defaults to `false`.
 
-        > **NOTE:** If the `use_remote_gateways` is set to `true`, and `allow_gateway_transit` on the remote peering is also `true`, the virtual network will use the gateways of the remote virtual network for transit. Only one peering can have this flag set to `true`. `use_remote_gateways` cannot be set if the virtual network already has a gateway.
+        > **Note:** If the `use_remote_gateways` is set to `true`, and `allow_gateway_transit` on the remote peering is also `true`, the virtual network will use the gateways of the remote virtual network for transit. Only one peering can have this flag set to `true`. `use_remote_gateways` cannot be set if the virtual network already has a gateway.
         """
         return pulumi.get(self, "use_remote_gateways")
 
@@ -348,7 +348,7 @@ class _VirtualNetworkPeeringState:
         """
         The ID of the internal Virtual Network used by the DataBricks Workspace.
 
-        > **NOTE:** The `virtual_network_id` field is the value you must supply to the `network.VirtualNetworkPeering` resources `remote_virtual_network_id` field to successfully peer the Databricks Virtual Network with the remote virtual network.
+        > **Note:** The `virtual_network_id` field is the value you must supply to the `network.VirtualNetworkPeering` resources `remote_virtual_network_id` field to successfully peer the Databricks Virtual Network with the remote virtual network.
         """
         return pulumi.get(self, "virtual_network_id")
 
@@ -439,11 +439,11 @@ class VirtualNetworkPeering(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] remote_address_space_prefixes: A list of address blocks reserved for the remote virtual network in CIDR notation. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] remote_virtual_network_id: The ID of the remote virtual network. Changing this forces a new resource to be created.
                
-               > **NOTE:** The remote virtual network should be in the same region as the databricks workspace. Please see the [product documentation](https://learn.microsoft.com/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering) for more information.
+               > **Note:** The remote virtual network should be in the same region as the databricks workspace. Please see the [product documentation](https://learn.microsoft.com/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering) for more information.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the Resource Group in which the Databricks Virtual Network Peering should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.bool] use_remote_gateways: Can remote gateways be used on the Databricks virtual network? Defaults to `false`.
                
-               > **NOTE:** If the `use_remote_gateways` is set to `true`, and `allow_gateway_transit` on the remote peering is also `true`, the virtual network will use the gateways of the remote virtual network for transit. Only one peering can have this flag set to `true`. `use_remote_gateways` cannot be set if the virtual network already has a gateway.
+               > **Note:** If the `use_remote_gateways` is set to `true`, and `allow_gateway_transit` on the remote peering is also `true`, the virtual network will use the gateways of the remote virtual network for transit. Only one peering can have this flag set to `true`. `use_remote_gateways` cannot be set if the virtual network already has a gateway.
         :param pulumi.Input[builtins.str] workspace_id: The ID of the Databricks Workspace that this Databricks Virtual Network Peering is bound. Changing this forces a new resource to be created.
         """
         ...
@@ -585,14 +585,14 @@ class VirtualNetworkPeering(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] remote_address_space_prefixes: A list of address blocks reserved for the remote virtual network in CIDR notation. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] remote_virtual_network_id: The ID of the remote virtual network. Changing this forces a new resource to be created.
                
-               > **NOTE:** The remote virtual network should be in the same region as the databricks workspace. Please see the [product documentation](https://learn.microsoft.com/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering) for more information.
+               > **Note:** The remote virtual network should be in the same region as the databricks workspace. Please see the [product documentation](https://learn.microsoft.com/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering) for more information.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the Resource Group in which the Databricks Virtual Network Peering should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.bool] use_remote_gateways: Can remote gateways be used on the Databricks virtual network? Defaults to `false`.
                
-               > **NOTE:** If the `use_remote_gateways` is set to `true`, and `allow_gateway_transit` on the remote peering is also `true`, the virtual network will use the gateways of the remote virtual network for transit. Only one peering can have this flag set to `true`. `use_remote_gateways` cannot be set if the virtual network already has a gateway.
+               > **Note:** If the `use_remote_gateways` is set to `true`, and `allow_gateway_transit` on the remote peering is also `true`, the virtual network will use the gateways of the remote virtual network for transit. Only one peering can have this flag set to `true`. `use_remote_gateways` cannot be set if the virtual network already has a gateway.
         :param pulumi.Input[builtins.str] virtual_network_id: The ID of the internal Virtual Network used by the DataBricks Workspace.
                
-               > **NOTE:** The `virtual_network_id` field is the value you must supply to the `network.VirtualNetworkPeering` resources `remote_virtual_network_id` field to successfully peer the Databricks Virtual Network with the remote virtual network.
+               > **Note:** The `virtual_network_id` field is the value you must supply to the `network.VirtualNetworkPeering` resources `remote_virtual_network_id` field to successfully peer the Databricks Virtual Network with the remote virtual network.
         :param pulumi.Input[builtins.str] workspace_id: The ID of the Databricks Workspace that this Databricks Virtual Network Peering is bound. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -666,7 +666,7 @@ class VirtualNetworkPeering(pulumi.CustomResource):
         """
         The ID of the remote virtual network. Changing this forces a new resource to be created.
 
-        > **NOTE:** The remote virtual network should be in the same region as the databricks workspace. Please see the [product documentation](https://learn.microsoft.com/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering) for more information.
+        > **Note:** The remote virtual network should be in the same region as the databricks workspace. Please see the [product documentation](https://learn.microsoft.com/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering) for more information.
         """
         return pulumi.get(self, "remote_virtual_network_id")
 
@@ -684,7 +684,7 @@ class VirtualNetworkPeering(pulumi.CustomResource):
         """
         Can remote gateways be used on the Databricks virtual network? Defaults to `false`.
 
-        > **NOTE:** If the `use_remote_gateways` is set to `true`, and `allow_gateway_transit` on the remote peering is also `true`, the virtual network will use the gateways of the remote virtual network for transit. Only one peering can have this flag set to `true`. `use_remote_gateways` cannot be set if the virtual network already has a gateway.
+        > **Note:** If the `use_remote_gateways` is set to `true`, and `allow_gateway_transit` on the remote peering is also `true`, the virtual network will use the gateways of the remote virtual network for transit. Only one peering can have this flag set to `true`. `use_remote_gateways` cannot be set if the virtual network already has a gateway.
         """
         return pulumi.get(self, "use_remote_gateways")
 
@@ -694,7 +694,7 @@ class VirtualNetworkPeering(pulumi.CustomResource):
         """
         The ID of the internal Virtual Network used by the DataBricks Workspace.
 
-        > **NOTE:** The `virtual_network_id` field is the value you must supply to the `network.VirtualNetworkPeering` resources `remote_virtual_network_id` field to successfully peer the Databricks Virtual Network with the remote virtual network.
+        > **Note:** The `virtual_network_id` field is the value you must supply to the `network.VirtualNetworkPeering` resources `remote_virtual_network_id` field to successfully peer the Databricks Virtual Network with the remote virtual network.
         """
         return pulumi.get(self, "virtual_network_id")
 

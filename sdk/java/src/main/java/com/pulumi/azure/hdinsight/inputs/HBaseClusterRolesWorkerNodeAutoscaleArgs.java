@@ -18,7 +18,7 @@ public final class HBaseClusterRolesWorkerNodeAutoscaleArgs extends com.pulumi.r
     /**
      * A `recurrence` block as defined below.
      * 
-     * &gt; **NOTE:** Either a `capacity` or `recurrence` block must be specified - but not both.
+     * &gt; **Note:** Either a `capacity` or `recurrence` block must be specified - but not both.
      * 
      */
     @Import(name="recurrence")
@@ -27,7 +27,7 @@ public final class HBaseClusterRolesWorkerNodeAutoscaleArgs extends com.pulumi.r
     /**
      * @return A `recurrence` block as defined below.
      * 
-     * &gt; **NOTE:** Either a `capacity` or `recurrence` block must be specified - but not both.
+     * &gt; **Note:** Either a `capacity` or `recurrence` block must be specified - but not both.
      * 
      */
     public Optional<Output<HBaseClusterRolesWorkerNodeAutoscaleRecurrenceArgs>> recurrence() {
@@ -61,7 +61,7 @@ public final class HBaseClusterRolesWorkerNodeAutoscaleArgs extends com.pulumi.r
         /**
          * @param recurrence A `recurrence` block as defined below.
          * 
-         * &gt; **NOTE:** Either a `capacity` or `recurrence` block must be specified - but not both.
+         * &gt; **Note:** Either a `capacity` or `recurrence` block must be specified - but not both.
          * 
          * @return builder
          * 
@@ -74,7 +74,7 @@ public final class HBaseClusterRolesWorkerNodeAutoscaleArgs extends com.pulumi.r
         /**
          * @param recurrence A `recurrence` block as defined below.
          * 
-         * &gt; **NOTE:** Either a `capacity` or `recurrence` block must be specified - but not both.
+         * &gt; **Note:** Either a `capacity` or `recurrence` block must be specified - but not both.
          * 
          * @return builder
          * 

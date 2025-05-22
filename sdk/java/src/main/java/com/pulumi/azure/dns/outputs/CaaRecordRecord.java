@@ -17,7 +17,7 @@ public final class CaaRecordRecord {
      */
     private Integer flags;
     /**
-     * @return A property tag, options are `issue`, `issuewild` and `iodef`.
+     * @return A property tag, options are `issue`, `issuewild`, `iodef`, and `contactemail`.
      * 
      */
     private String tag;
@@ -36,7 +36,7 @@ public final class CaaRecordRecord {
         return this.flags;
     }
     /**
-     * @return A property tag, options are `issue`, `issuewild` and `iodef`.
+     * @return A property tag, options are `issue`, `issuewild`, `iodef`, and `contactemail`.
      * 
      */
     public String tag() {

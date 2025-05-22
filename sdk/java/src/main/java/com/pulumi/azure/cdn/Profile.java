@@ -18,6 +18,11 @@ import javax.annotation.Nullable;
 /**
  * Manages a CDN Profile to create a collection of CDN Endpoints.
  * 
+ * !&gt; **Note:** Azure rolled out a breaking change on Friday 9th April 2021 which may cause issues with the CDN/FrontDoor resources. More information is available in this GitHub issue - unfortunately this may necessitate a breaking change to the CDN and FrontDoor resources, more information will be posted in the GitHub issue as the necessary changes are identified.
+ * 
+ * !&gt; **Note:** The CDN services from Edgio(formerly Verizon) was shut down on 15 January 2025 and is no longer available.
+ * 
+ * !&gt; **Note:** Support for CDN services from Akamai was removed on 31 October 2023.
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
@@ -54,7 +59,7 @@ import javax.annotation.Nullable;
  *             .name("exampleCdnProfile")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .sku("Standard_Verizon")
+ *             .sku("Standard_Microsoft")
  *             .tags(Map.ofEntries(
  *                 Map.entry("environment", "Production"),
  *                 Map.entry("cost_center", "MSFT")

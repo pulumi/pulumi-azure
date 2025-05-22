@@ -85,6 +85,13 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.Web`: 2023-12-01
+ * 
  * ## Import
  * 
  * App Service Source Controls can be imported using the `resource id`, e.g.
@@ -99,7 +106,7 @@ public class SourceControl extends com.pulumi.resources.CustomResource {
     /**
      * The ID of the Windows or Linux Web App. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** Function apps are not supported at this time.
+     * &gt; **Note:** Function apps are not supported at this time.
      * 
      */
     @Export(name="appId", refs={String.class}, tree="[0]")
@@ -108,7 +115,7 @@ public class SourceControl extends com.pulumi.resources.CustomResource {
     /**
      * @return The ID of the Windows or Linux Web App. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** Function apps are not supported at this time.
+     * &gt; **Note:** Function apps are not supported at this time.
      * 
      */
     public Output<String> appId() {
@@ -159,7 +166,7 @@ public class SourceControl extends com.pulumi.resources.CustomResource {
     /**
      * Should the Deployment Rollback be enabled? Defaults to `false`. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** Azure can typically set this value automatically based on the `repo_url` value.
+     * &gt; **Note:** Azure can typically set this value automatically based on the `repo_url` value.
      * 
      */
     @Export(name="rollbackEnabled", refs={Boolean.class}, tree="[0]")
@@ -168,7 +175,7 @@ public class SourceControl extends com.pulumi.resources.CustomResource {
     /**
      * @return Should the Deployment Rollback be enabled? Defaults to `false`. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** Azure can typically set this value automatically based on the `repo_url` value.
+     * &gt; **Note:** Azure can typically set this value automatically based on the `repo_url` value.
      * 
      */
     public Output<Optional<Boolean>> rollbackEnabled() {

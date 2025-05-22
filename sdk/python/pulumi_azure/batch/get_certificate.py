@@ -144,6 +144,13 @@ def get_certificate(account_name: Optional[builtins.str] = None,
     pulumi.export("thumbprint", example.thumbprint)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Batch`: 2024-07-01
+
 
     :param builtins.str account_name: The name of the Batch account.
     :param builtins.str name: The name of the Batch certificate.
@@ -183,6 +190,13 @@ def get_certificate_output(account_name: Optional[pulumi.Input[builtins.str]] = 
         resource_group_name="example")
     pulumi.export("thumbprint", example.thumbprint)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Batch`: 2024-07-01
 
 
     :param builtins.str account_name: The name of the Batch account.

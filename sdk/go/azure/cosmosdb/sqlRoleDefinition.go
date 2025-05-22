@@ -102,7 +102,7 @@ type SqlRoleDefinition struct {
 	AccountName pulumi.StringOutput `pulumi:"accountName"`
 	// A list of fully qualified scopes at or below which Role Assignments may be created using this Cosmos DB SQL Role Definition. It will allow application of this Cosmos DB SQL Role Definition on the entire Database Account or any underlying Database/Collection. Scopes higher than Database Account are not enforceable as assignable scopes.
 	//
-	// > **NOTE:** The resources referenced in assignable scopes need not exist.
+	// > **Note:** The resources referenced in assignable scopes need not exist.
 	AssignableScopes pulumi.StringArrayOutput `pulumi:"assignableScopes"`
 	// An user-friendly name for the Cosmos DB SQL Role Definition which must be unique for the Database Account.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -162,7 +162,7 @@ type sqlRoleDefinitionState struct {
 	AccountName *string `pulumi:"accountName"`
 	// A list of fully qualified scopes at or below which Role Assignments may be created using this Cosmos DB SQL Role Definition. It will allow application of this Cosmos DB SQL Role Definition on the entire Database Account or any underlying Database/Collection. Scopes higher than Database Account are not enforceable as assignable scopes.
 	//
-	// > **NOTE:** The resources referenced in assignable scopes need not exist.
+	// > **Note:** The resources referenced in assignable scopes need not exist.
 	AssignableScopes []string `pulumi:"assignableScopes"`
 	// An user-friendly name for the Cosmos DB SQL Role Definition which must be unique for the Database Account.
 	Name *string `pulumi:"name"`
@@ -181,7 +181,7 @@ type SqlRoleDefinitionState struct {
 	AccountName pulumi.StringPtrInput
 	// A list of fully qualified scopes at or below which Role Assignments may be created using this Cosmos DB SQL Role Definition. It will allow application of this Cosmos DB SQL Role Definition on the entire Database Account or any underlying Database/Collection. Scopes higher than Database Account are not enforceable as assignable scopes.
 	//
-	// > **NOTE:** The resources referenced in assignable scopes need not exist.
+	// > **Note:** The resources referenced in assignable scopes need not exist.
 	AssignableScopes pulumi.StringArrayInput
 	// An user-friendly name for the Cosmos DB SQL Role Definition which must be unique for the Database Account.
 	Name pulumi.StringPtrInput
@@ -204,7 +204,7 @@ type sqlRoleDefinitionArgs struct {
 	AccountName string `pulumi:"accountName"`
 	// A list of fully qualified scopes at or below which Role Assignments may be created using this Cosmos DB SQL Role Definition. It will allow application of this Cosmos DB SQL Role Definition on the entire Database Account or any underlying Database/Collection. Scopes higher than Database Account are not enforceable as assignable scopes.
 	//
-	// > **NOTE:** The resources referenced in assignable scopes need not exist.
+	// > **Note:** The resources referenced in assignable scopes need not exist.
 	AssignableScopes []string `pulumi:"assignableScopes"`
 	// An user-friendly name for the Cosmos DB SQL Role Definition which must be unique for the Database Account.
 	Name *string `pulumi:"name"`
@@ -224,7 +224,7 @@ type SqlRoleDefinitionArgs struct {
 	AccountName pulumi.StringInput
 	// A list of fully qualified scopes at or below which Role Assignments may be created using this Cosmos DB SQL Role Definition. It will allow application of this Cosmos DB SQL Role Definition on the entire Database Account or any underlying Database/Collection. Scopes higher than Database Account are not enforceable as assignable scopes.
 	//
-	// > **NOTE:** The resources referenced in assignable scopes need not exist.
+	// > **Note:** The resources referenced in assignable scopes need not exist.
 	AssignableScopes pulumi.StringArrayInput
 	// An user-friendly name for the Cosmos DB SQL Role Definition which must be unique for the Database Account.
 	Name pulumi.StringPtrInput
@@ -332,7 +332,7 @@ func (o SqlRoleDefinitionOutput) AccountName() pulumi.StringOutput {
 
 // A list of fully qualified scopes at or below which Role Assignments may be created using this Cosmos DB SQL Role Definition. It will allow application of this Cosmos DB SQL Role Definition on the entire Database Account or any underlying Database/Collection. Scopes higher than Database Account are not enforceable as assignable scopes.
 //
-// > **NOTE:** The resources referenced in assignable scopes need not exist.
+// > **Note:** The resources referenced in assignable scopes need not exist.
 func (o SqlRoleDefinitionOutput) AssignableScopes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SqlRoleDefinition) pulumi.StringArrayOutput { return v.AssignableScopes }).(pulumi.StringArrayOutput)
 }

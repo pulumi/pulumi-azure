@@ -60,6 +60,13 @@ import (
 //
 // ```
 //
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.CognitiveServices`: 2024-10-01
+//
 // ## Import
 //
 // Cognitive Account Rai Blocklist can be imported using the `resource id`, e.g.

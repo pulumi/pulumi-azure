@@ -226,6 +226,13 @@ class HyperVReplicationPolicy(pulumi.CustomResource):
             replication_interval_in_seconds=300)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.RecoveryServices`: 2024-04-01
+
         ## Import
 
         Site Recovery Replication Policies can be imported using the `resource id`, e.g.
@@ -272,6 +279,13 @@ class HyperVReplicationPolicy(pulumi.CustomResource):
             application_consistent_snapshot_frequency_in_hours=1,
             replication_interval_in_seconds=300)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.RecoveryServices`: 2024-04-01
 
         ## Import
 

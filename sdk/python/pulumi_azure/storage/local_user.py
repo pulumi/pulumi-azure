@@ -353,6 +353,13 @@ class LocalUser(pulumi.CustomResource):
             }])
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Storage`: 2023-05-01
+
         ## Import
 
         Storage Account Local Users can be imported using the `resource id`, e.g.
@@ -425,6 +432,13 @@ class LocalUser(pulumi.CustomResource):
                 "resource_name": example_container.name,
             }])
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Storage`: 2023-05-01
 
         ## Import
 

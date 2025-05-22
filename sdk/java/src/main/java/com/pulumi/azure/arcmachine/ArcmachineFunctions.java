@@ -55,6 +55,13 @@ public final class ArcmachineFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.HybridCompute`: 2022-11-10
+     * 
      */
     public static Output<GetResult> get(GetArgs args) {
         return get(args, InvokeOptions.Empty);
@@ -98,6 +105,13 @@ public final class ArcmachineFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.HybridCompute`: 2022-11-10
      * 
      */
     public static CompletableFuture<GetResult> getPlain(GetPlainArgs args) {
@@ -143,6 +157,13 @@ public final class ArcmachineFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.HybridCompute`: 2022-11-10
+     * 
      */
     public static Output<GetResult> get(GetArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:arcmachine/get:get", TypeShape.of(GetResult.class), args, Utilities.withVersion(options));
@@ -187,6 +208,13 @@ public final class ArcmachineFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.HybridCompute`: 2022-11-10
+     * 
      */
     public static Output<GetResult> get(GetArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:arcmachine/get:get", TypeShape.of(GetResult.class), args, Utilities.withVersion(options));
@@ -230,6 +258,13 @@ public final class ArcmachineFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.HybridCompute`: 2022-11-10
      * 
      */
     public static CompletableFuture<GetResult> getPlain(GetPlainArgs args, InvokeOptions options) {

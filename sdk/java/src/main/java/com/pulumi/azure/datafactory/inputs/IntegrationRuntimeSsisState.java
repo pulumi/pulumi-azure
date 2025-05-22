@@ -59,7 +59,7 @@ public final class IntegrationRuntimeSsisState extends com.pulumi.resources.Reso
     /**
      * The name of a Data Factory Credential that the SSIS integration will use to access data sources. For example, `azure.datafactory.CredentialUserManagedIdentity`
      * 
-     * &gt; **NOTE** If `credential_name` is omitted, the integration runtime will use the Data Factory assigned identity.
+     * &gt; **Note:** If `credential_name` is omitted, the integration runtime will use the Data Factory assigned identity.
      * 
      */
     @Import(name="credentialName")
@@ -68,7 +68,7 @@ public final class IntegrationRuntimeSsisState extends com.pulumi.resources.Reso
     /**
      * @return The name of a Data Factory Credential that the SSIS integration will use to access data sources. For example, `azure.datafactory.CredentialUserManagedIdentity`
      * 
-     * &gt; **NOTE** If `credential_name` is omitted, the integration runtime will use the Data Factory assigned identity.
+     * &gt; **Note:** If `credential_name` is omitted, the integration runtime will use the Data Factory assigned identity.
      * 
      */
     public Optional<Output<String>> credentialName() {
@@ -402,7 +402,7 @@ public final class IntegrationRuntimeSsisState extends com.pulumi.resources.Reso
         /**
          * @param credentialName The name of a Data Factory Credential that the SSIS integration will use to access data sources. For example, `azure.datafactory.CredentialUserManagedIdentity`
          * 
-         * &gt; **NOTE** If `credential_name` is omitted, the integration runtime will use the Data Factory assigned identity.
+         * &gt; **Note:** If `credential_name` is omitted, the integration runtime will use the Data Factory assigned identity.
          * 
          * @return builder
          * 
@@ -415,7 +415,7 @@ public final class IntegrationRuntimeSsisState extends com.pulumi.resources.Reso
         /**
          * @param credentialName The name of a Data Factory Credential that the SSIS integration will use to access data sources. For example, `azure.datafactory.CredentialUserManagedIdentity`
          * 
-         * &gt; **NOTE** If `credential_name` is omitted, the integration runtime will use the Data Factory assigned identity.
+         * &gt; **Note:** If `credential_name` is omitted, the integration runtime will use the Data Factory assigned identity.
          * 
          * @return builder
          * 

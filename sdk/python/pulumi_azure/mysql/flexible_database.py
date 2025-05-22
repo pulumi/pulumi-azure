@@ -219,7 +219,7 @@ class FlexibleDatabase(pulumi.CustomResource):
             location=example.location,
             administrator_login="mysqladminun",
             administrator_password="H@Sh1CoR3!",
-            sku_name="B_Standard_B1s")
+            sku_name="B_Standard_B1ms")
         example_flexible_database = azure.mysql.FlexibleDatabase("example",
             name="exampledb",
             resource_group_name=example.name,
@@ -268,7 +268,7 @@ class FlexibleDatabase(pulumi.CustomResource):
             location=example.location,
             administrator_login="mysqladminun",
             administrator_password="H@Sh1CoR3!",
-            sku_name="B_Standard_B1s")
+            sku_name="B_Standard_B1ms")
         example_flexible_database = azure.mysql.FlexibleDatabase("example",
             name="exampledb",
             resource_group_name=example.name,

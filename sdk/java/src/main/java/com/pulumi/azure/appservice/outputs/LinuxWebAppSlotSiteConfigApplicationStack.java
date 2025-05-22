@@ -19,7 +19,7 @@ public final class LinuxWebAppSlotSiteConfigApplicationStack {
     /**
      * @return The User Name to use for authentication against the registry to pull the image.
      * 
-     * &gt; **NOTE:** `docker_registry_url`, `docker_registry_username`, and `docker_registry_password` replace the use of the `app_settings` values of `DOCKER_REGISTRY_SERVER_URL`, `DOCKER_REGISTRY_SERVER_USERNAME` and `DOCKER_REGISTRY_SERVER_PASSWORD` respectively, these values will be managed by the provider and should not be specified in the `app_settings` map.
+     * &gt; **Note:** `docker_registry_url`, `docker_registry_username`, and `docker_registry_password` replace the use of the `app_settings` values of `DOCKER_REGISTRY_SERVER_URL`, `DOCKER_REGISTRY_SERVER_USERNAME` and `DOCKER_REGISTRY_SERVER_PASSWORD` respectively, these values will be managed by the provider and should not be specified in the `app_settings` map.
      * 
      */
     private @Nullable String dockerRegistryPassword;
@@ -46,7 +46,7 @@ public final class LinuxWebAppSlotSiteConfigApplicationStack {
     /**
      * @return The Java server type. Possible values include `JAVA`, `TOMCAT`, and `JBOSSEAP`.
      * 
-     * &gt; **NOTE:** `JBOSSEAP` requires a Premium Service Plan SKU to be a valid option.
+     * &gt; **Note:** `JBOSSEAP` requires a Premium Service Plan SKU to be a valid option.
      * 
      */
     private @Nullable String javaServer;
@@ -58,21 +58,21 @@ public final class LinuxWebAppSlotSiteConfigApplicationStack {
     /**
      * @return The Version of Java to use. Possible values include `8`, `11`, and `17`.
      * 
-     * &gt; **NOTE:** The valid version combinations for `java_version`, `java_server` and `java_server_version` can be checked from the command line via `az webapp list-runtimes --os-type linux`.
+     * &gt; **Note:** The valid version combinations for `java_version`, `java_server` and `java_server_version` can be checked from the command line via `az webapp list-runtimes --os-type linux`.
      * 
      */
     private @Nullable String javaVersion;
     /**
      * @return The version of Node to run. Possible values are `12-lts`, `14-lts`, `16-lts`, `18-lts`, `20-lts` and `22-lts`. This property conflicts with `java_version`.
      * 
-     * &gt; **NOTE:** 10.x versions have been/are being deprecated so may cease to work for new resources in the future and may be removed from the provider.
+     * &gt; **Note:** 10.x versions have been/are being deprecated so may cease to work for new resources in the future and may be removed from the provider.
      * 
      */
     private @Nullable String nodeVersion;
     /**
      * @return The version of PHP to run. Possible values are `7.4`, `8.0`, `8.1`, `8.2` and `8.3`.
      * 
-     * &gt; **NOTE:** version `7.4` is deprecated and will be removed from the provider in a future version.
+     * &gt; **Note:** version `7.4` is deprecated and will be removed from the provider in a future version.
      * 
      */
     private @Nullable String phpVersion;
@@ -98,7 +98,7 @@ public final class LinuxWebAppSlotSiteConfigApplicationStack {
     /**
      * @return The User Name to use for authentication against the registry to pull the image.
      * 
-     * &gt; **NOTE:** `docker_registry_url`, `docker_registry_username`, and `docker_registry_password` replace the use of the `app_settings` values of `DOCKER_REGISTRY_SERVER_URL`, `DOCKER_REGISTRY_SERVER_USERNAME` and `DOCKER_REGISTRY_SERVER_PASSWORD` respectively, these values will be managed by the provider and should not be specified in the `app_settings` map.
+     * &gt; **Note:** `docker_registry_url`, `docker_registry_username`, and `docker_registry_password` replace the use of the `app_settings` values of `DOCKER_REGISTRY_SERVER_URL`, `DOCKER_REGISTRY_SERVER_USERNAME` and `DOCKER_REGISTRY_SERVER_PASSWORD` respectively, these values will be managed by the provider and should not be specified in the `app_settings` map.
      * 
      */
     public Optional<String> dockerRegistryPassword() {
@@ -135,7 +135,7 @@ public final class LinuxWebAppSlotSiteConfigApplicationStack {
     /**
      * @return The Java server type. Possible values include `JAVA`, `TOMCAT`, and `JBOSSEAP`.
      * 
-     * &gt; **NOTE:** `JBOSSEAP` requires a Premium Service Plan SKU to be a valid option.
+     * &gt; **Note:** `JBOSSEAP` requires a Premium Service Plan SKU to be a valid option.
      * 
      */
     public Optional<String> javaServer() {
@@ -151,7 +151,7 @@ public final class LinuxWebAppSlotSiteConfigApplicationStack {
     /**
      * @return The Version of Java to use. Possible values include `8`, `11`, and `17`.
      * 
-     * &gt; **NOTE:** The valid version combinations for `java_version`, `java_server` and `java_server_version` can be checked from the command line via `az webapp list-runtimes --os-type linux`.
+     * &gt; **Note:** The valid version combinations for `java_version`, `java_server` and `java_server_version` can be checked from the command line via `az webapp list-runtimes --os-type linux`.
      * 
      */
     public Optional<String> javaVersion() {
@@ -160,7 +160,7 @@ public final class LinuxWebAppSlotSiteConfigApplicationStack {
     /**
      * @return The version of Node to run. Possible values are `12-lts`, `14-lts`, `16-lts`, `18-lts`, `20-lts` and `22-lts`. This property conflicts with `java_version`.
      * 
-     * &gt; **NOTE:** 10.x versions have been/are being deprecated so may cease to work for new resources in the future and may be removed from the provider.
+     * &gt; **Note:** 10.x versions have been/are being deprecated so may cease to work for new resources in the future and may be removed from the provider.
      * 
      */
     public Optional<String> nodeVersion() {
@@ -169,7 +169,7 @@ public final class LinuxWebAppSlotSiteConfigApplicationStack {
     /**
      * @return The version of PHP to run. Possible values are `7.4`, `8.0`, `8.1`, `8.2` and `8.3`.
      * 
-     * &gt; **NOTE:** version `7.4` is deprecated and will be removed from the provider in a future version.
+     * &gt; **Note:** version `7.4` is deprecated and will be removed from the provider in a future version.
      * 
      */
     public Optional<String> phpVersion() {

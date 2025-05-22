@@ -129,7 +129,7 @@ class AIServicesIdentity(dict):
         :param builtins.str type: Specifies the type of Managed Service Identity that should be configured on this AI Services Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned`
         :param Sequence[builtins.str] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this AI Services Account.
                
-               > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+               > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         :param builtins.str principal_id: The Principal ID associated with this Managed Service Identity.
         :param builtins.str tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
@@ -155,7 +155,7 @@ class AIServicesIdentity(dict):
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this AI Services Account.
 
-        > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+        > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         """
         return pulumi.get(self, "identity_ids")
 
@@ -432,7 +432,7 @@ class AccountIdentity(dict):
         :param builtins.str type: Specifies the type of Managed Service Identity that should be configured on this Cognitive Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
         :param Sequence[builtins.str] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this Cognitive Account.
                
-               > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+               > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         :param builtins.str principal_id: The Principal ID associated with this Managed Service Identity.
         :param builtins.str tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
@@ -458,7 +458,7 @@ class AccountIdentity(dict):
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this Cognitive Account.
 
-        > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+        > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         """
         return pulumi.get(self, "identity_ids")
 
@@ -511,7 +511,7 @@ class AccountNetworkAcls(dict):
         :param builtins.str default_action: The Default Action to use when no rules match from `ip_rules` / `virtual_network_rules`. Possible values are `Allow` and `Deny`.
         :param builtins.str bypass: Whether to allow trusted Azure Services to access the service. Possible values are `None` and `AzureServices`.
                
-               > **NOTE:** `bypass` can only be set when `kind` is set to `OpenAI`
+               > **Note:** `bypass` can only be set when `kind` is set to `OpenAI`
         :param Sequence[builtins.str] ip_rules: One or more IP Addresses, or CIDR Blocks which should be able to access the Cognitive Account.
         :param Sequence['AccountNetworkAclsVirtualNetworkRuleArgs'] virtual_network_rules: A `virtual_network_rules` block as defined below.
         """
@@ -537,7 +537,7 @@ class AccountNetworkAcls(dict):
         """
         Whether to allow trusted Azure Services to access the service. Possible values are `None` and `AzureServices`.
 
-        > **NOTE:** `bypass` can only be set when `kind` is set to `OpenAI`
+        > **Note:** `bypass` can only be set when `kind` is set to `OpenAI`
         """
         return pulumi.get(self, "bypass")
 
@@ -718,7 +718,7 @@ class AccountStorage(dict):
         :param builtins.str storage_account_id: Full resource id of a Microsoft.Storage resource.
         :param builtins.str identity_client_id: The client ID of the managed identity associated with the storage resource.
                
-               > **NOTE:** Not all `kind` support a `storage` block. For example the `kind` `OpenAI` does not support it.
+               > **Note:** Not all `kind` support a `storage` block. For example the `kind` `OpenAI` does not support it.
         """
         pulumi.set(__self__, "storage_account_id", storage_account_id)
         if identity_client_id is not None:
@@ -738,7 +738,7 @@ class AccountStorage(dict):
         """
         The client ID of the managed identity associated with the storage resource.
 
-        > **NOTE:** Not all `kind` support a `storage` block. For example the `kind` `OpenAI` does not support it.
+        > **Note:** Not all `kind` support a `storage` block. For example the `kind` `OpenAI` does not support it.
         """
         return pulumi.get(self, "identity_client_id")
 
@@ -750,7 +750,7 @@ class DeploymentModel(dict):
                  name: builtins.str,
                  version: Optional[builtins.str] = None):
         """
-        :param builtins.str format: The format of the Cognitive Services Account Deployment model. Changing this forces a new resource to be created. Possible value is `OpenAI`.
+        :param builtins.str format: The format of the Cognitive Services Account Deployment model. Possible values are `OpenAI` and `Cohere`. Changing this forces a new resource to be created.
         :param builtins.str name: The name of the Cognitive Services Account Deployment model. Changing this forces a new resource to be created.
         :param builtins.str version: The version of Cognitive Services Account Deployment model. If `version` is not specified, the default version of the model at the time will be assigned.
         """
@@ -763,7 +763,7 @@ class DeploymentModel(dict):
     @pulumi.getter
     def format(self) -> builtins.str:
         """
-        The format of the Cognitive Services Account Deployment model. Changing this forces a new resource to be created. Possible value is `OpenAI`.
+        The format of the Cognitive Services Account Deployment model. Possible values are `OpenAI` and `Cohere`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "format")
 

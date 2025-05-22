@@ -57,7 +57,7 @@ public final class PolicyVMArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Specifies the instant restore retention range in days. Possible values are between `1` and `5` when `policy_type` is `V1`, and `1` to `30` when `policy_type` is `V2`.
      * 
-     * &gt; **NOTE:** `instant_restore_retention_days` **must** be set to `5` if the backup frequency is set to `Weekly`.
+     * &gt; **Note:** `instant_restore_retention_days` **must** be set to `5` if the backup frequency is set to `Weekly`.
      * 
      */
     @Import(name="instantRestoreRetentionDays")
@@ -66,7 +66,7 @@ public final class PolicyVMArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Specifies the instant restore retention range in days. Possible values are between `1` and `5` when `policy_type` is `V1`, and `1` to `30` when `policy_type` is `V2`.
      * 
-     * &gt; **NOTE:** `instant_restore_retention_days` **must** be set to `5` if the backup frequency is set to `Weekly`.
+     * &gt; **Note:** `instant_restore_retention_days` **must** be set to `5` if the backup frequency is set to `Weekly`.
      * 
      */
     public Optional<Output<Integer>> instantRestoreRetentionDays() {
@@ -304,7 +304,7 @@ public final class PolicyVMArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param instantRestoreRetentionDays Specifies the instant restore retention range in days. Possible values are between `1` and `5` when `policy_type` is `V1`, and `1` to `30` when `policy_type` is `V2`.
          * 
-         * &gt; **NOTE:** `instant_restore_retention_days` **must** be set to `5` if the backup frequency is set to `Weekly`.
+         * &gt; **Note:** `instant_restore_retention_days` **must** be set to `5` if the backup frequency is set to `Weekly`.
          * 
          * @return builder
          * 
@@ -317,7 +317,7 @@ public final class PolicyVMArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param instantRestoreRetentionDays Specifies the instant restore retention range in days. Possible values are between `1` and `5` when `policy_type` is `V1`, and `1` to `30` when `policy_type` is `V2`.
          * 
-         * &gt; **NOTE:** `instant_restore_retention_days` **must** be set to `5` if the backup frequency is set to `Weekly`.
+         * &gt; **Note:** `instant_restore_retention_days` **must** be set to `5` if the backup frequency is set to `Weekly`.
          * 
          * @return builder
          * 

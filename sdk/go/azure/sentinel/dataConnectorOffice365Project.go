@@ -81,7 +81,7 @@ type DataConnectorOffice365Project struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The ID of the tenant that this Office 365 Project Data Connector connects to. Changing this forces a new Office 365 Project Data Connector to be created.
 	//
-	// > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
+	// > **Note:** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
 	TenantId pulumi.StringOutput `pulumi:"tenantId"`
 }
 
@@ -124,7 +124,7 @@ type dataConnectorOffice365ProjectState struct {
 	Name *string `pulumi:"name"`
 	// The ID of the tenant that this Office 365 Project Data Connector connects to. Changing this forces a new Office 365 Project Data Connector to be created.
 	//
-	// > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
+	// > **Note:** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
 	TenantId *string `pulumi:"tenantId"`
 }
 
@@ -135,7 +135,7 @@ type DataConnectorOffice365ProjectState struct {
 	Name pulumi.StringPtrInput
 	// The ID of the tenant that this Office 365 Project Data Connector connects to. Changing this forces a new Office 365 Project Data Connector to be created.
 	//
-	// > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
+	// > **Note:** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
 	TenantId pulumi.StringPtrInput
 }
 
@@ -150,7 +150,7 @@ type dataConnectorOffice365ProjectArgs struct {
 	Name *string `pulumi:"name"`
 	// The ID of the tenant that this Office 365 Project Data Connector connects to. Changing this forces a new Office 365 Project Data Connector to be created.
 	//
-	// > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
+	// > **Note:** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
 	TenantId *string `pulumi:"tenantId"`
 }
 
@@ -162,7 +162,7 @@ type DataConnectorOffice365ProjectArgs struct {
 	Name pulumi.StringPtrInput
 	// The ID of the tenant that this Office 365 Project Data Connector connects to. Changing this forces a new Office 365 Project Data Connector to be created.
 	//
-	// > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
+	// > **Note:** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
 	TenantId pulumi.StringPtrInput
 }
 
@@ -265,7 +265,7 @@ func (o DataConnectorOffice365ProjectOutput) Name() pulumi.StringOutput {
 
 // The ID of the tenant that this Office 365 Project Data Connector connects to. Changing this forces a new Office 365 Project Data Connector to be created.
 //
-// > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
+// > **Note:** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
 func (o DataConnectorOffice365ProjectOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataConnectorOffice365Project) pulumi.StringOutput { return v.TenantId }).(pulumi.StringOutput)
 }

@@ -16,7 +16,7 @@ var _ = internal.GetEnvOrDefault
 type ComputeClusterIdentity struct {
 	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Compute Cluster. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+	// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Compute Cluster.
 	PrincipalId *string `pulumi:"principalId"`
@@ -40,7 +40,7 @@ type ComputeClusterIdentityInput interface {
 type ComputeClusterIdentityArgs struct {
 	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Compute Cluster. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+	// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Compute Cluster.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
@@ -129,7 +129,7 @@ func (o ComputeClusterIdentityOutput) ToComputeClusterIdentityPtrOutputWithConte
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Compute Cluster. Changing this forces a new resource to be created.
 //
-// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 func (o ComputeClusterIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ComputeClusterIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
@@ -175,7 +175,7 @@ func (o ComputeClusterIdentityPtrOutput) Elem() ComputeClusterIdentityOutput {
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Compute Cluster. Changing this forces a new resource to be created.
 //
-// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 func (o ComputeClusterIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ComputeClusterIdentity) []string {
 		if v == nil {
@@ -397,7 +397,7 @@ type ComputeClusterSsh struct {
 	AdminUsername string `pulumi:"adminUsername"`
 	// SSH public key of the administrator user account. Changing this forces a new Machine Learning Compute Cluster to be created.
 	//
-	// > **NOTE:** At least one of `adminPassword` and `keyValue` shoud be specified.
+	// > **Note:** At least one of `adminPassword` and `keyValue` shoud be specified.
 	KeyValue *string `pulumi:"keyValue"`
 }
 
@@ -419,7 +419,7 @@ type ComputeClusterSshArgs struct {
 	AdminUsername pulumi.StringInput `pulumi:"adminUsername"`
 	// SSH public key of the administrator user account. Changing this forces a new Machine Learning Compute Cluster to be created.
 	//
-	// > **NOTE:** At least one of `adminPassword` and `keyValue` shoud be specified.
+	// > **Note:** At least one of `adminPassword` and `keyValue` shoud be specified.
 	KeyValue pulumi.StringPtrInput `pulumi:"keyValue"`
 }
 
@@ -512,7 +512,7 @@ func (o ComputeClusterSshOutput) AdminUsername() pulumi.StringOutput {
 
 // SSH public key of the administrator user account. Changing this forces a new Machine Learning Compute Cluster to be created.
 //
-// > **NOTE:** At least one of `adminPassword` and `keyValue` shoud be specified.
+// > **Note:** At least one of `adminPassword` and `keyValue` shoud be specified.
 func (o ComputeClusterSshOutput) KeyValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComputeClusterSsh) *string { return v.KeyValue }).(pulumi.StringPtrOutput)
 }
@@ -563,7 +563,7 @@ func (o ComputeClusterSshPtrOutput) AdminUsername() pulumi.StringPtrOutput {
 
 // SSH public key of the administrator user account. Changing this forces a new Machine Learning Compute Cluster to be created.
 //
-// > **NOTE:** At least one of `adminPassword` and `keyValue` shoud be specified.
+// > **Note:** At least one of `adminPassword` and `keyValue` shoud be specified.
 func (o ComputeClusterSshPtrOutput) KeyValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ComputeClusterSsh) *string {
 		if v == nil {
@@ -732,7 +732,7 @@ func (o ComputeInstanceAssignToUserPtrOutput) TenantId() pulumi.StringPtrOutput 
 type ComputeInstanceIdentity struct {
 	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Compute Instance. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+	// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Compute Instance.
 	PrincipalId *string `pulumi:"principalId"`
@@ -756,7 +756,7 @@ type ComputeInstanceIdentityInput interface {
 type ComputeInstanceIdentityArgs struct {
 	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Compute Instance. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+	// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Compute Instance.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
@@ -845,7 +845,7 @@ func (o ComputeInstanceIdentityOutput) ToComputeInstanceIdentityPtrOutputWithCon
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Compute Instance. Changing this forces a new resource to be created.
 //
-// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 func (o ComputeInstanceIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ComputeInstanceIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
@@ -891,7 +891,7 @@ func (o ComputeInstanceIdentityPtrOutput) Elem() ComputeInstanceIdentityOutput {
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Compute Instance. Changing this forces a new resource to be created.
 //
-// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 func (o ComputeInstanceIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ComputeInstanceIdentity) []string {
 		if v == nil {
@@ -1109,7 +1109,7 @@ func (o ComputeInstanceSshPtrOutput) Username() pulumi.StringPtrOutput {
 type InferenceClusterIdentity struct {
 	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Inference Cluster. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+	// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Inference Cluster.
 	PrincipalId *string `pulumi:"principalId"`
@@ -1133,7 +1133,7 @@ type InferenceClusterIdentityInput interface {
 type InferenceClusterIdentityArgs struct {
 	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Inference Cluster. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+	// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Inference Cluster.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
@@ -1222,7 +1222,7 @@ func (o InferenceClusterIdentityOutput) ToInferenceClusterIdentityPtrOutputWithC
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Inference Cluster. Changing this forces a new resource to be created.
 //
-// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 func (o InferenceClusterIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v InferenceClusterIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
@@ -1268,7 +1268,7 @@ func (o InferenceClusterIdentityPtrOutput) Elem() InferenceClusterIdentityOutput
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Inference Cluster. Changing this forces a new resource to be created.
 //
-// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 func (o InferenceClusterIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *InferenceClusterIdentity) []string {
 		if v == nil {
@@ -1524,7 +1524,7 @@ func (o InferenceClusterSslPtrOutput) OverwriteExistingDomain() pulumi.BoolPtrOu
 type SynapseSparkIdentity struct {
 	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Synapse Spark. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+	// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Synapse Spark.
 	PrincipalId *string `pulumi:"principalId"`
@@ -1548,7 +1548,7 @@ type SynapseSparkIdentityInput interface {
 type SynapseSparkIdentityArgs struct {
 	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Synapse Spark. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+	// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Synapse Spark.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
@@ -1637,7 +1637,7 @@ func (o SynapseSparkIdentityOutput) ToSynapseSparkIdentityPtrOutputWithContext(c
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Synapse Spark. Changing this forces a new resource to be created.
 //
-// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 func (o SynapseSparkIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SynapseSparkIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
@@ -1683,7 +1683,7 @@ func (o SynapseSparkIdentityPtrOutput) Elem() SynapseSparkIdentityOutput {
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Synapse Spark. Changing this forces a new resource to be created.
 //
-// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 func (o SynapseSparkIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SynapseSparkIdentity) []string {
 		if v == nil {
@@ -2092,7 +2092,7 @@ func (o WorkspaceFeatureStorePtrOutput) OnlineConnectionName() pulumi.StringPtrO
 type WorkspaceIdentity struct {
 	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Workspace.
 	//
-	// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+	// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId *string `pulumi:"principalId"`
@@ -2116,7 +2116,7 @@ type WorkspaceIdentityInput interface {
 type WorkspaceIdentityArgs struct {
 	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Workspace.
 	//
-	// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+	// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
@@ -2205,7 +2205,7 @@ func (o WorkspaceIdentityOutput) ToWorkspaceIdentityPtrOutputWithContext(ctx con
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Workspace.
 //
-// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 func (o WorkspaceIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v WorkspaceIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
@@ -2251,7 +2251,7 @@ func (o WorkspaceIdentityPtrOutput) Elem() WorkspaceIdentityOutput {
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Workspace.
 //
-// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 func (o WorkspaceIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *WorkspaceIdentity) []string {
 		if v == nil {

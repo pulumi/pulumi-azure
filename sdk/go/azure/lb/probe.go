@@ -14,7 +14,7 @@ import (
 
 // Manages a LoadBalancer Probe Resource.
 //
-// > **NOTE** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration Attached
+// > **Note:** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration Attached
 //
 // ## Example Usage
 //
@@ -75,6 +75,13 @@ import (
 //	}
 //
 // ```
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.Network`: 2023-09-01
 //
 // ## Import
 //

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Dynatrace
 {
     /// <summary>
-    /// Manages Dynatrace monitors.
+    /// Manages a Dynatrace monitor.
     /// 
     /// ## Import
     /// 

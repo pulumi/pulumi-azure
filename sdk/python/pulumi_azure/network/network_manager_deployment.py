@@ -29,7 +29,7 @@ class NetworkManagerDeploymentArgs:
         The set of arguments for constructing a NetworkManagerDeployment resource.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] configuration_ids: A list of Network Manager Configuration IDs which should be aligned with `scope_access`.
         :param pulumi.Input[builtins.str] network_manager_id: Specifies the ID of the Network Manager. Changing this forces a new Network Manager Deployment to be created.
-        :param pulumi.Input[builtins.str] scope_access: Specifies the configuration deployment type. Possible values are `Connectivity` and `SecurityAdmin`. Changing this forces a new Network Manager Deployment to be created.
+        :param pulumi.Input[builtins.str] scope_access: Specifies the configuration deployment type. Possible values are `Connectivity`, `SecurityAdmin` and `Routing`. Changing this forces a new Network Manager Deployment to be created.
         :param pulumi.Input[builtins.str] location: Specifies the location which the configurations will be deployed to. Changing this forces a new Network Manager Deployment to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] triggers: A mapping of key values pairs that can be used to keep the deployment up with the Network Manager configurations and rules.
         """
@@ -69,7 +69,7 @@ class NetworkManagerDeploymentArgs:
     @pulumi.getter(name="scopeAccess")
     def scope_access(self) -> pulumi.Input[builtins.str]:
         """
-        Specifies the configuration deployment type. Possible values are `Connectivity` and `SecurityAdmin`. Changing this forces a new Network Manager Deployment to be created.
+        Specifies the configuration deployment type. Possible values are `Connectivity`, `SecurityAdmin` and `Routing`. Changing this forces a new Network Manager Deployment to be created.
         """
         return pulumi.get(self, "scope_access")
 
@@ -115,7 +115,7 @@ class _NetworkManagerDeploymentState:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] configuration_ids: A list of Network Manager Configuration IDs which should be aligned with `scope_access`.
         :param pulumi.Input[builtins.str] location: Specifies the location which the configurations will be deployed to. Changing this forces a new Network Manager Deployment to be created.
         :param pulumi.Input[builtins.str] network_manager_id: Specifies the ID of the Network Manager. Changing this forces a new Network Manager Deployment to be created.
-        :param pulumi.Input[builtins.str] scope_access: Specifies the configuration deployment type. Possible values are `Connectivity` and `SecurityAdmin`. Changing this forces a new Network Manager Deployment to be created.
+        :param pulumi.Input[builtins.str] scope_access: Specifies the configuration deployment type. Possible values are `Connectivity`, `SecurityAdmin` and `Routing`. Changing this forces a new Network Manager Deployment to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] triggers: A mapping of key values pairs that can be used to keep the deployment up with the Network Manager configurations and rules.
         """
         if configuration_ids is not None:
@@ -169,7 +169,7 @@ class _NetworkManagerDeploymentState:
     @pulumi.getter(name="scopeAccess")
     def scope_access(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies the configuration deployment type. Possible values are `Connectivity` and `SecurityAdmin`. Changing this forces a new Network Manager Deployment to be created.
+        Specifies the configuration deployment type. Possible values are `Connectivity`, `SecurityAdmin` and `Routing`. Changing this forces a new Network Manager Deployment to be created.
         """
         return pulumi.get(self, "scope_access")
 
@@ -205,7 +205,7 @@ class NetworkManagerDeployment(pulumi.CustomResource):
         """
         Manages a Network Manager Deployment.
 
-        > **NOTE on Virtual Network Peering:** Using Network Manager Deployment to deploy Connectivity Configuration may modify or delete existing Virtual Network Peering. At this time you should not use Network Peering resource in conjunction with Network Manager Deployment. Doing so may cause a conflict of Peering configurations.
+        > **Note:** Using Network Manager Deployment to deploy Connectivity Configuration may modify or delete existing Virtual Network Peering. At this time you should not use Network Peering resource in conjunction with Network Manager Deployment. Doing so may cause a conflict of Peering configurations.
 
         ## Example Usage
 
@@ -325,6 +325,13 @@ class NetworkManagerDeployment(pulumi.CustomResource):
             },
             opts = pulumi.ResourceOptions(depends_on=[example_network_manager_admin_rule]))
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network`: 2024-05-01
 
         ## Import
 
@@ -339,7 +346,7 @@ class NetworkManagerDeployment(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] configuration_ids: A list of Network Manager Configuration IDs which should be aligned with `scope_access`.
         :param pulumi.Input[builtins.str] location: Specifies the location which the configurations will be deployed to. Changing this forces a new Network Manager Deployment to be created.
         :param pulumi.Input[builtins.str] network_manager_id: Specifies the ID of the Network Manager. Changing this forces a new Network Manager Deployment to be created.
-        :param pulumi.Input[builtins.str] scope_access: Specifies the configuration deployment type. Possible values are `Connectivity` and `SecurityAdmin`. Changing this forces a new Network Manager Deployment to be created.
+        :param pulumi.Input[builtins.str] scope_access: Specifies the configuration deployment type. Possible values are `Connectivity`, `SecurityAdmin` and `Routing`. Changing this forces a new Network Manager Deployment to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] triggers: A mapping of key values pairs that can be used to keep the deployment up with the Network Manager configurations and rules.
         """
         ...
@@ -351,7 +358,7 @@ class NetworkManagerDeployment(pulumi.CustomResource):
         """
         Manages a Network Manager Deployment.
 
-        > **NOTE on Virtual Network Peering:** Using Network Manager Deployment to deploy Connectivity Configuration may modify or delete existing Virtual Network Peering. At this time you should not use Network Peering resource in conjunction with Network Manager Deployment. Doing so may cause a conflict of Peering configurations.
+        > **Note:** Using Network Manager Deployment to deploy Connectivity Configuration may modify or delete existing Virtual Network Peering. At this time you should not use Network Peering resource in conjunction with Network Manager Deployment. Doing so may cause a conflict of Peering configurations.
 
         ## Example Usage
 
@@ -471,6 +478,13 @@ class NetworkManagerDeployment(pulumi.CustomResource):
             },
             opts = pulumi.ResourceOptions(depends_on=[example_network_manager_admin_rule]))
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network`: 2024-05-01
 
         ## Import
 
@@ -545,7 +559,7 @@ class NetworkManagerDeployment(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] configuration_ids: A list of Network Manager Configuration IDs which should be aligned with `scope_access`.
         :param pulumi.Input[builtins.str] location: Specifies the location which the configurations will be deployed to. Changing this forces a new Network Manager Deployment to be created.
         :param pulumi.Input[builtins.str] network_manager_id: Specifies the ID of the Network Manager. Changing this forces a new Network Manager Deployment to be created.
-        :param pulumi.Input[builtins.str] scope_access: Specifies the configuration deployment type. Possible values are `Connectivity` and `SecurityAdmin`. Changing this forces a new Network Manager Deployment to be created.
+        :param pulumi.Input[builtins.str] scope_access: Specifies the configuration deployment type. Possible values are `Connectivity`, `SecurityAdmin` and `Routing`. Changing this forces a new Network Manager Deployment to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] triggers: A mapping of key values pairs that can be used to keep the deployment up with the Network Manager configurations and rules.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -587,7 +601,7 @@ class NetworkManagerDeployment(pulumi.CustomResource):
     @pulumi.getter(name="scopeAccess")
     def scope_access(self) -> pulumi.Output[builtins.str]:
         """
-        Specifies the configuration deployment type. Possible values are `Connectivity` and `SecurityAdmin`. Changing this forces a new Network Manager Deployment to be created.
+        Specifies the configuration deployment type. Possible values are `Connectivity`, `SecurityAdmin` and `Routing`. Changing this forces a new Network Manager Deployment to be created.
         """
         return pulumi.get(self, "scope_access")
 

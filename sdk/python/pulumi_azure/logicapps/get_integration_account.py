@@ -121,6 +121,13 @@ def get_integration_account(name: Optional[builtins.str] = None,
     pulumi.export("id", example.id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Logic`: 2019-05-01
+
 
     :param builtins.str name: The name of this Logic App Integration Account.
     :param builtins.str resource_group_name: The name of the Resource Group where the Logic App Integration Account exists.
@@ -154,6 +161,13 @@ def get_integration_account_output(name: Optional[pulumi.Input[builtins.str]] = 
         resource_group_name="example-resource-group")
     pulumi.export("id", example.id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Logic`: 2019-05-01
 
 
     :param builtins.str name: The name of this Logic App Integration Account.

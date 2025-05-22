@@ -228,7 +228,7 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// Controls if remote gateways can be used on the local virtual network. If the flag is set to `true`, and `allow_gateway_transit` on the remote peering is also `true`, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to `true`. This flag cannot be set if virtual network already has a gateway. Defaults to `false`.
         /// 
-        /// &gt; **NOTE:** `use_remote_gateways` must be set to `false` if using Global Virtual Network Peerings.
+        /// &gt; **Note:** `use_remote_gateways` must be set to `false` if using Global Virtual Network Peerings.
         /// </summary>
         [Output("useRemoteGateways")]
         public Output<bool?> UseRemoteGateways { get; private set; } = null!;
@@ -372,7 +372,7 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// Controls if remote gateways can be used on the local virtual network. If the flag is set to `true`, and `allow_gateway_transit` on the remote peering is also `true`, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to `true`. This flag cannot be set if virtual network already has a gateway. Defaults to `false`.
         /// 
-        /// &gt; **NOTE:** `use_remote_gateways` must be set to `false` if using Global Virtual Network Peerings.
+        /// &gt; **Note:** `use_remote_gateways` must be set to `false` if using Global Virtual Network Peerings.
         /// </summary>
         [Input("useRemoteGateways")]
         public Input<bool>? UseRemoteGateways { get; set; }
@@ -478,7 +478,7 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// Controls if remote gateways can be used on the local virtual network. If the flag is set to `true`, and `allow_gateway_transit` on the remote peering is also `true`, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to `true`. This flag cannot be set if virtual network already has a gateway. Defaults to `false`.
         /// 
-        /// &gt; **NOTE:** `use_remote_gateways` must be set to `false` if using Global Virtual Network Peerings.
+        /// &gt; **Note:** `use_remote_gateways` must be set to `false` if using Global Virtual Network Peerings.
         /// </summary>
         [Input("useRemoteGateways")]
         public Input<bool>? UseRemoteGateways { get; set; }

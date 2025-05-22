@@ -113,7 +113,7 @@ func (o ServiceCorArrayOutput) Index(i pulumi.IntInput) ServiceCorOutput {
 type ServiceIdentity struct {
 	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this signalR.
 	//
-	// > **NOTE:** This is required when `type` is set to `UserAssigned`
+	// > **Note:** This is required when `type` is set to `UserAssigned`
 	IdentityIds []string `pulumi:"identityIds"`
 	PrincipalId *string  `pulumi:"principalId"`
 	TenantId    *string  `pulumi:"tenantId"`
@@ -135,7 +135,7 @@ type ServiceIdentityInput interface {
 type ServiceIdentityArgs struct {
 	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this signalR.
 	//
-	// > **NOTE:** This is required when `type` is set to `UserAssigned`
+	// > **Note:** This is required when `type` is set to `UserAssigned`
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	PrincipalId pulumi.StringPtrInput   `pulumi:"principalId"`
 	TenantId    pulumi.StringPtrInput   `pulumi:"tenantId"`
@@ -222,7 +222,7 @@ func (o ServiceIdentityOutput) ToServiceIdentityPtrOutputWithContext(ctx context
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this signalR.
 //
-// > **NOTE:** This is required when `type` is set to `UserAssigned`
+// > **Note:** This is required when `type` is set to `UserAssigned`
 func (o ServiceIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ServiceIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
@@ -266,7 +266,7 @@ func (o ServiceIdentityPtrOutput) Elem() ServiceIdentityOutput {
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this signalR.
 //
-// > **NOTE:** This is required when `type` is set to `UserAssigned`
+// > **Note:** This is required when `type` is set to `UserAssigned`
 func (o ServiceIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ServiceIdentity) []string {
 		if v == nil {
@@ -814,7 +814,7 @@ func (o ServiceNetworkAclPublicNetworkPtrOutput) DeniedRequestTypes() pulumi.Str
 type ServiceSku struct {
 	// Specifies the number of units associated with this SignalR service. Valid values are `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9`, `10`, `20`, `30`, `40`, `50`, `60`, `70`, `80`, `90`, `100`, `200`, `300`, `400`, `500`, `600`, `700`, `800`, `900` and `1000`.
 	//
-	// > **NOTE:** The valid capacity range for sku `Free_F1` is `1`, for sku `Premium_P2` is from `100` to `1000`, and from `1` to `100` for sku `Standard_S1` and `Premium_P1`.
+	// > **Note:** The valid capacity range for sku `Free_F1` is `1`, for sku `Premium_P2` is from `100` to `1000`, and from `1` to `100` for sku `Standard_S1` and `Premium_P1`.
 	Capacity int `pulumi:"capacity"`
 	// Specifies which tier to use. Valid values are `Free_F1`, `Standard_S1`, `Premium_P1` and `Premium_P2`.
 	Name string `pulumi:"name"`
@@ -834,7 +834,7 @@ type ServiceSkuInput interface {
 type ServiceSkuArgs struct {
 	// Specifies the number of units associated with this SignalR service. Valid values are `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9`, `10`, `20`, `30`, `40`, `50`, `60`, `70`, `80`, `90`, `100`, `200`, `300`, `400`, `500`, `600`, `700`, `800`, `900` and `1000`.
 	//
-	// > **NOTE:** The valid capacity range for sku `Free_F1` is `1`, for sku `Premium_P2` is from `100` to `1000`, and from `1` to `100` for sku `Standard_S1` and `Premium_P1`.
+	// > **Note:** The valid capacity range for sku `Free_F1` is `1`, for sku `Premium_P2` is from `100` to `1000`, and from `1` to `100` for sku `Standard_S1` and `Premium_P1`.
 	Capacity pulumi.IntInput `pulumi:"capacity"`
 	// Specifies which tier to use. Valid values are `Free_F1`, `Standard_S1`, `Premium_P1` and `Premium_P2`.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -919,7 +919,7 @@ func (o ServiceSkuOutput) ToServiceSkuPtrOutputWithContext(ctx context.Context) 
 
 // Specifies the number of units associated with this SignalR service. Valid values are `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9`, `10`, `20`, `30`, `40`, `50`, `60`, `70`, `80`, `90`, `100`, `200`, `300`, `400`, `500`, `600`, `700`, `800`, `900` and `1000`.
 //
-// > **NOTE:** The valid capacity range for sku `Free_F1` is `1`, for sku `Premium_P2` is from `100` to `1000`, and from `1` to `100` for sku `Standard_S1` and `Premium_P1`.
+// > **Note:** The valid capacity range for sku `Free_F1` is `1`, for sku `Premium_P2` is from `100` to `1000`, and from `1` to `100` for sku `Standard_S1` and `Premium_P1`.
 func (o ServiceSkuOutput) Capacity() pulumi.IntOutput {
 	return o.ApplyT(func(v ServiceSku) int { return v.Capacity }).(pulumi.IntOutput)
 }
@@ -955,7 +955,7 @@ func (o ServiceSkuPtrOutput) Elem() ServiceSkuOutput {
 
 // Specifies the number of units associated with this SignalR service. Valid values are `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9`, `10`, `20`, `30`, `40`, `50`, `60`, `70`, `80`, `90`, `100`, `200`, `300`, `400`, `500`, `600`, `700`, `800`, `900` and `1000`.
 //
-// > **NOTE:** The valid capacity range for sku `Free_F1` is `1`, for sku `Premium_P2` is from `100` to `1000`, and from `1` to `100` for sku `Standard_S1` and `Premium_P1`.
+// > **Note:** The valid capacity range for sku `Free_F1` is `1`, for sku `Premium_P2` is from `100` to `1000`, and from `1` to `100` for sku `Standard_S1` and `Premium_P1`.
 func (o ServiceSkuPtrOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ServiceSku) *int {
 		if v == nil {

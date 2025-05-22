@@ -254,6 +254,13 @@ class MonitorSsoConfiguration(pulumi.CustomResource):
             enterprise_application_id="00000000-0000-0000-0000-000000000000")
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Datadog`: 2021-03-01
+
         ## Import
 
         SingleSignOn on the Datadog Monitor can be imported using the `signle sign on resource id`, e.g.
@@ -309,6 +316,13 @@ class MonitorSsoConfiguration(pulumi.CustomResource):
             single_sign_on="Enable",
             enterprise_application_id="00000000-0000-0000-0000-000000000000")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Datadog`: 2021-03-01
 
         ## Import
 

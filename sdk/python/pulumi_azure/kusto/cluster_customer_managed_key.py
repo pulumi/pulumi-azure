@@ -278,6 +278,13 @@ class ClusterCustomerManagedKey(pulumi.CustomResource):
             key_version=example_key.version)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Kusto`: 2024-04-13
+
         ## Import
 
         Customer Managed Keys for a Kusto Cluster can be imported using the `resource id`, e.g.
@@ -375,6 +382,13 @@ class ClusterCustomerManagedKey(pulumi.CustomResource):
             key_name=example_key.name,
             key_version=example_key.version)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Kusto`: 2024-04-13
 
         ## Import
 

@@ -119,7 +119,7 @@ class NamespaceIdentity(dict):
         :param builtins.str type: Specifies the type of Managed Service Identity that should be configured on this Service Bus Namespace. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
         :param Sequence[builtins.str] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this Service Bus namespace.
                
-               > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+               > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         :param builtins.str principal_id: The Principal ID for the Service Principal associated with the Managed Service Identity of this Service Bus Namespace.
         :param builtins.str tenant_id: The Tenant ID for the Service Principal associated with the Managed Service Identity of this Service Bus Namespace.
         """
@@ -145,7 +145,7 @@ class NamespaceIdentity(dict):
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this Service Bus namespace.
 
-        > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+        > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         """
         return pulumi.get(self, "identity_ids")
 
@@ -341,7 +341,7 @@ class SubscriptionClientScopedSubscription(dict):
         """
         :param builtins.str client_id: Specifies the Client ID of the application that created the client-scoped subscription. Changing this forces a new resource to be created.
                
-               > **NOTE:** Client ID can be null or empty, but it must match the client ID set on the JMS client application. From the Azure Service Bus perspective, a null client ID and an empty client id have the same behavior. If the client ID is set to null or empty, it is only accessible to client applications whose client ID is also set to null or empty.
+               > **Note:** Client ID can be null or empty, but it must match the client ID set on the JMS client application. From the Azure Service Bus perspective, a null client ID and an empty client id have the same behavior. If the client ID is set to null or empty, it is only accessible to client applications whose client ID is also set to null or empty.
         :param builtins.bool is_client_scoped_subscription_durable: Whether the client scoped subscription is durable. This property can only be controlled from the application side.
         :param builtins.bool is_client_scoped_subscription_shareable: Whether the client scoped subscription is shareable. Defaults to `true` Changing this forces a new resource to be created.
         """
@@ -358,7 +358,7 @@ class SubscriptionClientScopedSubscription(dict):
         """
         Specifies the Client ID of the application that created the client-scoped subscription. Changing this forces a new resource to be created.
 
-        > **NOTE:** Client ID can be null or empty, but it must match the client ID set on the JMS client application. From the Azure Service Bus perspective, a null client ID and an empty client id have the same behavior. If the client ID is set to null or empty, it is only accessible to client applications whose client ID is also set to null or empty.
+        > **Note:** Client ID can be null or empty, but it must match the client ID set on the JMS client application. From the Azure Service Bus perspective, a null client ID and an empty client id have the same behavior. If the client ID is set to null or empty, it is only accessible to client applications whose client ID is also set to null or empty.
         """
         return pulumi.get(self, "client_id")
 
@@ -425,7 +425,7 @@ class SubscriptionRuleCorrelationFilter(dict):
         :param builtins.str message_id: Identifier of the message.
         :param Mapping[str, builtins.str] properties: A list of user defined properties to be included in the filter. Specified as a map of name/value pairs.
                
-               > **NOTE:** When creating a subscription rule of type `CorrelationFilter` at least one property must be set in the `correlation_filter` block.
+               > **Note:** When creating a subscription rule of type `CorrelationFilter` at least one property must be set in the `correlation_filter` block.
         :param builtins.str reply_to: Address of the queue to reply to.
         :param builtins.str reply_to_session_id: Session identifier to reply to.
         :param builtins.str session_id: Session identifier.
@@ -488,7 +488,7 @@ class SubscriptionRuleCorrelationFilter(dict):
         """
         A list of user defined properties to be included in the filter. Specified as a map of name/value pairs.
 
-        > **NOTE:** When creating a subscription rule of type `CorrelationFilter` at least one property must be set in the `correlation_filter` block.
+        > **Note:** When creating a subscription rule of type `CorrelationFilter` at least one property must be set in the `correlation_filter` block.
         """
         return pulumi.get(self, "properties")
 

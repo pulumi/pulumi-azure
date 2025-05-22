@@ -20,7 +20,7 @@ import javax.annotation.Nullable;
 /**
  * Manages a Security Alert Policy for a MSSQL Server.
  * 
- * &gt; **NOTE** Security Alert Policy is currently only available for MS SQL databases.
+ * &gt; **Note:** Security Alert Policy is currently only available for MS SQL databases.
  * 
  * ## Example Usage
  * 
@@ -81,10 +81,10 @@ import javax.annotation.Nullable;
  *             .state("Enabled")
  *             .storageEndpoint(exampleAccount.primaryBlobEndpoint())
  *             .storageAccountAccessKey(exampleAccount.primaryAccessKey())
+ *             .retentionDays(20)
  *             .disabledAlerts(            
  *                 "Sql_Injection",
  *                 "Data_Exfiltration")
- *             .retentionDays(20)
  *             .build());
  * 
  *     }
@@ -92,6 +92,13 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.Sql`: 2023-08-01-preview
  * 
  * ## Import
  * 
@@ -119,14 +126,14 @@ public class ServerSecurityAlertPolicy extends com.pulumi.resources.CustomResour
         return Codegen.optional(this.disabledAlerts);
     }
     /**
-     * Boolean flag which specifies if the alert is sent to the account administrators or not. Defaults to `false`.
+     * Are the alerts sent to the account administrators? Possible values are `true` or `false`. Defaults to `false`.
      * 
      */
     @Export(name="emailAccountAdmins", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> emailAccountAdmins;
 
     /**
-     * @return Boolean flag which specifies if the alert is sent to the account administrators or not. Defaults to `false`.
+     * @return Are the alerts sent to the account administrators? Possible values are `true` or `false`. Defaults to `false`.
      * 
      */
     public Output<Optional<Boolean>> emailAccountAdmins() {
@@ -161,14 +168,14 @@ public class ServerSecurityAlertPolicy extends com.pulumi.resources.CustomResour
         return this.resourceGroupName;
     }
     /**
-     * Specifies the number of days to keep in the Threat Detection audit logs. Defaults to `0`.
+     * Specifies the number of days to keep the Threat Detection audit logs. Defaults to `0`.
      * 
      */
     @Export(name="retentionDays", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> retentionDays;
 
     /**
-     * @return Specifies the number of days to keep in the Threat Detection audit logs. Defaults to `0`.
+     * @return Specifies the number of days to keep the Threat Detection audit logs. Defaults to `0`.
      * 
      */
     public Output<Optional<Integer>> retentionDays() {
@@ -189,46 +196,54 @@ public class ServerSecurityAlertPolicy extends com.pulumi.resources.CustomResour
         return this.serverName;
     }
     /**
-     * Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific database server. Possible values are `Disabled`, `Enabled` and `New`.
+     * Specifies the state of the policy. Possible values are `Disabled` or `Enabled`.
      * 
      */
     @Export(name="state", refs={String.class}, tree="[0]")
     private Output<String> state;
 
     /**
-     * @return Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific database server. Possible values are `Disabled`, `Enabled` and `New`.
+     * @return Specifies the state of the policy. Possible values are `Disabled` or `Enabled`.
      * 
      */
     public Output<String> state() {
         return this.state;
     }
     /**
-     * Specifies the identifier key of the Threat Detection audit storage account. This is mandatory when you use `storage_endpoint` to specify a storage account blob endpoint.
+     * Specifies the primary access key of the Threat Detection audit logs blob storage endpoint.
      * 
-     * &gt; **NOTE:**  Please note that storage accounts configured with `shared_access_key_enabled = false` cannot be used to configure `azure.mssql.ServerSecurityAlertPolicy` with `storage_endpoint` for now.
+     * &gt; **Note:** The `storage_account_access_key` only applies if the storage account is not behind a virtual network or a firewall.
      * 
      */
     @Export(name="storageAccountAccessKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> storageAccountAccessKey;
 
     /**
-     * @return Specifies the identifier key of the Threat Detection audit storage account. This is mandatory when you use `storage_endpoint` to specify a storage account blob endpoint.
+     * @return Specifies the primary access key of the Threat Detection audit logs blob storage endpoint.
      * 
-     * &gt; **NOTE:**  Please note that storage accounts configured with `shared_access_key_enabled = false` cannot be used to configure `azure.mssql.ServerSecurityAlertPolicy` with `storage_endpoint` for now.
+     * &gt; **Note:** The `storage_account_access_key` only applies if the storage account is not behind a virtual network or a firewall.
      * 
      */
     public Output<Optional<String>> storageAccountAccessKey() {
         return Codegen.optional(this.storageAccountAccessKey);
     }
     /**
-     * Specifies the blob storage endpoint (e.g. &lt;https://example.blob.core.windows.net&gt;). This blob storage will hold all Threat Detection audit logs.
+     * Specifies the blob storage endpoint that will hold all Threat Detection audit logs (e.g., `https://example.blob.core.windows.net`).
+     * 
+     * &gt; **Note:** The `storage_account_access_key` field is required when the `storage_endpoint` field has been set.
+     * 
+     * &gt; **Note:** Storage accounts configured with `shared_access_key_enabled = false` cannot be used for the `storage_endpoint` field.
      * 
      */
     @Export(name="storageEndpoint", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> storageEndpoint;
 
     /**
-     * @return Specifies the blob storage endpoint (e.g. &lt;https://example.blob.core.windows.net&gt;). This blob storage will hold all Threat Detection audit logs.
+     * @return Specifies the blob storage endpoint that will hold all Threat Detection audit logs (e.g., `https://example.blob.core.windows.net`).
+     * 
+     * &gt; **Note:** The `storage_account_access_key` field is required when the `storage_endpoint` field has been set.
+     * 
+     * &gt; **Note:** Storage accounts configured with `shared_access_key_enabled = false` cannot be used for the `storage_endpoint` field.
      * 
      */
     public Output<Optional<String>> storageEndpoint() {

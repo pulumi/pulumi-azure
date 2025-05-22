@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Manages a Network Manager Deployment.
  *
- * > **NOTE on Virtual Network Peering:** Using Network Manager Deployment to deploy Connectivity Configuration may modify or delete existing Virtual Network Peering. At this time you should not use Network Peering resource in conjunction with Network Manager Deployment. Doing so may cause a conflict of Peering configurations.
+ * > **Note:** Using Network Manager Deployment to deploy Connectivity Configuration may modify or delete existing Virtual Network Peering. At this time you should not use Network Peering resource in conjunction with Network Manager Deployment. Doing so may cause a conflict of Peering configurations.
  *
  * ## Example Usage
  *
@@ -145,6 +145,13 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.Network`: 2024-05-01
+ *
  * ## Import
  *
  * Network Manager Deployment can be imported using the `resource id`, e.g.
@@ -194,7 +201,7 @@ export class NetworkManagerDeployment extends pulumi.CustomResource {
      */
     public readonly networkManagerId!: pulumi.Output<string>;
     /**
-     * Specifies the configuration deployment type. Possible values are `Connectivity` and `SecurityAdmin`. Changing this forces a new Network Manager Deployment to be created.
+     * Specifies the configuration deployment type. Possible values are `Connectivity`, `SecurityAdmin` and `Routing`. Changing this forces a new Network Manager Deployment to be created.
      */
     public readonly scopeAccess!: pulumi.Output<string>;
     /**
@@ -259,7 +266,7 @@ export interface NetworkManagerDeploymentState {
      */
     networkManagerId?: pulumi.Input<string>;
     /**
-     * Specifies the configuration deployment type. Possible values are `Connectivity` and `SecurityAdmin`. Changing this forces a new Network Manager Deployment to be created.
+     * Specifies the configuration deployment type. Possible values are `Connectivity`, `SecurityAdmin` and `Routing`. Changing this forces a new Network Manager Deployment to be created.
      */
     scopeAccess?: pulumi.Input<string>;
     /**
@@ -285,7 +292,7 @@ export interface NetworkManagerDeploymentArgs {
      */
     networkManagerId: pulumi.Input<string>;
     /**
-     * Specifies the configuration deployment type. Possible values are `Connectivity` and `SecurityAdmin`. Changing this forces a new Network Manager Deployment to be created.
+     * Specifies the configuration deployment type. Possible values are `Connectivity`, `SecurityAdmin` and `Routing`. Changing this forces a new Network Manager Deployment to be created.
      */
     scopeAccess: pulumi.Input<string>;
     /**

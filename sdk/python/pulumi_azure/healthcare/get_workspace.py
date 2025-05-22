@@ -109,6 +109,13 @@ def get_workspace(name: Optional[builtins.str] = None,
     pulumi.export("healthcareWorkspaceId", example.id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.HealthcareApis`: 2024-03-31
+
 
     :param builtins.str name: The name of the Healthcare Workspace.
     :param builtins.str resource_group_name: The name of the Resource Group in which the Healthcare Workspace exists.
@@ -141,6 +148,13 @@ def get_workspace_output(name: Optional[pulumi.Input[builtins.str]] = None,
         resource_group_name="example-resources")
     pulumi.export("healthcareWorkspaceId", example.id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.HealthcareApis`: 2024-03-31
 
 
     :param builtins.str name: The name of the Healthcare Workspace.

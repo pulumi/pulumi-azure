@@ -62,7 +62,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// List of the vpn authentication types for the virtual network gateway.
         /// The supported values are `AAD`, `Radius` and `Certificate`.
         /// 
-        /// &gt; **NOTE:** `vpn_auth_types` must be set when using multiple vpn authentication types.
+        /// &gt; **Note:** `vpn_auth_types` must be set when using multiple vpn authentication types.
         /// </summary>
         public readonly ImmutableArray<string> VpnAuthTypes;
         /// <summary>

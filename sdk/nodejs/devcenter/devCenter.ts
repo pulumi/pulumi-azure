@@ -7,8 +7,6 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * <!-- Note: This documentation is generated. Any manual changes will be overwritten -->
- *
  * Manages a Dev Center.
  *
  * ## Example Usage
@@ -46,6 +44,13 @@ import * as utilities from "../utilities";
  *
  * * `principalId` - The Principal ID for the System-Assigned Managed Identity assigned to this Dev Center.
  * * `tenantId` - The Tenant ID for the System-Assigned Managed Identity assigned to this Dev Center.
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.DevCenter`: 2025-02-01
  *
  * ## Import
  *

@@ -45,7 +45,7 @@ namespace Pulumi.Azure.NetApp.Inputs
         /// <summary>
         /// kdc server IP addresses for the active directory machine.
         /// 
-        /// &gt; **IMPORTANT:** If you plan on using **Kerberos** volumes, both `ad_name` and `kdc_ip` are required in order to create the volume.
+        /// &gt; **Note:** If you plan on using **Kerberos** volumes, both `ad_name` and `kdc_ip` are required in order to create the volume.
         /// </summary>
         [Input("kerberosKdcIp")]
         public Input<string>? KerberosKdcIp { get; set; }

@@ -31,13 +31,13 @@ class PlacementGroupArgs:
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group in which to create the availability set. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] allowed_vm_sizes: Specifies the supported sizes of Virtual Machines that can be created in the Proximity Placement Group.
                
-               > **NOTE:** Removing `allowed_vm_sizes` after it is set forces a new resource to be created.
+               > **Note:** Removing `allowed_vm_sizes` after it is set forces a new resource to be created.
         :param pulumi.Input[builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] name: Specifies the name of the proximity placement group. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[builtins.str] zone: Specifies the supported zone of the Proximity Placement Group. Changing this forces a new resource to be created.
                
-               > **NOTE:** `allowed_vm_sizes` must be set when `zone` is specified.
+               > **Note:** `allowed_vm_sizes` must be set when `zone` is specified.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if allowed_vm_sizes is not None:
@@ -69,7 +69,7 @@ class PlacementGroupArgs:
         """
         Specifies the supported sizes of Virtual Machines that can be created in the Proximity Placement Group.
 
-        > **NOTE:** Removing `allowed_vm_sizes` after it is set forces a new resource to be created.
+        > **Note:** Removing `allowed_vm_sizes` after it is set forces a new resource to be created.
         """
         return pulumi.get(self, "allowed_vm_sizes")
 
@@ -119,7 +119,7 @@ class PlacementGroupArgs:
         """
         Specifies the supported zone of the Proximity Placement Group. Changing this forces a new resource to be created.
 
-        > **NOTE:** `allowed_vm_sizes` must be set when `zone` is specified.
+        > **Note:** `allowed_vm_sizes` must be set when `zone` is specified.
         """
         return pulumi.get(self, "zone")
 
@@ -141,14 +141,14 @@ class _PlacementGroupState:
         Input properties used for looking up and filtering PlacementGroup resources.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] allowed_vm_sizes: Specifies the supported sizes of Virtual Machines that can be created in the Proximity Placement Group.
                
-               > **NOTE:** Removing `allowed_vm_sizes` after it is set forces a new resource to be created.
+               > **Note:** Removing `allowed_vm_sizes` after it is set forces a new resource to be created.
         :param pulumi.Input[builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] name: Specifies the name of the proximity placement group. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group in which to create the availability set. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[builtins.str] zone: Specifies the supported zone of the Proximity Placement Group. Changing this forces a new resource to be created.
                
-               > **NOTE:** `allowed_vm_sizes` must be set when `zone` is specified.
+               > **Note:** `allowed_vm_sizes` must be set when `zone` is specified.
         """
         if allowed_vm_sizes is not None:
             pulumi.set(__self__, "allowed_vm_sizes", allowed_vm_sizes)
@@ -169,7 +169,7 @@ class _PlacementGroupState:
         """
         Specifies the supported sizes of Virtual Machines that can be created in the Proximity Placement Group.
 
-        > **NOTE:** Removing `allowed_vm_sizes` after it is set forces a new resource to be created.
+        > **Note:** Removing `allowed_vm_sizes` after it is set forces a new resource to be created.
         """
         return pulumi.get(self, "allowed_vm_sizes")
 
@@ -231,7 +231,7 @@ class _PlacementGroupState:
         """
         Specifies the supported zone of the Proximity Placement Group. Changing this forces a new resource to be created.
 
-        > **NOTE:** `allowed_vm_sizes` must be set when `zone` is specified.
+        > **Note:** `allowed_vm_sizes` must be set when `zone` is specified.
         """
         return pulumi.get(self, "zone")
 
@@ -286,14 +286,14 @@ class PlacementGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] allowed_vm_sizes: Specifies the supported sizes of Virtual Machines that can be created in the Proximity Placement Group.
                
-               > **NOTE:** Removing `allowed_vm_sizes` after it is set forces a new resource to be created.
+               > **Note:** Removing `allowed_vm_sizes` after it is set forces a new resource to be created.
         :param pulumi.Input[builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] name: Specifies the name of the proximity placement group. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group in which to create the availability set. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[builtins.str] zone: Specifies the supported zone of the Proximity Placement Group. Changing this forces a new resource to be created.
                
-               > **NOTE:** `allowed_vm_sizes` must be set when `zone` is specified.
+               > **Note:** `allowed_vm_sizes` must be set when `zone` is specified.
         """
         ...
     @overload
@@ -393,14 +393,14 @@ class PlacementGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] allowed_vm_sizes: Specifies the supported sizes of Virtual Machines that can be created in the Proximity Placement Group.
                
-               > **NOTE:** Removing `allowed_vm_sizes` after it is set forces a new resource to be created.
+               > **Note:** Removing `allowed_vm_sizes` after it is set forces a new resource to be created.
         :param pulumi.Input[builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] name: Specifies the name of the proximity placement group. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group in which to create the availability set. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[builtins.str] zone: Specifies the supported zone of the Proximity Placement Group. Changing this forces a new resource to be created.
                
-               > **NOTE:** `allowed_vm_sizes` must be set when `zone` is specified.
+               > **Note:** `allowed_vm_sizes` must be set when `zone` is specified.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -420,7 +420,7 @@ class PlacementGroup(pulumi.CustomResource):
         """
         Specifies the supported sizes of Virtual Machines that can be created in the Proximity Placement Group.
 
-        > **NOTE:** Removing `allowed_vm_sizes` after it is set forces a new resource to be created.
+        > **Note:** Removing `allowed_vm_sizes` after it is set forces a new resource to be created.
         """
         return pulumi.get(self, "allowed_vm_sizes")
 
@@ -462,7 +462,7 @@ class PlacementGroup(pulumi.CustomResource):
         """
         Specifies the supported zone of the Proximity Placement Group. Changing this forces a new resource to be created.
 
-        > **NOTE:** `allowed_vm_sizes` must be set when `zone` is specified.
+        > **Note:** `allowed_vm_sizes` must be set when `zone` is specified.
         """
         return pulumi.get(self, "zone")
 

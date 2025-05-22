@@ -34,7 +34,7 @@ public final class ManagedPrivateEndpointState extends com.pulumi.resources.Reso
     /**
      * Fully qualified domain names. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** Possible values are listed in [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration).
+     * &gt; **Note:** Possible values are listed in [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration).
      * 
      */
     @Import(name="fqdns")
@@ -43,7 +43,7 @@ public final class ManagedPrivateEndpointState extends com.pulumi.resources.Reso
     /**
      * @return Fully qualified domain names. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** Possible values are listed in [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration).
+     * &gt; **Note:** Possible values are listed in [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration).
      * 
      */
     public Optional<Output<List<String>>> fqdns() {
@@ -147,7 +147,7 @@ public final class ManagedPrivateEndpointState extends com.pulumi.resources.Reso
         /**
          * @param fqdns Fully qualified domain names. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** Possible values are listed in [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration).
+         * &gt; **Note:** Possible values are listed in [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration).
          * 
          * @return builder
          * 
@@ -160,7 +160,7 @@ public final class ManagedPrivateEndpointState extends com.pulumi.resources.Reso
         /**
          * @param fqdns Fully qualified domain names. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** Possible values are listed in [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration).
+         * &gt; **Note:** Possible values are listed in [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration).
          * 
          * @return builder
          * 
@@ -172,7 +172,7 @@ public final class ManagedPrivateEndpointState extends com.pulumi.resources.Reso
         /**
          * @param fqdns Fully qualified domain names. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** Possible values are listed in [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration).
+         * &gt; **Note:** Possible values are listed in [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration).
          * 
          * @return builder
          * 

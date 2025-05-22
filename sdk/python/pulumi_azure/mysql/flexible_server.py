@@ -38,6 +38,7 @@ class FlexibleServerArgs:
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  point_in_time_restore_time_in_utc: Optional[pulumi.Input[builtins.str]] = None,
                  private_dns_zone_id: Optional[pulumi.Input[builtins.str]] = None,
+                 public_network_access: Optional[pulumi.Input[builtins.str]] = None,
                  replication_role: Optional[pulumi.Input[builtins.str]] = None,
                  sku_name: Optional[pulumi.Input[builtins.str]] = None,
                  source_server_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -56,12 +57,12 @@ class FlexibleServerArgs:
         :param pulumi.Input[builtins.int] backup_retention_days: The backup retention days for the MySQL Flexible Server. Possible values are between `1` and `35` days. Defaults to `7`.
         :param pulumi.Input[builtins.str] create_mode: The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore`, `GeoRestore`, and `Replica`. Changing this forces a new MySQL Flexible Server to be created.
                
-               > **NOTE:** Creating a `GeoRestore` server requires the source server with `geo_redundant_backup_enabled` enabled.
+               > **Note:** Creating a `GeoRestore` server requires the source server with `geo_redundant_backup_enabled` enabled.
                
-               > **NOTE:** When a server is first created it may not be immediately available for `geo restore` or `replica`. It may take a few minutes to several hours for the necessary metadata to be populated. Please see the [Geo Restore](https://learn.microsoft.com/azure/mysql/single-server/how-to-restore-server-portal#geo-restore) and the [Replica](https://learn.microsoft.com/azure/mysql/flexible-server/concepts-read-replicas#create-a-replica) for more information.
+               > **Note:** When a server is first created it may not be immediately available for `geo restore` or `replica`. It may take a few minutes to several hours for the necessary metadata to be populated. Please see the [Geo Restore](https://learn.microsoft.com/azure/mysql/single-server/how-to-restore-server-portal#geo-restore) and the [Replica](https://learn.microsoft.com/azure/mysql/flexible-server/concepts-read-replicas#create-a-replica) for more information.
         :param pulumi.Input['FlexibleServerCustomerManagedKeyArgs'] customer_managed_key: A `customer_managed_key` block as defined below.
                
-               > **NOTE:** `identity` is required when `customer_managed_key` is specified.
+               > **Note:** `identity` is required when `customer_managed_key` is specified.
         :param pulumi.Input[builtins.str] delegated_subnet_id: The ID of the virtual network subnet to create the MySQL Flexible Server. Changing this forces a new MySQL Flexible Server to be created.
         :param pulumi.Input[builtins.bool] geo_redundant_backup_enabled: Should geo redundant backup enabled? Defaults to `false`. Changing this forces a new MySQL Flexible Server to be created.
         :param pulumi.Input['FlexibleServerHighAvailabilityArgs'] high_availability: A `high_availability` block as defined below.
@@ -72,13 +73,16 @@ class FlexibleServerArgs:
         :param pulumi.Input[builtins.str] point_in_time_restore_time_in_utc: The point in time to restore from `creation_source_server_id` when `create_mode` is `PointInTimeRestore`. Changing this forces a new MySQL Flexible Server to be created.
         :param pulumi.Input[builtins.str] private_dns_zone_id: The ID of the private DNS zone to create the MySQL Flexible Server. Changing this forces a new MySQL Flexible Server to be created.
                
-               > **NOTE:** The `private_dns_zone_id` is required when setting a `delegated_subnet_id`. The `privatedns.Zone` should end with suffix `.mysql.database.azure.com`.
+               > **Note:** The `private_dns_zone_id` is required when setting a `delegated_subnet_id`. The `privatedns.Zone` should end with suffix `.mysql.database.azure.com`.
+        :param pulumi.Input[builtins.str] public_network_access: Whether approved public traffic is allowed through the firewall to this server. Possible values are `Enabled` and `Disabled`.
+               
+               > **Note:** `public_network_access` is automatically set to `Disabled` if the server is created with VNet Integration (i.e. values are provided for `delegated_subnet_id` and `private_dns_zone_id`").
         :param pulumi.Input[builtins.str] replication_role: The replication role. Possible value is `None`.
                
-               > **NOTE:** The `replication_role` cannot be set while creating and only can be updated from `Replica` to `None`.
+               > **Note:** The `replication_role` cannot be set while creating and only can be updated from `Replica` to `None`.
         :param pulumi.Input[builtins.str] sku_name: The SKU Name for the MySQL Flexible Server.
                
-               > **NOTE:** `sku_name` should start with SKU tier `B (Burstable)`, `GP (General Purpose)`, `MO (Memory Optimized)` like `B_Standard_B1s`.
+               > **Note:** `sku_name` should start with SKU tier `B (Burstable)`, `GP (General Purpose)`, `MO (Memory Optimized)` like `B_Standard_B1ms`.
         :param pulumi.Input[builtins.str] source_server_id: The resource ID of the source MySQL Flexible Server to be restored. Required when `create_mode` is `PointInTimeRestore`, `GeoRestore`, and `Replica`. Changing this forces a new MySQL Flexible Server to be created.
                
                > **Note:** The replica server is always created in the same resource group and subscription as the source server.
@@ -117,6 +121,8 @@ class FlexibleServerArgs:
             pulumi.set(__self__, "point_in_time_restore_time_in_utc", point_in_time_restore_time_in_utc)
         if private_dns_zone_id is not None:
             pulumi.set(__self__, "private_dns_zone_id", private_dns_zone_id)
+        if public_network_access is not None:
+            pulumi.set(__self__, "public_network_access", public_network_access)
         if replication_role is not None:
             pulumi.set(__self__, "replication_role", replication_role)
         if sku_name is not None:
@@ -200,9 +206,9 @@ class FlexibleServerArgs:
         """
         The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore`, `GeoRestore`, and `Replica`. Changing this forces a new MySQL Flexible Server to be created.
 
-        > **NOTE:** Creating a `GeoRestore` server requires the source server with `geo_redundant_backup_enabled` enabled.
+        > **Note:** Creating a `GeoRestore` server requires the source server with `geo_redundant_backup_enabled` enabled.
 
-        > **NOTE:** When a server is first created it may not be immediately available for `geo restore` or `replica`. It may take a few minutes to several hours for the necessary metadata to be populated. Please see the [Geo Restore](https://learn.microsoft.com/azure/mysql/single-server/how-to-restore-server-portal#geo-restore) and the [Replica](https://learn.microsoft.com/azure/mysql/flexible-server/concepts-read-replicas#create-a-replica) for more information.
+        > **Note:** When a server is first created it may not be immediately available for `geo restore` or `replica`. It may take a few minutes to several hours for the necessary metadata to be populated. Please see the [Geo Restore](https://learn.microsoft.com/azure/mysql/single-server/how-to-restore-server-portal#geo-restore) and the [Replica](https://learn.microsoft.com/azure/mysql/flexible-server/concepts-read-replicas#create-a-replica) for more information.
         """
         return pulumi.get(self, "create_mode")
 
@@ -216,7 +222,7 @@ class FlexibleServerArgs:
         """
         A `customer_managed_key` block as defined below.
 
-        > **NOTE:** `identity` is required when `customer_managed_key` is specified.
+        > **Note:** `identity` is required when `customer_managed_key` is specified.
         """
         return pulumi.get(self, "customer_managed_key")
 
@@ -326,7 +332,7 @@ class FlexibleServerArgs:
         """
         The ID of the private DNS zone to create the MySQL Flexible Server. Changing this forces a new MySQL Flexible Server to be created.
 
-        > **NOTE:** The `private_dns_zone_id` is required when setting a `delegated_subnet_id`. The `privatedns.Zone` should end with suffix `.mysql.database.azure.com`.
+        > **Note:** The `private_dns_zone_id` is required when setting a `delegated_subnet_id`. The `privatedns.Zone` should end with suffix `.mysql.database.azure.com`.
         """
         return pulumi.get(self, "private_dns_zone_id")
 
@@ -335,12 +341,26 @@ class FlexibleServerArgs:
         pulumi.set(self, "private_dns_zone_id", value)
 
     @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Whether approved public traffic is allowed through the firewall to this server. Possible values are `Enabled` and `Disabled`.
+
+        > **Note:** `public_network_access` is automatically set to `Disabled` if the server is created with VNet Integration (i.e. values are provided for `delegated_subnet_id` and `private_dns_zone_id`").
+        """
+        return pulumi.get(self, "public_network_access")
+
+    @public_network_access.setter
+    def public_network_access(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "public_network_access", value)
+
+    @property
     @pulumi.getter(name="replicationRole")
     def replication_role(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         The replication role. Possible value is `None`.
 
-        > **NOTE:** The `replication_role` cannot be set while creating and only can be updated from `Replica` to `None`.
+        > **Note:** The `replication_role` cannot be set while creating and only can be updated from `Replica` to `None`.
         """
         return pulumi.get(self, "replication_role")
 
@@ -354,7 +374,7 @@ class FlexibleServerArgs:
         """
         The SKU Name for the MySQL Flexible Server.
 
-        > **NOTE:** `sku_name` should start with SKU tier `B (Burstable)`, `GP (General Purpose)`, `MO (Memory Optimized)` like `B_Standard_B1s`.
+        > **Note:** `sku_name` should start with SKU tier `B (Burstable)`, `GP (General Purpose)`, `MO (Memory Optimized)` like `B_Standard_B1ms`.
         """
         return pulumi.get(self, "sku_name")
 
@@ -441,6 +461,7 @@ class _FlexibleServerState:
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  point_in_time_restore_time_in_utc: Optional[pulumi.Input[builtins.str]] = None,
                  private_dns_zone_id: Optional[pulumi.Input[builtins.str]] = None,
+                 public_network_access: Optional[pulumi.Input[builtins.str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  replica_capacity: Optional[pulumi.Input[builtins.int]] = None,
                  replication_role: Optional[pulumi.Input[builtins.str]] = None,
@@ -461,12 +482,12 @@ class _FlexibleServerState:
         :param pulumi.Input[builtins.int] backup_retention_days: The backup retention days for the MySQL Flexible Server. Possible values are between `1` and `35` days. Defaults to `7`.
         :param pulumi.Input[builtins.str] create_mode: The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore`, `GeoRestore`, and `Replica`. Changing this forces a new MySQL Flexible Server to be created.
                
-               > **NOTE:** Creating a `GeoRestore` server requires the source server with `geo_redundant_backup_enabled` enabled.
+               > **Note:** Creating a `GeoRestore` server requires the source server with `geo_redundant_backup_enabled` enabled.
                
-               > **NOTE:** When a server is first created it may not be immediately available for `geo restore` or `replica`. It may take a few minutes to several hours for the necessary metadata to be populated. Please see the [Geo Restore](https://learn.microsoft.com/azure/mysql/single-server/how-to-restore-server-portal#geo-restore) and the [Replica](https://learn.microsoft.com/azure/mysql/flexible-server/concepts-read-replicas#create-a-replica) for more information.
+               > **Note:** When a server is first created it may not be immediately available for `geo restore` or `replica`. It may take a few minutes to several hours for the necessary metadata to be populated. Please see the [Geo Restore](https://learn.microsoft.com/azure/mysql/single-server/how-to-restore-server-portal#geo-restore) and the [Replica](https://learn.microsoft.com/azure/mysql/flexible-server/concepts-read-replicas#create-a-replica) for more information.
         :param pulumi.Input['FlexibleServerCustomerManagedKeyArgs'] customer_managed_key: A `customer_managed_key` block as defined below.
                
-               > **NOTE:** `identity` is required when `customer_managed_key` is specified.
+               > **Note:** `identity` is required when `customer_managed_key` is specified.
         :param pulumi.Input[builtins.str] delegated_subnet_id: The ID of the virtual network subnet to create the MySQL Flexible Server. Changing this forces a new MySQL Flexible Server to be created.
         :param pulumi.Input[builtins.str] fqdn: The fully qualified domain name of the MySQL Flexible Server.
         :param pulumi.Input[builtins.bool] geo_redundant_backup_enabled: Should geo redundant backup enabled? Defaults to `false`. Changing this forces a new MySQL Flexible Server to be created.
@@ -478,16 +499,18 @@ class _FlexibleServerState:
         :param pulumi.Input[builtins.str] point_in_time_restore_time_in_utc: The point in time to restore from `creation_source_server_id` when `create_mode` is `PointInTimeRestore`. Changing this forces a new MySQL Flexible Server to be created.
         :param pulumi.Input[builtins.str] private_dns_zone_id: The ID of the private DNS zone to create the MySQL Flexible Server. Changing this forces a new MySQL Flexible Server to be created.
                
-               > **NOTE:** The `private_dns_zone_id` is required when setting a `delegated_subnet_id`. The `privatedns.Zone` should end with suffix `.mysql.database.azure.com`.
-        :param pulumi.Input[builtins.bool] public_network_access_enabled: Is the public network access enabled?
+               > **Note:** The `private_dns_zone_id` is required when setting a `delegated_subnet_id`. The `privatedns.Zone` should end with suffix `.mysql.database.azure.com`.
+        :param pulumi.Input[builtins.str] public_network_access: Whether approved public traffic is allowed through the firewall to this server. Possible values are `Enabled` and `Disabled`.
+               
+               > **Note:** `public_network_access` is automatically set to `Disabled` if the server is created with VNet Integration (i.e. values are provided for `delegated_subnet_id` and `private_dns_zone_id`").
         :param pulumi.Input[builtins.int] replica_capacity: The maximum number of replicas that a primary MySQL Flexible Server can have.
         :param pulumi.Input[builtins.str] replication_role: The replication role. Possible value is `None`.
                
-               > **NOTE:** The `replication_role` cannot be set while creating and only can be updated from `Replica` to `None`.
+               > **Note:** The `replication_role` cannot be set while creating and only can be updated from `Replica` to `None`.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the Resource Group where the MySQL Flexible Server should exist. Changing this forces a new MySQL Flexible Server to be created.
         :param pulumi.Input[builtins.str] sku_name: The SKU Name for the MySQL Flexible Server.
                
-               > **NOTE:** `sku_name` should start with SKU tier `B (Burstable)`, `GP (General Purpose)`, `MO (Memory Optimized)` like `B_Standard_B1s`.
+               > **Note:** `sku_name` should start with SKU tier `B (Burstable)`, `GP (General Purpose)`, `MO (Memory Optimized)` like `B_Standard_B1ms`.
         :param pulumi.Input[builtins.str] source_server_id: The resource ID of the source MySQL Flexible Server to be restored. Required when `create_mode` is `PointInTimeRestore`, `GeoRestore`, and `Replica`. Changing this forces a new MySQL Flexible Server to be created.
                
                > **Note:** The replica server is always created in the same resource group and subscription as the source server.
@@ -527,6 +550,8 @@ class _FlexibleServerState:
             pulumi.set(__self__, "point_in_time_restore_time_in_utc", point_in_time_restore_time_in_utc)
         if private_dns_zone_id is not None:
             pulumi.set(__self__, "private_dns_zone_id", private_dns_zone_id)
+        if public_network_access is not None:
+            pulumi.set(__self__, "public_network_access", public_network_access)
         if public_network_access_enabled is not None:
             pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if replica_capacity is not None:
@@ -604,9 +629,9 @@ class _FlexibleServerState:
         """
         The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore`, `GeoRestore`, and `Replica`. Changing this forces a new MySQL Flexible Server to be created.
 
-        > **NOTE:** Creating a `GeoRestore` server requires the source server with `geo_redundant_backup_enabled` enabled.
+        > **Note:** Creating a `GeoRestore` server requires the source server with `geo_redundant_backup_enabled` enabled.
 
-        > **NOTE:** When a server is first created it may not be immediately available for `geo restore` or `replica`. It may take a few minutes to several hours for the necessary metadata to be populated. Please see the [Geo Restore](https://learn.microsoft.com/azure/mysql/single-server/how-to-restore-server-portal#geo-restore) and the [Replica](https://learn.microsoft.com/azure/mysql/flexible-server/concepts-read-replicas#create-a-replica) for more information.
+        > **Note:** When a server is first created it may not be immediately available for `geo restore` or `replica`. It may take a few minutes to several hours for the necessary metadata to be populated. Please see the [Geo Restore](https://learn.microsoft.com/azure/mysql/single-server/how-to-restore-server-portal#geo-restore) and the [Replica](https://learn.microsoft.com/azure/mysql/flexible-server/concepts-read-replicas#create-a-replica) for more information.
         """
         return pulumi.get(self, "create_mode")
 
@@ -620,7 +645,7 @@ class _FlexibleServerState:
         """
         A `customer_managed_key` block as defined below.
 
-        > **NOTE:** `identity` is required when `customer_managed_key` is specified.
+        > **Note:** `identity` is required when `customer_managed_key` is specified.
         """
         return pulumi.get(self, "customer_managed_key")
 
@@ -742,7 +767,7 @@ class _FlexibleServerState:
         """
         The ID of the private DNS zone to create the MySQL Flexible Server. Changing this forces a new MySQL Flexible Server to be created.
 
-        > **NOTE:** The `private_dns_zone_id` is required when setting a `delegated_subnet_id`. The `privatedns.Zone` should end with suffix `.mysql.database.azure.com`.
+        > **Note:** The `private_dns_zone_id` is required when setting a `delegated_subnet_id`. The `privatedns.Zone` should end with suffix `.mysql.database.azure.com`.
         """
         return pulumi.get(self, "private_dns_zone_id")
 
@@ -751,11 +776,22 @@ class _FlexibleServerState:
         pulumi.set(self, "private_dns_zone_id", value)
 
     @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Whether approved public traffic is allowed through the firewall to this server. Possible values are `Enabled` and `Disabled`.
+
+        > **Note:** `public_network_access` is automatically set to `Disabled` if the server is created with VNet Integration (i.e. values are provided for `delegated_subnet_id` and `private_dns_zone_id`").
+        """
+        return pulumi.get(self, "public_network_access")
+
+    @public_network_access.setter
+    def public_network_access(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "public_network_access", value)
+
+    @property
     @pulumi.getter(name="publicNetworkAccessEnabled")
     def public_network_access_enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
-        """
-        Is the public network access enabled?
-        """
         return pulumi.get(self, "public_network_access_enabled")
 
     @public_network_access_enabled.setter
@@ -780,7 +816,7 @@ class _FlexibleServerState:
         """
         The replication role. Possible value is `None`.
 
-        > **NOTE:** The `replication_role` cannot be set while creating and only can be updated from `Replica` to `None`.
+        > **Note:** The `replication_role` cannot be set while creating and only can be updated from `Replica` to `None`.
         """
         return pulumi.get(self, "replication_role")
 
@@ -806,7 +842,7 @@ class _FlexibleServerState:
         """
         The SKU Name for the MySQL Flexible Server.
 
-        > **NOTE:** `sku_name` should start with SKU tier `B (Burstable)`, `GP (General Purpose)`, `MO (Memory Optimized)` like `B_Standard_B1s`.
+        > **Note:** `sku_name` should start with SKU tier `B (Burstable)`, `GP (General Purpose)`, `MO (Memory Optimized)` like `B_Standard_B1ms`.
         """
         return pulumi.get(self, "sku_name")
 
@@ -895,6 +931,7 @@ class FlexibleServer(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  point_in_time_restore_time_in_utc: Optional[pulumi.Input[builtins.str]] = None,
                  private_dns_zone_id: Optional[pulumi.Input[builtins.str]] = None,
+                 public_network_access: Optional[pulumi.Input[builtins.str]] = None,
                  replication_role: Optional[pulumi.Input[builtins.str]] = None,
                  resource_group_name: Optional[pulumi.Input[builtins.str]] = None,
                  sku_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -973,12 +1010,12 @@ class FlexibleServer(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] backup_retention_days: The backup retention days for the MySQL Flexible Server. Possible values are between `1` and `35` days. Defaults to `7`.
         :param pulumi.Input[builtins.str] create_mode: The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore`, `GeoRestore`, and `Replica`. Changing this forces a new MySQL Flexible Server to be created.
                
-               > **NOTE:** Creating a `GeoRestore` server requires the source server with `geo_redundant_backup_enabled` enabled.
+               > **Note:** Creating a `GeoRestore` server requires the source server with `geo_redundant_backup_enabled` enabled.
                
-               > **NOTE:** When a server is first created it may not be immediately available for `geo restore` or `replica`. It may take a few minutes to several hours for the necessary metadata to be populated. Please see the [Geo Restore](https://learn.microsoft.com/azure/mysql/single-server/how-to-restore-server-portal#geo-restore) and the [Replica](https://learn.microsoft.com/azure/mysql/flexible-server/concepts-read-replicas#create-a-replica) for more information.
+               > **Note:** When a server is first created it may not be immediately available for `geo restore` or `replica`. It may take a few minutes to several hours for the necessary metadata to be populated. Please see the [Geo Restore](https://learn.microsoft.com/azure/mysql/single-server/how-to-restore-server-portal#geo-restore) and the [Replica](https://learn.microsoft.com/azure/mysql/flexible-server/concepts-read-replicas#create-a-replica) for more information.
         :param pulumi.Input[Union['FlexibleServerCustomerManagedKeyArgs', 'FlexibleServerCustomerManagedKeyArgsDict']] customer_managed_key: A `customer_managed_key` block as defined below.
                
-               > **NOTE:** `identity` is required when `customer_managed_key` is specified.
+               > **Note:** `identity` is required when `customer_managed_key` is specified.
         :param pulumi.Input[builtins.str] delegated_subnet_id: The ID of the virtual network subnet to create the MySQL Flexible Server. Changing this forces a new MySQL Flexible Server to be created.
         :param pulumi.Input[builtins.bool] geo_redundant_backup_enabled: Should geo redundant backup enabled? Defaults to `false`. Changing this forces a new MySQL Flexible Server to be created.
         :param pulumi.Input[Union['FlexibleServerHighAvailabilityArgs', 'FlexibleServerHighAvailabilityArgsDict']] high_availability: A `high_availability` block as defined below.
@@ -989,14 +1026,17 @@ class FlexibleServer(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] point_in_time_restore_time_in_utc: The point in time to restore from `creation_source_server_id` when `create_mode` is `PointInTimeRestore`. Changing this forces a new MySQL Flexible Server to be created.
         :param pulumi.Input[builtins.str] private_dns_zone_id: The ID of the private DNS zone to create the MySQL Flexible Server. Changing this forces a new MySQL Flexible Server to be created.
                
-               > **NOTE:** The `private_dns_zone_id` is required when setting a `delegated_subnet_id`. The `privatedns.Zone` should end with suffix `.mysql.database.azure.com`.
+               > **Note:** The `private_dns_zone_id` is required when setting a `delegated_subnet_id`. The `privatedns.Zone` should end with suffix `.mysql.database.azure.com`.
+        :param pulumi.Input[builtins.str] public_network_access: Whether approved public traffic is allowed through the firewall to this server. Possible values are `Enabled` and `Disabled`.
+               
+               > **Note:** `public_network_access` is automatically set to `Disabled` if the server is created with VNet Integration (i.e. values are provided for `delegated_subnet_id` and `private_dns_zone_id`").
         :param pulumi.Input[builtins.str] replication_role: The replication role. Possible value is `None`.
                
-               > **NOTE:** The `replication_role` cannot be set while creating and only can be updated from `Replica` to `None`.
+               > **Note:** The `replication_role` cannot be set while creating and only can be updated from `Replica` to `None`.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the Resource Group where the MySQL Flexible Server should exist. Changing this forces a new MySQL Flexible Server to be created.
         :param pulumi.Input[builtins.str] sku_name: The SKU Name for the MySQL Flexible Server.
                
-               > **NOTE:** `sku_name` should start with SKU tier `B (Burstable)`, `GP (General Purpose)`, `MO (Memory Optimized)` like `B_Standard_B1s`.
+               > **Note:** `sku_name` should start with SKU tier `B (Burstable)`, `GP (General Purpose)`, `MO (Memory Optimized)` like `B_Standard_B1ms`.
         :param pulumi.Input[builtins.str] source_server_id: The resource ID of the source MySQL Flexible Server to be restored. Required when `create_mode` is `PointInTimeRestore`, `GeoRestore`, and `Replica`. Changing this forces a new MySQL Flexible Server to be created.
                
                > **Note:** The replica server is always created in the same resource group and subscription as the source server.
@@ -1099,6 +1139,7 @@ class FlexibleServer(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  point_in_time_restore_time_in_utc: Optional[pulumi.Input[builtins.str]] = None,
                  private_dns_zone_id: Optional[pulumi.Input[builtins.str]] = None,
+                 public_network_access: Optional[pulumi.Input[builtins.str]] = None,
                  replication_role: Optional[pulumi.Input[builtins.str]] = None,
                  resource_group_name: Optional[pulumi.Input[builtins.str]] = None,
                  sku_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -1131,6 +1172,7 @@ class FlexibleServer(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["point_in_time_restore_time_in_utc"] = point_in_time_restore_time_in_utc
             __props__.__dict__["private_dns_zone_id"] = private_dns_zone_id
+            __props__.__dict__["public_network_access"] = public_network_access
             __props__.__dict__["replication_role"] = replication_role
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -1172,6 +1214,7 @@ class FlexibleServer(pulumi.CustomResource):
             name: Optional[pulumi.Input[builtins.str]] = None,
             point_in_time_restore_time_in_utc: Optional[pulumi.Input[builtins.str]] = None,
             private_dns_zone_id: Optional[pulumi.Input[builtins.str]] = None,
+            public_network_access: Optional[pulumi.Input[builtins.str]] = None,
             public_network_access_enabled: Optional[pulumi.Input[builtins.bool]] = None,
             replica_capacity: Optional[pulumi.Input[builtins.int]] = None,
             replication_role: Optional[pulumi.Input[builtins.str]] = None,
@@ -1197,12 +1240,12 @@ class FlexibleServer(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] backup_retention_days: The backup retention days for the MySQL Flexible Server. Possible values are between `1` and `35` days. Defaults to `7`.
         :param pulumi.Input[builtins.str] create_mode: The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore`, `GeoRestore`, and `Replica`. Changing this forces a new MySQL Flexible Server to be created.
                
-               > **NOTE:** Creating a `GeoRestore` server requires the source server with `geo_redundant_backup_enabled` enabled.
+               > **Note:** Creating a `GeoRestore` server requires the source server with `geo_redundant_backup_enabled` enabled.
                
-               > **NOTE:** When a server is first created it may not be immediately available for `geo restore` or `replica`. It may take a few minutes to several hours for the necessary metadata to be populated. Please see the [Geo Restore](https://learn.microsoft.com/azure/mysql/single-server/how-to-restore-server-portal#geo-restore) and the [Replica](https://learn.microsoft.com/azure/mysql/flexible-server/concepts-read-replicas#create-a-replica) for more information.
+               > **Note:** When a server is first created it may not be immediately available for `geo restore` or `replica`. It may take a few minutes to several hours for the necessary metadata to be populated. Please see the [Geo Restore](https://learn.microsoft.com/azure/mysql/single-server/how-to-restore-server-portal#geo-restore) and the [Replica](https://learn.microsoft.com/azure/mysql/flexible-server/concepts-read-replicas#create-a-replica) for more information.
         :param pulumi.Input[Union['FlexibleServerCustomerManagedKeyArgs', 'FlexibleServerCustomerManagedKeyArgsDict']] customer_managed_key: A `customer_managed_key` block as defined below.
                
-               > **NOTE:** `identity` is required when `customer_managed_key` is specified.
+               > **Note:** `identity` is required when `customer_managed_key` is specified.
         :param pulumi.Input[builtins.str] delegated_subnet_id: The ID of the virtual network subnet to create the MySQL Flexible Server. Changing this forces a new MySQL Flexible Server to be created.
         :param pulumi.Input[builtins.str] fqdn: The fully qualified domain name of the MySQL Flexible Server.
         :param pulumi.Input[builtins.bool] geo_redundant_backup_enabled: Should geo redundant backup enabled? Defaults to `false`. Changing this forces a new MySQL Flexible Server to be created.
@@ -1214,16 +1257,18 @@ class FlexibleServer(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] point_in_time_restore_time_in_utc: The point in time to restore from `creation_source_server_id` when `create_mode` is `PointInTimeRestore`. Changing this forces a new MySQL Flexible Server to be created.
         :param pulumi.Input[builtins.str] private_dns_zone_id: The ID of the private DNS zone to create the MySQL Flexible Server. Changing this forces a new MySQL Flexible Server to be created.
                
-               > **NOTE:** The `private_dns_zone_id` is required when setting a `delegated_subnet_id`. The `privatedns.Zone` should end with suffix `.mysql.database.azure.com`.
-        :param pulumi.Input[builtins.bool] public_network_access_enabled: Is the public network access enabled?
+               > **Note:** The `private_dns_zone_id` is required when setting a `delegated_subnet_id`. The `privatedns.Zone` should end with suffix `.mysql.database.azure.com`.
+        :param pulumi.Input[builtins.str] public_network_access: Whether approved public traffic is allowed through the firewall to this server. Possible values are `Enabled` and `Disabled`.
+               
+               > **Note:** `public_network_access` is automatically set to `Disabled` if the server is created with VNet Integration (i.e. values are provided for `delegated_subnet_id` and `private_dns_zone_id`").
         :param pulumi.Input[builtins.int] replica_capacity: The maximum number of replicas that a primary MySQL Flexible Server can have.
         :param pulumi.Input[builtins.str] replication_role: The replication role. Possible value is `None`.
                
-               > **NOTE:** The `replication_role` cannot be set while creating and only can be updated from `Replica` to `None`.
+               > **Note:** The `replication_role` cannot be set while creating and only can be updated from `Replica` to `None`.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the Resource Group where the MySQL Flexible Server should exist. Changing this forces a new MySQL Flexible Server to be created.
         :param pulumi.Input[builtins.str] sku_name: The SKU Name for the MySQL Flexible Server.
                
-               > **NOTE:** `sku_name` should start with SKU tier `B (Burstable)`, `GP (General Purpose)`, `MO (Memory Optimized)` like `B_Standard_B1s`.
+               > **Note:** `sku_name` should start with SKU tier `B (Burstable)`, `GP (General Purpose)`, `MO (Memory Optimized)` like `B_Standard_B1ms`.
         :param pulumi.Input[builtins.str] source_server_id: The resource ID of the source MySQL Flexible Server to be restored. Required when `create_mode` is `PointInTimeRestore`, `GeoRestore`, and `Replica`. Changing this forces a new MySQL Flexible Server to be created.
                
                > **Note:** The replica server is always created in the same resource group and subscription as the source server.
@@ -1251,6 +1296,7 @@ class FlexibleServer(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["point_in_time_restore_time_in_utc"] = point_in_time_restore_time_in_utc
         __props__.__dict__["private_dns_zone_id"] = private_dns_zone_id
+        __props__.__dict__["public_network_access"] = public_network_access
         __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
         __props__.__dict__["replica_capacity"] = replica_capacity
         __props__.__dict__["replication_role"] = replication_role
@@ -1303,9 +1349,9 @@ class FlexibleServer(pulumi.CustomResource):
         """
         The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore`, `GeoRestore`, and `Replica`. Changing this forces a new MySQL Flexible Server to be created.
 
-        > **NOTE:** Creating a `GeoRestore` server requires the source server with `geo_redundant_backup_enabled` enabled.
+        > **Note:** Creating a `GeoRestore` server requires the source server with `geo_redundant_backup_enabled` enabled.
 
-        > **NOTE:** When a server is first created it may not be immediately available for `geo restore` or `replica`. It may take a few minutes to several hours for the necessary metadata to be populated. Please see the [Geo Restore](https://learn.microsoft.com/azure/mysql/single-server/how-to-restore-server-portal#geo-restore) and the [Replica](https://learn.microsoft.com/azure/mysql/flexible-server/concepts-read-replicas#create-a-replica) for more information.
+        > **Note:** When a server is first created it may not be immediately available for `geo restore` or `replica`. It may take a few minutes to several hours for the necessary metadata to be populated. Please see the [Geo Restore](https://learn.microsoft.com/azure/mysql/single-server/how-to-restore-server-portal#geo-restore) and the [Replica](https://learn.microsoft.com/azure/mysql/flexible-server/concepts-read-replicas#create-a-replica) for more information.
         """
         return pulumi.get(self, "create_mode")
 
@@ -1315,7 +1361,7 @@ class FlexibleServer(pulumi.CustomResource):
         """
         A `customer_managed_key` block as defined below.
 
-        > **NOTE:** `identity` is required when `customer_managed_key` is specified.
+        > **Note:** `identity` is required when `customer_managed_key` is specified.
         """
         return pulumi.get(self, "customer_managed_key")
 
@@ -1397,16 +1443,23 @@ class FlexibleServer(pulumi.CustomResource):
         """
         The ID of the private DNS zone to create the MySQL Flexible Server. Changing this forces a new MySQL Flexible Server to be created.
 
-        > **NOTE:** The `private_dns_zone_id` is required when setting a `delegated_subnet_id`. The `privatedns.Zone` should end with suffix `.mysql.database.azure.com`.
+        > **Note:** The `private_dns_zone_id` is required when setting a `delegated_subnet_id`. The `privatedns.Zone` should end with suffix `.mysql.database.azure.com`.
         """
         return pulumi.get(self, "private_dns_zone_id")
 
     @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> pulumi.Output[builtins.str]:
+        """
+        Whether approved public traffic is allowed through the firewall to this server. Possible values are `Enabled` and `Disabled`.
+
+        > **Note:** `public_network_access` is automatically set to `Disabled` if the server is created with VNet Integration (i.e. values are provided for `delegated_subnet_id` and `private_dns_zone_id`").
+        """
+        return pulumi.get(self, "public_network_access")
+
+    @property
     @pulumi.getter(name="publicNetworkAccessEnabled")
     def public_network_access_enabled(self) -> pulumi.Output[builtins.bool]:
-        """
-        Is the public network access enabled?
-        """
         return pulumi.get(self, "public_network_access_enabled")
 
     @property
@@ -1423,7 +1476,7 @@ class FlexibleServer(pulumi.CustomResource):
         """
         The replication role. Possible value is `None`.
 
-        > **NOTE:** The `replication_role` cannot be set while creating and only can be updated from `Replica` to `None`.
+        > **Note:** The `replication_role` cannot be set while creating and only can be updated from `Replica` to `None`.
         """
         return pulumi.get(self, "replication_role")
 
@@ -1441,7 +1494,7 @@ class FlexibleServer(pulumi.CustomResource):
         """
         The SKU Name for the MySQL Flexible Server.
 
-        > **NOTE:** `sku_name` should start with SKU tier `B (Burstable)`, `GP (General Purpose)`, `MO (Memory Optimized)` like `B_Standard_B1s`.
+        > **Note:** `sku_name` should start with SKU tier `B (Burstable)`, `GP (General Purpose)`, `MO (Memory Optimized)` like `B_Standard_B1ms`.
         """
         return pulumi.get(self, "sku_name")
 
@@ -1481,6 +1534,6 @@ class FlexibleServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def zone(self) -> pulumi.Output[Optional[builtins.str]]:
+    def zone(self) -> pulumi.Output[builtins.str]:
         return pulumi.get(self, "zone")
 

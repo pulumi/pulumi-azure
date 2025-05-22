@@ -92,7 +92,7 @@ type KeyVault struct {
 
 	// A list of up to 1024 objects describing access policies, as described below.
 	//
-	// > **NOTE** Since `accessPolicy` can be configured both inline and via the separate `keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+	// > **Note:** Since `accessPolicy` can be configured both inline and via the separate `keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
 	AccessPolicies KeyVaultAccessPolicyArrayOutput `pulumi:"accessPolicies"`
 	// Deprecated: As the `contact` property requires reaching out to the dataplane, to better support private endpoints and keyvaults with public network access disabled, new key vaults with the `contact` field defined in the configuration file will now be required to use the `keyvault.CertificateContacts` resource instead of the exposed `contact` field in the key vault resource itself.
 	Contacts KeyVaultContactArrayOutput `pulumi:"contacts"`
@@ -173,7 +173,7 @@ func GetKeyVault(ctx *pulumi.Context,
 type keyVaultState struct {
 	// A list of up to 1024 objects describing access policies, as described below.
 	//
-	// > **NOTE** Since `accessPolicy` can be configured both inline and via the separate `keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+	// > **Note:** Since `accessPolicy` can be configured both inline and via the separate `keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
 	AccessPolicies []KeyVaultAccessPolicy `pulumi:"accessPolicies"`
 	// Deprecated: As the `contact` property requires reaching out to the dataplane, to better support private endpoints and keyvaults with public network access disabled, new key vaults with the `contact` field defined in the configuration file will now be required to use the `keyvault.CertificateContacts` resource instead of the exposed `contact` field in the key vault resource itself.
 	Contacts []KeyVaultContact `pulumi:"contacts"`
@@ -216,7 +216,7 @@ type keyVaultState struct {
 type KeyVaultState struct {
 	// A list of up to 1024 objects describing access policies, as described below.
 	//
-	// > **NOTE** Since `accessPolicy` can be configured both inline and via the separate `keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+	// > **Note:** Since `accessPolicy` can be configured both inline and via the separate `keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
 	AccessPolicies KeyVaultAccessPolicyArrayInput
 	// Deprecated: As the `contact` property requires reaching out to the dataplane, to better support private endpoints and keyvaults with public network access disabled, new key vaults with the `contact` field defined in the configuration file will now be required to use the `keyvault.CertificateContacts` resource instead of the exposed `contact` field in the key vault resource itself.
 	Contacts KeyVaultContactArrayInput
@@ -263,7 +263,7 @@ func (KeyVaultState) ElementType() reflect.Type {
 type keyVaultArgs struct {
 	// A list of up to 1024 objects describing access policies, as described below.
 	//
-	// > **NOTE** Since `accessPolicy` can be configured both inline and via the separate `keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+	// > **Note:** Since `accessPolicy` can be configured both inline and via the separate `keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
 	AccessPolicies []KeyVaultAccessPolicy `pulumi:"accessPolicies"`
 	// Deprecated: As the `contact` property requires reaching out to the dataplane, to better support private endpoints and keyvaults with public network access disabled, new key vaults with the `contact` field defined in the configuration file will now be required to use the `keyvault.CertificateContacts` resource instead of the exposed `contact` field in the key vault resource itself.
 	Contacts []KeyVaultContact `pulumi:"contacts"`
@@ -305,7 +305,7 @@ type keyVaultArgs struct {
 type KeyVaultArgs struct {
 	// A list of up to 1024 objects describing access policies, as described below.
 	//
-	// > **NOTE** Since `accessPolicy` can be configured both inline and via the separate `keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+	// > **Note:** Since `accessPolicy` can be configured both inline and via the separate `keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
 	AccessPolicies KeyVaultAccessPolicyArrayInput
 	// Deprecated: As the `contact` property requires reaching out to the dataplane, to better support private endpoints and keyvaults with public network access disabled, new key vaults with the `contact` field defined in the configuration file will now be required to use the `keyvault.CertificateContacts` resource instead of the exposed `contact` field in the key vault resource itself.
 	Contacts KeyVaultContactArrayInput
@@ -432,7 +432,7 @@ func (o KeyVaultOutput) ToKeyVaultOutputWithContext(ctx context.Context) KeyVaul
 
 // A list of up to 1024 objects describing access policies, as described below.
 //
-// > **NOTE** Since `accessPolicy` can be configured both inline and via the separate `keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+// > **Note:** Since `accessPolicy` can be configured both inline and via the separate `keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
 func (o KeyVaultOutput) AccessPolicies() KeyVaultAccessPolicyArrayOutput {
 	return o.ApplyT(func(v *KeyVault) KeyVaultAccessPolicyArrayOutput { return v.AccessPolicies }).(KeyVaultAccessPolicyArrayOutput)
 }

@@ -93,6 +93,13 @@ import (
 //
 // ```
 //
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.MobileNetwork`: 2022-11-01
+//
 // ## Import
 //
 // Mobile Network Sim Groups can be imported using the `resource id`, e.g.
@@ -107,7 +114,7 @@ type NetworkSimGroup struct {
 	EncryptionKeyUrl pulumi.StringPtrOutput `pulumi:"encryptionKeyUrl"`
 	// An `identity` block as defined below.
 	//
-	// > **NOTE:** A `UserAssigned` identity must be specified when `encryptionKeyUrl` is specified.
+	// > **Note:** A `UserAssigned` identity must be specified when `encryptionKeyUrl` is specified.
 	Identity NetworkSimGroupIdentityPtrOutput `pulumi:"identity"`
 	// Specifies the Azure Region where the Mobile Network Sim Groups should exist. Changing this forces a new Mobile Network Sim Group to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -156,7 +163,7 @@ type networkSimGroupState struct {
 	EncryptionKeyUrl *string `pulumi:"encryptionKeyUrl"`
 	// An `identity` block as defined below.
 	//
-	// > **NOTE:** A `UserAssigned` identity must be specified when `encryptionKeyUrl` is specified.
+	// > **Note:** A `UserAssigned` identity must be specified when `encryptionKeyUrl` is specified.
 	Identity *NetworkSimGroupIdentity `pulumi:"identity"`
 	// Specifies the Azure Region where the Mobile Network Sim Groups should exist. Changing this forces a new Mobile Network Sim Group to be created.
 	Location *string `pulumi:"location"`
@@ -173,7 +180,7 @@ type NetworkSimGroupState struct {
 	EncryptionKeyUrl pulumi.StringPtrInput
 	// An `identity` block as defined below.
 	//
-	// > **NOTE:** A `UserAssigned` identity must be specified when `encryptionKeyUrl` is specified.
+	// > **Note:** A `UserAssigned` identity must be specified when `encryptionKeyUrl` is specified.
 	Identity NetworkSimGroupIdentityPtrInput
 	// Specifies the Azure Region where the Mobile Network Sim Groups should exist. Changing this forces a new Mobile Network Sim Group to be created.
 	Location pulumi.StringPtrInput
@@ -194,7 +201,7 @@ type networkSimGroupArgs struct {
 	EncryptionKeyUrl *string `pulumi:"encryptionKeyUrl"`
 	// An `identity` block as defined below.
 	//
-	// > **NOTE:** A `UserAssigned` identity must be specified when `encryptionKeyUrl` is specified.
+	// > **Note:** A `UserAssigned` identity must be specified when `encryptionKeyUrl` is specified.
 	Identity *NetworkSimGroupIdentity `pulumi:"identity"`
 	// Specifies the Azure Region where the Mobile Network Sim Groups should exist. Changing this forces a new Mobile Network Sim Group to be created.
 	Location *string `pulumi:"location"`
@@ -212,7 +219,7 @@ type NetworkSimGroupArgs struct {
 	EncryptionKeyUrl pulumi.StringPtrInput
 	// An `identity` block as defined below.
 	//
-	// > **NOTE:** A `UserAssigned` identity must be specified when `encryptionKeyUrl` is specified.
+	// > **Note:** A `UserAssigned` identity must be specified when `encryptionKeyUrl` is specified.
 	Identity NetworkSimGroupIdentityPtrInput
 	// Specifies the Azure Region where the Mobile Network Sim Groups should exist. Changing this forces a new Mobile Network Sim Group to be created.
 	Location pulumi.StringPtrInput
@@ -318,7 +325,7 @@ func (o NetworkSimGroupOutput) EncryptionKeyUrl() pulumi.StringPtrOutput {
 
 // An `identity` block as defined below.
 //
-// > **NOTE:** A `UserAssigned` identity must be specified when `encryptionKeyUrl` is specified.
+// > **Note:** A `UserAssigned` identity must be specified when `encryptionKeyUrl` is specified.
 func (o NetworkSimGroupOutput) Identity() NetworkSimGroupIdentityPtrOutput {
 	return o.ApplyT(func(v *NetworkSimGroup) NetworkSimGroupIdentityPtrOutput { return v.Identity }).(NetworkSimGroupIdentityPtrOutput)
 }

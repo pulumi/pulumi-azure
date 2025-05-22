@@ -18,6 +18,13 @@ import * as utilities from "../utilities";
  *     privateDnsResolverId: "example-private-dns-resolver-id",
  * });
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.Network`: 2022-07-01
  */
 export function getResolverOutboundEndpoint(args: GetResolverOutboundEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetResolverOutboundEndpointResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -78,6 +85,13 @@ export interface GetResolverOutboundEndpointResult {
  *     privateDnsResolverId: "example-private-dns-resolver-id",
  * });
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.Network`: 2022-07-01
  */
 export function getResolverOutboundEndpointOutput(args: GetResolverOutboundEndpointOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetResolverOutboundEndpointResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

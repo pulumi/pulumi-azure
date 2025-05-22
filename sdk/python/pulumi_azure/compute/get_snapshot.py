@@ -181,6 +181,13 @@ def get_snapshot(name: Optional[builtins.str] = None,
         resource_group_name="my-resource-group")
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Compute`: 2022-03-02
+
 
     :param builtins.str name: Specifies the name of the Snapshot.
     :param builtins.str resource_group_name: Specifies the name of the resource group the Snapshot is located in.
@@ -219,6 +226,13 @@ def get_snapshot_output(name: Optional[pulumi.Input[builtins.str]] = None,
     example = azure.compute.get_snapshot(name="my-snapshot",
         resource_group_name="my-resource-group")
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Compute`: 2022-03-02
 
 
     :param builtins.str name: Specifies the name of the Snapshot.

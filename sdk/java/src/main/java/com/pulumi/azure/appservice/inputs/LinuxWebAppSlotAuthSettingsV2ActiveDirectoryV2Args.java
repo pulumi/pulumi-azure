@@ -37,7 +37,7 @@ public final class LinuxWebAppSlotAuthSettingsV2ActiveDirectoryV2Args extends co
     /**
      * Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
      * 
-     * &gt; **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+     * &gt; **Note:** This is configured on the Authentication Provider side and is Read Only here.
      * 
      */
     @Import(name="allowedAudiences")
@@ -46,7 +46,7 @@ public final class LinuxWebAppSlotAuthSettingsV2ActiveDirectoryV2Args extends co
     /**
      * @return Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
      * 
-     * &gt; **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+     * &gt; **Note:** This is configured on the Authentication Provider side and is Read Only here.
      * 
      */
     public Optional<Output<List<String>>> allowedAudiences() {
@@ -116,7 +116,7 @@ public final class LinuxWebAppSlotAuthSettingsV2ActiveDirectoryV2Args extends co
     /**
      * The App Setting name that contains the client secret of the Client.
      * 
-     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+     * !&gt; **Note:** A setting with this name must exist in `app_settings` to function correctly.
      * 
      */
     @Import(name="clientSecretSettingName")
@@ -125,7 +125,7 @@ public final class LinuxWebAppSlotAuthSettingsV2ActiveDirectoryV2Args extends co
     /**
      * @return The App Setting name that contains the client secret of the Client.
      * 
-     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+     * !&gt; **Note:** A setting with this name must exist in `app_settings` to function correctly.
      * 
      */
     public Optional<Output<String>> clientSecretSettingName() {
@@ -180,7 +180,7 @@ public final class LinuxWebAppSlotAuthSettingsV2ActiveDirectoryV2Args extends co
     /**
      * The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
      * 
-     * &gt; **NOTE:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
+     * &gt; **Note:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
      * 
      */
     @Import(name="tenantAuthEndpoint", required=true)
@@ -189,7 +189,7 @@ public final class LinuxWebAppSlotAuthSettingsV2ActiveDirectoryV2Args extends co
     /**
      * @return The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
      * 
-     * &gt; **NOTE:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
+     * &gt; **Note:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
      * 
      */
     public Output<String> tenantAuthEndpoint() {
@@ -280,7 +280,7 @@ public final class LinuxWebAppSlotAuthSettingsV2ActiveDirectoryV2Args extends co
         /**
          * @param allowedAudiences Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
          * 
-         * &gt; **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+         * &gt; **Note:** This is configured on the Authentication Provider side and is Read Only here.
          * 
          * @return builder
          * 
@@ -293,7 +293,7 @@ public final class LinuxWebAppSlotAuthSettingsV2ActiveDirectoryV2Args extends co
         /**
          * @param allowedAudiences Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
          * 
-         * &gt; **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+         * &gt; **Note:** This is configured on the Authentication Provider side and is Read Only here.
          * 
          * @return builder
          * 
@@ -305,7 +305,7 @@ public final class LinuxWebAppSlotAuthSettingsV2ActiveDirectoryV2Args extends co
         /**
          * @param allowedAudiences Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
          * 
-         * &gt; **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+         * &gt; **Note:** This is configured on the Authentication Provider side and is Read Only here.
          * 
          * @return builder
          * 
@@ -421,7 +421,7 @@ public final class LinuxWebAppSlotAuthSettingsV2ActiveDirectoryV2Args extends co
         /**
          * @param clientSecretSettingName The App Setting name that contains the client secret of the Client.
          * 
-         * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+         * !&gt; **Note:** A setting with this name must exist in `app_settings` to function correctly.
          * 
          * @return builder
          * 
@@ -434,7 +434,7 @@ public final class LinuxWebAppSlotAuthSettingsV2ActiveDirectoryV2Args extends co
         /**
          * @param clientSecretSettingName The App Setting name that contains the client secret of the Client.
          * 
-         * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+         * !&gt; **Note:** A setting with this name must exist in `app_settings` to function correctly.
          * 
          * @return builder
          * 
@@ -529,7 +529,7 @@ public final class LinuxWebAppSlotAuthSettingsV2ActiveDirectoryV2Args extends co
         /**
          * @param tenantAuthEndpoint The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
          * 
-         * &gt; **NOTE:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
+         * &gt; **Note:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
          * 
          * @return builder
          * 
@@ -542,7 +542,7 @@ public final class LinuxWebAppSlotAuthSettingsV2ActiveDirectoryV2Args extends co
         /**
          * @param tenantAuthEndpoint The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
          * 
-         * &gt; **NOTE:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
+         * &gt; **Note:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
          * 
          * @return builder
          * 

@@ -194,7 +194,7 @@ public class FlexibleServerFirewallRule extends com.pulumi.resources.CustomResou
     /**
      * Specifies the End IP Address associated with this Firewall Rule.
      * 
-     * &gt; **NOTE:** The Azure feature `Allow access to Azure services` can be enabled by setting `start_ip_address` and `end_ip_address` to `0.0.0.0` which ([is documented in the Azure API Docs](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate)).
+     * &gt; **Note:** The Azure feature `Allow access to Azure services` can be enabled by setting `start_ip_address` and `end_ip_address` to `0.0.0.0` which ([is documented in the Azure API Docs](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate)).
      * 
      */
     @Export(name="endIpAddress", refs={String.class}, tree="[0]")
@@ -203,7 +203,7 @@ public class FlexibleServerFirewallRule extends com.pulumi.resources.CustomResou
     /**
      * @return Specifies the End IP Address associated with this Firewall Rule.
      * 
-     * &gt; **NOTE:** The Azure feature `Allow access to Azure services` can be enabled by setting `start_ip_address` and `end_ip_address` to `0.0.0.0` which ([is documented in the Azure API Docs](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate)).
+     * &gt; **Note:** The Azure feature `Allow access to Azure services` can be enabled by setting `start_ip_address` and `end_ip_address` to `0.0.0.0` which ([is documented in the Azure API Docs](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate)).
      * 
      */
     public Output<String> endIpAddress() {

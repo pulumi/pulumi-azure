@@ -16,9 +16,9 @@ var _ = internal.GetEnvOrDefault
 type DomainIdentity struct {
 	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid Domain.
 	//
-	// > **NOTE:** This is required when `type` is set to `UserAssigned`
+	// > **Note:** This is required when `type` is set to `UserAssigned`
 	//
-	// > **NOTE:** When `type` is set to `SystemAssigned`, The assigned `principalId` and `tenantId` can be retrieved after the Event Grid Domain has been created. More details are available below.
+	// > **Note:** When `type` is set to `SystemAssigned`, The assigned `principalId` and `tenantId` can be retrieved after the Event Grid Domain has been created. More details are available below.
 	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId *string `pulumi:"principalId"`
@@ -42,9 +42,9 @@ type DomainIdentityInput interface {
 type DomainIdentityArgs struct {
 	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid Domain.
 	//
-	// > **NOTE:** This is required when `type` is set to `UserAssigned`
+	// > **Note:** This is required when `type` is set to `UserAssigned`
 	//
-	// > **NOTE:** When `type` is set to `SystemAssigned`, The assigned `principalId` and `tenantId` can be retrieved after the Event Grid Domain has been created. More details are available below.
+	// > **Note:** When `type` is set to `SystemAssigned`, The assigned `principalId` and `tenantId` can be retrieved after the Event Grid Domain has been created. More details are available below.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
@@ -133,9 +133,9 @@ func (o DomainIdentityOutput) ToDomainIdentityPtrOutputWithContext(ctx context.C
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid Domain.
 //
-// > **NOTE:** This is required when `type` is set to `UserAssigned`
+// > **Note:** This is required when `type` is set to `UserAssigned`
 //
-// > **NOTE:** When `type` is set to `SystemAssigned`, The assigned `principalId` and `tenantId` can be retrieved after the Event Grid Domain has been created. More details are available below.
+// > **Note:** When `type` is set to `SystemAssigned`, The assigned `principalId` and `tenantId` can be retrieved after the Event Grid Domain has been created. More details are available below.
 func (o DomainIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DomainIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
@@ -181,9 +181,9 @@ func (o DomainIdentityPtrOutput) Elem() DomainIdentityOutput {
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid Domain.
 //
-// > **NOTE:** This is required when `type` is set to `UserAssigned`
+// > **Note:** This is required when `type` is set to `UserAssigned`
 //
-// > **NOTE:** When `type` is set to `SystemAssigned`, The assigned `principalId` and `tenantId` can be retrieved after the Event Grid Domain has been created. More details are available below.
+// > **Note:** When `type` is set to `SystemAssigned`, The assigned `principalId` and `tenantId` can be retrieved after the Event Grid Domain has been created. More details are available below.
 func (o DomainIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DomainIdentity) []string {
 		if v == nil {
@@ -739,9 +739,9 @@ func (o DomainInputMappingFieldsPtrOutput) Topic() pulumi.StringPtrOutput {
 type EventGridTopicIdentity struct {
 	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid Topic.
 	//
-	// > **NOTE:** This is required when `type` is set to `UserAssigned`
+	// > **Note:** This is required when `type` is set to `UserAssigned`
 	//
-	// > **NOTE:** When `type` is set to `SystemAssigned`, The assigned `principalId` and `tenantId` can be retrieved after the Event Grid Topic has been created. More details are available below.
+	// > **Note:** When `type` is set to `SystemAssigned`, The assigned `principalId` and `tenantId` can be retrieved after the Event Grid Topic has been created. More details are available below.
 	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId *string `pulumi:"principalId"`
@@ -765,9 +765,9 @@ type EventGridTopicIdentityInput interface {
 type EventGridTopicIdentityArgs struct {
 	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid Topic.
 	//
-	// > **NOTE:** This is required when `type` is set to `UserAssigned`
+	// > **Note:** This is required when `type` is set to `UserAssigned`
 	//
-	// > **NOTE:** When `type` is set to `SystemAssigned`, The assigned `principalId` and `tenantId` can be retrieved after the Event Grid Topic has been created. More details are available below.
+	// > **Note:** When `type` is set to `SystemAssigned`, The assigned `principalId` and `tenantId` can be retrieved after the Event Grid Topic has been created. More details are available below.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
@@ -856,9 +856,9 @@ func (o EventGridTopicIdentityOutput) ToEventGridTopicIdentityPtrOutputWithConte
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid Topic.
 //
-// > **NOTE:** This is required when `type` is set to `UserAssigned`
+// > **Note:** This is required when `type` is set to `UserAssigned`
 //
-// > **NOTE:** When `type` is set to `SystemAssigned`, The assigned `principalId` and `tenantId` can be retrieved after the Event Grid Topic has been created. More details are available below.
+// > **Note:** When `type` is set to `SystemAssigned`, The assigned `principalId` and `tenantId` can be retrieved after the Event Grid Topic has been created. More details are available below.
 func (o EventGridTopicIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v EventGridTopicIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
@@ -904,9 +904,9 @@ func (o EventGridTopicIdentityPtrOutput) Elem() EventGridTopicIdentityOutput {
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid Topic.
 //
-// > **NOTE:** This is required when `type` is set to `UserAssigned`
+// > **Note:** This is required when `type` is set to `UserAssigned`
 //
-// > **NOTE:** When `type` is set to `SystemAssigned`, The assigned `principalId` and `tenantId` can be retrieved after the Event Grid Topic has been created. More details are available below.
+// > **Note:** When `type` is set to `SystemAssigned`, The assigned `principalId` and `tenantId` can be retrieved after the Event Grid Topic has been created. More details are available below.
 func (o EventGridTopicIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *EventGridTopicIdentity) []string {
 		if v == nil {
@@ -1698,7 +1698,7 @@ type EventHubCaptureDescriptionDestination struct {
 	BlobContainerName string `pulumi:"blobContainerName"`
 	// The Name of the Destination where the capture should take place. At this time the only supported value is `EventHubArchive.AzureBlockBlob`.
 	//
-	// > At this time it's only possible to Capture EventHub messages to Blob Storage. There's [a Feature Request for the Azure SDK to add support for Capturing messages to Azure Data Lake here](https://github.com/Azure/azure-rest-api-specs/issues/2255).
+	// > **Note:** At this time it's only possible to Capture EventHub messages to Blob Storage. There's [a Feature Request for the Azure SDK to add support for Capturing messages to Azure Data Lake here](https://github.com/Azure/azure-rest-api-specs/issues/2255).
 	Name string `pulumi:"name"`
 	// The ID of the Blob Storage Account where messages should be archived.
 	StorageAccountId string `pulumi:"storageAccountId"`
@@ -1722,7 +1722,7 @@ type EventHubCaptureDescriptionDestinationArgs struct {
 	BlobContainerName pulumi.StringInput `pulumi:"blobContainerName"`
 	// The Name of the Destination where the capture should take place. At this time the only supported value is `EventHubArchive.AzureBlockBlob`.
 	//
-	// > At this time it's only possible to Capture EventHub messages to Blob Storage. There's [a Feature Request for the Azure SDK to add support for Capturing messages to Azure Data Lake here](https://github.com/Azure/azure-rest-api-specs/issues/2255).
+	// > **Note:** At this time it's only possible to Capture EventHub messages to Blob Storage. There's [a Feature Request for the Azure SDK to add support for Capturing messages to Azure Data Lake here](https://github.com/Azure/azure-rest-api-specs/issues/2255).
 	Name pulumi.StringInput `pulumi:"name"`
 	// The ID of the Blob Storage Account where messages should be archived.
 	StorageAccountId pulumi.StringInput `pulumi:"storageAccountId"`
@@ -1817,7 +1817,7 @@ func (o EventHubCaptureDescriptionDestinationOutput) BlobContainerName() pulumi.
 
 // The Name of the Destination where the capture should take place. At this time the only supported value is `EventHubArchive.AzureBlockBlob`.
 //
-// > At this time it's only possible to Capture EventHub messages to Blob Storage. There's [a Feature Request for the Azure SDK to add support for Capturing messages to Azure Data Lake here](https://github.com/Azure/azure-rest-api-specs/issues/2255).
+// > **Note:** At this time it's only possible to Capture EventHub messages to Blob Storage. There's [a Feature Request for the Azure SDK to add support for Capturing messages to Azure Data Lake here](https://github.com/Azure/azure-rest-api-specs/issues/2255).
 func (o EventHubCaptureDescriptionDestinationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v EventHubCaptureDescriptionDestination) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -1873,7 +1873,7 @@ func (o EventHubCaptureDescriptionDestinationPtrOutput) BlobContainerName() pulu
 
 // The Name of the Destination where the capture should take place. At this time the only supported value is `EventHubArchive.AzureBlockBlob`.
 //
-// > At this time it's only possible to Capture EventHub messages to Blob Storage. There's [a Feature Request for the Azure SDK to add support for Capturing messages to Azure Data Lake here](https://github.com/Azure/azure-rest-api-specs/issues/2255).
+// > **Note:** At this time it's only possible to Capture EventHub messages to Blob Storage. There's [a Feature Request for the Azure SDK to add support for Capturing messages to Azure Data Lake here](https://github.com/Azure/azure-rest-api-specs/issues/2255).
 func (o EventHubCaptureDescriptionDestinationPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventHubCaptureDescriptionDestination) *string {
 		if v == nil {
@@ -1896,7 +1896,7 @@ func (o EventHubCaptureDescriptionDestinationPtrOutput) StorageAccountId() pulum
 type EventHubNamespaceIdentity struct {
 	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this EventHub namespace.
 	//
-	// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+	// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 	//
 	// > **Note:** Due to the limitation of the current Azure API, once an EventHub Namespace has been assigned an identity, it cannot be removed.
 	IdentityIds []string `pulumi:"identityIds"`
@@ -1922,7 +1922,7 @@ type EventHubNamespaceIdentityInput interface {
 type EventHubNamespaceIdentityArgs struct {
 	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this EventHub namespace.
 	//
-	// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+	// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 	//
 	// > **Note:** Due to the limitation of the current Azure API, once an EventHub Namespace has been assigned an identity, it cannot be removed.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
@@ -2013,7 +2013,7 @@ func (o EventHubNamespaceIdentityOutput) ToEventHubNamespaceIdentityPtrOutputWit
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this EventHub namespace.
 //
-// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 //
 // > **Note:** Due to the limitation of the current Azure API, once an EventHub Namespace has been assigned an identity, it cannot be removed.
 func (o EventHubNamespaceIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
@@ -2061,7 +2061,7 @@ func (o EventHubNamespaceIdentityPtrOutput) Elem() EventHubNamespaceIdentityOutp
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this EventHub namespace.
 //
-// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 //
 // > **Note:** Due to the limitation of the current Azure API, once an EventHub Namespace has been assigned an identity, it cannot be removed.
 func (o EventHubNamespaceIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
@@ -3569,7 +3569,7 @@ type EventSubscriptionAdvancedFilterNumberIn struct {
 	Key string `pulumi:"key"`
 	// Specifies an array of values to compare to when using a multiple values operator.
 	//
-	// > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+	// > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
 	Values []float64 `pulumi:"values"`
 }
 
@@ -3589,7 +3589,7 @@ type EventSubscriptionAdvancedFilterNumberInArgs struct {
 	Key pulumi.StringInput `pulumi:"key"`
 	// Specifies an array of values to compare to when using a multiple values operator.
 	//
-	// > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+	// > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
 	Values pulumi.Float64ArrayInput `pulumi:"values"`
 }
 
@@ -3651,7 +3651,7 @@ func (o EventSubscriptionAdvancedFilterNumberInOutput) Key() pulumi.StringOutput
 
 // Specifies an array of values to compare to when using a multiple values operator.
 //
-// > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+// > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
 func (o EventSubscriptionAdvancedFilterNumberInOutput) Values() pulumi.Float64ArrayOutput {
 	return o.ApplyT(func(v EventSubscriptionAdvancedFilterNumberIn) []float64 { return v.Values }).(pulumi.Float64ArrayOutput)
 }
@@ -3681,7 +3681,7 @@ type EventSubscriptionAdvancedFilterNumberInRange struct {
 	Key string `pulumi:"key"`
 	// Specifies an array of values to compare to when using a multiple values operator.
 	//
-	// > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+	// > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
 	Values [][]float64 `pulumi:"values"`
 }
 
@@ -3701,7 +3701,7 @@ type EventSubscriptionAdvancedFilterNumberInRangeArgs struct {
 	Key pulumi.StringInput `pulumi:"key"`
 	// Specifies an array of values to compare to when using a multiple values operator.
 	//
-	// > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+	// > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
 	Values pulumi.Float64ArrayArrayInput `pulumi:"values"`
 }
 
@@ -3763,7 +3763,7 @@ func (o EventSubscriptionAdvancedFilterNumberInRangeOutput) Key() pulumi.StringO
 
 // Specifies an array of values to compare to when using a multiple values operator.
 //
-// > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+// > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
 func (o EventSubscriptionAdvancedFilterNumberInRangeOutput) Values() pulumi.Float64ArrayArrayOutput {
 	return o.ApplyT(func(v EventSubscriptionAdvancedFilterNumberInRange) [][]float64 { return v.Values }).(pulumi.Float64ArrayArrayOutput)
 }
@@ -3999,7 +3999,7 @@ type EventSubscriptionAdvancedFilterNumberNotIn struct {
 	Key string `pulumi:"key"`
 	// Specifies an array of values to compare to when using a multiple values operator.
 	//
-	// > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+	// > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
 	Values []float64 `pulumi:"values"`
 }
 
@@ -4019,7 +4019,7 @@ type EventSubscriptionAdvancedFilterNumberNotInArgs struct {
 	Key pulumi.StringInput `pulumi:"key"`
 	// Specifies an array of values to compare to when using a multiple values operator.
 	//
-	// > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+	// > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
 	Values pulumi.Float64ArrayInput `pulumi:"values"`
 }
 
@@ -4081,7 +4081,7 @@ func (o EventSubscriptionAdvancedFilterNumberNotInOutput) Key() pulumi.StringOut
 
 // Specifies an array of values to compare to when using a multiple values operator.
 //
-// > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+// > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
 func (o EventSubscriptionAdvancedFilterNumberNotInOutput) Values() pulumi.Float64ArrayOutput {
 	return o.ApplyT(func(v EventSubscriptionAdvancedFilterNumberNotIn) []float64 { return v.Values }).(pulumi.Float64ArrayOutput)
 }
@@ -4111,7 +4111,7 @@ type EventSubscriptionAdvancedFilterNumberNotInRange struct {
 	Key string `pulumi:"key"`
 	// Specifies an array of values to compare to when using a multiple values operator.
 	//
-	// > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+	// > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
 	Values [][]float64 `pulumi:"values"`
 }
 
@@ -4131,7 +4131,7 @@ type EventSubscriptionAdvancedFilterNumberNotInRangeArgs struct {
 	Key pulumi.StringInput `pulumi:"key"`
 	// Specifies an array of values to compare to when using a multiple values operator.
 	//
-	// > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+	// > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
 	Values pulumi.Float64ArrayArrayInput `pulumi:"values"`
 }
 
@@ -4193,7 +4193,7 @@ func (o EventSubscriptionAdvancedFilterNumberNotInRangeOutput) Key() pulumi.Stri
 
 // Specifies an array of values to compare to when using a multiple values operator.
 //
-// > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+// > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
 func (o EventSubscriptionAdvancedFilterNumberNotInRangeOutput) Values() pulumi.Float64ArrayArrayOutput {
 	return o.ApplyT(func(v EventSubscriptionAdvancedFilterNumberNotInRange) [][]float64 { return v.Values }).(pulumi.Float64ArrayArrayOutput)
 }
@@ -4223,7 +4223,7 @@ type EventSubscriptionAdvancedFilterStringBeginsWith struct {
 	Key string `pulumi:"key"`
 	// Specifies an array of values to compare to when using a multiple values operator.
 	//
-	// > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+	// > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
 	Values []string `pulumi:"values"`
 }
 
@@ -4243,7 +4243,7 @@ type EventSubscriptionAdvancedFilterStringBeginsWithArgs struct {
 	Key pulumi.StringInput `pulumi:"key"`
 	// Specifies an array of values to compare to when using a multiple values operator.
 	//
-	// > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+	// > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -4305,7 +4305,7 @@ func (o EventSubscriptionAdvancedFilterStringBeginsWithOutput) Key() pulumi.Stri
 
 // Specifies an array of values to compare to when using a multiple values operator.
 //
-// > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+// > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
 func (o EventSubscriptionAdvancedFilterStringBeginsWithOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v EventSubscriptionAdvancedFilterStringBeginsWith) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -4335,7 +4335,7 @@ type EventSubscriptionAdvancedFilterStringContain struct {
 	Key string `pulumi:"key"`
 	// Specifies an array of values to compare to when using a multiple values operator.
 	//
-	// > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+	// > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
 	Values []string `pulumi:"values"`
 }
 
@@ -4355,7 +4355,7 @@ type EventSubscriptionAdvancedFilterStringContainArgs struct {
 	Key pulumi.StringInput `pulumi:"key"`
 	// Specifies an array of values to compare to when using a multiple values operator.
 	//
-	// > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+	// > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -4417,7 +4417,7 @@ func (o EventSubscriptionAdvancedFilterStringContainOutput) Key() pulumi.StringO
 
 // Specifies an array of values to compare to when using a multiple values operator.
 //
-// > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+// > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
 func (o EventSubscriptionAdvancedFilterStringContainOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v EventSubscriptionAdvancedFilterStringContain) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -4447,7 +4447,7 @@ type EventSubscriptionAdvancedFilterStringEndsWith struct {
 	Key string `pulumi:"key"`
 	// Specifies an array of values to compare to when using a multiple values operator.
 	//
-	// > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+	// > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
 	Values []string `pulumi:"values"`
 }
 
@@ -4467,7 +4467,7 @@ type EventSubscriptionAdvancedFilterStringEndsWithArgs struct {
 	Key pulumi.StringInput `pulumi:"key"`
 	// Specifies an array of values to compare to when using a multiple values operator.
 	//
-	// > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+	// > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -4529,7 +4529,7 @@ func (o EventSubscriptionAdvancedFilterStringEndsWithOutput) Key() pulumi.String
 
 // Specifies an array of values to compare to when using a multiple values operator.
 //
-// > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+// > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
 func (o EventSubscriptionAdvancedFilterStringEndsWithOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v EventSubscriptionAdvancedFilterStringEndsWith) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -4559,7 +4559,7 @@ type EventSubscriptionAdvancedFilterStringIn struct {
 	Key string `pulumi:"key"`
 	// Specifies an array of values to compare to when using a multiple values operator.
 	//
-	// > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+	// > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
 	Values []string `pulumi:"values"`
 }
 
@@ -4579,7 +4579,7 @@ type EventSubscriptionAdvancedFilterStringInArgs struct {
 	Key pulumi.StringInput `pulumi:"key"`
 	// Specifies an array of values to compare to when using a multiple values operator.
 	//
-	// > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+	// > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -4641,7 +4641,7 @@ func (o EventSubscriptionAdvancedFilterStringInOutput) Key() pulumi.StringOutput
 
 // Specifies an array of values to compare to when using a multiple values operator.
 //
-// > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+// > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
 func (o EventSubscriptionAdvancedFilterStringInOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v EventSubscriptionAdvancedFilterStringIn) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -4671,7 +4671,7 @@ type EventSubscriptionAdvancedFilterStringNotBeginsWith struct {
 	Key string `pulumi:"key"`
 	// Specifies an array of values to compare to when using a multiple values operator.
 	//
-	// > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+	// > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
 	Values []string `pulumi:"values"`
 }
 
@@ -4691,7 +4691,7 @@ type EventSubscriptionAdvancedFilterStringNotBeginsWithArgs struct {
 	Key pulumi.StringInput `pulumi:"key"`
 	// Specifies an array of values to compare to when using a multiple values operator.
 	//
-	// > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+	// > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -4753,7 +4753,7 @@ func (o EventSubscriptionAdvancedFilterStringNotBeginsWithOutput) Key() pulumi.S
 
 // Specifies an array of values to compare to when using a multiple values operator.
 //
-// > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+// > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
 func (o EventSubscriptionAdvancedFilterStringNotBeginsWithOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v EventSubscriptionAdvancedFilterStringNotBeginsWith) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -4783,7 +4783,7 @@ type EventSubscriptionAdvancedFilterStringNotContain struct {
 	Key string `pulumi:"key"`
 	// Specifies an array of values to compare to when using a multiple values operator.
 	//
-	// > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+	// > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
 	Values []string `pulumi:"values"`
 }
 
@@ -4803,7 +4803,7 @@ type EventSubscriptionAdvancedFilterStringNotContainArgs struct {
 	Key pulumi.StringInput `pulumi:"key"`
 	// Specifies an array of values to compare to when using a multiple values operator.
 	//
-	// > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+	// > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -4865,7 +4865,7 @@ func (o EventSubscriptionAdvancedFilterStringNotContainOutput) Key() pulumi.Stri
 
 // Specifies an array of values to compare to when using a multiple values operator.
 //
-// > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+// > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
 func (o EventSubscriptionAdvancedFilterStringNotContainOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v EventSubscriptionAdvancedFilterStringNotContain) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -4895,7 +4895,7 @@ type EventSubscriptionAdvancedFilterStringNotEndsWith struct {
 	Key string `pulumi:"key"`
 	// Specifies an array of values to compare to when using a multiple values operator.
 	//
-	// > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+	// > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
 	Values []string `pulumi:"values"`
 }
 
@@ -4915,7 +4915,7 @@ type EventSubscriptionAdvancedFilterStringNotEndsWithArgs struct {
 	Key pulumi.StringInput `pulumi:"key"`
 	// Specifies an array of values to compare to when using a multiple values operator.
 	//
-	// > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+	// > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -4977,7 +4977,7 @@ func (o EventSubscriptionAdvancedFilterStringNotEndsWithOutput) Key() pulumi.Str
 
 // Specifies an array of values to compare to when using a multiple values operator.
 //
-// > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+// > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
 func (o EventSubscriptionAdvancedFilterStringNotEndsWithOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v EventSubscriptionAdvancedFilterStringNotEndsWith) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -5007,7 +5007,7 @@ type EventSubscriptionAdvancedFilterStringNotIn struct {
 	Key string `pulumi:"key"`
 	// Specifies an array of values to compare to when using a multiple values operator.
 	//
-	// > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+	// > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
 	Values []string `pulumi:"values"`
 }
 
@@ -5027,7 +5027,7 @@ type EventSubscriptionAdvancedFilterStringNotInArgs struct {
 	Key pulumi.StringInput `pulumi:"key"`
 	// Specifies an array of values to compare to when using a multiple values operator.
 	//
-	// > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+	// > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -5089,7 +5089,7 @@ func (o EventSubscriptionAdvancedFilterStringNotInOutput) Key() pulumi.StringOut
 
 // Specifies an array of values to compare to when using a multiple values operator.
 //
-// > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+// > **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
 func (o EventSubscriptionAdvancedFilterStringNotInOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v EventSubscriptionAdvancedFilterStringNotIn) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -6806,7 +6806,7 @@ func (o NamespaceCustomerManagedKeyTypePtrOutput) KeyVaultKeyId() pulumi.StringP
 type NamespaceIdentity struct {
 	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Service Bus namespace.
 	//
-	// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+	// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID for the Service Principal associated with the Managed Service Identity of this Service Bus Namespace.
 	PrincipalId *string `pulumi:"principalId"`
@@ -6830,7 +6830,7 @@ type NamespaceIdentityInput interface {
 type NamespaceIdentityArgs struct {
 	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Service Bus namespace.
 	//
-	// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+	// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID for the Service Principal associated with the Managed Service Identity of this Service Bus Namespace.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
@@ -6919,7 +6919,7 @@ func (o NamespaceIdentityOutput) ToNamespaceIdentityPtrOutputWithContext(ctx con
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this Service Bus namespace.
 //
-// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 func (o NamespaceIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v NamespaceIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
@@ -6965,7 +6965,7 @@ func (o NamespaceIdentityPtrOutput) Elem() NamespaceIdentityOutput {
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this Service Bus namespace.
 //
-// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 func (o NamespaceIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *NamespaceIdentity) []string {
 		if v == nil {
@@ -7335,7 +7335,7 @@ func (o NamespaceNetworkRuleSetNetworkRuleArrayOutput) Index(i pulumi.IntInput) 
 type SubscriptionClientScopedSubscription struct {
 	// Specifies the Client ID of the application that created the client-scoped subscription. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Client ID can be null or empty, but it must match the client ID set on the JMS client application. From the Azure Service Bus perspective, a null client ID and an empty client id have the same behavior. If the client ID is set to null or empty, it is only accessible to client applications whose client ID is also set to null or empty.
+	// > **Note:** Client ID can be null or empty, but it must match the client ID set on the JMS client application. From the Azure Service Bus perspective, a null client ID and an empty client id have the same behavior. If the client ID is set to null or empty, it is only accessible to client applications whose client ID is also set to null or empty.
 	ClientId *string `pulumi:"clientId"`
 	// Whether the client scoped subscription is durable. This property can only be controlled from the application side.
 	IsClientScopedSubscriptionDurable *bool `pulumi:"isClientScopedSubscriptionDurable"`
@@ -7357,7 +7357,7 @@ type SubscriptionClientScopedSubscriptionInput interface {
 type SubscriptionClientScopedSubscriptionArgs struct {
 	// Specifies the Client ID of the application that created the client-scoped subscription. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Client ID can be null or empty, but it must match the client ID set on the JMS client application. From the Azure Service Bus perspective, a null client ID and an empty client id have the same behavior. If the client ID is set to null or empty, it is only accessible to client applications whose client ID is also set to null or empty.
+	// > **Note:** Client ID can be null or empty, but it must match the client ID set on the JMS client application. From the Azure Service Bus perspective, a null client ID and an empty client id have the same behavior. If the client ID is set to null or empty, it is only accessible to client applications whose client ID is also set to null or empty.
 	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
 	// Whether the client scoped subscription is durable. This property can only be controlled from the application side.
 	IsClientScopedSubscriptionDurable pulumi.BoolPtrInput `pulumi:"isClientScopedSubscriptionDurable"`
@@ -7444,7 +7444,7 @@ func (o SubscriptionClientScopedSubscriptionOutput) ToSubscriptionClientScopedSu
 
 // Specifies the Client ID of the application that created the client-scoped subscription. Changing this forces a new resource to be created.
 //
-// > **NOTE:** Client ID can be null or empty, but it must match the client ID set on the JMS client application. From the Azure Service Bus perspective, a null client ID and an empty client id have the same behavior. If the client ID is set to null or empty, it is only accessible to client applications whose client ID is also set to null or empty.
+// > **Note:** Client ID can be null or empty, but it must match the client ID set on the JMS client application. From the Azure Service Bus perspective, a null client ID and an empty client id have the same behavior. If the client ID is set to null or empty, it is only accessible to client applications whose client ID is also set to null or empty.
 func (o SubscriptionClientScopedSubscriptionOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SubscriptionClientScopedSubscription) *string { return v.ClientId }).(pulumi.StringPtrOutput)
 }
@@ -7485,7 +7485,7 @@ func (o SubscriptionClientScopedSubscriptionPtrOutput) Elem() SubscriptionClient
 
 // Specifies the Client ID of the application that created the client-scoped subscription. Changing this forces a new resource to be created.
 //
-// > **NOTE:** Client ID can be null or empty, but it must match the client ID set on the JMS client application. From the Azure Service Bus perspective, a null client ID and an empty client id have the same behavior. If the client ID is set to null or empty, it is only accessible to client applications whose client ID is also set to null or empty.
+// > **Note:** Client ID can be null or empty, but it must match the client ID set on the JMS client application. From the Azure Service Bus perspective, a null client ID and an empty client id have the same behavior. If the client ID is set to null or empty, it is only accessible to client applications whose client ID is also set to null or empty.
 func (o SubscriptionClientScopedSubscriptionPtrOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SubscriptionClientScopedSubscription) *string {
 		if v == nil {
@@ -7526,7 +7526,7 @@ type SubscriptionRuleCorrelationFilter struct {
 	MessageId *string `pulumi:"messageId"`
 	// A list of user defined properties to be included in the filter. Specified as a map of name/value pairs.
 	//
-	// > **NOTE:** When creating a subscription rule of type `CorrelationFilter` at least one property must be set in the `correlationFilter` block.
+	// > **Note:** When creating a subscription rule of type `CorrelationFilter` at least one property must be set in the `correlationFilter` block.
 	Properties map[string]string `pulumi:"properties"`
 	// Address of the queue to reply to.
 	ReplyTo *string `pulumi:"replyTo"`
@@ -7560,7 +7560,7 @@ type SubscriptionRuleCorrelationFilterArgs struct {
 	MessageId pulumi.StringPtrInput `pulumi:"messageId"`
 	// A list of user defined properties to be included in the filter. Specified as a map of name/value pairs.
 	//
-	// > **NOTE:** When creating a subscription rule of type `CorrelationFilter` at least one property must be set in the `correlationFilter` block.
+	// > **Note:** When creating a subscription rule of type `CorrelationFilter` at least one property must be set in the `correlationFilter` block.
 	Properties pulumi.StringMapInput `pulumi:"properties"`
 	// Address of the queue to reply to.
 	ReplyTo pulumi.StringPtrInput `pulumi:"replyTo"`
@@ -7671,7 +7671,7 @@ func (o SubscriptionRuleCorrelationFilterOutput) MessageId() pulumi.StringPtrOut
 
 // A list of user defined properties to be included in the filter. Specified as a map of name/value pairs.
 //
-// > **NOTE:** When creating a subscription rule of type `CorrelationFilter` at least one property must be set in the `correlationFilter` block.
+// > **Note:** When creating a subscription rule of type `CorrelationFilter` at least one property must be set in the `correlationFilter` block.
 func (o SubscriptionRuleCorrelationFilterOutput) Properties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v SubscriptionRuleCorrelationFilter) map[string]string { return v.Properties }).(pulumi.StringMapOutput)
 }
@@ -7762,7 +7762,7 @@ func (o SubscriptionRuleCorrelationFilterPtrOutput) MessageId() pulumi.StringPtr
 
 // A list of user defined properties to be included in the filter. Specified as a map of name/value pairs.
 //
-// > **NOTE:** When creating a subscription rule of type `CorrelationFilter` at least one property must be set in the `correlationFilter` block.
+// > **Note:** When creating a subscription rule of type `CorrelationFilter` at least one property must be set in the `correlationFilter` block.
 func (o SubscriptionRuleCorrelationFilterPtrOutput) Properties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *SubscriptionRuleCorrelationFilter) map[string]string {
 		if v == nil {

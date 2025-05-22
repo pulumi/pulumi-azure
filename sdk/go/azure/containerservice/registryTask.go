@@ -69,6 +69,13 @@ import (
 //
 // ```
 //
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.ContainerRegistry`: 2023-11-01-preview, 2019-06-01-preview
+//
 // ## Import
 //
 // Container Registry Tasks can be imported using the `resource id`, e.g.
@@ -83,7 +90,7 @@ type RegistryTask struct {
 	AgentPoolName pulumi.StringPtrOutput `pulumi:"agentPoolName"`
 	// A `agentSetting` block as defined below.
 	//
-	// > **NOTE:** Only one of `agentPoolName` and `agentSetting` can be specified.
+	// > **Note:** Only one of `agentPoolName` and `agentSetting` can be specified.
 	AgentSetting RegistryTaskAgentSettingPtrOutput `pulumi:"agentSetting"`
 	// A `baseImageTrigger` block as defined below.
 	BaseImageTrigger RegistryTaskBaseImageTriggerPtrOutput `pulumi:"baseImageTrigger"`
@@ -97,7 +104,7 @@ type RegistryTask struct {
 	EncodedStep RegistryTaskEncodedStepPtrOutput `pulumi:"encodedStep"`
 	// A `fileStep` block as defined below.
 	//
-	// > **NOTE:** For non-system task (when `isSystemTask` is set to `false`), one and only one of the `dockerStep`, `encodedStep` and `fileStep` should be specified.
+	// > **Note:** For non-system task (when `isSystemTask` is set to `false`), one and only one of the `dockerStep`, `encodedStep` and `fileStep` should be specified.
 	FileStep RegistryTaskFileStepPtrOutput `pulumi:"fileStep"`
 	// An `identity` block as defined below.
 	Identity RegistryTaskIdentityPtrOutput `pulumi:"identity"`
@@ -108,7 +115,7 @@ type RegistryTask struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A `platform` block as defined below.
 	//
-	// > **NOTE:** The `platform` is required for non-system task (when `isSystemTask` is set to `false`).
+	// > **Note:** The `platform` is required for non-system task (when `isSystemTask` is set to `false`).
 	Platform           RegistryTaskPlatformPtrOutput           `pulumi:"platform"`
 	RegistryCredential RegistryTaskRegistryCredentialPtrOutput `pulumi:"registryCredential"`
 	// One or more `sourceTrigger` blocks as defined below.
@@ -156,7 +163,7 @@ type registryTaskState struct {
 	AgentPoolName *string `pulumi:"agentPoolName"`
 	// A `agentSetting` block as defined below.
 	//
-	// > **NOTE:** Only one of `agentPoolName` and `agentSetting` can be specified.
+	// > **Note:** Only one of `agentPoolName` and `agentSetting` can be specified.
 	AgentSetting *RegistryTaskAgentSetting `pulumi:"agentSetting"`
 	// A `baseImageTrigger` block as defined below.
 	BaseImageTrigger *RegistryTaskBaseImageTrigger `pulumi:"baseImageTrigger"`
@@ -170,7 +177,7 @@ type registryTaskState struct {
 	EncodedStep *RegistryTaskEncodedStep `pulumi:"encodedStep"`
 	// A `fileStep` block as defined below.
 	//
-	// > **NOTE:** For non-system task (when `isSystemTask` is set to `false`), one and only one of the `dockerStep`, `encodedStep` and `fileStep` should be specified.
+	// > **Note:** For non-system task (when `isSystemTask` is set to `false`), one and only one of the `dockerStep`, `encodedStep` and `fileStep` should be specified.
 	FileStep *RegistryTaskFileStep `pulumi:"fileStep"`
 	// An `identity` block as defined below.
 	Identity *RegistryTaskIdentity `pulumi:"identity"`
@@ -181,7 +188,7 @@ type registryTaskState struct {
 	Name *string `pulumi:"name"`
 	// A `platform` block as defined below.
 	//
-	// > **NOTE:** The `platform` is required for non-system task (when `isSystemTask` is set to `false`).
+	// > **Note:** The `platform` is required for non-system task (when `isSystemTask` is set to `false`).
 	Platform           *RegistryTaskPlatform           `pulumi:"platform"`
 	RegistryCredential *RegistryTaskRegistryCredential `pulumi:"registryCredential"`
 	// One or more `sourceTrigger` blocks as defined below.
@@ -197,7 +204,7 @@ type RegistryTaskState struct {
 	AgentPoolName pulumi.StringPtrInput
 	// A `agentSetting` block as defined below.
 	//
-	// > **NOTE:** Only one of `agentPoolName` and `agentSetting` can be specified.
+	// > **Note:** Only one of `agentPoolName` and `agentSetting` can be specified.
 	AgentSetting RegistryTaskAgentSettingPtrInput
 	// A `baseImageTrigger` block as defined below.
 	BaseImageTrigger RegistryTaskBaseImageTriggerPtrInput
@@ -211,7 +218,7 @@ type RegistryTaskState struct {
 	EncodedStep RegistryTaskEncodedStepPtrInput
 	// A `fileStep` block as defined below.
 	//
-	// > **NOTE:** For non-system task (when `isSystemTask` is set to `false`), one and only one of the `dockerStep`, `encodedStep` and `fileStep` should be specified.
+	// > **Note:** For non-system task (when `isSystemTask` is set to `false`), one and only one of the `dockerStep`, `encodedStep` and `fileStep` should be specified.
 	FileStep RegistryTaskFileStepPtrInput
 	// An `identity` block as defined below.
 	Identity RegistryTaskIdentityPtrInput
@@ -222,7 +229,7 @@ type RegistryTaskState struct {
 	Name pulumi.StringPtrInput
 	// A `platform` block as defined below.
 	//
-	// > **NOTE:** The `platform` is required for non-system task (when `isSystemTask` is set to `false`).
+	// > **Note:** The `platform` is required for non-system task (when `isSystemTask` is set to `false`).
 	Platform           RegistryTaskPlatformPtrInput
 	RegistryCredential RegistryTaskRegistryCredentialPtrInput
 	// One or more `sourceTrigger` blocks as defined below.
@@ -242,7 +249,7 @@ type registryTaskArgs struct {
 	AgentPoolName *string `pulumi:"agentPoolName"`
 	// A `agentSetting` block as defined below.
 	//
-	// > **NOTE:** Only one of `agentPoolName` and `agentSetting` can be specified.
+	// > **Note:** Only one of `agentPoolName` and `agentSetting` can be specified.
 	AgentSetting *RegistryTaskAgentSetting `pulumi:"agentSetting"`
 	// A `baseImageTrigger` block as defined below.
 	BaseImageTrigger *RegistryTaskBaseImageTrigger `pulumi:"baseImageTrigger"`
@@ -256,7 +263,7 @@ type registryTaskArgs struct {
 	EncodedStep *RegistryTaskEncodedStep `pulumi:"encodedStep"`
 	// A `fileStep` block as defined below.
 	//
-	// > **NOTE:** For non-system task (when `isSystemTask` is set to `false`), one and only one of the `dockerStep`, `encodedStep` and `fileStep` should be specified.
+	// > **Note:** For non-system task (when `isSystemTask` is set to `false`), one and only one of the `dockerStep`, `encodedStep` and `fileStep` should be specified.
 	FileStep *RegistryTaskFileStep `pulumi:"fileStep"`
 	// An `identity` block as defined below.
 	Identity *RegistryTaskIdentity `pulumi:"identity"`
@@ -267,7 +274,7 @@ type registryTaskArgs struct {
 	Name *string `pulumi:"name"`
 	// A `platform` block as defined below.
 	//
-	// > **NOTE:** The `platform` is required for non-system task (when `isSystemTask` is set to `false`).
+	// > **Note:** The `platform` is required for non-system task (when `isSystemTask` is set to `false`).
 	Platform           *RegistryTaskPlatform           `pulumi:"platform"`
 	RegistryCredential *RegistryTaskRegistryCredential `pulumi:"registryCredential"`
 	// One or more `sourceTrigger` blocks as defined below.
@@ -284,7 +291,7 @@ type RegistryTaskArgs struct {
 	AgentPoolName pulumi.StringPtrInput
 	// A `agentSetting` block as defined below.
 	//
-	// > **NOTE:** Only one of `agentPoolName` and `agentSetting` can be specified.
+	// > **Note:** Only one of `agentPoolName` and `agentSetting` can be specified.
 	AgentSetting RegistryTaskAgentSettingPtrInput
 	// A `baseImageTrigger` block as defined below.
 	BaseImageTrigger RegistryTaskBaseImageTriggerPtrInput
@@ -298,7 +305,7 @@ type RegistryTaskArgs struct {
 	EncodedStep RegistryTaskEncodedStepPtrInput
 	// A `fileStep` block as defined below.
 	//
-	// > **NOTE:** For non-system task (when `isSystemTask` is set to `false`), one and only one of the `dockerStep`, `encodedStep` and `fileStep` should be specified.
+	// > **Note:** For non-system task (when `isSystemTask` is set to `false`), one and only one of the `dockerStep`, `encodedStep` and `fileStep` should be specified.
 	FileStep RegistryTaskFileStepPtrInput
 	// An `identity` block as defined below.
 	Identity RegistryTaskIdentityPtrInput
@@ -309,7 +316,7 @@ type RegistryTaskArgs struct {
 	Name pulumi.StringPtrInput
 	// A `platform` block as defined below.
 	//
-	// > **NOTE:** The `platform` is required for non-system task (when `isSystemTask` is set to `false`).
+	// > **Note:** The `platform` is required for non-system task (when `isSystemTask` is set to `false`).
 	Platform           RegistryTaskPlatformPtrInput
 	RegistryCredential RegistryTaskRegistryCredentialPtrInput
 	// One or more `sourceTrigger` blocks as defined below.
@@ -414,7 +421,7 @@ func (o RegistryTaskOutput) AgentPoolName() pulumi.StringPtrOutput {
 
 // A `agentSetting` block as defined below.
 //
-// > **NOTE:** Only one of `agentPoolName` and `agentSetting` can be specified.
+// > **Note:** Only one of `agentPoolName` and `agentSetting` can be specified.
 func (o RegistryTaskOutput) AgentSetting() RegistryTaskAgentSettingPtrOutput {
 	return o.ApplyT(func(v *RegistryTask) RegistryTaskAgentSettingPtrOutput { return v.AgentSetting }).(RegistryTaskAgentSettingPtrOutput)
 }
@@ -446,7 +453,7 @@ func (o RegistryTaskOutput) EncodedStep() RegistryTaskEncodedStepPtrOutput {
 
 // A `fileStep` block as defined below.
 //
-// > **NOTE:** For non-system task (when `isSystemTask` is set to `false`), one and only one of the `dockerStep`, `encodedStep` and `fileStep` should be specified.
+// > **Note:** For non-system task (when `isSystemTask` is set to `false`), one and only one of the `dockerStep`, `encodedStep` and `fileStep` should be specified.
 func (o RegistryTaskOutput) FileStep() RegistryTaskFileStepPtrOutput {
 	return o.ApplyT(func(v *RegistryTask) RegistryTaskFileStepPtrOutput { return v.FileStep }).(RegistryTaskFileStepPtrOutput)
 }
@@ -472,7 +479,7 @@ func (o RegistryTaskOutput) Name() pulumi.StringOutput {
 
 // A `platform` block as defined below.
 //
-// > **NOTE:** The `platform` is required for non-system task (when `isSystemTask` is set to `false`).
+// > **Note:** The `platform` is required for non-system task (when `isSystemTask` is set to `false`).
 func (o RegistryTaskOutput) Platform() RegistryTaskPlatformPtrOutput {
 	return o.ApplyT(func(v *RegistryTask) RegistryTaskPlatformPtrOutput { return v.Platform }).(RegistryTaskPlatformPtrOutput)
 }

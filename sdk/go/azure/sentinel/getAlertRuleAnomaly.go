@@ -78,7 +78,7 @@ func GetAlertRuleAnomaly(ctx *pulumi.Context, args *GetAlertRuleAnomalyArgs, opt
 type GetAlertRuleAnomalyArgs struct {
 	// The display name of this Sentinel Alert Rule Template. Either `displayName` or `name` have to be specified.
 	//
-	// > **NOTE** One of `name` or `displayName` must be specified.
+	// > **Note:** One of `name` or `displayName` must be specified.
 	DisplayName *string `pulumi:"displayName"`
 	// The ID of the Log Analytics Workspace.
 	LogAnalyticsWorkspaceId string `pulumi:"logAnalyticsWorkspaceId"`
@@ -136,7 +136,7 @@ func GetAlertRuleAnomalyOutput(ctx *pulumi.Context, args GetAlertRuleAnomalyOutp
 type GetAlertRuleAnomalyOutputArgs struct {
 	// The display name of this Sentinel Alert Rule Template. Either `displayName` or `name` have to be specified.
 	//
-	// > **NOTE** One of `name` or `displayName` must be specified.
+	// > **Note:** One of `name` or `displayName` must be specified.
 	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
 	// The ID of the Log Analytics Workspace.
 	LogAnalyticsWorkspaceId pulumi.StringInput `pulumi:"logAnalyticsWorkspaceId"`

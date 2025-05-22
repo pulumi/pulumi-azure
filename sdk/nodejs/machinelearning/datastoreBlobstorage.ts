@@ -64,6 +64,13 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.MachineLearningServices`: 2024-04-01
+ *
  * ## Import
  *
  * Machine Learning DataStores can be imported using the `resource id`, e.g.
@@ -125,7 +132,7 @@ export class DatastoreBlobstorage extends pulumi.CustomResource {
     /**
      * The Shared Access Signature of the Storage Account. Conflicts with `accountKey`.
      *
-     * > **Note:**  One of `accountKey` or `sharedAccessSignature` must be specified.
+     * > **Note:** One of `accountKey` or `sharedAccessSignature` must be specified.
      */
     public readonly sharedAccessSignature!: pulumi.Output<string | undefined>;
     /**
@@ -217,7 +224,7 @@ export interface DatastoreBlobstorageState {
     /**
      * The Shared Access Signature of the Storage Account. Conflicts with `accountKey`.
      *
-     * > **Note:**  One of `accountKey` or `sharedAccessSignature` must be specified.
+     * > **Note:** One of `accountKey` or `sharedAccessSignature` must be specified.
      */
     sharedAccessSignature?: pulumi.Input<string>;
     /**
@@ -263,7 +270,7 @@ export interface DatastoreBlobstorageArgs {
     /**
      * The Shared Access Signature of the Storage Account. Conflicts with `accountKey`.
      *
-     * > **Note:**  One of `accountKey` or `sharedAccessSignature` must be specified.
+     * > **Note:** One of `accountKey` or `sharedAccessSignature` must be specified.
      */
     sharedAccessSignature?: pulumi.Input<string>;
     /**

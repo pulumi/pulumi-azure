@@ -269,6 +269,13 @@ class JobAgent(pulumi.CustomResource):
             database_id=example_database.id)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Sql`: 2023-08-01-preview
+
         ## Import
 
         Elastic Job Agents can be imported using the `id`, e.g.
@@ -321,6 +328,13 @@ class JobAgent(pulumi.CustomResource):
             location=example.location,
             database_id=example_database.id)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Sql`: 2023-08-01-preview
 
         ## Import
 

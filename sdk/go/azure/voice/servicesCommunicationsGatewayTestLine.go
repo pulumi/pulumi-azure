@@ -62,6 +62,13 @@ import (
 //
 // ```
 //
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.VoiceServices`: 2023-04-03
+//
 // ## Import
 //
 // Voice Services Communications Gateway Test Line can be imported using the `resource id`, e.g.

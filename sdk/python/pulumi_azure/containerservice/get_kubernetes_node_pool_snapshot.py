@@ -105,6 +105,13 @@ def get_kubernetes_node_pool_snapshot(name: Optional[builtins.str] = None,
         resource_group_name="example-resources")
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.ContainerService`: 2024-09-01
+
 
     :param builtins.str name: The name of the Kubernetes Node Pool Snapshot.
     :param builtins.str resource_group_name: The name of the Resource Group in which the Kubernetes Node Pool Snapshot exists.
@@ -136,6 +143,13 @@ def get_kubernetes_node_pool_snapshot_output(name: Optional[pulumi.Input[builtin
     example = azure.containerservice.get_kubernetes_node_pool_snapshot(name="example",
         resource_group_name="example-resources")
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.ContainerService`: 2024-09-01
 
 
     :param builtins.str name: The name of the Kubernetes Node Pool Snapshot.

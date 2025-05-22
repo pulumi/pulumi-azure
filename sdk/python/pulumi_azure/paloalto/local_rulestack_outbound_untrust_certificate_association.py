@@ -95,6 +95,13 @@ class LocalRulestackOutboundUntrustCertificateAssociation(pulumi.CustomResource)
         example_local_rulestack_outbound_untrust_certificate_association = azure.paloalto.LocalRulestackOutboundUntrustCertificateAssociation("example", certificate_id=example_local_rulestack_certificate.id)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `PaloAltoNetworks.Cloudngfw`: 2022-08-29
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] certificate_id: The ID of the Certificate to use as the Outbound Untrust Certificate. Changing this forces a new Palo Alto Networks Rulestack Outbound Untrust Certificate Association to be created.
@@ -127,6 +134,13 @@ class LocalRulestackOutboundUntrustCertificateAssociation(pulumi.CustomResource)
             self_signed=True)
         example_local_rulestack_outbound_untrust_certificate_association = azure.paloalto.LocalRulestackOutboundUntrustCertificateAssociation("example", certificate_id=example_local_rulestack_certificate.id)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `PaloAltoNetworks.Cloudngfw`: 2022-08-29
 
         :param str resource_name: The name of the resource.
         :param LocalRulestackOutboundUntrustCertificateAssociationArgs args: The arguments to use to populate this resource's properties.

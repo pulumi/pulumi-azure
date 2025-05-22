@@ -154,6 +154,13 @@ class Capability(pulumi.CustomResource):
             chaos_studio_target_id=example_target.id)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Chaos`: 2023-11-01
+
         ## Import
 
         An existing Chaos Studio Target can be imported into Pulumi using the `resource id`, e.g.
@@ -212,6 +219,13 @@ class Capability(pulumi.CustomResource):
             capability_type="example-value",
             chaos_studio_target_id=example_target.id)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Chaos`: 2023-11-01
 
         ## Import
 

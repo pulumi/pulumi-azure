@@ -91,6 +91,23 @@ public final class EnvironmentStorageState extends com.pulumi.resources.Resource
     }
 
     /**
+     * The NFS server to use for the Azure File Share, the format will be `yourstorageaccountname.file.core.windows.net`. Changing this forces a new resource to be created.
+     * *
+     * 
+     */
+    @Import(name="nfsServerUrl")
+    private @Nullable Output<String> nfsServerUrl;
+
+    /**
+     * @return The NFS server to use for the Azure File Share, the format will be `yourstorageaccountname.file.core.windows.net`. Changing this forces a new resource to be created.
+     * *
+     * 
+     */
+    public Optional<Output<String>> nfsServerUrl() {
+        return Optional.ofNullable(this.nfsServerUrl);
+    }
+
+    /**
      * The name of the Azure Storage Share to use. Changing this forces a new resource to be created.
      * 
      */
@@ -113,6 +130,7 @@ public final class EnvironmentStorageState extends com.pulumi.resources.Resource
         this.accountName = $.accountName;
         this.containerAppEnvironmentId = $.containerAppEnvironmentId;
         this.name = $.name;
+        this.nfsServerUrl = $.nfsServerUrl;
         this.shareName = $.shareName;
     }
 
@@ -237,6 +255,29 @@ public final class EnvironmentStorageState extends com.pulumi.resources.Resource
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param nfsServerUrl The NFS server to use for the Azure File Share, the format will be `yourstorageaccountname.file.core.windows.net`. Changing this forces a new resource to be created.
+         * *
+         * 
+         * @return builder
+         * 
+         */
+        public Builder nfsServerUrl(@Nullable Output<String> nfsServerUrl) {
+            $.nfsServerUrl = nfsServerUrl;
+            return this;
+        }
+
+        /**
+         * @param nfsServerUrl The NFS server to use for the Azure File Share, the format will be `yourstorageaccountname.file.core.windows.net`. Changing this forces a new resource to be created.
+         * *
+         * 
+         * @return builder
+         * 
+         */
+        public Builder nfsServerUrl(String nfsServerUrl) {
+            return nfsServerUrl(Output.of(nfsServerUrl));
         }
 
         /**

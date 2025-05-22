@@ -56,7 +56,7 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .administratorLogin("mysqladminun")
  *             .administratorPassword("H}{@literal @}{@code Sh1CoR3!")
- *             .skuName("B_Standard_B1s")
+ *             .skuName("B_Standard_B1ms")
  *             .build());
  * 
  *         var exampleFlexibleDatabase = new FlexibleDatabase("exampleFlexibleDatabase", FlexibleDatabaseArgs.builder()

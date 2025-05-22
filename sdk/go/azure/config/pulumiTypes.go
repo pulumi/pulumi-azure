@@ -18,6 +18,7 @@ type Features struct {
 	AppConfiguration         *FeaturesAppConfiguration         `pulumi:"appConfiguration"`
 	ApplicationInsights      *FeaturesApplicationInsights      `pulumi:"applicationInsights"`
 	CognitiveAccount         *FeaturesCognitiveAccount         `pulumi:"cognitiveAccount"`
+	DatabricksWorkspace      *FeaturesDatabricksWorkspace      `pulumi:"databricksWorkspace"`
 	KeyVault                 *FeaturesKeyVault                 `pulumi:"keyVault"`
 	LogAnalyticsWorkspace    *FeaturesLogAnalyticsWorkspace    `pulumi:"logAnalyticsWorkspace"`
 	MachineLearning          *FeaturesMachineLearning          `pulumi:"machineLearning"`
@@ -50,6 +51,7 @@ type FeaturesArgs struct {
 	AppConfiguration         FeaturesAppConfigurationPtrInput         `pulumi:"appConfiguration"`
 	ApplicationInsights      FeaturesApplicationInsightsPtrInput      `pulumi:"applicationInsights"`
 	CognitiveAccount         FeaturesCognitiveAccountPtrInput         `pulumi:"cognitiveAccount"`
+	DatabricksWorkspace      FeaturesDatabricksWorkspacePtrInput      `pulumi:"databricksWorkspace"`
 	KeyVault                 FeaturesKeyVaultPtrInput                 `pulumi:"keyVault"`
 	LogAnalyticsWorkspace    FeaturesLogAnalyticsWorkspacePtrInput    `pulumi:"logAnalyticsWorkspace"`
 	MachineLearning          FeaturesMachineLearningPtrInput          `pulumi:"machineLearning"`
@@ -106,6 +108,10 @@ func (o FeaturesOutput) ApplicationInsights() FeaturesApplicationInsightsPtrOutp
 
 func (o FeaturesOutput) CognitiveAccount() FeaturesCognitiveAccountPtrOutput {
 	return o.ApplyT(func(v Features) *FeaturesCognitiveAccount { return v.CognitiveAccount }).(FeaturesCognitiveAccountPtrOutput)
+}
+
+func (o FeaturesOutput) DatabricksWorkspace() FeaturesDatabricksWorkspacePtrOutput {
+	return o.ApplyT(func(v Features) *FeaturesDatabricksWorkspace { return v.DatabricksWorkspace }).(FeaturesDatabricksWorkspacePtrOutput)
 }
 
 func (o FeaturesOutput) KeyVault() FeaturesKeyVaultPtrOutput {
@@ -723,6 +729,143 @@ func (o FeaturesCognitiveAccountPtrOutput) PurgeSoftDeleteOnDestroy() pulumi.Boo
 			return nil
 		}
 		return v.PurgeSoftDeleteOnDestroy
+	}).(pulumi.BoolPtrOutput)
+}
+
+type FeaturesDatabricksWorkspace struct {
+	// When enabled, the managed resource group that contains the Unity Catalog data will be forcibly deleted when the workspace is destroyed, regardless of contents.
+	ForceDelete *bool `pulumi:"forceDelete"`
+}
+
+// FeaturesDatabricksWorkspaceInput is an input type that accepts FeaturesDatabricksWorkspaceArgs and FeaturesDatabricksWorkspaceOutput values.
+// You can construct a concrete instance of `FeaturesDatabricksWorkspaceInput` via:
+//
+//	FeaturesDatabricksWorkspaceArgs{...}
+type FeaturesDatabricksWorkspaceInput interface {
+	pulumi.Input
+
+	ToFeaturesDatabricksWorkspaceOutput() FeaturesDatabricksWorkspaceOutput
+	ToFeaturesDatabricksWorkspaceOutputWithContext(context.Context) FeaturesDatabricksWorkspaceOutput
+}
+
+type FeaturesDatabricksWorkspaceArgs struct {
+	// When enabled, the managed resource group that contains the Unity Catalog data will be forcibly deleted when the workspace is destroyed, regardless of contents.
+	ForceDelete pulumi.BoolPtrInput `pulumi:"forceDelete"`
+}
+
+func (FeaturesDatabricksWorkspaceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeaturesDatabricksWorkspace)(nil)).Elem()
+}
+
+func (i FeaturesDatabricksWorkspaceArgs) ToFeaturesDatabricksWorkspaceOutput() FeaturesDatabricksWorkspaceOutput {
+	return i.ToFeaturesDatabricksWorkspaceOutputWithContext(context.Background())
+}
+
+func (i FeaturesDatabricksWorkspaceArgs) ToFeaturesDatabricksWorkspaceOutputWithContext(ctx context.Context) FeaturesDatabricksWorkspaceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeaturesDatabricksWorkspaceOutput)
+}
+
+func (i FeaturesDatabricksWorkspaceArgs) ToFeaturesDatabricksWorkspacePtrOutput() FeaturesDatabricksWorkspacePtrOutput {
+	return i.ToFeaturesDatabricksWorkspacePtrOutputWithContext(context.Background())
+}
+
+func (i FeaturesDatabricksWorkspaceArgs) ToFeaturesDatabricksWorkspacePtrOutputWithContext(ctx context.Context) FeaturesDatabricksWorkspacePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeaturesDatabricksWorkspaceOutput).ToFeaturesDatabricksWorkspacePtrOutputWithContext(ctx)
+}
+
+// FeaturesDatabricksWorkspacePtrInput is an input type that accepts FeaturesDatabricksWorkspaceArgs, FeaturesDatabricksWorkspacePtr and FeaturesDatabricksWorkspacePtrOutput values.
+// You can construct a concrete instance of `FeaturesDatabricksWorkspacePtrInput` via:
+//
+//	        FeaturesDatabricksWorkspaceArgs{...}
+//
+//	or:
+//
+//	        nil
+type FeaturesDatabricksWorkspacePtrInput interface {
+	pulumi.Input
+
+	ToFeaturesDatabricksWorkspacePtrOutput() FeaturesDatabricksWorkspacePtrOutput
+	ToFeaturesDatabricksWorkspacePtrOutputWithContext(context.Context) FeaturesDatabricksWorkspacePtrOutput
+}
+
+type featuresDatabricksWorkspacePtrType FeaturesDatabricksWorkspaceArgs
+
+func FeaturesDatabricksWorkspacePtr(v *FeaturesDatabricksWorkspaceArgs) FeaturesDatabricksWorkspacePtrInput {
+	return (*featuresDatabricksWorkspacePtrType)(v)
+}
+
+func (*featuresDatabricksWorkspacePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FeaturesDatabricksWorkspace)(nil)).Elem()
+}
+
+func (i *featuresDatabricksWorkspacePtrType) ToFeaturesDatabricksWorkspacePtrOutput() FeaturesDatabricksWorkspacePtrOutput {
+	return i.ToFeaturesDatabricksWorkspacePtrOutputWithContext(context.Background())
+}
+
+func (i *featuresDatabricksWorkspacePtrType) ToFeaturesDatabricksWorkspacePtrOutputWithContext(ctx context.Context) FeaturesDatabricksWorkspacePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeaturesDatabricksWorkspacePtrOutput)
+}
+
+type FeaturesDatabricksWorkspaceOutput struct{ *pulumi.OutputState }
+
+func (FeaturesDatabricksWorkspaceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeaturesDatabricksWorkspace)(nil)).Elem()
+}
+
+func (o FeaturesDatabricksWorkspaceOutput) ToFeaturesDatabricksWorkspaceOutput() FeaturesDatabricksWorkspaceOutput {
+	return o
+}
+
+func (o FeaturesDatabricksWorkspaceOutput) ToFeaturesDatabricksWorkspaceOutputWithContext(ctx context.Context) FeaturesDatabricksWorkspaceOutput {
+	return o
+}
+
+func (o FeaturesDatabricksWorkspaceOutput) ToFeaturesDatabricksWorkspacePtrOutput() FeaturesDatabricksWorkspacePtrOutput {
+	return o.ToFeaturesDatabricksWorkspacePtrOutputWithContext(context.Background())
+}
+
+func (o FeaturesDatabricksWorkspaceOutput) ToFeaturesDatabricksWorkspacePtrOutputWithContext(ctx context.Context) FeaturesDatabricksWorkspacePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FeaturesDatabricksWorkspace) *FeaturesDatabricksWorkspace {
+		return &v
+	}).(FeaturesDatabricksWorkspacePtrOutput)
+}
+
+// When enabled, the managed resource group that contains the Unity Catalog data will be forcibly deleted when the workspace is destroyed, regardless of contents.
+func (o FeaturesDatabricksWorkspaceOutput) ForceDelete() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FeaturesDatabricksWorkspace) *bool { return v.ForceDelete }).(pulumi.BoolPtrOutput)
+}
+
+type FeaturesDatabricksWorkspacePtrOutput struct{ *pulumi.OutputState }
+
+func (FeaturesDatabricksWorkspacePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FeaturesDatabricksWorkspace)(nil)).Elem()
+}
+
+func (o FeaturesDatabricksWorkspacePtrOutput) ToFeaturesDatabricksWorkspacePtrOutput() FeaturesDatabricksWorkspacePtrOutput {
+	return o
+}
+
+func (o FeaturesDatabricksWorkspacePtrOutput) ToFeaturesDatabricksWorkspacePtrOutputWithContext(ctx context.Context) FeaturesDatabricksWorkspacePtrOutput {
+	return o
+}
+
+func (o FeaturesDatabricksWorkspacePtrOutput) Elem() FeaturesDatabricksWorkspaceOutput {
+	return o.ApplyT(func(v *FeaturesDatabricksWorkspace) FeaturesDatabricksWorkspace {
+		if v != nil {
+			return *v
+		}
+		var ret FeaturesDatabricksWorkspace
+		return ret
+	}).(FeaturesDatabricksWorkspaceOutput)
+}
+
+// When enabled, the managed resource group that contains the Unity Catalog data will be forcibly deleted when the workspace is destroyed, regardless of contents.
+func (o FeaturesDatabricksWorkspacePtrOutput) ForceDelete() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FeaturesDatabricksWorkspace) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ForceDelete
 	}).(pulumi.BoolPtrOutput)
 }
 
@@ -2572,8 +2715,9 @@ func (o FeaturesTemplateDeploymentPtrOutput) DeleteNestedItemsDuringDeletion() p
 type FeaturesVirtualMachine struct {
 	DeleteOsDiskOnDeletion           *bool `pulumi:"deleteOsDiskOnDeletion"`
 	DetachImplicitDataDiskOnDeletion *bool `pulumi:"detachImplicitDataDiskOnDeletion"`
-	GracefulShutdown                 *bool `pulumi:"gracefulShutdown"`
-	SkipShutdownAndForceDelete       *bool `pulumi:"skipShutdownAndForceDelete"`
+	// Deprecated: 'graceful_shutdown' has been deprecated and will be removed from v5.0 of the AzureRM provider.
+	GracefulShutdown           *bool `pulumi:"gracefulShutdown"`
+	SkipShutdownAndForceDelete *bool `pulumi:"skipShutdownAndForceDelete"`
 }
 
 // FeaturesVirtualMachineInput is an input type that accepts FeaturesVirtualMachineArgs and FeaturesVirtualMachineOutput values.
@@ -2590,8 +2734,9 @@ type FeaturesVirtualMachineInput interface {
 type FeaturesVirtualMachineArgs struct {
 	DeleteOsDiskOnDeletion           pulumi.BoolPtrInput `pulumi:"deleteOsDiskOnDeletion"`
 	DetachImplicitDataDiskOnDeletion pulumi.BoolPtrInput `pulumi:"detachImplicitDataDiskOnDeletion"`
-	GracefulShutdown                 pulumi.BoolPtrInput `pulumi:"gracefulShutdown"`
-	SkipShutdownAndForceDelete       pulumi.BoolPtrInput `pulumi:"skipShutdownAndForceDelete"`
+	// Deprecated: 'graceful_shutdown' has been deprecated and will be removed from v5.0 of the AzureRM provider.
+	GracefulShutdown           pulumi.BoolPtrInput `pulumi:"gracefulShutdown"`
+	SkipShutdownAndForceDelete pulumi.BoolPtrInput `pulumi:"skipShutdownAndForceDelete"`
 }
 
 func (FeaturesVirtualMachineArgs) ElementType() reflect.Type {
@@ -2679,6 +2824,7 @@ func (o FeaturesVirtualMachineOutput) DetachImplicitDataDiskOnDeletion() pulumi.
 	return o.ApplyT(func(v FeaturesVirtualMachine) *bool { return v.DetachImplicitDataDiskOnDeletion }).(pulumi.BoolPtrOutput)
 }
 
+// Deprecated: 'graceful_shutdown' has been deprecated and will be removed from v5.0 of the AzureRM provider.
 func (o FeaturesVirtualMachineOutput) GracefulShutdown() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FeaturesVirtualMachine) *bool { return v.GracefulShutdown }).(pulumi.BoolPtrOutput)
 }
@@ -2729,6 +2875,7 @@ func (o FeaturesVirtualMachinePtrOutput) DetachImplicitDataDiskOnDeletion() pulu
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Deprecated: 'graceful_shutdown' has been deprecated and will be removed from v5.0 of the AzureRM provider.
 func (o FeaturesVirtualMachinePtrOutput) GracefulShutdown() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FeaturesVirtualMachine) *bool {
 		if v == nil {
@@ -2935,6 +3082,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesApplicationInsightsPtrInput)(nil)).Elem(), FeaturesApplicationInsightsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesCognitiveAccountInput)(nil)).Elem(), FeaturesCognitiveAccountArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesCognitiveAccountPtrInput)(nil)).Elem(), FeaturesCognitiveAccountArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesDatabricksWorkspaceInput)(nil)).Elem(), FeaturesDatabricksWorkspaceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesDatabricksWorkspacePtrInput)(nil)).Elem(), FeaturesDatabricksWorkspaceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesKeyVaultInput)(nil)).Elem(), FeaturesKeyVaultArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesKeyVaultPtrInput)(nil)).Elem(), FeaturesKeyVaultArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesLogAnalyticsWorkspaceInput)(nil)).Elem(), FeaturesLogAnalyticsWorkspaceArgs{})
@@ -2972,6 +3121,8 @@ func init() {
 	pulumi.RegisterOutputType(FeaturesApplicationInsightsPtrOutput{})
 	pulumi.RegisterOutputType(FeaturesCognitiveAccountOutput{})
 	pulumi.RegisterOutputType(FeaturesCognitiveAccountPtrOutput{})
+	pulumi.RegisterOutputType(FeaturesDatabricksWorkspaceOutput{})
+	pulumi.RegisterOutputType(FeaturesDatabricksWorkspacePtrOutput{})
 	pulumi.RegisterOutputType(FeaturesKeyVaultOutput{})
 	pulumi.RegisterOutputType(FeaturesKeyVaultPtrOutput{})
 	pulumi.RegisterOutputType(FeaturesLogAnalyticsWorkspaceOutput{})

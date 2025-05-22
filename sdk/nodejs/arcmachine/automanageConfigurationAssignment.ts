@@ -35,6 +35,13 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.HybridCompute`: 2022-05-04
+ *
  * ## Import
  *
  * Virtual Machine Automanage Configuration Profile Assignment can be imported using the `resource id`, e.g.
@@ -78,7 +85,7 @@ export class AutomanageConfigurationAssignment extends pulumi.CustomResource {
     /**
      * The ARM resource ID of the Automanage Configuration to assign to the Virtual Machine. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** For a successful creation of this resource, locate "Automanage API Access" app within your Entra ID tenant. Make sure it's granted access to the scope that includes the arc server.
+     * > **Note:** For a successful creation of this resource, locate "Automanage API Access" app within your Entra ID tenant. Make sure it's granted access to the scope that includes the arc server.
      */
     public readonly configurationId!: pulumi.Output<string>;
 
@@ -124,7 +131,7 @@ export interface AutomanageConfigurationAssignmentState {
     /**
      * The ARM resource ID of the Automanage Configuration to assign to the Virtual Machine. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** For a successful creation of this resource, locate "Automanage API Access" app within your Entra ID tenant. Make sure it's granted access to the scope that includes the arc server.
+     * > **Note:** For a successful creation of this resource, locate "Automanage API Access" app within your Entra ID tenant. Make sure it's granted access to the scope that includes the arc server.
      */
     configurationId?: pulumi.Input<string>;
 }
@@ -140,7 +147,7 @@ export interface AutomanageConfigurationAssignmentArgs {
     /**
      * The ARM resource ID of the Automanage Configuration to assign to the Virtual Machine. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** For a successful creation of this resource, locate "Automanage API Access" app within your Entra ID tenant. Make sure it's granted access to the scope that includes the arc server.
+     * > **Note:** For a successful creation of this resource, locate "Automanage API Access" app within your Entra ID tenant. Make sure it's granted access to the scope that includes the arc server.
      */
     configurationId: pulumi.Input<string>;
 }

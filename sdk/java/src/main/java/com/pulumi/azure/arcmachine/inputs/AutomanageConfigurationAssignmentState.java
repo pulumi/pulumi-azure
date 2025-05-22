@@ -33,7 +33,7 @@ public final class AutomanageConfigurationAssignmentState extends com.pulumi.res
     /**
      * The ARM resource ID of the Automanage Configuration to assign to the Virtual Machine. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** For a successful creation of this resource, locate &#34;Automanage API Access&#34; app within your Entra ID tenant. Make sure it&#39;s granted access to the scope that includes the arc server.
+     * &gt; **Note:** For a successful creation of this resource, locate &#34;Automanage API Access&#34; app within your Entra ID tenant. Make sure it&#39;s granted access to the scope that includes the arc server.
      * 
      */
     @Import(name="configurationId")
@@ -42,7 +42,7 @@ public final class AutomanageConfigurationAssignmentState extends com.pulumi.res
     /**
      * @return The ARM resource ID of the Automanage Configuration to assign to the Virtual Machine. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** For a successful creation of this resource, locate &#34;Automanage API Access&#34; app within your Entra ID tenant. Make sure it&#39;s granted access to the scope that includes the arc server.
+     * &gt; **Note:** For a successful creation of this resource, locate &#34;Automanage API Access&#34; app within your Entra ID tenant. Make sure it&#39;s granted access to the scope that includes the arc server.
      * 
      */
     public Optional<Output<String>> configurationId() {
@@ -98,7 +98,7 @@ public final class AutomanageConfigurationAssignmentState extends com.pulumi.res
         /**
          * @param configurationId The ARM resource ID of the Automanage Configuration to assign to the Virtual Machine. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** For a successful creation of this resource, locate &#34;Automanage API Access&#34; app within your Entra ID tenant. Make sure it&#39;s granted access to the scope that includes the arc server.
+         * &gt; **Note:** For a successful creation of this resource, locate &#34;Automanage API Access&#34; app within your Entra ID tenant. Make sure it&#39;s granted access to the scope that includes the arc server.
          * 
          * @return builder
          * 
@@ -111,7 +111,7 @@ public final class AutomanageConfigurationAssignmentState extends com.pulumi.res
         /**
          * @param configurationId The ARM resource ID of the Automanage Configuration to assign to the Virtual Machine. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** For a successful creation of this resource, locate &#34;Automanage API Access&#34; app within your Entra ID tenant. Make sure it&#39;s granted access to the scope that includes the arc server.
+         * &gt; **Note:** For a successful creation of this resource, locate &#34;Automanage API Access&#34; app within your Entra ID tenant. Make sure it&#39;s granted access to the scope that includes the arc server.
          * 
          * @return builder
          * 

@@ -74,6 +74,13 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.Storage`: 2023-05-01
+ * 
  * ## Import
  * 
  * Storage Containers can be imported using the `resource manager id`, e.g.
@@ -88,7 +95,7 @@ public class Container extends com.pulumi.resources.CustomResource {
     /**
      * The Access Level configured for this Container. Possible values are `blob`, `container` or `private`. Defaults to `private`.
      * 
-     * &gt; **Note** When updating `container_access_type` for an existing storage container resource, Shared Key authentication will always be used, as AzureAD authentication is not supported.
+     * &gt; **Note:** When updating `container_access_type` for an existing storage container resource, Shared Key authentication will always be used, as AzureAD authentication is not supported.
      * 
      */
     @Export(name="containerAccessType", refs={String.class}, tree="[0]")
@@ -97,7 +104,7 @@ public class Container extends com.pulumi.resources.CustomResource {
     /**
      * @return The Access Level configured for this Container. Possible values are `blob`, `container` or `private`. Defaults to `private`.
      * 
-     * &gt; **Note** When updating `container_access_type` for an existing storage container resource, Shared Key authentication will always be used, as AzureAD authentication is not supported.
+     * &gt; **Note:** When updating `container_access_type` for an existing storage container resource, Shared Key authentication will always be used, as AzureAD authentication is not supported.
      * 
      */
     public Output<Optional<String>> containerAccessType() {
@@ -208,7 +215,7 @@ public class Container extends com.pulumi.resources.CustomResource {
     /**
      * The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
+     * &gt; **Note:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
      * 
      */
     @Export(name="storageAccountId", refs={String.class}, tree="[0]")
@@ -217,7 +224,7 @@ public class Container extends com.pulumi.resources.CustomResource {
     /**
      * @return The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
+     * &gt; **Note:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
      * 
      */
     public Output<Optional<String>> storageAccountId() {

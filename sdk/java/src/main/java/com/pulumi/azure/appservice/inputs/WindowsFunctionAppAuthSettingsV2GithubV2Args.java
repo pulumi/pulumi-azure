@@ -35,7 +35,7 @@ public final class WindowsFunctionAppAuthSettingsV2GithubV2Args extends com.pulu
     /**
      * The app setting name that contains the `client_secret` value used for GitHub Login.
      * 
-     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+     * !&gt; **Note:** A setting with this name must exist in `app_settings` to function correctly.
      * 
      */
     @Import(name="clientSecretSettingName", required=true)
@@ -44,7 +44,7 @@ public final class WindowsFunctionAppAuthSettingsV2GithubV2Args extends com.pulu
     /**
      * @return The app setting name that contains the `client_secret` value used for GitHub Login.
      * 
-     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+     * !&gt; **Note:** A setting with this name must exist in `app_settings` to function correctly.
      * 
      */
     public Output<String> clientSecretSettingName() {
@@ -116,7 +116,7 @@ public final class WindowsFunctionAppAuthSettingsV2GithubV2Args extends com.pulu
         /**
          * @param clientSecretSettingName The app setting name that contains the `client_secret` value used for GitHub Login.
          * 
-         * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+         * !&gt; **Note:** A setting with this name must exist in `app_settings` to function correctly.
          * 
          * @return builder
          * 
@@ -129,7 +129,7 @@ public final class WindowsFunctionAppAuthSettingsV2GithubV2Args extends com.pulu
         /**
          * @param clientSecretSettingName The app setting name that contains the `client_secret` value used for GitHub Login.
          * 
-         * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+         * !&gt; **Note:** A setting with this name must exist in `app_settings` to function correctly.
          * 
          * @return builder
          * 

@@ -9,33 +9,153 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.PaloAlto
 {
+    /// <summary>
+    /// Manages a Palo Alto Next Generation Firewall VHub Local Rulestack.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     {
+    ///         Name = "example-resources",
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var examplePublicIp = new Azure.Network.PublicIp("example", new()
+    ///     {
+    ///         Name = "acceptanceTestPublicIp1",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         AllocationMethod = "Static",
+    ///         Tags = 
+    ///         {
+    ///             { "environment", "Production" },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleVirtualWan = new Azure.Network.VirtualWan("example", new()
+    ///     {
+    ///         Name = "example-virtualwan",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///     });
+    /// 
+    ///     var exampleVirtualHub = new Azure.Network.VirtualHub("example", new()
+    ///     {
+    ///         Name = "example-virtualhub",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         VirtualWanId = exampleVirtualWan.Id,
+    ///         AddressPrefix = "10.0.0.0/23",
+    ///         Tags = 
+    ///         {
+    ///             { "hubSaaSPreview", "true" },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleVirtualNetworkAppliance = new Azure.PaloAlto.VirtualNetworkAppliance("example", new()
+    ///     {
+    ///         Name = "example-appliance",
+    ///         VirtualHubId = exampleVirtualHub.Id,
+    ///     });
+    /// 
+    ///     var exampleNextGenerationFirewallVirtualHubLocalRulestack = new Azure.PaloAlto.NextGenerationFirewallVirtualHubLocalRulestack("example", new()
+    ///     {
+    ///         Name = "example-ngfwvn",
+    ///         ResourceGroupName = example.Name,
+    ///         RulestackId = exampleAzurermPaloAltoLocalRulestack.Id,
+    ///         NetworkProfile = new Azure.PaloAlto.Inputs.NextGenerationFirewallVirtualHubLocalRulestackNetworkProfileArgs
+    ///         {
+    ///             PublicIpAddressIds = new[]
+    ///             {
+    ///                 examplePublicIp.Id,
+    ///             },
+    ///             VirtualHubId = exampleVirtualHub.Id,
+    ///             NetworkVirtualApplianceId = exampleVirtualNetworkAppliance.Id,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `PaloAltoNetworks.Cloudngfw`: 2023-09-01, 2022-08-29
+    /// 
+    /// ## Import
+    /// 
+    /// Palo Alto Next Generation Firewall VHub Local Rulestacks can be imported using the `resource id`, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure:paloalto/nextGenerationFirewallVirtualHubLocalRulestack:NextGenerationFirewallVirtualHubLocalRulestack example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/PaloAltoNetworks.Cloudngfw/firewalls/myVhubRulestackFW
+    /// ```
+    /// </summary>
     [AzureResourceType("azure:paloalto/nextGenerationFirewallVirtualHubLocalRulestack:NextGenerationFirewallVirtualHubLocalRulestack")]
     public partial class NextGenerationFirewallVirtualHubLocalRulestack : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// One or more `destination_nat` blocks as defined below.
+        /// </summary>
         [Output("destinationNats")]
         public Output<ImmutableArray<Outputs.NextGenerationFirewallVirtualHubLocalRulestackDestinationNat>> DestinationNats { get; private set; } = null!;
 
+        /// <summary>
+        /// A `dns_settings` block as defined below.
+        /// </summary>
         [Output("dnsSettings")]
         public Output<Outputs.NextGenerationFirewallVirtualHubLocalRulestackDnsSettings?> DnsSettings { get; private set; } = null!;
 
+        /// <summary>
+        /// The marketplace offer ID. Defaults to `pan_swfw_cloud_ngfw`. Changing this forces a new resource to be created.
+        /// </summary>
         [Output("marketplaceOfferId")]
         public Output<string?> MarketplaceOfferId { get; private set; } = null!;
 
+        /// <summary>
+        /// The name which should be used for this Palo Alto Next Generation Firewall VHub Local Rulestack. Changing this forces a new Palo Alto Next Generation Firewall VHub Local Rulestack to be created.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// A `network_profile` block as defined below.
+        /// </summary>
         [Output("networkProfile")]
         public Output<Outputs.NextGenerationFirewallVirtualHubLocalRulestackNetworkProfile> NetworkProfile { get; private set; } = null!;
 
+        /// <summary>
+        /// The billing plan ID as published by Liftr.PAN. Defaults to `panw-cloud-ngfw-payg`.
+        /// 
+        /// &gt; **Note:** The former `plan_id` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `plan_id` to `panw-cngfw-payg` when creating new resources.
+        /// </summary>
         [Output("planId")]
         public Output<string?> PlanId { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the Resource Group where the Palo Alto Next Generation Firewall VHub Local Rulestack should exist. Changing this forces a new Palo Alto Next Generation Firewall VHub Local Rulestack to be created.
+        /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the Local Rulestack to be used for this Next Generation Firewall.
+        /// </summary>
         [Output("rulestackId")]
         public Output<string> RulestackId { get; private set; } = null!;
 
+        /// <summary>
+        /// A mapping of tags which should be assigned to the Palo Alto Next Generation Firewall VHub Local Rulestack.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
@@ -87,35 +207,66 @@ namespace Pulumi.Azure.PaloAlto
     {
         [Input("destinationNats")]
         private InputList<Inputs.NextGenerationFirewallVirtualHubLocalRulestackDestinationNatArgs>? _destinationNats;
+
+        /// <summary>
+        /// One or more `destination_nat` blocks as defined below.
+        /// </summary>
         public InputList<Inputs.NextGenerationFirewallVirtualHubLocalRulestackDestinationNatArgs> DestinationNats
         {
             get => _destinationNats ?? (_destinationNats = new InputList<Inputs.NextGenerationFirewallVirtualHubLocalRulestackDestinationNatArgs>());
             set => _destinationNats = value;
         }
 
+        /// <summary>
+        /// A `dns_settings` block as defined below.
+        /// </summary>
         [Input("dnsSettings")]
         public Input<Inputs.NextGenerationFirewallVirtualHubLocalRulestackDnsSettingsArgs>? DnsSettings { get; set; }
 
+        /// <summary>
+        /// The marketplace offer ID. Defaults to `pan_swfw_cloud_ngfw`. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("marketplaceOfferId")]
         public Input<string>? MarketplaceOfferId { get; set; }
 
+        /// <summary>
+        /// The name which should be used for this Palo Alto Next Generation Firewall VHub Local Rulestack. Changing this forces a new Palo Alto Next Generation Firewall VHub Local Rulestack to be created.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// A `network_profile` block as defined below.
+        /// </summary>
         [Input("networkProfile", required: true)]
         public Input<Inputs.NextGenerationFirewallVirtualHubLocalRulestackNetworkProfileArgs> NetworkProfile { get; set; } = null!;
 
+        /// <summary>
+        /// The billing plan ID as published by Liftr.PAN. Defaults to `panw-cloud-ngfw-payg`.
+        /// 
+        /// &gt; **Note:** The former `plan_id` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `plan_id` to `panw-cngfw-payg` when creating new resources.
+        /// </summary>
         [Input("planId")]
         public Input<string>? PlanId { get; set; }
 
+        /// <summary>
+        /// The name of the Resource Group where the Palo Alto Next Generation Firewall VHub Local Rulestack should exist. Changing this forces a new Palo Alto Next Generation Firewall VHub Local Rulestack to be created.
+        /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the Local Rulestack to be used for this Next Generation Firewall.
+        /// </summary>
         [Input("rulestackId", required: true)]
         public Input<string> RulestackId { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A mapping of tags which should be assigned to the Palo Alto Next Generation Firewall VHub Local Rulestack.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -132,35 +283,66 @@ namespace Pulumi.Azure.PaloAlto
     {
         [Input("destinationNats")]
         private InputList<Inputs.NextGenerationFirewallVirtualHubLocalRulestackDestinationNatGetArgs>? _destinationNats;
+
+        /// <summary>
+        /// One or more `destination_nat` blocks as defined below.
+        /// </summary>
         public InputList<Inputs.NextGenerationFirewallVirtualHubLocalRulestackDestinationNatGetArgs> DestinationNats
         {
             get => _destinationNats ?? (_destinationNats = new InputList<Inputs.NextGenerationFirewallVirtualHubLocalRulestackDestinationNatGetArgs>());
             set => _destinationNats = value;
         }
 
+        /// <summary>
+        /// A `dns_settings` block as defined below.
+        /// </summary>
         [Input("dnsSettings")]
         public Input<Inputs.NextGenerationFirewallVirtualHubLocalRulestackDnsSettingsGetArgs>? DnsSettings { get; set; }
 
+        /// <summary>
+        /// The marketplace offer ID. Defaults to `pan_swfw_cloud_ngfw`. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("marketplaceOfferId")]
         public Input<string>? MarketplaceOfferId { get; set; }
 
+        /// <summary>
+        /// The name which should be used for this Palo Alto Next Generation Firewall VHub Local Rulestack. Changing this forces a new Palo Alto Next Generation Firewall VHub Local Rulestack to be created.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// A `network_profile` block as defined below.
+        /// </summary>
         [Input("networkProfile")]
         public Input<Inputs.NextGenerationFirewallVirtualHubLocalRulestackNetworkProfileGetArgs>? NetworkProfile { get; set; }
 
+        /// <summary>
+        /// The billing plan ID as published by Liftr.PAN. Defaults to `panw-cloud-ngfw-payg`.
+        /// 
+        /// &gt; **Note:** The former `plan_id` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `plan_id` to `panw-cngfw-payg` when creating new resources.
+        /// </summary>
         [Input("planId")]
         public Input<string>? PlanId { get; set; }
 
+        /// <summary>
+        /// The name of the Resource Group where the Palo Alto Next Generation Firewall VHub Local Rulestack should exist. Changing this forces a new Palo Alto Next Generation Firewall VHub Local Rulestack to be created.
+        /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
 
+        /// <summary>
+        /// The ID of the Local Rulestack to be used for this Next Generation Firewall.
+        /// </summary>
         [Input("rulestackId")]
         public Input<string>? RulestackId { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A mapping of tags which should be assigned to the Palo Alto Next Generation Firewall VHub Local Rulestack.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());

@@ -12,15 +12,27 @@ namespace Pulumi.Azure.PaloAlto.Inputs
 
     public sealed class NextGenerationFirewallVirtualHubLocalRulestackDestinationNatArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A `backend_config` block as defined above.
+        /// </summary>
         [Input("backendConfig")]
         public Input<Inputs.NextGenerationFirewallVirtualHubLocalRulestackDestinationNatBackendConfigArgs>? BackendConfig { get; set; }
 
+        /// <summary>
+        /// A `frontend_config` block as defined below.
+        /// </summary>
         [Input("frontendConfig")]
         public Input<Inputs.NextGenerationFirewallVirtualHubLocalRulestackDestinationNatFrontendConfigArgs>? FrontendConfig { get; set; }
 
+        /// <summary>
+        /// The name which should be used for this NAT.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The protocol used for this Destination NAT. Possible values include `TCP` and `UDP`.
+        /// </summary>
         [Input("protocol", required: true)]
         public Input<string> Protocol { get; set; } = null!;
 

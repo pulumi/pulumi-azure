@@ -40,6 +40,13 @@ import (
 //	}
 //
 // ```
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This data source uses the following Azure API Providers:
+//
+// * `Microsoft.ServiceBus`: 2022-10-01-preview, 2021-06-01-preview
 func LookupTopic(ctx *pulumi.Context, args *LookupTopicArgs, opts ...pulumi.InvokeOption) (*LookupTopicResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupTopicResult
@@ -56,9 +63,9 @@ type LookupTopicArgs struct {
 	Name string `pulumi:"name"`
 	// The ID of the ServiceBus Namespace where the Service Bus Topic exists.
 	NamespaceId *string `pulumi:"namespaceId"`
-	// Deprecated: `namespaceName` will be removed in favour of the property `namespaceId` in version 4.0 of the AzureRM Provider.
+	// Deprecated: `namespaceName` will be removed in favour of the `namespaceId` property in v5.0 of the AzureRM Provider.
 	NamespaceName *string `pulumi:"namespaceName"`
-	// Deprecated: `resourceGroupName` will be removed in favour of the property `namespaceId` in version 4.0 of the AzureRM Provider.
+	// Deprecated: `resourceGroupName` will be removed in favour of the `namespaceId` property in v5.0 of the AzureRM Provider.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 }
 
@@ -66,27 +73,30 @@ type LookupTopicArgs struct {
 type LookupTopicResult struct {
 	// The ISO 8601 timespan duration of the idle interval after which the Topic is automatically deleted, minimum of 5 minutes.
 	AutoDeleteOnIdle string `pulumi:"autoDeleteOnIdle"`
+	// Boolean flag which controls if server-side batched operations are enabled.
+	BatchedOperationsEnabled bool `pulumi:"batchedOperationsEnabled"`
 	// The ISO 8601 timespan duration of TTL of messages sent to this topic if no TTL value is set on the message itself.
 	DefaultMessageTtl string `pulumi:"defaultMessageTtl"`
 	// The ISO 8601 timespan duration during which duplicates can be detected.
 	DuplicateDetectionHistoryTimeWindow string `pulumi:"duplicateDetectionHistoryTimeWindow"`
-	// Boolean flag which controls if server-side batched operations are enabled.
-	EnableBatchedOperations bool `pulumi:"enableBatchedOperations"`
+	EnableBatchedOperations             bool   `pulumi:"enableBatchedOperations"`
+	EnableExpress                       bool   `pulumi:"enableExpress"`
+	EnablePartitioning                  bool   `pulumi:"enablePartitioning"`
 	// Boolean flag which controls whether Express Entities are enabled. An express topic holds a message in memory temporarily before writing it to persistent storage.
-	EnableExpress bool `pulumi:"enableExpress"`
-	// Boolean flag which controls whether to enable the topic to be partitioned across multiple message brokers.
-	EnablePartitioning bool `pulumi:"enablePartitioning"`
+	ExpressEnabled bool `pulumi:"expressEnabled"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// Integer value which controls the size of memory allocated for the topic. For supported values see the "Queue/topic size" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
 	MaxSizeInMegabytes int     `pulumi:"maxSizeInMegabytes"`
 	Name               string  `pulumi:"name"`
 	NamespaceId        *string `pulumi:"namespaceId"`
-	// Deprecated: `namespaceName` will be removed in favour of the property `namespaceId` in version 4.0 of the AzureRM Provider.
+	// Deprecated: `namespaceName` will be removed in favour of the `namespaceId` property in v5.0 of the AzureRM Provider.
 	NamespaceName *string `pulumi:"namespaceName"`
+	// Boolean flag which controls whether to enable the topic to be partitioned across multiple message brokers.
+	PartitioningEnabled bool `pulumi:"partitioningEnabled"`
 	// Boolean flag which controls whether the Topic requires duplicate detection.
 	RequiresDuplicateDetection bool `pulumi:"requiresDuplicateDetection"`
-	// Deprecated: `resourceGroupName` will be removed in favour of the property `namespaceId` in version 4.0 of the AzureRM Provider.
+	// Deprecated: `resourceGroupName` will be removed in favour of the `namespaceId` property in v5.0 of the AzureRM Provider.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The Status of the Service Bus Topic. Acceptable values are Active or Disabled.
 	Status string `pulumi:"status"`
@@ -109,9 +119,9 @@ type LookupTopicOutputArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// The ID of the ServiceBus Namespace where the Service Bus Topic exists.
 	NamespaceId pulumi.StringPtrInput `pulumi:"namespaceId"`
-	// Deprecated: `namespaceName` will be removed in favour of the property `namespaceId` in version 4.0 of the AzureRM Provider.
+	// Deprecated: `namespaceName` will be removed in favour of the `namespaceId` property in v5.0 of the AzureRM Provider.
 	NamespaceName pulumi.StringPtrInput `pulumi:"namespaceName"`
-	// Deprecated: `resourceGroupName` will be removed in favour of the property `namespaceId` in version 4.0 of the AzureRM Provider.
+	// Deprecated: `resourceGroupName` will be removed in favour of the `namespaceId` property in v5.0 of the AzureRM Provider.
 	ResourceGroupName pulumi.StringPtrInput `pulumi:"resourceGroupName"`
 }
 
@@ -139,6 +149,11 @@ func (o LookupTopicResultOutput) AutoDeleteOnIdle() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTopicResult) string { return v.AutoDeleteOnIdle }).(pulumi.StringOutput)
 }
 
+// Boolean flag which controls if server-side batched operations are enabled.
+func (o LookupTopicResultOutput) BatchedOperationsEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupTopicResult) bool { return v.BatchedOperationsEnabled }).(pulumi.BoolOutput)
+}
+
 // The ISO 8601 timespan duration of TTL of messages sent to this topic if no TTL value is set on the message itself.
 func (o LookupTopicResultOutput) DefaultMessageTtl() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTopicResult) string { return v.DefaultMessageTtl }).(pulumi.StringOutput)
@@ -149,19 +164,21 @@ func (o LookupTopicResultOutput) DuplicateDetectionHistoryTimeWindow() pulumi.St
 	return o.ApplyT(func(v LookupTopicResult) string { return v.DuplicateDetectionHistoryTimeWindow }).(pulumi.StringOutput)
 }
 
-// Boolean flag which controls if server-side batched operations are enabled.
 func (o LookupTopicResultOutput) EnableBatchedOperations() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupTopicResult) bool { return v.EnableBatchedOperations }).(pulumi.BoolOutput)
 }
 
-// Boolean flag which controls whether Express Entities are enabled. An express topic holds a message in memory temporarily before writing it to persistent storage.
 func (o LookupTopicResultOutput) EnableExpress() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupTopicResult) bool { return v.EnableExpress }).(pulumi.BoolOutput)
 }
 
-// Boolean flag which controls whether to enable the topic to be partitioned across multiple message brokers.
 func (o LookupTopicResultOutput) EnablePartitioning() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupTopicResult) bool { return v.EnablePartitioning }).(pulumi.BoolOutput)
+}
+
+// Boolean flag which controls whether Express Entities are enabled. An express topic holds a message in memory temporarily before writing it to persistent storage.
+func (o LookupTopicResultOutput) ExpressEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupTopicResult) bool { return v.ExpressEnabled }).(pulumi.BoolOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
@@ -182,9 +199,14 @@ func (o LookupTopicResultOutput) NamespaceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTopicResult) *string { return v.NamespaceId }).(pulumi.StringPtrOutput)
 }
 
-// Deprecated: `namespaceName` will be removed in favour of the property `namespaceId` in version 4.0 of the AzureRM Provider.
+// Deprecated: `namespaceName` will be removed in favour of the `namespaceId` property in v5.0 of the AzureRM Provider.
 func (o LookupTopicResultOutput) NamespaceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTopicResult) *string { return v.NamespaceName }).(pulumi.StringPtrOutput)
+}
+
+// Boolean flag which controls whether to enable the topic to be partitioned across multiple message brokers.
+func (o LookupTopicResultOutput) PartitioningEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupTopicResult) bool { return v.PartitioningEnabled }).(pulumi.BoolOutput)
 }
 
 // Boolean flag which controls whether the Topic requires duplicate detection.
@@ -192,7 +214,7 @@ func (o LookupTopicResultOutput) RequiresDuplicateDetection() pulumi.BoolOutput 
 	return o.ApplyT(func(v LookupTopicResult) bool { return v.RequiresDuplicateDetection }).(pulumi.BoolOutput)
 }
 
-// Deprecated: `resourceGroupName` will be removed in favour of the property `namespaceId` in version 4.0 of the AzureRM Provider.
+// Deprecated: `resourceGroupName` will be removed in favour of the `namespaceId` property in v5.0 of the AzureRM Provider.
 func (o LookupTopicResultOutput) ResourceGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTopicResult) *string { return v.ResourceGroupName }).(pulumi.StringPtrOutput)
 }

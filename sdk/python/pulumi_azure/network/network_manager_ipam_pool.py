@@ -333,6 +333,13 @@ class NetworkManagerIpamPool(pulumi.CustomResource):
             address_prefixes=["10.0.0.0/24"])
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network`: 2024-05-01
+
         ## Import
 
         Network Manager IPAM Pools can be imported using the `resource id`, e.g.
@@ -389,6 +396,13 @@ class NetworkManagerIpamPool(pulumi.CustomResource):
             display_name="example-pool",
             address_prefixes=["10.0.0.0/24"])
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network`: 2024-05-01
 
         ## Import
 

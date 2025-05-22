@@ -21,7 +21,7 @@ namespace Pulumi.Azure.AppService.Inputs
         /// <summary>
         /// The retention period for logs in days. Valid values are between `0` and `99999`.(never delete).
         /// 
-        /// &gt; **NOTE:** This block is not supported on Consumption plans.
+        /// &gt; **Note:** This block is not supported on Consumption plans.
         /// </summary>
         [Input("retentionPeriodDays")]
         public Input<int>? RetentionPeriodDays { get; set; }

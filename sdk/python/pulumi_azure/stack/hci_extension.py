@@ -41,7 +41,7 @@ class HciExtensionArgs:
         :param pulumi.Input[builtins.str] settings: The json formatted public settings for the extension.
         :param pulumi.Input[builtins.str] type_handler_version: Specifies the version of the script handler.
                
-               > **NOTE:** `type_handler_version` cannot be set when `automatic_upgrade_enabled` is set to `true`.
+               > **Note:** `type_handler_version` cannot be set when `automatic_upgrade_enabled` is set to `true`.
         """
         pulumi.set(__self__, "arc_setting_id", arc_setting_id)
         pulumi.set(__self__, "publisher", publisher)
@@ -161,7 +161,7 @@ class HciExtensionArgs:
         """
         Specifies the version of the script handler.
 
-        > **NOTE:** `type_handler_version` cannot be set when `automatic_upgrade_enabled` is set to `true`.
+        > **Note:** `type_handler_version` cannot be set when `automatic_upgrade_enabled` is set to `true`.
         """
         return pulumi.get(self, "type_handler_version")
 
@@ -194,7 +194,7 @@ class _HciExtensionState:
         :param pulumi.Input[builtins.str] type: Specifies the type of the extension. For example `CustomScriptExtension` or `AzureMonitorLinuxAgent`. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] type_handler_version: Specifies the version of the script handler.
                
-               > **NOTE:** `type_handler_version` cannot be set when `automatic_upgrade_enabled` is set to `true`.
+               > **Note:** `type_handler_version` cannot be set when `automatic_upgrade_enabled` is set to `true`.
         """
         if arc_setting_id is not None:
             pulumi.set(__self__, "arc_setting_id", arc_setting_id)
@@ -317,7 +317,7 @@ class _HciExtensionState:
         """
         Specifies the version of the script handler.
 
-        > **NOTE:** `type_handler_version` cannot be set when `automatic_upgrade_enabled` is set to `true`.
+        > **Note:** `type_handler_version` cannot be set when `automatic_upgrade_enabled` is set to `true`.
         """
         return pulumi.get(self, "type_handler_version")
 
@@ -364,6 +364,13 @@ class HciExtension(pulumi.CustomResource):
             type_handler_version="1.22.0")
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.AzureStackHCI`: 2024-01-01
+
         ## Import
 
         Azure Stack HCI Extension can be imported using the `resource id`, e.g.
@@ -384,7 +391,7 @@ class HciExtension(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] type: Specifies the type of the extension. For example `CustomScriptExtension` or `AzureMonitorLinuxAgent`. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] type_handler_version: Specifies the version of the script handler.
                
-               > **NOTE:** `type_handler_version` cannot be set when `automatic_upgrade_enabled` is set to `true`.
+               > **Note:** `type_handler_version` cannot be set when `automatic_upgrade_enabled` is set to `true`.
         """
         ...
     @overload
@@ -413,6 +420,13 @@ class HciExtension(pulumi.CustomResource):
             automatic_upgrade_enabled=True,
             type_handler_version="1.22.0")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.AzureStackHCI`: 2024-01-01
 
         ## Import
 
@@ -508,7 +522,7 @@ class HciExtension(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] type: Specifies the type of the extension. For example `CustomScriptExtension` or `AzureMonitorLinuxAgent`. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] type_handler_version: Specifies the version of the script handler.
                
-               > **NOTE:** `type_handler_version` cannot be set when `automatic_upgrade_enabled` is set to `true`.
+               > **Note:** `type_handler_version` cannot be set when `automatic_upgrade_enabled` is set to `true`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -595,7 +609,7 @@ class HciExtension(pulumi.CustomResource):
         """
         Specifies the version of the script handler.
 
-        > **NOTE:** `type_handler_version` cannot be set when `automatic_upgrade_enabled` is set to `true`.
+        > **Note:** `type_handler_version` cannot be set when `automatic_upgrade_enabled` is set to `true`.
         """
         return pulumi.get(self, "type_handler_version")
 

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 /**
  * Manages a Front Door (standard/premium) Rule.
  *
- * !>**IMPORTANT:** The Rules resource **must** include a `dependsOn` meta-argument which references the `azure.cdn.FrontdoorOrigin` and the `azure.cdn.FrontdoorOriginGroup`.
+ * !> **Note:** The Rules resource **must** include a `dependsOn` meta-argument which references the `azure.cdn.FrontdoorOrigin` and the `azure.cdn.FrontdoorOriginGroup`.
  *
  * ## Example Usage
  *
@@ -329,7 +329,7 @@ export class FrontdoorRule extends pulumi.CustomResource {
     /**
      * The order in which the rules will be applied for the Front Door Endpoint. The order value should be sequential and begin at `1`(e.g. `1`, `2`, `3`...). A Front Door Rule with a lesser order value will be applied before a rule with a greater order value.
      *
-     * ->**NOTE:** If the Front Door Rule has an order value of `0` they do not require any conditions and the actions will always be applied.
+     * > **Note:** If the Front Door Rule has an order value of `0` they do not require any conditions and the actions will always be applied.
      */
     public readonly order!: pulumi.Output<number>;
 
@@ -408,7 +408,7 @@ export interface FrontdoorRuleState {
     /**
      * The order in which the rules will be applied for the Front Door Endpoint. The order value should be sequential and begin at `1`(e.g. `1`, `2`, `3`...). A Front Door Rule with a lesser order value will be applied before a rule with a greater order value.
      *
-     * ->**NOTE:** If the Front Door Rule has an order value of `0` they do not require any conditions and the actions will always be applied.
+     * > **Note:** If the Front Door Rule has an order value of `0` they do not require any conditions and the actions will always be applied.
      */
     order?: pulumi.Input<number>;
 }
@@ -440,7 +440,7 @@ export interface FrontdoorRuleArgs {
     /**
      * The order in which the rules will be applied for the Front Door Endpoint. The order value should be sequential and begin at `1`(e.g. `1`, `2`, `3`...). A Front Door Rule with a lesser order value will be applied before a rule with a greater order value.
      *
-     * ->**NOTE:** If the Front Door Rule has an order value of `0` they do not require any conditions and the actions will always be applied.
+     * > **Note:** If the Front Door Rule has an order value of `0` they do not require any conditions and the actions will always be applied.
      */
     order: pulumi.Input<number>;
 }

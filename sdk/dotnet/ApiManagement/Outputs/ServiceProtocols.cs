@@ -13,15 +13,20 @@ namespace Pulumi.Azure.ApiManagement.Outputs
     [OutputType]
     public sealed class ServiceProtocols
     {
+        public readonly bool? EnableHttp2;
         /// <summary>
         /// Should HTTP/2 be supported by the API Management Service? Defaults to `false`.
         /// </summary>
-        public readonly bool? EnableHttp2;
+        public readonly bool? Http2Enabled;
 
         [OutputConstructor]
-        private ServiceProtocols(bool? enableHttp2)
+        private ServiceProtocols(
+            bool? enableHttp2,
+
+            bool? http2Enabled)
         {
             EnableHttp2 = enableHttp2;
+            Http2Enabled = http2Enabled;
         }
     }
 }

@@ -61,6 +61,13 @@ import (
 //
 // ```
 //
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.NotificationHubs`: 2023-09-01
+//
 // ## Import
 //
 // Notification Hubs can be imported using the `resource id`, e.g.
@@ -73,13 +80,13 @@ type Hub struct {
 
 	// A `apnsCredential` block as defined below.
 	//
-	// > **NOTE:** Removing the `apnsCredential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we'll remove this limitation when the SDK bug is fixed.
+	// > **Note:** Removing the `apnsCredential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we'll remove this limitation when the SDK bug is fixed.
 	ApnsCredential HubApnsCredentialPtrOutput `pulumi:"apnsCredential"`
 	// A `browserCredential` block as defined below.
 	BrowserCredential HubBrowserCredentialPtrOutput `pulumi:"browserCredential"`
 	// A `gcmCredential` block as defined below.
 	//
-	// > **NOTE:** Removing the `gcmCredential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we'll remove this limitation when the SDK bug is fixed.
+	// > **Note:** Removing the `gcmCredential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we'll remove this limitation when the SDK bug is fixed.
 	GcmCredential HubGcmCredentialPtrOutput `pulumi:"gcmCredential"`
 	// The Azure Region in which this Notification Hub Namespace exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -131,13 +138,13 @@ func GetHub(ctx *pulumi.Context,
 type hubState struct {
 	// A `apnsCredential` block as defined below.
 	//
-	// > **NOTE:** Removing the `apnsCredential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we'll remove this limitation when the SDK bug is fixed.
+	// > **Note:** Removing the `apnsCredential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we'll remove this limitation when the SDK bug is fixed.
 	ApnsCredential *HubApnsCredential `pulumi:"apnsCredential"`
 	// A `browserCredential` block as defined below.
 	BrowserCredential *HubBrowserCredential `pulumi:"browserCredential"`
 	// A `gcmCredential` block as defined below.
 	//
-	// > **NOTE:** Removing the `gcmCredential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we'll remove this limitation when the SDK bug is fixed.
+	// > **Note:** Removing the `gcmCredential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we'll remove this limitation when the SDK bug is fixed.
 	GcmCredential *HubGcmCredential `pulumi:"gcmCredential"`
 	// The Azure Region in which this Notification Hub Namespace exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -154,13 +161,13 @@ type hubState struct {
 type HubState struct {
 	// A `apnsCredential` block as defined below.
 	//
-	// > **NOTE:** Removing the `apnsCredential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we'll remove this limitation when the SDK bug is fixed.
+	// > **Note:** Removing the `apnsCredential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we'll remove this limitation when the SDK bug is fixed.
 	ApnsCredential HubApnsCredentialPtrInput
 	// A `browserCredential` block as defined below.
 	BrowserCredential HubBrowserCredentialPtrInput
 	// A `gcmCredential` block as defined below.
 	//
-	// > **NOTE:** Removing the `gcmCredential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we'll remove this limitation when the SDK bug is fixed.
+	// > **Note:** Removing the `gcmCredential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we'll remove this limitation when the SDK bug is fixed.
 	GcmCredential HubGcmCredentialPtrInput
 	// The Azure Region in which this Notification Hub Namespace exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -181,13 +188,13 @@ func (HubState) ElementType() reflect.Type {
 type hubArgs struct {
 	// A `apnsCredential` block as defined below.
 	//
-	// > **NOTE:** Removing the `apnsCredential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we'll remove this limitation when the SDK bug is fixed.
+	// > **Note:** Removing the `apnsCredential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we'll remove this limitation when the SDK bug is fixed.
 	ApnsCredential *HubApnsCredential `pulumi:"apnsCredential"`
 	// A `browserCredential` block as defined below.
 	BrowserCredential *HubBrowserCredential `pulumi:"browserCredential"`
 	// A `gcmCredential` block as defined below.
 	//
-	// > **NOTE:** Removing the `gcmCredential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we'll remove this limitation when the SDK bug is fixed.
+	// > **Note:** Removing the `gcmCredential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we'll remove this limitation when the SDK bug is fixed.
 	GcmCredential *HubGcmCredential `pulumi:"gcmCredential"`
 	// The Azure Region in which this Notification Hub Namespace exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -205,13 +212,13 @@ type hubArgs struct {
 type HubArgs struct {
 	// A `apnsCredential` block as defined below.
 	//
-	// > **NOTE:** Removing the `apnsCredential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we'll remove this limitation when the SDK bug is fixed.
+	// > **Note:** Removing the `apnsCredential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we'll remove this limitation when the SDK bug is fixed.
 	ApnsCredential HubApnsCredentialPtrInput
 	// A `browserCredential` block as defined below.
 	BrowserCredential HubBrowserCredentialPtrInput
 	// A `gcmCredential` block as defined below.
 	//
-	// > **NOTE:** Removing the `gcmCredential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we'll remove this limitation when the SDK bug is fixed.
+	// > **Note:** Removing the `gcmCredential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we'll remove this limitation when the SDK bug is fixed.
 	GcmCredential HubGcmCredentialPtrInput
 	// The Azure Region in which this Notification Hub Namespace exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -314,7 +321,7 @@ func (o HubOutput) ToHubOutputWithContext(ctx context.Context) HubOutput {
 
 // A `apnsCredential` block as defined below.
 //
-// > **NOTE:** Removing the `apnsCredential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we'll remove this limitation when the SDK bug is fixed.
+// > **Note:** Removing the `apnsCredential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we'll remove this limitation when the SDK bug is fixed.
 func (o HubOutput) ApnsCredential() HubApnsCredentialPtrOutput {
 	return o.ApplyT(func(v *Hub) HubApnsCredentialPtrOutput { return v.ApnsCredential }).(HubApnsCredentialPtrOutput)
 }
@@ -326,7 +333,7 @@ func (o HubOutput) BrowserCredential() HubBrowserCredentialPtrOutput {
 
 // A `gcmCredential` block as defined below.
 //
-// > **NOTE:** Removing the `gcmCredential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we'll remove this limitation when the SDK bug is fixed.
+// > **Note:** Removing the `gcmCredential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we'll remove this limitation when the SDK bug is fixed.
 func (o HubOutput) GcmCredential() HubGcmCredentialPtrOutput {
 	return o.ApplyT(func(v *Hub) HubGcmCredentialPtrOutput { return v.GcmCredential }).(HubGcmCredentialPtrOutput)
 }

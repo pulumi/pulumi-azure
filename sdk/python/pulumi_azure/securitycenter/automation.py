@@ -42,7 +42,7 @@ class AutomationArgs:
         :param pulumi.Input[builtins.str] location: The Azure Region where the Security Center Automation should exist. Changing this forces a new Security Center Automation to be created.
         :param pulumi.Input[builtins.str] name: The name which should be used for this Security Center Automation. Changing this forces a new Security Center Automation to be created.
                
-               > **NOTE:** For the automation to appear in Azure Portal correctly under Microsoft Defender for Cloud > Environment Settings > Account > Continuous Export, either `ExportToWorkspace` or `ExportToEventHub` must be used.
+               > **Note:** For the automation to appear in Azure Portal correctly under Microsoft Defender for Cloud > Environment Settings > Account > Continuous Export, either `ExportToWorkspace` or `ExportToEventHub` must be used.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags assigned to the resource.
         """
         pulumi.set(__self__, "actions", actions)
@@ -150,7 +150,7 @@ class AutomationArgs:
         """
         The name which should be used for this Security Center Automation. Changing this forces a new Security Center Automation to be created.
 
-        > **NOTE:** For the automation to appear in Azure Portal correctly under Microsoft Defender for Cloud > Environment Settings > Account > Continuous Export, either `ExportToWorkspace` or `ExportToEventHub` must be used.
+        > **Note:** For the automation to appear in Azure Portal correctly under Microsoft Defender for Cloud > Environment Settings > Account > Continuous Export, either `ExportToWorkspace` or `ExportToEventHub` must be used.
         """
         return pulumi.get(self, "name")
 
@@ -191,7 +191,7 @@ class _AutomationState:
         :param pulumi.Input[builtins.str] location: The Azure Region where the Security Center Automation should exist. Changing this forces a new Security Center Automation to be created.
         :param pulumi.Input[builtins.str] name: The name which should be used for this Security Center Automation. Changing this forces a new Security Center Automation to be created.
                
-               > **NOTE:** For the automation to appear in Azure Portal correctly under Microsoft Defender for Cloud > Environment Settings > Account > Continuous Export, either `ExportToWorkspace` or `ExportToEventHub` must be used.
+               > **Note:** For the automation to appear in Azure Portal correctly under Microsoft Defender for Cloud > Environment Settings > Account > Continuous Export, either `ExportToWorkspace` or `ExportToEventHub` must be used.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the Resource Group where the Security Center Automation should exist. Changing this forces a new Security Center Automation to be created.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] scopes: A list of scopes on which the automation logic is applied, at least one is required. Supported scopes are a subscription (in this format `/subscriptions/00000000-0000-0000-0000-000000000000`) or a resource group under that subscription (in the format `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example`). The automation will only apply on defined scopes.
         :param pulumi.Input[Sequence[pulumi.Input['AutomationSourceArgs']]] sources: One or more `source` blocks as defined below. A `source` defines what data types will be processed and a set of rules to filter that data.
@@ -270,7 +270,7 @@ class _AutomationState:
         """
         The name which should be used for this Security Center Automation. Changing this forces a new Security Center Automation to be created.
 
-        > **NOTE:** For the automation to appear in Azure Portal correctly under Microsoft Defender for Cloud > Environment Settings > Account > Continuous Export, either `ExportToWorkspace` or `ExportToEventHub` must be used.
+        > **Note:** For the automation to appear in Azure Portal correctly under Microsoft Defender for Cloud > Environment Settings > Account > Continuous Export, either `ExportToWorkspace` or `ExportToEventHub` must be used.
         """
         return pulumi.get(self, "name")
 
@@ -415,7 +415,7 @@ class Automation(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] location: The Azure Region where the Security Center Automation should exist. Changing this forces a new Security Center Automation to be created.
         :param pulumi.Input[builtins.str] name: The name which should be used for this Security Center Automation. Changing this forces a new Security Center Automation to be created.
                
-               > **NOTE:** For the automation to appear in Azure Portal correctly under Microsoft Defender for Cloud > Environment Settings > Account > Continuous Export, either `ExportToWorkspace` or `ExportToEventHub` must be used.
+               > **Note:** For the automation to appear in Azure Portal correctly under Microsoft Defender for Cloud > Environment Settings > Account > Continuous Export, either `ExportToWorkspace` or `ExportToEventHub` must be used.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the Resource Group where the Security Center Automation should exist. Changing this forces a new Security Center Automation to be created.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] scopes: A list of scopes on which the automation logic is applied, at least one is required. Supported scopes are a subscription (in this format `/subscriptions/00000000-0000-0000-0000-000000000000`) or a resource group under that subscription (in the format `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example`). The automation will only apply on defined scopes.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AutomationSourceArgs', 'AutomationSourceArgsDict']]]] sources: One or more `source` blocks as defined below. A `source` defines what data types will be processed and a set of rules to filter that data.
@@ -573,7 +573,7 @@ class Automation(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] location: The Azure Region where the Security Center Automation should exist. Changing this forces a new Security Center Automation to be created.
         :param pulumi.Input[builtins.str] name: The name which should be used for this Security Center Automation. Changing this forces a new Security Center Automation to be created.
                
-               > **NOTE:** For the automation to appear in Azure Portal correctly under Microsoft Defender for Cloud > Environment Settings > Account > Continuous Export, either `ExportToWorkspace` or `ExportToEventHub` must be used.
+               > **Note:** For the automation to appear in Azure Portal correctly under Microsoft Defender for Cloud > Environment Settings > Account > Continuous Export, either `ExportToWorkspace` or `ExportToEventHub` must be used.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the Resource Group where the Security Center Automation should exist. Changing this forces a new Security Center Automation to be created.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] scopes: A list of scopes on which the automation logic is applied, at least one is required. Supported scopes are a subscription (in this format `/subscriptions/00000000-0000-0000-0000-000000000000`) or a resource group under that subscription (in the format `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example`). The automation will only apply on defined scopes.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AutomationSourceArgs', 'AutomationSourceArgsDict']]]] sources: One or more `source` blocks as defined below. A `source` defines what data types will be processed and a set of rules to filter that data.
@@ -632,7 +632,7 @@ class Automation(pulumi.CustomResource):
         """
         The name which should be used for this Security Center Automation. Changing this forces a new Security Center Automation to be created.
 
-        > **NOTE:** For the automation to appear in Azure Portal correctly under Microsoft Defender for Cloud > Environment Settings > Account > Continuous Export, either `ExportToWorkspace` or `ExportToEventHub` must be used.
+        > **Note:** For the automation to appear in Azure Portal correctly under Microsoft Defender for Cloud > Environment Settings > Account > Continuous Export, either `ExportToWorkspace` or `ExportToEventHub` must be used.
         """
         return pulumi.get(self, "name")
 

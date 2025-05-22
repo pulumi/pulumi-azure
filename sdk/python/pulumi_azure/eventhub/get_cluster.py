@@ -109,6 +109,13 @@ def get_cluster(name: Optional[builtins.str] = None,
     pulumi.export("eventhubId", example.id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.EventHub`: 2024-01-01
+
 
     :param builtins.str name: The name of this EventHub Cluster.
     :param builtins.str resource_group_name: The name of the Resource Group where the EventHub Cluster exists.
@@ -141,6 +148,13 @@ def get_cluster_output(name: Optional[pulumi.Input[builtins.str]] = None,
         resource_group_name="search-service")
     pulumi.export("eventhubId", example.id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.EventHub`: 2024-01-01
 
 
     :param builtins.str name: The name of this EventHub Cluster.

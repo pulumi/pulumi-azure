@@ -50,7 +50,7 @@ class ScheduledQueryRulesAlertArgs:
         :param pulumi.Input['ScheduledQueryRulesAlertTriggerArgs'] trigger: A `trigger` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] authorized_resource_ids: List of Resource IDs referred into query.
         :param pulumi.Input[builtins.bool] auto_mitigation_enabled: Should the alerts in this Metric Alert be auto resolved? Defaults to `false`.
-               > **NOTE** `auto_mitigation_enabled` and `throttling` are mutually exclusive and cannot both be set.
+               > **Note:** `auto_mitigation_enabled` and `throttling` are mutually exclusive and cannot both be set.
         :param pulumi.Input[builtins.str] description: The description of the scheduled query rule.
         :param pulumi.Input[builtins.bool] enabled: Whether this scheduled query rule is enabled. Default is `true`.
         :param pulumi.Input[builtins.str] location: Specifies the Azure Region where the resource should exist. Changing this forces a new resource to be created.
@@ -189,7 +189,7 @@ class ScheduledQueryRulesAlertArgs:
     def auto_mitigation_enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
         Should the alerts in this Metric Alert be auto resolved? Defaults to `false`.
-        > **NOTE** `auto_mitigation_enabled` and `throttling` are mutually exclusive and cannot both be set.
+        > **Note:** `auto_mitigation_enabled` and `throttling` are mutually exclusive and cannot both be set.
         """
         return pulumi.get(self, "auto_mitigation_enabled")
 
@@ -319,7 +319,7 @@ class _ScheduledQueryRulesAlertState:
         :param pulumi.Input['ScheduledQueryRulesAlertActionArgs'] action: An `action` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] authorized_resource_ids: List of Resource IDs referred into query.
         :param pulumi.Input[builtins.bool] auto_mitigation_enabled: Should the alerts in this Metric Alert be auto resolved? Defaults to `false`.
-               > **NOTE** `auto_mitigation_enabled` and `throttling` are mutually exclusive and cannot both be set.
+               > **Note:** `auto_mitigation_enabled` and `throttling` are mutually exclusive and cannot both be set.
         :param pulumi.Input[builtins.str] data_source_id: The resource URI over which log search query is to be run. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] description: The description of the scheduled query rule.
         :param pulumi.Input[builtins.bool] enabled: Whether this scheduled query rule is enabled. Default is `true`.
@@ -399,7 +399,7 @@ class _ScheduledQueryRulesAlertState:
     def auto_mitigation_enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
         Should the alerts in this Metric Alert be auto resolved? Defaults to `false`.
-        > **NOTE** `auto_mitigation_enabled` and `throttling` are mutually exclusive and cannot both be set.
+        > **Note:** `auto_mitigation_enabled` and `throttling` are mutually exclusive and cannot both be set.
         """
         return pulumi.get(self, "auto_mitigation_enabled")
 
@@ -603,7 +603,7 @@ class ScheduledQueryRulesAlert(pulumi.CustomResource):
         """
         Manages an AlertingAction Scheduled Query Rules resource within Azure Monitor.
 
-        > **Warning** This resource is using an older AzureRM API version which is known to cause problems e.g. with custom webhook properties not included in triggered alerts. This resource is superseded by the monitoring.ScheduledQueryRulesAlertV2 resource using newer API versions.
+        > **Note:** This resource is using an older AzureRM API version which is known to cause problems e.g. with custom webhook properties not included in triggered alerts. This resource is superseded by the monitoring.ScheduledQueryRulesAlertV2 resource using newer API versions.
 
         ## Import
 
@@ -618,7 +618,7 @@ class ScheduledQueryRulesAlert(pulumi.CustomResource):
         :param pulumi.Input[Union['ScheduledQueryRulesAlertActionArgs', 'ScheduledQueryRulesAlertActionArgsDict']] action: An `action` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] authorized_resource_ids: List of Resource IDs referred into query.
         :param pulumi.Input[builtins.bool] auto_mitigation_enabled: Should the alerts in this Metric Alert be auto resolved? Defaults to `false`.
-               > **NOTE** `auto_mitigation_enabled` and `throttling` are mutually exclusive and cannot both be set.
+               > **Note:** `auto_mitigation_enabled` and `throttling` are mutually exclusive and cannot both be set.
         :param pulumi.Input[builtins.str] data_source_id: The resource URI over which log search query is to be run. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] description: The description of the scheduled query rule.
         :param pulumi.Input[builtins.bool] enabled: Whether this scheduled query rule is enabled. Default is `true`.
@@ -643,7 +643,7 @@ class ScheduledQueryRulesAlert(pulumi.CustomResource):
         """
         Manages an AlertingAction Scheduled Query Rules resource within Azure Monitor.
 
-        > **Warning** This resource is using an older AzureRM API version which is known to cause problems e.g. with custom webhook properties not included in triggered alerts. This resource is superseded by the monitoring.ScheduledQueryRulesAlertV2 resource using newer API versions.
+        > **Note:** This resource is using an older AzureRM API version which is known to cause problems e.g. with custom webhook properties not included in triggered alerts. This resource is superseded by the monitoring.ScheduledQueryRulesAlertV2 resource using newer API versions.
 
         ## Import
 
@@ -762,7 +762,7 @@ class ScheduledQueryRulesAlert(pulumi.CustomResource):
         :param pulumi.Input[Union['ScheduledQueryRulesAlertActionArgs', 'ScheduledQueryRulesAlertActionArgsDict']] action: An `action` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] authorized_resource_ids: List of Resource IDs referred into query.
         :param pulumi.Input[builtins.bool] auto_mitigation_enabled: Should the alerts in this Metric Alert be auto resolved? Defaults to `false`.
-               > **NOTE** `auto_mitigation_enabled` and `throttling` are mutually exclusive and cannot both be set.
+               > **Note:** `auto_mitigation_enabled` and `throttling` are mutually exclusive and cannot both be set.
         :param pulumi.Input[builtins.str] data_source_id: The resource URI over which log search query is to be run. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] description: The description of the scheduled query rule.
         :param pulumi.Input[builtins.bool] enabled: Whether this scheduled query rule is enabled. Default is `true`.
@@ -822,7 +822,7 @@ class ScheduledQueryRulesAlert(pulumi.CustomResource):
     def auto_mitigation_enabled(self) -> pulumi.Output[Optional[builtins.bool]]:
         """
         Should the alerts in this Metric Alert be auto resolved? Defaults to `false`.
-        > **NOTE** `auto_mitigation_enabled` and `throttling` are mutually exclusive and cannot both be set.
+        > **Note:** `auto_mitigation_enabled` and `throttling` are mutually exclusive and cannot both be set.
         """
         return pulumi.get(self, "auto_mitigation_enabled")
 

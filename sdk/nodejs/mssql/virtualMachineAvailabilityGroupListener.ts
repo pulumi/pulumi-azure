@@ -52,7 +52,7 @@ export class VirtualMachineAvailabilityGroupListener extends pulumi.CustomResour
     /**
      * A `loadBalancerConfiguration` block as defined below. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** Either one of `loadBalancerConfiguration` or `multiSubnetIpConfiguration` must be specified.
+     * > **Note:** Either one of `loadBalancerConfiguration` or `multiSubnetIpConfiguration` must be specified.
      */
     public readonly loadBalancerConfiguration!: pulumi.Output<outputs.mssql.VirtualMachineAvailabilityGroupListenerLoadBalancerConfiguration | undefined>;
     /**
@@ -128,7 +128,7 @@ export interface VirtualMachineAvailabilityGroupListenerState {
     /**
      * A `loadBalancerConfiguration` block as defined below. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** Either one of `loadBalancerConfiguration` or `multiSubnetIpConfiguration` must be specified.
+     * > **Note:** Either one of `loadBalancerConfiguration` or `multiSubnetIpConfiguration` must be specified.
      */
     loadBalancerConfiguration?: pulumi.Input<inputs.mssql.VirtualMachineAvailabilityGroupListenerLoadBalancerConfiguration>;
     /**
@@ -164,7 +164,7 @@ export interface VirtualMachineAvailabilityGroupListenerArgs {
     /**
      * A `loadBalancerConfiguration` block as defined below. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** Either one of `loadBalancerConfiguration` or `multiSubnetIpConfiguration` must be specified.
+     * > **Note:** Either one of `loadBalancerConfiguration` or `multiSubnetIpConfiguration` must be specified.
      */
     loadBalancerConfiguration?: pulumi.Input<inputs.mssql.VirtualMachineAvailabilityGroupListenerLoadBalancerConfiguration>;
     /**

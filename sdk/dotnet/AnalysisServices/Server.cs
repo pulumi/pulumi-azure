@@ -57,7 +57,14 @@ namespace Pulumi.Azure.AnalysisServices
     /// });
     /// ```
     /// 
-    /// &gt; **NOTE:** The server resource will automatically be started and stopped during an update if it is in `paused` state.
+    /// &gt; **Note:** The server resource will automatically be started and stopped during an update if it is in `paused` state.
+    /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.AnalysisServices`: 2017-08-01
     /// 
     /// ## Import
     /// 

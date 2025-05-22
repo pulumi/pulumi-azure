@@ -1798,7 +1798,7 @@ type StandardSiteConfig struct {
 	Http2Enabled *bool `pulumi:"http2Enabled"`
 	// A list of `ipRestriction` objects representing IP restrictions as defined below.
 	//
-	// > **NOTE** User has to explicitly set `ipRestriction` to empty slice (`[]`) to remove it.
+	// > **Note:** User has to explicitly set `ipRestriction` to empty slice (`[]`) to remove it.
 	IpRestrictions []StandardSiteConfigIpRestriction `pulumi:"ipRestrictions"`
 	// Linux App Framework and version for the App Service, e.g. `DOCKER|(golang:latest)`. Setting this value will also set the `kind` of application deployed to `functionapp,linux,container,workflowapp`.
 	//
@@ -1806,7 +1806,7 @@ type StandardSiteConfig struct {
 	LinuxFxVersion *string `pulumi:"linuxFxVersion"`
 	// The minimum supported TLS version for the Logic App. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new Logic Apps.
 	//
-	// > **Note** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
+	// > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
 	MinTlsVersion *string `pulumi:"minTlsVersion"`
 	// The number of pre-warmed instances for this Logic App Only affects apps on the Premium plan.
 	PreWarmedInstanceCount *int `pulumi:"preWarmedInstanceCount"`
@@ -1816,11 +1816,11 @@ type StandardSiteConfig struct {
 	RuntimeScaleMonitoringEnabled *bool `pulumi:"runtimeScaleMonitoringEnabled"`
 	// A list of `scmIpRestriction` objects representing SCM IP restrictions as defined below.
 	//
-	// > **NOTE** User has to explicitly set `scmIpRestriction` to empty slice (`[]`) to remove it.
+	// > **Note:** User has to explicitly set `scmIpRestriction` to empty slice (`[]`) to remove it.
 	ScmIpRestrictions []StandardSiteConfigScmIpRestriction `pulumi:"scmIpRestrictions"`
 	// Configures the minimum version of TLS required for SSL requests to the SCM site. Possible values are `1.0`, `1.1` and `1.2`.
 	//
-	// > **Note** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
+	// > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
 	ScmMinTlsVersion *string `pulumi:"scmMinTlsVersion"`
 	// The type of Source Control used by the Logic App in use by the Windows Function App. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
 	ScmType *string `pulumi:"scmType"`
@@ -1868,7 +1868,7 @@ type StandardSiteConfigArgs struct {
 	Http2Enabled pulumi.BoolPtrInput `pulumi:"http2Enabled"`
 	// A list of `ipRestriction` objects representing IP restrictions as defined below.
 	//
-	// > **NOTE** User has to explicitly set `ipRestriction` to empty slice (`[]`) to remove it.
+	// > **Note:** User has to explicitly set `ipRestriction` to empty slice (`[]`) to remove it.
 	IpRestrictions StandardSiteConfigIpRestrictionArrayInput `pulumi:"ipRestrictions"`
 	// Linux App Framework and version for the App Service, e.g. `DOCKER|(golang:latest)`. Setting this value will also set the `kind` of application deployed to `functionapp,linux,container,workflowapp`.
 	//
@@ -1876,7 +1876,7 @@ type StandardSiteConfigArgs struct {
 	LinuxFxVersion pulumi.StringPtrInput `pulumi:"linuxFxVersion"`
 	// The minimum supported TLS version for the Logic App. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new Logic Apps.
 	//
-	// > **Note** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
+	// > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
 	MinTlsVersion pulumi.StringPtrInput `pulumi:"minTlsVersion"`
 	// The number of pre-warmed instances for this Logic App Only affects apps on the Premium plan.
 	PreWarmedInstanceCount pulumi.IntPtrInput `pulumi:"preWarmedInstanceCount"`
@@ -1886,11 +1886,11 @@ type StandardSiteConfigArgs struct {
 	RuntimeScaleMonitoringEnabled pulumi.BoolPtrInput `pulumi:"runtimeScaleMonitoringEnabled"`
 	// A list of `scmIpRestriction` objects representing SCM IP restrictions as defined below.
 	//
-	// > **NOTE** User has to explicitly set `scmIpRestriction` to empty slice (`[]`) to remove it.
+	// > **Note:** User has to explicitly set `scmIpRestriction` to empty slice (`[]`) to remove it.
 	ScmIpRestrictions StandardSiteConfigScmIpRestrictionArrayInput `pulumi:"scmIpRestrictions"`
 	// Configures the minimum version of TLS required for SSL requests to the SCM site. Possible values are `1.0`, `1.1` and `1.2`.
 	//
-	// > **Note** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
+	// > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
 	ScmMinTlsVersion pulumi.StringPtrInput `pulumi:"scmMinTlsVersion"`
 	// The type of Source Control used by the Logic App in use by the Windows Function App. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
 	ScmType pulumi.StringPtrInput `pulumi:"scmType"`
@@ -2030,7 +2030,7 @@ func (o StandardSiteConfigOutput) Http2Enabled() pulumi.BoolPtrOutput {
 
 // A list of `ipRestriction` objects representing IP restrictions as defined below.
 //
-// > **NOTE** User has to explicitly set `ipRestriction` to empty slice (`[]`) to remove it.
+// > **Note:** User has to explicitly set `ipRestriction` to empty slice (`[]`) to remove it.
 func (o StandardSiteConfigOutput) IpRestrictions() StandardSiteConfigIpRestrictionArrayOutput {
 	return o.ApplyT(func(v StandardSiteConfig) []StandardSiteConfigIpRestriction { return v.IpRestrictions }).(StandardSiteConfigIpRestrictionArrayOutput)
 }
@@ -2044,7 +2044,7 @@ func (o StandardSiteConfigOutput) LinuxFxVersion() pulumi.StringPtrOutput {
 
 // The minimum supported TLS version for the Logic App. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new Logic Apps.
 //
-// > **Note** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
+// > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
 func (o StandardSiteConfigOutput) MinTlsVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StandardSiteConfig) *string { return v.MinTlsVersion }).(pulumi.StringPtrOutput)
 }
@@ -2066,14 +2066,14 @@ func (o StandardSiteConfigOutput) RuntimeScaleMonitoringEnabled() pulumi.BoolPtr
 
 // A list of `scmIpRestriction` objects representing SCM IP restrictions as defined below.
 //
-// > **NOTE** User has to explicitly set `scmIpRestriction` to empty slice (`[]`) to remove it.
+// > **Note:** User has to explicitly set `scmIpRestriction` to empty slice (`[]`) to remove it.
 func (o StandardSiteConfigOutput) ScmIpRestrictions() StandardSiteConfigScmIpRestrictionArrayOutput {
 	return o.ApplyT(func(v StandardSiteConfig) []StandardSiteConfigScmIpRestriction { return v.ScmIpRestrictions }).(StandardSiteConfigScmIpRestrictionArrayOutput)
 }
 
 // Configures the minimum version of TLS required for SSL requests to the SCM site. Possible values are `1.0`, `1.1` and `1.2`.
 //
-// > **Note** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
+// > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
 func (o StandardSiteConfigOutput) ScmMinTlsVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StandardSiteConfig) *string { return v.ScmMinTlsVersion }).(pulumi.StringPtrOutput)
 }
@@ -2221,7 +2221,7 @@ func (o StandardSiteConfigPtrOutput) Http2Enabled() pulumi.BoolPtrOutput {
 
 // A list of `ipRestriction` objects representing IP restrictions as defined below.
 //
-// > **NOTE** User has to explicitly set `ipRestriction` to empty slice (`[]`) to remove it.
+// > **Note:** User has to explicitly set `ipRestriction` to empty slice (`[]`) to remove it.
 func (o StandardSiteConfigPtrOutput) IpRestrictions() StandardSiteConfigIpRestrictionArrayOutput {
 	return o.ApplyT(func(v *StandardSiteConfig) []StandardSiteConfigIpRestriction {
 		if v == nil {
@@ -2245,7 +2245,7 @@ func (o StandardSiteConfigPtrOutput) LinuxFxVersion() pulumi.StringPtrOutput {
 
 // The minimum supported TLS version for the Logic App. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new Logic Apps.
 //
-// > **Note** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
+// > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
 func (o StandardSiteConfigPtrOutput) MinTlsVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StandardSiteConfig) *string {
 		if v == nil {
@@ -2287,7 +2287,7 @@ func (o StandardSiteConfigPtrOutput) RuntimeScaleMonitoringEnabled() pulumi.Bool
 
 // A list of `scmIpRestriction` objects representing SCM IP restrictions as defined below.
 //
-// > **NOTE** User has to explicitly set `scmIpRestriction` to empty slice (`[]`) to remove it.
+// > **Note:** User has to explicitly set `scmIpRestriction` to empty slice (`[]`) to remove it.
 func (o StandardSiteConfigPtrOutput) ScmIpRestrictions() StandardSiteConfigScmIpRestrictionArrayOutput {
 	return o.ApplyT(func(v *StandardSiteConfig) []StandardSiteConfigScmIpRestriction {
 		if v == nil {
@@ -2299,7 +2299,7 @@ func (o StandardSiteConfigPtrOutput) ScmIpRestrictions() StandardSiteConfigScmIp
 
 // Configures the minimum version of TLS required for SSL requests to the SCM site. Possible values are `1.0`, `1.1` and `1.2`.
 //
-// > **Note** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
+// > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
 func (o StandardSiteConfigPtrOutput) ScmMinTlsVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StandardSiteConfig) *string {
 		if v == nil {
@@ -4482,7 +4482,7 @@ func (o WorkflowAccessControlWorkflowManagementPtrOutput) AllowedCallerIpAddress
 type WorkflowIdentity struct {
 	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Logic App Workflow.
 	//
-	// > **NOTE:** This is required when `type` is set to `UserAssigned`
+	// > **Note:** This is required when `type` is set to `UserAssigned`
 	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID for the Service Principal associated with the Managed Service Identity of this Logic App Workflow.
 	PrincipalId *string `pulumi:"principalId"`
@@ -4506,7 +4506,7 @@ type WorkflowIdentityInput interface {
 type WorkflowIdentityArgs struct {
 	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Logic App Workflow.
 	//
-	// > **NOTE:** This is required when `type` is set to `UserAssigned`
+	// > **Note:** This is required when `type` is set to `UserAssigned`
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID for the Service Principal associated with the Managed Service Identity of this Logic App Workflow.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
@@ -4595,7 +4595,7 @@ func (o WorkflowIdentityOutput) ToWorkflowIdentityPtrOutputWithContext(ctx conte
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this Logic App Workflow.
 //
-// > **NOTE:** This is required when `type` is set to `UserAssigned`
+// > **Note:** This is required when `type` is set to `UserAssigned`
 func (o WorkflowIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v WorkflowIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
@@ -4641,7 +4641,7 @@ func (o WorkflowIdentityPtrOutput) Elem() WorkflowIdentityOutput {
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this Logic App Workflow.
 //
-// > **NOTE:** This is required when `type` is set to `UserAssigned`
+// > **Note:** This is required when `type` is set to `UserAssigned`
 func (o WorkflowIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *WorkflowIdentity) []string {
 		if v == nil {

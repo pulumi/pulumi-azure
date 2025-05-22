@@ -134,6 +134,13 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.ScVmm`: 2023-10-07
+ * 
  * ## Import
  * 
  * System Center Virtual Machine Manager Virtual Machine Instances can be imported into Pulumi using the `resource id`, e.g.
@@ -162,7 +169,7 @@ public class VirtualMachineManagerVirtualMachineInstance extends com.pulumi.reso
     /**
      * A `hardware` block as defined below. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** This resource will be restarted while updating `hardware`.
+     * &gt; **Note:** This resource will be restarted while updating `hardware`.
      * 
      */
     @Export(name="hardware", refs={VirtualMachineManagerVirtualMachineInstanceHardware.class}, tree="[0]")
@@ -171,7 +178,7 @@ public class VirtualMachineManagerVirtualMachineInstance extends com.pulumi.reso
     /**
      * @return A `hardware` block as defined below. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** This resource will be restarted while updating `hardware`.
+     * &gt; **Note:** This resource will be restarted while updating `hardware`.
      * 
      */
     public Output<Optional<VirtualMachineManagerVirtualMachineInstanceHardware>> hardware() {
@@ -194,7 +201,7 @@ public class VirtualMachineManagerVirtualMachineInstance extends com.pulumi.reso
     /**
      * A `network_interface` block as defined below.
      * 
-     * &gt; **NOTE:** This resource will be restarted while updating `network_interface`.
+     * &gt; **Note:** This resource will be restarted while updating `network_interface`.
      * 
      */
     @Export(name="networkInterfaces", refs={List.class,VirtualMachineManagerVirtualMachineInstanceNetworkInterface.class}, tree="[0,1]")
@@ -203,7 +210,7 @@ public class VirtualMachineManagerVirtualMachineInstance extends com.pulumi.reso
     /**
      * @return A `network_interface` block as defined below.
      * 
-     * &gt; **NOTE:** This resource will be restarted while updating `network_interface`.
+     * &gt; **Note:** This resource will be restarted while updating `network_interface`.
      * 
      */
     public Output<Optional<List<VirtualMachineManagerVirtualMachineInstanceNetworkInterface>>> networkInterfaces() {
@@ -240,7 +247,7 @@ public class VirtualMachineManagerVirtualMachineInstance extends com.pulumi.reso
     /**
      * A `storage_disk` block as defined below.
      * 
-     * &gt; **NOTE:** This resource will be restarted while updating `storage_disk`.
+     * &gt; **Note:** This resource will be restarted while updating `storage_disk`.
      * 
      */
     @Export(name="storageDisks", refs={List.class,VirtualMachineManagerVirtualMachineInstanceStorageDisk.class}, tree="[0,1]")
@@ -249,7 +256,7 @@ public class VirtualMachineManagerVirtualMachineInstance extends com.pulumi.reso
     /**
      * @return A `storage_disk` block as defined below.
      * 
-     * &gt; **NOTE:** This resource will be restarted while updating `storage_disk`.
+     * &gt; **Note:** This resource will be restarted while updating `storage_disk`.
      * 
      */
     public Output<Optional<List<VirtualMachineManagerVirtualMachineInstanceStorageDisk>>> storageDisks() {

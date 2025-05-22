@@ -178,6 +178,13 @@ class AttachedNetwork(pulumi.CustomResource):
             network_connection_id=example_network_connection.id)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DevCenter`: 2025-02-01
+
         ## Import
 
         An existing Dev Center Attached Network can be imported into Pulumi using the `resource id`, e.g.
@@ -238,6 +245,13 @@ class AttachedNetwork(pulumi.CustomResource):
             dev_center_id=example_dev_center.id,
             network_connection_id=example_network_connection.id)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DevCenter`: 2025-02-01
 
         ## Import
 

@@ -338,6 +338,13 @@ class DscConfiguration(pulumi.CustomResource):
             content_embedded="configuration test {}")
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Automation`: 2023-11-01
+
         ## Import
 
         Automation DSC Configuration's can be imported using the `resource id`, e.g.
@@ -387,6 +394,13 @@ class DscConfiguration(pulumi.CustomResource):
             location=example.location,
             content_embedded="configuration test {}")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Automation`: 2023-11-01
 
         ## Import
 

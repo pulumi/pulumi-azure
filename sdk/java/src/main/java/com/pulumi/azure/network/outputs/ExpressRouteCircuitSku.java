@@ -13,7 +13,7 @@ public final class ExpressRouteCircuitSku {
     /**
      * @return The billing mode for bandwidth. Possible values are `MeteredData` or `UnlimitedData`.
      * 
-     * &gt; **NOTE:** You can migrate from `MeteredData` to `UnlimitedData`, but not the other way around.
+     * &gt; **Note:** You can migrate from `MeteredData` to `UnlimitedData`, but not the other way around.
      * 
      */
     private String family;
@@ -27,7 +27,7 @@ public final class ExpressRouteCircuitSku {
     /**
      * @return The billing mode for bandwidth. Possible values are `MeteredData` or `UnlimitedData`.
      * 
-     * &gt; **NOTE:** You can migrate from `MeteredData` to `UnlimitedData`, but not the other way around.
+     * &gt; **Note:** You can migrate from `MeteredData` to `UnlimitedData`, but not the other way around.
      * 
      */
     public String family() {

@@ -17,7 +17,7 @@ public final class KafkaClusterRolesZookeeperNode {
     /**
      * @return The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters &#39; &#34; ` \).
+     * &gt; **Note:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters &#39; &#34; ` \).
      * 
      */
     private @Nullable String password;
@@ -29,7 +29,7 @@ public final class KafkaClusterRolesZookeeperNode {
     /**
      * @return A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
+     * &gt; **Note:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
      * 
      */
     private @Nullable List<String> sshKeys;
@@ -58,7 +58,7 @@ public final class KafkaClusterRolesZookeeperNode {
     /**
      * @return The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters &#39; &#34; ` \).
+     * &gt; **Note:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters &#39; &#34; ` \).
      * 
      */
     public Optional<String> password() {
@@ -74,7 +74,7 @@ public final class KafkaClusterRolesZookeeperNode {
     /**
      * @return A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
+     * &gt; **Note:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
      * 
      */
     public List<String> sshKeys() {

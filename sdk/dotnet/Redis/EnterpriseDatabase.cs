@@ -63,6 +63,13 @@ namespace Pulumi.Azure.Redis
     /// });
     /// ```
     /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.Cache`: 2024-10-01
+    /// 
     /// ## Import
     /// 
     /// Redis Enterprise Databases can be imported using the `resource id`, e.g.
@@ -107,7 +114,7 @@ namespace Pulumi.Azure.Redis
         /// <summary>
         /// A list of database resources to link with this database with a maximum of 5.
         /// 
-        /// &gt; **NOTE:** Only the newly created databases can be added to an existing geo-replication group. Existing regular databases or recreated databases cannot be added to the existing geo-replication group. Any linked database be removed from the list will be forcefully unlinked.The only recommended operation is to delete after force-unlink and the recommended scenario of force-unlink is region outrage. The database cannot be linked again after force-unlink.
+        /// &gt; **Note:** Only the newly created databases can be added to an existing geo-replication group. Existing regular databases or recreated databases cannot be added to the existing geo-replication group. Any linked database be removed from the list will be forcefully unlinked.The only recommended operation is to delete after force-unlink and the recommended scenario of force-unlink is region outrage. The database cannot be linked again after force-unlink.
         /// </summary>
         [Output("linkedDatabaseIds")]
         public Output<ImmutableArray<string>> LinkedDatabaseIds { get; private set; } = null!;
@@ -115,7 +122,7 @@ namespace Pulumi.Azure.Redis
         /// <summary>
         /// A `module` block as defined below. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** Only `RediSearch` and `RedisJSON` modules are allowed with geo-replication
+        /// &gt; **Note:** Only `RediSearch` and `RedisJSON` modules are allowed with geo-replication
         /// </summary>
         [Output("modules")]
         public Output<ImmutableArray<Outputs.EnterpriseDatabaseModule>> Modules { get; private set; } = null!;
@@ -231,7 +238,7 @@ namespace Pulumi.Azure.Redis
         /// <summary>
         /// A list of database resources to link with this database with a maximum of 5.
         /// 
-        /// &gt; **NOTE:** Only the newly created databases can be added to an existing geo-replication group. Existing regular databases or recreated databases cannot be added to the existing geo-replication group. Any linked database be removed from the list will be forcefully unlinked.The only recommended operation is to delete after force-unlink and the recommended scenario of force-unlink is region outrage. The database cannot be linked again after force-unlink.
+        /// &gt; **Note:** Only the newly created databases can be added to an existing geo-replication group. Existing regular databases or recreated databases cannot be added to the existing geo-replication group. Any linked database be removed from the list will be forcefully unlinked.The only recommended operation is to delete after force-unlink and the recommended scenario of force-unlink is region outrage. The database cannot be linked again after force-unlink.
         /// </summary>
         public InputList<string> LinkedDatabaseIds
         {
@@ -245,7 +252,7 @@ namespace Pulumi.Azure.Redis
         /// <summary>
         /// A `module` block as defined below. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** Only `RediSearch` and `RedisJSON` modules are allowed with geo-replication
+        /// &gt; **Note:** Only `RediSearch` and `RedisJSON` modules are allowed with geo-replication
         /// </summary>
         public InputList<Inputs.EnterpriseDatabaseModuleArgs> Modules
         {
@@ -309,7 +316,7 @@ namespace Pulumi.Azure.Redis
         /// <summary>
         /// A list of database resources to link with this database with a maximum of 5.
         /// 
-        /// &gt; **NOTE:** Only the newly created databases can be added to an existing geo-replication group. Existing regular databases or recreated databases cannot be added to the existing geo-replication group. Any linked database be removed from the list will be forcefully unlinked.The only recommended operation is to delete after force-unlink and the recommended scenario of force-unlink is region outrage. The database cannot be linked again after force-unlink.
+        /// &gt; **Note:** Only the newly created databases can be added to an existing geo-replication group. Existing regular databases or recreated databases cannot be added to the existing geo-replication group. Any linked database be removed from the list will be forcefully unlinked.The only recommended operation is to delete after force-unlink and the recommended scenario of force-unlink is region outrage. The database cannot be linked again after force-unlink.
         /// </summary>
         public InputList<string> LinkedDatabaseIds
         {
@@ -323,7 +330,7 @@ namespace Pulumi.Azure.Redis
         /// <summary>
         /// A `module` block as defined below. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** Only `RediSearch` and `RedisJSON` modules are allowed with geo-replication
+        /// &gt; **Note:** Only `RediSearch` and `RedisJSON` modules are allowed with geo-replication
         /// </summary>
         public InputList<Inputs.EnterpriseDatabaseModuleGetArgs> Modules
         {

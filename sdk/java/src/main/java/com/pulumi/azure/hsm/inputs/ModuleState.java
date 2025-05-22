@@ -37,7 +37,7 @@ public final class ModuleState extends com.pulumi.resources.ResourceArgs {
     /**
      * A `management_network_profile` block as defined below.
      * 
-     * -&gt;**NOTE:**  The `management_network_profile` should not be specified when `sku_name` is `SafeNet Luna Network HSM A790`.
+     * &gt; **Note:** The `management_network_profile` should not be specified when `sku_name` is `SafeNet Luna Network HSM A790`.
      * 
      */
     @Import(name="managementNetworkProfile")
@@ -46,7 +46,7 @@ public final class ModuleState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return A `management_network_profile` block as defined below.
      * 
-     * -&gt;**NOTE:**  The `management_network_profile` should not be specified when `sku_name` is `SafeNet Luna Network HSM A790`.
+     * &gt; **Note:** The `management_network_profile` should not be specified when `sku_name` is `SafeNet Luna Network HSM A790`.
      * 
      */
     public Optional<Output<ModuleManagementNetworkProfileArgs>> managementNetworkProfile() {
@@ -214,7 +214,7 @@ public final class ModuleState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param managementNetworkProfile A `management_network_profile` block as defined below.
          * 
-         * -&gt;**NOTE:**  The `management_network_profile` should not be specified when `sku_name` is `SafeNet Luna Network HSM A790`.
+         * &gt; **Note:** The `management_network_profile` should not be specified when `sku_name` is `SafeNet Luna Network HSM A790`.
          * 
          * @return builder
          * 
@@ -227,7 +227,7 @@ public final class ModuleState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param managementNetworkProfile A `management_network_profile` block as defined below.
          * 
-         * -&gt;**NOTE:**  The `management_network_profile` should not be specified when `sku_name` is `SafeNet Luna Network HSM A790`.
+         * &gt; **Note:** The `management_network_profile` should not be specified when `sku_name` is `SafeNet Luna Network HSM A790`.
          * 
          * @return builder
          * 

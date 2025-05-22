@@ -131,7 +131,7 @@ public class AccountQueueProperties extends com.pulumi.resources.CustomResource 
     /**
      * A `hour_metrics` block as defined below.
      * 
-     * &gt; **NOTE:** At least one of `cors_rule`, `logging`, `minute_metrics`, or `hour_metrics` must be specified.
+     * &gt; **Note:** At least one of `cors_rule`, `logging`, `minute_metrics`, or `hour_metrics` must be specified.
      * 
      */
     @Export(name="hourMetrics", refs={AccountQueuePropertiesHourMetrics.class}, tree="[0]")
@@ -140,7 +140,7 @@ public class AccountQueueProperties extends com.pulumi.resources.CustomResource 
     /**
      * @return A `hour_metrics` block as defined below.
      * 
-     * &gt; **NOTE:** At least one of `cors_rule`, `logging`, `minute_metrics`, or `hour_metrics` must be specified.
+     * &gt; **Note:** At least one of `cors_rule`, `logging`, `minute_metrics`, or `hour_metrics` must be specified.
      * 
      */
     public Output<AccountQueuePropertiesHourMetrics> hourMetrics() {

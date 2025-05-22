@@ -44,6 +44,13 @@ namespace Pulumi.Azure.Storage
     /// });
     /// ```
     /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.StorageSync`: 2020-03-01
+    /// 
     /// ## Import
     /// 
     /// Storage Sync Groups can be imported using the `resource id`, e.g.

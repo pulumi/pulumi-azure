@@ -29,10 +29,10 @@ class SharedPrivateLinkResourceArgs:
         The set of arguments for constructing a SharedPrivateLinkResource resource.
         :param pulumi.Input[builtins.str] subresource_name: Specify the sub resource name which the Web Pubsub Private Endpoint is able to connect to. Changing this forces a new resource to be created.
                
-               > **NOTE:** The available sub resource can be retrieved by using `webpubsub_get_private_link_resource` data source.
+               > **Note:** The available sub resource can be retrieved by using `webpubsub_get_private_link_resource` data source.
         :param pulumi.Input[builtins.str] target_resource_id: Specify the ID of the Shared Private Link Enabled Remote Resource which this Web Pubsub Private Endpoint should be connected to. Changing this forces a new resource to be created.
                
-               > **NOTE:** The sub resource name should match with the type of the target resource id that's being specified.
+               > **Note:** The sub resource name should match with the type of the target resource id that's being specified.
         :param pulumi.Input[builtins.str] web_pubsub_id: Specify the id of the Web Pubsub. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] name: Specify the name of the Web Pubsub Shared Private Link Resource. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] request_message: Specify the request message for requesting approval of the Shared Private Link Enabled Remote Resource.
@@ -51,7 +51,7 @@ class SharedPrivateLinkResourceArgs:
         """
         Specify the sub resource name which the Web Pubsub Private Endpoint is able to connect to. Changing this forces a new resource to be created.
 
-        > **NOTE:** The available sub resource can be retrieved by using `webpubsub_get_private_link_resource` data source.
+        > **Note:** The available sub resource can be retrieved by using `webpubsub_get_private_link_resource` data source.
         """
         return pulumi.get(self, "subresource_name")
 
@@ -65,7 +65,7 @@ class SharedPrivateLinkResourceArgs:
         """
         Specify the ID of the Shared Private Link Enabled Remote Resource which this Web Pubsub Private Endpoint should be connected to. Changing this forces a new resource to be created.
 
-        > **NOTE:** The sub resource name should match with the type of the target resource id that's being specified.
+        > **Note:** The sub resource name should match with the type of the target resource id that's being specified.
         """
         return pulumi.get(self, "target_resource_id")
 
@@ -126,10 +126,10 @@ class _SharedPrivateLinkResourceState:
         :param pulumi.Input[builtins.str] status: The status of a private endpoint connection. Possible values are Pending, Approved, Rejected or Disconnected.
         :param pulumi.Input[builtins.str] subresource_name: Specify the sub resource name which the Web Pubsub Private Endpoint is able to connect to. Changing this forces a new resource to be created.
                
-               > **NOTE:** The available sub resource can be retrieved by using `webpubsub_get_private_link_resource` data source.
+               > **Note:** The available sub resource can be retrieved by using `webpubsub_get_private_link_resource` data source.
         :param pulumi.Input[builtins.str] target_resource_id: Specify the ID of the Shared Private Link Enabled Remote Resource which this Web Pubsub Private Endpoint should be connected to. Changing this forces a new resource to be created.
                
-               > **NOTE:** The sub resource name should match with the type of the target resource id that's being specified.
+               > **Note:** The sub resource name should match with the type of the target resource id that's being specified.
         :param pulumi.Input[builtins.str] web_pubsub_id: Specify the id of the Web Pubsub. Changing this forces a new resource to be created.
         """
         if name is not None:
@@ -187,7 +187,7 @@ class _SharedPrivateLinkResourceState:
         """
         Specify the sub resource name which the Web Pubsub Private Endpoint is able to connect to. Changing this forces a new resource to be created.
 
-        > **NOTE:** The available sub resource can be retrieved by using `webpubsub_get_private_link_resource` data source.
+        > **Note:** The available sub resource can be retrieved by using `webpubsub_get_private_link_resource` data source.
         """
         return pulumi.get(self, "subresource_name")
 
@@ -201,7 +201,7 @@ class _SharedPrivateLinkResourceState:
         """
         Specify the ID of the Shared Private Link Enabled Remote Resource which this Web Pubsub Private Endpoint should be connected to. Changing this forces a new resource to be created.
 
-        > **NOTE:** The sub resource name should match with the type of the target resource id that's being specified.
+        > **Note:** The sub resource name should match with the type of the target resource id that's being specified.
         """
         return pulumi.get(self, "target_resource_id")
 
@@ -274,6 +274,13 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
             target_resource_id=example_key_vault.id)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.SignalRService`: 2024-03-01
+
         ## Import
 
         Web Pubsub Shared Private Link Resource can be imported using the `resource id`, e.g.
@@ -288,10 +295,10 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] request_message: Specify the request message for requesting approval of the Shared Private Link Enabled Remote Resource.
         :param pulumi.Input[builtins.str] subresource_name: Specify the sub resource name which the Web Pubsub Private Endpoint is able to connect to. Changing this forces a new resource to be created.
                
-               > **NOTE:** The available sub resource can be retrieved by using `webpubsub_get_private_link_resource` data source.
+               > **Note:** The available sub resource can be retrieved by using `webpubsub_get_private_link_resource` data source.
         :param pulumi.Input[builtins.str] target_resource_id: Specify the ID of the Shared Private Link Enabled Remote Resource which this Web Pubsub Private Endpoint should be connected to. Changing this forces a new resource to be created.
                
-               > **NOTE:** The sub resource name should match with the type of the target resource id that's being specified.
+               > **Note:** The sub resource name should match with the type of the target resource id that's being specified.
         :param pulumi.Input[builtins.str] web_pubsub_id: Specify the id of the Web Pubsub. Changing this forces a new resource to be created.
         """
         ...
@@ -339,6 +346,13 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
             subresource_name="vault",
             target_resource_id=example_key_vault.id)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.SignalRService`: 2024-03-01
 
         ## Import
 
@@ -417,10 +431,10 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] status: The status of a private endpoint connection. Possible values are Pending, Approved, Rejected or Disconnected.
         :param pulumi.Input[builtins.str] subresource_name: Specify the sub resource name which the Web Pubsub Private Endpoint is able to connect to. Changing this forces a new resource to be created.
                
-               > **NOTE:** The available sub resource can be retrieved by using `webpubsub_get_private_link_resource` data source.
+               > **Note:** The available sub resource can be retrieved by using `webpubsub_get_private_link_resource` data source.
         :param pulumi.Input[builtins.str] target_resource_id: Specify the ID of the Shared Private Link Enabled Remote Resource which this Web Pubsub Private Endpoint should be connected to. Changing this forces a new resource to be created.
                
-               > **NOTE:** The sub resource name should match with the type of the target resource id that's being specified.
+               > **Note:** The sub resource name should match with the type of the target resource id that's being specified.
         :param pulumi.Input[builtins.str] web_pubsub_id: Specify the id of the Web Pubsub. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -465,7 +479,7 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
         """
         Specify the sub resource name which the Web Pubsub Private Endpoint is able to connect to. Changing this forces a new resource to be created.
 
-        > **NOTE:** The available sub resource can be retrieved by using `webpubsub_get_private_link_resource` data source.
+        > **Note:** The available sub resource can be retrieved by using `webpubsub_get_private_link_resource` data source.
         """
         return pulumi.get(self, "subresource_name")
 
@@ -475,7 +489,7 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
         """
         Specify the ID of the Shared Private Link Enabled Remote Resource which this Web Pubsub Private Endpoint should be connected to. Changing this forces a new resource to be created.
 
-        > **NOTE:** The sub resource name should match with the type of the target resource id that's being specified.
+        > **Note:** The sub resource name should match with the type of the target resource id that's being specified.
         """
         return pulumi.get(self, "target_resource_id")
 

@@ -16,9 +16,9 @@ public final class ServerIdentity {
     /**
      * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this SQL Server.
      * 
-     * &gt; **NOTE:** This is required when `type` is set to `UserAssigned`
+     * &gt; **Note:** This is required when `type` is set to `UserAssigned`
      * 
-     * &gt; **NOTE:** When `type` is set to `SystemAssigned`, the assigned `principal_id` and `tenant_id` can be retrieved after the Microsoft SQL Server has been created. More details are available below.
+     * &gt; **Note:** When `type` is set to `SystemAssigned`, the assigned `principal_id` and `tenant_id` can be retrieved after the Microsoft SQL Server has been created. More details are available below.
      * 
      */
     private @Nullable List<String> identityIds;
@@ -42,9 +42,9 @@ public final class ServerIdentity {
     /**
      * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this SQL Server.
      * 
-     * &gt; **NOTE:** This is required when `type` is set to `UserAssigned`
+     * &gt; **Note:** This is required when `type` is set to `UserAssigned`
      * 
-     * &gt; **NOTE:** When `type` is set to `SystemAssigned`, the assigned `principal_id` and `tenant_id` can be retrieved after the Microsoft SQL Server has been created. More details are available below.
+     * &gt; **Note:** When `type` is set to `SystemAssigned`, the assigned `principal_id` and `tenant_id` can be retrieved after the Microsoft SQL Server has been created. More details are available below.
      * 
      */
     public List<String> identityIds() {

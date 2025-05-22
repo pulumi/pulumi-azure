@@ -26,7 +26,7 @@ type FileSystem struct {
 
 	// An `encryptionKey` block as defined below.
 	//
-	// > **NOTE:** Removing `encryptionKey` forces a new resource to be created.
+	// > **Note:** Removing `encryptionKey` forces a new resource to be created.
 	EncryptionKey FileSystemEncryptionKeyPtrOutput `pulumi:"encryptionKey"`
 	// A `hsmSetting` block as defined below. Changing this forces a new resource to be created.
 	HsmSetting FileSystemHsmSettingPtrOutput `pulumi:"hsmSetting"`
@@ -104,7 +104,7 @@ func GetFileSystem(ctx *pulumi.Context,
 type fileSystemState struct {
 	// An `encryptionKey` block as defined below.
 	//
-	// > **NOTE:** Removing `encryptionKey` forces a new resource to be created.
+	// > **Note:** Removing `encryptionKey` forces a new resource to be created.
 	EncryptionKey *FileSystemEncryptionKey `pulumi:"encryptionKey"`
 	// A `hsmSetting` block as defined below. Changing this forces a new resource to be created.
 	HsmSetting *FileSystemHsmSetting `pulumi:"hsmSetting"`
@@ -135,7 +135,7 @@ type fileSystemState struct {
 type FileSystemState struct {
 	// An `encryptionKey` block as defined below.
 	//
-	// > **NOTE:** Removing `encryptionKey` forces a new resource to be created.
+	// > **Note:** Removing `encryptionKey` forces a new resource to be created.
 	EncryptionKey FileSystemEncryptionKeyPtrInput
 	// A `hsmSetting` block as defined below. Changing this forces a new resource to be created.
 	HsmSetting FileSystemHsmSettingPtrInput
@@ -170,7 +170,7 @@ func (FileSystemState) ElementType() reflect.Type {
 type fileSystemArgs struct {
 	// An `encryptionKey` block as defined below.
 	//
-	// > **NOTE:** Removing `encryptionKey` forces a new resource to be created.
+	// > **Note:** Removing `encryptionKey` forces a new resource to be created.
 	EncryptionKey *FileSystemEncryptionKey `pulumi:"encryptionKey"`
 	// A `hsmSetting` block as defined below. Changing this forces a new resource to be created.
 	HsmSetting *FileSystemHsmSetting `pulumi:"hsmSetting"`
@@ -200,7 +200,7 @@ type fileSystemArgs struct {
 type FileSystemArgs struct {
 	// An `encryptionKey` block as defined below.
 	//
-	// > **NOTE:** Removing `encryptionKey` forces a new resource to be created.
+	// > **Note:** Removing `encryptionKey` forces a new resource to be created.
 	EncryptionKey FileSystemEncryptionKeyPtrInput
 	// A `hsmSetting` block as defined below. Changing this forces a new resource to be created.
 	HsmSetting FileSystemHsmSettingPtrInput
@@ -315,7 +315,7 @@ func (o FileSystemOutput) ToFileSystemOutputWithContext(ctx context.Context) Fil
 
 // An `encryptionKey` block as defined below.
 //
-// > **NOTE:** Removing `encryptionKey` forces a new resource to be created.
+// > **Note:** Removing `encryptionKey` forces a new resource to be created.
 func (o FileSystemOutput) EncryptionKey() FileSystemEncryptionKeyPtrOutput {
 	return o.ApplyT(func(v *FileSystem) FileSystemEncryptionKeyPtrOutput { return v.EncryptionKey }).(FileSystemEncryptionKeyPtrOutput)
 }

@@ -31,7 +31,7 @@ class SharedPrivateLinkServiceArgs:
         :param pulumi.Input[builtins.str] subresource_name: Specify the sub resource name which the Azure Search Private Endpoint is able to connect to. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] target_resource_id: Specify the ID of the Shared Private Link Enabled Remote Resource which this Azure Search Private Endpoint should be connected to. Changing this forces a new resource to be created.
                
-               > **NOTE:** The sub resource name should match with the type of the target resource id that's being specified.
+               > **Note:** The sub resource name should match with the type of the target resource id that's being specified.
         :param pulumi.Input[builtins.str] name: Specify the name of the Azure Search Shared Private Link Resource. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] request_message: Specify the request message for requesting approval of the Shared Private Link Enabled Remote Resource.
         """
@@ -73,7 +73,7 @@ class SharedPrivateLinkServiceArgs:
         """
         Specify the ID of the Shared Private Link Enabled Remote Resource which this Azure Search Private Endpoint should be connected to. Changing this forces a new resource to be created.
 
-        > **NOTE:** The sub resource name should match with the type of the target resource id that's being specified.
+        > **Note:** The sub resource name should match with the type of the target resource id that's being specified.
         """
         return pulumi.get(self, "target_resource_id")
 
@@ -124,7 +124,7 @@ class _SharedPrivateLinkServiceState:
         :param pulumi.Input[builtins.str] subresource_name: Specify the sub resource name which the Azure Search Private Endpoint is able to connect to. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] target_resource_id: Specify the ID of the Shared Private Link Enabled Remote Resource which this Azure Search Private Endpoint should be connected to. Changing this forces a new resource to be created.
                
-               > **NOTE:** The sub resource name should match with the type of the target resource id that's being specified.
+               > **Note:** The sub resource name should match with the type of the target resource id that's being specified.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -205,7 +205,7 @@ class _SharedPrivateLinkServiceState:
         """
         Specify the ID of the Shared Private Link Enabled Remote Resource which this Azure Search Private Endpoint should be connected to. Changing this forces a new resource to be created.
 
-        > **NOTE:** The sub resource name should match with the type of the target resource id that's being specified.
+        > **Note:** The sub resource name should match with the type of the target resource id that's being specified.
         """
         return pulumi.get(self, "target_resource_id")
 
@@ -244,7 +244,7 @@ class SharedPrivateLinkService(pulumi.CustomResource):
             location=test.location,
             sku="standard")
         test_account = azure.storage.Account("test",
-            name="xiaxintestsaforsearchspl",
+            name="example",
             resource_group_name=test.name,
             location=test.location,
             account_tier="Standard",
@@ -256,6 +256,13 @@ class SharedPrivateLinkService(pulumi.CustomResource):
             target_resource_id=test_account.id,
             request_message="please approve")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Search`: 2024-06-01-preview
 
         ## Import
 
@@ -273,7 +280,7 @@ class SharedPrivateLinkService(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] subresource_name: Specify the sub resource name which the Azure Search Private Endpoint is able to connect to. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] target_resource_id: Specify the ID of the Shared Private Link Enabled Remote Resource which this Azure Search Private Endpoint should be connected to. Changing this forces a new resource to be created.
                
-               > **NOTE:** The sub resource name should match with the type of the target resource id that's being specified.
+               > **Note:** The sub resource name should match with the type of the target resource id that's being specified.
         """
         ...
     @overload
@@ -299,7 +306,7 @@ class SharedPrivateLinkService(pulumi.CustomResource):
             location=test.location,
             sku="standard")
         test_account = azure.storage.Account("test",
-            name="xiaxintestsaforsearchspl",
+            name="example",
             resource_group_name=test.name,
             location=test.location,
             account_tier="Standard",
@@ -311,6 +318,13 @@ class SharedPrivateLinkService(pulumi.CustomResource):
             target_resource_id=test_account.id,
             request_message="please approve")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Search`: 2024-06-01-preview
 
         ## Import
 
@@ -391,7 +405,7 @@ class SharedPrivateLinkService(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] subresource_name: Specify the sub resource name which the Azure Search Private Endpoint is able to connect to. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] target_resource_id: Specify the ID of the Shared Private Link Enabled Remote Resource which this Azure Search Private Endpoint should be connected to. Changing this forces a new resource to be created.
                
-               > **NOTE:** The sub resource name should match with the type of the target resource id that's being specified.
+               > **Note:** The sub resource name should match with the type of the target resource id that's being specified.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -451,7 +465,7 @@ class SharedPrivateLinkService(pulumi.CustomResource):
         """
         Specify the ID of the Shared Private Link Enabled Remote Resource which this Azure Search Private Endpoint should be connected to. Changing this forces a new resource to be created.
 
-        > **NOTE:** The sub resource name should match with the type of the target resource id that's being specified.
+        > **Note:** The sub resource name should match with the type of the target resource id that's being specified.
         """
         return pulumi.get(self, "target_resource_id")
 

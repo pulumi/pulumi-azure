@@ -11,38 +11,38 @@ import java.util.Objects;
 @CustomType
 public final class TagRulesLogRuleFilteringTag {
     /**
-     * @return Action of the filtering tag. Possible values are `Include` and `Exclude`. Changing this forces a new resource to be created.
+     * @return Action of the filtering tag. Possible values are `Include` and `Exclude`.
      * 
      */
     private String action;
     /**
-     * @return Name of the filtering tag. Changing this forces a new resource to be created.
+     * @return Name of the filtering tag.
      * 
      */
     private String name;
     /**
-     * @return Value of the filtering tag. Changing this forces a new resource to be created.
+     * @return Value of the filtering tag.
      * 
      */
     private String value;
 
     private TagRulesLogRuleFilteringTag() {}
     /**
-     * @return Action of the filtering tag. Possible values are `Include` and `Exclude`. Changing this forces a new resource to be created.
+     * @return Action of the filtering tag. Possible values are `Include` and `Exclude`.
      * 
      */
     public String action() {
         return this.action;
     }
     /**
-     * @return Name of the filtering tag. Changing this forces a new resource to be created.
+     * @return Name of the filtering tag.
      * 
      */
     public String name() {
         return this.name;
     }
     /**
-     * @return Value of the filtering tag. Changing this forces a new resource to be created.
+     * @return Value of the filtering tag.
      * 
      */
     public String value() {

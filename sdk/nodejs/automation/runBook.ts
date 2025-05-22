@@ -83,11 +83,11 @@ export class RunBook extends pulumi.CustomResource {
     /**
      * The desired content of the runbook.
      *
-     * > **NOTE** The Azure API requires a `publishContentLink` to be supplied even when specifying your own `content`.
+     * > **Note:** The Azure API requires a `publishContentLink` to be supplied even when specifying your own `content`.
      */
     public readonly content!: pulumi.Output<string>;
     /**
-     * A description for this credential.
+     * A description for the runbook.
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
@@ -97,7 +97,7 @@ export class RunBook extends pulumi.CustomResource {
     /**
      * One or more `jobSchedule` block as defined below.
      *
-     * > **NOTE** AzureRM provides a stand-alone azure.automation.JobSchedule and this inlined `jobSchedule` property to manage the job schedules. At this time you should choose one of them to manage the job schedule resources.
+     * > **Note:** AzureRM provides a stand-alone azure.automation.JobSchedule and this inlined `jobSchedule` property to manage the job schedules. At this time you should choose one of them to manage the job schedule resources.
      */
     public readonly jobSchedules!: pulumi.Output<outputs.automation.RunBookJobSchedule[]>;
     /**
@@ -212,11 +212,11 @@ export interface RunBookState {
     /**
      * The desired content of the runbook.
      *
-     * > **NOTE** The Azure API requires a `publishContentLink` to be supplied even when specifying your own `content`.
+     * > **Note:** The Azure API requires a `publishContentLink` to be supplied even when specifying your own `content`.
      */
     content?: pulumi.Input<string>;
     /**
-     * A description for this credential.
+     * A description for the runbook.
      */
     description?: pulumi.Input<string>;
     /**
@@ -226,7 +226,7 @@ export interface RunBookState {
     /**
      * One or more `jobSchedule` block as defined below.
      *
-     * > **NOTE** AzureRM provides a stand-alone azure.automation.JobSchedule and this inlined `jobSchedule` property to manage the job schedules. At this time you should choose one of them to manage the job schedule resources.
+     * > **Note:** AzureRM provides a stand-alone azure.automation.JobSchedule and this inlined `jobSchedule` property to manage the job schedules. At this time you should choose one of them to manage the job schedule resources.
      */
     jobSchedules?: pulumi.Input<pulumi.Input<inputs.automation.RunBookJobSchedule>[]>;
     /**
@@ -278,11 +278,11 @@ export interface RunBookArgs {
     /**
      * The desired content of the runbook.
      *
-     * > **NOTE** The Azure API requires a `publishContentLink` to be supplied even when specifying your own `content`.
+     * > **Note:** The Azure API requires a `publishContentLink` to be supplied even when specifying your own `content`.
      */
     content?: pulumi.Input<string>;
     /**
-     * A description for this credential.
+     * A description for the runbook.
      */
     description?: pulumi.Input<string>;
     /**
@@ -292,7 +292,7 @@ export interface RunBookArgs {
     /**
      * One or more `jobSchedule` block as defined below.
      *
-     * > **NOTE** AzureRM provides a stand-alone azure.automation.JobSchedule and this inlined `jobSchedule` property to manage the job schedules. At this time you should choose one of them to manage the job schedule resources.
+     * > **Note:** AzureRM provides a stand-alone azure.automation.JobSchedule and this inlined `jobSchedule` property to manage the job schedules. At this time you should choose one of them to manage the job schedule resources.
      */
     jobSchedules?: pulumi.Input<pulumi.Input<inputs.automation.RunBookJobSchedule>[]>;
     /**

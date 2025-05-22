@@ -260,6 +260,13 @@ class MoverSourceEndpoint(pulumi.CustomResource):
             nfs_version="NFSv3")
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.StorageMover`: 2023-03-01
+
         ## Import
 
         Storage Mover Source Endpoint can be imported using the `resource id`, e.g.
@@ -306,6 +313,13 @@ class MoverSourceEndpoint(pulumi.CustomResource):
             host="192.168.0.1",
             nfs_version="NFSv3")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.StorageMover`: 2023-03-01
 
         ## Import
 

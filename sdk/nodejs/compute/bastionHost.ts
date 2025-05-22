@@ -151,7 +151,7 @@ export class BastionHost extends pulumi.CustomResource {
     /**
      * The SKU of the Bastion Host. Accepted values are `Developer`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
      *
-     * > **Note** Downgrading the SKU will force a new resource to be created.
+     * > **Note:** Downgrading the SKU will force a new resource to be created.
      */
     public readonly sku!: pulumi.Output<string | undefined>;
     /**
@@ -298,7 +298,7 @@ export interface BastionHostState {
     /**
      * The SKU of the Bastion Host. Accepted values are `Developer`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
      *
-     * > **Note** Downgrading the SKU will force a new resource to be created.
+     * > **Note:** Downgrading the SKU will force a new resource to be created.
      */
     sku?: pulumi.Input<string>;
     /**
@@ -384,7 +384,7 @@ export interface BastionHostArgs {
     /**
      * The SKU of the Bastion Host. Accepted values are `Developer`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
      *
-     * > **Note** Downgrading the SKU will force a new resource to be created.
+     * > **Note:** Downgrading the SKU will force a new resource to be created.
      */
     sku?: pulumi.Input<string>;
     /**

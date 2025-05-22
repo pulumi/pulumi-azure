@@ -58,6 +58,13 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.HealthcareApis`: 2022-12-01
+ *
  * ## Import
  *
  * Healthcare FHIR Service can be imported using the resource`id`, e.g.

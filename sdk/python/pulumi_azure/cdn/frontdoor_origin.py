@@ -39,18 +39,18 @@ class FrontdoorOriginArgs:
         :param pulumi.Input[builtins.bool] certificate_name_check_enabled: Specifies whether certificate name checks are enabled for this origin.
         :param pulumi.Input[builtins.str] host_name: The IPv4 address, IPv6 address or Domain name of the Origin.
                
-               !> **IMPORTANT:** This must be unique across all Front Door Origins within a Front Door Endpoint.
+               !> **Note:** This must be unique across all Front Door Origins within a Front Door Endpoint.
         :param pulumi.Input[builtins.bool] enabled: Should the origin be enabled? Possible values are `true` or `false`. Defaults to `true`.
         :param pulumi.Input[builtins.int] http_port: The value of the HTTP port. Must be between `1` and `65535`. Defaults to `80`.
         :param pulumi.Input[builtins.int] https_port: The value of the HTTPS port. Must be between `1` and `65535`. Defaults to `443`.
         :param pulumi.Input[builtins.str] name: The name which should be used for this Front Door Origin. Changing this forces a new Front Door Origin to be created.
         :param pulumi.Input[builtins.str] origin_host_header: The host header value (an IPv4 address, IPv6 address or Domain name) which is sent to the origin with each request. If unspecified the hostname from the request will be used.
                
-               > Azure Front Door Origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin's hostname. This field's value overrides the host header defined in the Front Door Endpoint. For more information on how to properly set the origin host header value please see the [product documentation](https://docs.microsoft.com/azure/frontdoor/origin?pivots=front-door-standard-premium#origin-host-header).
+               > **Note:** Azure Front Door Origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin's hostname. This field's value overrides the host header defined in the Front Door Endpoint. For more information on how to properly set the origin host header value please see the [product documentation](https://docs.microsoft.com/azure/frontdoor/origin?pivots=front-door-standard-premium#origin-host-header).
         :param pulumi.Input[builtins.int] priority: Priority of origin in given origin group for load balancing. Higher priorities will not be used for load balancing if any lower priority origin is healthy. Must be between `1` and `5` (inclusive). Defaults to `1`.
         :param pulumi.Input['FrontdoorOriginPrivateLinkArgs'] private_link: A `private_link` block as defined below.
                
-               > **NOTE:** Private Link requires that the Front Door Profile this Origin is hosted within is using the SKU `Premium_AzureFrontDoor` and that the `certificate_name_check_enabled` field is set to `true`.
+               > **Note:** Private Link requires that the Front Door Profile this Origin is hosted within is using the SKU `Premium_AzureFrontDoor` and that the `certificate_name_check_enabled` field is set to `true`.
         :param pulumi.Input[builtins.int] weight: The weight of the origin in a given origin group for load balancing. Must be between `1` and `1000`. Defaults to `500`.
         """
         pulumi.set(__self__, "cdn_frontdoor_origin_group_id", cdn_frontdoor_origin_group_id)
@@ -103,7 +103,7 @@ class FrontdoorOriginArgs:
         """
         The IPv4 address, IPv6 address or Domain name of the Origin.
 
-        !> **IMPORTANT:** This must be unique across all Front Door Origins within a Front Door Endpoint.
+        !> **Note:** This must be unique across all Front Door Origins within a Front Door Endpoint.
         """
         return pulumi.get(self, "host_name")
 
@@ -165,7 +165,7 @@ class FrontdoorOriginArgs:
         """
         The host header value (an IPv4 address, IPv6 address or Domain name) which is sent to the origin with each request. If unspecified the hostname from the request will be used.
 
-        > Azure Front Door Origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin's hostname. This field's value overrides the host header defined in the Front Door Endpoint. For more information on how to properly set the origin host header value please see the [product documentation](https://docs.microsoft.com/azure/frontdoor/origin?pivots=front-door-standard-premium#origin-host-header).
+        > **Note:** Azure Front Door Origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin's hostname. This field's value overrides the host header defined in the Front Door Endpoint. For more information on how to properly set the origin host header value please see the [product documentation](https://docs.microsoft.com/azure/frontdoor/origin?pivots=front-door-standard-premium#origin-host-header).
         """
         return pulumi.get(self, "origin_host_header")
 
@@ -191,7 +191,7 @@ class FrontdoorOriginArgs:
         """
         A `private_link` block as defined below.
 
-        > **NOTE:** Private Link requires that the Front Door Profile this Origin is hosted within is using the SKU `Premium_AzureFrontDoor` and that the `certificate_name_check_enabled` field is set to `true`.
+        > **Note:** Private Link requires that the Front Door Profile this Origin is hosted within is using the SKU `Premium_AzureFrontDoor` and that the `certificate_name_check_enabled` field is set to `true`.
         """
         return pulumi.get(self, "private_link")
 
@@ -233,17 +233,17 @@ class _FrontdoorOriginState:
         :param pulumi.Input[builtins.bool] enabled: Should the origin be enabled? Possible values are `true` or `false`. Defaults to `true`.
         :param pulumi.Input[builtins.str] host_name: The IPv4 address, IPv6 address or Domain name of the Origin.
                
-               !> **IMPORTANT:** This must be unique across all Front Door Origins within a Front Door Endpoint.
+               !> **Note:** This must be unique across all Front Door Origins within a Front Door Endpoint.
         :param pulumi.Input[builtins.int] http_port: The value of the HTTP port. Must be between `1` and `65535`. Defaults to `80`.
         :param pulumi.Input[builtins.int] https_port: The value of the HTTPS port. Must be between `1` and `65535`. Defaults to `443`.
         :param pulumi.Input[builtins.str] name: The name which should be used for this Front Door Origin. Changing this forces a new Front Door Origin to be created.
         :param pulumi.Input[builtins.str] origin_host_header: The host header value (an IPv4 address, IPv6 address or Domain name) which is sent to the origin with each request. If unspecified the hostname from the request will be used.
                
-               > Azure Front Door Origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin's hostname. This field's value overrides the host header defined in the Front Door Endpoint. For more information on how to properly set the origin host header value please see the [product documentation](https://docs.microsoft.com/azure/frontdoor/origin?pivots=front-door-standard-premium#origin-host-header).
+               > **Note:** Azure Front Door Origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin's hostname. This field's value overrides the host header defined in the Front Door Endpoint. For more information on how to properly set the origin host header value please see the [product documentation](https://docs.microsoft.com/azure/frontdoor/origin?pivots=front-door-standard-premium#origin-host-header).
         :param pulumi.Input[builtins.int] priority: Priority of origin in given origin group for load balancing. Higher priorities will not be used for load balancing if any lower priority origin is healthy. Must be between `1` and `5` (inclusive). Defaults to `1`.
         :param pulumi.Input['FrontdoorOriginPrivateLinkArgs'] private_link: A `private_link` block as defined below.
                
-               > **NOTE:** Private Link requires that the Front Door Profile this Origin is hosted within is using the SKU `Premium_AzureFrontDoor` and that the `certificate_name_check_enabled` field is set to `true`.
+               > **Note:** Private Link requires that the Front Door Profile this Origin is hosted within is using the SKU `Premium_AzureFrontDoor` and that the `certificate_name_check_enabled` field is set to `true`.
         :param pulumi.Input[builtins.int] weight: The weight of the origin in a given origin group for load balancing. Must be between `1` and `1000`. Defaults to `500`.
         """
         if cdn_frontdoor_origin_group_id is not None:
@@ -311,7 +311,7 @@ class _FrontdoorOriginState:
         """
         The IPv4 address, IPv6 address or Domain name of the Origin.
 
-        !> **IMPORTANT:** This must be unique across all Front Door Origins within a Front Door Endpoint.
+        !> **Note:** This must be unique across all Front Door Origins within a Front Door Endpoint.
         """
         return pulumi.get(self, "host_name")
 
@@ -361,7 +361,7 @@ class _FrontdoorOriginState:
         """
         The host header value (an IPv4 address, IPv6 address or Domain name) which is sent to the origin with each request. If unspecified the hostname from the request will be used.
 
-        > Azure Front Door Origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin's hostname. This field's value overrides the host header defined in the Front Door Endpoint. For more information on how to properly set the origin host header value please see the [product documentation](https://docs.microsoft.com/azure/frontdoor/origin?pivots=front-door-standard-premium#origin-host-header).
+        > **Note:** Azure Front Door Origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin's hostname. This field's value overrides the host header defined in the Front Door Endpoint. For more information on how to properly set the origin host header value please see the [product documentation](https://docs.microsoft.com/azure/frontdoor/origin?pivots=front-door-standard-premium#origin-host-header).
         """
         return pulumi.get(self, "origin_host_header")
 
@@ -387,7 +387,7 @@ class _FrontdoorOriginState:
         """
         A `private_link` block as defined below.
 
-        > **NOTE:** Private Link requires that the Front Door Profile this Origin is hosted within is using the SKU `Premium_AzureFrontDoor` and that the `certificate_name_check_enabled` field is set to `true`.
+        > **Note:** Private Link requires that the Front Door Profile this Origin is hosted within is using the SKU `Premium_AzureFrontDoor` and that the `certificate_name_check_enabled` field is set to `true`.
         """
         return pulumi.get(self, "private_link")
 
@@ -429,7 +429,7 @@ class FrontdoorOrigin(pulumi.CustomResource):
         """
         Manages a Front Door (standard/premium) Origin.
 
-        !>**IMPORTANT:** If you are attempting to implement an Origin that uses its own Private Link Service with a Load Balancer the Profile resource in your configuration file **must** have a `depends_on` meta-argument which references the `privatedns.LinkService`, see `Example Usage With Private Link Service` below.
+        !> **Note:** If you are attempting to implement an Origin that uses its own Private Link Service with a Load Balancer the Profile resource in your configuration file **must** have a `depends_on` meta-argument which references the `privatedns.LinkService`, see `Example Usage With Private Link Service` below.
 
         ## Example Usage
 
@@ -608,17 +608,17 @@ class FrontdoorOrigin(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] enabled: Should the origin be enabled? Possible values are `true` or `false`. Defaults to `true`.
         :param pulumi.Input[builtins.str] host_name: The IPv4 address, IPv6 address or Domain name of the Origin.
                
-               !> **IMPORTANT:** This must be unique across all Front Door Origins within a Front Door Endpoint.
+               !> **Note:** This must be unique across all Front Door Origins within a Front Door Endpoint.
         :param pulumi.Input[builtins.int] http_port: The value of the HTTP port. Must be between `1` and `65535`. Defaults to `80`.
         :param pulumi.Input[builtins.int] https_port: The value of the HTTPS port. Must be between `1` and `65535`. Defaults to `443`.
         :param pulumi.Input[builtins.str] name: The name which should be used for this Front Door Origin. Changing this forces a new Front Door Origin to be created.
         :param pulumi.Input[builtins.str] origin_host_header: The host header value (an IPv4 address, IPv6 address or Domain name) which is sent to the origin with each request. If unspecified the hostname from the request will be used.
                
-               > Azure Front Door Origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin's hostname. This field's value overrides the host header defined in the Front Door Endpoint. For more information on how to properly set the origin host header value please see the [product documentation](https://docs.microsoft.com/azure/frontdoor/origin?pivots=front-door-standard-premium#origin-host-header).
+               > **Note:** Azure Front Door Origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin's hostname. This field's value overrides the host header defined in the Front Door Endpoint. For more information on how to properly set the origin host header value please see the [product documentation](https://docs.microsoft.com/azure/frontdoor/origin?pivots=front-door-standard-premium#origin-host-header).
         :param pulumi.Input[builtins.int] priority: Priority of origin in given origin group for load balancing. Higher priorities will not be used for load balancing if any lower priority origin is healthy. Must be between `1` and `5` (inclusive). Defaults to `1`.
         :param pulumi.Input[Union['FrontdoorOriginPrivateLinkArgs', 'FrontdoorOriginPrivateLinkArgsDict']] private_link: A `private_link` block as defined below.
                
-               > **NOTE:** Private Link requires that the Front Door Profile this Origin is hosted within is using the SKU `Premium_AzureFrontDoor` and that the `certificate_name_check_enabled` field is set to `true`.
+               > **Note:** Private Link requires that the Front Door Profile this Origin is hosted within is using the SKU `Premium_AzureFrontDoor` and that the `certificate_name_check_enabled` field is set to `true`.
         :param pulumi.Input[builtins.int] weight: The weight of the origin in a given origin group for load balancing. Must be between `1` and `1000`. Defaults to `500`.
         """
         ...
@@ -630,7 +630,7 @@ class FrontdoorOrigin(pulumi.CustomResource):
         """
         Manages a Front Door (standard/premium) Origin.
 
-        !>**IMPORTANT:** If you are attempting to implement an Origin that uses its own Private Link Service with a Load Balancer the Profile resource in your configuration file **must** have a `depends_on` meta-argument which references the `privatedns.LinkService`, see `Example Usage With Private Link Service` below.
+        !> **Note:** If you are attempting to implement an Origin that uses its own Private Link Service with a Load Balancer the Profile resource in your configuration file **must** have a `depends_on` meta-argument which references the `privatedns.LinkService`, see `Example Usage With Private Link Service` below.
 
         ## Example Usage
 
@@ -887,17 +887,17 @@ class FrontdoorOrigin(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] enabled: Should the origin be enabled? Possible values are `true` or `false`. Defaults to `true`.
         :param pulumi.Input[builtins.str] host_name: The IPv4 address, IPv6 address or Domain name of the Origin.
                
-               !> **IMPORTANT:** This must be unique across all Front Door Origins within a Front Door Endpoint.
+               !> **Note:** This must be unique across all Front Door Origins within a Front Door Endpoint.
         :param pulumi.Input[builtins.int] http_port: The value of the HTTP port. Must be between `1` and `65535`. Defaults to `80`.
         :param pulumi.Input[builtins.int] https_port: The value of the HTTPS port. Must be between `1` and `65535`. Defaults to `443`.
         :param pulumi.Input[builtins.str] name: The name which should be used for this Front Door Origin. Changing this forces a new Front Door Origin to be created.
         :param pulumi.Input[builtins.str] origin_host_header: The host header value (an IPv4 address, IPv6 address or Domain name) which is sent to the origin with each request. If unspecified the hostname from the request will be used.
                
-               > Azure Front Door Origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin's hostname. This field's value overrides the host header defined in the Front Door Endpoint. For more information on how to properly set the origin host header value please see the [product documentation](https://docs.microsoft.com/azure/frontdoor/origin?pivots=front-door-standard-premium#origin-host-header).
+               > **Note:** Azure Front Door Origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin's hostname. This field's value overrides the host header defined in the Front Door Endpoint. For more information on how to properly set the origin host header value please see the [product documentation](https://docs.microsoft.com/azure/frontdoor/origin?pivots=front-door-standard-premium#origin-host-header).
         :param pulumi.Input[builtins.int] priority: Priority of origin in given origin group for load balancing. Higher priorities will not be used for load balancing if any lower priority origin is healthy. Must be between `1` and `5` (inclusive). Defaults to `1`.
         :param pulumi.Input[Union['FrontdoorOriginPrivateLinkArgs', 'FrontdoorOriginPrivateLinkArgsDict']] private_link: A `private_link` block as defined below.
                
-               > **NOTE:** Private Link requires that the Front Door Profile this Origin is hosted within is using the SKU `Premium_AzureFrontDoor` and that the `certificate_name_check_enabled` field is set to `true`.
+               > **Note:** Private Link requires that the Front Door Profile this Origin is hosted within is using the SKU `Premium_AzureFrontDoor` and that the `certificate_name_check_enabled` field is set to `true`.
         :param pulumi.Input[builtins.int] weight: The weight of the origin in a given origin group for load balancing. Must be between `1` and `1000`. Defaults to `500`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -947,7 +947,7 @@ class FrontdoorOrigin(pulumi.CustomResource):
         """
         The IPv4 address, IPv6 address or Domain name of the Origin.
 
-        !> **IMPORTANT:** This must be unique across all Front Door Origins within a Front Door Endpoint.
+        !> **Note:** This must be unique across all Front Door Origins within a Front Door Endpoint.
         """
         return pulumi.get(self, "host_name")
 
@@ -981,7 +981,7 @@ class FrontdoorOrigin(pulumi.CustomResource):
         """
         The host header value (an IPv4 address, IPv6 address or Domain name) which is sent to the origin with each request. If unspecified the hostname from the request will be used.
 
-        > Azure Front Door Origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin's hostname. This field's value overrides the host header defined in the Front Door Endpoint. For more information on how to properly set the origin host header value please see the [product documentation](https://docs.microsoft.com/azure/frontdoor/origin?pivots=front-door-standard-premium#origin-host-header).
+        > **Note:** Azure Front Door Origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin's hostname. This field's value overrides the host header defined in the Front Door Endpoint. For more information on how to properly set the origin host header value please see the [product documentation](https://docs.microsoft.com/azure/frontdoor/origin?pivots=front-door-standard-premium#origin-host-header).
         """
         return pulumi.get(self, "origin_host_header")
 
@@ -999,7 +999,7 @@ class FrontdoorOrigin(pulumi.CustomResource):
         """
         A `private_link` block as defined below.
 
-        > **NOTE:** Private Link requires that the Front Door Profile this Origin is hosted within is using the SKU `Premium_AzureFrontDoor` and that the `certificate_name_check_enabled` field is set to `true`.
+        > **Note:** Private Link requires that the Front Door Profile this Origin is hosted within is using the SKU `Premium_AzureFrontDoor` and that the `certificate_name_check_enabled` field is set to `true`.
         """
         return pulumi.get(self, "private_link")
 

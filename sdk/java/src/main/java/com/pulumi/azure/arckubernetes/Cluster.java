@@ -78,6 +78,13 @@ import javax.annotation.Nullable;
  * 
  * &gt; **Note:** An extensive example on connecting the `azure.arckubernetes.Cluster` to an external kubernetes cluster can be found in the `./examples/arckubernetes` directory within the GitHub Repository.
  * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.Kubernetes`: 2024-01-01
+ * 
  * ## Import
  * 
  * Arc Kubernetes Cluster can be imported using the `resource id`, e.g.

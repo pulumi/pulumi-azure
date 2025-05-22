@@ -78,6 +78,13 @@ import (
 //
 // ```
 //
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.ContainerInstance`: 2023-05-01
+//
 // ## Import
 //
 // Container Group's can be imported using the `resource id`, e.g.
@@ -134,7 +141,7 @@ type Group struct {
 	OsType pulumi.StringOutput `pulumi:"osType"`
 	// The priority of the Container Group. Possible values are `Regular` and `Spot`. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** When `priority` is set to `Spot`, the `ipAddressType` has to be `None`.
+	// > **Note:** When `priority` is set to `Spot`, the `ipAddressType` has to be `None`.
 	Priority pulumi.StringPtrOutput `pulumi:"priority"`
 	// The name of the resource group in which to create the Container Group. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -235,7 +242,7 @@ type groupState struct {
 	OsType *string `pulumi:"osType"`
 	// The priority of the Container Group. Possible values are `Regular` and `Spot`. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** When `priority` is set to `Spot`, the `ipAddressType` has to be `None`.
+	// > **Note:** When `priority` is set to `Spot`, the `ipAddressType` has to be `None`.
 	Priority *string `pulumi:"priority"`
 	// The name of the resource group in which to create the Container Group. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -298,7 +305,7 @@ type GroupState struct {
 	OsType pulumi.StringPtrInput
 	// The priority of the Container Group. Possible values are `Regular` and `Spot`. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** When `priority` is set to `Spot`, the `ipAddressType` has to be `None`.
+	// > **Note:** When `priority` is set to `Spot`, the `ipAddressType` has to be `None`.
 	Priority pulumi.StringPtrInput
 	// The name of the resource group in which to create the Container Group. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -361,7 +368,7 @@ type groupArgs struct {
 	OsType string `pulumi:"osType"`
 	// The priority of the Container Group. Possible values are `Regular` and `Spot`. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** When `priority` is set to `Spot`, the `ipAddressType` has to be `None`.
+	// > **Note:** When `priority` is set to `Spot`, the `ipAddressType` has to be `None`.
 	Priority *string `pulumi:"priority"`
 	// The name of the resource group in which to create the Container Group. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -421,7 +428,7 @@ type GroupArgs struct {
 	OsType pulumi.StringInput
 	// The priority of the Container Group. Possible values are `Regular` and `Spot`. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** When `priority` is set to `Spot`, the `ipAddressType` has to be `None`.
+	// > **Note:** When `priority` is set to `Spot`, the `ipAddressType` has to be `None`.
 	Priority pulumi.StringPtrInput
 	// The name of the resource group in which to create the Container Group. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
@@ -624,7 +631,7 @@ func (o GroupOutput) OsType() pulumi.StringOutput {
 
 // The priority of the Container Group. Possible values are `Regular` and `Spot`. Changing this forces a new resource to be created.
 //
-// > **NOTE:** When `priority` is set to `Spot`, the `ipAddressType` has to be `None`.
+// > **Note:** When `priority` is set to `Spot`, the `ipAddressType` has to be `None`.
 func (o GroupOutput) Priority() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringPtrOutput { return v.Priority }).(pulumi.StringPtrOutput)
 }

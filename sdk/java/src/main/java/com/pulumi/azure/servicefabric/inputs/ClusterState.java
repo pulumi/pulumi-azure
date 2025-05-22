@@ -91,7 +91,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     /**
      * A `client_certificate_common_name` block as defined below.
      * 
-     * &gt; **NOTE:** If Client Certificates are enabled then at a Certificate must be configured on the cluster.
+     * &gt; **Note:** If Client Certificates are enabled then at a Certificate must be configured on the cluster.
      * 
      */
     @Import(name="clientCertificateCommonNames")
@@ -100,7 +100,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return A `client_certificate_common_name` block as defined below.
      * 
-     * &gt; **NOTE:** If Client Certificates are enabled then at a Certificate must be configured on the cluster.
+     * &gt; **Note:** If Client Certificates are enabled then at a Certificate must be configured on the cluster.
      * 
      */
     public Optional<Output<List<ClusterClientCertificateCommonNameArgs>>> clientCertificateCommonNames() {
@@ -245,7 +245,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     /**
      * Specifies the Reliability Level of the Cluster. Possible values include `None`, `Bronze`, `Silver`, `Gold` and `Platinum`.
      * 
-     * &gt; **NOTE:** The Reliability Level of the Cluster depends on the number of nodes in the Cluster: `Platinum` requires at least 9 VM&#39;s, `Gold` requires at least 7 VM&#39;s, `Silver` requires at least 5 VM&#39;s, `Bronze` requires at least 3 VM&#39;s.
+     * &gt; **Note:** The Reliability Level of the Cluster depends on the number of nodes in the Cluster: `Platinum` requires at least 9 VM&#39;s, `Gold` requires at least 7 VM&#39;s, `Silver` requires at least 5 VM&#39;s, `Bronze` requires at least 3 VM&#39;s.
      * 
      */
     @Import(name="reliabilityLevel")
@@ -254,7 +254,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Specifies the Reliability Level of the Cluster. Possible values include `None`, `Bronze`, `Silver`, `Gold` and `Platinum`.
      * 
-     * &gt; **NOTE:** The Reliability Level of the Cluster depends on the number of nodes in the Cluster: `Platinum` requires at least 9 VM&#39;s, `Gold` requires at least 7 VM&#39;s, `Silver` requires at least 5 VM&#39;s, `Bronze` requires at least 3 VM&#39;s.
+     * &gt; **Note:** The Reliability Level of the Cluster depends on the number of nodes in the Cluster: `Platinum` requires at least 9 VM&#39;s, `Gold` requires at least 7 VM&#39;s, `Silver` requires at least 5 VM&#39;s, `Bronze` requires at least 3 VM&#39;s.
      * 
      */
     public Optional<Output<String>> reliabilityLevel() {
@@ -540,7 +540,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param clientCertificateCommonNames A `client_certificate_common_name` block as defined below.
          * 
-         * &gt; **NOTE:** If Client Certificates are enabled then at a Certificate must be configured on the cluster.
+         * &gt; **Note:** If Client Certificates are enabled then at a Certificate must be configured on the cluster.
          * 
          * @return builder
          * 
@@ -553,7 +553,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param clientCertificateCommonNames A `client_certificate_common_name` block as defined below.
          * 
-         * &gt; **NOTE:** If Client Certificates are enabled then at a Certificate must be configured on the cluster.
+         * &gt; **Note:** If Client Certificates are enabled then at a Certificate must be configured on the cluster.
          * 
          * @return builder
          * 
@@ -565,7 +565,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param clientCertificateCommonNames A `client_certificate_common_name` block as defined below.
          * 
-         * &gt; **NOTE:** If Client Certificates are enabled then at a Certificate must be configured on the cluster.
+         * &gt; **Note:** If Client Certificates are enabled then at a Certificate must be configured on the cluster.
          * 
          * @return builder
          * 
@@ -796,7 +796,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param reliabilityLevel Specifies the Reliability Level of the Cluster. Possible values include `None`, `Bronze`, `Silver`, `Gold` and `Platinum`.
          * 
-         * &gt; **NOTE:** The Reliability Level of the Cluster depends on the number of nodes in the Cluster: `Platinum` requires at least 9 VM&#39;s, `Gold` requires at least 7 VM&#39;s, `Silver` requires at least 5 VM&#39;s, `Bronze` requires at least 3 VM&#39;s.
+         * &gt; **Note:** The Reliability Level of the Cluster depends on the number of nodes in the Cluster: `Platinum` requires at least 9 VM&#39;s, `Gold` requires at least 7 VM&#39;s, `Silver` requires at least 5 VM&#39;s, `Bronze` requires at least 3 VM&#39;s.
          * 
          * @return builder
          * 
@@ -809,7 +809,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param reliabilityLevel Specifies the Reliability Level of the Cluster. Possible values include `None`, `Bronze`, `Silver`, `Gold` and `Platinum`.
          * 
-         * &gt; **NOTE:** The Reliability Level of the Cluster depends on the number of nodes in the Cluster: `Platinum` requires at least 9 VM&#39;s, `Gold` requires at least 7 VM&#39;s, `Silver` requires at least 5 VM&#39;s, `Bronze` requires at least 3 VM&#39;s.
+         * &gt; **Note:** The Reliability Level of the Cluster depends on the number of nodes in the Cluster: `Platinum` requires at least 9 VM&#39;s, `Gold` requires at least 7 VM&#39;s, `Silver` requires at least 5 VM&#39;s, `Bronze` requires at least 3 VM&#39;s.
          * 
          * @return builder
          * 

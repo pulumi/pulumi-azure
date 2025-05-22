@@ -34,7 +34,7 @@ public final class SlotCustomHostnameBindingArgs extends com.pulumi.resources.Re
     /**
      * Specifies the Custom Hostname to use for the App Service, example `www.example.com`. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** A CNAME needs to be configured from this Hostname to the Azure Website - otherwise Azure will reject the Hostname Binding.
+     * &gt; **Note:** A CNAME needs to be configured from this Hostname to the Azure Website - otherwise Azure will reject the Hostname Binding.
      * 
      */
     @Import(name="hostname", required=true)
@@ -43,7 +43,7 @@ public final class SlotCustomHostnameBindingArgs extends com.pulumi.resources.Re
     /**
      * @return Specifies the Custom Hostname to use for the App Service, example `www.example.com`. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** A CNAME needs to be configured from this Hostname to the Azure Website - otherwise Azure will reject the Hostname Binding.
+     * &gt; **Note:** A CNAME needs to be configured from this Hostname to the Azure Website - otherwise Azure will reject the Hostname Binding.
      * 
      */
     public Output<String> hostname() {
@@ -68,7 +68,7 @@ public final class SlotCustomHostnameBindingArgs extends com.pulumi.resources.Re
     /**
      * The SSL certificate thumbprint. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** `thumbprint` must be specified when `ssl_state` is set.
+     * &gt; **Note:** `thumbprint` must be specified when `ssl_state` is set.
      * 
      */
     @Import(name="thumbprint")
@@ -77,7 +77,7 @@ public final class SlotCustomHostnameBindingArgs extends com.pulumi.resources.Re
     /**
      * @return The SSL certificate thumbprint. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** `thumbprint` must be specified when `ssl_state` is set.
+     * &gt; **Note:** `thumbprint` must be specified when `ssl_state` is set.
      * 
      */
     public Optional<Output<String>> thumbprint() {
@@ -135,7 +135,7 @@ public final class SlotCustomHostnameBindingArgs extends com.pulumi.resources.Re
         /**
          * @param hostname Specifies the Custom Hostname to use for the App Service, example `www.example.com`. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** A CNAME needs to be configured from this Hostname to the Azure Website - otherwise Azure will reject the Hostname Binding.
+         * &gt; **Note:** A CNAME needs to be configured from this Hostname to the Azure Website - otherwise Azure will reject the Hostname Binding.
          * 
          * @return builder
          * 
@@ -148,7 +148,7 @@ public final class SlotCustomHostnameBindingArgs extends com.pulumi.resources.Re
         /**
          * @param hostname Specifies the Custom Hostname to use for the App Service, example `www.example.com`. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** A CNAME needs to be configured from this Hostname to the Azure Website - otherwise Azure will reject the Hostname Binding.
+         * &gt; **Note:** A CNAME needs to be configured from this Hostname to the Azure Website - otherwise Azure will reject the Hostname Binding.
          * 
          * @return builder
          * 
@@ -181,7 +181,7 @@ public final class SlotCustomHostnameBindingArgs extends com.pulumi.resources.Re
         /**
          * @param thumbprint The SSL certificate thumbprint. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** `thumbprint` must be specified when `ssl_state` is set.
+         * &gt; **Note:** `thumbprint` must be specified when `ssl_state` is set.
          * 
          * @return builder
          * 
@@ -194,7 +194,7 @@ public final class SlotCustomHostnameBindingArgs extends com.pulumi.resources.Re
         /**
          * @param thumbprint The SSL certificate thumbprint. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** `thumbprint` must be specified when `ssl_state` is set.
+         * &gt; **Note:** `thumbprint` must be specified when `ssl_state` is set.
          * 
          * @return builder
          * 

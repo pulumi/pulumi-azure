@@ -198,6 +198,13 @@ class LinkedStorageAccount(pulumi.CustomResource):
             storage_account_ids=[example_account.id])
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.OperationalInsights`: 2020-08-01
+
         ## Import
 
         Log Analytics Linked Storage Accounts can be imported using the `resource id`, e.g.
@@ -248,6 +255,13 @@ class LinkedStorageAccount(pulumi.CustomResource):
             workspace_resource_id=example_analytics_workspace.id,
             storage_account_ids=[example_account.id])
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.OperationalInsights`: 2020-08-01
 
         ## Import
 

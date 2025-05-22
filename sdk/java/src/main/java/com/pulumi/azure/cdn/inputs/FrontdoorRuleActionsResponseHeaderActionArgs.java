@@ -19,7 +19,7 @@ public final class FrontdoorRuleActionsResponseHeaderActionArgs extends com.pulu
     /**
      * The action to be taken on the specified `header_name`. Possible values include `Append`, `Overwrite` or `Delete`.
      * 
-     * &gt; **NOTE:** `Append` causes the specified header to be added to the request with the specified value. If the header is already present, the value is appended to the existing header value using string concatenation. No delimiters are added. `Overwrite` causes specified header to be added to the request with the specified value. If the header is already present, the specified value overwrites the existing value. `Delete` causes the header to be deleted from the request.
+     * &gt; **Note:** `Append` causes the specified header to be added to the request with the specified value. If the header is already present, the value is appended to the existing header value using string concatenation. No delimiters are added. `Overwrite` causes specified header to be added to the request with the specified value. If the header is already present, the specified value overwrites the existing value. `Delete` causes the header to be deleted from the request.
      * 
      */
     @Import(name="headerAction", required=true)
@@ -28,7 +28,7 @@ public final class FrontdoorRuleActionsResponseHeaderActionArgs extends com.pulu
     /**
      * @return The action to be taken on the specified `header_name`. Possible values include `Append`, `Overwrite` or `Delete`.
      * 
-     * &gt; **NOTE:** `Append` causes the specified header to be added to the request with the specified value. If the header is already present, the value is appended to the existing header value using string concatenation. No delimiters are added. `Overwrite` causes specified header to be added to the request with the specified value. If the header is already present, the specified value overwrites the existing value. `Delete` causes the header to be deleted from the request.
+     * &gt; **Note:** `Append` causes the specified header to be added to the request with the specified value. If the header is already present, the value is appended to the existing header value using string concatenation. No delimiters are added. `Overwrite` causes specified header to be added to the request with the specified value. If the header is already present, the specified value overwrites the existing value. `Delete` causes the header to be deleted from the request.
      * 
      */
     public Output<String> headerAction() {
@@ -53,7 +53,7 @@ public final class FrontdoorRuleActionsResponseHeaderActionArgs extends com.pulu
     /**
      * The value to append or overwrite.
      * 
-     * -&gt;**NOTE:** `value` is required if the `header_action` is set to `Append` or `Overwrite`.
+     * &gt; **Note:** `value` is required if the `header_action` is set to `Append` or `Overwrite`.
      * 
      */
     @Import(name="value")
@@ -62,7 +62,7 @@ public final class FrontdoorRuleActionsResponseHeaderActionArgs extends com.pulu
     /**
      * @return The value to append or overwrite.
      * 
-     * -&gt;**NOTE:** `value` is required if the `header_action` is set to `Append` or `Overwrite`.
+     * &gt; **Note:** `value` is required if the `header_action` is set to `Append` or `Overwrite`.
      * 
      */
     public Optional<Output<String>> value() {
@@ -98,7 +98,7 @@ public final class FrontdoorRuleActionsResponseHeaderActionArgs extends com.pulu
         /**
          * @param headerAction The action to be taken on the specified `header_name`. Possible values include `Append`, `Overwrite` or `Delete`.
          * 
-         * &gt; **NOTE:** `Append` causes the specified header to be added to the request with the specified value. If the header is already present, the value is appended to the existing header value using string concatenation. No delimiters are added. `Overwrite` causes specified header to be added to the request with the specified value. If the header is already present, the specified value overwrites the existing value. `Delete` causes the header to be deleted from the request.
+         * &gt; **Note:** `Append` causes the specified header to be added to the request with the specified value. If the header is already present, the value is appended to the existing header value using string concatenation. No delimiters are added. `Overwrite` causes specified header to be added to the request with the specified value. If the header is already present, the specified value overwrites the existing value. `Delete` causes the header to be deleted from the request.
          * 
          * @return builder
          * 
@@ -111,7 +111,7 @@ public final class FrontdoorRuleActionsResponseHeaderActionArgs extends com.pulu
         /**
          * @param headerAction The action to be taken on the specified `header_name`. Possible values include `Append`, `Overwrite` or `Delete`.
          * 
-         * &gt; **NOTE:** `Append` causes the specified header to be added to the request with the specified value. If the header is already present, the value is appended to the existing header value using string concatenation. No delimiters are added. `Overwrite` causes specified header to be added to the request with the specified value. If the header is already present, the specified value overwrites the existing value. `Delete` causes the header to be deleted from the request.
+         * &gt; **Note:** `Append` causes the specified header to be added to the request with the specified value. If the header is already present, the value is appended to the existing header value using string concatenation. No delimiters are added. `Overwrite` causes specified header to be added to the request with the specified value. If the header is already present, the specified value overwrites the existing value. `Delete` causes the header to be deleted from the request.
          * 
          * @return builder
          * 
@@ -144,7 +144,7 @@ public final class FrontdoorRuleActionsResponseHeaderActionArgs extends com.pulu
         /**
          * @param value The value to append or overwrite.
          * 
-         * -&gt;**NOTE:** `value` is required if the `header_action` is set to `Append` or `Overwrite`.
+         * &gt; **Note:** `value` is required if the `header_action` is set to `Append` or `Overwrite`.
          * 
          * @return builder
          * 
@@ -157,7 +157,7 @@ public final class FrontdoorRuleActionsResponseHeaderActionArgs extends com.pulu
         /**
          * @param value The value to append or overwrite.
          * 
-         * -&gt;**NOTE:** `value` is required if the `header_action` is set to `Append` or `Overwrite`.
+         * &gt; **Note:** `value` is required if the `header_action` is set to `Append` or `Overwrite`.
          * 
          * @return builder
          * 

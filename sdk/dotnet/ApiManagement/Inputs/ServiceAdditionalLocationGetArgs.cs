@@ -51,7 +51,7 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         /// <summary>
         /// ID of a standard SKU IPv4 Public IP.
         /// 
-        /// &gt; **NOTE:** Availability zones and custom public IPs are only supported in the Premium tier.
+        /// &gt; **Note:** Availability zones and custom public IPs are only supported in the Premium tier.
         /// </summary>
         [Input("publicIpAddressId")]
         public Input<string>? PublicIpAddressId { get; set; }

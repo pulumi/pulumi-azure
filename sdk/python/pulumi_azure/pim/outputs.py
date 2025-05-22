@@ -41,6 +41,7 @@ __all__ = [
     'RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotifications',
     'RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotifications',
     'RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotifications',
+    'GetRoleAssignmentsRoleAssignmentResult',
     'GetRoleManagementPolicyActivationRuleResult',
     'GetRoleManagementPolicyActivationRuleApprovalStageResult',
     'GetRoleManagementPolicyActivationRuleApprovalStagePrimaryApproverResult',
@@ -141,7 +142,7 @@ class ActiveRoleAssignmentScheduleExpiration(dict):
         :param builtins.int duration_hours: The duration of the role assignment in hours. Changing this forces a new resource to be created.
         :param builtins.str end_date_time: The end date/time of the role assignment. Changing this forces a new resource to be created.
                
-               > Note: Only one of `duration_days`, `duration_hours` or `end_date_time` should be specified.
+               > **Note:** Only one of `duration_days`, `duration_hours` or `end_date_time` should be specified.
         """
         if duration_days is not None:
             pulumi.set(__self__, "duration_days", duration_days)
@@ -172,7 +173,7 @@ class ActiveRoleAssignmentScheduleExpiration(dict):
         """
         The end date/time of the role assignment. Changing this forces a new resource to be created.
 
-        > Note: Only one of `duration_days`, `duration_hours` or `end_date_time` should be specified.
+        > **Note:** Only one of `duration_days`, `duration_hours` or `end_date_time` should be specified.
         """
         return pulumi.get(self, "end_date_time")
 
@@ -288,7 +289,7 @@ class EligibleRoleAssignmentScheduleExpiration(dict):
         :param builtins.int duration_hours: The duration of the role assignment in hours. Changing this forces a new resource to be created.
         :param builtins.str end_date_time: The end date/time of the role assignment. Changing this forces a new resource to be created.
                
-               > Note: Only one of `duration_days`, `duration_hours` or `end_date_time` should be specified.
+               > **Note:** Only one of `duration_days`, `duration_hours` or `end_date_time` should be specified.
         """
         if duration_days is not None:
             pulumi.set(__self__, "duration_days", duration_days)
@@ -319,7 +320,7 @@ class EligibleRoleAssignmentScheduleExpiration(dict):
         """
         The end date/time of the role assignment. Changing this forces a new resource to be created.
 
-        > Note: Only one of `duration_days`, `duration_hours` or `end_date_time` should be specified.
+        > **Note:** Only one of `duration_days`, `duration_hours` or `end_date_time` should be specified.
         """
         return pulumi.get(self, "end_date_time")
 
@@ -1522,6 +1523,123 @@ class RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificati
         The additional recipients to notify
         """
         return pulumi.get(self, "additional_recipients")
+
+
+@pulumi.output_type
+class GetRoleAssignmentsRoleAssignmentResult(dict):
+    def __init__(__self__, *,
+                 condition: builtins.str,
+                 condition_version: builtins.str,
+                 delegated_managed_identity_resource_id: builtins.str,
+                 description: builtins.str,
+                 principal_id: builtins.str,
+                 principal_type: builtins.str,
+                 role_assignment_id: builtins.str,
+                 role_assignment_name: builtins.str,
+                 role_assignment_scope: builtins.str,
+                 role_definition_id: builtins.str):
+        """
+        :param builtins.str condition: The condition that limits the resource the role can be assigned to.
+        :param builtins.str condition_version: The version of the condition.
+        :param builtins.str delegated_managed_identity_resource_id: The ID of the delegated managed identity resource.
+        :param builtins.str description: The description for this Role Assignment.
+        :param builtins.str principal_id: The principal ID to filter the list of Role Assignments against.
+        :param builtins.str principal_type: The type of the `principal_id`.
+        :param builtins.str role_assignment_id: The ID of the Role Assignment.
+        :param builtins.str role_assignment_name: The name of the Role Assignment.
+        :param builtins.str role_assignment_scope: The scope of the Role Assignment.
+        :param builtins.str role_definition_id: The ID of the Role Definition.
+        """
+        pulumi.set(__self__, "condition", condition)
+        pulumi.set(__self__, "condition_version", condition_version)
+        pulumi.set(__self__, "delegated_managed_identity_resource_id", delegated_managed_identity_resource_id)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "principal_type", principal_type)
+        pulumi.set(__self__, "role_assignment_id", role_assignment_id)
+        pulumi.set(__self__, "role_assignment_name", role_assignment_name)
+        pulumi.set(__self__, "role_assignment_scope", role_assignment_scope)
+        pulumi.set(__self__, "role_definition_id", role_definition_id)
+
+    @property
+    @pulumi.getter
+    def condition(self) -> builtins.str:
+        """
+        The condition that limits the resource the role can be assigned to.
+        """
+        return pulumi.get(self, "condition")
+
+    @property
+    @pulumi.getter(name="conditionVersion")
+    def condition_version(self) -> builtins.str:
+        """
+        The version of the condition.
+        """
+        return pulumi.get(self, "condition_version")
+
+    @property
+    @pulumi.getter(name="delegatedManagedIdentityResourceId")
+    def delegated_managed_identity_resource_id(self) -> builtins.str:
+        """
+        The ID of the delegated managed identity resource.
+        """
+        return pulumi.get(self, "delegated_managed_identity_resource_id")
+
+    @property
+    @pulumi.getter
+    def description(self) -> builtins.str:
+        """
+        The description for this Role Assignment.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> builtins.str:
+        """
+        The principal ID to filter the list of Role Assignments against.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="principalType")
+    def principal_type(self) -> builtins.str:
+        """
+        The type of the `principal_id`.
+        """
+        return pulumi.get(self, "principal_type")
+
+    @property
+    @pulumi.getter(name="roleAssignmentId")
+    def role_assignment_id(self) -> builtins.str:
+        """
+        The ID of the Role Assignment.
+        """
+        return pulumi.get(self, "role_assignment_id")
+
+    @property
+    @pulumi.getter(name="roleAssignmentName")
+    def role_assignment_name(self) -> builtins.str:
+        """
+        The name of the Role Assignment.
+        """
+        return pulumi.get(self, "role_assignment_name")
+
+    @property
+    @pulumi.getter(name="roleAssignmentScope")
+    def role_assignment_scope(self) -> builtins.str:
+        """
+        The scope of the Role Assignment.
+        """
+        return pulumi.get(self, "role_assignment_scope")
+
+    @property
+    @pulumi.getter(name="roleDefinitionId")
+    def role_definition_id(self) -> builtins.str:
+        """
+        The ID of the Role Definition.
+        """
+        return pulumi.get(self, "role_definition_id")
 
 
 @pulumi.output_type

@@ -55,6 +55,11 @@ public final class GetManagedDiskResult {
      * 
      */
     private String imageReferenceId;
+    /**
+     * @return The Azure location of the Managed Disk.
+     * 
+     */
+    private String location;
     private String name;
     /**
      * @return Policy for accessing the disk via network.
@@ -158,6 +163,13 @@ public final class GetManagedDiskResult {
     public String imageReferenceId() {
         return this.imageReferenceId;
     }
+    /**
+     * @return The Azure location of the Managed Disk.
+     * 
+     */
+    public String location() {
+        return this.location;
+    }
     public String name() {
         return this.name;
     }
@@ -239,6 +251,7 @@ public final class GetManagedDiskResult {
         private List<GetManagedDiskEncryptionSetting> encryptionSettings;
         private String id;
         private String imageReferenceId;
+        private String location;
         private String name;
         private String networkAccessPolicy;
         private String osType;
@@ -261,6 +274,7 @@ public final class GetManagedDiskResult {
     	      this.encryptionSettings = defaults.encryptionSettings;
     	      this.id = defaults.id;
     	      this.imageReferenceId = defaults.imageReferenceId;
+    	      this.location = defaults.location;
     	      this.name = defaults.name;
     	      this.networkAccessPolicy = defaults.networkAccessPolicy;
     	      this.osType = defaults.osType;
@@ -346,6 +360,14 @@ public final class GetManagedDiskResult {
               throw new MissingRequiredPropertyException("GetManagedDiskResult", "imageReferenceId");
             }
             this.imageReferenceId = imageReferenceId;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder location(String location) {
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetManagedDiskResult", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
@@ -442,6 +464,7 @@ public final class GetManagedDiskResult {
             _resultValue.encryptionSettings = encryptionSettings;
             _resultValue.id = id;
             _resultValue.imageReferenceId = imageReferenceId;
+            _resultValue.location = location;
             _resultValue.name = name;
             _resultValue.networkAccessPolicy = networkAccessPolicy;
             _resultValue.osType = osType;

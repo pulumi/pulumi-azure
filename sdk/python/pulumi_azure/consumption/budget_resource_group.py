@@ -365,6 +365,13 @@ class BudgetResourceGroup(pulumi.CustomResource):
             ])
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Consumption`: 2019-10-01
+
         ## Import
 
         Resource Group Consumption Budgets can be imported using the `resource id`, e.g.
@@ -452,6 +459,13 @@ class BudgetResourceGroup(pulumi.CustomResource):
                 },
             ])
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Consumption`: 2019-10-01
 
         ## Import
 

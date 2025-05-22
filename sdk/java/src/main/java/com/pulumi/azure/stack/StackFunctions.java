@@ -60,6 +60,13 @@ public final class StackFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.AzureStackHCI`: 2024-01-01, 2022-05-04
+     * 
      */
     public static Output<GetHciClusterResult> getHciCluster(GetHciClusterArgs args) {
         return getHciCluster(args, InvokeOptions.Empty);
@@ -105,6 +112,13 @@ public final class StackFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.AzureStackHCI`: 2024-01-01, 2022-05-04
      * 
      */
     public static CompletableFuture<GetHciClusterResult> getHciClusterPlain(GetHciClusterPlainArgs args) {
@@ -152,6 +166,13 @@ public final class StackFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.AzureStackHCI`: 2024-01-01, 2022-05-04
+     * 
      */
     public static Output<GetHciClusterResult> getHciCluster(GetHciClusterArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:stack/getHciCluster:getHciCluster", TypeShape.of(GetHciClusterResult.class), args, Utilities.withVersion(options));
@@ -197,6 +218,13 @@ public final class StackFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.AzureStackHCI`: 2024-01-01, 2022-05-04
      * 
      */
     public static Output<GetHciClusterResult> getHciCluster(GetHciClusterArgs args, InvokeOutputOptions options) {
@@ -244,6 +272,13 @@ public final class StackFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.AzureStackHCI`: 2024-01-01, 2022-05-04
+     * 
      */
     public static CompletableFuture<GetHciClusterResult> getHciClusterPlain(GetHciClusterPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:stack/getHciCluster:getHciCluster", TypeShape.of(GetHciClusterResult.class), args, Utilities.withVersion(options));
@@ -287,6 +322,13 @@ public final class StackFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.AzureStackHCI`: 2024-01-01
      * 
      */
     public static Output<GetHciStoragePathResult> getHciStoragePath(GetHciStoragePathArgs args) {
@@ -332,6 +374,13 @@ public final class StackFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.AzureStackHCI`: 2024-01-01
+     * 
      */
     public static CompletableFuture<GetHciStoragePathResult> getHciStoragePathPlain(GetHciStoragePathPlainArgs args) {
         return getHciStoragePathPlain(args, InvokeOptions.Empty);
@@ -375,6 +424,13 @@ public final class StackFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.AzureStackHCI`: 2024-01-01
      * 
      */
     public static Output<GetHciStoragePathResult> getHciStoragePath(GetHciStoragePathArgs args, InvokeOptions options) {
@@ -420,6 +476,13 @@ public final class StackFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.AzureStackHCI`: 2024-01-01
+     * 
      */
     public static Output<GetHciStoragePathResult> getHciStoragePath(GetHciStoragePathArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:stack/getHciStoragePath:getHciStoragePath", TypeShape.of(GetHciStoragePathResult.class), args, Utilities.withVersion(options));
@@ -463,6 +526,13 @@ public final class StackFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.AzureStackHCI`: 2024-01-01
      * 
      */
     public static CompletableFuture<GetHciStoragePathResult> getHciStoragePathPlain(GetHciStoragePathPlainArgs args, InvokeOptions options) {

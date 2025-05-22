@@ -46,10 +46,10 @@ class EventHubNamespaceArgs:
         :param pulumi.Input['EventHubNamespaceIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[builtins.bool] local_authentication_enabled: Is SAS authentication enabled for the EventHub Namespace? Defaults to `true`.
         :param pulumi.Input[builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[builtins.int] maximum_throughput_units: Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from `1` - `20`.
+        :param pulumi.Input[builtins.int] maximum_throughput_units: Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from `1` - `40`.
         :param pulumi.Input[builtins.str] minimum_tls_version: The minimum supported TLS version for this EventHub Namespace. Valid values are: `1.0`, `1.1` and `1.2`. Defaults to `1.2`.
                
-               > **Note** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
+               > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         :param pulumi.Input[builtins.str] name: Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created.
         :param pulumi.Input['EventHubNamespaceNetworkRulesetsArgs'] network_rulesets: A `network_rulesets` block as defined below.
         :param pulumi.Input[builtins.bool] public_network_access_enabled: Is public network access enabled for the EventHub Namespace? Defaults to `true`.
@@ -182,7 +182,7 @@ class EventHubNamespaceArgs:
     @pulumi.getter(name="maximumThroughputUnits")
     def maximum_throughput_units(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from `1` - `20`.
+        Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from `1` - `40`.
         """
         return pulumi.get(self, "maximum_throughput_units")
 
@@ -196,7 +196,7 @@ class EventHubNamespaceArgs:
         """
         The minimum supported TLS version for this EventHub Namespace. Valid values are: `1.0`, `1.1` and `1.2`. Defaults to `1.2`.
 
-        > **Note** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
+        > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         """
         return pulumi.get(self, "minimum_tls_version")
 
@@ -290,10 +290,10 @@ class _EventHubNamespaceState:
         :param pulumi.Input['EventHubNamespaceIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[builtins.bool] local_authentication_enabled: Is SAS authentication enabled for the EventHub Namespace? Defaults to `true`.
         :param pulumi.Input[builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[builtins.int] maximum_throughput_units: Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from `1` - `20`.
+        :param pulumi.Input[builtins.int] maximum_throughput_units: Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from `1` - `40`.
         :param pulumi.Input[builtins.str] minimum_tls_version: The minimum supported TLS version for this EventHub Namespace. Valid values are: `1.0`, `1.1` and `1.2`. Defaults to `1.2`.
                
-               > **Note** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
+               > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         :param pulumi.Input[builtins.str] name: Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created.
         :param pulumi.Input['EventHubNamespaceNetworkRulesetsArgs'] network_rulesets: A `network_rulesets` block as defined below.
         :param pulumi.Input[builtins.bool] public_network_access_enabled: Is public network access enabled for the EventHub Namespace? Defaults to `true`.
@@ -490,7 +490,7 @@ class _EventHubNamespaceState:
     @pulumi.getter(name="maximumThroughputUnits")
     def maximum_throughput_units(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from `1` - `20`.
+        Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from `1` - `40`.
         """
         return pulumi.get(self, "maximum_throughput_units")
 
@@ -504,7 +504,7 @@ class _EventHubNamespaceState:
         """
         The minimum supported TLS version for this EventHub Namespace. Valid values are: `1.0`, `1.1` and `1.2`. Defaults to `1.2`.
 
-        > **Note** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
+        > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         """
         return pulumi.get(self, "minimum_tls_version")
 
@@ -629,6 +629,13 @@ class EventHubNamespace(pulumi.CustomResource):
             })
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.EventHub`: 2024-01-01
+
         ## Import
 
         EventHub Namespaces can be imported using the `resource id`, e.g.
@@ -645,10 +652,10 @@ class EventHubNamespace(pulumi.CustomResource):
         :param pulumi.Input[Union['EventHubNamespaceIdentityArgs', 'EventHubNamespaceIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[builtins.bool] local_authentication_enabled: Is SAS authentication enabled for the EventHub Namespace? Defaults to `true`.
         :param pulumi.Input[builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[builtins.int] maximum_throughput_units: Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from `1` - `20`.
+        :param pulumi.Input[builtins.int] maximum_throughput_units: Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from `1` - `40`.
         :param pulumi.Input[builtins.str] minimum_tls_version: The minimum supported TLS version for this EventHub Namespace. Valid values are: `1.0`, `1.1` and `1.2`. Defaults to `1.2`.
                
-               > **Note** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
+               > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         :param pulumi.Input[builtins.str] name: Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['EventHubNamespaceNetworkRulesetsArgs', 'EventHubNamespaceNetworkRulesetsArgsDict']] network_rulesets: A `network_rulesets` block as defined below.
         :param pulumi.Input[builtins.bool] public_network_access_enabled: Is public network access enabled for the EventHub Namespace? Defaults to `true`.
@@ -684,6 +691,13 @@ class EventHubNamespace(pulumi.CustomResource):
                 "environment": "Production",
             })
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.EventHub`: 2024-01-01
 
         ## Import
 
@@ -806,10 +820,10 @@ class EventHubNamespace(pulumi.CustomResource):
         :param pulumi.Input[Union['EventHubNamespaceIdentityArgs', 'EventHubNamespaceIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[builtins.bool] local_authentication_enabled: Is SAS authentication enabled for the EventHub Namespace? Defaults to `true`.
         :param pulumi.Input[builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[builtins.int] maximum_throughput_units: Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from `1` - `20`.
+        :param pulumi.Input[builtins.int] maximum_throughput_units: Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from `1` - `40`.
         :param pulumi.Input[builtins.str] minimum_tls_version: The minimum supported TLS version for this EventHub Namespace. Valid values are: `1.0`, `1.1` and `1.2`. Defaults to `1.2`.
                
-               > **Note** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
+               > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         :param pulumi.Input[builtins.str] name: Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['EventHubNamespaceNetworkRulesetsArgs', 'EventHubNamespaceNetworkRulesetsArgsDict']] network_rulesets: A `network_rulesets` block as defined below.
         :param pulumi.Input[builtins.bool] public_network_access_enabled: Is public network access enabled for the EventHub Namespace? Defaults to `true`.
@@ -943,7 +957,7 @@ class EventHubNamespace(pulumi.CustomResource):
     @pulumi.getter(name="maximumThroughputUnits")
     def maximum_throughput_units(self) -> pulumi.Output[Optional[builtins.int]]:
         """
-        Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from `1` - `20`.
+        Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from `1` - `40`.
         """
         return pulumi.get(self, "maximum_throughput_units")
 
@@ -953,7 +967,7 @@ class EventHubNamespace(pulumi.CustomResource):
         """
         The minimum supported TLS version for this EventHub Namespace. Valid values are: `1.0`, `1.1` and `1.2`. Defaults to `1.2`.
 
-        > **Note** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
+        > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         """
         return pulumi.get(self, "minimum_tls_version")
 

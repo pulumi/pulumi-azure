@@ -46,7 +46,7 @@ export class CustomDomain extends pulumi.CustomResource {
     /**
      * Specifies the custom domain name of the Web PubSub Custom Domain. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** Please ensure the custom domain name is included in the Subject Alternative Names of the selected Web PubSub Custom Certificate.
+     * > **Note:** Please ensure the custom domain name is included in the Subject Alternative Names of the selected Web PubSub Custom Certificate.
      */
     public readonly domainName!: pulumi.Output<string>;
     /**
@@ -107,7 +107,7 @@ export interface CustomDomainState {
     /**
      * Specifies the custom domain name of the Web PubSub Custom Domain. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** Please ensure the custom domain name is included in the Subject Alternative Names of the selected Web PubSub Custom Certificate.
+     * > **Note:** Please ensure the custom domain name is included in the Subject Alternative Names of the selected Web PubSub Custom Certificate.
      */
     domainName?: pulumi.Input<string>;
     /**
@@ -131,7 +131,7 @@ export interface CustomDomainArgs {
     /**
      * Specifies the custom domain name of the Web PubSub Custom Domain. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** Please ensure the custom domain name is included in the Subject Alternative Names of the selected Web PubSub Custom Certificate.
+     * > **Note:** Please ensure the custom domain name is included in the Subject Alternative Names of the selected Web PubSub Custom Certificate.
      */
     domainName: pulumi.Input<string>;
     /**

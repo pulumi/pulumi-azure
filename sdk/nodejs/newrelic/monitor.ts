@@ -59,6 +59,13 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `NewRelic.Observability`: 2024-03-01
+ *
  * ## Import
  *
  * Azure Native New Relic Monitor can be imported using the `resource id`, e.g.
@@ -102,7 +109,7 @@ export class Monitor extends pulumi.CustomResource {
     /**
      * Specifies the account id. Changing this forces a new Azure Native New Relic Monitor to be created.
      *
-     * > **NOTE:** The value of `accountId` must come from an Azure Native New Relic Monitor instance of another different subscription.
+     * > **Note:** The value of `accountId` must come from an Azure Native New Relic Monitor instance of another different subscription.
      */
     public readonly accountId!: pulumi.Output<string>;
     /**
@@ -128,7 +135,7 @@ export class Monitor extends pulumi.CustomResource {
     /**
      * Specifies the organization id. Changing this forces a new Azure Native New Relic Monitor to be created.
      *
-     * > **NOTE:** The value of `organizationId` must come from an Azure Native New Relic Monitor instance of another different subscription.
+     * > **Note:** The value of `organizationId` must come from an Azure Native New Relic Monitor instance of another different subscription.
      */
     public readonly organizationId!: pulumi.Output<string>;
     /**
@@ -215,7 +222,7 @@ export interface MonitorState {
     /**
      * Specifies the account id. Changing this forces a new Azure Native New Relic Monitor to be created.
      *
-     * > **NOTE:** The value of `accountId` must come from an Azure Native New Relic Monitor instance of another different subscription.
+     * > **Note:** The value of `accountId` must come from an Azure Native New Relic Monitor instance of another different subscription.
      */
     accountId?: pulumi.Input<string>;
     /**
@@ -241,7 +248,7 @@ export interface MonitorState {
     /**
      * Specifies the organization id. Changing this forces a new Azure Native New Relic Monitor to be created.
      *
-     * > **NOTE:** The value of `organizationId` must come from an Azure Native New Relic Monitor instance of another different subscription.
+     * > **Note:** The value of `organizationId` must come from an Azure Native New Relic Monitor instance of another different subscription.
      */
     organizationId?: pulumi.Input<string>;
     /**
@@ -273,7 +280,7 @@ export interface MonitorArgs {
     /**
      * Specifies the account id. Changing this forces a new Azure Native New Relic Monitor to be created.
      *
-     * > **NOTE:** The value of `accountId` must come from an Azure Native New Relic Monitor instance of another different subscription.
+     * > **Note:** The value of `accountId` must come from an Azure Native New Relic Monitor instance of another different subscription.
      */
     accountId?: pulumi.Input<string>;
     /**
@@ -299,7 +306,7 @@ export interface MonitorArgs {
     /**
      * Specifies the organization id. Changing this forces a new Azure Native New Relic Monitor to be created.
      *
-     * > **NOTE:** The value of `organizationId` must come from an Azure Native New Relic Monitor instance of another different subscription.
+     * > **Note:** The value of `organizationId` must come from an Azure Native New Relic Monitor instance of another different subscription.
      */
     organizationId?: pulumi.Input<string>;
     /**

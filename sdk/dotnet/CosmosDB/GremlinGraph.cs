@@ -77,7 +77,7 @@ namespace Pulumi.Azure.CosmosDB
     /// });
     /// ```
     /// 
-    /// &gt; **NOTE:** The CosmosDB Account needs to have the `EnableGremlin` capability enabled to use this resource - which can be done by adding this to the `capabilities` list within the `azure.cosmosdb.Account` resource.
+    /// &gt; **Note:** The CosmosDB Account needs to have the `EnableGremlin` capability enabled to use this resource - which can be done by adding this to the `capabilities` list within the `azure.cosmosdb.Account` resource.
     /// 
     /// ## Import
     /// 

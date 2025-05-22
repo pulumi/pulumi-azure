@@ -356,8 +356,10 @@ export class WindowsVirtualMachine extends pulumi.CustomResource {
     public readonly virtualMachineScaleSetId!: pulumi.Output<string | undefined>;
     /**
      * Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.
+     *
+     * @deprecated this property has been deprecated due to a breaking change introduced by the Service team, which redefined it as a read-only field within the API
      */
-    public readonly vmAgentPlatformUpdatesEnabled!: pulumi.Output<boolean | undefined>;
+    public readonly vmAgentPlatformUpdatesEnabled!: pulumi.Output<boolean>;
     /**
      * Specifies if vTPM (virtual Trusted Platform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
      */
@@ -774,6 +776,8 @@ export interface WindowsVirtualMachineState {
     virtualMachineScaleSetId?: pulumi.Input<string>;
     /**
      * Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.
+     *
+     * @deprecated this property has been deprecated due to a breaking change introduced by the Service team, which redefined it as a read-only field within the API
      */
     vmAgentPlatformUpdatesEnabled?: pulumi.Input<boolean>;
     /**
@@ -1018,6 +1022,8 @@ export interface WindowsVirtualMachineArgs {
     virtualMachineScaleSetId?: pulumi.Input<string>;
     /**
      * Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.
+     *
+     * @deprecated this property has been deprecated due to a breaking change introduced by the Service team, which redefined it as a read-only field within the API
      */
     vmAgentPlatformUpdatesEnabled?: pulumi.Input<boolean>;
     /**

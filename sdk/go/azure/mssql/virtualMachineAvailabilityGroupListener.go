@@ -28,7 +28,7 @@ type VirtualMachineAvailabilityGroupListener struct {
 	AvailabilityGroupName pulumi.StringPtrOutput `pulumi:"availabilityGroupName"`
 	// A `loadBalancerConfiguration` block as defined below. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Either one of `loadBalancerConfiguration` or `multiSubnetIpConfiguration` must be specified.
+	// > **Note:** Either one of `loadBalancerConfiguration` or `multiSubnetIpConfiguration` must be specified.
 	LoadBalancerConfiguration VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationPtrOutput `pulumi:"loadBalancerConfiguration"`
 	// One or more `multiSubnetIpConfiguration` blocks as defined below. Changing this forces a new resource to be created.
 	MultiSubnetIpConfigurations VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArrayOutput `pulumi:"multiSubnetIpConfigurations"`
@@ -82,7 +82,7 @@ type virtualMachineAvailabilityGroupListenerState struct {
 	AvailabilityGroupName *string `pulumi:"availabilityGroupName"`
 	// A `loadBalancerConfiguration` block as defined below. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Either one of `loadBalancerConfiguration` or `multiSubnetIpConfiguration` must be specified.
+	// > **Note:** Either one of `loadBalancerConfiguration` or `multiSubnetIpConfiguration` must be specified.
 	LoadBalancerConfiguration *VirtualMachineAvailabilityGroupListenerLoadBalancerConfiguration `pulumi:"loadBalancerConfiguration"`
 	// One or more `multiSubnetIpConfiguration` blocks as defined below. Changing this forces a new resource to be created.
 	MultiSubnetIpConfigurations []VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfiguration `pulumi:"multiSubnetIpConfigurations"`
@@ -101,7 +101,7 @@ type VirtualMachineAvailabilityGroupListenerState struct {
 	AvailabilityGroupName pulumi.StringPtrInput
 	// A `loadBalancerConfiguration` block as defined below. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Either one of `loadBalancerConfiguration` or `multiSubnetIpConfiguration` must be specified.
+	// > **Note:** Either one of `loadBalancerConfiguration` or `multiSubnetIpConfiguration` must be specified.
 	LoadBalancerConfiguration VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationPtrInput
 	// One or more `multiSubnetIpConfiguration` blocks as defined below. Changing this forces a new resource to be created.
 	MultiSubnetIpConfigurations VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArrayInput
@@ -124,7 +124,7 @@ type virtualMachineAvailabilityGroupListenerArgs struct {
 	AvailabilityGroupName *string `pulumi:"availabilityGroupName"`
 	// A `loadBalancerConfiguration` block as defined below. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Either one of `loadBalancerConfiguration` or `multiSubnetIpConfiguration` must be specified.
+	// > **Note:** Either one of `loadBalancerConfiguration` or `multiSubnetIpConfiguration` must be specified.
 	LoadBalancerConfiguration *VirtualMachineAvailabilityGroupListenerLoadBalancerConfiguration `pulumi:"loadBalancerConfiguration"`
 	// One or more `multiSubnetIpConfiguration` blocks as defined below. Changing this forces a new resource to be created.
 	MultiSubnetIpConfigurations []VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfiguration `pulumi:"multiSubnetIpConfigurations"`
@@ -144,7 +144,7 @@ type VirtualMachineAvailabilityGroupListenerArgs struct {
 	AvailabilityGroupName pulumi.StringPtrInput
 	// A `loadBalancerConfiguration` block as defined below. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Either one of `loadBalancerConfiguration` or `multiSubnetIpConfiguration` must be specified.
+	// > **Note:** Either one of `loadBalancerConfiguration` or `multiSubnetIpConfiguration` must be specified.
 	LoadBalancerConfiguration VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationPtrInput
 	// One or more `multiSubnetIpConfiguration` blocks as defined below. Changing this forces a new resource to be created.
 	MultiSubnetIpConfigurations VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArrayInput
@@ -254,7 +254,7 @@ func (o VirtualMachineAvailabilityGroupListenerOutput) AvailabilityGroupName() p
 
 // A `loadBalancerConfiguration` block as defined below. Changing this forces a new resource to be created.
 //
-// > **NOTE:** Either one of `loadBalancerConfiguration` or `multiSubnetIpConfiguration` must be specified.
+// > **Note:** Either one of `loadBalancerConfiguration` or `multiSubnetIpConfiguration` must be specified.
 func (o VirtualMachineAvailabilityGroupListenerOutput) LoadBalancerConfiguration() VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationPtrOutput {
 	return o.ApplyT(func(v *VirtualMachineAvailabilityGroupListener) VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationPtrOutput {
 		return v.LoadBalancerConfiguration

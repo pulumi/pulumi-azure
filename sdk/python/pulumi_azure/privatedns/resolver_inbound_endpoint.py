@@ -252,6 +252,13 @@ class ResolverInboundEndpoint(pulumi.CustomResource):
             })
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network`: 2022-07-01
+
         ## Import
 
         Private DNS Resolver Inbound Endpoint can be imported using the `resource id`, e.g.
@@ -320,6 +327,13 @@ class ResolverInboundEndpoint(pulumi.CustomResource):
                 "key": "value",
             })
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network`: 2022-07-01
 
         ## Import
 

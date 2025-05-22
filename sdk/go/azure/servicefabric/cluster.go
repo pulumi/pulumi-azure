@@ -64,6 +64,13 @@ import (
 //
 // ```
 //
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.ServiceFabric`: 2021-06-01
+//
 // ## Import
 //
 // Service Fabric Clusters can be imported using the `resource id`, e.g.
@@ -84,7 +91,7 @@ type Cluster struct {
 	CertificateCommonNames ClusterCertificateCommonNamesPtrOutput `pulumi:"certificateCommonNames"`
 	// A `clientCertificateCommonName` block as defined below.
 	//
-	// > **NOTE:** If Client Certificates are enabled then at a Certificate must be configured on the cluster.
+	// > **Note:** If Client Certificates are enabled then at a Certificate must be configured on the cluster.
 	ClientCertificateCommonNames ClusterClientCertificateCommonNameArrayOutput `pulumi:"clientCertificateCommonNames"`
 	// One or more `clientCertificateThumbprint` blocks as defined below.
 	ClientCertificateThumbprints ClusterClientCertificateThumbprintArrayOutput `pulumi:"clientCertificateThumbprints"`
@@ -106,7 +113,7 @@ type Cluster struct {
 	NodeTypes ClusterNodeTypeArrayOutput `pulumi:"nodeTypes"`
 	// Specifies the Reliability Level of the Cluster. Possible values include `None`, `Bronze`, `Silver`, `Gold` and `Platinum`.
 	//
-	// > **NOTE:** The Reliability Level of the Cluster depends on the number of nodes in the Cluster: `Platinum` requires at least 9 VM's, `Gold` requires at least 7 VM's, `Silver` requires at least 5 VM's, `Bronze` requires at least 3 VM's.
+	// > **Note:** The Reliability Level of the Cluster depends on the number of nodes in the Cluster: `Platinum` requires at least 9 VM's, `Gold` requires at least 7 VM's, `Silver` requires at least 5 VM's, `Bronze` requires at least 3 VM's.
 	ReliabilityLevel pulumi.StringOutput `pulumi:"reliabilityLevel"`
 	// The name of the Resource Group in which the Service Fabric Cluster exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -186,7 +193,7 @@ type clusterState struct {
 	CertificateCommonNames *ClusterCertificateCommonNames `pulumi:"certificateCommonNames"`
 	// A `clientCertificateCommonName` block as defined below.
 	//
-	// > **NOTE:** If Client Certificates are enabled then at a Certificate must be configured on the cluster.
+	// > **Note:** If Client Certificates are enabled then at a Certificate must be configured on the cluster.
 	ClientCertificateCommonNames []ClusterClientCertificateCommonName `pulumi:"clientCertificateCommonNames"`
 	// One or more `clientCertificateThumbprint` blocks as defined below.
 	ClientCertificateThumbprints []ClusterClientCertificateThumbprint `pulumi:"clientCertificateThumbprints"`
@@ -208,7 +215,7 @@ type clusterState struct {
 	NodeTypes []ClusterNodeType `pulumi:"nodeTypes"`
 	// Specifies the Reliability Level of the Cluster. Possible values include `None`, `Bronze`, `Silver`, `Gold` and `Platinum`.
 	//
-	// > **NOTE:** The Reliability Level of the Cluster depends on the number of nodes in the Cluster: `Platinum` requires at least 9 VM's, `Gold` requires at least 7 VM's, `Silver` requires at least 5 VM's, `Bronze` requires at least 3 VM's.
+	// > **Note:** The Reliability Level of the Cluster depends on the number of nodes in the Cluster: `Platinum` requires at least 9 VM's, `Gold` requires at least 7 VM's, `Silver` requires at least 5 VM's, `Bronze` requires at least 3 VM's.
 	ReliabilityLevel *string `pulumi:"reliabilityLevel"`
 	// The name of the Resource Group in which the Service Fabric Cluster exists. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -241,7 +248,7 @@ type ClusterState struct {
 	CertificateCommonNames ClusterCertificateCommonNamesPtrInput
 	// A `clientCertificateCommonName` block as defined below.
 	//
-	// > **NOTE:** If Client Certificates are enabled then at a Certificate must be configured on the cluster.
+	// > **Note:** If Client Certificates are enabled then at a Certificate must be configured on the cluster.
 	ClientCertificateCommonNames ClusterClientCertificateCommonNameArrayInput
 	// One or more `clientCertificateThumbprint` blocks as defined below.
 	ClientCertificateThumbprints ClusterClientCertificateThumbprintArrayInput
@@ -263,7 +270,7 @@ type ClusterState struct {
 	NodeTypes ClusterNodeTypeArrayInput
 	// Specifies the Reliability Level of the Cluster. Possible values include `None`, `Bronze`, `Silver`, `Gold` and `Platinum`.
 	//
-	// > **NOTE:** The Reliability Level of the Cluster depends on the number of nodes in the Cluster: `Platinum` requires at least 9 VM's, `Gold` requires at least 7 VM's, `Silver` requires at least 5 VM's, `Bronze` requires at least 3 VM's.
+	// > **Note:** The Reliability Level of the Cluster depends on the number of nodes in the Cluster: `Platinum` requires at least 9 VM's, `Gold` requires at least 7 VM's, `Silver` requires at least 5 VM's, `Bronze` requires at least 3 VM's.
 	ReliabilityLevel pulumi.StringPtrInput
 	// The name of the Resource Group in which the Service Fabric Cluster exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -300,7 +307,7 @@ type clusterArgs struct {
 	CertificateCommonNames *ClusterCertificateCommonNames `pulumi:"certificateCommonNames"`
 	// A `clientCertificateCommonName` block as defined below.
 	//
-	// > **NOTE:** If Client Certificates are enabled then at a Certificate must be configured on the cluster.
+	// > **Note:** If Client Certificates are enabled then at a Certificate must be configured on the cluster.
 	ClientCertificateCommonNames []ClusterClientCertificateCommonName `pulumi:"clientCertificateCommonNames"`
 	// One or more `clientCertificateThumbprint` blocks as defined below.
 	ClientCertificateThumbprints []ClusterClientCertificateThumbprint `pulumi:"clientCertificateThumbprints"`
@@ -320,7 +327,7 @@ type clusterArgs struct {
 	NodeTypes []ClusterNodeType `pulumi:"nodeTypes"`
 	// Specifies the Reliability Level of the Cluster. Possible values include `None`, `Bronze`, `Silver`, `Gold` and `Platinum`.
 	//
-	// > **NOTE:** The Reliability Level of the Cluster depends on the number of nodes in the Cluster: `Platinum` requires at least 9 VM's, `Gold` requires at least 7 VM's, `Silver` requires at least 5 VM's, `Bronze` requires at least 3 VM's.
+	// > **Note:** The Reliability Level of the Cluster depends on the number of nodes in the Cluster: `Platinum` requires at least 9 VM's, `Gold` requires at least 7 VM's, `Silver` requires at least 5 VM's, `Bronze` requires at least 3 VM's.
 	ReliabilityLevel string `pulumi:"reliabilityLevel"`
 	// The name of the Resource Group in which the Service Fabric Cluster exists. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -354,7 +361,7 @@ type ClusterArgs struct {
 	CertificateCommonNames ClusterCertificateCommonNamesPtrInput
 	// A `clientCertificateCommonName` block as defined below.
 	//
-	// > **NOTE:** If Client Certificates are enabled then at a Certificate must be configured on the cluster.
+	// > **Note:** If Client Certificates are enabled then at a Certificate must be configured on the cluster.
 	ClientCertificateCommonNames ClusterClientCertificateCommonNameArrayInput
 	// One or more `clientCertificateThumbprint` blocks as defined below.
 	ClientCertificateThumbprints ClusterClientCertificateThumbprintArrayInput
@@ -374,7 +381,7 @@ type ClusterArgs struct {
 	NodeTypes ClusterNodeTypeArrayInput
 	// Specifies the Reliability Level of the Cluster. Possible values include `None`, `Bronze`, `Silver`, `Gold` and `Platinum`.
 	//
-	// > **NOTE:** The Reliability Level of the Cluster depends on the number of nodes in the Cluster: `Platinum` requires at least 9 VM's, `Gold` requires at least 7 VM's, `Silver` requires at least 5 VM's, `Bronze` requires at least 3 VM's.
+	// > **Note:** The Reliability Level of the Cluster depends on the number of nodes in the Cluster: `Platinum` requires at least 9 VM's, `Gold` requires at least 7 VM's, `Silver` requires at least 5 VM's, `Bronze` requires at least 3 VM's.
 	ReliabilityLevel pulumi.StringInput
 	// The name of the Resource Group in which the Service Fabric Cluster exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
@@ -505,7 +512,7 @@ func (o ClusterOutput) CertificateCommonNames() ClusterCertificateCommonNamesPtr
 
 // A `clientCertificateCommonName` block as defined below.
 //
-// > **NOTE:** If Client Certificates are enabled then at a Certificate must be configured on the cluster.
+// > **Note:** If Client Certificates are enabled then at a Certificate must be configured on the cluster.
 func (o ClusterOutput) ClientCertificateCommonNames() ClusterClientCertificateCommonNameArrayOutput {
 	return o.ApplyT(func(v *Cluster) ClusterClientCertificateCommonNameArrayOutput { return v.ClientCertificateCommonNames }).(ClusterClientCertificateCommonNameArrayOutput)
 }
@@ -557,7 +564,7 @@ func (o ClusterOutput) NodeTypes() ClusterNodeTypeArrayOutput {
 
 // Specifies the Reliability Level of the Cluster. Possible values include `None`, `Bronze`, `Silver`, `Gold` and `Platinum`.
 //
-// > **NOTE:** The Reliability Level of the Cluster depends on the number of nodes in the Cluster: `Platinum` requires at least 9 VM's, `Gold` requires at least 7 VM's, `Silver` requires at least 5 VM's, `Bronze` requires at least 3 VM's.
+// > **Note:** The Reliability Level of the Cluster depends on the number of nodes in the Cluster: `Platinum` requires at least 9 VM's, `Gold` requires at least 7 VM's, `Silver` requires at least 5 VM's, `Bronze` requires at least 3 VM's.
 func (o ClusterOutput) ReliabilityLevel() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ReliabilityLevel }).(pulumi.StringOutput)
 }

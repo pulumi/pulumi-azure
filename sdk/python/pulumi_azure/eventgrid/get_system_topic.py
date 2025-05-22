@@ -154,6 +154,13 @@ def get_system_topic(name: Optional[builtins.str] = None,
         resource_group_name="example-resources")
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.EventGrid`: 2022-06-15
+
 
     :param builtins.str name: The name of the EventGrid System Topic resource.
     :param builtins.str resource_group_name: The name of the resource group in which the EventGrid System Topic exists.
@@ -189,6 +196,13 @@ def get_system_topic_output(name: Optional[pulumi.Input[builtins.str]] = None,
     example = azure.eventgrid.get_system_topic(name="eventgrid-system-topic",
         resource_group_name="example-resources")
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.EventGrid`: 2022-06-15
 
 
     :param builtins.str name: The name of the EventGrid System Topic resource.

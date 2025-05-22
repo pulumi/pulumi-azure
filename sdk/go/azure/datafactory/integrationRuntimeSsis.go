@@ -75,7 +75,7 @@ type IntegrationRuntimeSsis struct {
 	CopyComputeScale IntegrationRuntimeSsisCopyComputeScalePtrOutput `pulumi:"copyComputeScale"`
 	// The name of a Data Factory Credential that the SSIS integration will use to access data sources. For example, `datafactory.CredentialUserManagedIdentity`
 	//
-	// > **NOTE** If `credentialName` is omitted, the integration runtime will use the Data Factory assigned identity.
+	// > **Note:** If `credentialName` is omitted, the integration runtime will use the Data Factory assigned identity.
 	CredentialName pulumi.StringPtrOutput `pulumi:"credentialName"`
 	// A `customSetupScript` block as defined below.
 	CustomSetupScript IntegrationRuntimeSsisCustomSetupScriptPtrOutput `pulumi:"customSetupScript"`
@@ -159,7 +159,7 @@ type integrationRuntimeSsisState struct {
 	CopyComputeScale *IntegrationRuntimeSsisCopyComputeScale `pulumi:"copyComputeScale"`
 	// The name of a Data Factory Credential that the SSIS integration will use to access data sources. For example, `datafactory.CredentialUserManagedIdentity`
 	//
-	// > **NOTE** If `credentialName` is omitted, the integration runtime will use the Data Factory assigned identity.
+	// > **Note:** If `credentialName` is omitted, the integration runtime will use the Data Factory assigned identity.
 	CredentialName *string `pulumi:"credentialName"`
 	// A `customSetupScript` block as defined below.
 	CustomSetupScript *IntegrationRuntimeSsisCustomSetupScript `pulumi:"customSetupScript"`
@@ -202,7 +202,7 @@ type IntegrationRuntimeSsisState struct {
 	CopyComputeScale IntegrationRuntimeSsisCopyComputeScalePtrInput
 	// The name of a Data Factory Credential that the SSIS integration will use to access data sources. For example, `datafactory.CredentialUserManagedIdentity`
 	//
-	// > **NOTE** If `credentialName` is omitted, the integration runtime will use the Data Factory assigned identity.
+	// > **Note:** If `credentialName` is omitted, the integration runtime will use the Data Factory assigned identity.
 	CredentialName pulumi.StringPtrInput
 	// A `customSetupScript` block as defined below.
 	CustomSetupScript IntegrationRuntimeSsisCustomSetupScriptPtrInput
@@ -249,7 +249,7 @@ type integrationRuntimeSsisArgs struct {
 	CopyComputeScale *IntegrationRuntimeSsisCopyComputeScale `pulumi:"copyComputeScale"`
 	// The name of a Data Factory Credential that the SSIS integration will use to access data sources. For example, `datafactory.CredentialUserManagedIdentity`
 	//
-	// > **NOTE** If `credentialName` is omitted, the integration runtime will use the Data Factory assigned identity.
+	// > **Note:** If `credentialName` is omitted, the integration runtime will use the Data Factory assigned identity.
 	CredentialName *string `pulumi:"credentialName"`
 	// A `customSetupScript` block as defined below.
 	CustomSetupScript *IntegrationRuntimeSsisCustomSetupScript `pulumi:"customSetupScript"`
@@ -293,7 +293,7 @@ type IntegrationRuntimeSsisArgs struct {
 	CopyComputeScale IntegrationRuntimeSsisCopyComputeScalePtrInput
 	// The name of a Data Factory Credential that the SSIS integration will use to access data sources. For example, `datafactory.CredentialUserManagedIdentity`
 	//
-	// > **NOTE** If `credentialName` is omitted, the integration runtime will use the Data Factory assigned identity.
+	// > **Note:** If `credentialName` is omitted, the integration runtime will use the Data Factory assigned identity.
 	CredentialName pulumi.StringPtrInput
 	// A `customSetupScript` block as defined below.
 	CustomSetupScript IntegrationRuntimeSsisCustomSetupScriptPtrInput
@@ -430,7 +430,7 @@ func (o IntegrationRuntimeSsisOutput) CopyComputeScale() IntegrationRuntimeSsisC
 
 // The name of a Data Factory Credential that the SSIS integration will use to access data sources. For example, `datafactory.CredentialUserManagedIdentity`
 //
-// > **NOTE** If `credentialName` is omitted, the integration runtime will use the Data Factory assigned identity.
+// > **Note:** If `credentialName` is omitted, the integration runtime will use the Data Factory assigned identity.
 func (o IntegrationRuntimeSsisOutput) CredentialName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IntegrationRuntimeSsis) pulumi.StringPtrOutput { return v.CredentialName }).(pulumi.StringPtrOutput)
 }

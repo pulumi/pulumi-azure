@@ -271,6 +271,13 @@ class PtrRecord(pulumi.CustomResource):
             records=["yourdomain.com"])
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network`: 2018-05-01
+
         ## Import
 
         PTR records can be imported using the `resource id`, e.g.
@@ -314,6 +321,13 @@ class PtrRecord(pulumi.CustomResource):
             ttl=300,
             records=["yourdomain.com"])
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network`: 2018-05-01
 
         ## Import
 

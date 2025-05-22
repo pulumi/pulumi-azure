@@ -636,6 +636,13 @@ class ManagedCluster(pulumi.CustomResource):
             }])
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ServiceFabric`: 2024-04-01
+
         ## Import
 
         Resource Groups can be imported using the `resource id`, e.g.
@@ -706,6 +713,13 @@ class ManagedCluster(pulumi.CustomResource):
                 "vm_instance_count": 5,
             }])
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ServiceFabric`: 2024-04-01
 
         ## Import
 

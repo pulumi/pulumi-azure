@@ -25,6 +25,13 @@ import javax.annotation.Nullable;
  * &lt;!--Start PulumiCodeChooser --&gt;
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.StreamAnalytics`: 2021-10-01-preview
+ * 
  * ## Import
  * 
  * Stream Analytics Output ServiceBus Topic&#39;s can be imported using the `resource id`, e.g.
@@ -165,7 +172,7 @@ public class OutputServicebusTopic extends com.pulumi.resources.CustomResource {
     /**
      * A key-value pair of system property columns that will be attached to the outgoing messages for the Service Bus Topic Output.
      * 
-     * &gt; **NOTE:** The acceptable keys are `ContentType`, `CorrelationId`, `Label`, `MessageId`, `PartitionKey`, `ReplyTo`, `ReplyToSessionId`, `ScheduledEnqueueTimeUtc`, `SessionId`, `TimeToLive` and `To`.
+     * &gt; **Note:** The acceptable keys are `ContentType`, `CorrelationId`, `Label`, `MessageId`, `PartitionKey`, `ReplyTo`, `ReplyToSessionId`, `ScheduledEnqueueTimeUtc`, `SessionId`, `TimeToLive` and `To`.
      * 
      */
     @Export(name="systemPropertyColumns", refs={Map.class,String.class}, tree="[0,1,1]")
@@ -174,7 +181,7 @@ public class OutputServicebusTopic extends com.pulumi.resources.CustomResource {
     /**
      * @return A key-value pair of system property columns that will be attached to the outgoing messages for the Service Bus Topic Output.
      * 
-     * &gt; **NOTE:** The acceptable keys are `ContentType`, `CorrelationId`, `Label`, `MessageId`, `PartitionKey`, `ReplyTo`, `ReplyToSessionId`, `ScheduledEnqueueTimeUtc`, `SessionId`, `TimeToLive` and `To`.
+     * &gt; **Note:** The acceptable keys are `ContentType`, `CorrelationId`, `Label`, `MessageId`, `PartitionKey`, `ReplyTo`, `ReplyToSessionId`, `ScheduledEnqueueTimeUtc`, `SessionId`, `TimeToLive` and `To`.
      * 
      */
     public Output<Optional<Map<String,String>>> systemPropertyColumns() {

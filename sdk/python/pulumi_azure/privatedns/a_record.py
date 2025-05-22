@@ -273,6 +273,13 @@ class ARecord(pulumi.CustomResource):
             records=["10.0.180.17"])
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network`: 2024-06-01
+
         ## Import
 
         Private DNS A Records can be imported using the `resource id`, e.g.
@@ -318,6 +325,13 @@ class ARecord(pulumi.CustomResource):
             ttl=300,
             records=["10.0.180.17"])
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network`: 2024-06-01
 
         ## Import
 

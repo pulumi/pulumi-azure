@@ -39,7 +39,7 @@ class FileUploadArgs:
         :param pulumi.Input[builtins.str] default_ttl: The period of time for which a file upload notification message is available to consume before it expires, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 48 hours. Defaults to `PT1H`.
         :param pulumi.Input[builtins.str] identity_id: The ID of the User Managed Identity used to authenticate against the storage account.
                
-               > **NOTE:** `identity_id` can only be specified when `authentication_type` is `identityBased`. It must be one of the `identity_ids` of the IoT Hub. If `identity_id` is omitted when `authentication_type` is `identityBased`, then the System-Assigned Managed Identity of the IoT Hub will be used.
+               > **Note:** `identity_id` can only be specified when `authentication_type` is `identityBased`. It must be one of the `identity_ids` of the IoT Hub. If `identity_id` is omitted when `authentication_type` is `identityBased`, then the System-Assigned Managed Identity of the IoT Hub will be used.
         :param pulumi.Input[builtins.str] lock_duration: The lock duration for the file upload notifications queue, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 5 and 300 seconds. Defaults to `PT1M`.
         :param pulumi.Input[builtins.int] max_delivery_count: The number of times the IoT Hub attempts to deliver a file upload notification message. Defaults to `10`.
         :param pulumi.Input[builtins.bool] notifications_enabled: Used to specify whether file notifications are sent to IoT Hub on upload. Defaults to `false`.
@@ -129,7 +129,7 @@ class FileUploadArgs:
         """
         The ID of the User Managed Identity used to authenticate against the storage account.
 
-        > **NOTE:** `identity_id` can only be specified when `authentication_type` is `identityBased`. It must be one of the `identity_ids` of the IoT Hub. If `identity_id` is omitted when `authentication_type` is `identityBased`, then the System-Assigned Managed Identity of the IoT Hub will be used.
+        > **Note:** `identity_id` can only be specified when `authentication_type` is `identityBased`. It must be one of the `identity_ids` of the IoT Hub. If `identity_id` is omitted when `authentication_type` is `identityBased`, then the System-Assigned Managed Identity of the IoT Hub will be used.
         """
         return pulumi.get(self, "identity_id")
 
@@ -207,7 +207,7 @@ class _FileUploadState:
         :param pulumi.Input[builtins.str] default_ttl: The period of time for which a file upload notification message is available to consume before it expires, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 48 hours. Defaults to `PT1H`.
         :param pulumi.Input[builtins.str] identity_id: The ID of the User Managed Identity used to authenticate against the storage account.
                
-               > **NOTE:** `identity_id` can only be specified when `authentication_type` is `identityBased`. It must be one of the `identity_ids` of the IoT Hub. If `identity_id` is omitted when `authentication_type` is `identityBased`, then the System-Assigned Managed Identity of the IoT Hub will be used.
+               > **Note:** `identity_id` can only be specified when `authentication_type` is `identityBased`. It must be one of the `identity_ids` of the IoT Hub. If `identity_id` is omitted when `authentication_type` is `identityBased`, then the System-Assigned Managed Identity of the IoT Hub will be used.
         :param pulumi.Input[builtins.str] iothub_id: The ID of the IoT Hub. Changing this forces a new IoT Hub to be created.
         :param pulumi.Input[builtins.str] lock_duration: The lock duration for the file upload notifications queue, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 5 and 300 seconds. Defaults to `PT1M`.
         :param pulumi.Input[builtins.int] max_delivery_count: The number of times the IoT Hub attempts to deliver a file upload notification message. Defaults to `10`.
@@ -289,7 +289,7 @@ class _FileUploadState:
         """
         The ID of the User Managed Identity used to authenticate against the storage account.
 
-        > **NOTE:** `identity_id` can only be specified when `authentication_type` is `identityBased`. It must be one of the `identity_ids` of the IoT Hub. If `identity_id` is omitted when `authentication_type` is `identityBased`, then the System-Assigned Managed Identity of the IoT Hub will be used.
+        > **Note:** `identity_id` can only be specified when `authentication_type` is `identityBased`. It must be one of the `identity_ids` of the IoT Hub. If `identity_id` is omitted when `authentication_type` is `identityBased`, then the System-Assigned Managed Identity of the IoT Hub will be used.
         """
         return pulumi.get(self, "identity_id")
 
@@ -378,7 +378,7 @@ class FileUpload(pulumi.CustomResource):
         """
         Manages the File Upload of an IoT Hub.
 
-        > **NOTE:** File upload can be defined either directly on the `iot.IoTHub` resource, or using the `iot.FileUpload` resource - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
+        > **Note:** File upload can be defined either directly on the `iot.IoTHub` resource, or using the `iot.FileUpload` resource - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
 
         ## Example Usage
 
@@ -429,7 +429,7 @@ class FileUpload(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] default_ttl: The period of time for which a file upload notification message is available to consume before it expires, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 48 hours. Defaults to `PT1H`.
         :param pulumi.Input[builtins.str] identity_id: The ID of the User Managed Identity used to authenticate against the storage account.
                
-               > **NOTE:** `identity_id` can only be specified when `authentication_type` is `identityBased`. It must be one of the `identity_ids` of the IoT Hub. If `identity_id` is omitted when `authentication_type` is `identityBased`, then the System-Assigned Managed Identity of the IoT Hub will be used.
+               > **Note:** `identity_id` can only be specified when `authentication_type` is `identityBased`. It must be one of the `identity_ids` of the IoT Hub. If `identity_id` is omitted when `authentication_type` is `identityBased`, then the System-Assigned Managed Identity of the IoT Hub will be used.
         :param pulumi.Input[builtins.str] iothub_id: The ID of the IoT Hub. Changing this forces a new IoT Hub to be created.
         :param pulumi.Input[builtins.str] lock_duration: The lock duration for the file upload notifications queue, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 5 and 300 seconds. Defaults to `PT1M`.
         :param pulumi.Input[builtins.int] max_delivery_count: The number of times the IoT Hub attempts to deliver a file upload notification message. Defaults to `10`.
@@ -445,7 +445,7 @@ class FileUpload(pulumi.CustomResource):
         """
         Manages the File Upload of an IoT Hub.
 
-        > **NOTE:** File upload can be defined either directly on the `iot.IoTHub` resource, or using the `iot.FileUpload` resource - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
+        > **Note:** File upload can be defined either directly on the `iot.IoTHub` resource, or using the `iot.FileUpload` resource - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
 
         ## Example Usage
 
@@ -573,7 +573,7 @@ class FileUpload(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] default_ttl: The period of time for which a file upload notification message is available to consume before it expires, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 48 hours. Defaults to `PT1H`.
         :param pulumi.Input[builtins.str] identity_id: The ID of the User Managed Identity used to authenticate against the storage account.
                
-               > **NOTE:** `identity_id` can only be specified when `authentication_type` is `identityBased`. It must be one of the `identity_ids` of the IoT Hub. If `identity_id` is omitted when `authentication_type` is `identityBased`, then the System-Assigned Managed Identity of the IoT Hub will be used.
+               > **Note:** `identity_id` can only be specified when `authentication_type` is `identityBased`. It must be one of the `identity_ids` of the IoT Hub. If `identity_id` is omitted when `authentication_type` is `identityBased`, then the System-Assigned Managed Identity of the IoT Hub will be used.
         :param pulumi.Input[builtins.str] iothub_id: The ID of the IoT Hub. Changing this forces a new IoT Hub to be created.
         :param pulumi.Input[builtins.str] lock_duration: The lock duration for the file upload notifications queue, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 5 and 300 seconds. Defaults to `PT1M`.
         :param pulumi.Input[builtins.int] max_delivery_count: The number of times the IoT Hub attempts to deliver a file upload notification message. Defaults to `10`.
@@ -634,7 +634,7 @@ class FileUpload(pulumi.CustomResource):
         """
         The ID of the User Managed Identity used to authenticate against the storage account.
 
-        > **NOTE:** `identity_id` can only be specified when `authentication_type` is `identityBased`. It must be one of the `identity_ids` of the IoT Hub. If `identity_id` is omitted when `authentication_type` is `identityBased`, then the System-Assigned Managed Identity of the IoT Hub will be used.
+        > **Note:** `identity_id` can only be specified when `authentication_type` is `identityBased`. It must be one of the `identity_ids` of the IoT Hub. If `identity_id` is omitted when `authentication_type` is `identityBased`, then the System-Assigned Managed Identity of the IoT Hub will be used.
         """
         return pulumi.get(self, "identity_id")
 

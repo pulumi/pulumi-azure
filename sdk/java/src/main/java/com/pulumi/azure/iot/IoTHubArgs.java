@@ -91,7 +91,7 @@ public final class IoTHubArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * A `fallback_route` block as defined below. If the fallback route is enabled, messages that don&#39;t match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
      * 
-     * &gt; **NOTE:** If `fallback_route` isn&#39;t explicitly specified, the fallback route wouldn&#39;t be enabled by default.
+     * &gt; **Note:** If `fallback_route` isn&#39;t explicitly specified, the fallback route wouldn&#39;t be enabled by default.
      * 
      */
     @Import(name="fallbackRoute")
@@ -100,7 +100,7 @@ public final class IoTHubArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return A `fallback_route` block as defined below. If the fallback route is enabled, messages that don&#39;t match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
      * 
-     * &gt; **NOTE:** If `fallback_route` isn&#39;t explicitly specified, the fallback route wouldn&#39;t be enabled by default.
+     * &gt; **Note:** If `fallback_route` isn&#39;t explicitly specified, the fallback route wouldn&#39;t be enabled by default.
      * 
      */
     public Optional<Output<IoTHubFallbackRouteArgs>> fallbackRoute() {
@@ -394,7 +394,7 @@ public final class IoTHubArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param fallbackRoute A `fallback_route` block as defined below. If the fallback route is enabled, messages that don&#39;t match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
          * 
-         * &gt; **NOTE:** If `fallback_route` isn&#39;t explicitly specified, the fallback route wouldn&#39;t be enabled by default.
+         * &gt; **Note:** If `fallback_route` isn&#39;t explicitly specified, the fallback route wouldn&#39;t be enabled by default.
          * 
          * @return builder
          * 
@@ -407,7 +407,7 @@ public final class IoTHubArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param fallbackRoute A `fallback_route` block as defined below. If the fallback route is enabled, messages that don&#39;t match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
          * 
-         * &gt; **NOTE:** If `fallback_route` isn&#39;t explicitly specified, the fallback route wouldn&#39;t be enabled by default.
+         * &gt; **Note:** If `fallback_route` isn&#39;t explicitly specified, the fallback route wouldn&#39;t be enabled by default.
          * 
          * @return builder
          * 

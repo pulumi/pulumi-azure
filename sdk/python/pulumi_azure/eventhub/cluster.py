@@ -222,6 +222,13 @@ class Cluster(pulumi.CustomResource):
             sku_name="Dedicated_1")
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.EventHub`: 2024-01-01
+
         ## Import
 
         EventHub Cluster's can be imported using the `resource id`, e.g.
@@ -262,6 +269,13 @@ class Cluster(pulumi.CustomResource):
             location=example.location,
             sku_name="Dedicated_1")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.EventHub`: 2024-01-01
 
         ## Import
 

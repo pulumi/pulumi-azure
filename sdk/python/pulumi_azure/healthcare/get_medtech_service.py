@@ -146,6 +146,13 @@ def get_medtech_service(name: Optional[builtins.str] = None,
     pulumi.export("azurermHealthcareMedtechServiceId", example.id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.HealthcareApis`: 2022-12-01
+
 
     :param builtins.str name: The name of the Healthcare Med Tech Service.
     :param builtins.str workspace_id: The id of the Healthcare Workspace in which the Healthcare Med Tech Service exists.
@@ -181,6 +188,13 @@ def get_medtech_service_output(name: Optional[pulumi.Input[builtins.str]] = None
         workspace_id="tfexwks")
     pulumi.export("azurermHealthcareMedtechServiceId", example.id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.HealthcareApis`: 2022-12-01
 
 
     :param builtins.str name: The name of the Healthcare Med Tech Service.

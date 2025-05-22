@@ -282,7 +282,7 @@ public class ExpressRouteCircuitPeering extends com.pulumi.resources.CustomResou
     /**
      * The type of the ExpressRoute Circuit Peering. Acceptable values include `AzurePrivatePeering`, `AzurePublicPeering` and `MicrosoftPeering`.
      * 
-     * &gt; **NOTE:** only one Peering of each Type can be created. Attempting to create multiple peerings of the same type will overwrite the original peering.
+     * &gt; **Note:** only one Peering of each Type can be created. Attempting to create multiple peerings of the same type will overwrite the original peering.
      * 
      */
     @Export(name="peeringType", refs={String.class}, tree="[0]")
@@ -291,7 +291,7 @@ public class ExpressRouteCircuitPeering extends com.pulumi.resources.CustomResou
     /**
      * @return The type of the ExpressRoute Circuit Peering. Acceptable values include `AzurePrivatePeering`, `AzurePublicPeering` and `MicrosoftPeering`.
      * 
-     * &gt; **NOTE:** only one Peering of each Type can be created. Attempting to create multiple peerings of the same type will overwrite the original peering.
+     * &gt; **Note:** only one Peering of each Type can be created. Attempting to create multiple peerings of the same type will overwrite the original peering.
      * 
      */
     public Output<String> peeringType() {
@@ -342,7 +342,7 @@ public class ExpressRouteCircuitPeering extends com.pulumi.resources.CustomResou
     /**
      * The ID of the Route Filter. Only available when `peering_type` is set to `MicrosoftPeering`.
      * 
-     * &gt; **NOTE:** `ipv6` can be specified when `peering_type` is `MicrosoftPeering` or `AzurePrivatePeering`
+     * &gt; **Note:** `ipv6` can be specified when `peering_type` is `MicrosoftPeering` or `AzurePrivatePeering`
      * 
      */
     @Export(name="routeFilterId", refs={String.class}, tree="[0]")
@@ -351,7 +351,7 @@ public class ExpressRouteCircuitPeering extends com.pulumi.resources.CustomResou
     /**
      * @return The ID of the Route Filter. Only available when `peering_type` is set to `MicrosoftPeering`.
      * 
-     * &gt; **NOTE:** `ipv6` can be specified when `peering_type` is `MicrosoftPeering` or `AzurePrivatePeering`
+     * &gt; **Note:** `ipv6` can be specified when `peering_type` is `MicrosoftPeering` or `AzurePrivatePeering`
      * 
      */
     public Output<Optional<String>> routeFilterId() {

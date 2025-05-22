@@ -139,6 +139,13 @@ def get_share(account_id: Optional[builtins.str] = None,
     pulumi.export("id", example_get_share.id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.DataShare`: 2019-11-01
+
 
     :param builtins.str account_id: The ID of the Data Share account in which the Data Share is created.
     :param builtins.str name: The name of this Data Share.
@@ -175,6 +182,13 @@ def get_share_output(account_id: Optional[pulumi.Input[builtins.str]] = None,
         account_id=example.id)
     pulumi.export("id", example_get_share.id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.DataShare`: 2019-11-01
 
 
     :param builtins.str account_id: The ID of the Data Share account in which the Data Share is created.

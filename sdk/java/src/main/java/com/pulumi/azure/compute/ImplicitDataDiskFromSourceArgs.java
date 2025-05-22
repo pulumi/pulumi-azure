@@ -48,17 +48,9 @@ public final class ImplicitDataDiskFromSourceArgs extends com.pulumi.resources.R
         return this.createOption;
     }
 
-    /**
-     * Specifies the size of the Data Disk in gigabytes. Changing this forces a new resource to be created.
-     * 
-     */
     @Import(name="diskSizeGb", required=true)
     private Output<Integer> diskSizeGb;
 
-    /**
-     * @return Specifies the size of the Data Disk in gigabytes. Changing this forces a new resource to be created.
-     * 
-     */
     public Output<Integer> diskSizeGb() {
         return this.diskSizeGb;
     }
@@ -211,23 +203,11 @@ public final class ImplicitDataDiskFromSourceArgs extends com.pulumi.resources.R
             return createOption(Output.of(createOption));
         }
 
-        /**
-         * @param diskSizeGb Specifies the size of the Data Disk in gigabytes. Changing this forces a new resource to be created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder diskSizeGb(Output<Integer> diskSizeGb) {
             $.diskSizeGb = diskSizeGb;
             return this;
         }
 
-        /**
-         * @param diskSizeGb Specifies the size of the Data Disk in gigabytes. Changing this forces a new resource to be created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder diskSizeGb(Integer diskSizeGb) {
             return diskSizeGb(Output.of(diskSizeGb));
         }

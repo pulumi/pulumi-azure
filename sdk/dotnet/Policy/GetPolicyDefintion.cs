@@ -102,7 +102,7 @@ namespace Pulumi.Azure.Policy
         /// <summary>
         /// Specifies the display name of the Policy Definition. Conflicts with `name`.
         /// 
-        /// &gt; **NOTE** Looking up policies by `display_name` is not recommended by the Azure Policy team as the property is not unique nor immutable. As such errors may occur when there are multiple policy definitions with same display name or the display name is changed. To avoid these types of errors you may wish to use the `name` property instead.
+        /// &gt; **Note:** Looking up policies by `display_name` is not recommended by the Azure Policy team as the property is not unique nor immutable. As such errors may occur when there are multiple policy definitions with same display name or the display name is changed. To avoid these types of errors you may wish to use the `name` property instead.
         /// </summary>
         [Input("displayName")]
         public string? DisplayName { get; set; }
@@ -130,7 +130,7 @@ namespace Pulumi.Azure.Policy
         /// <summary>
         /// Specifies the display name of the Policy Definition. Conflicts with `name`.
         /// 
-        /// &gt; **NOTE** Looking up policies by `display_name` is not recommended by the Azure Policy team as the property is not unique nor immutable. As such errors may occur when there are multiple policy definitions with same display name or the display name is changed. To avoid these types of errors you may wish to use the `name` property instead.
+        /// &gt; **Note:** Looking up policies by `display_name` is not recommended by the Azure Policy team as the property is not unique nor immutable. As such errors may occur when there are multiple policy definitions with same display name or the display name is changed. To avoid these types of errors you may wish to use the `name` property instead.
         /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }

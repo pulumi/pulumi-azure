@@ -136,7 +136,7 @@ type Automation struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name which should be used for this Security Center Automation. Changing this forces a new Security Center Automation to be created.
 	//
-	// > **NOTE:** For the automation to appear in Azure Portal correctly under Microsoft Defender for Cloud > Environment Settings > Account > Continuous Export, either `ExportToWorkspace` or `ExportToEventHub` must be used.
+	// > **Note:** For the automation to appear in Azure Portal correctly under Microsoft Defender for Cloud > Environment Settings > Account > Continuous Export, either `ExportToWorkspace` or `ExportToEventHub` must be used.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the Resource Group where the Security Center Automation should exist. Changing this forces a new Security Center Automation to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -200,7 +200,7 @@ type automationState struct {
 	Location *string `pulumi:"location"`
 	// The name which should be used for this Security Center Automation. Changing this forces a new Security Center Automation to be created.
 	//
-	// > **NOTE:** For the automation to appear in Azure Portal correctly under Microsoft Defender for Cloud > Environment Settings > Account > Continuous Export, either `ExportToWorkspace` or `ExportToEventHub` must be used.
+	// > **Note:** For the automation to appear in Azure Portal correctly under Microsoft Defender for Cloud > Environment Settings > Account > Continuous Export, either `ExportToWorkspace` or `ExportToEventHub` must be used.
 	Name *string `pulumi:"name"`
 	// The name of the Resource Group where the Security Center Automation should exist. Changing this forces a new Security Center Automation to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -223,7 +223,7 @@ type AutomationState struct {
 	Location pulumi.StringPtrInput
 	// The name which should be used for this Security Center Automation. Changing this forces a new Security Center Automation to be created.
 	//
-	// > **NOTE:** For the automation to appear in Azure Portal correctly under Microsoft Defender for Cloud > Environment Settings > Account > Continuous Export, either `ExportToWorkspace` or `ExportToEventHub` must be used.
+	// > **Note:** For the automation to appear in Azure Portal correctly under Microsoft Defender for Cloud > Environment Settings > Account > Continuous Export, either `ExportToWorkspace` or `ExportToEventHub` must be used.
 	Name pulumi.StringPtrInput
 	// The name of the Resource Group where the Security Center Automation should exist. Changing this forces a new Security Center Automation to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -250,7 +250,7 @@ type automationArgs struct {
 	Location *string `pulumi:"location"`
 	// The name which should be used for this Security Center Automation. Changing this forces a new Security Center Automation to be created.
 	//
-	// > **NOTE:** For the automation to appear in Azure Portal correctly under Microsoft Defender for Cloud > Environment Settings > Account > Continuous Export, either `ExportToWorkspace` or `ExportToEventHub` must be used.
+	// > **Note:** For the automation to appear in Azure Portal correctly under Microsoft Defender for Cloud > Environment Settings > Account > Continuous Export, either `ExportToWorkspace` or `ExportToEventHub` must be used.
 	Name *string `pulumi:"name"`
 	// The name of the Resource Group where the Security Center Automation should exist. Changing this forces a new Security Center Automation to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -274,7 +274,7 @@ type AutomationArgs struct {
 	Location pulumi.StringPtrInput
 	// The name which should be used for this Security Center Automation. Changing this forces a new Security Center Automation to be created.
 	//
-	// > **NOTE:** For the automation to appear in Azure Portal correctly under Microsoft Defender for Cloud > Environment Settings > Account > Continuous Export, either `ExportToWorkspace` or `ExportToEventHub` must be used.
+	// > **Note:** For the automation to appear in Azure Portal correctly under Microsoft Defender for Cloud > Environment Settings > Account > Continuous Export, either `ExportToWorkspace` or `ExportToEventHub` must be used.
 	Name pulumi.StringPtrInput
 	// The name of the Resource Group where the Security Center Automation should exist. Changing this forces a new Security Center Automation to be created.
 	ResourceGroupName pulumi.StringInput
@@ -395,7 +395,7 @@ func (o AutomationOutput) Location() pulumi.StringOutput {
 
 // The name which should be used for this Security Center Automation. Changing this forces a new Security Center Automation to be created.
 //
-// > **NOTE:** For the automation to appear in Azure Portal correctly under Microsoft Defender for Cloud > Environment Settings > Account > Continuous Export, either `ExportToWorkspace` or `ExportToEventHub` must be used.
+// > **Note:** For the automation to appear in Azure Portal correctly under Microsoft Defender for Cloud > Environment Settings > Account > Continuous Export, either `ExportToWorkspace` or `ExportToEventHub` must be used.
 func (o AutomationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Automation) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

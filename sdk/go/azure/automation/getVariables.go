@@ -46,6 +46,13 @@ import (
 //	}
 //
 // ```
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This data source uses the following Azure API Providers:
+//
+// * `Microsoft.Automation`: 2023-11-01
 func GetVariables(ctx *pulumi.Context, args *GetVariablesArgs, opts ...pulumi.InvokeOption) (*GetVariablesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetVariablesResult

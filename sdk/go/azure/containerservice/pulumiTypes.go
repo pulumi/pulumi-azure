@@ -18,7 +18,7 @@ type ConnectedRegistryNotification struct {
 	Action string `pulumi:"action"`
 	// The digest of the artifact that wants to be subscribed for the Connected Registry.
 	//
-	// > **NOTE:** One of either `tag` or `digest` can be specified.
+	// > **Note:** One of either `tag` or `digest` can be specified.
 	Digest *string `pulumi:"digest"`
 	// The name of the artifact that wants to be subscribed for the Connected Registry.
 	Name string `pulumi:"name"`
@@ -42,7 +42,7 @@ type ConnectedRegistryNotificationArgs struct {
 	Action pulumi.StringInput `pulumi:"action"`
 	// The digest of the artifact that wants to be subscribed for the Connected Registry.
 	//
-	// > **NOTE:** One of either `tag` or `digest` can be specified.
+	// > **Note:** One of either `tag` or `digest` can be specified.
 	Digest pulumi.StringPtrInput `pulumi:"digest"`
 	// The name of the artifact that wants to be subscribed for the Connected Registry.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -108,7 +108,7 @@ func (o ConnectedRegistryNotificationOutput) Action() pulumi.StringOutput {
 
 // The digest of the artifact that wants to be subscribed for the Connected Registry.
 //
-// > **NOTE:** One of either `tag` or `digest` can be specified.
+// > **Note:** One of either `tag` or `digest` can be specified.
 func (o ConnectedRegistryNotificationOutput) Digest() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectedRegistryNotification) *string { return v.Digest }).(pulumi.StringPtrOutput)
 }
@@ -3788,7 +3788,7 @@ func (o GroupContainerReadinessProbeHttpGetArrayOutput) Index(i pulumi.IntInput)
 type GroupContainerSecurity struct {
 	// Whether the container's permission is elevated to privileged? Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Currently, this only applies when the `osType` is `Linux` and the `sku` is `Confidential`.
+	// > **Note:** Currently, this only applies when the `osType` is `Linux` and the `sku` is `Confidential`.
 	PrivilegeEnabled bool `pulumi:"privilegeEnabled"`
 }
 
@@ -3806,7 +3806,7 @@ type GroupContainerSecurityInput interface {
 type GroupContainerSecurityArgs struct {
 	// Whether the container's permission is elevated to privileged? Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Currently, this only applies when the `osType` is `Linux` and the `sku` is `Confidential`.
+	// > **Note:** Currently, this only applies when the `osType` is `Linux` and the `sku` is `Confidential`.
 	PrivilegeEnabled pulumi.BoolInput `pulumi:"privilegeEnabled"`
 }
 
@@ -3863,7 +3863,7 @@ func (o GroupContainerSecurityOutput) ToGroupContainerSecurityOutputWithContext(
 
 // Whether the container's permission is elevated to privileged? Changing this forces a new resource to be created.
 //
-// > **NOTE:** Currently, this only applies when the `osType` is `Linux` and the `sku` is `Confidential`.
+// > **Note:** Currently, this only applies when the `osType` is `Linux` and the `sku` is `Confidential`.
 func (o GroupContainerSecurityOutput) PrivilegeEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v GroupContainerSecurity) bool { return v.PrivilegeEnabled }).(pulumi.BoolOutput)
 }
@@ -3903,7 +3903,7 @@ type GroupContainerVolume struct {
 	//
 	// > **Note:** Exactly one of `emptyDir` volume, `gitRepo` volume, `secret` volume or storage account volume (`shareName`, `storageAccountName`, and `storageAccountKey`) must be specified.
 	//
-	// > **Note** when using a storage account volume, all of `shareName`, `storageAccountName`, and `storageAccountKey` must be specified.
+	// > **Note:** when using a storage account volume, all of `shareName`, `storageAccountName`, and `storageAccountKey` must be specified.
 	//
 	// > **Note:** The secret values must be supplied as Base64 encoded strings. The secret values are decoded to their original values when mounted in the volume on the container.
 	Secret map[string]string `pulumi:"secret"`
@@ -3941,7 +3941,7 @@ type GroupContainerVolumeArgs struct {
 	//
 	// > **Note:** Exactly one of `emptyDir` volume, `gitRepo` volume, `secret` volume or storage account volume (`shareName`, `storageAccountName`, and `storageAccountKey`) must be specified.
 	//
-	// > **Note** when using a storage account volume, all of `shareName`, `storageAccountName`, and `storageAccountKey` must be specified.
+	// > **Note:** when using a storage account volume, all of `shareName`, `storageAccountName`, and `storageAccountKey` must be specified.
 	//
 	// > **Note:** The secret values must be supplied as Base64 encoded strings. The secret values are decoded to their original values when mounted in the volume on the container.
 	Secret pulumi.StringMapInput `pulumi:"secret"`
@@ -4033,7 +4033,7 @@ func (o GroupContainerVolumeOutput) ReadOnly() pulumi.BoolPtrOutput {
 //
 // > **Note:** Exactly one of `emptyDir` volume, `gitRepo` volume, `secret` volume or storage account volume (`shareName`, `storageAccountName`, and `storageAccountKey`) must be specified.
 //
-// > **Note** when using a storage account volume, all of `shareName`, `storageAccountName`, and `storageAccountKey` must be specified.
+// > **Note:** when using a storage account volume, all of `shareName`, `storageAccountName`, and `storageAccountKey` must be specified.
 //
 // > **Note:** The secret values must be supplied as Base64 encoded strings. The secret values are decoded to their original values when mounted in the volume on the container.
 func (o GroupContainerVolumeOutput) Secret() pulumi.StringMapOutput {
@@ -4871,9 +4871,9 @@ func (o GroupExposedPortArrayOutput) Index(i pulumi.IntInput) GroupExposedPortOu
 type GroupIdentity struct {
 	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Group.
 	//
-	// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+	// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 	//
-	// > **NOTE:** Currently you can't use a managed identity in a container group deployed to a virtual network.
+	// > **Note:** Currently you can't use a managed identity in a container group deployed to a virtual network.
 	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId *string `pulumi:"principalId"`
@@ -4881,7 +4881,7 @@ type GroupIdentity struct {
 	TenantId *string `pulumi:"tenantId"`
 	// Specifies the type of Managed Service Identity that should be configured on this Container Group. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 	//
-	// > **NOTE:** When `type` is set to `SystemAssigned`, the identity of the Principal ID can be retrieved after the container group has been created. See [documentation](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) for more information.
+	// > **Note:** When `type` is set to `SystemAssigned`, the identity of the Principal ID can be retrieved after the container group has been created. See [documentation](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) for more information.
 	Type string `pulumi:"type"`
 }
 
@@ -4899,9 +4899,9 @@ type GroupIdentityInput interface {
 type GroupIdentityArgs struct {
 	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Group.
 	//
-	// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+	// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 	//
-	// > **NOTE:** Currently you can't use a managed identity in a container group deployed to a virtual network.
+	// > **Note:** Currently you can't use a managed identity in a container group deployed to a virtual network.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
@@ -4909,7 +4909,7 @@ type GroupIdentityArgs struct {
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
 	// Specifies the type of Managed Service Identity that should be configured on this Container Group. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 	//
-	// > **NOTE:** When `type` is set to `SystemAssigned`, the identity of the Principal ID can be retrieved after the container group has been created. See [documentation](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) for more information.
+	// > **Note:** When `type` is set to `SystemAssigned`, the identity of the Principal ID can be retrieved after the container group has been created. See [documentation](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) for more information.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -4992,9 +4992,9 @@ func (o GroupIdentityOutput) ToGroupIdentityPtrOutputWithContext(ctx context.Con
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Group.
 //
-// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 //
-// > **NOTE:** Currently you can't use a managed identity in a container group deployed to a virtual network.
+// > **Note:** Currently you can't use a managed identity in a container group deployed to a virtual network.
 func (o GroupIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GroupIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
@@ -5011,7 +5011,7 @@ func (o GroupIdentityOutput) TenantId() pulumi.StringPtrOutput {
 
 // Specifies the type of Managed Service Identity that should be configured on this Container Group. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 //
-// > **NOTE:** When `type` is set to `SystemAssigned`, the identity of the Principal ID can be retrieved after the container group has been created. See [documentation](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) for more information.
+// > **Note:** When `type` is set to `SystemAssigned`, the identity of the Principal ID can be retrieved after the container group has been created. See [documentation](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) for more information.
 func (o GroupIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GroupIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -5042,9 +5042,9 @@ func (o GroupIdentityPtrOutput) Elem() GroupIdentityOutput {
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Group.
 //
-// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 //
-// > **NOTE:** Currently you can't use a managed identity in a container group deployed to a virtual network.
+// > **Note:** Currently you can't use a managed identity in a container group deployed to a virtual network.
 func (o GroupIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *GroupIdentity) []string {
 		if v == nil {
@@ -5076,7 +5076,7 @@ func (o GroupIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 
 // Specifies the type of Managed Service Identity that should be configured on this Container Group. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 //
-// > **NOTE:** When `type` is set to `SystemAssigned`, the identity of the Principal ID can be retrieved after the container group has been created. See [documentation](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) for more information.
+// > **Note:** When `type` is set to `SystemAssigned`, the identity of the Principal ID can be retrieved after the container group has been created. See [documentation](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) for more information.
 func (o GroupIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GroupIdentity) *string {
 		if v == nil {
@@ -5364,7 +5364,7 @@ func (o GroupInitContainerArrayOutput) Index(i pulumi.IntInput) GroupInitContain
 type GroupInitContainerSecurity struct {
 	// Whether the container's permission is elevated to privileged? Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Currently, this only applies when the `osType` is `Linux` and the `sku` is `Confidential`.
+	// > **Note:** Currently, this only applies when the `osType` is `Linux` and the `sku` is `Confidential`.
 	PrivilegeEnabled bool `pulumi:"privilegeEnabled"`
 }
 
@@ -5382,7 +5382,7 @@ type GroupInitContainerSecurityInput interface {
 type GroupInitContainerSecurityArgs struct {
 	// Whether the container's permission is elevated to privileged? Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Currently, this only applies when the `osType` is `Linux` and the `sku` is `Confidential`.
+	// > **Note:** Currently, this only applies when the `osType` is `Linux` and the `sku` is `Confidential`.
 	PrivilegeEnabled pulumi.BoolInput `pulumi:"privilegeEnabled"`
 }
 
@@ -5439,7 +5439,7 @@ func (o GroupInitContainerSecurityOutput) ToGroupInitContainerSecurityOutputWith
 
 // Whether the container's permission is elevated to privileged? Changing this forces a new resource to be created.
 //
-// > **NOTE:** Currently, this only applies when the `osType` is `Linux` and the `sku` is `Confidential`.
+// > **Note:** Currently, this only applies when the `osType` is `Linux` and the `sku` is `Confidential`.
 func (o GroupInitContainerSecurityOutput) PrivilegeEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v GroupInitContainerSecurity) bool { return v.PrivilegeEnabled }).(pulumi.BoolOutput)
 }
@@ -5479,7 +5479,7 @@ type GroupInitContainerVolume struct {
 	//
 	// > **Note:** Exactly one of `emptyDir` volume, `gitRepo` volume, `secret` volume or storage account volume (`shareName`, `storageAccountName`, and `storageAccountKey`) must be specified.
 	//
-	// > **Note** when using a storage account volume, all of `shareName`, `storageAccountName`, and `storageAccountKey` must be specified.
+	// > **Note:** when using a storage account volume, all of `shareName`, `storageAccountName`, and `storageAccountKey` must be specified.
 	//
 	// > **Note:** The secret values must be supplied as Base64 encoded strings. The secret values are decoded to their original values when mounted in the volume on the container.
 	Secret map[string]string `pulumi:"secret"`
@@ -5517,7 +5517,7 @@ type GroupInitContainerVolumeArgs struct {
 	//
 	// > **Note:** Exactly one of `emptyDir` volume, `gitRepo` volume, `secret` volume or storage account volume (`shareName`, `storageAccountName`, and `storageAccountKey`) must be specified.
 	//
-	// > **Note** when using a storage account volume, all of `shareName`, `storageAccountName`, and `storageAccountKey` must be specified.
+	// > **Note:** when using a storage account volume, all of `shareName`, `storageAccountName`, and `storageAccountKey` must be specified.
 	//
 	// > **Note:** The secret values must be supplied as Base64 encoded strings. The secret values are decoded to their original values when mounted in the volume on the container.
 	Secret pulumi.StringMapInput `pulumi:"secret"`
@@ -5609,7 +5609,7 @@ func (o GroupInitContainerVolumeOutput) ReadOnly() pulumi.BoolPtrOutput {
 //
 // > **Note:** Exactly one of `emptyDir` volume, `gitRepo` volume, `secret` volume or storage account volume (`shareName`, `storageAccountName`, and `storageAccountKey`) must be specified.
 //
-// > **Note** when using a storage account volume, all of `shareName`, `storageAccountName`, and `storageAccountKey` must be specified.
+// > **Note:** when using a storage account volume, all of `shareName`, `storageAccountName`, and `storageAccountKey` must be specified.
 //
 // > **Note:** The secret values must be supplied as Base64 encoded strings. The secret values are decoded to their original values when mounted in the volume on the container.
 func (o GroupInitContainerVolumeOutput) Secret() pulumi.StringMapOutput {
@@ -9862,7 +9862,7 @@ type KubernetesClusterExtensionPlan struct {
 	Publisher string `pulumi:"publisher"`
 	// Specifies the version of the plan from the marketplace. Changing this forces a new Kubernetes Cluster Extension to be created.
 	//
-	// > **NOTE:** When `plan` is specified, legal terms must be accepted for this item on this subscription before creating the Kubernetes Cluster Extension. The `marketplace.Agreement` resource or AZ CLI tool can be used to do this.
+	// > **Note:** When `plan` is specified, legal terms must be accepted for this item on this subscription before creating the Kubernetes Cluster Extension. The `marketplace.Agreement` resource or AZ CLI tool can be used to do this.
 	Version *string `pulumi:"version"`
 }
 
@@ -9888,7 +9888,7 @@ type KubernetesClusterExtensionPlanArgs struct {
 	Publisher pulumi.StringInput `pulumi:"publisher"`
 	// Specifies the version of the plan from the marketplace. Changing this forces a new Kubernetes Cluster Extension to be created.
 	//
-	// > **NOTE:** When `plan` is specified, legal terms must be accepted for this item on this subscription before creating the Kubernetes Cluster Extension. The `marketplace.Agreement` resource or AZ CLI tool can be used to do this.
+	// > **Note:** When `plan` is specified, legal terms must be accepted for this item on this subscription before creating the Kubernetes Cluster Extension. The `marketplace.Agreement` resource or AZ CLI tool can be used to do this.
 	Version pulumi.StringPtrInput `pulumi:"version"`
 }
 
@@ -9991,7 +9991,7 @@ func (o KubernetesClusterExtensionPlanOutput) Publisher() pulumi.StringOutput {
 
 // Specifies the version of the plan from the marketplace. Changing this forces a new Kubernetes Cluster Extension to be created.
 //
-// > **NOTE:** When `plan` is specified, legal terms must be accepted for this item on this subscription before creating the Kubernetes Cluster Extension. The `marketplace.Agreement` resource or AZ CLI tool can be used to do this.
+// > **Note:** When `plan` is specified, legal terms must be accepted for this item on this subscription before creating the Kubernetes Cluster Extension. The `marketplace.Agreement` resource or AZ CLI tool can be used to do this.
 func (o KubernetesClusterExtensionPlanOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterExtensionPlan) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
@@ -10062,7 +10062,7 @@ func (o KubernetesClusterExtensionPlanPtrOutput) Publisher() pulumi.StringPtrOut
 
 // Specifies the version of the plan from the marketplace. Changing this forces a new Kubernetes Cluster Extension to be created.
 //
-// > **NOTE:** When `plan` is specified, legal terms must be accepted for this item on this subscription before creating the Kubernetes Cluster Extension. The `marketplace.Agreement` resource or AZ CLI tool can be used to do this.
+// > **Note:** When `plan` is specified, legal terms must be accepted for this item on this subscription before creating the Kubernetes Cluster Extension. The `marketplace.Agreement` resource or AZ CLI tool can be used to do this.
 func (o KubernetesClusterExtensionPlanPtrOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterExtensionPlan) *string {
 		if v == nil {
@@ -18540,7 +18540,7 @@ func (o KubernetesFleetManagerHubProfilePtrOutput) KubernetesVersion() pulumi.St
 type RegistryCredentialSetAuthenticationCredentials struct {
 	// The URI of the secret containing the password in a Key Vault.
 	//
-	// > NOTE: Be aware that you will need to permit the Identity that is created for the Container Registry to have `get` on secrets to the Key Vault, e.g. using the `keyvault.AccessPolicy` resource.
+	// > **Note:** Be aware that you will need to permit the Identity that is created for the Container Registry to have `get` on secrets to the Key Vault, e.g. using the `keyvault.AccessPolicy` resource.
 	PasswordSecretId string `pulumi:"passwordSecretId"`
 	// The URI of the secret containing the username in a Key Vault.
 	UsernameSecretId string `pulumi:"usernameSecretId"`
@@ -18560,7 +18560,7 @@ type RegistryCredentialSetAuthenticationCredentialsInput interface {
 type RegistryCredentialSetAuthenticationCredentialsArgs struct {
 	// The URI of the secret containing the password in a Key Vault.
 	//
-	// > NOTE: Be aware that you will need to permit the Identity that is created for the Container Registry to have `get` on secrets to the Key Vault, e.g. using the `keyvault.AccessPolicy` resource.
+	// > **Note:** Be aware that you will need to permit the Identity that is created for the Container Registry to have `get` on secrets to the Key Vault, e.g. using the `keyvault.AccessPolicy` resource.
 	PasswordSecretId pulumi.StringInput `pulumi:"passwordSecretId"`
 	// The URI of the secret containing the username in a Key Vault.
 	UsernameSecretId pulumi.StringInput `pulumi:"usernameSecretId"`
@@ -18645,7 +18645,7 @@ func (o RegistryCredentialSetAuthenticationCredentialsOutput) ToRegistryCredenti
 
 // The URI of the secret containing the password in a Key Vault.
 //
-// > NOTE: Be aware that you will need to permit the Identity that is created for the Container Registry to have `get` on secrets to the Key Vault, e.g. using the `keyvault.AccessPolicy` resource.
+// > **Note:** Be aware that you will need to permit the Identity that is created for the Container Registry to have `get` on secrets to the Key Vault, e.g. using the `keyvault.AccessPolicy` resource.
 func (o RegistryCredentialSetAuthenticationCredentialsOutput) PasswordSecretId() pulumi.StringOutput {
 	return o.ApplyT(func(v RegistryCredentialSetAuthenticationCredentials) string { return v.PasswordSecretId }).(pulumi.StringOutput)
 }
@@ -18681,7 +18681,7 @@ func (o RegistryCredentialSetAuthenticationCredentialsPtrOutput) Elem() Registry
 
 // The URI of the secret containing the password in a Key Vault.
 //
-// > NOTE: Be aware that you will need to permit the Identity that is created for the Container Registry to have `get` on secrets to the Key Vault, e.g. using the `keyvault.AccessPolicy` resource.
+// > **Note:** Be aware that you will need to permit the Identity that is created for the Container Registry to have `get` on secrets to the Key Vault, e.g. using the `keyvault.AccessPolicy` resource.
 func (o RegistryCredentialSetAuthenticationCredentialsPtrOutput) PasswordSecretId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegistryCredentialSetAuthenticationCredentials) *string {
 		if v == nil {
@@ -19041,7 +19041,7 @@ type RegistryGeoreplication struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Whether zone redundancy is enabled for this replication location? Defaults to `false`.
 	//
-	// > **NOTE:** Changing the `zoneRedundancyEnabled` forces the a underlying replication to be created.
+	// > **Note:** Changing the `zoneRedundancyEnabled` forces the a underlying replication to be created.
 	ZoneRedundancyEnabled *bool `pulumi:"zoneRedundancyEnabled"`
 }
 
@@ -19065,7 +19065,7 @@ type RegistryGeoreplicationArgs struct {
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// Whether zone redundancy is enabled for this replication location? Defaults to `false`.
 	//
-	// > **NOTE:** Changing the `zoneRedundancyEnabled` forces the a underlying replication to be created.
+	// > **Note:** Changing the `zoneRedundancyEnabled` forces the a underlying replication to be created.
 	ZoneRedundancyEnabled pulumi.BoolPtrInput `pulumi:"zoneRedundancyEnabled"`
 }
 
@@ -19137,7 +19137,7 @@ func (o RegistryGeoreplicationOutput) Tags() pulumi.StringMapOutput {
 
 // Whether zone redundancy is enabled for this replication location? Defaults to `false`.
 //
-// > **NOTE:** Changing the `zoneRedundancyEnabled` forces the a underlying replication to be created.
+// > **Note:** Changing the `zoneRedundancyEnabled` forces the a underlying replication to be created.
 func (o RegistryGeoreplicationOutput) ZoneRedundancyEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RegistryGeoreplication) *bool { return v.ZoneRedundancyEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -19165,7 +19165,7 @@ func (o RegistryGeoreplicationArrayOutput) Index(i pulumi.IntInput) RegistryGeor
 type RegistryIdentity struct {
 	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Registry.
 	//
-	// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+	// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId *string `pulumi:"principalId"`
@@ -19189,7 +19189,7 @@ type RegistryIdentityInput interface {
 type RegistryIdentityArgs struct {
 	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Registry.
 	//
-	// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+	// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
@@ -19278,7 +19278,7 @@ func (o RegistryIdentityOutput) ToRegistryIdentityPtrOutputWithContext(ctx conte
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Registry.
 //
-// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 func (o RegistryIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RegistryIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
@@ -19324,7 +19324,7 @@ func (o RegistryIdentityPtrOutput) Elem() RegistryIdentityOutput {
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Registry.
 //
-// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 func (o RegistryIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RegistryIdentity) []string {
 		if v == nil {
@@ -19369,9 +19369,9 @@ type RegistryNetworkRuleSet struct {
 	DefaultAction *string `pulumi:"defaultAction"`
 	// One or more `ipRule` blocks as defined below.
 	//
-	// > **NOTE:** `networkRuleSet` is only supported with the `Premium` SKU at this time.
+	// > **Note:** `networkRuleSet` is only supported with the `Premium` SKU at this time.
 	//
-	// > **NOTE:** Azure automatically configures Network Rules - to remove these you'll need to specify an `networkRuleSet` block with `defaultAction` set to `Deny`.
+	// > **Note:** Azure automatically configures Network Rules - to remove these you'll need to specify an `networkRuleSet` block with `defaultAction` set to `Deny`.
 	IpRules []RegistryNetworkRuleSetIpRule `pulumi:"ipRules"`
 }
 
@@ -19391,9 +19391,9 @@ type RegistryNetworkRuleSetArgs struct {
 	DefaultAction pulumi.StringPtrInput `pulumi:"defaultAction"`
 	// One or more `ipRule` blocks as defined below.
 	//
-	// > **NOTE:** `networkRuleSet` is only supported with the `Premium` SKU at this time.
+	// > **Note:** `networkRuleSet` is only supported with the `Premium` SKU at this time.
 	//
-	// > **NOTE:** Azure automatically configures Network Rules - to remove these you'll need to specify an `networkRuleSet` block with `defaultAction` set to `Deny`.
+	// > **Note:** Azure automatically configures Network Rules - to remove these you'll need to specify an `networkRuleSet` block with `defaultAction` set to `Deny`.
 	IpRules RegistryNetworkRuleSetIpRuleArrayInput `pulumi:"ipRules"`
 }
 
@@ -19481,9 +19481,9 @@ func (o RegistryNetworkRuleSetOutput) DefaultAction() pulumi.StringPtrOutput {
 
 // One or more `ipRule` blocks as defined below.
 //
-// > **NOTE:** `networkRuleSet` is only supported with the `Premium` SKU at this time.
+// > **Note:** `networkRuleSet` is only supported with the `Premium` SKU at this time.
 //
-// > **NOTE:** Azure automatically configures Network Rules - to remove these you'll need to specify an `networkRuleSet` block with `defaultAction` set to `Deny`.
+// > **Note:** Azure automatically configures Network Rules - to remove these you'll need to specify an `networkRuleSet` block with `defaultAction` set to `Deny`.
 func (o RegistryNetworkRuleSetOutput) IpRules() RegistryNetworkRuleSetIpRuleArrayOutput {
 	return o.ApplyT(func(v RegistryNetworkRuleSet) []RegistryNetworkRuleSetIpRule { return v.IpRules }).(RegistryNetworkRuleSetIpRuleArrayOutput)
 }
@@ -19524,9 +19524,9 @@ func (o RegistryNetworkRuleSetPtrOutput) DefaultAction() pulumi.StringPtrOutput 
 
 // One or more `ipRule` blocks as defined below.
 //
-// > **NOTE:** `networkRuleSet` is only supported with the `Premium` SKU at this time.
+// > **Note:** `networkRuleSet` is only supported with the `Premium` SKU at this time.
 //
-// > **NOTE:** Azure automatically configures Network Rules - to remove these you'll need to specify an `networkRuleSet` block with `defaultAction` set to `Deny`.
+// > **Note:** Azure automatically configures Network Rules - to remove these you'll need to specify an `networkRuleSet` block with `defaultAction` set to `Deny`.
 func (o RegistryNetworkRuleSetPtrOutput) IpRules() RegistryNetworkRuleSetIpRuleArrayOutput {
 	return o.ApplyT(func(v *RegistryNetworkRuleSet) []RegistryNetworkRuleSetIpRule {
 		if v == nil {
@@ -20748,7 +20748,7 @@ func (o RegistryTaskFileStepPtrOutput) Values() pulumi.StringMapOutput {
 type RegistryTaskIdentity struct {
 	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Registry Task.
 	//
-	// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+	// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId *string `pulumi:"principalId"`
@@ -20772,7 +20772,7 @@ type RegistryTaskIdentityInput interface {
 type RegistryTaskIdentityArgs struct {
 	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Registry Task.
 	//
-	// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+	// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
@@ -20861,7 +20861,7 @@ func (o RegistryTaskIdentityOutput) ToRegistryTaskIdentityPtrOutputWithContext(c
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Registry Task.
 //
-// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 func (o RegistryTaskIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RegistryTaskIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
@@ -20907,7 +20907,7 @@ func (o RegistryTaskIdentityPtrOutput) Elem() RegistryTaskIdentityOutput {
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Registry Task.
 //
-// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 func (o RegistryTaskIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RegistryTaskIdentity) []string {
 		if v == nil {

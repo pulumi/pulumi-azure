@@ -32,7 +32,7 @@ public final class LinuxWebAppAuthSettingsV2TwitterV2Args extends com.pulumi.res
     /**
      * The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in.
      * 
-     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+     * !&gt; **Note:** A setting with this name must exist in `app_settings` to function correctly.
      * 
      */
     @Import(name="consumerSecretSettingName", required=true)
@@ -41,7 +41,7 @@ public final class LinuxWebAppAuthSettingsV2TwitterV2Args extends com.pulumi.res
     /**
      * @return The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in.
      * 
-     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+     * !&gt; **Note:** A setting with this name must exist in `app_settings` to function correctly.
      * 
      */
     public Output<String> consumerSecretSettingName() {
@@ -97,7 +97,7 @@ public final class LinuxWebAppAuthSettingsV2TwitterV2Args extends com.pulumi.res
         /**
          * @param consumerSecretSettingName The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in.
          * 
-         * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+         * !&gt; **Note:** A setting with this name must exist in `app_settings` to function correctly.
          * 
          * @return builder
          * 
@@ -110,7 +110,7 @@ public final class LinuxWebAppAuthSettingsV2TwitterV2Args extends com.pulumi.res
         /**
          * @param consumerSecretSettingName The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in.
          * 
-         * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+         * !&gt; **Note:** A setting with this name must exist in `app_settings` to function correctly.
          * 
          * @return builder
          * 

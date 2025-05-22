@@ -51,6 +51,13 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.Network`: 2023-09-01
+ *
  * ## Import
  *
  * Backend Address Pool Addresses can be imported using the `resource id`, e.g.

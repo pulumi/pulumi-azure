@@ -15,50 +15,50 @@ import javax.annotation.Nullable;
 @CustomType
 public final class TagRulesLogRule {
     /**
-     * @return Filtering tag for the log rule. A `filtering_tag` block as defined below. Changing this forces a new resource to be created.
+     * @return Filtering tag for the log rule. A `filtering_tag` block as defined below.
      * 
      */
     private List<TagRulesLogRuleFilteringTag> filteringTags;
     /**
-     * @return Send Activity logs. The default value is `false`. Changing this forces a new resource to be created.
+     * @return Send Activity logs. The default value is `false`.
      * 
      */
     private @Nullable Boolean sendActivityLogsEnabled;
     /**
-     * @return Send Azure Active Directory logs. The default value is `false`. Changing this forces a new resource to be created.
+     * @return Send Azure Active Directory logs. The default value is `false`.
      * 
      */
     private @Nullable Boolean sendAzureActiveDirectoryLogsEnabled;
     /**
-     * @return Send Subscription logs. The default value is `false`. Changing this forces a new resource to be created.
+     * @return Send Subscription logs. The default value is `false`.
      * 
      */
     private @Nullable Boolean sendSubscriptionLogsEnabled;
 
     private TagRulesLogRule() {}
     /**
-     * @return Filtering tag for the log rule. A `filtering_tag` block as defined below. Changing this forces a new resource to be created.
+     * @return Filtering tag for the log rule. A `filtering_tag` block as defined below.
      * 
      */
     public List<TagRulesLogRuleFilteringTag> filteringTags() {
         return this.filteringTags;
     }
     /**
-     * @return Send Activity logs. The default value is `false`. Changing this forces a new resource to be created.
+     * @return Send Activity logs. The default value is `false`.
      * 
      */
     public Optional<Boolean> sendActivityLogsEnabled() {
         return Optional.ofNullable(this.sendActivityLogsEnabled);
     }
     /**
-     * @return Send Azure Active Directory logs. The default value is `false`. Changing this forces a new resource to be created.
+     * @return Send Azure Active Directory logs. The default value is `false`.
      * 
      */
     public Optional<Boolean> sendAzureActiveDirectoryLogsEnabled() {
         return Optional.ofNullable(this.sendAzureActiveDirectoryLogsEnabled);
     }
     /**
-     * @return Send Subscription logs. The default value is `false`. Changing this forces a new resource to be created.
+     * @return Send Subscription logs. The default value is `false`.
      * 
      */
     public Optional<Boolean> sendSubscriptionLogsEnabled() {

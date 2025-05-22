@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Manages Dynatrace monitors.
+ * Manages a Dynatrace monitor.
  *
  * ## Import
  *

@@ -15,14 +15,14 @@ public final class DeploymentFrontendPrivateArgs extends com.pulumi.resources.Re
     public static final DeploymentFrontendPrivateArgs Empty = new DeploymentFrontendPrivateArgs();
 
     /**
-     * Specify the method for allocating the private IP. Possible values are `Static` and `Dynamic`. Changing this forces a new NGINX Deployment to be created.
+     * Specify the method for allocating the private IP. Possible values are `Static` and `Dynamic`.
      * 
      */
     @Import(name="allocationMethod", required=true)
     private Output<String> allocationMethod;
 
     /**
-     * @return Specify the method for allocating the private IP. Possible values are `Static` and `Dynamic`. Changing this forces a new NGINX Deployment to be created.
+     * @return Specify the method for allocating the private IP. Possible values are `Static` and `Dynamic`.
      * 
      */
     public Output<String> allocationMethod() {
@@ -30,14 +30,14 @@ public final class DeploymentFrontendPrivateArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * Specify the private IP Address. Changing this forces a new NGINX Deployment to be created.
+     * Specify the private IP Address.
      * 
      */
     @Import(name="ipAddress", required=true)
     private Output<String> ipAddress;
 
     /**
-     * @return Specify the private IP Address. Changing this forces a new NGINX Deployment to be created.
+     * @return Specify the private IP Address.
      * 
      */
     public Output<String> ipAddress() {
@@ -45,14 +45,14 @@ public final class DeploymentFrontendPrivateArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * Specify the Subnet Resource ID for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
+     * Specify the Subnet Resource ID for this NGINX Deployment.
      * 
      */
     @Import(name="subnetId", required=true)
     private Output<String> subnetId;
 
     /**
-     * @return Specify the Subnet Resource ID for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
+     * @return Specify the Subnet Resource ID for this NGINX Deployment.
      * 
      */
     public Output<String> subnetId() {
@@ -86,7 +86,7 @@ public final class DeploymentFrontendPrivateArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param allocationMethod Specify the method for allocating the private IP. Possible values are `Static` and `Dynamic`. Changing this forces a new NGINX Deployment to be created.
+         * @param allocationMethod Specify the method for allocating the private IP. Possible values are `Static` and `Dynamic`.
          * 
          * @return builder
          * 
@@ -97,7 +97,7 @@ public final class DeploymentFrontendPrivateArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param allocationMethod Specify the method for allocating the private IP. Possible values are `Static` and `Dynamic`. Changing this forces a new NGINX Deployment to be created.
+         * @param allocationMethod Specify the method for allocating the private IP. Possible values are `Static` and `Dynamic`.
          * 
          * @return builder
          * 
@@ -107,7 +107,7 @@ public final class DeploymentFrontendPrivateArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param ipAddress Specify the private IP Address. Changing this forces a new NGINX Deployment to be created.
+         * @param ipAddress Specify the private IP Address.
          * 
          * @return builder
          * 
@@ -118,7 +118,7 @@ public final class DeploymentFrontendPrivateArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param ipAddress Specify the private IP Address. Changing this forces a new NGINX Deployment to be created.
+         * @param ipAddress Specify the private IP Address.
          * 
          * @return builder
          * 
@@ -128,7 +128,7 @@ public final class DeploymentFrontendPrivateArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param subnetId Specify the Subnet Resource ID for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
+         * @param subnetId Specify the Subnet Resource ID for this NGINX Deployment.
          * 
          * @return builder
          * 
@@ -139,7 +139,7 @@ public final class DeploymentFrontendPrivateArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param subnetId Specify the Subnet Resource ID for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
+         * @param subnetId Specify the Subnet Resource ID for this NGINX Deployment.
          * 
          * @return builder
          * 

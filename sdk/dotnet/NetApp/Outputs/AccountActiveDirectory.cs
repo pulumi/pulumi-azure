@@ -32,7 +32,7 @@ namespace Pulumi.Azure.NetApp.Outputs
         /// <summary>
         /// kdc server IP addresses for the active directory machine.
         /// 
-        /// &gt; **IMPORTANT:** If you plan on using **Kerberos** volumes, both `ad_name` and `kdc_ip` are required in order to create the volume.
+        /// &gt; **Note:** If you plan on using **Kerberos** volumes, both `ad_name` and `kdc_ip` are required in order to create the volume.
         /// </summary>
         public readonly string? KerberosKdcIp;
         /// <summary>

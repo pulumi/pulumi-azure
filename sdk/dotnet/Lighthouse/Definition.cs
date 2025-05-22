@@ -47,6 +47,13 @@ namespace Pulumi.Azure.Lighthouse
     /// });
     /// ```
     /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.ManagedServices`: 2022-10-01
+    /// 
     /// ## Import
     /// 
     /// Lighthouse Definitions can be imported using the `resource id`, e.g.

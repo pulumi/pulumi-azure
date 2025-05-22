@@ -34,7 +34,7 @@ public final class VirtualNetworkRuleState extends com.pulumi.resources.Resource
     /**
      * The name of the PostgreSQL virtual network rule. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** `name` must be between 1-128 characters long and must satisfy all of the requirements below:
+     * &gt; **Note:** `name` must be between 1-128 characters long and must satisfy all of the requirements below:
      * 
      * 1. Contains only alphanumeric and hyphen characters
      * 2. Cannot start with a number or hyphen
@@ -47,7 +47,7 @@ public final class VirtualNetworkRuleState extends com.pulumi.resources.Resource
     /**
      * @return The name of the PostgreSQL virtual network rule. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** `name` must be between 1-128 characters long and must satisfy all of the requirements below:
+     * &gt; **Note:** `name` must be between 1-128 characters long and must satisfy all of the requirements below:
      * 
      * 1. Contains only alphanumeric and hyphen characters
      * 2. Cannot start with a number or hyphen
@@ -155,7 +155,7 @@ public final class VirtualNetworkRuleState extends com.pulumi.resources.Resource
         /**
          * @param name The name of the PostgreSQL virtual network rule. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** `name` must be between 1-128 characters long and must satisfy all of the requirements below:
+         * &gt; **Note:** `name` must be between 1-128 characters long and must satisfy all of the requirements below:
          * 
          * 1. Contains only alphanumeric and hyphen characters
          * 2. Cannot start with a number or hyphen
@@ -172,7 +172,7 @@ public final class VirtualNetworkRuleState extends com.pulumi.resources.Resource
         /**
          * @param name The name of the PostgreSQL virtual network rule. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** `name` must be between 1-128 characters long and must satisfy all of the requirements below:
+         * &gt; **Note:** `name` must be between 1-128 characters long and must satisfy all of the requirements below:
          * 
          * 1. Contains only alphanumeric and hyphen characters
          * 2. Cannot start with a number or hyphen

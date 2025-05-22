@@ -86,7 +86,7 @@ type SharedImage struct {
 	Architecture pulumi.StringPtrOutput `pulumi:"architecture"`
 	// Specifies if Confidential Virtual Machines enabled. It will enable all the features of trusted, with higher confidentiality features for isolate machines or encrypted data. Available for Gen2 machines. Changing this forces a new resource to be created.
 	//
-	// > **Note:**: Only one of `trustedLaunchSupported`, `trustedLaunchEnabled`, `confidentialVmSupported` and `confidentialVmEnabled` can be specified.
+	// > **Note:** Only one of `trustedLaunchSupported`, `trustedLaunchEnabled`, `confidentialVmSupported` and `confidentialVmEnabled` can be specified.
 	ConfidentialVmEnabled pulumi.BoolPtrOutput `pulumi:"confidentialVmEnabled"`
 	// Specifies if supports creation of both Confidential virtual machines and Gen2 virtual machines with standard security from a compatible Gen2 OS disk VHD or Gen2 Managed image. Changing this forces a new resource to be created.
 	ConfidentialVmSupported pulumi.BoolPtrOutput `pulumi:"confidentialVmSupported"`
@@ -190,7 +190,7 @@ type sharedImageState struct {
 	Architecture *string `pulumi:"architecture"`
 	// Specifies if Confidential Virtual Machines enabled. It will enable all the features of trusted, with higher confidentiality features for isolate machines or encrypted data. Available for Gen2 machines. Changing this forces a new resource to be created.
 	//
-	// > **Note:**: Only one of `trustedLaunchSupported`, `trustedLaunchEnabled`, `confidentialVmSupported` and `confidentialVmEnabled` can be specified.
+	// > **Note:** Only one of `trustedLaunchSupported`, `trustedLaunchEnabled`, `confidentialVmSupported` and `confidentialVmEnabled` can be specified.
 	ConfidentialVmEnabled *bool `pulumi:"confidentialVmEnabled"`
 	// Specifies if supports creation of both Confidential virtual machines and Gen2 virtual machines with standard security from a compatible Gen2 OS disk VHD or Gen2 Managed image. Changing this forces a new resource to be created.
 	ConfidentialVmSupported *bool `pulumi:"confidentialVmSupported"`
@@ -253,7 +253,7 @@ type SharedImageState struct {
 	Architecture pulumi.StringPtrInput
 	// Specifies if Confidential Virtual Machines enabled. It will enable all the features of trusted, with higher confidentiality features for isolate machines or encrypted data. Available for Gen2 machines. Changing this forces a new resource to be created.
 	//
-	// > **Note:**: Only one of `trustedLaunchSupported`, `trustedLaunchEnabled`, `confidentialVmSupported` and `confidentialVmEnabled` can be specified.
+	// > **Note:** Only one of `trustedLaunchSupported`, `trustedLaunchEnabled`, `confidentialVmSupported` and `confidentialVmEnabled` can be specified.
 	ConfidentialVmEnabled pulumi.BoolPtrInput
 	// Specifies if supports creation of both Confidential virtual machines and Gen2 virtual machines with standard security from a compatible Gen2 OS disk VHD or Gen2 Managed image. Changing this forces a new resource to be created.
 	ConfidentialVmSupported pulumi.BoolPtrInput
@@ -320,7 +320,7 @@ type sharedImageArgs struct {
 	Architecture *string `pulumi:"architecture"`
 	// Specifies if Confidential Virtual Machines enabled. It will enable all the features of trusted, with higher confidentiality features for isolate machines or encrypted data. Available for Gen2 machines. Changing this forces a new resource to be created.
 	//
-	// > **Note:**: Only one of `trustedLaunchSupported`, `trustedLaunchEnabled`, `confidentialVmSupported` and `confidentialVmEnabled` can be specified.
+	// > **Note:** Only one of `trustedLaunchSupported`, `trustedLaunchEnabled`, `confidentialVmSupported` and `confidentialVmEnabled` can be specified.
 	ConfidentialVmEnabled *bool `pulumi:"confidentialVmEnabled"`
 	// Specifies if supports creation of both Confidential virtual machines and Gen2 virtual machines with standard security from a compatible Gen2 OS disk VHD or Gen2 Managed image. Changing this forces a new resource to be created.
 	ConfidentialVmSupported *bool `pulumi:"confidentialVmSupported"`
@@ -384,7 +384,7 @@ type SharedImageArgs struct {
 	Architecture pulumi.StringPtrInput
 	// Specifies if Confidential Virtual Machines enabled. It will enable all the features of trusted, with higher confidentiality features for isolate machines or encrypted data. Available for Gen2 machines. Changing this forces a new resource to be created.
 	//
-	// > **Note:**: Only one of `trustedLaunchSupported`, `trustedLaunchEnabled`, `confidentialVmSupported` and `confidentialVmEnabled` can be specified.
+	// > **Note:** Only one of `trustedLaunchSupported`, `trustedLaunchEnabled`, `confidentialVmSupported` and `confidentialVmEnabled` can be specified.
 	ConfidentialVmEnabled pulumi.BoolPtrInput
 	// Specifies if supports creation of both Confidential virtual machines and Gen2 virtual machines with standard security from a compatible Gen2 OS disk VHD or Gen2 Managed image. Changing this forces a new resource to be created.
 	ConfidentialVmSupported pulumi.BoolPtrInput
@@ -539,7 +539,7 @@ func (o SharedImageOutput) Architecture() pulumi.StringPtrOutput {
 
 // Specifies if Confidential Virtual Machines enabled. It will enable all the features of trusted, with higher confidentiality features for isolate machines or encrypted data. Available for Gen2 machines. Changing this forces a new resource to be created.
 //
-// > **Note:**: Only one of `trustedLaunchSupported`, `trustedLaunchEnabled`, `confidentialVmSupported` and `confidentialVmEnabled` can be specified.
+// > **Note:** Only one of `trustedLaunchSupported`, `trustedLaunchEnabled`, `confidentialVmSupported` and `confidentialVmEnabled` can be specified.
 func (o SharedImageOutput) ConfidentialVmEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SharedImage) pulumi.BoolPtrOutput { return v.ConfidentialVmEnabled }).(pulumi.BoolPtrOutput)
 }

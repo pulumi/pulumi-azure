@@ -40,7 +40,7 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
     /**
      * The ID of the container registry associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** The `admin_enabled` should be `true` in order to associate the Container Registry to this Machine Learning Workspace.
+     * &gt; **Note:** The `admin_enabled` should be `true` in order to associate the Container Registry to this Machine Learning Workspace.
      * 
      */
     @Import(name="containerRegistryId")
@@ -49,7 +49,7 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return The ID of the container registry associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** The `admin_enabled` should be `true` in order to associate the Container Registry to this Machine Learning Workspace.
+     * &gt; **Note:** The `admin_enabled` should be `true` in order to associate the Container Registry to this Machine Learning Workspace.
      * 
      */
     public Optional<Output<String>> containerRegistryId() {
@@ -269,7 +269,7 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
     /**
      * Enable public access when this Machine Learning Workspace is behind VNet. Defaults to `true`.
      * 
-     * &gt; **NOTE:** `public_access_behind_virtual_network_enabled` is deprecated and will be removed in favour of the property `public_network_access_enabled`.
+     * &gt; **Note:** `public_access_behind_virtual_network_enabled` is deprecated and will be removed in favour of the property `public_network_access_enabled`.
      * 
      */
     @Import(name="publicNetworkAccessEnabled")
@@ -278,7 +278,7 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Enable public access when this Machine Learning Workspace is behind VNet. Defaults to `true`.
      * 
-     * &gt; **NOTE:** `public_access_behind_virtual_network_enabled` is deprecated and will be removed in favour of the property `public_network_access_enabled`.
+     * &gt; **Note:** `public_access_behind_virtual_network_enabled` is deprecated and will be removed in favour of the property `public_network_access_enabled`.
      * 
      */
     public Optional<Output<Boolean>> publicNetworkAccessEnabled() {
@@ -333,7 +333,7 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
     /**
      * The ID of the Storage Account associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** The `account_tier` cannot be `Premium` in order to associate the Storage Account to this Machine Learning Workspace.
+     * &gt; **Note:** The `account_tier` cannot be `Premium` in order to associate the Storage Account to this Machine Learning Workspace.
      * 
      */
     @Import(name="storageAccountId")
@@ -342,7 +342,7 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return The ID of the Storage Account associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** The `account_tier` cannot be `Premium` in order to associate the Storage Account to this Machine Learning Workspace.
+     * &gt; **Note:** The `account_tier` cannot be `Premium` in order to associate the Storage Account to this Machine Learning Workspace.
      * 
      */
     public Optional<Output<String>> storageAccountId() {
@@ -465,7 +465,7 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param containerRegistryId The ID of the container registry associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** The `admin_enabled` should be `true` in order to associate the Container Registry to this Machine Learning Workspace.
+         * &gt; **Note:** The `admin_enabled` should be `true` in order to associate the Container Registry to this Machine Learning Workspace.
          * 
          * @return builder
          * 
@@ -478,7 +478,7 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param containerRegistryId The ID of the container registry associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** The `admin_enabled` should be `true` in order to associate the Container Registry to this Machine Learning Workspace.
+         * &gt; **Note:** The `admin_enabled` should be `true` in order to associate the Container Registry to this Machine Learning Workspace.
          * 
          * @return builder
          * 
@@ -784,7 +784,7 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param publicNetworkAccessEnabled Enable public access when this Machine Learning Workspace is behind VNet. Defaults to `true`.
          * 
-         * &gt; **NOTE:** `public_access_behind_virtual_network_enabled` is deprecated and will be removed in favour of the property `public_network_access_enabled`.
+         * &gt; **Note:** `public_access_behind_virtual_network_enabled` is deprecated and will be removed in favour of the property `public_network_access_enabled`.
          * 
          * @return builder
          * 
@@ -797,7 +797,7 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param publicNetworkAccessEnabled Enable public access when this Machine Learning Workspace is behind VNet. Defaults to `true`.
          * 
-         * &gt; **NOTE:** `public_access_behind_virtual_network_enabled` is deprecated and will be removed in favour of the property `public_network_access_enabled`.
+         * &gt; **Note:** `public_access_behind_virtual_network_enabled` is deprecated and will be removed in favour of the property `public_network_access_enabled`.
          * 
          * @return builder
          * 
@@ -872,7 +872,7 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param storageAccountId The ID of the Storage Account associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** The `account_tier` cannot be `Premium` in order to associate the Storage Account to this Machine Learning Workspace.
+         * &gt; **Note:** The `account_tier` cannot be `Premium` in order to associate the Storage Account to this Machine Learning Workspace.
          * 
          * @return builder
          * 
@@ -885,7 +885,7 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param storageAccountId The ID of the Storage Account associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** The `account_tier` cannot be `Premium` in order to associate the Storage Account to this Machine Learning Workspace.
+         * &gt; **Note:** The `account_tier` cannot be `Premium` in order to associate the Storage Account to this Machine Learning Workspace.
          * 
          * @return builder
          * 

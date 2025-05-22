@@ -102,7 +102,7 @@ export class ShareFile extends pulumi.CustomResource {
     /**
      * An absolute path to a file on the local system. Changing this forces a new resource to be created.
      *
-     * > **Note** The file specified with `source` can not be empty.
+     * > **Note:** The file specified with `source` can not be empty.
      */
     public readonly source!: pulumi.Output<string | undefined>;
     /**
@@ -190,7 +190,7 @@ export interface ShareFileState {
     /**
      * An absolute path to a file on the local system. Changing this forces a new resource to be created.
      *
-     * > **Note** The file specified with `source` can not be empty.
+     * > **Note:** The file specified with `source` can not be empty.
      */
     source?: pulumi.Input<string>;
     /**
@@ -231,7 +231,7 @@ export interface ShareFileArgs {
     /**
      * An absolute path to a file on the local system. Changing this forces a new resource to be created.
      *
-     * > **Note** The file specified with `source` can not be empty.
+     * > **Note:** The file specified with `source` can not be empty.
      */
     source?: pulumi.Input<string>;
     /**

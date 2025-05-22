@@ -22,6 +22,13 @@ import * as utilities from "../utilities";
  * });
  * export const id = example.then(example => example.id);
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.NetApp`: 2025-01-01
  */
 export function getVolumeGroupOracle(args: GetVolumeGroupOracleArgs, opts?: pulumi.InvokeOptions): Promise<GetVolumeGroupOracleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -97,6 +104,13 @@ export interface GetVolumeGroupOracleResult {
  * });
  * export const id = example.then(example => example.id);
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.NetApp`: 2025-01-01
  */
 export function getVolumeGroupOracleOutput(args: GetVolumeGroupOracleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVolumeGroupOracleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

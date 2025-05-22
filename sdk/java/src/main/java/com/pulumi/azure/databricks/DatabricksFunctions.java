@@ -61,6 +61,13 @@ public final class DatabricksFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Databricks`: 2022-10-01-preview
+     * 
      */
     public static Output<GetAccessConnectorResult> getAccessConnector(GetAccessConnectorArgs args) {
         return getAccessConnector(args, InvokeOptions.Empty);
@@ -104,6 +111,13 @@ public final class DatabricksFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Databricks`: 2022-10-01-preview
      * 
      */
     public static CompletableFuture<GetAccessConnectorResult> getAccessConnectorPlain(GetAccessConnectorPlainArgs args) {
@@ -149,6 +163,13 @@ public final class DatabricksFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Databricks`: 2022-10-01-preview
+     * 
      */
     public static Output<GetAccessConnectorResult> getAccessConnector(GetAccessConnectorArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:databricks/getAccessConnector:getAccessConnector", TypeShape.of(GetAccessConnectorResult.class), args, Utilities.withVersion(options));
@@ -192,6 +213,13 @@ public final class DatabricksFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Databricks`: 2022-10-01-preview
      * 
      */
     public static Output<GetAccessConnectorResult> getAccessConnector(GetAccessConnectorArgs args, InvokeOutputOptions options) {
@@ -237,6 +265,13 @@ public final class DatabricksFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Databricks`: 2022-10-01-preview
+     * 
      */
     public static CompletableFuture<GetAccessConnectorResult> getAccessConnectorPlain(GetAccessConnectorPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:databricks/getAccessConnector:getAccessConnector", TypeShape.of(GetAccessConnectorResult.class), args, Utilities.withVersion(options));
@@ -280,6 +315,13 @@ public final class DatabricksFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Databricks`: 2024-05-01
      * 
      */
     public static Output<GetWorkspaceResult> getWorkspace(GetWorkspaceArgs args) {
@@ -325,6 +367,13 @@ public final class DatabricksFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Databricks`: 2024-05-01
+     * 
      */
     public static CompletableFuture<GetWorkspaceResult> getWorkspacePlain(GetWorkspacePlainArgs args) {
         return getWorkspacePlain(args, InvokeOptions.Empty);
@@ -368,6 +417,13 @@ public final class DatabricksFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Databricks`: 2024-05-01
      * 
      */
     public static Output<GetWorkspaceResult> getWorkspace(GetWorkspaceArgs args, InvokeOptions options) {
@@ -413,6 +469,13 @@ public final class DatabricksFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Databricks`: 2024-05-01
+     * 
      */
     public static Output<GetWorkspaceResult> getWorkspace(GetWorkspaceArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:databricks/getWorkspace:getWorkspace", TypeShape.of(GetWorkspaceResult.class), args, Utilities.withVersion(options));
@@ -456,6 +519,13 @@ public final class DatabricksFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Databricks`: 2024-05-01
      * 
      */
     public static CompletableFuture<GetWorkspaceResult> getWorkspacePlain(GetWorkspacePlainArgs args, InvokeOptions options) {
@@ -501,6 +571,13 @@ public final class DatabricksFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Databricks`: 2024-05-01
+     * 
      */
     public static Output<GetWorkspacePrivateEndpointConnectionResult> getWorkspacePrivateEndpointConnection(GetWorkspacePrivateEndpointConnectionArgs args) {
         return getWorkspacePrivateEndpointConnection(args, InvokeOptions.Empty);
@@ -544,6 +621,13 @@ public final class DatabricksFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Databricks`: 2024-05-01
      * 
      */
     public static CompletableFuture<GetWorkspacePrivateEndpointConnectionResult> getWorkspacePrivateEndpointConnectionPlain(GetWorkspacePrivateEndpointConnectionPlainArgs args) {
@@ -589,6 +673,13 @@ public final class DatabricksFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Databricks`: 2024-05-01
+     * 
      */
     public static Output<GetWorkspacePrivateEndpointConnectionResult> getWorkspacePrivateEndpointConnection(GetWorkspacePrivateEndpointConnectionArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:databricks/getWorkspacePrivateEndpointConnection:getWorkspacePrivateEndpointConnection", TypeShape.of(GetWorkspacePrivateEndpointConnectionResult.class), args, Utilities.withVersion(options));
@@ -633,6 +724,13 @@ public final class DatabricksFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Databricks`: 2024-05-01
+     * 
      */
     public static Output<GetWorkspacePrivateEndpointConnectionResult> getWorkspacePrivateEndpointConnection(GetWorkspacePrivateEndpointConnectionArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:databricks/getWorkspacePrivateEndpointConnection:getWorkspacePrivateEndpointConnection", TypeShape.of(GetWorkspacePrivateEndpointConnectionResult.class), args, Utilities.withVersion(options));
@@ -676,6 +774,13 @@ public final class DatabricksFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Databricks`: 2024-05-01
      * 
      */
     public static CompletableFuture<GetWorkspacePrivateEndpointConnectionResult> getWorkspacePrivateEndpointConnectionPlain(GetWorkspacePrivateEndpointConnectionPlainArgs args, InvokeOptions options) {

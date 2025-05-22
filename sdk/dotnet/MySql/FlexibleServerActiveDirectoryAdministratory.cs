@@ -44,7 +44,7 @@ namespace Pulumi.Azure.MySql
     ///         Location = example.Location,
     ///         AdministratorLogin = "_admin_Terraform_892123456789312",
     ///         AdministratorPassword = "QAZwsx123",
-    ///         SkuName = "B_Standard_B1s",
+    ///         SkuName = "B_Standard_B1ms",
     ///         Zone = "2",
     ///         Identity = new Azure.MySql.Inputs.FlexibleServerIdentityArgs
     ///         {
@@ -67,6 +67,13 @@ namespace Pulumi.Azure.MySql
     /// 
     /// });
     /// ```
+    /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.DBforMySQL`: 2023-12-30
     /// 
     /// ## Import
     /// 

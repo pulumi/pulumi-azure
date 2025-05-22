@@ -111,7 +111,7 @@ public class ManagedPrivateEndpoint extends com.pulumi.resources.CustomResource 
     /**
      * Fully qualified domain names. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** Possible values are listed in [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration).
+     * &gt; **Note:** Possible values are listed in [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration).
      * 
      */
     @Export(name="fqdns", refs={List.class,String.class}, tree="[0,1]")
@@ -120,7 +120,7 @@ public class ManagedPrivateEndpoint extends com.pulumi.resources.CustomResource 
     /**
      * @return Fully qualified domain names. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** Possible values are listed in [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration).
+     * &gt; **Note:** Possible values are listed in [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration).
      * 
      */
     public Output<List<String>> fqdns() {

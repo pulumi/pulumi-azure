@@ -144,6 +144,13 @@ def get_network(name: Optional[builtins.str] = None,
         resource_group_name=example_azurerm_resource_group["name"])
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.MobileNetwork`: 2022-11-01
+
 
     :param builtins.str name: Specifies the name which should be used for this Mobile Network.
     :param builtins.str resource_group_name: Specifies the name of the Resource Group where the Mobile Network should exist.
@@ -178,6 +185,13 @@ def get_network_output(name: Optional[pulumi.Input[builtins.str]] = None,
     example = azure.mobile.get_network(name="example-mn",
         resource_group_name=example_azurerm_resource_group["name"])
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.MobileNetwork`: 2022-11-01
 
 
     :param builtins.str name: Specifies the name which should be used for this Mobile Network.

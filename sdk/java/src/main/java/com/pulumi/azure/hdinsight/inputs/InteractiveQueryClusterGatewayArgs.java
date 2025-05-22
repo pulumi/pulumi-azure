@@ -17,7 +17,7 @@ public final class InteractiveQueryClusterGatewayArgs extends com.pulumi.resourc
     /**
      * The password used for the Ambari Portal.
      * 
-     * &gt; **NOTE:** This password must be different from the one used for the `head_node`, `worker_node` and `zookeeper_node` roles.
+     * &gt; **Note:** This password must be different from the one used for the `head_node`, `worker_node` and `zookeeper_node` roles.
      * 
      */
     @Import(name="password", required=true)
@@ -26,7 +26,7 @@ public final class InteractiveQueryClusterGatewayArgs extends com.pulumi.resourc
     /**
      * @return The password used for the Ambari Portal.
      * 
-     * &gt; **NOTE:** This password must be different from the one used for the `head_node`, `worker_node` and `zookeeper_node` roles.
+     * &gt; **Note:** This password must be different from the one used for the `head_node`, `worker_node` and `zookeeper_node` roles.
      * 
      */
     public Output<String> password() {
@@ -76,7 +76,7 @@ public final class InteractiveQueryClusterGatewayArgs extends com.pulumi.resourc
         /**
          * @param password The password used for the Ambari Portal.
          * 
-         * &gt; **NOTE:** This password must be different from the one used for the `head_node`, `worker_node` and `zookeeper_node` roles.
+         * &gt; **Note:** This password must be different from the one used for the `head_node`, `worker_node` and `zookeeper_node` roles.
          * 
          * @return builder
          * 
@@ -89,7 +89,7 @@ public final class InteractiveQueryClusterGatewayArgs extends com.pulumi.resourc
         /**
          * @param password The password used for the Ambari Portal.
          * 
-         * &gt; **NOTE:** This password must be different from the one used for the `head_node`, `worker_node` and `zookeeper_node` roles.
+         * &gt; **Note:** This password must be different from the one used for the `head_node`, `worker_node` and `zookeeper_node` roles.
          * 
          * @return builder
          * 

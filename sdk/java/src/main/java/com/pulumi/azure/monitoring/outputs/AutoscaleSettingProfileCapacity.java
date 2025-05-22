@@ -18,7 +18,7 @@ public final class AutoscaleSettingProfileCapacity {
     /**
      * @return The maximum number of instances for this resource. Valid values are between `0` and `1000`.
      * 
-     * &gt; **NOTE:** The maximum number of instances is also limited by the amount of Cores available in the subscription.
+     * &gt; **Note:** The maximum number of instances is also limited by the amount of Cores available in the subscription.
      * 
      */
     private Integer maximum;
@@ -39,7 +39,7 @@ public final class AutoscaleSettingProfileCapacity {
     /**
      * @return The maximum number of instances for this resource. Valid values are between `0` and `1000`.
      * 
-     * &gt; **NOTE:** The maximum number of instances is also limited by the amount of Cores available in the subscription.
+     * &gt; **Note:** The maximum number of instances is also limited by the amount of Cores available in the subscription.
      * 
      */
     public Integer maximum() {

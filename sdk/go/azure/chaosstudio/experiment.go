@@ -170,6 +170,13 @@ import (
 //
 // ```
 //
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.Chaos`: 2023-11-01
+//
 // ## Import
 //
 // Chaos Studio Experiments can be imported using the `resource id`, e.g.

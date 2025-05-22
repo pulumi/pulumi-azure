@@ -20,7 +20,7 @@ public final class HadoopClusterRolesWorkerNodeAutoscale {
     /**
      * @return A `recurrence` block as defined below.
      * 
-     * &gt; **NOTE:** Either a `capacity` or `recurrence` block must be specified - but not both.
+     * &gt; **Note:** Either a `capacity` or `recurrence` block must be specified - but not both.
      * 
      */
     private @Nullable HadoopClusterRolesWorkerNodeAutoscaleRecurrence recurrence;
@@ -36,7 +36,7 @@ public final class HadoopClusterRolesWorkerNodeAutoscale {
     /**
      * @return A `recurrence` block as defined below.
      * 
-     * &gt; **NOTE:** Either a `capacity` or `recurrence` block must be specified - but not both.
+     * &gt; **Note:** Either a `capacity` or `recurrence` block must be specified - but not both.
      * 
      */
     public Optional<HadoopClusterRolesWorkerNodeAutoscaleRecurrence> recurrence() {

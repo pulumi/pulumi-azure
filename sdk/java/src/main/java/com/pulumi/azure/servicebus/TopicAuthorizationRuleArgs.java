@@ -80,7 +80,7 @@ public final class TopicAuthorizationRuleArgs extends com.pulumi.resources.Resou
     /**
      * Specifies the ID of the ServiceBus Topic. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE** At least one of the 3 permissions below needs to be set.
+     * &gt; **Note:** At least one of the 3 permissions below needs to be set.
      * 
      */
     @Import(name="topicId", required=true)
@@ -89,7 +89,7 @@ public final class TopicAuthorizationRuleArgs extends com.pulumi.resources.Resou
     /**
      * @return Specifies the ID of the ServiceBus Topic. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE** At least one of the 3 permissions below needs to be set.
+     * &gt; **Note:** At least one of the 3 permissions below needs to be set.
      * 
      */
     public Output<String> topicId() {
@@ -211,7 +211,7 @@ public final class TopicAuthorizationRuleArgs extends com.pulumi.resources.Resou
         /**
          * @param topicId Specifies the ID of the ServiceBus Topic. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE** At least one of the 3 permissions below needs to be set.
+         * &gt; **Note:** At least one of the 3 permissions below needs to be set.
          * 
          * @return builder
          * 
@@ -224,7 +224,7 @@ public final class TopicAuthorizationRuleArgs extends com.pulumi.resources.Resou
         /**
          * @param topicId Specifies the ID of the ServiceBus Topic. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE** At least one of the 3 permissions below needs to be set.
+         * &gt; **Note:** At least one of the 3 permissions below needs to be set.
          * 
          * @return builder
          * 

@@ -143,6 +143,13 @@ def get_account(name: Optional[builtins.str] = None,
     pulumi.export("mapsAccountId", example.id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Maps`: 2023-06-01
+
 
     :param builtins.str name: Specifies the name of the Maps Account.
     :param builtins.str resource_group_name: Specifies the name of the Resource Group in which the Maps Account is located.
@@ -180,6 +187,13 @@ def get_account_output(name: Optional[pulumi.Input[builtins.str]] = None,
         resource_group_name="maps")
     pulumi.export("mapsAccountId", example.id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Maps`: 2023-06-01
 
 
     :param builtins.str name: Specifies the name of the Maps Account.

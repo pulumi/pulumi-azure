@@ -67,6 +67,13 @@ namespace Pulumi.Azure.AppService
     /// });
     /// ```
     /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.Web`: 2023-12-01, 2023-01-01
+    /// 
     /// ## Import
     /// 
     /// A Windows Function App Slot can be imported using the `resource id`, e.g.
@@ -285,9 +292,9 @@ namespace Pulumi.Azure.AppService
         /// <summary>
         /// The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App Slot.
         /// 
-        /// &gt; **NOTE:** `storage_key_vault_secret_id` cannot be used with `storage_account_name`.
+        /// &gt; **Note:** `storage_key_vault_secret_id` cannot be used with `storage_account_name`.
         /// 
-        /// &gt; **NOTE:** `storage_key_vault_secret_id` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
+        /// &gt; **Note:** `storage_key_vault_secret_id` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
         /// </summary>
         [Output("storageKeyVaultSecretId")]
         public Output<string?> StorageKeyVaultSecretId { get; private set; } = null!;
@@ -295,7 +302,7 @@ namespace Pulumi.Azure.AppService
         /// <summary>
         /// Should the Function App Slot use its Managed Identity to access storage.
         /// 
-        /// &gt; **NOTE:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
+        /// &gt; **Note:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
         /// </summary>
         [Output("storageUsesManagedIdentity")]
         public Output<bool?> StorageUsesManagedIdentity { get; private set; } = null!;
@@ -562,9 +569,9 @@ namespace Pulumi.Azure.AppService
         /// <summary>
         /// The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App Slot.
         /// 
-        /// &gt; **NOTE:** `storage_key_vault_secret_id` cannot be used with `storage_account_name`.
+        /// &gt; **Note:** `storage_key_vault_secret_id` cannot be used with `storage_account_name`.
         /// 
-        /// &gt; **NOTE:** `storage_key_vault_secret_id` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
+        /// &gt; **Note:** `storage_key_vault_secret_id` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
         /// </summary>
         [Input("storageKeyVaultSecretId")]
         public Input<string>? StorageKeyVaultSecretId { get; set; }
@@ -572,7 +579,7 @@ namespace Pulumi.Azure.AppService
         /// <summary>
         /// Should the Function App Slot use its Managed Identity to access storage.
         /// 
-        /// &gt; **NOTE:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
+        /// &gt; **Note:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
         /// </summary>
         [Input("storageUsesManagedIdentity")]
         public Input<bool>? StorageUsesManagedIdentity { get; set; }
@@ -887,9 +894,9 @@ namespace Pulumi.Azure.AppService
         /// <summary>
         /// The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App Slot.
         /// 
-        /// &gt; **NOTE:** `storage_key_vault_secret_id` cannot be used with `storage_account_name`.
+        /// &gt; **Note:** `storage_key_vault_secret_id` cannot be used with `storage_account_name`.
         /// 
-        /// &gt; **NOTE:** `storage_key_vault_secret_id` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
+        /// &gt; **Note:** `storage_key_vault_secret_id` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
         /// </summary>
         [Input("storageKeyVaultSecretId")]
         public Input<string>? StorageKeyVaultSecretId { get; set; }
@@ -897,7 +904,7 @@ namespace Pulumi.Azure.AppService
         /// <summary>
         /// Should the Function App Slot use its Managed Identity to access storage.
         /// 
-        /// &gt; **NOTE:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
+        /// &gt; **Note:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
         /// </summary>
         [Input("storageUsesManagedIdentity")]
         public Input<bool>? StorageUsesManagedIdentity { get; set; }

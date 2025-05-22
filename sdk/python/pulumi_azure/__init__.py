@@ -4428,6 +4428,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "eventgrid/partnerConfiguration",
+  "fqn": "pulumi_azure.eventgrid",
+  "classes": {
+   "azure:eventgrid/partnerConfiguration:PartnerConfiguration": "PartnerConfiguration"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "eventgrid/systemTopic",
   "fqn": "pulumi_azure.eventgrid",
   "classes": {
@@ -7164,6 +7172,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "nginx/apiKey",
+  "fqn": "pulumi_azure.nginx",
+  "classes": {
+   "azure:nginx/apiKey:ApiKey": "ApiKey"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "nginx/certificate",
   "fqn": "pulumi_azure.nginx",
   "classes": {
@@ -9168,6 +9184,14 @@ _utilities.register(
   "fqn": "pulumi_azure.systemcenter",
   "classes": {
    "azure:systemcenter/virtualMachineManagerVirtualMachineInstance:VirtualMachineManagerVirtualMachineInstance": "VirtualMachineManagerVirtualMachineInstance"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "systemcenter/virtualMachineManagerVirtualMachineInstanceGuestAgent",
+  "fqn": "pulumi_azure.systemcenter",
+  "classes": {
+   "azure:systemcenter/virtualMachineManagerVirtualMachineInstanceGuestAgent:VirtualMachineManagerVirtualMachineInstanceGuestAgent": "VirtualMachineManagerVirtualMachineInstanceGuestAgent"
   }
  },
  {

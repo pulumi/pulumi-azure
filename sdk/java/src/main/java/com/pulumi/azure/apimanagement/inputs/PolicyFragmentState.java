@@ -48,7 +48,7 @@ public final class PolicyFragmentState extends com.pulumi.resources.ResourceArgs
     /**
      * The format of the Policy Fragment. Possible values are `xml` or `rawxml`. Default is `xml`.
      * 
-     * &gt; **NOTE:** The `value` property will be updated to reflect the corresponding format when `format` is updated.
+     * &gt; **Note:** The `value` property will be updated to reflect the corresponding format when `format` is updated.
      * 
      */
     @Import(name="format")
@@ -57,7 +57,7 @@ public final class PolicyFragmentState extends com.pulumi.resources.ResourceArgs
     /**
      * @return The format of the Policy Fragment. Possible values are `xml` or `rawxml`. Default is `xml`.
      * 
-     * &gt; **NOTE:** The `value` property will be updated to reflect the corresponding format when `format` is updated.
+     * &gt; **Note:** The `value` property will be updated to reflect the corresponding format when `format` is updated.
      * 
      */
     public Optional<Output<String>> format() {
@@ -82,7 +82,7 @@ public final class PolicyFragmentState extends com.pulumi.resources.ResourceArgs
     /**
      * The value of the Policy Fragment.
      * 
-     * &gt; **NOTE:** Be aware of the two format possibilities. If the `value` is not applied and continues to cause a diff the format could be wrong.
+     * &gt; **Note:** Be aware of the two format possibilities. If the `value` is not applied and continues to cause a diff the format could be wrong.
      * 
      */
     @Import(name="value")
@@ -91,7 +91,7 @@ public final class PolicyFragmentState extends com.pulumi.resources.ResourceArgs
     /**
      * @return The value of the Policy Fragment.
      * 
-     * &gt; **NOTE:** Be aware of the two format possibilities. If the `value` is not applied and continues to cause a diff the format could be wrong.
+     * &gt; **Note:** Be aware of the two format possibilities. If the `value` is not applied and continues to cause a diff the format could be wrong.
      * 
      */
     public Optional<Output<String>> value() {
@@ -171,7 +171,7 @@ public final class PolicyFragmentState extends com.pulumi.resources.ResourceArgs
         /**
          * @param format The format of the Policy Fragment. Possible values are `xml` or `rawxml`. Default is `xml`.
          * 
-         * &gt; **NOTE:** The `value` property will be updated to reflect the corresponding format when `format` is updated.
+         * &gt; **Note:** The `value` property will be updated to reflect the corresponding format when `format` is updated.
          * 
          * @return builder
          * 
@@ -184,7 +184,7 @@ public final class PolicyFragmentState extends com.pulumi.resources.ResourceArgs
         /**
          * @param format The format of the Policy Fragment. Possible values are `xml` or `rawxml`. Default is `xml`.
          * 
-         * &gt; **NOTE:** The `value` property will be updated to reflect the corresponding format when `format` is updated.
+         * &gt; **Note:** The `value` property will be updated to reflect the corresponding format when `format` is updated.
          * 
          * @return builder
          * 
@@ -217,7 +217,7 @@ public final class PolicyFragmentState extends com.pulumi.resources.ResourceArgs
         /**
          * @param value The value of the Policy Fragment.
          * 
-         * &gt; **NOTE:** Be aware of the two format possibilities. If the `value` is not applied and continues to cause a diff the format could be wrong.
+         * &gt; **Note:** Be aware of the two format possibilities. If the `value` is not applied and continues to cause a diff the format could be wrong.
          * 
          * @return builder
          * 
@@ -230,7 +230,7 @@ public final class PolicyFragmentState extends com.pulumi.resources.ResourceArgs
         /**
          * @param value The value of the Policy Fragment.
          * 
-         * &gt; **NOTE:** Be aware of the two format possibilities. If the `value` is not applied and continues to cause a diff the format could be wrong.
+         * &gt; **Note:** Be aware of the two format possibilities. If the `value` is not applied and continues to cause a diff the format could be wrong.
          * 
          * @return builder
          * 

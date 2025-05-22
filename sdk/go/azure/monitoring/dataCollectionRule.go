@@ -40,7 +40,7 @@ type DataCollectionRule struct {
 	ImmutableId pulumi.StringOutput `pulumi:"immutableId"`
 	// The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`, `AgentDirectToStore` and `WorkspaceTransforms`. A rule of kind `Linux` does not allow for `windowsEventLog` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
 	//
-	// > **NOTE** Once `kind` has been set, changing it forces a new Data Collection Rule to be created.
+	// > **Note:** Once `kind` has been set, changing it forces a new Data Collection Rule to be created.
 	Kind pulumi.StringPtrOutput `pulumi:"kind"`
 	// The Azure Region where the Data Collection Rule should exist. Changing this forces a new Data Collection Rule to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -109,7 +109,7 @@ type dataCollectionRuleState struct {
 	ImmutableId *string `pulumi:"immutableId"`
 	// The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`, `AgentDirectToStore` and `WorkspaceTransforms`. A rule of kind `Linux` does not allow for `windowsEventLog` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
 	//
-	// > **NOTE** Once `kind` has been set, changing it forces a new Data Collection Rule to be created.
+	// > **Note:** Once `kind` has been set, changing it forces a new Data Collection Rule to be created.
 	Kind *string `pulumi:"kind"`
 	// The Azure Region where the Data Collection Rule should exist. Changing this forces a new Data Collection Rule to be created.
 	Location *string `pulumi:"location"`
@@ -140,7 +140,7 @@ type DataCollectionRuleState struct {
 	ImmutableId pulumi.StringPtrInput
 	// The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`, `AgentDirectToStore` and `WorkspaceTransforms`. A rule of kind `Linux` does not allow for `windowsEventLog` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
 	//
-	// > **NOTE** Once `kind` has been set, changing it forces a new Data Collection Rule to be created.
+	// > **Note:** Once `kind` has been set, changing it forces a new Data Collection Rule to be created.
 	Kind pulumi.StringPtrInput
 	// The Azure Region where the Data Collection Rule should exist. Changing this forces a new Data Collection Rule to be created.
 	Location pulumi.StringPtrInput
@@ -173,7 +173,7 @@ type dataCollectionRuleArgs struct {
 	Identity *DataCollectionRuleIdentity `pulumi:"identity"`
 	// The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`, `AgentDirectToStore` and `WorkspaceTransforms`. A rule of kind `Linux` does not allow for `windowsEventLog` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
 	//
-	// > **NOTE** Once `kind` has been set, changing it forces a new Data Collection Rule to be created.
+	// > **Note:** Once `kind` has been set, changing it forces a new Data Collection Rule to be created.
 	Kind *string `pulumi:"kind"`
 	// The Azure Region where the Data Collection Rule should exist. Changing this forces a new Data Collection Rule to be created.
 	Location *string `pulumi:"location"`
@@ -203,7 +203,7 @@ type DataCollectionRuleArgs struct {
 	Identity DataCollectionRuleIdentityPtrInput
 	// The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`, `AgentDirectToStore` and `WorkspaceTransforms`. A rule of kind `Linux` does not allow for `windowsEventLog` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
 	//
-	// > **NOTE** Once `kind` has been set, changing it forces a new Data Collection Rule to be created.
+	// > **Note:** Once `kind` has been set, changing it forces a new Data Collection Rule to be created.
 	Kind pulumi.StringPtrInput
 	// The Azure Region where the Data Collection Rule should exist. Changing this forces a new Data Collection Rule to be created.
 	Location pulumi.StringPtrInput
@@ -341,7 +341,7 @@ func (o DataCollectionRuleOutput) ImmutableId() pulumi.StringOutput {
 
 // The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`, `AgentDirectToStore` and `WorkspaceTransforms`. A rule of kind `Linux` does not allow for `windowsEventLog` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
 //
-// > **NOTE** Once `kind` has been set, changing it forces a new Data Collection Rule to be created.
+// > **Note:** Once `kind` has been set, changing it forces a new Data Collection Rule to be created.
 func (o DataCollectionRuleOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataCollectionRule) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
 }

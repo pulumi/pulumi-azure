@@ -38,7 +38,7 @@ if not MYPY:
         """
         tag: pulumi.Input[builtins.str]
         """
-        A property tag, options are `issue`, `issuewild` and `iodef`.
+        A property tag, options are `issue`, `issuewild`, `iodef`, and `contactemail`.
         """
         value: pulumi.Input[builtins.str]
         """
@@ -55,7 +55,7 @@ class CaaRecordRecordArgs:
                  value: pulumi.Input[builtins.str]):
         """
         :param pulumi.Input[builtins.int] flags: Extensible CAA flags, currently only 1 is implemented to set the issuer critical flag.
-        :param pulumi.Input[builtins.str] tag: A property tag, options are `issue`, `issuewild` and `iodef`.
+        :param pulumi.Input[builtins.str] tag: A property tag, options are `issue`, `issuewild`, `iodef`, and `contactemail`.
         :param pulumi.Input[builtins.str] value: A property value such as a registrar domain.
         """
         pulumi.set(__self__, "flags", flags)
@@ -78,7 +78,7 @@ class CaaRecordRecordArgs:
     @pulumi.getter
     def tag(self) -> pulumi.Input[builtins.str]:
         """
-        A property tag, options are `issue`, `issuewild` and `iodef`.
+        A property tag, options are `issue`, `issuewild`, `iodef`, and `contactemail`.
         """
         return pulumi.get(self, "tag")
 

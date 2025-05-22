@@ -18,7 +18,7 @@ import javax.annotation.Nullable;
 /**
  * Manages a Email integration for a Bot Channel
  * 
- * &gt; **Note** A bot can only have a single Email Channel associated with it.
+ * &gt; **Note:** A bot can only have a single Email Channel associated with it.
  * 
  * ## Example Usage
  * 
@@ -78,6 +78,13 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.BotService`: 2022-09-15
  * 
  * ## Import
  * 

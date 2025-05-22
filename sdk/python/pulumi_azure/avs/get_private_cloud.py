@@ -257,7 +257,7 @@ def get_private_cloud(name: Optional[builtins.str] = None,
 
     ## Example Usage
 
-    > **NOTE :**  Normal `pulumi up` could ignore this note. Please disable correlation request id for continuous operations in one build (like acctest). The continuous operations like `update` or `delete` could not be triggered when it shares the same `correlation-id` with its previous operation.
+    > **Note:** Normal `pulumi up` could ignore this note. Please disable correlation request id for continuous operations in one build (like acctest). The continuous operations like `update` or `delete` could not be triggered when it shares the same `correlation-id` with its previous operation.
 
     ```python
     import pulumi
@@ -267,6 +267,13 @@ def get_private_cloud(name: Optional[builtins.str] = None,
         resource_group_name="existing-resgroup")
     pulumi.export("id", example.id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.AVS`: 2022-05-01
 
 
     :param builtins.str name: The name of this Azure VMware Solution Private Cloud.
@@ -305,7 +312,7 @@ def get_private_cloud_output(name: Optional[pulumi.Input[builtins.str]] = None,
 
     ## Example Usage
 
-    > **NOTE :**  Normal `pulumi up` could ignore this note. Please disable correlation request id for continuous operations in one build (like acctest). The continuous operations like `update` or `delete` could not be triggered when it shares the same `correlation-id` with its previous operation.
+    > **Note:** Normal `pulumi up` could ignore this note. Please disable correlation request id for continuous operations in one build (like acctest). The continuous operations like `update` or `delete` could not be triggered when it shares the same `correlation-id` with its previous operation.
 
     ```python
     import pulumi
@@ -315,6 +322,13 @@ def get_private_cloud_output(name: Optional[pulumi.Input[builtins.str]] = None,
         resource_group_name="existing-resgroup")
     pulumi.export("id", example.id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.AVS`: 2022-05-01
 
 
     :param builtins.str name: The name of this Azure VMware Solution Private Cloud.

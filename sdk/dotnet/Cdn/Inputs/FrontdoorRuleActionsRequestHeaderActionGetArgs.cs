@@ -15,7 +15,7 @@ namespace Pulumi.Azure.Cdn.Inputs
         /// <summary>
         /// The action to be taken on the specified `header_name`. Possible values include `Append`, `Overwrite` or `Delete`.
         /// 
-        /// &gt; **NOTE:** `Append` causes the specified header to be added to the request with the specified value. If the header is already present, the value is appended to the existing header value using string concatenation. No delimiters are added. `Overwrite` causes specified header to be added to the request with the specified value. If the header is already present, the specified value overwrites the existing value. `Delete` causes the header to be deleted from the request.
+        /// &gt; **Note:** `Append` causes the specified header to be added to the request with the specified value. If the header is already present, the value is appended to the existing header value using string concatenation. No delimiters are added. `Overwrite` causes specified header to be added to the request with the specified value. If the header is already present, the specified value overwrites the existing value. `Delete` causes the header to be deleted from the request.
         /// </summary>
         [Input("headerAction", required: true)]
         public Input<string> HeaderAction { get; set; } = null!;
@@ -29,7 +29,7 @@ namespace Pulumi.Azure.Cdn.Inputs
         /// <summary>
         /// The value to append or overwrite.
         /// 
-        /// -&gt;**NOTE:** `value` is required if the `header_action` is set to `Append` or `Overwrite`.
+        /// &gt; **Note:** `value` is required if the `header_action` is set to `Append` or `Overwrite`.
         /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }

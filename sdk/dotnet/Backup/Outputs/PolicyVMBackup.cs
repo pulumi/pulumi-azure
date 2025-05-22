@@ -20,7 +20,7 @@ namespace Pulumi.Azure.Backup.Outputs
         /// <summary>
         /// Duration of the backup window in hours. Possible values are between `4` and `24` This is used when `frequency` is `Hourly`.
         /// 
-        /// &gt; **NOTE:** `hour_duration` must be multiplier of `hour_interval`
+        /// &gt; **Note:** `hour_duration` must be multiplier of `hour_interval`
         /// </summary>
         public readonly int? HourDuration;
         /// <summary>

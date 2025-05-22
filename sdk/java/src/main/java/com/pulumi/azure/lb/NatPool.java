@@ -19,9 +19,9 @@ import javax.annotation.Nullable;
 /**
  * Manages a Load Balancer NAT pool.
  * 
- * &gt; **NOTE:** This resource cannot be used with with virtual machines, instead use the `azure.lb.NatRule` resource.
+ * &gt; **Note:** This resource cannot be used with with virtual machines, instead use the `azure.lb.NatRule` resource.
  * 
- * &gt; **NOTE** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration Attached
+ * &gt; **Note:** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration Attached
  * 
  * ## Example Usage
  * 
@@ -93,6 +93,13 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.Network`: 2023-09-01
  * 
  * ## Import
  * 

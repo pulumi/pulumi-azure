@@ -37,14 +37,14 @@ class VirtualMachineManagerVirtualMachineInstanceArgs:
         :param pulumi.Input[builtins.str] scoped_resource_id: The ID of the Hybrid Compute Machine where this System Center Virtual Machine Manager Virtual Machine Instance is stored. Changing this forces a new resource to be created.
         :param pulumi.Input['VirtualMachineManagerVirtualMachineInstanceHardwareArgs'] hardware: A `hardware` block as defined below. Changing this forces a new resource to be created.
                
-               > **NOTE:** This resource will be restarted while updating `hardware`.
+               > **Note:** This resource will be restarted while updating `hardware`.
         :param pulumi.Input[Sequence[pulumi.Input['VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceArgs']]] network_interfaces: A `network_interface` block as defined below.
                
-               > **NOTE:** This resource will be restarted while updating `network_interface`.
+               > **Note:** This resource will be restarted while updating `network_interface`.
         :param pulumi.Input['VirtualMachineManagerVirtualMachineInstanceOperatingSystemArgs'] operating_system: An `operating_system` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['VirtualMachineManagerVirtualMachineInstanceStorageDiskArgs']]] storage_disks: A `storage_disk` block as defined below.
                
-               > **NOTE:** This resource will be restarted while updating `storage_disk`.
+               > **Note:** This resource will be restarted while updating `storage_disk`.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] system_center_virtual_machine_manager_availability_set_ids: A list of IDs of System Center Virtual Machine Manager Availability Set.
         """
         pulumi.set(__self__, "custom_location_id", custom_location_id)
@@ -103,7 +103,7 @@ class VirtualMachineManagerVirtualMachineInstanceArgs:
         """
         A `hardware` block as defined below. Changing this forces a new resource to be created.
 
-        > **NOTE:** This resource will be restarted while updating `hardware`.
+        > **Note:** This resource will be restarted while updating `hardware`.
         """
         return pulumi.get(self, "hardware")
 
@@ -117,7 +117,7 @@ class VirtualMachineManagerVirtualMachineInstanceArgs:
         """
         A `network_interface` block as defined below.
 
-        > **NOTE:** This resource will be restarted while updating `network_interface`.
+        > **Note:** This resource will be restarted while updating `network_interface`.
         """
         return pulumi.get(self, "network_interfaces")
 
@@ -143,7 +143,7 @@ class VirtualMachineManagerVirtualMachineInstanceArgs:
         """
         A `storage_disk` block as defined below.
 
-        > **NOTE:** This resource will be restarted while updating `storage_disk`.
+        > **Note:** This resource will be restarted while updating `storage_disk`.
         """
         return pulumi.get(self, "storage_disks")
 
@@ -180,16 +180,16 @@ class _VirtualMachineManagerVirtualMachineInstanceState:
         :param pulumi.Input[builtins.str] custom_location_id: The ID of the Custom Location for the System Center Virtual Machine Manager Virtual Machine Instance. Changing this forces a new resource to be created.
         :param pulumi.Input['VirtualMachineManagerVirtualMachineInstanceHardwareArgs'] hardware: A `hardware` block as defined below. Changing this forces a new resource to be created.
                
-               > **NOTE:** This resource will be restarted while updating `hardware`.
+               > **Note:** This resource will be restarted while updating `hardware`.
         :param pulumi.Input['VirtualMachineManagerVirtualMachineInstanceInfrastructureArgs'] infrastructure: An `infrastructure` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceArgs']]] network_interfaces: A `network_interface` block as defined below.
                
-               > **NOTE:** This resource will be restarted while updating `network_interface`.
+               > **Note:** This resource will be restarted while updating `network_interface`.
         :param pulumi.Input['VirtualMachineManagerVirtualMachineInstanceOperatingSystemArgs'] operating_system: An `operating_system` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] scoped_resource_id: The ID of the Hybrid Compute Machine where this System Center Virtual Machine Manager Virtual Machine Instance is stored. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['VirtualMachineManagerVirtualMachineInstanceStorageDiskArgs']]] storage_disks: A `storage_disk` block as defined below.
                
-               > **NOTE:** This resource will be restarted while updating `storage_disk`.
+               > **Note:** This resource will be restarted while updating `storage_disk`.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] system_center_virtual_machine_manager_availability_set_ids: A list of IDs of System Center Virtual Machine Manager Availability Set.
         """
         if custom_location_id is not None:
@@ -227,7 +227,7 @@ class _VirtualMachineManagerVirtualMachineInstanceState:
         """
         A `hardware` block as defined below. Changing this forces a new resource to be created.
 
-        > **NOTE:** This resource will be restarted while updating `hardware`.
+        > **Note:** This resource will be restarted while updating `hardware`.
         """
         return pulumi.get(self, "hardware")
 
@@ -253,7 +253,7 @@ class _VirtualMachineManagerVirtualMachineInstanceState:
         """
         A `network_interface` block as defined below.
 
-        > **NOTE:** This resource will be restarted while updating `network_interface`.
+        > **Note:** This resource will be restarted while updating `network_interface`.
         """
         return pulumi.get(self, "network_interfaces")
 
@@ -291,7 +291,7 @@ class _VirtualMachineManagerVirtualMachineInstanceState:
         """
         A `storage_disk` block as defined below.
 
-        > **NOTE:** This resource will be restarted while updating `storage_disk`.
+        > **Note:** This resource will be restarted while updating `storage_disk`.
         """
         return pulumi.get(self, "storage_disks")
 
@@ -385,6 +385,13 @@ class VirtualMachineManagerVirtualMachineInstance(pulumi.CustomResource):
             })
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ScVmm`: 2023-10-07
+
         ## Import
 
         System Center Virtual Machine Manager Virtual Machine Instances can be imported into Pulumi using the `resource id`, e.g.
@@ -398,16 +405,16 @@ class VirtualMachineManagerVirtualMachineInstance(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] custom_location_id: The ID of the Custom Location for the System Center Virtual Machine Manager Virtual Machine Instance. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['VirtualMachineManagerVirtualMachineInstanceHardwareArgs', 'VirtualMachineManagerVirtualMachineInstanceHardwareArgsDict']] hardware: A `hardware` block as defined below. Changing this forces a new resource to be created.
                
-               > **NOTE:** This resource will be restarted while updating `hardware`.
+               > **Note:** This resource will be restarted while updating `hardware`.
         :param pulumi.Input[Union['VirtualMachineManagerVirtualMachineInstanceInfrastructureArgs', 'VirtualMachineManagerVirtualMachineInstanceInfrastructureArgsDict']] infrastructure: An `infrastructure` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceArgs', 'VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceArgsDict']]]] network_interfaces: A `network_interface` block as defined below.
                
-               > **NOTE:** This resource will be restarted while updating `network_interface`.
+               > **Note:** This resource will be restarted while updating `network_interface`.
         :param pulumi.Input[Union['VirtualMachineManagerVirtualMachineInstanceOperatingSystemArgs', 'VirtualMachineManagerVirtualMachineInstanceOperatingSystemArgsDict']] operating_system: An `operating_system` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] scoped_resource_id: The ID of the Hybrid Compute Machine where this System Center Virtual Machine Manager Virtual Machine Instance is stored. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[Union['VirtualMachineManagerVirtualMachineInstanceStorageDiskArgs', 'VirtualMachineManagerVirtualMachineInstanceStorageDiskArgsDict']]]] storage_disks: A `storage_disk` block as defined below.
                
-               > **NOTE:** This resource will be restarted while updating `storage_disk`.
+               > **Note:** This resource will be restarted while updating `storage_disk`.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] system_center_virtual_machine_manager_availability_set_ids: A list of IDs of System Center Virtual Machine Manager Availability Set.
         """
         ...
@@ -473,6 +480,13 @@ class VirtualMachineManagerVirtualMachineInstance(pulumi.CustomResource):
                 "memory_in_mb": 1024,
             })
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ScVmm`: 2023-10-07
 
         ## Import
 
@@ -556,16 +570,16 @@ class VirtualMachineManagerVirtualMachineInstance(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] custom_location_id: The ID of the Custom Location for the System Center Virtual Machine Manager Virtual Machine Instance. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['VirtualMachineManagerVirtualMachineInstanceHardwareArgs', 'VirtualMachineManagerVirtualMachineInstanceHardwareArgsDict']] hardware: A `hardware` block as defined below. Changing this forces a new resource to be created.
                
-               > **NOTE:** This resource will be restarted while updating `hardware`.
+               > **Note:** This resource will be restarted while updating `hardware`.
         :param pulumi.Input[Union['VirtualMachineManagerVirtualMachineInstanceInfrastructureArgs', 'VirtualMachineManagerVirtualMachineInstanceInfrastructureArgsDict']] infrastructure: An `infrastructure` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceArgs', 'VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceArgsDict']]]] network_interfaces: A `network_interface` block as defined below.
                
-               > **NOTE:** This resource will be restarted while updating `network_interface`.
+               > **Note:** This resource will be restarted while updating `network_interface`.
         :param pulumi.Input[Union['VirtualMachineManagerVirtualMachineInstanceOperatingSystemArgs', 'VirtualMachineManagerVirtualMachineInstanceOperatingSystemArgsDict']] operating_system: An `operating_system` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] scoped_resource_id: The ID of the Hybrid Compute Machine where this System Center Virtual Machine Manager Virtual Machine Instance is stored. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[Union['VirtualMachineManagerVirtualMachineInstanceStorageDiskArgs', 'VirtualMachineManagerVirtualMachineInstanceStorageDiskArgsDict']]]] storage_disks: A `storage_disk` block as defined below.
                
-               > **NOTE:** This resource will be restarted while updating `storage_disk`.
+               > **Note:** This resource will be restarted while updating `storage_disk`.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] system_center_virtual_machine_manager_availability_set_ids: A list of IDs of System Center Virtual Machine Manager Availability Set.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -596,7 +610,7 @@ class VirtualMachineManagerVirtualMachineInstance(pulumi.CustomResource):
         """
         A `hardware` block as defined below. Changing this forces a new resource to be created.
 
-        > **NOTE:** This resource will be restarted while updating `hardware`.
+        > **Note:** This resource will be restarted while updating `hardware`.
         """
         return pulumi.get(self, "hardware")
 
@@ -614,7 +628,7 @@ class VirtualMachineManagerVirtualMachineInstance(pulumi.CustomResource):
         """
         A `network_interface` block as defined below.
 
-        > **NOTE:** This resource will be restarted while updating `network_interface`.
+        > **Note:** This resource will be restarted while updating `network_interface`.
         """
         return pulumi.get(self, "network_interfaces")
 
@@ -640,7 +654,7 @@ class VirtualMachineManagerVirtualMachineInstance(pulumi.CustomResource):
         """
         A `storage_disk` block as defined below.
 
-        > **NOTE:** This resource will be restarted while updating `storage_disk`.
+        > **Note:** This resource will be restarted while updating `storage_disk`.
         """
         return pulumi.get(self, "storage_disks")
 

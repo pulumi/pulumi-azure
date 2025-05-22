@@ -39,6 +39,13 @@ namespace Pulumi.Azure.StreamAnalytics
     /// });
     /// ```
     /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.StreamAnalytics`: 2020-03-01
+    /// 
     /// ## Import
     /// 
     /// Stream Analytics Clusters can be imported using the `resource id`, e.g.

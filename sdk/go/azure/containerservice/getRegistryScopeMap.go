@@ -41,6 +41,13 @@ import (
 //	}
 //
 // ```
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This data source uses the following Azure API Providers:
+//
+// * `Microsoft.ContainerRegistry`: 2023-11-01-preview
 func LookupRegistryScopeMap(ctx *pulumi.Context, args *LookupRegistryScopeMapArgs, opts ...pulumi.InvokeOption) (*LookupRegistryScopeMapResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupRegistryScopeMapResult

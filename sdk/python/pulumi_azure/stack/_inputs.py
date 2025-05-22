@@ -72,7 +72,7 @@ if not MYPY:
         """
         The Tenant ID of the Azure Active Directory which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
 
-        > **NOTE** If unspecified the Tenant ID of the Provider will be used.
+        > **Note:** If unspecified the Tenant ID of the Provider will be used.
         """
 elif False:
     HciClusterIdentityArgsDict: TypeAlias = Mapping[str, Any]
@@ -88,7 +88,7 @@ class HciClusterIdentityArgs:
         :param pulumi.Input[builtins.str] principal_id: The Principal ID associated with this Managed Service Identity.
         :param pulumi.Input[builtins.str] tenant_id: The Tenant ID of the Azure Active Directory which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
                
-               > **NOTE** If unspecified the Tenant ID of the Provider will be used.
+               > **Note:** If unspecified the Tenant ID of the Provider will be used.
         """
         pulumi.set(__self__, "type", type)
         if principal_id is not None:
@@ -126,7 +126,7 @@ class HciClusterIdentityArgs:
         """
         The Tenant ID of the Azure Active Directory which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
 
-        > **NOTE** If unspecified the Tenant ID of the Provider will be used.
+        > **Note:** If unspecified the Tenant ID of the Provider will be used.
         """
         return pulumi.get(self, "tenant_id")
 
@@ -1270,7 +1270,7 @@ if not MYPY:
         """
         Whether DHCP is enabled for hosts and cluster IPs. Possible values are `true` and `false`. defaults to `false`. Changing this forces a new Stack HCI Deployment Setting to be created.
 
-        > **NOTE:** If `dhcp_enabled` is set to `false`, the deployment will use static IPs. If set to `true`, the gateway and DNS servers are not required.
+        > **Note:** If `dhcp_enabled` is set to `false`, the deployment will use static IPs. If set to `true`, the gateway and DNS servers are not required.
         """
 elif False:
     HciDeploymentSettingScaleUnitInfrastructureNetworkArgsDict: TypeAlias = Mapping[str, Any]
@@ -1290,7 +1290,7 @@ class HciDeploymentSettingScaleUnitInfrastructureNetworkArgs:
         :param pulumi.Input[builtins.str] subnet_mask: Specifies the subnet mask that matches the provided IP address space. Changing this forces a new Stack HCI Deployment Setting to be created.
         :param pulumi.Input[builtins.bool] dhcp_enabled: Whether DHCP is enabled for hosts and cluster IPs. Possible values are `true` and `false`. defaults to `false`. Changing this forces a new Stack HCI Deployment Setting to be created.
                
-               > **NOTE:** If `dhcp_enabled` is set to `false`, the deployment will use static IPs. If set to `true`, the gateway and DNS servers are not required.
+               > **Note:** If `dhcp_enabled` is set to `false`, the deployment will use static IPs. If set to `true`, the gateway and DNS servers are not required.
         """
         pulumi.set(__self__, "dns_servers", dns_servers)
         pulumi.set(__self__, "gateway", gateway)
@@ -1353,7 +1353,7 @@ class HciDeploymentSettingScaleUnitInfrastructureNetworkArgs:
         """
         Whether DHCP is enabled for hosts and cluster IPs. Possible values are `true` and `false`. defaults to `false`. Changing this forces a new Stack HCI Deployment Setting to be created.
 
-        > **NOTE:** If `dhcp_enabled` is set to `false`, the deployment will use static IPs. If set to `true`, the gateway and DNS servers are not required.
+        > **Note:** If `dhcp_enabled` is set to `false`, the deployment will use static IPs. If set to `true`, the gateway and DNS servers are not required.
         """
         return pulumi.get(self, "dhcp_enabled")
 

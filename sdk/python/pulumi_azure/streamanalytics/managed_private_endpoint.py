@@ -234,6 +234,13 @@ class ManagedPrivateEndpoint(pulumi.CustomResource):
             subresource_name="blob")
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.StreamAnalytics`: 2020-03-01
+
         ## Import
 
         Stream Analytics Private Endpoints can be imported using the `resource id`, e.g.
@@ -288,6 +295,13 @@ class ManagedPrivateEndpoint(pulumi.CustomResource):
             target_resource_id=example_account.id,
             subresource_name="blob")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.StreamAnalytics`: 2020-03-01
 
         ## Import
 

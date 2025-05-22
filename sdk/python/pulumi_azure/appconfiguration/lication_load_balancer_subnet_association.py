@@ -217,6 +217,13 @@ class LicationLoadBalancerSubnetAssociation(pulumi.CustomResource):
             subnet_id=example_subnet.id)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ServiceNetworking`: 2023-11-01
+
         ## Import
 
         Application Gateway for Containers Associations can be imported using the `resource id`, e.g.
@@ -278,6 +285,13 @@ class LicationLoadBalancerSubnetAssociation(pulumi.CustomResource):
             application_load_balancer_id=example_lication_load_balancer.id,
             subnet_id=example_subnet.id)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ServiceNetworking`: 2023-11-01
 
         ## Import
 

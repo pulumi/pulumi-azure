@@ -54,7 +54,7 @@ func GetAlertRuleTemplate(ctx *pulumi.Context, args *GetAlertRuleTemplateArgs, o
 type GetAlertRuleTemplateArgs struct {
 	// The display name of this Sentinel Alert Rule Template. Either `displayName` or `name` have to be specified.
 	//
-	// > **NOTE** As `displayName` is not unique, errors may occur when there are multiple Sentinel Alert Rule Template with same `displayName`.
+	// > **Note:** As `displayName` is not unique, errors may occur when there are multiple Sentinel Alert Rule Template with same `displayName`.
 	DisplayName *string `pulumi:"displayName"`
 	// The ID of the Log Analytics Workspace.
 	LogAnalyticsWorkspaceId string `pulumi:"logAnalyticsWorkspaceId"`
@@ -90,7 +90,7 @@ func GetAlertRuleTemplateOutput(ctx *pulumi.Context, args GetAlertRuleTemplateOu
 type GetAlertRuleTemplateOutputArgs struct {
 	// The display name of this Sentinel Alert Rule Template. Either `displayName` or `name` have to be specified.
 	//
-	// > **NOTE** As `displayName` is not unique, errors may occur when there are multiple Sentinel Alert Rule Template with same `displayName`.
+	// > **Note:** As `displayName` is not unique, errors may occur when there are multiple Sentinel Alert Rule Template with same `displayName`.
 	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
 	// The ID of the Log Analytics Workspace.
 	LogAnalyticsWorkspaceId pulumi.StringInput `pulumi:"logAnalyticsWorkspaceId"`

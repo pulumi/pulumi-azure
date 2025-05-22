@@ -601,7 +601,7 @@ if not MYPY:
         """
         The location of the certificate store on the compute node into which to install the certificate. Possible values are `CurrentUser` or `LocalMachine`.
 
-        > **NOTE:** This property is applicable only for pools configured with Windows nodes (that is, created with cloudServiceConfiguration, or with virtualMachineConfiguration using a Windows image reference). For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable `AZ_BATCH_CERTIFICATES_DIR` is supplied to the task to query for this location. For certificates with visibility of `remoteUser`, a 'certs' directory is created in the user's home directory (e.g., `/home/{user-name}/certs`) and certificates are placed in that directory.
+        > **Note:** This property is applicable only for pools configured with Windows nodes (that is, created with cloudServiceConfiguration, or with virtualMachineConfiguration using a Windows image reference). For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable `AZ_BATCH_CERTIFICATES_DIR` is supplied to the task to query for this location. For certificates with visibility of `remoteUser`, a 'certs' directory is created in the user's home directory (e.g., `/home/{user-name}/certs`) and certificates are placed in that directory.
         """
         store_name: NotRequired[pulumi.Input[builtins.str]]
         """
@@ -625,7 +625,7 @@ class PoolCertificateArgs:
         :param pulumi.Input[builtins.str] id: The ID of the Batch Certificate to install on the Batch Pool, which must be inside the same Batch Account.
         :param pulumi.Input[builtins.str] store_location: The location of the certificate store on the compute node into which to install the certificate. Possible values are `CurrentUser` or `LocalMachine`.
                
-               > **NOTE:** This property is applicable only for pools configured with Windows nodes (that is, created with cloudServiceConfiguration, or with virtualMachineConfiguration using a Windows image reference). For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable `AZ_BATCH_CERTIFICATES_DIR` is supplied to the task to query for this location. For certificates with visibility of `remoteUser`, a 'certs' directory is created in the user's home directory (e.g., `/home/{user-name}/certs`) and certificates are placed in that directory.
+               > **Note:** This property is applicable only for pools configured with Windows nodes (that is, created with cloudServiceConfiguration, or with virtualMachineConfiguration using a Windows image reference). For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable `AZ_BATCH_CERTIFICATES_DIR` is supplied to the task to query for this location. For certificates with visibility of `remoteUser`, a 'certs' directory is created in the user's home directory (e.g., `/home/{user-name}/certs`) and certificates are placed in that directory.
         :param pulumi.Input[builtins.str] store_name: The name of the certificate store on the compute node into which to install the certificate. This property is applicable only for pools configured with Windows nodes (that is, created with cloudServiceConfiguration, or with virtualMachineConfiguration using a Windows image reference). Common store names include: `My`, `Root`, `CA`, `Trust`, `Disallowed`, `TrustedPeople`, `TrustedPublisher`, `AuthRoot`, `AddressBook`, but any custom store name can also be used.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] visibilities: Which user accounts on the compute node should have access to the private data of the certificate. Possible values are `StartTask`, `Task` and `RemoteUser`.
         """
@@ -654,7 +654,7 @@ class PoolCertificateArgs:
         """
         The location of the certificate store on the compute node into which to install the certificate. Possible values are `CurrentUser` or `LocalMachine`.
 
-        > **NOTE:** This property is applicable only for pools configured with Windows nodes (that is, created with cloudServiceConfiguration, or with virtualMachineConfiguration using a Windows image reference). For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable `AZ_BATCH_CERTIFICATES_DIR` is supplied to the task to query for this location. For certificates with visibility of `remoteUser`, a 'certs' directory is created in the user's home directory (e.g., `/home/{user-name}/certs`) and certificates are placed in that directory.
+        > **Note:** This property is applicable only for pools configured with Windows nodes (that is, created with cloudServiceConfiguration, or with virtualMachineConfiguration using a Windows image reference). For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable `AZ_BATCH_CERTIFICATES_DIR` is supplied to the task to query for this location. For certificates with visibility of `remoteUser`, a 'certs' directory is created in the user's home directory (e.g., `/home/{user-name}/certs`) and certificates are placed in that directory.
         """
         return pulumi.get(self, "store_location")
 
@@ -993,7 +993,7 @@ if not MYPY:
         """
         Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available. Supported values are `true` and `false`.
 
-        > **NOTE:** When `automatic_upgrade_enabled` is set to `true`, the `type_handler_version` is automatically updated by the Azure platform when a new version is available and any change in `type_handler_version` should be manually ignored by user.
+        > **Note:** When `automatic_upgrade_enabled` is set to `true`, the `type_handler_version` is automatically updated by the Azure platform when a new version is available and any change in `type_handler_version` should be manually ignored by user.
         """
         protected_settings: NotRequired[pulumi.Input[builtins.str]]
         """
@@ -1033,7 +1033,7 @@ class PoolExtensionArgs:
         :param pulumi.Input[builtins.bool] auto_upgrade_minor_version: Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
         :param pulumi.Input[builtins.bool] automatic_upgrade_enabled: Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available. Supported values are `true` and `false`.
                
-               > **NOTE:** When `automatic_upgrade_enabled` is set to `true`, the `type_handler_version` is automatically updated by the Azure platform when a new version is available and any change in `type_handler_version` should be manually ignored by user.
+               > **Note:** When `automatic_upgrade_enabled` is set to `true`, the `type_handler_version` is automatically updated by the Azure platform when a new version is available and any change in `type_handler_version` should be manually ignored by user.
         :param pulumi.Input[builtins.str] protected_settings: JSON formatted protected settings for the extension, the value should be encoded with `jsonencode` function. The extension can contain either `protected_settings` or `provision_after_extensions` or no protected settings at all.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] provision_after_extensions: The collection of extension names. Collection of extension names after which this extension needs to be provisioned.
         :param pulumi.Input[builtins.str] settings_json: JSON formatted public settings for the extension, the value should be encoded with `jsonencode` function.
@@ -1109,7 +1109,7 @@ class PoolExtensionArgs:
         """
         Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available. Supported values are `true` and `false`.
 
-        > **NOTE:** When `automatic_upgrade_enabled` is set to `true`, the `type_handler_version` is automatically updated by the Azure platform when a new version is available and any change in `type_handler_version` should be manually ignored by user.
+        > **Note:** When `automatic_upgrade_enabled` is set to `true`, the `type_handler_version` is automatically updated by the Azure platform when a new version is available and any change in `type_handler_version` should be manually ignored by user.
         """
         return pulumi.get(self, "automatic_upgrade_enabled")
 
@@ -2214,9 +2214,9 @@ if not MYPY:
         """
         Whether to enable virtual trusted platform module (vTPM) for the Virtual Machine or Virtual Machine Scale Set. Possible values are `true` and `false`. Changing this forces a new resource to be created.
 
-        > **NOTE:** `security_profile` block can only be specified during creation and does not support updates.
+        > **Note:** `security_profile` block can only be specified during creation and does not support updates.
 
-        > **NOTE:** `security_type` must be specified to set UEFI related properties including `secure_boot_enabled` and `vtpm_enabled`.
+        > **Note:** `security_type` must be specified to set UEFI related properties including `secure_boot_enabled` and `vtpm_enabled`.
         """
 elif False:
     PoolSecurityProfileArgsDict: TypeAlias = Mapping[str, Any]
@@ -2234,9 +2234,9 @@ class PoolSecurityProfileArgs:
         :param pulumi.Input[builtins.str] security_type: The security type of the Virtual Machine. Possible values are `confidentialVM` and `trustedLaunch`. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.bool] vtpm_enabled: Whether to enable virtual trusted platform module (vTPM) for the Virtual Machine or Virtual Machine Scale Set. Possible values are `true` and `false`. Changing this forces a new resource to be created.
                
-               > **NOTE:** `security_profile` block can only be specified during creation and does not support updates.
+               > **Note:** `security_profile` block can only be specified during creation and does not support updates.
                
-               > **NOTE:** `security_type` must be specified to set UEFI related properties including `secure_boot_enabled` and `vtpm_enabled`.
+               > **Note:** `security_type` must be specified to set UEFI related properties including `secure_boot_enabled` and `vtpm_enabled`.
         """
         if host_encryption_enabled is not None:
             pulumi.set(__self__, "host_encryption_enabled", host_encryption_enabled)
@@ -2289,9 +2289,9 @@ class PoolSecurityProfileArgs:
         """
         Whether to enable virtual trusted platform module (vTPM) for the Virtual Machine or Virtual Machine Scale Set. Possible values are `true` and `false`. Changing this forces a new resource to be created.
 
-        > **NOTE:** `security_profile` block can only be specified during creation and does not support updates.
+        > **Note:** `security_profile` block can only be specified during creation and does not support updates.
 
-        > **NOTE:** `security_type` must be specified to set UEFI related properties including `secure_boot_enabled` and `vtpm_enabled`.
+        > **Note:** `security_type` must be specified to set UEFI related properties including `secure_boot_enabled` and `vtpm_enabled`.
         """
         return pulumi.get(self, "vtpm_enabled")
 
@@ -2648,7 +2648,7 @@ if not MYPY:
         """
         An identity reference from pool's user assigned managed identity list.
 
-        > **Please Note:** Exactly one of `auto_storage_container_name`, `storage_container_url` and `auto_user` must be specified.
+        > **Note:** Exactly one of `auto_storage_container_name`, `storage_container_url` and `auto_user` must be specified.
         """
 elif False:
     PoolStartTaskResourceFileArgsDict: TypeAlias = Mapping[str, Any]
@@ -2672,7 +2672,7 @@ class PoolStartTaskResourceFileArgs:
         :param pulumi.Input[builtins.str] storage_container_url: The URL of the blob container within Azure Blob Storage. This URL must be readable and listable using anonymous access; that is, the Batch service does not present any credentials when downloading the blob. There are two ways to get such a URL for a blob in Azure storage: include a Shared Access Signature (SAS) granting read and list permissions on the blob, or set the ACL for the blob or its container to allow public access.
         :param pulumi.Input[builtins.str] user_assigned_identity_id: An identity reference from pool's user assigned managed identity list.
                
-               > **Please Note:** Exactly one of `auto_storage_container_name`, `storage_container_url` and `auto_user` must be specified.
+               > **Note:** Exactly one of `auto_storage_container_name`, `storage_container_url` and `auto_user` must be specified.
         """
         if auto_storage_container_name is not None:
             pulumi.set(__self__, "auto_storage_container_name", auto_storage_container_name)
@@ -2767,7 +2767,7 @@ class PoolStartTaskResourceFileArgs:
         """
         An identity reference from pool's user assigned managed identity list.
 
-        > **Please Note:** Exactly one of `auto_storage_container_name`, `storage_container_url` and `auto_user` must be specified.
+        > **Note:** Exactly one of `auto_storage_container_name`, `storage_container_url` and `auto_user` must be specified.
         """
         return pulumi.get(self, "user_assigned_identity_id")
 
@@ -2782,7 +2782,7 @@ if not MYPY:
         """
         A `auto_user` block that describes the user identity under which the start task runs as defined below.
 
-        > **Please Note:** `user_name` and `auto_user` blocks cannot be used both at the same time, but you need to define one or the other.
+        > **Note:** `user_name` and `auto_user` blocks cannot be used both at the same time, but you need to define one or the other.
         """
         user_name: NotRequired[pulumi.Input[builtins.str]]
         """
@@ -2799,7 +2799,7 @@ class PoolStartTaskUserIdentityArgs:
         """
         :param pulumi.Input['PoolStartTaskUserIdentityAutoUserArgs'] auto_user: A `auto_user` block that describes the user identity under which the start task runs as defined below.
                
-               > **Please Note:** `user_name` and `auto_user` blocks cannot be used both at the same time, but you need to define one or the other.
+               > **Note:** `user_name` and `auto_user` blocks cannot be used both at the same time, but you need to define one or the other.
         :param pulumi.Input[builtins.str] user_name: The username to be used by the Batch pool start task.
         """
         if auto_user is not None:
@@ -2813,7 +2813,7 @@ class PoolStartTaskUserIdentityArgs:
         """
         A `auto_user` block that describes the user identity under which the start task runs as defined below.
 
-        > **Please Note:** `user_name` and `auto_user` blocks cannot be used both at the same time, but you need to define one or the other.
+        > **Note:** `user_name` and `auto_user` blocks cannot be used both at the same time, but you need to define one or the other.
         """
         return pulumi.get(self, "auto_user")
 

@@ -107,6 +107,13 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.Automation`: 2019-06-01
+ * 
  * ## Import
  * 
  * Automations Software Update Configuration can be imported using the `resource id`, e.g.
@@ -289,7 +296,7 @@ public class SoftwareUpdateConfiguration extends com.pulumi.resources.CustomReso
     /**
      * A `windows` block as defined below.
      * 
-     * &gt; **NOTE:** One of `linux` or `windows` must be specified.
+     * &gt; **Note:** One of `linux` or `windows` must be specified.
      * 
      */
     @Export(name="windows", refs={SoftwareUpdateConfigurationWindows.class}, tree="[0]")
@@ -298,7 +305,7 @@ public class SoftwareUpdateConfiguration extends com.pulumi.resources.CustomReso
     /**
      * @return A `windows` block as defined below.
      * 
-     * &gt; **NOTE:** One of `linux` or `windows` must be specified.
+     * &gt; **Note:** One of `linux` or `windows` must be specified.
      * 
      */
     public Output<Optional<SoftwareUpdateConfigurationWindows>> windows() {

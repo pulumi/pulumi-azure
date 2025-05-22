@@ -33,7 +33,7 @@ public final class EventSubscriptionAdvancedFilterStringNotContainArgs extends c
     /**
      * Specifies an array of values to compare to when using a multiple values operator.
      * 
-     * &gt; **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+     * &gt; **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
      * 
      */
     @Import(name="values", required=true)
@@ -42,7 +42,7 @@ public final class EventSubscriptionAdvancedFilterStringNotContainArgs extends c
     /**
      * @return Specifies an array of values to compare to when using a multiple values operator.
      * 
-     * &gt; **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+     * &gt; **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
      * 
      */
     public Output<List<String>> values() {
@@ -98,7 +98,7 @@ public final class EventSubscriptionAdvancedFilterStringNotContainArgs extends c
         /**
          * @param values Specifies an array of values to compare to when using a multiple values operator.
          * 
-         * &gt; **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+         * &gt; **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
          * 
          * @return builder
          * 
@@ -111,7 +111,7 @@ public final class EventSubscriptionAdvancedFilterStringNotContainArgs extends c
         /**
          * @param values Specifies an array of values to compare to when using a multiple values operator.
          * 
-         * &gt; **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+         * &gt; **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
          * 
          * @return builder
          * 
@@ -123,7 +123,7 @@ public final class EventSubscriptionAdvancedFilterStringNotContainArgs extends c
         /**
          * @param values Specifies an array of values to compare to when using a multiple values operator.
          * 
-         * &gt; **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+         * &gt; **Note:** A maximum of total number of advanced filter values allowed on event subscription is 25.
          * 
          * @return builder
          * 

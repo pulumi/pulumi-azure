@@ -177,6 +177,13 @@ class Job(pulumi.CustomResource):
             description="example description")
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Sql`: 2023-08-01-preview
+
         ## Import
 
         Elastic Jobs can be imported using the `resource id`, e.g.
@@ -235,6 +242,13 @@ class Job(pulumi.CustomResource):
             job_agent_id=example_job_agent.id,
             description="example description")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Sql`: 2023-08-01-preview
 
         ## Import
 

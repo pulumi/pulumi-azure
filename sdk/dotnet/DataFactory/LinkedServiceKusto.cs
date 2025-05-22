@@ -165,9 +165,9 @@ namespace Pulumi.Azure.DataFactory
         /// <summary>
         /// The service principal tenant id or name in which to authenticate against the Kusto Database.
         /// 
-        /// &gt; **NOTE** If `service_principal_id` is used, `service_principal_key` and `tenant` is also required.
+        /// &gt; **Note:** If `service_principal_id` is used, `service_principal_key` and `tenant` is also required.
         /// 
-        /// &gt; **NOTE** One of Managed Identity authentication and Service Principal authentication must be set.
+        /// &gt; **Note:** One of Managed Identity authentication and Service Principal authentication must be set.
         /// </summary>
         [Output("tenant")]
         public Output<string?> Tenant { get; private set; } = null!;
@@ -327,9 +327,9 @@ namespace Pulumi.Azure.DataFactory
         /// <summary>
         /// The service principal tenant id or name in which to authenticate against the Kusto Database.
         /// 
-        /// &gt; **NOTE** If `service_principal_id` is used, `service_principal_key` and `tenant` is also required.
+        /// &gt; **Note:** If `service_principal_id` is used, `service_principal_key` and `tenant` is also required.
         /// 
-        /// &gt; **NOTE** One of Managed Identity authentication and Service Principal authentication must be set.
+        /// &gt; **Note:** One of Managed Identity authentication and Service Principal authentication must be set.
         /// </summary>
         [Input("tenant")]
         public Input<string>? Tenant { get; set; }
@@ -447,9 +447,9 @@ namespace Pulumi.Azure.DataFactory
         /// <summary>
         /// The service principal tenant id or name in which to authenticate against the Kusto Database.
         /// 
-        /// &gt; **NOTE** If `service_principal_id` is used, `service_principal_key` and `tenant` is also required.
+        /// &gt; **Note:** If `service_principal_id` is used, `service_principal_key` and `tenant` is also required.
         /// 
-        /// &gt; **NOTE** One of Managed Identity authentication and Service Principal authentication must be set.
+        /// &gt; **Note:** One of Managed Identity authentication and Service Principal authentication must be set.
         /// </summary>
         [Input("tenant")]
         public Input<string>? Tenant { get; set; }

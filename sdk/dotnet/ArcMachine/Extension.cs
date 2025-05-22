@@ -46,6 +46,13 @@ namespace Pulumi.Azure.ArcMachine
     /// });
     /// ```
     /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.HybridCompute`: 2022-11-10
+    /// 
     /// ## Import
     /// 
     /// Hybrid Compute Machine Extensions can be imported using the `resource id`, e.g.
@@ -66,9 +73,9 @@ namespace Pulumi.Azure.ArcMachine
         /// <summary>
         /// Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available. Supported values are `true` and `false`. Defaults to `true`.
         /// 
-        /// &gt; **NOTE:** When `automatic_upgrade_enabled` can only be set during creation. Any later change will be ignored.
+        /// &gt; **Note:** When `automatic_upgrade_enabled` can only be set during creation. Any later change will be ignored.
         /// 
-        /// &gt; **NOTE:** When `automatic_upgrade_enabled` is set to `true`, the `type_handler_version` is automatically updated by the Azure platform when a new version is available and any change in `type_handler_version` will be automatically ignored.
+        /// &gt; **Note:** When `automatic_upgrade_enabled` is set to `true`, the `type_handler_version` is automatically updated by the Azure platform when a new version is available and any change in `type_handler_version` will be automatically ignored.
         /// </summary>
         [Output("automaticUpgradeEnabled")]
         public Output<bool?> AutomaticUpgradeEnabled { get; private set; } = null!;
@@ -124,7 +131,7 @@ namespace Pulumi.Azure.ArcMachine
         /// <summary>
         /// Specifies the version of the script handler.
         /// 
-        /// &gt; **NOTE:** 1. When `automatic_upgrade_enabled` is set to `false` and no `type_handler_version` is specified, the `type_handler_version` change should be manually ignored by `ignore_changes` lifecycle block. This is because the `type_handler_version` is set by the Azure platform when the extension is created. 2. When `automatic_upgrade_enabled` is set to `false` and `type_handler_version` is specified, the provider will check whether the version prefix is aligned with user input. For example, if user specifies `1.24` in `type_handler_version`, `1.24.1` will be considered as no diff.
+        /// &gt; **Note:** 1. When `automatic_upgrade_enabled` is set to `false` and no `type_handler_version` is specified, the `type_handler_version` change should be manually ignored by `ignore_changes` lifecycle block. This is because the `type_handler_version` is set by the Azure platform when the extension is created. 2. When `automatic_upgrade_enabled` is set to `false` and `type_handler_version` is specified, the provider will check whether the version prefix is aligned with user input. For example, if user specifies `1.24` in `type_handler_version`, `1.24.1` will be considered as no diff.
         /// </summary>
         [Output("typeHandlerVersion")]
         public Output<string?> TypeHandlerVersion { get; private set; } = null!;
@@ -188,9 +195,9 @@ namespace Pulumi.Azure.ArcMachine
         /// <summary>
         /// Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available. Supported values are `true` and `false`. Defaults to `true`.
         /// 
-        /// &gt; **NOTE:** When `automatic_upgrade_enabled` can only be set during creation. Any later change will be ignored.
+        /// &gt; **Note:** When `automatic_upgrade_enabled` can only be set during creation. Any later change will be ignored.
         /// 
-        /// &gt; **NOTE:** When `automatic_upgrade_enabled` is set to `true`, the `type_handler_version` is automatically updated by the Azure platform when a new version is available and any change in `type_handler_version` will be automatically ignored.
+        /// &gt; **Note:** When `automatic_upgrade_enabled` is set to `true`, the `type_handler_version` is automatically updated by the Azure platform when a new version is available and any change in `type_handler_version` will be automatically ignored.
         /// </summary>
         [Input("automaticUpgradeEnabled")]
         public Input<bool>? AutomaticUpgradeEnabled { get; set; }
@@ -262,7 +269,7 @@ namespace Pulumi.Azure.ArcMachine
         /// <summary>
         /// Specifies the version of the script handler.
         /// 
-        /// &gt; **NOTE:** 1. When `automatic_upgrade_enabled` is set to `false` and no `type_handler_version` is specified, the `type_handler_version` change should be manually ignored by `ignore_changes` lifecycle block. This is because the `type_handler_version` is set by the Azure platform when the extension is created. 2. When `automatic_upgrade_enabled` is set to `false` and `type_handler_version` is specified, the provider will check whether the version prefix is aligned with user input. For example, if user specifies `1.24` in `type_handler_version`, `1.24.1` will be considered as no diff.
+        /// &gt; **Note:** 1. When `automatic_upgrade_enabled` is set to `false` and no `type_handler_version` is specified, the `type_handler_version` change should be manually ignored by `ignore_changes` lifecycle block. This is because the `type_handler_version` is set by the Azure platform when the extension is created. 2. When `automatic_upgrade_enabled` is set to `false` and `type_handler_version` is specified, the provider will check whether the version prefix is aligned with user input. For example, if user specifies `1.24` in `type_handler_version`, `1.24.1` will be considered as no diff.
         /// </summary>
         [Input("typeHandlerVersion")]
         public Input<string>? TypeHandlerVersion { get; set; }
@@ -284,9 +291,9 @@ namespace Pulumi.Azure.ArcMachine
         /// <summary>
         /// Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available. Supported values are `true` and `false`. Defaults to `true`.
         /// 
-        /// &gt; **NOTE:** When `automatic_upgrade_enabled` can only be set during creation. Any later change will be ignored.
+        /// &gt; **Note:** When `automatic_upgrade_enabled` can only be set during creation. Any later change will be ignored.
         /// 
-        /// &gt; **NOTE:** When `automatic_upgrade_enabled` is set to `true`, the `type_handler_version` is automatically updated by the Azure platform when a new version is available and any change in `type_handler_version` will be automatically ignored.
+        /// &gt; **Note:** When `automatic_upgrade_enabled` is set to `true`, the `type_handler_version` is automatically updated by the Azure platform when a new version is available and any change in `type_handler_version` will be automatically ignored.
         /// </summary>
         [Input("automaticUpgradeEnabled")]
         public Input<bool>? AutomaticUpgradeEnabled { get; set; }
@@ -358,7 +365,7 @@ namespace Pulumi.Azure.ArcMachine
         /// <summary>
         /// Specifies the version of the script handler.
         /// 
-        /// &gt; **NOTE:** 1. When `automatic_upgrade_enabled` is set to `false` and no `type_handler_version` is specified, the `type_handler_version` change should be manually ignored by `ignore_changes` lifecycle block. This is because the `type_handler_version` is set by the Azure platform when the extension is created. 2. When `automatic_upgrade_enabled` is set to `false` and `type_handler_version` is specified, the provider will check whether the version prefix is aligned with user input. For example, if user specifies `1.24` in `type_handler_version`, `1.24.1` will be considered as no diff.
+        /// &gt; **Note:** 1. When `automatic_upgrade_enabled` is set to `false` and no `type_handler_version` is specified, the `type_handler_version` change should be manually ignored by `ignore_changes` lifecycle block. This is because the `type_handler_version` is set by the Azure platform when the extension is created. 2. When `automatic_upgrade_enabled` is set to `false` and `type_handler_version` is specified, the provider will check whether the version prefix is aligned with user input. For example, if user specifies `1.24` in `type_handler_version`, `1.24.1` will be considered as no diff.
         /// </summary>
         [Input("typeHandlerVersion")]
         public Input<string>? TypeHandlerVersion { get; set; }

@@ -28,7 +28,7 @@ class GetManagedDiskResult:
     """
     A collection of values returned by getManagedDisk.
     """
-    def __init__(__self__, create_option=None, disk_access_id=None, disk_encryption_set_id=None, disk_iops_read_write=None, disk_mbps_read_write=None, disk_size_gb=None, encryption_settings=None, id=None, image_reference_id=None, name=None, network_access_policy=None, os_type=None, resource_group_name=None, source_resource_id=None, source_uri=None, storage_account_id=None, storage_account_type=None, tags=None, zones=None):
+    def __init__(__self__, create_option=None, disk_access_id=None, disk_encryption_set_id=None, disk_iops_read_write=None, disk_mbps_read_write=None, disk_size_gb=None, encryption_settings=None, id=None, image_reference_id=None, location=None, name=None, network_access_policy=None, os_type=None, resource_group_name=None, source_resource_id=None, source_uri=None, storage_account_id=None, storage_account_type=None, tags=None, zones=None):
         if create_option and not isinstance(create_option, str):
             raise TypeError("Expected argument 'create_option' to be a str")
         pulumi.set(__self__, "create_option", create_option)
@@ -56,6 +56,9 @@ class GetManagedDiskResult:
         if image_reference_id and not isinstance(image_reference_id, str):
             raise TypeError("Expected argument 'image_reference_id' to be a str")
         pulumi.set(__self__, "image_reference_id", image_reference_id)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -158,6 +161,14 @@ class GetManagedDiskResult:
 
     @property
     @pulumi.getter
+    def location(self) -> builtins.str:
+        """
+        The Azure location of the Managed Disk.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
     def name(self) -> builtins.str:
         return pulumi.get(self, "name")
 
@@ -246,6 +257,7 @@ class AwaitableGetManagedDiskResult(GetManagedDiskResult):
             encryption_settings=self.encryption_settings,
             id=self.id,
             image_reference_id=self.image_reference_id,
+            location=self.location,
             name=self.name,
             network_access_policy=self.network_access_policy,
             os_type=self.os_type,
@@ -275,6 +287,13 @@ def get_managed_disk(name: Optional[builtins.str] = None,
     pulumi.export("id", existing.id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Compute`: 2023-04-02
+
 
     :param builtins.str name: Specifies the name of the Managed Disk.
     :param builtins.str resource_group_name: Specifies the name of the Resource Group where this Managed Disk exists.
@@ -295,6 +314,7 @@ def get_managed_disk(name: Optional[builtins.str] = None,
         encryption_settings=pulumi.get(__ret__, 'encryption_settings'),
         id=pulumi.get(__ret__, 'id'),
         image_reference_id=pulumi.get(__ret__, 'image_reference_id'),
+        location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
         network_access_policy=pulumi.get(__ret__, 'network_access_policy'),
         os_type=pulumi.get(__ret__, 'os_type'),
@@ -322,6 +342,13 @@ def get_managed_disk_output(name: Optional[pulumi.Input[builtins.str]] = None,
     pulumi.export("id", existing.id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Compute`: 2023-04-02
+
 
     :param builtins.str name: Specifies the name of the Managed Disk.
     :param builtins.str resource_group_name: Specifies the name of the Resource Group where this Managed Disk exists.
@@ -341,6 +368,7 @@ def get_managed_disk_output(name: Optional[pulumi.Input[builtins.str]] = None,
         encryption_settings=pulumi.get(__response__, 'encryption_settings'),
         id=pulumi.get(__response__, 'id'),
         image_reference_id=pulumi.get(__response__, 'image_reference_id'),
+        location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),
         network_access_policy=pulumi.get(__response__, 'network_access_policy'),
         os_type=pulumi.get(__response__, 'os_type'),

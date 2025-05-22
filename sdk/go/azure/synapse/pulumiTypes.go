@@ -1871,7 +1871,7 @@ func (o WorkspaceGithubRepoPtrOutput) RootFolder() pulumi.StringPtrOutput {
 type WorkspaceIdentity struct {
 	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Synapse Workspace.
 	//
-	// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+	// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID for the Service Principal associated with the Managed Service Identity of this Synapse Workspace.
 	PrincipalId *string `pulumi:"principalId"`
@@ -1895,7 +1895,7 @@ type WorkspaceIdentityInput interface {
 type WorkspaceIdentityArgs struct {
 	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Synapse Workspace.
 	//
-	// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+	// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID for the Service Principal associated with the Managed Service Identity of this Synapse Workspace.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
@@ -1984,7 +1984,7 @@ func (o WorkspaceIdentityOutput) ToWorkspaceIdentityPtrOutputWithContext(ctx con
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this Synapse Workspace.
 //
-// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 func (o WorkspaceIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v WorkspaceIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
@@ -2030,7 +2030,7 @@ func (o WorkspaceIdentityPtrOutput) Elem() WorkspaceIdentityOutput {
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this Synapse Workspace.
 //
-// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 func (o WorkspaceIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *WorkspaceIdentity) []string {
 		if v == nil {

@@ -85,6 +85,13 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.App`: 2025-01-01
+ * 
  * ## Import
  * 
  * A Dapr Component for a Container App Environment can be imported using the `resource id`, e.g.
@@ -183,7 +190,7 @@ public class EnvironmentDaprComponent extends com.pulumi.resources.CustomResourc
     /**
      * A list of scopes to which this component applies.
      * 
-     * &gt; **NOTE:** See the official docs for more information at https://learn.microsoft.com/en-us/azure/container-apps/dapr-overview?tabs=bicep1%2Cyaml#component-scopes
+     * &gt; **Note:** See the official docs for more information at https://learn.microsoft.com/en-us/azure/container-apps/dapr-overview?tabs=bicep1%2Cyaml#component-scopes
      * 
      */
     @Export(name="scopes", refs={List.class,String.class}, tree="[0,1]")
@@ -192,7 +199,7 @@ public class EnvironmentDaprComponent extends com.pulumi.resources.CustomResourc
     /**
      * @return A list of scopes to which this component applies.
      * 
-     * &gt; **NOTE:** See the official docs for more information at https://learn.microsoft.com/en-us/azure/container-apps/dapr-overview?tabs=bicep1%2Cyaml#component-scopes
+     * &gt; **Note:** See the official docs for more information at https://learn.microsoft.com/en-us/azure/container-apps/dapr-overview?tabs=bicep1%2Cyaml#component-scopes
      * 
      */
     public Output<Optional<List<String>>> scopes() {

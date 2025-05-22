@@ -138,7 +138,7 @@ public class Snapshot extends com.pulumi.resources.CustomResource {
     /**
      * A `encryption_settings` block as defined below.
      * 
-     * &gt; **NOTE:** Removing `encryption_settings` forces a new resource to be created.
+     * &gt; **Note:** Removing `encryption_settings` forces a new resource to be created.
      * 
      */
     @Export(name="encryptionSettings", refs={SnapshotEncryptionSettings.class}, tree="[0]")
@@ -147,7 +147,7 @@ public class Snapshot extends com.pulumi.resources.CustomResource {
     /**
      * @return A `encryption_settings` block as defined below.
      * 
-     * &gt; **NOTE:** Removing `encryption_settings` forces a new resource to be created.
+     * &gt; **Note:** Removing `encryption_settings` forces a new resource to be created.
      * 
      */
     public Output<Optional<SnapshotEncryptionSettings>> encryptionSettings() {

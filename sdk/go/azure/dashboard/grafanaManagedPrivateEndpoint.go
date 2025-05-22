@@ -14,7 +14,7 @@ import (
 
 // Manages a Dashboard Grafana Managed Private Endpoint.
 //
-// > **NOTE:** This resource will _not_ approve the managed private endpoint connection on the linked resource. This will need to be done manually via Azure CLI, PowerShell, or AzAPI resources. See here for an example that uses AzAPI.
+// > **Note:** This resource will _not_ approve the managed private endpoint connection on the linked resource. This will need to be done manually via Azure CLI, PowerShell, or AzAPI resources. See here for an example that uses AzAPI.
 //
 // ## Example Usage
 //
@@ -81,6 +81,13 @@ import (
 //	}
 //
 // ```
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.Dashboard`: 2023-09-01
 //
 // ## Import
 //

@@ -222,6 +222,13 @@ class ObjectReplication(pulumi.CustomResource):
             }])
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Storage`: 2023-05-01
+
         ## Import
 
         Storage Object Replication Policies can be imported using the `resource id`, e.g.
@@ -293,6 +300,13 @@ class ObjectReplication(pulumi.CustomResource):
                 "destination_container_name": dst_container.name,
             }])
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Storage`: 2023-05-01
 
         ## Import
 

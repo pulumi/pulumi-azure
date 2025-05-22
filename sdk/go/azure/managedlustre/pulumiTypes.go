@@ -174,7 +174,7 @@ type FileSystemHsmSetting struct {
 	ContainerId string `pulumi:"containerId"`
 	// The import prefix for the Azure Managed Lustre File System. Only blobs in the non-logging container that start with this path/prefix get hydrated into the cluster namespace. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** The roles `Contributor` and `Storage Blob Data Contributor` must be added to the Service Principal `HPC Cache Resource Provider` for the Storage Account. See official docs for more information.
+	// > **Note:** The roles `Contributor` and `Storage Blob Data Contributor` must be added to the Service Principal `HPC Cache Resource Provider` for the Storage Account. See official docs for more information.
 	ImportPrefix *string `pulumi:"importPrefix"`
 	// The resource ID of the storage container that is used for logging events and errors. Changing this forces a new resource to be created.
 	LoggingContainerId string `pulumi:"loggingContainerId"`
@@ -196,7 +196,7 @@ type FileSystemHsmSettingArgs struct {
 	ContainerId pulumi.StringInput `pulumi:"containerId"`
 	// The import prefix for the Azure Managed Lustre File System. Only blobs in the non-logging container that start with this path/prefix get hydrated into the cluster namespace. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** The roles `Contributor` and `Storage Blob Data Contributor` must be added to the Service Principal `HPC Cache Resource Provider` for the Storage Account. See official docs for more information.
+	// > **Note:** The roles `Contributor` and `Storage Blob Data Contributor` must be added to the Service Principal `HPC Cache Resource Provider` for the Storage Account. See official docs for more information.
 	ImportPrefix pulumi.StringPtrInput `pulumi:"importPrefix"`
 	// The resource ID of the storage container that is used for logging events and errors. Changing this forces a new resource to be created.
 	LoggingContainerId pulumi.StringInput `pulumi:"loggingContainerId"`
@@ -286,7 +286,7 @@ func (o FileSystemHsmSettingOutput) ContainerId() pulumi.StringOutput {
 
 // The import prefix for the Azure Managed Lustre File System. Only blobs in the non-logging container that start with this path/prefix get hydrated into the cluster namespace. Changing this forces a new resource to be created.
 //
-// > **NOTE:** The roles `Contributor` and `Storage Blob Data Contributor` must be added to the Service Principal `HPC Cache Resource Provider` for the Storage Account. See official docs for more information.
+// > **Note:** The roles `Contributor` and `Storage Blob Data Contributor` must be added to the Service Principal `HPC Cache Resource Provider` for the Storage Account. See official docs for more information.
 func (o FileSystemHsmSettingOutput) ImportPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FileSystemHsmSetting) *string { return v.ImportPrefix }).(pulumi.StringPtrOutput)
 }
@@ -332,7 +332,7 @@ func (o FileSystemHsmSettingPtrOutput) ContainerId() pulumi.StringPtrOutput {
 
 // The import prefix for the Azure Managed Lustre File System. Only blobs in the non-logging container that start with this path/prefix get hydrated into the cluster namespace. Changing this forces a new resource to be created.
 //
-// > **NOTE:** The roles `Contributor` and `Storage Blob Data Contributor` must be added to the Service Principal `HPC Cache Resource Provider` for the Storage Account. See official docs for more information.
+// > **Note:** The roles `Contributor` and `Storage Blob Data Contributor` must be added to the Service Principal `HPC Cache Resource Provider` for the Storage Account. See official docs for more information.
 func (o FileSystemHsmSettingPtrOutput) ImportPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FileSystemHsmSetting) *string {
 		if v == nil {

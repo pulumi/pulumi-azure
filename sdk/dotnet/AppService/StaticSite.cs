@@ -12,9 +12,9 @@ namespace Pulumi.Azure.AppService
     /// <summary>
     /// Manages an App Service Static Site.
     /// 
-    /// &gt; **NOTE:** The `azure.appservice.StaticSite` resource is deprecated in favour of `azure.appservice.StaticWebApp` and will be removed in a future major release.
+    /// &gt; **Note:** The `azure.appservice.StaticSite` resource is deprecated in favour of `azure.appservice.StaticWebApp` and will be removed in a future major release.
     /// 
-    /// -&gt;**NOTE:** After the Static Site is provisioned, you'll need to associate your target repository, which contains your web app, to the Static Site, by following the [Azure Static Site document](https://docs.microsoft.com/azure/static-web-apps/github-actions-workflow).
+    /// &gt; **Note:** After the Static Site is provisioned, you'll need to associate your target repository, which contains your web app, to the Static Site, by following the [Azure Static Site document](https://docs.microsoft.com/azure/static-web-apps/github-actions-workflow).
     /// 
     /// ## Example Usage
     /// 

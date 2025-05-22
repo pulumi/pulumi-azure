@@ -238,6 +238,13 @@ class Account(pulumi.CustomResource):
             sku_name="Basic")
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.CodeSigning`: 2024-09-30-preview
+
         ## Import
 
         Trusted Signing Accounts can be imported using the `resource id`, e.g.
@@ -278,6 +285,13 @@ class Account(pulumi.CustomResource):
             location="West Europe",
             sku_name="Basic")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.CodeSigning`: 2024-09-30-preview
 
         ## Import
 

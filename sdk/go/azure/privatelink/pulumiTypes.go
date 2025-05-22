@@ -122,7 +122,7 @@ func (o EndpointCustomDnsConfigArrayOutput) Index(i pulumi.IntInput) EndpointCus
 type EndpointIpConfiguration struct {
 	// Specifies the member name this IP address applies to. If it is not specified, it will use the value of `subresourceName`. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** `memberName` will be required and will not take the value of `subresourceName` in the next major version.
+	// > **Note:** `memberName` will be required and will not take the value of `subresourceName` in the next major version.
 	MemberName *string `pulumi:"memberName"`
 	// Specifies the Name of the IP Configuration. Changing this forces a new resource to be created.
 	Name string `pulumi:"name"`
@@ -146,7 +146,7 @@ type EndpointIpConfigurationInput interface {
 type EndpointIpConfigurationArgs struct {
 	// Specifies the member name this IP address applies to. If it is not specified, it will use the value of `subresourceName`. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** `memberName` will be required and will not take the value of `subresourceName` in the next major version.
+	// > **Note:** `memberName` will be required and will not take the value of `subresourceName` in the next major version.
 	MemberName pulumi.StringPtrInput `pulumi:"memberName"`
 	// Specifies the Name of the IP Configuration. Changing this forces a new resource to be created.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -209,7 +209,7 @@ func (o EndpointIpConfigurationOutput) ToEndpointIpConfigurationOutputWithContex
 
 // Specifies the member name this IP address applies to. If it is not specified, it will use the value of `subresourceName`. Changing this forces a new resource to be created.
 //
-// > **NOTE:** `memberName` will be required and will not take the value of `subresourceName` in the next major version.
+// > **Note:** `memberName` will be required and will not take the value of `subresourceName` in the next major version.
 func (o EndpointIpConfigurationOutput) MemberName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointIpConfiguration) *string { return v.MemberName }).(pulumi.StringPtrOutput)
 }
@@ -790,7 +790,7 @@ func (o EndpointPrivateDnsZoneGroupPtrOutput) PrivateDnsZoneIds() pulumi.StringA
 type EndpointPrivateServiceConnection struct {
 	// Does the Private Endpoint require Manual Approval from the remote resource owner? Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** If you are trying to connect the Private Endpoint to a remote resource without having the correct RBAC permissions on the remote resource set this value to `true`.
+	// > **Note:** If you are trying to connect the Private Endpoint to a remote resource without having the correct RBAC permissions on the remote resource set this value to `true`.
 	IsManualConnection bool `pulumi:"isManualConnection"`
 	// Specifies the Name of the Private Service Connection. Changing this forces a new resource to be created.
 	Name string `pulumi:"name"`
@@ -802,13 +802,13 @@ type EndpointPrivateServiceConnection struct {
 	PrivateIpAddress *string `pulumi:"privateIpAddress"`
 	// A message passed to the owner of the remote resource when the private endpoint attempts to establish the connection to the remote resource. The provider allows a maximum request message length of `140` characters, however the request message maximum length is dependent on the service the private endpoint is connected to. Only valid if `isManualConnection` is set to `true`.
 	//
-	// > **NOTE:** When connected to an SQL resource the `requestMessage` maximum length is `128`.
+	// > **Note:** When connected to an SQL resource the `requestMessage` maximum length is `128`.
 	RequestMessage *string `pulumi:"requestMessage"`
 	// A list of subresource names which the Private Endpoint is able to connect to. `subresourceNames` corresponds to `groupId`. Possible values are detailed in the product [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#private-link-resource) in the `Subresources` column. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Some resource types (such as Storage Account) only support 1 subresource per private endpoint.
+	// > **Note:** Some resource types (such as Storage Account) only support 1 subresource per private endpoint.
 	//
-	// > **NOTE:** For most Private Links one or more `subresourceNames` will need to be specified, please see the linked documentation for details.
+	// > **Note:** For most Private Links one or more `subresourceNames` will need to be specified, please see the linked documentation for details.
 	SubresourceNames []string `pulumi:"subresourceNames"`
 }
 
@@ -826,7 +826,7 @@ type EndpointPrivateServiceConnectionInput interface {
 type EndpointPrivateServiceConnectionArgs struct {
 	// Does the Private Endpoint require Manual Approval from the remote resource owner? Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** If you are trying to connect the Private Endpoint to a remote resource without having the correct RBAC permissions on the remote resource set this value to `true`.
+	// > **Note:** If you are trying to connect the Private Endpoint to a remote resource without having the correct RBAC permissions on the remote resource set this value to `true`.
 	IsManualConnection pulumi.BoolInput `pulumi:"isManualConnection"`
 	// Specifies the Name of the Private Service Connection. Changing this forces a new resource to be created.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -838,13 +838,13 @@ type EndpointPrivateServiceConnectionArgs struct {
 	PrivateIpAddress pulumi.StringPtrInput `pulumi:"privateIpAddress"`
 	// A message passed to the owner of the remote resource when the private endpoint attempts to establish the connection to the remote resource. The provider allows a maximum request message length of `140` characters, however the request message maximum length is dependent on the service the private endpoint is connected to. Only valid if `isManualConnection` is set to `true`.
 	//
-	// > **NOTE:** When connected to an SQL resource the `requestMessage` maximum length is `128`.
+	// > **Note:** When connected to an SQL resource the `requestMessage` maximum length is `128`.
 	RequestMessage pulumi.StringPtrInput `pulumi:"requestMessage"`
 	// A list of subresource names which the Private Endpoint is able to connect to. `subresourceNames` corresponds to `groupId`. Possible values are detailed in the product [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#private-link-resource) in the `Subresources` column. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Some resource types (such as Storage Account) only support 1 subresource per private endpoint.
+	// > **Note:** Some resource types (such as Storage Account) only support 1 subresource per private endpoint.
 	//
-	// > **NOTE:** For most Private Links one or more `subresourceNames` will need to be specified, please see the linked documentation for details.
+	// > **Note:** For most Private Links one or more `subresourceNames` will need to be specified, please see the linked documentation for details.
 	SubresourceNames pulumi.StringArrayInput `pulumi:"subresourceNames"`
 }
 
@@ -927,7 +927,7 @@ func (o EndpointPrivateServiceConnectionOutput) ToEndpointPrivateServiceConnecti
 
 // Does the Private Endpoint require Manual Approval from the remote resource owner? Changing this forces a new resource to be created.
 //
-// > **NOTE:** If you are trying to connect the Private Endpoint to a remote resource without having the correct RBAC permissions on the remote resource set this value to `true`.
+// > **Note:** If you are trying to connect the Private Endpoint to a remote resource without having the correct RBAC permissions on the remote resource set this value to `true`.
 func (o EndpointPrivateServiceConnectionOutput) IsManualConnection() pulumi.BoolOutput {
 	return o.ApplyT(func(v EndpointPrivateServiceConnection) bool { return v.IsManualConnection }).(pulumi.BoolOutput)
 }
@@ -954,16 +954,16 @@ func (o EndpointPrivateServiceConnectionOutput) PrivateIpAddress() pulumi.String
 
 // A message passed to the owner of the remote resource when the private endpoint attempts to establish the connection to the remote resource. The provider allows a maximum request message length of `140` characters, however the request message maximum length is dependent on the service the private endpoint is connected to. Only valid if `isManualConnection` is set to `true`.
 //
-// > **NOTE:** When connected to an SQL resource the `requestMessage` maximum length is `128`.
+// > **Note:** When connected to an SQL resource the `requestMessage` maximum length is `128`.
 func (o EndpointPrivateServiceConnectionOutput) RequestMessage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointPrivateServiceConnection) *string { return v.RequestMessage }).(pulumi.StringPtrOutput)
 }
 
 // A list of subresource names which the Private Endpoint is able to connect to. `subresourceNames` corresponds to `groupId`. Possible values are detailed in the product [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#private-link-resource) in the `Subresources` column. Changing this forces a new resource to be created.
 //
-// > **NOTE:** Some resource types (such as Storage Account) only support 1 subresource per private endpoint.
+// > **Note:** Some resource types (such as Storage Account) only support 1 subresource per private endpoint.
 //
-// > **NOTE:** For most Private Links one or more `subresourceNames` will need to be specified, please see the linked documentation for details.
+// > **Note:** For most Private Links one or more `subresourceNames` will need to be specified, please see the linked documentation for details.
 func (o EndpointPrivateServiceConnectionOutput) SubresourceNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v EndpointPrivateServiceConnection) []string { return v.SubresourceNames }).(pulumi.StringArrayOutput)
 }
@@ -994,7 +994,7 @@ func (o EndpointPrivateServiceConnectionPtrOutput) Elem() EndpointPrivateService
 
 // Does the Private Endpoint require Manual Approval from the remote resource owner? Changing this forces a new resource to be created.
 //
-// > **NOTE:** If you are trying to connect the Private Endpoint to a remote resource without having the correct RBAC permissions on the remote resource set this value to `true`.
+// > **Note:** If you are trying to connect the Private Endpoint to a remote resource without having the correct RBAC permissions on the remote resource set this value to `true`.
 func (o EndpointPrivateServiceConnectionPtrOutput) IsManualConnection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EndpointPrivateServiceConnection) *bool {
 		if v == nil {
@@ -1046,7 +1046,7 @@ func (o EndpointPrivateServiceConnectionPtrOutput) PrivateIpAddress() pulumi.Str
 
 // A message passed to the owner of the remote resource when the private endpoint attempts to establish the connection to the remote resource. The provider allows a maximum request message length of `140` characters, however the request message maximum length is dependent on the service the private endpoint is connected to. Only valid if `isManualConnection` is set to `true`.
 //
-// > **NOTE:** When connected to an SQL resource the `requestMessage` maximum length is `128`.
+// > **Note:** When connected to an SQL resource the `requestMessage` maximum length is `128`.
 func (o EndpointPrivateServiceConnectionPtrOutput) RequestMessage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointPrivateServiceConnection) *string {
 		if v == nil {
@@ -1058,9 +1058,9 @@ func (o EndpointPrivateServiceConnectionPtrOutput) RequestMessage() pulumi.Strin
 
 // A list of subresource names which the Private Endpoint is able to connect to. `subresourceNames` corresponds to `groupId`. Possible values are detailed in the product [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#private-link-resource) in the `Subresources` column. Changing this forces a new resource to be created.
 //
-// > **NOTE:** Some resource types (such as Storage Account) only support 1 subresource per private endpoint.
+// > **Note:** Some resource types (such as Storage Account) only support 1 subresource per private endpoint.
 //
-// > **NOTE:** For most Private Links one or more `subresourceNames` will need to be specified, please see the linked documentation for details.
+// > **Note:** For most Private Links one or more `subresourceNames` will need to be specified, please see the linked documentation for details.
 func (o EndpointPrivateServiceConnectionPtrOutput) SubresourceNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *EndpointPrivateServiceConnection) []string {
 		if v == nil {
