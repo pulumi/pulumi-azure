@@ -3113,6 +3113,7 @@ func Provider() tfbridge.ProviderInfo {
 
 			"azurerm_storage_management_policy": {Tok: azureDataSource(azureStorage, "getPolicy")},
 			"azurerm_storage_encryption_scope":  {Tok: azureDataSource(azureStorage, "getEncryptionScope")},
+			"azurerm_storage_queue":             {Tok: azureDataSource(azureStorage, "getQueue")},
 			"azurerm_virtual_machine":           {Tok: azureDataSource(azureCompute, "getVirtualMachine")},
 			"azurerm_hdinsight_cluster":         {Tok: azureDataSource(azureHdInsight, "getCluster")},
 			"azurerm_stream_analytics_job":      {Tok: azureDataSource(azureStreamAnalytics, "getJob")},
