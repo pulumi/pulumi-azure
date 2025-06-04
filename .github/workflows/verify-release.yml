@@ -83,21 +83,21 @@ jobs:
         with:
           tools: pulumicli, nodejs, python, dotnet, go, java
       - name: Verify nodejs release
-        uses: pulumi/verify-provider-release@v1
+        uses: pulumi/verify-provider-release@679d5e6838ac4f68696bfa1bf9e2c5da94509dd6 # v1.3.1
         with:
           runtime: nodejs
           directory: examples/topic
           provider: azure
           providerVersion: ${{ inputs.providerVersion }}
       - name: Verify dotnet release
-        uses: pulumi/verify-provider-release@v1
+        uses: pulumi/verify-provider-release@679d5e6838ac4f68696bfa1bf9e2c5da94509dd6 # v1.3.1
         with:
           runtime: dotnet
           directory: examples/appservice-cs
           provider: azure
           providerVersion: ${{ inputs.providerVersion }}
       - name: Verify go release
-        uses: pulumi/verify-provider-release@v1
+        uses: pulumi/verify-provider-release@679d5e6838ac4f68696bfa1bf9e2c5da94509dd6 # v1.3.1
         if: inputs.skipGoSdk == false
         with:
           runtime: go
