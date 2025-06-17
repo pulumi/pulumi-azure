@@ -204,7 +204,7 @@ index b75638bbf9..df779e6192 100644
 +* `read` - (Defaults to 5 minutes) Used when retrieving the App Service Active Slot.
  * `delete` - (Defaults to 30 minutes) Used when deleting the App Service Active Slot.
 diff --git a/website/docs/r/app_service_hybrid_connection.html.markdown b/website/docs/r/app_service_hybrid_connection.html.markdown
-index 3d92facc8b..a5a53e2f36 100644
+index a0ec043763..0c8c201abd 100644
 --- a/website/docs/r/app_service_hybrid_connection.html.markdown
 +++ b/website/docs/r/app_service_hybrid_connection.html.markdown
 @@ -11,7 +11,7 @@ description: |-
