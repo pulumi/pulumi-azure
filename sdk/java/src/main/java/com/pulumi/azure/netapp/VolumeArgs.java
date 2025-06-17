@@ -56,14 +56,14 @@ public final class VolumeArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnet_id`, `location`, `service_level`, `resource_group_name`, `account_name` and `pool_name`. Changing this forces a new resource to be created.
+     * Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnet_id`, `location`, `service_level`, `resource_group_name` and `account_name`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="createFromSnapshotResourceId")
     private @Nullable Output<String> createFromSnapshotResourceId;
 
     /**
-     * @return Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnet_id`, `location`, `service_level`, `resource_group_name`, `account_name` and `pool_name`. Changing this forces a new resource to be created.
+     * @return Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnet_id`, `location`, `service_level`, `resource_group_name` and `account_name`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> createFromSnapshotResourceId() {
@@ -175,6 +175,25 @@ public final class VolumeArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> keyVaultPrivateEndpointId() {
         return Optional.ofNullable(this.keyVaultPrivateEndpointId);
+    }
+
+    /**
+     * A boolean specifying if the volume is a large volume. Defaults to `false`.
+     * 
+     * &gt; **Note:** Large volumes must be at least 50 TiB in size and can be up to 1,024 TiB (1 PiB). For more information, please refer to [Requirements and considerations for large volumes](https://learn.microsoft.com/en-us/azure/azure-netapp-files/large-volumes-requirements-considerations)
+     * 
+     */
+    @Import(name="largeVolumeEnabled")
+    private @Nullable Output<Boolean> largeVolumeEnabled;
+
+    /**
+     * @return A boolean specifying if the volume is a large volume. Defaults to `false`.
+     * 
+     * &gt; **Note:** Large volumes must be at least 50 TiB in size and can be up to 1,024 TiB (1 PiB). For more information, please refer to [Requirements and considerations for large volumes](https://learn.microsoft.com/en-us/azure/azure-netapp-files/large-volumes-requirements-considerations)
+     * 
+     */
+    public Optional<Output<Boolean>> largeVolumeEnabled() {
+        return Optional.ofNullable(this.largeVolumeEnabled);
     }
 
     /**
@@ -290,14 +309,14 @@ public final class VolumeArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Enable SMB encryption.
+     * Enable SMB encryption. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="smb3ProtocolEncryptionEnabled")
     private @Nullable Output<Boolean> smb3ProtocolEncryptionEnabled;
 
     /**
-     * @return Enable SMB encryption.
+     * @return Enable SMB encryption. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<Boolean>> smb3ProtocolEncryptionEnabled() {
@@ -320,14 +339,14 @@ public final class VolumeArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Enable SMB Continuous Availability.
+     * Enable SMB Continuous Availability. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="smbContinuousAvailabilityEnabled")
     private @Nullable Output<Boolean> smbContinuousAvailabilityEnabled;
 
     /**
-     * @return Enable SMB Continuous Availability.
+     * @return Enable SMB Continuous Availability. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<Boolean>> smbContinuousAvailabilityEnabled() {
@@ -350,14 +369,14 @@ public final class VolumeArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies whether the .snapshot (NFS clients) or ~snapshot (SMB clients) path of a volume is visible, default value is true.
+     * Specifies whether the .snapshot (NFS clients) or ~snapshot (SMB clients) path of a volume is visible. Defaults to `true`.
      * 
      */
     @Import(name="snapshotDirectoryVisible")
     private @Nullable Output<Boolean> snapshotDirectoryVisible;
 
     /**
-     * @return Specifies whether the .snapshot (NFS clients) or ~snapshot (SMB clients) path of a volume is visible, default value is true.
+     * @return Specifies whether the .snapshot (NFS clients) or ~snapshot (SMB clients) path of a volume is visible. Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> snapshotDirectoryVisible() {
@@ -471,6 +490,7 @@ public final class VolumeArgs extends com.pulumi.resources.ResourceArgs {
         this.exportPolicyRules = $.exportPolicyRules;
         this.kerberosEnabled = $.kerberosEnabled;
         this.keyVaultPrivateEndpointId = $.keyVaultPrivateEndpointId;
+        this.largeVolumeEnabled = $.largeVolumeEnabled;
         this.location = $.location;
         this.name = $.name;
         this.networkFeatures = $.networkFeatures;
@@ -553,7 +573,7 @@ public final class VolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param createFromSnapshotResourceId Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnet_id`, `location`, `service_level`, `resource_group_name`, `account_name` and `pool_name`. Changing this forces a new resource to be created.
+         * @param createFromSnapshotResourceId Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnet_id`, `location`, `service_level`, `resource_group_name` and `account_name`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -564,7 +584,7 @@ public final class VolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param createFromSnapshotResourceId Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnet_id`, `location`, `service_level`, `resource_group_name`, `account_name` and `pool_name`. Changing this forces a new resource to be created.
+         * @param createFromSnapshotResourceId Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnet_id`, `location`, `service_level`, `resource_group_name` and `account_name`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -730,6 +750,31 @@ public final class VolumeArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder keyVaultPrivateEndpointId(String keyVaultPrivateEndpointId) {
             return keyVaultPrivateEndpointId(Output.of(keyVaultPrivateEndpointId));
+        }
+
+        /**
+         * @param largeVolumeEnabled A boolean specifying if the volume is a large volume. Defaults to `false`.
+         * 
+         * &gt; **Note:** Large volumes must be at least 50 TiB in size and can be up to 1,024 TiB (1 PiB). For more information, please refer to [Requirements and considerations for large volumes](https://learn.microsoft.com/en-us/azure/azure-netapp-files/large-volumes-requirements-considerations)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder largeVolumeEnabled(@Nullable Output<Boolean> largeVolumeEnabled) {
+            $.largeVolumeEnabled = largeVolumeEnabled;
+            return this;
+        }
+
+        /**
+         * @param largeVolumeEnabled A boolean specifying if the volume is a large volume. Defaults to `false`.
+         * 
+         * &gt; **Note:** Large volumes must be at least 50 TiB in size and can be up to 1,024 TiB (1 PiB). For more information, please refer to [Requirements and considerations for large volumes](https://learn.microsoft.com/en-us/azure/azure-netapp-files/large-volumes-requirements-considerations)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder largeVolumeEnabled(Boolean largeVolumeEnabled) {
+            return largeVolumeEnabled(Output.of(largeVolumeEnabled));
         }
 
         /**
@@ -899,7 +944,7 @@ public final class VolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param smb3ProtocolEncryptionEnabled Enable SMB encryption.
+         * @param smb3ProtocolEncryptionEnabled Enable SMB encryption. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -910,7 +955,7 @@ public final class VolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param smb3ProtocolEncryptionEnabled Enable SMB encryption.
+         * @param smb3ProtocolEncryptionEnabled Enable SMB encryption. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -941,7 +986,7 @@ public final class VolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param smbContinuousAvailabilityEnabled Enable SMB Continuous Availability.
+         * @param smbContinuousAvailabilityEnabled Enable SMB Continuous Availability. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -952,7 +997,7 @@ public final class VolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param smbContinuousAvailabilityEnabled Enable SMB Continuous Availability.
+         * @param smbContinuousAvailabilityEnabled Enable SMB Continuous Availability. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -983,7 +1028,7 @@ public final class VolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param snapshotDirectoryVisible Specifies whether the .snapshot (NFS clients) or ~snapshot (SMB clients) path of a volume is visible, default value is true.
+         * @param snapshotDirectoryVisible Specifies whether the .snapshot (NFS clients) or ~snapshot (SMB clients) path of a volume is visible. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -994,7 +1039,7 @@ public final class VolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param snapshotDirectoryVisible Specifies whether the .snapshot (NFS clients) or ~snapshot (SMB clients) path of a volume is visible, default value is true.
+         * @param snapshotDirectoryVisible Specifies whether the .snapshot (NFS clients) or ~snapshot (SMB clients) path of a volume is visible. Defaults to `true`.
          * 
          * @return builder
          * 

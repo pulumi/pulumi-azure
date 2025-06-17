@@ -14,6 +14,8 @@ import (
 
 // Manages a Healthcare Med Tech Service Fhir Destination.
 //
+// ## Example Usage
+//
 // ```go
 // package main
 //

@@ -174,6 +174,10 @@ namespace Pulumi.Azure.Network
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// An `ip_configuration` block as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetVpnGatewayIpConfigurationResult> IpConfigurations;
+        /// <summary>
         /// The Azure location where the VPN Gateway exists.
         /// </summary>
         public readonly string Location;
@@ -198,6 +202,8 @@ namespace Pulumi.Azure.Network
 
             string id,
 
+            ImmutableArray<Outputs.GetVpnGatewayIpConfigurationResult> ipConfigurations,
+
             string location,
 
             string name,
@@ -212,6 +218,7 @@ namespace Pulumi.Azure.Network
         {
             BgpSettings = bgpSettings;
             Id = id;
+            IpConfigurations = ipConfigurations;
             Location = location;
             Name = name;
             ResourceGroupName = resourceGroupName;

@@ -65,6 +65,13 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.Cdn`: 2024-02-01
+ * 
  * ## Import
  * 
  * Front Door Profiles can be imported using the `resource id`, e.g.

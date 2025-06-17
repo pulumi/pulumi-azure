@@ -7,8 +7,11 @@ import com.pulumi.azure.dynatrace.inputs.TagRulesMetricRuleFilteringTagArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class TagRulesMetricRuleArgs extends com.pulumi.resources.ResourceArgs {
@@ -30,10 +33,26 @@ public final class TagRulesMetricRuleArgs extends com.pulumi.resources.ResourceA
         return this.filteringTags;
     }
 
+    /**
+     * If sending metrics is enabled. The default value is `false`.
+     * 
+     */
+    @Import(name="sendingMetricsEnabled")
+    private @Nullable Output<Boolean> sendingMetricsEnabled;
+
+    /**
+     * @return If sending metrics is enabled. The default value is `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> sendingMetricsEnabled() {
+        return Optional.ofNullable(this.sendingMetricsEnabled);
+    }
+
     private TagRulesMetricRuleArgs() {}
 
     private TagRulesMetricRuleArgs(TagRulesMetricRuleArgs $) {
         this.filteringTags = $.filteringTags;
+        this.sendingMetricsEnabled = $.sendingMetricsEnabled;
     }
 
     public static Builder builder() {
@@ -83,6 +102,27 @@ public final class TagRulesMetricRuleArgs extends com.pulumi.resources.ResourceA
          */
         public Builder filteringTags(TagRulesMetricRuleFilteringTagArgs... filteringTags) {
             return filteringTags(List.of(filteringTags));
+        }
+
+        /**
+         * @param sendingMetricsEnabled If sending metrics is enabled. The default value is `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sendingMetricsEnabled(@Nullable Output<Boolean> sendingMetricsEnabled) {
+            $.sendingMetricsEnabled = sendingMetricsEnabled;
+            return this;
+        }
+
+        /**
+         * @param sendingMetricsEnabled If sending metrics is enabled. The default value is `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sendingMetricsEnabled(Boolean sendingMetricsEnabled) {
+            return sendingMetricsEnabled(Output.of(sendingMetricsEnabled));
         }
 
         public TagRulesMetricRuleArgs build() {

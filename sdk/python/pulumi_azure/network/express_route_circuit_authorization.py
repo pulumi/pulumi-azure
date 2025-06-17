@@ -202,6 +202,13 @@ class ExpressRouteCircuitAuthorization(pulumi.CustomResource):
             resource_group_name=example.name)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network`: 2024-05-01
+
         ## Import
 
         ExpressRoute Circuit Authorizations can be imported using the `resource id`, e.g.
@@ -254,6 +261,13 @@ class ExpressRouteCircuitAuthorization(pulumi.CustomResource):
             express_route_circuit_name=example_express_route_circuit.name,
             resource_group_name=example.name)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network`: 2024-05-01
 
         ## Import
 

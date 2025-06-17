@@ -57,6 +57,13 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.Network`: 2024-05-01
+ *
  * ## Import
  *
  * Virtual Networks can be imported using the `resource id`, e.g.
@@ -95,8 +102,10 @@ export class VirtualNetwork extends pulumi.CustomResource {
 
     /**
      * The address space that is used the virtual network. You can supply more than one address space.
+     *
+     * > **Note:** Exactly one of `addressSpace` or `ipAddressPool` must be specified. If `addressSpace` is not specified but you encounter a diff, this might indicate the `addressSpace` is allocated from the IP Address Pool. If this is the case, you may need to add this to ignore_changes.
      */
-    public readonly addressSpaces!: pulumi.Output<string[]>;
+    public readonly addressSpaces!: pulumi.Output<string[] | undefined>;
     /**
      * The BGP community attribute in format `<as-number>:<community-value>`.
      *
@@ -126,9 +135,15 @@ export class VirtualNetwork extends pulumi.CustomResource {
      */
     public readonly flowTimeoutInMinutes!: pulumi.Output<number | undefined>;
     /**
-     * The GUID of the virtual network.
+     * The GUID of the Virtual Network.
      */
     public /*out*/ readonly guid!: pulumi.Output<string>;
+    /**
+     * One or two `ipAddressPool` blocks as defined below. Only one association of each IP type(IPv4 or IPv6) is allowed.
+     *
+     * > **Note:** Exactly one of `addressSpace` or `ipAddressPool` must be specified.
+     */
+    public readonly ipAddressPools!: pulumi.Output<outputs.network.VirtualNetworkIpAddressPool[] | undefined>;
     /**
      * The location/region where the virtual network is created. Changing this forces a new resource to be created.
      */
@@ -177,6 +192,7 @@ export class VirtualNetwork extends pulumi.CustomResource {
             resourceInputs["encryption"] = state ? state.encryption : undefined;
             resourceInputs["flowTimeoutInMinutes"] = state ? state.flowTimeoutInMinutes : undefined;
             resourceInputs["guid"] = state ? state.guid : undefined;
+            resourceInputs["ipAddressPools"] = state ? state.ipAddressPools : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["privateEndpointVnetPolicies"] = state ? state.privateEndpointVnetPolicies : undefined;
@@ -185,9 +201,6 @@ export class VirtualNetwork extends pulumi.CustomResource {
             resourceInputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as VirtualNetworkArgs | undefined;
-            if ((!args || args.addressSpaces === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'addressSpaces'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -198,6 +211,7 @@ export class VirtualNetwork extends pulumi.CustomResource {
             resourceInputs["edgeZone"] = args ? args.edgeZone : undefined;
             resourceInputs["encryption"] = args ? args.encryption : undefined;
             resourceInputs["flowTimeoutInMinutes"] = args ? args.flowTimeoutInMinutes : undefined;
+            resourceInputs["ipAddressPools"] = args ? args.ipAddressPools : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["privateEndpointVnetPolicies"] = args ? args.privateEndpointVnetPolicies : undefined;
@@ -217,6 +231,8 @@ export class VirtualNetwork extends pulumi.CustomResource {
 export interface VirtualNetworkState {
     /**
      * The address space that is used the virtual network. You can supply more than one address space.
+     *
+     * > **Note:** Exactly one of `addressSpace` or `ipAddressPool` must be specified. If `addressSpace` is not specified but you encounter a diff, this might indicate the `addressSpace` is allocated from the IP Address Pool. If this is the case, you may need to add this to ignore_changes.
      */
     addressSpaces?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -248,9 +264,15 @@ export interface VirtualNetworkState {
      */
     flowTimeoutInMinutes?: pulumi.Input<number>;
     /**
-     * The GUID of the virtual network.
+     * The GUID of the Virtual Network.
      */
     guid?: pulumi.Input<string>;
+    /**
+     * One or two `ipAddressPool` blocks as defined below. Only one association of each IP type(IPv4 or IPv6) is allowed.
+     *
+     * > **Note:** Exactly one of `addressSpace` or `ipAddressPool` must be specified.
+     */
+    ipAddressPools?: pulumi.Input<pulumi.Input<inputs.network.VirtualNetworkIpAddressPool>[]>;
     /**
      * The location/region where the virtual network is created. Changing this forces a new resource to be created.
      */
@@ -285,8 +307,10 @@ export interface VirtualNetworkState {
 export interface VirtualNetworkArgs {
     /**
      * The address space that is used the virtual network. You can supply more than one address space.
+     *
+     * > **Note:** Exactly one of `addressSpace` or `ipAddressPool` must be specified. If `addressSpace` is not specified but you encounter a diff, this might indicate the `addressSpace` is allocated from the IP Address Pool. If this is the case, you may need to add this to ignore_changes.
      */
-    addressSpaces: pulumi.Input<pulumi.Input<string>[]>;
+    addressSpaces?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The BGP community attribute in format `<as-number>:<community-value>`.
      *
@@ -315,6 +339,12 @@ export interface VirtualNetworkArgs {
      * The flow timeout in minutes for the Virtual Network, which is used to enable connection tracking for intra-VM flows. Possible values are between `4` and `30` minutes.
      */
     flowTimeoutInMinutes?: pulumi.Input<number>;
+    /**
+     * One or two `ipAddressPool` blocks as defined below. Only one association of each IP type(IPv4 or IPv6) is allowed.
+     *
+     * > **Note:** Exactly one of `addressSpace` or `ipAddressPool` must be specified.
+     */
+    ipAddressPools?: pulumi.Input<pulumi.Input<inputs.network.VirtualNetworkIpAddressPool>[]>;
     /**
      * The location/region where the virtual network is created. Changing this forces a new resource to be created.
      */

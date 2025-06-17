@@ -301,6 +301,20 @@ public class ManagedCluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.sku);
     }
     /**
+     * The resource ID of the Subnet. Changing this forces a new Resource Group to be created.
+     * 
+     */
+    @Export(name="subnetId", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> subnetId;
+
+    /**
+     * @return The resource ID of the Subnet. Changing this forces a new Resource Group to be created.
+     * 
+     */
+    public Output<Optional<String>> subnetId() {
+        return Codegen.optional(this.subnetId);
+    }
+    /**
      * A mapping of tags which should be assigned to the Resource Group.
      * 
      */

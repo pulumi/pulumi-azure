@@ -32,6 +32,13 @@ namespace Pulumi.Azure.SecurityCenter
     /// });
     /// ```
     /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.Security`: 2021-06-01
+    /// 
     /// ## Import
     /// 
     /// Security Assessments Policy can be imported using the `resource id`, e.g.

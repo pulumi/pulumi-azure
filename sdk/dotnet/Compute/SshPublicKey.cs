@@ -37,6 +37,13 @@ namespace Pulumi.Azure.Compute
     /// });
     /// ```
     /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.Compute`: 2024-03-01
+    /// 
     /// ## Import
     /// 
     /// SSH Public Keys can be imported using the `resource id`, e.g.

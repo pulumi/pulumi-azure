@@ -113,6 +113,8 @@ type ManagedCluster struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// SKU for this cluster. Changing this forces a new resource to be created. Default is `Basic`, allowed values are either `Basic` or `Standard`.
 	Sku pulumi.StringPtrOutput `pulumi:"sku"`
+	// The resource ID of the Subnet. Changing this forces a new Resource Group to be created.
+	SubnetId pulumi.StringPtrOutput `pulumi:"subnetId"`
 	// A mapping of tags which should be assigned to the Resource Group.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Upgrade wave for the fabric runtime. Default is `Wave0`, allowed value must be one of `Wave0`, `Wave1`, or `Wave2`.
@@ -198,6 +200,8 @@ type managedClusterState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// SKU for this cluster. Changing this forces a new resource to be created. Default is `Basic`, allowed values are either `Basic` or `Standard`.
 	Sku *string `pulumi:"sku"`
+	// The resource ID of the Subnet. Changing this forces a new Resource Group to be created.
+	SubnetId *string `pulumi:"subnetId"`
 	// A mapping of tags which should be assigned to the Resource Group.
 	Tags map[string]string `pulumi:"tags"`
 	// Upgrade wave for the fabric runtime. Default is `Wave0`, allowed value must be one of `Wave0`, `Wave1`, or `Wave2`.
@@ -235,6 +239,8 @@ type ManagedClusterState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// SKU for this cluster. Changing this forces a new resource to be created. Default is `Basic`, allowed values are either `Basic` or `Standard`.
 	Sku pulumi.StringPtrInput
+	// The resource ID of the Subnet. Changing this forces a new Resource Group to be created.
+	SubnetId pulumi.StringPtrInput
 	// A mapping of tags which should be assigned to the Resource Group.
 	Tags pulumi.StringMapInput
 	// Upgrade wave for the fabric runtime. Default is `Wave0`, allowed value must be one of `Wave0`, `Wave1`, or `Wave2`.
@@ -276,6 +282,8 @@ type managedClusterArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// SKU for this cluster. Changing this forces a new resource to be created. Default is `Basic`, allowed values are either `Basic` or `Standard`.
 	Sku *string `pulumi:"sku"`
+	// The resource ID of the Subnet. Changing this forces a new Resource Group to be created.
+	SubnetId *string `pulumi:"subnetId"`
 	// A mapping of tags which should be assigned to the Resource Group.
 	Tags map[string]string `pulumi:"tags"`
 	// Upgrade wave for the fabric runtime. Default is `Wave0`, allowed value must be one of `Wave0`, `Wave1`, or `Wave2`.
@@ -314,6 +322,8 @@ type ManagedClusterArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// SKU for this cluster. Changing this forces a new resource to be created. Default is `Basic`, allowed values are either `Basic` or `Standard`.
 	Sku pulumi.StringPtrInput
+	// The resource ID of the Subnet. Changing this forces a new Resource Group to be created.
+	SubnetId pulumi.StringPtrInput
 	// A mapping of tags which should be assigned to the Resource Group.
 	Tags pulumi.StringMapInput
 	// Upgrade wave for the fabric runtime. Default is `Wave0`, allowed value must be one of `Wave0`, `Wave1`, or `Wave2`.
@@ -477,6 +487,11 @@ func (o ManagedClusterOutput) ResourceGroupName() pulumi.StringOutput {
 // SKU for this cluster. Changing this forces a new resource to be created. Default is `Basic`, allowed values are either `Basic` or `Standard`.
 func (o ManagedClusterOutput) Sku() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedCluster) pulumi.StringPtrOutput { return v.Sku }).(pulumi.StringPtrOutput)
+}
+
+// The resource ID of the Subnet. Changing this forces a new Resource Group to be created.
+func (o ManagedClusterOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedCluster) pulumi.StringPtrOutput { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
 
 // A mapping of tags which should be assigned to the Resource Group.

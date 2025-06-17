@@ -597,15 +597,15 @@ public final class KubernetesClusterNodePoolArgs extends com.pulumi.resources.Re
      * The SKU which should be used for the Virtual Machines used in this Node Pool. Changing this property requires specifying `temporary_name_for_rotation`.
      * 
      */
-    @Import(name="vmSize", required=true)
-    private Output<String> vmSize;
+    @Import(name="vmSize")
+    private @Nullable Output<String> vmSize;
 
     /**
      * @return The SKU which should be used for the Virtual Machines used in this Node Pool. Changing this property requires specifying `temporary_name_for_rotation`.
      * 
      */
-    public Output<String> vmSize() {
-        return this.vmSize;
+    public Optional<Output<String>> vmSize() {
+        return Optional.ofNullable(this.vmSize);
     }
 
     /**
@@ -1534,7 +1534,7 @@ public final class KubernetesClusterNodePoolArgs extends com.pulumi.resources.Re
          * @return builder
          * 
          */
-        public Builder vmSize(Output<String> vmSize) {
+        public Builder vmSize(@Nullable Output<String> vmSize) {
             $.vmSize = vmSize;
             return this;
         }
@@ -1654,9 +1654,6 @@ public final class KubernetesClusterNodePoolArgs extends com.pulumi.resources.Re
         public KubernetesClusterNodePoolArgs build() {
             if ($.kubernetesClusterId == null) {
                 throw new MissingRequiredPropertyException("KubernetesClusterNodePoolArgs", "kubernetesClusterId");
-            }
-            if ($.vmSize == null) {
-                throw new MissingRequiredPropertyException("KubernetesClusterNodePoolArgs", "vmSize");
             }
             return $;
         }

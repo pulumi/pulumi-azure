@@ -455,17 +455,25 @@ if not MYPY:
         """
         Filtering tag for the metric rule. A `filtering_tag` block as defined below.
         """
+        sending_metrics_enabled: NotRequired[pulumi.Input[builtins.bool]]
+        """
+        If sending metrics is enabled. The default value is `false`.
+        """
 elif False:
     TagRulesMetricRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TagRulesMetricRuleArgs:
     def __init__(__self__, *,
-                 filtering_tags: pulumi.Input[Sequence[pulumi.Input['TagRulesMetricRuleFilteringTagArgs']]]):
+                 filtering_tags: pulumi.Input[Sequence[pulumi.Input['TagRulesMetricRuleFilteringTagArgs']]],
+                 sending_metrics_enabled: Optional[pulumi.Input[builtins.bool]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['TagRulesMetricRuleFilteringTagArgs']]] filtering_tags: Filtering tag for the metric rule. A `filtering_tag` block as defined below.
+        :param pulumi.Input[builtins.bool] sending_metrics_enabled: If sending metrics is enabled. The default value is `false`.
         """
         pulumi.set(__self__, "filtering_tags", filtering_tags)
+        if sending_metrics_enabled is not None:
+            pulumi.set(__self__, "sending_metrics_enabled", sending_metrics_enabled)
 
     @property
     @pulumi.getter(name="filteringTags")
@@ -478,6 +486,18 @@ class TagRulesMetricRuleArgs:
     @filtering_tags.setter
     def filtering_tags(self, value: pulumi.Input[Sequence[pulumi.Input['TagRulesMetricRuleFilteringTagArgs']]]):
         pulumi.set(self, "filtering_tags", value)
+
+    @property
+    @pulumi.getter(name="sendingMetricsEnabled")
+    def sending_metrics_enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        If sending metrics is enabled. The default value is `false`.
+        """
+        return pulumi.get(self, "sending_metrics_enabled")
+
+    @sending_metrics_enabled.setter
+    def sending_metrics_enabled(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "sending_metrics_enabled", value)
 
 
 if not MYPY:

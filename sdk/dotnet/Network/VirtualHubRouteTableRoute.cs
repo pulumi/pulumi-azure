@@ -118,6 +118,13 @@ namespace Pulumi.Azure.Network
     /// });
     /// ```
     /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.Network`: 2024-05-01
+    /// 
     /// ## Import
     /// 
     /// Virtual Hub Route Table Routes can be imported using `&lt;Route Table Resource Id&gt;/routes/&lt;Route Name&gt;`, e.g.

@@ -215,6 +215,13 @@ class RouteServerBgpConnection(pulumi.CustomResource):
             peer_ip="169.254.21.5")
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network`: 2024-05-01
+
         ## Import
 
         Route Server Bgp Connections can be imported using the `resource id`, e.g.
@@ -281,6 +288,13 @@ class RouteServerBgpConnection(pulumi.CustomResource):
             peer_asn=65501,
             peer_ip="169.254.21.5")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network`: 2024-05-01
 
         ## Import
 

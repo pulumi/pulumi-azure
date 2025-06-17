@@ -154,6 +154,8 @@ class CustomHttpsConfiguration(pulumi.CustomResource):
 
         !> **Note:** On `1 April 2025`, Azure Front Door (classic) will be retired for the public cloud, existing Azure Front Door (classic) resources must be migrated out of Azure Front Door (classic) to Azure Front Door Standard/Premium before `1 October 2025` to avoid potential disruptions in service.
 
+        ## Example Usage
+
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -253,6 +255,8 @@ class CustomHttpsConfiguration(pulumi.CustomResource):
         !> **Note:** Azure rolled out a breaking change on Friday 9th April 2021 which may cause issues with the CDN/FrontDoor resources. More information is available in this GitHub issue - unfortunately this may necessitate a breaking change to the CDN and Front Door resources, more information will be posted in the GitHub issue as the necessary changes are identified.
 
         !> **Note:** On `1 April 2025`, Azure Front Door (classic) will be retired for the public cloud, existing Azure Front Door (classic) resources must be migrated out of Azure Front Door (classic) to Azure Front Door Standard/Premium before `1 October 2025` to avoid potential disruptions in service.
+
+        ## Example Usage
 
         ```python
         import pulumi

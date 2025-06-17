@@ -267,6 +267,13 @@ class Service(pulumi.CustomResource):
             sku_name="Standard_1vCores")
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DataMigration`: 2021-06-30
+
         ## Import
 
         Database Migration Services can be imported using the `resource id`, e.g.
@@ -321,6 +328,13 @@ class Service(pulumi.CustomResource):
             subnet_id=example_subnet.id,
             sku_name="Standard_1vCores")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DataMigration`: 2021-06-30
 
         ## Import
 

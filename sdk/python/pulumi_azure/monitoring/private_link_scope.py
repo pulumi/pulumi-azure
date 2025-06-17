@@ -223,6 +223,13 @@ class PrivateLinkScope(pulumi.CustomResource):
             query_access_mode="Open")
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Insights`: 2021-07-01-preview
+
         ## Import
 
         Azure Monitor Private Link Scopes can be imported using the `resource id`, e.g.
@@ -263,6 +270,13 @@ class PrivateLinkScope(pulumi.CustomResource):
             ingestion_access_mode="PrivateOnly",
             query_access_mode="Open")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Insights`: 2021-07-01-preview
 
         ## Import
 

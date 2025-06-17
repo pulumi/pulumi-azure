@@ -601,6 +601,13 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
             })
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network`: 2024-05-01
+
         ## Import
 
         ExpressRoute Circuit Peerings can be imported using the `resource id`, e.g.
@@ -724,6 +731,13 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
                 "enabled": True,
             })
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network`: 2024-05-01
 
         ## Import
 

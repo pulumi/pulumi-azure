@@ -17,11 +17,19 @@ namespace Pulumi.Azure.Dynatrace.Outputs
         /// Filtering tag for the metric rule. A `filtering_tag` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.TagRulesMetricRuleFilteringTag> FilteringTags;
+        /// <summary>
+        /// If sending metrics is enabled. The default value is `false`.
+        /// </summary>
+        public readonly bool? SendingMetricsEnabled;
 
         [OutputConstructor]
-        private TagRulesMetricRule(ImmutableArray<Outputs.TagRulesMetricRuleFilteringTag> filteringTags)
+        private TagRulesMetricRule(
+            ImmutableArray<Outputs.TagRulesMetricRuleFilteringTag> filteringTags,
+
+            bool? sendingMetricsEnabled)
         {
             FilteringTags = filteringTags;
+            SendingMetricsEnabled = sendingMetricsEnabled;
         }
     }
 }

@@ -125,6 +125,12 @@ namespace Pulumi.Azure.Dashboard
         public Output<string?> PrivateLinkResourceRegion { get; private set; } = null!;
 
         /// <summary>
+        /// A domain name for this endpoint to be used within Grafana. Must be just a domain, without schema, and with at least three parts.
+        /// </summary>
+        [Output("privateLinkServiceUrl")]
+        public Output<string?> PrivateLinkServiceUrl { get; private set; } = null!;
+
+        /// <summary>
         /// A message to provide in the request which will be seen by approvers.
         /// </summary>
         [Output("requestMessage")]
@@ -225,6 +231,12 @@ namespace Pulumi.Azure.Dashboard
         public Input<string>? PrivateLinkResourceRegion { get; set; }
 
         /// <summary>
+        /// A domain name for this endpoint to be used within Grafana. Must be just a domain, without schema, and with at least three parts.
+        /// </summary>
+        [Input("privateLinkServiceUrl")]
+        public Input<string>? PrivateLinkServiceUrl { get; set; }
+
+        /// <summary>
         /// A message to provide in the request which will be seen by approvers.
         /// </summary>
         [Input("requestMessage")]
@@ -291,6 +303,12 @@ namespace Pulumi.Azure.Dashboard
         /// </summary>
         [Input("privateLinkResourceRegion")]
         public Input<string>? PrivateLinkResourceRegion { get; set; }
+
+        /// <summary>
+        /// A domain name for this endpoint to be used within Grafana. Must be just a domain, without schema, and with at least three parts.
+        /// </summary>
+        [Input("privateLinkServiceUrl")]
+        public Input<string>? PrivateLinkServiceUrl { get; set; }
 
         /// <summary>
         /// A message to provide in the request which will be seen by approvers.

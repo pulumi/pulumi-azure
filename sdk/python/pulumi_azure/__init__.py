@@ -231,6 +231,8 @@ if typing.TYPE_CHECKING:
     proximity = __proximity
     import pulumi_azure.purview as __purview
     purview = __purview
+    import pulumi_azure.qumulo as __qumulo
+    qumulo = __qumulo
     import pulumi_azure.recoveryservices as __recoveryservices
     recoveryservices = __recoveryservices
     import pulumi_azure.redhatopenshift as __redhatopenshift
@@ -390,6 +392,7 @@ else:
     privatelink = _utilities.lazy_import('pulumi_azure.privatelink')
     proximity = _utilities.lazy_import('pulumi_azure.proximity')
     purview = _utilities.lazy_import('pulumi_azure.purview')
+    qumulo = _utilities.lazy_import('pulumi_azure.qumulo')
     recoveryservices = _utilities.lazy_import('pulumi_azure.recoveryservices')
     redhatopenshift = _utilities.lazy_import('pulumi_azure.redhatopenshift')
     redis = _utilities.lazy_import('pulumi_azure.redis')
@@ -6756,6 +6759,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "network/networkManagerRoutingConfiguration",
+  "fqn": "pulumi_azure.network",
+  "classes": {
+   "azure:network/networkManagerRoutingConfiguration:NetworkManagerRoutingConfiguration": "NetworkManagerRoutingConfiguration"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "network/networkManagerScopeConnection",
   "fqn": "pulumi_azure.network",
   "classes": {
@@ -7720,6 +7731,14 @@ _utilities.register(
   "fqn": "pulumi_azure.purview",
   "classes": {
    "azure:purview/account:Account": "Account"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "qumulo/fileSystem",
+  "fqn": "pulumi_azure.qumulo",
+  "classes": {
+   "azure:qumulo/fileSystem:FileSystem": "FileSystem"
   }
  },
  {

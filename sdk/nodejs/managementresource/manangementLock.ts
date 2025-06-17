@@ -67,6 +67,13 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.Authorization`: 2020-05-01
+ *
  * ## Import
  *
  * Management Locks can be imported using the `resource id`, e.g.

@@ -146,6 +146,13 @@ class SubnetNetworkSecurityGroupAssociation(pulumi.CustomResource):
             network_security_group_id=example_network_security_group.id)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network`: 2024-05-01
+
         ## Import
 
         Subnet `<->` Network Security Group Associations can be imported using the `resource id` of the Subnet, e.g.
@@ -206,6 +213,13 @@ class SubnetNetworkSecurityGroupAssociation(pulumi.CustomResource):
             subnet_id=example_subnet.id,
             network_security_group_id=example_network_security_group.id)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network`: 2024-05-01
 
         ## Import
 

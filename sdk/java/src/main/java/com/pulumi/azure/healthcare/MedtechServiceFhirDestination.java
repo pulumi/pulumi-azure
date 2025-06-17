@@ -16,6 +16,8 @@ import javax.annotation.Nullable;
 /**
  * Manages a Healthcare Med Tech Service Fhir Destination.
  * 
+ * ## Example Usage
+ * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
  * {@code

@@ -422,6 +422,13 @@ class VirtualNetworkPeering(pulumi.CustomResource):
             allow_virtual_network_access=True)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Databricks`: 2024-05-01
+
         ## Import
 
         Databrick Virtual Network Peerings can be imported using the `resource id`, e.g.
@@ -488,6 +495,13 @@ class VirtualNetworkPeering(pulumi.CustomResource):
             remote_virtual_network_id=example_virtual_network_peering.virtual_network_id,
             allow_virtual_network_access=True)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Databricks`: 2024-05-01
 
         ## Import
 

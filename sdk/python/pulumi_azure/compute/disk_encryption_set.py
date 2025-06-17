@@ -558,6 +558,13 @@ class DiskEncryptionSet(pulumi.CustomResource):
             principal_id=example_disk_encryption_set.identity.principal_id)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Compute`: 2022-03-02
+
         ## Import
 
         Disk Encryption Sets can be imported using the `resource id`, e.g.
@@ -748,6 +755,13 @@ class DiskEncryptionSet(pulumi.CustomResource):
             role_definition_name="Key Vault Crypto Service Encryption User",
             principal_id=example_disk_encryption_set.identity.principal_id)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Compute`: 2022-03-02
 
         ## Import
 

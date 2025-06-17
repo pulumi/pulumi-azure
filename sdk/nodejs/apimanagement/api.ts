@@ -159,6 +159,8 @@ export class Api extends pulumi.CustomResource {
     public readonly revisionDescription!: pulumi.Output<string | undefined>;
     /**
      * Absolute URL of the backend service implementing this API.
+     *
+     * > **Note:** The `serviceUrl` is required when `apiType` is specified as `websocket`.
      */
     public readonly serviceUrl!: pulumi.Output<string>;
     /**
@@ -350,6 +352,8 @@ export interface ApiState {
     revisionDescription?: pulumi.Input<string>;
     /**
      * Absolute URL of the backend service implementing this API.
+     *
+     * > **Note:** The `serviceUrl` is required when `apiType` is specified as `websocket`.
      */
     serviceUrl?: pulumi.Input<string>;
     /**
@@ -454,6 +458,8 @@ export interface ApiArgs {
     revisionDescription?: pulumi.Input<string>;
     /**
      * Absolute URL of the backend service implementing this API.
+     *
+     * > **Note:** The `serviceUrl` is required when `apiType` is specified as `websocket`.
      */
     serviceUrl?: pulumi.Input<string>;
     /**

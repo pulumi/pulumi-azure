@@ -109,6 +109,21 @@ public final class GrafanaManagedPrivateEndpointArgs extends com.pulumi.resource
     }
 
     /**
+     * A domain name for this endpoint to be used within Grafana. Must be just a domain, without schema, and with at least three parts.
+     * 
+     */
+    @Import(name="privateLinkServiceUrl")
+    private @Nullable Output<String> privateLinkServiceUrl;
+
+    /**
+     * @return A domain name for this endpoint to be used within Grafana. Must be just a domain, without schema, and with at least three parts.
+     * 
+     */
+    public Optional<Output<String>> privateLinkServiceUrl() {
+        return Optional.ofNullable(this.privateLinkServiceUrl);
+    }
+
+    /**
      * A message to provide in the request which will be seen by approvers.
      * 
      */
@@ -147,6 +162,7 @@ public final class GrafanaManagedPrivateEndpointArgs extends com.pulumi.resource
         this.name = $.name;
         this.privateLinkResourceId = $.privateLinkResourceId;
         this.privateLinkResourceRegion = $.privateLinkResourceRegion;
+        this.privateLinkServiceUrl = $.privateLinkServiceUrl;
         this.requestMessage = $.requestMessage;
         this.tags = $.tags;
     }
@@ -303,6 +319,27 @@ public final class GrafanaManagedPrivateEndpointArgs extends com.pulumi.resource
          */
         public Builder privateLinkResourceRegion(String privateLinkResourceRegion) {
             return privateLinkResourceRegion(Output.of(privateLinkResourceRegion));
+        }
+
+        /**
+         * @param privateLinkServiceUrl A domain name for this endpoint to be used within Grafana. Must be just a domain, without schema, and with at least three parts.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder privateLinkServiceUrl(@Nullable Output<String> privateLinkServiceUrl) {
+            $.privateLinkServiceUrl = privateLinkServiceUrl;
+            return this;
+        }
+
+        /**
+         * @param privateLinkServiceUrl A domain name for this endpoint to be used within Grafana. Must be just a domain, without schema, and with at least three parts.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder privateLinkServiceUrl(String privateLinkServiceUrl) {
+            return privateLinkServiceUrl(Output.of(privateLinkServiceUrl));
         }
 
         /**

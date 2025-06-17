@@ -102,7 +102,7 @@ class AccountEncryption(dict):
 
     @property
     @pulumi.getter(name="keySource")
-    @_utilities.deprecated("""This field is now ignored and will be removed in the next major version of the Azure Provider, the `encryption` block can be omitted to disable encryption""")
+    @_utilities.deprecated("""`encryption.key_source` has been deprecated and will be removed in v5.0 of the AzureRM Provider. To disable encryption, omit the `encryption` block""")
     def key_source(self) -> Optional[builtins.str]:
         return pulumi.get(self, "key_source")
 

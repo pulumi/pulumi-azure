@@ -59,14 +59,14 @@ public final class FlexibleServerCustomerManagedKeyArgs extends com.pulumi.resou
     }
 
     /**
-     * The versioned ID of the Key Vault Key.
+     * The versioned/versionless ID of the Key Vault Key.
      * 
      */
     @Import(name="keyVaultKeyId", required=true)
     private Output<String> keyVaultKeyId;
 
     /**
-     * @return The versioned ID of the Key Vault Key.
+     * @return The versioned/versionless ID of the Key Vault Key.
      * 
      */
     public Output<String> keyVaultKeyId() {
@@ -170,7 +170,7 @@ public final class FlexibleServerCustomerManagedKeyArgs extends com.pulumi.resou
         }
 
         /**
-         * @param keyVaultKeyId The versioned ID of the Key Vault Key.
+         * @param keyVaultKeyId The versioned/versionless ID of the Key Vault Key.
          * 
          * @return builder
          * 
@@ -181,7 +181,7 @@ public final class FlexibleServerCustomerManagedKeyArgs extends com.pulumi.resou
         }
 
         /**
-         * @param keyVaultKeyId The versioned ID of the Key Vault Key.
+         * @param keyVaultKeyId The versioned/versionless ID of the Key Vault Key.
          * 
          * @return builder
          * 

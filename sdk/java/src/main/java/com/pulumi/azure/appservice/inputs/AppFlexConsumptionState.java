@@ -210,6 +210,21 @@ public final class AppFlexConsumptionState extends com.pulumi.resources.Resource
     }
 
     /**
+     * Is Https Connection enforced to the function app. Defaults to `false`
+     * 
+     */
+    @Import(name="httpsOnly")
+    private @Nullable Output<Boolean> httpsOnly;
+
+    /**
+     * @return Is Https Connection enforced to the function app. Defaults to `false`
+     * 
+     */
+    public Optional<Output<Boolean>> httpsOnly() {
+        return Optional.ofNullable(this.httpsOnly);
+    }
+
+    /**
      * A `identity` block as defined below.
      * 
      */
@@ -637,6 +652,7 @@ public final class AppFlexConsumptionState extends com.pulumi.resources.Resource
         this.defaultHostname = $.defaultHostname;
         this.enabled = $.enabled;
         this.hostingEnvironmentId = $.hostingEnvironmentId;
+        this.httpsOnly = $.httpsOnly;
         this.identity = $.identity;
         this.instanceMemoryInMb = $.instanceMemoryInMb;
         this.kind = $.kind;
@@ -956,6 +972,27 @@ public final class AppFlexConsumptionState extends com.pulumi.resources.Resource
          */
         public Builder hostingEnvironmentId(String hostingEnvironmentId) {
             return hostingEnvironmentId(Output.of(hostingEnvironmentId));
+        }
+
+        /**
+         * @param httpsOnly Is Https Connection enforced to the function app. Defaults to `false`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder httpsOnly(@Nullable Output<Boolean> httpsOnly) {
+            $.httpsOnly = httpsOnly;
+            return this;
+        }
+
+        /**
+         * @param httpsOnly Is Https Connection enforced to the function app. Defaults to `false`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder httpsOnly(Boolean httpsOnly) {
+            return httpsOnly(Output.of(httpsOnly));
         }
 
         /**

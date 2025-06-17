@@ -102,6 +102,13 @@ import * as utilities from "../utilities";
  * * Databricks Workspace with Root Databricks File System Customer Managed Keys in a Different Subscription
  * * Databricks Workspace with Private Endpoint, Customer Managed Keys for Managed Services and Root Databricks File System Customer Managed Keys
  *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.Databricks`: 2024-05-01
+ *
  * ## Import
  *
  * Databricks Workspace Root DBFS Customer Managed Key can be imported using the `resource id`, e.g.

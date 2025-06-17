@@ -50,6 +50,13 @@ import (
 //
 // ```
 //
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.DataFactory`: 2018-06-01
+//
 // ## Import
 //
 // Data Factory can be imported using the `resource id`, e.g.

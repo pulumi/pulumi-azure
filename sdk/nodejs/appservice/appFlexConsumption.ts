@@ -148,6 +148,10 @@ export class AppFlexConsumption extends pulumi.CustomResource {
      */
     public /*out*/ readonly hostingEnvironmentId!: pulumi.Output<string>;
     /**
+     * Is Https Connection enforced to the function app. Defaults to `false`
+     */
+    public readonly httpsOnly!: pulumi.Output<boolean | undefined>;
+    /**
      * A `identity` block as defined below.
      */
     public readonly identity!: pulumi.Output<outputs.appservice.AppFlexConsumptionIdentity | undefined>;
@@ -286,6 +290,7 @@ export class AppFlexConsumption extends pulumi.CustomResource {
             resourceInputs["defaultHostname"] = state ? state.defaultHostname : undefined;
             resourceInputs["enabled"] = state ? state.enabled : undefined;
             resourceInputs["hostingEnvironmentId"] = state ? state.hostingEnvironmentId : undefined;
+            resourceInputs["httpsOnly"] = state ? state.httpsOnly : undefined;
             resourceInputs["identity"] = state ? state.identity : undefined;
             resourceInputs["instanceMemoryInMb"] = state ? state.instanceMemoryInMb : undefined;
             resourceInputs["kind"] = state ? state.kind : undefined;
@@ -348,6 +353,7 @@ export class AppFlexConsumption extends pulumi.CustomResource {
             resourceInputs["clientCertificateMode"] = args ? args.clientCertificateMode : undefined;
             resourceInputs["connectionStrings"] = args ? args.connectionStrings : undefined;
             resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["httpsOnly"] = args ? args.httpsOnly : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["instanceMemoryInMb"] = args ? args.instanceMemoryInMb : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
@@ -439,6 +445,10 @@ export interface AppFlexConsumptionState {
      * The ID of the App Service Environment used by Function App.
      */
     hostingEnvironmentId?: pulumi.Input<string>;
+    /**
+     * Is Https Connection enforced to the function app. Defaults to `false`
+     */
+    httpsOnly?: pulumi.Input<boolean>;
     /**
      * A `identity` block as defined below.
      */
@@ -595,6 +605,10 @@ export interface AppFlexConsumptionArgs {
      * Is the Function App enabled? Defaults to `true`.
      */
     enabled?: pulumi.Input<boolean>;
+    /**
+     * Is Https Connection enforced to the function app. Defaults to `false`
+     */
+    httpsOnly?: pulumi.Input<boolean>;
     /**
      * A `identity` block as defined below.
      */

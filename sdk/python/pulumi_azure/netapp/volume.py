@@ -38,6 +38,7 @@ class VolumeArgs:
                  export_policy_rules: Optional[pulumi.Input[Sequence[pulumi.Input['VolumeExportPolicyRuleArgs']]]] = None,
                  kerberos_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  key_vault_private_endpoint_id: Optional[pulumi.Input[builtins.str]] = None,
+                 large_volume_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  location: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  network_features: Optional[pulumi.Input[builtins.str]] = None,
@@ -60,7 +61,7 @@ class VolumeArgs:
         :param pulumi.Input[builtins.str] subnet_id: The ID of the Subnet the NetApp Volume resides in, which must have the `Microsoft.NetApp/volumes` delegation. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] volume_path: A unique file path for the volume. Used when creating mount targets. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.bool] azure_vmware_data_store_enabled: Is the NetApp Volume enabled for Azure VMware Solution (AVS) datastore purpose. Defaults to `false`. Changing this forces a new resource to be created.
-        :param pulumi.Input[builtins.str] create_from_snapshot_resource_id: Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnet_id`, `location`, `service_level`, `resource_group_name`, `account_name` and `pool_name`. Changing this forces a new resource to be created.
+        :param pulumi.Input[builtins.str] create_from_snapshot_resource_id: Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnet_id`, `location`, `service_level`, `resource_group_name` and `account_name`. Changing this forces a new resource to be created.
         :param pulumi.Input['VolumeDataProtectionBackupPolicyArgs'] data_protection_backup_policy: A `data_protection_backup_policy` block as defined below.
         :param pulumi.Input['VolumeDataProtectionReplicationArgs'] data_protection_replication: A `data_protection_replication` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input['VolumeDataProtectionSnapshotPolicyArgs'] data_protection_snapshot_policy: A `data_protection_snapshot_policy` block as defined below.
@@ -69,16 +70,19 @@ class VolumeArgs:
         :param pulumi.Input[builtins.bool] kerberos_enabled: Enable to allow Kerberos secured volumes. Requires appropriate export rules as well as the parent `netapp.Account`
                having a defined AD connection.
         :param pulumi.Input[builtins.str] key_vault_private_endpoint_id: The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryption_key_source`. Changing this forces a new resource to be created.
+        :param pulumi.Input[builtins.bool] large_volume_enabled: A boolean specifying if the volume is a large volume. Defaults to `false`.
+               
+               > **Note:** Large volumes must be at least 50 TiB in size and can be up to 1,024 TiB (1 PiB). For more information, please refer to [Requirements and considerations for large volumes](https://learn.microsoft.com/en-us/azure/azure-netapp-files/large-volumes-requirements-considerations)
         :param pulumi.Input[builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] name: The name of the NetApp Volume. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] network_features: Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features).
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] protocols: The target volume protocol expressed as a list. Supported single value include `CIFS`, `NFSv3`, or `NFSv4.1`. If argument is not defined it will default to `NFSv3`. Changing this forces a new resource to be created and data will be lost. Dual protocol scenario is supported for CIFS and NFSv3, for more information, please refer to [Create a dual-protocol volume for Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/create-volumes-dual-protocol) document.
         :param pulumi.Input[builtins.str] security_style: Volume security style, accepted values are `unix` or `ntfs`. If not provided, single-protocol volume is created defaulting to `unix` if it is `NFSv3` or `NFSv4.1` volume, if `CIFS`, it will default to `ntfs`. In a dual-protocol volume, if not provided, its value will be `ntfs`. Changing this forces a new resource to be created.
-        :param pulumi.Input[builtins.bool] smb3_protocol_encryption_enabled: Enable SMB encryption.
+        :param pulumi.Input[builtins.bool] smb3_protocol_encryption_enabled: Enable SMB encryption. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.bool] smb_access_based_enumeration_enabled: Limits enumeration of files and folders (that is, listing the contents) in SMB only to users with allowed access on the share. For instance, if a user doesn't have access to read a file or folder in a share with access-based enumeration enabled, then the file or folder doesn't show up in directory listings. Defaults to `false`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=security%20for%20administrators.-,Access%2Dbased%20enumeration,in%20an%20Azure%20NetApp%20Files%20SMB%20volume.%20Only%20contosoadmin%20has%20access.,-In%20the%20below)
-        :param pulumi.Input[builtins.bool] smb_continuous_availability_enabled: Enable SMB Continuous Availability.
+        :param pulumi.Input[builtins.bool] smb_continuous_availability_enabled: Enable SMB Continuous Availability. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.bool] smb_non_browsable_enabled: Limits clients from browsing for an SMB share by hiding the share from view in Windows Explorer or when listing shares in "net view." Only end users that know the absolute paths to the share are able to find the share. Defaults to `false`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=Non%2Dbrowsable%20shares,find%20the%20share.)
-        :param pulumi.Input[builtins.bool] snapshot_directory_visible: Specifies whether the .snapshot (NFS clients) or ~snapshot (SMB clients) path of a volume is visible, default value is true.
+        :param pulumi.Input[builtins.bool] snapshot_directory_visible: Specifies whether the .snapshot (NFS clients) or ~snapshot (SMB clients) path of a volume is visible. Defaults to `true`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags to assign to the resource.
                
                > **Note:** It is highly recommended to use the **lifecycle** property as noted in the example since it will prevent an accidental deletion of the volume if the `protocols` argument changes to a different protocol type.
@@ -110,6 +114,8 @@ class VolumeArgs:
             pulumi.set(__self__, "kerberos_enabled", kerberos_enabled)
         if key_vault_private_endpoint_id is not None:
             pulumi.set(__self__, "key_vault_private_endpoint_id", key_vault_private_endpoint_id)
+        if large_volume_enabled is not None:
+            pulumi.set(__self__, "large_volume_enabled", large_volume_enabled)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
@@ -234,7 +240,7 @@ class VolumeArgs:
     @pulumi.getter(name="createFromSnapshotResourceId")
     def create_from_snapshot_resource_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnet_id`, `location`, `service_level`, `resource_group_name`, `account_name` and `pool_name`. Changing this forces a new resource to be created.
+        Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnet_id`, `location`, `service_level`, `resource_group_name` and `account_name`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "create_from_snapshot_resource_id")
 
@@ -328,6 +334,20 @@ class VolumeArgs:
         pulumi.set(self, "key_vault_private_endpoint_id", value)
 
     @property
+    @pulumi.getter(name="largeVolumeEnabled")
+    def large_volume_enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        A boolean specifying if the volume is a large volume. Defaults to `false`.
+
+        > **Note:** Large volumes must be at least 50 TiB in size and can be up to 1,024 TiB (1 PiB). For more information, please refer to [Requirements and considerations for large volumes](https://learn.microsoft.com/en-us/azure/azure-netapp-files/large-volumes-requirements-considerations)
+        """
+        return pulumi.get(self, "large_volume_enabled")
+
+    @large_volume_enabled.setter
+    def large_volume_enabled(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "large_volume_enabled", value)
+
+    @property
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -391,7 +411,7 @@ class VolumeArgs:
     @pulumi.getter(name="smb3ProtocolEncryptionEnabled")
     def smb3_protocol_encryption_enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Enable SMB encryption.
+        Enable SMB encryption. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "smb3_protocol_encryption_enabled")
 
@@ -415,7 +435,7 @@ class VolumeArgs:
     @pulumi.getter(name="smbContinuousAvailabilityEnabled")
     def smb_continuous_availability_enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Enable SMB Continuous Availability.
+        Enable SMB Continuous Availability. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "smb_continuous_availability_enabled")
 
@@ -439,7 +459,7 @@ class VolumeArgs:
     @pulumi.getter(name="snapshotDirectoryVisible")
     def snapshot_directory_visible(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Specifies whether the .snapshot (NFS clients) or ~snapshot (SMB clients) path of a volume is visible, default value is true.
+        Specifies whether the .snapshot (NFS clients) or ~snapshot (SMB clients) path of a volume is visible. Defaults to `true`.
         """
         return pulumi.get(self, "snapshot_directory_visible")
 
@@ -499,6 +519,7 @@ class _VolumeState:
                  export_policy_rules: Optional[pulumi.Input[Sequence[pulumi.Input['VolumeExportPolicyRuleArgs']]]] = None,
                  kerberos_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  key_vault_private_endpoint_id: Optional[pulumi.Input[builtins.str]] = None,
+                 large_volume_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  location: Optional[pulumi.Input[builtins.str]] = None,
                  mount_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
@@ -523,7 +544,7 @@ class _VolumeState:
         Input properties used for looking up and filtering Volume resources.
         :param pulumi.Input[builtins.str] account_name: The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.bool] azure_vmware_data_store_enabled: Is the NetApp Volume enabled for Azure VMware Solution (AVS) datastore purpose. Defaults to `false`. Changing this forces a new resource to be created.
-        :param pulumi.Input[builtins.str] create_from_snapshot_resource_id: Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnet_id`, `location`, `service_level`, `resource_group_name`, `account_name` and `pool_name`. Changing this forces a new resource to be created.
+        :param pulumi.Input[builtins.str] create_from_snapshot_resource_id: Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnet_id`, `location`, `service_level`, `resource_group_name` and `account_name`. Changing this forces a new resource to be created.
         :param pulumi.Input['VolumeDataProtectionBackupPolicyArgs'] data_protection_backup_policy: A `data_protection_backup_policy` block as defined below.
         :param pulumi.Input['VolumeDataProtectionReplicationArgs'] data_protection_replication: A `data_protection_replication` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input['VolumeDataProtectionSnapshotPolicyArgs'] data_protection_snapshot_policy: A `data_protection_snapshot_policy` block as defined below.
@@ -532,6 +553,9 @@ class _VolumeState:
         :param pulumi.Input[builtins.bool] kerberos_enabled: Enable to allow Kerberos secured volumes. Requires appropriate export rules as well as the parent `netapp.Account`
                having a defined AD connection.
         :param pulumi.Input[builtins.str] key_vault_private_endpoint_id: The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryption_key_source`. Changing this forces a new resource to be created.
+        :param pulumi.Input[builtins.bool] large_volume_enabled: A boolean specifying if the volume is a large volume. Defaults to `false`.
+               
+               > **Note:** Large volumes must be at least 50 TiB in size and can be up to 1,024 TiB (1 PiB). For more information, please refer to [Requirements and considerations for large volumes](https://learn.microsoft.com/en-us/azure/azure-netapp-files/large-volumes-requirements-considerations)
         :param pulumi.Input[builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] mount_ip_addresses: A list of IPv4 Addresses which should be used to mount the volume.
         :param pulumi.Input[builtins.str] name: The name of the NetApp Volume. Changing this forces a new resource to be created.
@@ -540,11 +564,11 @@ class _VolumeState:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] protocols: The target volume protocol expressed as a list. Supported single value include `CIFS`, `NFSv3`, or `NFSv4.1`. If argument is not defined it will default to `NFSv3`. Changing this forces a new resource to be created and data will be lost. Dual protocol scenario is supported for CIFS and NFSv3, for more information, please refer to [Create a dual-protocol volume for Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/create-volumes-dual-protocol) document.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group where the NetApp Volume should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] security_style: Volume security style, accepted values are `unix` or `ntfs`. If not provided, single-protocol volume is created defaulting to `unix` if it is `NFSv3` or `NFSv4.1` volume, if `CIFS`, it will default to `ntfs`. In a dual-protocol volume, if not provided, its value will be `ntfs`. Changing this forces a new resource to be created.
-        :param pulumi.Input[builtins.bool] smb3_protocol_encryption_enabled: Enable SMB encryption.
+        :param pulumi.Input[builtins.bool] smb3_protocol_encryption_enabled: Enable SMB encryption. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.bool] smb_access_based_enumeration_enabled: Limits enumeration of files and folders (that is, listing the contents) in SMB only to users with allowed access on the share. For instance, if a user doesn't have access to read a file or folder in a share with access-based enumeration enabled, then the file or folder doesn't show up in directory listings. Defaults to `false`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=security%20for%20administrators.-,Access%2Dbased%20enumeration,in%20an%20Azure%20NetApp%20Files%20SMB%20volume.%20Only%20contosoadmin%20has%20access.,-In%20the%20below)
-        :param pulumi.Input[builtins.bool] smb_continuous_availability_enabled: Enable SMB Continuous Availability.
+        :param pulumi.Input[builtins.bool] smb_continuous_availability_enabled: Enable SMB Continuous Availability. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.bool] smb_non_browsable_enabled: Limits clients from browsing for an SMB share by hiding the share from view in Windows Explorer or when listing shares in "net view." Only end users that know the absolute paths to the share are able to find the share. Defaults to `false`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=Non%2Dbrowsable%20shares,find%20the%20share.)
-        :param pulumi.Input[builtins.bool] snapshot_directory_visible: Specifies whether the .snapshot (NFS clients) or ~snapshot (SMB clients) path of a volume is visible, default value is true.
+        :param pulumi.Input[builtins.bool] snapshot_directory_visible: Specifies whether the .snapshot (NFS clients) or ~snapshot (SMB clients) path of a volume is visible. Defaults to `true`.
         :param pulumi.Input[builtins.int] storage_quota_in_gb: The maximum Storage Quota allowed for a file system in Gigabytes.
         :param pulumi.Input[builtins.str] subnet_id: The ID of the Subnet the NetApp Volume resides in, which must have the `Microsoft.NetApp/volumes` delegation. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags to assign to the resource.
@@ -574,6 +598,8 @@ class _VolumeState:
             pulumi.set(__self__, "kerberos_enabled", kerberos_enabled)
         if key_vault_private_endpoint_id is not None:
             pulumi.set(__self__, "key_vault_private_endpoint_id", key_vault_private_endpoint_id)
+        if large_volume_enabled is not None:
+            pulumi.set(__self__, "large_volume_enabled", large_volume_enabled)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if mount_ip_addresses is not None:
@@ -643,7 +669,7 @@ class _VolumeState:
     @pulumi.getter(name="createFromSnapshotResourceId")
     def create_from_snapshot_resource_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnet_id`, `location`, `service_level`, `resource_group_name`, `account_name` and `pool_name`. Changing this forces a new resource to be created.
+        Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnet_id`, `location`, `service_level`, `resource_group_name` and `account_name`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "create_from_snapshot_resource_id")
 
@@ -735,6 +761,20 @@ class _VolumeState:
     @key_vault_private_endpoint_id.setter
     def key_vault_private_endpoint_id(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "key_vault_private_endpoint_id", value)
+
+    @property
+    @pulumi.getter(name="largeVolumeEnabled")
+    def large_volume_enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        A boolean specifying if the volume is a large volume. Defaults to `false`.
+
+        > **Note:** Large volumes must be at least 50 TiB in size and can be up to 1,024 TiB (1 PiB). For more information, please refer to [Requirements and considerations for large volumes](https://learn.microsoft.com/en-us/azure/azure-netapp-files/large-volumes-requirements-considerations)
+        """
+        return pulumi.get(self, "large_volume_enabled")
+
+    @large_volume_enabled.setter
+    def large_volume_enabled(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "large_volume_enabled", value)
 
     @property
     @pulumi.getter
@@ -845,7 +885,7 @@ class _VolumeState:
     @pulumi.getter(name="smb3ProtocolEncryptionEnabled")
     def smb3_protocol_encryption_enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Enable SMB encryption.
+        Enable SMB encryption. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "smb3_protocol_encryption_enabled")
 
@@ -869,7 +909,7 @@ class _VolumeState:
     @pulumi.getter(name="smbContinuousAvailabilityEnabled")
     def smb_continuous_availability_enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Enable SMB Continuous Availability.
+        Enable SMB Continuous Availability. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "smb_continuous_availability_enabled")
 
@@ -893,7 +933,7 @@ class _VolumeState:
     @pulumi.getter(name="snapshotDirectoryVisible")
     def snapshot_directory_visible(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Specifies whether the .snapshot (NFS clients) or ~snapshot (SMB clients) path of a volume is visible, default value is true.
+        Specifies whether the .snapshot (NFS clients) or ~snapshot (SMB clients) path of a volume is visible. Defaults to `true`.
         """
         return pulumi.get(self, "snapshot_directory_visible")
 
@@ -992,6 +1032,7 @@ class Volume(pulumi.CustomResource):
                  export_policy_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VolumeExportPolicyRuleArgs', 'VolumeExportPolicyRuleArgsDict']]]]] = None,
                  kerberos_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  key_vault_private_endpoint_id: Optional[pulumi.Input[builtins.str]] = None,
+                 large_volume_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  location: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  network_features: Optional[pulumi.Input[builtins.str]] = None,
@@ -1029,7 +1070,7 @@ class Volume(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] account_name: The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.bool] azure_vmware_data_store_enabled: Is the NetApp Volume enabled for Azure VMware Solution (AVS) datastore purpose. Defaults to `false`. Changing this forces a new resource to be created.
-        :param pulumi.Input[builtins.str] create_from_snapshot_resource_id: Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnet_id`, `location`, `service_level`, `resource_group_name`, `account_name` and `pool_name`. Changing this forces a new resource to be created.
+        :param pulumi.Input[builtins.str] create_from_snapshot_resource_id: Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnet_id`, `location`, `service_level`, `resource_group_name` and `account_name`. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['VolumeDataProtectionBackupPolicyArgs', 'VolumeDataProtectionBackupPolicyArgsDict']] data_protection_backup_policy: A `data_protection_backup_policy` block as defined below.
         :param pulumi.Input[Union['VolumeDataProtectionReplicationArgs', 'VolumeDataProtectionReplicationArgsDict']] data_protection_replication: A `data_protection_replication` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['VolumeDataProtectionSnapshotPolicyArgs', 'VolumeDataProtectionSnapshotPolicyArgsDict']] data_protection_snapshot_policy: A `data_protection_snapshot_policy` block as defined below.
@@ -1038,6 +1079,9 @@ class Volume(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] kerberos_enabled: Enable to allow Kerberos secured volumes. Requires appropriate export rules as well as the parent `netapp.Account`
                having a defined AD connection.
         :param pulumi.Input[builtins.str] key_vault_private_endpoint_id: The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryption_key_source`. Changing this forces a new resource to be created.
+        :param pulumi.Input[builtins.bool] large_volume_enabled: A boolean specifying if the volume is a large volume. Defaults to `false`.
+               
+               > **Note:** Large volumes must be at least 50 TiB in size and can be up to 1,024 TiB (1 PiB). For more information, please refer to [Requirements and considerations for large volumes](https://learn.microsoft.com/en-us/azure/azure-netapp-files/large-volumes-requirements-considerations)
         :param pulumi.Input[builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] name: The name of the NetApp Volume. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] network_features: Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features).
@@ -1045,11 +1089,11 @@ class Volume(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] protocols: The target volume protocol expressed as a list. Supported single value include `CIFS`, `NFSv3`, or `NFSv4.1`. If argument is not defined it will default to `NFSv3`. Changing this forces a new resource to be created and data will be lost. Dual protocol scenario is supported for CIFS and NFSv3, for more information, please refer to [Create a dual-protocol volume for Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/create-volumes-dual-protocol) document.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group where the NetApp Volume should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] security_style: Volume security style, accepted values are `unix` or `ntfs`. If not provided, single-protocol volume is created defaulting to `unix` if it is `NFSv3` or `NFSv4.1` volume, if `CIFS`, it will default to `ntfs`. In a dual-protocol volume, if not provided, its value will be `ntfs`. Changing this forces a new resource to be created.
-        :param pulumi.Input[builtins.bool] smb3_protocol_encryption_enabled: Enable SMB encryption.
+        :param pulumi.Input[builtins.bool] smb3_protocol_encryption_enabled: Enable SMB encryption. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.bool] smb_access_based_enumeration_enabled: Limits enumeration of files and folders (that is, listing the contents) in SMB only to users with allowed access on the share. For instance, if a user doesn't have access to read a file or folder in a share with access-based enumeration enabled, then the file or folder doesn't show up in directory listings. Defaults to `false`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=security%20for%20administrators.-,Access%2Dbased%20enumeration,in%20an%20Azure%20NetApp%20Files%20SMB%20volume.%20Only%20contosoadmin%20has%20access.,-In%20the%20below)
-        :param pulumi.Input[builtins.bool] smb_continuous_availability_enabled: Enable SMB Continuous Availability.
+        :param pulumi.Input[builtins.bool] smb_continuous_availability_enabled: Enable SMB Continuous Availability. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.bool] smb_non_browsable_enabled: Limits clients from browsing for an SMB share by hiding the share from view in Windows Explorer or when listing shares in "net view." Only end users that know the absolute paths to the share are able to find the share. Defaults to `false`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=Non%2Dbrowsable%20shares,find%20the%20share.)
-        :param pulumi.Input[builtins.bool] snapshot_directory_visible: Specifies whether the .snapshot (NFS clients) or ~snapshot (SMB clients) path of a volume is visible, default value is true.
+        :param pulumi.Input[builtins.bool] snapshot_directory_visible: Specifies whether the .snapshot (NFS clients) or ~snapshot (SMB clients) path of a volume is visible. Defaults to `true`.
         :param pulumi.Input[builtins.int] storage_quota_in_gb: The maximum Storage Quota allowed for a file system in Gigabytes.
         :param pulumi.Input[builtins.str] subnet_id: The ID of the Subnet the NetApp Volume resides in, which must have the `Microsoft.NetApp/volumes` delegation. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags to assign to the resource.
@@ -1103,6 +1147,7 @@ class Volume(pulumi.CustomResource):
                  export_policy_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VolumeExportPolicyRuleArgs', 'VolumeExportPolicyRuleArgsDict']]]]] = None,
                  kerberos_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  key_vault_private_endpoint_id: Optional[pulumi.Input[builtins.str]] = None,
+                 large_volume_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  location: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  network_features: Optional[pulumi.Input[builtins.str]] = None,
@@ -1143,6 +1188,7 @@ class Volume(pulumi.CustomResource):
             __props__.__dict__["export_policy_rules"] = export_policy_rules
             __props__.__dict__["kerberos_enabled"] = kerberos_enabled
             __props__.__dict__["key_vault_private_endpoint_id"] = key_vault_private_endpoint_id
+            __props__.__dict__["large_volume_enabled"] = large_volume_enabled
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
             __props__.__dict__["network_features"] = network_features
@@ -1195,6 +1241,7 @@ class Volume(pulumi.CustomResource):
             export_policy_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VolumeExportPolicyRuleArgs', 'VolumeExportPolicyRuleArgsDict']]]]] = None,
             kerberos_enabled: Optional[pulumi.Input[builtins.bool]] = None,
             key_vault_private_endpoint_id: Optional[pulumi.Input[builtins.str]] = None,
+            large_volume_enabled: Optional[pulumi.Input[builtins.bool]] = None,
             location: Optional[pulumi.Input[builtins.str]] = None,
             mount_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
@@ -1224,7 +1271,7 @@ class Volume(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] account_name: The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.bool] azure_vmware_data_store_enabled: Is the NetApp Volume enabled for Azure VMware Solution (AVS) datastore purpose. Defaults to `false`. Changing this forces a new resource to be created.
-        :param pulumi.Input[builtins.str] create_from_snapshot_resource_id: Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnet_id`, `location`, `service_level`, `resource_group_name`, `account_name` and `pool_name`. Changing this forces a new resource to be created.
+        :param pulumi.Input[builtins.str] create_from_snapshot_resource_id: Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnet_id`, `location`, `service_level`, `resource_group_name` and `account_name`. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['VolumeDataProtectionBackupPolicyArgs', 'VolumeDataProtectionBackupPolicyArgsDict']] data_protection_backup_policy: A `data_protection_backup_policy` block as defined below.
         :param pulumi.Input[Union['VolumeDataProtectionReplicationArgs', 'VolumeDataProtectionReplicationArgsDict']] data_protection_replication: A `data_protection_replication` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['VolumeDataProtectionSnapshotPolicyArgs', 'VolumeDataProtectionSnapshotPolicyArgsDict']] data_protection_snapshot_policy: A `data_protection_snapshot_policy` block as defined below.
@@ -1233,6 +1280,9 @@ class Volume(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] kerberos_enabled: Enable to allow Kerberos secured volumes. Requires appropriate export rules as well as the parent `netapp.Account`
                having a defined AD connection.
         :param pulumi.Input[builtins.str] key_vault_private_endpoint_id: The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryption_key_source`. Changing this forces a new resource to be created.
+        :param pulumi.Input[builtins.bool] large_volume_enabled: A boolean specifying if the volume is a large volume. Defaults to `false`.
+               
+               > **Note:** Large volumes must be at least 50 TiB in size and can be up to 1,024 TiB (1 PiB). For more information, please refer to [Requirements and considerations for large volumes](https://learn.microsoft.com/en-us/azure/azure-netapp-files/large-volumes-requirements-considerations)
         :param pulumi.Input[builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] mount_ip_addresses: A list of IPv4 Addresses which should be used to mount the volume.
         :param pulumi.Input[builtins.str] name: The name of the NetApp Volume. Changing this forces a new resource to be created.
@@ -1241,11 +1291,11 @@ class Volume(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] protocols: The target volume protocol expressed as a list. Supported single value include `CIFS`, `NFSv3`, or `NFSv4.1`. If argument is not defined it will default to `NFSv3`. Changing this forces a new resource to be created and data will be lost. Dual protocol scenario is supported for CIFS and NFSv3, for more information, please refer to [Create a dual-protocol volume for Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/create-volumes-dual-protocol) document.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group where the NetApp Volume should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] security_style: Volume security style, accepted values are `unix` or `ntfs`. If not provided, single-protocol volume is created defaulting to `unix` if it is `NFSv3` or `NFSv4.1` volume, if `CIFS`, it will default to `ntfs`. In a dual-protocol volume, if not provided, its value will be `ntfs`. Changing this forces a new resource to be created.
-        :param pulumi.Input[builtins.bool] smb3_protocol_encryption_enabled: Enable SMB encryption.
+        :param pulumi.Input[builtins.bool] smb3_protocol_encryption_enabled: Enable SMB encryption. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.bool] smb_access_based_enumeration_enabled: Limits enumeration of files and folders (that is, listing the contents) in SMB only to users with allowed access on the share. For instance, if a user doesn't have access to read a file or folder in a share with access-based enumeration enabled, then the file or folder doesn't show up in directory listings. Defaults to `false`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=security%20for%20administrators.-,Access%2Dbased%20enumeration,in%20an%20Azure%20NetApp%20Files%20SMB%20volume.%20Only%20contosoadmin%20has%20access.,-In%20the%20below)
-        :param pulumi.Input[builtins.bool] smb_continuous_availability_enabled: Enable SMB Continuous Availability.
+        :param pulumi.Input[builtins.bool] smb_continuous_availability_enabled: Enable SMB Continuous Availability. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.bool] smb_non_browsable_enabled: Limits clients from browsing for an SMB share by hiding the share from view in Windows Explorer or when listing shares in "net view." Only end users that know the absolute paths to the share are able to find the share. Defaults to `false`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=Non%2Dbrowsable%20shares,find%20the%20share.)
-        :param pulumi.Input[builtins.bool] snapshot_directory_visible: Specifies whether the .snapshot (NFS clients) or ~snapshot (SMB clients) path of a volume is visible, default value is true.
+        :param pulumi.Input[builtins.bool] snapshot_directory_visible: Specifies whether the .snapshot (NFS clients) or ~snapshot (SMB clients) path of a volume is visible. Defaults to `true`.
         :param pulumi.Input[builtins.int] storage_quota_in_gb: The maximum Storage Quota allowed for a file system in Gigabytes.
         :param pulumi.Input[builtins.str] subnet_id: The ID of the Subnet the NetApp Volume resides in, which must have the `Microsoft.NetApp/volumes` delegation. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags to assign to the resource.
@@ -1269,6 +1319,7 @@ class Volume(pulumi.CustomResource):
         __props__.__dict__["export_policy_rules"] = export_policy_rules
         __props__.__dict__["kerberos_enabled"] = kerberos_enabled
         __props__.__dict__["key_vault_private_endpoint_id"] = key_vault_private_endpoint_id
+        __props__.__dict__["large_volume_enabled"] = large_volume_enabled
         __props__.__dict__["location"] = location
         __props__.__dict__["mount_ip_addresses"] = mount_ip_addresses
         __props__.__dict__["name"] = name
@@ -1311,7 +1362,7 @@ class Volume(pulumi.CustomResource):
     @pulumi.getter(name="createFromSnapshotResourceId")
     def create_from_snapshot_resource_id(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnet_id`, `location`, `service_level`, `resource_group_name`, `account_name` and `pool_name`. Changing this forces a new resource to be created.
+        Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnet_id`, `location`, `service_level`, `resource_group_name` and `account_name`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "create_from_snapshot_resource_id")
 
@@ -1371,6 +1422,16 @@ class Volume(pulumi.CustomResource):
         The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryption_key_source`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "key_vault_private_endpoint_id")
+
+    @property
+    @pulumi.getter(name="largeVolumeEnabled")
+    def large_volume_enabled(self) -> pulumi.Output[Optional[builtins.bool]]:
+        """
+        A boolean specifying if the volume is a large volume. Defaults to `false`.
+
+        > **Note:** Large volumes must be at least 50 TiB in size and can be up to 1,024 TiB (1 PiB). For more information, please refer to [Requirements and considerations for large volumes](https://learn.microsoft.com/en-us/azure/azure-netapp-files/large-volumes-requirements-considerations)
+        """
+        return pulumi.get(self, "large_volume_enabled")
 
     @property
     @pulumi.getter
@@ -1445,7 +1506,7 @@ class Volume(pulumi.CustomResource):
     @pulumi.getter(name="smb3ProtocolEncryptionEnabled")
     def smb3_protocol_encryption_enabled(self) -> pulumi.Output[Optional[builtins.bool]]:
         """
-        Enable SMB encryption.
+        Enable SMB encryption. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "smb3_protocol_encryption_enabled")
 
@@ -1461,7 +1522,7 @@ class Volume(pulumi.CustomResource):
     @pulumi.getter(name="smbContinuousAvailabilityEnabled")
     def smb_continuous_availability_enabled(self) -> pulumi.Output[Optional[builtins.bool]]:
         """
-        Enable SMB Continuous Availability.
+        Enable SMB Continuous Availability. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "smb_continuous_availability_enabled")
 
@@ -1477,7 +1538,7 @@ class Volume(pulumi.CustomResource):
     @pulumi.getter(name="snapshotDirectoryVisible")
     def snapshot_directory_visible(self) -> pulumi.Output[Optional[builtins.bool]]:
         """
-        Specifies whether the .snapshot (NFS clients) or ~snapshot (SMB clients) path of a volume is visible, default value is true.
+        Specifies whether the .snapshot (NFS clients) or ~snapshot (SMB clients) path of a volume is visible. Defaults to `true`.
         """
         return pulumi.get(self, "snapshot_directory_visible")
 

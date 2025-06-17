@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Compute`: 2024-07-01
+ * * `Microsoft.Compute`: 2024-11-01
  */
 export function getOrchestratedVirtualMachineScaleSet(args: GetOrchestratedVirtualMachineScaleSetArgs, opts?: pulumi.InvokeOptions): Promise<GetOrchestratedVirtualMachineScaleSetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -98,7 +98,7 @@ export interface GetOrchestratedVirtualMachineScaleSetResult {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Compute`: 2024-07-01
+ * * `Microsoft.Compute`: 2024-11-01
  */
 export function getOrchestratedVirtualMachineScaleSetOutput(args: GetOrchestratedVirtualMachineScaleSetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetOrchestratedVirtualMachineScaleSetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

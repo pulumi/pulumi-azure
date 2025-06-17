@@ -151,6 +151,12 @@ namespace Pulumi.Azure.CosmosDB
     /// 
     /// });
     /// ```
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.DocumentDB`: 2024-08-15
     /// 
     /// ## Import
     /// 

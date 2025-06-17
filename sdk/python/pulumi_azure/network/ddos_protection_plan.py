@@ -209,6 +209,13 @@ class DdosProtectionPlan(pulumi.CustomResource):
             resource_group_name=example.name)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network`: 2024-05-01
+
         ## Import
 
         Azure DDoS Protection Plan can be imported using the `resource id`, e.g.
@@ -251,6 +258,13 @@ class DdosProtectionPlan(pulumi.CustomResource):
             location=example.location,
             resource_group_name=example.name)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network`: 2024-05-01
 
         ## Import
 

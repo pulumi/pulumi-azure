@@ -36,6 +36,11 @@ public final class GetVolumeResult {
     private String id;
     private String keyVaultPrivateEndpointId;
     /**
+     * @return Indicates if the volume is a large volume.
+     * 
+     */
+    private Boolean largeVolumeEnabled;
+    /**
      * @return The Azure Region where the NetApp Volume exists.
      * 
      */
@@ -129,6 +134,13 @@ public final class GetVolumeResult {
     }
     public String keyVaultPrivateEndpointId() {
         return this.keyVaultPrivateEndpointId;
+    }
+    /**
+     * @return Indicates if the volume is a large volume.
+     * 
+     */
+    public Boolean largeVolumeEnabled() {
+        return this.largeVolumeEnabled;
     }
     /**
      * @return The Azure Region where the NetApp Volume exists.
@@ -239,6 +251,7 @@ public final class GetVolumeResult {
         private String encryptionKeySource;
         private String id;
         private String keyVaultPrivateEndpointId;
+        private Boolean largeVolumeEnabled;
         private String location;
         private List<String> mountIpAddresses;
         private String name;
@@ -263,6 +276,7 @@ public final class GetVolumeResult {
     	      this.encryptionKeySource = defaults.encryptionKeySource;
     	      this.id = defaults.id;
     	      this.keyVaultPrivateEndpointId = defaults.keyVaultPrivateEndpointId;
+    	      this.largeVolumeEnabled = defaults.largeVolumeEnabled;
     	      this.location = defaults.location;
     	      this.mountIpAddresses = defaults.mountIpAddresses;
     	      this.name = defaults.name;
@@ -332,6 +346,14 @@ public final class GetVolumeResult {
               throw new MissingRequiredPropertyException("GetVolumeResult", "keyVaultPrivateEndpointId");
             }
             this.keyVaultPrivateEndpointId = keyVaultPrivateEndpointId;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder largeVolumeEnabled(Boolean largeVolumeEnabled) {
+            if (largeVolumeEnabled == null) {
+              throw new MissingRequiredPropertyException("GetVolumeResult", "largeVolumeEnabled");
+            }
+            this.largeVolumeEnabled = largeVolumeEnabled;
             return this;
         }
         @CustomType.Setter
@@ -466,6 +488,7 @@ public final class GetVolumeResult {
             _resultValue.encryptionKeySource = encryptionKeySource;
             _resultValue.id = id;
             _resultValue.keyVaultPrivateEndpointId = keyVaultPrivateEndpointId;
+            _resultValue.largeVolumeEnabled = largeVolumeEnabled;
             _resultValue.location = location;
             _resultValue.mountIpAddresses = mountIpAddresses;
             _resultValue.name = name;

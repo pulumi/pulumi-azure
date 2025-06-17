@@ -251,6 +251,13 @@ def get_scheduled_query_rules_alert(name: Optional[builtins.str] = None,
     pulumi.export("queryRuleId", example.id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Insights`: 2018-04-16
+
 
     :param builtins.str name: Specifies the name of the scheduled query rule.
     :param builtins.str resource_group_name: Specifies the name of the resource group where the scheduled query rule is located.
@@ -295,6 +302,13 @@ def get_scheduled_query_rules_alert_output(name: Optional[pulumi.Input[builtins.
         name="tfex-queryrule")
     pulumi.export("queryRuleId", example.id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Insights`: 2018-04-16
 
 
     :param builtins.str name: Specifies the name of the scheduled query rule.

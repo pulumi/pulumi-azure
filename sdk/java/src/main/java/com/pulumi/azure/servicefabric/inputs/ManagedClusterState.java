@@ -234,6 +234,21 @@ public final class ManagedClusterState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
+     * The resource ID of the Subnet. Changing this forces a new Resource Group to be created.
+     * 
+     */
+    @Import(name="subnetId")
+    private @Nullable Output<String> subnetId;
+
+    /**
+     * @return The resource ID of the Subnet. Changing this forces a new Resource Group to be created.
+     * 
+     */
+    public Optional<Output<String>> subnetId() {
+        return Optional.ofNullable(this.subnetId);
+    }
+
+    /**
      * A mapping of tags which should be assigned to the Resource Group.
      * 
      */
@@ -295,6 +310,7 @@ public final class ManagedClusterState extends com.pulumi.resources.ResourceArgs
         this.password = $.password;
         this.resourceGroupName = $.resourceGroupName;
         this.sku = $.sku;
+        this.subnetId = $.subnetId;
         this.tags = $.tags;
         this.upgradeWave = $.upgradeWave;
         this.username = $.username;
@@ -640,6 +656,27 @@ public final class ManagedClusterState extends com.pulumi.resources.ResourceArgs
          */
         public Builder sku(String sku) {
             return sku(Output.of(sku));
+        }
+
+        /**
+         * @param subnetId The resource ID of the Subnet. Changing this forces a new Resource Group to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder subnetId(@Nullable Output<String> subnetId) {
+            $.subnetId = subnetId;
+            return this;
+        }
+
+        /**
+         * @param subnetId The resource ID of the Subnet. Changing this forces a new Resource Group to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder subnetId(String subnetId) {
+            return subnetId(Output.of(subnetId));
         }
 
         /**

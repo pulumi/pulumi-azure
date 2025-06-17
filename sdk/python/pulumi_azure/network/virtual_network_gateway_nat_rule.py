@@ -360,6 +360,13 @@ class VirtualNetworkGatewayNatRule(pulumi.CustomResource):
             }])
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network`: 2024-05-01
+
         ## Import
 
         Virtual Network Gateway Nat Rules can be imported using the `resource id`, e.g.
@@ -442,6 +449,13 @@ class VirtualNetworkGatewayNatRule(pulumi.CustomResource):
                 "port_range": "400",
             }])
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network`: 2024-05-01
 
         ## Import
 

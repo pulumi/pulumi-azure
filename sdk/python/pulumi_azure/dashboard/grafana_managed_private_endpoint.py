@@ -26,6 +26,7 @@ class GrafanaManagedPrivateEndpointArgs:
                  location: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  private_link_resource_region: Optional[pulumi.Input[builtins.str]] = None,
+                 private_link_service_url: Optional[pulumi.Input[builtins.str]] = None,
                  request_message: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
@@ -36,6 +37,7 @@ class GrafanaManagedPrivateEndpointArgs:
         :param pulumi.Input[builtins.str] location: The Azure Region where the Dashboard Grafana Managed Private Endpoint should exist. Changing this forces a new Dashboard Grafana Managed Private Endpoint to be created.
         :param pulumi.Input[builtins.str] name: The name which should be used for this Dashboard Grafana Managed Private Endpoint. Must be between 2 and 20 alphanumeric characters or dashes, must begin with letter and end with a letter or number. Changing this forces a new Dashboard Grafana Managed Private Endpoint to be created.
         :param pulumi.Input[builtins.str] private_link_resource_region: The region in which to create the private link. Changing this forces a new Dashboard Grafana Managed Private Endpoint to be created.
+        :param pulumi.Input[builtins.str] private_link_service_url: A domain name for this endpoint to be used within Grafana. Must be just a domain, without schema, and with at least three parts.
         :param pulumi.Input[builtins.str] request_message: A message to provide in the request which will be seen by approvers.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags which should be assigned to the Dashboard Grafana Managed Private Endpoint.
         """
@@ -49,6 +51,8 @@ class GrafanaManagedPrivateEndpointArgs:
             pulumi.set(__self__, "name", name)
         if private_link_resource_region is not None:
             pulumi.set(__self__, "private_link_resource_region", private_link_resource_region)
+        if private_link_service_url is not None:
+            pulumi.set(__self__, "private_link_service_url", private_link_service_url)
         if request_message is not None:
             pulumi.set(__self__, "request_message", request_message)
         if tags is not None:
@@ -127,6 +131,18 @@ class GrafanaManagedPrivateEndpointArgs:
         pulumi.set(self, "private_link_resource_region", value)
 
     @property
+    @pulumi.getter(name="privateLinkServiceUrl")
+    def private_link_service_url(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        A domain name for this endpoint to be used within Grafana. Must be just a domain, without schema, and with at least three parts.
+        """
+        return pulumi.get(self, "private_link_service_url")
+
+    @private_link_service_url.setter
+    def private_link_service_url(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "private_link_service_url", value)
+
+    @property
     @pulumi.getter(name="requestMessage")
     def request_message(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -160,6 +176,7 @@ class _GrafanaManagedPrivateEndpointState:
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  private_link_resource_id: Optional[pulumi.Input[builtins.str]] = None,
                  private_link_resource_region: Optional[pulumi.Input[builtins.str]] = None,
+                 private_link_service_url: Optional[pulumi.Input[builtins.str]] = None,
                  request_message: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
@@ -170,6 +187,7 @@ class _GrafanaManagedPrivateEndpointState:
         :param pulumi.Input[builtins.str] name: The name which should be used for this Dashboard Grafana Managed Private Endpoint. Must be between 2 and 20 alphanumeric characters or dashes, must begin with letter and end with a letter or number. Changing this forces a new Dashboard Grafana Managed Private Endpoint to be created.
         :param pulumi.Input[builtins.str] private_link_resource_id: The ID of the resource to which this Dashboard Grafana Managed Private Endpoint will connect. Changing this forces a new Dashboard Grafana Managed Private Endpoint to be created.
         :param pulumi.Input[builtins.str] private_link_resource_region: The region in which to create the private link. Changing this forces a new Dashboard Grafana Managed Private Endpoint to be created.
+        :param pulumi.Input[builtins.str] private_link_service_url: A domain name for this endpoint to be used within Grafana. Must be just a domain, without schema, and with at least three parts.
         :param pulumi.Input[builtins.str] request_message: A message to provide in the request which will be seen by approvers.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags which should be assigned to the Dashboard Grafana Managed Private Endpoint.
         """
@@ -185,6 +203,8 @@ class _GrafanaManagedPrivateEndpointState:
             pulumi.set(__self__, "private_link_resource_id", private_link_resource_id)
         if private_link_resource_region is not None:
             pulumi.set(__self__, "private_link_resource_region", private_link_resource_region)
+        if private_link_service_url is not None:
+            pulumi.set(__self__, "private_link_service_url", private_link_service_url)
         if request_message is not None:
             pulumi.set(__self__, "request_message", request_message)
         if tags is not None:
@@ -263,6 +283,18 @@ class _GrafanaManagedPrivateEndpointState:
         pulumi.set(self, "private_link_resource_region", value)
 
     @property
+    @pulumi.getter(name="privateLinkServiceUrl")
+    def private_link_service_url(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        A domain name for this endpoint to be used within Grafana. Must be just a domain, without schema, and with at least three parts.
+        """
+        return pulumi.get(self, "private_link_service_url")
+
+    @private_link_service_url.setter
+    def private_link_service_url(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "private_link_service_url", value)
+
+    @property
     @pulumi.getter(name="requestMessage")
     def request_message(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -299,6 +331,7 @@ class GrafanaManagedPrivateEndpoint(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  private_link_resource_id: Optional[pulumi.Input[builtins.str]] = None,
                  private_link_resource_region: Optional[pulumi.Input[builtins.str]] = None,
+                 private_link_service_url: Optional[pulumi.Input[builtins.str]] = None,
                  request_message: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
@@ -362,6 +395,7 @@ class GrafanaManagedPrivateEndpoint(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: The name which should be used for this Dashboard Grafana Managed Private Endpoint. Must be between 2 and 20 alphanumeric characters or dashes, must begin with letter and end with a letter or number. Changing this forces a new Dashboard Grafana Managed Private Endpoint to be created.
         :param pulumi.Input[builtins.str] private_link_resource_id: The ID of the resource to which this Dashboard Grafana Managed Private Endpoint will connect. Changing this forces a new Dashboard Grafana Managed Private Endpoint to be created.
         :param pulumi.Input[builtins.str] private_link_resource_region: The region in which to create the private link. Changing this forces a new Dashboard Grafana Managed Private Endpoint to be created.
+        :param pulumi.Input[builtins.str] private_link_service_url: A domain name for this endpoint to be used within Grafana. Must be just a domain, without schema, and with at least three parts.
         :param pulumi.Input[builtins.str] request_message: A message to provide in the request which will be seen by approvers.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags which should be assigned to the Dashboard Grafana Managed Private Endpoint.
         """
@@ -444,6 +478,7 @@ class GrafanaManagedPrivateEndpoint(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  private_link_resource_id: Optional[pulumi.Input[builtins.str]] = None,
                  private_link_resource_region: Optional[pulumi.Input[builtins.str]] = None,
+                 private_link_service_url: Optional[pulumi.Input[builtins.str]] = None,
                  request_message: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
@@ -465,6 +500,7 @@ class GrafanaManagedPrivateEndpoint(pulumi.CustomResource):
                 raise TypeError("Missing required property 'private_link_resource_id'")
             __props__.__dict__["private_link_resource_id"] = private_link_resource_id
             __props__.__dict__["private_link_resource_region"] = private_link_resource_region
+            __props__.__dict__["private_link_service_url"] = private_link_service_url
             __props__.__dict__["request_message"] = request_message
             __props__.__dict__["tags"] = tags
         super(GrafanaManagedPrivateEndpoint, __self__).__init__(
@@ -483,6 +519,7 @@ class GrafanaManagedPrivateEndpoint(pulumi.CustomResource):
             name: Optional[pulumi.Input[builtins.str]] = None,
             private_link_resource_id: Optional[pulumi.Input[builtins.str]] = None,
             private_link_resource_region: Optional[pulumi.Input[builtins.str]] = None,
+            private_link_service_url: Optional[pulumi.Input[builtins.str]] = None,
             request_message: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None) -> 'GrafanaManagedPrivateEndpoint':
         """
@@ -498,6 +535,7 @@ class GrafanaManagedPrivateEndpoint(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: The name which should be used for this Dashboard Grafana Managed Private Endpoint. Must be between 2 and 20 alphanumeric characters or dashes, must begin with letter and end with a letter or number. Changing this forces a new Dashboard Grafana Managed Private Endpoint to be created.
         :param pulumi.Input[builtins.str] private_link_resource_id: The ID of the resource to which this Dashboard Grafana Managed Private Endpoint will connect. Changing this forces a new Dashboard Grafana Managed Private Endpoint to be created.
         :param pulumi.Input[builtins.str] private_link_resource_region: The region in which to create the private link. Changing this forces a new Dashboard Grafana Managed Private Endpoint to be created.
+        :param pulumi.Input[builtins.str] private_link_service_url: A domain name for this endpoint to be used within Grafana. Must be just a domain, without schema, and with at least three parts.
         :param pulumi.Input[builtins.str] request_message: A message to provide in the request which will be seen by approvers.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags which should be assigned to the Dashboard Grafana Managed Private Endpoint.
         """
@@ -511,6 +549,7 @@ class GrafanaManagedPrivateEndpoint(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["private_link_resource_id"] = private_link_resource_id
         __props__.__dict__["private_link_resource_region"] = private_link_resource_region
+        __props__.__dict__["private_link_service_url"] = private_link_service_url
         __props__.__dict__["request_message"] = request_message
         __props__.__dict__["tags"] = tags
         return GrafanaManagedPrivateEndpoint(resource_name, opts=opts, __props__=__props__)
@@ -562,6 +601,14 @@ class GrafanaManagedPrivateEndpoint(pulumi.CustomResource):
         The region in which to create the private link. Changing this forces a new Dashboard Grafana Managed Private Endpoint to be created.
         """
         return pulumi.get(self, "private_link_resource_region")
+
+    @property
+    @pulumi.getter(name="privateLinkServiceUrl")
+    def private_link_service_url(self) -> pulumi.Output[Optional[builtins.str]]:
+        """
+        A domain name for this endpoint to be used within Grafana. Must be just a domain, without schema, and with at least three parts.
+        """
+        return pulumi.get(self, "private_link_service_url")
 
     @property
     @pulumi.getter(name="requestMessage")

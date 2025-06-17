@@ -22,14 +22,15 @@ __all__ = ['VirtualNetworkArgs', 'VirtualNetwork']
 @pulumi.input_type
 class VirtualNetworkArgs:
     def __init__(__self__, *,
-                 address_spaces: pulumi.Input[Sequence[pulumi.Input[builtins.str]]],
                  resource_group_name: pulumi.Input[builtins.str],
+                 address_spaces: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  bgp_community: Optional[pulumi.Input[builtins.str]] = None,
                  ddos_protection_plan: Optional[pulumi.Input['VirtualNetworkDdosProtectionPlanArgs']] = None,
                  dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  edge_zone: Optional[pulumi.Input[builtins.str]] = None,
                  encryption: Optional[pulumi.Input['VirtualNetworkEncryptionArgs']] = None,
                  flow_timeout_in_minutes: Optional[pulumi.Input[builtins.int]] = None,
+                 ip_address_pools: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkIpAddressPoolArgs']]]] = None,
                  location: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  private_endpoint_vnet_policies: Optional[pulumi.Input[builtins.str]] = None,
@@ -37,8 +38,10 @@ class VirtualNetworkArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a VirtualNetwork resource.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] address_spaces: The address space that is used the virtual network. You can supply more than one address space.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group in which to create the virtual network. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] address_spaces: The address space that is used the virtual network. You can supply more than one address space.
+               
+               > **Note:** Exactly one of `address_space` or `ip_address_pool` must be specified. If `address_space` is not specified but you encounter a diff, this might indicate the `address_space` is allocated from the IP Address Pool. If this is the case, you may need to add this to ignore_changes.
         :param pulumi.Input[builtins.str] bgp_community: The BGP community attribute in format `<as-number>:<community-value>`.
                
                > **NOTE** The `as-number` segment is the Microsoft ASN, which is always `12076` for now.
@@ -49,6 +52,9 @@ class VirtualNetworkArgs:
         :param pulumi.Input[builtins.str] edge_zone: Specifies the Edge Zone within the Azure Region where this Virtual Network should exist. Changing this forces a new Virtual Network to be created.
         :param pulumi.Input['VirtualNetworkEncryptionArgs'] encryption: A `encryption` block as defined below.
         :param pulumi.Input[builtins.int] flow_timeout_in_minutes: The flow timeout in minutes for the Virtual Network, which is used to enable connection tracking for intra-VM flows. Possible values are between `4` and `30` minutes.
+        :param pulumi.Input[Sequence[pulumi.Input['VirtualNetworkIpAddressPoolArgs']]] ip_address_pools: One or two `ip_address_pool` blocks as defined below. Only one association of each IP type(IPv4 or IPv6) is allowed.
+               
+               > **Note:** Exactly one of `address_space` or `ip_address_pool` must be specified.
         :param pulumi.Input[builtins.str] location: The location/region where the virtual network is created. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] name: The name of the virtual network. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] private_endpoint_vnet_policies: The Private Endpoint VNet Policies for the Virtual Network. Possible values are `Disabled` and `Basic`. Defaults to `Disabled`.
@@ -57,8 +63,9 @@ class VirtualNetworkArgs:
                > **NOTE** Since `subnet` can be configured both inline and via the separate `network.Subnet` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags to assign to the resource.
         """
-        pulumi.set(__self__, "address_spaces", address_spaces)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if address_spaces is not None:
+            pulumi.set(__self__, "address_spaces", address_spaces)
         if bgp_community is not None:
             pulumi.set(__self__, "bgp_community", bgp_community)
         if ddos_protection_plan is not None:
@@ -71,6 +78,8 @@ class VirtualNetworkArgs:
             pulumi.set(__self__, "encryption", encryption)
         if flow_timeout_in_minutes is not None:
             pulumi.set(__self__, "flow_timeout_in_minutes", flow_timeout_in_minutes)
+        if ip_address_pools is not None:
+            pulumi.set(__self__, "ip_address_pools", ip_address_pools)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
@@ -83,18 +92,6 @@ class VirtualNetworkArgs:
             pulumi.set(__self__, "tags", tags)
 
     @property
-    @pulumi.getter(name="addressSpaces")
-    def address_spaces(self) -> pulumi.Input[Sequence[pulumi.Input[builtins.str]]]:
-        """
-        The address space that is used the virtual network. You can supply more than one address space.
-        """
-        return pulumi.get(self, "address_spaces")
-
-    @address_spaces.setter
-    def address_spaces(self, value: pulumi.Input[Sequence[pulumi.Input[builtins.str]]]):
-        pulumi.set(self, "address_spaces", value)
-
-    @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[builtins.str]:
         """
@@ -105,6 +102,20 @@ class VirtualNetworkArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="addressSpaces")
+    def address_spaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+        """
+        The address space that is used the virtual network. You can supply more than one address space.
+
+        > **Note:** Exactly one of `address_space` or `ip_address_pool` must be specified. If `address_space` is not specified but you encounter a diff, this might indicate the `address_space` is allocated from the IP Address Pool. If this is the case, you may need to add this to ignore_changes.
+        """
+        return pulumi.get(self, "address_spaces")
+
+    @address_spaces.setter
+    def address_spaces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "address_spaces", value)
 
     @property
     @pulumi.getter(name="bgpCommunity")
@@ -183,6 +194,20 @@ class VirtualNetworkArgs:
         pulumi.set(self, "flow_timeout_in_minutes", value)
 
     @property
+    @pulumi.getter(name="ipAddressPools")
+    def ip_address_pools(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkIpAddressPoolArgs']]]]:
+        """
+        One or two `ip_address_pool` blocks as defined below. Only one association of each IP type(IPv4 or IPv6) is allowed.
+
+        > **Note:** Exactly one of `address_space` or `ip_address_pool` must be specified.
+        """
+        return pulumi.get(self, "ip_address_pools")
+
+    @ip_address_pools.setter
+    def ip_address_pools(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkIpAddressPoolArgs']]]]):
+        pulumi.set(self, "ip_address_pools", value)
+
+    @property
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -256,6 +281,7 @@ class _VirtualNetworkState:
                  encryption: Optional[pulumi.Input['VirtualNetworkEncryptionArgs']] = None,
                  flow_timeout_in_minutes: Optional[pulumi.Input[builtins.int]] = None,
                  guid: Optional[pulumi.Input[builtins.str]] = None,
+                 ip_address_pools: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkIpAddressPoolArgs']]]] = None,
                  location: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  private_endpoint_vnet_policies: Optional[pulumi.Input[builtins.str]] = None,
@@ -265,6 +291,8 @@ class _VirtualNetworkState:
         """
         Input properties used for looking up and filtering VirtualNetwork resources.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] address_spaces: The address space that is used the virtual network. You can supply more than one address space.
+               
+               > **Note:** Exactly one of `address_space` or `ip_address_pool` must be specified. If `address_space` is not specified but you encounter a diff, this might indicate the `address_space` is allocated from the IP Address Pool. If this is the case, you may need to add this to ignore_changes.
         :param pulumi.Input[builtins.str] bgp_community: The BGP community attribute in format `<as-number>:<community-value>`.
                
                > **NOTE** The `as-number` segment is the Microsoft ASN, which is always `12076` for now.
@@ -275,7 +303,10 @@ class _VirtualNetworkState:
         :param pulumi.Input[builtins.str] edge_zone: Specifies the Edge Zone within the Azure Region where this Virtual Network should exist. Changing this forces a new Virtual Network to be created.
         :param pulumi.Input['VirtualNetworkEncryptionArgs'] encryption: A `encryption` block as defined below.
         :param pulumi.Input[builtins.int] flow_timeout_in_minutes: The flow timeout in minutes for the Virtual Network, which is used to enable connection tracking for intra-VM flows. Possible values are between `4` and `30` minutes.
-        :param pulumi.Input[builtins.str] guid: The GUID of the virtual network.
+        :param pulumi.Input[builtins.str] guid: The GUID of the Virtual Network.
+        :param pulumi.Input[Sequence[pulumi.Input['VirtualNetworkIpAddressPoolArgs']]] ip_address_pools: One or two `ip_address_pool` blocks as defined below. Only one association of each IP type(IPv4 or IPv6) is allowed.
+               
+               > **Note:** Exactly one of `address_space` or `ip_address_pool` must be specified.
         :param pulumi.Input[builtins.str] location: The location/region where the virtual network is created. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] name: The name of the virtual network. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] private_endpoint_vnet_policies: The Private Endpoint VNet Policies for the Virtual Network. Possible values are `Disabled` and `Basic`. Defaults to `Disabled`.
@@ -301,6 +332,8 @@ class _VirtualNetworkState:
             pulumi.set(__self__, "flow_timeout_in_minutes", flow_timeout_in_minutes)
         if guid is not None:
             pulumi.set(__self__, "guid", guid)
+        if ip_address_pools is not None:
+            pulumi.set(__self__, "ip_address_pools", ip_address_pools)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
@@ -319,6 +352,8 @@ class _VirtualNetworkState:
     def address_spaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
         The address space that is used the virtual network. You can supply more than one address space.
+
+        > **Note:** Exactly one of `address_space` or `ip_address_pool` must be specified. If `address_space` is not specified but you encounter a diff, this might indicate the `address_space` is allocated from the IP Address Pool. If this is the case, you may need to add this to ignore_changes.
         """
         return pulumi.get(self, "address_spaces")
 
@@ -406,13 +441,27 @@ class _VirtualNetworkState:
     @pulumi.getter
     def guid(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The GUID of the virtual network.
+        The GUID of the Virtual Network.
         """
         return pulumi.get(self, "guid")
 
     @guid.setter
     def guid(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "guid", value)
+
+    @property
+    @pulumi.getter(name="ipAddressPools")
+    def ip_address_pools(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkIpAddressPoolArgs']]]]:
+        """
+        One or two `ip_address_pool` blocks as defined below. Only one association of each IP type(IPv4 or IPv6) is allowed.
+
+        > **Note:** Exactly one of `address_space` or `ip_address_pool` must be specified.
+        """
+        return pulumi.get(self, "ip_address_pools")
+
+    @ip_address_pools.setter
+    def ip_address_pools(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkIpAddressPoolArgs']]]]):
+        pulumi.set(self, "ip_address_pools", value)
 
     @property
     @pulumi.getter
@@ -502,6 +551,7 @@ class VirtualNetwork(pulumi.CustomResource):
                  edge_zone: Optional[pulumi.Input[builtins.str]] = None,
                  encryption: Optional[pulumi.Input[Union['VirtualNetworkEncryptionArgs', 'VirtualNetworkEncryptionArgsDict']]] = None,
                  flow_timeout_in_minutes: Optional[pulumi.Input[builtins.int]] = None,
+                 ip_address_pools: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VirtualNetworkIpAddressPoolArgs', 'VirtualNetworkIpAddressPoolArgsDict']]]]] = None,
                  location: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  private_endpoint_vnet_policies: Optional[pulumi.Input[builtins.str]] = None,
@@ -557,6 +607,13 @@ class VirtualNetwork(pulumi.CustomResource):
             })
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network`: 2024-05-01
+
         ## Import
 
         Virtual Networks can be imported using the `resource id`, e.g.
@@ -568,6 +625,8 @@ class VirtualNetwork(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] address_spaces: The address space that is used the virtual network. You can supply more than one address space.
+               
+               > **Note:** Exactly one of `address_space` or `ip_address_pool` must be specified. If `address_space` is not specified but you encounter a diff, this might indicate the `address_space` is allocated from the IP Address Pool. If this is the case, you may need to add this to ignore_changes.
         :param pulumi.Input[builtins.str] bgp_community: The BGP community attribute in format `<as-number>:<community-value>`.
                
                > **NOTE** The `as-number` segment is the Microsoft ASN, which is always `12076` for now.
@@ -578,6 +637,9 @@ class VirtualNetwork(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] edge_zone: Specifies the Edge Zone within the Azure Region where this Virtual Network should exist. Changing this forces a new Virtual Network to be created.
         :param pulumi.Input[Union['VirtualNetworkEncryptionArgs', 'VirtualNetworkEncryptionArgsDict']] encryption: A `encryption` block as defined below.
         :param pulumi.Input[builtins.int] flow_timeout_in_minutes: The flow timeout in minutes for the Virtual Network, which is used to enable connection tracking for intra-VM flows. Possible values are between `4` and `30` minutes.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['VirtualNetworkIpAddressPoolArgs', 'VirtualNetworkIpAddressPoolArgsDict']]]] ip_address_pools: One or two `ip_address_pool` blocks as defined below. Only one association of each IP type(IPv4 or IPv6) is allowed.
+               
+               > **Note:** Exactly one of `address_space` or `ip_address_pool` must be specified.
         :param pulumi.Input[builtins.str] location: The location/region where the virtual network is created. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] name: The name of the virtual network. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] private_endpoint_vnet_policies: The Private Endpoint VNet Policies for the Virtual Network. Possible values are `Disabled` and `Basic`. Defaults to `Disabled`.
@@ -641,6 +703,13 @@ class VirtualNetwork(pulumi.CustomResource):
             })
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network`: 2024-05-01
+
         ## Import
 
         Virtual Networks can be imported using the `resource id`, e.g.
@@ -671,6 +740,7 @@ class VirtualNetwork(pulumi.CustomResource):
                  edge_zone: Optional[pulumi.Input[builtins.str]] = None,
                  encryption: Optional[pulumi.Input[Union['VirtualNetworkEncryptionArgs', 'VirtualNetworkEncryptionArgsDict']]] = None,
                  flow_timeout_in_minutes: Optional[pulumi.Input[builtins.int]] = None,
+                 ip_address_pools: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VirtualNetworkIpAddressPoolArgs', 'VirtualNetworkIpAddressPoolArgsDict']]]]] = None,
                  location: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  private_endpoint_vnet_policies: Optional[pulumi.Input[builtins.str]] = None,
@@ -686,8 +756,6 @@ class VirtualNetwork(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = VirtualNetworkArgs.__new__(VirtualNetworkArgs)
 
-            if address_spaces is None and not opts.urn:
-                raise TypeError("Missing required property 'address_spaces'")
             __props__.__dict__["address_spaces"] = address_spaces
             __props__.__dict__["bgp_community"] = bgp_community
             __props__.__dict__["ddos_protection_plan"] = ddos_protection_plan
@@ -695,6 +763,7 @@ class VirtualNetwork(pulumi.CustomResource):
             __props__.__dict__["edge_zone"] = edge_zone
             __props__.__dict__["encryption"] = encryption
             __props__.__dict__["flow_timeout_in_minutes"] = flow_timeout_in_minutes
+            __props__.__dict__["ip_address_pools"] = ip_address_pools
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
             __props__.__dict__["private_endpoint_vnet_policies"] = private_endpoint_vnet_policies
@@ -722,6 +791,7 @@ class VirtualNetwork(pulumi.CustomResource):
             encryption: Optional[pulumi.Input[Union['VirtualNetworkEncryptionArgs', 'VirtualNetworkEncryptionArgsDict']]] = None,
             flow_timeout_in_minutes: Optional[pulumi.Input[builtins.int]] = None,
             guid: Optional[pulumi.Input[builtins.str]] = None,
+            ip_address_pools: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VirtualNetworkIpAddressPoolArgs', 'VirtualNetworkIpAddressPoolArgsDict']]]]] = None,
             location: Optional[pulumi.Input[builtins.str]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
             private_endpoint_vnet_policies: Optional[pulumi.Input[builtins.str]] = None,
@@ -736,6 +806,8 @@ class VirtualNetwork(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] address_spaces: The address space that is used the virtual network. You can supply more than one address space.
+               
+               > **Note:** Exactly one of `address_space` or `ip_address_pool` must be specified. If `address_space` is not specified but you encounter a diff, this might indicate the `address_space` is allocated from the IP Address Pool. If this is the case, you may need to add this to ignore_changes.
         :param pulumi.Input[builtins.str] bgp_community: The BGP community attribute in format `<as-number>:<community-value>`.
                
                > **NOTE** The `as-number` segment is the Microsoft ASN, which is always `12076` for now.
@@ -746,7 +818,10 @@ class VirtualNetwork(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] edge_zone: Specifies the Edge Zone within the Azure Region where this Virtual Network should exist. Changing this forces a new Virtual Network to be created.
         :param pulumi.Input[Union['VirtualNetworkEncryptionArgs', 'VirtualNetworkEncryptionArgsDict']] encryption: A `encryption` block as defined below.
         :param pulumi.Input[builtins.int] flow_timeout_in_minutes: The flow timeout in minutes for the Virtual Network, which is used to enable connection tracking for intra-VM flows. Possible values are between `4` and `30` minutes.
-        :param pulumi.Input[builtins.str] guid: The GUID of the virtual network.
+        :param pulumi.Input[builtins.str] guid: The GUID of the Virtual Network.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['VirtualNetworkIpAddressPoolArgs', 'VirtualNetworkIpAddressPoolArgsDict']]]] ip_address_pools: One or two `ip_address_pool` blocks as defined below. Only one association of each IP type(IPv4 or IPv6) is allowed.
+               
+               > **Note:** Exactly one of `address_space` or `ip_address_pool` must be specified.
         :param pulumi.Input[builtins.str] location: The location/region where the virtual network is created. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] name: The name of the virtual network. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] private_endpoint_vnet_policies: The Private Endpoint VNet Policies for the Virtual Network. Possible values are `Disabled` and `Basic`. Defaults to `Disabled`.
@@ -768,6 +843,7 @@ class VirtualNetwork(pulumi.CustomResource):
         __props__.__dict__["encryption"] = encryption
         __props__.__dict__["flow_timeout_in_minutes"] = flow_timeout_in_minutes
         __props__.__dict__["guid"] = guid
+        __props__.__dict__["ip_address_pools"] = ip_address_pools
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
         __props__.__dict__["private_endpoint_vnet_policies"] = private_endpoint_vnet_policies
@@ -778,9 +854,11 @@ class VirtualNetwork(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="addressSpaces")
-    def address_spaces(self) -> pulumi.Output[Sequence[builtins.str]]:
+    def address_spaces(self) -> pulumi.Output[Optional[Sequence[builtins.str]]]:
         """
         The address space that is used the virtual network. You can supply more than one address space.
+
+        > **Note:** Exactly one of `address_space` or `ip_address_pool` must be specified. If `address_space` is not specified but you encounter a diff, this might indicate the `address_space` is allocated from the IP Address Pool. If this is the case, you may need to add this to ignore_changes.
         """
         return pulumi.get(self, "address_spaces")
 
@@ -840,9 +918,19 @@ class VirtualNetwork(pulumi.CustomResource):
     @pulumi.getter
     def guid(self) -> pulumi.Output[builtins.str]:
         """
-        The GUID of the virtual network.
+        The GUID of the Virtual Network.
         """
         return pulumi.get(self, "guid")
+
+    @property
+    @pulumi.getter(name="ipAddressPools")
+    def ip_address_pools(self) -> pulumi.Output[Optional[Sequence['outputs.VirtualNetworkIpAddressPool']]]:
+        """
+        One or two `ip_address_pool` blocks as defined below. Only one association of each IP type(IPv4 or IPv6) is allowed.
+
+        > **Note:** Exactly one of `address_space` or `ip_address_pool` must be specified.
+        """
+        return pulumi.get(self, "ip_address_pools")
 
     @property
     @pulumi.getter

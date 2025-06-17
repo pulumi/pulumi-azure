@@ -7,6 +7,7 @@ import com.pulumi.azure.Utilities;
 import com.pulumi.azure.monitoring.DiagnosticSettingArgs;
 import com.pulumi.azure.monitoring.inputs.DiagnosticSettingState;
 import com.pulumi.azure.monitoring.outputs.DiagnosticSettingEnabledLog;
+import com.pulumi.azure.monitoring.outputs.DiagnosticSettingEnabledMetric;
 import com.pulumi.azure.monitoring.outputs.DiagnosticSettingMetric;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
@@ -40,7 +41,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.monitoring.DiagnosticSetting;
  * import com.pulumi.azure.monitoring.DiagnosticSettingArgs;
  * import com.pulumi.azure.monitoring.inputs.DiagnosticSettingEnabledLogArgs;
- * import com.pulumi.azure.monitoring.inputs.DiagnosticSettingMetricArgs;
+ * import com.pulumi.azure.monitoring.inputs.DiagnosticSettingEnabledMetricArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -86,7 +87,7 @@ import javax.annotation.Nullable;
  *             .enabledLogs(DiagnosticSettingEnabledLogArgs.builder()
  *                 .category("AuditEvent")
  *                 .build())
- *             .metrics(DiagnosticSettingMetricArgs.builder()
+ *             .enabledMetrics(DiagnosticSettingEnabledMetricArgs.builder()
  *                 .category("AllMetrics")
  *                 .build())
  *             .build());
@@ -96,6 +97,13 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.Insights`: 2021-05-01-preview
  * 
  * ## Import
  * 
@@ -111,7 +119,7 @@ public class DiagnosticSetting extends com.pulumi.resources.CustomResource {
     /**
      * One or more `enabled_log` blocks as defined below.
      * 
-     * &gt; **NOTE:** At least one `enabled_log` or `metric` block must be specified. At least one type of Log or Metric must be enabled.
+     * &gt; **Note:** At least one `enabled_log` or `enabled_metric` block must be specified. At least one type of Log or Metric must be enabled.
      * 
      */
     @Export(name="enabledLogs", refs={List.class,DiagnosticSettingEnabledLog.class}, tree="[0,1]")
@@ -120,11 +128,29 @@ public class DiagnosticSetting extends com.pulumi.resources.CustomResource {
     /**
      * @return One or more `enabled_log` blocks as defined below.
      * 
-     * &gt; **NOTE:** At least one `enabled_log` or `metric` block must be specified. At least one type of Log or Metric must be enabled.
+     * &gt; **Note:** At least one `enabled_log` or `enabled_metric` block must be specified. At least one type of Log or Metric must be enabled.
      * 
      */
     public Output<Optional<List<DiagnosticSettingEnabledLog>>> enabledLogs() {
         return Codegen.optional(this.enabledLogs);
+    }
+    /**
+     * One or more `enabled_metric` blocks as defined below.
+     * 
+     * &gt; **Note:** At least one `enabled_log` or `enabled_metric` block must be specified.
+     * 
+     */
+    @Export(name="enabledMetrics", refs={List.class,DiagnosticSettingEnabledMetric.class}, tree="[0,1]")
+    private Output<List<DiagnosticSettingEnabledMetric>> enabledMetrics;
+
+    /**
+     * @return One or more `enabled_metric` blocks as defined below.
+     * 
+     * &gt; **Note:** At least one `enabled_log` or `enabled_metric` block must be specified.
+     * 
+     */
+    public Output<List<DiagnosticSettingEnabledMetric>> enabledMetrics() {
+        return this.enabledMetrics;
     }
     /**
      * Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data.
@@ -203,22 +229,16 @@ public class DiagnosticSetting extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.logAnalyticsWorkspaceId);
     }
     /**
-     * One or more `metric` blocks as defined below.
-     * 
-     * &gt; **NOTE:** At least one `enabled_log` or `metric` block must be specified.
+     * @deprecated
+     * `metric` has been deprecated in favor of the `enabled_metric` property and will be removed in v5.0 of the AzureRM provider
      * 
      */
+    @Deprecated /* `metric` has been deprecated in favor of the `enabled_metric` property and will be removed in v5.0 of the AzureRM provider */
     @Export(name="metrics", refs={List.class,DiagnosticSettingMetric.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<DiagnosticSettingMetric>> metrics;
+    private Output<List<DiagnosticSettingMetric>> metrics;
 
-    /**
-     * @return One or more `metric` blocks as defined below.
-     * 
-     * &gt; **NOTE:** At least one `enabled_log` or `metric` block must be specified.
-     * 
-     */
-    public Output<Optional<List<DiagnosticSettingMetric>>> metrics() {
-        return Codegen.optional(this.metrics);
+    public Output<List<DiagnosticSettingMetric>> metrics() {
+        return this.metrics;
     }
     /**
      * Specifies the name of the Diagnostic Setting. Changing this forces a new resource to be created.

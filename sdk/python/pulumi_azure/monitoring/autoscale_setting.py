@@ -694,6 +694,13 @@ class AutoscaleSetting(pulumi.CustomResource):
             })
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Insights`: 2022-10-01
+
         ## Import
 
         AutoScale Setting can be imported using the `resource id`, e.g.
@@ -1077,6 +1084,13 @@ class AutoscaleSetting(pulumi.CustomResource):
                 },
             })
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Insights`: 2022-10-01
 
         ## Import
 

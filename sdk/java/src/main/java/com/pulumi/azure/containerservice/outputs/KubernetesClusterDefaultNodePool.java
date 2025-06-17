@@ -184,7 +184,7 @@ public final class KubernetesClusterDefaultNodePool {
      * @return The size of the Virtual Machine, such as `Standard_DS2_v2`. `temporary_name_for_rotation` must be specified when attempting a resize.
      * 
      */
-    private String vmSize;
+    private @Nullable String vmSize;
     /**
      * @return The ID of a Subnet where the Kubernetes Node Pool should exist.
      * 
@@ -434,8 +434,8 @@ public final class KubernetesClusterDefaultNodePool {
      * @return The size of the Virtual Machine, such as `Standard_DS2_v2`. `temporary_name_for_rotation` must be specified when attempting a resize.
      * 
      */
-    public String vmSize() {
-        return this.vmSize;
+    public Optional<String> vmSize() {
+        return Optional.ofNullable(this.vmSize);
     }
     /**
      * @return The ID of a Subnet where the Kubernetes Node Pool should exist.
@@ -504,7 +504,7 @@ public final class KubernetesClusterDefaultNodePool {
         private @Nullable String type;
         private @Nullable Boolean ultraSsdEnabled;
         private @Nullable KubernetesClusterDefaultNodePoolUpgradeSettings upgradeSettings;
-        private String vmSize;
+        private @Nullable String vmSize;
         private @Nullable String vnetSubnetId;
         private @Nullable String workloadRuntime;
         private @Nullable List<String> zones;
@@ -744,10 +744,8 @@ public final class KubernetesClusterDefaultNodePool {
             return this;
         }
         @CustomType.Setter
-        public Builder vmSize(String vmSize) {
-            if (vmSize == null) {
-              throw new MissingRequiredPropertyException("KubernetesClusterDefaultNodePool", "vmSize");
-            }
+        public Builder vmSize(@Nullable String vmSize) {
+
             this.vmSize = vmSize;
             return this;
         }

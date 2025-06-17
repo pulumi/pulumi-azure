@@ -194,6 +194,13 @@ class NetworkInterfaceNatRuleAssociation(pulumi.CustomResource):
             nat_rule_id=example_nat_rule.id)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network`: 2024-05-01
+
         ## Import
 
         Associations between Network Interfaces and Load Balancer NAT Rule can be imported using the `resource id`, e.g.
@@ -271,6 +278,13 @@ class NetworkInterfaceNatRuleAssociation(pulumi.CustomResource):
             ip_configuration_name="testconfiguration1",
             nat_rule_id=example_nat_rule.id)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network`: 2024-05-01
 
         ## Import
 

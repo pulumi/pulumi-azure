@@ -24,17 +24,9 @@ public final class DiagnosticSettingEnabledLogRetentionPolicyArgs extends com.pu
         return Optional.ofNullable(this.days);
     }
 
-    /**
-     * Is this Diagnostic Metric enabled? Defaults to `true`.
-     * 
-     */
     @Import(name="enabled", required=true)
     private Output<Boolean> enabled;
 
-    /**
-     * @return Is this Diagnostic Metric enabled? Defaults to `true`.
-     * 
-     */
     public Output<Boolean> enabled() {
         return this.enabled;
     }
@@ -73,23 +65,11 @@ public final class DiagnosticSettingEnabledLogRetentionPolicyArgs extends com.pu
             return days(Output.of(days));
         }
 
-        /**
-         * @param enabled Is this Diagnostic Metric enabled? Defaults to `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
-        /**
-         * @param enabled Is this Diagnostic Metric enabled? Defaults to `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }

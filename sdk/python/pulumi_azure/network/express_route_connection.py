@@ -399,6 +399,13 @@ class ExpressRouteConnection(pulumi.CustomResource):
             express_route_circuit_peering_id=example_express_route_circuit_peering.id)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network`: 2024-05-01
+
         ## Import
 
         Express Route Connections can be imported using the `resource id`, e.g.
@@ -485,6 +492,13 @@ class ExpressRouteConnection(pulumi.CustomResource):
             express_route_gateway_id=example_express_route_gateway.id,
             express_route_circuit_peering_id=example_express_route_circuit_peering.id)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network`: 2024-05-01
 
         ## Import
 

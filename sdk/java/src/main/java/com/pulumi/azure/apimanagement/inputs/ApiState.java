@@ -289,12 +289,16 @@ public final class ApiState extends com.pulumi.resources.ResourceArgs {
     /**
      * Absolute URL of the backend service implementing this API.
      * 
+     * &gt; **Note:** The `service_url` is required when `api_type` is specified as `websocket`.
+     * 
      */
     @Import(name="serviceUrl")
     private @Nullable Output<String> serviceUrl;
 
     /**
      * @return Absolute URL of the backend service implementing this API.
+     * 
+     * &gt; **Note:** The `service_url` is required when `api_type` is specified as `websocket`.
      * 
      */
     public Optional<Output<String>> serviceUrl() {
@@ -838,6 +842,8 @@ public final class ApiState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param serviceUrl Absolute URL of the backend service implementing this API.
          * 
+         * &gt; **Note:** The `service_url` is required when `api_type` is specified as `websocket`.
+         * 
          * @return builder
          * 
          */
@@ -848,6 +854,8 @@ public final class ApiState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param serviceUrl Absolute URL of the backend service implementing this API.
+         * 
+         * &gt; **Note:** The `service_url` is required when `api_type` is specified as `websocket`.
          * 
          * @return builder
          * 

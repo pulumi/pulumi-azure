@@ -22,6 +22,12 @@ __all__ = [
     'ProjectEnvironmentTypeIdentity',
     'ProjectEnvironmentTypeUserRoleAssignment',
     'ProjectIdentity',
+    'GetCatalogCatalogAdogitResult',
+    'GetCatalogCatalogGithubResult',
+    'GetIdentityResult',
+    'GetProjectEnvironmentTypeIdentityResult',
+    'GetProjectEnvironmentTypeUserRoleAssignmentResult',
+    'GetProjectIdentityResult',
 ]
 
 @pulumi.output_type
@@ -411,5 +417,289 @@ class ProjectIdentity(dict):
         The Tenant ID for the Service Principal associated with the Identity of this Dev Center Project.
         """
         return pulumi.get(self, "tenant_id")
+
+
+@pulumi.output_type
+class GetCatalogCatalogAdogitResult(dict):
+    def __init__(__self__, *,
+                 branch: builtins.str,
+                 key_vault_key_url: builtins.str,
+                 path: builtins.str,
+                 uri: builtins.str):
+        """
+        :param builtins.str branch: The Git branch of the Dev Center Catalog.
+        :param builtins.str key_vault_key_url: A reference to the Key Vault secret containing a security token to authenticate to a Git repository.
+        :param builtins.str path: The folder where the catalog items can be found inside the repository.
+        :param builtins.str uri: The Git URI of the Dev Center Catalog.
+        """
+        pulumi.set(__self__, "branch", branch)
+        pulumi.set(__self__, "key_vault_key_url", key_vault_key_url)
+        pulumi.set(__self__, "path", path)
+        pulumi.set(__self__, "uri", uri)
+
+    @property
+    @pulumi.getter
+    def branch(self) -> builtins.str:
+        """
+        The Git branch of the Dev Center Catalog.
+        """
+        return pulumi.get(self, "branch")
+
+    @property
+    @pulumi.getter(name="keyVaultKeyUrl")
+    def key_vault_key_url(self) -> builtins.str:
+        """
+        A reference to the Key Vault secret containing a security token to authenticate to a Git repository.
+        """
+        return pulumi.get(self, "key_vault_key_url")
+
+    @property
+    @pulumi.getter
+    def path(self) -> builtins.str:
+        """
+        The folder where the catalog items can be found inside the repository.
+        """
+        return pulumi.get(self, "path")
+
+    @property
+    @pulumi.getter
+    def uri(self) -> builtins.str:
+        """
+        The Git URI of the Dev Center Catalog.
+        """
+        return pulumi.get(self, "uri")
+
+
+@pulumi.output_type
+class GetCatalogCatalogGithubResult(dict):
+    def __init__(__self__, *,
+                 branch: builtins.str,
+                 key_vault_key_url: builtins.str,
+                 path: builtins.str,
+                 uri: builtins.str):
+        """
+        :param builtins.str branch: The Git branch of the Dev Center Catalog.
+        :param builtins.str key_vault_key_url: A reference to the Key Vault secret containing a security token to authenticate to a Git repository.
+        :param builtins.str path: The folder where the catalog items can be found inside the repository.
+        :param builtins.str uri: The Git URI of the Dev Center Catalog.
+        """
+        pulumi.set(__self__, "branch", branch)
+        pulumi.set(__self__, "key_vault_key_url", key_vault_key_url)
+        pulumi.set(__self__, "path", path)
+        pulumi.set(__self__, "uri", uri)
+
+    @property
+    @pulumi.getter
+    def branch(self) -> builtins.str:
+        """
+        The Git branch of the Dev Center Catalog.
+        """
+        return pulumi.get(self, "branch")
+
+    @property
+    @pulumi.getter(name="keyVaultKeyUrl")
+    def key_vault_key_url(self) -> builtins.str:
+        """
+        A reference to the Key Vault secret containing a security token to authenticate to a Git repository.
+        """
+        return pulumi.get(self, "key_vault_key_url")
+
+    @property
+    @pulumi.getter
+    def path(self) -> builtins.str:
+        """
+        The folder where the catalog items can be found inside the repository.
+        """
+        return pulumi.get(self, "path")
+
+    @property
+    @pulumi.getter
+    def uri(self) -> builtins.str:
+        """
+        The Git URI of the Dev Center Catalog.
+        """
+        return pulumi.get(self, "uri")
+
+
+@pulumi.output_type
+class GetIdentityResult(dict):
+    def __init__(__self__, *,
+                 identity_ids: Sequence[builtins.str],
+                 principal_id: builtins.str,
+                 tenant_id: builtins.str,
+                 type: builtins.str):
+        """
+        :param Sequence[builtins.str] identity_ids: The list of User Assigned Managed Identity IDs assigned to this Dev Center.
+        :param builtins.str principal_id: The Principal ID of the System Assigned Managed Service Identity that is configured on this Dev Center.
+        :param builtins.str tenant_id: The Tenant ID of the System Assigned Managed Service Identity that is configured on this Dev Center.
+        :param builtins.str type: The type of Managed Service Identity that is configured on this Dev Center.
+        """
+        pulumi.set(__self__, "identity_ids", identity_ids)
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> Sequence[builtins.str]:
+        """
+        The list of User Assigned Managed Identity IDs assigned to this Dev Center.
+        """
+        return pulumi.get(self, "identity_ids")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> builtins.str:
+        """
+        The Principal ID of the System Assigned Managed Service Identity that is configured on this Dev Center.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> builtins.str:
+        """
+        The Tenant ID of the System Assigned Managed Service Identity that is configured on this Dev Center.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> builtins.str:
+        """
+        The type of Managed Service Identity that is configured on this Dev Center.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GetProjectEnvironmentTypeIdentityResult(dict):
+    def __init__(__self__, *,
+                 identity_ids: Sequence[builtins.str],
+                 principal_id: builtins.str,
+                 tenant_id: builtins.str,
+                 type: builtins.str):
+        """
+        :param Sequence[builtins.str] identity_ids: The list of User Assigned Managed Identity IDs assigned to this Dev Center Project Environment Type.
+        :param builtins.str principal_id: The Principal ID of the System Assigned Managed Service Identity that is configured on this Dev Center Project Environment Type.
+        :param builtins.str tenant_id: The Tenant ID of the System Assigned Managed Service Identity that is configured on this Dev Center Project Environment Type.
+        :param builtins.str type: The type of Managed Service Identity that is configured on this Dev Center Project Environment Type.
+        """
+        pulumi.set(__self__, "identity_ids", identity_ids)
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> Sequence[builtins.str]:
+        """
+        The list of User Assigned Managed Identity IDs assigned to this Dev Center Project Environment Type.
+        """
+        return pulumi.get(self, "identity_ids")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> builtins.str:
+        """
+        The Principal ID of the System Assigned Managed Service Identity that is configured on this Dev Center Project Environment Type.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> builtins.str:
+        """
+        The Tenant ID of the System Assigned Managed Service Identity that is configured on this Dev Center Project Environment Type.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> builtins.str:
+        """
+        The type of Managed Service Identity that is configured on this Dev Center Project Environment Type.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GetProjectEnvironmentTypeUserRoleAssignmentResult(dict):
+    def __init__(__self__, *,
+                 roles: Sequence[builtins.str],
+                 user_id: builtins.str):
+        """
+        :param Sequence[builtins.str] roles: A list of roles to assign to the `user_id`.
+        :param builtins.str user_id: The user object ID that is assigned roles.
+        """
+        pulumi.set(__self__, "roles", roles)
+        pulumi.set(__self__, "user_id", user_id)
+
+    @property
+    @pulumi.getter
+    def roles(self) -> Sequence[builtins.str]:
+        """
+        A list of roles to assign to the `user_id`.
+        """
+        return pulumi.get(self, "roles")
+
+    @property
+    @pulumi.getter(name="userId")
+    def user_id(self) -> builtins.str:
+        """
+        The user object ID that is assigned roles.
+        """
+        return pulumi.get(self, "user_id")
+
+
+@pulumi.output_type
+class GetProjectIdentityResult(dict):
+    def __init__(__self__, *,
+                 identity_ids: Sequence[builtins.str],
+                 principal_id: builtins.str,
+                 tenant_id: builtins.str,
+                 type: builtins.str):
+        """
+        :param Sequence[builtins.str] identity_ids: The list of User Assigned Managed Identity IDs assigned to this Dev Center Project.
+        :param builtins.str principal_id: The Principal ID of the System Assigned Managed Service Identity that is configured on this Dev Center Project.
+        :param builtins.str tenant_id: The Tenant ID of the System Assigned Managed Service Identity that is configured on this Dev Center Project.
+        :param builtins.str type: The type of Managed Service Identity that is configured on this Dev Center Project.
+        """
+        pulumi.set(__self__, "identity_ids", identity_ids)
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> Sequence[builtins.str]:
+        """
+        The list of User Assigned Managed Identity IDs assigned to this Dev Center Project.
+        """
+        return pulumi.get(self, "identity_ids")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> builtins.str:
+        """
+        The Principal ID of the System Assigned Managed Service Identity that is configured on this Dev Center Project.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> builtins.str:
+        """
+        The Tenant ID of the System Assigned Managed Service Identity that is configured on this Dev Center Project.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> builtins.str:
+        """
+        The type of Managed Service Identity that is configured on this Dev Center Project.
+        """
+        return pulumi.get(self, "type")
 
 

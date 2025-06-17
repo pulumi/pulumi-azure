@@ -992,6 +992,13 @@ class FlexibleServer(pulumi.CustomResource):
             opts = pulumi.ResourceOptions(depends_on=[example_zone_virtual_network_link]))
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DBforMySQL`: 2023-12-30
+
         ## Import
 
         MySQL Flexible Servers can be imported using the `resource id`, e.g.
@@ -1100,6 +1107,13 @@ class FlexibleServer(pulumi.CustomResource):
             sku_name="GP_Standard_D2ds_v4",
             opts = pulumi.ResourceOptions(depends_on=[example_zone_virtual_network_link]))
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DBforMySQL`: 2023-12-30
 
         ## Import
 

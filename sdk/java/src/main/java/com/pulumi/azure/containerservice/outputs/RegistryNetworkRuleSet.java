@@ -23,7 +23,7 @@ public final class RegistryNetworkRuleSet {
      * 
      * &gt; **Note:** `network_rule_set` is only supported with the `Premium` SKU at this time.
      * 
-     * &gt; **Note:** Azure automatically configures Network Rules - to remove these you&#39;ll need to specify an `network_rule_set` block with `default_action` set to `Deny`.
+     * &gt; **Note:** Azure automatically configures Network Rules - to remove these, you&#39;ll need to specify an `network_rule_set` block with `default_action` set to `Deny`.
      * 
      */
     private @Nullable List<RegistryNetworkRuleSetIpRule> ipRules;
@@ -41,7 +41,7 @@ public final class RegistryNetworkRuleSet {
      * 
      * &gt; **Note:** `network_rule_set` is only supported with the `Premium` SKU at this time.
      * 
-     * &gt; **Note:** Azure automatically configures Network Rules - to remove these you&#39;ll need to specify an `network_rule_set` block with `default_action` set to `Deny`.
+     * &gt; **Note:** Azure automatically configures Network Rules - to remove these, you&#39;ll need to specify an `network_rule_set` block with `default_action` set to `Deny`.
      * 
      */
     public List<RegistryNetworkRuleSetIpRule> ipRules() {

@@ -54,7 +54,7 @@ public final class KafkaClusterStorageAccountArgs extends com.pulumi.resources.R
     /**
      * The ID of the Storage Container. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** This can be obtained from the `id` of the `azure.storage.Container` resource.
+     * &gt; **Note:** When the `azure.storage.Container` resource is created with `storage_account_name`, this can be obtained from the `id` of the `azure.storage.Container` resource. When the `azure.storage.Container` resource is created with `storage_account_id`, please use `azure.storage.getContainers` data source to get the `data_plane_id` of the `azure.storage.Container` resource for this field.
      * 
      */
     @Import(name="storageContainerId", required=true)
@@ -63,7 +63,7 @@ public final class KafkaClusterStorageAccountArgs extends com.pulumi.resources.R
     /**
      * @return The ID of the Storage Container. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** This can be obtained from the `id` of the `azure.storage.Container` resource.
+     * &gt; **Note:** When the `azure.storage.Container` resource is created with `storage_account_name`, this can be obtained from the `id` of the `azure.storage.Container` resource. When the `azure.storage.Container` resource is created with `storage_account_id`, please use `azure.storage.getContainers` data source to get the `data_plane_id` of the `azure.storage.Container` resource for this field.
      * 
      */
     public Output<String> storageContainerId() {
@@ -161,7 +161,7 @@ public final class KafkaClusterStorageAccountArgs extends com.pulumi.resources.R
         /**
          * @param storageContainerId The ID of the Storage Container. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** This can be obtained from the `id` of the `azure.storage.Container` resource.
+         * &gt; **Note:** When the `azure.storage.Container` resource is created with `storage_account_name`, this can be obtained from the `id` of the `azure.storage.Container` resource. When the `azure.storage.Container` resource is created with `storage_account_id`, please use `azure.storage.getContainers` data source to get the `data_plane_id` of the `azure.storage.Container` resource for this field.
          * 
          * @return builder
          * 
@@ -174,7 +174,7 @@ public final class KafkaClusterStorageAccountArgs extends com.pulumi.resources.R
         /**
          * @param storageContainerId The ID of the Storage Container. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** This can be obtained from the `id` of the `azure.storage.Container` resource.
+         * &gt; **Note:** When the `azure.storage.Container` resource is created with `storage_account_name`, this can be obtained from the `id` of the `azure.storage.Container` resource. When the `azure.storage.Container` resource is created with `storage_account_id`, please use `azure.storage.getContainers` data source to get the `data_plane_id` of the `azure.storage.Container` resource for this field.
          * 
          * @return builder
          * 

@@ -210,6 +210,8 @@ __all__ = [
     'DiagnosticSettingEnabledLogArgsDict',
     'DiagnosticSettingEnabledLogRetentionPolicyArgs',
     'DiagnosticSettingEnabledLogRetentionPolicyArgsDict',
+    'DiagnosticSettingEnabledMetricArgs',
+    'DiagnosticSettingEnabledMetricArgsDict',
     'DiagnosticSettingMetricArgs',
     'DiagnosticSettingMetricArgsDict',
     'DiagnosticSettingMetricRetentionPolicyArgs',
@@ -7859,9 +7861,6 @@ class DiagnosticSettingEnabledLogArgs:
 if not MYPY:
     class DiagnosticSettingEnabledLogRetentionPolicyArgsDict(TypedDict):
         enabled: pulumi.Input[builtins.bool]
-        """
-        Is this Diagnostic Metric enabled? Defaults to `true`.
-        """
         days: NotRequired[pulumi.Input[builtins.int]]
 elif False:
     DiagnosticSettingEnabledLogRetentionPolicyArgsDict: TypeAlias = Mapping[str, Any]
@@ -7871,9 +7870,6 @@ class DiagnosticSettingEnabledLogRetentionPolicyArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[builtins.bool],
                  days: Optional[pulumi.Input[builtins.int]] = None):
-        """
-        :param pulumi.Input[builtins.bool] enabled: Is this Diagnostic Metric enabled? Defaults to `true`.
-        """
         pulumi.set(__self__, "enabled", enabled)
         if days is not None:
             pulumi.set(__self__, "days", days)
@@ -7881,9 +7877,6 @@ class DiagnosticSettingEnabledLogRetentionPolicyArgs:
     @property
     @pulumi.getter
     def enabled(self) -> pulumi.Input[builtins.bool]:
-        """
-        Is this Diagnostic Metric enabled? Defaults to `true`.
-        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -7901,41 +7894,26 @@ class DiagnosticSettingEnabledLogRetentionPolicyArgs:
 
 
 if not MYPY:
-    class DiagnosticSettingMetricArgsDict(TypedDict):
+    class DiagnosticSettingEnabledMetricArgsDict(TypedDict):
         category: pulumi.Input[builtins.str]
         """
         The name of a Diagnostic Metric Category for this Resource.
 
         > **NOTE:** The Metric Categories available vary depending on the Resource being used. You may wish to use the `monitoring_get_diagnostic_categories` Data Source to identify which categories are available for a given Resource.
         """
-        enabled: NotRequired[pulumi.Input[builtins.bool]]
-        """
-        Is this Diagnostic Metric enabled? Defaults to `true`.
-        """
-        retention_policy: NotRequired[pulumi.Input['DiagnosticSettingMetricRetentionPolicyArgsDict']]
 elif False:
-    DiagnosticSettingMetricArgsDict: TypeAlias = Mapping[str, Any]
+    DiagnosticSettingEnabledMetricArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
-class DiagnosticSettingMetricArgs:
+class DiagnosticSettingEnabledMetricArgs:
     def __init__(__self__, *,
-                 category: pulumi.Input[builtins.str],
-                 enabled: Optional[pulumi.Input[builtins.bool]] = None,
-                 retention_policy: Optional[pulumi.Input['DiagnosticSettingMetricRetentionPolicyArgs']] = None):
+                 category: pulumi.Input[builtins.str]):
         """
         :param pulumi.Input[builtins.str] category: The name of a Diagnostic Metric Category for this Resource.
                
                > **NOTE:** The Metric Categories available vary depending on the Resource being used. You may wish to use the `monitoring_get_diagnostic_categories` Data Source to identify which categories are available for a given Resource.
-        :param pulumi.Input[builtins.bool] enabled: Is this Diagnostic Metric enabled? Defaults to `true`.
         """
         pulumi.set(__self__, "category", category)
-        if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
-        if retention_policy is not None:
-            warnings.warn("""`retention_policy` has been deprecated in favor of the `storage.ManagementPolicy` resource and will be removed in v5.0 of the AzureRM provider - to learn more go to https://aka.ms/diagnostic_settings_log_retention""", DeprecationWarning)
-            pulumi.log.warn("""retention_policy is deprecated: `retention_policy` has been deprecated in favor of the `storage.ManagementPolicy` resource and will be removed in v5.0 of the AzureRM provider - to learn more go to https://aka.ms/diagnostic_settings_log_retention""")
-        if retention_policy is not None:
-            pulumi.set(__self__, "retention_policy", retention_policy)
 
     @property
     @pulumi.getter
@@ -7951,12 +7929,42 @@ class DiagnosticSettingMetricArgs:
     def category(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "category", value)
 
+
+if not MYPY:
+    class DiagnosticSettingMetricArgsDict(TypedDict):
+        category: pulumi.Input[builtins.str]
+        enabled: NotRequired[pulumi.Input[builtins.bool]]
+        retention_policy: NotRequired[pulumi.Input['DiagnosticSettingMetricRetentionPolicyArgsDict']]
+elif False:
+    DiagnosticSettingMetricArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DiagnosticSettingMetricArgs:
+    def __init__(__self__, *,
+                 category: pulumi.Input[builtins.str],
+                 enabled: Optional[pulumi.Input[builtins.bool]] = None,
+                 retention_policy: Optional[pulumi.Input['DiagnosticSettingMetricRetentionPolicyArgs']] = None):
+        pulumi.set(__self__, "category", category)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if retention_policy is not None:
+            warnings.warn("""`retention_policy` has been deprecated in favor of the `storage.ManagementPolicy` resource and will be removed in v5.0 of the AzureRM provider - to learn more go to https://aka.ms/diagnostic_settings_log_retention""", DeprecationWarning)
+            pulumi.log.warn("""retention_policy is deprecated: `retention_policy` has been deprecated in favor of the `storage.ManagementPolicy` resource and will be removed in v5.0 of the AzureRM provider - to learn more go to https://aka.ms/diagnostic_settings_log_retention""")
+        if retention_policy is not None:
+            pulumi.set(__self__, "retention_policy", retention_policy)
+
+    @property
+    @pulumi.getter
+    def category(self) -> pulumi.Input[builtins.str]:
+        return pulumi.get(self, "category")
+
+    @category.setter
+    def category(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "category", value)
+
     @property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
-        """
-        Is this Diagnostic Metric enabled? Defaults to `true`.
-        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -7977,9 +7985,6 @@ class DiagnosticSettingMetricArgs:
 if not MYPY:
     class DiagnosticSettingMetricRetentionPolicyArgsDict(TypedDict):
         enabled: pulumi.Input[builtins.bool]
-        """
-        Is this Diagnostic Metric enabled? Defaults to `true`.
-        """
         days: NotRequired[pulumi.Input[builtins.int]]
 elif False:
     DiagnosticSettingMetricRetentionPolicyArgsDict: TypeAlias = Mapping[str, Any]
@@ -7989,9 +7994,6 @@ class DiagnosticSettingMetricRetentionPolicyArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[builtins.bool],
                  days: Optional[pulumi.Input[builtins.int]] = None):
-        """
-        :param pulumi.Input[builtins.bool] enabled: Is this Diagnostic Metric enabled? Defaults to `true`.
-        """
         pulumi.set(__self__, "enabled", enabled)
         if days is not None:
             pulumi.set(__self__, "days", days)
@@ -7999,9 +8001,6 @@ class DiagnosticSettingMetricRetentionPolicyArgs:
     @property
     @pulumi.getter
     def enabled(self) -> pulumi.Input[builtins.bool]:
-        """
-        Is this Diagnostic Metric enabled? Defaults to `true`.
-        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter

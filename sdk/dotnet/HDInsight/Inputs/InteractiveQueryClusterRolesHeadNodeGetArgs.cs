@@ -34,7 +34,7 @@ namespace Pulumi.Azure.HDInsight.Inputs
         private InputList<Inputs.InteractiveQueryClusterRolesHeadNodeScriptActionGetArgs>? _scriptActions;
 
         /// <summary>
-        /// The script action which will run on the cluster. One or more `script_actions` blocks as defined below.
+        /// The script action which will run on the cluster. One or more `script_actions` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<Inputs.InteractiveQueryClusterRolesHeadNodeScriptActionGetArgs> ScriptActions
         {

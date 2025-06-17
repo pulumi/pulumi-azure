@@ -45,6 +45,13 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.Network`: 2024-05-01
+ *
  * ## Import
  *
  * VPN Gateways can be imported using the `resource id`, e.g.
@@ -90,6 +97,10 @@ export class VpnGateway extends pulumi.CustomResource {
      */
     public readonly bgpSettings!: pulumi.Output<outputs.network.VpnGatewayBgpSettings>;
     /**
+     * An `ipConfiguration` block as defined below.
+     */
+    public /*out*/ readonly ipConfigurations!: pulumi.Output<outputs.network.VpnGatewayIpConfiguration[]>;
+    /**
      * The Azure location where this VPN Gateway should be created. Changing this forces a new resource to be created.
      */
     public readonly location!: pulumi.Output<string>;
@@ -133,6 +144,7 @@ export class VpnGateway extends pulumi.CustomResource {
             const state = argsOrState as VpnGatewayState | undefined;
             resourceInputs["bgpRouteTranslationForNatEnabled"] = state ? state.bgpRouteTranslationForNatEnabled : undefined;
             resourceInputs["bgpSettings"] = state ? state.bgpSettings : undefined;
+            resourceInputs["ipConfigurations"] = state ? state.ipConfigurations : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
@@ -157,6 +169,7 @@ export class VpnGateway extends pulumi.CustomResource {
             resourceInputs["scaleUnit"] = args ? args.scaleUnit : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["virtualHubId"] = args ? args.virtualHubId : undefined;
+            resourceInputs["ipConfigurations"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(VpnGateway.__pulumiType, name, resourceInputs, opts);
@@ -175,6 +188,10 @@ export interface VpnGatewayState {
      * A `bgpSettings` block as defined below.
      */
     bgpSettings?: pulumi.Input<inputs.network.VpnGatewayBgpSettings>;
+    /**
+     * An `ipConfiguration` block as defined below.
+     */
+    ipConfigurations?: pulumi.Input<pulumi.Input<inputs.network.VpnGatewayIpConfiguration>[]>;
     /**
      * The Azure location where this VPN Gateway should be created. Changing this forces a new resource to be created.
      */

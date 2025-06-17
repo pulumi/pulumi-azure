@@ -164,6 +164,216 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ### Cross-Region Replication
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.network.VirtualNetwork;
+ * import com.pulumi.azure.network.VirtualNetworkArgs;
+ * import com.pulumi.azure.network.Subnet;
+ * import com.pulumi.azure.network.SubnetArgs;
+ * import com.pulumi.azure.network.inputs.SubnetDelegationArgs;
+ * import com.pulumi.azure.network.inputs.SubnetDelegationServiceDelegationArgs;
+ * import com.pulumi.azure.netapp.Account;
+ * import com.pulumi.azure.netapp.AccountArgs;
+ * import com.pulumi.azure.netapp.Pool;
+ * import com.pulumi.azure.netapp.PoolArgs;
+ * import com.pulumi.azure.netapp.VolumeGroupOracle;
+ * import com.pulumi.azure.netapp.VolumeGroupOracleArgs;
+ * import com.pulumi.azure.netapp.inputs.VolumeGroupOracleVolumeArgs;
+ * import com.pulumi.azure.netapp.inputs.VolumeGroupOracleVolumeDataProtectionReplicationArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
+ *             .name(String.format("%s-resources", prefix))
+ *             .location(location)
+ *             .tags(Map.of("SkipNRMSNSG", "true"))
+ *             .build());
+ * 
+ *         // Primary region networking
+ *         var examplePrimary = new VirtualNetwork("examplePrimary", VirtualNetworkArgs.builder()
+ *             .name(String.format("%s-vnet-primary", prefix))
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .addressSpaces("10.47.0.0/16")
+ *             .build());
+ * 
+ *         var examplePrimarySubnet = new Subnet("examplePrimarySubnet", SubnetArgs.builder()
+ *             .name(String.format("%s-delegated-subnet-primary", prefix))
+ *             .resourceGroupName(example.name())
+ *             .virtualNetworkName(examplePrimary.name())
+ *             .addressPrefixes("10.47.2.0/24")
+ *             .delegations(SubnetDelegationArgs.builder()
+ *                 .name("exampledelegation")
+ *                 .serviceDelegation(SubnetDelegationServiceDelegationArgs.builder()
+ *                     .name("Microsoft.Netapp/volumes")
+ *                     .actions(                    
+ *                         "Microsoft.Network/networkinterfaces/*",
+ *                         "Microsoft.Network/virtualNetworks/subnets/join/action")
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *         // Secondary region networking
+ *         var exampleSecondary = new VirtualNetwork("exampleSecondary", VirtualNetworkArgs.builder()
+ *             .name(String.format("%s-vnet-secondary", prefix))
+ *             .location(altLocation)
+ *             .resourceGroupName(example.name())
+ *             .addressSpaces("10.48.0.0/16")
+ *             .build());
+ * 
+ *         var exampleSecondarySubnet = new Subnet("exampleSecondarySubnet", SubnetArgs.builder()
+ *             .name(String.format("%s-delegated-subnet-secondary", prefix))
+ *             .resourceGroupName(example.name())
+ *             .virtualNetworkName(exampleSecondary.name())
+ *             .addressPrefixes("10.48.2.0/24")
+ *             .delegations(SubnetDelegationArgs.builder()
+ *                 .name("exampledelegation")
+ *                 .serviceDelegation(SubnetDelegationServiceDelegationArgs.builder()
+ *                     .name("Microsoft.Netapp/volumes")
+ *                     .actions(                    
+ *                         "Microsoft.Network/networkinterfaces/*",
+ *                         "Microsoft.Network/virtualNetworks/subnets/join/action")
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *         // Primary region NetApp infrastructure
+ *         var examplePrimaryAccount = new Account("examplePrimaryAccount", AccountArgs.builder()
+ *             .name(String.format("%s-netapp-account-primary", prefix))
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(examplePrimarySubnet)
+ *                 .build());
+ * 
+ *         var examplePrimaryPool = new Pool("examplePrimaryPool", PoolArgs.builder()
+ *             .name(String.format("%s-netapp-pool-primary", prefix))
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .accountName(examplePrimaryAccount.name())
+ *             .serviceLevel("Standard")
+ *             .sizeInTb(4)
+ *             .qosType("Manual")
+ *             .build());
+ * 
+ *         // Secondary region NetApp infrastructure
+ *         var exampleSecondaryAccount = new Account("exampleSecondaryAccount", AccountArgs.builder()
+ *             .name(String.format("%s-netapp-account-secondary", prefix))
+ *             .location(altLocation)
+ *             .resourceGroupName(example.name())
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(exampleSecondarySubnet)
+ *                 .build());
+ * 
+ *         var exampleSecondaryPool = new Pool("exampleSecondaryPool", PoolArgs.builder()
+ *             .name(String.format("%s-netapp-pool-secondary", prefix))
+ *             .location(altLocation)
+ *             .resourceGroupName(example.name())
+ *             .accountName(exampleSecondaryAccount.name())
+ *             .serviceLevel("Standard")
+ *             .sizeInTb(4)
+ *             .qosType("Manual")
+ *             .build());
+ * 
+ *         // Primary Oracle volume group
+ *         var examplePrimaryVolumeGroupOracle = new VolumeGroupOracle("examplePrimaryVolumeGroupOracle", VolumeGroupOracleArgs.builder()
+ *             .name(String.format("%s-NetAppVolumeGroupOracle-primary", prefix))
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .accountName(examplePrimaryAccount.name())
+ *             .groupDescription("Primary Oracle volume group for CRR")
+ *             .applicationIdentifier("TST")
+ *             .volumes(VolumeGroupOracleVolumeArgs.builder()
+ *                 .name(String.format("%s-volume-ora1-primary", prefix))
+ *                 .volumePath(String.format("%s-my-unique-file-ora-path-1-primary", prefix))
+ *                 .serviceLevel("Standard")
+ *                 .capacityPoolId(examplePrimaryPool.id())
+ *                 .subnetId(examplePrimarySubnet.id())
+ *                 .volumeSpecName("ora-data1")
+ *                 .storageQuotaInGb(1024)
+ *                 .throughputInMibps(24.0)
+ *                 .protocols("NFSv4.1")
+ *                 .securityStyle("unix")
+ *                 .snapshotDirectoryVisible(false)
+ *                 .exportPolicyRules(VolumeGroupOracleVolumeExportPolicyRuleArgs.builder()
+ *                     .ruleIndex(1)
+ *                     .allowedClients("0.0.0.0/0")
+ *                     .nfsv3Enabled(false)
+ *                     .nfsv41Enabled(true)
+ *                     .unixReadOnly(false)
+ *                     .unixReadWrite(true)
+ *                     .rootAccessEnabled(false)
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *         // Secondary Oracle volume group with CRR
+ *         var exampleSecondaryVolumeGroupOracle = new VolumeGroupOracle("exampleSecondaryVolumeGroupOracle", VolumeGroupOracleArgs.builder()
+ *             .name(String.format("%s-NetAppVolumeGroupOracle-secondary", prefix))
+ *             .location(altLocation)
+ *             .resourceGroupName(example.name())
+ *             .accountName(exampleSecondaryAccount.name())
+ *             .groupDescription("Secondary Oracle volume group for CRR")
+ *             .applicationIdentifier("TST")
+ *             .volumes(VolumeGroupOracleVolumeArgs.builder()
+ *                 .name(String.format("%s-volume-ora1-secondary", prefix))
+ *                 .volumePath(String.format("%s-my-unique-file-ora-path-1-secondary", prefix))
+ *                 .serviceLevel("Standard")
+ *                 .capacityPoolId(exampleSecondaryPool.id())
+ *                 .subnetId(exampleSecondarySubnet.id())
+ *                 .volumeSpecName("ora-data1")
+ *                 .storageQuotaInGb(1024)
+ *                 .throughputInMibps(24.0)
+ *                 .protocols("NFSv4.1")
+ *                 .securityStyle("unix")
+ *                 .snapshotDirectoryVisible(false)
+ *                 .exportPolicyRules(VolumeGroupOracleVolumeExportPolicyRuleArgs.builder()
+ *                     .ruleIndex(1)
+ *                     .allowedClients("0.0.0.0/0")
+ *                     .nfsv3Enabled(false)
+ *                     .nfsv41Enabled(true)
+ *                     .unixReadOnly(false)
+ *                     .unixReadWrite(true)
+ *                     .rootAccessEnabled(false)
+ *                     .build())
+ *                 .dataProtectionReplication(VolumeGroupOracleVolumeDataProtectionReplicationArgs.builder()
+ *                     .endpointType("dst")
+ *                     .remoteVolumeLocation(example.location())
+ *                     .remoteVolumeResourceId(examplePrimaryVolumeGroupOracle.volumes().applyValue(_volumes -> _volumes[0].id()))
+ *                     .replicationFrequency("10minutes")
+ *                     .build())
+ *                 .build())
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(examplePrimaryVolumeGroupOracle)
+ *                 .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## API Providers
  * 
  * &lt;!-- This section is generated, changes will be overwritten --&gt;

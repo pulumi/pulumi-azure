@@ -84,6 +84,13 @@ import (
 //
 // > **Note:** The CosmosDB Account needs to have the `EnableGremlin` capability enabled to use this resource - which can be done by adding this to the `capabilities` list within the `cosmosdb.Account` resource.
 //
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.DocumentDB`: 2024-08-15
+//
 // ## Import
 //
 // Cosmos Gremlin Graphs can be imported using the `resource id`, e.g.

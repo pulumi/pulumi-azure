@@ -528,6 +528,13 @@ class Topic(pulumi.CustomResource):
             partitioning_enabled=True)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ServiceBus`: 2022-10-01-preview, 2021-06-01-preview
+
         ## Import
 
         Service Bus Topics can be imported using the `resource id`, e.g.
@@ -587,6 +594,13 @@ class Topic(pulumi.CustomResource):
             namespace_id=example_namespace.id,
             partitioning_enabled=True)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ServiceBus`: 2022-10-01-preview, 2021-06-01-preview
 
         ## Import
 

@@ -662,6 +662,13 @@ class NetworkSecurityRule(pulumi.CustomResource):
             network_security_group_name=example_network_security_group.name)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network`: 2024-05-01
+
         ## Import
 
         Network Security Rules can be imported using the `resource id`, e.g.
@@ -730,6 +737,13 @@ class NetworkSecurityRule(pulumi.CustomResource):
             resource_group_name=example.name,
             network_security_group_name=example_network_security_group.name)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network`: 2024-05-01
 
         ## Import
 

@@ -1081,6 +1081,732 @@ func (o ProjectIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type GetCatalogCatalogAdogit struct {
+	// The Git branch of the Dev Center Catalog.
+	Branch string `pulumi:"branch"`
+	// A reference to the Key Vault secret containing a security token to authenticate to a Git repository.
+	KeyVaultKeyUrl string `pulumi:"keyVaultKeyUrl"`
+	// The folder where the catalog items can be found inside the repository.
+	Path string `pulumi:"path"`
+	// The Git URI of the Dev Center Catalog.
+	Uri string `pulumi:"uri"`
+}
+
+// GetCatalogCatalogAdogitInput is an input type that accepts GetCatalogCatalogAdogitArgs and GetCatalogCatalogAdogitOutput values.
+// You can construct a concrete instance of `GetCatalogCatalogAdogitInput` via:
+//
+//	GetCatalogCatalogAdogitArgs{...}
+type GetCatalogCatalogAdogitInput interface {
+	pulumi.Input
+
+	ToGetCatalogCatalogAdogitOutput() GetCatalogCatalogAdogitOutput
+	ToGetCatalogCatalogAdogitOutputWithContext(context.Context) GetCatalogCatalogAdogitOutput
+}
+
+type GetCatalogCatalogAdogitArgs struct {
+	// The Git branch of the Dev Center Catalog.
+	Branch pulumi.StringInput `pulumi:"branch"`
+	// A reference to the Key Vault secret containing a security token to authenticate to a Git repository.
+	KeyVaultKeyUrl pulumi.StringInput `pulumi:"keyVaultKeyUrl"`
+	// The folder where the catalog items can be found inside the repository.
+	Path pulumi.StringInput `pulumi:"path"`
+	// The Git URI of the Dev Center Catalog.
+	Uri pulumi.StringInput `pulumi:"uri"`
+}
+
+func (GetCatalogCatalogAdogitArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCatalogCatalogAdogit)(nil)).Elem()
+}
+
+func (i GetCatalogCatalogAdogitArgs) ToGetCatalogCatalogAdogitOutput() GetCatalogCatalogAdogitOutput {
+	return i.ToGetCatalogCatalogAdogitOutputWithContext(context.Background())
+}
+
+func (i GetCatalogCatalogAdogitArgs) ToGetCatalogCatalogAdogitOutputWithContext(ctx context.Context) GetCatalogCatalogAdogitOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCatalogCatalogAdogitOutput)
+}
+
+// GetCatalogCatalogAdogitArrayInput is an input type that accepts GetCatalogCatalogAdogitArray and GetCatalogCatalogAdogitArrayOutput values.
+// You can construct a concrete instance of `GetCatalogCatalogAdogitArrayInput` via:
+//
+//	GetCatalogCatalogAdogitArray{ GetCatalogCatalogAdogitArgs{...} }
+type GetCatalogCatalogAdogitArrayInput interface {
+	pulumi.Input
+
+	ToGetCatalogCatalogAdogitArrayOutput() GetCatalogCatalogAdogitArrayOutput
+	ToGetCatalogCatalogAdogitArrayOutputWithContext(context.Context) GetCatalogCatalogAdogitArrayOutput
+}
+
+type GetCatalogCatalogAdogitArray []GetCatalogCatalogAdogitInput
+
+func (GetCatalogCatalogAdogitArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCatalogCatalogAdogit)(nil)).Elem()
+}
+
+func (i GetCatalogCatalogAdogitArray) ToGetCatalogCatalogAdogitArrayOutput() GetCatalogCatalogAdogitArrayOutput {
+	return i.ToGetCatalogCatalogAdogitArrayOutputWithContext(context.Background())
+}
+
+func (i GetCatalogCatalogAdogitArray) ToGetCatalogCatalogAdogitArrayOutputWithContext(ctx context.Context) GetCatalogCatalogAdogitArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCatalogCatalogAdogitArrayOutput)
+}
+
+type GetCatalogCatalogAdogitOutput struct{ *pulumi.OutputState }
+
+func (GetCatalogCatalogAdogitOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCatalogCatalogAdogit)(nil)).Elem()
+}
+
+func (o GetCatalogCatalogAdogitOutput) ToGetCatalogCatalogAdogitOutput() GetCatalogCatalogAdogitOutput {
+	return o
+}
+
+func (o GetCatalogCatalogAdogitOutput) ToGetCatalogCatalogAdogitOutputWithContext(ctx context.Context) GetCatalogCatalogAdogitOutput {
+	return o
+}
+
+// The Git branch of the Dev Center Catalog.
+func (o GetCatalogCatalogAdogitOutput) Branch() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCatalogCatalogAdogit) string { return v.Branch }).(pulumi.StringOutput)
+}
+
+// A reference to the Key Vault secret containing a security token to authenticate to a Git repository.
+func (o GetCatalogCatalogAdogitOutput) KeyVaultKeyUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCatalogCatalogAdogit) string { return v.KeyVaultKeyUrl }).(pulumi.StringOutput)
+}
+
+// The folder where the catalog items can be found inside the repository.
+func (o GetCatalogCatalogAdogitOutput) Path() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCatalogCatalogAdogit) string { return v.Path }).(pulumi.StringOutput)
+}
+
+// The Git URI of the Dev Center Catalog.
+func (o GetCatalogCatalogAdogitOutput) Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCatalogCatalogAdogit) string { return v.Uri }).(pulumi.StringOutput)
+}
+
+type GetCatalogCatalogAdogitArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCatalogCatalogAdogitArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCatalogCatalogAdogit)(nil)).Elem()
+}
+
+func (o GetCatalogCatalogAdogitArrayOutput) ToGetCatalogCatalogAdogitArrayOutput() GetCatalogCatalogAdogitArrayOutput {
+	return o
+}
+
+func (o GetCatalogCatalogAdogitArrayOutput) ToGetCatalogCatalogAdogitArrayOutputWithContext(ctx context.Context) GetCatalogCatalogAdogitArrayOutput {
+	return o
+}
+
+func (o GetCatalogCatalogAdogitArrayOutput) Index(i pulumi.IntInput) GetCatalogCatalogAdogitOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCatalogCatalogAdogit {
+		return vs[0].([]GetCatalogCatalogAdogit)[vs[1].(int)]
+	}).(GetCatalogCatalogAdogitOutput)
+}
+
+type GetCatalogCatalogGithub struct {
+	// The Git branch of the Dev Center Catalog.
+	Branch string `pulumi:"branch"`
+	// A reference to the Key Vault secret containing a security token to authenticate to a Git repository.
+	KeyVaultKeyUrl string `pulumi:"keyVaultKeyUrl"`
+	// The folder where the catalog items can be found inside the repository.
+	Path string `pulumi:"path"`
+	// The Git URI of the Dev Center Catalog.
+	Uri string `pulumi:"uri"`
+}
+
+// GetCatalogCatalogGithubInput is an input type that accepts GetCatalogCatalogGithubArgs and GetCatalogCatalogGithubOutput values.
+// You can construct a concrete instance of `GetCatalogCatalogGithubInput` via:
+//
+//	GetCatalogCatalogGithubArgs{...}
+type GetCatalogCatalogGithubInput interface {
+	pulumi.Input
+
+	ToGetCatalogCatalogGithubOutput() GetCatalogCatalogGithubOutput
+	ToGetCatalogCatalogGithubOutputWithContext(context.Context) GetCatalogCatalogGithubOutput
+}
+
+type GetCatalogCatalogGithubArgs struct {
+	// The Git branch of the Dev Center Catalog.
+	Branch pulumi.StringInput `pulumi:"branch"`
+	// A reference to the Key Vault secret containing a security token to authenticate to a Git repository.
+	KeyVaultKeyUrl pulumi.StringInput `pulumi:"keyVaultKeyUrl"`
+	// The folder where the catalog items can be found inside the repository.
+	Path pulumi.StringInput `pulumi:"path"`
+	// The Git URI of the Dev Center Catalog.
+	Uri pulumi.StringInput `pulumi:"uri"`
+}
+
+func (GetCatalogCatalogGithubArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCatalogCatalogGithub)(nil)).Elem()
+}
+
+func (i GetCatalogCatalogGithubArgs) ToGetCatalogCatalogGithubOutput() GetCatalogCatalogGithubOutput {
+	return i.ToGetCatalogCatalogGithubOutputWithContext(context.Background())
+}
+
+func (i GetCatalogCatalogGithubArgs) ToGetCatalogCatalogGithubOutputWithContext(ctx context.Context) GetCatalogCatalogGithubOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCatalogCatalogGithubOutput)
+}
+
+// GetCatalogCatalogGithubArrayInput is an input type that accepts GetCatalogCatalogGithubArray and GetCatalogCatalogGithubArrayOutput values.
+// You can construct a concrete instance of `GetCatalogCatalogGithubArrayInput` via:
+//
+//	GetCatalogCatalogGithubArray{ GetCatalogCatalogGithubArgs{...} }
+type GetCatalogCatalogGithubArrayInput interface {
+	pulumi.Input
+
+	ToGetCatalogCatalogGithubArrayOutput() GetCatalogCatalogGithubArrayOutput
+	ToGetCatalogCatalogGithubArrayOutputWithContext(context.Context) GetCatalogCatalogGithubArrayOutput
+}
+
+type GetCatalogCatalogGithubArray []GetCatalogCatalogGithubInput
+
+func (GetCatalogCatalogGithubArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCatalogCatalogGithub)(nil)).Elem()
+}
+
+func (i GetCatalogCatalogGithubArray) ToGetCatalogCatalogGithubArrayOutput() GetCatalogCatalogGithubArrayOutput {
+	return i.ToGetCatalogCatalogGithubArrayOutputWithContext(context.Background())
+}
+
+func (i GetCatalogCatalogGithubArray) ToGetCatalogCatalogGithubArrayOutputWithContext(ctx context.Context) GetCatalogCatalogGithubArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCatalogCatalogGithubArrayOutput)
+}
+
+type GetCatalogCatalogGithubOutput struct{ *pulumi.OutputState }
+
+func (GetCatalogCatalogGithubOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCatalogCatalogGithub)(nil)).Elem()
+}
+
+func (o GetCatalogCatalogGithubOutput) ToGetCatalogCatalogGithubOutput() GetCatalogCatalogGithubOutput {
+	return o
+}
+
+func (o GetCatalogCatalogGithubOutput) ToGetCatalogCatalogGithubOutputWithContext(ctx context.Context) GetCatalogCatalogGithubOutput {
+	return o
+}
+
+// The Git branch of the Dev Center Catalog.
+func (o GetCatalogCatalogGithubOutput) Branch() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCatalogCatalogGithub) string { return v.Branch }).(pulumi.StringOutput)
+}
+
+// A reference to the Key Vault secret containing a security token to authenticate to a Git repository.
+func (o GetCatalogCatalogGithubOutput) KeyVaultKeyUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCatalogCatalogGithub) string { return v.KeyVaultKeyUrl }).(pulumi.StringOutput)
+}
+
+// The folder where the catalog items can be found inside the repository.
+func (o GetCatalogCatalogGithubOutput) Path() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCatalogCatalogGithub) string { return v.Path }).(pulumi.StringOutput)
+}
+
+// The Git URI of the Dev Center Catalog.
+func (o GetCatalogCatalogGithubOutput) Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCatalogCatalogGithub) string { return v.Uri }).(pulumi.StringOutput)
+}
+
+type GetCatalogCatalogGithubArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCatalogCatalogGithubArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCatalogCatalogGithub)(nil)).Elem()
+}
+
+func (o GetCatalogCatalogGithubArrayOutput) ToGetCatalogCatalogGithubArrayOutput() GetCatalogCatalogGithubArrayOutput {
+	return o
+}
+
+func (o GetCatalogCatalogGithubArrayOutput) ToGetCatalogCatalogGithubArrayOutputWithContext(ctx context.Context) GetCatalogCatalogGithubArrayOutput {
+	return o
+}
+
+func (o GetCatalogCatalogGithubArrayOutput) Index(i pulumi.IntInput) GetCatalogCatalogGithubOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCatalogCatalogGithub {
+		return vs[0].([]GetCatalogCatalogGithub)[vs[1].(int)]
+	}).(GetCatalogCatalogGithubOutput)
+}
+
+type GetIdentity struct {
+	// The list of User Assigned Managed Identity IDs assigned to this Dev Center.
+	IdentityIds []string `pulumi:"identityIds"`
+	// The Principal ID of the System Assigned Managed Service Identity that is configured on this Dev Center.
+	PrincipalId string `pulumi:"principalId"`
+	// The Tenant ID of the System Assigned Managed Service Identity that is configured on this Dev Center.
+	TenantId string `pulumi:"tenantId"`
+	// The type of Managed Service Identity that is configured on this Dev Center.
+	Type string `pulumi:"type"`
+}
+
+// GetIdentityInput is an input type that accepts GetIdentityArgs and GetIdentityOutput values.
+// You can construct a concrete instance of `GetIdentityInput` via:
+//
+//	GetIdentityArgs{...}
+type GetIdentityInput interface {
+	pulumi.Input
+
+	ToGetIdentityOutput() GetIdentityOutput
+	ToGetIdentityOutputWithContext(context.Context) GetIdentityOutput
+}
+
+type GetIdentityArgs struct {
+	// The list of User Assigned Managed Identity IDs assigned to this Dev Center.
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
+	// The Principal ID of the System Assigned Managed Service Identity that is configured on this Dev Center.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// The Tenant ID of the System Assigned Managed Service Identity that is configured on this Dev Center.
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+	// The type of Managed Service Identity that is configured on this Dev Center.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIdentity)(nil)).Elem()
+}
+
+func (i GetIdentityArgs) ToGetIdentityOutput() GetIdentityOutput {
+	return i.ToGetIdentityOutputWithContext(context.Background())
+}
+
+func (i GetIdentityArgs) ToGetIdentityOutputWithContext(ctx context.Context) GetIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIdentityOutput)
+}
+
+// GetIdentityArrayInput is an input type that accepts GetIdentityArray and GetIdentityArrayOutput values.
+// You can construct a concrete instance of `GetIdentityArrayInput` via:
+//
+//	GetIdentityArray{ GetIdentityArgs{...} }
+type GetIdentityArrayInput interface {
+	pulumi.Input
+
+	ToGetIdentityArrayOutput() GetIdentityArrayOutput
+	ToGetIdentityArrayOutputWithContext(context.Context) GetIdentityArrayOutput
+}
+
+type GetIdentityArray []GetIdentityInput
+
+func (GetIdentityArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIdentity)(nil)).Elem()
+}
+
+func (i GetIdentityArray) ToGetIdentityArrayOutput() GetIdentityArrayOutput {
+	return i.ToGetIdentityArrayOutputWithContext(context.Background())
+}
+
+func (i GetIdentityArray) ToGetIdentityArrayOutputWithContext(ctx context.Context) GetIdentityArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIdentityArrayOutput)
+}
+
+type GetIdentityOutput struct{ *pulumi.OutputState }
+
+func (GetIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIdentity)(nil)).Elem()
+}
+
+func (o GetIdentityOutput) ToGetIdentityOutput() GetIdentityOutput {
+	return o
+}
+
+func (o GetIdentityOutput) ToGetIdentityOutputWithContext(ctx context.Context) GetIdentityOutput {
+	return o
+}
+
+// The list of User Assigned Managed Identity IDs assigned to this Dev Center.
+func (o GetIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
+// The Principal ID of the System Assigned Managed Service Identity that is configured on this Dev Center.
+func (o GetIdentityOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIdentity) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// The Tenant ID of the System Assigned Managed Service Identity that is configured on this Dev Center.
+func (o GetIdentityOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIdentity) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// The type of Managed Service Identity that is configured on this Dev Center.
+func (o GetIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetIdentityArrayOutput struct{ *pulumi.OutputState }
+
+func (GetIdentityArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIdentity)(nil)).Elem()
+}
+
+func (o GetIdentityArrayOutput) ToGetIdentityArrayOutput() GetIdentityArrayOutput {
+	return o
+}
+
+func (o GetIdentityArrayOutput) ToGetIdentityArrayOutputWithContext(ctx context.Context) GetIdentityArrayOutput {
+	return o
+}
+
+func (o GetIdentityArrayOutput) Index(i pulumi.IntInput) GetIdentityOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetIdentity {
+		return vs[0].([]GetIdentity)[vs[1].(int)]
+	}).(GetIdentityOutput)
+}
+
+type GetProjectEnvironmentTypeIdentity struct {
+	// The list of User Assigned Managed Identity IDs assigned to this Dev Center Project Environment Type.
+	IdentityIds []string `pulumi:"identityIds"`
+	// The Principal ID of the System Assigned Managed Service Identity that is configured on this Dev Center Project Environment Type.
+	PrincipalId string `pulumi:"principalId"`
+	// The Tenant ID of the System Assigned Managed Service Identity that is configured on this Dev Center Project Environment Type.
+	TenantId string `pulumi:"tenantId"`
+	// The type of Managed Service Identity that is configured on this Dev Center Project Environment Type.
+	Type string `pulumi:"type"`
+}
+
+// GetProjectEnvironmentTypeIdentityInput is an input type that accepts GetProjectEnvironmentTypeIdentityArgs and GetProjectEnvironmentTypeIdentityOutput values.
+// You can construct a concrete instance of `GetProjectEnvironmentTypeIdentityInput` via:
+//
+//	GetProjectEnvironmentTypeIdentityArgs{...}
+type GetProjectEnvironmentTypeIdentityInput interface {
+	pulumi.Input
+
+	ToGetProjectEnvironmentTypeIdentityOutput() GetProjectEnvironmentTypeIdentityOutput
+	ToGetProjectEnvironmentTypeIdentityOutputWithContext(context.Context) GetProjectEnvironmentTypeIdentityOutput
+}
+
+type GetProjectEnvironmentTypeIdentityArgs struct {
+	// The list of User Assigned Managed Identity IDs assigned to this Dev Center Project Environment Type.
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
+	// The Principal ID of the System Assigned Managed Service Identity that is configured on this Dev Center Project Environment Type.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// The Tenant ID of the System Assigned Managed Service Identity that is configured on this Dev Center Project Environment Type.
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+	// The type of Managed Service Identity that is configured on this Dev Center Project Environment Type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetProjectEnvironmentTypeIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetProjectEnvironmentTypeIdentity)(nil)).Elem()
+}
+
+func (i GetProjectEnvironmentTypeIdentityArgs) ToGetProjectEnvironmentTypeIdentityOutput() GetProjectEnvironmentTypeIdentityOutput {
+	return i.ToGetProjectEnvironmentTypeIdentityOutputWithContext(context.Background())
+}
+
+func (i GetProjectEnvironmentTypeIdentityArgs) ToGetProjectEnvironmentTypeIdentityOutputWithContext(ctx context.Context) GetProjectEnvironmentTypeIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetProjectEnvironmentTypeIdentityOutput)
+}
+
+// GetProjectEnvironmentTypeIdentityArrayInput is an input type that accepts GetProjectEnvironmentTypeIdentityArray and GetProjectEnvironmentTypeIdentityArrayOutput values.
+// You can construct a concrete instance of `GetProjectEnvironmentTypeIdentityArrayInput` via:
+//
+//	GetProjectEnvironmentTypeIdentityArray{ GetProjectEnvironmentTypeIdentityArgs{...} }
+type GetProjectEnvironmentTypeIdentityArrayInput interface {
+	pulumi.Input
+
+	ToGetProjectEnvironmentTypeIdentityArrayOutput() GetProjectEnvironmentTypeIdentityArrayOutput
+	ToGetProjectEnvironmentTypeIdentityArrayOutputWithContext(context.Context) GetProjectEnvironmentTypeIdentityArrayOutput
+}
+
+type GetProjectEnvironmentTypeIdentityArray []GetProjectEnvironmentTypeIdentityInput
+
+func (GetProjectEnvironmentTypeIdentityArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetProjectEnvironmentTypeIdentity)(nil)).Elem()
+}
+
+func (i GetProjectEnvironmentTypeIdentityArray) ToGetProjectEnvironmentTypeIdentityArrayOutput() GetProjectEnvironmentTypeIdentityArrayOutput {
+	return i.ToGetProjectEnvironmentTypeIdentityArrayOutputWithContext(context.Background())
+}
+
+func (i GetProjectEnvironmentTypeIdentityArray) ToGetProjectEnvironmentTypeIdentityArrayOutputWithContext(ctx context.Context) GetProjectEnvironmentTypeIdentityArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetProjectEnvironmentTypeIdentityArrayOutput)
+}
+
+type GetProjectEnvironmentTypeIdentityOutput struct{ *pulumi.OutputState }
+
+func (GetProjectEnvironmentTypeIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetProjectEnvironmentTypeIdentity)(nil)).Elem()
+}
+
+func (o GetProjectEnvironmentTypeIdentityOutput) ToGetProjectEnvironmentTypeIdentityOutput() GetProjectEnvironmentTypeIdentityOutput {
+	return o
+}
+
+func (o GetProjectEnvironmentTypeIdentityOutput) ToGetProjectEnvironmentTypeIdentityOutputWithContext(ctx context.Context) GetProjectEnvironmentTypeIdentityOutput {
+	return o
+}
+
+// The list of User Assigned Managed Identity IDs assigned to this Dev Center Project Environment Type.
+func (o GetProjectEnvironmentTypeIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetProjectEnvironmentTypeIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
+// The Principal ID of the System Assigned Managed Service Identity that is configured on this Dev Center Project Environment Type.
+func (o GetProjectEnvironmentTypeIdentityOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetProjectEnvironmentTypeIdentity) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// The Tenant ID of the System Assigned Managed Service Identity that is configured on this Dev Center Project Environment Type.
+func (o GetProjectEnvironmentTypeIdentityOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetProjectEnvironmentTypeIdentity) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// The type of Managed Service Identity that is configured on this Dev Center Project Environment Type.
+func (o GetProjectEnvironmentTypeIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetProjectEnvironmentTypeIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetProjectEnvironmentTypeIdentityArrayOutput struct{ *pulumi.OutputState }
+
+func (GetProjectEnvironmentTypeIdentityArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetProjectEnvironmentTypeIdentity)(nil)).Elem()
+}
+
+func (o GetProjectEnvironmentTypeIdentityArrayOutput) ToGetProjectEnvironmentTypeIdentityArrayOutput() GetProjectEnvironmentTypeIdentityArrayOutput {
+	return o
+}
+
+func (o GetProjectEnvironmentTypeIdentityArrayOutput) ToGetProjectEnvironmentTypeIdentityArrayOutputWithContext(ctx context.Context) GetProjectEnvironmentTypeIdentityArrayOutput {
+	return o
+}
+
+func (o GetProjectEnvironmentTypeIdentityArrayOutput) Index(i pulumi.IntInput) GetProjectEnvironmentTypeIdentityOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetProjectEnvironmentTypeIdentity {
+		return vs[0].([]GetProjectEnvironmentTypeIdentity)[vs[1].(int)]
+	}).(GetProjectEnvironmentTypeIdentityOutput)
+}
+
+type GetProjectEnvironmentTypeUserRoleAssignment struct {
+	// A list of roles to assign to the `userId`.
+	Roles []string `pulumi:"roles"`
+	// The user object ID that is assigned roles.
+	UserId string `pulumi:"userId"`
+}
+
+// GetProjectEnvironmentTypeUserRoleAssignmentInput is an input type that accepts GetProjectEnvironmentTypeUserRoleAssignmentArgs and GetProjectEnvironmentTypeUserRoleAssignmentOutput values.
+// You can construct a concrete instance of `GetProjectEnvironmentTypeUserRoleAssignmentInput` via:
+//
+//	GetProjectEnvironmentTypeUserRoleAssignmentArgs{...}
+type GetProjectEnvironmentTypeUserRoleAssignmentInput interface {
+	pulumi.Input
+
+	ToGetProjectEnvironmentTypeUserRoleAssignmentOutput() GetProjectEnvironmentTypeUserRoleAssignmentOutput
+	ToGetProjectEnvironmentTypeUserRoleAssignmentOutputWithContext(context.Context) GetProjectEnvironmentTypeUserRoleAssignmentOutput
+}
+
+type GetProjectEnvironmentTypeUserRoleAssignmentArgs struct {
+	// A list of roles to assign to the `userId`.
+	Roles pulumi.StringArrayInput `pulumi:"roles"`
+	// The user object ID that is assigned roles.
+	UserId pulumi.StringInput `pulumi:"userId"`
+}
+
+func (GetProjectEnvironmentTypeUserRoleAssignmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetProjectEnvironmentTypeUserRoleAssignment)(nil)).Elem()
+}
+
+func (i GetProjectEnvironmentTypeUserRoleAssignmentArgs) ToGetProjectEnvironmentTypeUserRoleAssignmentOutput() GetProjectEnvironmentTypeUserRoleAssignmentOutput {
+	return i.ToGetProjectEnvironmentTypeUserRoleAssignmentOutputWithContext(context.Background())
+}
+
+func (i GetProjectEnvironmentTypeUserRoleAssignmentArgs) ToGetProjectEnvironmentTypeUserRoleAssignmentOutputWithContext(ctx context.Context) GetProjectEnvironmentTypeUserRoleAssignmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetProjectEnvironmentTypeUserRoleAssignmentOutput)
+}
+
+// GetProjectEnvironmentTypeUserRoleAssignmentArrayInput is an input type that accepts GetProjectEnvironmentTypeUserRoleAssignmentArray and GetProjectEnvironmentTypeUserRoleAssignmentArrayOutput values.
+// You can construct a concrete instance of `GetProjectEnvironmentTypeUserRoleAssignmentArrayInput` via:
+//
+//	GetProjectEnvironmentTypeUserRoleAssignmentArray{ GetProjectEnvironmentTypeUserRoleAssignmentArgs{...} }
+type GetProjectEnvironmentTypeUserRoleAssignmentArrayInput interface {
+	pulumi.Input
+
+	ToGetProjectEnvironmentTypeUserRoleAssignmentArrayOutput() GetProjectEnvironmentTypeUserRoleAssignmentArrayOutput
+	ToGetProjectEnvironmentTypeUserRoleAssignmentArrayOutputWithContext(context.Context) GetProjectEnvironmentTypeUserRoleAssignmentArrayOutput
+}
+
+type GetProjectEnvironmentTypeUserRoleAssignmentArray []GetProjectEnvironmentTypeUserRoleAssignmentInput
+
+func (GetProjectEnvironmentTypeUserRoleAssignmentArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetProjectEnvironmentTypeUserRoleAssignment)(nil)).Elem()
+}
+
+func (i GetProjectEnvironmentTypeUserRoleAssignmentArray) ToGetProjectEnvironmentTypeUserRoleAssignmentArrayOutput() GetProjectEnvironmentTypeUserRoleAssignmentArrayOutput {
+	return i.ToGetProjectEnvironmentTypeUserRoleAssignmentArrayOutputWithContext(context.Background())
+}
+
+func (i GetProjectEnvironmentTypeUserRoleAssignmentArray) ToGetProjectEnvironmentTypeUserRoleAssignmentArrayOutputWithContext(ctx context.Context) GetProjectEnvironmentTypeUserRoleAssignmentArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetProjectEnvironmentTypeUserRoleAssignmentArrayOutput)
+}
+
+type GetProjectEnvironmentTypeUserRoleAssignmentOutput struct{ *pulumi.OutputState }
+
+func (GetProjectEnvironmentTypeUserRoleAssignmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetProjectEnvironmentTypeUserRoleAssignment)(nil)).Elem()
+}
+
+func (o GetProjectEnvironmentTypeUserRoleAssignmentOutput) ToGetProjectEnvironmentTypeUserRoleAssignmentOutput() GetProjectEnvironmentTypeUserRoleAssignmentOutput {
+	return o
+}
+
+func (o GetProjectEnvironmentTypeUserRoleAssignmentOutput) ToGetProjectEnvironmentTypeUserRoleAssignmentOutputWithContext(ctx context.Context) GetProjectEnvironmentTypeUserRoleAssignmentOutput {
+	return o
+}
+
+// A list of roles to assign to the `userId`.
+func (o GetProjectEnvironmentTypeUserRoleAssignmentOutput) Roles() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetProjectEnvironmentTypeUserRoleAssignment) []string { return v.Roles }).(pulumi.StringArrayOutput)
+}
+
+// The user object ID that is assigned roles.
+func (o GetProjectEnvironmentTypeUserRoleAssignmentOutput) UserId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetProjectEnvironmentTypeUserRoleAssignment) string { return v.UserId }).(pulumi.StringOutput)
+}
+
+type GetProjectEnvironmentTypeUserRoleAssignmentArrayOutput struct{ *pulumi.OutputState }
+
+func (GetProjectEnvironmentTypeUserRoleAssignmentArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetProjectEnvironmentTypeUserRoleAssignment)(nil)).Elem()
+}
+
+func (o GetProjectEnvironmentTypeUserRoleAssignmentArrayOutput) ToGetProjectEnvironmentTypeUserRoleAssignmentArrayOutput() GetProjectEnvironmentTypeUserRoleAssignmentArrayOutput {
+	return o
+}
+
+func (o GetProjectEnvironmentTypeUserRoleAssignmentArrayOutput) ToGetProjectEnvironmentTypeUserRoleAssignmentArrayOutputWithContext(ctx context.Context) GetProjectEnvironmentTypeUserRoleAssignmentArrayOutput {
+	return o
+}
+
+func (o GetProjectEnvironmentTypeUserRoleAssignmentArrayOutput) Index(i pulumi.IntInput) GetProjectEnvironmentTypeUserRoleAssignmentOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetProjectEnvironmentTypeUserRoleAssignment {
+		return vs[0].([]GetProjectEnvironmentTypeUserRoleAssignment)[vs[1].(int)]
+	}).(GetProjectEnvironmentTypeUserRoleAssignmentOutput)
+}
+
+type GetProjectIdentity struct {
+	// The list of User Assigned Managed Identity IDs assigned to this Dev Center Project.
+	IdentityIds []string `pulumi:"identityIds"`
+	// The Principal ID of the System Assigned Managed Service Identity that is configured on this Dev Center Project.
+	PrincipalId string `pulumi:"principalId"`
+	// The Tenant ID of the System Assigned Managed Service Identity that is configured on this Dev Center Project.
+	TenantId string `pulumi:"tenantId"`
+	// The type of Managed Service Identity that is configured on this Dev Center Project.
+	Type string `pulumi:"type"`
+}
+
+// GetProjectIdentityInput is an input type that accepts GetProjectIdentityArgs and GetProjectIdentityOutput values.
+// You can construct a concrete instance of `GetProjectIdentityInput` via:
+//
+//	GetProjectIdentityArgs{...}
+type GetProjectIdentityInput interface {
+	pulumi.Input
+
+	ToGetProjectIdentityOutput() GetProjectIdentityOutput
+	ToGetProjectIdentityOutputWithContext(context.Context) GetProjectIdentityOutput
+}
+
+type GetProjectIdentityArgs struct {
+	// The list of User Assigned Managed Identity IDs assigned to this Dev Center Project.
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
+	// The Principal ID of the System Assigned Managed Service Identity that is configured on this Dev Center Project.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// The Tenant ID of the System Assigned Managed Service Identity that is configured on this Dev Center Project.
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+	// The type of Managed Service Identity that is configured on this Dev Center Project.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetProjectIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetProjectIdentity)(nil)).Elem()
+}
+
+func (i GetProjectIdentityArgs) ToGetProjectIdentityOutput() GetProjectIdentityOutput {
+	return i.ToGetProjectIdentityOutputWithContext(context.Background())
+}
+
+func (i GetProjectIdentityArgs) ToGetProjectIdentityOutputWithContext(ctx context.Context) GetProjectIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetProjectIdentityOutput)
+}
+
+// GetProjectIdentityArrayInput is an input type that accepts GetProjectIdentityArray and GetProjectIdentityArrayOutput values.
+// You can construct a concrete instance of `GetProjectIdentityArrayInput` via:
+//
+//	GetProjectIdentityArray{ GetProjectIdentityArgs{...} }
+type GetProjectIdentityArrayInput interface {
+	pulumi.Input
+
+	ToGetProjectIdentityArrayOutput() GetProjectIdentityArrayOutput
+	ToGetProjectIdentityArrayOutputWithContext(context.Context) GetProjectIdentityArrayOutput
+}
+
+type GetProjectIdentityArray []GetProjectIdentityInput
+
+func (GetProjectIdentityArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetProjectIdentity)(nil)).Elem()
+}
+
+func (i GetProjectIdentityArray) ToGetProjectIdentityArrayOutput() GetProjectIdentityArrayOutput {
+	return i.ToGetProjectIdentityArrayOutputWithContext(context.Background())
+}
+
+func (i GetProjectIdentityArray) ToGetProjectIdentityArrayOutputWithContext(ctx context.Context) GetProjectIdentityArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetProjectIdentityArrayOutput)
+}
+
+type GetProjectIdentityOutput struct{ *pulumi.OutputState }
+
+func (GetProjectIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetProjectIdentity)(nil)).Elem()
+}
+
+func (o GetProjectIdentityOutput) ToGetProjectIdentityOutput() GetProjectIdentityOutput {
+	return o
+}
+
+func (o GetProjectIdentityOutput) ToGetProjectIdentityOutputWithContext(ctx context.Context) GetProjectIdentityOutput {
+	return o
+}
+
+// The list of User Assigned Managed Identity IDs assigned to this Dev Center Project.
+func (o GetProjectIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetProjectIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
+// The Principal ID of the System Assigned Managed Service Identity that is configured on this Dev Center Project.
+func (o GetProjectIdentityOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetProjectIdentity) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// The Tenant ID of the System Assigned Managed Service Identity that is configured on this Dev Center Project.
+func (o GetProjectIdentityOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetProjectIdentity) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// The type of Managed Service Identity that is configured on this Dev Center Project.
+func (o GetProjectIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetProjectIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetProjectIdentityArrayOutput struct{ *pulumi.OutputState }
+
+func (GetProjectIdentityArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetProjectIdentity)(nil)).Elem()
+}
+
+func (o GetProjectIdentityArrayOutput) ToGetProjectIdentityArrayOutput() GetProjectIdentityArrayOutput {
+	return o
+}
+
+func (o GetProjectIdentityArrayOutput) ToGetProjectIdentityArrayOutputWithContext(ctx context.Context) GetProjectIdentityArrayOutput {
+	return o
+}
+
+func (o GetProjectIdentityArrayOutput) Index(i pulumi.IntInput) GetProjectIdentityOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetProjectIdentity {
+		return vs[0].([]GetProjectIdentity)[vs[1].(int)]
+	}).(GetProjectIdentityOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogCatalogAdogitInput)(nil)).Elem(), CatalogCatalogAdogitArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogCatalogAdogitPtrInput)(nil)).Elem(), CatalogCatalogAdogitArgs{})
@@ -1094,6 +1820,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectEnvironmentTypeUserRoleAssignmentArrayInput)(nil)).Elem(), ProjectEnvironmentTypeUserRoleAssignmentArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectIdentityInput)(nil)).Elem(), ProjectIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectIdentityPtrInput)(nil)).Elem(), ProjectIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCatalogCatalogAdogitInput)(nil)).Elem(), GetCatalogCatalogAdogitArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCatalogCatalogAdogitArrayInput)(nil)).Elem(), GetCatalogCatalogAdogitArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCatalogCatalogGithubInput)(nil)).Elem(), GetCatalogCatalogGithubArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCatalogCatalogGithubArrayInput)(nil)).Elem(), GetCatalogCatalogGithubArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIdentityInput)(nil)).Elem(), GetIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIdentityArrayInput)(nil)).Elem(), GetIdentityArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetProjectEnvironmentTypeIdentityInput)(nil)).Elem(), GetProjectEnvironmentTypeIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetProjectEnvironmentTypeIdentityArrayInput)(nil)).Elem(), GetProjectEnvironmentTypeIdentityArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetProjectEnvironmentTypeUserRoleAssignmentInput)(nil)).Elem(), GetProjectEnvironmentTypeUserRoleAssignmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetProjectEnvironmentTypeUserRoleAssignmentArrayInput)(nil)).Elem(), GetProjectEnvironmentTypeUserRoleAssignmentArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetProjectIdentityInput)(nil)).Elem(), GetProjectIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetProjectIdentityArrayInput)(nil)).Elem(), GetProjectIdentityArray{})
 	pulumi.RegisterOutputType(CatalogCatalogAdogitOutput{})
 	pulumi.RegisterOutputType(CatalogCatalogAdogitPtrOutput{})
 	pulumi.RegisterOutputType(CatalogCatalogGithubOutput{})
@@ -1106,4 +1844,16 @@ func init() {
 	pulumi.RegisterOutputType(ProjectEnvironmentTypeUserRoleAssignmentArrayOutput{})
 	pulumi.RegisterOutputType(ProjectIdentityOutput{})
 	pulumi.RegisterOutputType(ProjectIdentityPtrOutput{})
+	pulumi.RegisterOutputType(GetCatalogCatalogAdogitOutput{})
+	pulumi.RegisterOutputType(GetCatalogCatalogAdogitArrayOutput{})
+	pulumi.RegisterOutputType(GetCatalogCatalogGithubOutput{})
+	pulumi.RegisterOutputType(GetCatalogCatalogGithubArrayOutput{})
+	pulumi.RegisterOutputType(GetIdentityOutput{})
+	pulumi.RegisterOutputType(GetIdentityArrayOutput{})
+	pulumi.RegisterOutputType(GetProjectEnvironmentTypeIdentityOutput{})
+	pulumi.RegisterOutputType(GetProjectEnvironmentTypeIdentityArrayOutput{})
+	pulumi.RegisterOutputType(GetProjectEnvironmentTypeUserRoleAssignmentOutput{})
+	pulumi.RegisterOutputType(GetProjectEnvironmentTypeUserRoleAssignmentArrayOutput{})
+	pulumi.RegisterOutputType(GetProjectIdentityOutput{})
+	pulumi.RegisterOutputType(GetProjectIdentityArrayOutput{})
 }

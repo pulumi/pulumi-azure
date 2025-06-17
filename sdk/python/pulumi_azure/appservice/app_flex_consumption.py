@@ -39,6 +39,7 @@ class AppFlexConsumptionArgs:
                  client_certificate_mode: Optional[pulumi.Input[builtins.str]] = None,
                  connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input['AppFlexConsumptionConnectionStringArgs']]]] = None,
                  enabled: Optional[pulumi.Input[builtins.bool]] = None,
+                 https_only: Optional[pulumi.Input[builtins.bool]] = None,
                  identity: Optional[pulumi.Input['AppFlexConsumptionIdentityArgs']] = None,
                  instance_memory_in_mb: Optional[pulumi.Input[builtins.int]] = None,
                  location: Optional[pulumi.Input[builtins.str]] = None,
@@ -72,6 +73,7 @@ class AppFlexConsumptionArgs:
         :param pulumi.Input[builtins.str] client_certificate_mode: The mode of the Function App's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. Defaults to `Optional`.
         :param pulumi.Input[Sequence[pulumi.Input['AppFlexConsumptionConnectionStringArgs']]] connection_strings: One or more `connection_string` blocks as defined below.
         :param pulumi.Input[builtins.bool] enabled: Is the Function App enabled? Defaults to `true`.
+        :param pulumi.Input[builtins.bool] https_only: Is Https Connection enforced to the function app. Defaults to `false`
         :param pulumi.Input['AppFlexConsumptionIdentityArgs'] identity: A `identity` block as defined below.
         :param pulumi.Input[builtins.int] instance_memory_in_mb: The memory size of the instances on which your app runs. The [currently supported values](https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-plan#instance-memory) are `2048` or `4096`.
         :param pulumi.Input[builtins.str] location: The Azure Region where the Function App should exist. Changing this forces a new Function App to be created.
@@ -119,6 +121,8 @@ class AppFlexConsumptionArgs:
             pulumi.set(__self__, "connection_strings", connection_strings)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
+        if https_only is not None:
+            pulumi.set(__self__, "https_only", https_only)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if instance_memory_in_mb is not None:
@@ -352,6 +356,18 @@ class AppFlexConsumptionArgs:
         pulumi.set(self, "enabled", value)
 
     @property
+    @pulumi.getter(name="httpsOnly")
+    def https_only(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        Is Https Connection enforced to the function app. Defaults to `false`
+        """
+        return pulumi.get(self, "https_only")
+
+    @https_only.setter
+    def https_only(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "https_only", value)
+
+    @property
     @pulumi.getter
     def identity(self) -> Optional[pulumi.Input['AppFlexConsumptionIdentityArgs']]:
         """
@@ -528,6 +544,7 @@ class _AppFlexConsumptionState:
                  default_hostname: Optional[pulumi.Input[builtins.str]] = None,
                  enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  hosting_environment_id: Optional[pulumi.Input[builtins.str]] = None,
+                 https_only: Optional[pulumi.Input[builtins.bool]] = None,
                  identity: Optional[pulumi.Input['AppFlexConsumptionIdentityArgs']] = None,
                  instance_memory_in_mb: Optional[pulumi.Input[builtins.int]] = None,
                  kind: Optional[pulumi.Input[builtins.str]] = None,
@@ -570,6 +587,7 @@ class _AppFlexConsumptionState:
         :param pulumi.Input[builtins.str] default_hostname: The default hostname of the Linux Function App.
         :param pulumi.Input[builtins.bool] enabled: Is the Function App enabled? Defaults to `true`.
         :param pulumi.Input[builtins.str] hosting_environment_id: The ID of the App Service Environment used by Function App.
+        :param pulumi.Input[builtins.bool] https_only: Is Https Connection enforced to the function app. Defaults to `false`
         :param pulumi.Input['AppFlexConsumptionIdentityArgs'] identity: A `identity` block as defined below.
         :param pulumi.Input[builtins.int] instance_memory_in_mb: The memory size of the instances on which your app runs. The [currently supported values](https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-plan#instance-memory) are `2048` or `4096`.
         :param pulumi.Input[builtins.str] kind: The Kind value for this Linux Function App.
@@ -629,6 +647,8 @@ class _AppFlexConsumptionState:
             pulumi.set(__self__, "enabled", enabled)
         if hosting_environment_id is not None:
             pulumi.set(__self__, "hosting_environment_id", hosting_environment_id)
+        if https_only is not None:
+            pulumi.set(__self__, "https_only", https_only)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if instance_memory_in_mb is not None:
@@ -828,6 +848,18 @@ class _AppFlexConsumptionState:
     @hosting_environment_id.setter
     def hosting_environment_id(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "hosting_environment_id", value)
+
+    @property
+    @pulumi.getter(name="httpsOnly")
+    def https_only(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        Is Https Connection enforced to the function app. Defaults to `false`
+        """
+        return pulumi.get(self, "https_only")
+
+    @https_only.setter
+    def https_only(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "https_only", value)
 
     @property
     @pulumi.getter
@@ -1174,6 +1206,7 @@ class AppFlexConsumption(pulumi.CustomResource):
                  client_certificate_mode: Optional[pulumi.Input[builtins.str]] = None,
                  connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AppFlexConsumptionConnectionStringArgs', 'AppFlexConsumptionConnectionStringArgsDict']]]]] = None,
                  enabled: Optional[pulumi.Input[builtins.bool]] = None,
+                 https_only: Optional[pulumi.Input[builtins.bool]] = None,
                  identity: Optional[pulumi.Input[Union['AppFlexConsumptionIdentityArgs', 'AppFlexConsumptionIdentityArgsDict']]] = None,
                  instance_memory_in_mb: Optional[pulumi.Input[builtins.int]] = None,
                  location: Optional[pulumi.Input[builtins.str]] = None,
@@ -1271,6 +1304,7 @@ class AppFlexConsumption(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] client_certificate_mode: The mode of the Function App's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. Defaults to `Optional`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AppFlexConsumptionConnectionStringArgs', 'AppFlexConsumptionConnectionStringArgsDict']]]] connection_strings: One or more `connection_string` blocks as defined below.
         :param pulumi.Input[builtins.bool] enabled: Is the Function App enabled? Defaults to `true`.
+        :param pulumi.Input[builtins.bool] https_only: Is Https Connection enforced to the function app. Defaults to `false`
         :param pulumi.Input[Union['AppFlexConsumptionIdentityArgs', 'AppFlexConsumptionIdentityArgsDict']] identity: A `identity` block as defined below.
         :param pulumi.Input[builtins.int] instance_memory_in_mb: The memory size of the instances on which your app runs. The [currently supported values](https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-plan#instance-memory) are `2048` or `4096`.
         :param pulumi.Input[builtins.str] location: The Azure Region where the Function App should exist. Changing this forces a new Function App to be created.
@@ -1393,6 +1427,7 @@ class AppFlexConsumption(pulumi.CustomResource):
                  client_certificate_mode: Optional[pulumi.Input[builtins.str]] = None,
                  connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AppFlexConsumptionConnectionStringArgs', 'AppFlexConsumptionConnectionStringArgsDict']]]]] = None,
                  enabled: Optional[pulumi.Input[builtins.bool]] = None,
+                 https_only: Optional[pulumi.Input[builtins.bool]] = None,
                  identity: Optional[pulumi.Input[Union['AppFlexConsumptionIdentityArgs', 'AppFlexConsumptionIdentityArgsDict']]] = None,
                  instance_memory_in_mb: Optional[pulumi.Input[builtins.int]] = None,
                  location: Optional[pulumi.Input[builtins.str]] = None,
@@ -1432,6 +1467,7 @@ class AppFlexConsumption(pulumi.CustomResource):
             __props__.__dict__["client_certificate_mode"] = client_certificate_mode
             __props__.__dict__["connection_strings"] = connection_strings
             __props__.__dict__["enabled"] = enabled
+            __props__.__dict__["https_only"] = https_only
             __props__.__dict__["identity"] = identity
             __props__.__dict__["instance_memory_in_mb"] = instance_memory_in_mb
             __props__.__dict__["location"] = location
@@ -1502,6 +1538,7 @@ class AppFlexConsumption(pulumi.CustomResource):
             default_hostname: Optional[pulumi.Input[builtins.str]] = None,
             enabled: Optional[pulumi.Input[builtins.bool]] = None,
             hosting_environment_id: Optional[pulumi.Input[builtins.str]] = None,
+            https_only: Optional[pulumi.Input[builtins.bool]] = None,
             identity: Optional[pulumi.Input[Union['AppFlexConsumptionIdentityArgs', 'AppFlexConsumptionIdentityArgsDict']]] = None,
             instance_memory_in_mb: Optional[pulumi.Input[builtins.int]] = None,
             kind: Optional[pulumi.Input[builtins.str]] = None,
@@ -1549,6 +1586,7 @@ class AppFlexConsumption(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] default_hostname: The default hostname of the Linux Function App.
         :param pulumi.Input[builtins.bool] enabled: Is the Function App enabled? Defaults to `true`.
         :param pulumi.Input[builtins.str] hosting_environment_id: The ID of the App Service Environment used by Function App.
+        :param pulumi.Input[builtins.bool] https_only: Is Https Connection enforced to the function app. Defaults to `false`
         :param pulumi.Input[Union['AppFlexConsumptionIdentityArgs', 'AppFlexConsumptionIdentityArgsDict']] identity: A `identity` block as defined below.
         :param pulumi.Input[builtins.int] instance_memory_in_mb: The memory size of the instances on which your app runs. The [currently supported values](https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-plan#instance-memory) are `2048` or `4096`.
         :param pulumi.Input[builtins.str] kind: The Kind value for this Linux Function App.
@@ -1600,6 +1638,7 @@ class AppFlexConsumption(pulumi.CustomResource):
         __props__.__dict__["default_hostname"] = default_hostname
         __props__.__dict__["enabled"] = enabled
         __props__.__dict__["hosting_environment_id"] = hosting_environment_id
+        __props__.__dict__["https_only"] = https_only
         __props__.__dict__["identity"] = identity
         __props__.__dict__["instance_memory_in_mb"] = instance_memory_in_mb
         __props__.__dict__["kind"] = kind
@@ -1725,6 +1764,14 @@ class AppFlexConsumption(pulumi.CustomResource):
         The ID of the App Service Environment used by Function App.
         """
         return pulumi.get(self, "hosting_environment_id")
+
+    @property
+    @pulumi.getter(name="httpsOnly")
+    def https_only(self) -> pulumi.Output[Optional[builtins.bool]]:
+        """
+        Is Https Connection enforced to the function app. Defaults to `false`
+        """
+        return pulumi.get(self, "https_only")
 
     @property
     @pulumi.getter

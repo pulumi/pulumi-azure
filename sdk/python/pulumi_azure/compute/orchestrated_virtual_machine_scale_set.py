@@ -1383,6 +1383,13 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
             zones=["1"])
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Compute`: 2024-11-01
+
         ## Import
 
         An Virtual Machine Scale Set can be imported using the `resource id`, e.g.
@@ -1482,6 +1489,13 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
             platform_fault_domain_count=1,
             zones=["1"])
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Compute`: 2024-11-01
 
         ## Import
 

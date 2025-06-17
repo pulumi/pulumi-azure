@@ -593,6 +593,13 @@ class FrontdoorOrigin(pulumi.CustomResource):
         * Private Link Origin with Linux Web Application
         * Private Link Origin with Internal Load Balancer
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Cdn`: 2024-02-01
+
         ## Import
 
         Front Door Origins can be imported using the `resource id`, e.g.
@@ -793,6 +800,13 @@ class FrontdoorOrigin(pulumi.CustomResource):
         * Private Link Origin with Storage Account Static Web Site
         * Private Link Origin with Linux Web Application
         * Private Link Origin with Internal Load Balancer
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Cdn`: 2024-02-01
 
         ## Import
 

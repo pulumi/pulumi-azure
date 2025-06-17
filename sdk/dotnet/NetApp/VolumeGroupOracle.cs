@@ -164,6 +164,252 @@ namespace Pulumi.Azure.NetApp
     /// });
     /// ```
     /// 
+    /// ### Cross-Region Replication
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     {
+    ///         Name = $"{prefix}-resources",
+    ///         Location = location,
+    ///         Tags = 
+    ///         {
+    ///             { "SkipNRMSNSG", "true" },
+    ///         },
+    ///     });
+    /// 
+    ///     // Primary region networking
+    ///     var examplePrimary = new Azure.Network.VirtualNetwork("example_primary", new()
+    ///     {
+    ///         Name = $"{prefix}-vnet-primary",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "10.47.0.0/16",
+    ///         },
+    ///     });
+    /// 
+    ///     var examplePrimarySubnet = new Azure.Network.Subnet("example_primary", new()
+    ///     {
+    ///         Name = $"{prefix}-delegated-subnet-primary",
+    ///         ResourceGroupName = example.Name,
+    ///         VirtualNetworkName = examplePrimary.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.47.2.0/24",
+    ///         },
+    ///         Delegations = new[]
+    ///         {
+    ///             new Azure.Network.Inputs.SubnetDelegationArgs
+    ///             {
+    ///                 Name = "exampledelegation",
+    ///                 ServiceDelegation = new Azure.Network.Inputs.SubnetDelegationServiceDelegationArgs
+    ///                 {
+    ///                     Name = "Microsoft.Netapp/volumes",
+    ///                     Actions = new[]
+    ///                     {
+    ///                         "Microsoft.Network/networkinterfaces/*",
+    ///                         "Microsoft.Network/virtualNetworks/subnets/join/action",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     // Secondary region networking
+    ///     var exampleSecondary = new Azure.Network.VirtualNetwork("example_secondary", new()
+    ///     {
+    ///         Name = $"{prefix}-vnet-secondary",
+    ///         Location = altLocation,
+    ///         ResourceGroupName = example.Name,
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "10.48.0.0/16",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleSecondarySubnet = new Azure.Network.Subnet("example_secondary", new()
+    ///     {
+    ///         Name = $"{prefix}-delegated-subnet-secondary",
+    ///         ResourceGroupName = example.Name,
+    ///         VirtualNetworkName = exampleSecondary.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.48.2.0/24",
+    ///         },
+    ///         Delegations = new[]
+    ///         {
+    ///             new Azure.Network.Inputs.SubnetDelegationArgs
+    ///             {
+    ///                 Name = "exampledelegation",
+    ///                 ServiceDelegation = new Azure.Network.Inputs.SubnetDelegationServiceDelegationArgs
+    ///                 {
+    ///                     Name = "Microsoft.Netapp/volumes",
+    ///                     Actions = new[]
+    ///                     {
+    ///                         "Microsoft.Network/networkinterfaces/*",
+    ///                         "Microsoft.Network/virtualNetworks/subnets/join/action",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     // Primary region NetApp infrastructure
+    ///     var examplePrimaryAccount = new Azure.NetApp.Account("example_primary", new()
+    ///     {
+    ///         Name = $"{prefix}-netapp-account-primary",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             examplePrimarySubnet,
+    ///         },
+    ///     });
+    /// 
+    ///     var examplePrimaryPool = new Azure.NetApp.Pool("example_primary", new()
+    ///     {
+    ///         Name = $"{prefix}-netapp-pool-primary",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         AccountName = examplePrimaryAccount.Name,
+    ///         ServiceLevel = "Standard",
+    ///         SizeInTb = 4,
+    ///         QosType = "Manual",
+    ///     });
+    /// 
+    ///     // Secondary region NetApp infrastructure
+    ///     var exampleSecondaryAccount = new Azure.NetApp.Account("example_secondary", new()
+    ///     {
+    ///         Name = $"{prefix}-netapp-account-secondary",
+    ///         Location = altLocation,
+    ///         ResourceGroupName = example.Name,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             exampleSecondarySubnet,
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleSecondaryPool = new Azure.NetApp.Pool("example_secondary", new()
+    ///     {
+    ///         Name = $"{prefix}-netapp-pool-secondary",
+    ///         Location = altLocation,
+    ///         ResourceGroupName = example.Name,
+    ///         AccountName = exampleSecondaryAccount.Name,
+    ///         ServiceLevel = "Standard",
+    ///         SizeInTb = 4,
+    ///         QosType = "Manual",
+    ///     });
+    /// 
+    ///     // Primary Oracle volume group
+    ///     var examplePrimaryVolumeGroupOracle = new Azure.NetApp.VolumeGroupOracle("example_primary", new()
+    ///     {
+    ///         Name = $"{prefix}-NetAppVolumeGroupOracle-primary",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         AccountName = examplePrimaryAccount.Name,
+    ///         GroupDescription = "Primary Oracle volume group for CRR",
+    ///         ApplicationIdentifier = "TST",
+    ///         Volumes = new[]
+    ///         {
+    ///             new Azure.NetApp.Inputs.VolumeGroupOracleVolumeArgs
+    ///             {
+    ///                 Name = $"{prefix}-volume-ora1-primary",
+    ///                 VolumePath = $"{prefix}-my-unique-file-ora-path-1-primary",
+    ///                 ServiceLevel = "Standard",
+    ///                 CapacityPoolId = examplePrimaryPool.Id,
+    ///                 SubnetId = examplePrimarySubnet.Id,
+    ///                 VolumeSpecName = "ora-data1",
+    ///                 StorageQuotaInGb = 1024,
+    ///                 ThroughputInMibps = 24,
+    ///                 Protocols = "NFSv4.1",
+    ///                 SecurityStyle = "unix",
+    ///                 SnapshotDirectoryVisible = false,
+    ///                 ExportPolicyRules = new[]
+    ///                 {
+    ///                     new Azure.NetApp.Inputs.VolumeGroupOracleVolumeExportPolicyRuleArgs
+    ///                     {
+    ///                         RuleIndex = 1,
+    ///                         AllowedClients = "0.0.0.0/0",
+    ///                         Nfsv3Enabled = false,
+    ///                         Nfsv41Enabled = true,
+    ///                         UnixReadOnly = false,
+    ///                         UnixReadWrite = true,
+    ///                         RootAccessEnabled = false,
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     // Secondary Oracle volume group with CRR
+    ///     var exampleSecondaryVolumeGroupOracle = new Azure.NetApp.VolumeGroupOracle("example_secondary", new()
+    ///     {
+    ///         Name = $"{prefix}-NetAppVolumeGroupOracle-secondary",
+    ///         Location = altLocation,
+    ///         ResourceGroupName = example.Name,
+    ///         AccountName = exampleSecondaryAccount.Name,
+    ///         GroupDescription = "Secondary Oracle volume group for CRR",
+    ///         ApplicationIdentifier = "TST",
+    ///         Volumes = new[]
+    ///         {
+    ///             new Azure.NetApp.Inputs.VolumeGroupOracleVolumeArgs
+    ///             {
+    ///                 Name = $"{prefix}-volume-ora1-secondary",
+    ///                 VolumePath = $"{prefix}-my-unique-file-ora-path-1-secondary",
+    ///                 ServiceLevel = "Standard",
+    ///                 CapacityPoolId = exampleSecondaryPool.Id,
+    ///                 SubnetId = exampleSecondarySubnet.Id,
+    ///                 VolumeSpecName = "ora-data1",
+    ///                 StorageQuotaInGb = 1024,
+    ///                 ThroughputInMibps = 24,
+    ///                 Protocols = "NFSv4.1",
+    ///                 SecurityStyle = "unix",
+    ///                 SnapshotDirectoryVisible = false,
+    ///                 ExportPolicyRules = new[]
+    ///                 {
+    ///                     new Azure.NetApp.Inputs.VolumeGroupOracleVolumeExportPolicyRuleArgs
+    ///                     {
+    ///                         RuleIndex = 1,
+    ///                         AllowedClients = "0.0.0.0/0",
+    ///                         Nfsv3Enabled = false,
+    ///                         Nfsv41Enabled = true,
+    ///                         UnixReadOnly = false,
+    ///                         UnixReadWrite = true,
+    ///                         RootAccessEnabled = false,
+    ///                     },
+    ///                 },
+    ///                 DataProtectionReplication = new Azure.NetApp.Inputs.VolumeGroupOracleVolumeDataProtectionReplicationArgs
+    ///                 {
+    ///                     EndpointType = "dst",
+    ///                     RemoteVolumeLocation = example.Location,
+    ///                     RemoteVolumeResourceId = examplePrimaryVolumeGroupOracle.Volumes.Apply(volumes =&gt; volumes[0].Id),
+    ///                     ReplicationFrequency = "10minutes",
+    ///                 },
+    ///             },
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             examplePrimaryVolumeGroupOracle,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## API Providers
     /// 
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;

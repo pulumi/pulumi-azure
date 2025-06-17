@@ -159,8 +159,8 @@ class AccountStaticWebsite(pulumi.CustomResource):
             tags={
                 "environment": "staging",
             })
-        test = azure.storage.AccountStaticWebsite("test",
-            storage_account_id=test_azurerm_storage_account["id"],
+        example_account_static_website = azure.storage.AccountStaticWebsite("example",
+            storage_account_id=example_account.id,
             error404_document="custom_not_found.html",
             index_document="custom_index.html")
         ```
@@ -206,8 +206,8 @@ class AccountStaticWebsite(pulumi.CustomResource):
             tags={
                 "environment": "staging",
             })
-        test = azure.storage.AccountStaticWebsite("test",
-            storage_account_id=test_azurerm_storage_account["id"],
+        example_account_static_website = azure.storage.AccountStaticWebsite("example",
+            storage_account_id=example_account.id,
             error404_document="custom_not_found.html",
             index_document="custom_index.html")
         ```

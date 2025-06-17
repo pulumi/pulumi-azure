@@ -46,7 +46,7 @@ class RegistryArgs:
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group in which to create the Container Registry. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] sku: The SKU name of the container registry. Possible values are `Basic`, `Standard` and `Premium`.
         :param pulumi.Input[builtins.bool] admin_enabled: Specifies whether the admin user is enabled. Defaults to `false`.
-        :param pulumi.Input[builtins.bool] anonymous_pull_enabled: Whether allows anonymous (unauthenticated) pull access to this Container Registry? This is only supported on resources with the `Standard` or `Premium` SKU.
+        :param pulumi.Input[builtins.bool] anonymous_pull_enabled: Whether to allow anonymous (unauthenticated) pull access to this Container Registry. This is only supported on resources with the `Standard` or `Premium` SKU.
         :param pulumi.Input[builtins.bool] data_endpoint_enabled: Whether to enable dedicated data endpoints for this Container Registry? This is only supported on resources with the `Premium` SKU.
         :param pulumi.Input['RegistryEncryptionArgs'] encryption: An `encryption` block as documented below.
         :param pulumi.Input[builtins.bool] export_policy_enabled: Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `public_network_access_enabled` is also set to `false`.
@@ -62,7 +62,7 @@ class RegistryArgs:
         :param pulumi.Input['RegistryIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] name: Specifies the name of the Container Registry. Only Alphanumeric characters allowed. Changing this forces a new resource to be created.
-        :param pulumi.Input[builtins.str] network_rule_bypass_option: Whether to allow trusted Azure services to access a network restricted Container Registry? Possible values are `None` and `AzureServices`. Defaults to `AzureServices`.
+        :param pulumi.Input[builtins.str] network_rule_bypass_option: Whether to allow trusted Azure services to access a network-restricted Container Registry? Possible values are `None` and `AzureServices`. Defaults to `AzureServices`.
         :param pulumi.Input['RegistryNetworkRuleSetArgs'] network_rule_set: A `network_rule_set` block as documented below.
         :param pulumi.Input[builtins.bool] public_network_access_enabled: Whether public network access is allowed for the container registry. Defaults to `true`.
         :param pulumi.Input[builtins.bool] quarantine_policy_enabled: Boolean value that indicates whether quarantine policy is enabled.
@@ -148,7 +148,7 @@ class RegistryArgs:
     @pulumi.getter(name="anonymousPullEnabled")
     def anonymous_pull_enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Whether allows anonymous (unauthenticated) pull access to this Container Registry? This is only supported on resources with the `Standard` or `Premium` SKU.
+        Whether to allow anonymous (unauthenticated) pull access to this Container Registry. This is only supported on resources with the `Standard` or `Premium` SKU.
         """
         return pulumi.get(self, "anonymous_pull_enabled")
 
@@ -252,7 +252,7 @@ class RegistryArgs:
     @pulumi.getter(name="networkRuleBypassOption")
     def network_rule_bypass_option(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Whether to allow trusted Azure services to access a network restricted Container Registry? Possible values are `None` and `AzureServices`. Defaults to `AzureServices`.
+        Whether to allow trusted Azure services to access a network-restricted Container Registry? Possible values are `None` and `AzureServices`. Defaults to `AzureServices`.
         """
         return pulumi.get(self, "network_rule_bypass_option")
 
@@ -375,7 +375,7 @@ class _RegistryState:
         :param pulumi.Input[builtins.bool] admin_enabled: Specifies whether the admin user is enabled. Defaults to `false`.
         :param pulumi.Input[builtins.str] admin_password: The Password associated with the Container Registry Admin account - if the admin account is enabled.
         :param pulumi.Input[builtins.str] admin_username: The Username associated with the Container Registry Admin account - if the admin account is enabled.
-        :param pulumi.Input[builtins.bool] anonymous_pull_enabled: Whether allows anonymous (unauthenticated) pull access to this Container Registry? This is only supported on resources with the `Standard` or `Premium` SKU.
+        :param pulumi.Input[builtins.bool] anonymous_pull_enabled: Whether to allow anonymous (unauthenticated) pull access to this Container Registry. This is only supported on resources with the `Standard` or `Premium` SKU.
         :param pulumi.Input[builtins.bool] data_endpoint_enabled: Whether to enable dedicated data endpoints for this Container Registry? This is only supported on resources with the `Premium` SKU.
         :param pulumi.Input['RegistryEncryptionArgs'] encryption: An `encryption` block as documented below.
         :param pulumi.Input[builtins.bool] export_policy_enabled: Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `public_network_access_enabled` is also set to `false`.
@@ -392,7 +392,7 @@ class _RegistryState:
         :param pulumi.Input[builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] login_server: The URL that can be used to log into the container registry.
         :param pulumi.Input[builtins.str] name: Specifies the name of the Container Registry. Only Alphanumeric characters allowed. Changing this forces a new resource to be created.
-        :param pulumi.Input[builtins.str] network_rule_bypass_option: Whether to allow trusted Azure services to access a network restricted Container Registry? Possible values are `None` and `AzureServices`. Defaults to `AzureServices`.
+        :param pulumi.Input[builtins.str] network_rule_bypass_option: Whether to allow trusted Azure services to access a network-restricted Container Registry? Possible values are `None` and `AzureServices`. Defaults to `AzureServices`.
         :param pulumi.Input['RegistryNetworkRuleSetArgs'] network_rule_set: A `network_rule_set` block as documented below.
         :param pulumi.Input[builtins.bool] public_network_access_enabled: Whether public network access is allowed for the container registry. Defaults to `true`.
         :param pulumi.Input[builtins.bool] quarantine_policy_enabled: Boolean value that indicates whether quarantine policy is enabled.
@@ -488,7 +488,7 @@ class _RegistryState:
     @pulumi.getter(name="anonymousPullEnabled")
     def anonymous_pull_enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Whether allows anonymous (unauthenticated) pull access to this Container Registry? This is only supported on resources with the `Standard` or `Premium` SKU.
+        Whether to allow anonymous (unauthenticated) pull access to this Container Registry. This is only supported on resources with the `Standard` or `Premium` SKU.
         """
         return pulumi.get(self, "anonymous_pull_enabled")
 
@@ -604,7 +604,7 @@ class _RegistryState:
     @pulumi.getter(name="networkRuleBypassOption")
     def network_rule_bypass_option(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Whether to allow trusted Azure services to access a network restricted Container Registry? Possible values are `None` and `AzureServices`. Defaults to `AzureServices`.
+        Whether to allow trusted Azure services to access a network-restricted Container Registry? Possible values are `None` and `AzureServices`. Defaults to `AzureServices`.
         """
         return pulumi.get(self, "network_rule_bypass_option")
 
@@ -864,7 +864,7 @@ class Registry(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.bool] admin_enabled: Specifies whether the admin user is enabled. Defaults to `false`.
-        :param pulumi.Input[builtins.bool] anonymous_pull_enabled: Whether allows anonymous (unauthenticated) pull access to this Container Registry? This is only supported on resources with the `Standard` or `Premium` SKU.
+        :param pulumi.Input[builtins.bool] anonymous_pull_enabled: Whether to allow anonymous (unauthenticated) pull access to this Container Registry. This is only supported on resources with the `Standard` or `Premium` SKU.
         :param pulumi.Input[builtins.bool] data_endpoint_enabled: Whether to enable dedicated data endpoints for this Container Registry? This is only supported on resources with the `Premium` SKU.
         :param pulumi.Input[Union['RegistryEncryptionArgs', 'RegistryEncryptionArgsDict']] encryption: An `encryption` block as documented below.
         :param pulumi.Input[builtins.bool] export_policy_enabled: Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `public_network_access_enabled` is also set to `false`.
@@ -880,7 +880,7 @@ class Registry(pulumi.CustomResource):
         :param pulumi.Input[Union['RegistryIdentityArgs', 'RegistryIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] name: Specifies the name of the Container Registry. Only Alphanumeric characters allowed. Changing this forces a new resource to be created.
-        :param pulumi.Input[builtins.str] network_rule_bypass_option: Whether to allow trusted Azure services to access a network restricted Container Registry? Possible values are `None` and `AzureServices`. Defaults to `AzureServices`.
+        :param pulumi.Input[builtins.str] network_rule_bypass_option: Whether to allow trusted Azure services to access a network-restricted Container Registry? Possible values are `None` and `AzureServices`. Defaults to `AzureServices`.
         :param pulumi.Input[Union['RegistryNetworkRuleSetArgs', 'RegistryNetworkRuleSetArgsDict']] network_rule_set: A `network_rule_set` block as documented below.
         :param pulumi.Input[builtins.bool] public_network_access_enabled: Whether public network access is allowed for the container registry. Defaults to `true`.
         :param pulumi.Input[builtins.bool] quarantine_policy_enabled: Boolean value that indicates whether quarantine policy is enabled.
@@ -1124,7 +1124,7 @@ class Registry(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] admin_enabled: Specifies whether the admin user is enabled. Defaults to `false`.
         :param pulumi.Input[builtins.str] admin_password: The Password associated with the Container Registry Admin account - if the admin account is enabled.
         :param pulumi.Input[builtins.str] admin_username: The Username associated with the Container Registry Admin account - if the admin account is enabled.
-        :param pulumi.Input[builtins.bool] anonymous_pull_enabled: Whether allows anonymous (unauthenticated) pull access to this Container Registry? This is only supported on resources with the `Standard` or `Premium` SKU.
+        :param pulumi.Input[builtins.bool] anonymous_pull_enabled: Whether to allow anonymous (unauthenticated) pull access to this Container Registry. This is only supported on resources with the `Standard` or `Premium` SKU.
         :param pulumi.Input[builtins.bool] data_endpoint_enabled: Whether to enable dedicated data endpoints for this Container Registry? This is only supported on resources with the `Premium` SKU.
         :param pulumi.Input[Union['RegistryEncryptionArgs', 'RegistryEncryptionArgsDict']] encryption: An `encryption` block as documented below.
         :param pulumi.Input[builtins.bool] export_policy_enabled: Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `public_network_access_enabled` is also set to `false`.
@@ -1141,7 +1141,7 @@ class Registry(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] login_server: The URL that can be used to log into the container registry.
         :param pulumi.Input[builtins.str] name: Specifies the name of the Container Registry. Only Alphanumeric characters allowed. Changing this forces a new resource to be created.
-        :param pulumi.Input[builtins.str] network_rule_bypass_option: Whether to allow trusted Azure services to access a network restricted Container Registry? Possible values are `None` and `AzureServices`. Defaults to `AzureServices`.
+        :param pulumi.Input[builtins.str] network_rule_bypass_option: Whether to allow trusted Azure services to access a network-restricted Container Registry? Possible values are `None` and `AzureServices`. Defaults to `AzureServices`.
         :param pulumi.Input[Union['RegistryNetworkRuleSetArgs', 'RegistryNetworkRuleSetArgsDict']] network_rule_set: A `network_rule_set` block as documented below.
         :param pulumi.Input[builtins.bool] public_network_access_enabled: Whether public network access is allowed for the container registry. Defaults to `true`.
         :param pulumi.Input[builtins.bool] quarantine_policy_enabled: Boolean value that indicates whether quarantine policy is enabled.
@@ -1208,7 +1208,7 @@ class Registry(pulumi.CustomResource):
     @pulumi.getter(name="anonymousPullEnabled")
     def anonymous_pull_enabled(self) -> pulumi.Output[Optional[builtins.bool]]:
         """
-        Whether allows anonymous (unauthenticated) pull access to this Container Registry? This is only supported on resources with the `Standard` or `Premium` SKU.
+        Whether to allow anonymous (unauthenticated) pull access to this Container Registry. This is only supported on resources with the `Standard` or `Premium` SKU.
         """
         return pulumi.get(self, "anonymous_pull_enabled")
 
@@ -1288,7 +1288,7 @@ class Registry(pulumi.CustomResource):
     @pulumi.getter(name="networkRuleBypassOption")
     def network_rule_bypass_option(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        Whether to allow trusted Azure services to access a network restricted Container Registry? Possible values are `None` and `AzureServices`. Defaults to `AzureServices`.
+        Whether to allow trusted Azure services to access a network-restricted Container Registry? Possible values are `None` and `AzureServices`. Defaults to `AzureServices`.
         """
         return pulumi.get(self, "network_rule_bypass_option")
 

@@ -202,7 +202,7 @@ namespace Pulumi.Azure.ContainerService
         public Output<string> AdminUsername { get; private set; } = null!;
 
         /// <summary>
-        /// Whether allows anonymous (unauthenticated) pull access to this Container Registry? This is only supported on resources with the `Standard` or `Premium` SKU.
+        /// Whether to allow anonymous (unauthenticated) pull access to this Container Registry. This is only supported on resources with the `Standard` or `Premium` SKU.
         /// </summary>
         [Output("anonymousPullEnabled")]
         public Output<bool?> AnonymousPullEnabled { get; private set; } = null!;
@@ -264,7 +264,7 @@ namespace Pulumi.Azure.ContainerService
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Whether to allow trusted Azure services to access a network restricted Container Registry? Possible values are `None` and `AzureServices`. Defaults to `AzureServices`.
+        /// Whether to allow trusted Azure services to access a network-restricted Container Registry? Possible values are `None` and `AzureServices`. Defaults to `AzureServices`.
         /// </summary>
         [Output("networkRuleBypassOption")]
         public Output<string?> NetworkRuleBypassOption { get; private set; } = null!;
@@ -380,7 +380,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<bool>? AdminEnabled { get; set; }
 
         /// <summary>
-        /// Whether allows anonymous (unauthenticated) pull access to this Container Registry? This is only supported on resources with the `Standard` or `Premium` SKU.
+        /// Whether to allow anonymous (unauthenticated) pull access to this Container Registry. This is only supported on resources with the `Standard` or `Premium` SKU.
         /// </summary>
         [Input("anonymousPullEnabled")]
         public Input<bool>? AnonymousPullEnabled { get; set; }
@@ -442,7 +442,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Whether to allow trusted Azure services to access a network restricted Container Registry? Possible values are `None` and `AzureServices`. Defaults to `AzureServices`.
+        /// Whether to allow trusted Azure services to access a network-restricted Container Registry? Possible values are `None` and `AzureServices`. Defaults to `AzureServices`.
         /// </summary>
         [Input("networkRuleBypassOption")]
         public Input<string>? NetworkRuleBypassOption { get; set; }
@@ -544,7 +544,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? AdminUsername { get; set; }
 
         /// <summary>
-        /// Whether allows anonymous (unauthenticated) pull access to this Container Registry? This is only supported on resources with the `Standard` or `Premium` SKU.
+        /// Whether to allow anonymous (unauthenticated) pull access to this Container Registry. This is only supported on resources with the `Standard` or `Premium` SKU.
         /// </summary>
         [Input("anonymousPullEnabled")]
         public Input<bool>? AnonymousPullEnabled { get; set; }
@@ -612,7 +612,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Whether to allow trusted Azure services to access a network restricted Container Registry? Possible values are `None` and `AzureServices`. Defaults to `AzureServices`.
+        /// Whether to allow trusted Azure services to access a network-restricted Container Registry? Possible values are `None` and `AzureServices`. Defaults to `AzureServices`.
         /// </summary>
         [Input("networkRuleBypassOption")]
         public Input<string>? NetworkRuleBypassOption { get; set; }

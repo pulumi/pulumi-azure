@@ -7,6 +7,7 @@ import com.pulumi.azure.Utilities;
 import com.pulumi.azure.network.VpnGatewayArgs;
 import com.pulumi.azure.network.inputs.VpnGatewayState;
 import com.pulumi.azure.network.outputs.VpnGatewayBgpSettings;
+import com.pulumi.azure.network.outputs.VpnGatewayIpConfiguration;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -14,6 +15,7 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -93,6 +95,13 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.Network`: 2024-05-01
+ * 
  * ## Import
  * 
  * VPN Gateways can be imported using the `resource id`, e.g.
@@ -131,6 +140,20 @@ public class VpnGateway extends com.pulumi.resources.CustomResource {
      */
     public Output<VpnGatewayBgpSettings> bgpSettings() {
         return this.bgpSettings;
+    }
+    /**
+     * An `ip_configuration` block as defined below.
+     * 
+     */
+    @Export(name="ipConfigurations", refs={List.class,VpnGatewayIpConfiguration.class}, tree="[0,1]")
+    private Output<List<VpnGatewayIpConfiguration>> ipConfigurations;
+
+    /**
+     * @return An `ip_configuration` block as defined below.
+     * 
+     */
+    public Output<List<VpnGatewayIpConfiguration>> ipConfigurations() {
+        return this.ipConfigurations;
     }
     /**
      * The Azure location where this VPN Gateway should be created. Changing this forces a new resource to be created.

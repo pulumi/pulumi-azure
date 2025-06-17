@@ -160,6 +160,7 @@ __all__ = [
     'VirtualNetworkGatewayVpnClientConfigurationRevokedCertificate',
     'VirtualNetworkGatewayVpnClientConfigurationRootCertificate',
     'VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnection',
+    'VirtualNetworkIpAddressPool',
     'VirtualNetworkSubnet',
     'VirtualNetworkSubnetDelegation',
     'VirtualNetworkSubnetDelegationServiceDelegation',
@@ -174,6 +175,7 @@ __all__ = [
     'VpnGatewayConnectionVpnLink',
     'VpnGatewayConnectionVpnLinkCustomBgpAddress',
     'VpnGatewayConnectionVpnLinkIpsecPolicy',
+    'VpnGatewayIpConfiguration',
     'VpnServerConfigurationAzureActiveDirectoryAuthentication',
     'VpnServerConfigurationClientRevokedCertificate',
     'VpnServerConfigurationClientRootCertificate',
@@ -262,6 +264,7 @@ __all__ = [
     'GetVpnGatewayBgpSettingResult',
     'GetVpnGatewayBgpSettingInstance0BgpPeeringAddressResult',
     'GetVpnGatewayBgpSettingInstance1BgpPeeringAddressResult',
+    'GetVpnGatewayIpConfigurationResult',
     'GetVpnServerConfigurationAzureActiveDirectoryAuthenticationResult',
     'GetVpnServerConfigurationClientRevokedCertificateResult',
     'GetVpnServerConfigurationClientRootCertificateResult',
@@ -9826,7 +9829,7 @@ class VirtualNetworkEncryption(dict):
         """
         :param builtins.str enforcement: Specifies if the encrypted Virtual Network allows VM that does not support encryption. Possible values are `DropUnencrypted` and `AllowUnencrypted`.
                
-               > **NOTE:** Currently `AllowUnencrypted` is the only supported value for the `enforcement` property as `DropUnencrypted` is not yet in public preview or general availability. Please see the [official documentation](https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-encryption-overview#limitations) for more information.
+               > **Note:** Currently `AllowUnencrypted` is the only supported value for the `enforcement` property as `DropUnencrypted` is not yet in public preview or general availability. Please see the [official documentation](https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-encryption-overview#limitations) for more information.
         """
         pulumi.set(__self__, "enforcement", enforcement)
 
@@ -9836,7 +9839,7 @@ class VirtualNetworkEncryption(dict):
         """
         Specifies if the encrypted Virtual Network allows VM that does not support encryption. Possible values are `DropUnencrypted` and `AllowUnencrypted`.
 
-        > **NOTE:** Currently `AllowUnencrypted` is the only supported value for the `enforcement` property as `DropUnencrypted` is not yet in public preview or general availability. Please see the [official documentation](https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-encryption-overview#limitations) for more information.
+        > **Note:** Currently `AllowUnencrypted` is the only supported value for the `enforcement` property as `DropUnencrypted` is not yet in public preview or general availability. Please see the [official documentation](https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-encryption-overview#limitations) for more information.
         """
         return pulumi.get(self, "enforcement")
 
@@ -11033,6 +11036,66 @@ class VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConn
 
 
 @pulumi.output_type
+class VirtualNetworkIpAddressPool(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "numberOfIpAddresses":
+            suggest = "number_of_ip_addresses"
+        elif key == "allocatedIpAddressPrefixes":
+            suggest = "allocated_ip_address_prefixes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualNetworkIpAddressPool. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualNetworkIpAddressPool.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualNetworkIpAddressPool.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 id: builtins.str,
+                 number_of_ip_addresses: builtins.str,
+                 allocated_ip_address_prefixes: Optional[Sequence[builtins.str]] = None):
+        """
+        :param builtins.str id: The ID of the Network Manager IP Address Management (IPAM) Pool.
+        :param builtins.str number_of_ip_addresses: The number of IP addresses to allocated to the Virtual Network. The value must be a string that represents a positive number, e.g., `"100"`.
+        :param Sequence[builtins.str] allocated_ip_address_prefixes: The list of IP address prefixes allocated to the Virtual Network.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "number_of_ip_addresses", number_of_ip_addresses)
+        if allocated_ip_address_prefixes is not None:
+            pulumi.set(__self__, "allocated_ip_address_prefixes", allocated_ip_address_prefixes)
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.str:
+        """
+        The ID of the Network Manager IP Address Management (IPAM) Pool.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="numberOfIpAddresses")
+    def number_of_ip_addresses(self) -> builtins.str:
+        """
+        The number of IP addresses to allocated to the Virtual Network. The value must be a string that represents a positive number, e.g., `"100"`.
+        """
+        return pulumi.get(self, "number_of_ip_addresses")
+
+    @property
+    @pulumi.getter(name="allocatedIpAddressPrefixes")
+    def allocated_ip_address_prefixes(self) -> Optional[Sequence[builtins.str]]:
+        """
+        The list of IP address prefixes allocated to the Virtual Network.
+        """
+        return pulumi.get(self, "allocated_ip_address_prefixes")
+
+
+@pulumi.output_type
 class VirtualNetworkSubnet(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -11085,14 +11148,14 @@ class VirtualNetworkSubnet(dict):
         :param builtins.str id: The ID of this subnet.
         :param builtins.str private_endpoint_network_policies: Enable or Disable network policies for the private endpoint on the subnet. Possible values are `Disabled`, `Enabled`, `NetworkSecurityGroupEnabled` and `RouteTableEnabled`. Defaults to `Disabled`.
                
-               > **NOTE:** If you don't want to use network policies like user-defined Routes and Network Security Groups, you need to set `private_endpoint_network_policies` in the subnet to `Disabled`. This setting only applies to Private Endpoints in the Subnet and affects all Private Endpoints in the Subnet.
+               > **Note:** If you don't want to use network policies like user-defined Routes and Network Security Groups, you need to set `private_endpoint_network_policies` in the subnet to `Disabled`. This setting only applies to Private Endpoints in the Subnet and affects all Private Endpoints in the Subnet.
                
-               > **NOTE:** If you want to use network policies like user-defined Routes and Network Security Groups, you need to set the `private_endpoint_network_policies` in the Subnet to `Enabled`/`NetworkSecurityGroupEnabled`/`RouteTableEnabled`. This setting only applies to Private Endpoints in the Subnet and affects all Private Endpoints in the Subnet.
+               > **Note:** If you want to use network policies like user-defined Routes and Network Security Groups, you need to set the `private_endpoint_network_policies` in the Subnet to `Enabled`/`NetworkSecurityGroupEnabled`/`RouteTableEnabled`. This setting only applies to Private Endpoints in the Subnet and affects all Private Endpoints in the Subnet.
                
-               > **NOTE:** See more details from [Manage network policies for Private Endpoints](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-endpoint-network-policy?tabs=network-policy-portal).
+               > **Note:** See more details from [Manage network policies for Private Endpoints](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-endpoint-network-policy?tabs=network-policy-portal).
         :param builtins.bool private_link_service_network_policies_enabled: Enable or Disable network policies for the private link service on the subnet. Defaults to `true`.
                
-               > **NOTE:** When configuring Azure Private Link service, the explicit setting `private_link_service_network_policies_enabled` must be set to `false` in the subnet since Private Link Service does not support network policies like user-defined Routes and Network Security Groups. This setting only affects the Private Link service. For other resources in the subnet, access is controlled based on the Network Security Group which can be configured using the `network.SubnetNetworkSecurityGroupAssociation` resource. See more details from [Manage network policies for Private Link Services](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-link-service-network-policy?tabs=private-link-network-policy-powershell).
+               > **Note:** When configuring Azure Private Link service, the explicit setting `private_link_service_network_policies_enabled` must be set to `false` in the subnet since Private Link Service does not support network policies like user-defined Routes and Network Security Groups. This setting only affects the Private Link service. For other resources in the subnet, access is controlled based on the Network Security Group which can be configured using the `network.SubnetNetworkSecurityGroupAssociation` resource. See more details from [Manage network policies for Private Link Services](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-link-service-network-policy?tabs=private-link-network-policy-powershell).
         :param builtins.str route_table_id: The ID of the Route Table that should be associated with this subnet.
         :param builtins.str security_group: The Network Security Group to associate with the subnet. (Referenced by `id`, ie. `azurerm_network_security_group.example.id`)
         :param Sequence[builtins.str] service_endpoint_policy_ids: The list of IDs of Service Endpoint Policies to associate with the subnet.
@@ -11165,11 +11228,11 @@ class VirtualNetworkSubnet(dict):
         """
         Enable or Disable network policies for the private endpoint on the subnet. Possible values are `Disabled`, `Enabled`, `NetworkSecurityGroupEnabled` and `RouteTableEnabled`. Defaults to `Disabled`.
 
-        > **NOTE:** If you don't want to use network policies like user-defined Routes and Network Security Groups, you need to set `private_endpoint_network_policies` in the subnet to `Disabled`. This setting only applies to Private Endpoints in the Subnet and affects all Private Endpoints in the Subnet.
+        > **Note:** If you don't want to use network policies like user-defined Routes and Network Security Groups, you need to set `private_endpoint_network_policies` in the subnet to `Disabled`. This setting only applies to Private Endpoints in the Subnet and affects all Private Endpoints in the Subnet.
 
-        > **NOTE:** If you want to use network policies like user-defined Routes and Network Security Groups, you need to set the `private_endpoint_network_policies` in the Subnet to `Enabled`/`NetworkSecurityGroupEnabled`/`RouteTableEnabled`. This setting only applies to Private Endpoints in the Subnet and affects all Private Endpoints in the Subnet.
+        > **Note:** If you want to use network policies like user-defined Routes and Network Security Groups, you need to set the `private_endpoint_network_policies` in the Subnet to `Enabled`/`NetworkSecurityGroupEnabled`/`RouteTableEnabled`. This setting only applies to Private Endpoints in the Subnet and affects all Private Endpoints in the Subnet.
 
-        > **NOTE:** See more details from [Manage network policies for Private Endpoints](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-endpoint-network-policy?tabs=network-policy-portal).
+        > **Note:** See more details from [Manage network policies for Private Endpoints](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-endpoint-network-policy?tabs=network-policy-portal).
         """
         return pulumi.get(self, "private_endpoint_network_policies")
 
@@ -11179,7 +11242,7 @@ class VirtualNetworkSubnet(dict):
         """
         Enable or Disable network policies for the private link service on the subnet. Defaults to `true`.
 
-        > **NOTE:** When configuring Azure Private Link service, the explicit setting `private_link_service_network_policies_enabled` must be set to `false` in the subnet since Private Link Service does not support network policies like user-defined Routes and Network Security Groups. This setting only affects the Private Link service. For other resources in the subnet, access is controlled based on the Network Security Group which can be configured using the `network.SubnetNetworkSecurityGroupAssociation` resource. See more details from [Manage network policies for Private Link Services](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-link-service-network-policy?tabs=private-link-network-policy-powershell).
+        > **Note:** When configuring Azure Private Link service, the explicit setting `private_link_service_network_policies_enabled` must be set to `false` in the subnet since Private Link Service does not support network policies like user-defined Routes and Network Security Groups. This setting only affects the Private Link service. For other resources in the subnet, access is controlled based on the Network Security Group which can be configured using the `network.SubnetNetworkSecurityGroupAssociation` resource. See more details from [Manage network policies for Private Link Services](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-link-service-network-policy?tabs=private-link-network-policy-powershell).
         """
         return pulumi.get(self, "private_link_service_network_policies_enabled")
 
@@ -11271,7 +11334,7 @@ class VirtualNetworkSubnetDelegationServiceDelegation(dict):
         :param builtins.str name: The name of service to delegate to. Possible values are `GitHub.Network/networkSettings`, `Informatica.DataManagement/organizations`, `Microsoft.ApiManagement/service`, `Microsoft.Apollo/npu`, `Microsoft.App/environments`, `Microsoft.App/testClients`, `Microsoft.AVS/PrivateClouds`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureHostedService`, `Microsoft.BareMetal/AzureHPC`, `Microsoft.BareMetal/AzurePaymentHSM`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.BareMetal/MonitoringServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.CloudTest/hostedpools`, `Microsoft.CloudTest/images`, `Microsoft.CloudTest/pools`, `Microsoft.Codespaces/plans`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.ContainerService/managedClusters`, `Microsoft.ContainerService/TestClients`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/servers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.DelegatedNetwork/controller`, `Microsoft.DevCenter/networkConnection`, `Microsoft.DevOpsInfrastructure/pools`, `Microsoft.DocumentDB/cassandraClusters`, `Microsoft.Fidalgo/networkSettings`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.LabServices/labplans`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.MachineLearningServices/workspaces`, `Microsoft.Netapp/volumes`, `Microsoft.Network/dnsResolvers`, `Microsoft.Network/managedResolvers`, `Microsoft.Network/fpgaNetworkInterfaces`, `Microsoft.Network/networkWatchers.`, `Microsoft.Network/virtualNetworkGateways`, `Microsoft.Orbital/orbitalGateways`, `Microsoft.PowerPlatform/enterprisePolicies`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.ServiceNetworking/trafficControllers`, `Microsoft.Singularity/accounts/networks`, `Microsoft.Singularity/accounts/npu`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/managedInstancesOnebox`, `Microsoft.Sql/managedInstancesStage`, `Microsoft.Sql/managedInstancesTest`, `Microsoft.Sql/servers`, `Microsoft.StoragePool/diskPools`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, `Microsoft.Web/serverFarms`, `NGINX.NGINXPLUS/nginxDeployments`, `PaloAltoNetworks.Cloudngfw/firewalls`, `Qumulo.Storage/fileSystems`, and `Oracle.Database/networkAttachments`.
         :param Sequence[builtins.str] actions: A list of Actions which should be delegated. This list is specific to the service to delegate to. Possible values are `Microsoft.Network/networkinterfaces/*`, `Microsoft.Network/publicIPAddresses/join/action`, `Microsoft.Network/publicIPAddresses/read`, `Microsoft.Network/virtualNetworks/read`, `Microsoft.Network/virtualNetworks/subnets/action`, `Microsoft.Network/virtualNetworks/subnets/join/action`, `Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action`, and `Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action`.
                
-               > **NOTE:** Azure may add default actions depending on the service delegation name and they can't be changed.
+               > **Note:** Azure may add default actions depending on the service delegation name and they can't be changed.
         """
         pulumi.set(__self__, "name", name)
         if actions is not None:
@@ -11291,7 +11354,7 @@ class VirtualNetworkSubnetDelegationServiceDelegation(dict):
         """
         A list of Actions which should be delegated. This list is specific to the service to delegate to. Possible values are `Microsoft.Network/networkinterfaces/*`, `Microsoft.Network/publicIPAddresses/join/action`, `Microsoft.Network/publicIPAddresses/read`, `Microsoft.Network/virtualNetworks/read`, `Microsoft.Network/virtualNetworks/subnets/action`, `Microsoft.Network/virtualNetworks/subnets/join/action`, `Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action`, and `Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action`.
 
-        > **NOTE:** Azure may add default actions depending on the service delegation name and they can't be changed.
+        > **Note:** Azure may add default actions depending on the service delegation name and they can't be changed.
         """
         return pulumi.get(self, "actions")
 
@@ -12206,6 +12269,68 @@ class VpnGatewayConnectionVpnLinkIpsecPolicy(dict):
         The IPSec Security Association (also called Quick Mode or Phase 2 SA) lifetime in seconds for the site to site VPN tunnel.
         """
         return pulumi.get(self, "sa_lifetime_sec")
+
+
+@pulumi.output_type
+class VpnGatewayIpConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "privateIpAddress":
+            suggest = "private_ip_address"
+        elif key == "publicIpAddress":
+            suggest = "public_ip_address"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VpnGatewayIpConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VpnGatewayIpConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VpnGatewayIpConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 id: Optional[builtins.str] = None,
+                 private_ip_address: Optional[builtins.str] = None,
+                 public_ip_address: Optional[builtins.str] = None):
+        """
+        :param builtins.str id: The identifier of the IP configuration for the VPN Gateway.
+        :param builtins.str private_ip_address: The private IP address of this IP configuration.
+        :param builtins.str public_ip_address: The public IP address of this IP configuration.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if private_ip_address is not None:
+            pulumi.set(__self__, "private_ip_address", private_ip_address)
+        if public_ip_address is not None:
+            pulumi.set(__self__, "public_ip_address", public_ip_address)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[builtins.str]:
+        """
+        The identifier of the IP configuration for the VPN Gateway.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="privateIpAddress")
+    def private_ip_address(self) -> Optional[builtins.str]:
+        """
+        The private IP address of this IP configuration.
+        """
+        return pulumi.get(self, "private_ip_address")
+
+    @property
+    @pulumi.getter(name="publicIpAddress")
+    def public_ip_address(self) -> Optional[builtins.str]:
+        """
+        The public IP address of this IP configuration.
+        """
+        return pulumi.get(self, "public_ip_address")
 
 
 @pulumi.output_type
@@ -17467,6 +17592,46 @@ class GetVpnGatewayBgpSettingInstance1BgpPeeringAddressResult(dict):
         The list of tunnel public IP addresses which belong to the pre-defined VPN Gateway IP configuration.
         """
         return pulumi.get(self, "tunnel_ips")
+
+
+@pulumi.output_type
+class GetVpnGatewayIpConfigurationResult(dict):
+    def __init__(__self__, *,
+                 id: builtins.str,
+                 private_ip_address: builtins.str,
+                 public_ip_address: builtins.str):
+        """
+        :param builtins.str id: The identifier of the IP configuration for the VPN Gateway.
+        :param builtins.str private_ip_address: The private IP address of this IP configuration.
+        :param builtins.str public_ip_address: The public IP address of this IP configuration.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "private_ip_address", private_ip_address)
+        pulumi.set(__self__, "public_ip_address", public_ip_address)
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.str:
+        """
+        The identifier of the IP configuration for the VPN Gateway.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="privateIpAddress")
+    def private_ip_address(self) -> builtins.str:
+        """
+        The private IP address of this IP configuration.
+        """
+        return pulumi.get(self, "private_ip_address")
+
+    @property
+    @pulumi.getter(name="publicIpAddress")
+    def public_ip_address(self) -> builtins.str:
+        """
+        The public IP address of this IP configuration.
+        """
+        return pulumi.get(self, "public_ip_address")
 
 
 @pulumi.output_type

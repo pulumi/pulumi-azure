@@ -28,6 +28,7 @@ __all__ = [
     'VolumeDataProtectionSnapshotPolicy',
     'VolumeExportPolicyRule',
     'VolumeGroupOracleVolume',
+    'VolumeGroupOracleVolumeDataProtectionReplication',
     'VolumeGroupOracleVolumeDataProtectionSnapshotPolicy',
     'VolumeGroupOracleVolumeExportPolicyRule',
     'VolumeGroupSapHanaVolume',
@@ -977,6 +978,8 @@ class VolumeGroupOracleVolume(dict):
             suggest = "volume_path"
         elif key == "volumeSpecName":
             suggest = "volume_spec_name"
+        elif key == "dataProtectionReplication":
+            suggest = "data_protection_replication"
         elif key == "dataProtectionSnapshotPolicy":
             suggest = "data_protection_snapshot_policy"
         elif key == "encryptionKeySource":
@@ -1014,6 +1017,7 @@ class VolumeGroupOracleVolume(dict):
                  throughput_in_mibps: builtins.float,
                  volume_path: builtins.str,
                  volume_spec_name: builtins.str,
+                 data_protection_replication: Optional['outputs.VolumeGroupOracleVolumeDataProtectionReplication'] = None,
                  data_protection_snapshot_policy: Optional['outputs.VolumeGroupOracleVolumeDataProtectionSnapshotPolicy'] = None,
                  encryption_key_source: Optional[builtins.str] = None,
                  id: Optional[builtins.str] = None,
@@ -1036,6 +1040,7 @@ class VolumeGroupOracleVolume(dict):
         :param builtins.float throughput_in_mibps: Throughput of this volume in Mibps.
         :param builtins.str volume_path: A unique file path for the volume. Changing this forces a new Application Volume Group to be created and data will be lost.
         :param builtins.str volume_spec_name: Volume specification name. Possible values are `ora-data1` through `ora-data8`, `ora-log`, `ora-log-mirror`, `ora-backup` and `ora-binary`. Changing this forces a new Application Volume Group to be created and data will be lost.
+        :param 'VolumeGroupOracleVolumeDataProtectionReplicationArgs' data_protection_replication: A `data_protection_replication` block as defined below. Changing this forces a new Application Volume Group to be created and data will be lost.
         :param 'VolumeGroupOracleVolumeDataProtectionSnapshotPolicyArgs' data_protection_snapshot_policy: A `data_protection_snapshot_policy` block as defined below.
         :param builtins.str encryption_key_source: The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `key_vault_private_endpoint_id`. Changing this forces a new resource to be created.
         :param builtins.str id: The ID of the Application Volume Group.
@@ -1059,6 +1064,8 @@ class VolumeGroupOracleVolume(dict):
         pulumi.set(__self__, "throughput_in_mibps", throughput_in_mibps)
         pulumi.set(__self__, "volume_path", volume_path)
         pulumi.set(__self__, "volume_spec_name", volume_spec_name)
+        if data_protection_replication is not None:
+            pulumi.set(__self__, "data_protection_replication", data_protection_replication)
         if data_protection_snapshot_policy is not None:
             pulumi.set(__self__, "data_protection_snapshot_policy", data_protection_snapshot_policy)
         if encryption_key_source is not None:
@@ -1175,6 +1182,14 @@ class VolumeGroupOracleVolume(dict):
         return pulumi.get(self, "volume_spec_name")
 
     @property
+    @pulumi.getter(name="dataProtectionReplication")
+    def data_protection_replication(self) -> Optional['outputs.VolumeGroupOracleVolumeDataProtectionReplication']:
+        """
+        A `data_protection_replication` block as defined below. Changing this forces a new Application Volume Group to be created and data will be lost.
+        """
+        return pulumi.get(self, "data_protection_replication")
+
+    @property
     @pulumi.getter(name="dataProtectionSnapshotPolicy")
     def data_protection_snapshot_policy(self) -> Optional['outputs.VolumeGroupOracleVolumeDataProtectionSnapshotPolicy']:
         """
@@ -1244,6 +1259,81 @@ class VolumeGroupOracleVolume(dict):
         Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`, depending on the Azure region. Changing this forces a new resource to be created. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement). Note that this cannot be used together with `proximity_placement_group_id`.
         """
         return pulumi.get(self, "zone")
+
+
+@pulumi.output_type
+class VolumeGroupOracleVolumeDataProtectionReplication(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "remoteVolumeLocation":
+            suggest = "remote_volume_location"
+        elif key == "remoteVolumeResourceId":
+            suggest = "remote_volume_resource_id"
+        elif key == "replicationFrequency":
+            suggest = "replication_frequency"
+        elif key == "endpointType":
+            suggest = "endpoint_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VolumeGroupOracleVolumeDataProtectionReplication. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VolumeGroupOracleVolumeDataProtectionReplication.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VolumeGroupOracleVolumeDataProtectionReplication.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 remote_volume_location: builtins.str,
+                 remote_volume_resource_id: builtins.str,
+                 replication_frequency: builtins.str,
+                 endpoint_type: Optional[builtins.str] = None):
+        """
+        :param builtins.str remote_volume_location: Location of the primary volume. Changing this forces a new Application Volume Group to be created and data will be lost.
+        :param builtins.str remote_volume_resource_id: Resource ID of the primary volume. Changing this forces a new Application Volume Group to be created and data will be lost.
+        :param builtins.str replication_frequency: Replication frequency. Possible values are `10minutes`, `daily` and `hourly`. Changing this forces a new Application Volume Group to be created and data will be lost.
+        :param builtins.str endpoint_type: The endpoint type. Possible values are `dst` and `src`. Defaults to `dst`. Changing this forces a new Application Volume Group to be created and data will be lost.
+        """
+        pulumi.set(__self__, "remote_volume_location", remote_volume_location)
+        pulumi.set(__self__, "remote_volume_resource_id", remote_volume_resource_id)
+        pulumi.set(__self__, "replication_frequency", replication_frequency)
+        if endpoint_type is not None:
+            pulumi.set(__self__, "endpoint_type", endpoint_type)
+
+    @property
+    @pulumi.getter(name="remoteVolumeLocation")
+    def remote_volume_location(self) -> builtins.str:
+        """
+        Location of the primary volume. Changing this forces a new Application Volume Group to be created and data will be lost.
+        """
+        return pulumi.get(self, "remote_volume_location")
+
+    @property
+    @pulumi.getter(name="remoteVolumeResourceId")
+    def remote_volume_resource_id(self) -> builtins.str:
+        """
+        Resource ID of the primary volume. Changing this forces a new Application Volume Group to be created and data will be lost.
+        """
+        return pulumi.get(self, "remote_volume_resource_id")
+
+    @property
+    @pulumi.getter(name="replicationFrequency")
+    def replication_frequency(self) -> builtins.str:
+        """
+        Replication frequency. Possible values are `10minutes`, `daily` and `hourly`. Changing this forces a new Application Volume Group to be created and data will be lost.
+        """
+        return pulumi.get(self, "replication_frequency")
+
+    @property
+    @pulumi.getter(name="endpointType")
+    def endpoint_type(self) -> Optional[builtins.str]:
+        """
+        The endpoint type. Possible values are `dst` and `src`. Defaults to `dst`. Changing this forces a new Application Volume Group to be created and data will be lost.
+        """
+        return pulumi.get(self, "endpoint_type")
 
 
 @pulumi.output_type
@@ -1678,10 +1768,10 @@ class VolumeGroupSapHanaVolumeDataProtectionReplication(dict):
                  replication_frequency: builtins.str,
                  endpoint_type: Optional[builtins.str] = None):
         """
-        :param builtins.str remote_volume_location: Location of the primary volume.
-        :param builtins.str remote_volume_resource_id: Resource ID of the primary volume.
-        :param builtins.str replication_frequency: eplication frequency. Possible values are `10minutes`, `daily` and `hourly`.
-        :param builtins.str endpoint_type: The endpoint type. Possible values are `dst` and `src`. Defaults to `dst`.
+        :param builtins.str remote_volume_location: Location of the primary volume. Changing this forces a new Application Volume Group to be created and data will be lost.
+        :param builtins.str remote_volume_resource_id: Resource ID of the primary volume. Changing this forces a new Application Volume Group to be created and data will be lost.
+        :param builtins.str replication_frequency: eplication frequency. Possible values are `10minutes`, `daily` and `hourly`. Changing this forces a new Application Volume Group to be created and data will be lost.
+        :param builtins.str endpoint_type: The endpoint type. Possible values are `dst` and `src`. Defaults to `dst`. Changing this forces a new Application Volume Group to be created and data will be lost.
         """
         pulumi.set(__self__, "remote_volume_location", remote_volume_location)
         pulumi.set(__self__, "remote_volume_resource_id", remote_volume_resource_id)
@@ -1693,7 +1783,7 @@ class VolumeGroupSapHanaVolumeDataProtectionReplication(dict):
     @pulumi.getter(name="remoteVolumeLocation")
     def remote_volume_location(self) -> builtins.str:
         """
-        Location of the primary volume.
+        Location of the primary volume. Changing this forces a new Application Volume Group to be created and data will be lost.
         """
         return pulumi.get(self, "remote_volume_location")
 
@@ -1701,7 +1791,7 @@ class VolumeGroupSapHanaVolumeDataProtectionReplication(dict):
     @pulumi.getter(name="remoteVolumeResourceId")
     def remote_volume_resource_id(self) -> builtins.str:
         """
-        Resource ID of the primary volume.
+        Resource ID of the primary volume. Changing this forces a new Application Volume Group to be created and data will be lost.
         """
         return pulumi.get(self, "remote_volume_resource_id")
 
@@ -1709,7 +1799,7 @@ class VolumeGroupSapHanaVolumeDataProtectionReplication(dict):
     @pulumi.getter(name="replicationFrequency")
     def replication_frequency(self) -> builtins.str:
         """
-        eplication frequency. Possible values are `10minutes`, `daily` and `hourly`.
+        eplication frequency. Possible values are `10minutes`, `daily` and `hourly`. Changing this forces a new Application Volume Group to be created and data will be lost.
         """
         return pulumi.get(self, "replication_frequency")
 
@@ -1717,7 +1807,7 @@ class VolumeGroupSapHanaVolumeDataProtectionReplication(dict):
     @pulumi.getter(name="endpointType")
     def endpoint_type(self) -> Optional[builtins.str]:
         """
-        The endpoint type. Possible values are `dst` and `src`. Defaults to `dst`.
+        The endpoint type. Possible values are `dst` and `src`. Defaults to `dst`. Changing this forces a new Application Volume Group to be created and data will be lost.
         """
         return pulumi.get(self, "endpoint_type")
 

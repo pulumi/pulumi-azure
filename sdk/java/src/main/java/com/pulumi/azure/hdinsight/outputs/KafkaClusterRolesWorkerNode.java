@@ -28,7 +28,7 @@ public final class KafkaClusterRolesWorkerNode {
      */
     private @Nullable String password;
     /**
-     * @return The script action which will run on the cluster. One or more `script_actions` blocks as defined below.
+     * @return The script action which will run on the cluster. One or more `script_actions` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable List<KafkaClusterRolesWorkerNodeScriptAction> scriptActions;
@@ -83,7 +83,7 @@ public final class KafkaClusterRolesWorkerNode {
         return Optional.ofNullable(this.password);
     }
     /**
-     * @return The script action which will run on the cluster. One or more `script_actions` blocks as defined below.
+     * @return The script action which will run on the cluster. One or more `script_actions` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     public List<KafkaClusterRolesWorkerNodeScriptAction> scriptActions() {

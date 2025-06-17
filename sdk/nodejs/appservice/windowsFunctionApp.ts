@@ -342,7 +342,7 @@ export class WindowsFunctionApp extends pulumi.CustomResource {
             if ((!args || args.siteConfig === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'siteConfig'");
             }
-            resourceInputs["appSettings"] = args?.appSettings ? pulumi.secret(args.appSettings) : undefined;
+            resourceInputs["appSettings"] = args ? args.appSettings : undefined;
             resourceInputs["authSettings"] = args ? args.authSettings : undefined;
             resourceInputs["authSettingsV2"] = args ? args.authSettingsV2 : undefined;
             resourceInputs["backup"] = args ? args.backup : undefined;
@@ -388,7 +388,7 @@ export class WindowsFunctionApp extends pulumi.CustomResource {
             resourceInputs["siteCredentials"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["appSettings", "customDomainVerificationId", "siteCredentials", "storageAccountAccessKey"] };
+        const secretOpts = { additionalSecretOutputs: ["customDomainVerificationId", "siteCredentials", "storageAccountAccessKey"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
         super(WindowsFunctionApp.__pulumiType, name, resourceInputs, opts);
     }

@@ -64,6 +64,10 @@ export interface GetVpnGatewayResult {
      */
     readonly id: string;
     /**
+     * An `ipConfiguration` block as defined below.
+     */
+    readonly ipConfigurations: outputs.network.GetVpnGatewayIpConfiguration[];
+    /**
      * The Azure location where the VPN Gateway exists.
      */
     readonly location: string;

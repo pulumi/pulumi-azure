@@ -194,6 +194,20 @@ public class GrafanaManagedPrivateEndpoint extends com.pulumi.resources.CustomRe
         return Codegen.optional(this.privateLinkResourceRegion);
     }
     /**
+     * A domain name for this endpoint to be used within Grafana. Must be just a domain, without schema, and with at least three parts.
+     * 
+     */
+    @Export(name="privateLinkServiceUrl", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> privateLinkServiceUrl;
+
+    /**
+     * @return A domain name for this endpoint to be used within Grafana. Must be just a domain, without schema, and with at least three parts.
+     * 
+     */
+    public Output<Optional<String>> privateLinkServiceUrl() {
+        return Codegen.optional(this.privateLinkServiceUrl);
+    }
+    /**
      * A message to provide in the request which will be seen by approvers.
      * 
      */

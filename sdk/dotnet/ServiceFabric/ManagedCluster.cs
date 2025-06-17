@@ -165,6 +165,12 @@ namespace Pulumi.Azure.ServiceFabric
         public Output<string?> Sku { get; private set; } = null!;
 
         /// <summary>
+        /// The resource ID of the Subnet. Changing this forces a new Resource Group to be created.
+        /// </summary>
+        [Output("subnetId")]
+        public Output<string?> SubnetId { get; private set; } = null!;
+
+        /// <summary>
         /// A mapping of tags which should be assigned to the Resource Group.
         /// </summary>
         [Output("tags")]
@@ -344,6 +350,12 @@ namespace Pulumi.Azure.ServiceFabric
         [Input("sku")]
         public Input<string>? Sku { get; set; }
 
+        /// <summary>
+        /// The resource ID of the Subnet. Changing this forces a new Resource Group to be created.
+        /// </summary>
+        [Input("subnetId")]
+        public Input<string>? SubnetId { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -487,6 +499,12 @@ namespace Pulumi.Azure.ServiceFabric
         /// </summary>
         [Input("sku")]
         public Input<string>? Sku { get; set; }
+
+        /// <summary>
+        /// The resource ID of the Subnet. Changing this forces a new Resource Group to be created.
+        /// </summary>
+        [Input("subnetId")]
+        public Input<string>? SubnetId { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

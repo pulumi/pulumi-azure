@@ -170,6 +170,12 @@ namespace Pulumi.Azure.AppService
         public Output<string> HostingEnvironmentId { get; private set; } = null!;
 
         /// <summary>
+        /// Is Https Connection enforced to the function app. Defaults to `false`
+        /// </summary>
+        [Output("httpsOnly")]
+        public Output<bool?> HttpsOnly { get; private set; } = null!;
+
+        /// <summary>
         /// A `identity` block as defined below.
         /// </summary>
         [Output("identity")]
@@ -461,6 +467,12 @@ namespace Pulumi.Azure.AppService
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
+        /// Is Https Connection enforced to the function app. Defaults to `false`
+        /// </summary>
+        [Input("httpsOnly")]
+        public Input<bool>? HttpsOnly { get; set; }
+
+        /// <summary>
         /// A `identity` block as defined below.
         /// </summary>
         [Input("identity")]
@@ -705,6 +717,12 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         [Input("hostingEnvironmentId")]
         public Input<string>? HostingEnvironmentId { get; set; }
+
+        /// <summary>
+        /// Is Https Connection enforced to the function app. Defaults to `false`
+        /// </summary>
+        [Input("httpsOnly")]
+        public Input<bool>? HttpsOnly { get; set; }
 
         /// <summary>
         /// A `identity` block as defined below.

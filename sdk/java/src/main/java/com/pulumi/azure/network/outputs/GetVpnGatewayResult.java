@@ -4,6 +4,7 @@
 package com.pulumi.azure.network.outputs;
 
 import com.pulumi.azure.network.outputs.GetVpnGatewayBgpSetting;
+import com.pulumi.azure.network.outputs.GetVpnGatewayIpConfiguration;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
@@ -24,6 +25,11 @@ public final class GetVpnGatewayResult {
      * 
      */
     private String id;
+    /**
+     * @return An `ip_configuration` block as defined below.
+     * 
+     */
+    private List<GetVpnGatewayIpConfiguration> ipConfigurations;
     /**
      * @return The Azure location where the VPN Gateway exists.
      * 
@@ -61,6 +67,13 @@ public final class GetVpnGatewayResult {
      */
     public String id() {
         return this.id;
+    }
+    /**
+     * @return An `ip_configuration` block as defined below.
+     * 
+     */
+    public List<GetVpnGatewayIpConfiguration> ipConfigurations() {
+        return this.ipConfigurations;
     }
     /**
      * @return The Azure location where the VPN Gateway exists.
@@ -108,6 +121,7 @@ public final class GetVpnGatewayResult {
     public static final class Builder {
         private List<GetVpnGatewayBgpSetting> bgpSettings;
         private String id;
+        private List<GetVpnGatewayIpConfiguration> ipConfigurations;
         private String location;
         private String name;
         private String resourceGroupName;
@@ -119,6 +133,7 @@ public final class GetVpnGatewayResult {
     	      Objects.requireNonNull(defaults);
     	      this.bgpSettings = defaults.bgpSettings;
     	      this.id = defaults.id;
+    	      this.ipConfigurations = defaults.ipConfigurations;
     	      this.location = defaults.location;
     	      this.name = defaults.name;
     	      this.resourceGroupName = defaults.resourceGroupName;
@@ -145,6 +160,17 @@ public final class GetVpnGatewayResult {
             }
             this.id = id;
             return this;
+        }
+        @CustomType.Setter
+        public Builder ipConfigurations(List<GetVpnGatewayIpConfiguration> ipConfigurations) {
+            if (ipConfigurations == null) {
+              throw new MissingRequiredPropertyException("GetVpnGatewayResult", "ipConfigurations");
+            }
+            this.ipConfigurations = ipConfigurations;
+            return this;
+        }
+        public Builder ipConfigurations(GetVpnGatewayIpConfiguration... ipConfigurations) {
+            return ipConfigurations(List.of(ipConfigurations));
         }
         @CustomType.Setter
         public Builder location(String location) {
@@ -198,6 +224,7 @@ public final class GetVpnGatewayResult {
             final var _resultValue = new GetVpnGatewayResult();
             _resultValue.bgpSettings = bgpSettings;
             _resultValue.id = id;
+            _resultValue.ipConfigurations = ipConfigurations;
             _resultValue.location = location;
             _resultValue.name = name;
             _resultValue.resourceGroupName = resourceGroupName;

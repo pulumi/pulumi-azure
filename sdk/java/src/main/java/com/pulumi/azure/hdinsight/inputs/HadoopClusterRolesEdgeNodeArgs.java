@@ -67,14 +67,14 @@ public final class HadoopClusterRolesEdgeNodeArgs extends com.pulumi.resources.R
     }
 
     /**
-     * A `uninstall_script_actions` block as defined below.
+     * A `uninstall_script_actions` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="uninstallScriptActions")
     private @Nullable Output<List<HadoopClusterRolesEdgeNodeUninstallScriptActionArgs>> uninstallScriptActions;
 
     /**
-     * @return A `uninstall_script_actions` block as defined below.
+     * @return A `uninstall_script_actions` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<List<HadoopClusterRolesEdgeNodeUninstallScriptActionArgs>>> uninstallScriptActions() {
@@ -208,7 +208,7 @@ public final class HadoopClusterRolesEdgeNodeArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param uninstallScriptActions A `uninstall_script_actions` block as defined below.
+         * @param uninstallScriptActions A `uninstall_script_actions` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -219,7 +219,7 @@ public final class HadoopClusterRolesEdgeNodeArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param uninstallScriptActions A `uninstall_script_actions` block as defined below.
+         * @param uninstallScriptActions A `uninstall_script_actions` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -229,7 +229,7 @@ public final class HadoopClusterRolesEdgeNodeArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param uninstallScriptActions A `uninstall_script_actions` block as defined below.
+         * @param uninstallScriptActions A `uninstall_script_actions` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

@@ -443,6 +443,13 @@ class VirtualHub(pulumi.CustomResource):
             address_prefix="10.0.0.0/23")
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network`: 2024-05-01
+
         ## Import
 
         Virtual Hub's can be imported using the `resource id`, e.g.
@@ -493,6 +500,13 @@ class VirtualHub(pulumi.CustomResource):
             virtual_wan_id=example_virtual_wan.id,
             address_prefix="10.0.0.0/23")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network`: 2024-05-01
 
         ## Import
 

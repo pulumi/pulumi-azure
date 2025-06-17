@@ -67,6 +67,8 @@ class ApiArgs:
                > **Note:** `display_name`, `path` and `protocols` are required when `source_api_id` is not set.
         :param pulumi.Input[builtins.str] revision_description: The description of the API Revision of the API Management API.
         :param pulumi.Input[builtins.str] service_url: Absolute URL of the backend service implementing this API.
+               
+               > **Note:** The `service_url` is required when `api_type` is specified as `websocket`.
         :param pulumi.Input[builtins.str] source_api_id: The API id of the source API, which could be in format `azurerm_api_management_api.example.id` or in format `azurerm_api_management_api.example.id;rev=1`
         :param pulumi.Input['ApiSubscriptionKeyParameterNamesArgs'] subscription_key_parameter_names: A `subscription_key_parameter_names` block as documented below.
         :param pulumi.Input[builtins.bool] subscription_required: Should this API require a subscription key? Defaults to `true`.
@@ -310,6 +312,8 @@ class ApiArgs:
     def service_url(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         Absolute URL of the backend service implementing this API.
+
+        > **Note:** The `service_url` is required when `api_type` is specified as `websocket`.
         """
         return pulumi.get(self, "service_url")
 
@@ -456,6 +460,8 @@ class _ApiState:
         :param pulumi.Input[builtins.str] revision: The Revision which used for this API. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] revision_description: The description of the API Revision of the API Management API.
         :param pulumi.Input[builtins.str] service_url: Absolute URL of the backend service implementing this API.
+               
+               > **Note:** The `service_url` is required when `api_type` is specified as `websocket`.
         :param pulumi.Input[builtins.str] source_api_id: The API id of the source API, which could be in format `azurerm_api_management_api.example.id` or in format `azurerm_api_management_api.example.id;rev=1`
         :param pulumi.Input['ApiSubscriptionKeyParameterNamesArgs'] subscription_key_parameter_names: A `subscription_key_parameter_names` block as documented below.
         :param pulumi.Input[builtins.bool] subscription_required: Should this API require a subscription key? Defaults to `true`.
@@ -730,6 +736,8 @@ class _ApiState:
     def service_url(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         Absolute URL of the backend service implementing this API.
+
+        > **Note:** The `service_url` is required when `api_type` is specified as `websocket`.
         """
         return pulumi.get(self, "service_url")
 
@@ -924,6 +932,8 @@ class Api(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] revision: The Revision which used for this API. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] revision_description: The description of the API Revision of the API Management API.
         :param pulumi.Input[builtins.str] service_url: Absolute URL of the backend service implementing this API.
+               
+               > **Note:** The `service_url` is required when `api_type` is specified as `websocket`.
         :param pulumi.Input[builtins.str] source_api_id: The API id of the source API, which could be in format `azurerm_api_management_api.example.id` or in format `azurerm_api_management_api.example.id;rev=1`
         :param pulumi.Input[Union['ApiSubscriptionKeyParameterNamesArgs', 'ApiSubscriptionKeyParameterNamesArgsDict']] subscription_key_parameter_names: A `subscription_key_parameter_names` block as documented below.
         :param pulumi.Input[builtins.bool] subscription_required: Should this API require a subscription key? Defaults to `true`.
@@ -1130,6 +1140,8 @@ class Api(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] revision: The Revision which used for this API. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] revision_description: The description of the API Revision of the API Management API.
         :param pulumi.Input[builtins.str] service_url: Absolute URL of the backend service implementing this API.
+               
+               > **Note:** The `service_url` is required when `api_type` is specified as `websocket`.
         :param pulumi.Input[builtins.str] source_api_id: The API id of the source API, which could be in format `azurerm_api_management_api.example.id` or in format `azurerm_api_management_api.example.id;rev=1`
         :param pulumi.Input[Union['ApiSubscriptionKeyParameterNamesArgs', 'ApiSubscriptionKeyParameterNamesArgsDict']] subscription_key_parameter_names: A `subscription_key_parameter_names` block as documented below.
         :param pulumi.Input[builtins.bool] subscription_required: Should this API require a subscription key? Defaults to `true`.
@@ -1316,6 +1328,8 @@ class Api(pulumi.CustomResource):
     def service_url(self) -> pulumi.Output[builtins.str]:
         """
         Absolute URL of the backend service implementing this API.
+
+        > **Note:** The `service_url` is required when `api_type` is specified as `websocket`.
         """
         return pulumi.get(self, "service_url")
 

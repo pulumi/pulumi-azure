@@ -196,6 +196,13 @@ class PrivateLinkScopedService(pulumi.CustomResource):
             linked_resource_id=example_insights.id)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Insights`: 2019-10-17-preview
+
         ## Import
 
         Azure Monitor Private Link Scoped Services can be imported using the `resource id`, e.g.
@@ -243,6 +250,13 @@ class PrivateLinkScopedService(pulumi.CustomResource):
             scope_name=example_private_link_scope.name,
             linked_resource_id=example_insights.id)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Insights`: 2019-10-17-preview
 
         ## Import
 

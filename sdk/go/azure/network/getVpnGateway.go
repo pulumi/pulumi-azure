@@ -71,6 +71,8 @@ type LookupVpnGatewayResult struct {
 	BgpSettings []GetVpnGatewayBgpSetting `pulumi:"bgpSettings"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
+	// An `ipConfiguration` block as defined below.
+	IpConfigurations []GetVpnGatewayIpConfiguration `pulumi:"ipConfigurations"`
 	// The Azure location where the VPN Gateway exists.
 	Location          string `pulumi:"location"`
 	Name              string `pulumi:"name"`
@@ -127,6 +129,11 @@ func (o LookupVpnGatewayResultOutput) BgpSettings() GetVpnGatewayBgpSettingArray
 // The provider-assigned unique ID for this managed resource.
 func (o LookupVpnGatewayResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVpnGatewayResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// An `ipConfiguration` block as defined below.
+func (o LookupVpnGatewayResultOutput) IpConfigurations() GetVpnGatewayIpConfigurationArrayOutput {
+	return o.ApplyT(func(v LookupVpnGatewayResult) []GetVpnGatewayIpConfiguration { return v.IpConfigurations }).(GetVpnGatewayIpConfigurationArrayOutput)
 }
 
 // The Azure location where the VPN Gateway exists.

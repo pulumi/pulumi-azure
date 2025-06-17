@@ -28,13 +28,16 @@ class GetVpnGatewayResult:
     """
     A collection of values returned by getVpnGateway.
     """
-    def __init__(__self__, bgp_settings=None, id=None, location=None, name=None, resource_group_name=None, scale_unit=None, tags=None, virtual_hub_id=None):
+    def __init__(__self__, bgp_settings=None, id=None, ip_configurations=None, location=None, name=None, resource_group_name=None, scale_unit=None, tags=None, virtual_hub_id=None):
         if bgp_settings and not isinstance(bgp_settings, list):
             raise TypeError("Expected argument 'bgp_settings' to be a list")
         pulumi.set(__self__, "bgp_settings", bgp_settings)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if ip_configurations and not isinstance(ip_configurations, list):
+            raise TypeError("Expected argument 'ip_configurations' to be a list")
+        pulumi.set(__self__, "ip_configurations", ip_configurations)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -69,6 +72,14 @@ class GetVpnGatewayResult:
         The provider-assigned unique ID for this managed resource.
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="ipConfigurations")
+    def ip_configurations(self) -> Sequence['outputs.GetVpnGatewayIpConfigurationResult']:
+        """
+        An `ip_configuration` block as defined below.
+        """
+        return pulumi.get(self, "ip_configurations")
 
     @property
     @pulumi.getter
@@ -121,6 +132,7 @@ class AwaitableGetVpnGatewayResult(GetVpnGatewayResult):
         return GetVpnGatewayResult(
             bgp_settings=self.bgp_settings,
             id=self.id,
+            ip_configurations=self.ip_configurations,
             location=self.location,
             name=self.name,
             resource_group_name=self.resource_group_name,
@@ -166,6 +178,7 @@ def get_vpn_gateway(name: Optional[builtins.str] = None,
     return AwaitableGetVpnGatewayResult(
         bgp_settings=pulumi.get(__ret__, 'bgp_settings'),
         id=pulumi.get(__ret__, 'id'),
+        ip_configurations=pulumi.get(__ret__, 'ip_configurations'),
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
@@ -208,6 +221,7 @@ def get_vpn_gateway_output(name: Optional[pulumi.Input[builtins.str]] = None,
     return __ret__.apply(lambda __response__: GetVpnGatewayResult(
         bgp_settings=pulumi.get(__response__, 'bgp_settings'),
         id=pulumi.get(__response__, 'id'),
+        ip_configurations=pulumi.get(__response__, 'ip_configurations'),
         location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),
         resource_group_name=pulumi.get(__response__, 'resource_group_name'),

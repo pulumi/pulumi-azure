@@ -2662,7 +2662,7 @@ public final class ComputeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Compute`: 2024-07-01
+     * * `Microsoft.Compute`: 2024-11-01
      * 
      */
     public static Output<GetOrchestratedVirtualMachineScaleSetResult> getOrchestratedVirtualMachineScaleSet(GetOrchestratedVirtualMachineScaleSetArgs args) {
@@ -2713,7 +2713,7 @@ public final class ComputeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Compute`: 2024-07-01
+     * * `Microsoft.Compute`: 2024-11-01
      * 
      */
     public static CompletableFuture<GetOrchestratedVirtualMachineScaleSetResult> getOrchestratedVirtualMachineScaleSetPlain(GetOrchestratedVirtualMachineScaleSetPlainArgs args) {
@@ -2764,7 +2764,7 @@ public final class ComputeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Compute`: 2024-07-01
+     * * `Microsoft.Compute`: 2024-11-01
      * 
      */
     public static Output<GetOrchestratedVirtualMachineScaleSetResult> getOrchestratedVirtualMachineScaleSet(GetOrchestratedVirtualMachineScaleSetArgs args, InvokeOptions options) {
@@ -2815,7 +2815,7 @@ public final class ComputeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Compute`: 2024-07-01
+     * * `Microsoft.Compute`: 2024-11-01
      * 
      */
     public static Output<GetOrchestratedVirtualMachineScaleSetResult> getOrchestratedVirtualMachineScaleSet(GetOrchestratedVirtualMachineScaleSetArgs args, InvokeOutputOptions options) {
@@ -2866,7 +2866,7 @@ public final class ComputeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Compute`: 2024-07-01
+     * * `Microsoft.Compute`: 2024-11-01
      * 
      */
     public static CompletableFuture<GetOrchestratedVirtualMachineScaleSetResult> getOrchestratedVirtualMachineScaleSetPlain(GetOrchestratedVirtualMachineScaleSetPlainArgs args, InvokeOptions options) {
@@ -4962,7 +4962,7 @@ public final class ComputeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Compute`: 2024-07-01, 2024-03-01, 2023-09-01
+     * * `Microsoft.Compute`: 2024-11-01, 2024-03-01, 2023-09-01
      * 
      */
     public static Output<GetVirtualMachineScaleSetResult> getVirtualMachineScaleSet(GetVirtualMachineScaleSetArgs args) {
@@ -5013,7 +5013,7 @@ public final class ComputeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Compute`: 2024-07-01, 2024-03-01, 2023-09-01
+     * * `Microsoft.Compute`: 2024-11-01, 2024-03-01, 2023-09-01
      * 
      */
     public static CompletableFuture<GetVirtualMachineScaleSetResult> getVirtualMachineScaleSetPlain(GetVirtualMachineScaleSetPlainArgs args) {
@@ -5064,7 +5064,7 @@ public final class ComputeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Compute`: 2024-07-01, 2024-03-01, 2023-09-01
+     * * `Microsoft.Compute`: 2024-11-01, 2024-03-01, 2023-09-01
      * 
      */
     public static Output<GetVirtualMachineScaleSetResult> getVirtualMachineScaleSet(GetVirtualMachineScaleSetArgs args, InvokeOptions options) {
@@ -5115,7 +5115,7 @@ public final class ComputeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Compute`: 2024-07-01, 2024-03-01, 2023-09-01
+     * * `Microsoft.Compute`: 2024-11-01, 2024-03-01, 2023-09-01
      * 
      */
     public static Output<GetVirtualMachineScaleSetResult> getVirtualMachineScaleSet(GetVirtualMachineScaleSetArgs args, InvokeOutputOptions options) {
@@ -5166,7 +5166,7 @@ public final class ComputeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Compute`: 2024-07-01, 2024-03-01, 2023-09-01
+     * * `Microsoft.Compute`: 2024-11-01, 2024-03-01, 2023-09-01
      * 
      */
     public static CompletableFuture<GetVirtualMachineScaleSetResult> getVirtualMachineScaleSetPlain(GetVirtualMachineScaleSetPlainArgs args, InvokeOptions options) {

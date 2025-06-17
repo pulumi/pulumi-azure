@@ -273,6 +273,13 @@ class NamespaceDisasterRecoveryConfig(pulumi.CustomResource):
             alias_authorization_rule_id=example_namespace_authorization_rule.id)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ServiceBus`: 2021-06-01-preview
+
         ## Import
 
         Service Bus DR configs can be imported using the `resource id`, e.g.
@@ -332,6 +339,13 @@ class NamespaceDisasterRecoveryConfig(pulumi.CustomResource):
             partner_namespace_id=secondary.id,
             alias_authorization_rule_id=example_namespace_authorization_rule.id)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ServiceBus`: 2021-06-01-preview
 
         ## Import
 

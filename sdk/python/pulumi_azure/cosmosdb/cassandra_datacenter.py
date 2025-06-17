@@ -506,6 +506,13 @@ class CassandraDatacenter(pulumi.CustomResource):
             availability_zones_enabled=False)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DocumentDB`: 2023-04-15
+
         ## Import
 
         Cassandra Datacenters can be imported using the `resource id`, e.g.
@@ -584,6 +591,13 @@ class CassandraDatacenter(pulumi.CustomResource):
             sku_name="Standard_DS14_v2",
             availability_zones_enabled=False)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DocumentDB`: 2023-04-15
 
         ## Import
 

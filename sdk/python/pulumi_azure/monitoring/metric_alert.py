@@ -656,6 +656,13 @@ class MetricAlert(pulumi.CustomResource):
             }])
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Insights`: 2018-03-01
+
         ## Import
 
         Metric Alerts can be imported using the `resource id`, e.g.
@@ -746,6 +753,13 @@ class MetricAlert(pulumi.CustomResource):
                 "action_group_id": main.id,
             }])
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Insights`: 2018-03-01
 
         ## Import
 

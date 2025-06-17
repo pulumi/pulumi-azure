@@ -1396,6 +1396,13 @@ class ManagedDisk(pulumi.CustomResource):
             })
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Compute`: 2023-04-02
+
         ## Import
 
         Managed Disks can be imported using the `resource id`, e.g.
@@ -1543,6 +1550,13 @@ class ManagedDisk(pulumi.CustomResource):
                 "environment": "staging",
             })
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Compute`: 2023-04-02
 
         ## Import
 

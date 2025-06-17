@@ -578,6 +578,13 @@ class Subscription(pulumi.CustomResource):
             max_delivery_count=1)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ServiceBus`: 2021-06-01-preview
+
         ## Import
 
         Service Bus Subscriptions can be imported using the `resource id`, e.g.
@@ -641,6 +648,13 @@ class Subscription(pulumi.CustomResource):
             topic_id=example_topic.id,
             max_delivery_count=1)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ServiceBus`: 2021-06-01-preview
 
         ## Import
 

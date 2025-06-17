@@ -24,6 +24,12 @@ namespace Pulumi.Azure.Dynatrace.Inputs
             set => _filteringTags = value;
         }
 
+        /// <summary>
+        /// If sending metrics is enabled. The default value is `false`.
+        /// </summary>
+        [Input("sendingMetricsEnabled")]
+        public Input<bool>? SendingMetricsEnabled { get; set; }
+
         public TagRulesMetricRuleGetArgs()
         {
         }

@@ -219,6 +219,13 @@ class SubscriptionPricing(pulumi.CustomResource):
             ])
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Security`: 2023-01-01
+
         ## Import
 
         The pricing tier can be imported using the `resource id`, e.g.
@@ -285,6 +292,13 @@ class SubscriptionPricing(pulumi.CustomResource):
                 },
             ])
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Security`: 2023-01-01
 
         ## Import
 

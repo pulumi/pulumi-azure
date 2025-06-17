@@ -71,6 +71,13 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.ServiceBus`: 2022-10-01-preview, 2021-06-01-preview
+ * 
  * ## Import
  * 
  * Service Bus Namespace can be imported using the `resource id`, e.g.

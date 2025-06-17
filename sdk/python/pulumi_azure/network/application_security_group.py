@@ -192,6 +192,13 @@ class ApplicationSecurityGroup(pulumi.CustomResource):
             })
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network`: 2024-05-01
+
         ## Import
 
         Application Security Groups can be imported using the `resource id`, e.g.
@@ -233,6 +240,13 @@ class ApplicationSecurityGroup(pulumi.CustomResource):
                 "Hello": "World",
             })
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network`: 2024-05-01
 
         ## Import
 

@@ -46,7 +46,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This data source uses the following Azure API Providers:
 //
-// * `Microsoft.Compute`: 2024-07-01
+// * `Microsoft.Compute`: 2024-11-01
 func LookupOrchestratedVirtualMachineScaleSet(ctx *pulumi.Context, args *LookupOrchestratedVirtualMachineScaleSetArgs, opts ...pulumi.InvokeOption) (*LookupOrchestratedVirtualMachineScaleSetResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupOrchestratedVirtualMachineScaleSetResult

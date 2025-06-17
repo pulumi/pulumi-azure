@@ -186,6 +186,8 @@ namespace Pulumi.Azure.ApiManagement
 
         /// <summary>
         /// Absolute URL of the backend service implementing this API.
+        /// 
+        /// &gt; **Note:** The `service_url` is required when `api_type` is specified as `websocket`.
         /// </summary>
         [Output("serviceUrl")]
         public Output<string> ServiceUrl { get; private set; } = null!;
@@ -382,6 +384,8 @@ namespace Pulumi.Azure.ApiManagement
 
         /// <summary>
         /// Absolute URL of the backend service implementing this API.
+        /// 
+        /// &gt; **Note:** The `service_url` is required when `api_type` is specified as `websocket`.
         /// </summary>
         [Input("serviceUrl")]
         public Input<string>? ServiceUrl { get; set; }
@@ -552,6 +556,8 @@ namespace Pulumi.Azure.ApiManagement
 
         /// <summary>
         /// Absolute URL of the backend service implementing this API.
+        /// 
+        /// &gt; **Note:** The `service_url` is required when `api_type` is specified as `websocket`.
         /// </summary>
         [Input("serviceUrl")]
         public Input<string>? ServiceUrl { get; set; }

@@ -18,6 +18,10 @@ namespace Pulumi.Azure.NetApp.Outputs
         /// </summary>
         public readonly string CapacityPoolId;
         /// <summary>
+        /// A `data_protection_replication` block as defined below. Changing this forces a new Application Volume Group to be created and data will be lost.
+        /// </summary>
+        public readonly Outputs.VolumeGroupOracleVolumeDataProtectionReplication? DataProtectionReplication;
+        /// <summary>
         /// A `data_protection_snapshot_policy` block as defined below.
         /// </summary>
         public readonly Outputs.VolumeGroupOracleVolumeDataProtectionSnapshotPolicy? DataProtectionSnapshotPolicy;
@@ -101,6 +105,8 @@ namespace Pulumi.Azure.NetApp.Outputs
         private VolumeGroupOracleVolume(
             string capacityPoolId,
 
+            Outputs.VolumeGroupOracleVolumeDataProtectionReplication? dataProtectionReplication,
+
             Outputs.VolumeGroupOracleVolumeDataProtectionSnapshotPolicy? dataProtectionSnapshotPolicy,
 
             string? encryptionKeySource,
@@ -142,6 +148,7 @@ namespace Pulumi.Azure.NetApp.Outputs
             string? zone)
         {
             CapacityPoolId = capacityPoolId;
+            DataProtectionReplication = dataProtectionReplication;
             DataProtectionSnapshotPolicy = dataProtectionSnapshotPolicy;
             EncryptionKeySource = encryptionKeySource;
             ExportPolicyRules = exportPolicyRules;

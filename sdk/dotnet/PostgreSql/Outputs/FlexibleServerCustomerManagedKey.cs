@@ -28,7 +28,7 @@ namespace Pulumi.Azure.PostgreSql.Outputs
         /// </summary>
         public readonly string? GeoBackupUserAssignedIdentityId;
         /// <summary>
-        /// The versioned ID of the Key Vault Key.
+        /// The versioned/versionless ID of the Key Vault Key.
         /// </summary>
         public readonly string KeyVaultKeyId;
         /// <summary>

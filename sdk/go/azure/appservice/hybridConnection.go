@@ -97,6 +97,13 @@ import (
 //
 // ```
 //
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.Relay`: 2021-11-01
+//
 // ## Import
 //
 // App Service Hybrid Connections can be imported using the `resource id`, e.g.

@@ -20,7 +20,7 @@ namespace Pulumi.Azure.HDInsight.Outputs
         /// </summary>
         public readonly string? Password;
         /// <summary>
-        /// The script action which will run on the cluster. One or more `script_actions` blocks as defined below.
+        /// The script action which will run on the cluster. One or more `script_actions` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
         public readonly ImmutableArray<Outputs.KafkaClusterRolesKafkaManagementNodeScriptAction> ScriptActions;
         /// <summary>

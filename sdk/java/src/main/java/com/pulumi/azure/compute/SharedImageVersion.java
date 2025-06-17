@@ -81,6 +81,13 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.Compute`: 2023-07-03
+ * 
  * ## Import
  * 
  * Shared Image Versions can be imported using the `resource id`, e.g.

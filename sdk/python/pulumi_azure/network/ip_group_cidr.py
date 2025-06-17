@@ -125,6 +125,13 @@ class IPGroupCIDR(pulumi.CustomResource):
             cidr="10.10.10.0/24")
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network`: 2024-05-01
+
         ## Import
 
         IP Group CIDRs can be imported using the `resource id` of the IP Group and
@@ -170,6 +177,13 @@ class IPGroupCIDR(pulumi.CustomResource):
             ip_group_id=example_ip_group.id,
             cidr="10.10.10.0/24")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network`: 2024-05-01
 
         ## Import
 

@@ -36,6 +36,7 @@ class ManagedClusterArgs:
                  node_types: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedClusterNodeTypeArgs']]]] = None,
                  password: Optional[pulumi.Input[builtins.str]] = None,
                  sku: Optional[pulumi.Input[builtins.str]] = None,
+                 subnet_id: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  upgrade_wave: Optional[pulumi.Input[builtins.str]] = None,
                  username: Optional[pulumi.Input[builtins.str]] = None):
@@ -55,6 +56,7 @@ class ManagedClusterArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ManagedClusterNodeTypeArgs']]] node_types: One or more `node_type` blocks as defined below.
         :param pulumi.Input[builtins.str] password: Administrator password for the VMs that will be created as part of this cluster.
         :param pulumi.Input[builtins.str] sku: SKU for this cluster. Changing this forces a new resource to be created. Default is `Basic`, allowed values are either `Basic` or `Standard`.
+        :param pulumi.Input[builtins.str] subnet_id: The resource ID of the Subnet. Changing this forces a new Resource Group to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags which should be assigned to the Resource Group.
         :param pulumi.Input[builtins.str] upgrade_wave: Upgrade wave for the fabric runtime. Default is `Wave0`, allowed value must be one of `Wave0`, `Wave1`, or `Wave2`.
         :param pulumi.Input[builtins.str] username: Administrator password for the VMs that will be created as part of this cluster.
@@ -83,6 +85,8 @@ class ManagedClusterArgs:
             pulumi.set(__self__, "password", password)
         if sku is not None:
             pulumi.set(__self__, "sku", sku)
+        if subnet_id is not None:
+            pulumi.set(__self__, "subnet_id", subnet_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if upgrade_wave is not None:
@@ -259,6 +263,18 @@ class ManagedClusterArgs:
         pulumi.set(self, "sku", value)
 
     @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The resource ID of the Subnet. Changing this forces a new Resource Group to be created.
+        """
+        return pulumi.get(self, "subnet_id")
+
+    @subnet_id.setter
+    def subnet_id(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "subnet_id", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
@@ -312,6 +328,7 @@ class _ManagedClusterState:
                  password: Optional[pulumi.Input[builtins.str]] = None,
                  resource_group_name: Optional[pulumi.Input[builtins.str]] = None,
                  sku: Optional[pulumi.Input[builtins.str]] = None,
+                 subnet_id: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  upgrade_wave: Optional[pulumi.Input[builtins.str]] = None,
                  username: Optional[pulumi.Input[builtins.str]] = None):
@@ -331,6 +348,7 @@ class _ManagedClusterState:
         :param pulumi.Input[builtins.str] password: Administrator password for the VMs that will be created as part of this cluster.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the Resource Group where the Resource Group should exist. Changing this forces a new Resource Group to be created.
         :param pulumi.Input[builtins.str] sku: SKU for this cluster. Changing this forces a new resource to be created. Default is `Basic`, allowed values are either `Basic` or `Standard`.
+        :param pulumi.Input[builtins.str] subnet_id: The resource ID of the Subnet. Changing this forces a new Resource Group to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags which should be assigned to the Resource Group.
         :param pulumi.Input[builtins.str] upgrade_wave: Upgrade wave for the fabric runtime. Default is `Wave0`, allowed value must be one of `Wave0`, `Wave1`, or `Wave2`.
         :param pulumi.Input[builtins.str] username: Administrator password for the VMs that will be created as part of this cluster.
@@ -363,6 +381,8 @@ class _ManagedClusterState:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if sku is not None:
             pulumi.set(__self__, "sku", sku)
+        if subnet_id is not None:
+            pulumi.set(__self__, "subnet_id", subnet_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if upgrade_wave is not None:
@@ -539,6 +559,18 @@ class _ManagedClusterState:
         pulumi.set(self, "sku", value)
 
     @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The resource ID of the Subnet. Changing this forces a new Resource Group to be created.
+        """
+        return pulumi.get(self, "subnet_id")
+
+    @subnet_id.setter
+    def subnet_id(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "subnet_id", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
@@ -595,6 +627,7 @@ class ManagedCluster(pulumi.CustomResource):
                  password: Optional[pulumi.Input[builtins.str]] = None,
                  resource_group_name: Optional[pulumi.Input[builtins.str]] = None,
                  sku: Optional[pulumi.Input[builtins.str]] = None,
+                 subnet_id: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  upgrade_wave: Optional[pulumi.Input[builtins.str]] = None,
                  username: Optional[pulumi.Input[builtins.str]] = None,
@@ -667,6 +700,7 @@ class ManagedCluster(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] password: Administrator password for the VMs that will be created as part of this cluster.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the Resource Group where the Resource Group should exist. Changing this forces a new Resource Group to be created.
         :param pulumi.Input[builtins.str] sku: SKU for this cluster. Changing this forces a new resource to be created. Default is `Basic`, allowed values are either `Basic` or `Standard`.
+        :param pulumi.Input[builtins.str] subnet_id: The resource ID of the Subnet. Changing this forces a new Resource Group to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags which should be assigned to the Resource Group.
         :param pulumi.Input[builtins.str] upgrade_wave: Upgrade wave for the fabric runtime. Default is `Wave0`, allowed value must be one of `Wave0`, `Wave1`, or `Wave2`.
         :param pulumi.Input[builtins.str] username: Administrator password for the VMs that will be created as part of this cluster.
@@ -758,6 +792,7 @@ class ManagedCluster(pulumi.CustomResource):
                  password: Optional[pulumi.Input[builtins.str]] = None,
                  resource_group_name: Optional[pulumi.Input[builtins.str]] = None,
                  sku: Optional[pulumi.Input[builtins.str]] = None,
+                 subnet_id: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  upgrade_wave: Optional[pulumi.Input[builtins.str]] = None,
                  username: Optional[pulumi.Input[builtins.str]] = None,
@@ -792,6 +827,7 @@ class ManagedCluster(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["sku"] = sku
+            __props__.__dict__["subnet_id"] = subnet_id
             __props__.__dict__["tags"] = tags
             __props__.__dict__["upgrade_wave"] = upgrade_wave
             __props__.__dict__["username"] = username
@@ -821,6 +857,7 @@ class ManagedCluster(pulumi.CustomResource):
             password: Optional[pulumi.Input[builtins.str]] = None,
             resource_group_name: Optional[pulumi.Input[builtins.str]] = None,
             sku: Optional[pulumi.Input[builtins.str]] = None,
+            subnet_id: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             upgrade_wave: Optional[pulumi.Input[builtins.str]] = None,
             username: Optional[pulumi.Input[builtins.str]] = None) -> 'ManagedCluster':
@@ -845,6 +882,7 @@ class ManagedCluster(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] password: Administrator password for the VMs that will be created as part of this cluster.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the Resource Group where the Resource Group should exist. Changing this forces a new Resource Group to be created.
         :param pulumi.Input[builtins.str] sku: SKU for this cluster. Changing this forces a new resource to be created. Default is `Basic`, allowed values are either `Basic` or `Standard`.
+        :param pulumi.Input[builtins.str] subnet_id: The resource ID of the Subnet. Changing this forces a new Resource Group to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags which should be assigned to the Resource Group.
         :param pulumi.Input[builtins.str] upgrade_wave: Upgrade wave for the fabric runtime. Default is `Wave0`, allowed value must be one of `Wave0`, `Wave1`, or `Wave2`.
         :param pulumi.Input[builtins.str] username: Administrator password for the VMs that will be created as part of this cluster.
@@ -867,6 +905,7 @@ class ManagedCluster(pulumi.CustomResource):
         __props__.__dict__["password"] = password
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["sku"] = sku
+        __props__.__dict__["subnet_id"] = subnet_id
         __props__.__dict__["tags"] = tags
         __props__.__dict__["upgrade_wave"] = upgrade_wave
         __props__.__dict__["username"] = username
@@ -983,6 +1022,14 @@ class ManagedCluster(pulumi.CustomResource):
         SKU for this cluster. Changing this forces a new resource to be created. Default is `Basic`, allowed values are either `Basic` or `Standard`.
         """
         return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> pulumi.Output[Optional[builtins.str]]:
+        """
+        The resource ID of the Subnet. Changing this forces a new Resource Group to be created.
+        """
+        return pulumi.get(self, "subnet_id")
 
     @property
     @pulumi.getter

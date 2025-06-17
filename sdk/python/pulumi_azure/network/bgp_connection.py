@@ -250,6 +250,13 @@ class BgpConnection(pulumi.CustomResource):
             opts = pulumi.ResourceOptions(depends_on=[example_virtual_hub_ip]))
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network`: 2024-05-01
+
         ## Import
 
         Virtual Hub Bgp Connections can be imported using the `resource id`, e.g.
@@ -319,6 +326,13 @@ class BgpConnection(pulumi.CustomResource):
             peer_ip="169.254.21.5",
             opts = pulumi.ResourceOptions(depends_on=[example_virtual_hub_ip]))
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network`: 2024-05-01
 
         ## Import
 

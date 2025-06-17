@@ -1595,7 +1595,7 @@ class WindowsFunctionApp(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = WindowsFunctionAppArgs.__new__(WindowsFunctionAppArgs)
 
-            __props__.__dict__["app_settings"] = None if app_settings is None else pulumi.Output.secret(app_settings)
+            __props__.__dict__["app_settings"] = app_settings
             __props__.__dict__["auth_settings"] = auth_settings
             __props__.__dict__["auth_settings_v2"] = auth_settings_v2
             __props__.__dict__["backup"] = backup
@@ -1645,7 +1645,7 @@ class WindowsFunctionApp(pulumi.CustomResource):
             __props__.__dict__["possible_outbound_ip_address_lists"] = None
             __props__.__dict__["possible_outbound_ip_addresses"] = None
             __props__.__dict__["site_credentials"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["appSettings", "customDomainVerificationId", "siteCredentials", "storageAccountAccessKey"])
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["customDomainVerificationId", "siteCredentials", "storageAccountAccessKey"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(WindowsFunctionApp, __self__).__init__(
             'azure:appservice/windowsFunctionApp:WindowsFunctionApp',

@@ -44,12 +44,19 @@ namespace Pulumi.Azure.DataFactory
     /// });
     /// ```
     /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.DataFactory`: 2018-06-01
+    /// 
     /// ## Import
     /// 
     /// Data Factories can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    /// $ pulumi import azure:datafactory/integrationRuntimeSelfHosted:IntegrationRuntimeSelfHosted example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/integrationruntimes/example
+    /// $ pulumi import azure:datafactory/integrationRuntimeSelfHosted:IntegrationRuntimeSelfHosted example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/integrationRuntimes/example
     /// ```
     /// </summary>
     [AzureResourceType("azure:datafactory/integrationRuntimeSelfHosted:IntegrationRuntimeSelfHosted")]

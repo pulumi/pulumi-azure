@@ -295,6 +295,13 @@ class VirtualHubRouteTableRoute(pulumi.CustomResource):
             next_hop=example_virtual_hub_connection.id)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network`: 2024-05-01
+
         ## Import
 
         Virtual Hub Route Table Routes can be imported using `<Route Table Resource Id>/routes/<Route Name>`, e.g.
@@ -378,6 +385,13 @@ class VirtualHubRouteTableRoute(pulumi.CustomResource):
             next_hop_type="ResourceId",
             next_hop=example_virtual_hub_connection.id)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network`: 2024-05-01
 
         ## Import
 

@@ -7269,7 +7269,7 @@ type KubernetesClusterDefaultNodePool struct {
 	// A `upgradeSettings` block as documented below.
 	UpgradeSettings *KubernetesClusterDefaultNodePoolUpgradeSettings `pulumi:"upgradeSettings"`
 	// The size of the Virtual Machine, such as `Standard_DS2_v2`. `temporaryNameForRotation` must be specified when attempting a resize.
-	VmSize string `pulumi:"vmSize"`
+	VmSize *string `pulumi:"vmSize"`
 	// The ID of a Subnet where the Kubernetes Node Pool should exist.
 	//
 	// > **Note:** A Route Table must be configured on this Subnet.
@@ -7368,7 +7368,7 @@ type KubernetesClusterDefaultNodePoolArgs struct {
 	// A `upgradeSettings` block as documented below.
 	UpgradeSettings KubernetesClusterDefaultNodePoolUpgradeSettingsPtrInput `pulumi:"upgradeSettings"`
 	// The size of the Virtual Machine, such as `Standard_DS2_v2`. `temporaryNameForRotation` must be specified when attempting a resize.
-	VmSize pulumi.StringInput `pulumi:"vmSize"`
+	VmSize pulumi.StringPtrInput `pulumi:"vmSize"`
 	// The ID of a Subnet where the Kubernetes Node Pool should exist.
 	//
 	// > **Note:** A Route Table must be configured on this Subnet.
@@ -7636,8 +7636,8 @@ func (o KubernetesClusterDefaultNodePoolOutput) UpgradeSettings() KubernetesClus
 }
 
 // The size of the Virtual Machine, such as `Standard_DS2_v2`. `temporaryNameForRotation` must be specified when attempting a resize.
-func (o KubernetesClusterDefaultNodePoolOutput) VmSize() pulumi.StringOutput {
-	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) string { return v.VmSize }).(pulumi.StringOutput)
+func (o KubernetesClusterDefaultNodePoolOutput) VmSize() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *string { return v.VmSize }).(pulumi.StringPtrOutput)
 }
 
 // The ID of a Subnet where the Kubernetes Node Pool should exist.
@@ -8018,7 +8018,7 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) VmSize() pulumi.StringPtrOutp
 		if v == nil {
 			return nil
 		}
-		return &v.VmSize
+		return v.VmSize
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -19041,7 +19041,7 @@ type RegistryGeoreplication struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Whether zone redundancy is enabled for this replication location? Defaults to `false`.
 	//
-	// > **Note:** Changing the `zoneRedundancyEnabled` forces the a underlying replication to be created.
+	// > **Note:** Changing the `zoneRedundancyEnabled` forces an underlying replication to be created.
 	ZoneRedundancyEnabled *bool `pulumi:"zoneRedundancyEnabled"`
 }
 
@@ -19065,7 +19065,7 @@ type RegistryGeoreplicationArgs struct {
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// Whether zone redundancy is enabled for this replication location? Defaults to `false`.
 	//
-	// > **Note:** Changing the `zoneRedundancyEnabled` forces the a underlying replication to be created.
+	// > **Note:** Changing the `zoneRedundancyEnabled` forces an underlying replication to be created.
 	ZoneRedundancyEnabled pulumi.BoolPtrInput `pulumi:"zoneRedundancyEnabled"`
 }
 
@@ -19137,7 +19137,7 @@ func (o RegistryGeoreplicationOutput) Tags() pulumi.StringMapOutput {
 
 // Whether zone redundancy is enabled for this replication location? Defaults to `false`.
 //
-// > **Note:** Changing the `zoneRedundancyEnabled` forces the a underlying replication to be created.
+// > **Note:** Changing the `zoneRedundancyEnabled` forces an underlying replication to be created.
 func (o RegistryGeoreplicationOutput) ZoneRedundancyEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RegistryGeoreplication) *bool { return v.ZoneRedundancyEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -19371,7 +19371,7 @@ type RegistryNetworkRuleSet struct {
 	//
 	// > **Note:** `networkRuleSet` is only supported with the `Premium` SKU at this time.
 	//
-	// > **Note:** Azure automatically configures Network Rules - to remove these you'll need to specify an `networkRuleSet` block with `defaultAction` set to `Deny`.
+	// > **Note:** Azure automatically configures Network Rules - to remove these, you'll need to specify an `networkRuleSet` block with `defaultAction` set to `Deny`.
 	IpRules []RegistryNetworkRuleSetIpRule `pulumi:"ipRules"`
 }
 
@@ -19393,7 +19393,7 @@ type RegistryNetworkRuleSetArgs struct {
 	//
 	// > **Note:** `networkRuleSet` is only supported with the `Premium` SKU at this time.
 	//
-	// > **Note:** Azure automatically configures Network Rules - to remove these you'll need to specify an `networkRuleSet` block with `defaultAction` set to `Deny`.
+	// > **Note:** Azure automatically configures Network Rules - to remove these, you'll need to specify an `networkRuleSet` block with `defaultAction` set to `Deny`.
 	IpRules RegistryNetworkRuleSetIpRuleArrayInput `pulumi:"ipRules"`
 }
 
@@ -19483,7 +19483,7 @@ func (o RegistryNetworkRuleSetOutput) DefaultAction() pulumi.StringPtrOutput {
 //
 // > **Note:** `networkRuleSet` is only supported with the `Premium` SKU at this time.
 //
-// > **Note:** Azure automatically configures Network Rules - to remove these you'll need to specify an `networkRuleSet` block with `defaultAction` set to `Deny`.
+// > **Note:** Azure automatically configures Network Rules - to remove these, you'll need to specify an `networkRuleSet` block with `defaultAction` set to `Deny`.
 func (o RegistryNetworkRuleSetOutput) IpRules() RegistryNetworkRuleSetIpRuleArrayOutput {
 	return o.ApplyT(func(v RegistryNetworkRuleSet) []RegistryNetworkRuleSetIpRule { return v.IpRules }).(RegistryNetworkRuleSetIpRuleArrayOutput)
 }
@@ -19526,7 +19526,7 @@ func (o RegistryNetworkRuleSetPtrOutput) DefaultAction() pulumi.StringPtrOutput 
 //
 // > **Note:** `networkRuleSet` is only supported with the `Premium` SKU at this time.
 //
-// > **Note:** Azure automatically configures Network Rules - to remove these you'll need to specify an `networkRuleSet` block with `defaultAction` set to `Deny`.
+// > **Note:** Azure automatically configures Network Rules - to remove these, you'll need to specify an `networkRuleSet` block with `defaultAction` set to `Deny`.
 func (o RegistryNetworkRuleSetPtrOutput) IpRules() RegistryNetworkRuleSetIpRuleArrayOutput {
 	return o.ApplyT(func(v *RegistryNetworkRuleSet) []RegistryNetworkRuleSetIpRule {
 		if v == nil {

@@ -406,6 +406,13 @@ class VpnSite(pulumi.CustomResource):
             }])
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network`: 2024-05-01
+
         ## Import
 
         VPN Sites can be imported using the `resource id`, e.g.
@@ -462,6 +469,13 @@ class VpnSite(pulumi.CustomResource):
                 "ip_address": "10.0.0.1",
             }])
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network`: 2024-05-01
 
         ## Import
 

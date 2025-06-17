@@ -195,6 +195,13 @@ class ManagedDiskSasToken(pulumi.CustomResource):
             access_level="Read")
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Compute`: 2023-04-02
+
         ## Import
 
         Disk SAS Token can be imported using the `resource id`, e.g.
@@ -248,6 +255,13 @@ class ManagedDiskSasToken(pulumi.CustomResource):
             duration_in_seconds=300,
             access_level="Read")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Compute`: 2023-04-02
 
         ## Import
 
