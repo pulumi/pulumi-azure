@@ -63,9 +63,9 @@ including (but not limited to), 'appinsights', 'compute', 'cosmosdb', 'keyvault'
 
 There are a variety of ways credentials may be configured for the Azure provider, appropriate for
 different use cases. Refer to the [Azure configuration options](
-https://www.pulumi.com/registry/packages/azure-native/installation-configuration/#configuration-options).
+https://www.pulumi.com/registry/packages/azure/installation-configuration/#configuration-options).
 
 ## Reference
 
-For further information, visit [Azure in the Pulumi Registry](https://www.pulumi.com/registry/packages/azure-native/)
-or for detailed API reference documentation, visit [Azure API Docs in the Pulumi Registry](https://www.pulumi.com/registry/packages/azure-native/api-docs/).
+For further information, visit [Azure in the Pulumi Registry](https://www.pulumi.com/registry/packages/azure/)
+or for detailed API reference documentation, visit [Azure API Docs in the Pulumi Registry](https://www.pulumi.com/registry/packages/azure/api-docs/).
