@@ -164,6 +164,7 @@ const (
 	azurePrivateDNS            = "PrivateDns"            // Private DNS
 	azurePrivateLink           = "PrivateLink"           // PrivateLink
 	azurePurview               = "Purview"               // Purview
+	azureQumulo                = "Qumulo"                // Qumulo
 	azureRecoveryServices      = "RecoveryServices"      // Recovery Services
 	azureRedis                 = "Redis"                 // RedisCache
 	azureRedHatOpenShift       = "RedHatOpenShift"       // RedHat OpenShift
@@ -337,6 +338,7 @@ var moduleMap = map[string]string{
 	"private_endpoint": azurePrivateLink,
 
 	"purview":                  azurePurview,
+	"qumulo":                   azureQumulo,
 	"recovery_services":        azureRecoveryServices,
 	"redis":                    azureRedis,
 	"relay":                    azureRelay,
