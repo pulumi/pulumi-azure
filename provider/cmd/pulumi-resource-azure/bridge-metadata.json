@@ -14842,6 +14842,9 @@
                             }
                         }
                     },
+                    "enabled_metric": {
+                        "maxItemsOne": false
+                    },
                     "metric": {
                         "maxItemsOne": false,
                         "elem": {
@@ -15635,6 +15638,9 @@
                         "maxItemsOne": false,
                         "elem": {
                             "fields": {
+                                "data_protection_replication": {
+                                    "maxItemsOne": true
+                                },
                                 "data_protection_snapshot_policy": {
                                     "maxItemsOne": true
                                 },
@@ -15944,6 +15950,10 @@
             },
             "azurerm_network_manager_network_group": {
                 "current": "azure:network/networkManagerNetworkGroup:NetworkManagerNetworkGroup",
+                "majorVersion": 6
+            },
+            "azurerm_network_manager_routing_configuration": {
+                "current": "azure:network/networkManagerRoutingConfiguration:NetworkManagerRoutingConfiguration",
                 "majorVersion": 6
             },
             "azurerm_network_manager_scope_connection": {
@@ -17264,6 +17274,10 @@
                         "maxItemsOne": false
                     }
                 }
+            },
+            "azurerm_qumulo_file_system": {
+                "current": "azure:qumulo/fileSystem:FileSystem",
+                "majorVersion": 6
             },
             "azurerm_recovery_services_vault": {
                 "current": "azure:recoveryservices/vault:Vault",
@@ -21595,6 +21609,16 @@
                     "encryption": {
                         "maxItemsOne": true
                     },
+                    "ip_address_pool": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "allocated_ip_address_prefixes": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
                     "subnet": {
                         "maxItemsOne": false,
                         "elem": {
@@ -21904,6 +21928,9 @@
                                 }
                             }
                         }
+                    },
+                    "ip_configuration": {
+                        "maxItemsOne": false
                     }
                 }
             },
@@ -25903,6 +25930,95 @@
                 "fields": {
                     "zones": {
                         "maxItemsOne": false
+                    }
+                }
+            },
+            "azurerm_dev_center": {
+                "current": "azure:devcenter/get:get",
+                "majorVersion": 6,
+                "fields": {
+                    "identity": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "identity_ids": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "azurerm_dev_center_attached_network": {
+                "current": "azure:devcenter/getAttachedNetwork:getAttachedNetwork",
+                "majorVersion": 6
+            },
+            "azurerm_dev_center_catalog": {
+                "current": "azure:devcenter/getCatalog:getCatalog",
+                "majorVersion": 6,
+                "fields": {
+                    "catalog_adogit": {
+                        "maxItemsOne": false
+                    },
+                    "catalog_github": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "azurerm_dev_center_dev_box_definition": {
+                "current": "azure:devcenter/getDevBoxDefinition:getDevBoxDefinition",
+                "majorVersion": 6
+            },
+            "azurerm_dev_center_gallery": {
+                "current": "azure:devcenter/getGallery:getGallery",
+                "majorVersion": 6
+            },
+            "azurerm_dev_center_network_connection": {
+                "current": "azure:devcenter/getNetworkConnection:getNetworkConnection",
+                "majorVersion": 6
+            },
+            "azurerm_dev_center_project": {
+                "current": "azure:devcenter/getProject:getProject",
+                "majorVersion": 6,
+                "fields": {
+                    "identity": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "identity_ids": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "azurerm_dev_center_project_environment_type": {
+                "current": "azure:devcenter/getProjectEnvironmentType:getProjectEnvironmentType",
+                "majorVersion": 6,
+                "fields": {
+                    "creator_role_assignment_roles": {
+                        "maxItemsOne": false
+                    },
+                    "identity": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "identity_ids": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "user_role_assignment": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "roles": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
                     }
                 }
             },
@@ -30940,6 +31056,9 @@
                                 }
                             }
                         }
+                    },
+                    "ip_configuration": {
+                        "maxItemsOne": false
                     }
                 }
             },
