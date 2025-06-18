@@ -28,7 +28,7 @@ class GetVolumeResult:
     """
     A collection of values returned by getVolume.
     """
-    def __init__(__self__, account_name=None, data_protection_backup_policies=None, data_protection_replications=None, encryption_key_source=None, id=None, key_vault_private_endpoint_id=None, location=None, mount_ip_addresses=None, name=None, network_features=None, pool_name=None, protocols=None, resource_group_name=None, security_style=None, service_level=None, smb_access_based_enumeration_enabled=None, smb_non_browsable_enabled=None, storage_quota_in_gb=None, subnet_id=None, volume_path=None, zone=None):
+    def __init__(__self__, account_name=None, data_protection_backup_policies=None, data_protection_replications=None, encryption_key_source=None, id=None, key_vault_private_endpoint_id=None, large_volume_enabled=None, location=None, mount_ip_addresses=None, name=None, network_features=None, pool_name=None, protocols=None, resource_group_name=None, security_style=None, service_level=None, smb_access_based_enumeration_enabled=None, smb_non_browsable_enabled=None, storage_quota_in_gb=None, subnet_id=None, volume_path=None, zone=None):
         if account_name and not isinstance(account_name, str):
             raise TypeError("Expected argument 'account_name' to be a str")
         pulumi.set(__self__, "account_name", account_name)
@@ -47,6 +47,9 @@ class GetVolumeResult:
         if key_vault_private_endpoint_id and not isinstance(key_vault_private_endpoint_id, str):
             raise TypeError("Expected argument 'key_vault_private_endpoint_id' to be a str")
         pulumi.set(__self__, "key_vault_private_endpoint_id", key_vault_private_endpoint_id)
+        if large_volume_enabled and not isinstance(large_volume_enabled, bool):
+            raise TypeError("Expected argument 'large_volume_enabled' to be a bool")
+        pulumi.set(__self__, "large_volume_enabled", large_volume_enabled)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -131,6 +134,14 @@ class GetVolumeResult:
     @pulumi.getter(name="keyVaultPrivateEndpointId")
     def key_vault_private_endpoint_id(self) -> builtins.str:
         return pulumi.get(self, "key_vault_private_endpoint_id")
+
+    @property
+    @pulumi.getter(name="largeVolumeEnabled")
+    def large_volume_enabled(self) -> builtins.bool:
+        """
+        Indicates if the volume is a large volume.
+        """
+        return pulumi.get(self, "large_volume_enabled")
 
     @property
     @pulumi.getter
@@ -256,6 +267,7 @@ class AwaitableGetVolumeResult(GetVolumeResult):
             encryption_key_source=self.encryption_key_source,
             id=self.id,
             key_vault_private_endpoint_id=self.key_vault_private_endpoint_id,
+            large_volume_enabled=self.large_volume_enabled,
             location=self.location,
             mount_ip_addresses=self.mount_ip_addresses,
             name=self.name,
@@ -325,6 +337,7 @@ def get_volume(account_name: Optional[builtins.str] = None,
         encryption_key_source=pulumi.get(__ret__, 'encryption_key_source'),
         id=pulumi.get(__ret__, 'id'),
         key_vault_private_endpoint_id=pulumi.get(__ret__, 'key_vault_private_endpoint_id'),
+        large_volume_enabled=pulumi.get(__ret__, 'large_volume_enabled'),
         location=pulumi.get(__ret__, 'location'),
         mount_ip_addresses=pulumi.get(__ret__, 'mount_ip_addresses'),
         name=pulumi.get(__ret__, 'name'),
@@ -391,6 +404,7 @@ def get_volume_output(account_name: Optional[pulumi.Input[builtins.str]] = None,
         encryption_key_source=pulumi.get(__response__, 'encryption_key_source'),
         id=pulumi.get(__response__, 'id'),
         key_vault_private_endpoint_id=pulumi.get(__response__, 'key_vault_private_endpoint_id'),
+        large_volume_enabled=pulumi.get(__response__, 'large_volume_enabled'),
         location=pulumi.get(__response__, 'location'),
         mount_ip_addresses=pulumi.get(__response__, 'mount_ip_addresses'),
         name=pulumi.get(__response__, 'name'),

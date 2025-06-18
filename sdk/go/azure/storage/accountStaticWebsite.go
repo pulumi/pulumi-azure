@@ -36,7 +36,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = storage.NewAccount(ctx, "example", &storage.AccountArgs{
+//			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
 //				Name:                   pulumi.String("storageaccountname"),
 //				ResourceGroupName:      example.Name,
 //				Location:               example.Location,
@@ -49,8 +49,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = storage.NewAccountStaticWebsite(ctx, "test", &storage.AccountStaticWebsiteArgs{
-//				StorageAccountId: pulumi.Any(testAzurermStorageAccount.Id),
+//			_, err = storage.NewAccountStaticWebsite(ctx, "example", &storage.AccountStaticWebsiteArgs{
+//				StorageAccountId: exampleAccount.ID(),
 //				Error404Document: pulumi.String("custom_not_found.html"),
 //				IndexDocument:    pulumi.String("custom_index.html"),
 //			})

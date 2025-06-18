@@ -22,7 +22,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// 
         /// &gt; **Note:** `network_rule_set` is only supported with the `Premium` SKU at this time.
         /// 
-        /// &gt; **Note:** Azure automatically configures Network Rules - to remove these you'll need to specify an `network_rule_set` block with `default_action` set to `Deny`.
+        /// &gt; **Note:** Azure automatically configures Network Rules - to remove these, you'll need to specify an `network_rule_set` block with `default_action` set to `Deny`.
         /// </summary>
         public readonly ImmutableArray<Outputs.RegistryNetworkRuleSetIpRule> IpRules;
 

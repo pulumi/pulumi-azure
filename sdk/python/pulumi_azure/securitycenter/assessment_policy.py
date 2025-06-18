@@ -333,6 +333,13 @@ class AssessmentPolicy(pulumi.CustomResource):
             description="Test Description")
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Security`: 2021-06-01
+
         ## Import
 
         Security Assessments Policy can be imported using the `resource id`, e.g.
@@ -372,6 +379,13 @@ class AssessmentPolicy(pulumi.CustomResource):
             severity="Medium",
             description="Test Description")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Security`: 2021-06-01
 
         ## Import
 

@@ -147,7 +147,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// <summary>
         /// The size of the Virtual Machine, such as `Standard_DS2_v2`. `temporary_name_for_rotation` must be specified when attempting a resize.
         /// </summary>
-        public readonly string VmSize;
+        public readonly string? VmSize;
         /// <summary>
         /// The ID of a Subnet where the Kubernetes Node Pool should exist.
         /// 
@@ -231,7 +231,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
 
             Outputs.KubernetesClusterDefaultNodePoolUpgradeSettings? upgradeSettings,
 
-            string vmSize,
+            string? vmSize,
 
             string? vnetSubnetId,
 

@@ -96,6 +96,13 @@ namespace Pulumi.Azure.Monitoring
     /// });
     /// ```
     /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.Insights`: 2018-03-01
+    /// 
     /// ## Import
     /// 
     /// Metric Alerts can be imported using the `resource id`, e.g.

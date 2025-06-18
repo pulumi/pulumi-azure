@@ -381,6 +381,13 @@ class ActivityLogAlert(pulumi.CustomResource):
             }])
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Insights`: 2020-10-01
+
         ## Import
 
         Activity log alerts can be imported using the `resource id`, e.g.
@@ -451,6 +458,13 @@ class ActivityLogAlert(pulumi.CustomResource):
                 },
             }])
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Insights`: 2020-10-01
 
         ## Import
 

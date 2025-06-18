@@ -21,9 +21,17 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final AccountArgs Empty = new AccountArgs();
 
+    /**
+     * An `encryption` block as defined below.
+     * 
+     */
     @Import(name="encryptions")
     private @Nullable Output<List<AccountEncryptionArgs>> encryptions;
 
+    /**
+     * @return An `encryption` block as defined below.
+     * 
+     */
     public Optional<Output<List<AccountEncryptionArgs>>> encryptions() {
         return Optional.ofNullable(this.encryptions);
     }
@@ -133,9 +141,17 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
         return this.skuName;
     }
 
+    /**
+     * A mapping of tags to assign to the resource.
+     * 
+     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
+    /**
+     * @return A mapping of tags to assign to the resource.
+     * 
+     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -172,15 +188,33 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
             $ = new AccountArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param encryptions An `encryption` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder encryptions(@Nullable Output<List<AccountEncryptionArgs>> encryptions) {
             $.encryptions = encryptions;
             return this;
         }
 
+        /**
+         * @param encryptions An `encryption` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder encryptions(List<AccountEncryptionArgs> encryptions) {
             return encryptions(Output.of(encryptions));
         }
 
+        /**
+         * @param encryptions An `encryption` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder encryptions(AccountEncryptionArgs... encryptions) {
             return encryptions(List.of(encryptions));
         }
@@ -332,11 +366,23 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
             return skuName(Output.of(skuName));
         }
 
+        /**
+         * @param tags A mapping of tags to assign to the resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
+        /**
+         * @param tags A mapping of tags to assign to the resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

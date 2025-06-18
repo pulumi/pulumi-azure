@@ -14,7 +14,7 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type AccountEncryption struct {
-	// Deprecated: This field is now ignored and will be removed in the next major version of the Azure Provider, the `encryption` block can be omitted to disable encryption
+	// Deprecated: `encryption.key_source` has been deprecated and will be removed in v5.0 of the AzureRM Provider. To disable encryption, omit the `encryption` block
 	KeySource *string `pulumi:"keySource"`
 	// The ID of the Key Vault Key which should be used to Encrypt the data in this Automation Account.
 	KeyVaultKeyId string `pulumi:"keyVaultKeyId"`
@@ -34,7 +34,7 @@ type AccountEncryptionInput interface {
 }
 
 type AccountEncryptionArgs struct {
-	// Deprecated: This field is now ignored and will be removed in the next major version of the Azure Provider, the `encryption` block can be omitted to disable encryption
+	// Deprecated: `encryption.key_source` has been deprecated and will be removed in v5.0 of the AzureRM Provider. To disable encryption, omit the `encryption` block
 	KeySource pulumi.StringPtrInput `pulumi:"keySource"`
 	// The ID of the Key Vault Key which should be used to Encrypt the data in this Automation Account.
 	KeyVaultKeyId pulumi.StringInput `pulumi:"keyVaultKeyId"`
@@ -93,7 +93,7 @@ func (o AccountEncryptionOutput) ToAccountEncryptionOutputWithContext(ctx contex
 	return o
 }
 
-// Deprecated: This field is now ignored and will be removed in the next major version of the Azure Provider, the `encryption` block can be omitted to disable encryption
+// Deprecated: `encryption.key_source` has been deprecated and will be removed in v5.0 of the AzureRM Provider. To disable encryption, omit the `encryption` block
 func (o AccountEncryptionOutput) KeySource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AccountEncryption) *string { return v.KeySource }).(pulumi.StringPtrOutput)
 }

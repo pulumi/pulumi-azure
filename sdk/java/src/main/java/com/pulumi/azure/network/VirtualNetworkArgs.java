@@ -5,6 +5,7 @@ package com.pulumi.azure.network;
 
 import com.pulumi.azure.network.inputs.VirtualNetworkDdosProtectionPlanArgs;
 import com.pulumi.azure.network.inputs.VirtualNetworkEncryptionArgs;
+import com.pulumi.azure.network.inputs.VirtualNetworkIpAddressPoolArgs;
 import com.pulumi.azure.network.inputs.VirtualNetworkSubnetArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -25,16 +26,20 @@ public final class VirtualNetworkArgs extends com.pulumi.resources.ResourceArgs 
     /**
      * The address space that is used the virtual network. You can supply more than one address space.
      * 
+     * &gt; **Note:** Exactly one of `address_space` or `ip_address_pool` must be specified. If `address_space` is not specified but you encounter a diff, this might indicate the `address_space` is allocated from the IP Address Pool. If this is the case, you may need to add this to ignore_changes.
+     * 
      */
-    @Import(name="addressSpaces", required=true)
-    private Output<List<String>> addressSpaces;
+    @Import(name="addressSpaces")
+    private @Nullable Output<List<String>> addressSpaces;
 
     /**
      * @return The address space that is used the virtual network. You can supply more than one address space.
      * 
+     * &gt; **Note:** Exactly one of `address_space` or `ip_address_pool` must be specified. If `address_space` is not specified but you encounter a diff, this might indicate the `address_space` is allocated from the IP Address Pool. If this is the case, you may need to add this to ignore_changes.
+     * 
      */
-    public Output<List<String>> addressSpaces() {
-        return this.addressSpaces;
+    public Optional<Output<List<String>>> addressSpaces() {
+        return Optional.ofNullable(this.addressSpaces);
     }
 
     /**
@@ -133,6 +138,25 @@ public final class VirtualNetworkArgs extends com.pulumi.resources.ResourceArgs 
      */
     public Optional<Output<Integer>> flowTimeoutInMinutes() {
         return Optional.ofNullable(this.flowTimeoutInMinutes);
+    }
+
+    /**
+     * One or two `ip_address_pool` blocks as defined below. Only one association of each IP type(IPv4 or IPv6) is allowed.
+     * 
+     * &gt; **Note:** Exactly one of `address_space` or `ip_address_pool` must be specified.
+     * 
+     */
+    @Import(name="ipAddressPools")
+    private @Nullable Output<List<VirtualNetworkIpAddressPoolArgs>> ipAddressPools;
+
+    /**
+     * @return One or two `ip_address_pool` blocks as defined below. Only one association of each IP type(IPv4 or IPv6) is allowed.
+     * 
+     * &gt; **Note:** Exactly one of `address_space` or `ip_address_pool` must be specified.
+     * 
+     */
+    public Optional<Output<List<VirtualNetworkIpAddressPoolArgs>>> ipAddressPools() {
+        return Optional.ofNullable(this.ipAddressPools);
     }
 
     /**
@@ -239,6 +263,7 @@ public final class VirtualNetworkArgs extends com.pulumi.resources.ResourceArgs 
         this.edgeZone = $.edgeZone;
         this.encryption = $.encryption;
         this.flowTimeoutInMinutes = $.flowTimeoutInMinutes;
+        this.ipAddressPools = $.ipAddressPools;
         this.location = $.location;
         this.name = $.name;
         this.privateEndpointVnetPolicies = $.privateEndpointVnetPolicies;
@@ -268,16 +293,20 @@ public final class VirtualNetworkArgs extends com.pulumi.resources.ResourceArgs 
         /**
          * @param addressSpaces The address space that is used the virtual network. You can supply more than one address space.
          * 
+         * &gt; **Note:** Exactly one of `address_space` or `ip_address_pool` must be specified. If `address_space` is not specified but you encounter a diff, this might indicate the `address_space` is allocated from the IP Address Pool. If this is the case, you may need to add this to ignore_changes.
+         * 
          * @return builder
          * 
          */
-        public Builder addressSpaces(Output<List<String>> addressSpaces) {
+        public Builder addressSpaces(@Nullable Output<List<String>> addressSpaces) {
             $.addressSpaces = addressSpaces;
             return this;
         }
 
         /**
          * @param addressSpaces The address space that is used the virtual network. You can supply more than one address space.
+         * 
+         * &gt; **Note:** Exactly one of `address_space` or `ip_address_pool` must be specified. If `address_space` is not specified but you encounter a diff, this might indicate the `address_space` is allocated from the IP Address Pool. If this is the case, you may need to add this to ignore_changes.
          * 
          * @return builder
          * 
@@ -288,6 +317,8 @@ public final class VirtualNetworkArgs extends com.pulumi.resources.ResourceArgs 
 
         /**
          * @param addressSpaces The address space that is used the virtual network. You can supply more than one address space.
+         * 
+         * &gt; **Note:** Exactly one of `address_space` or `ip_address_pool` must be specified. If `address_space` is not specified but you encounter a diff, this might indicate the `address_space` is allocated from the IP Address Pool. If this is the case, you may need to add this to ignore_changes.
          * 
          * @return builder
          * 
@@ -443,6 +474,43 @@ public final class VirtualNetworkArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
+         * @param ipAddressPools One or two `ip_address_pool` blocks as defined below. Only one association of each IP type(IPv4 or IPv6) is allowed.
+         * 
+         * &gt; **Note:** Exactly one of `address_space` or `ip_address_pool` must be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipAddressPools(@Nullable Output<List<VirtualNetworkIpAddressPoolArgs>> ipAddressPools) {
+            $.ipAddressPools = ipAddressPools;
+            return this;
+        }
+
+        /**
+         * @param ipAddressPools One or two `ip_address_pool` blocks as defined below. Only one association of each IP type(IPv4 or IPv6) is allowed.
+         * 
+         * &gt; **Note:** Exactly one of `address_space` or `ip_address_pool` must be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipAddressPools(List<VirtualNetworkIpAddressPoolArgs> ipAddressPools) {
+            return ipAddressPools(Output.of(ipAddressPools));
+        }
+
+        /**
+         * @param ipAddressPools One or two `ip_address_pool` blocks as defined below. Only one association of each IP type(IPv4 or IPv6) is allowed.
+         * 
+         * &gt; **Note:** Exactly one of `address_space` or `ip_address_pool` must be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipAddressPools(VirtualNetworkIpAddressPoolArgs... ipAddressPools) {
+            return ipAddressPools(List.of(ipAddressPools));
+        }
+
+        /**
          * @param location The location/region where the virtual network is created. Changing this forces a new resource to be created.
          * 
          * @return builder
@@ -585,9 +653,6 @@ public final class VirtualNetworkArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public VirtualNetworkArgs build() {
-            if ($.addressSpaces == null) {
-                throw new MissingRequiredPropertyException("VirtualNetworkArgs", "addressSpaces");
-            }
             if ($.resourceGroupName == null) {
                 throw new MissingRequiredPropertyException("VirtualNetworkArgs", "resourceGroupName");
             }

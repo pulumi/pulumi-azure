@@ -82,6 +82,13 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.Compute`: 2024-03-01, 2023-04-02
+ *
  * ## Import
  *
  * Linux Virtual Machines can be imported using the `resource id`, e.g.

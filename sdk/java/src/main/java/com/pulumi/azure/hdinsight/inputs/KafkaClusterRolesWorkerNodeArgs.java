@@ -54,14 +54,14 @@ public final class KafkaClusterRolesWorkerNodeArgs extends com.pulumi.resources.
     }
 
     /**
-     * The script action which will run on the cluster. One or more `script_actions` blocks as defined below.
+     * The script action which will run on the cluster. One or more `script_actions` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="scriptActions")
     private @Nullable Output<List<KafkaClusterRolesWorkerNodeScriptActionArgs>> scriptActions;
 
     /**
-     * @return The script action which will run on the cluster. One or more `script_actions` blocks as defined below.
+     * @return The script action which will run on the cluster. One or more `script_actions` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<List<KafkaClusterRolesWorkerNodeScriptActionArgs>>> scriptActions() {
@@ -241,7 +241,7 @@ public final class KafkaClusterRolesWorkerNodeArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param scriptActions The script action which will run on the cluster. One or more `script_actions` blocks as defined below.
+         * @param scriptActions The script action which will run on the cluster. One or more `script_actions` blocks as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -252,7 +252,7 @@ public final class KafkaClusterRolesWorkerNodeArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param scriptActions The script action which will run on the cluster. One or more `script_actions` blocks as defined below.
+         * @param scriptActions The script action which will run on the cluster. One or more `script_actions` blocks as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -262,7 +262,7 @@ public final class KafkaClusterRolesWorkerNodeArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param scriptActions The script action which will run on the cluster. One or more `script_actions` blocks as defined below.
+         * @param scriptActions The script action which will run on the cluster. One or more `script_actions` blocks as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

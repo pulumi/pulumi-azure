@@ -238,6 +238,13 @@ class VirtualHubConnection(pulumi.CustomResource):
             remote_virtual_network_id=example_virtual_network.id)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network`: 2024-05-01
+
         ## Import
 
         Virtual Hub Connection's can be imported using the `resource id`, e.g.
@@ -292,6 +299,13 @@ class VirtualHubConnection(pulumi.CustomResource):
             virtual_hub_id=example_virtual_hub.id,
             remote_virtual_network_id=example_virtual_network.id)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network`: 2024-05-01
 
         ## Import
 

@@ -366,6 +366,8 @@ class TagRulesMetricRule(dict):
         suggest = None
         if key == "filteringTags":
             suggest = "filtering_tags"
+        elif key == "sendingMetricsEnabled":
+            suggest = "sending_metrics_enabled"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in TagRulesMetricRule. Access the value via the '{suggest}' property getter instead.")
@@ -379,11 +381,15 @@ class TagRulesMetricRule(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 filtering_tags: Sequence['outputs.TagRulesMetricRuleFilteringTag']):
+                 filtering_tags: Sequence['outputs.TagRulesMetricRuleFilteringTag'],
+                 sending_metrics_enabled: Optional[builtins.bool] = None):
         """
         :param Sequence['TagRulesMetricRuleFilteringTagArgs'] filtering_tags: Filtering tag for the metric rule. A `filtering_tag` block as defined below.
+        :param builtins.bool sending_metrics_enabled: If sending metrics is enabled. The default value is `false`.
         """
         pulumi.set(__self__, "filtering_tags", filtering_tags)
+        if sending_metrics_enabled is not None:
+            pulumi.set(__self__, "sending_metrics_enabled", sending_metrics_enabled)
 
     @property
     @pulumi.getter(name="filteringTags")
@@ -392,6 +398,14 @@ class TagRulesMetricRule(dict):
         Filtering tag for the metric rule. A `filtering_tag` block as defined below.
         """
         return pulumi.get(self, "filtering_tags")
+
+    @property
+    @pulumi.getter(name="sendingMetricsEnabled")
+    def sending_metrics_enabled(self) -> Optional[builtins.bool]:
+        """
+        If sending metrics is enabled. The default value is `false`.
+        """
+        return pulumi.get(self, "sending_metrics_enabled")
 
 
 @pulumi.output_type

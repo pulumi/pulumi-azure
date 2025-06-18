@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages Azure Backup for an Azure VM
+// Manages an Azure Backup Protected Virtual Machine.
 //
 // ## Example Usage
 //
@@ -83,34 +83,39 @@ import (
 //
 // ```
 //
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.RecoveryServices`: 2024-01-01
+//
 // ## Import
 //
-// Recovery Services Protected VMs can be imported using the `resource id`, e.g.
+// Backup Protected Virtual Machines can be imported using the `resource id`, e.g.
 //
 // ```sh
 // $ pulumi import azure:backup/protectedVM:ProtectedVM item1 "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.RecoveryServices/vaults/example-recovery-vault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;group1;vm1/protectedItems/vm;iaasvmcontainerv2;group1;vm1"
 // ```
-//
-// Note the ID requires quoting as there are semicolons
 type ProtectedVM struct {
 	pulumi.CustomResourceState
 
-	// Specifies the id of the backup policy to use. Required in creation or when `protectionStopped` is not specified.
 	BackupPolicyId pulumi.StringPtrOutput `pulumi:"backupPolicyId"`
-	// A list of Disks' Logical Unit Numbers(LUN) to be excluded for VM Protection.
+	// A list of Disks' Logical Unit Numbers (LUN) to be excluded for VM Protection.
 	ExcludeDiskLuns pulumi.IntArrayOutput `pulumi:"excludeDiskLuns"`
-	// A list of Disks' Logical Unit Numbers(LUN) to be included for VM Protection.
+	// A list of Disks' Logical Unit Numbers (LUN) to be included for VM Protection.
 	IncludeDiskLuns pulumi.IntArrayOutput `pulumi:"includeDiskLuns"`
-	// Specifies Protection state of the backup. Possible values are `Invalid`, `IRPending`, `Protected`, `ProtectionStopped`, `ProtectionError` and `ProtectionPaused`.
+	// Specifies Protection state of the backup. Possible values are `Protected`, `BackupsSuspended`, and `ProtectionStopped`.
+	//
+	// > **Note:** `protectionState` cannot be set to `BackupsSuspended` unless the `recoveryservices.Vault` has `immutability` set to `Unlocked` or `Locked`.
 	ProtectionState pulumi.StringOutput `pulumi:"protectionState"`
 	// Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
 	RecoveryVaultName pulumi.StringOutput `pulumi:"recoveryVaultName"`
 	// Specifies the name of the Resource Group **associated with** the Recovery Services Vault to use. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// Specifies the ID of the VM to backup. Changing this forces a new resource to be created.
+	// Specifies the ID of the virtual machine to back up. Changing this forces a new resource to be created.
 	//
-	// > **Note:** After creation, the `sourceVmId` property can be removed without forcing a new resource to be created; however, setting it to a different ID will create a new resource.
-	// This allows the source vm to be deleted without having to remove the backup.
+	// > **Note:** After creation, the `sourceVmId` property can be removed without forcing a new resource to be created; however, setting it to a different ID will create a new resource. This allows the source virtual machine to be deleted without having to remove the backup.
 	SourceVmId pulumi.StringOutput `pulumi:"sourceVmId"`
 }
 
@@ -150,42 +155,42 @@ func GetProtectedVM(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ProtectedVM resources.
 type protectedVMState struct {
-	// Specifies the id of the backup policy to use. Required in creation or when `protectionStopped` is not specified.
 	BackupPolicyId *string `pulumi:"backupPolicyId"`
-	// A list of Disks' Logical Unit Numbers(LUN) to be excluded for VM Protection.
+	// A list of Disks' Logical Unit Numbers (LUN) to be excluded for VM Protection.
 	ExcludeDiskLuns []int `pulumi:"excludeDiskLuns"`
-	// A list of Disks' Logical Unit Numbers(LUN) to be included for VM Protection.
+	// A list of Disks' Logical Unit Numbers (LUN) to be included for VM Protection.
 	IncludeDiskLuns []int `pulumi:"includeDiskLuns"`
-	// Specifies Protection state of the backup. Possible values are `Invalid`, `IRPending`, `Protected`, `ProtectionStopped`, `ProtectionError` and `ProtectionPaused`.
+	// Specifies Protection state of the backup. Possible values are `Protected`, `BackupsSuspended`, and `ProtectionStopped`.
+	//
+	// > **Note:** `protectionState` cannot be set to `BackupsSuspended` unless the `recoveryservices.Vault` has `immutability` set to `Unlocked` or `Locked`.
 	ProtectionState *string `pulumi:"protectionState"`
 	// Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
 	RecoveryVaultName *string `pulumi:"recoveryVaultName"`
 	// Specifies the name of the Resource Group **associated with** the Recovery Services Vault to use. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// Specifies the ID of the VM to backup. Changing this forces a new resource to be created.
+	// Specifies the ID of the virtual machine to back up. Changing this forces a new resource to be created.
 	//
-	// > **Note:** After creation, the `sourceVmId` property can be removed without forcing a new resource to be created; however, setting it to a different ID will create a new resource.
-	// This allows the source vm to be deleted without having to remove the backup.
+	// > **Note:** After creation, the `sourceVmId` property can be removed without forcing a new resource to be created; however, setting it to a different ID will create a new resource. This allows the source virtual machine to be deleted without having to remove the backup.
 	SourceVmId *string `pulumi:"sourceVmId"`
 }
 
 type ProtectedVMState struct {
-	// Specifies the id of the backup policy to use. Required in creation or when `protectionStopped` is not specified.
 	BackupPolicyId pulumi.StringPtrInput
-	// A list of Disks' Logical Unit Numbers(LUN) to be excluded for VM Protection.
+	// A list of Disks' Logical Unit Numbers (LUN) to be excluded for VM Protection.
 	ExcludeDiskLuns pulumi.IntArrayInput
-	// A list of Disks' Logical Unit Numbers(LUN) to be included for VM Protection.
+	// A list of Disks' Logical Unit Numbers (LUN) to be included for VM Protection.
 	IncludeDiskLuns pulumi.IntArrayInput
-	// Specifies Protection state of the backup. Possible values are `Invalid`, `IRPending`, `Protected`, `ProtectionStopped`, `ProtectionError` and `ProtectionPaused`.
+	// Specifies Protection state of the backup. Possible values are `Protected`, `BackupsSuspended`, and `ProtectionStopped`.
+	//
+	// > **Note:** `protectionState` cannot be set to `BackupsSuspended` unless the `recoveryservices.Vault` has `immutability` set to `Unlocked` or `Locked`.
 	ProtectionState pulumi.StringPtrInput
 	// Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
 	RecoveryVaultName pulumi.StringPtrInput
 	// Specifies the name of the Resource Group **associated with** the Recovery Services Vault to use. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// Specifies the ID of the VM to backup. Changing this forces a new resource to be created.
+	// Specifies the ID of the virtual machine to back up. Changing this forces a new resource to be created.
 	//
-	// > **Note:** After creation, the `sourceVmId` property can be removed without forcing a new resource to be created; however, setting it to a different ID will create a new resource.
-	// This allows the source vm to be deleted without having to remove the backup.
+	// > **Note:** After creation, the `sourceVmId` property can be removed without forcing a new resource to be created; however, setting it to a different ID will create a new resource. This allows the source virtual machine to be deleted without having to remove the backup.
 	SourceVmId pulumi.StringPtrInput
 }
 
@@ -194,43 +199,43 @@ func (ProtectedVMState) ElementType() reflect.Type {
 }
 
 type protectedVMArgs struct {
-	// Specifies the id of the backup policy to use. Required in creation or when `protectionStopped` is not specified.
 	BackupPolicyId *string `pulumi:"backupPolicyId"`
-	// A list of Disks' Logical Unit Numbers(LUN) to be excluded for VM Protection.
+	// A list of Disks' Logical Unit Numbers (LUN) to be excluded for VM Protection.
 	ExcludeDiskLuns []int `pulumi:"excludeDiskLuns"`
-	// A list of Disks' Logical Unit Numbers(LUN) to be included for VM Protection.
+	// A list of Disks' Logical Unit Numbers (LUN) to be included for VM Protection.
 	IncludeDiskLuns []int `pulumi:"includeDiskLuns"`
-	// Specifies Protection state of the backup. Possible values are `Invalid`, `IRPending`, `Protected`, `ProtectionStopped`, `ProtectionError` and `ProtectionPaused`.
+	// Specifies Protection state of the backup. Possible values are `Protected`, `BackupsSuspended`, and `ProtectionStopped`.
+	//
+	// > **Note:** `protectionState` cannot be set to `BackupsSuspended` unless the `recoveryservices.Vault` has `immutability` set to `Unlocked` or `Locked`.
 	ProtectionState *string `pulumi:"protectionState"`
 	// Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
 	RecoveryVaultName string `pulumi:"recoveryVaultName"`
 	// Specifies the name of the Resource Group **associated with** the Recovery Services Vault to use. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Specifies the ID of the VM to backup. Changing this forces a new resource to be created.
+	// Specifies the ID of the virtual machine to back up. Changing this forces a new resource to be created.
 	//
-	// > **Note:** After creation, the `sourceVmId` property can be removed without forcing a new resource to be created; however, setting it to a different ID will create a new resource.
-	// This allows the source vm to be deleted without having to remove the backup.
+	// > **Note:** After creation, the `sourceVmId` property can be removed without forcing a new resource to be created; however, setting it to a different ID will create a new resource. This allows the source virtual machine to be deleted without having to remove the backup.
 	SourceVmId *string `pulumi:"sourceVmId"`
 }
 
 // The set of arguments for constructing a ProtectedVM resource.
 type ProtectedVMArgs struct {
-	// Specifies the id of the backup policy to use. Required in creation or when `protectionStopped` is not specified.
 	BackupPolicyId pulumi.StringPtrInput
-	// A list of Disks' Logical Unit Numbers(LUN) to be excluded for VM Protection.
+	// A list of Disks' Logical Unit Numbers (LUN) to be excluded for VM Protection.
 	ExcludeDiskLuns pulumi.IntArrayInput
-	// A list of Disks' Logical Unit Numbers(LUN) to be included for VM Protection.
+	// A list of Disks' Logical Unit Numbers (LUN) to be included for VM Protection.
 	IncludeDiskLuns pulumi.IntArrayInput
-	// Specifies Protection state of the backup. Possible values are `Invalid`, `IRPending`, `Protected`, `ProtectionStopped`, `ProtectionError` and `ProtectionPaused`.
+	// Specifies Protection state of the backup. Possible values are `Protected`, `BackupsSuspended`, and `ProtectionStopped`.
+	//
+	// > **Note:** `protectionState` cannot be set to `BackupsSuspended` unless the `recoveryservices.Vault` has `immutability` set to `Unlocked` or `Locked`.
 	ProtectionState pulumi.StringPtrInput
 	// Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
 	RecoveryVaultName pulumi.StringInput
 	// Specifies the name of the Resource Group **associated with** the Recovery Services Vault to use. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// Specifies the ID of the VM to backup. Changing this forces a new resource to be created.
+	// Specifies the ID of the virtual machine to back up. Changing this forces a new resource to be created.
 	//
-	// > **Note:** After creation, the `sourceVmId` property can be removed without forcing a new resource to be created; however, setting it to a different ID will create a new resource.
-	// This allows the source vm to be deleted without having to remove the backup.
+	// > **Note:** After creation, the `sourceVmId` property can be removed without forcing a new resource to be created; however, setting it to a different ID will create a new resource. This allows the source virtual machine to be deleted without having to remove the backup.
 	SourceVmId pulumi.StringPtrInput
 }
 
@@ -321,22 +326,23 @@ func (o ProtectedVMOutput) ToProtectedVMOutputWithContext(ctx context.Context) P
 	return o
 }
 
-// Specifies the id of the backup policy to use. Required in creation or when `protectionStopped` is not specified.
 func (o ProtectedVMOutput) BackupPolicyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProtectedVM) pulumi.StringPtrOutput { return v.BackupPolicyId }).(pulumi.StringPtrOutput)
 }
 
-// A list of Disks' Logical Unit Numbers(LUN) to be excluded for VM Protection.
+// A list of Disks' Logical Unit Numbers (LUN) to be excluded for VM Protection.
 func (o ProtectedVMOutput) ExcludeDiskLuns() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *ProtectedVM) pulumi.IntArrayOutput { return v.ExcludeDiskLuns }).(pulumi.IntArrayOutput)
 }
 
-// A list of Disks' Logical Unit Numbers(LUN) to be included for VM Protection.
+// A list of Disks' Logical Unit Numbers (LUN) to be included for VM Protection.
 func (o ProtectedVMOutput) IncludeDiskLuns() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *ProtectedVM) pulumi.IntArrayOutput { return v.IncludeDiskLuns }).(pulumi.IntArrayOutput)
 }
 
-// Specifies Protection state of the backup. Possible values are `Invalid`, `IRPending`, `Protected`, `ProtectionStopped`, `ProtectionError` and `ProtectionPaused`.
+// Specifies Protection state of the backup. Possible values are `Protected`, `BackupsSuspended`, and `ProtectionStopped`.
+//
+// > **Note:** `protectionState` cannot be set to `BackupsSuspended` unless the `recoveryservices.Vault` has `immutability` set to `Unlocked` or `Locked`.
 func (o ProtectedVMOutput) ProtectionState() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProtectedVM) pulumi.StringOutput { return v.ProtectionState }).(pulumi.StringOutput)
 }
@@ -351,10 +357,9 @@ func (o ProtectedVMOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProtectedVM) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// Specifies the ID of the VM to backup. Changing this forces a new resource to be created.
+// Specifies the ID of the virtual machine to back up. Changing this forces a new resource to be created.
 //
-// > **Note:** After creation, the `sourceVmId` property can be removed without forcing a new resource to be created; however, setting it to a different ID will create a new resource.
-// This allows the source vm to be deleted without having to remove the backup.
+// > **Note:** After creation, the `sourceVmId` property can be removed without forcing a new resource to be created; however, setting it to a different ID will create a new resource. This allows the source virtual machine to be deleted without having to remove the backup.
 func (o ProtectedVMOutput) SourceVmId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProtectedVM) pulumi.StringOutput { return v.SourceVmId }).(pulumi.StringOutput)
 }

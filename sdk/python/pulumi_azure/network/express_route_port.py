@@ -470,6 +470,13 @@ class ExpressRoutePort(pulumi.CustomResource):
             encapsulation="Dot1Q")
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network`: 2024-05-01
+
         ## Import
 
         Express Route Ports can be imported using the `resource id`, e.g.
@@ -518,6 +525,13 @@ class ExpressRoutePort(pulumi.CustomResource):
             bandwidth_in_gbps=10,
             encapsulation="Dot1Q")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network`: 2024-05-01
 
         ## Import
 

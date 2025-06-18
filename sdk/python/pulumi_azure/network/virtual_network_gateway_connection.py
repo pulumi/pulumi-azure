@@ -1041,6 +1041,13 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
             shared_key="4-v3ry-53cr37-1p53c-5h4r3d-k3y")
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network`: 2024-05-01
+
         ## Import
 
         Virtual Network Gateway Connections can be imported using their `resource id`, e.g.
@@ -1238,6 +1245,13 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
             peer_virtual_network_gateway_id=us_virtual_network_gateway.id,
             shared_key="4-v3ry-53cr37-1p53c-5h4r3d-k3y")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network`: 2024-05-01
 
         ## Import
 

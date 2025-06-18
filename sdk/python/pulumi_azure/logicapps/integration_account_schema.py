@@ -260,6 +260,13 @@ class IntegrationAccountSchema(pulumi.CustomResource):
             content=std.file(input="testdata/integration_account_schema_content.xsd").result)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Logic`: 2019-05-01
+
         ## Import
 
         Logic App Integration Account Schemas can be imported using the `resource id`, e.g.
@@ -307,6 +314,13 @@ class IntegrationAccountSchema(pulumi.CustomResource):
             integration_account_name=example_integration_account.name,
             content=std.file(input="testdata/integration_account_schema_content.xsd").result)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Logic`: 2019-05-01
 
         ## Import
 

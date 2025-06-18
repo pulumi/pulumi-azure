@@ -15775,7 +15775,7 @@ export namespace automanage {
 export namespace automation {
     export interface AccountEncryption {
         /**
-         * @deprecated This field is now ignored and will be removed in the next major version of the Azure Provider, the `encryption` block can be omitted to disable encryption
+         * @deprecated `encryption.key_source` has been deprecated and will be removed in v5.0 of the AzureRM Provider. To disable encryption, omit the `encryption` block
          */
         keySource?: pulumi.Input<string>;
         /**
@@ -18939,7 +18939,7 @@ export namespace cdn {
          */
         negateCondition?: pulumi.Input<boolean>;
         /**
-         * A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+         * A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual`, `RegEx` or `Wildcard`. Details can be found in the `Condition Operator List` below.
          */
         operator: pulumi.Input<string>;
         /**
@@ -25415,7 +25415,7 @@ export namespace containerservice {
         /**
          * The size of the Virtual Machine, such as `Standard_DS2_v2`. `temporaryNameForRotation` must be specified when attempting a resize.
          */
-        vmSize: pulumi.Input<string>;
+        vmSize?: pulumi.Input<string>;
         /**
          * The ID of a Subnet where the Kubernetes Node Pool should exist.
          *
@@ -26714,7 +26714,7 @@ export namespace containerservice {
         /**
          * Whether zone redundancy is enabled for this replication location? Defaults to `false`.
          *
-         * > **Note:** Changing the `zoneRedundancyEnabled` forces the a underlying replication to be created.
+         * > **Note:** Changing the `zoneRedundancyEnabled` forces an underlying replication to be created.
          */
         zoneRedundancyEnabled?: pulumi.Input<boolean>;
     }
@@ -26750,7 +26750,7 @@ export namespace containerservice {
          *
          * > **Note:** `networkRuleSet` is only supported with the `Premium` SKU at this time.
          *
-         * > **Note:** Azure automatically configures Network Rules - to remove these you'll need to specify an `networkRuleSet` block with `defaultAction` set to `Deny`.
+         * > **Note:** Azure automatically configures Network Rules - to remove these, you'll need to specify an `networkRuleSet` block with `defaultAction` set to `Deny`.
          */
         ipRules?: pulumi.Input<pulumi.Input<inputs.containerservice.RegistryNetworkRuleSetIpRule>[]>;
     }
@@ -31299,6 +31299,10 @@ export namespace dynatrace {
          * Filtering tag for the metric rule. A `filteringTag` block as defined below.
          */
         filteringTags: pulumi.Input<pulumi.Input<inputs.dynatrace.TagRulesMetricRuleFilteringTag>[]>;
+        /**
+         * If sending metrics is enabled. The default value is `false`.
+         */
+        sendingMetricsEnabled?: pulumi.Input<boolean>;
     }
 
     export interface TagRulesMetricRuleFilteringTag {
@@ -34266,7 +34270,7 @@ export namespace hdinsight {
          */
         password?: pulumi.Input<string>;
         /**
-         * The script action which will run on the cluster. One or more `scriptActions` blocks as defined below.
+         * The script action which will run on the cluster. One or more `scriptActions` blocks as defined below. Changing this forces a new resource to be created.
          */
         scriptActions?: pulumi.Input<pulumi.Input<inputs.hdinsight.HBaseClusterRolesHeadNodeScriptAction>[]>;
         /**
@@ -34320,7 +34324,7 @@ export namespace hdinsight {
          */
         password?: pulumi.Input<string>;
         /**
-         * The script action which will run on the cluster. One or more `scriptActions` blocks as defined above.
+         * The script action which will run on the cluster. One or more `scriptActions` blocks as defined above. Changing this forces a new resource to be created.
          */
         scriptActions?: pulumi.Input<pulumi.Input<inputs.hdinsight.HBaseClusterRolesWorkerNodeScriptAction>[]>;
         /**
@@ -34409,7 +34413,7 @@ export namespace hdinsight {
          */
         password?: pulumi.Input<string>;
         /**
-         * The script action which will run on the cluster. One or more `scriptActions` blocks as defined above.
+         * The script action which will run on the cluster. One or more `scriptActions` blocks as defined above. Changing this forces a new resource to be created.
          */
         scriptActions?: pulumi.Input<pulumi.Input<inputs.hdinsight.HBaseClusterRolesZookeeperNodeScriptAction>[]>;
         /**
@@ -34496,7 +34500,7 @@ export namespace hdinsight {
         /**
          * The ID of the Storage Container. Changing this forces a new resource to be created.
          *
-         * > **Note:** This can be obtained from the `id` of the `azure.storage.Container` resource.
+         * > **Note:** When the `azure.storage.Container` resource is created with `storageAccountName`, this can be obtained from the `id` of the `azure.storage.Container` resource. When the `azure.storage.Container` resource is created with `storageAccountId`, please use `azure.storage.getContainers` data source to get the `dataPlaneId` of the `azure.storage.Container` resource for this field.
          */
         storageContainerId: pulumi.Input<string>;
         /**
@@ -34747,7 +34751,7 @@ export namespace hdinsight {
          */
         targetInstanceCount: pulumi.Input<number>;
         /**
-         * A `uninstallScriptActions` block as defined below.
+         * A `uninstallScriptActions` block as defined below. Changing this forces a new resource to be created.
          */
         uninstallScriptActions?: pulumi.Input<pulumi.Input<inputs.hdinsight.HadoopClusterRolesEdgeNodeUninstallScriptAction>[]>;
         /**
@@ -34817,7 +34821,7 @@ export namespace hdinsight {
          */
         password?: pulumi.Input<string>;
         /**
-         * The script action which will run on the cluster. One or more `scriptActions` blocks as defined below.
+         * The script action which will run on the cluster. One or more `scriptActions` blocks as defined below. Changing this forces a new resource to be created.
          */
         scriptActions?: pulumi.Input<pulumi.Input<inputs.hdinsight.HadoopClusterRolesHeadNodeScriptAction>[]>;
         /**
@@ -34871,7 +34875,7 @@ export namespace hdinsight {
          */
         password?: pulumi.Input<string>;
         /**
-         * The script action which will run on the cluster. One or more `scriptActions` blocks as defined above.
+         * The script action which will run on the cluster. One or more `scriptActions` blocks as defined above. Changing this forces a new resource to be created.
          */
         scriptActions?: pulumi.Input<pulumi.Input<inputs.hdinsight.HadoopClusterRolesWorkerNodeScriptAction>[]>;
         /**
@@ -34975,7 +34979,7 @@ export namespace hdinsight {
          */
         password?: pulumi.Input<string>;
         /**
-         * The script action which will run on the cluster. One or more `scriptActions` blocks as defined above.
+         * The script action which will run on the cluster. One or more `scriptActions` blocks as defined above. Changing this forces a new resource to be created.
          */
         scriptActions?: pulumi.Input<pulumi.Input<inputs.hdinsight.HadoopClusterRolesZookeeperNodeScriptAction>[]>;
         /**
@@ -35062,7 +35066,7 @@ export namespace hdinsight {
         /**
          * The ID of the Storage Container. Changing this forces a new resource to be created.
          *
-         * > **Note:** This can be obtained from the `id` of the `azure.storage.Container` resource.
+         * > **Note:** When the `azure.storage.Container` resource is created with `storageAccountName`, this can be obtained from the `id` of the `azure.storage.Container` resource. When the `azure.storage.Container` resource is created with `storageAccountId`, please use `azure.storage.getContainers` data source to get the `dataPlaneId` of the `azure.storage.Container` resource for this field.
          */
         storageContainerId: pulumi.Input<string>;
         /**
@@ -35306,7 +35310,7 @@ export namespace hdinsight {
          */
         password?: pulumi.Input<string>;
         /**
-         * The script action which will run on the cluster. One or more `scriptActions` blocks as defined below.
+         * The script action which will run on the cluster. One or more `scriptActions` blocks as defined below. Changing this forces a new resource to be created.
          */
         scriptActions?: pulumi.Input<pulumi.Input<inputs.hdinsight.InteractiveQueryClusterRolesHeadNodeScriptAction>[]>;
         /**
@@ -35362,7 +35366,7 @@ export namespace hdinsight {
          */
         password?: pulumi.Input<string>;
         /**
-         * The script action which will run on the cluster. One or more `scriptActions` blocks as defined above.
+         * The script action which will run on the cluster. One or more `scriptActions` blocks as defined above. Changing this forces a new resource to be created.
          */
         scriptActions?: pulumi.Input<pulumi.Input<inputs.hdinsight.InteractiveQueryClusterRolesWorkerNodeScriptAction>[]>;
         /**
@@ -35451,7 +35455,7 @@ export namespace hdinsight {
          */
         password?: pulumi.Input<string>;
         /**
-         * The script action which will run on the cluster. One or more `scriptActions` blocks as defined above.
+         * The script action which will run on the cluster. One or more `scriptActions` blocks as defined above. Changing this forces a new resource to be created.
          */
         scriptActions?: pulumi.Input<pulumi.Input<inputs.hdinsight.InteractiveQueryClusterRolesZookeeperNodeScriptAction>[]>;
         /**
@@ -35538,7 +35542,7 @@ export namespace hdinsight {
         /**
          * The ID of the Storage Container. Changing this forces a new resource to be created.
          *
-         * > **Note:** This can be obtained from the `id` of the `azure.storage.Container` resource.
+         * > **Note:** When the `azure.storage.Container` resource is created with `storageAccountName`, this can be obtained from the `id` of the `azure.storage.Container` resource. When the `azure.storage.Container` resource is created with `storageAccountId`, please use `azure.storage.getContainers` data source to get the `dataPlaneId` of the `azure.storage.Container` resource for this field.
          */
         storageContainerId: pulumi.Input<string>;
         /**
@@ -35801,7 +35805,7 @@ export namespace hdinsight {
          */
         password?: pulumi.Input<string>;
         /**
-         * The script action which will run on the cluster. One or more `scriptActions` blocks as defined below.
+         * The script action which will run on the cluster. One or more `scriptActions` blocks as defined below. Changing this forces a new resource to be created.
          */
         scriptActions?: pulumi.Input<pulumi.Input<inputs.hdinsight.KafkaClusterRolesHeadNodeScriptAction>[]>;
         /**
@@ -35851,7 +35855,7 @@ export namespace hdinsight {
          */
         password?: pulumi.Input<string>;
         /**
-         * The script action which will run on the cluster. One or more `scriptActions` blocks as defined below.
+         * The script action which will run on the cluster. One or more `scriptActions` blocks as defined below. Changing this forces a new resource to be created.
          */
         scriptActions?: pulumi.Input<pulumi.Input<inputs.hdinsight.KafkaClusterRolesKafkaManagementNodeScriptAction>[]>;
         /**
@@ -35907,7 +35911,7 @@ export namespace hdinsight {
          */
         password?: pulumi.Input<string>;
         /**
-         * The script action which will run on the cluster. One or more `scriptActions` blocks as defined below.
+         * The script action which will run on the cluster. One or more `scriptActions` blocks as defined below. Changing this forces a new resource to be created.
          */
         scriptActions?: pulumi.Input<pulumi.Input<inputs.hdinsight.KafkaClusterRolesWorkerNodeScriptAction>[]>;
         /**
@@ -35961,7 +35965,7 @@ export namespace hdinsight {
          */
         password?: pulumi.Input<string>;
         /**
-         * The script action which will run on the cluster. One or more `scriptActions` blocks as defined below.
+         * The script action which will run on the cluster. One or more `scriptActions` blocks as defined below. Changing this forces a new resource to be created.
          */
         scriptActions?: pulumi.Input<pulumi.Input<inputs.hdinsight.KafkaClusterRolesZookeeperNodeScriptAction>[]>;
         /**
@@ -36048,7 +36052,7 @@ export namespace hdinsight {
         /**
          * The ID of the Storage Container. Changing this forces a new resource to be created.
          *
-         * > **Note:** This can be obtained from the `id` of the `azure.storage.Container` resource.
+         * > **Note:** When the `azure.storage.Container` resource is created with `storageAccountName`, this can be obtained from the `id` of the `azure.storage.Container` resource. When the `azure.storage.Container` resource is created with `storageAccountId`, please use `azure.storage.getContainers` data source to get the `dataPlaneId` of the `azure.storage.Container` resource for this field.
          */
         storageContainerId: pulumi.Input<string>;
         /**
@@ -36292,7 +36296,7 @@ export namespace hdinsight {
          */
         password?: pulumi.Input<string>;
         /**
-         * The script action which will run on the cluster. One or more `scriptActions` blocks as defined below.
+         * The script action which will run on the cluster. One or more `scriptActions` blocks as defined below. Changing this forces a new resource to be created.
          */
         scriptActions?: pulumi.Input<pulumi.Input<inputs.hdinsight.SparkClusterRolesHeadNodeScriptAction>[]>;
         /**
@@ -36346,7 +36350,7 @@ export namespace hdinsight {
          */
         password?: pulumi.Input<string>;
         /**
-         * The script action which will run on the cluster. One or more `scriptActions` blocks as defined above.
+         * The script action which will run on the cluster. One or more `scriptActions` blocks as defined above. Changing this forces a new resource to be created.
          */
         scriptActions?: pulumi.Input<pulumi.Input<inputs.hdinsight.SparkClusterRolesWorkerNodeScriptAction>[]>;
         /**
@@ -36450,7 +36454,7 @@ export namespace hdinsight {
          */
         password?: pulumi.Input<string>;
         /**
-         * The script action which will run on the cluster. One or more `scriptActions` blocks as defined above.
+         * The script action which will run on the cluster. One or more `scriptActions` blocks as defined above. Changing this forces a new resource to be created.
          */
         scriptActions?: pulumi.Input<pulumi.Input<inputs.hdinsight.SparkClusterRolesZookeeperNodeScriptAction>[]>;
         /**
@@ -36537,7 +36541,7 @@ export namespace hdinsight {
         /**
          * The ID of the Storage Container. Changing this forces a new resource to be created.
          *
-         * > **Note:** This can be obtained from the `id` of the `azure.storage.Container` resource.
+         * > **Note:** When the `azure.storage.Container` resource is created with `storageAccountName`, this can be obtained from the `id` of the `azure.storage.Container` resource. When the `azure.storage.Container` resource is created with `storageAccountId`, please use `azure.storage.getContainers` data source to get the `dataPlaneId` of the `azure.storage.Container` resource for this field.
          */
         storageContainerId: pulumi.Input<string>;
         /**
@@ -41853,22 +41857,20 @@ export namespace monitoring {
 
     export interface DiagnosticSettingEnabledLogRetentionPolicy {
         days?: pulumi.Input<number>;
-        /**
-         * Is this Diagnostic Metric enabled? Defaults to `true`.
-         */
         enabled: pulumi.Input<boolean>;
     }
 
-    export interface DiagnosticSettingMetric {
+    export interface DiagnosticSettingEnabledMetric {
         /**
          * The name of a Diagnostic Metric Category for this Resource.
          *
          * > **NOTE:** The Metric Categories available vary depending on the Resource being used. You may wish to use the `azure.monitoring.getDiagnosticCategories` Data Source to identify which categories are available for a given Resource.
          */
         category: pulumi.Input<string>;
-        /**
-         * Is this Diagnostic Metric enabled? Defaults to `true`.
-         */
+    }
+
+    export interface DiagnosticSettingMetric {
+        category: pulumi.Input<string>;
         enabled?: pulumi.Input<boolean>;
         /**
          * @deprecated `retentionPolicy` has been deprecated in favor of the `azure.storage.ManagementPolicy` resource and will be removed in v5.0 of the AzureRM provider - to learn more go to https://aka.ms/diagnostic_settings_log_retention
@@ -41878,9 +41880,6 @@ export namespace monitoring {
 
     export interface DiagnosticSettingMetricRetentionPolicy {
         days?: pulumi.Input<number>;
-        /**
-         * Is this Diagnostic Metric enabled? Defaults to `true`.
-         */
         enabled: pulumi.Input<boolean>;
     }
 
@@ -43293,6 +43292,10 @@ export namespace netapp {
          */
         capacityPoolId: pulumi.Input<string>;
         /**
+         * A `dataProtectionReplication` block as defined below. Changing this forces a new Application Volume Group to be created and data will be lost.
+         */
+        dataProtectionReplication?: pulumi.Input<inputs.netapp.VolumeGroupOracleVolumeDataProtectionReplication>;
+        /**
          * A `dataProtectionSnapshotPolicy` block as defined below.
          */
         dataProtectionSnapshotPolicy?: pulumi.Input<inputs.netapp.VolumeGroupOracleVolumeDataProtectionSnapshotPolicy>;
@@ -43371,6 +43374,25 @@ export namespace netapp {
          * Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`, depending on the Azure region. Changing this forces a new resource to be created. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement). Note that this cannot be used together with `proximityPlacementGroupId`.
          */
         zone?: pulumi.Input<string>;
+    }
+
+    export interface VolumeGroupOracleVolumeDataProtectionReplication {
+        /**
+         * The endpoint type. Possible values are `dst` and `src`. Defaults to `dst`. Changing this forces a new Application Volume Group to be created and data will be lost.
+         */
+        endpointType?: pulumi.Input<string>;
+        /**
+         * Location of the primary volume. Changing this forces a new Application Volume Group to be created and data will be lost.
+         */
+        remoteVolumeLocation: pulumi.Input<string>;
+        /**
+         * Resource ID of the primary volume. Changing this forces a new Application Volume Group to be created and data will be lost.
+         */
+        remoteVolumeResourceId: pulumi.Input<string>;
+        /**
+         * Replication frequency. Possible values are `10minutes`, `daily` and `hourly`. Changing this forces a new Application Volume Group to be created and data will be lost.
+         */
+        replicationFrequency: pulumi.Input<string>;
     }
 
     export interface VolumeGroupOracleVolumeDataProtectionSnapshotPolicy {
@@ -43485,19 +43507,19 @@ export namespace netapp {
 
     export interface VolumeGroupSapHanaVolumeDataProtectionReplication {
         /**
-         * The endpoint type. Possible values are `dst` and `src`. Defaults to `dst`.
+         * The endpoint type. Possible values are `dst` and `src`. Defaults to `dst`. Changing this forces a new Application Volume Group to be created and data will be lost.
          */
         endpointType?: pulumi.Input<string>;
         /**
-         * Location of the primary volume.
+         * Location of the primary volume. Changing this forces a new Application Volume Group to be created and data will be lost.
          */
         remoteVolumeLocation: pulumi.Input<string>;
         /**
-         * Resource ID of the primary volume.
+         * Resource ID of the primary volume. Changing this forces a new Application Volume Group to be created and data will be lost.
          */
         remoteVolumeResourceId: pulumi.Input<string>;
         /**
-         * eplication frequency. Possible values are `10minutes`, `daily` and `hourly`.
+         * eplication frequency. Possible values are `10minutes`, `daily` and `hourly`. Changing this forces a new Application Volume Group to be created and data will be lost.
          */
         replicationFrequency: pulumi.Input<string>;
     }
@@ -46151,7 +46173,7 @@ export namespace network {
         /**
          * Specifies if the encrypted Virtual Network allows VM that does not support encryption. Possible values are `DropUnencrypted` and `AllowUnencrypted`.
          *
-         * > **NOTE:** Currently `AllowUnencrypted` is the only supported value for the `enforcement` property as `DropUnencrypted` is not yet in public preview or general availability. Please see the [official documentation](https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-encryption-overview#limitations) for more information.
+         * > **Note:** Currently `AllowUnencrypted` is the only supported value for the `enforcement` property as `DropUnencrypted` is not yet in public preview or general availability. Please see the [official documentation](https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-encryption-overview#limitations) for more information.
          */
         enforcement: pulumi.Input<string>;
     }
@@ -46482,6 +46504,21 @@ export namespace network {
         policyGroupNames: pulumi.Input<pulumi.Input<string>[]>;
     }
 
+    export interface VirtualNetworkIpAddressPool {
+        /**
+         * The list of IP address prefixes allocated to the Virtual Network.
+         */
+        allocatedIpAddressPrefixes?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The ID of the Network Manager IP Address Management (IPAM) Pool.
+         */
+        id: pulumi.Input<string>;
+        /**
+         * The number of IP addresses to allocated to the Virtual Network. The value must be a string that represents a positive number, e.g., `"100"`.
+         */
+        numberOfIpAddresses: pulumi.Input<string>;
+    }
+
     export interface VirtualNetworkSubnet {
         /**
          * The address prefixes to use for the subnet.
@@ -46506,17 +46543,17 @@ export namespace network {
         /**
          * Enable or Disable network policies for the private endpoint on the subnet. Possible values are `Disabled`, `Enabled`, `NetworkSecurityGroupEnabled` and `RouteTableEnabled`. Defaults to `Disabled`.
          *
-         * > **NOTE:** If you don't want to use network policies like user-defined Routes and Network Security Groups, you need to set `privateEndpointNetworkPolicies` in the subnet to `Disabled`. This setting only applies to Private Endpoints in the Subnet and affects all Private Endpoints in the Subnet.
+         * > **Note:** If you don't want to use network policies like user-defined Routes and Network Security Groups, you need to set `privateEndpointNetworkPolicies` in the subnet to `Disabled`. This setting only applies to Private Endpoints in the Subnet and affects all Private Endpoints in the Subnet.
          *
-         * > **NOTE:** If you want to use network policies like user-defined Routes and Network Security Groups, you need to set the `privateEndpointNetworkPolicies` in the Subnet to `Enabled`/`NetworkSecurityGroupEnabled`/`RouteTableEnabled`. This setting only applies to Private Endpoints in the Subnet and affects all Private Endpoints in the Subnet.
+         * > **Note:** If you want to use network policies like user-defined Routes and Network Security Groups, you need to set the `privateEndpointNetworkPolicies` in the Subnet to `Enabled`/`NetworkSecurityGroupEnabled`/`RouteTableEnabled`. This setting only applies to Private Endpoints in the Subnet and affects all Private Endpoints in the Subnet.
          *
-         * > **NOTE:** See more details from [Manage network policies for Private Endpoints](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-endpoint-network-policy?tabs=network-policy-portal).
+         * > **Note:** See more details from [Manage network policies for Private Endpoints](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-endpoint-network-policy?tabs=network-policy-portal).
          */
         privateEndpointNetworkPolicies?: pulumi.Input<string>;
         /**
          * Enable or Disable network policies for the private link service on the subnet. Defaults to `true`.
          *
-         * > **NOTE:** When configuring Azure Private Link service, the explicit setting `privateLinkServiceNetworkPoliciesEnabled` must be set to `false` in the subnet since Private Link Service does not support network policies like user-defined Routes and Network Security Groups. This setting only affects the Private Link service. For other resources in the subnet, access is controlled based on the Network Security Group which can be configured using the `azure.network.SubnetNetworkSecurityGroupAssociation` resource. See more details from [Manage network policies for Private Link Services](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-link-service-network-policy?tabs=private-link-network-policy-powershell).
+         * > **Note:** When configuring Azure Private Link service, the explicit setting `privateLinkServiceNetworkPoliciesEnabled` must be set to `false` in the subnet since Private Link Service does not support network policies like user-defined Routes and Network Security Groups. This setting only affects the Private Link service. For other resources in the subnet, access is controlled based on the Network Security Group which can be configured using the `azure.network.SubnetNetworkSecurityGroupAssociation` resource. See more details from [Manage network policies for Private Link Services](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-link-service-network-policy?tabs=private-link-network-policy-powershell).
          */
         privateLinkServiceNetworkPoliciesEnabled?: pulumi.Input<boolean>;
         /**
@@ -46552,7 +46589,7 @@ export namespace network {
         /**
          * A list of Actions which should be delegated. This list is specific to the service to delegate to. Possible values are `Microsoft.Network/networkinterfaces/*`, `Microsoft.Network/publicIPAddresses/join/action`, `Microsoft.Network/publicIPAddresses/read`, `Microsoft.Network/virtualNetworks/read`, `Microsoft.Network/virtualNetworks/subnets/action`, `Microsoft.Network/virtualNetworks/subnets/join/action`, `Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action`, and `Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action`.
          *
-         * > **NOTE:** Azure may add default actions depending on the service delegation name and they can't be changed.
+         * > **Note:** Azure may add default actions depending on the service delegation name and they can't be changed.
          */
         actions?: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -46792,6 +46829,21 @@ export namespace network {
          * The IPSec Security Association (also called Quick Mode or Phase 2 SA) lifetime in seconds for the site to site VPN tunnel.
          */
         saLifetimeSec: pulumi.Input<number>;
+    }
+
+    export interface VpnGatewayIpConfiguration {
+        /**
+         * The identifier of the IP configuration for the VPN Gateway.
+         */
+        id?: pulumi.Input<string>;
+        /**
+         * The private IP address of this IP configuration.
+         */
+        privateIpAddress?: pulumi.Input<string>;
+        /**
+         * The public IP address of this IP configuration.
+         */
+        publicIpAddress?: pulumi.Input<string>;
     }
 
     export interface VpnServerConfigurationAzureActiveDirectoryAuthentication {
@@ -48400,7 +48452,7 @@ export namespace postgresql {
          */
         geoBackupUserAssignedIdentityId?: pulumi.Input<string>;
         /**
-         * The versioned ID of the Key Vault Key.
+         * The versioned/versionless ID of the Key Vault Key.
          */
         keyVaultKeyId: pulumi.Input<string>;
         /**
@@ -48421,7 +48473,7 @@ export namespace postgresql {
         /**
          * A list of User Assigned Managed Identity IDs to be assigned to this PostgreSQL Flexible Server. Required if used together with `customerManagedKey` block.
          *
-         * > **Note:** `identityIds` is required when `type` is set to `UserAssigned`.
+         * > **Note:** `identityIds` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
          */
         identityIds?: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -48433,7 +48485,9 @@ export namespace postgresql {
          */
         tenantId?: pulumi.Input<string>;
         /**
-         * Specifies the type of Managed Service Identity that should be configured on this PostgreSQL Flexible Server. Possible values are `UserAssigned` and `SystemAssigned`.
+         * Specifies the type of Managed Service Identity that should be configured on this PostgreSQL Flexible Server. Possible values are `UserAssigned`, `SystemAssigned` and `SystemAssigned, UserAssigned`.
+         *
+         * > **Note:** Once `UserAssigned` has been added, removing it forces a new resource to be created.
          */
         type: pulumi.Input<string>;
     }
@@ -52536,7 +52590,7 @@ export namespace storage {
          */
         tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan?: pulumi.Input<number>;
         /**
-         * The age in days after last tier change to the blobs to skip to be archved. Must be between `0` and `99999`. Defaults to `-1`.
+         * The age in days after last tier change to the blobs to skip to be archived. Must be between `0` and `99999`. Defaults to `-1`.
          */
         tierToArchiveAfterDaysSinceLastTierChangeGreaterThan?: pulumi.Input<number>;
         /**
@@ -52587,7 +52641,7 @@ export namespace storage {
          */
         deleteAfterDaysSinceCreationGreaterThan?: pulumi.Input<number>;
         /**
-         * The age in days after last tier change to the blobs to skip to be archved. Must be between `0` and `99999`. Defaults to `-1`.
+         * The age in days after last tier change to the blobs to skip to be archived. Must be between `0` and `99999`. Defaults to `-1`.
          */
         tierToArchiveAfterDaysSinceLastTierChangeGreaterThan?: pulumi.Input<number>;
         /**
@@ -52610,7 +52664,7 @@ export namespace storage {
          */
         deleteAfterDaysSinceCreation?: pulumi.Input<number>;
         /**
-         * The age in days after last tier change to the blobs to skip to be archved. Must be between `0` and `99999`. Defaults to `-1`.
+         * The age in days after last tier change to the blobs to skip to be archived. Must be between `0` and `99999`. Defaults to `-1`.
          */
         tierToArchiveAfterDaysSinceLastTierChangeGreaterThan?: pulumi.Input<number>;
         /**

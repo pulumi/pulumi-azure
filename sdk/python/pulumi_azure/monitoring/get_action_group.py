@@ -245,6 +245,13 @@ def get_action_group(name: Optional[builtins.str] = None,
     pulumi.export("actionGroupId", example.id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Insights`: 2023-01-01
+
 
     :param builtins.str name: Specifies the name of the Action Group.
     :param builtins.str resource_group_name: Specifies the name of the resource group the Action Group is located in.
@@ -288,6 +295,13 @@ def get_action_group_output(name: Optional[pulumi.Input[builtins.str]] = None,
         name="tfex-actiongroup")
     pulumi.export("actionGroupId", example.id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Insights`: 2023-01-01
 
 
     :param builtins.str name: Specifies the name of the Action Group.

@@ -223,6 +223,10 @@ namespace Pulumi.Azure.NetApp
         public readonly string Id;
         public readonly string KeyVaultPrivateEndpointId;
         /// <summary>
+        /// Indicates if the volume is a large volume.
+        /// </summary>
+        public readonly bool LargeVolumeEnabled;
+        /// <summary>
         /// The Azure Region where the NetApp Volume exists.
         /// </summary>
         public readonly string Location;
@@ -288,6 +292,8 @@ namespace Pulumi.Azure.NetApp
 
             string keyVaultPrivateEndpointId,
 
+            bool largeVolumeEnabled,
+
             string location,
 
             ImmutableArray<string> mountIpAddresses,
@@ -324,6 +330,7 @@ namespace Pulumi.Azure.NetApp
             EncryptionKeySource = encryptionKeySource;
             Id = id;
             KeyVaultPrivateEndpointId = keyVaultPrivateEndpointId;
+            LargeVolumeEnabled = largeVolumeEnabled;
             Location = location;
             MountIpAddresses = mountIpAddresses;
             Name = name;

@@ -17,14 +17,14 @@ public final class VolumeGroupSapHanaVolumeDataProtectionReplicationArgs extends
     public static final VolumeGroupSapHanaVolumeDataProtectionReplicationArgs Empty = new VolumeGroupSapHanaVolumeDataProtectionReplicationArgs();
 
     /**
-     * The endpoint type. Possible values are `dst` and `src`. Defaults to `dst`.
+     * The endpoint type. Possible values are `dst` and `src`. Defaults to `dst`. Changing this forces a new Application Volume Group to be created and data will be lost.
      * 
      */
     @Import(name="endpointType")
     private @Nullable Output<String> endpointType;
 
     /**
-     * @return The endpoint type. Possible values are `dst` and `src`. Defaults to `dst`.
+     * @return The endpoint type. Possible values are `dst` and `src`. Defaults to `dst`. Changing this forces a new Application Volume Group to be created and data will be lost.
      * 
      */
     public Optional<Output<String>> endpointType() {
@@ -32,14 +32,14 @@ public final class VolumeGroupSapHanaVolumeDataProtectionReplicationArgs extends
     }
 
     /**
-     * Location of the primary volume.
+     * Location of the primary volume. Changing this forces a new Application Volume Group to be created and data will be lost.
      * 
      */
     @Import(name="remoteVolumeLocation", required=true)
     private Output<String> remoteVolumeLocation;
 
     /**
-     * @return Location of the primary volume.
+     * @return Location of the primary volume. Changing this forces a new Application Volume Group to be created and data will be lost.
      * 
      */
     public Output<String> remoteVolumeLocation() {
@@ -47,14 +47,14 @@ public final class VolumeGroupSapHanaVolumeDataProtectionReplicationArgs extends
     }
 
     /**
-     * Resource ID of the primary volume.
+     * Resource ID of the primary volume. Changing this forces a new Application Volume Group to be created and data will be lost.
      * 
      */
     @Import(name="remoteVolumeResourceId", required=true)
     private Output<String> remoteVolumeResourceId;
 
     /**
-     * @return Resource ID of the primary volume.
+     * @return Resource ID of the primary volume. Changing this forces a new Application Volume Group to be created and data will be lost.
      * 
      */
     public Output<String> remoteVolumeResourceId() {
@@ -62,14 +62,14 @@ public final class VolumeGroupSapHanaVolumeDataProtectionReplicationArgs extends
     }
 
     /**
-     * eplication frequency. Possible values are `10minutes`, `daily` and `hourly`.
+     * eplication frequency. Possible values are `10minutes`, `daily` and `hourly`. Changing this forces a new Application Volume Group to be created and data will be lost.
      * 
      */
     @Import(name="replicationFrequency", required=true)
     private Output<String> replicationFrequency;
 
     /**
-     * @return eplication frequency. Possible values are `10minutes`, `daily` and `hourly`.
+     * @return eplication frequency. Possible values are `10minutes`, `daily` and `hourly`. Changing this forces a new Application Volume Group to be created and data will be lost.
      * 
      */
     public Output<String> replicationFrequency() {
@@ -104,7 +104,7 @@ public final class VolumeGroupSapHanaVolumeDataProtectionReplicationArgs extends
         }
 
         /**
-         * @param endpointType The endpoint type. Possible values are `dst` and `src`. Defaults to `dst`.
+         * @param endpointType The endpoint type. Possible values are `dst` and `src`. Defaults to `dst`. Changing this forces a new Application Volume Group to be created and data will be lost.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class VolumeGroupSapHanaVolumeDataProtectionReplicationArgs extends
         }
 
         /**
-         * @param endpointType The endpoint type. Possible values are `dst` and `src`. Defaults to `dst`.
+         * @param endpointType The endpoint type. Possible values are `dst` and `src`. Defaults to `dst`. Changing this forces a new Application Volume Group to be created and data will be lost.
          * 
          * @return builder
          * 
@@ -125,7 +125,7 @@ public final class VolumeGroupSapHanaVolumeDataProtectionReplicationArgs extends
         }
 
         /**
-         * @param remoteVolumeLocation Location of the primary volume.
+         * @param remoteVolumeLocation Location of the primary volume. Changing this forces a new Application Volume Group to be created and data will be lost.
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class VolumeGroupSapHanaVolumeDataProtectionReplicationArgs extends
         }
 
         /**
-         * @param remoteVolumeLocation Location of the primary volume.
+         * @param remoteVolumeLocation Location of the primary volume. Changing this forces a new Application Volume Group to be created and data will be lost.
          * 
          * @return builder
          * 
@@ -146,7 +146,7 @@ public final class VolumeGroupSapHanaVolumeDataProtectionReplicationArgs extends
         }
 
         /**
-         * @param remoteVolumeResourceId Resource ID of the primary volume.
+         * @param remoteVolumeResourceId Resource ID of the primary volume. Changing this forces a new Application Volume Group to be created and data will be lost.
          * 
          * @return builder
          * 
@@ -157,7 +157,7 @@ public final class VolumeGroupSapHanaVolumeDataProtectionReplicationArgs extends
         }
 
         /**
-         * @param remoteVolumeResourceId Resource ID of the primary volume.
+         * @param remoteVolumeResourceId Resource ID of the primary volume. Changing this forces a new Application Volume Group to be created and data will be lost.
          * 
          * @return builder
          * 
@@ -167,7 +167,7 @@ public final class VolumeGroupSapHanaVolumeDataProtectionReplicationArgs extends
         }
 
         /**
-         * @param replicationFrequency eplication frequency. Possible values are `10minutes`, `daily` and `hourly`.
+         * @param replicationFrequency eplication frequency. Possible values are `10minutes`, `daily` and `hourly`. Changing this forces a new Application Volume Group to be created and data will be lost.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class VolumeGroupSapHanaVolumeDataProtectionReplicationArgs extends
         }
 
         /**
-         * @param replicationFrequency eplication frequency. Possible values are `10minutes`, `daily` and `hourly`.
+         * @param replicationFrequency eplication frequency. Possible values are `10minutes`, `daily` and `hourly`. Changing this forces a new Application Volume Group to be created and data will be lost.
          * 
          * @return builder
          * 

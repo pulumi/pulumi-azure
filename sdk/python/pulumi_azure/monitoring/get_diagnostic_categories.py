@@ -111,6 +111,13 @@ def get_diagnostic_categories(resource_id: Optional[builtins.str] = None,
     example_get_diagnostic_categories = azure.monitoring.get_diagnostic_categories(resource_id=example.id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Insights`: 2021-05-01-preview
+
 
     :param builtins.str resource_id: The ID of an existing Resource which Monitor Diagnostics Categories should be retrieved for.
     """
@@ -140,6 +147,13 @@ def get_diagnostic_categories_output(resource_id: Optional[pulumi.Input[builtins
         resource_group_name=example_azurerm_key_vault["resourceGroupName"])
     example_get_diagnostic_categories = azure.monitoring.get_diagnostic_categories(resource_id=example.id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Insights`: 2021-05-01-preview
 
 
     :param builtins.str resource_id: The ID of an existing Resource which Monitor Diagnostics Categories should be retrieved for.

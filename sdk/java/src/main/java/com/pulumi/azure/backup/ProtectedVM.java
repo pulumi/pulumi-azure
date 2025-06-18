@@ -17,7 +17,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Manages Azure Backup for an Azure VM
+ * Manages an Azure Backup Protected Virtual Machine.
  * 
  * ## Example Usage
  * 
@@ -97,70 +97,71 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.RecoveryServices`: 2024-01-01
+ * 
  * ## Import
  * 
- * Recovery Services Protected VMs can be imported using the `resource id`, e.g.
+ * Backup Protected Virtual Machines can be imported using the `resource id`, e.g.
  * 
  * ```sh
  * $ pulumi import azure:backup/protectedVM:ProtectedVM item1 &#34;/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.RecoveryServices/vaults/example-recovery-vault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;group1;vm1/protectedItems/vm;iaasvmcontainerv2;group1;vm1&#34;
  * ```
  * 
- * Note the ID requires quoting as there are semicolons
- * 
  */
 @ResourceType(type="azure:backup/protectedVM:ProtectedVM")
 public class ProtectedVM extends com.pulumi.resources.CustomResource {
-    /**
-     * Specifies the id of the backup policy to use. Required in creation or when `protection_stopped` is not specified.
-     * 
-     */
     @Export(name="backupPolicyId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> backupPolicyId;
 
-    /**
-     * @return Specifies the id of the backup policy to use. Required in creation or when `protection_stopped` is not specified.
-     * 
-     */
     public Output<Optional<String>> backupPolicyId() {
         return Codegen.optional(this.backupPolicyId);
     }
     /**
-     * A list of Disks&#39; Logical Unit Numbers(LUN) to be excluded for VM Protection.
+     * A list of Disks&#39; Logical Unit Numbers (LUN) to be excluded for VM Protection.
      * 
      */
     @Export(name="excludeDiskLuns", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> excludeDiskLuns;
 
     /**
-     * @return A list of Disks&#39; Logical Unit Numbers(LUN) to be excluded for VM Protection.
+     * @return A list of Disks&#39; Logical Unit Numbers (LUN) to be excluded for VM Protection.
      * 
      */
     public Output<Optional<List<Integer>>> excludeDiskLuns() {
         return Codegen.optional(this.excludeDiskLuns);
     }
     /**
-     * A list of Disks&#39; Logical Unit Numbers(LUN) to be included for VM Protection.
+     * A list of Disks&#39; Logical Unit Numbers (LUN) to be included for VM Protection.
      * 
      */
     @Export(name="includeDiskLuns", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> includeDiskLuns;
 
     /**
-     * @return A list of Disks&#39; Logical Unit Numbers(LUN) to be included for VM Protection.
+     * @return A list of Disks&#39; Logical Unit Numbers (LUN) to be included for VM Protection.
      * 
      */
     public Output<Optional<List<Integer>>> includeDiskLuns() {
         return Codegen.optional(this.includeDiskLuns);
     }
     /**
-     * Specifies Protection state of the backup. Possible values are `Invalid`, `IRPending`, `Protected`, `ProtectionStopped`, `ProtectionError` and `ProtectionPaused`.
+     * Specifies Protection state of the backup. Possible values are `Protected`, `BackupsSuspended`, and `ProtectionStopped`.
+     * 
+     * &gt; **Note:** `protection_state` cannot be set to `BackupsSuspended` unless the `azure.recoveryservices.Vault` has `immutability` set to `Unlocked` or `Locked`.
      * 
      */
     @Export(name="protectionState", refs={String.class}, tree="[0]")
     private Output<String> protectionState;
 
     /**
-     * @return Specifies Protection state of the backup. Possible values are `Invalid`, `IRPending`, `Protected`, `ProtectionStopped`, `ProtectionError` and `ProtectionPaused`.
+     * @return Specifies Protection state of the backup. Possible values are `Protected`, `BackupsSuspended`, and `ProtectionStopped`.
+     * 
+     * &gt; **Note:** `protection_state` cannot be set to `BackupsSuspended` unless the `azure.recoveryservices.Vault` has `immutability` set to `Unlocked` or `Locked`.
      * 
      */
     public Output<String> protectionState() {
@@ -195,20 +196,18 @@ public class ProtectedVM extends com.pulumi.resources.CustomResource {
         return this.resourceGroupName;
     }
     /**
-     * Specifies the ID of the VM to backup. Changing this forces a new resource to be created.
+     * Specifies the ID of the virtual machine to back up. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** After creation, the `source_vm_id` property can be removed without forcing a new resource to be created; however, setting it to a different ID will create a new resource.
-     * This allows the source vm to be deleted without having to remove the backup.
+     * &gt; **Note:** After creation, the `source_vm_id` property can be removed without forcing a new resource to be created; however, setting it to a different ID will create a new resource. This allows the source virtual machine to be deleted without having to remove the backup.
      * 
      */
     @Export(name="sourceVmId", refs={String.class}, tree="[0]")
     private Output<String> sourceVmId;
 
     /**
-     * @return Specifies the ID of the VM to backup. Changing this forces a new resource to be created.
+     * @return Specifies the ID of the virtual machine to back up. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** After creation, the `source_vm_id` property can be removed without forcing a new resource to be created; however, setting it to a different ID will create a new resource.
-     * This allows the source vm to be deleted without having to remove the backup.
+     * &gt; **Note:** After creation, the `source_vm_id` property can be removed without forcing a new resource to be created; however, setting it to a different ID will create a new resource. This allows the source virtual machine to be deleted without having to remove the backup.
      * 
      */
     public Output<String> sourceVmId() {

@@ -29,7 +29,7 @@ public final class FlexibleServerCustomerManagedKey {
      */
     private @Nullable String geoBackupUserAssignedIdentityId;
     /**
-     * @return The versioned ID of the Key Vault Key.
+     * @return The versioned/versionless ID of the Key Vault Key.
      * 
      */
     private String keyVaultKeyId;
@@ -61,7 +61,7 @@ public final class FlexibleServerCustomerManagedKey {
         return Optional.ofNullable(this.geoBackupUserAssignedIdentityId);
     }
     /**
-     * @return The versioned ID of the Key Vault Key.
+     * @return The versioned/versionless ID of the Key Vault Key.
      * 
      */
     public String keyVaultKeyId() {

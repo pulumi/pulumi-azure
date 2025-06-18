@@ -32,7 +32,7 @@ public final class HadoopClusterRolesEdgeNode {
      */
     private Integer targetInstanceCount;
     /**
-     * @return A `uninstall_script_actions` block as defined below.
+     * @return A `uninstall_script_actions` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable List<HadoopClusterRolesEdgeNodeUninstallScriptAction> uninstallScriptActions;
@@ -65,7 +65,7 @@ public final class HadoopClusterRolesEdgeNode {
         return this.targetInstanceCount;
     }
     /**
-     * @return A `uninstall_script_actions` block as defined below.
+     * @return A `uninstall_script_actions` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public List<HadoopClusterRolesEdgeNodeUninstallScriptAction> uninstallScriptActions() {

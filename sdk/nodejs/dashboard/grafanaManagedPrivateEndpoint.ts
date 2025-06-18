@@ -113,6 +113,10 @@ export class GrafanaManagedPrivateEndpoint extends pulumi.CustomResource {
      */
     public readonly privateLinkResourceRegion!: pulumi.Output<string | undefined>;
     /**
+     * A domain name for this endpoint to be used within Grafana. Must be just a domain, without schema, and with at least three parts.
+     */
+    public readonly privateLinkServiceUrl!: pulumi.Output<string | undefined>;
+    /**
      * A message to provide in the request which will be seen by approvers.
      */
     public readonly requestMessage!: pulumi.Output<string | undefined>;
@@ -140,6 +144,7 @@ export class GrafanaManagedPrivateEndpoint extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["privateLinkResourceId"] = state ? state.privateLinkResourceId : undefined;
             resourceInputs["privateLinkResourceRegion"] = state ? state.privateLinkResourceRegion : undefined;
+            resourceInputs["privateLinkServiceUrl"] = state ? state.privateLinkServiceUrl : undefined;
             resourceInputs["requestMessage"] = state ? state.requestMessage : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
         } else {
@@ -156,6 +161,7 @@ export class GrafanaManagedPrivateEndpoint extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["privateLinkResourceId"] = args ? args.privateLinkResourceId : undefined;
             resourceInputs["privateLinkResourceRegion"] = args ? args.privateLinkResourceRegion : undefined;
+            resourceInputs["privateLinkServiceUrl"] = args ? args.privateLinkServiceUrl : undefined;
             resourceInputs["requestMessage"] = args ? args.requestMessage : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
         }
@@ -192,6 +198,10 @@ export interface GrafanaManagedPrivateEndpointState {
      * The region in which to create the private link. Changing this forces a new Dashboard Grafana Managed Private Endpoint to be created.
      */
     privateLinkResourceRegion?: pulumi.Input<string>;
+    /**
+     * A domain name for this endpoint to be used within Grafana. Must be just a domain, without schema, and with at least three parts.
+     */
+    privateLinkServiceUrl?: pulumi.Input<string>;
     /**
      * A message to provide in the request which will be seen by approvers.
      */
@@ -230,6 +240,10 @@ export interface GrafanaManagedPrivateEndpointArgs {
      * The region in which to create the private link. Changing this forces a new Dashboard Grafana Managed Private Endpoint to be created.
      */
     privateLinkResourceRegion?: pulumi.Input<string>;
+    /**
+     * A domain name for this endpoint to be used within Grafana. Must be just a domain, without schema, and with at least three parts.
+     */
+    privateLinkServiceUrl?: pulumi.Input<string>;
     /**
      * A message to provide in the request which will be seen by approvers.
      */

@@ -258,6 +258,13 @@ namespace Pulumi.Azure.Network
     /// });
     /// ```
     /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.Network`: 2024-05-01
+    /// 
     /// ## Import
     /// 
     /// Virtual Network Gateway Connections can be imported using their `resource id`, e.g.

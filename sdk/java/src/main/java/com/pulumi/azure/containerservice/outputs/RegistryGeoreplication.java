@@ -32,7 +32,7 @@ public final class RegistryGeoreplication {
     /**
      * @return Whether zone redundancy is enabled for this replication location? Defaults to `false`.
      * 
-     * &gt; **Note:** Changing the `zone_redundancy_enabled` forces the a underlying replication to be created.
+     * &gt; **Note:** Changing the `zone_redundancy_enabled` forces an underlying replication to be created.
      * 
      */
     private @Nullable Boolean zoneRedundancyEnabled;
@@ -62,7 +62,7 @@ public final class RegistryGeoreplication {
     /**
      * @return Whether zone redundancy is enabled for this replication location? Defaults to `false`.
      * 
-     * &gt; **Note:** Changing the `zone_redundancy_enabled` forces the a underlying replication to be created.
+     * &gt; **Note:** Changing the `zone_redundancy_enabled` forces an underlying replication to be created.
      * 
      */
     public Optional<Boolean> zoneRedundancyEnabled() {

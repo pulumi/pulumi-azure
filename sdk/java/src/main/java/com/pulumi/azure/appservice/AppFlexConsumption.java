@@ -306,6 +306,20 @@ public class AppFlexConsumption extends com.pulumi.resources.CustomResource {
         return this.hostingEnvironmentId;
     }
     /**
+     * Is Https Connection enforced to the function app. Defaults to `false`
+     * 
+     */
+    @Export(name="httpsOnly", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> httpsOnly;
+
+    /**
+     * @return Is Https Connection enforced to the function app. Defaults to `false`
+     * 
+     */
+    public Output<Optional<Boolean>> httpsOnly() {
+        return Codegen.optional(this.httpsOnly);
+    }
+    /**
      * A `identity` block as defined below.
      * 
      */

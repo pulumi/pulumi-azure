@@ -279,6 +279,13 @@ class VirtualHubIp(pulumi.CustomResource):
             subnet_id=example_subnet.id)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network`: 2024-05-01
+
         ## Import
 
         Virtual Hub IPs can be imported using the `resource id`, e.g.
@@ -345,6 +352,13 @@ class VirtualHubIp(pulumi.CustomResource):
             public_ip_address_id=example_public_ip.id,
             subnet_id=example_subnet.id)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network`: 2024-05-01
 
         ## Import
 

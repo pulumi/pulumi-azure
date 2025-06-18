@@ -605,6 +605,13 @@ class NetworkInterface(pulumi.CustomResource):
             }])
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network`: 2024-05-01
+
         ## Import
 
         Network Interfaces can be imported using the `resource id`, e.g.
@@ -676,6 +683,13 @@ class NetworkInterface(pulumi.CustomResource):
                 "private_ip_address_allocation": "Dynamic",
             }])
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network`: 2024-05-01
 
         ## Import
 

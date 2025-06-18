@@ -290,14 +290,14 @@ public class Registry extends com.pulumi.resources.CustomResource {
         return this.adminUsername;
     }
     /**
-     * Whether allows anonymous (unauthenticated) pull access to this Container Registry? This is only supported on resources with the `Standard` or `Premium` SKU.
+     * Whether to allow anonymous (unauthenticated) pull access to this Container Registry. This is only supported on resources with the `Standard` or `Premium` SKU.
      * 
      */
     @Export(name="anonymousPullEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> anonymousPullEnabled;
 
     /**
-     * @return Whether allows anonymous (unauthenticated) pull access to this Container Registry? This is only supported on resources with the `Standard` or `Premium` SKU.
+     * @return Whether to allow anonymous (unauthenticated) pull access to this Container Registry. This is only supported on resources with the `Standard` or `Premium` SKU.
      * 
      */
     public Output<Optional<Boolean>> anonymousPullEnabled() {
@@ -432,14 +432,14 @@ public class Registry extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * Whether to allow trusted Azure services to access a network restricted Container Registry? Possible values are `None` and `AzureServices`. Defaults to `AzureServices`.
+     * Whether to allow trusted Azure services to access a network-restricted Container Registry? Possible values are `None` and `AzureServices`. Defaults to `AzureServices`.
      * 
      */
     @Export(name="networkRuleBypassOption", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> networkRuleBypassOption;
 
     /**
-     * @return Whether to allow trusted Azure services to access a network restricted Container Registry? Possible values are `None` and `AzureServices`. Defaults to `AzureServices`.
+     * @return Whether to allow trusted Azure services to access a network-restricted Container Registry? Possible values are `None` and `AzureServices`. Defaults to `AzureServices`.
      * 
      */
     public Output<Optional<String>> networkRuleBypassOption() {

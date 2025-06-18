@@ -399,6 +399,13 @@ class Automation(pulumi.CustomResource):
             scopes=[f"/subscriptions/{current.subscription_id}"])
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Security`: 2019-01-01-preview
+
         ## Import
 
         Security Center Automations can be imported using the `resource id`, e.g.
@@ -482,6 +489,13 @@ class Automation(pulumi.CustomResource):
             }],
             scopes=[f"/subscriptions/{current.subscription_id}"])
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Security`: 2019-01-01-preview
 
         ## Import
 

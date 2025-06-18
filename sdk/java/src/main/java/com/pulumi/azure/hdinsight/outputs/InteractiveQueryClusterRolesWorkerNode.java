@@ -29,7 +29,7 @@ public final class InteractiveQueryClusterRolesWorkerNode {
      */
     private @Nullable String password;
     /**
-     * @return The script action which will run on the cluster. One or more `script_actions` blocks as defined above.
+     * @return The script action which will run on the cluster. One or more `script_actions` blocks as defined above. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable List<InteractiveQueryClusterRolesWorkerNodeScriptAction> scriptActions;
@@ -86,7 +86,7 @@ public final class InteractiveQueryClusterRolesWorkerNode {
         return Optional.ofNullable(this.password);
     }
     /**
-     * @return The script action which will run on the cluster. One or more `script_actions` blocks as defined above.
+     * @return The script action which will run on the cluster. One or more `script_actions` blocks as defined above. Changing this forces a new resource to be created.
      * 
      */
     public List<InteractiveQueryClusterRolesWorkerNodeScriptAction> scriptActions() {

@@ -4540,10 +4540,6 @@ if not MYPY:
         """
         The name which should be used for the default Kubernetes Node Pool.
         """
-        vm_size: pulumi.Input[builtins.str]
-        """
-        The size of the Virtual Machine, such as `Standard_DS2_v2`. `temporary_name_for_rotation` must be specified when attempting a resize.
-        """
         auto_scaling_enabled: NotRequired[pulumi.Input[builtins.bool]]
         """
         Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool?
@@ -4671,6 +4667,10 @@ if not MYPY:
         """
         A `upgrade_settings` block as documented below.
         """
+        vm_size: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The size of the Virtual Machine, such as `Standard_DS2_v2`. `temporary_name_for_rotation` must be specified when attempting a resize.
+        """
         vnet_subnet_id: NotRequired[pulumi.Input[builtins.str]]
         """
         The ID of a Subnet where the Kubernetes Node Pool should exist.
@@ -4694,7 +4694,6 @@ elif False:
 class KubernetesClusterDefaultNodePoolArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[builtins.str],
-                 vm_size: pulumi.Input[builtins.str],
                  auto_scaling_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  capacity_reservation_group_id: Optional[pulumi.Input[builtins.str]] = None,
                  fips_enabled: Optional[pulumi.Input[builtins.bool]] = None,
@@ -4726,12 +4725,12 @@ class KubernetesClusterDefaultNodePoolArgs:
                  type: Optional[pulumi.Input[builtins.str]] = None,
                  ultra_ssd_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  upgrade_settings: Optional[pulumi.Input['KubernetesClusterDefaultNodePoolUpgradeSettingsArgs']] = None,
+                 vm_size: Optional[pulumi.Input[builtins.str]] = None,
                  vnet_subnet_id: Optional[pulumi.Input[builtins.str]] = None,
                  workload_runtime: Optional[pulumi.Input[builtins.str]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
         """
         :param pulumi.Input[builtins.str] name: The name which should be used for the default Kubernetes Node Pool.
-        :param pulumi.Input[builtins.str] vm_size: The size of the Virtual Machine, such as `Standard_DS2_v2`. `temporary_name_for_rotation` must be specified when attempting a resize.
         :param pulumi.Input[builtins.bool] auto_scaling_enabled: Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool?
                
                > **Note:** This requires that the `type` is set to `VirtualMachineScaleSets`.
@@ -4772,6 +4771,7 @@ class KubernetesClusterDefaultNodePoolArgs:
                > **Note:** When creating a cluster that supports multiple node pools, the cluster must use `VirtualMachineScaleSets`. For more information on the limitations of clusters using multiple node pools see [the documentation](https://learn.microsoft.com/en-us/azure/aks/use-multiple-node-pools#limitations).
         :param pulumi.Input[builtins.bool] ultra_ssd_enabled: Used to specify whether the UltraSSD is enabled in the Default Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. `temporary_name_for_rotation` must be specified when attempting a change.
         :param pulumi.Input['KubernetesClusterDefaultNodePoolUpgradeSettingsArgs'] upgrade_settings: A `upgrade_settings` block as documented below.
+        :param pulumi.Input[builtins.str] vm_size: The size of the Virtual Machine, such as `Standard_DS2_v2`. `temporary_name_for_rotation` must be specified when attempting a resize.
         :param pulumi.Input[builtins.str] vnet_subnet_id: The ID of a Subnet where the Kubernetes Node Pool should exist.
                
                > **Note:** A Route Table must be configured on this Subnet.
@@ -4781,7 +4781,6 @@ class KubernetesClusterDefaultNodePoolArgs:
                > **Note:** This requires that the `type` is set to `VirtualMachineScaleSets` and that `load_balancer_sku` is set to `standard`.
         """
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "vm_size", vm_size)
         if auto_scaling_enabled is not None:
             pulumi.set(__self__, "auto_scaling_enabled", auto_scaling_enabled)
         if capacity_reservation_group_id is not None:
@@ -4844,6 +4843,8 @@ class KubernetesClusterDefaultNodePoolArgs:
             pulumi.set(__self__, "ultra_ssd_enabled", ultra_ssd_enabled)
         if upgrade_settings is not None:
             pulumi.set(__self__, "upgrade_settings", upgrade_settings)
+        if vm_size is not None:
+            pulumi.set(__self__, "vm_size", vm_size)
         if vnet_subnet_id is not None:
             pulumi.set(__self__, "vnet_subnet_id", vnet_subnet_id)
         if workload_runtime is not None:
@@ -4862,18 +4863,6 @@ class KubernetesClusterDefaultNodePoolArgs:
     @name.setter
     def name(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter(name="vmSize")
-    def vm_size(self) -> pulumi.Input[builtins.str]:
-        """
-        The size of the Virtual Machine, such as `Standard_DS2_v2`. `temporary_name_for_rotation` must be specified when attempting a resize.
-        """
-        return pulumi.get(self, "vm_size")
-
-    @vm_size.setter
-    def vm_size(self, value: pulumi.Input[builtins.str]):
-        pulumi.set(self, "vm_size", value)
 
     @property
     @pulumi.getter(name="autoScalingEnabled")
@@ -5249,6 +5238,18 @@ class KubernetesClusterDefaultNodePoolArgs:
     @upgrade_settings.setter
     def upgrade_settings(self, value: Optional[pulumi.Input['KubernetesClusterDefaultNodePoolUpgradeSettingsArgs']]):
         pulumi.set(self, "upgrade_settings", value)
+
+    @property
+    @pulumi.getter(name="vmSize")
+    def vm_size(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The size of the Virtual Machine, such as `Standard_DS2_v2`. `temporary_name_for_rotation` must be specified when attempting a resize.
+        """
+        return pulumi.get(self, "vm_size")
+
+    @vm_size.setter
+    def vm_size(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "vm_size", value)
 
     @property
     @pulumi.getter(name="vnetSubnetId")
@@ -11320,7 +11321,7 @@ if not MYPY:
         """
         Whether zone redundancy is enabled for this replication location? Defaults to `false`.
 
-        > **Note:** Changing the `zone_redundancy_enabled` forces the a underlying replication to be created.
+        > **Note:** Changing the `zone_redundancy_enabled` forces an underlying replication to be created.
         """
 elif False:
     RegistryGeoreplicationArgsDict: TypeAlias = Mapping[str, Any]
@@ -11338,7 +11339,7 @@ class RegistryGeoreplicationArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags to assign to this replication location.
         :param pulumi.Input[builtins.bool] zone_redundancy_enabled: Whether zone redundancy is enabled for this replication location? Defaults to `false`.
                
-               > **Note:** Changing the `zone_redundancy_enabled` forces the a underlying replication to be created.
+               > **Note:** Changing the `zone_redundancy_enabled` forces an underlying replication to be created.
         """
         pulumi.set(__self__, "location", location)
         if regional_endpoint_enabled is not None:
@@ -11390,7 +11391,7 @@ class RegistryGeoreplicationArgs:
         """
         Whether zone redundancy is enabled for this replication location? Defaults to `false`.
 
-        > **Note:** Changing the `zone_redundancy_enabled` forces the a underlying replication to be created.
+        > **Note:** Changing the `zone_redundancy_enabled` forces an underlying replication to be created.
         """
         return pulumi.get(self, "zone_redundancy_enabled")
 
@@ -11508,7 +11509,7 @@ if not MYPY:
 
         > **Note:** `network_rule_set` is only supported with the `Premium` SKU at this time.
 
-        > **Note:** Azure automatically configures Network Rules - to remove these you'll need to specify an `network_rule_set` block with `default_action` set to `Deny`.
+        > **Note:** Azure automatically configures Network Rules - to remove these, you'll need to specify an `network_rule_set` block with `default_action` set to `Deny`.
         """
 elif False:
     RegistryNetworkRuleSetArgsDict: TypeAlias = Mapping[str, Any]
@@ -11524,7 +11525,7 @@ class RegistryNetworkRuleSetArgs:
                
                > **Note:** `network_rule_set` is only supported with the `Premium` SKU at this time.
                
-               > **Note:** Azure automatically configures Network Rules - to remove these you'll need to specify an `network_rule_set` block with `default_action` set to `Deny`.
+               > **Note:** Azure automatically configures Network Rules - to remove these, you'll need to specify an `network_rule_set` block with `default_action` set to `Deny`.
         """
         if default_action is not None:
             pulumi.set(__self__, "default_action", default_action)
@@ -11551,7 +11552,7 @@ class RegistryNetworkRuleSetArgs:
 
         > **Note:** `network_rule_set` is only supported with the `Premium` SKU at this time.
 
-        > **Note:** Azure automatically configures Network Rules - to remove these you'll need to specify an `network_rule_set` block with `default_action` set to `Deny`.
+        > **Note:** Azure automatically configures Network Rules - to remove these, you'll need to specify an `network_rule_set` block with `default_action` set to `Deny`.
         """
         return pulumi.get(self, "ip_rules")
 

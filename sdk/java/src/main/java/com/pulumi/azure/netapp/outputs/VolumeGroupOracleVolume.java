@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.netapp.outputs;
 
+import com.pulumi.azure.netapp.outputs.VolumeGroupOracleVolumeDataProtectionReplication;
 import com.pulumi.azure.netapp.outputs.VolumeGroupOracleVolumeDataProtectionSnapshotPolicy;
 import com.pulumi.azure.netapp.outputs.VolumeGroupOracleVolumeExportPolicyRule;
 import com.pulumi.core.annotations.CustomType;
@@ -24,6 +25,11 @@ public final class VolumeGroupOracleVolume {
      * 
      */
     private String capacityPoolId;
+    /**
+     * @return A `data_protection_replication` block as defined below. Changing this forces a new Application Volume Group to be created and data will be lost.
+     * 
+     */
+    private @Nullable VolumeGroupOracleVolumeDataProtectionReplication dataProtectionReplication;
     /**
      * @return A `data_protection_snapshot_policy` block as defined below.
      * 
@@ -130,6 +136,13 @@ public final class VolumeGroupOracleVolume {
      */
     public String capacityPoolId() {
         return this.capacityPoolId;
+    }
+    /**
+     * @return A `data_protection_replication` block as defined below. Changing this forces a new Application Volume Group to be created and data will be lost.
+     * 
+     */
+    public Optional<VolumeGroupOracleVolumeDataProtectionReplication> dataProtectionReplication() {
+        return Optional.ofNullable(this.dataProtectionReplication);
     }
     /**
      * @return A `data_protection_snapshot_policy` block as defined below.
@@ -280,6 +293,7 @@ public final class VolumeGroupOracleVolume {
     @CustomType.Builder
     public static final class Builder {
         private String capacityPoolId;
+        private @Nullable VolumeGroupOracleVolumeDataProtectionReplication dataProtectionReplication;
         private @Nullable VolumeGroupOracleVolumeDataProtectionSnapshotPolicy dataProtectionSnapshotPolicy;
         private @Nullable String encryptionKeySource;
         private List<VolumeGroupOracleVolumeExportPolicyRule> exportPolicyRules;
@@ -304,6 +318,7 @@ public final class VolumeGroupOracleVolume {
         public Builder(VolumeGroupOracleVolume defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.capacityPoolId = defaults.capacityPoolId;
+    	      this.dataProtectionReplication = defaults.dataProtectionReplication;
     	      this.dataProtectionSnapshotPolicy = defaults.dataProtectionSnapshotPolicy;
     	      this.encryptionKeySource = defaults.encryptionKeySource;
     	      this.exportPolicyRules = defaults.exportPolicyRules;
@@ -332,6 +347,12 @@ public final class VolumeGroupOracleVolume {
               throw new MissingRequiredPropertyException("VolumeGroupOracleVolume", "capacityPoolId");
             }
             this.capacityPoolId = capacityPoolId;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder dataProtectionReplication(@Nullable VolumeGroupOracleVolumeDataProtectionReplication dataProtectionReplication) {
+
+            this.dataProtectionReplication = dataProtectionReplication;
             return this;
         }
         @CustomType.Setter
@@ -485,6 +506,7 @@ public final class VolumeGroupOracleVolume {
         public VolumeGroupOracleVolume build() {
             final var _resultValue = new VolumeGroupOracleVolume();
             _resultValue.capacityPoolId = capacityPoolId;
+            _resultValue.dataProtectionReplication = dataProtectionReplication;
             _resultValue.dataProtectionSnapshotPolicy = dataProtectionSnapshotPolicy;
             _resultValue.encryptionKeySource = encryptionKeySource;
             _resultValue.exportPolicyRules = exportPolicyRules;

@@ -84,6 +84,8 @@ type LookupVolumeResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id                        string `pulumi:"id"`
 	KeyVaultPrivateEndpointId string `pulumi:"keyVaultPrivateEndpointId"`
+	// Indicates if the volume is a large volume.
+	LargeVolumeEnabled bool `pulumi:"largeVolumeEnabled"`
 	// The Azure Region where the NetApp Volume exists.
 	Location string `pulumi:"location"`
 	// A list of IPv4 Addresses which should be used to mount the volume.
@@ -182,6 +184,11 @@ func (o LookupVolumeResultOutput) Id() pulumi.StringOutput {
 
 func (o LookupVolumeResultOutput) KeyVaultPrivateEndpointId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVolumeResult) string { return v.KeyVaultPrivateEndpointId }).(pulumi.StringOutput)
+}
+
+// Indicates if the volume is a large volume.
+func (o LookupVolumeResultOutput) LargeVolumeEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupVolumeResult) bool { return v.LargeVolumeEnabled }).(pulumi.BoolOutput)
 }
 
 // The Azure Region where the NetApp Volume exists.

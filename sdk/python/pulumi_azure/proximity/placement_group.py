@@ -274,6 +274,13 @@ class PlacementGroup(pulumi.CustomResource):
             })
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Compute`: 2022-03-01
+
         ## Import
 
         Proximity Placement Groups can be imported using the `resource id`, e.g.
@@ -321,6 +328,13 @@ class PlacementGroup(pulumi.CustomResource):
                 "environment": "Production",
             })
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Compute`: 2022-03-01
 
         ## Import
 

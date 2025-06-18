@@ -111,6 +111,8 @@ type GrafanaManagedPrivateEndpoint struct {
 	PrivateLinkResourceId pulumi.StringOutput `pulumi:"privateLinkResourceId"`
 	// The region in which to create the private link. Changing this forces a new Dashboard Grafana Managed Private Endpoint to be created.
 	PrivateLinkResourceRegion pulumi.StringPtrOutput `pulumi:"privateLinkResourceRegion"`
+	// A domain name for this endpoint to be used within Grafana. Must be just a domain, without schema, and with at least three parts.
+	PrivateLinkServiceUrl pulumi.StringPtrOutput `pulumi:"privateLinkServiceUrl"`
 	// A message to provide in the request which will be seen by approvers.
 	RequestMessage pulumi.StringPtrOutput `pulumi:"requestMessage"`
 	// A mapping of tags which should be assigned to the Dashboard Grafana Managed Private Endpoint.
@@ -165,6 +167,8 @@ type grafanaManagedPrivateEndpointState struct {
 	PrivateLinkResourceId *string `pulumi:"privateLinkResourceId"`
 	// The region in which to create the private link. Changing this forces a new Dashboard Grafana Managed Private Endpoint to be created.
 	PrivateLinkResourceRegion *string `pulumi:"privateLinkResourceRegion"`
+	// A domain name for this endpoint to be used within Grafana. Must be just a domain, without schema, and with at least three parts.
+	PrivateLinkServiceUrl *string `pulumi:"privateLinkServiceUrl"`
 	// A message to provide in the request which will be seen by approvers.
 	RequestMessage *string `pulumi:"requestMessage"`
 	// A mapping of tags which should be assigned to the Dashboard Grafana Managed Private Endpoint.
@@ -184,6 +188,8 @@ type GrafanaManagedPrivateEndpointState struct {
 	PrivateLinkResourceId pulumi.StringPtrInput
 	// The region in which to create the private link. Changing this forces a new Dashboard Grafana Managed Private Endpoint to be created.
 	PrivateLinkResourceRegion pulumi.StringPtrInput
+	// A domain name for this endpoint to be used within Grafana. Must be just a domain, without schema, and with at least three parts.
+	PrivateLinkServiceUrl pulumi.StringPtrInput
 	// A message to provide in the request which will be seen by approvers.
 	RequestMessage pulumi.StringPtrInput
 	// A mapping of tags which should be assigned to the Dashboard Grafana Managed Private Endpoint.
@@ -207,6 +213,8 @@ type grafanaManagedPrivateEndpointArgs struct {
 	PrivateLinkResourceId string `pulumi:"privateLinkResourceId"`
 	// The region in which to create the private link. Changing this forces a new Dashboard Grafana Managed Private Endpoint to be created.
 	PrivateLinkResourceRegion *string `pulumi:"privateLinkResourceRegion"`
+	// A domain name for this endpoint to be used within Grafana. Must be just a domain, without schema, and with at least three parts.
+	PrivateLinkServiceUrl *string `pulumi:"privateLinkServiceUrl"`
 	// A message to provide in the request which will be seen by approvers.
 	RequestMessage *string `pulumi:"requestMessage"`
 	// A mapping of tags which should be assigned to the Dashboard Grafana Managed Private Endpoint.
@@ -227,6 +235,8 @@ type GrafanaManagedPrivateEndpointArgs struct {
 	PrivateLinkResourceId pulumi.StringInput
 	// The region in which to create the private link. Changing this forces a new Dashboard Grafana Managed Private Endpoint to be created.
 	PrivateLinkResourceRegion pulumi.StringPtrInput
+	// A domain name for this endpoint to be used within Grafana. Must be just a domain, without schema, and with at least three parts.
+	PrivateLinkServiceUrl pulumi.StringPtrInput
 	// A message to provide in the request which will be seen by approvers.
 	RequestMessage pulumi.StringPtrInput
 	// A mapping of tags which should be assigned to the Dashboard Grafana Managed Private Endpoint.
@@ -348,6 +358,11 @@ func (o GrafanaManagedPrivateEndpointOutput) PrivateLinkResourceId() pulumi.Stri
 // The region in which to create the private link. Changing this forces a new Dashboard Grafana Managed Private Endpoint to be created.
 func (o GrafanaManagedPrivateEndpointOutput) PrivateLinkResourceRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GrafanaManagedPrivateEndpoint) pulumi.StringPtrOutput { return v.PrivateLinkResourceRegion }).(pulumi.StringPtrOutput)
+}
+
+// A domain name for this endpoint to be used within Grafana. Must be just a domain, without schema, and with at least three parts.
+func (o GrafanaManagedPrivateEndpointOutput) PrivateLinkServiceUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GrafanaManagedPrivateEndpoint) pulumi.StringPtrOutput { return v.PrivateLinkServiceUrl }).(pulumi.StringPtrOutput)
 }
 
 // A message to provide in the request which will be seen by approvers.

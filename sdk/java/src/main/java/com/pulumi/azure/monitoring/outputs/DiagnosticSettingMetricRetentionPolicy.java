@@ -14,20 +14,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DiagnosticSettingMetricRetentionPolicy {
     private @Nullable Integer days;
-    /**
-     * @return Is this Diagnostic Metric enabled? Defaults to `true`.
-     * 
-     */
     private Boolean enabled;
 
     private DiagnosticSettingMetricRetentionPolicy() {}
     public Optional<Integer> days() {
         return Optional.ofNullable(this.days);
     }
-    /**
-     * @return Is this Diagnostic Metric enabled? Defaults to `true`.
-     * 
-     */
     public Boolean enabled() {
         return this.enabled;
     }

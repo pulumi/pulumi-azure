@@ -375,6 +375,11 @@ export type NetworkManagerNetworkGroup = import("./networkManagerNetworkGroup").
 export const NetworkManagerNetworkGroup: typeof import("./networkManagerNetworkGroup").NetworkManagerNetworkGroup = null as any;
 utilities.lazyLoad(exports, ["NetworkManagerNetworkGroup"], () => require("./networkManagerNetworkGroup"));
 
+export { NetworkManagerRoutingConfigurationArgs, NetworkManagerRoutingConfigurationState } from "./networkManagerRoutingConfiguration";
+export type NetworkManagerRoutingConfiguration = import("./networkManagerRoutingConfiguration").NetworkManagerRoutingConfiguration;
+export const NetworkManagerRoutingConfiguration: typeof import("./networkManagerRoutingConfiguration").NetworkManagerRoutingConfiguration = null as any;
+utilities.lazyLoad(exports, ["NetworkManagerRoutingConfiguration"], () => require("./networkManagerRoutingConfiguration"));
+
 export { NetworkManagerScopeConnectionArgs, NetworkManagerScopeConnectionState } from "./networkManagerScopeConnection";
 export type NetworkManagerScopeConnection = import("./networkManagerScopeConnection").NetworkManagerScopeConnection;
 export const NetworkManagerScopeConnection: typeof import("./networkManagerScopeConnection").NetworkManagerScopeConnection = null as any;
@@ -698,6 +703,8 @@ const _module = {
                 return new NetworkManagerManagementGroupConnection(name, <any>undefined, { urn })
             case "azure:network/networkManagerNetworkGroup:NetworkManagerNetworkGroup":
                 return new NetworkManagerNetworkGroup(name, <any>undefined, { urn })
+            case "azure:network/networkManagerRoutingConfiguration:NetworkManagerRoutingConfiguration":
+                return new NetworkManagerRoutingConfiguration(name, <any>undefined, { urn })
             case "azure:network/networkManagerScopeConnection:NetworkManagerScopeConnection":
                 return new NetworkManagerScopeConnection(name, <any>undefined, { urn })
             case "azure:network/networkManagerSecurityAdminConfiguration:NetworkManagerSecurityAdminConfiguration":
@@ -838,6 +845,7 @@ pulumi.runtime.registerResourceModule("azure", "network/networkManagerDeployment
 pulumi.runtime.registerResourceModule("azure", "network/networkManagerIpamPool", _module)
 pulumi.runtime.registerResourceModule("azure", "network/networkManagerManagementGroupConnection", _module)
 pulumi.runtime.registerResourceModule("azure", "network/networkManagerNetworkGroup", _module)
+pulumi.runtime.registerResourceModule("azure", "network/networkManagerRoutingConfiguration", _module)
 pulumi.runtime.registerResourceModule("azure", "network/networkManagerScopeConnection", _module)
 pulumi.runtime.registerResourceModule("azure", "network/networkManagerSecurityAdminConfiguration", _module)
 pulumi.runtime.registerResourceModule("azure", "network/networkManagerStaticMember", _module)

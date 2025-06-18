@@ -250,6 +250,13 @@ class PublicCertificate(pulumi.CustomResource):
             blob=std.filebase64(input="app_service_public_certificate.cer").result)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Web`: 2023-12-01
+
         ## Import
 
         App Service Public Certificates can be imported using the `resource id`, e.g.
@@ -305,6 +312,13 @@ class PublicCertificate(pulumi.CustomResource):
             certificate_location="Unknown",
             blob=std.filebase64(input="app_service_public_certificate.cer").result)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Web`: 2023-12-01
 
         ## Import
 

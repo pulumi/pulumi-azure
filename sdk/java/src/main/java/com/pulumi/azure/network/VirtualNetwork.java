@@ -8,6 +8,7 @@ import com.pulumi.azure.network.VirtualNetworkArgs;
 import com.pulumi.azure.network.inputs.VirtualNetworkState;
 import com.pulumi.azure.network.outputs.VirtualNetworkDdosProtectionPlan;
 import com.pulumi.azure.network.outputs.VirtualNetworkEncryption;
+import com.pulumi.azure.network.outputs.VirtualNetworkIpAddressPool;
 import com.pulumi.azure.network.outputs.VirtualNetworkSubnet;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
@@ -98,6 +99,13 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.Network`: 2024-05-01
+ * 
  * ## Import
  * 
  * Virtual Networks can be imported using the `resource id`, e.g.
@@ -112,16 +120,20 @@ public class VirtualNetwork extends com.pulumi.resources.CustomResource {
     /**
      * The address space that is used the virtual network. You can supply more than one address space.
      * 
+     * &gt; **Note:** Exactly one of `address_space` or `ip_address_pool` must be specified. If `address_space` is not specified but you encounter a diff, this might indicate the `address_space` is allocated from the IP Address Pool. If this is the case, you may need to add this to ignore_changes.
+     * 
      */
     @Export(name="addressSpaces", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> addressSpaces;
+    private Output</* @Nullable */ List<String>> addressSpaces;
 
     /**
      * @return The address space that is used the virtual network. You can supply more than one address space.
      * 
+     * &gt; **Note:** Exactly one of `address_space` or `ip_address_pool` must be specified. If `address_space` is not specified but you encounter a diff, this might indicate the `address_space` is allocated from the IP Address Pool. If this is the case, you may need to add this to ignore_changes.
+     * 
      */
-    public Output<List<String>> addressSpaces() {
-        return this.addressSpaces;
+    public Output<Optional<List<String>>> addressSpaces() {
+        return Codegen.optional(this.addressSpaces);
     }
     /**
      * The BGP community attribute in format `&lt;as-number&gt;:&lt;community-value&gt;`.
@@ -216,18 +228,36 @@ public class VirtualNetwork extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.flowTimeoutInMinutes);
     }
     /**
-     * The GUID of the virtual network.
+     * The GUID of the Virtual Network.
      * 
      */
     @Export(name="guid", refs={String.class}, tree="[0]")
     private Output<String> guid;
 
     /**
-     * @return The GUID of the virtual network.
+     * @return The GUID of the Virtual Network.
      * 
      */
     public Output<String> guid() {
         return this.guid;
+    }
+    /**
+     * One or two `ip_address_pool` blocks as defined below. Only one association of each IP type(IPv4 or IPv6) is allowed.
+     * 
+     * &gt; **Note:** Exactly one of `address_space` or `ip_address_pool` must be specified.
+     * 
+     */
+    @Export(name="ipAddressPools", refs={List.class,VirtualNetworkIpAddressPool.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<VirtualNetworkIpAddressPool>> ipAddressPools;
+
+    /**
+     * @return One or two `ip_address_pool` blocks as defined below. Only one association of each IP type(IPv4 or IPv6) is allowed.
+     * 
+     * &gt; **Note:** Exactly one of `address_space` or `ip_address_pool` must be specified.
+     * 
+     */
+    public Output<Optional<List<VirtualNetworkIpAddressPool>>> ipAddressPools() {
+        return Codegen.optional(this.ipAddressPools);
     }
     /**
      * The location/region where the virtual network is created. Changing this forces a new resource to be created.

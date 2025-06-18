@@ -642,8 +642,8 @@ namespace Pulumi.Azure.ContainerService
         /// <summary>
         /// The SKU which should be used for the Virtual Machines used in this Node Pool. Changing this property requires specifying `temporary_name_for_rotation`.
         /// </summary>
-        [Input("vmSize", required: true)]
-        public Input<string> VmSize { get; set; } = null!;
+        [Input("vmSize")]
+        public Input<string>? VmSize { get; set; }
 
         /// <summary>
         /// The ID of the Subnet where this Node Pool should exist. Changing this property requires specifying `temporary_name_for_rotation`.

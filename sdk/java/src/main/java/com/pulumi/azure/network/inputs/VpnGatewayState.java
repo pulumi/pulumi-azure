@@ -4,11 +4,13 @@
 package com.pulumi.azure.network.inputs;
 
 import com.pulumi.azure.network.inputs.VpnGatewayBgpSettingsArgs;
+import com.pulumi.azure.network.inputs.VpnGatewayIpConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
@@ -47,6 +49,21 @@ public final class VpnGatewayState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<VpnGatewayBgpSettingsArgs>> bgpSettings() {
         return Optional.ofNullable(this.bgpSettings);
+    }
+
+    /**
+     * An `ip_configuration` block as defined below.
+     * 
+     */
+    @Import(name="ipConfigurations")
+    private @Nullable Output<List<VpnGatewayIpConfigurationArgs>> ipConfigurations;
+
+    /**
+     * @return An `ip_configuration` block as defined below.
+     * 
+     */
+    public Optional<Output<List<VpnGatewayIpConfigurationArgs>>> ipConfigurations() {
+        return Optional.ofNullable(this.ipConfigurations);
     }
 
     /**
@@ -159,6 +176,7 @@ public final class VpnGatewayState extends com.pulumi.resources.ResourceArgs {
     private VpnGatewayState(VpnGatewayState $) {
         this.bgpRouteTranslationForNatEnabled = $.bgpRouteTranslationForNatEnabled;
         this.bgpSettings = $.bgpSettings;
+        this.ipConfigurations = $.ipConfigurations;
         this.location = $.location;
         this.name = $.name;
         this.resourceGroupName = $.resourceGroupName;
@@ -226,6 +244,37 @@ public final class VpnGatewayState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder bgpSettings(VpnGatewayBgpSettingsArgs bgpSettings) {
             return bgpSettings(Output.of(bgpSettings));
+        }
+
+        /**
+         * @param ipConfigurations An `ip_configuration` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipConfigurations(@Nullable Output<List<VpnGatewayIpConfigurationArgs>> ipConfigurations) {
+            $.ipConfigurations = ipConfigurations;
+            return this;
+        }
+
+        /**
+         * @param ipConfigurations An `ip_configuration` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipConfigurations(List<VpnGatewayIpConfigurationArgs> ipConfigurations) {
+            return ipConfigurations(Output.of(ipConfigurations));
+        }
+
+        /**
+         * @param ipConfigurations An `ip_configuration` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipConfigurations(VpnGatewayIpConfigurationArgs... ipConfigurations) {
+            return ipConfigurations(List.of(ipConfigurations));
         }
 
         /**

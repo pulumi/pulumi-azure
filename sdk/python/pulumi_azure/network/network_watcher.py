@@ -189,6 +189,13 @@ class NetworkWatcher(pulumi.CustomResource):
             resource_group_name=example.name)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network`: 2024-05-01
+
         ## Import
 
         Network Watchers can be imported using the `resource id`, e.g.
@@ -227,6 +234,13 @@ class NetworkWatcher(pulumi.CustomResource):
             location=example.location,
             resource_group_name=example.name)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network`: 2024-05-01
 
         ## Import
 

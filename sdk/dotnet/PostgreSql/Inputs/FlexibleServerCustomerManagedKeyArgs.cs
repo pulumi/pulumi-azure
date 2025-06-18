@@ -31,7 +31,7 @@ namespace Pulumi.Azure.PostgreSql.Inputs
         public Input<string>? GeoBackupUserAssignedIdentityId { get; set; }
 
         /// <summary>
-        /// The versioned ID of the Key Vault Key.
+        /// The versioned/versionless ID of the Key Vault Key.
         /// </summary>
         [Input("keyVaultKeyId", required: true)]
         public Input<string> KeyVaultKeyId { get; set; } = null!;

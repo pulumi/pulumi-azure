@@ -17,30 +17,22 @@ public final class ProtectedVMState extends com.pulumi.resources.ResourceArgs {
 
     public static final ProtectedVMState Empty = new ProtectedVMState();
 
-    /**
-     * Specifies the id of the backup policy to use. Required in creation or when `protection_stopped` is not specified.
-     * 
-     */
     @Import(name="backupPolicyId")
     private @Nullable Output<String> backupPolicyId;
 
-    /**
-     * @return Specifies the id of the backup policy to use. Required in creation or when `protection_stopped` is not specified.
-     * 
-     */
     public Optional<Output<String>> backupPolicyId() {
         return Optional.ofNullable(this.backupPolicyId);
     }
 
     /**
-     * A list of Disks&#39; Logical Unit Numbers(LUN) to be excluded for VM Protection.
+     * A list of Disks&#39; Logical Unit Numbers (LUN) to be excluded for VM Protection.
      * 
      */
     @Import(name="excludeDiskLuns")
     private @Nullable Output<List<Integer>> excludeDiskLuns;
 
     /**
-     * @return A list of Disks&#39; Logical Unit Numbers(LUN) to be excluded for VM Protection.
+     * @return A list of Disks&#39; Logical Unit Numbers (LUN) to be excluded for VM Protection.
      * 
      */
     public Optional<Output<List<Integer>>> excludeDiskLuns() {
@@ -48,14 +40,14 @@ public final class ProtectedVMState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of Disks&#39; Logical Unit Numbers(LUN) to be included for VM Protection.
+     * A list of Disks&#39; Logical Unit Numbers (LUN) to be included for VM Protection.
      * 
      */
     @Import(name="includeDiskLuns")
     private @Nullable Output<List<Integer>> includeDiskLuns;
 
     /**
-     * @return A list of Disks&#39; Logical Unit Numbers(LUN) to be included for VM Protection.
+     * @return A list of Disks&#39; Logical Unit Numbers (LUN) to be included for VM Protection.
      * 
      */
     public Optional<Output<List<Integer>>> includeDiskLuns() {
@@ -63,14 +55,18 @@ public final class ProtectedVMState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies Protection state of the backup. Possible values are `Invalid`, `IRPending`, `Protected`, `ProtectionStopped`, `ProtectionError` and `ProtectionPaused`.
+     * Specifies Protection state of the backup. Possible values are `Protected`, `BackupsSuspended`, and `ProtectionStopped`.
+     * 
+     * &gt; **Note:** `protection_state` cannot be set to `BackupsSuspended` unless the `azure.recoveryservices.Vault` has `immutability` set to `Unlocked` or `Locked`.
      * 
      */
     @Import(name="protectionState")
     private @Nullable Output<String> protectionState;
 
     /**
-     * @return Specifies Protection state of the backup. Possible values are `Invalid`, `IRPending`, `Protected`, `ProtectionStopped`, `ProtectionError` and `ProtectionPaused`.
+     * @return Specifies Protection state of the backup. Possible values are `Protected`, `BackupsSuspended`, and `ProtectionStopped`.
+     * 
+     * &gt; **Note:** `protection_state` cannot be set to `BackupsSuspended` unless the `azure.recoveryservices.Vault` has `immutability` set to `Unlocked` or `Locked`.
      * 
      */
     public Optional<Output<String>> protectionState() {
@@ -108,20 +104,18 @@ public final class ProtectedVMState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the ID of the VM to backup. Changing this forces a new resource to be created.
+     * Specifies the ID of the virtual machine to back up. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** After creation, the `source_vm_id` property can be removed without forcing a new resource to be created; however, setting it to a different ID will create a new resource.
-     * This allows the source vm to be deleted without having to remove the backup.
+     * &gt; **Note:** After creation, the `source_vm_id` property can be removed without forcing a new resource to be created; however, setting it to a different ID will create a new resource. This allows the source virtual machine to be deleted without having to remove the backup.
      * 
      */
     @Import(name="sourceVmId")
     private @Nullable Output<String> sourceVmId;
 
     /**
-     * @return Specifies the ID of the VM to backup. Changing this forces a new resource to be created.
+     * @return Specifies the ID of the virtual machine to back up. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** After creation, the `source_vm_id` property can be removed without forcing a new resource to be created; however, setting it to a different ID will create a new resource.
-     * This allows the source vm to be deleted without having to remove the backup.
+     * &gt; **Note:** After creation, the `source_vm_id` property can be removed without forcing a new resource to be created; however, setting it to a different ID will create a new resource. This allows the source virtual machine to be deleted without having to remove the backup.
      * 
      */
     public Optional<Output<String>> sourceVmId() {
@@ -158,29 +152,17 @@ public final class ProtectedVMState extends com.pulumi.resources.ResourceArgs {
             $ = new ProtectedVMState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param backupPolicyId Specifies the id of the backup policy to use. Required in creation or when `protection_stopped` is not specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder backupPolicyId(@Nullable Output<String> backupPolicyId) {
             $.backupPolicyId = backupPolicyId;
             return this;
         }
 
-        /**
-         * @param backupPolicyId Specifies the id of the backup policy to use. Required in creation or when `protection_stopped` is not specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder backupPolicyId(String backupPolicyId) {
             return backupPolicyId(Output.of(backupPolicyId));
         }
 
         /**
-         * @param excludeDiskLuns A list of Disks&#39; Logical Unit Numbers(LUN) to be excluded for VM Protection.
+         * @param excludeDiskLuns A list of Disks&#39; Logical Unit Numbers (LUN) to be excluded for VM Protection.
          * 
          * @return builder
          * 
@@ -191,7 +173,7 @@ public final class ProtectedVMState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param excludeDiskLuns A list of Disks&#39; Logical Unit Numbers(LUN) to be excluded for VM Protection.
+         * @param excludeDiskLuns A list of Disks&#39; Logical Unit Numbers (LUN) to be excluded for VM Protection.
          * 
          * @return builder
          * 
@@ -201,7 +183,7 @@ public final class ProtectedVMState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param excludeDiskLuns A list of Disks&#39; Logical Unit Numbers(LUN) to be excluded for VM Protection.
+         * @param excludeDiskLuns A list of Disks&#39; Logical Unit Numbers (LUN) to be excluded for VM Protection.
          * 
          * @return builder
          * 
@@ -211,7 +193,7 @@ public final class ProtectedVMState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param includeDiskLuns A list of Disks&#39; Logical Unit Numbers(LUN) to be included for VM Protection.
+         * @param includeDiskLuns A list of Disks&#39; Logical Unit Numbers (LUN) to be included for VM Protection.
          * 
          * @return builder
          * 
@@ -222,7 +204,7 @@ public final class ProtectedVMState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param includeDiskLuns A list of Disks&#39; Logical Unit Numbers(LUN) to be included for VM Protection.
+         * @param includeDiskLuns A list of Disks&#39; Logical Unit Numbers (LUN) to be included for VM Protection.
          * 
          * @return builder
          * 
@@ -232,7 +214,7 @@ public final class ProtectedVMState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param includeDiskLuns A list of Disks&#39; Logical Unit Numbers(LUN) to be included for VM Protection.
+         * @param includeDiskLuns A list of Disks&#39; Logical Unit Numbers (LUN) to be included for VM Protection.
          * 
          * @return builder
          * 
@@ -242,7 +224,9 @@ public final class ProtectedVMState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param protectionState Specifies Protection state of the backup. Possible values are `Invalid`, `IRPending`, `Protected`, `ProtectionStopped`, `ProtectionError` and `ProtectionPaused`.
+         * @param protectionState Specifies Protection state of the backup. Possible values are `Protected`, `BackupsSuspended`, and `ProtectionStopped`.
+         * 
+         * &gt; **Note:** `protection_state` cannot be set to `BackupsSuspended` unless the `azure.recoveryservices.Vault` has `immutability` set to `Unlocked` or `Locked`.
          * 
          * @return builder
          * 
@@ -253,7 +237,9 @@ public final class ProtectedVMState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param protectionState Specifies Protection state of the backup. Possible values are `Invalid`, `IRPending`, `Protected`, `ProtectionStopped`, `ProtectionError` and `ProtectionPaused`.
+         * @param protectionState Specifies Protection state of the backup. Possible values are `Protected`, `BackupsSuspended`, and `ProtectionStopped`.
+         * 
+         * &gt; **Note:** `protection_state` cannot be set to `BackupsSuspended` unless the `azure.recoveryservices.Vault` has `immutability` set to `Unlocked` or `Locked`.
          * 
          * @return builder
          * 
@@ -305,10 +291,9 @@ public final class ProtectedVMState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceVmId Specifies the ID of the VM to backup. Changing this forces a new resource to be created.
+         * @param sourceVmId Specifies the ID of the virtual machine to back up. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** After creation, the `source_vm_id` property can be removed without forcing a new resource to be created; however, setting it to a different ID will create a new resource.
-         * This allows the source vm to be deleted without having to remove the backup.
+         * &gt; **Note:** After creation, the `source_vm_id` property can be removed without forcing a new resource to be created; however, setting it to a different ID will create a new resource. This allows the source virtual machine to be deleted without having to remove the backup.
          * 
          * @return builder
          * 
@@ -319,10 +304,9 @@ public final class ProtectedVMState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceVmId Specifies the ID of the VM to backup. Changing this forces a new resource to be created.
+         * @param sourceVmId Specifies the ID of the virtual machine to back up. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** After creation, the `source_vm_id` property can be removed without forcing a new resource to be created; however, setting it to a different ID will create a new resource.
-         * This allows the source vm to be deleted without having to remove the backup.
+         * &gt; **Note:** After creation, the `source_vm_id` property can be removed without forcing a new resource to be created; however, setting it to a different ID will create a new resource. This allows the source virtual machine to be deleted without having to remove the backup.
          * 
          * @return builder
          * 

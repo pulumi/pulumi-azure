@@ -261,14 +261,14 @@ public class FlexibleServer extends com.pulumi.resources.CustomResource {
         return this.backupRetentionDays;
     }
     /**
-     * The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica` and `Update`.
+     * The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica`, `ReviveDropped` and `Update`.
      * 
      */
     @Export(name="createMode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> createMode;
 
     /**
-     * @return The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica` and `Update`.
+     * @return The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica`, `ReviveDropped` and `Update`.
      * 
      */
     public Output<Optional<String>> createMode() {

@@ -73,6 +73,13 @@ public final class MonitoringFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Insights`: 2023-01-01
+     * 
      */
     public static Output<GetActionGroupResult> getActionGroup(GetActionGroupArgs args) {
         return getActionGroup(args, InvokeOptions.Empty);
@@ -116,6 +123,13 @@ public final class MonitoringFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Insights`: 2023-01-01
      * 
      */
     public static CompletableFuture<GetActionGroupResult> getActionGroupPlain(GetActionGroupPlainArgs args) {
@@ -161,6 +175,13 @@ public final class MonitoringFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Insights`: 2023-01-01
+     * 
      */
     public static Output<GetActionGroupResult> getActionGroup(GetActionGroupArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:monitoring/getActionGroup:getActionGroup", TypeShape.of(GetActionGroupResult.class), args, Utilities.withVersion(options));
@@ -205,6 +226,13 @@ public final class MonitoringFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Insights`: 2023-01-01
+     * 
      */
     public static Output<GetActionGroupResult> getActionGroup(GetActionGroupArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:monitoring/getActionGroup:getActionGroup", TypeShape.of(GetActionGroupResult.class), args, Utilities.withVersion(options));
@@ -248,6 +276,13 @@ public final class MonitoringFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Insights`: 2023-01-01
      * 
      */
     public static CompletableFuture<GetActionGroupResult> getActionGroupPlain(GetActionGroupPlainArgs args, InvokeOptions options) {
@@ -808,6 +843,13 @@ public final class MonitoringFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Insights`: 2021-05-01-preview
+     * 
      */
     public static Output<GetDiagnosticCategoriesResult> getDiagnosticCategories(GetDiagnosticCategoriesArgs args) {
         return getDiagnosticCategories(args, InvokeOptions.Empty);
@@ -856,6 +898,13 @@ public final class MonitoringFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Insights`: 2021-05-01-preview
      * 
      */
     public static CompletableFuture<GetDiagnosticCategoriesResult> getDiagnosticCategoriesPlain(GetDiagnosticCategoriesPlainArgs args) {
@@ -906,6 +955,13 @@ public final class MonitoringFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Insights`: 2021-05-01-preview
+     * 
      */
     public static Output<GetDiagnosticCategoriesResult> getDiagnosticCategories(GetDiagnosticCategoriesArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:monitoring/getDiagnosticCategories:getDiagnosticCategories", TypeShape.of(GetDiagnosticCategoriesResult.class), args, Utilities.withVersion(options));
@@ -954,6 +1010,13 @@ public final class MonitoringFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Insights`: 2021-05-01-preview
      * 
      */
     public static Output<GetDiagnosticCategoriesResult> getDiagnosticCategories(GetDiagnosticCategoriesArgs args, InvokeOutputOptions options) {
@@ -1004,6 +1067,13 @@ public final class MonitoringFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Insights`: 2021-05-01-preview
+     * 
      */
     public static CompletableFuture<GetDiagnosticCategoriesResult> getDiagnosticCategoriesPlain(GetDiagnosticCategoriesPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:monitoring/getDiagnosticCategories:getDiagnosticCategories", TypeShape.of(GetDiagnosticCategoriesResult.class), args, Utilities.withVersion(options));
@@ -1047,6 +1117,13 @@ public final class MonitoringFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Insights`: 2018-04-16
      * 
      */
     public static Output<GetScheduledQueryRulesAlertResult> getScheduledQueryRulesAlert(GetScheduledQueryRulesAlertArgs args) {
@@ -1092,6 +1169,13 @@ public final class MonitoringFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Insights`: 2018-04-16
+     * 
      */
     public static CompletableFuture<GetScheduledQueryRulesAlertResult> getScheduledQueryRulesAlertPlain(GetScheduledQueryRulesAlertPlainArgs args) {
         return getScheduledQueryRulesAlertPlain(args, InvokeOptions.Empty);
@@ -1135,6 +1219,13 @@ public final class MonitoringFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Insights`: 2018-04-16
      * 
      */
     public static Output<GetScheduledQueryRulesAlertResult> getScheduledQueryRulesAlert(GetScheduledQueryRulesAlertArgs args, InvokeOptions options) {
@@ -1180,6 +1271,13 @@ public final class MonitoringFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Insights`: 2018-04-16
+     * 
      */
     public static Output<GetScheduledQueryRulesAlertResult> getScheduledQueryRulesAlert(GetScheduledQueryRulesAlertArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:monitoring/getScheduledQueryRulesAlert:getScheduledQueryRulesAlert", TypeShape.of(GetScheduledQueryRulesAlertResult.class), args, Utilities.withVersion(options));
@@ -1223,6 +1321,13 @@ public final class MonitoringFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Insights`: 2018-04-16
      * 
      */
     public static CompletableFuture<GetScheduledQueryRulesAlertResult> getScheduledQueryRulesAlertPlain(GetScheduledQueryRulesAlertPlainArgs args, InvokeOptions options) {
@@ -1268,6 +1373,13 @@ public final class MonitoringFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Insights`: 2018-04-16
+     * 
      */
     public static Output<GetScheduledQueryRulesLogResult> getScheduledQueryRulesLog(GetScheduledQueryRulesLogArgs args) {
         return getScheduledQueryRulesLog(args, InvokeOptions.Empty);
@@ -1311,6 +1423,13 @@ public final class MonitoringFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Insights`: 2018-04-16
      * 
      */
     public static CompletableFuture<GetScheduledQueryRulesLogResult> getScheduledQueryRulesLogPlain(GetScheduledQueryRulesLogPlainArgs args) {
@@ -1356,6 +1475,13 @@ public final class MonitoringFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Insights`: 2018-04-16
+     * 
      */
     public static Output<GetScheduledQueryRulesLogResult> getScheduledQueryRulesLog(GetScheduledQueryRulesLogArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:monitoring/getScheduledQueryRulesLog:getScheduledQueryRulesLog", TypeShape.of(GetScheduledQueryRulesLogResult.class), args, Utilities.withVersion(options));
@@ -1400,6 +1526,13 @@ public final class MonitoringFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Insights`: 2018-04-16
+     * 
      */
     public static Output<GetScheduledQueryRulesLogResult> getScheduledQueryRulesLog(GetScheduledQueryRulesLogArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:monitoring/getScheduledQueryRulesLog:getScheduledQueryRulesLog", TypeShape.of(GetScheduledQueryRulesLogResult.class), args, Utilities.withVersion(options));
@@ -1443,6 +1576,13 @@ public final class MonitoringFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Insights`: 2018-04-16
      * 
      */
     public static CompletableFuture<GetScheduledQueryRulesLogResult> getScheduledQueryRulesLogPlain(GetScheduledQueryRulesLogPlainArgs args, InvokeOptions options) {

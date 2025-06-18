@@ -26,7 +26,7 @@ namespace Pulumi.Azure.HDInsight.Outputs
         /// </summary>
         public readonly int TargetInstanceCount;
         /// <summary>
-        /// A `uninstall_script_actions` block as defined below.
+        /// A `uninstall_script_actions` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         public readonly ImmutableArray<Outputs.HadoopClusterRolesEdgeNodeUninstallScriptAction> UninstallScriptActions;
         /// <summary>

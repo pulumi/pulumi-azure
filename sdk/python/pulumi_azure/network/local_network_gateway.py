@@ -333,6 +333,13 @@ class LocalNetworkGateway(pulumi.CustomResource):
             address_spaces=["10.0.0.0/16"])
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network`: 2024-05-01
+
         ## Import
 
         Local Network Gateways can be imported using the `resource id`, e.g.
@@ -379,6 +386,13 @@ class LocalNetworkGateway(pulumi.CustomResource):
             gateway_address="12.13.14.15",
             address_spaces=["10.0.0.0/16"])
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network`: 2024-05-01
 
         ## Import
 

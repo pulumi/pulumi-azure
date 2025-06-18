@@ -23,7 +23,6 @@ __all__ = ['KubernetesClusterNodePoolArgs', 'KubernetesClusterNodePool']
 class KubernetesClusterNodePoolArgs:
     def __init__(__self__, *,
                  kubernetes_cluster_id: pulumi.Input[builtins.str],
-                 vm_size: pulumi.Input[builtins.str],
                  auto_scaling_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  capacity_reservation_group_id: Optional[pulumi.Input[builtins.str]] = None,
                  eviction_policy: Optional[pulumi.Input[builtins.str]] = None,
@@ -60,6 +59,7 @@ class KubernetesClusterNodePoolArgs:
                  temporary_name_for_rotation: Optional[pulumi.Input[builtins.str]] = None,
                  ultra_ssd_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  upgrade_settings: Optional[pulumi.Input['KubernetesClusterNodePoolUpgradeSettingsArgs']] = None,
+                 vm_size: Optional[pulumi.Input[builtins.str]] = None,
                  vnet_subnet_id: Optional[pulumi.Input[builtins.str]] = None,
                  windows_profile: Optional[pulumi.Input['KubernetesClusterNodePoolWindowsProfileArgs']] = None,
                  workload_runtime: Optional[pulumi.Input[builtins.str]] = None,
@@ -69,7 +69,6 @@ class KubernetesClusterNodePoolArgs:
         :param pulumi.Input[builtins.str] kubernetes_cluster_id: The ID of the Kubernetes Cluster where this Node Pool should exist. Changing this forces a new resource to be created.
                
                > **NOTE:** The type of Default Node Pool for the Kubernetes Cluster must be `VirtualMachineScaleSets` to attach multiple node pools.
-        :param pulumi.Input[builtins.str] vm_size: The SKU which should be used for the Virtual Machines used in this Node Pool. Changing this property requires specifying `temporary_name_for_rotation`.
         :param pulumi.Input[builtins.bool] auto_scaling_enabled: Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler).
         :param pulumi.Input[builtins.str] capacity_reservation_group_id: Specifies the ID of the Capacity Reservation Group where this Node Pool should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] eviction_policy: The Eviction Policy which should be used for Virtual Machines within the Virtual Machine Scale Set powering this Node Pool. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
@@ -119,6 +118,7 @@ class KubernetesClusterNodePoolArgs:
         :param pulumi.Input[builtins.str] temporary_name_for_rotation: Specifies the name of the temporary node pool used to cycle the node pool when one of the relevant properties are updated.
         :param pulumi.Input[builtins.bool] ultra_ssd_enabled: Used to specify whether the UltraSSD is enabled in the Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. Changing this property requires specifying `temporary_name_for_rotation`.
         :param pulumi.Input['KubernetesClusterNodePoolUpgradeSettingsArgs'] upgrade_settings: A `upgrade_settings` block as documented below.
+        :param pulumi.Input[builtins.str] vm_size: The SKU which should be used for the Virtual Machines used in this Node Pool. Changing this property requires specifying `temporary_name_for_rotation`.
         :param pulumi.Input[builtins.str] vnet_subnet_id: The ID of the Subnet where this Node Pool should exist. Changing this property requires specifying `temporary_name_for_rotation`.
                
                > **NOTE:** A route table must be configured on this Subnet.
@@ -129,7 +129,6 @@ class KubernetesClusterNodePoolArgs:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] zones: Specifies a list of Availability Zones in which this Kubernetes Cluster Node Pool should be located. Changing this property requires specifying `temporary_name_for_rotation`.
         """
         pulumi.set(__self__, "kubernetes_cluster_id", kubernetes_cluster_id)
-        pulumi.set(__self__, "vm_size", vm_size)
         if auto_scaling_enabled is not None:
             pulumi.set(__self__, "auto_scaling_enabled", auto_scaling_enabled)
         if capacity_reservation_group_id is not None:
@@ -202,6 +201,8 @@ class KubernetesClusterNodePoolArgs:
             pulumi.set(__self__, "ultra_ssd_enabled", ultra_ssd_enabled)
         if upgrade_settings is not None:
             pulumi.set(__self__, "upgrade_settings", upgrade_settings)
+        if vm_size is not None:
+            pulumi.set(__self__, "vm_size", vm_size)
         if vnet_subnet_id is not None:
             pulumi.set(__self__, "vnet_subnet_id", vnet_subnet_id)
         if windows_profile is not None:
@@ -224,18 +225,6 @@ class KubernetesClusterNodePoolArgs:
     @kubernetes_cluster_id.setter
     def kubernetes_cluster_id(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "kubernetes_cluster_id", value)
-
-    @property
-    @pulumi.getter(name="vmSize")
-    def vm_size(self) -> pulumi.Input[builtins.str]:
-        """
-        The SKU which should be used for the Virtual Machines used in this Node Pool. Changing this property requires specifying `temporary_name_for_rotation`.
-        """
-        return pulumi.get(self, "vm_size")
-
-    @vm_size.setter
-    def vm_size(self, value: pulumi.Input[builtins.str]):
-        pulumi.set(self, "vm_size", value)
 
     @property
     @pulumi.getter(name="autoScalingEnabled")
@@ -675,6 +664,18 @@ class KubernetesClusterNodePoolArgs:
     @upgrade_settings.setter
     def upgrade_settings(self, value: Optional[pulumi.Input['KubernetesClusterNodePoolUpgradeSettingsArgs']]):
         pulumi.set(self, "upgrade_settings", value)
+
+    @property
+    @pulumi.getter(name="vmSize")
+    def vm_size(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The SKU which should be used for the Virtual Machines used in this Node Pool. Changing this property requires specifying `temporary_name_for_rotation`.
+        """
+        return pulumi.get(self, "vm_size")
+
+    @vm_size.setter
+    def vm_size(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "vm_size", value)
 
     @property
     @pulumi.getter(name="vnetSubnetId")
@@ -1765,8 +1766,6 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
             __props__.__dict__["temporary_name_for_rotation"] = temporary_name_for_rotation
             __props__.__dict__["ultra_ssd_enabled"] = ultra_ssd_enabled
             __props__.__dict__["upgrade_settings"] = upgrade_settings
-            if vm_size is None and not opts.urn:
-                raise TypeError("Missing required property 'vm_size'")
             __props__.__dict__["vm_size"] = vm_size
             __props__.__dict__["vnet_subnet_id"] = vnet_subnet_id
             __props__.__dict__["windows_profile"] = windows_profile

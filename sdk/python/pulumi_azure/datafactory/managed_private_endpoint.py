@@ -242,6 +242,13 @@ class ManagedPrivateEndpoint(pulumi.CustomResource):
             subresource_name="blob")
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DataFactory`: 2018-06-01
+
         ## Import
 
         Data Factory Managed Private Endpoint can be imported using the `resource id`, e.g.
@@ -296,6 +303,13 @@ class ManagedPrivateEndpoint(pulumi.CustomResource):
             target_resource_id=example_account.id,
             subresource_name="blob")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DataFactory`: 2018-06-01
 
         ## Import
 

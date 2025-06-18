@@ -38,7 +38,7 @@ namespace Pulumi.Azure.NetApp
         public Output<bool?> AzureVmwareDataStoreEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnet_id`, `location`, `service_level`, `resource_group_name`, `account_name` and `pool_name`. Changing this forces a new resource to be created.
+        /// Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnet_id`, `location`, `service_level`, `resource_group_name` and `account_name`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("createFromSnapshotResourceId")]
         public Output<string?> CreateFromSnapshotResourceId { get; private set; } = null!;
@@ -85,6 +85,14 @@ namespace Pulumi.Azure.NetApp
         /// </summary>
         [Output("keyVaultPrivateEndpointId")]
         public Output<string> KeyVaultPrivateEndpointId { get; private set; } = null!;
+
+        /// <summary>
+        /// A boolean specifying if the volume is a large volume. Defaults to `false`.
+        /// 
+        /// &gt; **Note:** Large volumes must be at least 50 TiB in size and can be up to 1,024 TiB (1 PiB). For more information, please refer to [Requirements and considerations for large volumes](https://learn.microsoft.com/en-us/azure/azure-netapp-files/large-volumes-requirements-considerations)
+        /// </summary>
+        [Output("largeVolumeEnabled")]
+        public Output<bool?> LargeVolumeEnabled { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -138,7 +146,7 @@ namespace Pulumi.Azure.NetApp
         public Output<string> ServiceLevel { get; private set; } = null!;
 
         /// <summary>
-        /// Enable SMB encryption.
+        /// Enable SMB encryption. Changing this forces a new resource to be created.
         /// </summary>
         [Output("smb3ProtocolEncryptionEnabled")]
         public Output<bool?> Smb3ProtocolEncryptionEnabled { get; private set; } = null!;
@@ -150,7 +158,7 @@ namespace Pulumi.Azure.NetApp
         public Output<bool?> SmbAccessBasedEnumerationEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Enable SMB Continuous Availability.
+        /// Enable SMB Continuous Availability. Changing this forces a new resource to be created.
         /// </summary>
         [Output("smbContinuousAvailabilityEnabled")]
         public Output<bool?> SmbContinuousAvailabilityEnabled { get; private set; } = null!;
@@ -162,7 +170,7 @@ namespace Pulumi.Azure.NetApp
         public Output<bool?> SmbNonBrowsableEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether the .snapshot (NFS clients) or ~snapshot (SMB clients) path of a volume is visible, default value is true.
+        /// Specifies whether the .snapshot (NFS clients) or ~snapshot (SMB clients) path of a volume is visible. Defaults to `true`.
         /// </summary>
         [Output("snapshotDirectoryVisible")]
         public Output<bool?> SnapshotDirectoryVisible { get; private set; } = null!;
@@ -264,7 +272,7 @@ namespace Pulumi.Azure.NetApp
         public Input<bool>? AzureVmwareDataStoreEnabled { get; set; }
 
         /// <summary>
-        /// Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnet_id`, `location`, `service_level`, `resource_group_name`, `account_name` and `pool_name`. Changing this forces a new resource to be created.
+        /// Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnet_id`, `location`, `service_level`, `resource_group_name` and `account_name`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("createFromSnapshotResourceId")]
         public Input<string>? CreateFromSnapshotResourceId { get; set; }
@@ -319,6 +327,14 @@ namespace Pulumi.Azure.NetApp
         public Input<string>? KeyVaultPrivateEndpointId { get; set; }
 
         /// <summary>
+        /// A boolean specifying if the volume is a large volume. Defaults to `false`.
+        /// 
+        /// &gt; **Note:** Large volumes must be at least 50 TiB in size and can be up to 1,024 TiB (1 PiB). For more information, please refer to [Requirements and considerations for large volumes](https://learn.microsoft.com/en-us/azure/azure-netapp-files/large-volumes-requirements-considerations)
+        /// </summary>
+        [Input("largeVolumeEnabled")]
+        public Input<bool>? LargeVolumeEnabled { get; set; }
+
+        /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
@@ -370,7 +386,7 @@ namespace Pulumi.Azure.NetApp
         public Input<string> ServiceLevel { get; set; } = null!;
 
         /// <summary>
-        /// Enable SMB encryption.
+        /// Enable SMB encryption. Changing this forces a new resource to be created.
         /// </summary>
         [Input("smb3ProtocolEncryptionEnabled")]
         public Input<bool>? Smb3ProtocolEncryptionEnabled { get; set; }
@@ -382,7 +398,7 @@ namespace Pulumi.Azure.NetApp
         public Input<bool>? SmbAccessBasedEnumerationEnabled { get; set; }
 
         /// <summary>
-        /// Enable SMB Continuous Availability.
+        /// Enable SMB Continuous Availability. Changing this forces a new resource to be created.
         /// </summary>
         [Input("smbContinuousAvailabilityEnabled")]
         public Input<bool>? SmbContinuousAvailabilityEnabled { get; set; }
@@ -394,7 +410,7 @@ namespace Pulumi.Azure.NetApp
         public Input<bool>? SmbNonBrowsableEnabled { get; set; }
 
         /// <summary>
-        /// Specifies whether the .snapshot (NFS clients) or ~snapshot (SMB clients) path of a volume is visible, default value is true.
+        /// Specifies whether the .snapshot (NFS clients) or ~snapshot (SMB clients) path of a volume is visible. Defaults to `true`.
         /// </summary>
         [Input("snapshotDirectoryVisible")]
         public Input<bool>? SnapshotDirectoryVisible { get; set; }
@@ -464,7 +480,7 @@ namespace Pulumi.Azure.NetApp
         public Input<bool>? AzureVmwareDataStoreEnabled { get; set; }
 
         /// <summary>
-        /// Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnet_id`, `location`, `service_level`, `resource_group_name`, `account_name` and `pool_name`. Changing this forces a new resource to be created.
+        /// Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnet_id`, `location`, `service_level`, `resource_group_name` and `account_name`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("createFromSnapshotResourceId")]
         public Input<string>? CreateFromSnapshotResourceId { get; set; }
@@ -517,6 +533,14 @@ namespace Pulumi.Azure.NetApp
         /// </summary>
         [Input("keyVaultPrivateEndpointId")]
         public Input<string>? KeyVaultPrivateEndpointId { get; set; }
+
+        /// <summary>
+        /// A boolean specifying if the volume is a large volume. Defaults to `false`.
+        /// 
+        /// &gt; **Note:** Large volumes must be at least 50 TiB in size and can be up to 1,024 TiB (1 PiB). For more information, please refer to [Requirements and considerations for large volumes](https://learn.microsoft.com/en-us/azure/azure-netapp-files/large-volumes-requirements-considerations)
+        /// </summary>
+        [Input("largeVolumeEnabled")]
+        public Input<bool>? LargeVolumeEnabled { get; set; }
 
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -582,7 +606,7 @@ namespace Pulumi.Azure.NetApp
         public Input<string>? ServiceLevel { get; set; }
 
         /// <summary>
-        /// Enable SMB encryption.
+        /// Enable SMB encryption. Changing this forces a new resource to be created.
         /// </summary>
         [Input("smb3ProtocolEncryptionEnabled")]
         public Input<bool>? Smb3ProtocolEncryptionEnabled { get; set; }
@@ -594,7 +618,7 @@ namespace Pulumi.Azure.NetApp
         public Input<bool>? SmbAccessBasedEnumerationEnabled { get; set; }
 
         /// <summary>
-        /// Enable SMB Continuous Availability.
+        /// Enable SMB Continuous Availability. Changing this forces a new resource to be created.
         /// </summary>
         [Input("smbContinuousAvailabilityEnabled")]
         public Input<bool>? SmbContinuousAvailabilityEnabled { get; set; }
@@ -606,7 +630,7 @@ namespace Pulumi.Azure.NetApp
         public Input<bool>? SmbNonBrowsableEnabled { get; set; }
 
         /// <summary>
-        /// Specifies whether the .snapshot (NFS clients) or ~snapshot (SMB clients) path of a volume is visible, default value is true.
+        /// Specifies whether the .snapshot (NFS clients) or ~snapshot (SMB clients) path of a volume is visible. Defaults to `true`.
         /// </summary>
         [Input("snapshotDirectoryVisible")]
         public Input<bool>? SnapshotDirectoryVisible { get; set; }

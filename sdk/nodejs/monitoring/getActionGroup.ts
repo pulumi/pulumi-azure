@@ -21,6 +21,13 @@ import * as utilities from "../utilities";
  * });
  * export const actionGroupId = example.then(example => example.id);
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.Insights`: 2023-01-01
  */
 export function getActionGroup(args: GetActionGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetActionGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -125,6 +132,13 @@ export interface GetActionGroupResult {
  * });
  * export const actionGroupId = example.then(example => example.id);
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.Insights`: 2023-01-01
  */
 export function getActionGroupOutput(args: GetActionGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetActionGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -77,6 +77,13 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.Logic`: 2019-05-01
+ * 
  * ## Import
  * 
  * Logic App Integration Account Assemblies can be imported using the `resource id`, e.g.

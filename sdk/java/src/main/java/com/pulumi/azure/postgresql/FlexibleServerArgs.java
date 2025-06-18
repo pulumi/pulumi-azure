@@ -123,14 +123,14 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica` and `Update`.
+     * The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica`, `ReviveDropped` and `Update`.
      * 
      */
     @Import(name="createMode")
     private @Nullable Output<String> createMode;
 
     /**
-     * @return The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica` and `Update`.
+     * @return The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica`, `ReviveDropped` and `Update`.
      * 
      */
     public Optional<Output<String>> createMode() {
@@ -650,7 +650,7 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param createMode The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica` and `Update`.
+         * @param createMode The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica`, `ReviveDropped` and `Update`.
          * 
          * @return builder
          * 
@@ -661,7 +661,7 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param createMode The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica` and `Update`.
+         * @param createMode The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica`, `ReviveDropped` and `Update`.
          * 
          * @return builder
          * 

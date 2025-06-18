@@ -21,6 +21,13 @@ import * as utilities from "../utilities";
  * });
  * export const queryRuleId = example.then(example => example.id);
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.Insights`: 2018-04-16
  */
 export function getScheduledQueryRulesAlert(args: GetScheduledQueryRulesAlertArgs, opts?: pulumi.InvokeOptions): Promise<GetScheduledQueryRulesAlertResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -123,6 +130,13 @@ export interface GetScheduledQueryRulesAlertResult {
  * });
  * export const queryRuleId = example.then(example => example.id);
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.Insights`: 2018-04-16
  */
 export function getScheduledQueryRulesAlertOutput(args: GetScheduledQueryRulesAlertOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetScheduledQueryRulesAlertResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

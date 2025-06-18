@@ -3438,9 +3438,7 @@ class KubernetesClusterDefaultNodePool(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "vmSize":
-            suggest = "vm_size"
-        elif key == "autoScalingEnabled":
+        if key == "autoScalingEnabled":
             suggest = "auto_scaling_enabled"
         elif key == "capacityReservationGroupId":
             suggest = "capacity_reservation_group_id"
@@ -3498,6 +3496,8 @@ class KubernetesClusterDefaultNodePool(dict):
             suggest = "ultra_ssd_enabled"
         elif key == "upgradeSettings":
             suggest = "upgrade_settings"
+        elif key == "vmSize":
+            suggest = "vm_size"
         elif key == "vnetSubnetId":
             suggest = "vnet_subnet_id"
         elif key == "workloadRuntime":
@@ -3516,7 +3516,6 @@ class KubernetesClusterDefaultNodePool(dict):
 
     def __init__(__self__, *,
                  name: builtins.str,
-                 vm_size: builtins.str,
                  auto_scaling_enabled: Optional[builtins.bool] = None,
                  capacity_reservation_group_id: Optional[builtins.str] = None,
                  fips_enabled: Optional[builtins.bool] = None,
@@ -3548,12 +3547,12 @@ class KubernetesClusterDefaultNodePool(dict):
                  type: Optional[builtins.str] = None,
                  ultra_ssd_enabled: Optional[builtins.bool] = None,
                  upgrade_settings: Optional['outputs.KubernetesClusterDefaultNodePoolUpgradeSettings'] = None,
+                 vm_size: Optional[builtins.str] = None,
                  vnet_subnet_id: Optional[builtins.str] = None,
                  workload_runtime: Optional[builtins.str] = None,
                  zones: Optional[Sequence[builtins.str]] = None):
         """
         :param builtins.str name: The name which should be used for the default Kubernetes Node Pool.
-        :param builtins.str vm_size: The size of the Virtual Machine, such as `Standard_DS2_v2`. `temporary_name_for_rotation` must be specified when attempting a resize.
         :param builtins.bool auto_scaling_enabled: Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool?
                
                > **Note:** This requires that the `type` is set to `VirtualMachineScaleSets`.
@@ -3594,6 +3593,7 @@ class KubernetesClusterDefaultNodePool(dict):
                > **Note:** When creating a cluster that supports multiple node pools, the cluster must use `VirtualMachineScaleSets`. For more information on the limitations of clusters using multiple node pools see [the documentation](https://learn.microsoft.com/en-us/azure/aks/use-multiple-node-pools#limitations).
         :param builtins.bool ultra_ssd_enabled: Used to specify whether the UltraSSD is enabled in the Default Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. `temporary_name_for_rotation` must be specified when attempting a change.
         :param 'KubernetesClusterDefaultNodePoolUpgradeSettingsArgs' upgrade_settings: A `upgrade_settings` block as documented below.
+        :param builtins.str vm_size: The size of the Virtual Machine, such as `Standard_DS2_v2`. `temporary_name_for_rotation` must be specified when attempting a resize.
         :param builtins.str vnet_subnet_id: The ID of a Subnet where the Kubernetes Node Pool should exist.
                
                > **Note:** A Route Table must be configured on this Subnet.
@@ -3603,7 +3603,6 @@ class KubernetesClusterDefaultNodePool(dict):
                > **Note:** This requires that the `type` is set to `VirtualMachineScaleSets` and that `load_balancer_sku` is set to `standard`.
         """
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "vm_size", vm_size)
         if auto_scaling_enabled is not None:
             pulumi.set(__self__, "auto_scaling_enabled", auto_scaling_enabled)
         if capacity_reservation_group_id is not None:
@@ -3666,6 +3665,8 @@ class KubernetesClusterDefaultNodePool(dict):
             pulumi.set(__self__, "ultra_ssd_enabled", ultra_ssd_enabled)
         if upgrade_settings is not None:
             pulumi.set(__self__, "upgrade_settings", upgrade_settings)
+        if vm_size is not None:
+            pulumi.set(__self__, "vm_size", vm_size)
         if vnet_subnet_id is not None:
             pulumi.set(__self__, "vnet_subnet_id", vnet_subnet_id)
         if workload_runtime is not None:
@@ -3680,14 +3681,6 @@ class KubernetesClusterDefaultNodePool(dict):
         The name which should be used for the default Kubernetes Node Pool.
         """
         return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="vmSize")
-    def vm_size(self) -> builtins.str:
-        """
-        The size of the Virtual Machine, such as `Standard_DS2_v2`. `temporary_name_for_rotation` must be specified when attempting a resize.
-        """
-        return pulumi.get(self, "vm_size")
 
     @property
     @pulumi.getter(name="autoScalingEnabled")
@@ -3939,6 +3932,14 @@ class KubernetesClusterDefaultNodePool(dict):
         A `upgrade_settings` block as documented below.
         """
         return pulumi.get(self, "upgrade_settings")
+
+    @property
+    @pulumi.getter(name="vmSize")
+    def vm_size(self) -> Optional[builtins.str]:
+        """
+        The size of the Virtual Machine, such as `Standard_DS2_v2`. `temporary_name_for_rotation` must be specified when attempting a resize.
+        """
+        return pulumi.get(self, "vm_size")
 
     @property
     @pulumi.getter(name="vnetSubnetId")
@@ -8809,7 +8810,7 @@ class RegistryGeoreplication(dict):
         :param Mapping[str, builtins.str] tags: A mapping of tags to assign to this replication location.
         :param builtins.bool zone_redundancy_enabled: Whether zone redundancy is enabled for this replication location? Defaults to `false`.
                
-               > **Note:** Changing the `zone_redundancy_enabled` forces the a underlying replication to be created.
+               > **Note:** Changing the `zone_redundancy_enabled` forces an underlying replication to be created.
         """
         pulumi.set(__self__, "location", location)
         if regional_endpoint_enabled is not None:
@@ -8849,7 +8850,7 @@ class RegistryGeoreplication(dict):
         """
         Whether zone redundancy is enabled for this replication location? Defaults to `false`.
 
-        > **Note:** Changing the `zone_redundancy_enabled` forces the a underlying replication to be created.
+        > **Note:** Changing the `zone_redundancy_enabled` forces an underlying replication to be created.
         """
         return pulumi.get(self, "zone_redundancy_enabled")
 
@@ -8963,7 +8964,7 @@ class RegistryNetworkRuleSet(dict):
                
                > **Note:** `network_rule_set` is only supported with the `Premium` SKU at this time.
                
-               > **Note:** Azure automatically configures Network Rules - to remove these you'll need to specify an `network_rule_set` block with `default_action` set to `Deny`.
+               > **Note:** Azure automatically configures Network Rules - to remove these, you'll need to specify an `network_rule_set` block with `default_action` set to `Deny`.
         """
         if default_action is not None:
             pulumi.set(__self__, "default_action", default_action)
@@ -8986,7 +8987,7 @@ class RegistryNetworkRuleSet(dict):
 
         > **Note:** `network_rule_set` is only supported with the `Premium` SKU at this time.
 
-        > **Note:** Azure automatically configures Network Rules - to remove these you'll need to specify an `network_rule_set` block with `default_action` set to `Deny`.
+        > **Note:** Azure automatically configures Network Rules - to remove these, you'll need to specify an `network_rule_set` block with `default_action` set to `Deny`.
         """
         return pulumi.get(self, "ip_rules")
 

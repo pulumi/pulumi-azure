@@ -15,9 +15,6 @@ namespace Pulumi.Azure.Monitoring.Inputs
         [Input("days")]
         public Input<int>? Days { get; set; }
 
-        /// <summary>
-        /// Is this Diagnostic Metric enabled? Defaults to `true`.
-        /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 

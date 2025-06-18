@@ -41,9 +41,9 @@ namespace Pulumi.Azure.Storage
     ///         },
     ///     });
     /// 
-    ///     var test = new Azure.Storage.AccountStaticWebsite("test", new()
+    ///     var exampleAccountStaticWebsite = new Azure.Storage.AccountStaticWebsite("example", new()
     ///     {
-    ///         StorageAccountId = testAzurermStorageAccount.Id,
+    ///         StorageAccountId = exampleAccount.Id,
     ///         Error404Document = "custom_not_found.html",
     ///         IndexDocument = "custom_index.html",
     ///     });

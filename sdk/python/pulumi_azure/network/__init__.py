@@ -80,6 +80,7 @@ from .network_manager_deployment import *
 from .network_manager_ipam_pool import *
 from .network_manager_management_group_connection import *
 from .network_manager_network_group import *
+from .network_manager_routing_configuration import *
 from .network_manager_scope_connection import *
 from .network_manager_security_admin_configuration import *
 from .network_manager_static_member import *

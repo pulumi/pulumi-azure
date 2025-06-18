@@ -114,6 +114,7 @@ __all__ = [
     'DataCollectionRuleStreamDeclarationColumn',
     'DiagnosticSettingEnabledLog',
     'DiagnosticSettingEnabledLogRetentionPolicy',
+    'DiagnosticSettingEnabledMetric',
     'DiagnosticSettingMetric',
     'DiagnosticSettingMetricRetentionPolicy',
     'MetricAlertAction',
@@ -5848,9 +5849,6 @@ class DiagnosticSettingEnabledLogRetentionPolicy(dict):
     def __init__(__self__, *,
                  enabled: builtins.bool,
                  days: Optional[builtins.int] = None):
-        """
-        :param builtins.bool enabled: Is this Diagnostic Metric enabled? Defaults to `true`.
-        """
         pulumi.set(__self__, "enabled", enabled)
         if days is not None:
             pulumi.set(__self__, "days", days)
@@ -5858,15 +5856,34 @@ class DiagnosticSettingEnabledLogRetentionPolicy(dict):
     @property
     @pulumi.getter
     def enabled(self) -> builtins.bool:
-        """
-        Is this Diagnostic Metric enabled? Defaults to `true`.
-        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
     def days(self) -> Optional[builtins.int]:
         return pulumi.get(self, "days")
+
+
+@pulumi.output_type
+class DiagnosticSettingEnabledMetric(dict):
+    def __init__(__self__, *,
+                 category: builtins.str):
+        """
+        :param builtins.str category: The name of a Diagnostic Metric Category for this Resource.
+               
+               > **NOTE:** The Metric Categories available vary depending on the Resource being used. You may wish to use the `monitoring_get_diagnostic_categories` Data Source to identify which categories are available for a given Resource.
+        """
+        pulumi.set(__self__, "category", category)
+
+    @property
+    @pulumi.getter
+    def category(self) -> builtins.str:
+        """
+        The name of a Diagnostic Metric Category for this Resource.
+
+        > **NOTE:** The Metric Categories available vary depending on the Resource being used. You may wish to use the `monitoring_get_diagnostic_categories` Data Source to identify which categories are available for a given Resource.
+        """
+        return pulumi.get(self, "category")
 
 
 @pulumi.output_type
@@ -5892,12 +5909,6 @@ class DiagnosticSettingMetric(dict):
                  category: builtins.str,
                  enabled: Optional[builtins.bool] = None,
                  retention_policy: Optional['outputs.DiagnosticSettingMetricRetentionPolicy'] = None):
-        """
-        :param builtins.str category: The name of a Diagnostic Metric Category for this Resource.
-               
-               > **NOTE:** The Metric Categories available vary depending on the Resource being used. You may wish to use the `monitoring_get_diagnostic_categories` Data Source to identify which categories are available for a given Resource.
-        :param builtins.bool enabled: Is this Diagnostic Metric enabled? Defaults to `true`.
-        """
         pulumi.set(__self__, "category", category)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -5907,19 +5918,11 @@ class DiagnosticSettingMetric(dict):
     @property
     @pulumi.getter
     def category(self) -> builtins.str:
-        """
-        The name of a Diagnostic Metric Category for this Resource.
-
-        > **NOTE:** The Metric Categories available vary depending on the Resource being used. You may wish to use the `monitoring_get_diagnostic_categories` Data Source to identify which categories are available for a given Resource.
-        """
         return pulumi.get(self, "category")
 
     @property
     @pulumi.getter
     def enabled(self) -> Optional[builtins.bool]:
-        """
-        Is this Diagnostic Metric enabled? Defaults to `true`.
-        """
         return pulumi.get(self, "enabled")
 
     @property
@@ -5934,9 +5937,6 @@ class DiagnosticSettingMetricRetentionPolicy(dict):
     def __init__(__self__, *,
                  enabled: builtins.bool,
                  days: Optional[builtins.int] = None):
-        """
-        :param builtins.bool enabled: Is this Diagnostic Metric enabled? Defaults to `true`.
-        """
         pulumi.set(__self__, "enabled", enabled)
         if days is not None:
             pulumi.set(__self__, "days", days)
@@ -5944,9 +5944,6 @@ class DiagnosticSettingMetricRetentionPolicy(dict):
     @property
     @pulumi.getter
     def enabled(self) -> builtins.bool:
-        """
-        Is this Diagnostic Metric enabled? Defaults to `true`.
-        """
         return pulumi.get(self, "enabled")
 
     @property

@@ -272,7 +272,7 @@ class Account(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.VideoIndexer`: 2024-01-01
+        * `Microsoft.VideoIndexer`: 2025-04-01
 
         ## Import
 
@@ -332,7 +332,7 @@ class Account(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.VideoIndexer`: 2024-01-01
+        * `Microsoft.VideoIndexer`: 2025-04-01
 
         ## Import
 

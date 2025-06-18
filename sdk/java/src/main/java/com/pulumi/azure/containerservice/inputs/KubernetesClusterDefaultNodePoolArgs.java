@@ -508,15 +508,15 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
      * The size of the Virtual Machine, such as `Standard_DS2_v2`. `temporary_name_for_rotation` must be specified when attempting a resize.
      * 
      */
-    @Import(name="vmSize", required=true)
-    private Output<String> vmSize;
+    @Import(name="vmSize")
+    private @Nullable Output<String> vmSize;
 
     /**
      * @return The size of the Virtual Machine, such as `Standard_DS2_v2`. `temporary_name_for_rotation` must be specified when attempting a resize.
      * 
      */
-    public Output<String> vmSize() {
-        return this.vmSize;
+    public Optional<Output<String>> vmSize() {
+        return Optional.ofNullable(this.vmSize);
     }
 
     /**
@@ -1297,7 +1297,7 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
          * @return builder
          * 
          */
-        public Builder vmSize(Output<String> vmSize) {
+        public Builder vmSize(@Nullable Output<String> vmSize) {
             $.vmSize = vmSize;
             return this;
         }
@@ -1398,9 +1398,6 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
         public KubernetesClusterDefaultNodePoolArgs build() {
             if ($.name == null) {
                 throw new MissingRequiredPropertyException("KubernetesClusterDefaultNodePoolArgs", "name");
-            }
-            if ($.vmSize == null) {
-                throw new MissingRequiredPropertyException("KubernetesClusterDefaultNodePoolArgs", "vmSize");
             }
             return $;
         }

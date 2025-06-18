@@ -19,6 +19,12 @@ namespace Pulumi.Azure.NetApp.Inputs
         public Input<string> CapacityPoolId { get; set; } = null!;
 
         /// <summary>
+        /// A `data_protection_replication` block as defined below. Changing this forces a new Application Volume Group to be created and data will be lost.
+        /// </summary>
+        [Input("dataProtectionReplication")]
+        public Input<Inputs.VolumeGroupOracleVolumeDataProtectionReplicationGetArgs>? DataProtectionReplication { get; set; }
+
+        /// <summary>
         /// A `data_protection_snapshot_policy` block as defined below.
         /// </summary>
         [Input("dataProtectionSnapshotPolicy")]

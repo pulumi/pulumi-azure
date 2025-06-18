@@ -695,6 +695,13 @@ class ActionGroup(pulumi.CustomResource):
             }])
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Insights`: 2023-01-01
+
         ## Import
 
         Action Groups can be imported using the `resource id`, e.g.
@@ -822,6 +829,13 @@ class ActionGroup(pulumi.CustomResource):
                 "use_common_alert_schema": True,
             }])
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Insights`: 2023-01-01
 
         ## Import
 

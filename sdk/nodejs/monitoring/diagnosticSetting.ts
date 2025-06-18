@@ -43,11 +43,18 @@ import * as utilities from "../utilities";
  *     enabledLogs: [{
  *         category: "AuditEvent",
  *     }],
- *     metrics: [{
+ *     enabledMetrics: [{
  *         category: "AllMetrics",
  *     }],
  * });
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.Insights`: 2021-05-01-preview
  *
  * ## Import
  *
@@ -88,9 +95,15 @@ export class DiagnosticSetting extends pulumi.CustomResource {
     /**
      * One or more `enabledLog` blocks as defined below.
      *
-     * > **NOTE:** At least one `enabledLog` or `metric` block must be specified. At least one type of Log or Metric must be enabled.
+     * > **Note:** At least one `enabledLog` or `enabledMetric` block must be specified. At least one type of Log or Metric must be enabled.
      */
     public readonly enabledLogs!: pulumi.Output<outputs.monitoring.DiagnosticSettingEnabledLog[] | undefined>;
+    /**
+     * One or more `enabledMetric` blocks as defined below.
+     *
+     * > **Note:** At least one `enabledLog` or `enabledMetric` block must be specified.
+     */
+    public readonly enabledMetrics!: pulumi.Output<outputs.monitoring.DiagnosticSettingEnabledMetric[]>;
     /**
      * Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. 
      *
@@ -118,11 +131,9 @@ export class DiagnosticSetting extends pulumi.CustomResource {
      */
     public readonly logAnalyticsWorkspaceId!: pulumi.Output<string | undefined>;
     /**
-     * One or more `metric` blocks as defined below.
-     *
-     * > **NOTE:** At least one `enabledLog` or `metric` block must be specified.
+     * @deprecated `metric` has been deprecated in favor of the `enabledMetric` property and will be removed in v5.0 of the AzureRM provider
      */
-    public readonly metrics!: pulumi.Output<outputs.monitoring.DiagnosticSettingMetric[] | undefined>;
+    public readonly metrics!: pulumi.Output<outputs.monitoring.DiagnosticSettingMetric[]>;
     /**
      * Specifies the name of the Diagnostic Setting. Changing this forces a new resource to be created.
      *
@@ -160,6 +171,7 @@ export class DiagnosticSetting extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as DiagnosticSettingState | undefined;
             resourceInputs["enabledLogs"] = state ? state.enabledLogs : undefined;
+            resourceInputs["enabledMetrics"] = state ? state.enabledMetrics : undefined;
             resourceInputs["eventhubAuthorizationRuleId"] = state ? state.eventhubAuthorizationRuleId : undefined;
             resourceInputs["eventhubName"] = state ? state.eventhubName : undefined;
             resourceInputs["logAnalyticsDestinationType"] = state ? state.logAnalyticsDestinationType : undefined;
@@ -175,6 +187,7 @@ export class DiagnosticSetting extends pulumi.CustomResource {
                 throw new Error("Missing required property 'targetResourceId'");
             }
             resourceInputs["enabledLogs"] = args ? args.enabledLogs : undefined;
+            resourceInputs["enabledMetrics"] = args ? args.enabledMetrics : undefined;
             resourceInputs["eventhubAuthorizationRuleId"] = args ? args.eventhubAuthorizationRuleId : undefined;
             resourceInputs["eventhubName"] = args ? args.eventhubName : undefined;
             resourceInputs["logAnalyticsDestinationType"] = args ? args.logAnalyticsDestinationType : undefined;
@@ -197,9 +210,15 @@ export interface DiagnosticSettingState {
     /**
      * One or more `enabledLog` blocks as defined below.
      *
-     * > **NOTE:** At least one `enabledLog` or `metric` block must be specified. At least one type of Log or Metric must be enabled.
+     * > **Note:** At least one `enabledLog` or `enabledMetric` block must be specified. At least one type of Log or Metric must be enabled.
      */
     enabledLogs?: pulumi.Input<pulumi.Input<inputs.monitoring.DiagnosticSettingEnabledLog>[]>;
+    /**
+     * One or more `enabledMetric` blocks as defined below.
+     *
+     * > **Note:** At least one `enabledLog` or `enabledMetric` block must be specified.
+     */
+    enabledMetrics?: pulumi.Input<pulumi.Input<inputs.monitoring.DiagnosticSettingEnabledMetric>[]>;
     /**
      * Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. 
      *
@@ -227,9 +246,7 @@ export interface DiagnosticSettingState {
      */
     logAnalyticsWorkspaceId?: pulumi.Input<string>;
     /**
-     * One or more `metric` blocks as defined below.
-     *
-     * > **NOTE:** At least one `enabledLog` or `metric` block must be specified.
+     * @deprecated `metric` has been deprecated in favor of the `enabledMetric` property and will be removed in v5.0 of the AzureRM provider
      */
     metrics?: pulumi.Input<pulumi.Input<inputs.monitoring.DiagnosticSettingMetric>[]>;
     /**
@@ -263,9 +280,15 @@ export interface DiagnosticSettingArgs {
     /**
      * One or more `enabledLog` blocks as defined below.
      *
-     * > **NOTE:** At least one `enabledLog` or `metric` block must be specified. At least one type of Log or Metric must be enabled.
+     * > **Note:** At least one `enabledLog` or `enabledMetric` block must be specified. At least one type of Log or Metric must be enabled.
      */
     enabledLogs?: pulumi.Input<pulumi.Input<inputs.monitoring.DiagnosticSettingEnabledLog>[]>;
+    /**
+     * One or more `enabledMetric` blocks as defined below.
+     *
+     * > **Note:** At least one `enabledLog` or `enabledMetric` block must be specified.
+     */
+    enabledMetrics?: pulumi.Input<pulumi.Input<inputs.monitoring.DiagnosticSettingEnabledMetric>[]>;
     /**
      * Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. 
      *
@@ -293,9 +316,7 @@ export interface DiagnosticSettingArgs {
      */
     logAnalyticsWorkspaceId?: pulumi.Input<string>;
     /**
-     * One or more `metric` blocks as defined below.
-     *
-     * > **NOTE:** At least one `enabledLog` or `metric` block must be specified.
+     * @deprecated `metric` has been deprecated in favor of the `enabledMetric` property and will be removed in v5.0 of the AzureRM provider
      */
     metrics?: pulumi.Input<pulumi.Input<inputs.monitoring.DiagnosticSettingMetric>[]>;
     /**

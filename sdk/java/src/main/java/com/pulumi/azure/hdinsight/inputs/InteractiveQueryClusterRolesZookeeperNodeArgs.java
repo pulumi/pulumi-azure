@@ -38,14 +38,14 @@ public final class InteractiveQueryClusterRolesZookeeperNodeArgs extends com.pul
     }
 
     /**
-     * The script action which will run on the cluster. One or more `script_actions` blocks as defined above.
+     * The script action which will run on the cluster. One or more `script_actions` blocks as defined above. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="scriptActions")
     private @Nullable Output<List<InteractiveQueryClusterRolesZookeeperNodeScriptActionArgs>> scriptActions;
 
     /**
-     * @return The script action which will run on the cluster. One or more `script_actions` blocks as defined above.
+     * @return The script action which will run on the cluster. One or more `script_actions` blocks as defined above. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<List<InteractiveQueryClusterRolesZookeeperNodeScriptActionArgs>>> scriptActions() {
@@ -187,7 +187,7 @@ public final class InteractiveQueryClusterRolesZookeeperNodeArgs extends com.pul
         }
 
         /**
-         * @param scriptActions The script action which will run on the cluster. One or more `script_actions` blocks as defined above.
+         * @param scriptActions The script action which will run on the cluster. One or more `script_actions` blocks as defined above. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -198,7 +198,7 @@ public final class InteractiveQueryClusterRolesZookeeperNodeArgs extends com.pul
         }
 
         /**
-         * @param scriptActions The script action which will run on the cluster. One or more `script_actions` blocks as defined above.
+         * @param scriptActions The script action which will run on the cluster. One or more `script_actions` blocks as defined above. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -208,7 +208,7 @@ public final class InteractiveQueryClusterRolesZookeeperNodeArgs extends com.pul
         }
 
         /**
-         * @param scriptActions The script action which will run on the cluster. One or more `script_actions` blocks as defined above.
+         * @param scriptActions The script action which will run on the cluster. One or more `script_actions` blocks as defined above. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

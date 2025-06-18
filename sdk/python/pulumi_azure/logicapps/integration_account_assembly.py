@@ -327,6 +327,13 @@ class IntegrationAccountAssembly(pulumi.CustomResource):
             content=std.filebase64(input="testdata/log4net.dll").result)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Logic`: 2019-05-01
+
         ## Import
 
         Logic App Integration Account Assemblies can be imported using the `resource id`, e.g.
@@ -377,6 +384,13 @@ class IntegrationAccountAssembly(pulumi.CustomResource):
             assembly_name="TestAssembly",
             content=std.filebase64(input="testdata/log4net.dll").result)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Logic`: 2019-05-01
 
         ## Import
 

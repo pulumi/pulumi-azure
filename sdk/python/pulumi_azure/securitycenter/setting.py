@@ -122,6 +122,13 @@ class Setting(pulumi.CustomResource):
             enabled=True)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Security`: 2022-05-01
+
         ## Import
 
         The setting can be imported using the `resource id`, e.g.
@@ -158,6 +165,13 @@ class Setting(pulumi.CustomResource):
             setting_name="MCAS",
             enabled=True)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Security`: 2022-05-01
 
         ## Import
 

@@ -122,6 +122,7 @@ import * as privatedns from "./privatedns";
 import * as privatelink from "./privatelink";
 import * as proximity from "./proximity";
 import * as purview from "./purview";
+import * as qumulo from "./qumulo";
 import * as recoveryservices from "./recoveryservices";
 import * as redhatopenshift from "./redhatopenshift";
 import * as redis from "./redis";
@@ -259,6 +260,7 @@ export {
     privatelink,
     proximity,
     purview,
+    qumulo,
     recoveryservices,
     redhatopenshift,
     redis,

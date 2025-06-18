@@ -899,6 +899,8 @@ func (o TagRulesLogRuleFilteringTagArrayOutput) Index(i pulumi.IntInput) TagRule
 type TagRulesMetricRule struct {
 	// Filtering tag for the metric rule. A `filteringTag` block as defined below.
 	FilteringTags []TagRulesMetricRuleFilteringTag `pulumi:"filteringTags"`
+	// If sending metrics is enabled. The default value is `false`.
+	SendingMetricsEnabled *bool `pulumi:"sendingMetricsEnabled"`
 }
 
 // TagRulesMetricRuleInput is an input type that accepts TagRulesMetricRuleArgs and TagRulesMetricRuleOutput values.
@@ -915,6 +917,8 @@ type TagRulesMetricRuleInput interface {
 type TagRulesMetricRuleArgs struct {
 	// Filtering tag for the metric rule. A `filteringTag` block as defined below.
 	FilteringTags TagRulesMetricRuleFilteringTagArrayInput `pulumi:"filteringTags"`
+	// If sending metrics is enabled. The default value is `false`.
+	SendingMetricsEnabled pulumi.BoolPtrInput `pulumi:"sendingMetricsEnabled"`
 }
 
 func (TagRulesMetricRuleArgs) ElementType() reflect.Type {
@@ -999,6 +1003,11 @@ func (o TagRulesMetricRuleOutput) FilteringTags() TagRulesMetricRuleFilteringTag
 	return o.ApplyT(func(v TagRulesMetricRule) []TagRulesMetricRuleFilteringTag { return v.FilteringTags }).(TagRulesMetricRuleFilteringTagArrayOutput)
 }
 
+// If sending metrics is enabled. The default value is `false`.
+func (o TagRulesMetricRuleOutput) SendingMetricsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v TagRulesMetricRule) *bool { return v.SendingMetricsEnabled }).(pulumi.BoolPtrOutput)
+}
+
 type TagRulesMetricRulePtrOutput struct{ *pulumi.OutputState }
 
 func (TagRulesMetricRulePtrOutput) ElementType() reflect.Type {
@@ -1031,6 +1040,16 @@ func (o TagRulesMetricRulePtrOutput) FilteringTags() TagRulesMetricRuleFiltering
 		}
 		return v.FilteringTags
 	}).(TagRulesMetricRuleFilteringTagArrayOutput)
+}
+
+// If sending metrics is enabled. The default value is `false`.
+func (o TagRulesMetricRulePtrOutput) SendingMetricsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TagRulesMetricRule) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SendingMetricsEnabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 type TagRulesMetricRuleFilteringTag struct {

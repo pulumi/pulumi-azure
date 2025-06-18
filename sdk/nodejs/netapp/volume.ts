@@ -56,7 +56,7 @@ export class Volume extends pulumi.CustomResource {
      */
     public readonly azureVmwareDataStoreEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnetId`, `location`, `serviceLevel`, `resourceGroupName`, `accountName` and `poolName`. Changing this forces a new resource to be created.
+     * Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnetId`, `location`, `serviceLevel`, `resourceGroupName` and `accountName`. Changing this forces a new resource to be created.
      */
     public readonly createFromSnapshotResourceId!: pulumi.Output<string | undefined>;
     /**
@@ -88,6 +88,12 @@ export class Volume extends pulumi.CustomResource {
      * The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryptionKeySource`. Changing this forces a new resource to be created.
      */
     public readonly keyVaultPrivateEndpointId!: pulumi.Output<string>;
+    /**
+     * A boolean specifying if the volume is a large volume. Defaults to `false`.
+     *
+     * > **Note:** Large volumes must be at least 50 TiB in size and can be up to 1,024 TiB (1 PiB). For more information, please refer to [Requirements and considerations for large volumes](https://learn.microsoft.com/en-us/azure/azure-netapp-files/large-volumes-requirements-considerations)
+     */
+    public readonly largeVolumeEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -122,7 +128,7 @@ export class Volume extends pulumi.CustomResource {
     public readonly securityStyle!: pulumi.Output<string>;
     public readonly serviceLevel!: pulumi.Output<string>;
     /**
-     * Enable SMB encryption.
+     * Enable SMB encryption. Changing this forces a new resource to be created.
      */
     public readonly smb3ProtocolEncryptionEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -130,7 +136,7 @@ export class Volume extends pulumi.CustomResource {
      */
     public readonly smbAccessBasedEnumerationEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * Enable SMB Continuous Availability.
+     * Enable SMB Continuous Availability. Changing this forces a new resource to be created.
      */
     public readonly smbContinuousAvailabilityEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -138,7 +144,7 @@ export class Volume extends pulumi.CustomResource {
      */
     public readonly smbNonBrowsableEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * Specifies whether the .snapshot (NFS clients) or ~snapshot (SMB clients) path of a volume is visible, default value is true.
+     * Specifies whether the .snapshot (NFS clients) or ~snapshot (SMB clients) path of a volume is visible. Defaults to `true`.
      */
     public readonly snapshotDirectoryVisible!: pulumi.Output<boolean | undefined>;
     /**
@@ -191,6 +197,7 @@ export class Volume extends pulumi.CustomResource {
             resourceInputs["exportPolicyRules"] = state ? state.exportPolicyRules : undefined;
             resourceInputs["kerberosEnabled"] = state ? state.kerberosEnabled : undefined;
             resourceInputs["keyVaultPrivateEndpointId"] = state ? state.keyVaultPrivateEndpointId : undefined;
+            resourceInputs["largeVolumeEnabled"] = state ? state.largeVolumeEnabled : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["mountIpAddresses"] = state ? state.mountIpAddresses : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
@@ -244,6 +251,7 @@ export class Volume extends pulumi.CustomResource {
             resourceInputs["exportPolicyRules"] = args ? args.exportPolicyRules : undefined;
             resourceInputs["kerberosEnabled"] = args ? args.kerberosEnabled : undefined;
             resourceInputs["keyVaultPrivateEndpointId"] = args ? args.keyVaultPrivateEndpointId : undefined;
+            resourceInputs["largeVolumeEnabled"] = args ? args.largeVolumeEnabled : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["networkFeatures"] = args ? args.networkFeatures : undefined;
@@ -283,7 +291,7 @@ export interface VolumeState {
      */
     azureVmwareDataStoreEnabled?: pulumi.Input<boolean>;
     /**
-     * Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnetId`, `location`, `serviceLevel`, `resourceGroupName`, `accountName` and `poolName`. Changing this forces a new resource to be created.
+     * Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnetId`, `location`, `serviceLevel`, `resourceGroupName` and `accountName`. Changing this forces a new resource to be created.
      */
     createFromSnapshotResourceId?: pulumi.Input<string>;
     /**
@@ -315,6 +323,12 @@ export interface VolumeState {
      * The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryptionKeySource`. Changing this forces a new resource to be created.
      */
     keyVaultPrivateEndpointId?: pulumi.Input<string>;
+    /**
+     * A boolean specifying if the volume is a large volume. Defaults to `false`.
+     *
+     * > **Note:** Large volumes must be at least 50 TiB in size and can be up to 1,024 TiB (1 PiB). For more information, please refer to [Requirements and considerations for large volumes](https://learn.microsoft.com/en-us/azure/azure-netapp-files/large-volumes-requirements-considerations)
+     */
+    largeVolumeEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -349,7 +363,7 @@ export interface VolumeState {
     securityStyle?: pulumi.Input<string>;
     serviceLevel?: pulumi.Input<string>;
     /**
-     * Enable SMB encryption.
+     * Enable SMB encryption. Changing this forces a new resource to be created.
      */
     smb3ProtocolEncryptionEnabled?: pulumi.Input<boolean>;
     /**
@@ -357,7 +371,7 @@ export interface VolumeState {
      */
     smbAccessBasedEnumerationEnabled?: pulumi.Input<boolean>;
     /**
-     * Enable SMB Continuous Availability.
+     * Enable SMB Continuous Availability. Changing this forces a new resource to be created.
      */
     smbContinuousAvailabilityEnabled?: pulumi.Input<boolean>;
     /**
@@ -365,7 +379,7 @@ export interface VolumeState {
      */
     smbNonBrowsableEnabled?: pulumi.Input<boolean>;
     /**
-     * Specifies whether the .snapshot (NFS clients) or ~snapshot (SMB clients) path of a volume is visible, default value is true.
+     * Specifies whether the .snapshot (NFS clients) or ~snapshot (SMB clients) path of a volume is visible. Defaults to `true`.
      */
     snapshotDirectoryVisible?: pulumi.Input<boolean>;
     /**
@@ -409,7 +423,7 @@ export interface VolumeArgs {
      */
     azureVmwareDataStoreEnabled?: pulumi.Input<boolean>;
     /**
-     * Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnetId`, `location`, `serviceLevel`, `resourceGroupName`, `accountName` and `poolName`. Changing this forces a new resource to be created.
+     * Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnetId`, `location`, `serviceLevel`, `resourceGroupName` and `accountName`. Changing this forces a new resource to be created.
      */
     createFromSnapshotResourceId?: pulumi.Input<string>;
     /**
@@ -442,6 +456,12 @@ export interface VolumeArgs {
      */
     keyVaultPrivateEndpointId?: pulumi.Input<string>;
     /**
+     * A boolean specifying if the volume is a large volume. Defaults to `false`.
+     *
+     * > **Note:** Large volumes must be at least 50 TiB in size and can be up to 1,024 TiB (1 PiB). For more information, please refer to [Requirements and considerations for large volumes](https://learn.microsoft.com/en-us/azure/azure-netapp-files/large-volumes-requirements-considerations)
+     */
+    largeVolumeEnabled?: pulumi.Input<boolean>;
+    /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
     location?: pulumi.Input<string>;
@@ -471,7 +491,7 @@ export interface VolumeArgs {
     securityStyle?: pulumi.Input<string>;
     serviceLevel: pulumi.Input<string>;
     /**
-     * Enable SMB encryption.
+     * Enable SMB encryption. Changing this forces a new resource to be created.
      */
     smb3ProtocolEncryptionEnabled?: pulumi.Input<boolean>;
     /**
@@ -479,7 +499,7 @@ export interface VolumeArgs {
      */
     smbAccessBasedEnumerationEnabled?: pulumi.Input<boolean>;
     /**
-     * Enable SMB Continuous Availability.
+     * Enable SMB Continuous Availability. Changing this forces a new resource to be created.
      */
     smbContinuousAvailabilityEnabled?: pulumi.Input<boolean>;
     /**
@@ -487,7 +507,7 @@ export interface VolumeArgs {
      */
     smbNonBrowsableEnabled?: pulumi.Input<boolean>;
     /**
-     * Specifies whether the .snapshot (NFS clients) or ~snapshot (SMB clients) path of a volume is visible, default value is true.
+     * Specifies whether the .snapshot (NFS clients) or ~snapshot (SMB clients) path of a volume is visible. Defaults to `true`.
      */
     snapshotDirectoryVisible?: pulumi.Input<boolean>;
     /**

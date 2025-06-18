@@ -228,6 +228,13 @@ class FlexibleDatabase(pulumi.CustomResource):
             collation="utf8_unicode_ci")
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DBforMySQL`: 2023-12-30
+
         ## Import
 
         MySQL Database's can be imported using the `resource id`, e.g.
@@ -276,6 +283,13 @@ class FlexibleDatabase(pulumi.CustomResource):
             charset="utf8",
             collation="utf8_unicode_ci")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DBforMySQL`: 2023-12-30
 
         ## Import
 

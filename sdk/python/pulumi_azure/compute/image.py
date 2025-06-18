@@ -366,6 +366,13 @@ class Image(pulumi.CustomResource):
             source_virtual_machine_id=example.id)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Compute`: 2022-03-01
+
         ## Import
 
         Images can be imported using the `resource id`, e.g.
@@ -413,6 +420,13 @@ class Image(pulumi.CustomResource):
             resource_group_name=example.name,
             source_virtual_machine_id=example.id)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Compute`: 2022-03-01
 
         ## Import
 

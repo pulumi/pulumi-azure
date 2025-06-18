@@ -235,6 +235,13 @@ class Lock(pulumi.CustomResource):
             notes="Locked because it's needed by a third-party")
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Authorization`: 2020-05-01
+
         ## Import
 
         Management Locks can be imported using the `resource id`, e.g.
@@ -314,6 +321,13 @@ class Lock(pulumi.CustomResource):
             lock_level="CanNotDelete",
             notes="Locked because it's needed by a third-party")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Authorization`: 2020-05-01
 
         ## Import
 

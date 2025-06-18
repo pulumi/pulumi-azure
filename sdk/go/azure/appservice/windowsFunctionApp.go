@@ -210,14 +210,10 @@ func NewWindowsFunctionApp(ctx *pulumi.Context,
 	if args.SiteConfig == nil {
 		return nil, errors.New("invalid value for required argument 'SiteConfig'")
 	}
-	if args.AppSettings != nil {
-		args.AppSettings = pulumi.ToSecret(args.AppSettings).(pulumi.StringMapInput)
-	}
 	if args.StorageAccountAccessKey != nil {
 		args.StorageAccountAccessKey = pulumi.ToSecret(args.StorageAccountAccessKey).(pulumi.StringPtrInput)
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"appSettings",
 		"customDomainVerificationId",
 		"siteCredentials",
 		"storageAccountAccessKey",

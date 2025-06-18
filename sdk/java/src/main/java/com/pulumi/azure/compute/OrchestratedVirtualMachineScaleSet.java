@@ -89,6 +89,13 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.Compute`: 2024-11-01
+ * 
  * ## Import
  * 
  * An Virtual Machine Scale Set can be imported using the `resource id`, e.g.

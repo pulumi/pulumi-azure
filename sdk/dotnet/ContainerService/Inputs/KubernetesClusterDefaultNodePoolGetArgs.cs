@@ -222,8 +222,8 @@ namespace Pulumi.Azure.ContainerService.Inputs
         /// <summary>
         /// The size of the Virtual Machine, such as `Standard_DS2_v2`. `temporary_name_for_rotation` must be specified when attempting a resize.
         /// </summary>
-        [Input("vmSize", required: true)]
-        public Input<string> VmSize { get; set; } = null!;
+        [Input("vmSize")]
+        public Input<string>? VmSize { get; set; }
 
         /// <summary>
         /// The ID of a Subnet where the Kubernetes Node Pool should exist.

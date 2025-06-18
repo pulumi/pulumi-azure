@@ -277,6 +277,13 @@ class FlexibleServerFirewallRule(pulumi.CustomResource):
             end_ip_address="0.0.0.0")
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DBforMySQL`: 2023-12-30
+
         ## Import
 
         MySQL Firewall Rule's can be imported using the `resource id`, e.g.
@@ -368,6 +375,13 @@ class FlexibleServerFirewallRule(pulumi.CustomResource):
             start_ip_address="0.0.0.0",
             end_ip_address="0.0.0.0")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DBforMySQL`: 2023-12-30
 
         ## Import
 

@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Manages Azure Backup for an Azure VM
+ * Manages an Azure Backup Protected Virtual Machine.
  *
  * ## Example Usage
  *
@@ -47,15 +47,20 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.RecoveryServices`: 2024-01-01
+ *
  * ## Import
  *
- * Recovery Services Protected VMs can be imported using the `resource id`, e.g.
+ * Backup Protected Virtual Machines can be imported using the `resource id`, e.g.
  *
  * ```sh
  * $ pulumi import azure:backup/protectedVM:ProtectedVM item1 "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.RecoveryServices/vaults/example-recovery-vault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;group1;vm1/protectedItems/vm;iaasvmcontainerv2;group1;vm1"
  * ```
- *
- * Note the ID requires quoting as there are semicolons
  */
 export class ProtectedVM extends pulumi.CustomResource {
     /**
@@ -85,20 +90,19 @@ export class ProtectedVM extends pulumi.CustomResource {
         return obj['__pulumiType'] === ProtectedVM.__pulumiType;
     }
 
-    /**
-     * Specifies the id of the backup policy to use. Required in creation or when `protectionStopped` is not specified.
-     */
     public readonly backupPolicyId!: pulumi.Output<string | undefined>;
     /**
-     * A list of Disks' Logical Unit Numbers(LUN) to be excluded for VM Protection.
+     * A list of Disks' Logical Unit Numbers (LUN) to be excluded for VM Protection.
      */
     public readonly excludeDiskLuns!: pulumi.Output<number[] | undefined>;
     /**
-     * A list of Disks' Logical Unit Numbers(LUN) to be included for VM Protection.
+     * A list of Disks' Logical Unit Numbers (LUN) to be included for VM Protection.
      */
     public readonly includeDiskLuns!: pulumi.Output<number[] | undefined>;
     /**
-     * Specifies Protection state of the backup. Possible values are `Invalid`, `IRPending`, `Protected`, `ProtectionStopped`, `ProtectionError` and `ProtectionPaused`.
+     * Specifies Protection state of the backup. Possible values are `Protected`, `BackupsSuspended`, and `ProtectionStopped`.
+     *
+     * > **Note:** `protectionState` cannot be set to `BackupsSuspended` unless the `azure.recoveryservices.Vault` has `immutability` set to `Unlocked` or `Locked`.
      */
     public readonly protectionState!: pulumi.Output<string>;
     /**
@@ -110,10 +114,9 @@ export class ProtectedVM extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * Specifies the ID of the VM to backup. Changing this forces a new resource to be created.
+     * Specifies the ID of the virtual machine to back up. Changing this forces a new resource to be created.
      *
-     * > **Note:** After creation, the `sourceVmId` property can be removed without forcing a new resource to be created; however, setting it to a different ID will create a new resource.
-     * This allows the source vm to be deleted without having to remove the backup.
+     * > **Note:** After creation, the `sourceVmId` property can be removed without forcing a new resource to be created; however, setting it to a different ID will create a new resource. This allows the source virtual machine to be deleted without having to remove the backup.
      */
     public readonly sourceVmId!: pulumi.Output<string>;
 
@@ -162,20 +165,19 @@ export class ProtectedVM extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ProtectedVM resources.
  */
 export interface ProtectedVMState {
-    /**
-     * Specifies the id of the backup policy to use. Required in creation or when `protectionStopped` is not specified.
-     */
     backupPolicyId?: pulumi.Input<string>;
     /**
-     * A list of Disks' Logical Unit Numbers(LUN) to be excluded for VM Protection.
+     * A list of Disks' Logical Unit Numbers (LUN) to be excluded for VM Protection.
      */
     excludeDiskLuns?: pulumi.Input<pulumi.Input<number>[]>;
     /**
-     * A list of Disks' Logical Unit Numbers(LUN) to be included for VM Protection.
+     * A list of Disks' Logical Unit Numbers (LUN) to be included for VM Protection.
      */
     includeDiskLuns?: pulumi.Input<pulumi.Input<number>[]>;
     /**
-     * Specifies Protection state of the backup. Possible values are `Invalid`, `IRPending`, `Protected`, `ProtectionStopped`, `ProtectionError` and `ProtectionPaused`.
+     * Specifies Protection state of the backup. Possible values are `Protected`, `BackupsSuspended`, and `ProtectionStopped`.
+     *
+     * > **Note:** `protectionState` cannot be set to `BackupsSuspended` unless the `azure.recoveryservices.Vault` has `immutability` set to `Unlocked` or `Locked`.
      */
     protectionState?: pulumi.Input<string>;
     /**
@@ -187,10 +189,9 @@ export interface ProtectedVMState {
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
-     * Specifies the ID of the VM to backup. Changing this forces a new resource to be created.
+     * Specifies the ID of the virtual machine to back up. Changing this forces a new resource to be created.
      *
-     * > **Note:** After creation, the `sourceVmId` property can be removed without forcing a new resource to be created; however, setting it to a different ID will create a new resource.
-     * This allows the source vm to be deleted without having to remove the backup.
+     * > **Note:** After creation, the `sourceVmId` property can be removed without forcing a new resource to be created; however, setting it to a different ID will create a new resource. This allows the source virtual machine to be deleted without having to remove the backup.
      */
     sourceVmId?: pulumi.Input<string>;
 }
@@ -199,20 +200,19 @@ export interface ProtectedVMState {
  * The set of arguments for constructing a ProtectedVM resource.
  */
 export interface ProtectedVMArgs {
-    /**
-     * Specifies the id of the backup policy to use. Required in creation or when `protectionStopped` is not specified.
-     */
     backupPolicyId?: pulumi.Input<string>;
     /**
-     * A list of Disks' Logical Unit Numbers(LUN) to be excluded for VM Protection.
+     * A list of Disks' Logical Unit Numbers (LUN) to be excluded for VM Protection.
      */
     excludeDiskLuns?: pulumi.Input<pulumi.Input<number>[]>;
     /**
-     * A list of Disks' Logical Unit Numbers(LUN) to be included for VM Protection.
+     * A list of Disks' Logical Unit Numbers (LUN) to be included for VM Protection.
      */
     includeDiskLuns?: pulumi.Input<pulumi.Input<number>[]>;
     /**
-     * Specifies Protection state of the backup. Possible values are `Invalid`, `IRPending`, `Protected`, `ProtectionStopped`, `ProtectionError` and `ProtectionPaused`.
+     * Specifies Protection state of the backup. Possible values are `Protected`, `BackupsSuspended`, and `ProtectionStopped`.
+     *
+     * > **Note:** `protectionState` cannot be set to `BackupsSuspended` unless the `azure.recoveryservices.Vault` has `immutability` set to `Unlocked` or `Locked`.
      */
     protectionState?: pulumi.Input<string>;
     /**
@@ -224,10 +224,9 @@ export interface ProtectedVMArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * Specifies the ID of the VM to backup. Changing this forces a new resource to be created.
+     * Specifies the ID of the virtual machine to back up. Changing this forces a new resource to be created.
      *
-     * > **Note:** After creation, the `sourceVmId` property can be removed without forcing a new resource to be created; however, setting it to a different ID will create a new resource.
-     * This allows the source vm to be deleted without having to remove the backup.
+     * > **Note:** After creation, the `sourceVmId` property can be removed without forcing a new resource to be created; however, setting it to a different ID will create a new resource. This allows the source virtual machine to be deleted without having to remove the backup.
      */
     sourceVmId?: pulumi.Input<string>;
 }

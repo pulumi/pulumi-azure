@@ -203,9 +203,6 @@ func NewKubernetesClusterNodePool(ctx *pulumi.Context,
 	if args.KubernetesClusterId == nil {
 		return nil, errors.New("invalid value for required argument 'KubernetesClusterId'")
 	}
-	if args.VmSize == nil {
-		return nil, errors.New("invalid value for required argument 'VmSize'")
-	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource KubernetesClusterNodePool
 	err := ctx.RegisterResource("azure:containerservice/kubernetesClusterNodePool:KubernetesClusterNodePool", name, args, &resource, opts...)
@@ -535,7 +532,7 @@ type kubernetesClusterNodePoolArgs struct {
 	// A `upgradeSettings` block as documented below.
 	UpgradeSettings *KubernetesClusterNodePoolUpgradeSettings `pulumi:"upgradeSettings"`
 	// The SKU which should be used for the Virtual Machines used in this Node Pool. Changing this property requires specifying `temporaryNameForRotation`.
-	VmSize string `pulumi:"vmSize"`
+	VmSize *string `pulumi:"vmSize"`
 	// The ID of the Subnet where this Node Pool should exist. Changing this property requires specifying `temporaryNameForRotation`.
 	//
 	// > **NOTE:** A route table must be configured on this Subnet.
@@ -642,7 +639,7 @@ type KubernetesClusterNodePoolArgs struct {
 	// A `upgradeSettings` block as documented below.
 	UpgradeSettings KubernetesClusterNodePoolUpgradeSettingsPtrInput
 	// The SKU which should be used for the Virtual Machines used in this Node Pool. Changing this property requires specifying `temporaryNameForRotation`.
-	VmSize pulumi.StringInput
+	VmSize pulumi.StringPtrInput
 	// The ID of the Subnet where this Node Pool should exist. Changing this property requires specifying `temporaryNameForRotation`.
 	//
 	// > **NOTE:** A route table must be configured on this Subnet.

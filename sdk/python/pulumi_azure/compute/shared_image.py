@@ -1012,6 +1012,13 @@ class SharedImage(pulumi.CustomResource):
             })
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Compute`: 2022-03-03
+
         ## Import
 
         Shared Images can be imported using the `resource id`, e.g.
@@ -1094,6 +1101,13 @@ class SharedImage(pulumi.CustomResource):
                 "sku": "ExampleSku",
             })
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Compute`: 2022-03-03
 
         ## Import
 

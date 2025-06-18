@@ -137,6 +137,8 @@ type AppFlexConsumption struct {
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// The ID of the App Service Environment used by Function App.
 	HostingEnvironmentId pulumi.StringOutput `pulumi:"hostingEnvironmentId"`
+	// Is Https Connection enforced to the function app. Defaults to `false`
+	HttpsOnly pulumi.BoolPtrOutput `pulumi:"httpsOnly"`
 	// A `identity` block as defined below.
 	Identity AppFlexConsumptionIdentityPtrOutput `pulumi:"identity"`
 	// The memory size of the instances on which your app runs. The [currently supported values](https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-plan#instance-memory) are `2048` or `4096`.
@@ -284,6 +286,8 @@ type appFlexConsumptionState struct {
 	Enabled *bool `pulumi:"enabled"`
 	// The ID of the App Service Environment used by Function App.
 	HostingEnvironmentId *string `pulumi:"hostingEnvironmentId"`
+	// Is Https Connection enforced to the function app. Defaults to `false`
+	HttpsOnly *bool `pulumi:"httpsOnly"`
 	// A `identity` block as defined below.
 	Identity *AppFlexConsumptionIdentity `pulumi:"identity"`
 	// The memory size of the instances on which your app runs. The [currently supported values](https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-plan#instance-memory) are `2048` or `4096`.
@@ -373,6 +377,8 @@ type AppFlexConsumptionState struct {
 	Enabled pulumi.BoolPtrInput
 	// The ID of the App Service Environment used by Function App.
 	HostingEnvironmentId pulumi.StringPtrInput
+	// Is Https Connection enforced to the function app. Defaults to `false`
+	HttpsOnly pulumi.BoolPtrInput
 	// A `identity` block as defined below.
 	Identity AppFlexConsumptionIdentityPtrInput
 	// The memory size of the instances on which your app runs. The [currently supported values](https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-plan#instance-memory) are `2048` or `4096`.
@@ -460,6 +466,8 @@ type appFlexConsumptionArgs struct {
 	ConnectionStrings []AppFlexConsumptionConnectionString `pulumi:"connectionStrings"`
 	// Is the Function App enabled? Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
+	// Is Https Connection enforced to the function app. Defaults to `false`
+	HttpsOnly *bool `pulumi:"httpsOnly"`
 	// A `identity` block as defined below.
 	Identity *AppFlexConsumptionIdentity `pulumi:"identity"`
 	// The memory size of the instances on which your app runs. The [currently supported values](https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-plan#instance-memory) are `2048` or `4096`.
@@ -532,6 +540,8 @@ type AppFlexConsumptionArgs struct {
 	ConnectionStrings AppFlexConsumptionConnectionStringArrayInput
 	// Is the Function App enabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
+	// Is Https Connection enforced to the function app. Defaults to `false`
+	HttpsOnly pulumi.BoolPtrInput
 	// A `identity` block as defined below.
 	Identity AppFlexConsumptionIdentityPtrInput
 	// The memory size of the instances on which your app runs. The [currently supported values](https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-plan#instance-memory) are `2048` or `4096`.
@@ -729,6 +739,11 @@ func (o AppFlexConsumptionOutput) Enabled() pulumi.BoolPtrOutput {
 // The ID of the App Service Environment used by Function App.
 func (o AppFlexConsumptionOutput) HostingEnvironmentId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AppFlexConsumption) pulumi.StringOutput { return v.HostingEnvironmentId }).(pulumi.StringOutput)
+}
+
+// Is Https Connection enforced to the function app. Defaults to `false`
+func (o AppFlexConsumptionOutput) HttpsOnly() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AppFlexConsumption) pulumi.BoolPtrOutput { return v.HttpsOnly }).(pulumi.BoolPtrOutput)
 }
 
 // A `identity` block as defined below.

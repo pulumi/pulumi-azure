@@ -262,6 +262,13 @@ class Route(pulumi.CustomResource):
             next_hop_type="VnetLocal")
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network`: 2024-05-01
+
         ## Import
 
         Routes can be imported using the `resource id`, e.g.
@@ -312,6 +319,13 @@ class Route(pulumi.CustomResource):
             address_prefix="10.1.0.0/16",
             next_hop_type="VnetLocal")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network`: 2024-05-01
 
         ## Import
 

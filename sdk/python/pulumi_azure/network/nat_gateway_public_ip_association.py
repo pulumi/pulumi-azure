@@ -132,6 +132,13 @@ class NatGatewayPublicIpAssociation(pulumi.CustomResource):
             public_ip_address_id=example_public_ip.id)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network`: 2024-05-01
+
         ## Import
 
         Associations between NAT Gateway and Public IP Addresses can be imported using the `resource id`, e.g.
@@ -178,6 +185,13 @@ class NatGatewayPublicIpAssociation(pulumi.CustomResource):
             nat_gateway_id=example_nat_gateway.id,
             public_ip_address_id=example_public_ip.id)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network`: 2024-05-01
 
         ## Import
 

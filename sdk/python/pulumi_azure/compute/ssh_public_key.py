@@ -220,6 +220,13 @@ class SshPublicKey(pulumi.CustomResource):
             public_key=std.file(input="~/.ssh/id_rsa.pub").result)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Compute`: 2024-03-01
+
         ## Import
 
         SSH Public Keys can be imported using the `resource id`, e.g.
@@ -258,6 +265,13 @@ class SshPublicKey(pulumi.CustomResource):
             location="West Europe",
             public_key=std.file(input="~/.ssh/id_rsa.pub").result)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Compute`: 2024-03-01
 
         ## Import
 

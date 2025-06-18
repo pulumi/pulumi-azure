@@ -100,6 +100,13 @@ class PortalTenantConfiguration(pulumi.CustomResource):
         example = azure.core.PortalTenantConfiguration("example", private_markdown_storage_enforced=True)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Portal`: 2019-01-01-preview
+
         ## Import
 
         Portal Tenant Configurations can be imported using the `resource id`, e.g.
@@ -139,6 +146,13 @@ class PortalTenantConfiguration(pulumi.CustomResource):
 
         example = azure.core.PortalTenantConfiguration("example", private_markdown_storage_enforced=True)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Portal`: 2019-01-01-preview
 
         ## Import
 

@@ -129,7 +129,7 @@ class FlexibleServerCustomerManagedKey(dict):
                  geo_backup_user_assigned_identity_id: Optional[builtins.str] = None,
                  primary_user_assigned_identity_id: Optional[builtins.str] = None):
         """
-        :param builtins.str key_vault_key_id: The versioned ID of the Key Vault Key.
+        :param builtins.str key_vault_key_id: The versioned/versionless ID of the Key Vault Key.
         :param builtins.str geo_backup_key_vault_key_id: The versioned ID of the geo backup Key Vault Key.
                
                > **Note:** The key vault in which this key exists must be in the same region as the geo-redundant backup.
@@ -152,7 +152,7 @@ class FlexibleServerCustomerManagedKey(dict):
     @pulumi.getter(name="keyVaultKeyId")
     def key_vault_key_id(self) -> builtins.str:
         """
-        The versioned ID of the Key Vault Key.
+        The versioned/versionless ID of the Key Vault Key.
         """
         return pulumi.get(self, "key_vault_key_id")
 
@@ -259,10 +259,12 @@ class FlexibleServerIdentity(dict):
                  principal_id: Optional[builtins.str] = None,
                  tenant_id: Optional[builtins.str] = None):
         """
-        :param builtins.str type: Specifies the type of Managed Service Identity that should be configured on this PostgreSQL Flexible Server. Possible values are `UserAssigned` and `SystemAssigned`.
+        :param builtins.str type: Specifies the type of Managed Service Identity that should be configured on this PostgreSQL Flexible Server. Possible values are `UserAssigned`, `SystemAssigned` and `SystemAssigned, UserAssigned`.
+               
+               > **Note:** Once `UserAssigned` has been added, removing it forces a new resource to be created.
         :param Sequence[builtins.str] identity_ids: A list of User Assigned Managed Identity IDs to be assigned to this PostgreSQL Flexible Server. Required if used together with `customer_managed_key` block.
                
-               > **Note:** `identity_ids` is required when `type` is set to `UserAssigned`.
+               > **Note:** `identity_ids` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         :param builtins.str principal_id: The Principal ID associated with this Managed Service Identity.
         :param builtins.str tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
@@ -278,7 +280,9 @@ class FlexibleServerIdentity(dict):
     @pulumi.getter
     def type(self) -> builtins.str:
         """
-        Specifies the type of Managed Service Identity that should be configured on this PostgreSQL Flexible Server. Possible values are `UserAssigned` and `SystemAssigned`.
+        Specifies the type of Managed Service Identity that should be configured on this PostgreSQL Flexible Server. Possible values are `UserAssigned`, `SystemAssigned` and `SystemAssigned, UserAssigned`.
+
+        > **Note:** Once `UserAssigned` has been added, removing it forces a new resource to be created.
         """
         return pulumi.get(self, "type")
 
@@ -288,7 +292,7 @@ class FlexibleServerIdentity(dict):
         """
         A list of User Assigned Managed Identity IDs to be assigned to this PostgreSQL Flexible Server. Required if used together with `customer_managed_key` block.
 
-        > **Note:** `identity_ids` is required when `type` is set to `UserAssigned`.
+        > **Note:** `identity_ids` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         """
         return pulumi.get(self, "identity_ids")
 

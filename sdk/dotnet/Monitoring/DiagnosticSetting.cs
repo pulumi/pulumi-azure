@@ -62,9 +62,9 @@ namespace Pulumi.Azure.Monitoring
     ///                 Category = "AuditEvent",
     ///             },
     ///         },
-    ///         Metrics = new[]
+    ///         EnabledMetrics = new[]
     ///         {
-    ///             new Azure.Monitoring.Inputs.DiagnosticSettingMetricArgs
+    ///             new Azure.Monitoring.Inputs.DiagnosticSettingEnabledMetricArgs
     ///             {
     ///                 Category = "AllMetrics",
     ///             },
@@ -73,6 +73,13 @@ namespace Pulumi.Azure.Monitoring
     /// 
     /// });
     /// ```
+    /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.Insights`: 2021-05-01-preview
     /// 
     /// ## Import
     /// 
@@ -88,10 +95,18 @@ namespace Pulumi.Azure.Monitoring
         /// <summary>
         /// One or more `enabled_log` blocks as defined below.
         /// 
-        /// &gt; **NOTE:** At least one `enabled_log` or `metric` block must be specified. At least one type of Log or Metric must be enabled.
+        /// &gt; **Note:** At least one `enabled_log` or `enabled_metric` block must be specified. At least one type of Log or Metric must be enabled.
         /// </summary>
         [Output("enabledLogs")]
         public Output<ImmutableArray<Outputs.DiagnosticSettingEnabledLog>> EnabledLogs { get; private set; } = null!;
+
+        /// <summary>
+        /// One or more `enabled_metric` blocks as defined below.
+        /// 
+        /// &gt; **Note:** At least one `enabled_log` or `enabled_metric` block must be specified.
+        /// </summary>
+        [Output("enabledMetrics")]
+        public Output<ImmutableArray<Outputs.DiagnosticSettingEnabledMetric>> EnabledMetrics { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. 
@@ -127,11 +142,6 @@ namespace Pulumi.Azure.Monitoring
         [Output("logAnalyticsWorkspaceId")]
         public Output<string?> LogAnalyticsWorkspaceId { get; private set; } = null!;
 
-        /// <summary>
-        /// One or more `metric` blocks as defined below.
-        /// 
-        /// &gt; **NOTE:** At least one `enabled_log` or `metric` block must be specified.
-        /// </summary>
         [Output("metrics")]
         public Output<ImmutableArray<Outputs.DiagnosticSettingMetric>> Metrics { get; private set; } = null!;
 
@@ -217,12 +227,26 @@ namespace Pulumi.Azure.Monitoring
         /// <summary>
         /// One or more `enabled_log` blocks as defined below.
         /// 
-        /// &gt; **NOTE:** At least one `enabled_log` or `metric` block must be specified. At least one type of Log or Metric must be enabled.
+        /// &gt; **Note:** At least one `enabled_log` or `enabled_metric` block must be specified. At least one type of Log or Metric must be enabled.
         /// </summary>
         public InputList<Inputs.DiagnosticSettingEnabledLogArgs> EnabledLogs
         {
             get => _enabledLogs ?? (_enabledLogs = new InputList<Inputs.DiagnosticSettingEnabledLogArgs>());
             set => _enabledLogs = value;
+        }
+
+        [Input("enabledMetrics")]
+        private InputList<Inputs.DiagnosticSettingEnabledMetricArgs>? _enabledMetrics;
+
+        /// <summary>
+        /// One or more `enabled_metric` blocks as defined below.
+        /// 
+        /// &gt; **Note:** At least one `enabled_log` or `enabled_metric` block must be specified.
+        /// </summary>
+        public InputList<Inputs.DiagnosticSettingEnabledMetricArgs> EnabledMetrics
+        {
+            get => _enabledMetrics ?? (_enabledMetrics = new InputList<Inputs.DiagnosticSettingEnabledMetricArgs>());
+            set => _enabledMetrics = value;
         }
 
         /// <summary>
@@ -261,12 +285,7 @@ namespace Pulumi.Azure.Monitoring
 
         [Input("metrics")]
         private InputList<Inputs.DiagnosticSettingMetricArgs>? _metrics;
-
-        /// <summary>
-        /// One or more `metric` blocks as defined below.
-        /// 
-        /// &gt; **NOTE:** At least one `enabled_log` or `metric` block must be specified.
-        /// </summary>
+        [Obsolete(@"`metric` has been deprecated in favor of the `enabled_metric` property and will be removed in v5.0 of the AzureRM provider")]
         public InputList<Inputs.DiagnosticSettingMetricArgs> Metrics
         {
             get => _metrics ?? (_metrics = new InputList<Inputs.DiagnosticSettingMetricArgs>());
@@ -317,12 +336,26 @@ namespace Pulumi.Azure.Monitoring
         /// <summary>
         /// One or more `enabled_log` blocks as defined below.
         /// 
-        /// &gt; **NOTE:** At least one `enabled_log` or `metric` block must be specified. At least one type of Log or Metric must be enabled.
+        /// &gt; **Note:** At least one `enabled_log` or `enabled_metric` block must be specified. At least one type of Log or Metric must be enabled.
         /// </summary>
         public InputList<Inputs.DiagnosticSettingEnabledLogGetArgs> EnabledLogs
         {
             get => _enabledLogs ?? (_enabledLogs = new InputList<Inputs.DiagnosticSettingEnabledLogGetArgs>());
             set => _enabledLogs = value;
+        }
+
+        [Input("enabledMetrics")]
+        private InputList<Inputs.DiagnosticSettingEnabledMetricGetArgs>? _enabledMetrics;
+
+        /// <summary>
+        /// One or more `enabled_metric` blocks as defined below.
+        /// 
+        /// &gt; **Note:** At least one `enabled_log` or `enabled_metric` block must be specified.
+        /// </summary>
+        public InputList<Inputs.DiagnosticSettingEnabledMetricGetArgs> EnabledMetrics
+        {
+            get => _enabledMetrics ?? (_enabledMetrics = new InputList<Inputs.DiagnosticSettingEnabledMetricGetArgs>());
+            set => _enabledMetrics = value;
         }
 
         /// <summary>
@@ -361,12 +394,7 @@ namespace Pulumi.Azure.Monitoring
 
         [Input("metrics")]
         private InputList<Inputs.DiagnosticSettingMetricGetArgs>? _metrics;
-
-        /// <summary>
-        /// One or more `metric` blocks as defined below.
-        /// 
-        /// &gt; **NOTE:** At least one `enabled_log` or `metric` block must be specified.
-        /// </summary>
+        [Obsolete(@"`metric` has been deprecated in favor of the `enabled_metric` property and will be removed in v5.0 of the AzureRM provider")]
         public InputList<Inputs.DiagnosticSettingMetricGetArgs> Metrics
         {
             get => _metrics ?? (_metrics = new InputList<Inputs.DiagnosticSettingMetricGetArgs>());

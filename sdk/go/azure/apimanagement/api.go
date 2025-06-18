@@ -127,6 +127,8 @@ type Api struct {
 	// The description of the API Revision of the API Management API.
 	RevisionDescription pulumi.StringPtrOutput `pulumi:"revisionDescription"`
 	// Absolute URL of the backend service implementing this API.
+	//
+	// > **Note:** The `serviceUrl` is required when `apiType` is specified as `websocket`.
 	ServiceUrl pulumi.StringOutput `pulumi:"serviceUrl"`
 	// The API id of the source API, which could be in format `azurerm_api_management_api.example.id` or in format `azurerm_api_management_api.example.id;rev=1`
 	SourceApiId pulumi.StringPtrOutput `pulumi:"sourceApiId"`
@@ -224,6 +226,8 @@ type apiState struct {
 	// The description of the API Revision of the API Management API.
 	RevisionDescription *string `pulumi:"revisionDescription"`
 	// Absolute URL of the backend service implementing this API.
+	//
+	// > **Note:** The `serviceUrl` is required when `apiType` is specified as `websocket`.
 	ServiceUrl *string `pulumi:"serviceUrl"`
 	// The API id of the source API, which could be in format `azurerm_api_management_api.example.id` or in format `azurerm_api_management_api.example.id;rev=1`
 	SourceApiId *string `pulumi:"sourceApiId"`
@@ -283,6 +287,8 @@ type ApiState struct {
 	// The description of the API Revision of the API Management API.
 	RevisionDescription pulumi.StringPtrInput
 	// Absolute URL of the backend service implementing this API.
+	//
+	// > **Note:** The `serviceUrl` is required when `apiType` is specified as `websocket`.
 	ServiceUrl pulumi.StringPtrInput
 	// The API id of the source API, which could be in format `azurerm_api_management_api.example.id` or in format `azurerm_api_management_api.example.id;rev=1`
 	SourceApiId pulumi.StringPtrInput
@@ -342,6 +348,8 @@ type apiArgs struct {
 	// The description of the API Revision of the API Management API.
 	RevisionDescription *string `pulumi:"revisionDescription"`
 	// Absolute URL of the backend service implementing this API.
+	//
+	// > **Note:** The `serviceUrl` is required when `apiType` is specified as `websocket`.
 	ServiceUrl *string `pulumi:"serviceUrl"`
 	// The API id of the source API, which could be in format `azurerm_api_management_api.example.id` or in format `azurerm_api_management_api.example.id;rev=1`
 	SourceApiId *string `pulumi:"sourceApiId"`
@@ -398,6 +406,8 @@ type ApiArgs struct {
 	// The description of the API Revision of the API Management API.
 	RevisionDescription pulumi.StringPtrInput
 	// Absolute URL of the backend service implementing this API.
+	//
+	// > **Note:** The `serviceUrl` is required when `apiType` is specified as `websocket`.
 	ServiceUrl pulumi.StringPtrInput
 	// The API id of the source API, which could be in format `azurerm_api_management_api.example.id` or in format `azurerm_api_management_api.example.id;rev=1`
 	SourceApiId pulumi.StringPtrInput
@@ -594,6 +604,8 @@ func (o ApiOutput) RevisionDescription() pulumi.StringPtrOutput {
 }
 
 // Absolute URL of the backend service implementing this API.
+//
+// > **Note:** The `serviceUrl` is required when `apiType` is specified as `websocket`.
 func (o ApiOutput) ServiceUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *Api) pulumi.StringOutput { return v.ServiceUrl }).(pulumi.StringOutput)
 }

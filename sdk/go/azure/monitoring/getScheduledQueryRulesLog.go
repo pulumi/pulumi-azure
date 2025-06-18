@@ -40,6 +40,13 @@ import (
 //	}
 //
 // ```
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This data source uses the following Azure API Providers:
+//
+// * `Microsoft.Insights`: 2018-04-16
 func LookupScheduledQueryRulesLog(ctx *pulumi.Context, args *LookupScheduledQueryRulesLogArgs, opts ...pulumi.InvokeOption) (*LookupScheduledQueryRulesLogResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupScheduledQueryRulesLogResult

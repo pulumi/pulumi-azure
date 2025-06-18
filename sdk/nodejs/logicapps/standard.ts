@@ -95,6 +95,13 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.Web`: 2023-12-01, 2023-01-01
+ *
  * ## Import
  *
  * Logic Apps can be imported using the `resource id`, e.g.

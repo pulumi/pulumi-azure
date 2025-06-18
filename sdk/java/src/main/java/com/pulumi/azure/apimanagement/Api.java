@@ -356,12 +356,16 @@ public class Api extends com.pulumi.resources.CustomResource {
     /**
      * Absolute URL of the backend service implementing this API.
      * 
+     * &gt; **Note:** The `service_url` is required when `api_type` is specified as `websocket`.
+     * 
      */
     @Export(name="serviceUrl", refs={String.class}, tree="[0]")
     private Output<String> serviceUrl;
 
     /**
      * @return Absolute URL of the backend service implementing this API.
+     * 
+     * &gt; **Note:** The `service_url` is required when `api_type` is specified as `websocket`.
      * 
      */
     public Output<String> serviceUrl() {

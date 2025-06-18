@@ -66,6 +66,13 @@ namespace Pulumi.Azure.Network
     /// });
     /// ```
     /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.Network`: 2024-05-01
+    /// 
     /// ## Import
     /// 
     /// VPN Gateways can be imported using the `resource id`, e.g.
@@ -88,6 +95,12 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Output("bgpSettings")]
         public Output<Outputs.VpnGatewayBgpSettings> BgpSettings { get; private set; } = null!;
+
+        /// <summary>
+        /// An `ip_configuration` block as defined below.
+        /// </summary>
+        [Output("ipConfigurations")]
+        public Output<ImmutableArray<Outputs.VpnGatewayIpConfiguration>> IpConfigurations { get; private set; } = null!;
 
         /// <summary>
         /// The Azure location where this VPN Gateway should be created. Changing this forces a new resource to be created.
@@ -256,6 +269,18 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Input("bgpSettings")]
         public Input<Inputs.VpnGatewayBgpSettingsGetArgs>? BgpSettings { get; set; }
+
+        [Input("ipConfigurations")]
+        private InputList<Inputs.VpnGatewayIpConfigurationGetArgs>? _ipConfigurations;
+
+        /// <summary>
+        /// An `ip_configuration` block as defined below.
+        /// </summary>
+        public InputList<Inputs.VpnGatewayIpConfigurationGetArgs> IpConfigurations
+        {
+            get => _ipConfigurations ?? (_ipConfigurations = new InputList<Inputs.VpnGatewayIpConfigurationGetArgs>());
+            set => _ipConfigurations = value;
+        }
 
         /// <summary>
         /// The Azure location where this VPN Gateway should be created. Changing this forces a new resource to be created.

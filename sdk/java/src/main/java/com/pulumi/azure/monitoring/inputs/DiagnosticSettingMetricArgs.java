@@ -18,36 +18,16 @@ public final class DiagnosticSettingMetricArgs extends com.pulumi.resources.Reso
 
     public static final DiagnosticSettingMetricArgs Empty = new DiagnosticSettingMetricArgs();
 
-    /**
-     * The name of a Diagnostic Metric Category for this Resource.
-     * 
-     * &gt; **NOTE:** The Metric Categories available vary depending on the Resource being used. You may wish to use the `azure.monitoring.getDiagnosticCategories` Data Source to identify which categories are available for a given Resource.
-     * 
-     */
     @Import(name="category", required=true)
     private Output<String> category;
 
-    /**
-     * @return The name of a Diagnostic Metric Category for this Resource.
-     * 
-     * &gt; **NOTE:** The Metric Categories available vary depending on the Resource being used. You may wish to use the `azure.monitoring.getDiagnosticCategories` Data Source to identify which categories are available for a given Resource.
-     * 
-     */
     public Output<String> category() {
         return this.category;
     }
 
-    /**
-     * Is this Diagnostic Metric enabled? Defaults to `true`.
-     * 
-     */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
-    /**
-     * @return Is this Diagnostic Metric enabled? Defaults to `true`.
-     * 
-     */
     public Optional<Output<Boolean>> enabled() {
         return Optional.ofNullable(this.enabled);
     }
@@ -97,48 +77,20 @@ public final class DiagnosticSettingMetricArgs extends com.pulumi.resources.Reso
             $ = new DiagnosticSettingMetricArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param category The name of a Diagnostic Metric Category for this Resource.
-         * 
-         * &gt; **NOTE:** The Metric Categories available vary depending on the Resource being used. You may wish to use the `azure.monitoring.getDiagnosticCategories` Data Source to identify which categories are available for a given Resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder category(Output<String> category) {
             $.category = category;
             return this;
         }
 
-        /**
-         * @param category The name of a Diagnostic Metric Category for this Resource.
-         * 
-         * &gt; **NOTE:** The Metric Categories available vary depending on the Resource being used. You may wish to use the `azure.monitoring.getDiagnosticCategories` Data Source to identify which categories are available for a given Resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder category(String category) {
             return category(Output.of(category));
         }
 
-        /**
-         * @param enabled Is this Diagnostic Metric enabled? Defaults to `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(@Nullable Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
-        /**
-         * @param enabled Is this Diagnostic Metric enabled? Defaults to `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }

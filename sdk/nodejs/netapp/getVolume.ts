@@ -88,6 +88,10 @@ export interface GetVolumeResult {
     readonly id: string;
     readonly keyVaultPrivateEndpointId: string;
     /**
+     * Indicates if the volume is a large volume.
+     */
+    readonly largeVolumeEnabled: boolean;
+    /**
      * The Azure Region where the NetApp Volume exists.
      */
     readonly location: string;

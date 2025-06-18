@@ -85,6 +85,13 @@ namespace Pulumi.Azure.Network
     /// });
     /// ```
     /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.Network`: 2024-05-01
+    /// 
     /// ## Import
     /// 
     /// Virtual Networks can be imported using the `resource id`, e.g.
@@ -98,6 +105,8 @@ namespace Pulumi.Azure.Network
     {
         /// <summary>
         /// The address space that is used the virtual network. You can supply more than one address space.
+        /// 
+        /// &gt; **Note:** Exactly one of `address_space` or `ip_address_pool` must be specified. If `address_space` is not specified but you encounter a diff, this might indicate the `address_space` is allocated from the IP Address Pool. If this is the case, you may need to add this to ignore_changes.
         /// </summary>
         [Output("addressSpaces")]
         public Output<ImmutableArray<string>> AddressSpaces { get; private set; } = null!;
@@ -143,10 +152,18 @@ namespace Pulumi.Azure.Network
         public Output<int?> FlowTimeoutInMinutes { get; private set; } = null!;
 
         /// <summary>
-        /// The GUID of the virtual network.
+        /// The GUID of the Virtual Network.
         /// </summary>
         [Output("guid")]
         public Output<string> Guid { get; private set; } = null!;
+
+        /// <summary>
+        /// One or two `ip_address_pool` blocks as defined below. Only one association of each IP type(IPv4 or IPv6) is allowed.
+        /// 
+        /// &gt; **Note:** Exactly one of `address_space` or `ip_address_pool` must be specified.
+        /// </summary>
+        [Output("ipAddressPools")]
+        public Output<ImmutableArray<Outputs.VirtualNetworkIpAddressPool>> IpAddressPools { get; private set; } = null!;
 
         /// <summary>
         /// The location/region where the virtual network is created. Changing this forces a new resource to be created.
@@ -232,11 +249,13 @@ namespace Pulumi.Azure.Network
 
     public sealed class VirtualNetworkArgs : global::Pulumi.ResourceArgs
     {
-        [Input("addressSpaces", required: true)]
+        [Input("addressSpaces")]
         private InputList<string>? _addressSpaces;
 
         /// <summary>
         /// The address space that is used the virtual network. You can supply more than one address space.
+        /// 
+        /// &gt; **Note:** Exactly one of `address_space` or `ip_address_pool` must be specified. If `address_space` is not specified but you encounter a diff, this might indicate the `address_space` is allocated from the IP Address Pool. If this is the case, you may need to add this to ignore_changes.
         /// </summary>
         public InputList<string> AddressSpaces
         {
@@ -289,6 +308,20 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Input("flowTimeoutInMinutes")]
         public Input<int>? FlowTimeoutInMinutes { get; set; }
+
+        [Input("ipAddressPools")]
+        private InputList<Inputs.VirtualNetworkIpAddressPoolArgs>? _ipAddressPools;
+
+        /// <summary>
+        /// One or two `ip_address_pool` blocks as defined below. Only one association of each IP type(IPv4 or IPv6) is allowed.
+        /// 
+        /// &gt; **Note:** Exactly one of `address_space` or `ip_address_pool` must be specified.
+        /// </summary>
+        public InputList<Inputs.VirtualNetworkIpAddressPoolArgs> IpAddressPools
+        {
+            get => _ipAddressPools ?? (_ipAddressPools = new InputList<Inputs.VirtualNetworkIpAddressPoolArgs>());
+            set => _ipAddressPools = value;
+        }
 
         /// <summary>
         /// The location/region where the virtual network is created. Changing this forces a new resource to be created.
@@ -353,6 +386,8 @@ namespace Pulumi.Azure.Network
 
         /// <summary>
         /// The address space that is used the virtual network. You can supply more than one address space.
+        /// 
+        /// &gt; **Note:** Exactly one of `address_space` or `ip_address_pool` must be specified. If `address_space` is not specified but you encounter a diff, this might indicate the `address_space` is allocated from the IP Address Pool. If this is the case, you may need to add this to ignore_changes.
         /// </summary>
         public InputList<string> AddressSpaces
         {
@@ -407,10 +442,24 @@ namespace Pulumi.Azure.Network
         public Input<int>? FlowTimeoutInMinutes { get; set; }
 
         /// <summary>
-        /// The GUID of the virtual network.
+        /// The GUID of the Virtual Network.
         /// </summary>
         [Input("guid")]
         public Input<string>? Guid { get; set; }
+
+        [Input("ipAddressPools")]
+        private InputList<Inputs.VirtualNetworkIpAddressPoolGetArgs>? _ipAddressPools;
+
+        /// <summary>
+        /// One or two `ip_address_pool` blocks as defined below. Only one association of each IP type(IPv4 or IPv6) is allowed.
+        /// 
+        /// &gt; **Note:** Exactly one of `address_space` or `ip_address_pool` must be specified.
+        /// </summary>
+        public InputList<Inputs.VirtualNetworkIpAddressPoolGetArgs> IpAddressPools
+        {
+            get => _ipAddressPools ?? (_ipAddressPools = new InputList<Inputs.VirtualNetworkIpAddressPoolGetArgs>());
+            set => _ipAddressPools = value;
+        }
 
         /// <summary>
         /// The location/region where the virtual network is created. Changing this forces a new resource to be created.

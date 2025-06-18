@@ -340,6 +340,13 @@ class AvailabilitySet(pulumi.CustomResource):
             })
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Compute`: 2024-03-01
+
         ## Import
 
         Availability Sets can be imported using the `resource id`, e.g.
@@ -389,6 +396,13 @@ class AvailabilitySet(pulumi.CustomResource):
                 "environment": "Production",
             })
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Compute`: 2024-03-01
 
         ## Import
 

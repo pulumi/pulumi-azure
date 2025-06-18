@@ -591,6 +591,13 @@ class Namespace(pulumi.CustomResource):
             })
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ServiceBus`: 2022-10-01-preview, 2021-06-01-preview
+
         ## Import
 
         Service Bus Namespace can be imported using the `resource id`, e.g.
@@ -647,6 +654,13 @@ class Namespace(pulumi.CustomResource):
                 "source": "example",
             })
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ServiceBus`: 2022-10-01-preview, 2021-06-01-preview
 
         ## Import
 

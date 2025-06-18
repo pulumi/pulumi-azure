@@ -144,6 +144,13 @@ class NetworkInterfaceSecurityGroupAssociation(pulumi.CustomResource):
             network_security_group_id=example_network_security_group.id)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network`: 2024-05-01
+
         ## Import
 
         Associations between Network Interfaces and Network Security Group can be imported using the `resource id`, e.g.
@@ -202,6 +209,13 @@ class NetworkInterfaceSecurityGroupAssociation(pulumi.CustomResource):
             network_interface_id=example_network_interface.id,
             network_security_group_id=example_network_security_group.id)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network`: 2024-05-01
 
         ## Import
 

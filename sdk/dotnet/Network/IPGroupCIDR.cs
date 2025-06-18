@@ -48,6 +48,13 @@ namespace Pulumi.Azure.Network
     /// });
     /// ```
     /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.Network`: 2024-05-01
+    /// 
     /// ## Import
     /// 
     /// IP Group CIDRs can be imported using the `resource id` of the IP Group and

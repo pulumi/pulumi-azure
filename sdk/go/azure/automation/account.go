@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a Automation Account.
+// Manages an Automation Account.
 //
 // ## Example Usage
 //
@@ -76,8 +76,9 @@ type Account struct {
 	// The Secondary Access Key for the DSC Endpoint associated with this Automation Account.
 	DscSecondaryAccessKey pulumi.StringOutput `pulumi:"dscSecondaryAccessKey"`
 	// The DSC Server Endpoint associated with this Automation Account.
-	DscServerEndpoint pulumi.StringOutput          `pulumi:"dscServerEndpoint"`
-	Encryptions       AccountEncryptionArrayOutput `pulumi:"encryptions"`
+	DscServerEndpoint pulumi.StringOutput `pulumi:"dscServerEndpoint"`
+	// An `encryption` block as defined below.
+	Encryptions AccountEncryptionArrayOutput `pulumi:"encryptions"`
 	// The URL of automation hybrid service which is used for hybrid worker on-boarding With this Automation Account.
 	HybridServiceUrl pulumi.StringOutput `pulumi:"hybridServiceUrl"`
 	// An `identity` block as defined below.
@@ -94,8 +95,9 @@ type Account struct {
 	// The name of the resource group in which the Automation Account is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The SKU of the account. Possible values are `Basic` and `Free`.
-	SkuName pulumi.StringOutput    `pulumi:"skuName"`
-	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	SkuName pulumi.StringOutput `pulumi:"skuName"`
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewAccount registers a new resource with the given unique name, arguments, and options.
@@ -144,8 +146,9 @@ type accountState struct {
 	// The Secondary Access Key for the DSC Endpoint associated with this Automation Account.
 	DscSecondaryAccessKey *string `pulumi:"dscSecondaryAccessKey"`
 	// The DSC Server Endpoint associated with this Automation Account.
-	DscServerEndpoint *string             `pulumi:"dscServerEndpoint"`
-	Encryptions       []AccountEncryption `pulumi:"encryptions"`
+	DscServerEndpoint *string `pulumi:"dscServerEndpoint"`
+	// An `encryption` block as defined below.
+	Encryptions []AccountEncryption `pulumi:"encryptions"`
 	// The URL of automation hybrid service which is used for hybrid worker on-boarding With this Automation Account.
 	HybridServiceUrl *string `pulumi:"hybridServiceUrl"`
 	// An `identity` block as defined below.
@@ -162,8 +165,9 @@ type accountState struct {
 	// The name of the resource group in which the Automation Account is created. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The SKU of the account. Possible values are `Basic` and `Free`.
-	SkuName *string           `pulumi:"skuName"`
-	Tags    map[string]string `pulumi:"tags"`
+	SkuName *string `pulumi:"skuName"`
+	// A mapping of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type AccountState struct {
@@ -173,7 +177,8 @@ type AccountState struct {
 	DscSecondaryAccessKey pulumi.StringPtrInput
 	// The DSC Server Endpoint associated with this Automation Account.
 	DscServerEndpoint pulumi.StringPtrInput
-	Encryptions       AccountEncryptionArrayInput
+	// An `encryption` block as defined below.
+	Encryptions AccountEncryptionArrayInput
 	// The URL of automation hybrid service which is used for hybrid worker on-boarding With this Automation Account.
 	HybridServiceUrl pulumi.StringPtrInput
 	// An `identity` block as defined below.
@@ -191,7 +196,8 @@ type AccountState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// The SKU of the account. Possible values are `Basic` and `Free`.
 	SkuName pulumi.StringPtrInput
-	Tags    pulumi.StringMapInput
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 }
 
 func (AccountState) ElementType() reflect.Type {
@@ -199,6 +205,7 @@ func (AccountState) ElementType() reflect.Type {
 }
 
 type accountArgs struct {
+	// An `encryption` block as defined below.
 	Encryptions []AccountEncryption `pulumi:"encryptions"`
 	// An `identity` block as defined below.
 	Identity *AccountIdentity `pulumi:"identity"`
@@ -213,12 +220,14 @@ type accountArgs struct {
 	// The name of the resource group in which the Automation Account is created. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The SKU of the account. Possible values are `Basic` and `Free`.
-	SkuName string            `pulumi:"skuName"`
-	Tags    map[string]string `pulumi:"tags"`
+	SkuName string `pulumi:"skuName"`
+	// A mapping of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Account resource.
 type AccountArgs struct {
+	// An `encryption` block as defined below.
 	Encryptions AccountEncryptionArrayInput
 	// An `identity` block as defined below.
 	Identity AccountIdentityPtrInput
@@ -234,7 +243,8 @@ type AccountArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// The SKU of the account. Possible values are `Basic` and `Free`.
 	SkuName pulumi.StringInput
-	Tags    pulumi.StringMapInput
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 }
 
 func (AccountArgs) ElementType() reflect.Type {
@@ -339,6 +349,7 @@ func (o AccountOutput) DscServerEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.DscServerEndpoint }).(pulumi.StringOutput)
 }
 
+// An `encryption` block as defined below.
 func (o AccountOutput) Encryptions() AccountEncryptionArrayOutput {
 	return o.ApplyT(func(v *Account) AccountEncryptionArrayOutput { return v.Encryptions }).(AccountEncryptionArrayOutput)
 }
@@ -387,6 +398,7 @@ func (o AccountOutput) SkuName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.SkuName }).(pulumi.StringOutput)
 }
 
+// A mapping of tags to assign to the resource.
 func (o AccountOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

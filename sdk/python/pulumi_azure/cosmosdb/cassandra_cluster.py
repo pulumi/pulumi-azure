@@ -548,6 +548,13 @@ class CassandraCluster(pulumi.CustomResource):
             opts = pulumi.ResourceOptions(depends_on=[example_assignment]))
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DocumentDB`: 2023-04-15
+
         ## Import
 
         Cassandra Clusters can be imported using the `resource id`, e.g.
@@ -619,6 +626,13 @@ class CassandraCluster(pulumi.CustomResource):
             default_admin_password="Password1234",
             opts = pulumi.ResourceOptions(depends_on=[example_assignment]))
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DocumentDB`: 2023-04-15
 
         ## Import
 

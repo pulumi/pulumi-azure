@@ -215,7 +215,7 @@ type FlexibleServerCustomerManagedKey struct {
 	//
 	// > **Note:** `primaryUserAssignedIdentityId` or `geoBackupUserAssignedIdentityId` is required when `type` is set to `UserAssigned`.
 	GeoBackupUserAssignedIdentityId *string `pulumi:"geoBackupUserAssignedIdentityId"`
-	// The versioned ID of the Key Vault Key.
+	// The versioned/versionless ID of the Key Vault Key.
 	KeyVaultKeyId string `pulumi:"keyVaultKeyId"`
 	// Specifies the primary user managed identity id for a Customer Managed Key. Must be added to `identity.identity_ids`.
 	PrimaryUserAssignedIdentityId *string `pulumi:"primaryUserAssignedIdentityId"`
@@ -243,7 +243,7 @@ type FlexibleServerCustomerManagedKeyArgs struct {
 	//
 	// > **Note:** `primaryUserAssignedIdentityId` or `geoBackupUserAssignedIdentityId` is required when `type` is set to `UserAssigned`.
 	GeoBackupUserAssignedIdentityId pulumi.StringPtrInput `pulumi:"geoBackupUserAssignedIdentityId"`
-	// The versioned ID of the Key Vault Key.
+	// The versioned/versionless ID of the Key Vault Key.
 	KeyVaultKeyId pulumi.StringInput `pulumi:"keyVaultKeyId"`
 	// Specifies the primary user managed identity id for a Customer Managed Key. Must be added to `identity.identity_ids`.
 	PrimaryUserAssignedIdentityId pulumi.StringPtrInput `pulumi:"primaryUserAssignedIdentityId"`
@@ -342,7 +342,7 @@ func (o FlexibleServerCustomerManagedKeyOutput) GeoBackupUserAssignedIdentityId(
 	return o.ApplyT(func(v FlexibleServerCustomerManagedKey) *string { return v.GeoBackupUserAssignedIdentityId }).(pulumi.StringPtrOutput)
 }
 
-// The versioned ID of the Key Vault Key.
+// The versioned/versionless ID of the Key Vault Key.
 func (o FlexibleServerCustomerManagedKeyOutput) KeyVaultKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v FlexibleServerCustomerManagedKey) string { return v.KeyVaultKeyId }).(pulumi.StringOutput)
 }
@@ -402,7 +402,7 @@ func (o FlexibleServerCustomerManagedKeyPtrOutput) GeoBackupUserAssignedIdentity
 	}).(pulumi.StringPtrOutput)
 }
 
-// The versioned ID of the Key Vault Key.
+// The versioned/versionless ID of the Key Vault Key.
 func (o FlexibleServerCustomerManagedKeyPtrOutput) KeyVaultKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlexibleServerCustomerManagedKey) *string {
 		if v == nil {
@@ -577,13 +577,15 @@ func (o FlexibleServerHighAvailabilityPtrOutput) StandbyAvailabilityZone() pulum
 type FlexibleServerIdentity struct {
 	// A list of User Assigned Managed Identity IDs to be assigned to this PostgreSQL Flexible Server. Required if used together with `customerManagedKey` block.
 	//
-	// > **Note:** `identityIds` is required when `type` is set to `UserAssigned`.
+	// > **Note:** `identityIds` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId *string `pulumi:"principalId"`
 	// The Tenant ID associated with this Managed Service Identity.
 	TenantId *string `pulumi:"tenantId"`
-	// Specifies the type of Managed Service Identity that should be configured on this PostgreSQL Flexible Server. Possible values are `UserAssigned` and `SystemAssigned`.
+	// Specifies the type of Managed Service Identity that should be configured on this PostgreSQL Flexible Server. Possible values are `UserAssigned`, `SystemAssigned` and `SystemAssigned, UserAssigned`.
+	//
+	// > **Note:** Once `UserAssigned` has been added, removing it forces a new resource to be created.
 	Type string `pulumi:"type"`
 }
 
@@ -601,13 +603,15 @@ type FlexibleServerIdentityInput interface {
 type FlexibleServerIdentityArgs struct {
 	// A list of User Assigned Managed Identity IDs to be assigned to this PostgreSQL Flexible Server. Required if used together with `customerManagedKey` block.
 	//
-	// > **Note:** `identityIds` is required when `type` is set to `UserAssigned`.
+	// > **Note:** `identityIds` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
 	// The Tenant ID associated with this Managed Service Identity.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
-	// Specifies the type of Managed Service Identity that should be configured on this PostgreSQL Flexible Server. Possible values are `UserAssigned` and `SystemAssigned`.
+	// Specifies the type of Managed Service Identity that should be configured on this PostgreSQL Flexible Server. Possible values are `UserAssigned`, `SystemAssigned` and `SystemAssigned, UserAssigned`.
+	//
+	// > **Note:** Once `UserAssigned` has been added, removing it forces a new resource to be created.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -690,7 +694,7 @@ func (o FlexibleServerIdentityOutput) ToFlexibleServerIdentityPtrOutputWithConte
 
 // A list of User Assigned Managed Identity IDs to be assigned to this PostgreSQL Flexible Server. Required if used together with `customerManagedKey` block.
 //
-// > **Note:** `identityIds` is required when `type` is set to `UserAssigned`.
+// > **Note:** `identityIds` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 func (o FlexibleServerIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FlexibleServerIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
@@ -705,7 +709,9 @@ func (o FlexibleServerIdentityOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlexibleServerIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the type of Managed Service Identity that should be configured on this PostgreSQL Flexible Server. Possible values are `UserAssigned` and `SystemAssigned`.
+// Specifies the type of Managed Service Identity that should be configured on this PostgreSQL Flexible Server. Possible values are `UserAssigned`, `SystemAssigned` and `SystemAssigned, UserAssigned`.
+//
+// > **Note:** Once `UserAssigned` has been added, removing it forces a new resource to be created.
 func (o FlexibleServerIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v FlexibleServerIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -736,7 +742,7 @@ func (o FlexibleServerIdentityPtrOutput) Elem() FlexibleServerIdentityOutput {
 
 // A list of User Assigned Managed Identity IDs to be assigned to this PostgreSQL Flexible Server. Required if used together with `customerManagedKey` block.
 //
-// > **Note:** `identityIds` is required when `type` is set to `UserAssigned`.
+// > **Note:** `identityIds` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 func (o FlexibleServerIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FlexibleServerIdentity) []string {
 		if v == nil {
@@ -766,7 +772,9 @@ func (o FlexibleServerIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the type of Managed Service Identity that should be configured on this PostgreSQL Flexible Server. Possible values are `UserAssigned` and `SystemAssigned`.
+// Specifies the type of Managed Service Identity that should be configured on this PostgreSQL Flexible Server. Possible values are `UserAssigned`, `SystemAssigned` and `SystemAssigned, UserAssigned`.
+//
+// > **Note:** Once `UserAssigned` has been added, removing it forces a new resource to be created.
 func (o FlexibleServerIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlexibleServerIdentity) *string {
 		if v == nil {

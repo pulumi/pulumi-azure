@@ -4,6 +4,7 @@
 package com.pulumi.azure.monitoring.inputs;
 
 import com.pulumi.azure.monitoring.inputs.DiagnosticSettingEnabledLogArgs;
+import com.pulumi.azure.monitoring.inputs.DiagnosticSettingEnabledMetricArgs;
 import com.pulumi.azure.monitoring.inputs.DiagnosticSettingMetricArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -21,7 +22,7 @@ public final class DiagnosticSettingState extends com.pulumi.resources.ResourceA
     /**
      * One or more `enabled_log` blocks as defined below.
      * 
-     * &gt; **NOTE:** At least one `enabled_log` or `metric` block must be specified. At least one type of Log or Metric must be enabled.
+     * &gt; **Note:** At least one `enabled_log` or `enabled_metric` block must be specified. At least one type of Log or Metric must be enabled.
      * 
      */
     @Import(name="enabledLogs")
@@ -30,11 +31,30 @@ public final class DiagnosticSettingState extends com.pulumi.resources.ResourceA
     /**
      * @return One or more `enabled_log` blocks as defined below.
      * 
-     * &gt; **NOTE:** At least one `enabled_log` or `metric` block must be specified. At least one type of Log or Metric must be enabled.
+     * &gt; **Note:** At least one `enabled_log` or `enabled_metric` block must be specified. At least one type of Log or Metric must be enabled.
      * 
      */
     public Optional<Output<List<DiagnosticSettingEnabledLogArgs>>> enabledLogs() {
         return Optional.ofNullable(this.enabledLogs);
+    }
+
+    /**
+     * One or more `enabled_metric` blocks as defined below.
+     * 
+     * &gt; **Note:** At least one `enabled_log` or `enabled_metric` block must be specified.
+     * 
+     */
+    @Import(name="enabledMetrics")
+    private @Nullable Output<List<DiagnosticSettingEnabledMetricArgs>> enabledMetrics;
+
+    /**
+     * @return One or more `enabled_metric` blocks as defined below.
+     * 
+     * &gt; **Note:** At least one `enabled_log` or `enabled_metric` block must be specified.
+     * 
+     */
+    public Optional<Output<List<DiagnosticSettingEnabledMetricArgs>>> enabledMetrics() {
+        return Optional.ofNullable(this.enabledMetrics);
     }
 
     /**
@@ -118,20 +138,20 @@ public final class DiagnosticSettingState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * One or more `metric` blocks as defined below.
-     * 
-     * &gt; **NOTE:** At least one `enabled_log` or `metric` block must be specified.
+     * @deprecated
+     * `metric` has been deprecated in favor of the `enabled_metric` property and will be removed in v5.0 of the AzureRM provider
      * 
      */
+    @Deprecated /* `metric` has been deprecated in favor of the `enabled_metric` property and will be removed in v5.0 of the AzureRM provider */
     @Import(name="metrics")
     private @Nullable Output<List<DiagnosticSettingMetricArgs>> metrics;
 
     /**
-     * @return One or more `metric` blocks as defined below.
-     * 
-     * &gt; **NOTE:** At least one `enabled_log` or `metric` block must be specified.
+     * @deprecated
+     * `metric` has been deprecated in favor of the `enabled_metric` property and will be removed in v5.0 of the AzureRM provider
      * 
      */
+    @Deprecated /* `metric` has been deprecated in favor of the `enabled_metric` property and will be removed in v5.0 of the AzureRM provider */
     public Optional<Output<List<DiagnosticSettingMetricArgs>>> metrics() {
         return Optional.ofNullable(this.metrics);
     }
@@ -212,6 +232,7 @@ public final class DiagnosticSettingState extends com.pulumi.resources.ResourceA
 
     private DiagnosticSettingState(DiagnosticSettingState $) {
         this.enabledLogs = $.enabledLogs;
+        this.enabledMetrics = $.enabledMetrics;
         this.eventhubAuthorizationRuleId = $.eventhubAuthorizationRuleId;
         this.eventhubName = $.eventhubName;
         this.logAnalyticsDestinationType = $.logAnalyticsDestinationType;
@@ -244,7 +265,7 @@ public final class DiagnosticSettingState extends com.pulumi.resources.ResourceA
         /**
          * @param enabledLogs One or more `enabled_log` blocks as defined below.
          * 
-         * &gt; **NOTE:** At least one `enabled_log` or `metric` block must be specified. At least one type of Log or Metric must be enabled.
+         * &gt; **Note:** At least one `enabled_log` or `enabled_metric` block must be specified. At least one type of Log or Metric must be enabled.
          * 
          * @return builder
          * 
@@ -257,7 +278,7 @@ public final class DiagnosticSettingState extends com.pulumi.resources.ResourceA
         /**
          * @param enabledLogs One or more `enabled_log` blocks as defined below.
          * 
-         * &gt; **NOTE:** At least one `enabled_log` or `metric` block must be specified. At least one type of Log or Metric must be enabled.
+         * &gt; **Note:** At least one `enabled_log` or `enabled_metric` block must be specified. At least one type of Log or Metric must be enabled.
          * 
          * @return builder
          * 
@@ -269,13 +290,50 @@ public final class DiagnosticSettingState extends com.pulumi.resources.ResourceA
         /**
          * @param enabledLogs One or more `enabled_log` blocks as defined below.
          * 
-         * &gt; **NOTE:** At least one `enabled_log` or `metric` block must be specified. At least one type of Log or Metric must be enabled.
+         * &gt; **Note:** At least one `enabled_log` or `enabled_metric` block must be specified. At least one type of Log or Metric must be enabled.
          * 
          * @return builder
          * 
          */
         public Builder enabledLogs(DiagnosticSettingEnabledLogArgs... enabledLogs) {
             return enabledLogs(List.of(enabledLogs));
+        }
+
+        /**
+         * @param enabledMetrics One or more `enabled_metric` blocks as defined below.
+         * 
+         * &gt; **Note:** At least one `enabled_log` or `enabled_metric` block must be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enabledMetrics(@Nullable Output<List<DiagnosticSettingEnabledMetricArgs>> enabledMetrics) {
+            $.enabledMetrics = enabledMetrics;
+            return this;
+        }
+
+        /**
+         * @param enabledMetrics One or more `enabled_metric` blocks as defined below.
+         * 
+         * &gt; **Note:** At least one `enabled_log` or `enabled_metric` block must be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enabledMetrics(List<DiagnosticSettingEnabledMetricArgs> enabledMetrics) {
+            return enabledMetrics(Output.of(enabledMetrics));
+        }
+
+        /**
+         * @param enabledMetrics One or more `enabled_metric` blocks as defined below.
+         * 
+         * &gt; **Note:** At least one `enabled_log` or `enabled_metric` block must be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enabledMetrics(DiagnosticSettingEnabledMetricArgs... enabledMetrics) {
+            return enabledMetrics(List.of(enabledMetrics));
         }
 
         /**
@@ -383,38 +441,38 @@ public final class DiagnosticSettingState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param metrics One or more `metric` blocks as defined below.
-         * 
-         * &gt; **NOTE:** At least one `enabled_log` or `metric` block must be specified.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * `metric` has been deprecated in favor of the `enabled_metric` property and will be removed in v5.0 of the AzureRM provider
+         * 
          */
+        @Deprecated /* `metric` has been deprecated in favor of the `enabled_metric` property and will be removed in v5.0 of the AzureRM provider */
         public Builder metrics(@Nullable Output<List<DiagnosticSettingMetricArgs>> metrics) {
             $.metrics = metrics;
             return this;
         }
 
         /**
-         * @param metrics One or more `metric` blocks as defined below.
-         * 
-         * &gt; **NOTE:** At least one `enabled_log` or `metric` block must be specified.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * `metric` has been deprecated in favor of the `enabled_metric` property and will be removed in v5.0 of the AzureRM provider
+         * 
          */
+        @Deprecated /* `metric` has been deprecated in favor of the `enabled_metric` property and will be removed in v5.0 of the AzureRM provider */
         public Builder metrics(List<DiagnosticSettingMetricArgs> metrics) {
             return metrics(Output.of(metrics));
         }
 
         /**
-         * @param metrics One or more `metric` blocks as defined below.
-         * 
-         * &gt; **NOTE:** At least one `enabled_log` or `metric` block must be specified.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * `metric` has been deprecated in favor of the `enabled_metric` property and will be removed in v5.0 of the AzureRM provider
+         * 
          */
+        @Deprecated /* `metric` has been deprecated in favor of the `enabled_metric` property and will be removed in v5.0 of the AzureRM provider */
         public Builder metrics(DiagnosticSettingMetricArgs... metrics) {
             return metrics(List.of(metrics));
         }

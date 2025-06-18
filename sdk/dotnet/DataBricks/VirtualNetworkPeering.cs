@@ -69,6 +69,13 @@ namespace Pulumi.Azure.DataBricks
     /// });
     /// ```
     /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.Databricks`: 2024-05-01
+    /// 
     /// ## Import
     /// 
     /// Databrick Virtual Network Peerings can be imported using the `resource id`, e.g.

@@ -35,6 +35,46 @@ export type Gallery = import("./gallery").Gallery;
 export const Gallery: typeof import("./gallery").Gallery = null as any;
 utilities.lazyLoad(exports, ["Gallery"], () => require("./gallery"));
 
+export { GetArgs, GetResult, GetOutputArgs } from "./get";
+export const get: typeof import("./get").get = null as any;
+export const getOutput: typeof import("./get").getOutput = null as any;
+utilities.lazyLoad(exports, ["get","getOutput"], () => require("./get"));
+
+export { GetAttachedNetworkArgs, GetAttachedNetworkResult, GetAttachedNetworkOutputArgs } from "./getAttachedNetwork";
+export const getAttachedNetwork: typeof import("./getAttachedNetwork").getAttachedNetwork = null as any;
+export const getAttachedNetworkOutput: typeof import("./getAttachedNetwork").getAttachedNetworkOutput = null as any;
+utilities.lazyLoad(exports, ["getAttachedNetwork","getAttachedNetworkOutput"], () => require("./getAttachedNetwork"));
+
+export { GetCatalogArgs, GetCatalogResult, GetCatalogOutputArgs } from "./getCatalog";
+export const getCatalog: typeof import("./getCatalog").getCatalog = null as any;
+export const getCatalogOutput: typeof import("./getCatalog").getCatalogOutput = null as any;
+utilities.lazyLoad(exports, ["getCatalog","getCatalogOutput"], () => require("./getCatalog"));
+
+export { GetDevBoxDefinitionArgs, GetDevBoxDefinitionResult, GetDevBoxDefinitionOutputArgs } from "./getDevBoxDefinition";
+export const getDevBoxDefinition: typeof import("./getDevBoxDefinition").getDevBoxDefinition = null as any;
+export const getDevBoxDefinitionOutput: typeof import("./getDevBoxDefinition").getDevBoxDefinitionOutput = null as any;
+utilities.lazyLoad(exports, ["getDevBoxDefinition","getDevBoxDefinitionOutput"], () => require("./getDevBoxDefinition"));
+
+export { GetGalleryArgs, GetGalleryResult, GetGalleryOutputArgs } from "./getGallery";
+export const getGallery: typeof import("./getGallery").getGallery = null as any;
+export const getGalleryOutput: typeof import("./getGallery").getGalleryOutput = null as any;
+utilities.lazyLoad(exports, ["getGallery","getGalleryOutput"], () => require("./getGallery"));
+
+export { GetNetworkConnectionArgs, GetNetworkConnectionResult, GetNetworkConnectionOutputArgs } from "./getNetworkConnection";
+export const getNetworkConnection: typeof import("./getNetworkConnection").getNetworkConnection = null as any;
+export const getNetworkConnectionOutput: typeof import("./getNetworkConnection").getNetworkConnectionOutput = null as any;
+utilities.lazyLoad(exports, ["getNetworkConnection","getNetworkConnectionOutput"], () => require("./getNetworkConnection"));
+
+export { GetProjectArgs, GetProjectResult, GetProjectOutputArgs } from "./getProject";
+export const getProject: typeof import("./getProject").getProject = null as any;
+export const getProjectOutput: typeof import("./getProject").getProjectOutput = null as any;
+utilities.lazyLoad(exports, ["getProject","getProjectOutput"], () => require("./getProject"));
+
+export { GetProjectEnvironmentTypeArgs, GetProjectEnvironmentTypeResult, GetProjectEnvironmentTypeOutputArgs } from "./getProjectEnvironmentType";
+export const getProjectEnvironmentType: typeof import("./getProjectEnvironmentType").getProjectEnvironmentType = null as any;
+export const getProjectEnvironmentTypeOutput: typeof import("./getProjectEnvironmentType").getProjectEnvironmentTypeOutput = null as any;
+utilities.lazyLoad(exports, ["getProjectEnvironmentType","getProjectEnvironmentTypeOutput"], () => require("./getProjectEnvironmentType"));
+
 export { NetworkConnectionArgs, NetworkConnectionState } from "./networkConnection";
 export type NetworkConnection = import("./networkConnection").NetworkConnection;
 export const NetworkConnection: typeof import("./networkConnection").NetworkConnection = null as any;

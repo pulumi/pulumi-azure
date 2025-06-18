@@ -417,6 +417,13 @@ class Pipeline(pulumi.CustomResource):
         \"\"\")
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DataFactory`: 2018-06-01
+
         ## Import
 
         Data Factory Pipeline's can be imported using the `resource id`, e.g.
@@ -491,6 +498,13 @@ class Pipeline(pulumi.CustomResource):
         ]
         \"\"\")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DataFactory`: 2018-06-01
 
         ## Import
 

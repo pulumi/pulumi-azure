@@ -66,7 +66,7 @@ public final class RegistryGeoreplicationArgs extends com.pulumi.resources.Resou
     /**
      * Whether zone redundancy is enabled for this replication location? Defaults to `false`.
      * 
-     * &gt; **Note:** Changing the `zone_redundancy_enabled` forces the a underlying replication to be created.
+     * &gt; **Note:** Changing the `zone_redundancy_enabled` forces an underlying replication to be created.
      * 
      */
     @Import(name="zoneRedundancyEnabled")
@@ -75,7 +75,7 @@ public final class RegistryGeoreplicationArgs extends com.pulumi.resources.Resou
     /**
      * @return Whether zone redundancy is enabled for this replication location? Defaults to `false`.
      * 
-     * &gt; **Note:** Changing the `zone_redundancy_enabled` forces the a underlying replication to be created.
+     * &gt; **Note:** Changing the `zone_redundancy_enabled` forces an underlying replication to be created.
      * 
      */
     public Optional<Output<Boolean>> zoneRedundancyEnabled() {
@@ -175,7 +175,7 @@ public final class RegistryGeoreplicationArgs extends com.pulumi.resources.Resou
         /**
          * @param zoneRedundancyEnabled Whether zone redundancy is enabled for this replication location? Defaults to `false`.
          * 
-         * &gt; **Note:** Changing the `zone_redundancy_enabled` forces the a underlying replication to be created.
+         * &gt; **Note:** Changing the `zone_redundancy_enabled` forces an underlying replication to be created.
          * 
          * @return builder
          * 
@@ -188,7 +188,7 @@ public final class RegistryGeoreplicationArgs extends com.pulumi.resources.Resou
         /**
          * @param zoneRedundancyEnabled Whether zone redundancy is enabled for this replication location? Defaults to `false`.
          * 
-         * &gt; **Note:** Changing the `zone_redundancy_enabled` forces the a underlying replication to be created.
+         * &gt; **Note:** Changing the `zone_redundancy_enabled` forces an underlying replication to be created.
          * 
          * @return builder
          * 

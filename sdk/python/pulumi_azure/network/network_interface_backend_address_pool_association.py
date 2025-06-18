@@ -189,6 +189,13 @@ class NetworkInterfaceBackendAddressPoolAssociation(pulumi.CustomResource):
             backend_address_pool_id=example_backend_address_pool.id)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network`: 2024-05-01
+
         ## Import
 
         Associations between Network Interfaces and Load Balancer Backend Address Pools can be imported using the `resource id`, e.g.
@@ -261,6 +268,13 @@ class NetworkInterfaceBackendAddressPoolAssociation(pulumi.CustomResource):
             ip_configuration_name="testconfiguration1",
             backend_address_pool_id=example_backend_address_pool.id)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network`: 2024-05-01
 
         ## Import
 

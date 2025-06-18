@@ -13,50 +13,50 @@ import javax.annotation.Nullable;
 @CustomType
 public final class VolumeGroupSapHanaVolumeDataProtectionReplication {
     /**
-     * @return The endpoint type. Possible values are `dst` and `src`. Defaults to `dst`.
+     * @return The endpoint type. Possible values are `dst` and `src`. Defaults to `dst`. Changing this forces a new Application Volume Group to be created and data will be lost.
      * 
      */
     private @Nullable String endpointType;
     /**
-     * @return Location of the primary volume.
+     * @return Location of the primary volume. Changing this forces a new Application Volume Group to be created and data will be lost.
      * 
      */
     private String remoteVolumeLocation;
     /**
-     * @return Resource ID of the primary volume.
+     * @return Resource ID of the primary volume. Changing this forces a new Application Volume Group to be created and data will be lost.
      * 
      */
     private String remoteVolumeResourceId;
     /**
-     * @return eplication frequency. Possible values are `10minutes`, `daily` and `hourly`.
+     * @return eplication frequency. Possible values are `10minutes`, `daily` and `hourly`. Changing this forces a new Application Volume Group to be created and data will be lost.
      * 
      */
     private String replicationFrequency;
 
     private VolumeGroupSapHanaVolumeDataProtectionReplication() {}
     /**
-     * @return The endpoint type. Possible values are `dst` and `src`. Defaults to `dst`.
+     * @return The endpoint type. Possible values are `dst` and `src`. Defaults to `dst`. Changing this forces a new Application Volume Group to be created and data will be lost.
      * 
      */
     public Optional<String> endpointType() {
         return Optional.ofNullable(this.endpointType);
     }
     /**
-     * @return Location of the primary volume.
+     * @return Location of the primary volume. Changing this forces a new Application Volume Group to be created and data will be lost.
      * 
      */
     public String remoteVolumeLocation() {
         return this.remoteVolumeLocation;
     }
     /**
-     * @return Resource ID of the primary volume.
+     * @return Resource ID of the primary volume. Changing this forces a new Application Volume Group to be created and data will be lost.
      * 
      */
     public String remoteVolumeResourceId() {
         return this.remoteVolumeResourceId;
     }
     /**
-     * @return eplication frequency. Possible values are `10minutes`, `daily` and `hourly`.
+     * @return eplication frequency. Possible values are `10minutes`, `daily` and `hourly`. Changing this forces a new Application Volume Group to be created and data will be lost.
      * 
      */
     public String replicationFrequency() {

@@ -27,8 +27,8 @@ import * as utilities from "../utilities";
  *         environment: "staging",
  *     },
  * });
- * const test = new azure.storage.AccountStaticWebsite("test", {
- *     storageAccountId: testAzurermStorageAccount.id,
+ * const exampleAccountStaticWebsite = new azure.storage.AccountStaticWebsite("example", {
+ *     storageAccountId: exampleAccount.id,
  *     error404Document: "custom_not_found.html",
  *     indexDocument: "custom_index.html",
  * });

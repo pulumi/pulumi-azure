@@ -39,6 +39,13 @@ namespace Pulumi.Azure.Monitoring
     /// });
     /// ```
     /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.Insights`: 2021-07-01-preview
+    /// 
     /// ## Import
     /// 
     /// Azure Monitor Private Link Scopes can be imported using the `resource id`, e.g.

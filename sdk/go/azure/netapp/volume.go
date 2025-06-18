@@ -30,7 +30,7 @@ type Volume struct {
 	AccountName pulumi.StringOutput `pulumi:"accountName"`
 	// Is the NetApp Volume enabled for Azure VMware Solution (AVS) datastore purpose. Defaults to `false`. Changing this forces a new resource to be created.
 	AzureVmwareDataStoreEnabled pulumi.BoolPtrOutput `pulumi:"azureVmwareDataStoreEnabled"`
-	// Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnetId`, `location`, `serviceLevel`, `resourceGroupName`, `accountName` and `poolName`. Changing this forces a new resource to be created.
+	// Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnetId`, `location`, `serviceLevel`, `resourceGroupName` and `accountName`. Changing this forces a new resource to be created.
 	CreateFromSnapshotResourceId pulumi.StringPtrOutput `pulumi:"createFromSnapshotResourceId"`
 	// A `dataProtectionBackupPolicy` block as defined below.
 	DataProtectionBackupPolicy VolumeDataProtectionBackupPolicyPtrOutput `pulumi:"dataProtectionBackupPolicy"`
@@ -47,6 +47,10 @@ type Volume struct {
 	KerberosEnabled pulumi.BoolPtrOutput `pulumi:"kerberosEnabled"`
 	// The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryptionKeySource`. Changing this forces a new resource to be created.
 	KeyVaultPrivateEndpointId pulumi.StringOutput `pulumi:"keyVaultPrivateEndpointId"`
+	// A boolean specifying if the volume is a large volume. Defaults to `false`.
+	//
+	// > **Note:** Large volumes must be at least 50 TiB in size and can be up to 1,024 TiB (1 PiB). For more information, please refer to [Requirements and considerations for large volumes](https://learn.microsoft.com/en-us/azure/azure-netapp-files/large-volumes-requirements-considerations)
+	LargeVolumeEnabled pulumi.BoolPtrOutput `pulumi:"largeVolumeEnabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// A list of IPv4 Addresses which should be used to mount the volume.
@@ -64,15 +68,15 @@ type Volume struct {
 	// Volume security style, accepted values are `unix` or `ntfs`. If not provided, single-protocol volume is created defaulting to `unix` if it is `NFSv3` or `NFSv4.1` volume, if `CIFS`, it will default to `ntfs`. In a dual-protocol volume, if not provided, its value will be `ntfs`. Changing this forces a new resource to be created.
 	SecurityStyle pulumi.StringOutput `pulumi:"securityStyle"`
 	ServiceLevel  pulumi.StringOutput `pulumi:"serviceLevel"`
-	// Enable SMB encryption.
+	// Enable SMB encryption. Changing this forces a new resource to be created.
 	Smb3ProtocolEncryptionEnabled pulumi.BoolPtrOutput `pulumi:"smb3ProtocolEncryptionEnabled"`
 	// Limits enumeration of files and folders (that is, listing the contents) in SMB only to users with allowed access on the share. For instance, if a user doesn't have access to read a file or folder in a share with access-based enumeration enabled, then the file or folder doesn't show up in directory listings. Defaults to `false`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=security%20for%20administrators.-,Access%2Dbased%20enumeration,in%20an%20Azure%20NetApp%20Files%20SMB%20volume.%20Only%20contosoadmin%20has%20access.,-In%20the%20below)
 	SmbAccessBasedEnumerationEnabled pulumi.BoolPtrOutput `pulumi:"smbAccessBasedEnumerationEnabled"`
-	// Enable SMB Continuous Availability.
+	// Enable SMB Continuous Availability. Changing this forces a new resource to be created.
 	SmbContinuousAvailabilityEnabled pulumi.BoolPtrOutput `pulumi:"smbContinuousAvailabilityEnabled"`
 	// Limits clients from browsing for an SMB share by hiding the share from view in Windows Explorer or when listing shares in "net view." Only end users that know the absolute paths to the share are able to find the share. Defaults to `false`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=Non%2Dbrowsable%20shares,find%20the%20share.)
 	SmbNonBrowsableEnabled pulumi.BoolPtrOutput `pulumi:"smbNonBrowsableEnabled"`
-	// Specifies whether the .snapshot (NFS clients) or ~snapshot (SMB clients) path of a volume is visible, default value is true.
+	// Specifies whether the .snapshot (NFS clients) or ~snapshot (SMB clients) path of a volume is visible. Defaults to `true`.
 	SnapshotDirectoryVisible pulumi.BoolPtrOutput `pulumi:"snapshotDirectoryVisible"`
 	// The maximum Storage Quota allowed for a file system in Gigabytes.
 	StorageQuotaInGb pulumi.IntOutput `pulumi:"storageQuotaInGb"`
@@ -145,7 +149,7 @@ type volumeState struct {
 	AccountName *string `pulumi:"accountName"`
 	// Is the NetApp Volume enabled for Azure VMware Solution (AVS) datastore purpose. Defaults to `false`. Changing this forces a new resource to be created.
 	AzureVmwareDataStoreEnabled *bool `pulumi:"azureVmwareDataStoreEnabled"`
-	// Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnetId`, `location`, `serviceLevel`, `resourceGroupName`, `accountName` and `poolName`. Changing this forces a new resource to be created.
+	// Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnetId`, `location`, `serviceLevel`, `resourceGroupName` and `accountName`. Changing this forces a new resource to be created.
 	CreateFromSnapshotResourceId *string `pulumi:"createFromSnapshotResourceId"`
 	// A `dataProtectionBackupPolicy` block as defined below.
 	DataProtectionBackupPolicy *VolumeDataProtectionBackupPolicy `pulumi:"dataProtectionBackupPolicy"`
@@ -162,6 +166,10 @@ type volumeState struct {
 	KerberosEnabled *bool `pulumi:"kerberosEnabled"`
 	// The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryptionKeySource`. Changing this forces a new resource to be created.
 	KeyVaultPrivateEndpointId *string `pulumi:"keyVaultPrivateEndpointId"`
+	// A boolean specifying if the volume is a large volume. Defaults to `false`.
+	//
+	// > **Note:** Large volumes must be at least 50 TiB in size and can be up to 1,024 TiB (1 PiB). For more information, please refer to [Requirements and considerations for large volumes](https://learn.microsoft.com/en-us/azure/azure-netapp-files/large-volumes-requirements-considerations)
+	LargeVolumeEnabled *bool `pulumi:"largeVolumeEnabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// A list of IPv4 Addresses which should be used to mount the volume.
@@ -179,15 +187,15 @@ type volumeState struct {
 	// Volume security style, accepted values are `unix` or `ntfs`. If not provided, single-protocol volume is created defaulting to `unix` if it is `NFSv3` or `NFSv4.1` volume, if `CIFS`, it will default to `ntfs`. In a dual-protocol volume, if not provided, its value will be `ntfs`. Changing this forces a new resource to be created.
 	SecurityStyle *string `pulumi:"securityStyle"`
 	ServiceLevel  *string `pulumi:"serviceLevel"`
-	// Enable SMB encryption.
+	// Enable SMB encryption. Changing this forces a new resource to be created.
 	Smb3ProtocolEncryptionEnabled *bool `pulumi:"smb3ProtocolEncryptionEnabled"`
 	// Limits enumeration of files and folders (that is, listing the contents) in SMB only to users with allowed access on the share. For instance, if a user doesn't have access to read a file or folder in a share with access-based enumeration enabled, then the file or folder doesn't show up in directory listings. Defaults to `false`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=security%20for%20administrators.-,Access%2Dbased%20enumeration,in%20an%20Azure%20NetApp%20Files%20SMB%20volume.%20Only%20contosoadmin%20has%20access.,-In%20the%20below)
 	SmbAccessBasedEnumerationEnabled *bool `pulumi:"smbAccessBasedEnumerationEnabled"`
-	// Enable SMB Continuous Availability.
+	// Enable SMB Continuous Availability. Changing this forces a new resource to be created.
 	SmbContinuousAvailabilityEnabled *bool `pulumi:"smbContinuousAvailabilityEnabled"`
 	// Limits clients from browsing for an SMB share by hiding the share from view in Windows Explorer or when listing shares in "net view." Only end users that know the absolute paths to the share are able to find the share. Defaults to `false`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=Non%2Dbrowsable%20shares,find%20the%20share.)
 	SmbNonBrowsableEnabled *bool `pulumi:"smbNonBrowsableEnabled"`
-	// Specifies whether the .snapshot (NFS clients) or ~snapshot (SMB clients) path of a volume is visible, default value is true.
+	// Specifies whether the .snapshot (NFS clients) or ~snapshot (SMB clients) path of a volume is visible. Defaults to `true`.
 	SnapshotDirectoryVisible *bool `pulumi:"snapshotDirectoryVisible"`
 	// The maximum Storage Quota allowed for a file system in Gigabytes.
 	StorageQuotaInGb *int `pulumi:"storageQuotaInGb"`
@@ -210,7 +218,7 @@ type VolumeState struct {
 	AccountName pulumi.StringPtrInput
 	// Is the NetApp Volume enabled for Azure VMware Solution (AVS) datastore purpose. Defaults to `false`. Changing this forces a new resource to be created.
 	AzureVmwareDataStoreEnabled pulumi.BoolPtrInput
-	// Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnetId`, `location`, `serviceLevel`, `resourceGroupName`, `accountName` and `poolName`. Changing this forces a new resource to be created.
+	// Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnetId`, `location`, `serviceLevel`, `resourceGroupName` and `accountName`. Changing this forces a new resource to be created.
 	CreateFromSnapshotResourceId pulumi.StringPtrInput
 	// A `dataProtectionBackupPolicy` block as defined below.
 	DataProtectionBackupPolicy VolumeDataProtectionBackupPolicyPtrInput
@@ -227,6 +235,10 @@ type VolumeState struct {
 	KerberosEnabled pulumi.BoolPtrInput
 	// The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryptionKeySource`. Changing this forces a new resource to be created.
 	KeyVaultPrivateEndpointId pulumi.StringPtrInput
+	// A boolean specifying if the volume is a large volume. Defaults to `false`.
+	//
+	// > **Note:** Large volumes must be at least 50 TiB in size and can be up to 1,024 TiB (1 PiB). For more information, please refer to [Requirements and considerations for large volumes](https://learn.microsoft.com/en-us/azure/azure-netapp-files/large-volumes-requirements-considerations)
+	LargeVolumeEnabled pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// A list of IPv4 Addresses which should be used to mount the volume.
@@ -244,15 +256,15 @@ type VolumeState struct {
 	// Volume security style, accepted values are `unix` or `ntfs`. If not provided, single-protocol volume is created defaulting to `unix` if it is `NFSv3` or `NFSv4.1` volume, if `CIFS`, it will default to `ntfs`. In a dual-protocol volume, if not provided, its value will be `ntfs`. Changing this forces a new resource to be created.
 	SecurityStyle pulumi.StringPtrInput
 	ServiceLevel  pulumi.StringPtrInput
-	// Enable SMB encryption.
+	// Enable SMB encryption. Changing this forces a new resource to be created.
 	Smb3ProtocolEncryptionEnabled pulumi.BoolPtrInput
 	// Limits enumeration of files and folders (that is, listing the contents) in SMB only to users with allowed access on the share. For instance, if a user doesn't have access to read a file or folder in a share with access-based enumeration enabled, then the file or folder doesn't show up in directory listings. Defaults to `false`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=security%20for%20administrators.-,Access%2Dbased%20enumeration,in%20an%20Azure%20NetApp%20Files%20SMB%20volume.%20Only%20contosoadmin%20has%20access.,-In%20the%20below)
 	SmbAccessBasedEnumerationEnabled pulumi.BoolPtrInput
-	// Enable SMB Continuous Availability.
+	// Enable SMB Continuous Availability. Changing this forces a new resource to be created.
 	SmbContinuousAvailabilityEnabled pulumi.BoolPtrInput
 	// Limits clients from browsing for an SMB share by hiding the share from view in Windows Explorer or when listing shares in "net view." Only end users that know the absolute paths to the share are able to find the share. Defaults to `false`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=Non%2Dbrowsable%20shares,find%20the%20share.)
 	SmbNonBrowsableEnabled pulumi.BoolPtrInput
-	// Specifies whether the .snapshot (NFS clients) or ~snapshot (SMB clients) path of a volume is visible, default value is true.
+	// Specifies whether the .snapshot (NFS clients) or ~snapshot (SMB clients) path of a volume is visible. Defaults to `true`.
 	SnapshotDirectoryVisible pulumi.BoolPtrInput
 	// The maximum Storage Quota allowed for a file system in Gigabytes.
 	StorageQuotaInGb pulumi.IntPtrInput
@@ -279,7 +291,7 @@ type volumeArgs struct {
 	AccountName string `pulumi:"accountName"`
 	// Is the NetApp Volume enabled for Azure VMware Solution (AVS) datastore purpose. Defaults to `false`. Changing this forces a new resource to be created.
 	AzureVmwareDataStoreEnabled *bool `pulumi:"azureVmwareDataStoreEnabled"`
-	// Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnetId`, `location`, `serviceLevel`, `resourceGroupName`, `accountName` and `poolName`. Changing this forces a new resource to be created.
+	// Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnetId`, `location`, `serviceLevel`, `resourceGroupName` and `accountName`. Changing this forces a new resource to be created.
 	CreateFromSnapshotResourceId *string `pulumi:"createFromSnapshotResourceId"`
 	// A `dataProtectionBackupPolicy` block as defined below.
 	DataProtectionBackupPolicy *VolumeDataProtectionBackupPolicy `pulumi:"dataProtectionBackupPolicy"`
@@ -296,6 +308,10 @@ type volumeArgs struct {
 	KerberosEnabled *bool `pulumi:"kerberosEnabled"`
 	// The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryptionKeySource`. Changing this forces a new resource to be created.
 	KeyVaultPrivateEndpointId *string `pulumi:"keyVaultPrivateEndpointId"`
+	// A boolean specifying if the volume is a large volume. Defaults to `false`.
+	//
+	// > **Note:** Large volumes must be at least 50 TiB in size and can be up to 1,024 TiB (1 PiB). For more information, please refer to [Requirements and considerations for large volumes](https://learn.microsoft.com/en-us/azure/azure-netapp-files/large-volumes-requirements-considerations)
+	LargeVolumeEnabled *bool `pulumi:"largeVolumeEnabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The name of the NetApp Volume. Changing this forces a new resource to be created.
@@ -311,15 +327,15 @@ type volumeArgs struct {
 	// Volume security style, accepted values are `unix` or `ntfs`. If not provided, single-protocol volume is created defaulting to `unix` if it is `NFSv3` or `NFSv4.1` volume, if `CIFS`, it will default to `ntfs`. In a dual-protocol volume, if not provided, its value will be `ntfs`. Changing this forces a new resource to be created.
 	SecurityStyle *string `pulumi:"securityStyle"`
 	ServiceLevel  string  `pulumi:"serviceLevel"`
-	// Enable SMB encryption.
+	// Enable SMB encryption. Changing this forces a new resource to be created.
 	Smb3ProtocolEncryptionEnabled *bool `pulumi:"smb3ProtocolEncryptionEnabled"`
 	// Limits enumeration of files and folders (that is, listing the contents) in SMB only to users with allowed access on the share. For instance, if a user doesn't have access to read a file or folder in a share with access-based enumeration enabled, then the file or folder doesn't show up in directory listings. Defaults to `false`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=security%20for%20administrators.-,Access%2Dbased%20enumeration,in%20an%20Azure%20NetApp%20Files%20SMB%20volume.%20Only%20contosoadmin%20has%20access.,-In%20the%20below)
 	SmbAccessBasedEnumerationEnabled *bool `pulumi:"smbAccessBasedEnumerationEnabled"`
-	// Enable SMB Continuous Availability.
+	// Enable SMB Continuous Availability. Changing this forces a new resource to be created.
 	SmbContinuousAvailabilityEnabled *bool `pulumi:"smbContinuousAvailabilityEnabled"`
 	// Limits clients from browsing for an SMB share by hiding the share from view in Windows Explorer or when listing shares in "net view." Only end users that know the absolute paths to the share are able to find the share. Defaults to `false`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=Non%2Dbrowsable%20shares,find%20the%20share.)
 	SmbNonBrowsableEnabled *bool `pulumi:"smbNonBrowsableEnabled"`
-	// Specifies whether the .snapshot (NFS clients) or ~snapshot (SMB clients) path of a volume is visible, default value is true.
+	// Specifies whether the .snapshot (NFS clients) or ~snapshot (SMB clients) path of a volume is visible. Defaults to `true`.
 	SnapshotDirectoryVisible *bool `pulumi:"snapshotDirectoryVisible"`
 	// The maximum Storage Quota allowed for a file system in Gigabytes.
 	StorageQuotaInGb int `pulumi:"storageQuotaInGb"`
@@ -343,7 +359,7 @@ type VolumeArgs struct {
 	AccountName pulumi.StringInput
 	// Is the NetApp Volume enabled for Azure VMware Solution (AVS) datastore purpose. Defaults to `false`. Changing this forces a new resource to be created.
 	AzureVmwareDataStoreEnabled pulumi.BoolPtrInput
-	// Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnetId`, `location`, `serviceLevel`, `resourceGroupName`, `accountName` and `poolName`. Changing this forces a new resource to be created.
+	// Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnetId`, `location`, `serviceLevel`, `resourceGroupName` and `accountName`. Changing this forces a new resource to be created.
 	CreateFromSnapshotResourceId pulumi.StringPtrInput
 	// A `dataProtectionBackupPolicy` block as defined below.
 	DataProtectionBackupPolicy VolumeDataProtectionBackupPolicyPtrInput
@@ -360,6 +376,10 @@ type VolumeArgs struct {
 	KerberosEnabled pulumi.BoolPtrInput
 	// The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryptionKeySource`. Changing this forces a new resource to be created.
 	KeyVaultPrivateEndpointId pulumi.StringPtrInput
+	// A boolean specifying if the volume is a large volume. Defaults to `false`.
+	//
+	// > **Note:** Large volumes must be at least 50 TiB in size and can be up to 1,024 TiB (1 PiB). For more information, please refer to [Requirements and considerations for large volumes](https://learn.microsoft.com/en-us/azure/azure-netapp-files/large-volumes-requirements-considerations)
+	LargeVolumeEnabled pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// The name of the NetApp Volume. Changing this forces a new resource to be created.
@@ -375,15 +395,15 @@ type VolumeArgs struct {
 	// Volume security style, accepted values are `unix` or `ntfs`. If not provided, single-protocol volume is created defaulting to `unix` if it is `NFSv3` or `NFSv4.1` volume, if `CIFS`, it will default to `ntfs`. In a dual-protocol volume, if not provided, its value will be `ntfs`. Changing this forces a new resource to be created.
 	SecurityStyle pulumi.StringPtrInput
 	ServiceLevel  pulumi.StringInput
-	// Enable SMB encryption.
+	// Enable SMB encryption. Changing this forces a new resource to be created.
 	Smb3ProtocolEncryptionEnabled pulumi.BoolPtrInput
 	// Limits enumeration of files and folders (that is, listing the contents) in SMB only to users with allowed access on the share. For instance, if a user doesn't have access to read a file or folder in a share with access-based enumeration enabled, then the file or folder doesn't show up in directory listings. Defaults to `false`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=security%20for%20administrators.-,Access%2Dbased%20enumeration,in%20an%20Azure%20NetApp%20Files%20SMB%20volume.%20Only%20contosoadmin%20has%20access.,-In%20the%20below)
 	SmbAccessBasedEnumerationEnabled pulumi.BoolPtrInput
-	// Enable SMB Continuous Availability.
+	// Enable SMB Continuous Availability. Changing this forces a new resource to be created.
 	SmbContinuousAvailabilityEnabled pulumi.BoolPtrInput
 	// Limits clients from browsing for an SMB share by hiding the share from view in Windows Explorer or when listing shares in "net view." Only end users that know the absolute paths to the share are able to find the share. Defaults to `false`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=Non%2Dbrowsable%20shares,find%20the%20share.)
 	SmbNonBrowsableEnabled pulumi.BoolPtrInput
-	// Specifies whether the .snapshot (NFS clients) or ~snapshot (SMB clients) path of a volume is visible, default value is true.
+	// Specifies whether the .snapshot (NFS clients) or ~snapshot (SMB clients) path of a volume is visible. Defaults to `true`.
 	SnapshotDirectoryVisible pulumi.BoolPtrInput
 	// The maximum Storage Quota allowed for a file system in Gigabytes.
 	StorageQuotaInGb pulumi.IntInput
@@ -498,7 +518,7 @@ func (o VolumeOutput) AzureVmwareDataStoreEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Volume) pulumi.BoolPtrOutput { return v.AzureVmwareDataStoreEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnetId`, `location`, `serviceLevel`, `resourceGroupName`, `accountName` and `poolName`. Changing this forces a new resource to be created.
+// Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnetId`, `location`, `serviceLevel`, `resourceGroupName` and `accountName`. Changing this forces a new resource to be created.
 func (o VolumeOutput) CreateFromSnapshotResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Volume) pulumi.StringPtrOutput { return v.CreateFromSnapshotResourceId }).(pulumi.StringPtrOutput)
 }
@@ -537,6 +557,13 @@ func (o VolumeOutput) KerberosEnabled() pulumi.BoolPtrOutput {
 // The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryptionKeySource`. Changing this forces a new resource to be created.
 func (o VolumeOutput) KeyVaultPrivateEndpointId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Volume) pulumi.StringOutput { return v.KeyVaultPrivateEndpointId }).(pulumi.StringOutput)
+}
+
+// A boolean specifying if the volume is a large volume. Defaults to `false`.
+//
+// > **Note:** Large volumes must be at least 50 TiB in size and can be up to 1,024 TiB (1 PiB). For more information, please refer to [Requirements and considerations for large volumes](https://learn.microsoft.com/en-us/azure/azure-netapp-files/large-volumes-requirements-considerations)
+func (o VolumeOutput) LargeVolumeEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Volume) pulumi.BoolPtrOutput { return v.LargeVolumeEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -583,7 +610,7 @@ func (o VolumeOutput) ServiceLevel() pulumi.StringOutput {
 	return o.ApplyT(func(v *Volume) pulumi.StringOutput { return v.ServiceLevel }).(pulumi.StringOutput)
 }
 
-// Enable SMB encryption.
+// Enable SMB encryption. Changing this forces a new resource to be created.
 func (o VolumeOutput) Smb3ProtocolEncryptionEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Volume) pulumi.BoolPtrOutput { return v.Smb3ProtocolEncryptionEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -593,7 +620,7 @@ func (o VolumeOutput) SmbAccessBasedEnumerationEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Volume) pulumi.BoolPtrOutput { return v.SmbAccessBasedEnumerationEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Enable SMB Continuous Availability.
+// Enable SMB Continuous Availability. Changing this forces a new resource to be created.
 func (o VolumeOutput) SmbContinuousAvailabilityEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Volume) pulumi.BoolPtrOutput { return v.SmbContinuousAvailabilityEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -603,7 +630,7 @@ func (o VolumeOutput) SmbNonBrowsableEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Volume) pulumi.BoolPtrOutput { return v.SmbNonBrowsableEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies whether the .snapshot (NFS clients) or ~snapshot (SMB clients) path of a volume is visible, default value is true.
+// Specifies whether the .snapshot (NFS clients) or ~snapshot (SMB clients) path of a volume is visible. Defaults to `true`.
 func (o VolumeOutput) SnapshotDirectoryVisible() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Volume) pulumi.BoolPtrOutput { return v.SnapshotDirectoryVisible }).(pulumi.BoolPtrOutput)
 }

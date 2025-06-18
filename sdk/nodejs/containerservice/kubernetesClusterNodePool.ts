@@ -329,9 +329,6 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
             if ((!args || args.kubernetesClusterId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'kubernetesClusterId'");
             }
-            if ((!args || args.vmSize === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'vmSize'");
-            }
             resourceInputs["autoScalingEnabled"] = args ? args.autoScalingEnabled : undefined;
             resourceInputs["capacityReservationGroupId"] = args ? args.capacityReservationGroupId : undefined;
             resourceInputs["evictionPolicy"] = args ? args.evictionPolicy : undefined;
@@ -731,7 +728,7 @@ export interface KubernetesClusterNodePoolArgs {
     /**
      * The SKU which should be used for the Virtual Machines used in this Node Pool. Changing this property requires specifying `temporaryNameForRotation`.
      */
-    vmSize: pulumi.Input<string>;
+    vmSize?: pulumi.Input<string>;
     /**
      * The ID of the Subnet where this Node Pool should exist. Changing this property requires specifying `temporaryNameForRotation`.
      *

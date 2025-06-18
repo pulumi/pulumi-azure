@@ -14530,8 +14530,7 @@ func (o DiagnosticSettingEnabledLogArrayOutput) Index(i pulumi.IntInput) Diagnos
 }
 
 type DiagnosticSettingEnabledLogRetentionPolicy struct {
-	Days *int `pulumi:"days"`
-	// Is this Diagnostic Metric enabled? Defaults to `true`.
+	Days    *int `pulumi:"days"`
 	Enabled bool `pulumi:"enabled"`
 }
 
@@ -14547,9 +14546,8 @@ type DiagnosticSettingEnabledLogRetentionPolicyInput interface {
 }
 
 type DiagnosticSettingEnabledLogRetentionPolicyArgs struct {
-	Days pulumi.IntPtrInput `pulumi:"days"`
-	// Is this Diagnostic Metric enabled? Defaults to `true`.
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	Days    pulumi.IntPtrInput `pulumi:"days"`
+	Enabled pulumi.BoolInput   `pulumi:"enabled"`
 }
 
 func (DiagnosticSettingEnabledLogRetentionPolicyArgs) ElementType() reflect.Type {
@@ -14633,7 +14631,6 @@ func (o DiagnosticSettingEnabledLogRetentionPolicyOutput) Days() pulumi.IntPtrOu
 	return o.ApplyT(func(v DiagnosticSettingEnabledLogRetentionPolicy) *int { return v.Days }).(pulumi.IntPtrOutput)
 }
 
-// Is this Diagnostic Metric enabled? Defaults to `true`.
 func (o DiagnosticSettingEnabledLogRetentionPolicyOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v DiagnosticSettingEnabledLogRetentionPolicy) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
@@ -14671,7 +14668,6 @@ func (o DiagnosticSettingEnabledLogRetentionPolicyPtrOutput) Days() pulumi.IntPt
 	}).(pulumi.IntPtrOutput)
 }
 
-// Is this Diagnostic Metric enabled? Defaults to `true`.
 func (o DiagnosticSettingEnabledLogRetentionPolicyPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DiagnosticSettingEnabledLogRetentionPolicy) *bool {
 		if v == nil {
@@ -14681,13 +14677,112 @@ func (o DiagnosticSettingEnabledLogRetentionPolicyPtrOutput) Enabled() pulumi.Bo
 	}).(pulumi.BoolPtrOutput)
 }
 
-type DiagnosticSettingMetric struct {
+type DiagnosticSettingEnabledMetric struct {
 	// The name of a Diagnostic Metric Category for this Resource.
 	//
 	// > **NOTE:** The Metric Categories available vary depending on the Resource being used. You may wish to use the `monitoring.getDiagnosticCategories` Data Source to identify which categories are available for a given Resource.
 	Category string `pulumi:"category"`
-	// Is this Diagnostic Metric enabled? Defaults to `true`.
-	Enabled *bool `pulumi:"enabled"`
+}
+
+// DiagnosticSettingEnabledMetricInput is an input type that accepts DiagnosticSettingEnabledMetricArgs and DiagnosticSettingEnabledMetricOutput values.
+// You can construct a concrete instance of `DiagnosticSettingEnabledMetricInput` via:
+//
+//	DiagnosticSettingEnabledMetricArgs{...}
+type DiagnosticSettingEnabledMetricInput interface {
+	pulumi.Input
+
+	ToDiagnosticSettingEnabledMetricOutput() DiagnosticSettingEnabledMetricOutput
+	ToDiagnosticSettingEnabledMetricOutputWithContext(context.Context) DiagnosticSettingEnabledMetricOutput
+}
+
+type DiagnosticSettingEnabledMetricArgs struct {
+	// The name of a Diagnostic Metric Category for this Resource.
+	//
+	// > **NOTE:** The Metric Categories available vary depending on the Resource being used. You may wish to use the `monitoring.getDiagnosticCategories` Data Source to identify which categories are available for a given Resource.
+	Category pulumi.StringInput `pulumi:"category"`
+}
+
+func (DiagnosticSettingEnabledMetricArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DiagnosticSettingEnabledMetric)(nil)).Elem()
+}
+
+func (i DiagnosticSettingEnabledMetricArgs) ToDiagnosticSettingEnabledMetricOutput() DiagnosticSettingEnabledMetricOutput {
+	return i.ToDiagnosticSettingEnabledMetricOutputWithContext(context.Background())
+}
+
+func (i DiagnosticSettingEnabledMetricArgs) ToDiagnosticSettingEnabledMetricOutputWithContext(ctx context.Context) DiagnosticSettingEnabledMetricOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticSettingEnabledMetricOutput)
+}
+
+// DiagnosticSettingEnabledMetricArrayInput is an input type that accepts DiagnosticSettingEnabledMetricArray and DiagnosticSettingEnabledMetricArrayOutput values.
+// You can construct a concrete instance of `DiagnosticSettingEnabledMetricArrayInput` via:
+//
+//	DiagnosticSettingEnabledMetricArray{ DiagnosticSettingEnabledMetricArgs{...} }
+type DiagnosticSettingEnabledMetricArrayInput interface {
+	pulumi.Input
+
+	ToDiagnosticSettingEnabledMetricArrayOutput() DiagnosticSettingEnabledMetricArrayOutput
+	ToDiagnosticSettingEnabledMetricArrayOutputWithContext(context.Context) DiagnosticSettingEnabledMetricArrayOutput
+}
+
+type DiagnosticSettingEnabledMetricArray []DiagnosticSettingEnabledMetricInput
+
+func (DiagnosticSettingEnabledMetricArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DiagnosticSettingEnabledMetric)(nil)).Elem()
+}
+
+func (i DiagnosticSettingEnabledMetricArray) ToDiagnosticSettingEnabledMetricArrayOutput() DiagnosticSettingEnabledMetricArrayOutput {
+	return i.ToDiagnosticSettingEnabledMetricArrayOutputWithContext(context.Background())
+}
+
+func (i DiagnosticSettingEnabledMetricArray) ToDiagnosticSettingEnabledMetricArrayOutputWithContext(ctx context.Context) DiagnosticSettingEnabledMetricArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticSettingEnabledMetricArrayOutput)
+}
+
+type DiagnosticSettingEnabledMetricOutput struct{ *pulumi.OutputState }
+
+func (DiagnosticSettingEnabledMetricOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DiagnosticSettingEnabledMetric)(nil)).Elem()
+}
+
+func (o DiagnosticSettingEnabledMetricOutput) ToDiagnosticSettingEnabledMetricOutput() DiagnosticSettingEnabledMetricOutput {
+	return o
+}
+
+func (o DiagnosticSettingEnabledMetricOutput) ToDiagnosticSettingEnabledMetricOutputWithContext(ctx context.Context) DiagnosticSettingEnabledMetricOutput {
+	return o
+}
+
+// The name of a Diagnostic Metric Category for this Resource.
+//
+// > **NOTE:** The Metric Categories available vary depending on the Resource being used. You may wish to use the `monitoring.getDiagnosticCategories` Data Source to identify which categories are available for a given Resource.
+func (o DiagnosticSettingEnabledMetricOutput) Category() pulumi.StringOutput {
+	return o.ApplyT(func(v DiagnosticSettingEnabledMetric) string { return v.Category }).(pulumi.StringOutput)
+}
+
+type DiagnosticSettingEnabledMetricArrayOutput struct{ *pulumi.OutputState }
+
+func (DiagnosticSettingEnabledMetricArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DiagnosticSettingEnabledMetric)(nil)).Elem()
+}
+
+func (o DiagnosticSettingEnabledMetricArrayOutput) ToDiagnosticSettingEnabledMetricArrayOutput() DiagnosticSettingEnabledMetricArrayOutput {
+	return o
+}
+
+func (o DiagnosticSettingEnabledMetricArrayOutput) ToDiagnosticSettingEnabledMetricArrayOutputWithContext(ctx context.Context) DiagnosticSettingEnabledMetricArrayOutput {
+	return o
+}
+
+func (o DiagnosticSettingEnabledMetricArrayOutput) Index(i pulumi.IntInput) DiagnosticSettingEnabledMetricOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DiagnosticSettingEnabledMetric {
+		return vs[0].([]DiagnosticSettingEnabledMetric)[vs[1].(int)]
+	}).(DiagnosticSettingEnabledMetricOutput)
+}
+
+type DiagnosticSettingMetric struct {
+	Category string `pulumi:"category"`
+	Enabled  *bool  `pulumi:"enabled"`
 	// Deprecated: `retentionPolicy` has been deprecated in favor of the `storage.ManagementPolicy` resource and will be removed in v5.0 of the AzureRM provider - to learn more go to https://aka.ms/diagnostic_settings_log_retention
 	RetentionPolicy *DiagnosticSettingMetricRetentionPolicy `pulumi:"retentionPolicy"`
 }
@@ -14704,12 +14799,8 @@ type DiagnosticSettingMetricInput interface {
 }
 
 type DiagnosticSettingMetricArgs struct {
-	// The name of a Diagnostic Metric Category for this Resource.
-	//
-	// > **NOTE:** The Metric Categories available vary depending on the Resource being used. You may wish to use the `monitoring.getDiagnosticCategories` Data Source to identify which categories are available for a given Resource.
-	Category pulumi.StringInput `pulumi:"category"`
-	// Is this Diagnostic Metric enabled? Defaults to `true`.
-	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	Category pulumi.StringInput  `pulumi:"category"`
+	Enabled  pulumi.BoolPtrInput `pulumi:"enabled"`
 	// Deprecated: `retentionPolicy` has been deprecated in favor of the `storage.ManagementPolicy` resource and will be removed in v5.0 of the AzureRM provider - to learn more go to https://aka.ms/diagnostic_settings_log_retention
 	RetentionPolicy DiagnosticSettingMetricRetentionPolicyPtrInput `pulumi:"retentionPolicy"`
 }
@@ -14765,14 +14856,10 @@ func (o DiagnosticSettingMetricOutput) ToDiagnosticSettingMetricOutputWithContex
 	return o
 }
 
-// The name of a Diagnostic Metric Category for this Resource.
-//
-// > **NOTE:** The Metric Categories available vary depending on the Resource being used. You may wish to use the `monitoring.getDiagnosticCategories` Data Source to identify which categories are available for a given Resource.
 func (o DiagnosticSettingMetricOutput) Category() pulumi.StringOutput {
 	return o.ApplyT(func(v DiagnosticSettingMetric) string { return v.Category }).(pulumi.StringOutput)
 }
 
-// Is this Diagnostic Metric enabled? Defaults to `true`.
 func (o DiagnosticSettingMetricOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DiagnosticSettingMetric) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -14803,8 +14890,7 @@ func (o DiagnosticSettingMetricArrayOutput) Index(i pulumi.IntInput) DiagnosticS
 }
 
 type DiagnosticSettingMetricRetentionPolicy struct {
-	Days *int `pulumi:"days"`
-	// Is this Diagnostic Metric enabled? Defaults to `true`.
+	Days    *int `pulumi:"days"`
 	Enabled bool `pulumi:"enabled"`
 }
 
@@ -14820,9 +14906,8 @@ type DiagnosticSettingMetricRetentionPolicyInput interface {
 }
 
 type DiagnosticSettingMetricRetentionPolicyArgs struct {
-	Days pulumi.IntPtrInput `pulumi:"days"`
-	// Is this Diagnostic Metric enabled? Defaults to `true`.
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	Days    pulumi.IntPtrInput `pulumi:"days"`
+	Enabled pulumi.BoolInput   `pulumi:"enabled"`
 }
 
 func (DiagnosticSettingMetricRetentionPolicyArgs) ElementType() reflect.Type {
@@ -14906,7 +14991,6 @@ func (o DiagnosticSettingMetricRetentionPolicyOutput) Days() pulumi.IntPtrOutput
 	return o.ApplyT(func(v DiagnosticSettingMetricRetentionPolicy) *int { return v.Days }).(pulumi.IntPtrOutput)
 }
 
-// Is this Diagnostic Metric enabled? Defaults to `true`.
 func (o DiagnosticSettingMetricRetentionPolicyOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v DiagnosticSettingMetricRetentionPolicy) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
@@ -14944,7 +15028,6 @@ func (o DiagnosticSettingMetricRetentionPolicyPtrOutput) Days() pulumi.IntPtrOut
 	}).(pulumi.IntPtrOutput)
 }
 
-// Is this Diagnostic Metric enabled? Defaults to `true`.
 func (o DiagnosticSettingMetricRetentionPolicyPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DiagnosticSettingMetricRetentionPolicy) *bool {
 		if v == nil {
@@ -23370,6 +23453,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DiagnosticSettingEnabledLogArrayInput)(nil)).Elem(), DiagnosticSettingEnabledLogArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DiagnosticSettingEnabledLogRetentionPolicyInput)(nil)).Elem(), DiagnosticSettingEnabledLogRetentionPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DiagnosticSettingEnabledLogRetentionPolicyPtrInput)(nil)).Elem(), DiagnosticSettingEnabledLogRetentionPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DiagnosticSettingEnabledMetricInput)(nil)).Elem(), DiagnosticSettingEnabledMetricArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DiagnosticSettingEnabledMetricArrayInput)(nil)).Elem(), DiagnosticSettingEnabledMetricArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DiagnosticSettingMetricInput)(nil)).Elem(), DiagnosticSettingMetricArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DiagnosticSettingMetricArrayInput)(nil)).Elem(), DiagnosticSettingMetricArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DiagnosticSettingMetricRetentionPolicyInput)(nil)).Elem(), DiagnosticSettingMetricRetentionPolicyArgs{})
@@ -23689,6 +23774,8 @@ func init() {
 	pulumi.RegisterOutputType(DiagnosticSettingEnabledLogArrayOutput{})
 	pulumi.RegisterOutputType(DiagnosticSettingEnabledLogRetentionPolicyOutput{})
 	pulumi.RegisterOutputType(DiagnosticSettingEnabledLogRetentionPolicyPtrOutput{})
+	pulumi.RegisterOutputType(DiagnosticSettingEnabledMetricOutput{})
+	pulumi.RegisterOutputType(DiagnosticSettingEnabledMetricArrayOutput{})
 	pulumi.RegisterOutputType(DiagnosticSettingMetricOutput{})
 	pulumi.RegisterOutputType(DiagnosticSettingMetricArrayOutput{})
 	pulumi.RegisterOutputType(DiagnosticSettingMetricRetentionPolicyOutput{})

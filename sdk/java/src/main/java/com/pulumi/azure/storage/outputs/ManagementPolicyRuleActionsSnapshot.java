@@ -27,7 +27,7 @@ public final class ManagementPolicyRuleActionsSnapshot {
      */
     private @Nullable Integer deleteAfterDaysSinceCreationGreaterThan;
     /**
-     * @return The age in days after last tier change to the blobs to skip to be archved. Must be between `0` and `99999`. Defaults to `-1`.
+     * @return The age in days after last tier change to the blobs to skip to be archived. Must be between `0` and `99999`. Defaults to `-1`.
      * 
      */
     private @Nullable Integer tierToArchiveAfterDaysSinceLastTierChangeGreaterThan;
@@ -60,7 +60,7 @@ public final class ManagementPolicyRuleActionsSnapshot {
         return Optional.ofNullable(this.deleteAfterDaysSinceCreationGreaterThan);
     }
     /**
-     * @return The age in days after last tier change to the blobs to skip to be archved. Must be between `0` and `99999`. Defaults to `-1`.
+     * @return The age in days after last tier change to the blobs to skip to be archived. Must be between `0` and `99999`. Defaults to `-1`.
      * 
      */
     public Optional<Integer> tierToArchiveAfterDaysSinceLastTierChangeGreaterThan() {

@@ -28,7 +28,7 @@ public final class HBaseClusterStorageAccount {
     /**
      * @return The ID of the Storage Container. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** This can be obtained from the `id` of the `azure.storage.Container` resource.
+     * &gt; **Note:** When the `azure.storage.Container` resource is created with `storage_account_name`, this can be obtained from the `id` of the `azure.storage.Container` resource. When the `azure.storage.Container` resource is created with `storage_account_id`, please use `azure.storage.getContainers` data source to get the `data_plane_id` of the `azure.storage.Container` resource for this field.
      * 
      */
     private String storageContainerId;
@@ -58,7 +58,7 @@ public final class HBaseClusterStorageAccount {
     /**
      * @return The ID of the Storage Container. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** This can be obtained from the `id` of the `azure.storage.Container` resource.
+     * &gt; **Note:** When the `azure.storage.Container` resource is created with `storage_account_name`, this can be obtained from the `id` of the `azure.storage.Container` resource. When the `azure.storage.Container` resource is created with `storage_account_id`, please use `azure.storage.getContainers` data source to get the `data_plane_id` of the `azure.storage.Container` resource for this field.
      * 
      */
     public String storageContainerId() {

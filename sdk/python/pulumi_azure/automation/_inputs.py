@@ -100,8 +100,8 @@ class AccountEncryptionArgs:
         """
         pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
         if key_source is not None:
-            warnings.warn("""This field is now ignored and will be removed in the next major version of the Azure Provider, the `encryption` block can be omitted to disable encryption""", DeprecationWarning)
-            pulumi.log.warn("""key_source is deprecated: This field is now ignored and will be removed in the next major version of the Azure Provider, the `encryption` block can be omitted to disable encryption""")
+            warnings.warn("""`encryption.key_source` has been deprecated and will be removed in v5.0 of the AzureRM Provider. To disable encryption, omit the `encryption` block""", DeprecationWarning)
+            pulumi.log.warn("""key_source is deprecated: `encryption.key_source` has been deprecated and will be removed in v5.0 of the AzureRM Provider. To disable encryption, omit the `encryption` block""")
         if key_source is not None:
             pulumi.set(__self__, "key_source", key_source)
         if user_assigned_identity_id is not None:
@@ -121,7 +121,7 @@ class AccountEncryptionArgs:
 
     @property
     @pulumi.getter(name="keySource")
-    @_utilities.deprecated("""This field is now ignored and will be removed in the next major version of the Azure Provider, the `encryption` block can be omitted to disable encryption""")
+    @_utilities.deprecated("""`encryption.key_source` has been deprecated and will be removed in v5.0 of the AzureRM Provider. To disable encryption, omit the `encryption` block""")
     def key_source(self) -> Optional[pulumi.Input[builtins.str]]:
         return pulumi.get(self, "key_source")
 

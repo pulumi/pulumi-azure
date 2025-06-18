@@ -43,6 +43,13 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.AlertsManagement`: 2019-06-01
+ *
  * ## Import
  *
  * Monitor Smart Detector Alert Rule can be imported using the `resource id`, e.g.

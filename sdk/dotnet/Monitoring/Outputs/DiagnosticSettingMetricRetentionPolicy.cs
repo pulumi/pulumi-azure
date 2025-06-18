@@ -14,9 +14,6 @@ namespace Pulumi.Azure.Monitoring.Outputs
     public sealed class DiagnosticSettingMetricRetentionPolicy
     {
         public readonly int? Days;
-        /// <summary>
-        /// Is this Diagnostic Metric enabled? Defaults to `true`.
-        /// </summary>
         public readonly bool Enabled;
 
         [OutputConstructor]

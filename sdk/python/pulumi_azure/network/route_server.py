@@ -419,6 +419,13 @@ class RouteServer(pulumi.CustomResource):
             hub_routing_preference="ASPath")
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network`: 2024-05-01
+
         ## Import
 
         Route Server can be imported using the `resource id`, e.g.
@@ -488,6 +495,13 @@ class RouteServer(pulumi.CustomResource):
             branch_to_branch_traffic_enabled=True,
             hub_routing_preference="ASPath")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network`: 2024-05-01
 
         ## Import
 

@@ -60,8 +60,8 @@ import javax.annotation.Nullable;
  *             .tags(Map.of("environment", "staging"))
  *             .build());
  * 
- *         var test = new AccountStaticWebsite("test", AccountStaticWebsiteArgs.builder()
- *             .storageAccountId(testAzurermStorageAccount.id())
+ *         var exampleAccountStaticWebsite = new AccountStaticWebsite("exampleAccountStaticWebsite", AccountStaticWebsiteArgs.builder()
+ *             .storageAccountId(exampleAccount.id())
  *             .error404Document("custom_not_found.html")
  *             .indexDocument("custom_index.html")
  *             .build());

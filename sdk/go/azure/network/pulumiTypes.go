@@ -19426,7 +19426,7 @@ func (o VirtualNetworkDdosProtectionPlanPtrOutput) Id() pulumi.StringPtrOutput {
 type VirtualNetworkEncryption struct {
 	// Specifies if the encrypted Virtual Network allows VM that does not support encryption. Possible values are `DropUnencrypted` and `AllowUnencrypted`.
 	//
-	// > **NOTE:** Currently `AllowUnencrypted` is the only supported value for the `enforcement` property as `DropUnencrypted` is not yet in public preview or general availability. Please see the [official documentation](https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-encryption-overview#limitations) for more information.
+	// > **Note:** Currently `AllowUnencrypted` is the only supported value for the `enforcement` property as `DropUnencrypted` is not yet in public preview or general availability. Please see the [official documentation](https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-encryption-overview#limitations) for more information.
 	Enforcement string `pulumi:"enforcement"`
 }
 
@@ -19444,7 +19444,7 @@ type VirtualNetworkEncryptionInput interface {
 type VirtualNetworkEncryptionArgs struct {
 	// Specifies if the encrypted Virtual Network allows VM that does not support encryption. Possible values are `DropUnencrypted` and `AllowUnencrypted`.
 	//
-	// > **NOTE:** Currently `AllowUnencrypted` is the only supported value for the `enforcement` property as `DropUnencrypted` is not yet in public preview or general availability. Please see the [official documentation](https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-encryption-overview#limitations) for more information.
+	// > **Note:** Currently `AllowUnencrypted` is the only supported value for the `enforcement` property as `DropUnencrypted` is not yet in public preview or general availability. Please see the [official documentation](https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-encryption-overview#limitations) for more information.
 	Enforcement pulumi.StringInput `pulumi:"enforcement"`
 }
 
@@ -19527,7 +19527,7 @@ func (o VirtualNetworkEncryptionOutput) ToVirtualNetworkEncryptionPtrOutputWithC
 
 // Specifies if the encrypted Virtual Network allows VM that does not support encryption. Possible values are `DropUnencrypted` and `AllowUnencrypted`.
 //
-// > **NOTE:** Currently `AllowUnencrypted` is the only supported value for the `enforcement` property as `DropUnencrypted` is not yet in public preview or general availability. Please see the [official documentation](https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-encryption-overview#limitations) for more information.
+// > **Note:** Currently `AllowUnencrypted` is the only supported value for the `enforcement` property as `DropUnencrypted` is not yet in public preview or general availability. Please see the [official documentation](https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-encryption-overview#limitations) for more information.
 func (o VirtualNetworkEncryptionOutput) Enforcement() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNetworkEncryption) string { return v.Enforcement }).(pulumi.StringOutput)
 }
@@ -19558,7 +19558,7 @@ func (o VirtualNetworkEncryptionPtrOutput) Elem() VirtualNetworkEncryptionOutput
 
 // Specifies if the encrypted Virtual Network allows VM that does not support encryption. Possible values are `DropUnencrypted` and `AllowUnencrypted`.
 //
-// > **NOTE:** Currently `AllowUnencrypted` is the only supported value for the `enforcement` property as `DropUnencrypted` is not yet in public preview or general availability. Please see the [official documentation](https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-encryption-overview#limitations) for more information.
+// > **Note:** Currently `AllowUnencrypted` is the only supported value for the `enforcement` property as `DropUnencrypted` is not yet in public preview or general availability. Please see the [official documentation](https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-encryption-overview#limitations) for more information.
 func (o VirtualNetworkEncryptionPtrOutput) Enforcement() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNetworkEncryption) *string {
 		if v == nil {
@@ -22300,6 +22300,121 @@ func (o VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientCo
 	}).(VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionOutput)
 }
 
+type VirtualNetworkIpAddressPool struct {
+	// The list of IP address prefixes allocated to the Virtual Network.
+	AllocatedIpAddressPrefixes []string `pulumi:"allocatedIpAddressPrefixes"`
+	// The ID of the Network Manager IP Address Management (IPAM) Pool.
+	Id string `pulumi:"id"`
+	// The number of IP addresses to allocated to the Virtual Network. The value must be a string that represents a positive number, e.g., `"100"`.
+	NumberOfIpAddresses string `pulumi:"numberOfIpAddresses"`
+}
+
+// VirtualNetworkIpAddressPoolInput is an input type that accepts VirtualNetworkIpAddressPoolArgs and VirtualNetworkIpAddressPoolOutput values.
+// You can construct a concrete instance of `VirtualNetworkIpAddressPoolInput` via:
+//
+//	VirtualNetworkIpAddressPoolArgs{...}
+type VirtualNetworkIpAddressPoolInput interface {
+	pulumi.Input
+
+	ToVirtualNetworkIpAddressPoolOutput() VirtualNetworkIpAddressPoolOutput
+	ToVirtualNetworkIpAddressPoolOutputWithContext(context.Context) VirtualNetworkIpAddressPoolOutput
+}
+
+type VirtualNetworkIpAddressPoolArgs struct {
+	// The list of IP address prefixes allocated to the Virtual Network.
+	AllocatedIpAddressPrefixes pulumi.StringArrayInput `pulumi:"allocatedIpAddressPrefixes"`
+	// The ID of the Network Manager IP Address Management (IPAM) Pool.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The number of IP addresses to allocated to the Virtual Network. The value must be a string that represents a positive number, e.g., `"100"`.
+	NumberOfIpAddresses pulumi.StringInput `pulumi:"numberOfIpAddresses"`
+}
+
+func (VirtualNetworkIpAddressPoolArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNetworkIpAddressPool)(nil)).Elem()
+}
+
+func (i VirtualNetworkIpAddressPoolArgs) ToVirtualNetworkIpAddressPoolOutput() VirtualNetworkIpAddressPoolOutput {
+	return i.ToVirtualNetworkIpAddressPoolOutputWithContext(context.Background())
+}
+
+func (i VirtualNetworkIpAddressPoolArgs) ToVirtualNetworkIpAddressPoolOutputWithContext(ctx context.Context) VirtualNetworkIpAddressPoolOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkIpAddressPoolOutput)
+}
+
+// VirtualNetworkIpAddressPoolArrayInput is an input type that accepts VirtualNetworkIpAddressPoolArray and VirtualNetworkIpAddressPoolArrayOutput values.
+// You can construct a concrete instance of `VirtualNetworkIpAddressPoolArrayInput` via:
+//
+//	VirtualNetworkIpAddressPoolArray{ VirtualNetworkIpAddressPoolArgs{...} }
+type VirtualNetworkIpAddressPoolArrayInput interface {
+	pulumi.Input
+
+	ToVirtualNetworkIpAddressPoolArrayOutput() VirtualNetworkIpAddressPoolArrayOutput
+	ToVirtualNetworkIpAddressPoolArrayOutputWithContext(context.Context) VirtualNetworkIpAddressPoolArrayOutput
+}
+
+type VirtualNetworkIpAddressPoolArray []VirtualNetworkIpAddressPoolInput
+
+func (VirtualNetworkIpAddressPoolArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VirtualNetworkIpAddressPool)(nil)).Elem()
+}
+
+func (i VirtualNetworkIpAddressPoolArray) ToVirtualNetworkIpAddressPoolArrayOutput() VirtualNetworkIpAddressPoolArrayOutput {
+	return i.ToVirtualNetworkIpAddressPoolArrayOutputWithContext(context.Background())
+}
+
+func (i VirtualNetworkIpAddressPoolArray) ToVirtualNetworkIpAddressPoolArrayOutputWithContext(ctx context.Context) VirtualNetworkIpAddressPoolArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkIpAddressPoolArrayOutput)
+}
+
+type VirtualNetworkIpAddressPoolOutput struct{ *pulumi.OutputState }
+
+func (VirtualNetworkIpAddressPoolOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNetworkIpAddressPool)(nil)).Elem()
+}
+
+func (o VirtualNetworkIpAddressPoolOutput) ToVirtualNetworkIpAddressPoolOutput() VirtualNetworkIpAddressPoolOutput {
+	return o
+}
+
+func (o VirtualNetworkIpAddressPoolOutput) ToVirtualNetworkIpAddressPoolOutputWithContext(ctx context.Context) VirtualNetworkIpAddressPoolOutput {
+	return o
+}
+
+// The list of IP address prefixes allocated to the Virtual Network.
+func (o VirtualNetworkIpAddressPoolOutput) AllocatedIpAddressPrefixes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v VirtualNetworkIpAddressPool) []string { return v.AllocatedIpAddressPrefixes }).(pulumi.StringArrayOutput)
+}
+
+// The ID of the Network Manager IP Address Management (IPAM) Pool.
+func (o VirtualNetworkIpAddressPoolOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualNetworkIpAddressPool) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The number of IP addresses to allocated to the Virtual Network. The value must be a string that represents a positive number, e.g., `"100"`.
+func (o VirtualNetworkIpAddressPoolOutput) NumberOfIpAddresses() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualNetworkIpAddressPool) string { return v.NumberOfIpAddresses }).(pulumi.StringOutput)
+}
+
+type VirtualNetworkIpAddressPoolArrayOutput struct{ *pulumi.OutputState }
+
+func (VirtualNetworkIpAddressPoolArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VirtualNetworkIpAddressPool)(nil)).Elem()
+}
+
+func (o VirtualNetworkIpAddressPoolArrayOutput) ToVirtualNetworkIpAddressPoolArrayOutput() VirtualNetworkIpAddressPoolArrayOutput {
+	return o
+}
+
+func (o VirtualNetworkIpAddressPoolArrayOutput) ToVirtualNetworkIpAddressPoolArrayOutputWithContext(ctx context.Context) VirtualNetworkIpAddressPoolArrayOutput {
+	return o
+}
+
+func (o VirtualNetworkIpAddressPoolArrayOutput) Index(i pulumi.IntInput) VirtualNetworkIpAddressPoolOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VirtualNetworkIpAddressPool {
+		return vs[0].([]VirtualNetworkIpAddressPool)[vs[1].(int)]
+	}).(VirtualNetworkIpAddressPoolOutput)
+}
+
 type VirtualNetworkSubnet struct {
 	// The address prefixes to use for the subnet.
 	AddressPrefixes []string `pulumi:"addressPrefixes"`
@@ -22313,15 +22428,15 @@ type VirtualNetworkSubnet struct {
 	Name string `pulumi:"name"`
 	// Enable or Disable network policies for the private endpoint on the subnet. Possible values are `Disabled`, `Enabled`, `NetworkSecurityGroupEnabled` and `RouteTableEnabled`. Defaults to `Disabled`.
 	//
-	// > **NOTE:** If you don't want to use network policies like user-defined Routes and Network Security Groups, you need to set `privateEndpointNetworkPolicies` in the subnet to `Disabled`. This setting only applies to Private Endpoints in the Subnet and affects all Private Endpoints in the Subnet.
+	// > **Note:** If you don't want to use network policies like user-defined Routes and Network Security Groups, you need to set `privateEndpointNetworkPolicies` in the subnet to `Disabled`. This setting only applies to Private Endpoints in the Subnet and affects all Private Endpoints in the Subnet.
 	//
-	// > **NOTE:** If you want to use network policies like user-defined Routes and Network Security Groups, you need to set the `privateEndpointNetworkPolicies` in the Subnet to `Enabled`/`NetworkSecurityGroupEnabled`/`RouteTableEnabled`. This setting only applies to Private Endpoints in the Subnet and affects all Private Endpoints in the Subnet.
+	// > **Note:** If you want to use network policies like user-defined Routes and Network Security Groups, you need to set the `privateEndpointNetworkPolicies` in the Subnet to `Enabled`/`NetworkSecurityGroupEnabled`/`RouteTableEnabled`. This setting only applies to Private Endpoints in the Subnet and affects all Private Endpoints in the Subnet.
 	//
-	// > **NOTE:** See more details from [Manage network policies for Private Endpoints](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-endpoint-network-policy?tabs=network-policy-portal).
+	// > **Note:** See more details from [Manage network policies for Private Endpoints](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-endpoint-network-policy?tabs=network-policy-portal).
 	PrivateEndpointNetworkPolicies *string `pulumi:"privateEndpointNetworkPolicies"`
 	// Enable or Disable network policies for the private link service on the subnet. Defaults to `true`.
 	//
-	// > **NOTE:** When configuring Azure Private Link service, the explicit setting `privateLinkServiceNetworkPoliciesEnabled` must be set to `false` in the subnet since Private Link Service does not support network policies like user-defined Routes and Network Security Groups. This setting only affects the Private Link service. For other resources in the subnet, access is controlled based on the Network Security Group which can be configured using the `network.SubnetNetworkSecurityGroupAssociation` resource. See more details from [Manage network policies for Private Link Services](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-link-service-network-policy?tabs=private-link-network-policy-powershell).
+	// > **Note:** When configuring Azure Private Link service, the explicit setting `privateLinkServiceNetworkPoliciesEnabled` must be set to `false` in the subnet since Private Link Service does not support network policies like user-defined Routes and Network Security Groups. This setting only affects the Private Link service. For other resources in the subnet, access is controlled based on the Network Security Group which can be configured using the `network.SubnetNetworkSecurityGroupAssociation` resource. See more details from [Manage network policies for Private Link Services](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-link-service-network-policy?tabs=private-link-network-policy-powershell).
 	PrivateLinkServiceNetworkPoliciesEnabled *bool `pulumi:"privateLinkServiceNetworkPoliciesEnabled"`
 	// The ID of the Route Table that should be associated with this subnet.
 	RouteTableId *string `pulumi:"routeTableId"`
@@ -22357,15 +22472,15 @@ type VirtualNetworkSubnetArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// Enable or Disable network policies for the private endpoint on the subnet. Possible values are `Disabled`, `Enabled`, `NetworkSecurityGroupEnabled` and `RouteTableEnabled`. Defaults to `Disabled`.
 	//
-	// > **NOTE:** If you don't want to use network policies like user-defined Routes and Network Security Groups, you need to set `privateEndpointNetworkPolicies` in the subnet to `Disabled`. This setting only applies to Private Endpoints in the Subnet and affects all Private Endpoints in the Subnet.
+	// > **Note:** If you don't want to use network policies like user-defined Routes and Network Security Groups, you need to set `privateEndpointNetworkPolicies` in the subnet to `Disabled`. This setting only applies to Private Endpoints in the Subnet and affects all Private Endpoints in the Subnet.
 	//
-	// > **NOTE:** If you want to use network policies like user-defined Routes and Network Security Groups, you need to set the `privateEndpointNetworkPolicies` in the Subnet to `Enabled`/`NetworkSecurityGroupEnabled`/`RouteTableEnabled`. This setting only applies to Private Endpoints in the Subnet and affects all Private Endpoints in the Subnet.
+	// > **Note:** If you want to use network policies like user-defined Routes and Network Security Groups, you need to set the `privateEndpointNetworkPolicies` in the Subnet to `Enabled`/`NetworkSecurityGroupEnabled`/`RouteTableEnabled`. This setting only applies to Private Endpoints in the Subnet and affects all Private Endpoints in the Subnet.
 	//
-	// > **NOTE:** See more details from [Manage network policies for Private Endpoints](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-endpoint-network-policy?tabs=network-policy-portal).
+	// > **Note:** See more details from [Manage network policies for Private Endpoints](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-endpoint-network-policy?tabs=network-policy-portal).
 	PrivateEndpointNetworkPolicies pulumi.StringPtrInput `pulumi:"privateEndpointNetworkPolicies"`
 	// Enable or Disable network policies for the private link service on the subnet. Defaults to `true`.
 	//
-	// > **NOTE:** When configuring Azure Private Link service, the explicit setting `privateLinkServiceNetworkPoliciesEnabled` must be set to `false` in the subnet since Private Link Service does not support network policies like user-defined Routes and Network Security Groups. This setting only affects the Private Link service. For other resources in the subnet, access is controlled based on the Network Security Group which can be configured using the `network.SubnetNetworkSecurityGroupAssociation` resource. See more details from [Manage network policies for Private Link Services](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-link-service-network-policy?tabs=private-link-network-policy-powershell).
+	// > **Note:** When configuring Azure Private Link service, the explicit setting `privateLinkServiceNetworkPoliciesEnabled` must be set to `false` in the subnet since Private Link Service does not support network policies like user-defined Routes and Network Security Groups. This setting only affects the Private Link service. For other resources in the subnet, access is controlled based on the Network Security Group which can be configured using the `network.SubnetNetworkSecurityGroupAssociation` resource. See more details from [Manage network policies for Private Link Services](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-link-service-network-policy?tabs=private-link-network-policy-powershell).
 	PrivateLinkServiceNetworkPoliciesEnabled pulumi.BoolPtrInput `pulumi:"privateLinkServiceNetworkPoliciesEnabled"`
 	// The ID of the Route Table that should be associated with this subnet.
 	RouteTableId pulumi.StringPtrInput `pulumi:"routeTableId"`
@@ -22455,18 +22570,18 @@ func (o VirtualNetworkSubnetOutput) Name() pulumi.StringOutput {
 
 // Enable or Disable network policies for the private endpoint on the subnet. Possible values are `Disabled`, `Enabled`, `NetworkSecurityGroupEnabled` and `RouteTableEnabled`. Defaults to `Disabled`.
 //
-// > **NOTE:** If you don't want to use network policies like user-defined Routes and Network Security Groups, you need to set `privateEndpointNetworkPolicies` in the subnet to `Disabled`. This setting only applies to Private Endpoints in the Subnet and affects all Private Endpoints in the Subnet.
+// > **Note:** If you don't want to use network policies like user-defined Routes and Network Security Groups, you need to set `privateEndpointNetworkPolicies` in the subnet to `Disabled`. This setting only applies to Private Endpoints in the Subnet and affects all Private Endpoints in the Subnet.
 //
-// > **NOTE:** If you want to use network policies like user-defined Routes and Network Security Groups, you need to set the `privateEndpointNetworkPolicies` in the Subnet to `Enabled`/`NetworkSecurityGroupEnabled`/`RouteTableEnabled`. This setting only applies to Private Endpoints in the Subnet and affects all Private Endpoints in the Subnet.
+// > **Note:** If you want to use network policies like user-defined Routes and Network Security Groups, you need to set the `privateEndpointNetworkPolicies` in the Subnet to `Enabled`/`NetworkSecurityGroupEnabled`/`RouteTableEnabled`. This setting only applies to Private Endpoints in the Subnet and affects all Private Endpoints in the Subnet.
 //
-// > **NOTE:** See more details from [Manage network policies for Private Endpoints](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-endpoint-network-policy?tabs=network-policy-portal).
+// > **Note:** See more details from [Manage network policies for Private Endpoints](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-endpoint-network-policy?tabs=network-policy-portal).
 func (o VirtualNetworkSubnetOutput) PrivateEndpointNetworkPolicies() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualNetworkSubnet) *string { return v.PrivateEndpointNetworkPolicies }).(pulumi.StringPtrOutput)
 }
 
 // Enable or Disable network policies for the private link service on the subnet. Defaults to `true`.
 //
-// > **NOTE:** When configuring Azure Private Link service, the explicit setting `privateLinkServiceNetworkPoliciesEnabled` must be set to `false` in the subnet since Private Link Service does not support network policies like user-defined Routes and Network Security Groups. This setting only affects the Private Link service. For other resources in the subnet, access is controlled based on the Network Security Group which can be configured using the `network.SubnetNetworkSecurityGroupAssociation` resource. See more details from [Manage network policies for Private Link Services](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-link-service-network-policy?tabs=private-link-network-policy-powershell).
+// > **Note:** When configuring Azure Private Link service, the explicit setting `privateLinkServiceNetworkPoliciesEnabled` must be set to `false` in the subnet since Private Link Service does not support network policies like user-defined Routes and Network Security Groups. This setting only affects the Private Link service. For other resources in the subnet, access is controlled based on the Network Security Group which can be configured using the `network.SubnetNetworkSecurityGroupAssociation` resource. See more details from [Manage network policies for Private Link Services](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-link-service-network-policy?tabs=private-link-network-policy-powershell).
 func (o VirtualNetworkSubnetOutput) PrivateLinkServiceNetworkPoliciesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VirtualNetworkSubnet) *bool { return v.PrivateLinkServiceNetworkPoliciesEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -22672,7 +22787,7 @@ func (o VirtualNetworkSubnetDelegationPtrOutput) ServiceDelegation() VirtualNetw
 type VirtualNetworkSubnetDelegationServiceDelegation struct {
 	// A list of Actions which should be delegated. This list is specific to the service to delegate to. Possible values are `Microsoft.Network/networkinterfaces/*`, `Microsoft.Network/publicIPAddresses/join/action`, `Microsoft.Network/publicIPAddresses/read`, `Microsoft.Network/virtualNetworks/read`, `Microsoft.Network/virtualNetworks/subnets/action`, `Microsoft.Network/virtualNetworks/subnets/join/action`, `Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action`, and `Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action`.
 	//
-	// > **NOTE:** Azure may add default actions depending on the service delegation name and they can't be changed.
+	// > **Note:** Azure may add default actions depending on the service delegation name and they can't be changed.
 	Actions []string `pulumi:"actions"`
 	// The name of service to delegate to. Possible values are `GitHub.Network/networkSettings`, `Informatica.DataManagement/organizations`, `Microsoft.ApiManagement/service`, `Microsoft.Apollo/npu`, `Microsoft.App/environments`, `Microsoft.App/testClients`, `Microsoft.AVS/PrivateClouds`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureHostedService`, `Microsoft.BareMetal/AzureHPC`, `Microsoft.BareMetal/AzurePaymentHSM`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.BareMetal/MonitoringServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.CloudTest/hostedpools`, `Microsoft.CloudTest/images`, `Microsoft.CloudTest/pools`, `Microsoft.Codespaces/plans`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.ContainerService/managedClusters`, `Microsoft.ContainerService/TestClients`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/servers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.DelegatedNetwork/controller`, `Microsoft.DevCenter/networkConnection`, `Microsoft.DevOpsInfrastructure/pools`, `Microsoft.DocumentDB/cassandraClusters`, `Microsoft.Fidalgo/networkSettings`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.LabServices/labplans`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.MachineLearningServices/workspaces`, `Microsoft.Netapp/volumes`, `Microsoft.Network/dnsResolvers`, `Microsoft.Network/managedResolvers`, `Microsoft.Network/fpgaNetworkInterfaces`, `Microsoft.Network/networkWatchers.`, `Microsoft.Network/virtualNetworkGateways`, `Microsoft.Orbital/orbitalGateways`, `Microsoft.PowerPlatform/enterprisePolicies`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.ServiceNetworking/trafficControllers`, `Microsoft.Singularity/accounts/networks`, `Microsoft.Singularity/accounts/npu`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/managedInstancesOnebox`, `Microsoft.Sql/managedInstancesStage`, `Microsoft.Sql/managedInstancesTest`, `Microsoft.Sql/servers`, `Microsoft.StoragePool/diskPools`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, `Microsoft.Web/serverFarms`, `NGINX.NGINXPLUS/nginxDeployments`, `PaloAltoNetworks.Cloudngfw/firewalls`, `Qumulo.Storage/fileSystems`, and `Oracle.Database/networkAttachments`.
 	Name string `pulumi:"name"`
@@ -22692,7 +22807,7 @@ type VirtualNetworkSubnetDelegationServiceDelegationInput interface {
 type VirtualNetworkSubnetDelegationServiceDelegationArgs struct {
 	// A list of Actions which should be delegated. This list is specific to the service to delegate to. Possible values are `Microsoft.Network/networkinterfaces/*`, `Microsoft.Network/publicIPAddresses/join/action`, `Microsoft.Network/publicIPAddresses/read`, `Microsoft.Network/virtualNetworks/read`, `Microsoft.Network/virtualNetworks/subnets/action`, `Microsoft.Network/virtualNetworks/subnets/join/action`, `Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action`, and `Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action`.
 	//
-	// > **NOTE:** Azure may add default actions depending on the service delegation name and they can't be changed.
+	// > **Note:** Azure may add default actions depending on the service delegation name and they can't be changed.
 	Actions pulumi.StringArrayInput `pulumi:"actions"`
 	// The name of service to delegate to. Possible values are `GitHub.Network/networkSettings`, `Informatica.DataManagement/organizations`, `Microsoft.ApiManagement/service`, `Microsoft.Apollo/npu`, `Microsoft.App/environments`, `Microsoft.App/testClients`, `Microsoft.AVS/PrivateClouds`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureHostedService`, `Microsoft.BareMetal/AzureHPC`, `Microsoft.BareMetal/AzurePaymentHSM`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.BareMetal/MonitoringServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.CloudTest/hostedpools`, `Microsoft.CloudTest/images`, `Microsoft.CloudTest/pools`, `Microsoft.Codespaces/plans`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.ContainerService/managedClusters`, `Microsoft.ContainerService/TestClients`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/servers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.DelegatedNetwork/controller`, `Microsoft.DevCenter/networkConnection`, `Microsoft.DevOpsInfrastructure/pools`, `Microsoft.DocumentDB/cassandraClusters`, `Microsoft.Fidalgo/networkSettings`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.LabServices/labplans`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.MachineLearningServices/workspaces`, `Microsoft.Netapp/volumes`, `Microsoft.Network/dnsResolvers`, `Microsoft.Network/managedResolvers`, `Microsoft.Network/fpgaNetworkInterfaces`, `Microsoft.Network/networkWatchers.`, `Microsoft.Network/virtualNetworkGateways`, `Microsoft.Orbital/orbitalGateways`, `Microsoft.PowerPlatform/enterprisePolicies`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.ServiceNetworking/trafficControllers`, `Microsoft.Singularity/accounts/networks`, `Microsoft.Singularity/accounts/npu`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/managedInstancesOnebox`, `Microsoft.Sql/managedInstancesStage`, `Microsoft.Sql/managedInstancesTest`, `Microsoft.Sql/servers`, `Microsoft.StoragePool/diskPools`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, `Microsoft.Web/serverFarms`, `NGINX.NGINXPLUS/nginxDeployments`, `PaloAltoNetworks.Cloudngfw/firewalls`, `Qumulo.Storage/fileSystems`, and `Oracle.Database/networkAttachments`.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -22777,7 +22892,7 @@ func (o VirtualNetworkSubnetDelegationServiceDelegationOutput) ToVirtualNetworkS
 
 // A list of Actions which should be delegated. This list is specific to the service to delegate to. Possible values are `Microsoft.Network/networkinterfaces/*`, `Microsoft.Network/publicIPAddresses/join/action`, `Microsoft.Network/publicIPAddresses/read`, `Microsoft.Network/virtualNetworks/read`, `Microsoft.Network/virtualNetworks/subnets/action`, `Microsoft.Network/virtualNetworks/subnets/join/action`, `Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action`, and `Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action`.
 //
-// > **NOTE:** Azure may add default actions depending on the service delegation name and they can't be changed.
+// > **Note:** Azure may add default actions depending on the service delegation name and they can't be changed.
 func (o VirtualNetworkSubnetDelegationServiceDelegationOutput) Actions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v VirtualNetworkSubnetDelegationServiceDelegation) []string { return v.Actions }).(pulumi.StringArrayOutput)
 }
@@ -22813,7 +22928,7 @@ func (o VirtualNetworkSubnetDelegationServiceDelegationPtrOutput) Elem() Virtual
 
 // A list of Actions which should be delegated. This list is specific to the service to delegate to. Possible values are `Microsoft.Network/networkinterfaces/*`, `Microsoft.Network/publicIPAddresses/join/action`, `Microsoft.Network/publicIPAddresses/read`, `Microsoft.Network/virtualNetworks/read`, `Microsoft.Network/virtualNetworks/subnets/action`, `Microsoft.Network/virtualNetworks/subnets/join/action`, `Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action`, and `Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action`.
 //
-// > **NOTE:** Azure may add default actions depending on the service delegation name and they can't be changed.
+// > **Note:** Azure may add default actions depending on the service delegation name and they can't be changed.
 func (o VirtualNetworkSubnetDelegationServiceDelegationPtrOutput) Actions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VirtualNetworkSubnetDelegationServiceDelegation) []string {
 		if v == nil {
@@ -24597,6 +24712,121 @@ func (o VpnGatewayConnectionVpnLinkIpsecPolicyArrayOutput) Index(i pulumi.IntInp
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VpnGatewayConnectionVpnLinkIpsecPolicy {
 		return vs[0].([]VpnGatewayConnectionVpnLinkIpsecPolicy)[vs[1].(int)]
 	}).(VpnGatewayConnectionVpnLinkIpsecPolicyOutput)
+}
+
+type VpnGatewayIpConfiguration struct {
+	// The identifier of the IP configuration for the VPN Gateway.
+	Id *string `pulumi:"id"`
+	// The private IP address of this IP configuration.
+	PrivateIpAddress *string `pulumi:"privateIpAddress"`
+	// The public IP address of this IP configuration.
+	PublicIpAddress *string `pulumi:"publicIpAddress"`
+}
+
+// VpnGatewayIpConfigurationInput is an input type that accepts VpnGatewayIpConfigurationArgs and VpnGatewayIpConfigurationOutput values.
+// You can construct a concrete instance of `VpnGatewayIpConfigurationInput` via:
+//
+//	VpnGatewayIpConfigurationArgs{...}
+type VpnGatewayIpConfigurationInput interface {
+	pulumi.Input
+
+	ToVpnGatewayIpConfigurationOutput() VpnGatewayIpConfigurationOutput
+	ToVpnGatewayIpConfigurationOutputWithContext(context.Context) VpnGatewayIpConfigurationOutput
+}
+
+type VpnGatewayIpConfigurationArgs struct {
+	// The identifier of the IP configuration for the VPN Gateway.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// The private IP address of this IP configuration.
+	PrivateIpAddress pulumi.StringPtrInput `pulumi:"privateIpAddress"`
+	// The public IP address of this IP configuration.
+	PublicIpAddress pulumi.StringPtrInput `pulumi:"publicIpAddress"`
+}
+
+func (VpnGatewayIpConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpnGatewayIpConfiguration)(nil)).Elem()
+}
+
+func (i VpnGatewayIpConfigurationArgs) ToVpnGatewayIpConfigurationOutput() VpnGatewayIpConfigurationOutput {
+	return i.ToVpnGatewayIpConfigurationOutputWithContext(context.Background())
+}
+
+func (i VpnGatewayIpConfigurationArgs) ToVpnGatewayIpConfigurationOutputWithContext(ctx context.Context) VpnGatewayIpConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpnGatewayIpConfigurationOutput)
+}
+
+// VpnGatewayIpConfigurationArrayInput is an input type that accepts VpnGatewayIpConfigurationArray and VpnGatewayIpConfigurationArrayOutput values.
+// You can construct a concrete instance of `VpnGatewayIpConfigurationArrayInput` via:
+//
+//	VpnGatewayIpConfigurationArray{ VpnGatewayIpConfigurationArgs{...} }
+type VpnGatewayIpConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToVpnGatewayIpConfigurationArrayOutput() VpnGatewayIpConfigurationArrayOutput
+	ToVpnGatewayIpConfigurationArrayOutputWithContext(context.Context) VpnGatewayIpConfigurationArrayOutput
+}
+
+type VpnGatewayIpConfigurationArray []VpnGatewayIpConfigurationInput
+
+func (VpnGatewayIpConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VpnGatewayIpConfiguration)(nil)).Elem()
+}
+
+func (i VpnGatewayIpConfigurationArray) ToVpnGatewayIpConfigurationArrayOutput() VpnGatewayIpConfigurationArrayOutput {
+	return i.ToVpnGatewayIpConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i VpnGatewayIpConfigurationArray) ToVpnGatewayIpConfigurationArrayOutputWithContext(ctx context.Context) VpnGatewayIpConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpnGatewayIpConfigurationArrayOutput)
+}
+
+type VpnGatewayIpConfigurationOutput struct{ *pulumi.OutputState }
+
+func (VpnGatewayIpConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpnGatewayIpConfiguration)(nil)).Elem()
+}
+
+func (o VpnGatewayIpConfigurationOutput) ToVpnGatewayIpConfigurationOutput() VpnGatewayIpConfigurationOutput {
+	return o
+}
+
+func (o VpnGatewayIpConfigurationOutput) ToVpnGatewayIpConfigurationOutputWithContext(ctx context.Context) VpnGatewayIpConfigurationOutput {
+	return o
+}
+
+// The identifier of the IP configuration for the VPN Gateway.
+func (o VpnGatewayIpConfigurationOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VpnGatewayIpConfiguration) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// The private IP address of this IP configuration.
+func (o VpnGatewayIpConfigurationOutput) PrivateIpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VpnGatewayIpConfiguration) *string { return v.PrivateIpAddress }).(pulumi.StringPtrOutput)
+}
+
+// The public IP address of this IP configuration.
+func (o VpnGatewayIpConfigurationOutput) PublicIpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VpnGatewayIpConfiguration) *string { return v.PublicIpAddress }).(pulumi.StringPtrOutput)
+}
+
+type VpnGatewayIpConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (VpnGatewayIpConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VpnGatewayIpConfiguration)(nil)).Elem()
+}
+
+func (o VpnGatewayIpConfigurationArrayOutput) ToVpnGatewayIpConfigurationArrayOutput() VpnGatewayIpConfigurationArrayOutput {
+	return o
+}
+
+func (o VpnGatewayIpConfigurationArrayOutput) ToVpnGatewayIpConfigurationArrayOutputWithContext(ctx context.Context) VpnGatewayIpConfigurationArrayOutput {
+	return o
+}
+
+func (o VpnGatewayIpConfigurationArrayOutput) Index(i pulumi.IntInput) VpnGatewayIpConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VpnGatewayIpConfiguration {
+		return vs[0].([]VpnGatewayIpConfiguration)[vs[1].(int)]
+	}).(VpnGatewayIpConfigurationOutput)
 }
 
 type VpnServerConfigurationAzureActiveDirectoryAuthentication struct {
@@ -36398,6 +36628,121 @@ func (o GetVpnGatewayBgpSettingInstance1BgpPeeringAddressArrayOutput) Index(i pu
 	}).(GetVpnGatewayBgpSettingInstance1BgpPeeringAddressOutput)
 }
 
+type GetVpnGatewayIpConfiguration struct {
+	// The identifier of the IP configuration for the VPN Gateway.
+	Id string `pulumi:"id"`
+	// The private IP address of this IP configuration.
+	PrivateIpAddress string `pulumi:"privateIpAddress"`
+	// The public IP address of this IP configuration.
+	PublicIpAddress string `pulumi:"publicIpAddress"`
+}
+
+// GetVpnGatewayIpConfigurationInput is an input type that accepts GetVpnGatewayIpConfigurationArgs and GetVpnGatewayIpConfigurationOutput values.
+// You can construct a concrete instance of `GetVpnGatewayIpConfigurationInput` via:
+//
+//	GetVpnGatewayIpConfigurationArgs{...}
+type GetVpnGatewayIpConfigurationInput interface {
+	pulumi.Input
+
+	ToGetVpnGatewayIpConfigurationOutput() GetVpnGatewayIpConfigurationOutput
+	ToGetVpnGatewayIpConfigurationOutputWithContext(context.Context) GetVpnGatewayIpConfigurationOutput
+}
+
+type GetVpnGatewayIpConfigurationArgs struct {
+	// The identifier of the IP configuration for the VPN Gateway.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The private IP address of this IP configuration.
+	PrivateIpAddress pulumi.StringInput `pulumi:"privateIpAddress"`
+	// The public IP address of this IP configuration.
+	PublicIpAddress pulumi.StringInput `pulumi:"publicIpAddress"`
+}
+
+func (GetVpnGatewayIpConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVpnGatewayIpConfiguration)(nil)).Elem()
+}
+
+func (i GetVpnGatewayIpConfigurationArgs) ToGetVpnGatewayIpConfigurationOutput() GetVpnGatewayIpConfigurationOutput {
+	return i.ToGetVpnGatewayIpConfigurationOutputWithContext(context.Background())
+}
+
+func (i GetVpnGatewayIpConfigurationArgs) ToGetVpnGatewayIpConfigurationOutputWithContext(ctx context.Context) GetVpnGatewayIpConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVpnGatewayIpConfigurationOutput)
+}
+
+// GetVpnGatewayIpConfigurationArrayInput is an input type that accepts GetVpnGatewayIpConfigurationArray and GetVpnGatewayIpConfigurationArrayOutput values.
+// You can construct a concrete instance of `GetVpnGatewayIpConfigurationArrayInput` via:
+//
+//	GetVpnGatewayIpConfigurationArray{ GetVpnGatewayIpConfigurationArgs{...} }
+type GetVpnGatewayIpConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToGetVpnGatewayIpConfigurationArrayOutput() GetVpnGatewayIpConfigurationArrayOutput
+	ToGetVpnGatewayIpConfigurationArrayOutputWithContext(context.Context) GetVpnGatewayIpConfigurationArrayOutput
+}
+
+type GetVpnGatewayIpConfigurationArray []GetVpnGatewayIpConfigurationInput
+
+func (GetVpnGatewayIpConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVpnGatewayIpConfiguration)(nil)).Elem()
+}
+
+func (i GetVpnGatewayIpConfigurationArray) ToGetVpnGatewayIpConfigurationArrayOutput() GetVpnGatewayIpConfigurationArrayOutput {
+	return i.ToGetVpnGatewayIpConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i GetVpnGatewayIpConfigurationArray) ToGetVpnGatewayIpConfigurationArrayOutputWithContext(ctx context.Context) GetVpnGatewayIpConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVpnGatewayIpConfigurationArrayOutput)
+}
+
+type GetVpnGatewayIpConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GetVpnGatewayIpConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVpnGatewayIpConfiguration)(nil)).Elem()
+}
+
+func (o GetVpnGatewayIpConfigurationOutput) ToGetVpnGatewayIpConfigurationOutput() GetVpnGatewayIpConfigurationOutput {
+	return o
+}
+
+func (o GetVpnGatewayIpConfigurationOutput) ToGetVpnGatewayIpConfigurationOutputWithContext(ctx context.Context) GetVpnGatewayIpConfigurationOutput {
+	return o
+}
+
+// The identifier of the IP configuration for the VPN Gateway.
+func (o GetVpnGatewayIpConfigurationOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVpnGatewayIpConfiguration) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The private IP address of this IP configuration.
+func (o GetVpnGatewayIpConfigurationOutput) PrivateIpAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVpnGatewayIpConfiguration) string { return v.PrivateIpAddress }).(pulumi.StringOutput)
+}
+
+// The public IP address of this IP configuration.
+func (o GetVpnGatewayIpConfigurationOutput) PublicIpAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVpnGatewayIpConfiguration) string { return v.PublicIpAddress }).(pulumi.StringOutput)
+}
+
+type GetVpnGatewayIpConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVpnGatewayIpConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVpnGatewayIpConfiguration)(nil)).Elem()
+}
+
+func (o GetVpnGatewayIpConfigurationArrayOutput) ToGetVpnGatewayIpConfigurationArrayOutput() GetVpnGatewayIpConfigurationArrayOutput {
+	return o
+}
+
+func (o GetVpnGatewayIpConfigurationArrayOutput) ToGetVpnGatewayIpConfigurationArrayOutputWithContext(ctx context.Context) GetVpnGatewayIpConfigurationArrayOutput {
+	return o
+}
+
+func (o GetVpnGatewayIpConfigurationArrayOutput) Index(i pulumi.IntInput) GetVpnGatewayIpConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVpnGatewayIpConfiguration {
+		return vs[0].([]GetVpnGatewayIpConfiguration)[vs[1].(int)]
+	}).(GetVpnGatewayIpConfigurationOutput)
+}
+
 type GetVpnServerConfigurationAzureActiveDirectoryAuthentication struct {
 	// The Audience which should be used for authentication.
 	Audience string `pulumi:"audience"`
@@ -37616,6 +37961,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNetworkGatewayVpnClientConfigurationRootCertificateArrayInput)(nil)).Elem(), VirtualNetworkGatewayVpnClientConfigurationRootCertificateArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionInput)(nil)).Elem(), VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionArrayInput)(nil)).Elem(), VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNetworkIpAddressPoolInput)(nil)).Elem(), VirtualNetworkIpAddressPoolArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNetworkIpAddressPoolArrayInput)(nil)).Elem(), VirtualNetworkIpAddressPoolArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNetworkSubnetInput)(nil)).Elem(), VirtualNetworkSubnetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNetworkSubnetArrayInput)(nil)).Elem(), VirtualNetworkSubnetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNetworkSubnetDelegationInput)(nil)).Elem(), VirtualNetworkSubnetDelegationArgs{})
@@ -37644,6 +37991,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VpnGatewayConnectionVpnLinkCustomBgpAddressArrayInput)(nil)).Elem(), VpnGatewayConnectionVpnLinkCustomBgpAddressArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpnGatewayConnectionVpnLinkIpsecPolicyInput)(nil)).Elem(), VpnGatewayConnectionVpnLinkIpsecPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpnGatewayConnectionVpnLinkIpsecPolicyArrayInput)(nil)).Elem(), VpnGatewayConnectionVpnLinkIpsecPolicyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpnGatewayIpConfigurationInput)(nil)).Elem(), VpnGatewayIpConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpnGatewayIpConfigurationArrayInput)(nil)).Elem(), VpnGatewayIpConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpnServerConfigurationAzureActiveDirectoryAuthenticationInput)(nil)).Elem(), VpnServerConfigurationAzureActiveDirectoryAuthenticationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpnServerConfigurationAzureActiveDirectoryAuthenticationArrayInput)(nil)).Elem(), VpnServerConfigurationAzureActiveDirectoryAuthenticationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpnServerConfigurationClientRevokedCertificateInput)(nil)).Elem(), VpnServerConfigurationClientRevokedCertificateArgs{})
@@ -37819,6 +38168,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpnGatewayBgpSettingInstance0BgpPeeringAddressArrayInput)(nil)).Elem(), GetVpnGatewayBgpSettingInstance0BgpPeeringAddressArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpnGatewayBgpSettingInstance1BgpPeeringAddressInput)(nil)).Elem(), GetVpnGatewayBgpSettingInstance1BgpPeeringAddressArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpnGatewayBgpSettingInstance1BgpPeeringAddressArrayInput)(nil)).Elem(), GetVpnGatewayBgpSettingInstance1BgpPeeringAddressArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVpnGatewayIpConfigurationInput)(nil)).Elem(), GetVpnGatewayIpConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVpnGatewayIpConfigurationArrayInput)(nil)).Elem(), GetVpnGatewayIpConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpnServerConfigurationAzureActiveDirectoryAuthenticationInput)(nil)).Elem(), GetVpnServerConfigurationAzureActiveDirectoryAuthenticationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpnServerConfigurationAzureActiveDirectoryAuthenticationArrayInput)(nil)).Elem(), GetVpnServerConfigurationAzureActiveDirectoryAuthenticationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpnServerConfigurationClientRevokedCertificateInput)(nil)).Elem(), GetVpnServerConfigurationClientRevokedCertificateArgs{})
@@ -38119,6 +38470,8 @@ func init() {
 	pulumi.RegisterOutputType(VirtualNetworkGatewayVpnClientConfigurationRootCertificateArrayOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionArrayOutput{})
+	pulumi.RegisterOutputType(VirtualNetworkIpAddressPoolOutput{})
+	pulumi.RegisterOutputType(VirtualNetworkIpAddressPoolArrayOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkSubnetOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkSubnetArrayOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkSubnetDelegationOutput{})
@@ -38147,6 +38500,8 @@ func init() {
 	pulumi.RegisterOutputType(VpnGatewayConnectionVpnLinkCustomBgpAddressArrayOutput{})
 	pulumi.RegisterOutputType(VpnGatewayConnectionVpnLinkIpsecPolicyOutput{})
 	pulumi.RegisterOutputType(VpnGatewayConnectionVpnLinkIpsecPolicyArrayOutput{})
+	pulumi.RegisterOutputType(VpnGatewayIpConfigurationOutput{})
+	pulumi.RegisterOutputType(VpnGatewayIpConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(VpnServerConfigurationAzureActiveDirectoryAuthenticationOutput{})
 	pulumi.RegisterOutputType(VpnServerConfigurationAzureActiveDirectoryAuthenticationArrayOutput{})
 	pulumi.RegisterOutputType(VpnServerConfigurationClientRevokedCertificateOutput{})
@@ -38322,6 +38677,8 @@ func init() {
 	pulumi.RegisterOutputType(GetVpnGatewayBgpSettingInstance0BgpPeeringAddressArrayOutput{})
 	pulumi.RegisterOutputType(GetVpnGatewayBgpSettingInstance1BgpPeeringAddressOutput{})
 	pulumi.RegisterOutputType(GetVpnGatewayBgpSettingInstance1BgpPeeringAddressArrayOutput{})
+	pulumi.RegisterOutputType(GetVpnGatewayIpConfigurationOutput{})
+	pulumi.RegisterOutputType(GetVpnGatewayIpConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(GetVpnServerConfigurationAzureActiveDirectoryAuthenticationOutput{})
 	pulumi.RegisterOutputType(GetVpnServerConfigurationAzureActiveDirectoryAuthenticationArrayOutput{})
 	pulumi.RegisterOutputType(GetVpnServerConfigurationClientRevokedCertificateOutput{})

@@ -144,6 +144,10 @@ export class ManagedCluster extends pulumi.CustomResource {
      */
     public readonly sku!: pulumi.Output<string | undefined>;
     /**
+     * The resource ID of the Subnet. Changing this forces a new Resource Group to be created.
+     */
+    public readonly subnetId!: pulumi.Output<string | undefined>;
+    /**
      * A mapping of tags which should be assigned to the Resource Group.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -183,6 +187,7 @@ export class ManagedCluster extends pulumi.CustomResource {
             resourceInputs["password"] = state ? state.password : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["sku"] = state ? state.sku : undefined;
+            resourceInputs["subnetId"] = state ? state.subnetId : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["upgradeWave"] = state ? state.upgradeWave : undefined;
             resourceInputs["username"] = state ? state.username : undefined;
@@ -214,6 +219,7 @@ export class ManagedCluster extends pulumi.CustomResource {
             resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["upgradeWave"] = args ? args.upgradeWave : undefined;
             resourceInputs["username"] = args ? args.username : undefined;
@@ -285,6 +291,10 @@ export interface ManagedClusterState {
      * SKU for this cluster. Changing this forces a new resource to be created. Default is `Basic`, allowed values are either `Basic` or `Standard`.
      */
     sku?: pulumi.Input<string>;
+    /**
+     * The resource ID of the Subnet. Changing this forces a new Resource Group to be created.
+     */
+    subnetId?: pulumi.Input<string>;
     /**
      * A mapping of tags which should be assigned to the Resource Group.
      */
@@ -359,6 +369,10 @@ export interface ManagedClusterArgs {
      * SKU for this cluster. Changing this forces a new resource to be created. Default is `Basic`, allowed values are either `Basic` or `Standard`.
      */
     sku?: pulumi.Input<string>;
+    /**
+     * The resource ID of the Subnet. Changing this forces a new Resource Group to be created.
+     */
+    subnetId?: pulumi.Input<string>;
     /**
      * A mapping of tags which should be assigned to the Resource Group.
      */

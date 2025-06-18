@@ -11397,7 +11397,7 @@ type FrontdoorRuleConditionsUrlPathCondition struct {
 	MatchValues []string `pulumi:"matchValues"`
 	// If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
 	NegateCondition *bool `pulumi:"negateCondition"`
-	// A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+	// A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual`, `RegEx` or `Wildcard`. Details can be found in the `Condition Operator List` below.
 	Operator string `pulumi:"operator"`
 	// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Details can be found in the `Condition Transform List` below.
 	Transforms []string `pulumi:"transforms"`
@@ -11419,7 +11419,7 @@ type FrontdoorRuleConditionsUrlPathConditionArgs struct {
 	MatchValues pulumi.StringArrayInput `pulumi:"matchValues"`
 	// If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
 	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
-	// A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+	// A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual`, `RegEx` or `Wildcard`. Details can be found in the `Condition Operator List` below.
 	Operator pulumi.StringInput `pulumi:"operator"`
 	// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Details can be found in the `Condition Transform List` below.
 	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
@@ -11486,7 +11486,7 @@ func (o FrontdoorRuleConditionsUrlPathConditionOutput) NegateCondition() pulumi.
 	return o.ApplyT(func(v FrontdoorRuleConditionsUrlPathCondition) *bool { return v.NegateCondition }).(pulumi.BoolPtrOutput)
 }
 
-// A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+// A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual`, `RegEx` or `Wildcard`. Details can be found in the `Condition Operator List` below.
 func (o FrontdoorRuleConditionsUrlPathConditionOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v FrontdoorRuleConditionsUrlPathCondition) string { return v.Operator }).(pulumi.StringOutput)
 }

@@ -296,6 +296,13 @@ class AadDiagnosticSetting(pulumi.CustomResource):
             ])
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.AADIAM`: 2017-04-01
+
         ## Import
 
         Monitor Azure Active Directory Diagnostic Settings can be imported using the `resource id`, e.g.
@@ -362,6 +369,13 @@ class AadDiagnosticSetting(pulumi.CustomResource):
                 },
             ])
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.AADIAM`: 2017-04-01
 
         ## Import
 

@@ -35,6 +35,13 @@ namespace Pulumi.Azure.SecurityCenter
     /// });
     /// ```
     /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.Security`: 2022-05-01
+    /// 
     /// ## Import
     /// 
     /// The setting can be imported using the `resource id`, e.g.

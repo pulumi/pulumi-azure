@@ -317,6 +317,13 @@ class NatGateway(pulumi.CustomResource):
 
         For more complete examples, please see the network.NatGatewayPublicIpAssociation and network.NatGatewayPublicIpPrefixAssociation resources.
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network`: 2024-05-01
+
         ## Import
 
         NAT Gateway can be imported using the `resource id`, e.g.
@@ -365,6 +372,13 @@ class NatGateway(pulumi.CustomResource):
         ```
 
         For more complete examples, please see the network.NatGatewayPublicIpAssociation and network.NatGatewayPublicIpPrefixAssociation resources.
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network`: 2024-05-01
 
         ## Import
 

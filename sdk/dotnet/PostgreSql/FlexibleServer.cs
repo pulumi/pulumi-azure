@@ -195,7 +195,7 @@ namespace Pulumi.Azure.PostgreSql
         public Output<int> BackupRetentionDays { get; private set; } = null!;
 
         /// <summary>
-        /// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica` and `Update`.
+        /// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica`, `ReviveDropped` and `Update`.
         /// </summary>
         [Output("createMode")]
         public Output<string?> CreateMode { get; private set; } = null!;
@@ -442,7 +442,7 @@ namespace Pulumi.Azure.PostgreSql
         public Input<int>? BackupRetentionDays { get; set; }
 
         /// <summary>
-        /// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica` and `Update`.
+        /// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica`, `ReviveDropped` and `Update`.
         /// </summary>
         [Input("createMode")]
         public Input<string>? CreateMode { get; set; }
@@ -647,7 +647,7 @@ namespace Pulumi.Azure.PostgreSql
         public Input<int>? BackupRetentionDays { get; set; }
 
         /// <summary>
-        /// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica` and `Update`.
+        /// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica`, `ReviveDropped` and `Update`.
         /// </summary>
         [Input("createMode")]
         public Input<string>? CreateMode { get; set; }

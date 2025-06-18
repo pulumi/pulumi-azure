@@ -2055,6 +2055,8 @@ func (o VolumeExportPolicyRuleArrayOutput) Index(i pulumi.IntInput) VolumeExport
 type VolumeGroupOracleVolume struct {
 	// The ID of the Capacity Pool. Changing this forces a new Application Volume Group to be created and data will be lost.
 	CapacityPoolId string `pulumi:"capacityPoolId"`
+	// A `dataProtectionReplication` block as defined below. Changing this forces a new Application Volume Group to be created and data will be lost.
+	DataProtectionReplication *VolumeGroupOracleVolumeDataProtectionReplication `pulumi:"dataProtectionReplication"`
 	// A `dataProtectionSnapshotPolicy` block as defined below.
 	DataProtectionSnapshotPolicy *VolumeGroupOracleVolumeDataProtectionSnapshotPolicy `pulumi:"dataProtectionSnapshotPolicy"`
 	// The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `keyVaultPrivateEndpointId`. Changing this forces a new resource to be created.
@@ -2112,6 +2114,8 @@ type VolumeGroupOracleVolumeInput interface {
 type VolumeGroupOracleVolumeArgs struct {
 	// The ID of the Capacity Pool. Changing this forces a new Application Volume Group to be created and data will be lost.
 	CapacityPoolId pulumi.StringInput `pulumi:"capacityPoolId"`
+	// A `dataProtectionReplication` block as defined below. Changing this forces a new Application Volume Group to be created and data will be lost.
+	DataProtectionReplication VolumeGroupOracleVolumeDataProtectionReplicationPtrInput `pulumi:"dataProtectionReplication"`
 	// A `dataProtectionSnapshotPolicy` block as defined below.
 	DataProtectionSnapshotPolicy VolumeGroupOracleVolumeDataProtectionSnapshotPolicyPtrInput `pulumi:"dataProtectionSnapshotPolicy"`
 	// The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `keyVaultPrivateEndpointId`. Changing this forces a new resource to be created.
@@ -2209,6 +2213,13 @@ func (o VolumeGroupOracleVolumeOutput) ToVolumeGroupOracleVolumeOutputWithContex
 // The ID of the Capacity Pool. Changing this forces a new Application Volume Group to be created and data will be lost.
 func (o VolumeGroupOracleVolumeOutput) CapacityPoolId() pulumi.StringOutput {
 	return o.ApplyT(func(v VolumeGroupOracleVolume) string { return v.CapacityPoolId }).(pulumi.StringOutput)
+}
+
+// A `dataProtectionReplication` block as defined below. Changing this forces a new Application Volume Group to be created and data will be lost.
+func (o VolumeGroupOracleVolumeOutput) DataProtectionReplication() VolumeGroupOracleVolumeDataProtectionReplicationPtrOutput {
+	return o.ApplyT(func(v VolumeGroupOracleVolume) *VolumeGroupOracleVolumeDataProtectionReplication {
+		return v.DataProtectionReplication
+	}).(VolumeGroupOracleVolumeDataProtectionReplicationPtrOutput)
 }
 
 // A `dataProtectionSnapshotPolicy` block as defined below.
@@ -2332,6 +2343,200 @@ func (o VolumeGroupOracleVolumeArrayOutput) Index(i pulumi.IntInput) VolumeGroup
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VolumeGroupOracleVolume {
 		return vs[0].([]VolumeGroupOracleVolume)[vs[1].(int)]
 	}).(VolumeGroupOracleVolumeOutput)
+}
+
+type VolumeGroupOracleVolumeDataProtectionReplication struct {
+	// The endpoint type. Possible values are `dst` and `src`. Defaults to `dst`. Changing this forces a new Application Volume Group to be created and data will be lost.
+	EndpointType *string `pulumi:"endpointType"`
+	// Location of the primary volume. Changing this forces a new Application Volume Group to be created and data will be lost.
+	RemoteVolumeLocation string `pulumi:"remoteVolumeLocation"`
+	// Resource ID of the primary volume. Changing this forces a new Application Volume Group to be created and data will be lost.
+	RemoteVolumeResourceId string `pulumi:"remoteVolumeResourceId"`
+	// Replication frequency. Possible values are `10minutes`, `daily` and `hourly`. Changing this forces a new Application Volume Group to be created and data will be lost.
+	ReplicationFrequency string `pulumi:"replicationFrequency"`
+}
+
+// VolumeGroupOracleVolumeDataProtectionReplicationInput is an input type that accepts VolumeGroupOracleVolumeDataProtectionReplicationArgs and VolumeGroupOracleVolumeDataProtectionReplicationOutput values.
+// You can construct a concrete instance of `VolumeGroupOracleVolumeDataProtectionReplicationInput` via:
+//
+//	VolumeGroupOracleVolumeDataProtectionReplicationArgs{...}
+type VolumeGroupOracleVolumeDataProtectionReplicationInput interface {
+	pulumi.Input
+
+	ToVolumeGroupOracleVolumeDataProtectionReplicationOutput() VolumeGroupOracleVolumeDataProtectionReplicationOutput
+	ToVolumeGroupOracleVolumeDataProtectionReplicationOutputWithContext(context.Context) VolumeGroupOracleVolumeDataProtectionReplicationOutput
+}
+
+type VolumeGroupOracleVolumeDataProtectionReplicationArgs struct {
+	// The endpoint type. Possible values are `dst` and `src`. Defaults to `dst`. Changing this forces a new Application Volume Group to be created and data will be lost.
+	EndpointType pulumi.StringPtrInput `pulumi:"endpointType"`
+	// Location of the primary volume. Changing this forces a new Application Volume Group to be created and data will be lost.
+	RemoteVolumeLocation pulumi.StringInput `pulumi:"remoteVolumeLocation"`
+	// Resource ID of the primary volume. Changing this forces a new Application Volume Group to be created and data will be lost.
+	RemoteVolumeResourceId pulumi.StringInput `pulumi:"remoteVolumeResourceId"`
+	// Replication frequency. Possible values are `10minutes`, `daily` and `hourly`. Changing this forces a new Application Volume Group to be created and data will be lost.
+	ReplicationFrequency pulumi.StringInput `pulumi:"replicationFrequency"`
+}
+
+func (VolumeGroupOracleVolumeDataProtectionReplicationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeGroupOracleVolumeDataProtectionReplication)(nil)).Elem()
+}
+
+func (i VolumeGroupOracleVolumeDataProtectionReplicationArgs) ToVolumeGroupOracleVolumeDataProtectionReplicationOutput() VolumeGroupOracleVolumeDataProtectionReplicationOutput {
+	return i.ToVolumeGroupOracleVolumeDataProtectionReplicationOutputWithContext(context.Background())
+}
+
+func (i VolumeGroupOracleVolumeDataProtectionReplicationArgs) ToVolumeGroupOracleVolumeDataProtectionReplicationOutputWithContext(ctx context.Context) VolumeGroupOracleVolumeDataProtectionReplicationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeGroupOracleVolumeDataProtectionReplicationOutput)
+}
+
+func (i VolumeGroupOracleVolumeDataProtectionReplicationArgs) ToVolumeGroupOracleVolumeDataProtectionReplicationPtrOutput() VolumeGroupOracleVolumeDataProtectionReplicationPtrOutput {
+	return i.ToVolumeGroupOracleVolumeDataProtectionReplicationPtrOutputWithContext(context.Background())
+}
+
+func (i VolumeGroupOracleVolumeDataProtectionReplicationArgs) ToVolumeGroupOracleVolumeDataProtectionReplicationPtrOutputWithContext(ctx context.Context) VolumeGroupOracleVolumeDataProtectionReplicationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeGroupOracleVolumeDataProtectionReplicationOutput).ToVolumeGroupOracleVolumeDataProtectionReplicationPtrOutputWithContext(ctx)
+}
+
+// VolumeGroupOracleVolumeDataProtectionReplicationPtrInput is an input type that accepts VolumeGroupOracleVolumeDataProtectionReplicationArgs, VolumeGroupOracleVolumeDataProtectionReplicationPtr and VolumeGroupOracleVolumeDataProtectionReplicationPtrOutput values.
+// You can construct a concrete instance of `VolumeGroupOracleVolumeDataProtectionReplicationPtrInput` via:
+//
+//	        VolumeGroupOracleVolumeDataProtectionReplicationArgs{...}
+//
+//	or:
+//
+//	        nil
+type VolumeGroupOracleVolumeDataProtectionReplicationPtrInput interface {
+	pulumi.Input
+
+	ToVolumeGroupOracleVolumeDataProtectionReplicationPtrOutput() VolumeGroupOracleVolumeDataProtectionReplicationPtrOutput
+	ToVolumeGroupOracleVolumeDataProtectionReplicationPtrOutputWithContext(context.Context) VolumeGroupOracleVolumeDataProtectionReplicationPtrOutput
+}
+
+type volumeGroupOracleVolumeDataProtectionReplicationPtrType VolumeGroupOracleVolumeDataProtectionReplicationArgs
+
+func VolumeGroupOracleVolumeDataProtectionReplicationPtr(v *VolumeGroupOracleVolumeDataProtectionReplicationArgs) VolumeGroupOracleVolumeDataProtectionReplicationPtrInput {
+	return (*volumeGroupOracleVolumeDataProtectionReplicationPtrType)(v)
+}
+
+func (*volumeGroupOracleVolumeDataProtectionReplicationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VolumeGroupOracleVolumeDataProtectionReplication)(nil)).Elem()
+}
+
+func (i *volumeGroupOracleVolumeDataProtectionReplicationPtrType) ToVolumeGroupOracleVolumeDataProtectionReplicationPtrOutput() VolumeGroupOracleVolumeDataProtectionReplicationPtrOutput {
+	return i.ToVolumeGroupOracleVolumeDataProtectionReplicationPtrOutputWithContext(context.Background())
+}
+
+func (i *volumeGroupOracleVolumeDataProtectionReplicationPtrType) ToVolumeGroupOracleVolumeDataProtectionReplicationPtrOutputWithContext(ctx context.Context) VolumeGroupOracleVolumeDataProtectionReplicationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeGroupOracleVolumeDataProtectionReplicationPtrOutput)
+}
+
+type VolumeGroupOracleVolumeDataProtectionReplicationOutput struct{ *pulumi.OutputState }
+
+func (VolumeGroupOracleVolumeDataProtectionReplicationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeGroupOracleVolumeDataProtectionReplication)(nil)).Elem()
+}
+
+func (o VolumeGroupOracleVolumeDataProtectionReplicationOutput) ToVolumeGroupOracleVolumeDataProtectionReplicationOutput() VolumeGroupOracleVolumeDataProtectionReplicationOutput {
+	return o
+}
+
+func (o VolumeGroupOracleVolumeDataProtectionReplicationOutput) ToVolumeGroupOracleVolumeDataProtectionReplicationOutputWithContext(ctx context.Context) VolumeGroupOracleVolumeDataProtectionReplicationOutput {
+	return o
+}
+
+func (o VolumeGroupOracleVolumeDataProtectionReplicationOutput) ToVolumeGroupOracleVolumeDataProtectionReplicationPtrOutput() VolumeGroupOracleVolumeDataProtectionReplicationPtrOutput {
+	return o.ToVolumeGroupOracleVolumeDataProtectionReplicationPtrOutputWithContext(context.Background())
+}
+
+func (o VolumeGroupOracleVolumeDataProtectionReplicationOutput) ToVolumeGroupOracleVolumeDataProtectionReplicationPtrOutputWithContext(ctx context.Context) VolumeGroupOracleVolumeDataProtectionReplicationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VolumeGroupOracleVolumeDataProtectionReplication) *VolumeGroupOracleVolumeDataProtectionReplication {
+		return &v
+	}).(VolumeGroupOracleVolumeDataProtectionReplicationPtrOutput)
+}
+
+// The endpoint type. Possible values are `dst` and `src`. Defaults to `dst`. Changing this forces a new Application Volume Group to be created and data will be lost.
+func (o VolumeGroupOracleVolumeDataProtectionReplicationOutput) EndpointType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeGroupOracleVolumeDataProtectionReplication) *string { return v.EndpointType }).(pulumi.StringPtrOutput)
+}
+
+// Location of the primary volume. Changing this forces a new Application Volume Group to be created and data will be lost.
+func (o VolumeGroupOracleVolumeDataProtectionReplicationOutput) RemoteVolumeLocation() pulumi.StringOutput {
+	return o.ApplyT(func(v VolumeGroupOracleVolumeDataProtectionReplication) string { return v.RemoteVolumeLocation }).(pulumi.StringOutput)
+}
+
+// Resource ID of the primary volume. Changing this forces a new Application Volume Group to be created and data will be lost.
+func (o VolumeGroupOracleVolumeDataProtectionReplicationOutput) RemoteVolumeResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v VolumeGroupOracleVolumeDataProtectionReplication) string { return v.RemoteVolumeResourceId }).(pulumi.StringOutput)
+}
+
+// Replication frequency. Possible values are `10minutes`, `daily` and `hourly`. Changing this forces a new Application Volume Group to be created and data will be lost.
+func (o VolumeGroupOracleVolumeDataProtectionReplicationOutput) ReplicationFrequency() pulumi.StringOutput {
+	return o.ApplyT(func(v VolumeGroupOracleVolumeDataProtectionReplication) string { return v.ReplicationFrequency }).(pulumi.StringOutput)
+}
+
+type VolumeGroupOracleVolumeDataProtectionReplicationPtrOutput struct{ *pulumi.OutputState }
+
+func (VolumeGroupOracleVolumeDataProtectionReplicationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VolumeGroupOracleVolumeDataProtectionReplication)(nil)).Elem()
+}
+
+func (o VolumeGroupOracleVolumeDataProtectionReplicationPtrOutput) ToVolumeGroupOracleVolumeDataProtectionReplicationPtrOutput() VolumeGroupOracleVolumeDataProtectionReplicationPtrOutput {
+	return o
+}
+
+func (o VolumeGroupOracleVolumeDataProtectionReplicationPtrOutput) ToVolumeGroupOracleVolumeDataProtectionReplicationPtrOutputWithContext(ctx context.Context) VolumeGroupOracleVolumeDataProtectionReplicationPtrOutput {
+	return o
+}
+
+func (o VolumeGroupOracleVolumeDataProtectionReplicationPtrOutput) Elem() VolumeGroupOracleVolumeDataProtectionReplicationOutput {
+	return o.ApplyT(func(v *VolumeGroupOracleVolumeDataProtectionReplication) VolumeGroupOracleVolumeDataProtectionReplication {
+		if v != nil {
+			return *v
+		}
+		var ret VolumeGroupOracleVolumeDataProtectionReplication
+		return ret
+	}).(VolumeGroupOracleVolumeDataProtectionReplicationOutput)
+}
+
+// The endpoint type. Possible values are `dst` and `src`. Defaults to `dst`. Changing this forces a new Application Volume Group to be created and data will be lost.
+func (o VolumeGroupOracleVolumeDataProtectionReplicationPtrOutput) EndpointType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VolumeGroupOracleVolumeDataProtectionReplication) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EndpointType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Location of the primary volume. Changing this forces a new Application Volume Group to be created and data will be lost.
+func (o VolumeGroupOracleVolumeDataProtectionReplicationPtrOutput) RemoteVolumeLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VolumeGroupOracleVolumeDataProtectionReplication) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RemoteVolumeLocation
+	}).(pulumi.StringPtrOutput)
+}
+
+// Resource ID of the primary volume. Changing this forces a new Application Volume Group to be created and data will be lost.
+func (o VolumeGroupOracleVolumeDataProtectionReplicationPtrOutput) RemoteVolumeResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VolumeGroupOracleVolumeDataProtectionReplication) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RemoteVolumeResourceId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Replication frequency. Possible values are `10minutes`, `daily` and `hourly`. Changing this forces a new Application Volume Group to be created and data will be lost.
+func (o VolumeGroupOracleVolumeDataProtectionReplicationPtrOutput) ReplicationFrequency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VolumeGroupOracleVolumeDataProtectionReplication) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ReplicationFrequency
+	}).(pulumi.StringPtrOutput)
 }
 
 type VolumeGroupOracleVolumeDataProtectionSnapshotPolicy struct {
@@ -2876,13 +3081,13 @@ func (o VolumeGroupSapHanaVolumeArrayOutput) Index(i pulumi.IntInput) VolumeGrou
 }
 
 type VolumeGroupSapHanaVolumeDataProtectionReplication struct {
-	// The endpoint type. Possible values are `dst` and `src`. Defaults to `dst`.
+	// The endpoint type. Possible values are `dst` and `src`. Defaults to `dst`. Changing this forces a new Application Volume Group to be created and data will be lost.
 	EndpointType *string `pulumi:"endpointType"`
-	// Location of the primary volume.
+	// Location of the primary volume. Changing this forces a new Application Volume Group to be created and data will be lost.
 	RemoteVolumeLocation string `pulumi:"remoteVolumeLocation"`
-	// Resource ID of the primary volume.
+	// Resource ID of the primary volume. Changing this forces a new Application Volume Group to be created and data will be lost.
 	RemoteVolumeResourceId string `pulumi:"remoteVolumeResourceId"`
-	// eplication frequency. Possible values are `10minutes`, `daily` and `hourly`.
+	// eplication frequency. Possible values are `10minutes`, `daily` and `hourly`. Changing this forces a new Application Volume Group to be created and data will be lost.
 	ReplicationFrequency string `pulumi:"replicationFrequency"`
 }
 
@@ -2898,13 +3103,13 @@ type VolumeGroupSapHanaVolumeDataProtectionReplicationInput interface {
 }
 
 type VolumeGroupSapHanaVolumeDataProtectionReplicationArgs struct {
-	// The endpoint type. Possible values are `dst` and `src`. Defaults to `dst`.
+	// The endpoint type. Possible values are `dst` and `src`. Defaults to `dst`. Changing this forces a new Application Volume Group to be created and data will be lost.
 	EndpointType pulumi.StringPtrInput `pulumi:"endpointType"`
-	// Location of the primary volume.
+	// Location of the primary volume. Changing this forces a new Application Volume Group to be created and data will be lost.
 	RemoteVolumeLocation pulumi.StringInput `pulumi:"remoteVolumeLocation"`
-	// Resource ID of the primary volume.
+	// Resource ID of the primary volume. Changing this forces a new Application Volume Group to be created and data will be lost.
 	RemoteVolumeResourceId pulumi.StringInput `pulumi:"remoteVolumeResourceId"`
-	// eplication frequency. Possible values are `10minutes`, `daily` and `hourly`.
+	// eplication frequency. Possible values are `10minutes`, `daily` and `hourly`. Changing this forces a new Application Volume Group to be created and data will be lost.
 	ReplicationFrequency pulumi.StringInput `pulumi:"replicationFrequency"`
 }
 
@@ -2985,22 +3190,22 @@ func (o VolumeGroupSapHanaVolumeDataProtectionReplicationOutput) ToVolumeGroupSa
 	}).(VolumeGroupSapHanaVolumeDataProtectionReplicationPtrOutput)
 }
 
-// The endpoint type. Possible values are `dst` and `src`. Defaults to `dst`.
+// The endpoint type. Possible values are `dst` and `src`. Defaults to `dst`. Changing this forces a new Application Volume Group to be created and data will be lost.
 func (o VolumeGroupSapHanaVolumeDataProtectionReplicationOutput) EndpointType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VolumeGroupSapHanaVolumeDataProtectionReplication) *string { return v.EndpointType }).(pulumi.StringPtrOutput)
 }
 
-// Location of the primary volume.
+// Location of the primary volume. Changing this forces a new Application Volume Group to be created and data will be lost.
 func (o VolumeGroupSapHanaVolumeDataProtectionReplicationOutput) RemoteVolumeLocation() pulumi.StringOutput {
 	return o.ApplyT(func(v VolumeGroupSapHanaVolumeDataProtectionReplication) string { return v.RemoteVolumeLocation }).(pulumi.StringOutput)
 }
 
-// Resource ID of the primary volume.
+// Resource ID of the primary volume. Changing this forces a new Application Volume Group to be created and data will be lost.
 func (o VolumeGroupSapHanaVolumeDataProtectionReplicationOutput) RemoteVolumeResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v VolumeGroupSapHanaVolumeDataProtectionReplication) string { return v.RemoteVolumeResourceId }).(pulumi.StringOutput)
 }
 
-// eplication frequency. Possible values are `10minutes`, `daily` and `hourly`.
+// eplication frequency. Possible values are `10minutes`, `daily` and `hourly`. Changing this forces a new Application Volume Group to be created and data will be lost.
 func (o VolumeGroupSapHanaVolumeDataProtectionReplicationOutput) ReplicationFrequency() pulumi.StringOutput {
 	return o.ApplyT(func(v VolumeGroupSapHanaVolumeDataProtectionReplication) string { return v.ReplicationFrequency }).(pulumi.StringOutput)
 }
@@ -3029,7 +3234,7 @@ func (o VolumeGroupSapHanaVolumeDataProtectionReplicationPtrOutput) Elem() Volum
 	}).(VolumeGroupSapHanaVolumeDataProtectionReplicationOutput)
 }
 
-// The endpoint type. Possible values are `dst` and `src`. Defaults to `dst`.
+// The endpoint type. Possible values are `dst` and `src`. Defaults to `dst`. Changing this forces a new Application Volume Group to be created and data will be lost.
 func (o VolumeGroupSapHanaVolumeDataProtectionReplicationPtrOutput) EndpointType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VolumeGroupSapHanaVolumeDataProtectionReplication) *string {
 		if v == nil {
@@ -3039,7 +3244,7 @@ func (o VolumeGroupSapHanaVolumeDataProtectionReplicationPtrOutput) EndpointType
 	}).(pulumi.StringPtrOutput)
 }
 
-// Location of the primary volume.
+// Location of the primary volume. Changing this forces a new Application Volume Group to be created and data will be lost.
 func (o VolumeGroupSapHanaVolumeDataProtectionReplicationPtrOutput) RemoteVolumeLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VolumeGroupSapHanaVolumeDataProtectionReplication) *string {
 		if v == nil {
@@ -3049,7 +3254,7 @@ func (o VolumeGroupSapHanaVolumeDataProtectionReplicationPtrOutput) RemoteVolume
 	}).(pulumi.StringPtrOutput)
 }
 
-// Resource ID of the primary volume.
+// Resource ID of the primary volume. Changing this forces a new Application Volume Group to be created and data will be lost.
 func (o VolumeGroupSapHanaVolumeDataProtectionReplicationPtrOutput) RemoteVolumeResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VolumeGroupSapHanaVolumeDataProtectionReplication) *string {
 		if v == nil {
@@ -3059,7 +3264,7 @@ func (o VolumeGroupSapHanaVolumeDataProtectionReplicationPtrOutput) RemoteVolume
 	}).(pulumi.StringPtrOutput)
 }
 
-// eplication frequency. Possible values are `10minutes`, `daily` and `hourly`.
+// eplication frequency. Possible values are `10minutes`, `daily` and `hourly`. Changing this forces a new Application Volume Group to be created and data will be lost.
 func (o VolumeGroupSapHanaVolumeDataProtectionReplicationPtrOutput) ReplicationFrequency() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VolumeGroupSapHanaVolumeDataProtectionReplication) *string {
 		if v == nil {
@@ -5549,6 +5754,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VolumeExportPolicyRuleArrayInput)(nil)).Elem(), VolumeExportPolicyRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VolumeGroupOracleVolumeInput)(nil)).Elem(), VolumeGroupOracleVolumeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VolumeGroupOracleVolumeArrayInput)(nil)).Elem(), VolumeGroupOracleVolumeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeGroupOracleVolumeDataProtectionReplicationInput)(nil)).Elem(), VolumeGroupOracleVolumeDataProtectionReplicationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeGroupOracleVolumeDataProtectionReplicationPtrInput)(nil)).Elem(), VolumeGroupOracleVolumeDataProtectionReplicationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VolumeGroupOracleVolumeDataProtectionSnapshotPolicyInput)(nil)).Elem(), VolumeGroupOracleVolumeDataProtectionSnapshotPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VolumeGroupOracleVolumeDataProtectionSnapshotPolicyPtrInput)(nil)).Elem(), VolumeGroupOracleVolumeDataProtectionSnapshotPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VolumeGroupOracleVolumeExportPolicyRuleInput)(nil)).Elem(), VolumeGroupOracleVolumeExportPolicyRuleArgs{})
@@ -5613,6 +5820,8 @@ func init() {
 	pulumi.RegisterOutputType(VolumeExportPolicyRuleArrayOutput{})
 	pulumi.RegisterOutputType(VolumeGroupOracleVolumeOutput{})
 	pulumi.RegisterOutputType(VolumeGroupOracleVolumeArrayOutput{})
+	pulumi.RegisterOutputType(VolumeGroupOracleVolumeDataProtectionReplicationOutput{})
+	pulumi.RegisterOutputType(VolumeGroupOracleVolumeDataProtectionReplicationPtrOutput{})
 	pulumi.RegisterOutputType(VolumeGroupOracleVolumeDataProtectionSnapshotPolicyOutput{})
 	pulumi.RegisterOutputType(VolumeGroupOracleVolumeDataProtectionSnapshotPolicyPtrOutput{})
 	pulumi.RegisterOutputType(VolumeGroupOracleVolumeExportPolicyRuleOutput{})

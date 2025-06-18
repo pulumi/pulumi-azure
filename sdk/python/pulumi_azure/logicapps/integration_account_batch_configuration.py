@@ -263,6 +263,13 @@ class IntegrationAccountBatchConfiguration(pulumi.CustomResource):
             })
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Logic`: 2019-05-01
+
         ## Import
 
         Logic App Integration Account Batch Configurations can be imported using the `resource id`, e.g.
@@ -312,6 +319,13 @@ class IntegrationAccountBatchConfiguration(pulumi.CustomResource):
                 "message_count": 80,
             })
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Logic`: 2019-05-01
 
         ## Import
 

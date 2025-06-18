@@ -377,7 +377,6 @@ namespace Pulumi.Azure.AppService
                 Version = Utilities.Version,
                 AdditionalSecretOutputs =
                 {
-                    "appSettings",
                     "customDomainVerificationId",
                     "siteCredentials",
                     "storageAccountAccessKey",
@@ -415,11 +414,7 @@ namespace Pulumi.Azure.AppService
         public InputMap<string> AppSettings
         {
             get => _appSettings ?? (_appSettings = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _appSettings = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _appSettings = value;
         }
 
         /// <summary>
@@ -681,11 +676,7 @@ namespace Pulumi.Azure.AppService
         public InputMap<string> AppSettings
         {
             get => _appSettings ?? (_appSettings = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _appSettings = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _appSettings = value;
         }
 
         /// <summary>

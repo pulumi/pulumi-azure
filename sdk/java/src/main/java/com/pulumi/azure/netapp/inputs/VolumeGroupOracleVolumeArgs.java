@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.netapp.inputs;
 
+import com.pulumi.azure.netapp.inputs.VolumeGroupOracleVolumeDataProtectionReplicationArgs;
 import com.pulumi.azure.netapp.inputs.VolumeGroupOracleVolumeDataProtectionSnapshotPolicyArgs;
 import com.pulumi.azure.netapp.inputs.VolumeGroupOracleVolumeExportPolicyRuleArgs;
 import com.pulumi.core.Output;
@@ -36,6 +37,21 @@ public final class VolumeGroupOracleVolumeArgs extends com.pulumi.resources.Reso
      */
     public Output<String> capacityPoolId() {
         return this.capacityPoolId;
+    }
+
+    /**
+     * A `data_protection_replication` block as defined below. Changing this forces a new Application Volume Group to be created and data will be lost.
+     * 
+     */
+    @Import(name="dataProtectionReplication")
+    private @Nullable Output<VolumeGroupOracleVolumeDataProtectionReplicationArgs> dataProtectionReplication;
+
+    /**
+     * @return A `data_protection_replication` block as defined below. Changing this forces a new Application Volume Group to be created and data will be lost.
+     * 
+     */
+    public Optional<Output<VolumeGroupOracleVolumeDataProtectionReplicationArgs>> dataProtectionReplication() {
+        return Optional.ofNullable(this.dataProtectionReplication);
     }
 
     /**
@@ -338,6 +354,7 @@ public final class VolumeGroupOracleVolumeArgs extends com.pulumi.resources.Reso
 
     private VolumeGroupOracleVolumeArgs(VolumeGroupOracleVolumeArgs $) {
         this.capacityPoolId = $.capacityPoolId;
+        this.dataProtectionReplication = $.dataProtectionReplication;
         this.dataProtectionSnapshotPolicy = $.dataProtectionSnapshotPolicy;
         this.encryptionKeySource = $.encryptionKeySource;
         this.exportPolicyRules = $.exportPolicyRules;
@@ -397,6 +414,27 @@ public final class VolumeGroupOracleVolumeArgs extends com.pulumi.resources.Reso
          */
         public Builder capacityPoolId(String capacityPoolId) {
             return capacityPoolId(Output.of(capacityPoolId));
+        }
+
+        /**
+         * @param dataProtectionReplication A `data_protection_replication` block as defined below. Changing this forces a new Application Volume Group to be created and data will be lost.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dataProtectionReplication(@Nullable Output<VolumeGroupOracleVolumeDataProtectionReplicationArgs> dataProtectionReplication) {
+            $.dataProtectionReplication = dataProtectionReplication;
+            return this;
+        }
+
+        /**
+         * @param dataProtectionReplication A `data_protection_replication` block as defined below. Changing this forces a new Application Volume Group to be created and data will be lost.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dataProtectionReplication(VolumeGroupOracleVolumeDataProtectionReplicationArgs dataProtectionReplication) {
+            return dataProtectionReplication(Output.of(dataProtectionReplication));
         }
 
         /**

@@ -80,6 +80,13 @@ import (
 //
 // ```
 //
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.Network`: 2024-05-01
+//
 // ## Import
 //
 // VPN Gateways can be imported using the `resource id`, e.g.
@@ -94,6 +101,8 @@ type VpnGateway struct {
 	BgpRouteTranslationForNatEnabled pulumi.BoolPtrOutput `pulumi:"bgpRouteTranslationForNatEnabled"`
 	// A `bgpSettings` block as defined below.
 	BgpSettings VpnGatewayBgpSettingsOutput `pulumi:"bgpSettings"`
+	// An `ipConfiguration` block as defined below.
+	IpConfigurations VpnGatewayIpConfigurationArrayOutput `pulumi:"ipConfigurations"`
 	// The Azure location where this VPN Gateway should be created. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The Name which should be used for this VPN Gateway. Changing this forces a new resource to be created.
@@ -150,6 +159,8 @@ type vpnGatewayState struct {
 	BgpRouteTranslationForNatEnabled *bool `pulumi:"bgpRouteTranslationForNatEnabled"`
 	// A `bgpSettings` block as defined below.
 	BgpSettings *VpnGatewayBgpSettings `pulumi:"bgpSettings"`
+	// An `ipConfiguration` block as defined below.
+	IpConfigurations []VpnGatewayIpConfiguration `pulumi:"ipConfigurations"`
 	// The Azure location where this VPN Gateway should be created. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The Name which should be used for this VPN Gateway. Changing this forces a new resource to be created.
@@ -171,6 +182,8 @@ type VpnGatewayState struct {
 	BgpRouteTranslationForNatEnabled pulumi.BoolPtrInput
 	// A `bgpSettings` block as defined below.
 	BgpSettings VpnGatewayBgpSettingsPtrInput
+	// An `ipConfiguration` block as defined below.
+	IpConfigurations VpnGatewayIpConfigurationArrayInput
 	// The Azure location where this VPN Gateway should be created. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// The Name which should be used for this VPN Gateway. Changing this forces a new resource to be created.
@@ -329,6 +342,11 @@ func (o VpnGatewayOutput) BgpRouteTranslationForNatEnabled() pulumi.BoolPtrOutpu
 // A `bgpSettings` block as defined below.
 func (o VpnGatewayOutput) BgpSettings() VpnGatewayBgpSettingsOutput {
 	return o.ApplyT(func(v *VpnGateway) VpnGatewayBgpSettingsOutput { return v.BgpSettings }).(VpnGatewayBgpSettingsOutput)
+}
+
+// An `ipConfiguration` block as defined below.
+func (o VpnGatewayOutput) IpConfigurations() VpnGatewayIpConfigurationArrayOutput {
+	return o.ApplyT(func(v *VpnGateway) VpnGatewayIpConfigurationArrayOutput { return v.IpConfigurations }).(VpnGatewayIpConfigurationArrayOutput)
 }
 
 // The Azure location where this VPN Gateway should be created. Changing this forces a new resource to be created.

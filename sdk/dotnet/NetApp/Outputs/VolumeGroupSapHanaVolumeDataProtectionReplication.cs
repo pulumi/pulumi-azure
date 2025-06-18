@@ -14,19 +14,19 @@ namespace Pulumi.Azure.NetApp.Outputs
     public sealed class VolumeGroupSapHanaVolumeDataProtectionReplication
     {
         /// <summary>
-        /// The endpoint type. Possible values are `dst` and `src`. Defaults to `dst`.
+        /// The endpoint type. Possible values are `dst` and `src`. Defaults to `dst`. Changing this forces a new Application Volume Group to be created and data will be lost.
         /// </summary>
         public readonly string? EndpointType;
         /// <summary>
-        /// Location of the primary volume.
+        /// Location of the primary volume. Changing this forces a new Application Volume Group to be created and data will be lost.
         /// </summary>
         public readonly string RemoteVolumeLocation;
         /// <summary>
-        /// Resource ID of the primary volume.
+        /// Resource ID of the primary volume. Changing this forces a new Application Volume Group to be created and data will be lost.
         /// </summary>
         public readonly string RemoteVolumeResourceId;
         /// <summary>
-        /// eplication frequency. Possible values are `10minutes`, `daily` and `hourly`.
+        /// eplication frequency. Possible values are `10minutes`, `daily` and `hourly`. Changing this forces a new Application Volume Group to be created and data will be lost.
         /// </summary>
         public readonly string ReplicationFrequency;
 

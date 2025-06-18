@@ -120,6 +120,13 @@ namespace Pulumi.Azure.Cdn
     /// });
     /// ```
     /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.Cdn`: 2024-02-01
+    /// 
     /// ## Import
     /// 
     /// Front Door Security Policies can be imported using the `resource id`, e.g.

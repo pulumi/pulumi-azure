@@ -239,6 +239,13 @@ class GremlinDatabase(pulumi.CustomResource):
             throughput=400)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DocumentDB`: 2024-08-15
+
         ## Import
 
         CosmosDB Gremlin Databases can be imported using the `resource id`, e.g.
@@ -282,6 +289,13 @@ class GremlinDatabase(pulumi.CustomResource):
             account_name=example.name,
             throughput=400)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DocumentDB`: 2024-08-15
 
         ## Import
 

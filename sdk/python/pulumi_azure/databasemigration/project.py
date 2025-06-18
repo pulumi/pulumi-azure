@@ -306,6 +306,13 @@ class Project(pulumi.CustomResource):
             target_platform="SQLDB")
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DataMigration`: 2021-06-30
+
         ## Import
 
         Database Migration Projects can be imported using the `resource id`, e.g.
@@ -368,6 +375,13 @@ class Project(pulumi.CustomResource):
             source_platform="SQL",
             target_platform="SQLDB")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DataMigration`: 2021-06-30
 
         ## Import
 

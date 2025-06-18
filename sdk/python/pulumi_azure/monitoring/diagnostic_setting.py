@@ -24,6 +24,7 @@ class DiagnosticSettingArgs:
     def __init__(__self__, *,
                  target_resource_id: pulumi.Input[builtins.str],
                  enabled_logs: Optional[pulumi.Input[Sequence[pulumi.Input['DiagnosticSettingEnabledLogArgs']]]] = None,
+                 enabled_metrics: Optional[pulumi.Input[Sequence[pulumi.Input['DiagnosticSettingEnabledMetricArgs']]]] = None,
                  eventhub_authorization_rule_id: Optional[pulumi.Input[builtins.str]] = None,
                  eventhub_name: Optional[pulumi.Input[builtins.str]] = None,
                  log_analytics_destination_type: Optional[pulumi.Input[builtins.str]] = None,
@@ -37,7 +38,10 @@ class DiagnosticSettingArgs:
         :param pulumi.Input[builtins.str] target_resource_id: The ID of an existing Resource on which to configure Diagnostic Settings. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['DiagnosticSettingEnabledLogArgs']]] enabled_logs: One or more `enabled_log` blocks as defined below.
                
-               > **NOTE:** At least one `enabled_log` or `metric` block must be specified. At least one type of Log or Metric must be enabled.
+               > **Note:** At least one `enabled_log` or `enabled_metric` block must be specified. At least one type of Log or Metric must be enabled.
+        :param pulumi.Input[Sequence[pulumi.Input['DiagnosticSettingEnabledMetricArgs']]] enabled_metrics: One or more `enabled_metric` blocks as defined below.
+               
+               > **Note:** At least one `enabled_log` or `enabled_metric` block must be specified.
         :param pulumi.Input[builtins.str] eventhub_authorization_rule_id: Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. 
                
                > **NOTE:** This can be sourced from the `eventhub.EventHubNamespaceAuthorizationRule` resource and is different from a `eventhub.AuthorizationRule` resource.
@@ -52,9 +56,6 @@ class DiagnosticSettingArgs:
         :param pulumi.Input[builtins.str] log_analytics_workspace_id: Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent.
                
                > **NOTE:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
-        :param pulumi.Input[Sequence[pulumi.Input['DiagnosticSettingMetricArgs']]] metrics: One or more `metric` blocks as defined below.
-               
-               > **NOTE:** At least one `enabled_log` or `metric` block must be specified.
         :param pulumi.Input[builtins.str] name: Specifies the name of the Diagnostic Setting. Changing this forces a new resource to be created.
                
                > **NOTE:** If the name is set to 'service' it will not be possible to fully delete the diagnostic setting. This is due to legacy API support.
@@ -68,6 +69,8 @@ class DiagnosticSettingArgs:
         pulumi.set(__self__, "target_resource_id", target_resource_id)
         if enabled_logs is not None:
             pulumi.set(__self__, "enabled_logs", enabled_logs)
+        if enabled_metrics is not None:
+            pulumi.set(__self__, "enabled_metrics", enabled_metrics)
         if eventhub_authorization_rule_id is not None:
             pulumi.set(__self__, "eventhub_authorization_rule_id", eventhub_authorization_rule_id)
         if eventhub_name is not None:
@@ -76,6 +79,9 @@ class DiagnosticSettingArgs:
             pulumi.set(__self__, "log_analytics_destination_type", log_analytics_destination_type)
         if log_analytics_workspace_id is not None:
             pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
+        if metrics is not None:
+            warnings.warn("""`metric` has been deprecated in favor of the `enabled_metric` property and will be removed in v5.0 of the AzureRM provider""", DeprecationWarning)
+            pulumi.log.warn("""metrics is deprecated: `metric` has been deprecated in favor of the `enabled_metric` property and will be removed in v5.0 of the AzureRM provider""")
         if metrics is not None:
             pulumi.set(__self__, "metrics", metrics)
         if name is not None:
@@ -103,13 +109,27 @@ class DiagnosticSettingArgs:
         """
         One or more `enabled_log` blocks as defined below.
 
-        > **NOTE:** At least one `enabled_log` or `metric` block must be specified. At least one type of Log or Metric must be enabled.
+        > **Note:** At least one `enabled_log` or `enabled_metric` block must be specified. At least one type of Log or Metric must be enabled.
         """
         return pulumi.get(self, "enabled_logs")
 
     @enabled_logs.setter
     def enabled_logs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DiagnosticSettingEnabledLogArgs']]]]):
         pulumi.set(self, "enabled_logs", value)
+
+    @property
+    @pulumi.getter(name="enabledMetrics")
+    def enabled_metrics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DiagnosticSettingEnabledMetricArgs']]]]:
+        """
+        One or more `enabled_metric` blocks as defined below.
+
+        > **Note:** At least one `enabled_log` or `enabled_metric` block must be specified.
+        """
+        return pulumi.get(self, "enabled_metrics")
+
+    @enabled_metrics.setter
+    def enabled_metrics(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DiagnosticSettingEnabledMetricArgs']]]]):
+        pulumi.set(self, "enabled_metrics", value)
 
     @property
     @pulumi.getter(name="eventhubAuthorizationRuleId")
@@ -171,12 +191,8 @@ class DiagnosticSettingArgs:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""`metric` has been deprecated in favor of the `enabled_metric` property and will be removed in v5.0 of the AzureRM provider""")
     def metrics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DiagnosticSettingMetricArgs']]]]:
-        """
-        One or more `metric` blocks as defined below.
-
-        > **NOTE:** At least one `enabled_log` or `metric` block must be specified.
-        """
         return pulumi.get(self, "metrics")
 
     @metrics.setter
@@ -230,6 +246,7 @@ class DiagnosticSettingArgs:
 class _DiagnosticSettingState:
     def __init__(__self__, *,
                  enabled_logs: Optional[pulumi.Input[Sequence[pulumi.Input['DiagnosticSettingEnabledLogArgs']]]] = None,
+                 enabled_metrics: Optional[pulumi.Input[Sequence[pulumi.Input['DiagnosticSettingEnabledMetricArgs']]]] = None,
                  eventhub_authorization_rule_id: Optional[pulumi.Input[builtins.str]] = None,
                  eventhub_name: Optional[pulumi.Input[builtins.str]] = None,
                  log_analytics_destination_type: Optional[pulumi.Input[builtins.str]] = None,
@@ -243,7 +260,10 @@ class _DiagnosticSettingState:
         Input properties used for looking up and filtering DiagnosticSetting resources.
         :param pulumi.Input[Sequence[pulumi.Input['DiagnosticSettingEnabledLogArgs']]] enabled_logs: One or more `enabled_log` blocks as defined below.
                
-               > **NOTE:** At least one `enabled_log` or `metric` block must be specified. At least one type of Log or Metric must be enabled.
+               > **Note:** At least one `enabled_log` or `enabled_metric` block must be specified. At least one type of Log or Metric must be enabled.
+        :param pulumi.Input[Sequence[pulumi.Input['DiagnosticSettingEnabledMetricArgs']]] enabled_metrics: One or more `enabled_metric` blocks as defined below.
+               
+               > **Note:** At least one `enabled_log` or `enabled_metric` block must be specified.
         :param pulumi.Input[builtins.str] eventhub_authorization_rule_id: Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. 
                
                > **NOTE:** This can be sourced from the `eventhub.EventHubNamespaceAuthorizationRule` resource and is different from a `eventhub.AuthorizationRule` resource.
@@ -258,9 +278,6 @@ class _DiagnosticSettingState:
         :param pulumi.Input[builtins.str] log_analytics_workspace_id: Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent.
                
                > **NOTE:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
-        :param pulumi.Input[Sequence[pulumi.Input['DiagnosticSettingMetricArgs']]] metrics: One or more `metric` blocks as defined below.
-               
-               > **NOTE:** At least one `enabled_log` or `metric` block must be specified.
         :param pulumi.Input[builtins.str] name: Specifies the name of the Diagnostic Setting. Changing this forces a new resource to be created.
                
                > **NOTE:** If the name is set to 'service' it will not be possible to fully delete the diagnostic setting. This is due to legacy API support.
@@ -274,6 +291,8 @@ class _DiagnosticSettingState:
         """
         if enabled_logs is not None:
             pulumi.set(__self__, "enabled_logs", enabled_logs)
+        if enabled_metrics is not None:
+            pulumi.set(__self__, "enabled_metrics", enabled_metrics)
         if eventhub_authorization_rule_id is not None:
             pulumi.set(__self__, "eventhub_authorization_rule_id", eventhub_authorization_rule_id)
         if eventhub_name is not None:
@@ -282,6 +301,9 @@ class _DiagnosticSettingState:
             pulumi.set(__self__, "log_analytics_destination_type", log_analytics_destination_type)
         if log_analytics_workspace_id is not None:
             pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
+        if metrics is not None:
+            warnings.warn("""`metric` has been deprecated in favor of the `enabled_metric` property and will be removed in v5.0 of the AzureRM provider""", DeprecationWarning)
+            pulumi.log.warn("""metrics is deprecated: `metric` has been deprecated in favor of the `enabled_metric` property and will be removed in v5.0 of the AzureRM provider""")
         if metrics is not None:
             pulumi.set(__self__, "metrics", metrics)
         if name is not None:
@@ -299,13 +321,27 @@ class _DiagnosticSettingState:
         """
         One or more `enabled_log` blocks as defined below.
 
-        > **NOTE:** At least one `enabled_log` or `metric` block must be specified. At least one type of Log or Metric must be enabled.
+        > **Note:** At least one `enabled_log` or `enabled_metric` block must be specified. At least one type of Log or Metric must be enabled.
         """
         return pulumi.get(self, "enabled_logs")
 
     @enabled_logs.setter
     def enabled_logs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DiagnosticSettingEnabledLogArgs']]]]):
         pulumi.set(self, "enabled_logs", value)
+
+    @property
+    @pulumi.getter(name="enabledMetrics")
+    def enabled_metrics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DiagnosticSettingEnabledMetricArgs']]]]:
+        """
+        One or more `enabled_metric` blocks as defined below.
+
+        > **Note:** At least one `enabled_log` or `enabled_metric` block must be specified.
+        """
+        return pulumi.get(self, "enabled_metrics")
+
+    @enabled_metrics.setter
+    def enabled_metrics(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DiagnosticSettingEnabledMetricArgs']]]]):
+        pulumi.set(self, "enabled_metrics", value)
 
     @property
     @pulumi.getter(name="eventhubAuthorizationRuleId")
@@ -367,12 +403,8 @@ class _DiagnosticSettingState:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""`metric` has been deprecated in favor of the `enabled_metric` property and will be removed in v5.0 of the AzureRM provider""")
     def metrics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DiagnosticSettingMetricArgs']]]]:
-        """
-        One or more `metric` blocks as defined below.
-
-        > **NOTE:** At least one `enabled_log` or `metric` block must be specified.
-        """
         return pulumi.get(self, "metrics")
 
     @metrics.setter
@@ -441,6 +473,7 @@ class DiagnosticSetting(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  enabled_logs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DiagnosticSettingEnabledLogArgs', 'DiagnosticSettingEnabledLogArgsDict']]]]] = None,
+                 enabled_metrics: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DiagnosticSettingEnabledMetricArgs', 'DiagnosticSettingEnabledMetricArgsDict']]]]] = None,
                  eventhub_authorization_rule_id: Optional[pulumi.Input[builtins.str]] = None,
                  eventhub_name: Optional[pulumi.Input[builtins.str]] = None,
                  log_analytics_destination_type: Optional[pulumi.Input[builtins.str]] = None,
@@ -485,10 +518,17 @@ class DiagnosticSetting(pulumi.CustomResource):
             enabled_logs=[{
                 "category": "AuditEvent",
             }],
-            metrics=[{
+            enabled_metrics=[{
                 "category": "AllMetrics",
             }])
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Insights`: 2021-05-01-preview
 
         ## Import
 
@@ -502,7 +542,10 @@ class DiagnosticSetting(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DiagnosticSettingEnabledLogArgs', 'DiagnosticSettingEnabledLogArgsDict']]]] enabled_logs: One or more `enabled_log` blocks as defined below.
                
-               > **NOTE:** At least one `enabled_log` or `metric` block must be specified. At least one type of Log or Metric must be enabled.
+               > **Note:** At least one `enabled_log` or `enabled_metric` block must be specified. At least one type of Log or Metric must be enabled.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DiagnosticSettingEnabledMetricArgs', 'DiagnosticSettingEnabledMetricArgsDict']]]] enabled_metrics: One or more `enabled_metric` blocks as defined below.
+               
+               > **Note:** At least one `enabled_log` or `enabled_metric` block must be specified.
         :param pulumi.Input[builtins.str] eventhub_authorization_rule_id: Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. 
                
                > **NOTE:** This can be sourced from the `eventhub.EventHubNamespaceAuthorizationRule` resource and is different from a `eventhub.AuthorizationRule` resource.
@@ -517,9 +560,6 @@ class DiagnosticSetting(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] log_analytics_workspace_id: Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent.
                
                > **NOTE:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DiagnosticSettingMetricArgs', 'DiagnosticSettingMetricArgsDict']]]] metrics: One or more `metric` blocks as defined below.
-               
-               > **NOTE:** At least one `enabled_log` or `metric` block must be specified.
         :param pulumi.Input[builtins.str] name: Specifies the name of the Diagnostic Setting. Changing this forces a new resource to be created.
                
                > **NOTE:** If the name is set to 'service' it will not be possible to fully delete the diagnostic setting. This is due to legacy API support.
@@ -571,10 +611,17 @@ class DiagnosticSetting(pulumi.CustomResource):
             enabled_logs=[{
                 "category": "AuditEvent",
             }],
-            metrics=[{
+            enabled_metrics=[{
                 "category": "AllMetrics",
             }])
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Insights`: 2021-05-01-preview
 
         ## Import
 
@@ -600,6 +647,7 @@ class DiagnosticSetting(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  enabled_logs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DiagnosticSettingEnabledLogArgs', 'DiagnosticSettingEnabledLogArgsDict']]]]] = None,
+                 enabled_metrics: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DiagnosticSettingEnabledMetricArgs', 'DiagnosticSettingEnabledMetricArgsDict']]]]] = None,
                  eventhub_authorization_rule_id: Optional[pulumi.Input[builtins.str]] = None,
                  eventhub_name: Optional[pulumi.Input[builtins.str]] = None,
                  log_analytics_destination_type: Optional[pulumi.Input[builtins.str]] = None,
@@ -619,6 +667,7 @@ class DiagnosticSetting(pulumi.CustomResource):
             __props__ = DiagnosticSettingArgs.__new__(DiagnosticSettingArgs)
 
             __props__.__dict__["enabled_logs"] = enabled_logs
+            __props__.__dict__["enabled_metrics"] = enabled_metrics
             __props__.__dict__["eventhub_authorization_rule_id"] = eventhub_authorization_rule_id
             __props__.__dict__["eventhub_name"] = eventhub_name
             __props__.__dict__["log_analytics_destination_type"] = log_analytics_destination_type
@@ -641,6 +690,7 @@ class DiagnosticSetting(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             enabled_logs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DiagnosticSettingEnabledLogArgs', 'DiagnosticSettingEnabledLogArgsDict']]]]] = None,
+            enabled_metrics: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DiagnosticSettingEnabledMetricArgs', 'DiagnosticSettingEnabledMetricArgsDict']]]]] = None,
             eventhub_authorization_rule_id: Optional[pulumi.Input[builtins.str]] = None,
             eventhub_name: Optional[pulumi.Input[builtins.str]] = None,
             log_analytics_destination_type: Optional[pulumi.Input[builtins.str]] = None,
@@ -659,7 +709,10 @@ class DiagnosticSetting(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DiagnosticSettingEnabledLogArgs', 'DiagnosticSettingEnabledLogArgsDict']]]] enabled_logs: One or more `enabled_log` blocks as defined below.
                
-               > **NOTE:** At least one `enabled_log` or `metric` block must be specified. At least one type of Log or Metric must be enabled.
+               > **Note:** At least one `enabled_log` or `enabled_metric` block must be specified. At least one type of Log or Metric must be enabled.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DiagnosticSettingEnabledMetricArgs', 'DiagnosticSettingEnabledMetricArgsDict']]]] enabled_metrics: One or more `enabled_metric` blocks as defined below.
+               
+               > **Note:** At least one `enabled_log` or `enabled_metric` block must be specified.
         :param pulumi.Input[builtins.str] eventhub_authorization_rule_id: Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. 
                
                > **NOTE:** This can be sourced from the `eventhub.EventHubNamespaceAuthorizationRule` resource and is different from a `eventhub.AuthorizationRule` resource.
@@ -674,9 +727,6 @@ class DiagnosticSetting(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] log_analytics_workspace_id: Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent.
                
                > **NOTE:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DiagnosticSettingMetricArgs', 'DiagnosticSettingMetricArgsDict']]]] metrics: One or more `metric` blocks as defined below.
-               
-               > **NOTE:** At least one `enabled_log` or `metric` block must be specified.
         :param pulumi.Input[builtins.str] name: Specifies the name of the Diagnostic Setting. Changing this forces a new resource to be created.
                
                > **NOTE:** If the name is set to 'service' it will not be possible to fully delete the diagnostic setting. This is due to legacy API support.
@@ -693,6 +743,7 @@ class DiagnosticSetting(pulumi.CustomResource):
         __props__ = _DiagnosticSettingState.__new__(_DiagnosticSettingState)
 
         __props__.__dict__["enabled_logs"] = enabled_logs
+        __props__.__dict__["enabled_metrics"] = enabled_metrics
         __props__.__dict__["eventhub_authorization_rule_id"] = eventhub_authorization_rule_id
         __props__.__dict__["eventhub_name"] = eventhub_name
         __props__.__dict__["log_analytics_destination_type"] = log_analytics_destination_type
@@ -710,9 +761,19 @@ class DiagnosticSetting(pulumi.CustomResource):
         """
         One or more `enabled_log` blocks as defined below.
 
-        > **NOTE:** At least one `enabled_log` or `metric` block must be specified. At least one type of Log or Metric must be enabled.
+        > **Note:** At least one `enabled_log` or `enabled_metric` block must be specified. At least one type of Log or Metric must be enabled.
         """
         return pulumi.get(self, "enabled_logs")
+
+    @property
+    @pulumi.getter(name="enabledMetrics")
+    def enabled_metrics(self) -> pulumi.Output[Sequence['outputs.DiagnosticSettingEnabledMetric']]:
+        """
+        One or more `enabled_metric` blocks as defined below.
+
+        > **Note:** At least one `enabled_log` or `enabled_metric` block must be specified.
+        """
+        return pulumi.get(self, "enabled_metrics")
 
     @property
     @pulumi.getter(name="eventhubAuthorizationRuleId")
@@ -758,12 +819,8 @@ class DiagnosticSetting(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def metrics(self) -> pulumi.Output[Optional[Sequence['outputs.DiagnosticSettingMetric']]]:
-        """
-        One or more `metric` blocks as defined below.
-
-        > **NOTE:** At least one `enabled_log` or `metric` block must be specified.
-        """
+    @_utilities.deprecated("""`metric` has been deprecated in favor of the `enabled_metric` property and will be removed in v5.0 of the AzureRM provider""")
+    def metrics(self) -> pulumi.Output[Sequence['outputs.DiagnosticSettingMetric']]:
         return pulumi.get(self, "metrics")
 
     @property

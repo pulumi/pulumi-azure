@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Automation
 {
     /// <summary>
-    /// Manages a Automation Account.
+    /// Manages an Automation Account.
     /// 
     /// ## Example Usage
     /// 
@@ -79,6 +79,9 @@ namespace Pulumi.Azure.Automation
         [Output("dscServerEndpoint")]
         public Output<string> DscServerEndpoint { get; private set; } = null!;
 
+        /// <summary>
+        /// An `encryption` block as defined below.
+        /// </summary>
         [Output("encryptions")]
         public Output<ImmutableArray<Outputs.AccountEncryption>> Encryptions { get; private set; } = null!;
 
@@ -133,6 +136,9 @@ namespace Pulumi.Azure.Automation
         [Output("skuName")]
         public Output<string> SkuName { get; private set; } = null!;
 
+        /// <summary>
+        /// A mapping of tags to assign to the resource.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
@@ -189,6 +195,10 @@ namespace Pulumi.Azure.Automation
     {
         [Input("encryptions")]
         private InputList<Inputs.AccountEncryptionArgs>? _encryptions;
+
+        /// <summary>
+        /// An `encryption` block as defined below.
+        /// </summary>
         public InputList<Inputs.AccountEncryptionArgs> Encryptions
         {
             get => _encryptions ?? (_encryptions = new InputList<Inputs.AccountEncryptionArgs>());
@@ -239,6 +249,10 @@ namespace Pulumi.Azure.Automation
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A mapping of tags to assign to the resource.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -293,6 +307,10 @@ namespace Pulumi.Azure.Automation
 
         [Input("encryptions")]
         private InputList<Inputs.AccountEncryptionGetArgs>? _encryptions;
+
+        /// <summary>
+        /// An `encryption` block as defined below.
+        /// </summary>
         public InputList<Inputs.AccountEncryptionGetArgs> Encryptions
         {
             get => _encryptions ?? (_encryptions = new InputList<Inputs.AccountEncryptionGetArgs>());
@@ -357,6 +375,10 @@ namespace Pulumi.Azure.Automation
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A mapping of tags to assign to the resource.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());

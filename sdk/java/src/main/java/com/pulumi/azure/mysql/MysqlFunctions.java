@@ -55,6 +55,13 @@ public final class MysqlFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DBforMySQL`: 2023-12-30
+     * 
      */
     public static Output<GetFlexibleServerResult> getFlexibleServer(GetFlexibleServerArgs args) {
         return getFlexibleServer(args, InvokeOptions.Empty);
@@ -98,6 +105,13 @@ public final class MysqlFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DBforMySQL`: 2023-12-30
      * 
      */
     public static CompletableFuture<GetFlexibleServerResult> getFlexibleServerPlain(GetFlexibleServerPlainArgs args) {
@@ -143,6 +157,13 @@ public final class MysqlFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DBforMySQL`: 2023-12-30
+     * 
      */
     public static Output<GetFlexibleServerResult> getFlexibleServer(GetFlexibleServerArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:mysql/getFlexibleServer:getFlexibleServer", TypeShape.of(GetFlexibleServerResult.class), args, Utilities.withVersion(options));
@@ -187,6 +208,13 @@ public final class MysqlFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DBforMySQL`: 2023-12-30
+     * 
      */
     public static Output<GetFlexibleServerResult> getFlexibleServer(GetFlexibleServerArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:mysql/getFlexibleServer:getFlexibleServer", TypeShape.of(GetFlexibleServerResult.class), args, Utilities.withVersion(options));
@@ -230,6 +258,13 @@ public final class MysqlFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DBforMySQL`: 2023-12-30
      * 
      */
     public static CompletableFuture<GetFlexibleServerResult> getFlexibleServerPlain(GetFlexibleServerPlainArgs args, InvokeOptions options) {

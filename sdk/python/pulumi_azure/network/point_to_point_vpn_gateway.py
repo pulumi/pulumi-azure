@@ -433,6 +433,13 @@ class PointToPointVpnGateway(pulumi.CustomResource):
             }])
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network`: 2024-05-01
+
         ## Import
 
         Point-to-Site VPN Gateway's can be imported using the `resource id`, e.g.
@@ -525,6 +532,13 @@ class PointToPointVpnGateway(pulumi.CustomResource):
                 },
             }])
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network`: 2024-05-01
 
         ## Import
 

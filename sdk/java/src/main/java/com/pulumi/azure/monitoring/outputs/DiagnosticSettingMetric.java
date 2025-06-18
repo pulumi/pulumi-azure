@@ -14,17 +14,7 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DiagnosticSettingMetric {
-    /**
-     * @return The name of a Diagnostic Metric Category for this Resource.
-     * 
-     * &gt; **NOTE:** The Metric Categories available vary depending on the Resource being used. You may wish to use the `azure.monitoring.getDiagnosticCategories` Data Source to identify which categories are available for a given Resource.
-     * 
-     */
     private String category;
-    /**
-     * @return Is this Diagnostic Metric enabled? Defaults to `true`.
-     * 
-     */
     private @Nullable Boolean enabled;
     /**
      * @deprecated
@@ -35,19 +25,9 @@ public final class DiagnosticSettingMetric {
     private @Nullable DiagnosticSettingMetricRetentionPolicy retentionPolicy;
 
     private DiagnosticSettingMetric() {}
-    /**
-     * @return The name of a Diagnostic Metric Category for this Resource.
-     * 
-     * &gt; **NOTE:** The Metric Categories available vary depending on the Resource being used. You may wish to use the `azure.monitoring.getDiagnosticCategories` Data Source to identify which categories are available for a given Resource.
-     * 
-     */
     public String category() {
         return this.category;
     }
-    /**
-     * @return Is this Diagnostic Metric enabled? Defaults to `true`.
-     * 
-     */
     public Optional<Boolean> enabled() {
         return Optional.ofNullable(this.enabled);
     }

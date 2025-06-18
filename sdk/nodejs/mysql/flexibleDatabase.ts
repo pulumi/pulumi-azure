@@ -34,6 +34,13 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.DBforMySQL`: 2023-12-30
+ *
  * ## Import
  *
  * MySQL Database's can be imported using the `resource id`, e.g.

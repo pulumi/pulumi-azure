@@ -272,7 +272,8 @@ import javax.annotation.Nullable;
  * | Greater Than or Equal      | Matches when the length of the value is greater than or equal to the specified integer. | GreaterThanOrEqual |
  * | Begins With                | Matches when the value begins with the specified string. | BeginsWith |
  * | Ends With                  | Matches when the value ends with the specified string. | EndsWith |
- * | RegEx                      | Matches when the value matches the specified regular expression. See below for further details. | RegEx |
+ * | RegEx                      | Matches when the value matches the specified regular expression. See `Condition Regular Expressions` below for more details. | RegEx |
+ * | Wildcard                   | Matches when the request path matches a wildcard expression. See `Condition Wildcard Expression` below for more details. | Wildcard |
  * | Not Any                    | Matches when there is no value. | Any and negateCondition = true |
  * | Not Equal                  | Matches when the value does not match the specified string. | Equal and negateCondition : true |
  * | Not Contains               | Matches when the value does not contain the specified string. | Contains and negateCondition = true |
@@ -282,7 +283,8 @@ import javax.annotation.Nullable;
  * | Not Greater Than or Equals | Matches when the length of the value is not greater than or equal to the specified integer. | GreaterThanOrEqual and negateCondition = true |
  * | Not Begins With            | Matches when the value does not begin with the specified string. | BeginsWith and negateCondition = true |
  * | Not Ends With              | Matches when the value does not end with the specified string. | EndsWith and negateCondition = true |
- * | Not RegEx                  | Matches when the value does not match the specified regular expression. See `Condition Regular Expressions` for further details. | RegEx and negateCondition = true |
+ * | Not RegEx                  | Matches when the value does not match the specified regular expression. See `Condition Regular Expressions` for more details. | RegEx and negateCondition = true |
+ * | Not Wildcard               | Matches when the request path does not match a wildcard expression. See `Condition Wildcard Expression` below for more details. | Wildcard and negateCondition = true |
  * 
  * ***
  * 
@@ -301,6 +303,10 @@ import javax.annotation.Nullable;
  * * Callouts and embedded code.
  * * Atomic grouping and possessive quantifiers.
  * 
+ * ## Condition Wildcard Expression
+ * 
+ * A wildcard expression can include the * character to match zero or more characters within the path. For example, the wildcard expression `files/customer*&#47;file.pdf` matches the paths `files/customer1/file.pdf`, `files/customer109/file.pdf`, and `files/customer/file.pdf`, but doesn&#39;t match `files/customer2/anotherfile.pdf`.
+ * 
  * ***
  * 
  * ## Condition Transform List
@@ -317,6 +323,13 @@ import javax.annotation.Nullable;
  * | URLDecode   | URL-decodes the string. |
  * 
  * ***
+ * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.Cdn`: 2024-09-01
  * 
  * ## Import
  * 

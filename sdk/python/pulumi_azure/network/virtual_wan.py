@@ -321,6 +321,13 @@ class VirtualWan(pulumi.CustomResource):
             location=example.location)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network`: 2024-05-01
+
         ## Import
 
         Virtual WAN can be imported using the `resource id`, e.g.
@@ -363,6 +370,13 @@ class VirtualWan(pulumi.CustomResource):
             resource_group_name=example.name,
             location=example.location)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network`: 2024-05-01
 
         ## Import
 

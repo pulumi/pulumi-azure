@@ -90,6 +90,13 @@ import (
 //
 // ```
 //
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.Network`: 2024-05-01
+//
 // ## Import
 //
 // Virtual Networks can be imported using the `resource id`, e.g.
@@ -101,6 +108,8 @@ type VirtualNetwork struct {
 	pulumi.CustomResourceState
 
 	// The address space that is used the virtual network. You can supply more than one address space.
+	//
+	// > **Note:** Exactly one of `addressSpace` or `ipAddressPool` must be specified. If `addressSpace` is not specified but you encounter a diff, this might indicate the `addressSpace` is allocated from the IP Address Pool. If this is the case, you may need to add this to ignore_changes.
 	AddressSpaces pulumi.StringArrayOutput `pulumi:"addressSpaces"`
 	// The BGP community attribute in format `<as-number>:<community-value>`.
 	//
@@ -118,8 +127,12 @@ type VirtualNetwork struct {
 	Encryption VirtualNetworkEncryptionPtrOutput `pulumi:"encryption"`
 	// The flow timeout in minutes for the Virtual Network, which is used to enable connection tracking for intra-VM flows. Possible values are between `4` and `30` minutes.
 	FlowTimeoutInMinutes pulumi.IntPtrOutput `pulumi:"flowTimeoutInMinutes"`
-	// The GUID of the virtual network.
+	// The GUID of the Virtual Network.
 	Guid pulumi.StringOutput `pulumi:"guid"`
+	// One or two `ipAddressPool` blocks as defined below. Only one association of each IP type(IPv4 or IPv6) is allowed.
+	//
+	// > **Note:** Exactly one of `addressSpace` or `ipAddressPool` must be specified.
+	IpAddressPools VirtualNetworkIpAddressPoolArrayOutput `pulumi:"ipAddressPools"`
 	// The location/region where the virtual network is created. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name of the virtual network. Changing this forces a new resource to be created.
@@ -143,9 +156,6 @@ func NewVirtualNetwork(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.AddressSpaces == nil {
-		return nil, errors.New("invalid value for required argument 'AddressSpaces'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -173,6 +183,8 @@ func GetVirtualNetwork(ctx *pulumi.Context,
 // Input properties used for looking up and filtering VirtualNetwork resources.
 type virtualNetworkState struct {
 	// The address space that is used the virtual network. You can supply more than one address space.
+	//
+	// > **Note:** Exactly one of `addressSpace` or `ipAddressPool` must be specified. If `addressSpace` is not specified but you encounter a diff, this might indicate the `addressSpace` is allocated from the IP Address Pool. If this is the case, you may need to add this to ignore_changes.
 	AddressSpaces []string `pulumi:"addressSpaces"`
 	// The BGP community attribute in format `<as-number>:<community-value>`.
 	//
@@ -190,8 +202,12 @@ type virtualNetworkState struct {
 	Encryption *VirtualNetworkEncryption `pulumi:"encryption"`
 	// The flow timeout in minutes for the Virtual Network, which is used to enable connection tracking for intra-VM flows. Possible values are between `4` and `30` minutes.
 	FlowTimeoutInMinutes *int `pulumi:"flowTimeoutInMinutes"`
-	// The GUID of the virtual network.
+	// The GUID of the Virtual Network.
 	Guid *string `pulumi:"guid"`
+	// One or two `ipAddressPool` blocks as defined below. Only one association of each IP type(IPv4 or IPv6) is allowed.
+	//
+	// > **Note:** Exactly one of `addressSpace` or `ipAddressPool` must be specified.
+	IpAddressPools []VirtualNetworkIpAddressPool `pulumi:"ipAddressPools"`
 	// The location/region where the virtual network is created. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The name of the virtual network. Changing this forces a new resource to be created.
@@ -210,6 +226,8 @@ type virtualNetworkState struct {
 
 type VirtualNetworkState struct {
 	// The address space that is used the virtual network. You can supply more than one address space.
+	//
+	// > **Note:** Exactly one of `addressSpace` or `ipAddressPool` must be specified. If `addressSpace` is not specified but you encounter a diff, this might indicate the `addressSpace` is allocated from the IP Address Pool. If this is the case, you may need to add this to ignore_changes.
 	AddressSpaces pulumi.StringArrayInput
 	// The BGP community attribute in format `<as-number>:<community-value>`.
 	//
@@ -227,8 +245,12 @@ type VirtualNetworkState struct {
 	Encryption VirtualNetworkEncryptionPtrInput
 	// The flow timeout in minutes for the Virtual Network, which is used to enable connection tracking for intra-VM flows. Possible values are between `4` and `30` minutes.
 	FlowTimeoutInMinutes pulumi.IntPtrInput
-	// The GUID of the virtual network.
+	// The GUID of the Virtual Network.
 	Guid pulumi.StringPtrInput
+	// One or two `ipAddressPool` blocks as defined below. Only one association of each IP type(IPv4 or IPv6) is allowed.
+	//
+	// > **Note:** Exactly one of `addressSpace` or `ipAddressPool` must be specified.
+	IpAddressPools VirtualNetworkIpAddressPoolArrayInput
 	// The location/region where the virtual network is created. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// The name of the virtual network. Changing this forces a new resource to be created.
@@ -251,6 +273,8 @@ func (VirtualNetworkState) ElementType() reflect.Type {
 
 type virtualNetworkArgs struct {
 	// The address space that is used the virtual network. You can supply more than one address space.
+	//
+	// > **Note:** Exactly one of `addressSpace` or `ipAddressPool` must be specified. If `addressSpace` is not specified but you encounter a diff, this might indicate the `addressSpace` is allocated from the IP Address Pool. If this is the case, you may need to add this to ignore_changes.
 	AddressSpaces []string `pulumi:"addressSpaces"`
 	// The BGP community attribute in format `<as-number>:<community-value>`.
 	//
@@ -268,6 +292,10 @@ type virtualNetworkArgs struct {
 	Encryption *VirtualNetworkEncryption `pulumi:"encryption"`
 	// The flow timeout in minutes for the Virtual Network, which is used to enable connection tracking for intra-VM flows. Possible values are between `4` and `30` minutes.
 	FlowTimeoutInMinutes *int `pulumi:"flowTimeoutInMinutes"`
+	// One or two `ipAddressPool` blocks as defined below. Only one association of each IP type(IPv4 or IPv6) is allowed.
+	//
+	// > **Note:** Exactly one of `addressSpace` or `ipAddressPool` must be specified.
+	IpAddressPools []VirtualNetworkIpAddressPool `pulumi:"ipAddressPools"`
 	// The location/region where the virtual network is created. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The name of the virtual network. Changing this forces a new resource to be created.
@@ -287,6 +315,8 @@ type virtualNetworkArgs struct {
 // The set of arguments for constructing a VirtualNetwork resource.
 type VirtualNetworkArgs struct {
 	// The address space that is used the virtual network. You can supply more than one address space.
+	//
+	// > **Note:** Exactly one of `addressSpace` or `ipAddressPool` must be specified. If `addressSpace` is not specified but you encounter a diff, this might indicate the `addressSpace` is allocated from the IP Address Pool. If this is the case, you may need to add this to ignore_changes.
 	AddressSpaces pulumi.StringArrayInput
 	// The BGP community attribute in format `<as-number>:<community-value>`.
 	//
@@ -304,6 +334,10 @@ type VirtualNetworkArgs struct {
 	Encryption VirtualNetworkEncryptionPtrInput
 	// The flow timeout in minutes for the Virtual Network, which is used to enable connection tracking for intra-VM flows. Possible values are between `4` and `30` minutes.
 	FlowTimeoutInMinutes pulumi.IntPtrInput
+	// One or two `ipAddressPool` blocks as defined below. Only one association of each IP type(IPv4 or IPv6) is allowed.
+	//
+	// > **Note:** Exactly one of `addressSpace` or `ipAddressPool` must be specified.
+	IpAddressPools VirtualNetworkIpAddressPoolArrayInput
 	// The location/region where the virtual network is created. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// The name of the virtual network. Changing this forces a new resource to be created.
@@ -408,6 +442,8 @@ func (o VirtualNetworkOutput) ToVirtualNetworkOutputWithContext(ctx context.Cont
 }
 
 // The address space that is used the virtual network. You can supply more than one address space.
+//
+// > **Note:** Exactly one of `addressSpace` or `ipAddressPool` must be specified. If `addressSpace` is not specified but you encounter a diff, this might indicate the `addressSpace` is allocated from the IP Address Pool. If this is the case, you may need to add this to ignore_changes.
 func (o VirtualNetworkOutput) AddressSpaces() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VirtualNetwork) pulumi.StringArrayOutput { return v.AddressSpaces }).(pulumi.StringArrayOutput)
 }
@@ -446,9 +482,16 @@ func (o VirtualNetworkOutput) FlowTimeoutInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *VirtualNetwork) pulumi.IntPtrOutput { return v.FlowTimeoutInMinutes }).(pulumi.IntPtrOutput)
 }
 
-// The GUID of the virtual network.
+// The GUID of the Virtual Network.
 func (o VirtualNetworkOutput) Guid() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualNetwork) pulumi.StringOutput { return v.Guid }).(pulumi.StringOutput)
+}
+
+// One or two `ipAddressPool` blocks as defined below. Only one association of each IP type(IPv4 or IPv6) is allowed.
+//
+// > **Note:** Exactly one of `addressSpace` or `ipAddressPool` must be specified.
+func (o VirtualNetworkOutput) IpAddressPools() VirtualNetworkIpAddressPoolArrayOutput {
+	return o.ApplyT(func(v *VirtualNetwork) VirtualNetworkIpAddressPoolArrayOutput { return v.IpAddressPools }).(VirtualNetworkIpAddressPoolArrayOutput)
 }
 
 // The location/region where the virtual network is created. Changing this forces a new resource to be created.
