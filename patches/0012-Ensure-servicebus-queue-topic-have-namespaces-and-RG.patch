@@ -7,7 +7,7 @@ Subject: [PATCH] Ensure servicebus queue & topic have namespaces and RG names
 These are computed attributes for use in the servicebus mixins in Pulumi.
 
 diff --git a/internal/services/servicebus/servicebus_queue_resource.go b/internal/services/servicebus/servicebus_queue_resource.go
-index b85a172a9d..1d68962cb5 100644
+index 2904017cc0..bf1e609028 100644
 --- a/internal/services/servicebus/servicebus_queue_resource.go
 +++ b/internal/services/servicebus/servicebus_queue_resource.go
 @@ -46,6 +46,8 @@ func resourceServiceBusQueue() *pluginsdk.Resource {
@@ -46,7 +46,7 @@ index b85a172a9d..1d68962cb5 100644
  	if model := resp.Model; model != nil {
  		if props := model.Properties; props != nil {
 diff --git a/internal/services/servicebus/servicebus_topic_resource.go b/internal/services/servicebus/servicebus_topic_resource.go
-index d106b6b017..c56e4bcd87 100644
+index f96be1f228..e1dca01805 100644
 --- a/internal/services/servicebus/servicebus_topic_resource.go
 +++ b/internal/services/servicebus/servicebus_topic_resource.go
 @@ -44,6 +44,8 @@ func resourceServiceBusTopic() *pluginsdk.Resource {

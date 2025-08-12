@@ -860,6 +860,15 @@
                 "current": "azure:apimanagement/redisCache:RedisCache",
                 "majorVersion": 6
             },
+            "azurerm_api_management_standalone_gateway": {
+                "current": "azure:apimanagement/standaloneGateway:StandaloneGateway",
+                "majorVersion": 6,
+                "fields": {
+                    "sku": {
+                        "maxItemsOne": true
+                    }
+                }
+            },
             "azurerm_api_management_subscription": {
                 "current": "azure:apimanagement/subscription:Subscription",
                 "majorVersion": 6
@@ -870,6 +879,10 @@
             },
             "azurerm_api_management_user": {
                 "current": "azure:apimanagement/user:User",
+                "majorVersion": 6
+            },
+            "azurerm_api_management_workspace": {
+                "current": "azure:apimanagement/workspace:Workspace",
                 "majorVersion": 6
             },
             "azurerm_app_configuration": {
@@ -1797,6 +1810,10 @@
             },
             "azurerm_application_load_balancer_frontend": {
                 "current": "azure:appconfiguration/licationLoadBalancerFrontend:LicationLoadBalancerFrontend",
+                "majorVersion": 6
+            },
+            "azurerm_application_load_balancer_security_policy": {
+                "current": "azure:appconfiguration/licationLoadBalancerSecurityPolicy:LicationLoadBalancerSecurityPolicy",
                 "majorVersion": 6
             },
             "azurerm_application_load_balancer_subnet_association": {
@@ -3962,6 +3979,25 @@
                         "maxItemsOne": true,
                         "elem": {
                             "fields": {
+                                "cors": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "allowed_headers": {
+                                                "maxItemsOne": false
+                                            },
+                                            "allowed_methods": {
+                                                "maxItemsOne": false
+                                            },
+                                            "allowed_origins": {
+                                                "maxItemsOne": false
+                                            },
+                                            "exposed_headers": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
                                 "custom_domain": {
                                     "maxItemsOne": false
                                 },
@@ -4111,6 +4147,16 @@
                 "current": "azure:containerapp/environment:Environment",
                 "majorVersion": 6,
                 "fields": {
+                    "identity": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "identity_ids": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
                     "workload_profile": {
                         "maxItemsOne": false
                     }
@@ -4421,6 +4467,9 @@
                 "current": "azure:containerservice/registry:Registry",
                 "majorVersion": 6,
                 "fields": {
+                    "data_endpoint_host_names": {
+                        "maxItemsOne": false
+                    },
                     "encryption": {
                         "maxItemsOne": true
                     },
@@ -6536,7 +6585,12 @@
             },
             "azurerm_dev_center_project_pool": {
                 "current": "azure:devcenter/projectPool:ProjectPool",
-                "majorVersion": 6
+                "majorVersion": 6,
+                "fields": {
+                    "managed_virtual_network_regions": {
+                        "maxItemsOne": true
+                    }
+                }
             },
             "azurerm_dev_test_global_vm_shutdown_schedule": {
                 "current": "azure:devtest/globalVMShutdownSchedule:GlobalVMShutdownSchedule",
@@ -6771,6 +6825,16 @@
                 "current": "azure:dynatrace/monitor:Monitor",
                 "majorVersion": 6,
                 "fields": {
+                    "environment_properties": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "environment_info": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
                     "identity": {
                         "maxItemsOne": true
                     },
@@ -6898,6 +6962,10 @@
                         }
                     }
                 }
+            },
+            "azurerm_email_communication_service_domain_sender_username": {
+                "current": "azure:communication/emailServiceDomainSenderUsername:EmailServiceDomainSenderUsername",
+                "majorVersion": 6
             },
             "azurerm_eventgrid_domain": {
                 "current": "azure:eventgrid/domain:Domain",
@@ -7383,6 +7451,19 @@
                     }
                 }
             },
+            "azurerm_eventgrid_partner_namespace": {
+                "current": "azure:eventgrid/partnerNamespace:PartnerNamespace",
+                "majorVersion": 6,
+                "fields": {
+                    "inbound_ip_rule": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "azurerm_eventgrid_partner_registration": {
+                "current": "azure:eventgrid/partnerRegistration:PartnerRegistration",
+                "majorVersion": 6
+            },
             "azurerm_eventgrid_system_topic": {
                 "current": "azure:eventgrid/systemTopic:SystemTopic",
                 "majorVersion": 6,
@@ -7658,6 +7739,9 @@
                     },
                     "partition_ids": {
                         "maxItemsOne": false
+                    },
+                    "retention_description": {
+                        "maxItemsOne": true
                     }
                 }
             },
@@ -10680,6 +10764,9 @@
                     "confidential_computing": {
                         "maxItemsOne": true
                     },
+                    "custom_ca_trust_certificates_base64": {
+                        "maxItemsOne": false
+                    },
                     "default_node_pool": {
                         "maxItemsOne": true,
                         "elem": {
@@ -13678,6 +13765,9 @@
                     "maintenance_window": {
                         "maxItemsOne": true
                     },
+                    "root_squash": {
+                        "maxItemsOne": true
+                    },
                     "zones": {
                         "maxItemsOne": false
                     }
@@ -13778,6 +13868,25 @@
                 "fields": {
                     "location_filters": {
                         "maxItemsOne": false
+                    }
+                }
+            },
+            "azurerm_management_group_policy_set_definition": {
+                "current": "azure:management/groupPolicySetDefinition:GroupPolicySetDefinition",
+                "majorVersion": 6,
+                "fields": {
+                    "policy_definition_group": {
+                        "maxItemsOne": false
+                    },
+                    "policy_definition_reference": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "policy_group_names": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
                     }
                 }
             },
@@ -15238,6 +15347,15 @@
                     }
                 }
             },
+            "azurerm_mssql_managed_instance_start_stop_schedule": {
+                "current": "azure:mssql/managedInstanceStartStopSchedule:ManagedInstanceStartStopSchedule",
+                "majorVersion": 6,
+                "fields": {
+                    "schedule": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "azurerm_mssql_managed_instance_transparent_data_encryption": {
                 "current": "azure:mssql/managedInstanceTransparentDataEncryption:ManagedInstanceTransparentDataEncryption",
                 "majorVersion": 6
@@ -15600,6 +15718,9 @@
                 "current": "azure:netapp/volume:Volume",
                 "majorVersion": 6,
                 "fields": {
+                    "cool_access": {
+                        "maxItemsOne": true
+                    },
                     "data_protection_backup_policy": {
                         "maxItemsOne": true
                     },
@@ -15615,6 +15736,9 @@
                             "fields": {
                                 "allowed_clients": {
                                     "maxItemsOne": false
+                                },
+                                "protocol": {
+                                    "maxItemsOne": true
                                 },
                                 "protocols_enabled": {
                                     "maxItemsOne": true
@@ -15981,6 +16105,34 @@
                 "current": "azure:network/networkManagerVerifierWorkspace:NetworkManagerVerifierWorkspace",
                 "majorVersion": 6
             },
+            "azurerm_network_manager_verifier_workspace_reachability_analysis_intent": {
+                "current": "azure:network/networkManagerVerifierWorkspaceReachabilityAnalysisIntent:NetworkManagerVerifierWorkspaceReachabilityAnalysisIntent",
+                "majorVersion": 6,
+                "fields": {
+                    "ip_traffic": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "destination_ips": {
+                                    "maxItemsOne": false
+                                },
+                                "destination_ports": {
+                                    "maxItemsOne": false
+                                },
+                                "protocols": {
+                                    "maxItemsOne": false
+                                },
+                                "source_ips": {
+                                    "maxItemsOne": false
+                                },
+                                "source_ports": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
+            },
             "azurerm_network_profile": {
                 "current": "azure:network/profile:Profile",
                 "majorVersion": 6,
@@ -16209,8 +16361,14 @@
                 "current": "azure:oracle/autonomousDatabase:AutonomousDatabase",
                 "majorVersion": 6,
                 "fields": {
+                    "allowed_ips": {
+                        "maxItemsOne": false
+                    },
                     "customer_contacts": {
                         "maxItemsOne": false
+                    },
+                    "long_term_backup_schedule": {
+                        "maxItemsOne": true
                     }
                 }
             },
@@ -16222,6 +16380,9 @@
                         "maxItemsOne": true
                     },
                     "db_servers": {
+                        "maxItemsOne": false
+                    },
+                    "file_system_configuration": {
                         "maxItemsOne": false
                     },
                     "ssh_public_keys": {
@@ -16978,6 +17139,10 @@
             },
             "azurerm_postgresql_flexible_server_active_directory_administrator": {
                 "current": "azure:postgresql/flexibleServerActiveDirectoryAdministrator:FlexibleServerActiveDirectoryAdministrator",
+                "majorVersion": 6
+            },
+            "azurerm_postgresql_flexible_server_backup": {
+                "current": "azure:postgresql/flexibleServerBackup:FlexibleServerBackup",
                 "majorVersion": 6
             },
             "azurerm_postgresql_flexible_server_configuration": {
@@ -20547,6 +20712,16 @@
                                             }
                                         }
                                     }
+                                }
+                            }
+                        }
+                    },
+                    "ip_address_pool": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "allocated_ip_address_prefixes": {
+                                    "maxItemsOne": false
                                 }
                             }
                         }
@@ -24230,6 +24405,10 @@
                     }
                 }
             },
+            "azurerm_api_connection": {
+                "current": "azure:connections/getApiConnection:getApiConnection",
+                "majorVersion": 6
+            },
             "azurerm_api_management": {
                 "current": "azure:apimanagement/getService:getService",
                 "majorVersion": 6,
@@ -25453,6 +25632,25 @@
                         "maxItemsOne": false,
                         "elem": {
                             "fields": {
+                                "cors": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "allowed_headers": {
+                                                "maxItemsOne": false
+                                            },
+                                            "allowed_methods": {
+                                                "maxItemsOne": false
+                                            },
+                                            "allowed_origins": {
+                                                "maxItemsOne": false
+                                            },
+                                            "exposed_headers": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
                                 "custom_domain": {
                                     "maxItemsOne": false
                                 },
@@ -25626,7 +25824,12 @@
             },
             "azurerm_container_registry": {
                 "current": "azure:containerservice/getRegistry:getRegistry",
-                "majorVersion": 6
+                "majorVersion": 6,
+                "fields": {
+                    "data_endpoint_host_names": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "azurerm_container_registry_cache_rule": {
                 "current": "azure:containerservice/getRegistryCacheRule:getRegistryCacheRule",
@@ -25893,6 +26096,9 @@
                 "current": "azure:databricks/getWorkspace:getWorkspace",
                 "majorVersion": 6,
                 "fields": {
+                    "custom_parameters": {
+                        "maxItemsOne": false
+                    },
                     "enhanced_security_compliance": {
                         "maxItemsOne": false,
                         "elem": {
@@ -25969,6 +26175,10 @@
                 "current": "azure:devcenter/getDevBoxDefinition:getDevBoxDefinition",
                 "majorVersion": 6
             },
+            "azurerm_dev_center_environment_type": {
+                "current": "azure:devcenter/getEnvironmentType:getEnvironmentType",
+                "majorVersion": 6
+            },
             "azurerm_dev_center_gallery": {
                 "current": "azure:devcenter/getGallery:getGallery",
                 "majorVersion": 6
@@ -26021,6 +26231,10 @@
                         }
                     }
                 }
+            },
+            "azurerm_dev_center_project_pool": {
+                "current": "azure:devcenter/getProjectPool:getProjectPool",
+                "majorVersion": 6
             },
             "azurerm_dev_test_lab": {
                 "current": "azure:devtest/getLab:getLab",
@@ -26257,6 +26471,19 @@
             },
             "azurerm_eventgrid_domain_topic": {
                 "current": "azure:eventgrid/getDomainTopic:getDomainTopic",
+                "majorVersion": 6
+            },
+            "azurerm_eventgrid_partner_namespace": {
+                "current": "azure:eventgrid/getPartnerNamespace:getPartnerNamespace",
+                "majorVersion": 6,
+                "fields": {
+                    "inbound_ip_rule": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "azurerm_eventgrid_partner_registration": {
+                "current": "azure:eventgrid/getPartnerRegistration:getPartnerRegistration",
                 "majorVersion": 6
             },
             "azurerm_eventgrid_system_topic": {
@@ -27945,6 +28172,10 @@
                 "current": "azure:operationalinsights/getAnalyticsWorkspace:getAnalyticsWorkspace",
                 "majorVersion": 6
             },
+            "azurerm_log_analytics_workspace_table": {
+                "current": "azure:loganalytics/getWorkspaceTable:getWorkspaceTable",
+                "majorVersion": 6
+            },
             "azurerm_logic_app_integration_account": {
                 "current": "azure:logicapps/getIntegrationAccount:getIntegrationAccount",
                 "majorVersion": 6
@@ -28759,6 +28990,21 @@
                     }
                 }
             },
+            "azurerm_mssql_failover_group": {
+                "current": "azure:mssql/getFailoverGroup:getFailoverGroup",
+                "majorVersion": 6,
+                "fields": {
+                    "databases": {
+                        "maxItemsOne": false
+                    },
+                    "partner_server": {
+                        "maxItemsOne": false
+                    },
+                    "read_write_endpoint_failover_policy": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "azurerm_mssql_managed_database": {
                 "current": "azure:mssql/getManagedDatabase:getManagedDatabase",
                 "majorVersion": 6,
@@ -29072,6 +29318,15 @@
                     }
                 }
             },
+            "azurerm_network_manager_ipam_pool": {
+                "current": "azure:network/getNetworkManagerIpamPool:getNetworkManagerIpamPool",
+                "majorVersion": 6,
+                "fields": {
+                    "address_prefixes": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "azurerm_network_manager_network_group": {
                 "current": "azure:network/getNetworkManagerNetworkGroup:getNetworkManagerNetworkGroup",
                 "majorVersion": 6
@@ -29259,6 +29514,9 @@
                     "available_upgrade_versions": {
                         "maxItemsOne": false
                     },
+                    "long_term_backup_schedule": {
+                        "maxItemsOne": false
+                    },
                     "peer_db_ids": {
                         "maxItemsOne": false
                     },
@@ -29281,6 +29539,9 @@
                         "maxItemsOne": false
                     },
                     "db_servers": {
+                        "maxItemsOne": false
+                    },
+                    "file_system_configuration": {
                         "maxItemsOne": false
                     },
                     "iorm_config_cache": {
@@ -29352,6 +29613,9 @@
                 "majorVersion": 6,
                 "fields": {
                     "customer_contacts": {
+                        "maxItemsOne": false
+                    },
+                    "defined_file_system_configuration": {
                         "maxItemsOne": false
                     },
                     "estimated_patching_time": {
@@ -30712,6 +30976,10 @@
                     }
                 }
             },
+            "azurerm_trusted_signing_account": {
+                "current": "azure:trustedsigning/getAccount:getAccount",
+                "majorVersion": 6
+            },
             "azurerm_user_assigned_identity": {
                 "current": "azure:authorization/getUserAssignedIdentity:getUserAssignedIdentity",
                 "majorVersion": 6
@@ -31820,6 +32088,11 @@
     },
     "auto-settings": {
         "resources": {
+            "azurerm_mobile_network_packet_core_control_plane": {
+                "maxItemsOneOverrides": {
+                    "site_ids": false
+                }
+            },
             "azurerm_mysql_flexible_server_active_directory_administrator": {
                 "renames": [
                     "azure:mysql/flexibleServerActiveDirectoryAdministrator:FlexibleServerActiveDirectoryAdministrator"

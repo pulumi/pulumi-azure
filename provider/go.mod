@@ -1,11 +1,13 @@
 module github.com/pulumi/pulumi-azure/provider/v6
 
-go 1.24.1
+go 1.24.5
+
+toolchain go1.24.6
 
 require (
 	github.com/Azure/go-autorest/autorest/azure/cli v0.4.6
-	github.com/hashicorp/go-azure-sdk/sdk v0.20250526.1224007
-	github.com/hashicorp/terraform-plugin-sdk/v2 v2.36.1
+	github.com/hashicorp/go-azure-sdk/sdk v0.20250731.1142049
+	github.com/hashicorp/terraform-plugin-sdk/v2 v2.37.0
 	github.com/hashicorp/terraform-provider-azurerm v1.44.1-0.20220923005104-eaa801c358ff
 	github.com/pulumi/providertest v0.3.0
 	github.com/pulumi/pulumi-terraform-bridge/v3 v3.111.0
@@ -89,8 +91,8 @@ require (
 	github.com/googleapis/gax-go/v2 v2.12.2 // indirect
 	github.com/grpc-ecosystem/grpc-opentracing v0.0.0-20180507213350-8e809c8a8645 // indirect
 	github.com/hashicorp/errwrap v1.1.0 // indirect
-	github.com/hashicorp/go-azure-helpers v0.72.0 // indirect
-	github.com/hashicorp/go-azure-sdk/resource-manager v0.20250526.1224007 // indirect
+	github.com/hashicorp/go-azure-helpers v0.73.0 // indirect
+	github.com/hashicorp/go-azure-sdk/resource-manager v0.20250728.1144148 // indirect
 	github.com/hashicorp/go-checkpoint v0.5.0 // indirect
 	github.com/hashicorp/go-cleanhttp v0.5.2 // indirect
 	github.com/hashicorp/go-cty v1.5.0 // indirect
@@ -112,7 +114,7 @@ require (
 	github.com/hashicorp/terraform-plugin-framework v1.15.0 // indirect
 	github.com/hashicorp/terraform-plugin-go v0.28.0 // indirect
 	github.com/hashicorp/terraform-plugin-log v0.9.0 // indirect
-	github.com/hashicorp/terraform-plugin-testing v1.11.0 // indirect
+	github.com/hashicorp/terraform-plugin-testing v1.13.1 // indirect
 	github.com/hashicorp/terraform-registry-address v0.2.5 // indirect
 	github.com/hashicorp/terraform-svchost v0.1.1 // indirect
 	github.com/hashicorp/yamux v0.1.1 // indirect
@@ -181,7 +183,7 @@ require (
 	github.com/sergi/go-diff v1.3.2-0.20230802210424-5b0b94c5c0d3 // indirect
 	github.com/shopspring/decimal v1.3.1 // indirect
 	github.com/skeema/knownhosts v1.3.1 // indirect
-	github.com/spf13/afero v1.10.0 // indirect
+	github.com/spf13/afero v1.14.0 // indirect
 	github.com/spf13/cast v1.5.0 // indirect
 	github.com/spf13/cobra v1.9.1 // indirect
 	github.com/spf13/pflag v1.0.6 // indirect
@@ -204,17 +206,17 @@ require (
 	go.opentelemetry.io/otel/metric v1.36.0 // indirect
 	go.opentelemetry.io/otel/trace v1.36.0 // indirect
 	go.uber.org/atomic v1.9.0 // indirect
-	golang.org/x/crypto v0.39.0 // indirect
+	golang.org/x/crypto v0.40.0 // indirect
 	golang.org/x/exp v0.0.0-20240719175910-8a7402abbf56 // indirect
-	golang.org/x/mod v0.25.0 // indirect
-	golang.org/x/net v0.40.0 // indirect
+	golang.org/x/mod v0.26.0 // indirect
+	golang.org/x/net v0.42.0 // indirect
 	golang.org/x/oauth2 v0.30.0 // indirect
-	golang.org/x/sync v0.15.0 // indirect
-	golang.org/x/sys v0.33.0 // indirect
-	golang.org/x/term v0.32.0 // indirect
-	golang.org/x/text v0.26.0 // indirect
+	golang.org/x/sync v0.16.0 // indirect
+	golang.org/x/sys v0.34.0 // indirect
+	golang.org/x/term v0.33.0 // indirect
+	golang.org/x/text v0.27.0 // indirect
 	golang.org/x/time v0.5.0 // indirect
-	golang.org/x/tools v0.33.0 // indirect
+	golang.org/x/tools v0.35.0 // indirect
 	google.golang.org/api v0.169.0 // indirect
 	google.golang.org/appengine v1.6.8 // indirect
 	google.golang.org/genproto v0.0.0-20240311173647-c811ad7063a7 // indirect
