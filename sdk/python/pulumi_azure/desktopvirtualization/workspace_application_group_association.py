@@ -142,9 +142,6 @@ class WorkspaceApplicationGroupAssociation(pulumi.CustomResource):
         This resource uses the following Azure API Providers:
 
         * `Microsoft.DesktopVirtualization` - 2024-04-03
-          =======
-        > **NOTE:** This ID is specific to this provider - and is of the format `{virtualDesktopWorkspaceID}|{virtualDesktopApplicationGroupID}`.
-        > > > > > > > bae9beb945 (Update-documentation)
 
         ## Import
 
@@ -204,9 +201,6 @@ class WorkspaceApplicationGroupAssociation(pulumi.CustomResource):
         This resource uses the following Azure API Providers:
 
         * `Microsoft.DesktopVirtualization` - 2024-04-03
-          =======
-        > **NOTE:** This ID is specific to this provider - and is of the format `{virtualDesktopWorkspaceID}|{virtualDesktopApplicationGroupID}`.
-        > > > > > > > bae9beb945 (Update-documentation)
 
         ## Import
 

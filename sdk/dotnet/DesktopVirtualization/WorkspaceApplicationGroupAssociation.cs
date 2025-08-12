@@ -68,9 +68,6 @@ namespace Pulumi.Azure.DesktopVirtualization
     /// This resource uses the following Azure API Providers:
     /// 
     /// * `Microsoft.DesktopVirtualization` - 2024-04-03
-    ///   =======
-    /// &gt; **NOTE:** This ID is specific to this provider - and is of the format `{virtualDesktopWorkspaceID}|{virtualDesktopApplicationGroupID}`.
-    /// &gt; &gt; &gt; &gt; &gt; &gt; &gt; bae9beb945 (Update-documentation)
     /// 
     /// ## Import
     /// 
