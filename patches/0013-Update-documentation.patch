@@ -1786,8 +1786,6 @@ index 396f6ab5ca..9d3abf071c 100644
 @@ -26,6 +26,7 @@ Below are some of the key scenarios that Azure Front Door Service addresses:
  
  !> **Note:** The creation of new Azure Front Door (classic) resources is no longer supported following its deprecation on `April 1, 2025`. However, modifications to existing Azure Front Door (classic) resources will continue to be supported until the API reaches full retirement on `March 31, 2027`.
- 
-+>>>>>>> bae9beb945 (Update-documentation)
  ## Example Usage
  
  ```hcl
@@ -3669,9 +3667,6 @@ index 92484f3a64..6230a4af8d 100644
  This resource uses the following Azure API Providers:
  
  * `Microsoft.Authorization` - 2022-05-01-preview
-+=======
-+-> **NOTE:** This ID is specific to this provider - and is of the format `{roleDefinitionId}|{scope}`.
-+>>>>>>> bae9beb945 (Update-documentation)
 diff --git a/website/docs/r/route.html.markdown b/website/docs/r/route.html.markdown
 index b3950cf3ef..b9f19a59f4 100644
 --- a/website/docs/r/route.html.markdown
@@ -4122,7 +4117,7 @@ index 00670bf1fa..71db153a28 100644
  
 -!> **Note:** When importing a Subscription that was not created programmatically, either by this Terraform resource or using the Alias API, it will have no Alias ID to import via `terraform import`.
 -In this scenario, the `subscription_id` property can be completed and Terraform will assume control of the existing subscription by creating an Alias. See the `adding an Alias to an existing Subscription` above. Terrafom requires an alias to correctly manage Subscription resources due to Azure Subscription API design.
-+!> **Note:** When importing a Subscription that was not created programmatically, either via this resource or using the Alias API, it will have no Alias ID to import. In this scenario, the `subscription_id` property can be completed and the resource will assume control of the existing subscription by creating an Alias. See the `adding an Alias to an existing Subscription` above. An alias is required to correctly manage Subscription resources due to Azure Subscription API design.
++!> **Note:** When importing a Subscription that was not created programmatically, either via this resource or using the Alias API, it will have no Alias ID to import via `pulumi import`. In this scenario, the `subscription_id` property can be completed and the resource will assume control of the existing subscription by creating an Alias. See the `adding an Alias to an existing Subscription` above. An alias is required to correctly manage Subscription resources due to Azure Subscription API design.
  
  ## API Providers
  <!-- This section is generated, changes will be overwritten -->
@@ -4188,9 +4183,6 @@ index cf243d8fd3..14bb8d4383 100644
  This resource uses the following Azure API Providers:
  
  * `Microsoft.DesktopVirtualization` - 2024-04-03
-+=======
-+-> **NOTE:** This ID is specific to this provider - and is of the format `{virtualDesktopWorkspaceID}|{virtualDesktopApplicationGroupID}`.
-+>>>>>>> bae9beb945 (Update-documentation)
 diff --git a/website/docs/r/virtual_machine.html.markdown b/website/docs/r/virtual_machine.html.markdown
 index 5274ee8063..39bdeef5bb 100644
 --- a/website/docs/r/virtual_machine.html.markdown
