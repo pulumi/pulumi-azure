@@ -1771,7 +1771,7 @@ index 2e62f4cc7f..5c394287f6 100644
  
    tags = {
 diff --git a/website/docs/r/frontdoor.html.markdown b/website/docs/r/frontdoor.html.markdown
-index 396f6ab5ca..9d3abf071c 100644
+index 396f6ab5ca..8631e48ced 100644
 --- a/website/docs/r/frontdoor.html.markdown
 +++ b/website/docs/r/frontdoor.html.markdown
 @@ -8,7 +8,7 @@ description: |-
@@ -1783,13 +1783,7 @@ index 396f6ab5ca..9d3abf071c 100644
  
  Manages an Azure Front Door (classic) instance.
  
-@@ -26,6 +26,7 @@ Below are some of the key scenarios that Azure Front Door Service addresses:
- 
- !> **Note:** The creation of new Azure Front Door (classic) resources is no longer supported following its deprecation on `April 1, 2025`. However, modifications to existing Azure Front Door (classic) resources will continue to be supported until the API reaches full retirement on `March 31, 2027`.
- ## Example Usage
- 
- ```hcl
-@@ -87,7 +88,7 @@ The following arguments are supported:
+@@ -87,7 +87,7 @@ The following arguments are supported:
  
  * `backend_pool` - (Required) A `backend_pool` block as defined below.
  
@@ -1798,7 +1792,7 @@ index 396f6ab5ca..9d3abf071c 100644
  
  * `backend_pool_health_probe` - (Required) A `backend_pool_health_probe` block as defined below.
  
-@@ -143,7 +144,7 @@ The `backend_pool_settings` block supports the following:
+@@ -143,7 +143,7 @@ The `backend_pool_settings` block supports the following:
  
  * `enforce_backend_pools_certificate_name_check` - (Required) Enforce certificate name check on `HTTPS` requests to all backend pools, this setting will have no effect on `HTTP` requests. Permitted values are `true` or `false`.
  
@@ -1807,7 +1801,7 @@ index 396f6ab5ca..9d3abf071c 100644
  
  ---
  
-@@ -173,7 +174,7 @@ The `backend_pool_health_probe` block supports the following:
+@@ -173,7 +173,7 @@ The `backend_pool_health_probe` block supports the following:
  
  * `probe_method` - (Optional) Specifies HTTP method the health probe uses when querying the backend pool instances. Possible values include: `GET` and `HEAD`. Defaults to `GET`.
  
@@ -1816,7 +1810,7 @@ index 396f6ab5ca..9d3abf071c 100644
  
  * `interval_in_seconds` - (Optional) The number of seconds between each Health Probe. Defaults to `120`.
  
-@@ -247,7 +248,7 @@ The `redirect_configuration` block supports the following:
+@@ -247,7 +247,7 @@ The `redirect_configuration` block supports the following:
  
  ## Attributes Reference
  
@@ -1825,7 +1819,7 @@ index 396f6ab5ca..9d3abf071c 100644
  
  * `backend_pool_health_probes` - A map/dictionary of Backend Pool Health Probe Names (key) to the Backend Pool Health Probe ID (value)
  * `backend_pool_load_balancing_settings` - A map/dictionary of Backend Pool Load Balancing Setting Names (key) to the Backend Pool Load Balancing Setting ID (value)
-@@ -306,8 +307,8 @@ In addition to the Arguments listed above - the following Attributes are exporte
+@@ -306,8 +306,8 @@ In addition to the Arguments listed above - the following Attributes are exporte
  The `timeouts` block allows you to specify [timeouts](https://www.terraform.io/language/resources/syntax#operation-timeouts) for certain actions:
  
  * `create` - (Defaults to 6 hours) Used when creating the FrontDoor.
@@ -3624,7 +3618,7 @@ index f51cf80ce4..8dd3a25b0f 100644
  -> **Note:** Adding or Removing a Preview Feature will re-register the Resource Provider.
  
 diff --git a/website/docs/r/role_definition.html.markdown b/website/docs/r/role_definition.html.markdown
-index 92484f3a64..6230a4af8d 100644
+index 92484f3a64..c0330e4894 100644
 --- a/website/docs/r/role_definition.html.markdown
 +++ b/website/docs/r/role_definition.html.markdown
 @@ -20,7 +20,7 @@ data "azurerm_subscription" "primary" {
@@ -3655,7 +3649,7 @@ index 92484f3a64..6230a4af8d 100644
  * `delete` - (Defaults to 30 minutes) Used when deleting the Role Definition.
  
  ## Import
-@@ -120,10 +120,13 @@ Role Definitions can be imported using the `resource id`, e.g.
+@@ -120,7 +120,7 @@ Role Definitions can be imported using the `resource id`, e.g.
  terraform import azurerm_role_definition.example "/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleDefinitions/00000000-0000-0000-0000-000000000000|/subscriptions/00000000-0000-0000-0000-000000000000"
  ```
  
@@ -3664,9 +3658,6 @@ index 92484f3a64..6230a4af8d 100644
  
  ## API Providers
  <!-- This section is generated, changes will be overwritten -->
- This resource uses the following Azure API Providers:
- 
- * `Microsoft.Authorization` - 2022-05-01-preview
 diff --git a/website/docs/r/route.html.markdown b/website/docs/r/route.html.markdown
 index b3950cf3ef..b9f19a59f4 100644
 --- a/website/docs/r/route.html.markdown
@@ -4066,7 +4057,7 @@ index 2954009587..63f58d36f3 100644
  
  ## Import
 diff --git a/website/docs/r/subscription.html.markdown b/website/docs/r/subscription.html.markdown
-index 00670bf1fa..71db153a28 100644
+index 00670bf1fa..d665805306 100644
 --- a/website/docs/r/subscription.html.markdown
 +++ b/website/docs/r/subscription.html.markdown
 @@ -8,17 +8,17 @@ description: |-
@@ -4156,7 +4147,7 @@ index 2949037026..8cdbb9f9bd 100644
 --> **Note:** This ID is specific to Terraform - and is of the format `{synapseScope}|{synapseRoleAssignmentId}`.
 +-> **NOTE:** This ID is specific to this provider - and is of the format `{synapseScope}|{synapseRoleAssignmentId}`.
 diff --git a/website/docs/r/virtual_desktop_workspace_application_group_association.html.markdown b/website/docs/r/virtual_desktop_workspace_application_group_association.html.markdown
-index cf243d8fd3..14bb8d4383 100644
+index cf243d8fd3..6d2544c101 100644
 --- a/website/docs/r/virtual_desktop_workspace_application_group_association.html.markdown
 +++ b/website/docs/r/virtual_desktop_workspace_application_group_association.html.markdown
 @@ -68,9 +68,9 @@ In addition to the Arguments listed above - the following Attributes are exporte
@@ -4171,7 +4162,7 @@ index cf243d8fd3..14bb8d4383 100644
  
  ## Import
  
-@@ -80,10 +80,13 @@ Associations between Virtual Desktop Workspaces and Virtual Desktop Application
+@@ -80,7 +80,7 @@ Associations between Virtual Desktop Workspaces and Virtual Desktop Application
  terraform import azurerm_virtual_desktop_workspace_application_group_association.association1 "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myGroup1/providers/Microsoft.DesktopVirtualization/workspaces/myworkspace|/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myGroup1/providers/Microsoft.DesktopVirtualization/applicationGroups/myapplicationgroup"
  ```
  
@@ -4180,9 +4171,6 @@ index cf243d8fd3..14bb8d4383 100644
  
  ## API Providers
  <!-- This section is generated, changes will be overwritten -->
- This resource uses the following Azure API Providers:
- 
- * `Microsoft.DesktopVirtualization` - 2024-04-03
 diff --git a/website/docs/r/virtual_machine.html.markdown b/website/docs/r/virtual_machine.html.markdown
 index 5274ee8063..39bdeef5bb 100644
 --- a/website/docs/r/virtual_machine.html.markdown
