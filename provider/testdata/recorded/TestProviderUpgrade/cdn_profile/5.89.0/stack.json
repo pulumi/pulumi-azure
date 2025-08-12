@@ -80,7 +80,7 @@
           "location": "westeurope",
           "name": "exampleProfilecee2ab31",
           "resourceGroupName": "resourcegroup45c38b27",
-          "sku": "standard_verizon",
+          "sku": "standard_microsoft",
           "tags": {
             "cost_center": "MSFT",
             "environment": "Production"
@@ -92,7 +92,7 @@
           "location": "westeurope",
           "name": "exampleProfilecee2ab31",
           "resourceGroupName": "resourcegroup45c38b27",
-          "sku": "Standard_Verizon",
+          "sku": "Standard_Microsoft",
           "tags": {
             "cost_center": "MSFT",
             "environment": "Production"
