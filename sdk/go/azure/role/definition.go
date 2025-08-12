@@ -116,11 +116,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This resource uses the following Azure API Providers:
 //
-//   - `Microsoft.Authorization` - 2022-05-01-preview
-//     =======
-//
-// > **NOTE:** This ID is specific to this provider - and is of the format `{roleDefinitionId}|{scope}`.
-// > > > > > > > bae9beb945 (Update-documentation)
+// * `Microsoft.Authorization` - 2022-05-01-preview
 //
 // ## Import
 //
