@@ -173,7 +173,7 @@ def get_image(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Compute`: 2022-03-01
+    * `Microsoft.Compute` - 2022-03-01
 
 
     :param _builtins.str name: The name of the Image.
@@ -224,7 +224,7 @@ def get_image_output(name: Optional[pulumi.Input[Optional[_builtins.str]]] = Non
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Compute`: 2022-03-01
+    * `Microsoft.Compute` - 2022-03-01
 
 
     :param _builtins.str name: The name of the Image.

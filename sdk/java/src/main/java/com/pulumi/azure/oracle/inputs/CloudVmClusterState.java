@@ -4,6 +4,7 @@
 package com.pulumi.azure.oracle.inputs;
 
 import com.pulumi.azure.oracle.inputs.CloudVmClusterDataCollectionOptionsArgs;
+import com.pulumi.azure.oracle.inputs.CloudVmClusterFileSystemConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
@@ -184,6 +185,21 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
      */
     public Optional<Output<String>> domain() {
         return Optional.ofNullable(this.domain);
+    }
+
+    /**
+     * A `file_system_configuration` block as defined below.
+     * 
+     */
+    @Import(name="fileSystemConfigurations")
+    private @Nullable Output<List<CloudVmClusterFileSystemConfigurationArgs>> fileSystemConfigurations;
+
+    /**
+     * @return A `file_system_configuration` block as defined below.
+     * 
+     */
+    public Optional<Output<List<CloudVmClusterFileSystemConfigurationArgs>>> fileSystemConfigurations() {
+        return Optional.ofNullable(this.fileSystemConfigurations);
     }
 
     /**
@@ -500,6 +516,7 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
         this.dbServers = $.dbServers;
         this.displayName = $.displayName;
         this.domain = $.domain;
+        this.fileSystemConfigurations = $.fileSystemConfigurations;
         this.giVersion = $.giVersion;
         this.hostname = $.hostname;
         this.hostnameActual = $.hostnameActual;
@@ -779,6 +796,37 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
          */
         public Builder domain(String domain) {
             return domain(Output.of(domain));
+        }
+
+        /**
+         * @param fileSystemConfigurations A `file_system_configuration` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder fileSystemConfigurations(@Nullable Output<List<CloudVmClusterFileSystemConfigurationArgs>> fileSystemConfigurations) {
+            $.fileSystemConfigurations = fileSystemConfigurations;
+            return this;
+        }
+
+        /**
+         * @param fileSystemConfigurations A `file_system_configuration` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder fileSystemConfigurations(List<CloudVmClusterFileSystemConfigurationArgs> fileSystemConfigurations) {
+            return fileSystemConfigurations(Output.of(fileSystemConfigurations));
+        }
+
+        /**
+         * @param fileSystemConfigurations A `file_system_configuration` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder fileSystemConfigurations(CloudVmClusterFileSystemConfigurationArgs... fileSystemConfigurations) {
+            return fileSystemConfigurations(List.of(fileSystemConfigurations));
         }
 
         /**

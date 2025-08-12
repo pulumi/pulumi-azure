@@ -42,7 +42,7 @@ namespace Pulumi.Azure.ServiceBus
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.ServiceBus`: 2021-06-01-preview
+        /// * `Microsoft.ServiceBus` - 2024-01-01
         /// </summary>
         public static Task<GetNamespaceDisasterRecoveryConfigResult> InvokeAsync(GetNamespaceDisasterRecoveryConfigArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceDisasterRecoveryConfigResult>("azure:servicebus/getNamespaceDisasterRecoveryConfig:getNamespaceDisasterRecoveryConfig", args ?? new GetNamespaceDisasterRecoveryConfigArgs(), options.WithDefaults());
@@ -78,7 +78,7 @@ namespace Pulumi.Azure.ServiceBus
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.ServiceBus`: 2021-06-01-preview
+        /// * `Microsoft.ServiceBus` - 2024-01-01
         /// </summary>
         public static Output<GetNamespaceDisasterRecoveryConfigResult> Invoke(GetNamespaceDisasterRecoveryConfigInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNamespaceDisasterRecoveryConfigResult>("azure:servicebus/getNamespaceDisasterRecoveryConfig:getNamespaceDisasterRecoveryConfig", args ?? new GetNamespaceDisasterRecoveryConfigInvokeArgs(), options.WithDefaults());
@@ -114,7 +114,7 @@ namespace Pulumi.Azure.ServiceBus
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.ServiceBus`: 2021-06-01-preview
+        /// * `Microsoft.ServiceBus` - 2024-01-01
         /// </summary>
         public static Output<GetNamespaceDisasterRecoveryConfigResult> Invoke(GetNamespaceDisasterRecoveryConfigInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetNamespaceDisasterRecoveryConfigResult>("azure:servicebus/getNamespaceDisasterRecoveryConfig:getNamespaceDisasterRecoveryConfig", args ?? new GetNamespaceDisasterRecoveryConfigInvokeArgs(), options.WithDefaults());

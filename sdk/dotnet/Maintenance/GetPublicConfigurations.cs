@@ -43,7 +43,7 @@ namespace Pulumi.Azure.Maintenance
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Maintenance`: 2023-04-01
+        /// * `Microsoft.Maintenance` - 2023-04-01
         /// </summary>
         public static Task<GetPublicConfigurationsResult> InvokeAsync(GetPublicConfigurationsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPublicConfigurationsResult>("azure:maintenance/getPublicConfigurations:getPublicConfigurations", args ?? new GetPublicConfigurationsArgs(), options.WithDefaults());
@@ -80,7 +80,7 @@ namespace Pulumi.Azure.Maintenance
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Maintenance`: 2023-04-01
+        /// * `Microsoft.Maintenance` - 2023-04-01
         /// </summary>
         public static Output<GetPublicConfigurationsResult> Invoke(GetPublicConfigurationsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPublicConfigurationsResult>("azure:maintenance/getPublicConfigurations:getPublicConfigurations", args ?? new GetPublicConfigurationsInvokeArgs(), options.WithDefaults());
@@ -117,7 +117,7 @@ namespace Pulumi.Azure.Maintenance
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Maintenance`: 2023-04-01
+        /// * `Microsoft.Maintenance` - 2023-04-01
         /// </summary>
         public static Output<GetPublicConfigurationsResult> Invoke(GetPublicConfigurationsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPublicConfigurationsResult>("azure:maintenance/getPublicConfigurations:getPublicConfigurations", args ?? new GetPublicConfigurationsInvokeArgs(), options.WithDefaults());

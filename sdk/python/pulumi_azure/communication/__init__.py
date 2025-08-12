@@ -8,6 +8,7 @@ import typing
 # Export this package's modules as members:
 from .email_service import *
 from .email_service_domain import *
+from .email_service_domain_sender_username import *
 from .get_service import *
 from .service import *
 from .service_email_domain_association import *

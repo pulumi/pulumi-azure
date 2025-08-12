@@ -42,7 +42,7 @@ namespace Pulumi.Azure.ArcMachine
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.HybridCompute`: 2022-11-10
+        /// * `Microsoft.HybridCompute` - 2022-11-10
         /// </summary>
         public static Task<GetResult> InvokeAsync(GetArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetResult>("azure:arcmachine/get:get", args ?? new GetArgs(), options.WithDefaults());
@@ -78,7 +78,7 @@ namespace Pulumi.Azure.ArcMachine
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.HybridCompute`: 2022-11-10
+        /// * `Microsoft.HybridCompute` - 2022-11-10
         /// </summary>
         public static Output<GetResult> Invoke(GetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetResult>("azure:arcmachine/get:get", args ?? new GetInvokeArgs(), options.WithDefaults());
@@ -114,7 +114,7 @@ namespace Pulumi.Azure.ArcMachine
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.HybridCompute`: 2022-11-10
+        /// * `Microsoft.HybridCompute` - 2022-11-10
         /// </summary>
         public static Output<GetResult> Invoke(GetInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetResult>("azure:arcmachine/get:get", args ?? new GetInvokeArgs(), options.WithDefaults());

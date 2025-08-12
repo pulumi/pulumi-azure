@@ -78,7 +78,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This resource uses the following Azure API Providers:
 //
-// * `Microsoft.OperationalInsights`: 2024-09-01
+// * `Microsoft.OperationalInsights` - 2024-09-01
 //
 // ## Import
 //

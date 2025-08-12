@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.ExtendedLocation`: 2021-08-15
+ * * `Microsoft.ExtendedLocation` - 2021-08-15
  */
 export function getCustomLocation(args: GetCustomLocationArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomLocationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -111,7 +111,7 @@ export interface GetCustomLocationResult {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.ExtendedLocation`: 2021-08-15
+ * * `Microsoft.ExtendedLocation` - 2021-08-15
  */
 export function getCustomLocationOutput(args: GetCustomLocationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCustomLocationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

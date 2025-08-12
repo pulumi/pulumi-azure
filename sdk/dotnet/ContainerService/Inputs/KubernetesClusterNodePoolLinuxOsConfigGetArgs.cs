@@ -25,14 +25,17 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public Input<Inputs.KubernetesClusterNodePoolLinuxOsConfigSysctlConfigGetArgs>? SysctlConfig { get; set; }
 
         /// <summary>
+        /// Specifies the Transparent Huge Page configuration. Possible values are `always`, `madvise` and `never`.
+        /// </summary>
+        [Input("transparentHugePage")]
+        public Input<string>? TransparentHugePage { get; set; }
+
+        /// <summary>
         /// specifies the defrag configuration for Transparent Huge Page. Possible values are `always`, `defer`, `defer+madvise`, `madvise` and `never`.
         /// </summary>
         [Input("transparentHugePageDefrag")]
         public Input<string>? TransparentHugePageDefrag { get; set; }
 
-        /// <summary>
-        /// Specifies the Transparent Huge Page enabled configuration. Possible values are `always`, `madvise` and `never`.
-        /// </summary>
         [Input("transparentHugePageEnabled")]
         public Input<string>? TransparentHugePageEnabled { get; set; }
 

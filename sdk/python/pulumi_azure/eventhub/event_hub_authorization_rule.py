@@ -418,7 +418,7 @@ class EventHubAuthorizationRule(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.EventHub`: 2024-01-01
+        * `Microsoft.EventHub` - 2024-01-01
 
         ## Import
 
@@ -488,7 +488,7 @@ class EventHubAuthorizationRule(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.EventHub`: 2024-01-01
+        * `Microsoft.EventHub` - 2024-01-01
 
         ## Import
 

@@ -14,21 +14,25 @@ namespace Pulumi.Azure.Policy.Outputs
     public sealed class PolicySetDefinitionPolicyDefinitionReference
     {
         /// <summary>
-        /// Parameter values for the referenced policy rule. This field is a JSON string that allows you to assign parameters to this policy rule.
+        /// Parameter values for the references Policy Definition in JSON format.
         /// </summary>
         public readonly string? ParameterValues;
         /// <summary>
-        /// The ID of the policy definition that will be included in this policy set definition.
+        /// The ID of the Policy Definition to include in this Policy Set Definition.
         /// </summary>
         public readonly string PolicyDefinitionId;
         /// <summary>
-        /// A list of names of the policy definition groups that this policy definition reference belongs to.
+        /// Specifies a list of Policy Definition Groups names that this Policy Definition Reference belongs to.
         /// </summary>
         public readonly ImmutableArray<string> PolicyGroupNames;
         /// <summary>
-        /// A unique ID within this policy set definition for this policy definition reference.
+        /// A unique ID within this Policy Set Definition for this Policy Definition Reference.
         /// </summary>
         public readonly string? ReferenceId;
+        /// <summary>
+        /// The version of the Policy Definition to use.
+        /// </summary>
+        public readonly string? Version;
 
         [OutputConstructor]
         private PolicySetDefinitionPolicyDefinitionReference(
@@ -38,12 +42,15 @@ namespace Pulumi.Azure.Policy.Outputs
 
             ImmutableArray<string> policyGroupNames,
 
-            string? referenceId)
+            string? referenceId,
+
+            string? version)
         {
             ParameterValues = parameterValues;
             PolicyDefinitionId = policyDefinitionId;
             PolicyGroupNames = policyGroupNames;
             ReferenceId = referenceId;
+            Version = version;
         }
     }
 }

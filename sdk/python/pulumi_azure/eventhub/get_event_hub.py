@@ -124,7 +124,7 @@ def get_event_hub(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.EventHub`: 2024-01-01
+    * `Microsoft.EventHub` - 2024-01-01
 
 
     :param _builtins.str name: The name of this EventHub.
@@ -169,7 +169,7 @@ def get_event_hub_output(name: Optional[pulumi.Input[_builtins.str]] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.EventHub`: 2024-01-01
+    * `Microsoft.EventHub` - 2024-01-01
 
 
     :param _builtins.str name: The name of this EventHub.

@@ -42,7 +42,7 @@ namespace Pulumi.Azure.PaloAlto
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `PaloAltoNetworks.Cloudngfw`: 2022-08-29
+        /// * `PaloAltoNetworks.Cloudngfw` - 2022-08-29
         /// </summary>
         public static Task<GetLocalRulestackResult> InvokeAsync(GetLocalRulestackArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLocalRulestackResult>("azure:paloalto/getLocalRulestack:getLocalRulestack", args ?? new GetLocalRulestackArgs(), options.WithDefaults());
@@ -78,7 +78,7 @@ namespace Pulumi.Azure.PaloAlto
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `PaloAltoNetworks.Cloudngfw`: 2022-08-29
+        /// * `PaloAltoNetworks.Cloudngfw` - 2022-08-29
         /// </summary>
         public static Output<GetLocalRulestackResult> Invoke(GetLocalRulestackInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLocalRulestackResult>("azure:paloalto/getLocalRulestack:getLocalRulestack", args ?? new GetLocalRulestackInvokeArgs(), options.WithDefaults());
@@ -114,7 +114,7 @@ namespace Pulumi.Azure.PaloAlto
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `PaloAltoNetworks.Cloudngfw`: 2022-08-29
+        /// * `PaloAltoNetworks.Cloudngfw` - 2022-08-29
         /// </summary>
         public static Output<GetLocalRulestackResult> Invoke(GetLocalRulestackInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetLocalRulestackResult>("azure:paloalto/getLocalRulestack:getLocalRulestack", args ?? new GetLocalRulestackInvokeArgs(), options.WithDefaults());

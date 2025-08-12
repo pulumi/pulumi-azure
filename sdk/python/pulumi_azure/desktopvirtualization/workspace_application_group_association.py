@@ -136,6 +136,16 @@ class WorkspaceApplicationGroupAssociation(pulumi.CustomResource):
             application_group_id=remoteapp.id)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DesktopVirtualization` - 2024-04-03
+          =======
+        > **NOTE:** This ID is specific to this provider - and is of the format `{virtualDesktopWorkspaceID}|{virtualDesktopApplicationGroupID}`.
+        > > > > > > > bae9beb945 (Update-documentation)
+
         ## Import
 
         Associations between Virtual Desktop Workspaces and Virtual Desktop Application Groups can be imported using the `resource id`, e.g.
@@ -187,6 +197,16 @@ class WorkspaceApplicationGroupAssociation(pulumi.CustomResource):
             workspace_id=workspace.id,
             application_group_id=remoteapp.id)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DesktopVirtualization` - 2024-04-03
+          =======
+        > **NOTE:** This ID is specific to this provider - and is of the format `{virtualDesktopWorkspaceID}|{virtualDesktopApplicationGroupID}`.
+        > > > > > > > bae9beb945 (Update-documentation)
 
         ## Import
 

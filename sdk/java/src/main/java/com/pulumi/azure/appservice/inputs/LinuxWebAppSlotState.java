@@ -518,6 +518,25 @@ public final class LinuxWebAppSlotState extends com.pulumi.resources.ResourceArg
     }
 
     /**
+     * Should the traffic for the image pull be routed over virtual network enabled. Defaults to `false`.
+     * 
+     * &gt; **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. Must be set to `true` when running in an App Service Environment.
+     * 
+     */
+    @Import(name="vnetImagePullEnabled")
+    private @Nullable Output<Boolean> vnetImagePullEnabled;
+
+    /**
+     * @return Should the traffic for the image pull be routed over virtual network enabled. Defaults to `false`.
+     * 
+     * &gt; **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. Must be set to `true` when running in an App Service Environment.
+     * 
+     */
+    public Optional<Output<Boolean>> vnetImagePullEnabled() {
+        return Optional.ofNullable(this.vnetImagePullEnabled);
+    }
+
+    /**
      * Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
      * 
      * &gt; **Note:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
@@ -592,6 +611,7 @@ public final class LinuxWebAppSlotState extends com.pulumi.resources.ResourceArg
         this.tags = $.tags;
         this.virtualNetworkBackupRestoreEnabled = $.virtualNetworkBackupRestoreEnabled;
         this.virtualNetworkSubnetId = $.virtualNetworkSubnetId;
+        this.vnetImagePullEnabled = $.vnetImagePullEnabled;
         this.webdeployPublishBasicAuthenticationEnabled = $.webdeployPublishBasicAuthenticationEnabled;
         this.zipDeployFile = $.zipDeployFile;
     }
@@ -1344,6 +1364,31 @@ public final class LinuxWebAppSlotState extends com.pulumi.resources.ResourceArg
 
         public Builder virtualNetworkSubnetId(String virtualNetworkSubnetId) {
             return virtualNetworkSubnetId(Output.of(virtualNetworkSubnetId));
+        }
+
+        /**
+         * @param vnetImagePullEnabled Should the traffic for the image pull be routed over virtual network enabled. Defaults to `false`.
+         * 
+         * &gt; **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. Must be set to `true` when running in an App Service Environment.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder vnetImagePullEnabled(@Nullable Output<Boolean> vnetImagePullEnabled) {
+            $.vnetImagePullEnabled = vnetImagePullEnabled;
+            return this;
+        }
+
+        /**
+         * @param vnetImagePullEnabled Should the traffic for the image pull be routed over virtual network enabled. Defaults to `false`.
+         * 
+         * &gt; **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. Must be set to `true` when running in an App Service Environment.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder vnetImagePullEnabled(Boolean vnetImagePullEnabled) {
+            return vnetImagePullEnabled(Output.of(vnetImagePullEnabled));
         }
 
         /**

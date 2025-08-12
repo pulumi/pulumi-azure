@@ -4,6 +4,7 @@
 package com.pulumi.azure.network;
 
 import com.pulumi.azure.network.inputs.SubnetDelegationArgs;
+import com.pulumi.azure.network.inputs.SubnetIpAddressPoolArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -24,18 +25,22 @@ public final class SubnetArgs extends com.pulumi.resources.ResourceArgs {
      * 
      * &gt; **NOTE:** Currently only a single address prefix can be set as the [Multiple Subnet Address Prefixes Feature](https://github.com/Azure/azure-cli/issues/18194#issuecomment-880484269) is not yet in public preview or general availability.
      * 
+     * &gt; **Note:** Exactly one of `address_prefixes` or `ip_address_pool` must be specified.
+     * 
      */
-    @Import(name="addressPrefixes", required=true)
-    private Output<List<String>> addressPrefixes;
+    @Import(name="addressPrefixes")
+    private @Nullable Output<List<String>> addressPrefixes;
 
     /**
      * @return The address prefixes to use for the subnet.
      * 
      * &gt; **NOTE:** Currently only a single address prefix can be set as the [Multiple Subnet Address Prefixes Feature](https://github.com/Azure/azure-cli/issues/18194#issuecomment-880484269) is not yet in public preview or general availability.
      * 
+     * &gt; **Note:** Exactly one of `address_prefixes` or `ip_address_pool` must be specified.
+     * 
      */
-    public Output<List<String>> addressPrefixes() {
-        return this.addressPrefixes;
+    public Optional<Output<List<String>>> addressPrefixes() {
+        return Optional.ofNullable(this.addressPrefixes);
     }
 
     /**
@@ -66,6 +71,25 @@ public final class SubnetArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<List<SubnetDelegationArgs>>> delegations() {
         return Optional.ofNullable(this.delegations);
+    }
+
+    /**
+     * An `ip_address_pool` block as defined below.
+     * 
+     * &gt; **Note:** Exactly one of `address_prefixes` or `ip_address_pool` must be specified.
+     * 
+     */
+    @Import(name="ipAddressPool")
+    private @Nullable Output<SubnetIpAddressPoolArgs> ipAddressPool;
+
+    /**
+     * @return An `ip_address_pool` block as defined below.
+     * 
+     * &gt; **Note:** Exactly one of `address_prefixes` or `ip_address_pool` must be specified.
+     * 
+     */
+    public Optional<Output<SubnetIpAddressPoolArgs>> ipAddressPool() {
+        return Optional.ofNullable(this.ipAddressPool);
     }
 
     /**
@@ -199,6 +223,7 @@ public final class SubnetArgs extends com.pulumi.resources.ResourceArgs {
         this.addressPrefixes = $.addressPrefixes;
         this.defaultOutboundAccessEnabled = $.defaultOutboundAccessEnabled;
         this.delegations = $.delegations;
+        this.ipAddressPool = $.ipAddressPool;
         this.name = $.name;
         this.privateEndpointNetworkPolicies = $.privateEndpointNetworkPolicies;
         this.privateLinkServiceNetworkPoliciesEnabled = $.privateLinkServiceNetworkPoliciesEnabled;
@@ -231,10 +256,12 @@ public final class SubnetArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * &gt; **NOTE:** Currently only a single address prefix can be set as the [Multiple Subnet Address Prefixes Feature](https://github.com/Azure/azure-cli/issues/18194#issuecomment-880484269) is not yet in public preview or general availability.
          * 
+         * &gt; **Note:** Exactly one of `address_prefixes` or `ip_address_pool` must be specified.
+         * 
          * @return builder
          * 
          */
-        public Builder addressPrefixes(Output<List<String>> addressPrefixes) {
+        public Builder addressPrefixes(@Nullable Output<List<String>> addressPrefixes) {
             $.addressPrefixes = addressPrefixes;
             return this;
         }
@@ -243,6 +270,8 @@ public final class SubnetArgs extends com.pulumi.resources.ResourceArgs {
          * @param addressPrefixes The address prefixes to use for the subnet.
          * 
          * &gt; **NOTE:** Currently only a single address prefix can be set as the [Multiple Subnet Address Prefixes Feature](https://github.com/Azure/azure-cli/issues/18194#issuecomment-880484269) is not yet in public preview or general availability.
+         * 
+         * &gt; **Note:** Exactly one of `address_prefixes` or `ip_address_pool` must be specified.
          * 
          * @return builder
          * 
@@ -255,6 +284,8 @@ public final class SubnetArgs extends com.pulumi.resources.ResourceArgs {
          * @param addressPrefixes The address prefixes to use for the subnet.
          * 
          * &gt; **NOTE:** Currently only a single address prefix can be set as the [Multiple Subnet Address Prefixes Feature](https://github.com/Azure/azure-cli/issues/18194#issuecomment-880484269) is not yet in public preview or general availability.
+         * 
+         * &gt; **Note:** Exactly one of `address_prefixes` or `ip_address_pool` must be specified.
          * 
          * @return builder
          * 
@@ -313,6 +344,31 @@ public final class SubnetArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder delegations(SubnetDelegationArgs... delegations) {
             return delegations(List.of(delegations));
+        }
+
+        /**
+         * @param ipAddressPool An `ip_address_pool` block as defined below.
+         * 
+         * &gt; **Note:** Exactly one of `address_prefixes` or `ip_address_pool` must be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipAddressPool(@Nullable Output<SubnetIpAddressPoolArgs> ipAddressPool) {
+            $.ipAddressPool = ipAddressPool;
+            return this;
+        }
+
+        /**
+         * @param ipAddressPool An `ip_address_pool` block as defined below.
+         * 
+         * &gt; **Note:** Exactly one of `address_prefixes` or `ip_address_pool` must be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipAddressPool(SubnetIpAddressPoolArgs ipAddressPool) {
+            return ipAddressPool(Output.of(ipAddressPool));
         }
 
         /**
@@ -505,9 +561,6 @@ public final class SubnetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public SubnetArgs build() {
-            if ($.addressPrefixes == null) {
-                throw new MissingRequiredPropertyException("SubnetArgs", "addressPrefixes");
-            }
             if ($.resourceGroupName == null) {
                 throw new MissingRequiredPropertyException("SubnetArgs", "resourceGroupName");
             }

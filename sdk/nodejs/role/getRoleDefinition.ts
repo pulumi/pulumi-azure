@@ -41,7 +41,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Authorization`: 2022-05-01-preview
+ * * `Microsoft.Authorization` - 2022-05-01-preview
  */
 /** @deprecated azure.role.getRoleDefinition has been deprecated in favor of azure.authorization.getRoleDefinition */
 export function getRoleDefinition(args?: GetRoleDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetRoleDefinitionResult> {
@@ -140,7 +140,7 @@ export interface GetRoleDefinitionResult {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Authorization`: 2022-05-01-preview
+ * * `Microsoft.Authorization` - 2022-05-01-preview
  */
 /** @deprecated azure.role.getRoleDefinition has been deprecated in favor of azure.authorization.getRoleDefinition */
 export function getRoleDefinitionOutput(args?: GetRoleDefinitionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRoleDefinitionResult> {

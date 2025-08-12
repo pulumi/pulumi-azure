@@ -12,7 +12,7 @@ namespace Pulumi.Azure.LogicApps.Inputs
 
     public sealed class WorkflowAccessControlTriggerArgs : global::Pulumi.ResourceArgs
     {
-        [Input("allowedCallerIpAddressRanges", required: true)]
+        [Input("allowedCallerIpAddressRanges")]
         private InputList<string>? _allowedCallerIpAddressRanges;
 
         /// <summary>

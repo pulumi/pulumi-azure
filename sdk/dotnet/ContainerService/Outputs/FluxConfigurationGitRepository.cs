@@ -30,6 +30,10 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly string? LocalAuthReference;
         /// <summary>
+        /// Specifies the OIDC provider used for workload identity federation authentication against git repositories. Possible values are `Azure`, `Generic`.
+        /// </summary>
+        public readonly string? Provider;
+        /// <summary>
         /// Specifies the source reference type for the GitRepository object. Possible values are `branch`, `commit`, `semver` and `tag`.
         /// </summary>
         public readonly string ReferenceType;
@@ -68,6 +72,8 @@ namespace Pulumi.Azure.ContainerService.Outputs
 
             string? localAuthReference,
 
+            string? provider,
+
             string referenceType,
 
             string referenceValue,
@@ -86,6 +92,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
             HttpsKeyBase64 = httpsKeyBase64;
             HttpsUser = httpsUser;
             LocalAuthReference = localAuthReference;
+            Provider = provider;
             ReferenceType = referenceType;
             ReferenceValue = referenceValue;
             SshKnownHostsBase64 = sshKnownHostsBase64;

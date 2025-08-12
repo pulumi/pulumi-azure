@@ -119,7 +119,7 @@ namespace Pulumi.Azure.Policy
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Parameters for the policy definition. This field is a JSON string that allows you to parameterize your policy definition.
+        /// Parameters for the policy definition. This field is a JSON string that allows you to parameterize your policy definition. Reducing the number of parameters forces a new resource to be created.
         /// </summary>
         [Output("parameters")]
         public Output<string?> Parameters { get; private set; } = null!;
@@ -227,7 +227,7 @@ namespace Pulumi.Azure.Policy
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Parameters for the policy definition. This field is a JSON string that allows you to parameterize your policy definition.
+        /// Parameters for the policy definition. This field is a JSON string that allows you to parameterize your policy definition. Reducing the number of parameters forces a new resource to be created.
         /// </summary>
         [Input("parameters")]
         public Input<string>? Parameters { get; set; }
@@ -291,7 +291,7 @@ namespace Pulumi.Azure.Policy
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Parameters for the policy definition. This field is a JSON string that allows you to parameterize your policy definition.
+        /// Parameters for the policy definition. This field is a JSON string that allows you to parameterize your policy definition. Reducing the number of parameters forces a new resource to be created.
         /// </summary>
         [Input("parameters")]
         public Input<string>? Parameters { get; set; }

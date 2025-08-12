@@ -53,7 +53,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This resource uses the following Azure API Providers:
 //
-// * `Microsoft.Portal`: 2019-01-01-preview
+// * `Microsoft.Portal` - 2019-01-01-preview
 //
 // ## Import
 //

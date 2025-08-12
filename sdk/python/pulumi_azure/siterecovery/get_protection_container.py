@@ -110,7 +110,7 @@ def get_protection_container(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.RecoveryServices`: 2024-04-01
+    * `Microsoft.RecoveryServices` - 2024-04-01
 
 
     :param _builtins.str name: Specifies the name of the protection container.
@@ -157,7 +157,7 @@ def get_protection_container_output(name: Optional[pulumi.Input[_builtins.str]] 
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.RecoveryServices`: 2024-04-01
+    * `Microsoft.RecoveryServices` - 2024-04-01
 
 
     :param _builtins.str name: Specifies the name of the protection container.

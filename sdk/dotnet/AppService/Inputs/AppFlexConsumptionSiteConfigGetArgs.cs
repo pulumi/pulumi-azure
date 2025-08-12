@@ -221,10 +221,16 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<bool>? ScmUseMainIpRestriction { get; set; }
 
         /// <summary>
-        /// Should the Linux Web App use a 32-bit worker. Defaults to `false`.
+        /// Should the Linux Web App  Linux Function App use a 32-bit worker. Defaults to `false`.
         /// </summary>
         [Input("use32BitWorker")]
         public Input<bool>? Use32BitWorker { get; set; }
+
+        /// <summary>
+        /// Should the Linux Function App route all traffic through the virtual network. Defaults to `false`.
+        /// </summary>
+        [Input("vnetRouteAllEnabled")]
+        public Input<bool>? VnetRouteAllEnabled { get; set; }
 
         /// <summary>
         /// Should Web Sockets be enabled. Defaults to `false`.

@@ -223,7 +223,7 @@ class SubscriptionPricing(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.Security`: 2023-01-01
+        * `Microsoft.Security` - 2023-01-01
 
         ## Import
 
@@ -297,7 +297,7 @@ class SubscriptionPricing(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.Security`: 2023-01-01
+        * `Microsoft.Security` - 2023-01-01
 
         ## Import
 

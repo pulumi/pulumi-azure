@@ -6,6 +6,7 @@ package com.pulumi.azure.dynatrace;
 import com.pulumi.azure.Utilities;
 import com.pulumi.azure.dynatrace.MonitorArgs;
 import com.pulumi.azure.dynatrace.inputs.MonitorState;
+import com.pulumi.azure.dynatrace.outputs.MonitorEnvironmentProperty;
 import com.pulumi.azure.dynatrace.outputs.MonitorIdentity;
 import com.pulumi.azure.dynatrace.outputs.MonitorPlan;
 import com.pulumi.azure.dynatrace.outputs.MonitorUser;
@@ -15,6 +16,7 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -32,7 +34,7 @@ import javax.annotation.Nullable;
  * &lt;!-- This section is generated, changes will be overwritten --&gt;
  * This resource uses the following Azure API Providers:
  * 
- * * `Dynatrace.Observability`: 2023-04-27
+ * * `Dynatrace.Observability` - 2023-04-27
  * 
  * ## Import
  * 
@@ -45,6 +47,20 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="azure:dynatrace/monitor:Monitor")
 public class Monitor extends com.pulumi.resources.CustomResource {
+    /**
+     * Properties of the Dynatrace environment. An `environment_properties` block as defined below.
+     * 
+     */
+    @Export(name="environmentProperties", refs={List.class,MonitorEnvironmentProperty.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<MonitorEnvironmentProperty>> environmentProperties;
+
+    /**
+     * @return Properties of the Dynatrace environment. An `environment_properties` block as defined below.
+     * 
+     */
+    public Output<Optional<List<MonitorEnvironmentProperty>>> environmentProperties() {
+        return Codegen.optional(this.environmentProperties);
+    }
     /**
      * The kind of managed identity assigned to this resource.  A `identity` block as defined below.
      * 

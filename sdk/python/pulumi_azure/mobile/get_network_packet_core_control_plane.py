@@ -260,7 +260,7 @@ def get_network_packet_core_control_plane(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.MobileNetwork`: 2022-11-01
+    * `Microsoft.MobileNetwork` - 2022-11-01
 
 
     :param _builtins.str name: The name of the Mobile Network Packet Core Control Plane.
@@ -312,7 +312,7 @@ def get_network_packet_core_control_plane_output(name: Optional[pulumi.Input[_bu
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.MobileNetwork`: 2022-11-01
+    * `Microsoft.MobileNetwork` - 2022-11-01
 
 
     :param _builtins.str name: The name of the Mobile Network Packet Core Control Plane.

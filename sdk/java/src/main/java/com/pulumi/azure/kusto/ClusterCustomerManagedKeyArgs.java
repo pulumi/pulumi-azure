@@ -35,30 +35,30 @@ public final class ClusterCustomerManagedKeyArgs extends com.pulumi.resources.Re
      * The name of Key Vault Key.
      * 
      */
-    @Import(name="keyName", required=true)
-    private Output<String> keyName;
+    @Import(name="keyName")
+    private @Nullable Output<String> keyName;
 
     /**
      * @return The name of Key Vault Key.
      * 
      */
-    public Output<String> keyName() {
-        return this.keyName;
+    public Optional<Output<String>> keyName() {
+        return Optional.ofNullable(this.keyName);
     }
 
     /**
-     * The ID of the Key Vault.
+     * The ID of the Key Vault for CMK encryption.
      * 
      */
-    @Import(name="keyVaultId", required=true)
-    private Output<String> keyVaultId;
+    @Import(name="keyVaultId")
+    private @Nullable Output<String> keyVaultId;
 
     /**
-     * @return The ID of the Key Vault.
+     * @return The ID of the Key Vault for CMK encryption.
      * 
      */
-    public Output<String> keyVaultId() {
-        return this.keyVaultId;
+    public Optional<Output<String>> keyVaultId() {
+        return Optional.ofNullable(this.keyVaultId);
     }
 
     /**
@@ -74,6 +74,25 @@ public final class ClusterCustomerManagedKeyArgs extends com.pulumi.resources.Re
      */
     public Optional<Output<String>> keyVersion() {
         return Optional.ofNullable(this.keyVersion);
+    }
+
+    /**
+     * The Managed HSM Key ID for CMK encryption.
+     * 
+     * &gt; **Note:** Exactly one of `managed_hsm_key_id` or `key_vault_id` must be specified.
+     * 
+     */
+    @Import(name="managedHsmKeyId")
+    private @Nullable Output<String> managedHsmKeyId;
+
+    /**
+     * @return The Managed HSM Key ID for CMK encryption.
+     * 
+     * &gt; **Note:** Exactly one of `managed_hsm_key_id` or `key_vault_id` must be specified.
+     * 
+     */
+    public Optional<Output<String>> managedHsmKeyId() {
+        return Optional.ofNullable(this.managedHsmKeyId);
     }
 
     /**
@@ -98,6 +117,7 @@ public final class ClusterCustomerManagedKeyArgs extends com.pulumi.resources.Re
         this.keyName = $.keyName;
         this.keyVaultId = $.keyVaultId;
         this.keyVersion = $.keyVersion;
+        this.managedHsmKeyId = $.managedHsmKeyId;
         this.userIdentity = $.userIdentity;
     }
 
@@ -146,7 +166,7 @@ public final class ClusterCustomerManagedKeyArgs extends com.pulumi.resources.Re
          * @return builder
          * 
          */
-        public Builder keyName(Output<String> keyName) {
+        public Builder keyName(@Nullable Output<String> keyName) {
             $.keyName = keyName;
             return this;
         }
@@ -162,18 +182,18 @@ public final class ClusterCustomerManagedKeyArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param keyVaultId The ID of the Key Vault.
+         * @param keyVaultId The ID of the Key Vault for CMK encryption.
          * 
          * @return builder
          * 
          */
-        public Builder keyVaultId(Output<String> keyVaultId) {
+        public Builder keyVaultId(@Nullable Output<String> keyVaultId) {
             $.keyVaultId = keyVaultId;
             return this;
         }
 
         /**
-         * @param keyVaultId The ID of the Key Vault.
+         * @param keyVaultId The ID of the Key Vault for CMK encryption.
          * 
          * @return builder
          * 
@@ -204,6 +224,31 @@ public final class ClusterCustomerManagedKeyArgs extends com.pulumi.resources.Re
         }
 
         /**
+         * @param managedHsmKeyId The Managed HSM Key ID for CMK encryption.
+         * 
+         * &gt; **Note:** Exactly one of `managed_hsm_key_id` or `key_vault_id` must be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder managedHsmKeyId(@Nullable Output<String> managedHsmKeyId) {
+            $.managedHsmKeyId = managedHsmKeyId;
+            return this;
+        }
+
+        /**
+         * @param managedHsmKeyId The Managed HSM Key ID for CMK encryption.
+         * 
+         * &gt; **Note:** Exactly one of `managed_hsm_key_id` or `key_vault_id` must be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder managedHsmKeyId(String managedHsmKeyId) {
+            return managedHsmKeyId(Output.of(managedHsmKeyId));
+        }
+
+        /**
          * @param userIdentity The user assigned identity that has access to the Key Vault Key. If not specified, system assigned identity will be used.
          * 
          * @return builder
@@ -227,12 +272,6 @@ public final class ClusterCustomerManagedKeyArgs extends com.pulumi.resources.Re
         public ClusterCustomerManagedKeyArgs build() {
             if ($.clusterId == null) {
                 throw new MissingRequiredPropertyException("ClusterCustomerManagedKeyArgs", "clusterId");
-            }
-            if ($.keyName == null) {
-                throw new MissingRequiredPropertyException("ClusterCustomerManagedKeyArgs", "keyName");
-            }
-            if ($.keyVaultId == null) {
-                throw new MissingRequiredPropertyException("ClusterCustomerManagedKeyArgs", "keyVaultId");
             }
             return $;
         }

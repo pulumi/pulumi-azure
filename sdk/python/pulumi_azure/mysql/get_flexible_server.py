@@ -303,7 +303,7 @@ def get_flexible_server(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.DBforMySQL`: 2023-12-30
+    * `Microsoft.DBforMySQL` - 2023-12-30
 
 
     :param _builtins.str name: Specifies the name of the MySQL Flexible Server.
@@ -359,7 +359,7 @@ def get_flexible_server_output(name: Optional[pulumi.Input[_builtins.str]] = Non
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.DBforMySQL`: 2023-12-30
+    * `Microsoft.DBforMySQL` - 2023-12-30
 
 
     :param _builtins.str name: Specifies the name of the MySQL Flexible Server.

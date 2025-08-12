@@ -148,7 +148,7 @@ def get_replication_recovery_plan(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.RecoveryServices`: 2024-04-01
+    * `Microsoft.RecoveryServices` - 2024-04-01
 
 
     :param _builtins.str name: The name of the Replication Plan.
@@ -192,7 +192,7 @@ def get_replication_recovery_plan_output(name: Optional[pulumi.Input[_builtins.s
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.RecoveryServices`: 2024-04-01
+    * `Microsoft.RecoveryServices` - 2024-04-01
 
 
     :param _builtins.str name: The name of the Replication Plan.

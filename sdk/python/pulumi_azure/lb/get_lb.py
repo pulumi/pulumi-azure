@@ -165,7 +165,7 @@ def get_lb(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Network`: 2023-09-01
+    * `Microsoft.Network` - 2023-09-01
 
 
     :param _builtins.str name: Specifies the name of the Load Balancer.
@@ -209,7 +209,7 @@ def get_lb_output(name: Optional[pulumi.Input[_builtins.str]] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Network`: 2023-09-01
+    * `Microsoft.Network` - 2023-09-01
 
 
     :param _builtins.str name: Specifies the name of the Load Balancer.

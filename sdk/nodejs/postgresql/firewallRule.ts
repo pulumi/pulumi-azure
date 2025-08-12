@@ -7,6 +7,8 @@ import * as utilities from "../utilities";
 /**
  * Manages a Firewall Rule for a PostgreSQL Server
  *
+ * > **Note:** The `azure.postgresql.FirewallRule` resource is deprecated and will be removed in v5.0 of the AzureRM Provider. Azure Database for PostgreSQL Single Server and its sub resources have been retired as of 2025-03-28, please use the `azure.postgresql.FlexibleServerFirewallRule` resource instead. For more information, see https://techcommunity.microsoft.com/blog/adforpostgresql/retiring-azure-database-for-postgresql-single-server-in-2025/3783783.
+ *
  * ## Example Usage
  *
  * ### Single IP Address)
@@ -61,7 +63,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This resource uses the following Azure API Providers:
  *
- * * `Microsoft.DBforPostgreSQL`: 2017-12-01
+ * * `Microsoft.DBforPostgreSQL` - 2017-12-01
  *
  * ## Import
  *

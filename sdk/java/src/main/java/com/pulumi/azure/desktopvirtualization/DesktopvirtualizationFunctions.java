@@ -66,7 +66,7 @@ public final class DesktopvirtualizationFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DesktopVirtualization`: 2024-04-03
+     * * `Microsoft.DesktopVirtualization` - 2024-04-03
      * 
      */
     public static Output<GetApplicationGroupResult> getApplicationGroup(GetApplicationGroupArgs args) {
@@ -117,7 +117,7 @@ public final class DesktopvirtualizationFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DesktopVirtualization`: 2024-04-03
+     * * `Microsoft.DesktopVirtualization` - 2024-04-03
      * 
      */
     public static CompletableFuture<GetApplicationGroupResult> getApplicationGroupPlain(GetApplicationGroupPlainArgs args) {
@@ -168,7 +168,7 @@ public final class DesktopvirtualizationFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DesktopVirtualization`: 2024-04-03
+     * * `Microsoft.DesktopVirtualization` - 2024-04-03
      * 
      */
     public static Output<GetApplicationGroupResult> getApplicationGroup(GetApplicationGroupArgs args, InvokeOptions options) {
@@ -219,7 +219,7 @@ public final class DesktopvirtualizationFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DesktopVirtualization`: 2024-04-03
+     * * `Microsoft.DesktopVirtualization` - 2024-04-03
      * 
      */
     public static Output<GetApplicationGroupResult> getApplicationGroup(GetApplicationGroupArgs args, InvokeOutputOptions options) {
@@ -270,7 +270,7 @@ public final class DesktopvirtualizationFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DesktopVirtualization`: 2024-04-03
+     * * `Microsoft.DesktopVirtualization` - 2024-04-03
      * 
      */
     public static CompletableFuture<GetApplicationGroupResult> getApplicationGroupPlain(GetApplicationGroupPlainArgs args, InvokeOptions options) {
@@ -320,7 +320,7 @@ public final class DesktopvirtualizationFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DesktopVirtualization`: 2024-04-03
+     * * `Microsoft.DesktopVirtualization` - 2024-04-03
      * 
      */
     public static Output<GetHostPoolResult> getHostPool(GetHostPoolArgs args) {
@@ -370,7 +370,7 @@ public final class DesktopvirtualizationFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DesktopVirtualization`: 2024-04-03
+     * * `Microsoft.DesktopVirtualization` - 2024-04-03
      * 
      */
     public static CompletableFuture<GetHostPoolResult> getHostPoolPlain(GetHostPoolPlainArgs args) {
@@ -420,7 +420,7 @@ public final class DesktopvirtualizationFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DesktopVirtualization`: 2024-04-03
+     * * `Microsoft.DesktopVirtualization` - 2024-04-03
      * 
      */
     public static Output<GetHostPoolResult> getHostPool(GetHostPoolArgs args, InvokeOptions options) {
@@ -470,7 +470,7 @@ public final class DesktopvirtualizationFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DesktopVirtualization`: 2024-04-03
+     * * `Microsoft.DesktopVirtualization` - 2024-04-03
      * 
      */
     public static Output<GetHostPoolResult> getHostPool(GetHostPoolArgs args, InvokeOutputOptions options) {
@@ -520,7 +520,7 @@ public final class DesktopvirtualizationFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DesktopVirtualization`: 2024-04-03
+     * * `Microsoft.DesktopVirtualization` - 2024-04-03
      * 
      */
     public static CompletableFuture<GetHostPoolResult> getHostPoolPlain(GetHostPoolPlainArgs args, InvokeOptions options) {
@@ -571,7 +571,7 @@ public final class DesktopvirtualizationFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DesktopVirtualization`: 2024-04-03
+     * * `Microsoft.DesktopVirtualization` - 2024-04-03
      * 
      */
     public static Output<GetWorkspaceResult> getWorkspace(GetWorkspaceArgs args) {
@@ -622,7 +622,7 @@ public final class DesktopvirtualizationFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DesktopVirtualization`: 2024-04-03
+     * * `Microsoft.DesktopVirtualization` - 2024-04-03
      * 
      */
     public static CompletableFuture<GetWorkspaceResult> getWorkspacePlain(GetWorkspacePlainArgs args) {
@@ -673,7 +673,7 @@ public final class DesktopvirtualizationFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DesktopVirtualization`: 2024-04-03
+     * * `Microsoft.DesktopVirtualization` - 2024-04-03
      * 
      */
     public static Output<GetWorkspaceResult> getWorkspace(GetWorkspaceArgs args, InvokeOptions options) {
@@ -724,7 +724,7 @@ public final class DesktopvirtualizationFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DesktopVirtualization`: 2024-04-03
+     * * `Microsoft.DesktopVirtualization` - 2024-04-03
      * 
      */
     public static Output<GetWorkspaceResult> getWorkspace(GetWorkspaceArgs args, InvokeOutputOptions options) {
@@ -775,7 +775,7 @@ public final class DesktopvirtualizationFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DesktopVirtualization`: 2024-04-03
+     * * `Microsoft.DesktopVirtualization` - 2024-04-03
      * 
      */
     public static CompletableFuture<GetWorkspaceResult> getWorkspacePlain(GetWorkspacePlainArgs args, InvokeOptions options) {

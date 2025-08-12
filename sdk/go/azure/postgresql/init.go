@@ -33,6 +33,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &FlexibleServer{}
 	case "azure:postgresql/flexibleServerActiveDirectoryAdministrator:FlexibleServerActiveDirectoryAdministrator":
 		r = &FlexibleServerActiveDirectoryAdministrator{}
+	case "azure:postgresql/flexibleServerBackup:FlexibleServerBackup":
+		r = &FlexibleServerBackup{}
 	case "azure:postgresql/flexibleServerConfiguration:FlexibleServerConfiguration":
 		r = &FlexibleServerConfiguration{}
 	case "azure:postgresql/flexibleServerDatabase:FlexibleServerDatabase":
@@ -88,6 +90,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"postgresql/flexibleServerActiveDirectoryAdministrator",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"postgresql/flexibleServerBackup",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

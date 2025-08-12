@@ -50,7 +50,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This resource uses the following Azure API Providers:
 //
-// * `Microsoft.AzureActiveDirectory`: 2021-04-01-preview
+// * `Microsoft.AzureActiveDirectory` - 2021-04-01-preview
 //
 // ## Import
 //

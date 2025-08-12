@@ -387,7 +387,21 @@ class SubscriptionCostManagementView(pulumi.CustomResource):
                     "name": "totalCost",
                     "column_name": "Cost",
                 }],
-            })
+            },
+            pivots=[
+                {
+                    "type": "Dimension",
+                    "name": "ServiceName",
+                },
+                {
+                    "type": "Dimension",
+                    "name": "ResourceLocation",
+                },
+                {
+                    "type": "Dimension",
+                    "name": "ResourceGroupName",
+                },
+            ])
         ```
 
         ## API Providers
@@ -395,7 +409,7 @@ class SubscriptionCostManagementView(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.CostManagement`: 2023-08-01
+        * `Microsoft.CostManagement` - 2023-08-01
 
         ## Import
 
@@ -447,7 +461,21 @@ class SubscriptionCostManagementView(pulumi.CustomResource):
                     "name": "totalCost",
                     "column_name": "Cost",
                 }],
-            })
+            },
+            pivots=[
+                {
+                    "type": "Dimension",
+                    "name": "ServiceName",
+                },
+                {
+                    "type": "Dimension",
+                    "name": "ResourceLocation",
+                },
+                {
+                    "type": "Dimension",
+                    "name": "ResourceGroupName",
+                },
+            ])
         ```
 
         ## API Providers
@@ -455,7 +483,7 @@ class SubscriptionCostManagementView(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.CostManagement`: 2023-08-01
+        * `Microsoft.CostManagement` - 2023-08-01
 
         ## Import
 

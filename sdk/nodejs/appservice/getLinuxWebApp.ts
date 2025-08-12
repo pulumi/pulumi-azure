@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Web`: 2023-12-01
+ * * `Microsoft.Web` - 2023-12-01
  */
 export function getLinuxWebApp(args: GetLinuxWebAppArgs, opts?: pulumi.InvokeOptions): Promise<GetLinuxWebAppResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -231,7 +231,7 @@ export interface GetLinuxWebAppResult {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Web`: 2023-12-01
+ * * `Microsoft.Web` - 2023-12-01
  */
 export function getLinuxWebAppOutput(args: GetLinuxWebAppOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLinuxWebAppResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

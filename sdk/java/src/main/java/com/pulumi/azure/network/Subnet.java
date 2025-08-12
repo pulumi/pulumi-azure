@@ -7,6 +7,7 @@ import com.pulumi.azure.Utilities;
 import com.pulumi.azure.network.SubnetArgs;
 import com.pulumi.azure.network.inputs.SubnetState;
 import com.pulumi.azure.network.outputs.SubnetDelegation;
+import com.pulumi.azure.network.outputs.SubnetIpAddressPool;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -94,7 +95,7 @@ import javax.annotation.Nullable;
  * &lt;!-- This section is generated, changes will be overwritten --&gt;
  * This resource uses the following Azure API Providers:
  * 
- * * `Microsoft.Network`: 2024-05-01
+ * * `Microsoft.Network` - 2024-05-01
  * 
  * ## Import
  * 
@@ -112,18 +113,22 @@ public class Subnet extends com.pulumi.resources.CustomResource {
      * 
      * &gt; **NOTE:** Currently only a single address prefix can be set as the [Multiple Subnet Address Prefixes Feature](https://github.com/Azure/azure-cli/issues/18194#issuecomment-880484269) is not yet in public preview or general availability.
      * 
+     * &gt; **Note:** Exactly one of `address_prefixes` or `ip_address_pool` must be specified.
+     * 
      */
     @Export(name="addressPrefixes", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> addressPrefixes;
+    private Output</* @Nullable */ List<String>> addressPrefixes;
 
     /**
      * @return The address prefixes to use for the subnet.
      * 
      * &gt; **NOTE:** Currently only a single address prefix can be set as the [Multiple Subnet Address Prefixes Feature](https://github.com/Azure/azure-cli/issues/18194#issuecomment-880484269) is not yet in public preview or general availability.
      * 
+     * &gt; **Note:** Exactly one of `address_prefixes` or `ip_address_pool` must be specified.
+     * 
      */
-    public Output<List<String>> addressPrefixes() {
-        return this.addressPrefixes;
+    public Output<Optional<List<String>>> addressPrefixes() {
+        return Codegen.optional(this.addressPrefixes);
     }
     /**
      * Enable default outbound access to the internet for the subnet. Defaults to `true`.
@@ -152,6 +157,24 @@ public class Subnet extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<List<SubnetDelegation>>> delegations() {
         return Codegen.optional(this.delegations);
+    }
+    /**
+     * An `ip_address_pool` block as defined below.
+     * 
+     * &gt; **Note:** Exactly one of `address_prefixes` or `ip_address_pool` must be specified.
+     * 
+     */
+    @Export(name="ipAddressPool", refs={SubnetIpAddressPool.class}, tree="[0]")
+    private Output</* @Nullable */ SubnetIpAddressPool> ipAddressPool;
+
+    /**
+     * @return An `ip_address_pool` block as defined below.
+     * 
+     * &gt; **Note:** Exactly one of `address_prefixes` or `ip_address_pool` must be specified.
+     * 
+     */
+    public Output<Optional<SubnetIpAddressPool>> ipAddressPool() {
+        return Codegen.optional(this.ipAddressPool);
     }
     /**
      * The name of the subnet. Changing this forces a new resource to be created.

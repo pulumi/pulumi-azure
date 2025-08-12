@@ -205,7 +205,7 @@ def get_network_attached_data_network(mobile_network_data_network_name: Optional
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.MobileNetwork`: 2022-11-01
+    * `Microsoft.MobileNetwork` - 2022-11-01
 
 
     :param _builtins.str mobile_network_data_network_name: The Name of the `mobile.NetworkDataNetwork` this resource belongs to.
@@ -254,7 +254,7 @@ def get_network_attached_data_network_output(mobile_network_data_network_name: O
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.MobileNetwork`: 2022-11-01
+    * `Microsoft.MobileNetwork` - 2022-11-01
 
 
     :param _builtins.str mobile_network_data_network_name: The Name of the `mobile.NetworkDataNetwork` this resource belongs to.

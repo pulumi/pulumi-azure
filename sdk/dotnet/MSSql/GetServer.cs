@@ -42,7 +42,7 @@ namespace Pulumi.Azure.MSSql
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Sql`: 2023-08-01-preview
+        /// * `Microsoft.Sql` - 2023-08-01-preview
         /// </summary>
         public static Task<GetServerResult> InvokeAsync(GetServerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServerResult>("azure:mssql/getServer:getServer", args ?? new GetServerArgs(), options.WithDefaults());
@@ -78,7 +78,7 @@ namespace Pulumi.Azure.MSSql
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Sql`: 2023-08-01-preview
+        /// * `Microsoft.Sql` - 2023-08-01-preview
         /// </summary>
         public static Output<GetServerResult> Invoke(GetServerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServerResult>("azure:mssql/getServer:getServer", args ?? new GetServerInvokeArgs(), options.WithDefaults());
@@ -114,7 +114,7 @@ namespace Pulumi.Azure.MSSql
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Sql`: 2023-08-01-preview
+        /// * `Microsoft.Sql` - 2023-08-01-preview
         /// </summary>
         public static Output<GetServerResult> Invoke(GetServerInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetServerResult>("azure:mssql/getServer:getServer", args ?? new GetServerInvokeArgs(), options.WithDefaults());

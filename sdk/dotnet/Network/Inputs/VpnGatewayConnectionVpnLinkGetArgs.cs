@@ -42,6 +42,12 @@ namespace Pulumi.Azure.Network.Inputs
             set => _customBgpAddresses = value;
         }
 
+        /// <summary>
+        /// The dead peer detection timeout of this connection in seconds. Possible values are between `9` and `3600`.
+        /// </summary>
+        [Input("dpdTimeoutSeconds")]
+        public Input<int>? DpdTimeoutSeconds { get; set; }
+
         [Input("egressNatRuleIds")]
         private InputList<string>? _egressNatRuleIds;
 

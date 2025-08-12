@@ -43,7 +43,7 @@ namespace Pulumi.Azure.PrivateDns
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Network`: 2024-06-01
+        /// * `Microsoft.Network` - 2024-06-01
         /// </summary>
         public static Task<GetZoneVirtualNetworkLinkResult> InvokeAsync(GetZoneVirtualNetworkLinkArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetZoneVirtualNetworkLinkResult>("azure:privatedns/getZoneVirtualNetworkLink:getZoneVirtualNetworkLink", args ?? new GetZoneVirtualNetworkLinkArgs(), options.WithDefaults());
@@ -80,7 +80,7 @@ namespace Pulumi.Azure.PrivateDns
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Network`: 2024-06-01
+        /// * `Microsoft.Network` - 2024-06-01
         /// </summary>
         public static Output<GetZoneVirtualNetworkLinkResult> Invoke(GetZoneVirtualNetworkLinkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetZoneVirtualNetworkLinkResult>("azure:privatedns/getZoneVirtualNetworkLink:getZoneVirtualNetworkLink", args ?? new GetZoneVirtualNetworkLinkInvokeArgs(), options.WithDefaults());
@@ -117,7 +117,7 @@ namespace Pulumi.Azure.PrivateDns
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Network`: 2024-06-01
+        /// * `Microsoft.Network` - 2024-06-01
         /// </summary>
         public static Output<GetZoneVirtualNetworkLinkResult> Invoke(GetZoneVirtualNetworkLinkInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetZoneVirtualNetworkLinkResult>("azure:privatedns/getZoneVirtualNetworkLink:getZoneVirtualNetworkLink", args ?? new GetZoneVirtualNetworkLinkInvokeArgs(), options.WithDefaults());
@@ -190,6 +190,10 @@ namespace Pulumi.Azure.PrivateDns
         /// Whether the auto-registration of virtual machine records in the virtual network in the Private DNS zone is enabled or not.
         /// </summary>
         public readonly bool RegistrationEnabled;
+        /// <summary>
+        /// The resolution policy of the Private DNS Zone Virtual Network Link.
+        /// </summary>
+        public readonly string ResolutionPolicy;
         public readonly string ResourceGroupName;
         /// <summary>
         /// A mapping of tags to assign to the resource.
@@ -210,6 +214,8 @@ namespace Pulumi.Azure.PrivateDns
 
             bool registrationEnabled,
 
+            string resolutionPolicy,
+
             string resourceGroupName,
 
             ImmutableDictionary<string, string> tags,
@@ -220,6 +226,7 @@ namespace Pulumi.Azure.PrivateDns
             Name = name;
             PrivateDnsZoneName = privateDnsZoneName;
             RegistrationEnabled = registrationEnabled;
+            ResolutionPolicy = resolutionPolicy;
             ResourceGroupName = resourceGroupName;
             Tags = tags;
             VirtualNetworkId = virtualNetworkId;

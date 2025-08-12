@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.DevCenter`: 2025-02-01
+ * * `Microsoft.DevCenter` - 2025-02-01
  */
 export function getDevBoxDefinition(args: GetDevBoxDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetDevBoxDefinitionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -54,6 +54,10 @@ export interface GetDevBoxDefinitionArgs {
  */
 export interface GetDevBoxDefinitionResult {
     readonly devCenterId: string;
+    /**
+     * Whether Dev Boxes created with this definition are capable of hibernation.
+     */
+    readonly hibernateSupportEnabled: boolean;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
@@ -97,7 +101,7 @@ export interface GetDevBoxDefinitionResult {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.DevCenter`: 2025-02-01
+ * * `Microsoft.DevCenter` - 2025-02-01
  */
 export function getDevBoxDefinitionOutput(args: GetDevBoxDefinitionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDevBoxDefinitionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

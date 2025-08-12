@@ -484,8 +484,6 @@ class WebTest(pulumi.CustomResource):
                  timeout: Optional[pulumi.Input[_builtins.int]] = None,
                  __props__=None):
         """
-        Manages an Application Insights WebTest.
-
         ## Example Usage
 
         ```python
@@ -528,7 +526,7 @@ class WebTest(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.Insights`: 2022-06-15
+        * `Microsoft.Insights` - 2022-06-15
 
         ## Import
 
@@ -563,8 +561,6 @@ class WebTest(pulumi.CustomResource):
                  args: WebTestArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an Application Insights WebTest.
-
         ## Example Usage
 
         ```python
@@ -607,7 +603,7 @@ class WebTest(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.Insights`: 2022-06-15
+        * `Microsoft.Insights` - 2022-06-15
 
         ## Import
 

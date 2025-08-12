@@ -508,7 +508,7 @@ class Cluster(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.RedHatOpenShift`: 2023-09-04
+        * `Microsoft.RedHatOpenShift` - 2023-09-04
 
         ## Import
 
@@ -634,7 +634,7 @@ class Cluster(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.RedHatOpenShift`: 2023-09-04
+        * `Microsoft.RedHatOpenShift` - 2023-09-04
 
         ## Import
 

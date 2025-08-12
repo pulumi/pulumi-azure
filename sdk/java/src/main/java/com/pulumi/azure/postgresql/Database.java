@@ -82,7 +82,7 @@ import javax.annotation.Nullable;
  * &lt;!-- This section is generated, changes will be overwritten --&gt;
  * This resource uses the following Azure API Providers:
  * 
- * * `Microsoft.DBforPostgreSQL`: 2017-12-01
+ * * `Microsoft.DBforPostgreSQL` - 2017-12-01
  * 
  * ## Import
  * 

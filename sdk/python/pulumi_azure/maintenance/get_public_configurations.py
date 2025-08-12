@@ -119,7 +119,7 @@ def get_public_configurations(location: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Maintenance`: 2023-04-01
+    * `Microsoft.Maintenance` - 2023-04-01
 
 
     :param _builtins.str location: The Azure location to filter the list of Public Maintenance Configurations against.
@@ -163,7 +163,7 @@ def get_public_configurations_output(location: Optional[pulumi.Input[Optional[_b
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Maintenance`: 2023-04-01
+    * `Microsoft.Maintenance` - 2023-04-01
 
 
     :param _builtins.str location: The Azure location to filter the list of Public Maintenance Configurations against.

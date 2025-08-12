@@ -24,6 +24,7 @@ class ProjectPoolArgs:
                  dev_center_project_id: pulumi.Input[_builtins.str],
                  local_administrator_enabled: pulumi.Input[_builtins.bool],
                  location: Optional[pulumi.Input[_builtins.str]] = None,
+                 managed_virtual_network_regions: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  stop_on_disconnect_grace_period_minutes: Optional[pulumi.Input[_builtins.int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
@@ -34,6 +35,9 @@ class ProjectPoolArgs:
         :param pulumi.Input[_builtins.str] dev_center_project_id: The ID of the associated Dev Center Project. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] local_administrator_enabled: Specifies whether owners of Dev Boxes in the Dev Center Project Pool are added as local administrators on the Dev Box.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Dev Center Project Pool should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] managed_virtual_network_regions: A list of the regions of the managed Virtual Network. When specified, the Dev Center Project Pool will use a Microsoft managed network.
+               
+               > **Note:** Currently only one region can be specified for `managed_virtual_network_regions`.
         :param pulumi.Input[_builtins.str] name: Specifies the name of this Dev Center Project Pool. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] stop_on_disconnect_grace_period_minutes: The specified time in minutes to wait before stopping a Dev Center Dev Box once disconnect is detected. Possible values are between `60` and `480`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Dev Center Project Pool.
@@ -44,6 +48,8 @@ class ProjectPoolArgs:
         pulumi.set(__self__, "local_administrator_enabled", local_administrator_enabled)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if managed_virtual_network_regions is not None:
+            pulumi.set(__self__, "managed_virtual_network_regions", managed_virtual_network_regions)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if stop_on_disconnect_grace_period_minutes is not None:
@@ -112,6 +118,20 @@ class ProjectPoolArgs:
         pulumi.set(self, "location", value)
 
     @_builtins.property
+    @pulumi.getter(name="managedVirtualNetworkRegions")
+    def managed_virtual_network_regions(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        A list of the regions of the managed Virtual Network. When specified, the Dev Center Project Pool will use a Microsoft managed network.
+
+        > **Note:** Currently only one region can be specified for `managed_virtual_network_regions`.
+        """
+        return pulumi.get(self, "managed_virtual_network_regions")
+
+    @managed_virtual_network_regions.setter
+    def managed_virtual_network_regions(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "managed_virtual_network_regions", value)
+
+    @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -156,6 +176,7 @@ class _ProjectPoolState:
                  dev_center_project_id: Optional[pulumi.Input[_builtins.str]] = None,
                  local_administrator_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
+                 managed_virtual_network_regions: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  stop_on_disconnect_grace_period_minutes: Optional[pulumi.Input[_builtins.int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
@@ -166,6 +187,9 @@ class _ProjectPoolState:
         :param pulumi.Input[_builtins.str] dev_center_project_id: The ID of the associated Dev Center Project. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] local_administrator_enabled: Specifies whether owners of Dev Boxes in the Dev Center Project Pool are added as local administrators on the Dev Box.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Dev Center Project Pool should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] managed_virtual_network_regions: A list of the regions of the managed Virtual Network. When specified, the Dev Center Project Pool will use a Microsoft managed network.
+               
+               > **Note:** Currently only one region can be specified for `managed_virtual_network_regions`.
         :param pulumi.Input[_builtins.str] name: Specifies the name of this Dev Center Project Pool. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] stop_on_disconnect_grace_period_minutes: The specified time in minutes to wait before stopping a Dev Center Dev Box once disconnect is detected. Possible values are between `60` and `480`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Dev Center Project Pool.
@@ -180,6 +204,8 @@ class _ProjectPoolState:
             pulumi.set(__self__, "local_administrator_enabled", local_administrator_enabled)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if managed_virtual_network_regions is not None:
+            pulumi.set(__self__, "managed_virtual_network_regions", managed_virtual_network_regions)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if stop_on_disconnect_grace_period_minutes is not None:
@@ -248,6 +274,20 @@ class _ProjectPoolState:
         pulumi.set(self, "location", value)
 
     @_builtins.property
+    @pulumi.getter(name="managedVirtualNetworkRegions")
+    def managed_virtual_network_regions(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        A list of the regions of the managed Virtual Network. When specified, the Dev Center Project Pool will use a Microsoft managed network.
+
+        > **Note:** Currently only one region can be specified for `managed_virtual_network_regions`.
+        """
+        return pulumi.get(self, "managed_virtual_network_regions")
+
+    @managed_virtual_network_regions.setter
+    def managed_virtual_network_regions(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "managed_virtual_network_regions", value)
+
+    @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -295,6 +335,7 @@ class ProjectPool(pulumi.CustomResource):
                  dev_center_project_id: Optional[pulumi.Input[_builtins.str]] = None,
                  local_administrator_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
+                 managed_virtual_network_regions: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  stop_on_disconnect_grace_period_minutes: Optional[pulumi.Input[_builtins.int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -364,7 +405,7 @@ class ProjectPool(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.DevCenter`: 2025-02-01
+        * `Microsoft.DevCenter` - 2025-02-01
 
         ## Import
 
@@ -381,6 +422,9 @@ class ProjectPool(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] dev_center_project_id: The ID of the associated Dev Center Project. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] local_administrator_enabled: Specifies whether owners of Dev Boxes in the Dev Center Project Pool are added as local administrators on the Dev Box.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Dev Center Project Pool should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] managed_virtual_network_regions: A list of the regions of the managed Virtual Network. When specified, the Dev Center Project Pool will use a Microsoft managed network.
+               
+               > **Note:** Currently only one region can be specified for `managed_virtual_network_regions`.
         :param pulumi.Input[_builtins.str] name: Specifies the name of this Dev Center Project Pool. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] stop_on_disconnect_grace_period_minutes: The specified time in minutes to wait before stopping a Dev Center Dev Box once disconnect is detected. Possible values are between `60` and `480`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Dev Center Project Pool.
@@ -456,7 +500,7 @@ class ProjectPool(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.DevCenter`: 2025-02-01
+        * `Microsoft.DevCenter` - 2025-02-01
 
         ## Import
 
@@ -486,6 +530,7 @@ class ProjectPool(pulumi.CustomResource):
                  dev_center_project_id: Optional[pulumi.Input[_builtins.str]] = None,
                  local_administrator_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
+                 managed_virtual_network_regions: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  stop_on_disconnect_grace_period_minutes: Optional[pulumi.Input[_builtins.int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -511,6 +556,7 @@ class ProjectPool(pulumi.CustomResource):
                 raise TypeError("Missing required property 'local_administrator_enabled'")
             __props__.__dict__["local_administrator_enabled"] = local_administrator_enabled
             __props__.__dict__["location"] = location
+            __props__.__dict__["managed_virtual_network_regions"] = managed_virtual_network_regions
             __props__.__dict__["name"] = name
             __props__.__dict__["stop_on_disconnect_grace_period_minutes"] = stop_on_disconnect_grace_period_minutes
             __props__.__dict__["tags"] = tags
@@ -529,6 +575,7 @@ class ProjectPool(pulumi.CustomResource):
             dev_center_project_id: Optional[pulumi.Input[_builtins.str]] = None,
             local_administrator_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
             location: Optional[pulumi.Input[_builtins.str]] = None,
+            managed_virtual_network_regions: Optional[pulumi.Input[_builtins.str]] = None,
             name: Optional[pulumi.Input[_builtins.str]] = None,
             stop_on_disconnect_grace_period_minutes: Optional[pulumi.Input[_builtins.int]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'ProjectPool':
@@ -544,6 +591,9 @@ class ProjectPool(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] dev_center_project_id: The ID of the associated Dev Center Project. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] local_administrator_enabled: Specifies whether owners of Dev Boxes in the Dev Center Project Pool are added as local administrators on the Dev Box.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Dev Center Project Pool should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] managed_virtual_network_regions: A list of the regions of the managed Virtual Network. When specified, the Dev Center Project Pool will use a Microsoft managed network.
+               
+               > **Note:** Currently only one region can be specified for `managed_virtual_network_regions`.
         :param pulumi.Input[_builtins.str] name: Specifies the name of this Dev Center Project Pool. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] stop_on_disconnect_grace_period_minutes: The specified time in minutes to wait before stopping a Dev Center Dev Box once disconnect is detected. Possible values are between `60` and `480`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Dev Center Project Pool.
@@ -557,6 +607,7 @@ class ProjectPool(pulumi.CustomResource):
         __props__.__dict__["dev_center_project_id"] = dev_center_project_id
         __props__.__dict__["local_administrator_enabled"] = local_administrator_enabled
         __props__.__dict__["location"] = location
+        __props__.__dict__["managed_virtual_network_regions"] = managed_virtual_network_regions
         __props__.__dict__["name"] = name
         __props__.__dict__["stop_on_disconnect_grace_period_minutes"] = stop_on_disconnect_grace_period_minutes
         __props__.__dict__["tags"] = tags
@@ -601,6 +652,16 @@ class ProjectPool(pulumi.CustomResource):
         The Azure Region where the Dev Center Project Pool should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
+
+    @_builtins.property
+    @pulumi.getter(name="managedVirtualNetworkRegions")
+    def managed_virtual_network_regions(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        A list of the regions of the managed Virtual Network. When specified, the Dev Center Project Pool will use a Microsoft managed network.
+
+        > **Note:** Currently only one region can be specified for `managed_virtual_network_regions`.
+        """
+        return pulumi.get(self, "managed_virtual_network_regions")
 
     @_builtins.property
     @pulumi.getter

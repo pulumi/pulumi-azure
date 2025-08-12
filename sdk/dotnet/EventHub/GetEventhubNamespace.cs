@@ -43,7 +43,7 @@ namespace Pulumi.Azure.EventHub
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.EventHub`: 2024-01-01
+        /// * `Microsoft.EventHub` - 2024-01-01
         /// </summary>
         public static Task<GetEventhubNamespaceResult> InvokeAsync(GetEventhubNamespaceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEventhubNamespaceResult>("azure:eventhub/getEventhubNamespace:getEventhubNamespace", args ?? new GetEventhubNamespaceArgs(), options.WithDefaults());
@@ -79,7 +79,7 @@ namespace Pulumi.Azure.EventHub
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.EventHub`: 2024-01-01
+        /// * `Microsoft.EventHub` - 2024-01-01
         /// </summary>
         public static Output<GetEventhubNamespaceResult> Invoke(GetEventhubNamespaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEventhubNamespaceResult>("azure:eventhub/getEventhubNamespace:getEventhubNamespace", args ?? new GetEventhubNamespaceInvokeArgs(), options.WithDefaults());
@@ -115,7 +115,7 @@ namespace Pulumi.Azure.EventHub
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.EventHub`: 2024-01-01
+        /// * `Microsoft.EventHub` - 2024-01-01
         /// </summary>
         public static Output<GetEventhubNamespaceResult> Invoke(GetEventhubNamespaceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetEventhubNamespaceResult>("azure:eventhub/getEventhubNamespace:getEventhubNamespace", args ?? new GetEventhubNamespaceInvokeArgs(), options.WithDefaults());

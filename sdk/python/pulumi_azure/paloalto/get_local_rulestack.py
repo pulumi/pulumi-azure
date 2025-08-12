@@ -209,7 +209,7 @@ def get_local_rulestack(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `PaloAltoNetworks.Cloudngfw`: 2022-08-29
+    * `PaloAltoNetworks.Cloudngfw` - 2022-08-29
 
 
     :param _builtins.str name: The name of this Palo Alto Networks Rulestack.
@@ -257,7 +257,7 @@ def get_local_rulestack_output(name: Optional[pulumi.Input[_builtins.str]] = Non
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `PaloAltoNetworks.Cloudngfw`: 2022-08-29
+    * `PaloAltoNetworks.Cloudngfw` - 2022-08-29
 
 
     :param _builtins.str name: The name of this Palo Alto Networks Rulestack.

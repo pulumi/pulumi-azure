@@ -47,7 +47,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This data source uses the following Azure API Providers:
 //
-// * `Microsoft.Maintenance`: 2023-04-01
+// * `Microsoft.Maintenance` - 2023-04-01
 func GetPublicConfigurations(ctx *pulumi.Context, args *GetPublicConfigurationsArgs, opts ...pulumi.InvokeOption) (*GetPublicConfigurationsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetPublicConfigurationsResult

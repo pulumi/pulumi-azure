@@ -6,6 +6,7 @@ package com.pulumi.azure.devcenter;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -30,6 +31,25 @@ public final class DevBoxDefinitionArgs extends com.pulumi.resources.ResourceArg
      */
     public Output<String> devCenterId() {
         return this.devCenterId;
+    }
+
+    /**
+     * Whether the Dev Boxes created with this definition are capable of hibernation. Defaults to `false`.
+     * 
+     * &gt; **Note:** Not all images are capable of supporting hibernation, for more information see https://aka.ms/devbox/hibernate.
+     * 
+     */
+    @Import(name="hibernateSupportEnabled")
+    private @Nullable Output<Boolean> hibernateSupportEnabled;
+
+    /**
+     * @return Whether the Dev Boxes created with this definition are capable of hibernation. Defaults to `false`.
+     * 
+     * &gt; **Note:** Not all images are capable of supporting hibernation, for more information see https://aka.ms/devbox/hibernate.
+     * 
+     */
+    public Optional<Output<Boolean>> hibernateSupportEnabled() {
+        return Optional.ofNullable(this.hibernateSupportEnabled);
     }
 
     /**
@@ -111,6 +131,7 @@ public final class DevBoxDefinitionArgs extends com.pulumi.resources.ResourceArg
 
     private DevBoxDefinitionArgs(DevBoxDefinitionArgs $) {
         this.devCenterId = $.devCenterId;
+        this.hibernateSupportEnabled = $.hibernateSupportEnabled;
         this.imageReferenceId = $.imageReferenceId;
         this.location = $.location;
         this.name = $.name;
@@ -155,6 +176,31 @@ public final class DevBoxDefinitionArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder devCenterId(String devCenterId) {
             return devCenterId(Output.of(devCenterId));
+        }
+
+        /**
+         * @param hibernateSupportEnabled Whether the Dev Boxes created with this definition are capable of hibernation. Defaults to `false`.
+         * 
+         * &gt; **Note:** Not all images are capable of supporting hibernation, for more information see https://aka.ms/devbox/hibernate.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder hibernateSupportEnabled(@Nullable Output<Boolean> hibernateSupportEnabled) {
+            $.hibernateSupportEnabled = hibernateSupportEnabled;
+            return this;
+        }
+
+        /**
+         * @param hibernateSupportEnabled Whether the Dev Boxes created with this definition are capable of hibernation. Defaults to `false`.
+         * 
+         * &gt; **Note:** Not all images are capable of supporting hibernation, for more information see https://aka.ms/devbox/hibernate.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder hibernateSupportEnabled(Boolean hibernateSupportEnabled) {
+            return hibernateSupportEnabled(Output.of(hibernateSupportEnabled));
         }
 
         /**

@@ -43,7 +43,7 @@ namespace Pulumi.Azure.ElasticCloud
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Elastic`: 2023-06-01
+        /// * `Microsoft.Elastic` - 2023-06-01
         /// </summary>
         public static Task<GetElasticsearchResult> InvokeAsync(GetElasticsearchArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetElasticsearchResult>("azure:elasticcloud/getElasticsearch:getElasticsearch", args ?? new GetElasticsearchArgs(), options.WithDefaults());
@@ -80,7 +80,7 @@ namespace Pulumi.Azure.ElasticCloud
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Elastic`: 2023-06-01
+        /// * `Microsoft.Elastic` - 2023-06-01
         /// </summary>
         public static Output<GetElasticsearchResult> Invoke(GetElasticsearchInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetElasticsearchResult>("azure:elasticcloud/getElasticsearch:getElasticsearch", args ?? new GetElasticsearchInvokeArgs(), options.WithDefaults());
@@ -117,7 +117,7 @@ namespace Pulumi.Azure.ElasticCloud
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Elastic`: 2023-06-01
+        /// * `Microsoft.Elastic` - 2023-06-01
         /// </summary>
         public static Output<GetElasticsearchResult> Invoke(GetElasticsearchInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetElasticsearchResult>("azure:elasticcloud/getElasticsearch:getElasticsearch", args ?? new GetElasticsearchInvokeArgs(), options.WithDefaults());

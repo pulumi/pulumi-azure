@@ -105,7 +105,7 @@ def get_account_encryption(netapp_account_id: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.NetApp`: 2025-01-01
+    * `Microsoft.NetApp` - 2025-01-01
 
 
     :param _builtins.str netapp_account_id: The ID of the NetApp account where customer managed keys-based encryption is enabled.
@@ -141,7 +141,7 @@ def get_account_encryption_output(netapp_account_id: Optional[pulumi.Input[_buil
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.NetApp`: 2025-01-01
+    * `Microsoft.NetApp` - 2025-01-01
 
 
     :param _builtins.str netapp_account_id: The ID of the NetApp account where customer managed keys-based encryption is enabled.

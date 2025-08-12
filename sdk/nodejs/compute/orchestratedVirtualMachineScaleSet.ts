@@ -39,7 +39,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This resource uses the following Azure API Providers:
  *
- * * `Microsoft.Compute`: 2024-11-01
+ * * `Microsoft.Compute` - 2024-11-01
  *
  * ## Import
  *
@@ -149,6 +149,10 @@ export class OrchestratedVirtualMachineScaleSet extends pulumi.CustomResource {
      * The name of the Virtual Machine Scale Set. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Specifies the Microsoft.Network API version used when creating networking resources in the Network Interface Configurations for Virtual Machine Scale Set. Possible values are `2020-11-01` and `2022-11-01`. Defaults to `2020-11-01`.
+     */
+    public readonly networkApiVersion!: pulumi.Output<string | undefined>;
     /**
      * One or more `networkInterface` blocks as defined below.
      */
@@ -279,6 +283,7 @@ export class OrchestratedVirtualMachineScaleSet extends pulumi.CustomResource {
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["maxBidPrice"] = state ? state.maxBidPrice : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["networkApiVersion"] = state ? state.networkApiVersion : undefined;
             resourceInputs["networkInterfaces"] = state ? state.networkInterfaces : undefined;
             resourceInputs["osDisk"] = state ? state.osDisk : undefined;
             resourceInputs["osProfile"] = state ? state.osProfile : undefined;
@@ -325,6 +330,7 @@ export class OrchestratedVirtualMachineScaleSet extends pulumi.CustomResource {
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["maxBidPrice"] = args ? args.maxBidPrice : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["networkApiVersion"] = args ? args.networkApiVersion : undefined;
             resourceInputs["networkInterfaces"] = args ? args.networkInterfaces : undefined;
             resourceInputs["osDisk"] = args ? args.osDisk : undefined;
             resourceInputs["osProfile"] = args ? args.osProfile : undefined;
@@ -431,6 +437,10 @@ export interface OrchestratedVirtualMachineScaleSetState {
      * The name of the Virtual Machine Scale Set. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Specifies the Microsoft.Network API version used when creating networking resources in the Network Interface Configurations for Virtual Machine Scale Set. Possible values are `2020-11-01` and `2022-11-01`. Defaults to `2020-11-01`.
+     */
+    networkApiVersion?: pulumi.Input<string>;
     /**
      * One or more `networkInterface` blocks as defined below.
      */
@@ -609,6 +619,10 @@ export interface OrchestratedVirtualMachineScaleSetArgs {
      * The name of the Virtual Machine Scale Set. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Specifies the Microsoft.Network API version used when creating networking resources in the Network Interface Configurations for Virtual Machine Scale Set. Possible values are `2020-11-01` and `2022-11-01`. Defaults to `2020-11-01`.
+     */
+    networkApiVersion?: pulumi.Input<string>;
     /**
      * One or more `networkInterface` blocks as defined below.
      */

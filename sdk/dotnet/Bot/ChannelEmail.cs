@@ -58,7 +58,7 @@ namespace Pulumi.Azure.Bot
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.BotService`: 2022-09-15
+    /// * `Microsoft.BotService` - 2022-09-15
     /// 
     /// ## Import
     /// 

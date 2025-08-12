@@ -45,7 +45,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This data source uses the following Azure API Providers:
 //
-// * `Dynatrace.Observability`: 2023-04-27
+// * `Dynatrace.Observability` - 2023-04-27
 func LookupMonitor(ctx *pulumi.Context, args *LookupMonitorArgs, opts ...pulumi.InvokeOption) (*LookupMonitorResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupMonitorResult

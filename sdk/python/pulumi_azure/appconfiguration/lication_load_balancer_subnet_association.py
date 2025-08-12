@@ -221,7 +221,7 @@ class LicationLoadBalancerSubnetAssociation(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.ServiceNetworking`: 2023-11-01
+        * `Microsoft.ServiceNetworking` - 2025-01-01
 
         ## Import
 
@@ -290,7 +290,7 @@ class LicationLoadBalancerSubnetAssociation(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.ServiceNetworking`: 2023-11-01
+        * `Microsoft.ServiceNetworking` - 2025-01-01
 
         ## Import
 

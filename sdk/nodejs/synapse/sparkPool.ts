@@ -150,7 +150,7 @@ export class SparkPool extends pulumi.CustomResource {
     public readonly sparkEventsFolder!: pulumi.Output<string | undefined>;
     public readonly sparkLogFolder!: pulumi.Output<string | undefined>;
     /**
-     * The Apache Spark version. Possible values are `3.2`, `3.3`, and `3.4`.
+     * The Apache Spark version. Currently, the only possible value is `3.4`.
      */
     public readonly sparkVersion!: pulumi.Output<string>;
     /**
@@ -275,7 +275,7 @@ export interface SparkPoolState {
     sparkEventsFolder?: pulumi.Input<string>;
     sparkLogFolder?: pulumi.Input<string>;
     /**
-     * The Apache Spark version. Possible values are `3.2`, `3.3`, and `3.4`.
+     * The Apache Spark version. Currently, the only possible value is `3.4`.
      */
     sparkVersion?: pulumi.Input<string>;
     /**
@@ -330,7 +330,7 @@ export interface SparkPoolArgs {
     sparkEventsFolder?: pulumi.Input<string>;
     sparkLogFolder?: pulumi.Input<string>;
     /**
-     * The Apache Spark version. Possible values are `3.2`, `3.3`, and `3.4`.
+     * The Apache Spark version. Currently, the only possible value is `3.4`.
      */
     sparkVersion: pulumi.Input<string>;
     /**

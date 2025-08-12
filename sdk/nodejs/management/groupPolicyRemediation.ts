@@ -39,7 +39,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This resource uses the following Azure API Providers:
  *
- * * `Microsoft.Management`: 2021-10-01
+ * * `Microsoft.Management` - 2021-10-01
  *
  * ## Import
  *

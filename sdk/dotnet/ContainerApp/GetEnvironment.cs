@@ -39,9 +39,9 @@ namespace Pulumi.Azure.ContainerApp
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.App`: 2025-01-01
+        /// * `Microsoft.App` - 2025-01-01
         /// 
-        /// * `Microsoft.OperationalInsights`: 2020-08-01
+        /// * `Microsoft.OperationalInsights` - 2020-08-01
         /// </summary>
         public static Task<GetEnvironmentResult> InvokeAsync(GetEnvironmentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEnvironmentResult>("azure:containerapp/getEnvironment:getEnvironment", args ?? new GetEnvironmentArgs(), options.WithDefaults());
@@ -74,9 +74,9 @@ namespace Pulumi.Azure.ContainerApp
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.App`: 2025-01-01
+        /// * `Microsoft.App` - 2025-01-01
         /// 
-        /// * `Microsoft.OperationalInsights`: 2020-08-01
+        /// * `Microsoft.OperationalInsights` - 2020-08-01
         /// </summary>
         public static Output<GetEnvironmentResult> Invoke(GetEnvironmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEnvironmentResult>("azure:containerapp/getEnvironment:getEnvironment", args ?? new GetEnvironmentInvokeArgs(), options.WithDefaults());
@@ -109,9 +109,9 @@ namespace Pulumi.Azure.ContainerApp
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.App`: 2025-01-01
+        /// * `Microsoft.App` - 2025-01-01
         /// 
-        /// * `Microsoft.OperationalInsights`: 2020-08-01
+        /// * `Microsoft.OperationalInsights` - 2020-08-01
         /// </summary>
         public static Output<GetEnvironmentResult> Invoke(GetEnvironmentInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetEnvironmentResult>("azure:containerapp/getEnvironment:getEnvironment", args ?? new GetEnvironmentInvokeArgs(), options.WithDefaults());

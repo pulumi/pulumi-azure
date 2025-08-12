@@ -65,7 +65,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This resource uses the following Azure API Providers:
 //
-// * `Microsoft.NetApp`: 2025-01-01
+// * `Microsoft.NetApp` - 2025-01-01
 //
 // ## Import
 //
@@ -85,7 +85,7 @@ type BackupPolicy struct {
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
-	// Provides the number of monthly backups to keep, defaults to `1` which is the minimum, maximum is 1019.
+	// Provides the number of monthly backups to keep, defaults to `1`. The minimum is `0` and the maximum is `1019`.
 	//
 	// > **Note:** Currently, the combined (daily + weekly + monthy) retention counts cannot exceed 1019.
 	MonthlyBackupsToKeep pulumi.IntPtrOutput `pulumi:"monthlyBackupsToKeep"`
@@ -95,7 +95,7 @@ type BackupPolicy struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Provides the number of weekly backups to keep, defaults to `1` which is the minimum, maximum is 1019.
+	// Provides the number of weekly backups to keep, defaults to `1`. The minimum is `0` and the maximum is `1019`.
 	WeeklyBackupsToKeep pulumi.IntPtrOutput `pulumi:"weeklyBackupsToKeep"`
 }
 
@@ -143,7 +143,7 @@ type backupPolicyState struct {
 	Enabled *bool `pulumi:"enabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// Provides the number of monthly backups to keep, defaults to `1` which is the minimum, maximum is 1019.
+	// Provides the number of monthly backups to keep, defaults to `1`. The minimum is `0` and the maximum is `1019`.
 	//
 	// > **Note:** Currently, the combined (daily + weekly + monthy) retention counts cannot exceed 1019.
 	MonthlyBackupsToKeep *int `pulumi:"monthlyBackupsToKeep"`
@@ -153,7 +153,7 @@ type backupPolicyState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// Provides the number of weekly backups to keep, defaults to `1` which is the minimum, maximum is 1019.
+	// Provides the number of weekly backups to keep, defaults to `1`. The minimum is `0` and the maximum is `1019`.
 	WeeklyBackupsToKeep *int `pulumi:"weeklyBackupsToKeep"`
 }
 
@@ -166,7 +166,7 @@ type BackupPolicyState struct {
 	Enabled pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// Provides the number of monthly backups to keep, defaults to `1` which is the minimum, maximum is 1019.
+	// Provides the number of monthly backups to keep, defaults to `1`. The minimum is `0` and the maximum is `1019`.
 	//
 	// > **Note:** Currently, the combined (daily + weekly + monthy) retention counts cannot exceed 1019.
 	MonthlyBackupsToKeep pulumi.IntPtrInput
@@ -176,7 +176,7 @@ type BackupPolicyState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// Provides the number of weekly backups to keep, defaults to `1` which is the minimum, maximum is 1019.
+	// Provides the number of weekly backups to keep, defaults to `1`. The minimum is `0` and the maximum is `1019`.
 	WeeklyBackupsToKeep pulumi.IntPtrInput
 }
 
@@ -193,7 +193,7 @@ type backupPolicyArgs struct {
 	Enabled *bool `pulumi:"enabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// Provides the number of monthly backups to keep, defaults to `1` which is the minimum, maximum is 1019.
+	// Provides the number of monthly backups to keep, defaults to `1`. The minimum is `0` and the maximum is `1019`.
 	//
 	// > **Note:** Currently, the combined (daily + weekly + monthy) retention counts cannot exceed 1019.
 	MonthlyBackupsToKeep *int `pulumi:"monthlyBackupsToKeep"`
@@ -203,7 +203,7 @@ type backupPolicyArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// Provides the number of weekly backups to keep, defaults to `1` which is the minimum, maximum is 1019.
+	// Provides the number of weekly backups to keep, defaults to `1`. The minimum is `0` and the maximum is `1019`.
 	WeeklyBackupsToKeep *int `pulumi:"weeklyBackupsToKeep"`
 }
 
@@ -217,7 +217,7 @@ type BackupPolicyArgs struct {
 	Enabled pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// Provides the number of monthly backups to keep, defaults to `1` which is the minimum, maximum is 1019.
+	// Provides the number of monthly backups to keep, defaults to `1`. The minimum is `0` and the maximum is `1019`.
 	//
 	// > **Note:** Currently, the combined (daily + weekly + monthy) retention counts cannot exceed 1019.
 	MonthlyBackupsToKeep pulumi.IntPtrInput
@@ -227,7 +227,7 @@ type BackupPolicyArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// Provides the number of weekly backups to keep, defaults to `1` which is the minimum, maximum is 1019.
+	// Provides the number of weekly backups to keep, defaults to `1`. The minimum is `0` and the maximum is `1019`.
 	WeeklyBackupsToKeep pulumi.IntPtrInput
 }
 
@@ -338,7 +338,7 @@ func (o BackupPolicyOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *BackupPolicy) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
 
-// Provides the number of monthly backups to keep, defaults to `1` which is the minimum, maximum is 1019.
+// Provides the number of monthly backups to keep, defaults to `1`. The minimum is `0` and the maximum is `1019`.
 //
 // > **Note:** Currently, the combined (daily + weekly + monthy) retention counts cannot exceed 1019.
 func (o BackupPolicyOutput) MonthlyBackupsToKeep() pulumi.IntPtrOutput {
@@ -360,7 +360,7 @@ func (o BackupPolicyOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *BackupPolicy) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Provides the number of weekly backups to keep, defaults to `1` which is the minimum, maximum is 1019.
+// Provides the number of weekly backups to keep, defaults to `1`. The minimum is `0` and the maximum is `1019`.
 func (o BackupPolicyOutput) WeeklyBackupsToKeep() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *BackupPolicy) pulumi.IntPtrOutput { return v.WeeklyBackupsToKeep }).(pulumi.IntPtrOutput)
 }

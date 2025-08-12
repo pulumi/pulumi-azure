@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Compute`: 2023-04-02
+ * * `Microsoft.Compute` - 2023-04-02
  */
 export function getManagedDisk(args: GetManagedDiskArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedDiskResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -148,7 +148,7 @@ export interface GetManagedDiskResult {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Compute`: 2023-04-02
+ * * `Microsoft.Compute` - 2023-04-02
  */
 export function getManagedDiskOutput(args: GetManagedDiskOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetManagedDiskResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

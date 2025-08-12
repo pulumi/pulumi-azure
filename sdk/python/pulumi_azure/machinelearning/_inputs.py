@@ -148,15 +148,15 @@ if not MYPY:
     class ComputeClusterScaleSettingsArgsDict(TypedDict):
         max_node_count: pulumi.Input[_builtins.int]
         """
-        Maximum node count. Changing this forces a new Machine Learning Compute Cluster to be created.
+        Maximum node count.
         """
         min_node_count: pulumi.Input[_builtins.int]
         """
-        Minimal node count. Changing this forces a new Machine Learning Compute Cluster to be created.
+        Minimal node count.
         """
         scale_down_nodes_after_idle_duration: pulumi.Input[_builtins.str]
         """
-        Node Idle Time Before Scale Down: defines the time until the compute is shutdown when it has gone into Idle state. Is defined according to W3C XML schema standard for duration. Changing this forces a new Machine Learning Compute Cluster to be created.
+        Node Idle Time Before Scale Down: defines the time until the compute is shutdown when it has gone into Idle state. Is defined according to W3C XML schema standard for duration.
         """
 elif False:
     ComputeClusterScaleSettingsArgsDict: TypeAlias = Mapping[str, Any]
@@ -168,9 +168,9 @@ class ComputeClusterScaleSettingsArgs:
                  min_node_count: pulumi.Input[_builtins.int],
                  scale_down_nodes_after_idle_duration: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.int] max_node_count: Maximum node count. Changing this forces a new Machine Learning Compute Cluster to be created.
-        :param pulumi.Input[_builtins.int] min_node_count: Minimal node count. Changing this forces a new Machine Learning Compute Cluster to be created.
-        :param pulumi.Input[_builtins.str] scale_down_nodes_after_idle_duration: Node Idle Time Before Scale Down: defines the time until the compute is shutdown when it has gone into Idle state. Is defined according to W3C XML schema standard for duration. Changing this forces a new Machine Learning Compute Cluster to be created.
+        :param pulumi.Input[_builtins.int] max_node_count: Maximum node count.
+        :param pulumi.Input[_builtins.int] min_node_count: Minimal node count.
+        :param pulumi.Input[_builtins.str] scale_down_nodes_after_idle_duration: Node Idle Time Before Scale Down: defines the time until the compute is shutdown when it has gone into Idle state. Is defined according to W3C XML schema standard for duration.
         """
         pulumi.set(__self__, "max_node_count", max_node_count)
         pulumi.set(__self__, "min_node_count", min_node_count)
@@ -180,7 +180,7 @@ class ComputeClusterScaleSettingsArgs:
     @pulumi.getter(name="maxNodeCount")
     def max_node_count(self) -> pulumi.Input[_builtins.int]:
         """
-        Maximum node count. Changing this forces a new Machine Learning Compute Cluster to be created.
+        Maximum node count.
         """
         return pulumi.get(self, "max_node_count")
 
@@ -192,7 +192,7 @@ class ComputeClusterScaleSettingsArgs:
     @pulumi.getter(name="minNodeCount")
     def min_node_count(self) -> pulumi.Input[_builtins.int]:
         """
-        Minimal node count. Changing this forces a new Machine Learning Compute Cluster to be created.
+        Minimal node count.
         """
         return pulumi.get(self, "min_node_count")
 
@@ -204,7 +204,7 @@ class ComputeClusterScaleSettingsArgs:
     @pulumi.getter(name="scaleDownNodesAfterIdleDuration")
     def scale_down_nodes_after_idle_duration(self) -> pulumi.Input[_builtins.str]:
         """
-        Node Idle Time Before Scale Down: defines the time until the compute is shutdown when it has gone into Idle state. Is defined according to W3C XML schema standard for duration. Changing this forces a new Machine Learning Compute Cluster to be created.
+        Node Idle Time Before Scale Down: defines the time until the compute is shutdown when it has gone into Idle state. Is defined according to W3C XML schema standard for duration.
         """
         return pulumi.get(self, "scale_down_nodes_after_idle_duration")
 

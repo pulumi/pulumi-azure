@@ -38,6 +38,11 @@ public final class VpnGatewayConnectionVpnLink {
      */
     private @Nullable List<VpnGatewayConnectionVpnLinkCustomBgpAddress> customBgpAddresses;
     /**
+     * @return The dead peer detection timeout of this connection in seconds. Possible values are between `9` and `3600`.
+     * 
+     */
+    private @Nullable Integer dpdTimeoutSeconds;
+    /**
      * @return A list of the egress NAT Rule Ids.
      * 
      */
@@ -121,6 +126,13 @@ public final class VpnGatewayConnectionVpnLink {
      */
     public List<VpnGatewayConnectionVpnLinkCustomBgpAddress> customBgpAddresses() {
         return this.customBgpAddresses == null ? List.of() : this.customBgpAddresses;
+    }
+    /**
+     * @return The dead peer detection timeout of this connection in seconds. Possible values are between `9` and `3600`.
+     * 
+     */
+    public Optional<Integer> dpdTimeoutSeconds() {
+        return Optional.ofNullable(this.dpdTimeoutSeconds);
     }
     /**
      * @return A list of the egress NAT Rule Ids.
@@ -213,6 +225,7 @@ public final class VpnGatewayConnectionVpnLink {
         private @Nullable Boolean bgpEnabled;
         private @Nullable String connectionMode;
         private @Nullable List<VpnGatewayConnectionVpnLinkCustomBgpAddress> customBgpAddresses;
+        private @Nullable Integer dpdTimeoutSeconds;
         private @Nullable List<String> egressNatRuleIds;
         private @Nullable List<String> ingressNatRuleIds;
         private @Nullable List<VpnGatewayConnectionVpnLinkIpsecPolicy> ipsecPolicies;
@@ -231,6 +244,7 @@ public final class VpnGatewayConnectionVpnLink {
     	      this.bgpEnabled = defaults.bgpEnabled;
     	      this.connectionMode = defaults.connectionMode;
     	      this.customBgpAddresses = defaults.customBgpAddresses;
+    	      this.dpdTimeoutSeconds = defaults.dpdTimeoutSeconds;
     	      this.egressNatRuleIds = defaults.egressNatRuleIds;
     	      this.ingressNatRuleIds = defaults.ingressNatRuleIds;
     	      this.ipsecPolicies = defaults.ipsecPolicies;
@@ -270,6 +284,12 @@ public final class VpnGatewayConnectionVpnLink {
         }
         public Builder customBgpAddresses(VpnGatewayConnectionVpnLinkCustomBgpAddress... customBgpAddresses) {
             return customBgpAddresses(List.of(customBgpAddresses));
+        }
+        @CustomType.Setter
+        public Builder dpdTimeoutSeconds(@Nullable Integer dpdTimeoutSeconds) {
+
+            this.dpdTimeoutSeconds = dpdTimeoutSeconds;
+            return this;
         }
         @CustomType.Setter
         public Builder egressNatRuleIds(@Nullable List<String> egressNatRuleIds) {
@@ -356,6 +376,7 @@ public final class VpnGatewayConnectionVpnLink {
             _resultValue.bgpEnabled = bgpEnabled;
             _resultValue.connectionMode = connectionMode;
             _resultValue.customBgpAddresses = customBgpAddresses;
+            _resultValue.dpdTimeoutSeconds = dpdTimeoutSeconds;
             _resultValue.egressNatRuleIds = egressNatRuleIds;
             _resultValue.ingressNatRuleIds = ingressNatRuleIds;
             _resultValue.ipsecPolicies = ipsecPolicies;

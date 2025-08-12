@@ -220,9 +220,9 @@ def get_environment(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.App`: 2025-01-01
+    * `Microsoft.App` - 2025-01-01
 
-    * `Microsoft.OperationalInsights`: 2020-08-01
+    * `Microsoft.OperationalInsights` - 2020-08-01
 
 
     :param _builtins.str name: The name of the Container Apps Managed Environment.
@@ -270,9 +270,9 @@ def get_environment_output(name: Optional[pulumi.Input[_builtins.str]] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.App`: 2025-01-01
+    * `Microsoft.App` - 2025-01-01
 
-    * `Microsoft.OperationalInsights`: 2020-08-01
+    * `Microsoft.OperationalInsights` - 2020-08-01
 
 
     :param _builtins.str name: The name of the Container Apps Managed Environment.

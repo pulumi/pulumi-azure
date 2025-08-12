@@ -73,6 +73,10 @@ import * as utilities from "../utilities";
  *     hostname: "hostname",
  *     subnetId: exampleSubnet.id,
  *     systemVersion: "23.1.19.0.0.241015",
+ *     fileSystemConfigurations: [{
+ *         mountPoint: "/var",
+ *         sizeInGb: 32,
+ *     }],
  * });
  * ```
  *
@@ -81,7 +85,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This resource uses the following Azure API Providers:
  *
- * * `Oracle.Database`: 2024-06-01
+ * * `Oracle.Database` - 2025-03-01
  *
  * ## Import
  *
@@ -164,6 +168,10 @@ export class CloudVmCluster extends pulumi.CustomResource {
      */
     public readonly domain!: pulumi.Output<string>;
     /**
+     * A `fileSystemConfiguration` block as defined below.
+     */
+    public readonly fileSystemConfigurations!: pulumi.Output<outputs.oracle.CloudVmClusterFileSystemConfiguration[] | undefined>;
+    /**
      * A valid Oracle Grid Infrastructure (GI) software version. Changing this forces a new Cloud VM Cluster to be created.
      */
     public readonly giVersion!: pulumi.Output<string>;
@@ -226,7 +234,7 @@ export class CloudVmCluster extends pulumi.CustomResource {
     /**
      * Operating system version of the Exadata image. System version must be <= Db server major version (the first two parts of the DB server version eg 23.1.X.X.XXXX). Accepted Values for Grid Infrastructure (GI) version 19.0.0.0 are 22.1.30.0.0.241204, 22.1.32.0.0.250205, 22.1.31.0.0.250110, 23.1.20.0.0.241112, 23.1.21.0.0.241204, 23.1.22.0.0.250119, 23.1.23.0.0.250207. For Grid Infrastructure (GI) version 23.0.0.0 allowed system versions are 23.1.19.0.0.241015, 23.1.20.0.0.241112, 23.1.22.0.0.250119, 23.1.21.0.0.241204, 23.1.23.0.0.250207.
      */
-    public readonly systemVersion!: pulumi.Output<string | undefined>;
+    public readonly systemVersion!: pulumi.Output<string>;
     /**
      * A mapping of tags which should be assigned to the Cloud VM Cluster.
      */
@@ -268,6 +276,7 @@ export class CloudVmCluster extends pulumi.CustomResource {
             resourceInputs["dbServers"] = state ? state.dbServers : undefined;
             resourceInputs["displayName"] = state ? state.displayName : undefined;
             resourceInputs["domain"] = state ? state.domain : undefined;
+            resourceInputs["fileSystemConfigurations"] = state ? state.fileSystemConfigurations : undefined;
             resourceInputs["giVersion"] = state ? state.giVersion : undefined;
             resourceInputs["hostname"] = state ? state.hostname : undefined;
             resourceInputs["hostnameActual"] = state ? state.hostnameActual : undefined;
@@ -334,6 +343,7 @@ export class CloudVmCluster extends pulumi.CustomResource {
             resourceInputs["dbServers"] = args ? args.dbServers : undefined;
             resourceInputs["displayName"] = args ? args.displayName : undefined;
             resourceInputs["domain"] = args ? args.domain : undefined;
+            resourceInputs["fileSystemConfigurations"] = args ? args.fileSystemConfigurations : undefined;
             resourceInputs["giVersion"] = args ? args.giVersion : undefined;
             resourceInputs["hostname"] = args ? args.hostname : undefined;
             resourceInputs["licenseModel"] = args ? args.licenseModel : undefined;
@@ -408,6 +418,10 @@ export interface CloudVmClusterState {
      * The name of the OCI Private DNS Zone to be associated with the Cloud VM Cluster. This is required for specifying your own private domain name. Changing this forces a new Cloud VM Cluster to be created.
      */
     domain?: pulumi.Input<string>;
+    /**
+     * A `fileSystemConfiguration` block as defined below.
+     */
+    fileSystemConfigurations?: pulumi.Input<pulumi.Input<inputs.oracle.CloudVmClusterFileSystemConfiguration>[]>;
     /**
      * A valid Oracle Grid Infrastructure (GI) software version. Changing this forces a new Cloud VM Cluster to be created.
      */
@@ -538,6 +552,10 @@ export interface CloudVmClusterArgs {
      * The name of the OCI Private DNS Zone to be associated with the Cloud VM Cluster. This is required for specifying your own private domain name. Changing this forces a new Cloud VM Cluster to be created.
      */
     domain?: pulumi.Input<string>;
+    /**
+     * A `fileSystemConfiguration` block as defined below.
+     */
+    fileSystemConfigurations?: pulumi.Input<pulumi.Input<inputs.oracle.CloudVmClusterFileSystemConfiguration>[]>;
     /**
      * A valid Oracle Grid Infrastructure (GI) software version. Changing this forces a new Cloud VM Cluster to be created.
      */

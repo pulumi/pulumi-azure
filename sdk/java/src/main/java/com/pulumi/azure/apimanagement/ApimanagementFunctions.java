@@ -86,7 +86,7 @@ public final class ApimanagementFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ApiManagement`: 2022-08-01
+     * * `Microsoft.ApiManagement` - 2022-08-01
      * 
      */
     public static Output<GetApiResult> getApi(GetApiArgs args) {
@@ -139,7 +139,7 @@ public final class ApimanagementFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ApiManagement`: 2022-08-01
+     * * `Microsoft.ApiManagement` - 2022-08-01
      * 
      */
     public static CompletableFuture<GetApiResult> getApiPlain(GetApiPlainArgs args) {
@@ -192,7 +192,7 @@ public final class ApimanagementFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ApiManagement`: 2022-08-01
+     * * `Microsoft.ApiManagement` - 2022-08-01
      * 
      */
     public static Output<GetApiResult> getApi(GetApiArgs args, InvokeOptions options) {
@@ -245,7 +245,7 @@ public final class ApimanagementFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ApiManagement`: 2022-08-01
+     * * `Microsoft.ApiManagement` - 2022-08-01
      * 
      */
     public static Output<GetApiResult> getApi(GetApiArgs args, InvokeOutputOptions options) {
@@ -298,7 +298,7 @@ public final class ApimanagementFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ApiManagement`: 2022-08-01
+     * * `Microsoft.ApiManagement` - 2022-08-01
      * 
      */
     public static CompletableFuture<GetApiResult> getApiPlain(GetApiPlainArgs args, InvokeOptions options) {
@@ -350,7 +350,7 @@ public final class ApimanagementFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ApiManagement`: 2022-08-01
+     * * `Microsoft.ApiManagement` - 2022-08-01
      * 
      */
     public static Output<GetApiVersionSetResult> getApiVersionSet(GetApiVersionSetArgs args) {
@@ -402,7 +402,7 @@ public final class ApimanagementFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ApiManagement`: 2022-08-01
+     * * `Microsoft.ApiManagement` - 2022-08-01
      * 
      */
     public static CompletableFuture<GetApiVersionSetResult> getApiVersionSetPlain(GetApiVersionSetPlainArgs args) {
@@ -454,7 +454,7 @@ public final class ApimanagementFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ApiManagement`: 2022-08-01
+     * * `Microsoft.ApiManagement` - 2022-08-01
      * 
      */
     public static Output<GetApiVersionSetResult> getApiVersionSet(GetApiVersionSetArgs args, InvokeOptions options) {
@@ -506,7 +506,7 @@ public final class ApimanagementFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ApiManagement`: 2022-08-01
+     * * `Microsoft.ApiManagement` - 2022-08-01
      * 
      */
     public static Output<GetApiVersionSetResult> getApiVersionSet(GetApiVersionSetArgs args, InvokeOutputOptions options) {
@@ -558,7 +558,7 @@ public final class ApimanagementFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ApiManagement`: 2022-08-01
+     * * `Microsoft.ApiManagement` - 2022-08-01
      * 
      */
     public static CompletableFuture<GetApiVersionSetResult> getApiVersionSetPlain(GetApiVersionSetPlainArgs args, InvokeOptions options) {
@@ -614,7 +614,7 @@ public final class ApimanagementFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ApiManagement`: 2022-08-01
+     * * `Microsoft.ApiManagement` - 2022-08-01
      * 
      */
     public static Output<GetGatewayResult> getGateway(GetGatewayArgs args) {
@@ -670,7 +670,7 @@ public final class ApimanagementFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ApiManagement`: 2022-08-01
+     * * `Microsoft.ApiManagement` - 2022-08-01
      * 
      */
     public static CompletableFuture<GetGatewayResult> getGatewayPlain(GetGatewayPlainArgs args) {
@@ -726,7 +726,7 @@ public final class ApimanagementFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ApiManagement`: 2022-08-01
+     * * `Microsoft.ApiManagement` - 2022-08-01
      * 
      */
     public static Output<GetGatewayResult> getGateway(GetGatewayArgs args, InvokeOptions options) {
@@ -782,7 +782,7 @@ public final class ApimanagementFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ApiManagement`: 2022-08-01
+     * * `Microsoft.ApiManagement` - 2022-08-01
      * 
      */
     public static Output<GetGatewayResult> getGateway(GetGatewayArgs args, InvokeOutputOptions options) {
@@ -838,7 +838,7 @@ public final class ApimanagementFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ApiManagement`: 2022-08-01
+     * * `Microsoft.ApiManagement` - 2022-08-01
      * 
      */
     public static CompletableFuture<GetGatewayResult> getGatewayPlain(GetGatewayPlainArgs args, InvokeOptions options) {
@@ -902,7 +902,7 @@ public final class ApimanagementFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ApiManagement`: 2022-08-01
+     * * `Microsoft.ApiManagement` - 2022-08-01
      * 
      */
     public static Output<GetGatewayHostNameConfigurationResult> getGatewayHostNameConfiguration(GetGatewayHostNameConfigurationArgs args) {
@@ -966,7 +966,7 @@ public final class ApimanagementFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ApiManagement`: 2022-08-01
+     * * `Microsoft.ApiManagement` - 2022-08-01
      * 
      */
     public static CompletableFuture<GetGatewayHostNameConfigurationResult> getGatewayHostNameConfigurationPlain(GetGatewayHostNameConfigurationPlainArgs args) {
@@ -1030,7 +1030,7 @@ public final class ApimanagementFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ApiManagement`: 2022-08-01
+     * * `Microsoft.ApiManagement` - 2022-08-01
      * 
      */
     public static Output<GetGatewayHostNameConfigurationResult> getGatewayHostNameConfiguration(GetGatewayHostNameConfigurationArgs args, InvokeOptions options) {
@@ -1094,7 +1094,7 @@ public final class ApimanagementFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ApiManagement`: 2022-08-01
+     * * `Microsoft.ApiManagement` - 2022-08-01
      * 
      */
     public static Output<GetGatewayHostNameConfigurationResult> getGatewayHostNameConfiguration(GetGatewayHostNameConfigurationArgs args, InvokeOutputOptions options) {
@@ -1158,7 +1158,7 @@ public final class ApimanagementFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ApiManagement`: 2022-08-01
+     * * `Microsoft.ApiManagement` - 2022-08-01
      * 
      */
     public static CompletableFuture<GetGatewayHostNameConfigurationResult> getGatewayHostNameConfigurationPlain(GetGatewayHostNameConfigurationPlainArgs args, InvokeOptions options) {
@@ -1210,7 +1210,7 @@ public final class ApimanagementFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ApiManagement`: 2022-08-01
+     * * `Microsoft.ApiManagement` - 2022-08-01
      * 
      */
     public static Output<GetGroupResult> getGroup(GetGroupArgs args) {
@@ -1262,7 +1262,7 @@ public final class ApimanagementFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ApiManagement`: 2022-08-01
+     * * `Microsoft.ApiManagement` - 2022-08-01
      * 
      */
     public static CompletableFuture<GetGroupResult> getGroupPlain(GetGroupPlainArgs args) {
@@ -1314,7 +1314,7 @@ public final class ApimanagementFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ApiManagement`: 2022-08-01
+     * * `Microsoft.ApiManagement` - 2022-08-01
      * 
      */
     public static Output<GetGroupResult> getGroup(GetGroupArgs args, InvokeOptions options) {
@@ -1366,7 +1366,7 @@ public final class ApimanagementFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ApiManagement`: 2022-08-01
+     * * `Microsoft.ApiManagement` - 2022-08-01
      * 
      */
     public static Output<GetGroupResult> getGroup(GetGroupArgs args, InvokeOutputOptions options) {
@@ -1418,7 +1418,7 @@ public final class ApimanagementFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ApiManagement`: 2022-08-01
+     * * `Microsoft.ApiManagement` - 2022-08-01
      * 
      */
     public static CompletableFuture<GetGroupResult> getGroupPlain(GetGroupPlainArgs args, InvokeOptions options) {
@@ -1470,7 +1470,7 @@ public final class ApimanagementFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ApiManagement`: 2022-08-01
+     * * `Microsoft.ApiManagement` - 2022-08-01
      * 
      */
     public static Output<GetProductResult> getProduct(GetProductArgs args) {
@@ -1522,7 +1522,7 @@ public final class ApimanagementFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ApiManagement`: 2022-08-01
+     * * `Microsoft.ApiManagement` - 2022-08-01
      * 
      */
     public static CompletableFuture<GetProductResult> getProductPlain(GetProductPlainArgs args) {
@@ -1574,7 +1574,7 @@ public final class ApimanagementFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ApiManagement`: 2022-08-01
+     * * `Microsoft.ApiManagement` - 2022-08-01
      * 
      */
     public static Output<GetProductResult> getProduct(GetProductArgs args, InvokeOptions options) {
@@ -1626,7 +1626,7 @@ public final class ApimanagementFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ApiManagement`: 2022-08-01
+     * * `Microsoft.ApiManagement` - 2022-08-01
      * 
      */
     public static Output<GetProductResult> getProduct(GetProductArgs args, InvokeOutputOptions options) {
@@ -1678,7 +1678,7 @@ public final class ApimanagementFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ApiManagement`: 2022-08-01
+     * * `Microsoft.ApiManagement` - 2022-08-01
      * 
      */
     public static CompletableFuture<GetProductResult> getProductPlain(GetProductPlainArgs args, InvokeOptions options) {
@@ -1729,7 +1729,7 @@ public final class ApimanagementFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ApiManagement`: 2022-08-01
+     * * `Microsoft.ApiManagement` - 2024-05-01, 2022-08-01
      * 
      */
     public static Output<GetServiceResult> getService(GetServiceArgs args) {
@@ -1780,7 +1780,7 @@ public final class ApimanagementFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ApiManagement`: 2022-08-01
+     * * `Microsoft.ApiManagement` - 2024-05-01, 2022-08-01
      * 
      */
     public static CompletableFuture<GetServiceResult> getServicePlain(GetServicePlainArgs args) {
@@ -1831,7 +1831,7 @@ public final class ApimanagementFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ApiManagement`: 2022-08-01
+     * * `Microsoft.ApiManagement` - 2024-05-01, 2022-08-01
      * 
      */
     public static Output<GetServiceResult> getService(GetServiceArgs args, InvokeOptions options) {
@@ -1882,7 +1882,7 @@ public final class ApimanagementFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ApiManagement`: 2022-08-01
+     * * `Microsoft.ApiManagement` - 2024-05-01, 2022-08-01
      * 
      */
     public static Output<GetServiceResult> getService(GetServiceArgs args, InvokeOutputOptions options) {
@@ -1933,7 +1933,7 @@ public final class ApimanagementFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ApiManagement`: 2022-08-01
+     * * `Microsoft.ApiManagement` - 2024-05-01, 2022-08-01
      * 
      */
     public static CompletableFuture<GetServiceResult> getServicePlain(GetServicePlainArgs args, InvokeOptions options) {
@@ -1984,7 +1984,7 @@ public final class ApimanagementFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ApiManagement`: 2022-08-01
+     * * `Microsoft.ApiManagement` - 2022-08-01
      * 
      */
     public static Output<GetSubscriptionResult> getSubscription(GetSubscriptionArgs args) {
@@ -2035,7 +2035,7 @@ public final class ApimanagementFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ApiManagement`: 2022-08-01
+     * * `Microsoft.ApiManagement` - 2022-08-01
      * 
      */
     public static CompletableFuture<GetSubscriptionResult> getSubscriptionPlain(GetSubscriptionPlainArgs args) {
@@ -2086,7 +2086,7 @@ public final class ApimanagementFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ApiManagement`: 2022-08-01
+     * * `Microsoft.ApiManagement` - 2022-08-01
      * 
      */
     public static Output<GetSubscriptionResult> getSubscription(GetSubscriptionArgs args, InvokeOptions options) {
@@ -2137,7 +2137,7 @@ public final class ApimanagementFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ApiManagement`: 2022-08-01
+     * * `Microsoft.ApiManagement` - 2022-08-01
      * 
      */
     public static Output<GetSubscriptionResult> getSubscription(GetSubscriptionArgs args, InvokeOutputOptions options) {
@@ -2188,7 +2188,7 @@ public final class ApimanagementFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ApiManagement`: 2022-08-01
+     * * `Microsoft.ApiManagement` - 2022-08-01
      * 
      */
     public static CompletableFuture<GetSubscriptionResult> getSubscriptionPlain(GetSubscriptionPlainArgs args, InvokeOptions options) {

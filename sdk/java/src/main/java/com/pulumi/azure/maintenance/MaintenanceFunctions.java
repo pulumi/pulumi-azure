@@ -63,7 +63,7 @@ public final class MaintenanceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Maintenance`: 2023-04-01
+     * * `Microsoft.Maintenance` - 2023-04-01
      * 
      */
     public static Output<GetConfigurationResult> getConfiguration(GetConfigurationArgs args) {
@@ -114,7 +114,7 @@ public final class MaintenanceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Maintenance`: 2023-04-01
+     * * `Microsoft.Maintenance` - 2023-04-01
      * 
      */
     public static CompletableFuture<GetConfigurationResult> getConfigurationPlain(GetConfigurationPlainArgs args) {
@@ -165,7 +165,7 @@ public final class MaintenanceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Maintenance`: 2023-04-01
+     * * `Microsoft.Maintenance` - 2023-04-01
      * 
      */
     public static Output<GetConfigurationResult> getConfiguration(GetConfigurationArgs args, InvokeOptions options) {
@@ -216,7 +216,7 @@ public final class MaintenanceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Maintenance`: 2023-04-01
+     * * `Microsoft.Maintenance` - 2023-04-01
      * 
      */
     public static Output<GetConfigurationResult> getConfiguration(GetConfigurationArgs args, InvokeOutputOptions options) {
@@ -267,7 +267,7 @@ public final class MaintenanceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Maintenance`: 2023-04-01
+     * * `Microsoft.Maintenance` - 2023-04-01
      * 
      */
     public static CompletableFuture<GetConfigurationResult> getConfigurationPlain(GetConfigurationPlainArgs args, InvokeOptions options) {
@@ -319,7 +319,7 @@ public final class MaintenanceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Maintenance`: 2023-04-01
+     * * `Microsoft.Maintenance` - 2023-04-01
      * 
      */
     public static Output<GetPublicConfigurationsResult> getPublicConfigurations() {
@@ -371,7 +371,7 @@ public final class MaintenanceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Maintenance`: 2023-04-01
+     * * `Microsoft.Maintenance` - 2023-04-01
      * 
      */
     public static CompletableFuture<GetPublicConfigurationsResult> getPublicConfigurationsPlain() {
@@ -423,7 +423,7 @@ public final class MaintenanceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Maintenance`: 2023-04-01
+     * * `Microsoft.Maintenance` - 2023-04-01
      * 
      */
     public static Output<GetPublicConfigurationsResult> getPublicConfigurations(GetPublicConfigurationsArgs args) {
@@ -475,7 +475,7 @@ public final class MaintenanceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Maintenance`: 2023-04-01
+     * * `Microsoft.Maintenance` - 2023-04-01
      * 
      */
     public static CompletableFuture<GetPublicConfigurationsResult> getPublicConfigurationsPlain(GetPublicConfigurationsPlainArgs args) {
@@ -527,7 +527,7 @@ public final class MaintenanceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Maintenance`: 2023-04-01
+     * * `Microsoft.Maintenance` - 2023-04-01
      * 
      */
     public static Output<GetPublicConfigurationsResult> getPublicConfigurations(GetPublicConfigurationsArgs args, InvokeOptions options) {
@@ -579,7 +579,7 @@ public final class MaintenanceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Maintenance`: 2023-04-01
+     * * `Microsoft.Maintenance` - 2023-04-01
      * 
      */
     public static Output<GetPublicConfigurationsResult> getPublicConfigurations(GetPublicConfigurationsArgs args, InvokeOutputOptions options) {
@@ -631,7 +631,7 @@ public final class MaintenanceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Maintenance`: 2023-04-01
+     * * `Microsoft.Maintenance` - 2023-04-01
      * 
      */
     public static CompletableFuture<GetPublicConfigurationsResult> getPublicConfigurationsPlain(GetPublicConfigurationsPlainArgs args, InvokeOptions options) {

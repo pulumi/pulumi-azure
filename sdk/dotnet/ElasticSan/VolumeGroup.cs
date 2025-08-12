@@ -192,7 +192,7 @@ namespace Pulumi.Azure.ElasticSan
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.ElasticSan`: 2023-01-01
+    /// * `Microsoft.ElasticSan` - 2023-01-01
     /// 
     /// ## Import
     /// 

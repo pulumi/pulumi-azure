@@ -111,7 +111,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This resource uses the following Azure API Providers:
 //
-// * `Microsoft.MobileNetwork`: 2022-11-01
+// * `Microsoft.MobileNetwork` - 2022-11-01
 //
 // ## Import
 //
@@ -147,7 +147,7 @@ type NetworkPacketCoreControlPlane struct {
 	Platform NetworkPacketCoreControlPlanePlatformPtrOutput `pulumi:"platform"`
 	// Specifies the name of the Resource Group where the Mobile Network Packet Core Control Plane should exist. Changing this forces a new Mobile Network Packet Core Control Plane to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// A list of Mobile Network Site IDs in which this packet core control plane should be deployed. The Sites must be in the same location as the packet core control plane.
+	// A list of Mobile Network Site IDs in which this packet core control plane should be deployed. The Sites must be in the same location as the packet core control plane. Currently, the API supports exactly 1 resource ID in the list. Changing this forces a new resource to be created.
 	SiteIds pulumi.StringArrayOutput `pulumi:"siteIds"`
 	// The SKU defining the throughput and SIM allowances for this packet core control plane deployment. Possible values are `G0`, `G1`, `G2`, `G3`, `G4`, `G5` and `G10`.
 	Sku pulumi.StringOutput `pulumi:"sku"`
@@ -225,7 +225,7 @@ type networkPacketCoreControlPlaneState struct {
 	Platform *NetworkPacketCoreControlPlanePlatform `pulumi:"platform"`
 	// Specifies the name of the Resource Group where the Mobile Network Packet Core Control Plane should exist. Changing this forces a new Mobile Network Packet Core Control Plane to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// A list of Mobile Network Site IDs in which this packet core control plane should be deployed. The Sites must be in the same location as the packet core control plane.
+	// A list of Mobile Network Site IDs in which this packet core control plane should be deployed. The Sites must be in the same location as the packet core control plane. Currently, the API supports exactly 1 resource ID in the list. Changing this forces a new resource to be created.
 	SiteIds []string `pulumi:"siteIds"`
 	// The SKU defining the throughput and SIM allowances for this packet core control plane deployment. Possible values are `G0`, `G1`, `G2`, `G3`, `G4`, `G5` and `G10`.
 	Sku *string `pulumi:"sku"`
@@ -262,7 +262,7 @@ type NetworkPacketCoreControlPlaneState struct {
 	Platform NetworkPacketCoreControlPlanePlatformPtrInput
 	// Specifies the name of the Resource Group where the Mobile Network Packet Core Control Plane should exist. Changing this forces a new Mobile Network Packet Core Control Plane to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// A list of Mobile Network Site IDs in which this packet core control plane should be deployed. The Sites must be in the same location as the packet core control plane.
+	// A list of Mobile Network Site IDs in which this packet core control plane should be deployed. The Sites must be in the same location as the packet core control plane. Currently, the API supports exactly 1 resource ID in the list. Changing this forces a new resource to be created.
 	SiteIds pulumi.StringArrayInput
 	// The SKU defining the throughput and SIM allowances for this packet core control plane deployment. Possible values are `G0`, `G1`, `G2`, `G3`, `G4`, `G5` and `G10`.
 	Sku pulumi.StringPtrInput
@@ -303,7 +303,7 @@ type networkPacketCoreControlPlaneArgs struct {
 	Platform *NetworkPacketCoreControlPlanePlatform `pulumi:"platform"`
 	// Specifies the name of the Resource Group where the Mobile Network Packet Core Control Plane should exist. Changing this forces a new Mobile Network Packet Core Control Plane to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// A list of Mobile Network Site IDs in which this packet core control plane should be deployed. The Sites must be in the same location as the packet core control plane.
+	// A list of Mobile Network Site IDs in which this packet core control plane should be deployed. The Sites must be in the same location as the packet core control plane. Currently, the API supports exactly 1 resource ID in the list. Changing this forces a new resource to be created.
 	SiteIds []string `pulumi:"siteIds"`
 	// The SKU defining the throughput and SIM allowances for this packet core control plane deployment. Possible values are `G0`, `G1`, `G2`, `G3`, `G4`, `G5` and `G10`.
 	Sku string `pulumi:"sku"`
@@ -341,7 +341,7 @@ type NetworkPacketCoreControlPlaneArgs struct {
 	Platform NetworkPacketCoreControlPlanePlatformPtrInput
 	// Specifies the name of the Resource Group where the Mobile Network Packet Core Control Plane should exist. Changing this forces a new Mobile Network Packet Core Control Plane to be created.
 	ResourceGroupName pulumi.StringInput
-	// A list of Mobile Network Site IDs in which this packet core control plane should be deployed. The Sites must be in the same location as the packet core control plane.
+	// A list of Mobile Network Site IDs in which this packet core control plane should be deployed. The Sites must be in the same location as the packet core control plane. Currently, the API supports exactly 1 resource ID in the list. Changing this forces a new resource to be created.
 	SiteIds pulumi.StringArrayInput
 	// The SKU defining the throughput and SIM allowances for this packet core control plane deployment. Possible values are `G0`, `G1`, `G2`, `G3`, `G4`, `G5` and `G10`.
 	Sku pulumi.StringInput
@@ -506,7 +506,7 @@ func (o NetworkPacketCoreControlPlaneOutput) ResourceGroupName() pulumi.StringOu
 	return o.ApplyT(func(v *NetworkPacketCoreControlPlane) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// A list of Mobile Network Site IDs in which this packet core control plane should be deployed. The Sites must be in the same location as the packet core control plane.
+// A list of Mobile Network Site IDs in which this packet core control plane should be deployed. The Sites must be in the same location as the packet core control plane. Currently, the API supports exactly 1 resource ID in the list. Changing this forces a new resource to be created.
 func (o NetworkPacketCoreControlPlaneOutput) SiteIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *NetworkPacketCoreControlPlane) pulumi.StringArrayOutput { return v.SiteIds }).(pulumi.StringArrayOutput)
 }

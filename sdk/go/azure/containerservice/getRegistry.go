@@ -46,7 +46,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This data source uses the following Azure API Providers:
 //
-// * `Microsoft.ContainerRegistry`: 2023-11-01-preview
+// * `Microsoft.ContainerRegistry` - 2023-11-01-preview
 func LookupRegistry(ctx *pulumi.Context, args *LookupRegistryArgs, opts ...pulumi.InvokeOption) (*LookupRegistryResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupRegistryResult
@@ -75,6 +75,8 @@ type LookupRegistryResult struct {
 	AdminUsername string `pulumi:"adminUsername"`
 	// Whether dedicated data endpoints for this Container Registry are enabled?
 	DataEndpointEnabled bool `pulumi:"dataEndpointEnabled"`
+	// A set of data endpoint hostnames associated with the container registry if data endpoints are enabled.
+	DataEndpointHostNames []string `pulumi:"dataEndpointHostNames"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The Azure Region in which this Container Registry exists.
@@ -143,6 +145,11 @@ func (o LookupRegistryResultOutput) AdminUsername() pulumi.StringOutput {
 // Whether dedicated data endpoints for this Container Registry are enabled?
 func (o LookupRegistryResultOutput) DataEndpointEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupRegistryResult) bool { return v.DataEndpointEnabled }).(pulumi.BoolOutput)
+}
+
+// A set of data endpoint hostnames associated with the container registry if data endpoints are enabled.
+func (o LookupRegistryResultOutput) DataEndpointHostNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupRegistryResult) []string { return v.DataEndpointHostNames }).(pulumi.StringArrayOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.

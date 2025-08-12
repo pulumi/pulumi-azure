@@ -60,7 +60,7 @@ namespace Pulumi.Azure.VideoIndexer
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.VideoIndexer`: 2025-04-01
+    /// * `Microsoft.VideoIndexer` - 2025-04-01
     /// 
     /// ## Import
     /// 
@@ -90,6 +90,12 @@ namespace Pulumi.Azure.VideoIndexer
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// The public network access for the Video Indexer Account. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled`.
+        /// </summary>
+        [Output("publicNetworkAccess")]
+        public Output<string?> PublicNetworkAccess { get; private set; } = null!;
 
         /// <summary>
         /// The name of the Resource Group that the Video Indexer Account will be associated with. Changing the name forces a new resource to be created.
@@ -174,6 +180,12 @@ namespace Pulumi.Azure.VideoIndexer
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// The public network access for the Video Indexer Account. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled`.
+        /// </summary>
+        [Input("publicNetworkAccess")]
+        public Input<string>? PublicNetworkAccess { get; set; }
+
+        /// <summary>
         /// The name of the Resource Group that the Video Indexer Account will be associated with. Changing the name forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -222,6 +234,12 @@ namespace Pulumi.Azure.VideoIndexer
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The public network access for the Video Indexer Account. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled`.
+        /// </summary>
+        [Input("publicNetworkAccess")]
+        public Input<string>? PublicNetworkAccess { get; set; }
 
         /// <summary>
         /// The name of the Resource Group that the Video Indexer Account will be associated with. Changing the name forces a new resource to be created.

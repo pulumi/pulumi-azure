@@ -90,7 +90,7 @@ namespace Pulumi.Azure.Network
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.Network`: 2024-05-01
+    /// * `Microsoft.Network` - 2024-05-01
     /// 
     /// ## Import
     /// 
@@ -106,7 +106,7 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// The address space that is used the virtual network. You can supply more than one address space.
         /// 
-        /// &gt; **Note:** Exactly one of `address_space` or `ip_address_pool` must be specified. If `address_space` is not specified but you encounter a diff, this might indicate the `address_space` is allocated from the IP Address Pool. If this is the case, you may need to add this to ignore_changes.
+        /// &gt; **Note:** Exactly one of `address_space` or `ip_address_pool` must be specified.
         /// </summary>
         [Output("addressSpaces")]
         public Output<ImmutableArray<string>> AddressSpaces { get; private set; } = null!;
@@ -255,7 +255,7 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// The address space that is used the virtual network. You can supply more than one address space.
         /// 
-        /// &gt; **Note:** Exactly one of `address_space` or `ip_address_pool` must be specified. If `address_space` is not specified but you encounter a diff, this might indicate the `address_space` is allocated from the IP Address Pool. If this is the case, you may need to add this to ignore_changes.
+        /// &gt; **Note:** Exactly one of `address_space` or `ip_address_pool` must be specified.
         /// </summary>
         public InputList<string> AddressSpaces
         {
@@ -387,7 +387,7 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// The address space that is used the virtual network. You can supply more than one address space.
         /// 
-        /// &gt; **Note:** Exactly one of `address_space` or `ip_address_pool` must be specified. If `address_space` is not specified but you encounter a diff, this might indicate the `address_space` is allocated from the IP Address Pool. If this is the case, you may need to add this to ignore_changes.
+        /// &gt; **Note:** Exactly one of `address_space` or `ip_address_pool` must be specified.
         /// </summary>
         public InputList<string> AddressSpaces
         {

@@ -74,7 +74,7 @@ namespace Pulumi.Azure.Core
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.Resources`: 2020-10-01
+    /// * `Microsoft.Resources` - 2020-10-01
     /// 
     /// ## Import
     /// 

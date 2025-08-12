@@ -100,7 +100,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This resource uses the following Azure API Providers:
 //
-// * `Microsoft.Web`: 2023-12-01, 2023-01-01
+// * `Microsoft.Web` - 2023-12-01, 2023-01-01
 //
 // ## Import
 //
@@ -141,7 +141,7 @@ type AppFlexConsumption struct {
 	HttpsOnly pulumi.BoolPtrOutput `pulumi:"httpsOnly"`
 	// A `identity` block as defined below.
 	Identity AppFlexConsumptionIdentityPtrOutput `pulumi:"identity"`
-	// The memory size of the instances on which your app runs. The [currently supported values](https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-plan#instance-memory) are `2048` or `4096`.
+	// The memory size of the instances on which your app runs. Reference the Microsoft Documentation for the [currently supported values](https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-plan#instance-memory). Defaults to `2048`.
 	InstanceMemoryInMb pulumi.IntPtrOutput `pulumi:"instanceMemoryInMb"`
 	// The Kind value for this Linux Function App.
 	Kind pulumi.StringOutput `pulumi:"kind"`
@@ -290,7 +290,7 @@ type appFlexConsumptionState struct {
 	HttpsOnly *bool `pulumi:"httpsOnly"`
 	// A `identity` block as defined below.
 	Identity *AppFlexConsumptionIdentity `pulumi:"identity"`
-	// The memory size of the instances on which your app runs. The [currently supported values](https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-plan#instance-memory) are `2048` or `4096`.
+	// The memory size of the instances on which your app runs. Reference the Microsoft Documentation for the [currently supported values](https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-plan#instance-memory). Defaults to `2048`.
 	InstanceMemoryInMb *int `pulumi:"instanceMemoryInMb"`
 	// The Kind value for this Linux Function App.
 	Kind *string `pulumi:"kind"`
@@ -381,7 +381,7 @@ type AppFlexConsumptionState struct {
 	HttpsOnly pulumi.BoolPtrInput
 	// A `identity` block as defined below.
 	Identity AppFlexConsumptionIdentityPtrInput
-	// The memory size of the instances on which your app runs. The [currently supported values](https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-plan#instance-memory) are `2048` or `4096`.
+	// The memory size of the instances on which your app runs. Reference the Microsoft Documentation for the [currently supported values](https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-plan#instance-memory). Defaults to `2048`.
 	InstanceMemoryInMb pulumi.IntPtrInput
 	// The Kind value for this Linux Function App.
 	Kind pulumi.StringPtrInput
@@ -470,7 +470,7 @@ type appFlexConsumptionArgs struct {
 	HttpsOnly *bool `pulumi:"httpsOnly"`
 	// A `identity` block as defined below.
 	Identity *AppFlexConsumptionIdentity `pulumi:"identity"`
-	// The memory size of the instances on which your app runs. The [currently supported values](https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-plan#instance-memory) are `2048` or `4096`.
+	// The memory size of the instances on which your app runs. Reference the Microsoft Documentation for the [currently supported values](https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-plan#instance-memory). Defaults to `2048`.
 	InstanceMemoryInMb *int `pulumi:"instanceMemoryInMb"`
 	// The Azure Region where the Function App should exist. Changing this forces a new Function App to be created.
 	Location *string `pulumi:"location"`
@@ -544,7 +544,7 @@ type AppFlexConsumptionArgs struct {
 	HttpsOnly pulumi.BoolPtrInput
 	// A `identity` block as defined below.
 	Identity AppFlexConsumptionIdentityPtrInput
-	// The memory size of the instances on which your app runs. The [currently supported values](https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-plan#instance-memory) are `2048` or `4096`.
+	// The memory size of the instances on which your app runs. Reference the Microsoft Documentation for the [currently supported values](https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-plan#instance-memory). Defaults to `2048`.
 	InstanceMemoryInMb pulumi.IntPtrInput
 	// The Azure Region where the Function App should exist. Changing this forces a new Function App to be created.
 	Location pulumi.StringPtrInput
@@ -751,7 +751,7 @@ func (o AppFlexConsumptionOutput) Identity() AppFlexConsumptionIdentityPtrOutput
 	return o.ApplyT(func(v *AppFlexConsumption) AppFlexConsumptionIdentityPtrOutput { return v.Identity }).(AppFlexConsumptionIdentityPtrOutput)
 }
 
-// The memory size of the instances on which your app runs. The [currently supported values](https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-plan#instance-memory) are `2048` or `4096`.
+// The memory size of the instances on which your app runs. Reference the Microsoft Documentation for the [currently supported values](https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-plan#instance-memory). Defaults to `2048`.
 func (o AppFlexConsumptionOutput) InstanceMemoryInMb() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AppFlexConsumption) pulumi.IntPtrOutput { return v.InstanceMemoryInMb }).(pulumi.IntPtrOutput)
 }

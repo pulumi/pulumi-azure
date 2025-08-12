@@ -5,6 +5,7 @@ package com.pulumi.azure.devcenter.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -12,6 +13,11 @@ import java.util.Objects;
 @CustomType
 public final class GetDevBoxDefinitionResult {
     private String devCenterId;
+    /**
+     * @return Whether Dev Boxes created with this definition are capable of hibernation.
+     * 
+     */
+    private Boolean hibernateSupportEnabled;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -42,6 +48,13 @@ public final class GetDevBoxDefinitionResult {
     private GetDevBoxDefinitionResult() {}
     public String devCenterId() {
         return this.devCenterId;
+    }
+    /**
+     * @return Whether Dev Boxes created with this definition are capable of hibernation.
+     * 
+     */
+    public Boolean hibernateSupportEnabled() {
+        return this.hibernateSupportEnabled;
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -92,6 +105,7 @@ public final class GetDevBoxDefinitionResult {
     @CustomType.Builder
     public static final class Builder {
         private String devCenterId;
+        private Boolean hibernateSupportEnabled;
         private String id;
         private String imageReferenceId;
         private String location;
@@ -102,6 +116,7 @@ public final class GetDevBoxDefinitionResult {
         public Builder(GetDevBoxDefinitionResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.devCenterId = defaults.devCenterId;
+    	      this.hibernateSupportEnabled = defaults.hibernateSupportEnabled;
     	      this.id = defaults.id;
     	      this.imageReferenceId = defaults.imageReferenceId;
     	      this.location = defaults.location;
@@ -116,6 +131,14 @@ public final class GetDevBoxDefinitionResult {
               throw new MissingRequiredPropertyException("GetDevBoxDefinitionResult", "devCenterId");
             }
             this.devCenterId = devCenterId;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder hibernateSupportEnabled(Boolean hibernateSupportEnabled) {
+            if (hibernateSupportEnabled == null) {
+              throw new MissingRequiredPropertyException("GetDevBoxDefinitionResult", "hibernateSupportEnabled");
+            }
+            this.hibernateSupportEnabled = hibernateSupportEnabled;
             return this;
         }
         @CustomType.Setter
@@ -169,6 +192,7 @@ public final class GetDevBoxDefinitionResult {
         public GetDevBoxDefinitionResult build() {
             final var _resultValue = new GetDevBoxDefinitionResult();
             _resultValue.devCenterId = devCenterId;
+            _resultValue.hibernateSupportEnabled = hibernateSupportEnabled;
             _resultValue.id = id;
             _resultValue.imageReferenceId = imageReferenceId;
             _resultValue.location = location;

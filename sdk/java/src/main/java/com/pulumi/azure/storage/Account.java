@@ -158,7 +158,7 @@ import javax.annotation.Nullable;
  * &lt;!-- This section is generated, changes will be overwritten --&gt;
  * This resource uses the following Azure API Providers:
  * 
- * * `Microsoft.Storage`: 2023-05-01
+ * * `Microsoft.Storage` - 2023-05-01
  * 
  * ## Import
  * 
@@ -1082,6 +1082,20 @@ public class Account extends com.pulumi.resources.CustomResource {
      */
     public Output<String> primaryWebMicrosoftHost() {
         return this.primaryWebMicrosoftHost;
+    }
+    /**
+     * Specifies the version of the **provisioned** billing model (e.g. when `account_kind = &#34;FileStorage&#34;` for Storage File). Possible value is `V2`. Changing this forces a new resource to be created.
+     * 
+     */
+    @Export(name="provisionedBillingModelVersion", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> provisionedBillingModelVersion;
+
+    /**
+     * @return Specifies the version of the **provisioned** billing model (e.g. when `account_kind = &#34;FileStorage&#34;` for Storage File). Possible value is `V2`. Changing this forces a new resource to be created.
+     * 
+     */
+    public Output<Optional<String>> provisionedBillingModelVersion() {
+        return Codegen.optional(this.provisionedBillingModelVersion);
     }
     /**
      * Whether the public network access is enabled? Defaults to `true`.

@@ -69,7 +69,7 @@ public final class NginxFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Nginx.NginxPlus`: 2024-11-01-preview
+     * * `Nginx.NginxPlus` - 2024-11-01-preview
      * 
      */
     public static Output<GetApiKeyResult> getApiKey(GetApiKeyArgs args) {
@@ -120,7 +120,7 @@ public final class NginxFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Nginx.NginxPlus`: 2024-11-01-preview
+     * * `Nginx.NginxPlus` - 2024-11-01-preview
      * 
      */
     public static CompletableFuture<GetApiKeyResult> getApiKeyPlain(GetApiKeyPlainArgs args) {
@@ -171,7 +171,7 @@ public final class NginxFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Nginx.NginxPlus`: 2024-11-01-preview
+     * * `Nginx.NginxPlus` - 2024-11-01-preview
      * 
      */
     public static Output<GetApiKeyResult> getApiKey(GetApiKeyArgs args, InvokeOptions options) {
@@ -222,7 +222,7 @@ public final class NginxFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Nginx.NginxPlus`: 2024-11-01-preview
+     * * `Nginx.NginxPlus` - 2024-11-01-preview
      * 
      */
     public static Output<GetApiKeyResult> getApiKey(GetApiKeyArgs args, InvokeOutputOptions options) {
@@ -273,7 +273,7 @@ public final class NginxFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Nginx.NginxPlus`: 2024-11-01-preview
+     * * `Nginx.NginxPlus` - 2024-11-01-preview
      * 
      */
     public static CompletableFuture<GetApiKeyResult> getApiKeyPlain(GetApiKeyPlainArgs args, InvokeOptions options) {
@@ -324,7 +324,7 @@ public final class NginxFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Nginx.NginxPlus`: 2024-11-01-preview
+     * * `Nginx.NginxPlus` - 2024-11-01-preview
      * 
      */
     public static Output<GetCertificateResult> getCertificate(GetCertificateArgs args) {
@@ -375,7 +375,7 @@ public final class NginxFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Nginx.NginxPlus`: 2024-11-01-preview
+     * * `Nginx.NginxPlus` - 2024-11-01-preview
      * 
      */
     public static CompletableFuture<GetCertificateResult> getCertificatePlain(GetCertificatePlainArgs args) {
@@ -426,7 +426,7 @@ public final class NginxFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Nginx.NginxPlus`: 2024-11-01-preview
+     * * `Nginx.NginxPlus` - 2024-11-01-preview
      * 
      */
     public static Output<GetCertificateResult> getCertificate(GetCertificateArgs args, InvokeOptions options) {
@@ -477,7 +477,7 @@ public final class NginxFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Nginx.NginxPlus`: 2024-11-01-preview
+     * * `Nginx.NginxPlus` - 2024-11-01-preview
      * 
      */
     public static Output<GetCertificateResult> getCertificate(GetCertificateArgs args, InvokeOutputOptions options) {
@@ -528,7 +528,7 @@ public final class NginxFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Nginx.NginxPlus`: 2024-11-01-preview
+     * * `Nginx.NginxPlus` - 2024-11-01-preview
      * 
      */
     public static CompletableFuture<GetCertificateResult> getCertificatePlain(GetCertificatePlainArgs args, InvokeOptions options) {
@@ -578,7 +578,7 @@ public final class NginxFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Nginx.NginxPlus`: 2024-11-01-preview
+     * * `Nginx.NginxPlus` - 2024-11-01-preview
      * 
      */
     public static Output<GetConfigurationResult> getConfiguration(GetConfigurationArgs args) {
@@ -628,7 +628,7 @@ public final class NginxFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Nginx.NginxPlus`: 2024-11-01-preview
+     * * `Nginx.NginxPlus` - 2024-11-01-preview
      * 
      */
     public static CompletableFuture<GetConfigurationResult> getConfigurationPlain(GetConfigurationPlainArgs args) {
@@ -678,7 +678,7 @@ public final class NginxFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Nginx.NginxPlus`: 2024-11-01-preview
+     * * `Nginx.NginxPlus` - 2024-11-01-preview
      * 
      */
     public static Output<GetConfigurationResult> getConfiguration(GetConfigurationArgs args, InvokeOptions options) {
@@ -728,7 +728,7 @@ public final class NginxFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Nginx.NginxPlus`: 2024-11-01-preview
+     * * `Nginx.NginxPlus` - 2024-11-01-preview
      * 
      */
     public static Output<GetConfigurationResult> getConfiguration(GetConfigurationArgs args, InvokeOutputOptions options) {
@@ -778,7 +778,7 @@ public final class NginxFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Nginx.NginxPlus`: 2024-11-01-preview
+     * * `Nginx.NginxPlus` - 2024-11-01-preview
      * 
      */
     public static CompletableFuture<GetConfigurationResult> getConfigurationPlain(GetConfigurationPlainArgs args, InvokeOptions options) {
@@ -829,7 +829,7 @@ public final class NginxFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Nginx.NginxPlus`: 2024-11-01-preview
+     * * `Nginx.NginxPlus` - 2024-11-01-preview
      * 
      */
     public static Output<GetDeploymentResult> getDeployment(GetDeploymentArgs args) {
@@ -880,7 +880,7 @@ public final class NginxFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Nginx.NginxPlus`: 2024-11-01-preview
+     * * `Nginx.NginxPlus` - 2024-11-01-preview
      * 
      */
     public static CompletableFuture<GetDeploymentResult> getDeploymentPlain(GetDeploymentPlainArgs args) {
@@ -931,7 +931,7 @@ public final class NginxFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Nginx.NginxPlus`: 2024-11-01-preview
+     * * `Nginx.NginxPlus` - 2024-11-01-preview
      * 
      */
     public static Output<GetDeploymentResult> getDeployment(GetDeploymentArgs args, InvokeOptions options) {
@@ -982,7 +982,7 @@ public final class NginxFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Nginx.NginxPlus`: 2024-11-01-preview
+     * * `Nginx.NginxPlus` - 2024-11-01-preview
      * 
      */
     public static Output<GetDeploymentResult> getDeployment(GetDeploymentArgs args, InvokeOutputOptions options) {
@@ -1033,7 +1033,7 @@ public final class NginxFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Nginx.NginxPlus`: 2024-11-01-preview
+     * * `Nginx.NginxPlus` - 2024-11-01-preview
      * 
      */
     public static CompletableFuture<GetDeploymentResult> getDeploymentPlain(GetDeploymentPlainArgs args, InvokeOptions options) {

@@ -108,7 +108,7 @@ class RegistryTaskScheduleRunNow(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.ContainerRegistry`: 2019-06-01-preview
+        * `Microsoft.ContainerRegistry` - 2019-06-01-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -157,7 +157,7 @@ class RegistryTaskScheduleRunNow(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.ContainerRegistry`: 2019-06-01-preview
+        * `Microsoft.ContainerRegistry` - 2019-06-01-preview
 
         :param str resource_name: The name of the resource.
         :param RegistryTaskScheduleRunNowArgs args: The arguments to use to populate this resource's properties.

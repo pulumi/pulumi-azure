@@ -45,7 +45,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This data source uses the following Azure API Providers:
 //
-// * `Microsoft.Network`: 2018-05-01
+// * `Microsoft.Network` - 2018-05-01
 func LookupMxRecord(ctx *pulumi.Context, args *LookupMxRecordArgs, opts ...pulumi.InvokeOption) (*LookupMxRecordResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupMxRecordResult

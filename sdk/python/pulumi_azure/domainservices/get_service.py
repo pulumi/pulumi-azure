@@ -260,7 +260,7 @@ def get_service(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.AAD`: 2021-05-01
+    * `Microsoft.AAD` - 2021-05-01
 
 
     :param _builtins.str name: The display name for your managed Active Directory Domain Service resource. Changing this forces a new resource to be created.
@@ -317,7 +317,7 @@ def get_service_output(name: Optional[pulumi.Input[_builtins.str]] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.AAD`: 2021-05-01
+    * `Microsoft.AAD` - 2021-05-01
 
 
     :param _builtins.str name: The display name for your managed Active Directory Domain Service resource. Changing this forces a new resource to be created.

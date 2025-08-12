@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Oracle.Database`: 2024-06-01
+ * * `Oracle.Database` - 2025-03-01
  */
 export function getExadataInfrastructure(args: GetExadataInfrastructureArgs, opts?: pulumi.InvokeOptions): Promise<GetExadataInfrastructureResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -72,6 +72,10 @@ export interface GetExadataInfrastructureResult {
      */
     readonly computeCount: number;
     /**
+     * The compute model of the Exadata Infrastructure.
+     */
+    readonly computeModel: string;
+    /**
      * The total number of CPU cores allocated.
      */
     readonly cpuCount: number;
@@ -84,6 +88,10 @@ export interface GetExadataInfrastructureResult {
      */
     readonly dataStorageSizeInTbs: number;
     /**
+     * The database server model type of the cloud Exadata infrastructure resource.
+     */
+    readonly databaseServerType: string;
+    /**
      * The local node storage allocated in GBs.
      */
     readonly dbNodeStorageSizeInGbs: number;
@@ -91,6 +99,10 @@ export interface GetExadataInfrastructureResult {
      * The software version of the database servers (dom0) in the Cloud Exadata Infrastructure.
      */
     readonly dbServerVersion: string;
+    /**
+     * A `definedFileSystemConfiguration` block as defined below.
+     */
+    readonly definedFileSystemConfigurations: outputs.oracle.GetExadataInfrastructureDefinedFileSystemConfiguration[];
     /**
      * The user-friendly name for the Cloud Exadata Infrastructure resource. The name does not need to be unique.
      */
@@ -174,6 +186,10 @@ export interface GetExadataInfrastructureResult {
      */
     readonly storageCount: number;
     /**
+     * The storage server model type of the cloud Exadata infrastructure resource.
+     */
+    readonly storageServerType: string;
+    /**
      * The software version of the storage servers (cells) in the Cloud Exadata Infrastructure.
      */
     readonly storageServerVersion: string;
@@ -215,7 +231,7 @@ export interface GetExadataInfrastructureResult {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Oracle.Database`: 2024-06-01
+ * * `Oracle.Database` - 2025-03-01
  */
 export function getExadataInfrastructureOutput(args: GetExadataInfrastructureOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetExadataInfrastructureResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

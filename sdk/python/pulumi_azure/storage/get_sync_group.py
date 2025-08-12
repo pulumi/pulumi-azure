@@ -89,7 +89,7 @@ def get_sync_group(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.StorageSync`: 2020-03-01
+    * `Microsoft.StorageSync` - 2020-03-01
 
 
     :param _builtins.str name: The name of this Storage Sync Group.
@@ -127,7 +127,7 @@ def get_sync_group_output(name: Optional[pulumi.Input[_builtins.str]] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.StorageSync`: 2020-03-01
+    * `Microsoft.StorageSync` - 2020-03-01
 
 
     :param _builtins.str name: The name of this Storage Sync Group.

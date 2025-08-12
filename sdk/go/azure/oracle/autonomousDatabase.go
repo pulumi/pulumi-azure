@@ -26,19 +26,20 @@ type AutonomousDatabase struct {
 
 	// The password must be between `12` and ` 30  `characters long, and must contain at least 1 uppercase, 1 lowercase, and 1 numeric character. It cannot contain the double quote symbol (") or the username "admin", regardless of casing. Changing this forces a new Autonomous Database to be created.
 	AdminPassword pulumi.StringOutput `pulumi:"adminPassword"`
+	// (Optional) Defines the network access type for the Autonomous Database. If the property is explicitly set to an empty list, it allows secure public access to the database from any IP address. If specific ACL (Access Control List) values are provided, access will be restricted to only the specified IP addresses.
+	AllowedIps pulumi.StringArrayOutput `pulumi:"allowedIps"`
 	// Indicates if auto scaling is enabled for the Autonomous Database CPU core count. The default value is `true`.
 	AutoScalingEnabled pulumi.BoolOutput `pulumi:"autoScalingEnabled"`
 	// Indicates if auto scaling is enabled for the Autonomous Database storage. The default value is `false`.
 	AutoScalingForStorageEnabled pulumi.BoolOutput `pulumi:"autoScalingForStorageEnabled"`
-	// (Updatable) Retention period, in days, for backups. Changing this forces a new Autonomous Database to be created.
+	// Retention period, in days, for backups.
 	BackupRetentionPeriodInDays pulumi.IntOutput `pulumi:"backupRetentionPeriodInDays"`
 	// The character set for the autonomous database.  The default is `AL32UTF8`. Allowed values are:  `AL32UTF8`, `AR8ADOS710`, `AR8ADOS720`, `AR8APTEC715`, `AR8ARABICMACS`, `AR8ASMO8X`, `AR8ISO8859P6`, `AR8MSWIN1256`, `AR8MUSSAD768`, `AR8NAFITHA711`, `AR8NAFITHA721`, `AR8SAKHR706`, `AR8SAKHR707`, `AZ8ISO8859P9E`, `BG8MSWIN`, `BG8PC437S`, `BLT8CP921`, `BLT8ISO8859P13`, `BLT8MSWIN1257`, `BLT8PC775`, `BN8BSCII`, `CDN8PC863`, `CEL8ISO8859P14`, `CL8ISO8859P5`, `CL8ISOIR111`, `CL8KOI8R`, `CL8KOI8U`, `CL8MACCYRILLICS`, `CL8MSWIN1251`, `EE8ISO8859P2`, `EE8MACCES`, `EE8MACCROATIANS`, `EE8MSWIN1250`, `EE8PC852`, `EL8DEC`, `EL8ISO8859P7`, `EL8MACGREEKS`, `EL8MSWIN1253`, `EL8PC437S`, `EL8PC851`, `EL8PC869`, `ET8MSWIN923`, `HU8ABMOD`, `HU8CWI2`, `IN8ISCII`, `IS8PC861`, `IW8ISO8859P8`, `IW8MACHEBREWS`, `IW8MSWIN1255`, `IW8PC1507`, `JA16EUC`, `JA16EUCTILDE`, `JA16SJIS`, `JA16SJISTILDE`, `JA16VMS`, `KO16KSC5601`, `KO16KSCCS`, `KO16MSWIN949`, `LA8ISO6937`, `LA8PASSPORT`, `LT8MSWIN921`, `LT8PC772`, `LT8PC774`, `LV8PC1117`, `LV8PC8LR`, `LV8RST104090`, `N8PC865`, `NE8ISO8859P10`, `NEE8ISO8859P4`, `RU8BESTA`, `RU8PC855`, `RU8PC866`, `SE8ISO8859P3`, `TH8MACTHAIS`, `TH8TISASCII`, `TR8DEC`, `TR8MACTURKISHS`, `TR8MSWIN1254`, `TR8PC857`, `US7ASCII`, `US8PC437`, `UTF8`, `VN8MSWIN1258`, `VN8VN3`, `WE8DEC`, `WE8DG`, `WE8ISO8859P1`, `WE8ISO8859P15`, `WE8ISO8859P9`, `WE8MACROMAN8S`, `WE8MSWIN1252`, `WE8NCR4970`, `WE8NEXTSTEP`, `WE8PC850`, `WE8PC858`, `WE8PC860`, `WE8ROMAN8`, `ZHS16CGB231280`, `ZHS16GBK`, `ZHT16BIG5`, `ZHT16CCDC`, `ZHT16DBT`, `ZHT16HKSCS`, `ZHT16MSWIN950`, `ZHT32EUC`, `ZHT32SOPS`, `ZHT32TRIS`. Changing this forces a new Autonomous Database to be created
 	CharacterSet pulumi.StringOutput `pulumi:"characterSet"`
 	// The compute amount (CPUs) available to the database. Minimum and maximum values depend on the compute model and whether the database is an Autonomous Database Serverless instance or an Autonomous Database on Dedicated Exadata Infrastructure.  For an Autonomous Database Serverless instance, the `ECPU` compute model requires a minimum value of one, for databases in the elastic resource pool and minimum value of two, otherwise. Required when using the `computeModel` parameter. When using `cpuCoreCount` parameter, it is an error to specify computeCount to a non-null value. Providing `computeModel` and `computeCount` is the preferred method for both OCPU and ECPU.
 	ComputeCount pulumi.Float64Output `pulumi:"computeCount"`
 	// The compute model of the Autonomous Database. This is required if using the `computeCount` parameter. If using `cpuCoreCount` then it is an error to specify `computeModel` to a non-null value. ECPU compute model is the recommended model and OCPU compute model is legacy. Changing this forces a new Autonomous Database to be created.
-	ComputeModel pulumi.StringOutput `pulumi:"computeModel"`
-	// Specifies a list of customer contacts as email addresses. Changing this forces a new Autonomous Database to be created.
+	ComputeModel     pulumi.StringOutput      `pulumi:"computeModel"`
 	CustomerContacts pulumi.StringArrayOutput `pulumi:"customerContacts"`
 	// The maximum storage that can be allocated for the database, in terabytes.
 	DataStorageSizeInTbs pulumi.IntOutput `pulumi:"dataStorageSizeInTbs"`
@@ -55,8 +56,11 @@ type AutonomousDatabase struct {
 	// The Oracle license model that applies to the Oracle Autonomous Database. Changing this forces a new Autonomous Database to be created. Bring your own license (BYOL) allows you to apply your current on-premises Oracle software licenses to equivalent, highly automated Oracle services in the cloud. License Included allows you to subscribe to new Oracle Database software licenses and the Oracle Database service. Note that when provisioning an [Autonomous Database on dedicated Exadata infrastructure](https://docs.oracle.com/en/cloud/paas/autonomous-database/index.html), this attribute must be null. It is already set at the Autonomous Exadata Infrastructure level. When provisioning an [Autonomous Database Serverless] (https://docs.oracle.com/en/cloud/paas/autonomous-database/index.html) database, if a value is not specified, the system defaults the value to `BRING_YOUR_OWN_LICENSE`. Bring your own license (BYOL) also allows you to select the DB edition using the optional parameter.
 	LicenseModel pulumi.StringOutput `pulumi:"licenseModel"`
 	// The Azure Region where the Autonomous Database should exist. Changing this forces a new Autonomous Database to be created.
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Specifies if the Autonomous Database requires mTLS connections. Changing this forces a new Autonomous Database to be created.
+	Location               pulumi.StringOutput                               `pulumi:"location"`
+	LongTermBackupSchedule AutonomousDatabaseLongTermBackupSchedulePtrOutput `pulumi:"longTermBackupSchedule"`
+	// Specifies if the Autonomous Database requires mTLS connections. Changing this forces a new Autonomous Database to be created. Default value `false`.
+	//
+	// > **Note:** `mtlsConnectionRequired`  must be set to `true` for all workload types except 'APEX' when creating a database with public access.
 	MtlsConnectionRequired pulumi.BoolOutput `pulumi:"mtlsConnectionRequired"`
 	// The name which should be used for this Autonomous Database. Changing this forces a new Autonomous Database to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -65,11 +69,10 @@ type AutonomousDatabase struct {
 	// The name of the Resource Group where the Autonomous Database should exist. Changing this forces a new Autonomous Database to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the subnet the resource is associated with. Changing this forces a new Autonomous Database to be created.
-	SubnetId pulumi.StringOutput `pulumi:"subnetId"`
-	// A mapping of tags which should be assigned to the Autonomous Database.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	SubnetId pulumi.StringPtrOutput `pulumi:"subnetId"`
+	Tags     pulumi.StringMapOutput `pulumi:"tags"`
 	// The ID of the vnet associated with the cloud VM cluster. Changing this forces a new Autonomous Database to be created.
-	VirtualNetworkId pulumi.StringOutput `pulumi:"virtualNetworkId"`
+	VirtualNetworkId pulumi.StringPtrOutput `pulumi:"virtualNetworkId"`
 }
 
 // NewAutonomousDatabase registers a new resource with the given unique name, arguments, and options.
@@ -124,12 +127,6 @@ func NewAutonomousDatabase(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.SubnetId == nil {
-		return nil, errors.New("invalid value for required argument 'SubnetId'")
-	}
-	if args.VirtualNetworkId == nil {
-		return nil, errors.New("invalid value for required argument 'VirtualNetworkId'")
-	}
 	if args.AdminPassword != nil {
 		args.AdminPassword = pulumi.ToSecret(args.AdminPassword).(pulumi.StringInput)
 	}
@@ -162,19 +159,20 @@ func GetAutonomousDatabase(ctx *pulumi.Context,
 type autonomousDatabaseState struct {
 	// The password must be between `12` and ` 30  `characters long, and must contain at least 1 uppercase, 1 lowercase, and 1 numeric character. It cannot contain the double quote symbol (") or the username "admin", regardless of casing. Changing this forces a new Autonomous Database to be created.
 	AdminPassword *string `pulumi:"adminPassword"`
+	// (Optional) Defines the network access type for the Autonomous Database. If the property is explicitly set to an empty list, it allows secure public access to the database from any IP address. If specific ACL (Access Control List) values are provided, access will be restricted to only the specified IP addresses.
+	AllowedIps []string `pulumi:"allowedIps"`
 	// Indicates if auto scaling is enabled for the Autonomous Database CPU core count. The default value is `true`.
 	AutoScalingEnabled *bool `pulumi:"autoScalingEnabled"`
 	// Indicates if auto scaling is enabled for the Autonomous Database storage. The default value is `false`.
 	AutoScalingForStorageEnabled *bool `pulumi:"autoScalingForStorageEnabled"`
-	// (Updatable) Retention period, in days, for backups. Changing this forces a new Autonomous Database to be created.
+	// Retention period, in days, for backups.
 	BackupRetentionPeriodInDays *int `pulumi:"backupRetentionPeriodInDays"`
 	// The character set for the autonomous database.  The default is `AL32UTF8`. Allowed values are:  `AL32UTF8`, `AR8ADOS710`, `AR8ADOS720`, `AR8APTEC715`, `AR8ARABICMACS`, `AR8ASMO8X`, `AR8ISO8859P6`, `AR8MSWIN1256`, `AR8MUSSAD768`, `AR8NAFITHA711`, `AR8NAFITHA721`, `AR8SAKHR706`, `AR8SAKHR707`, `AZ8ISO8859P9E`, `BG8MSWIN`, `BG8PC437S`, `BLT8CP921`, `BLT8ISO8859P13`, `BLT8MSWIN1257`, `BLT8PC775`, `BN8BSCII`, `CDN8PC863`, `CEL8ISO8859P14`, `CL8ISO8859P5`, `CL8ISOIR111`, `CL8KOI8R`, `CL8KOI8U`, `CL8MACCYRILLICS`, `CL8MSWIN1251`, `EE8ISO8859P2`, `EE8MACCES`, `EE8MACCROATIANS`, `EE8MSWIN1250`, `EE8PC852`, `EL8DEC`, `EL8ISO8859P7`, `EL8MACGREEKS`, `EL8MSWIN1253`, `EL8PC437S`, `EL8PC851`, `EL8PC869`, `ET8MSWIN923`, `HU8ABMOD`, `HU8CWI2`, `IN8ISCII`, `IS8PC861`, `IW8ISO8859P8`, `IW8MACHEBREWS`, `IW8MSWIN1255`, `IW8PC1507`, `JA16EUC`, `JA16EUCTILDE`, `JA16SJIS`, `JA16SJISTILDE`, `JA16VMS`, `KO16KSC5601`, `KO16KSCCS`, `KO16MSWIN949`, `LA8ISO6937`, `LA8PASSPORT`, `LT8MSWIN921`, `LT8PC772`, `LT8PC774`, `LV8PC1117`, `LV8PC8LR`, `LV8RST104090`, `N8PC865`, `NE8ISO8859P10`, `NEE8ISO8859P4`, `RU8BESTA`, `RU8PC855`, `RU8PC866`, `SE8ISO8859P3`, `TH8MACTHAIS`, `TH8TISASCII`, `TR8DEC`, `TR8MACTURKISHS`, `TR8MSWIN1254`, `TR8PC857`, `US7ASCII`, `US8PC437`, `UTF8`, `VN8MSWIN1258`, `VN8VN3`, `WE8DEC`, `WE8DG`, `WE8ISO8859P1`, `WE8ISO8859P15`, `WE8ISO8859P9`, `WE8MACROMAN8S`, `WE8MSWIN1252`, `WE8NCR4970`, `WE8NEXTSTEP`, `WE8PC850`, `WE8PC858`, `WE8PC860`, `WE8ROMAN8`, `ZHS16CGB231280`, `ZHS16GBK`, `ZHT16BIG5`, `ZHT16CCDC`, `ZHT16DBT`, `ZHT16HKSCS`, `ZHT16MSWIN950`, `ZHT32EUC`, `ZHT32SOPS`, `ZHT32TRIS`. Changing this forces a new Autonomous Database to be created
 	CharacterSet *string `pulumi:"characterSet"`
 	// The compute amount (CPUs) available to the database. Minimum and maximum values depend on the compute model and whether the database is an Autonomous Database Serverless instance or an Autonomous Database on Dedicated Exadata Infrastructure.  For an Autonomous Database Serverless instance, the `ECPU` compute model requires a minimum value of one, for databases in the elastic resource pool and minimum value of two, otherwise. Required when using the `computeModel` parameter. When using `cpuCoreCount` parameter, it is an error to specify computeCount to a non-null value. Providing `computeModel` and `computeCount` is the preferred method for both OCPU and ECPU.
 	ComputeCount *float64 `pulumi:"computeCount"`
 	// The compute model of the Autonomous Database. This is required if using the `computeCount` parameter. If using `cpuCoreCount` then it is an error to specify `computeModel` to a non-null value. ECPU compute model is the recommended model and OCPU compute model is legacy. Changing this forces a new Autonomous Database to be created.
-	ComputeModel *string `pulumi:"computeModel"`
-	// Specifies a list of customer contacts as email addresses. Changing this forces a new Autonomous Database to be created.
+	ComputeModel     *string  `pulumi:"computeModel"`
 	CustomerContacts []string `pulumi:"customerContacts"`
 	// The maximum storage that can be allocated for the database, in terabytes.
 	DataStorageSizeInTbs *int `pulumi:"dataStorageSizeInTbs"`
@@ -191,8 +189,11 @@ type autonomousDatabaseState struct {
 	// The Oracle license model that applies to the Oracle Autonomous Database. Changing this forces a new Autonomous Database to be created. Bring your own license (BYOL) allows you to apply your current on-premises Oracle software licenses to equivalent, highly automated Oracle services in the cloud. License Included allows you to subscribe to new Oracle Database software licenses and the Oracle Database service. Note that when provisioning an [Autonomous Database on dedicated Exadata infrastructure](https://docs.oracle.com/en/cloud/paas/autonomous-database/index.html), this attribute must be null. It is already set at the Autonomous Exadata Infrastructure level. When provisioning an [Autonomous Database Serverless] (https://docs.oracle.com/en/cloud/paas/autonomous-database/index.html) database, if a value is not specified, the system defaults the value to `BRING_YOUR_OWN_LICENSE`. Bring your own license (BYOL) also allows you to select the DB edition using the optional parameter.
 	LicenseModel *string `pulumi:"licenseModel"`
 	// The Azure Region where the Autonomous Database should exist. Changing this forces a new Autonomous Database to be created.
-	Location *string `pulumi:"location"`
-	// Specifies if the Autonomous Database requires mTLS connections. Changing this forces a new Autonomous Database to be created.
+	Location               *string                                   `pulumi:"location"`
+	LongTermBackupSchedule *AutonomousDatabaseLongTermBackupSchedule `pulumi:"longTermBackupSchedule"`
+	// Specifies if the Autonomous Database requires mTLS connections. Changing this forces a new Autonomous Database to be created. Default value `false`.
+	//
+	// > **Note:** `mtlsConnectionRequired`  must be set to `true` for all workload types except 'APEX' when creating a database with public access.
 	MtlsConnectionRequired *bool `pulumi:"mtlsConnectionRequired"`
 	// The name which should be used for this Autonomous Database. Changing this forces a new Autonomous Database to be created.
 	Name *string `pulumi:"name"`
@@ -201,9 +202,8 @@ type autonomousDatabaseState struct {
 	// The name of the Resource Group where the Autonomous Database should exist. Changing this forces a new Autonomous Database to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the subnet the resource is associated with. Changing this forces a new Autonomous Database to be created.
-	SubnetId *string `pulumi:"subnetId"`
-	// A mapping of tags which should be assigned to the Autonomous Database.
-	Tags map[string]string `pulumi:"tags"`
+	SubnetId *string           `pulumi:"subnetId"`
+	Tags     map[string]string `pulumi:"tags"`
 	// The ID of the vnet associated with the cloud VM cluster. Changing this forces a new Autonomous Database to be created.
 	VirtualNetworkId *string `pulumi:"virtualNetworkId"`
 }
@@ -211,19 +211,20 @@ type autonomousDatabaseState struct {
 type AutonomousDatabaseState struct {
 	// The password must be between `12` and ` 30  `characters long, and must contain at least 1 uppercase, 1 lowercase, and 1 numeric character. It cannot contain the double quote symbol (") or the username "admin", regardless of casing. Changing this forces a new Autonomous Database to be created.
 	AdminPassword pulumi.StringPtrInput
+	// (Optional) Defines the network access type for the Autonomous Database. If the property is explicitly set to an empty list, it allows secure public access to the database from any IP address. If specific ACL (Access Control List) values are provided, access will be restricted to only the specified IP addresses.
+	AllowedIps pulumi.StringArrayInput
 	// Indicates if auto scaling is enabled for the Autonomous Database CPU core count. The default value is `true`.
 	AutoScalingEnabled pulumi.BoolPtrInput
 	// Indicates if auto scaling is enabled for the Autonomous Database storage. The default value is `false`.
 	AutoScalingForStorageEnabled pulumi.BoolPtrInput
-	// (Updatable) Retention period, in days, for backups. Changing this forces a new Autonomous Database to be created.
+	// Retention period, in days, for backups.
 	BackupRetentionPeriodInDays pulumi.IntPtrInput
 	// The character set for the autonomous database.  The default is `AL32UTF8`. Allowed values are:  `AL32UTF8`, `AR8ADOS710`, `AR8ADOS720`, `AR8APTEC715`, `AR8ARABICMACS`, `AR8ASMO8X`, `AR8ISO8859P6`, `AR8MSWIN1256`, `AR8MUSSAD768`, `AR8NAFITHA711`, `AR8NAFITHA721`, `AR8SAKHR706`, `AR8SAKHR707`, `AZ8ISO8859P9E`, `BG8MSWIN`, `BG8PC437S`, `BLT8CP921`, `BLT8ISO8859P13`, `BLT8MSWIN1257`, `BLT8PC775`, `BN8BSCII`, `CDN8PC863`, `CEL8ISO8859P14`, `CL8ISO8859P5`, `CL8ISOIR111`, `CL8KOI8R`, `CL8KOI8U`, `CL8MACCYRILLICS`, `CL8MSWIN1251`, `EE8ISO8859P2`, `EE8MACCES`, `EE8MACCROATIANS`, `EE8MSWIN1250`, `EE8PC852`, `EL8DEC`, `EL8ISO8859P7`, `EL8MACGREEKS`, `EL8MSWIN1253`, `EL8PC437S`, `EL8PC851`, `EL8PC869`, `ET8MSWIN923`, `HU8ABMOD`, `HU8CWI2`, `IN8ISCII`, `IS8PC861`, `IW8ISO8859P8`, `IW8MACHEBREWS`, `IW8MSWIN1255`, `IW8PC1507`, `JA16EUC`, `JA16EUCTILDE`, `JA16SJIS`, `JA16SJISTILDE`, `JA16VMS`, `KO16KSC5601`, `KO16KSCCS`, `KO16MSWIN949`, `LA8ISO6937`, `LA8PASSPORT`, `LT8MSWIN921`, `LT8PC772`, `LT8PC774`, `LV8PC1117`, `LV8PC8LR`, `LV8RST104090`, `N8PC865`, `NE8ISO8859P10`, `NEE8ISO8859P4`, `RU8BESTA`, `RU8PC855`, `RU8PC866`, `SE8ISO8859P3`, `TH8MACTHAIS`, `TH8TISASCII`, `TR8DEC`, `TR8MACTURKISHS`, `TR8MSWIN1254`, `TR8PC857`, `US7ASCII`, `US8PC437`, `UTF8`, `VN8MSWIN1258`, `VN8VN3`, `WE8DEC`, `WE8DG`, `WE8ISO8859P1`, `WE8ISO8859P15`, `WE8ISO8859P9`, `WE8MACROMAN8S`, `WE8MSWIN1252`, `WE8NCR4970`, `WE8NEXTSTEP`, `WE8PC850`, `WE8PC858`, `WE8PC860`, `WE8ROMAN8`, `ZHS16CGB231280`, `ZHS16GBK`, `ZHT16BIG5`, `ZHT16CCDC`, `ZHT16DBT`, `ZHT16HKSCS`, `ZHT16MSWIN950`, `ZHT32EUC`, `ZHT32SOPS`, `ZHT32TRIS`. Changing this forces a new Autonomous Database to be created
 	CharacterSet pulumi.StringPtrInput
 	// The compute amount (CPUs) available to the database. Minimum and maximum values depend on the compute model and whether the database is an Autonomous Database Serverless instance or an Autonomous Database on Dedicated Exadata Infrastructure.  For an Autonomous Database Serverless instance, the `ECPU` compute model requires a minimum value of one, for databases in the elastic resource pool and minimum value of two, otherwise. Required when using the `computeModel` parameter. When using `cpuCoreCount` parameter, it is an error to specify computeCount to a non-null value. Providing `computeModel` and `computeCount` is the preferred method for both OCPU and ECPU.
 	ComputeCount pulumi.Float64PtrInput
 	// The compute model of the Autonomous Database. This is required if using the `computeCount` parameter. If using `cpuCoreCount` then it is an error to specify `computeModel` to a non-null value. ECPU compute model is the recommended model and OCPU compute model is legacy. Changing this forces a new Autonomous Database to be created.
-	ComputeModel pulumi.StringPtrInput
-	// Specifies a list of customer contacts as email addresses. Changing this forces a new Autonomous Database to be created.
+	ComputeModel     pulumi.StringPtrInput
 	CustomerContacts pulumi.StringArrayInput
 	// The maximum storage that can be allocated for the database, in terabytes.
 	DataStorageSizeInTbs pulumi.IntPtrInput
@@ -240,8 +241,11 @@ type AutonomousDatabaseState struct {
 	// The Oracle license model that applies to the Oracle Autonomous Database. Changing this forces a new Autonomous Database to be created. Bring your own license (BYOL) allows you to apply your current on-premises Oracle software licenses to equivalent, highly automated Oracle services in the cloud. License Included allows you to subscribe to new Oracle Database software licenses and the Oracle Database service. Note that when provisioning an [Autonomous Database on dedicated Exadata infrastructure](https://docs.oracle.com/en/cloud/paas/autonomous-database/index.html), this attribute must be null. It is already set at the Autonomous Exadata Infrastructure level. When provisioning an [Autonomous Database Serverless] (https://docs.oracle.com/en/cloud/paas/autonomous-database/index.html) database, if a value is not specified, the system defaults the value to `BRING_YOUR_OWN_LICENSE`. Bring your own license (BYOL) also allows you to select the DB edition using the optional parameter.
 	LicenseModel pulumi.StringPtrInput
 	// The Azure Region where the Autonomous Database should exist. Changing this forces a new Autonomous Database to be created.
-	Location pulumi.StringPtrInput
-	// Specifies if the Autonomous Database requires mTLS connections. Changing this forces a new Autonomous Database to be created.
+	Location               pulumi.StringPtrInput
+	LongTermBackupSchedule AutonomousDatabaseLongTermBackupSchedulePtrInput
+	// Specifies if the Autonomous Database requires mTLS connections. Changing this forces a new Autonomous Database to be created. Default value `false`.
+	//
+	// > **Note:** `mtlsConnectionRequired`  must be set to `true` for all workload types except 'APEX' when creating a database with public access.
 	MtlsConnectionRequired pulumi.BoolPtrInput
 	// The name which should be used for this Autonomous Database. Changing this forces a new Autonomous Database to be created.
 	Name pulumi.StringPtrInput
@@ -251,8 +255,7 @@ type AutonomousDatabaseState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the subnet the resource is associated with. Changing this forces a new Autonomous Database to be created.
 	SubnetId pulumi.StringPtrInput
-	// A mapping of tags which should be assigned to the Autonomous Database.
-	Tags pulumi.StringMapInput
+	Tags     pulumi.StringMapInput
 	// The ID of the vnet associated with the cloud VM cluster. Changing this forces a new Autonomous Database to be created.
 	VirtualNetworkId pulumi.StringPtrInput
 }
@@ -264,19 +267,20 @@ func (AutonomousDatabaseState) ElementType() reflect.Type {
 type autonomousDatabaseArgs struct {
 	// The password must be between `12` and ` 30  `characters long, and must contain at least 1 uppercase, 1 lowercase, and 1 numeric character. It cannot contain the double quote symbol (") or the username "admin", regardless of casing. Changing this forces a new Autonomous Database to be created.
 	AdminPassword string `pulumi:"adminPassword"`
+	// (Optional) Defines the network access type for the Autonomous Database. If the property is explicitly set to an empty list, it allows secure public access to the database from any IP address. If specific ACL (Access Control List) values are provided, access will be restricted to only the specified IP addresses.
+	AllowedIps []string `pulumi:"allowedIps"`
 	// Indicates if auto scaling is enabled for the Autonomous Database CPU core count. The default value is `true`.
 	AutoScalingEnabled bool `pulumi:"autoScalingEnabled"`
 	// Indicates if auto scaling is enabled for the Autonomous Database storage. The default value is `false`.
 	AutoScalingForStorageEnabled bool `pulumi:"autoScalingForStorageEnabled"`
-	// (Updatable) Retention period, in days, for backups. Changing this forces a new Autonomous Database to be created.
+	// Retention period, in days, for backups.
 	BackupRetentionPeriodInDays int `pulumi:"backupRetentionPeriodInDays"`
 	// The character set for the autonomous database.  The default is `AL32UTF8`. Allowed values are:  `AL32UTF8`, `AR8ADOS710`, `AR8ADOS720`, `AR8APTEC715`, `AR8ARABICMACS`, `AR8ASMO8X`, `AR8ISO8859P6`, `AR8MSWIN1256`, `AR8MUSSAD768`, `AR8NAFITHA711`, `AR8NAFITHA721`, `AR8SAKHR706`, `AR8SAKHR707`, `AZ8ISO8859P9E`, `BG8MSWIN`, `BG8PC437S`, `BLT8CP921`, `BLT8ISO8859P13`, `BLT8MSWIN1257`, `BLT8PC775`, `BN8BSCII`, `CDN8PC863`, `CEL8ISO8859P14`, `CL8ISO8859P5`, `CL8ISOIR111`, `CL8KOI8R`, `CL8KOI8U`, `CL8MACCYRILLICS`, `CL8MSWIN1251`, `EE8ISO8859P2`, `EE8MACCES`, `EE8MACCROATIANS`, `EE8MSWIN1250`, `EE8PC852`, `EL8DEC`, `EL8ISO8859P7`, `EL8MACGREEKS`, `EL8MSWIN1253`, `EL8PC437S`, `EL8PC851`, `EL8PC869`, `ET8MSWIN923`, `HU8ABMOD`, `HU8CWI2`, `IN8ISCII`, `IS8PC861`, `IW8ISO8859P8`, `IW8MACHEBREWS`, `IW8MSWIN1255`, `IW8PC1507`, `JA16EUC`, `JA16EUCTILDE`, `JA16SJIS`, `JA16SJISTILDE`, `JA16VMS`, `KO16KSC5601`, `KO16KSCCS`, `KO16MSWIN949`, `LA8ISO6937`, `LA8PASSPORT`, `LT8MSWIN921`, `LT8PC772`, `LT8PC774`, `LV8PC1117`, `LV8PC8LR`, `LV8RST104090`, `N8PC865`, `NE8ISO8859P10`, `NEE8ISO8859P4`, `RU8BESTA`, `RU8PC855`, `RU8PC866`, `SE8ISO8859P3`, `TH8MACTHAIS`, `TH8TISASCII`, `TR8DEC`, `TR8MACTURKISHS`, `TR8MSWIN1254`, `TR8PC857`, `US7ASCII`, `US8PC437`, `UTF8`, `VN8MSWIN1258`, `VN8VN3`, `WE8DEC`, `WE8DG`, `WE8ISO8859P1`, `WE8ISO8859P15`, `WE8ISO8859P9`, `WE8MACROMAN8S`, `WE8MSWIN1252`, `WE8NCR4970`, `WE8NEXTSTEP`, `WE8PC850`, `WE8PC858`, `WE8PC860`, `WE8ROMAN8`, `ZHS16CGB231280`, `ZHS16GBK`, `ZHT16BIG5`, `ZHT16CCDC`, `ZHT16DBT`, `ZHT16HKSCS`, `ZHT16MSWIN950`, `ZHT32EUC`, `ZHT32SOPS`, `ZHT32TRIS`. Changing this forces a new Autonomous Database to be created
 	CharacterSet string `pulumi:"characterSet"`
 	// The compute amount (CPUs) available to the database. Minimum and maximum values depend on the compute model and whether the database is an Autonomous Database Serverless instance or an Autonomous Database on Dedicated Exadata Infrastructure.  For an Autonomous Database Serverless instance, the `ECPU` compute model requires a minimum value of one, for databases in the elastic resource pool and minimum value of two, otherwise. Required when using the `computeModel` parameter. When using `cpuCoreCount` parameter, it is an error to specify computeCount to a non-null value. Providing `computeModel` and `computeCount` is the preferred method for both OCPU and ECPU.
 	ComputeCount float64 `pulumi:"computeCount"`
 	// The compute model of the Autonomous Database. This is required if using the `computeCount` parameter. If using `cpuCoreCount` then it is an error to specify `computeModel` to a non-null value. ECPU compute model is the recommended model and OCPU compute model is legacy. Changing this forces a new Autonomous Database to be created.
-	ComputeModel string `pulumi:"computeModel"`
-	// Specifies a list of customer contacts as email addresses. Changing this forces a new Autonomous Database to be created.
+	ComputeModel     string   `pulumi:"computeModel"`
 	CustomerContacts []string `pulumi:"customerContacts"`
 	// The maximum storage that can be allocated for the database, in terabytes.
 	DataStorageSizeInTbs int `pulumi:"dataStorageSizeInTbs"`
@@ -293,8 +297,11 @@ type autonomousDatabaseArgs struct {
 	// The Oracle license model that applies to the Oracle Autonomous Database. Changing this forces a new Autonomous Database to be created. Bring your own license (BYOL) allows you to apply your current on-premises Oracle software licenses to equivalent, highly automated Oracle services in the cloud. License Included allows you to subscribe to new Oracle Database software licenses and the Oracle Database service. Note that when provisioning an [Autonomous Database on dedicated Exadata infrastructure](https://docs.oracle.com/en/cloud/paas/autonomous-database/index.html), this attribute must be null. It is already set at the Autonomous Exadata Infrastructure level. When provisioning an [Autonomous Database Serverless] (https://docs.oracle.com/en/cloud/paas/autonomous-database/index.html) database, if a value is not specified, the system defaults the value to `BRING_YOUR_OWN_LICENSE`. Bring your own license (BYOL) also allows you to select the DB edition using the optional parameter.
 	LicenseModel string `pulumi:"licenseModel"`
 	// The Azure Region where the Autonomous Database should exist. Changing this forces a new Autonomous Database to be created.
-	Location *string `pulumi:"location"`
-	// Specifies if the Autonomous Database requires mTLS connections. Changing this forces a new Autonomous Database to be created.
+	Location               *string                                   `pulumi:"location"`
+	LongTermBackupSchedule *AutonomousDatabaseLongTermBackupSchedule `pulumi:"longTermBackupSchedule"`
+	// Specifies if the Autonomous Database requires mTLS connections. Changing this forces a new Autonomous Database to be created. Default value `false`.
+	//
+	// > **Note:** `mtlsConnectionRequired`  must be set to `true` for all workload types except 'APEX' when creating a database with public access.
 	MtlsConnectionRequired bool `pulumi:"mtlsConnectionRequired"`
 	// The name which should be used for this Autonomous Database. Changing this forces a new Autonomous Database to be created.
 	Name *string `pulumi:"name"`
@@ -303,30 +310,30 @@ type autonomousDatabaseArgs struct {
 	// The name of the Resource Group where the Autonomous Database should exist. Changing this forces a new Autonomous Database to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the subnet the resource is associated with. Changing this forces a new Autonomous Database to be created.
-	SubnetId string `pulumi:"subnetId"`
-	// A mapping of tags which should be assigned to the Autonomous Database.
-	Tags map[string]string `pulumi:"tags"`
+	SubnetId *string           `pulumi:"subnetId"`
+	Tags     map[string]string `pulumi:"tags"`
 	// The ID of the vnet associated with the cloud VM cluster. Changing this forces a new Autonomous Database to be created.
-	VirtualNetworkId string `pulumi:"virtualNetworkId"`
+	VirtualNetworkId *string `pulumi:"virtualNetworkId"`
 }
 
 // The set of arguments for constructing a AutonomousDatabase resource.
 type AutonomousDatabaseArgs struct {
 	// The password must be between `12` and ` 30  `characters long, and must contain at least 1 uppercase, 1 lowercase, and 1 numeric character. It cannot contain the double quote symbol (") or the username "admin", regardless of casing. Changing this forces a new Autonomous Database to be created.
 	AdminPassword pulumi.StringInput
+	// (Optional) Defines the network access type for the Autonomous Database. If the property is explicitly set to an empty list, it allows secure public access to the database from any IP address. If specific ACL (Access Control List) values are provided, access will be restricted to only the specified IP addresses.
+	AllowedIps pulumi.StringArrayInput
 	// Indicates if auto scaling is enabled for the Autonomous Database CPU core count. The default value is `true`.
 	AutoScalingEnabled pulumi.BoolInput
 	// Indicates if auto scaling is enabled for the Autonomous Database storage. The default value is `false`.
 	AutoScalingForStorageEnabled pulumi.BoolInput
-	// (Updatable) Retention period, in days, for backups. Changing this forces a new Autonomous Database to be created.
+	// Retention period, in days, for backups.
 	BackupRetentionPeriodInDays pulumi.IntInput
 	// The character set for the autonomous database.  The default is `AL32UTF8`. Allowed values are:  `AL32UTF8`, `AR8ADOS710`, `AR8ADOS720`, `AR8APTEC715`, `AR8ARABICMACS`, `AR8ASMO8X`, `AR8ISO8859P6`, `AR8MSWIN1256`, `AR8MUSSAD768`, `AR8NAFITHA711`, `AR8NAFITHA721`, `AR8SAKHR706`, `AR8SAKHR707`, `AZ8ISO8859P9E`, `BG8MSWIN`, `BG8PC437S`, `BLT8CP921`, `BLT8ISO8859P13`, `BLT8MSWIN1257`, `BLT8PC775`, `BN8BSCII`, `CDN8PC863`, `CEL8ISO8859P14`, `CL8ISO8859P5`, `CL8ISOIR111`, `CL8KOI8R`, `CL8KOI8U`, `CL8MACCYRILLICS`, `CL8MSWIN1251`, `EE8ISO8859P2`, `EE8MACCES`, `EE8MACCROATIANS`, `EE8MSWIN1250`, `EE8PC852`, `EL8DEC`, `EL8ISO8859P7`, `EL8MACGREEKS`, `EL8MSWIN1253`, `EL8PC437S`, `EL8PC851`, `EL8PC869`, `ET8MSWIN923`, `HU8ABMOD`, `HU8CWI2`, `IN8ISCII`, `IS8PC861`, `IW8ISO8859P8`, `IW8MACHEBREWS`, `IW8MSWIN1255`, `IW8PC1507`, `JA16EUC`, `JA16EUCTILDE`, `JA16SJIS`, `JA16SJISTILDE`, `JA16VMS`, `KO16KSC5601`, `KO16KSCCS`, `KO16MSWIN949`, `LA8ISO6937`, `LA8PASSPORT`, `LT8MSWIN921`, `LT8PC772`, `LT8PC774`, `LV8PC1117`, `LV8PC8LR`, `LV8RST104090`, `N8PC865`, `NE8ISO8859P10`, `NEE8ISO8859P4`, `RU8BESTA`, `RU8PC855`, `RU8PC866`, `SE8ISO8859P3`, `TH8MACTHAIS`, `TH8TISASCII`, `TR8DEC`, `TR8MACTURKISHS`, `TR8MSWIN1254`, `TR8PC857`, `US7ASCII`, `US8PC437`, `UTF8`, `VN8MSWIN1258`, `VN8VN3`, `WE8DEC`, `WE8DG`, `WE8ISO8859P1`, `WE8ISO8859P15`, `WE8ISO8859P9`, `WE8MACROMAN8S`, `WE8MSWIN1252`, `WE8NCR4970`, `WE8NEXTSTEP`, `WE8PC850`, `WE8PC858`, `WE8PC860`, `WE8ROMAN8`, `ZHS16CGB231280`, `ZHS16GBK`, `ZHT16BIG5`, `ZHT16CCDC`, `ZHT16DBT`, `ZHT16HKSCS`, `ZHT16MSWIN950`, `ZHT32EUC`, `ZHT32SOPS`, `ZHT32TRIS`. Changing this forces a new Autonomous Database to be created
 	CharacterSet pulumi.StringInput
 	// The compute amount (CPUs) available to the database. Minimum and maximum values depend on the compute model and whether the database is an Autonomous Database Serverless instance or an Autonomous Database on Dedicated Exadata Infrastructure.  For an Autonomous Database Serverless instance, the `ECPU` compute model requires a minimum value of one, for databases in the elastic resource pool and minimum value of two, otherwise. Required when using the `computeModel` parameter. When using `cpuCoreCount` parameter, it is an error to specify computeCount to a non-null value. Providing `computeModel` and `computeCount` is the preferred method for both OCPU and ECPU.
 	ComputeCount pulumi.Float64Input
 	// The compute model of the Autonomous Database. This is required if using the `computeCount` parameter. If using `cpuCoreCount` then it is an error to specify `computeModel` to a non-null value. ECPU compute model is the recommended model and OCPU compute model is legacy. Changing this forces a new Autonomous Database to be created.
-	ComputeModel pulumi.StringInput
-	// Specifies a list of customer contacts as email addresses. Changing this forces a new Autonomous Database to be created.
+	ComputeModel     pulumi.StringInput
 	CustomerContacts pulumi.StringArrayInput
 	// The maximum storage that can be allocated for the database, in terabytes.
 	DataStorageSizeInTbs pulumi.IntInput
@@ -343,8 +350,11 @@ type AutonomousDatabaseArgs struct {
 	// The Oracle license model that applies to the Oracle Autonomous Database. Changing this forces a new Autonomous Database to be created. Bring your own license (BYOL) allows you to apply your current on-premises Oracle software licenses to equivalent, highly automated Oracle services in the cloud. License Included allows you to subscribe to new Oracle Database software licenses and the Oracle Database service. Note that when provisioning an [Autonomous Database on dedicated Exadata infrastructure](https://docs.oracle.com/en/cloud/paas/autonomous-database/index.html), this attribute must be null. It is already set at the Autonomous Exadata Infrastructure level. When provisioning an [Autonomous Database Serverless] (https://docs.oracle.com/en/cloud/paas/autonomous-database/index.html) database, if a value is not specified, the system defaults the value to `BRING_YOUR_OWN_LICENSE`. Bring your own license (BYOL) also allows you to select the DB edition using the optional parameter.
 	LicenseModel pulumi.StringInput
 	// The Azure Region where the Autonomous Database should exist. Changing this forces a new Autonomous Database to be created.
-	Location pulumi.StringPtrInput
-	// Specifies if the Autonomous Database requires mTLS connections. Changing this forces a new Autonomous Database to be created.
+	Location               pulumi.StringPtrInput
+	LongTermBackupSchedule AutonomousDatabaseLongTermBackupSchedulePtrInput
+	// Specifies if the Autonomous Database requires mTLS connections. Changing this forces a new Autonomous Database to be created. Default value `false`.
+	//
+	// > **Note:** `mtlsConnectionRequired`  must be set to `true` for all workload types except 'APEX' when creating a database with public access.
 	MtlsConnectionRequired pulumi.BoolInput
 	// The name which should be used for this Autonomous Database. Changing this forces a new Autonomous Database to be created.
 	Name pulumi.StringPtrInput
@@ -353,11 +363,10 @@ type AutonomousDatabaseArgs struct {
 	// The name of the Resource Group where the Autonomous Database should exist. Changing this forces a new Autonomous Database to be created.
 	ResourceGroupName pulumi.StringInput
 	// The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the subnet the resource is associated with. Changing this forces a new Autonomous Database to be created.
-	SubnetId pulumi.StringInput
-	// A mapping of tags which should be assigned to the Autonomous Database.
-	Tags pulumi.StringMapInput
+	SubnetId pulumi.StringPtrInput
+	Tags     pulumi.StringMapInput
 	// The ID of the vnet associated with the cloud VM cluster. Changing this forces a new Autonomous Database to be created.
-	VirtualNetworkId pulumi.StringInput
+	VirtualNetworkId pulumi.StringPtrInput
 }
 
 func (AutonomousDatabaseArgs) ElementType() reflect.Type {
@@ -452,6 +461,11 @@ func (o AutonomousDatabaseOutput) AdminPassword() pulumi.StringOutput {
 	return o.ApplyT(func(v *AutonomousDatabase) pulumi.StringOutput { return v.AdminPassword }).(pulumi.StringOutput)
 }
 
+// (Optional) Defines the network access type for the Autonomous Database. If the property is explicitly set to an empty list, it allows secure public access to the database from any IP address. If specific ACL (Access Control List) values are provided, access will be restricted to only the specified IP addresses.
+func (o AutonomousDatabaseOutput) AllowedIps() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AutonomousDatabase) pulumi.StringArrayOutput { return v.AllowedIps }).(pulumi.StringArrayOutput)
+}
+
 // Indicates if auto scaling is enabled for the Autonomous Database CPU core count. The default value is `true`.
 func (o AutonomousDatabaseOutput) AutoScalingEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *AutonomousDatabase) pulumi.BoolOutput { return v.AutoScalingEnabled }).(pulumi.BoolOutput)
@@ -462,7 +476,7 @@ func (o AutonomousDatabaseOutput) AutoScalingForStorageEnabled() pulumi.BoolOutp
 	return o.ApplyT(func(v *AutonomousDatabase) pulumi.BoolOutput { return v.AutoScalingForStorageEnabled }).(pulumi.BoolOutput)
 }
 
-// (Updatable) Retention period, in days, for backups. Changing this forces a new Autonomous Database to be created.
+// Retention period, in days, for backups.
 func (o AutonomousDatabaseOutput) BackupRetentionPeriodInDays() pulumi.IntOutput {
 	return o.ApplyT(func(v *AutonomousDatabase) pulumi.IntOutput { return v.BackupRetentionPeriodInDays }).(pulumi.IntOutput)
 }
@@ -482,7 +496,6 @@ func (o AutonomousDatabaseOutput) ComputeModel() pulumi.StringOutput {
 	return o.ApplyT(func(v *AutonomousDatabase) pulumi.StringOutput { return v.ComputeModel }).(pulumi.StringOutput)
 }
 
-// Specifies a list of customer contacts as email addresses. Changing this forces a new Autonomous Database to be created.
 func (o AutonomousDatabaseOutput) CustomerContacts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AutonomousDatabase) pulumi.StringArrayOutput { return v.CustomerContacts }).(pulumi.StringArrayOutput)
 }
@@ -521,7 +534,15 @@ func (o AutonomousDatabaseOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *AutonomousDatabase) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
 
-// Specifies if the Autonomous Database requires mTLS connections. Changing this forces a new Autonomous Database to be created.
+func (o AutonomousDatabaseOutput) LongTermBackupSchedule() AutonomousDatabaseLongTermBackupSchedulePtrOutput {
+	return o.ApplyT(func(v *AutonomousDatabase) AutonomousDatabaseLongTermBackupSchedulePtrOutput {
+		return v.LongTermBackupSchedule
+	}).(AutonomousDatabaseLongTermBackupSchedulePtrOutput)
+}
+
+// Specifies if the Autonomous Database requires mTLS connections. Changing this forces a new Autonomous Database to be created. Default value `false`.
+//
+// > **Note:** `mtlsConnectionRequired`  must be set to `true` for all workload types except 'APEX' when creating a database with public access.
 func (o AutonomousDatabaseOutput) MtlsConnectionRequired() pulumi.BoolOutput {
 	return o.ApplyT(func(v *AutonomousDatabase) pulumi.BoolOutput { return v.MtlsConnectionRequired }).(pulumi.BoolOutput)
 }
@@ -542,18 +563,17 @@ func (o AutonomousDatabaseOutput) ResourceGroupName() pulumi.StringOutput {
 }
 
 // The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the subnet the resource is associated with. Changing this forces a new Autonomous Database to be created.
-func (o AutonomousDatabaseOutput) SubnetId() pulumi.StringOutput {
-	return o.ApplyT(func(v *AutonomousDatabase) pulumi.StringOutput { return v.SubnetId }).(pulumi.StringOutput)
+func (o AutonomousDatabaseOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutonomousDatabase) pulumi.StringPtrOutput { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
 
-// A mapping of tags which should be assigned to the Autonomous Database.
 func (o AutonomousDatabaseOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AutonomousDatabase) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 // The ID of the vnet associated with the cloud VM cluster. Changing this forces a new Autonomous Database to be created.
-func (o AutonomousDatabaseOutput) VirtualNetworkId() pulumi.StringOutput {
-	return o.ApplyT(func(v *AutonomousDatabase) pulumi.StringOutput { return v.VirtualNetworkId }).(pulumi.StringOutput)
+func (o AutonomousDatabaseOutput) VirtualNetworkId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutonomousDatabase) pulumi.StringPtrOutput { return v.VirtualNetworkId }).(pulumi.StringPtrOutput)
 }
 
 type AutonomousDatabaseArrayOutput struct{ *pulumi.OutputState }

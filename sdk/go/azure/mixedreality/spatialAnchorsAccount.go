@@ -57,7 +57,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This resource uses the following Azure API Providers:
 //
-// * `Microsoft.MixedReality`: 2021-01-01
+// * `Microsoft.MixedReality` - 2021-01-01
 //
 // ## Import
 //

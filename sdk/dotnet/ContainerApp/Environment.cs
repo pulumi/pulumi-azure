@@ -54,9 +54,9 @@ namespace Pulumi.Azure.ContainerApp
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.App`: 2025-01-01
+    /// * `Microsoft.App` - 2025-01-01
     /// 
-    /// * `Microsoft.OperationalInsights`: 2020-08-01
+    /// * `Microsoft.OperationalInsights` - 2020-08-01
     /// 
     /// ## Import
     /// 
@@ -92,6 +92,12 @@ namespace Pulumi.Azure.ContainerApp
         /// </summary>
         [Output("dockerBridgeCidr")]
         public Output<string> DockerBridgeCidr { get; private set; } = null!;
+
+        /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.EnvironmentIdentity?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// Name of the platform-managed resource group created for the Managed Environment to host infrastructure resources. Changing this forces a new resource to be created.
@@ -262,6 +268,12 @@ namespace Pulumi.Azure.ContainerApp
         }
 
         /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.EnvironmentIdentityArgs>? Identity { get; set; }
+
+        /// <summary>
         /// Name of the platform-managed resource group created for the Managed Environment to host infrastructure resources. Changing this forces a new resource to be created.
         /// 
         /// &gt; **Note:** Only valid if a `workload_profile` is specified. If `infrastructure_subnet_id` is specified, this resource group will be created in the same subscription as `infrastructure_subnet_id`.
@@ -398,6 +410,12 @@ namespace Pulumi.Azure.ContainerApp
         /// </summary>
         [Input("dockerBridgeCidr")]
         public Input<string>? DockerBridgeCidr { get; set; }
+
+        /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.EnvironmentIdentityGetArgs>? Identity { get; set; }
 
         /// <summary>
         /// Name of the platform-managed resource group created for the Managed Environment to host infrastructure resources. Changing this forces a new resource to be created.

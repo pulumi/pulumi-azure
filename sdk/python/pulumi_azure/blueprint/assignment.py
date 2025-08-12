@@ -511,6 +511,13 @@ class Assignment(pulumi.CustomResource):
                 ]))
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Blueprint` - 2018-11-01-preview
+
         ## Import
 
         Azure Blueprint Assignments can be imported using the `resource id`, e.g.
@@ -608,6 +615,13 @@ class Assignment(pulumi.CustomResource):
                     owner,
                 ]))
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Blueprint` - 2018-11-01-preview
 
         ## Import
 

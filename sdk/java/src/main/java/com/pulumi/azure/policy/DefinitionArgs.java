@@ -111,14 +111,14 @@ public final class DefinitionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Parameters for the policy definition. This field is a JSON string that allows you to parameterize your policy definition.
+     * Parameters for the policy definition. This field is a JSON string that allows you to parameterize your policy definition. Reducing the number of parameters forces a new resource to be created.
      * 
      */
     @Import(name="parameters")
     private @Nullable Output<String> parameters;
 
     /**
-     * @return Parameters for the policy definition. This field is a JSON string that allows you to parameterize your policy definition.
+     * @return Parameters for the policy definition. This field is a JSON string that allows you to parameterize your policy definition. Reducing the number of parameters forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> parameters() {
@@ -318,7 +318,7 @@ public final class DefinitionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param parameters Parameters for the policy definition. This field is a JSON string that allows you to parameterize your policy definition.
+         * @param parameters Parameters for the policy definition. This field is a JSON string that allows you to parameterize your policy definition. Reducing the number of parameters forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -329,7 +329,7 @@ public final class DefinitionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param parameters Parameters for the policy definition. This field is a JSON string that allows you to parameterize your policy definition.
+         * @param parameters Parameters for the policy definition. This field is a JSON string that allows you to parameterize your policy definition. Reducing the number of parameters forces a new resource to be created.
          * 
          * @return builder
          * 

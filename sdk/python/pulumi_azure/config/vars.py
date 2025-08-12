@@ -119,6 +119,14 @@ class _ExportableConfig(types.ModuleType):
         return __config__.get('metadataHost') or _utilities.get_env('ARM_METADATA_HOSTNAME')
 
     @_builtins.property
+    def msi_api_version(self) -> Optional[str]:
+        """
+        The API version to use for Managed Service Identity (IMDS) - for cases where the default API version is not supported by
+        the endpoint. e.g. for Azure Container Apps.
+        """
+        return __config__.get('msiApiVersion')
+
+    @_builtins.property
     def msi_endpoint(self) -> Optional[str]:
         """
         The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected

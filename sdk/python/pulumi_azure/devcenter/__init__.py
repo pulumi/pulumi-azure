@@ -16,10 +16,12 @@ from .get import *
 from .get_attached_network import *
 from .get_catalog import *
 from .get_dev_box_definition import *
+from .get_environment_type import *
 from .get_gallery import *
 from .get_network_connection import *
 from .get_project import *
 from .get_project_environment_type import *
+from .get_project_pool import *
 from .network_connection import *
 from .project import *
 from .project_environment_type import *

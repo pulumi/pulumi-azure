@@ -42,7 +42,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This resource uses the following Azure API Providers:
  *
- * * `Microsoft.Devices`: 2022-02-05
+ * * `Microsoft.Devices` - 2022-02-05
  *
  * ## Import
  *

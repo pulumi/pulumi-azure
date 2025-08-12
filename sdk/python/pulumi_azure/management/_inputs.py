@@ -27,6 +27,10 @@ __all__ = [
     'GroupPolicyAssignmentResourceSelectorArgsDict',
     'GroupPolicyAssignmentResourceSelectorSelectorArgs',
     'GroupPolicyAssignmentResourceSelectorSelectorArgsDict',
+    'GroupPolicySetDefinitionPolicyDefinitionGroupArgs',
+    'GroupPolicySetDefinitionPolicyDefinitionGroupArgsDict',
+    'GroupPolicySetDefinitionPolicyDefinitionReferenceArgs',
+    'GroupPolicySetDefinitionPolicyDefinitionReferenceArgsDict',
 ]
 
 MYPY = False
@@ -394,5 +398,227 @@ class GroupPolicyAssignmentResourceSelectorSelectorArgs:
     @not_ins.setter
     def not_ins(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "not_ins", value)
+
+
+if not MYPY:
+    class GroupPolicySetDefinitionPolicyDefinitionGroupArgsDict(TypedDict):
+        name: pulumi.Input[_builtins.str]
+        """
+        The name which should be used for this Policy Definition Group.
+        """
+        additional_metadata_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The ID of a resource that contains additional metadata for this Policy Definition Group.
+        """
+        category: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The category of this Policy Definition Group.
+        """
+        description: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The description of this Policy Definition Group.
+        """
+        display_name: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The display name of this Policy Definition Group.
+        """
+elif False:
+    GroupPolicySetDefinitionPolicyDefinitionGroupArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GroupPolicySetDefinitionPolicyDefinitionGroupArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 additional_metadata_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 category: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: Optional[pulumi.Input[_builtins.str]] = None,
+                 display_name: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] name: The name which should be used for this Policy Definition Group.
+        :param pulumi.Input[_builtins.str] additional_metadata_resource_id: The ID of a resource that contains additional metadata for this Policy Definition Group.
+        :param pulumi.Input[_builtins.str] category: The category of this Policy Definition Group.
+        :param pulumi.Input[_builtins.str] description: The description of this Policy Definition Group.
+        :param pulumi.Input[_builtins.str] display_name: The display name of this Policy Definition Group.
+        """
+        pulumi.set(__self__, "name", name)
+        if additional_metadata_resource_id is not None:
+            pulumi.set(__self__, "additional_metadata_resource_id", additional_metadata_resource_id)
+        if category is not None:
+            pulumi.set(__self__, "category", category)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name which should be used for this Policy Definition Group.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="additionalMetadataResourceId")
+    def additional_metadata_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The ID of a resource that contains additional metadata for this Policy Definition Group.
+        """
+        return pulumi.get(self, "additional_metadata_resource_id")
+
+    @additional_metadata_resource_id.setter
+    def additional_metadata_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "additional_metadata_resource_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def category(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The category of this Policy Definition Group.
+        """
+        return pulumi.get(self, "category")
+
+    @category.setter
+    def category(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "category", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The description of this Policy Definition Group.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The display name of this Policy Definition Group.
+        """
+        return pulumi.get(self, "display_name")
+
+    @display_name.setter
+    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "display_name", value)
+
+
+if not MYPY:
+    class GroupPolicySetDefinitionPolicyDefinitionReferenceArgsDict(TypedDict):
+        policy_definition_id: pulumi.Input[_builtins.str]
+        """
+        The ID of the Policy Definition to include in this Policy Set Definition.
+        """
+        parameter_values: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Parameter values for the references Policy Definition in JSON format.
+        """
+        policy_group_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+        """
+        Specifies a list of Policy Definition Groups names that this Policy Definition Reference belongs to.
+        """
+        reference_id: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        A unique ID within this Policy Set Definition for this Policy Definition Reference.
+        """
+        version: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The version of the Policy Definition to use.
+        """
+elif False:
+    GroupPolicySetDefinitionPolicyDefinitionReferenceArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GroupPolicySetDefinitionPolicyDefinitionReferenceArgs:
+    def __init__(__self__, *,
+                 policy_definition_id: pulumi.Input[_builtins.str],
+                 parameter_values: Optional[pulumi.Input[_builtins.str]] = None,
+                 policy_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 reference_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 version: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] policy_definition_id: The ID of the Policy Definition to include in this Policy Set Definition.
+        :param pulumi.Input[_builtins.str] parameter_values: Parameter values for the references Policy Definition in JSON format.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] policy_group_names: Specifies a list of Policy Definition Groups names that this Policy Definition Reference belongs to.
+        :param pulumi.Input[_builtins.str] reference_id: A unique ID within this Policy Set Definition for this Policy Definition Reference.
+        :param pulumi.Input[_builtins.str] version: The version of the Policy Definition to use.
+        """
+        pulumi.set(__self__, "policy_definition_id", policy_definition_id)
+        if parameter_values is not None:
+            pulumi.set(__self__, "parameter_values", parameter_values)
+        if policy_group_names is not None:
+            pulumi.set(__self__, "policy_group_names", policy_group_names)
+        if reference_id is not None:
+            pulumi.set(__self__, "reference_id", reference_id)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @_builtins.property
+    @pulumi.getter(name="policyDefinitionId")
+    def policy_definition_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The ID of the Policy Definition to include in this Policy Set Definition.
+        """
+        return pulumi.get(self, "policy_definition_id")
+
+    @policy_definition_id.setter
+    def policy_definition_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "policy_definition_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="parameterValues")
+    def parameter_values(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Parameter values for the references Policy Definition in JSON format.
+        """
+        return pulumi.get(self, "parameter_values")
+
+    @parameter_values.setter
+    def parameter_values(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "parameter_values", value)
+
+    @_builtins.property
+    @pulumi.getter(name="policyGroupNames")
+    def policy_group_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Specifies a list of Policy Definition Groups names that this Policy Definition Reference belongs to.
+        """
+        return pulumi.get(self, "policy_group_names")
+
+    @policy_group_names.setter
+    def policy_group_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "policy_group_names", value)
+
+    @_builtins.property
+    @pulumi.getter(name="referenceId")
+    def reference_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        A unique ID within this Policy Set Definition for this Policy Definition Reference.
+        """
+        return pulumi.get(self, "reference_id")
+
+    @reference_id.setter
+    def reference_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "reference_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def version(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The version of the Policy Definition to use.
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "version", value)
 
 

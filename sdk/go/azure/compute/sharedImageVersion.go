@@ -72,7 +72,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This resource uses the following Azure API Providers:
 //
-// * `Microsoft.Compute`: 2023-07-03
+// * `Microsoft.Compute` - 2023-07-03
 //
 // ## Import
 //

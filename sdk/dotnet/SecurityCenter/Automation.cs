@@ -68,7 +68,7 @@ namespace Pulumi.Azure.SecurityCenter
     ///         {
     ///             new Azure.SecurityCenter.Inputs.AutomationActionArgs
     ///             {
-    ///                 Type = "eventhub",
+    ///                 Type = "EventHub",
     ///                 ResourceId = exampleEventHub.Id,
     ///                 ConnectionString = exampleAuthorizationRule.PrimaryConnectionString,
     ///             },
@@ -110,7 +110,7 @@ namespace Pulumi.Azure.SecurityCenter
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.Security`: 2019-01-01-preview
+    /// * `Microsoft.Security` - 2019-01-01-preview
     /// 
     /// ## Import
     /// 

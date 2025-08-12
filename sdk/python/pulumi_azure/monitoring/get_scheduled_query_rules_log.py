@@ -174,7 +174,7 @@ def get_scheduled_query_rules_log(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Insights`: 2018-04-16
+    * `Microsoft.Insights` - 2018-04-16
 
 
     :param _builtins.str name: Specifies the name of the scheduled query rule.
@@ -219,7 +219,7 @@ def get_scheduled_query_rules_log_output(name: Optional[pulumi.Input[_builtins.s
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Insights`: 2018-04-16
+    * `Microsoft.Insights` - 2018-04-16
 
 
     :param _builtins.str name: Specifies the name of the scheduled query rule.

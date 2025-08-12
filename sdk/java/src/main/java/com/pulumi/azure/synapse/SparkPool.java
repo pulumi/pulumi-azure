@@ -302,14 +302,14 @@ public class SparkPool extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.sparkLogFolder);
     }
     /**
-     * The Apache Spark version. Possible values are `3.2`, `3.3`, and `3.4`.
+     * The Apache Spark version. Currently, the only possible value is `3.4`.
      * 
      */
     @Export(name="sparkVersion", refs={String.class}, tree="[0]")
     private Output<String> sparkVersion;
 
     /**
-     * @return The Apache Spark version. Possible values are `3.2`, `3.3`, and `3.4`.
+     * @return The Apache Spark version. Currently, the only possible value is `3.4`.
      * 
      */
     public Output<String> sparkVersion() {

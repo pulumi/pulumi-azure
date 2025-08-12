@@ -25,7 +25,7 @@ public final class VirtualNetworkState extends com.pulumi.resources.ResourceArgs
     /**
      * The address space that is used the virtual network. You can supply more than one address space.
      * 
-     * &gt; **Note:** Exactly one of `address_space` or `ip_address_pool` must be specified. If `address_space` is not specified but you encounter a diff, this might indicate the `address_space` is allocated from the IP Address Pool. If this is the case, you may need to add this to ignore_changes.
+     * &gt; **Note:** Exactly one of `address_space` or `ip_address_pool` must be specified.
      * 
      */
     @Import(name="addressSpaces")
@@ -34,7 +34,7 @@ public final class VirtualNetworkState extends com.pulumi.resources.ResourceArgs
     /**
      * @return The address space that is used the virtual network. You can supply more than one address space.
      * 
-     * &gt; **Note:** Exactly one of `address_space` or `ip_address_pool` must be specified. If `address_space` is not specified but you encounter a diff, this might indicate the `address_space` is allocated from the IP Address Pool. If this is the case, you may need to add this to ignore_changes.
+     * &gt; **Note:** Exactly one of `address_space` or `ip_address_pool` must be specified.
      * 
      */
     public Optional<Output<List<String>>> addressSpaces() {
@@ -308,7 +308,7 @@ public final class VirtualNetworkState extends com.pulumi.resources.ResourceArgs
         /**
          * @param addressSpaces The address space that is used the virtual network. You can supply more than one address space.
          * 
-         * &gt; **Note:** Exactly one of `address_space` or `ip_address_pool` must be specified. If `address_space` is not specified but you encounter a diff, this might indicate the `address_space` is allocated from the IP Address Pool. If this is the case, you may need to add this to ignore_changes.
+         * &gt; **Note:** Exactly one of `address_space` or `ip_address_pool` must be specified.
          * 
          * @return builder
          * 
@@ -321,7 +321,7 @@ public final class VirtualNetworkState extends com.pulumi.resources.ResourceArgs
         /**
          * @param addressSpaces The address space that is used the virtual network. You can supply more than one address space.
          * 
-         * &gt; **Note:** Exactly one of `address_space` or `ip_address_pool` must be specified. If `address_space` is not specified but you encounter a diff, this might indicate the `address_space` is allocated from the IP Address Pool. If this is the case, you may need to add this to ignore_changes.
+         * &gt; **Note:** Exactly one of `address_space` or `ip_address_pool` must be specified.
          * 
          * @return builder
          * 
@@ -333,7 +333,7 @@ public final class VirtualNetworkState extends com.pulumi.resources.ResourceArgs
         /**
          * @param addressSpaces The address space that is used the virtual network. You can supply more than one address space.
          * 
-         * &gt; **Note:** Exactly one of `address_space` or `ip_address_pool` must be specified. If `address_space` is not specified but you encounter a diff, this might indicate the `address_space` is allocated from the IP Address Pool. If this is the case, you may need to add this to ignore_changes.
+         * &gt; **Note:** Exactly one of `address_space` or `ip_address_pool` must be specified.
          * 
          * @return builder
          * 

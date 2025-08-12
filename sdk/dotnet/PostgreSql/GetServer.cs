@@ -14,6 +14,8 @@ namespace Pulumi.Azure.PostgreSql
         /// <summary>
         /// Use this data source to access information about an existing PostgreSQL Azure Database Server.
         /// 
+        /// &gt; **Note:** The `azure.postgresql.Server` data source is deprecated and will be removed in v5.0 of the AzureRM Provider. Azure Database for PostgreSQL Single Server and its sub resources have been retired as of 2025-03-28, please use the `azure.postgresql.FlexibleServer` data source instead. For more information, see https://techcommunity.microsoft.com/blog/adforpostgresql/retiring-azure-database-for-postgresql-single-server-in-2025/3783783.
+        /// 
         /// ## Example Usage
         /// 
         /// ```csharp
@@ -42,7 +44,7 @@ namespace Pulumi.Azure.PostgreSql
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.DBforPostgreSQL`: 2017-12-01
+        /// * `Microsoft.DBforPostgreSQL` - 2017-12-01
         /// </summary>
         public static Task<GetServerResult> InvokeAsync(GetServerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServerResult>("azure:postgresql/getServer:getServer", args ?? new GetServerArgs(), options.WithDefaults());
@@ -50,6 +52,8 @@ namespace Pulumi.Azure.PostgreSql
         /// <summary>
         /// Use this data source to access information about an existing PostgreSQL Azure Database Server.
         /// 
+        /// &gt; **Note:** The `azure.postgresql.Server` data source is deprecated and will be removed in v5.0 of the AzureRM Provider. Azure Database for PostgreSQL Single Server and its sub resources have been retired as of 2025-03-28, please use the `azure.postgresql.FlexibleServer` data source instead. For more information, see https://techcommunity.microsoft.com/blog/adforpostgresql/retiring-azure-database-for-postgresql-single-server-in-2025/3783783.
+        /// 
         /// ## Example Usage
         /// 
         /// ```csharp
@@ -78,7 +82,7 @@ namespace Pulumi.Azure.PostgreSql
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.DBforPostgreSQL`: 2017-12-01
+        /// * `Microsoft.DBforPostgreSQL` - 2017-12-01
         /// </summary>
         public static Output<GetServerResult> Invoke(GetServerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServerResult>("azure:postgresql/getServer:getServer", args ?? new GetServerInvokeArgs(), options.WithDefaults());
@@ -86,6 +90,8 @@ namespace Pulumi.Azure.PostgreSql
         /// <summary>
         /// Use this data source to access information about an existing PostgreSQL Azure Database Server.
         /// 
+        /// &gt; **Note:** The `azure.postgresql.Server` data source is deprecated and will be removed in v5.0 of the AzureRM Provider. Azure Database for PostgreSQL Single Server and its sub resources have been retired as of 2025-03-28, please use the `azure.postgresql.FlexibleServer` data source instead. For more information, see https://techcommunity.microsoft.com/blog/adforpostgresql/retiring-azure-database-for-postgresql-single-server-in-2025/3783783.
+        /// 
         /// ## Example Usage
         /// 
         /// ```csharp
@@ -114,7 +120,7 @@ namespace Pulumi.Azure.PostgreSql
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.DBforPostgreSQL`: 2017-12-01
+        /// * `Microsoft.DBforPostgreSQL` - 2017-12-01
         /// </summary>
         public static Output<GetServerResult> Invoke(GetServerInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetServerResult>("azure:postgresql/getServer:getServer", args ?? new GetServerInvokeArgs(), options.WithDefaults());

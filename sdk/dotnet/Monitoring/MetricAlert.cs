@@ -101,7 +101,7 @@ namespace Pulumi.Azure.Monitoring
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.Insights`: 2018-03-01
+    /// * `Microsoft.Insights` - 2018-03-01
     /// 
     /// ## Import
     /// 

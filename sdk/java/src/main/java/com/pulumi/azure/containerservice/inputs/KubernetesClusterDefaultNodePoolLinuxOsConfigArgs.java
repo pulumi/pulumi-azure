@@ -48,6 +48,21 @@ public final class KubernetesClusterDefaultNodePoolLinuxOsConfigArgs extends com
     }
 
     /**
+     * Specifies the Transparent Huge Page configuration. Possible values are `always`, `madvise` and `never`.
+     * 
+     */
+    @Import(name="transparentHugePage")
+    private @Nullable Output<String> transparentHugePage;
+
+    /**
+     * @return Specifies the Transparent Huge Page configuration. Possible values are `always`, `madvise` and `never`.
+     * 
+     */
+    public Optional<Output<String>> transparentHugePage() {
+        return Optional.ofNullable(this.transparentHugePage);
+    }
+
+    /**
      * specifies the defrag configuration for Transparent Huge Page. Possible values are `always`, `defer`, `defer+madvise`, `madvise` and `never`.
      * 
      */
@@ -63,16 +78,20 @@ public final class KubernetesClusterDefaultNodePoolLinuxOsConfigArgs extends com
     }
 
     /**
-     * Specifies the Transparent Huge Page enabled configuration. Possible values are `always`, `madvise` and `never`.
+     * @deprecated
+     * this property has been deprecated in favour of `transparent_huge_page` and will be removed in version 5.0 of the Provider.
      * 
      */
+    @Deprecated /* this property has been deprecated in favour of `transparent_huge_page` and will be removed in version 5.0 of the Provider. */
     @Import(name="transparentHugePageEnabled")
     private @Nullable Output<String> transparentHugePageEnabled;
 
     /**
-     * @return Specifies the Transparent Huge Page enabled configuration. Possible values are `always`, `madvise` and `never`.
+     * @deprecated
+     * this property has been deprecated in favour of `transparent_huge_page` and will be removed in version 5.0 of the Provider.
      * 
      */
+    @Deprecated /* this property has been deprecated in favour of `transparent_huge_page` and will be removed in version 5.0 of the Provider. */
     public Optional<Output<String>> transparentHugePageEnabled() {
         return Optional.ofNullable(this.transparentHugePageEnabled);
     }
@@ -82,6 +101,7 @@ public final class KubernetesClusterDefaultNodePoolLinuxOsConfigArgs extends com
     private KubernetesClusterDefaultNodePoolLinuxOsConfigArgs(KubernetesClusterDefaultNodePoolLinuxOsConfigArgs $) {
         this.swapFileSizeMb = $.swapFileSizeMb;
         this.sysctlConfig = $.sysctlConfig;
+        this.transparentHugePage = $.transparentHugePage;
         this.transparentHugePageDefrag = $.transparentHugePageDefrag;
         this.transparentHugePageEnabled = $.transparentHugePageEnabled;
     }
@@ -147,6 +167,27 @@ public final class KubernetesClusterDefaultNodePoolLinuxOsConfigArgs extends com
         }
 
         /**
+         * @param transparentHugePage Specifies the Transparent Huge Page configuration. Possible values are `always`, `madvise` and `never`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder transparentHugePage(@Nullable Output<String> transparentHugePage) {
+            $.transparentHugePage = transparentHugePage;
+            return this;
+        }
+
+        /**
+         * @param transparentHugePage Specifies the Transparent Huge Page configuration. Possible values are `always`, `madvise` and `never`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder transparentHugePage(String transparentHugePage) {
+            return transparentHugePage(Output.of(transparentHugePage));
+        }
+
+        /**
          * @param transparentHugePageDefrag specifies the defrag configuration for Transparent Huge Page. Possible values are `always`, `defer`, `defer+madvise`, `madvise` and `never`.
          * 
          * @return builder
@@ -168,22 +209,26 @@ public final class KubernetesClusterDefaultNodePoolLinuxOsConfigArgs extends com
         }
 
         /**
-         * @param transparentHugePageEnabled Specifies the Transparent Huge Page enabled configuration. Possible values are `always`, `madvise` and `never`.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * this property has been deprecated in favour of `transparent_huge_page` and will be removed in version 5.0 of the Provider.
+         * 
          */
+        @Deprecated /* this property has been deprecated in favour of `transparent_huge_page` and will be removed in version 5.0 of the Provider. */
         public Builder transparentHugePageEnabled(@Nullable Output<String> transparentHugePageEnabled) {
             $.transparentHugePageEnabled = transparentHugePageEnabled;
             return this;
         }
 
         /**
-         * @param transparentHugePageEnabled Specifies the Transparent Huge Page enabled configuration. Possible values are `always`, `madvise` and `never`.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * this property has been deprecated in favour of `transparent_huge_page` and will be removed in version 5.0 of the Provider.
+         * 
          */
+        @Deprecated /* this property has been deprecated in favour of `transparent_huge_page` and will be removed in version 5.0 of the Provider. */
         public Builder transparentHugePageEnabled(String transparentHugePageEnabled) {
             return transparentHugePageEnabled(Output.of(transparentHugePageEnabled));
         }

@@ -199,14 +199,14 @@ public final class SparkPoolState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Apache Spark version. Possible values are `3.2`, `3.3`, and `3.4`.
+     * The Apache Spark version. Currently, the only possible value is `3.4`.
      * 
      */
     @Import(name="sparkVersion")
     private @Nullable Output<String> sparkVersion;
 
     /**
-     * @return The Apache Spark version. Possible values are `3.2`, `3.3`, and `3.4`.
+     * @return The Apache Spark version. Currently, the only possible value is `3.4`.
      * 
      */
     public Optional<Output<String>> sparkVersion() {
@@ -518,7 +518,7 @@ public final class SparkPoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sparkVersion The Apache Spark version. Possible values are `3.2`, `3.3`, and `3.4`.
+         * @param sparkVersion The Apache Spark version. Currently, the only possible value is `3.4`.
          * 
          * @return builder
          * 
@@ -529,7 +529,7 @@ public final class SparkPoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sparkVersion The Apache Spark version. Possible values are `3.2`, `3.3`, and `3.4`.
+         * @param sparkVersion The Apache Spark version. Currently, the only possible value is `3.4`.
          * 
          * @return builder
          * 

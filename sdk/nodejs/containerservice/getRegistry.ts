@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.ContainerRegistry`: 2023-11-01-preview
+ * * `Microsoft.ContainerRegistry` - 2023-11-01-preview
  */
 export function getRegistry(args: GetRegistryArgs, opts?: pulumi.InvokeOptions): Promise<GetRegistryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -70,6 +70,10 @@ export interface GetRegistryResult {
      */
     readonly dataEndpointEnabled: boolean;
     /**
+     * A set of data endpoint hostnames associated with the container registry if data endpoints are enabled.
+     */
+    readonly dataEndpointHostNames: string[];
+    /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
@@ -113,7 +117,7 @@ export interface GetRegistryResult {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.ContainerRegistry`: 2023-11-01-preview
+ * * `Microsoft.ContainerRegistry` - 2023-11-01-preview
  */
 export function getRegistryOutput(args: GetRegistryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRegistryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -30,6 +30,7 @@ __all__ = [
     'EventHubNamespaceNetworkRulesets',
     'EventHubNamespaceNetworkRulesetsIpRule',
     'EventHubNamespaceNetworkRulesetsVirtualNetworkRule',
+    'EventHubRetentionDescription',
     'EventSubscriptionAdvancedFilter',
     'EventSubscriptionAdvancedFilterBoolEqual',
     'EventSubscriptionAdvancedFilterIsNotNull',
@@ -1096,6 +1097,69 @@ class EventHubNamespaceNetworkRulesetsVirtualNetworkRule(dict):
         Are missing virtual network service endpoints ignored?
         """
         return pulumi.get(self, "ignore_missing_virtual_network_service_endpoint")
+
+
+@pulumi.output_type
+class EventHubRetentionDescription(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cleanupPolicy":
+            suggest = "cleanup_policy"
+        elif key == "retentionTimeInHours":
+            suggest = "retention_time_in_hours"
+        elif key == "tombstoneRetentionTimeInHours":
+            suggest = "tombstone_retention_time_in_hours"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EventHubRetentionDescription. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EventHubRetentionDescription.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EventHubRetentionDescription.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cleanup_policy: _builtins.str,
+                 retention_time_in_hours: Optional[_builtins.int] = None,
+                 tombstone_retention_time_in_hours: Optional[_builtins.int] = None):
+        """
+        :param _builtins.str cleanup_policy: Specifies the Cleanup Policy for the EventHub. Possible values are `Delete` and `Compact`.
+        :param _builtins.int retention_time_in_hours: Specifies the number of hours to retain the events for this Event Hub. The value is only used when `cleanup_policy` is `Delete`.
+        :param _builtins.int tombstone_retention_time_in_hours: Specifies the number of hours to retain the tombstones markers of a compacted Event Hub. The value is only used when `cleanup_policy` is `Compact`.
+        """
+        pulumi.set(__self__, "cleanup_policy", cleanup_policy)
+        if retention_time_in_hours is not None:
+            pulumi.set(__self__, "retention_time_in_hours", retention_time_in_hours)
+        if tombstone_retention_time_in_hours is not None:
+            pulumi.set(__self__, "tombstone_retention_time_in_hours", tombstone_retention_time_in_hours)
+
+    @_builtins.property
+    @pulumi.getter(name="cleanupPolicy")
+    def cleanup_policy(self) -> _builtins.str:
+        """
+        Specifies the Cleanup Policy for the EventHub. Possible values are `Delete` and `Compact`.
+        """
+        return pulumi.get(self, "cleanup_policy")
+
+    @_builtins.property
+    @pulumi.getter(name="retentionTimeInHours")
+    def retention_time_in_hours(self) -> Optional[_builtins.int]:
+        """
+        Specifies the number of hours to retain the events for this Event Hub. The value is only used when `cleanup_policy` is `Delete`.
+        """
+        return pulumi.get(self, "retention_time_in_hours")
+
+    @_builtins.property
+    @pulumi.getter(name="tombstoneRetentionTimeInHours")
+    def tombstone_retention_time_in_hours(self) -> Optional[_builtins.int]:
+        """
+        Specifies the number of hours to retain the tombstones markers of a compacted Event Hub. The value is only used when `cleanup_policy` is `Compact`.
+        """
+        return pulumi.get(self, "tombstone_retention_time_in_hours")
 
 
 @pulumi.output_type

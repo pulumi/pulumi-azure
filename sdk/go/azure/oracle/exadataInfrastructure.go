@@ -43,10 +43,12 @@ import (
 //				Zones: pulumi.StringArray{
 //					pulumi.String("1"),
 //				},
-//				DisplayName:  pulumi.String("example-exadata-infra"),
-//				StorageCount: pulumi.Int(3),
-//				ComputeCount: pulumi.Int(2),
-//				Shape:        pulumi.String("Exadata.X9M"),
+//				DisplayName:        pulumi.String("example-exadata-infra"),
+//				StorageCount:       pulumi.Int(3),
+//				ComputeCount:       pulumi.Int(2),
+//				Shape:              pulumi.String("Exadata.X11M"),
+//				DatabaseServerType: pulumi.String("X11M"),
+//				StorageServerType:  pulumi.String("X11M-HC"),
 //			})
 //			if err != nil {
 //				return err
@@ -62,7 +64,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This resource uses the following Azure API Providers:
 //
-// * `Oracle.Database`: 2024-06-01
+// * `Oracle.Database` - 2025-03-01
 //
 // ## Import
 //
@@ -78,6 +80,8 @@ type ExadataInfrastructure struct {
 	ComputeCount pulumi.IntOutput `pulumi:"computeCount"`
 	// The email address used by Oracle to send notifications regarding databases and infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
 	CustomerContacts pulumi.StringArrayOutput `pulumi:"customerContacts"`
+	// The database server model type of the cloud Exadata infrastructure resource. Changing this forces a new Cloud Exadata Infrastructure to be created.
+	DatabaseServerType pulumi.StringOutput `pulumi:"databaseServerType"`
 	// The user-friendly name for the Cloud Exadata Infrastructure resource. The name does not need to be unique. Changing this forces a new Cloud Exadata Infrastructure to be created.
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
 	// The Azure Region where the Cloud Exadata Infrastructure should exist. Changing this forces a new Cloud Exadata Infrastructure to be created.
@@ -92,6 +96,8 @@ type ExadataInfrastructure struct {
 	Shape pulumi.StringOutput `pulumi:"shape"`
 	// The number of storage servers for the Cloud Exadata Infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
 	StorageCount pulumi.IntOutput `pulumi:"storageCount"`
+	// The storage server model type of the cloud Exadata infrastructure resource. Changing this forces a new Cloud Exadata Infrastructure to be created.
+	StorageServerType pulumi.StringOutput `pulumi:"storageServerType"`
 	// A mapping of tags which should be assigned to the Cloud Exadata Infrastructure.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Cloud Exadata Infrastructure zones. Changing this forces a new Cloud Exadata Infrastructure to be created.
@@ -150,6 +156,8 @@ type exadataInfrastructureState struct {
 	ComputeCount *int `pulumi:"computeCount"`
 	// The email address used by Oracle to send notifications regarding databases and infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
 	CustomerContacts []string `pulumi:"customerContacts"`
+	// The database server model type of the cloud Exadata infrastructure resource. Changing this forces a new Cloud Exadata Infrastructure to be created.
+	DatabaseServerType *string `pulumi:"databaseServerType"`
 	// The user-friendly name for the Cloud Exadata Infrastructure resource. The name does not need to be unique. Changing this forces a new Cloud Exadata Infrastructure to be created.
 	DisplayName *string `pulumi:"displayName"`
 	// The Azure Region where the Cloud Exadata Infrastructure should exist. Changing this forces a new Cloud Exadata Infrastructure to be created.
@@ -164,6 +172,8 @@ type exadataInfrastructureState struct {
 	Shape *string `pulumi:"shape"`
 	// The number of storage servers for the Cloud Exadata Infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
 	StorageCount *int `pulumi:"storageCount"`
+	// The storage server model type of the cloud Exadata infrastructure resource. Changing this forces a new Cloud Exadata Infrastructure to be created.
+	StorageServerType *string `pulumi:"storageServerType"`
 	// A mapping of tags which should be assigned to the Cloud Exadata Infrastructure.
 	Tags map[string]string `pulumi:"tags"`
 	// Cloud Exadata Infrastructure zones. Changing this forces a new Cloud Exadata Infrastructure to be created.
@@ -175,6 +185,8 @@ type ExadataInfrastructureState struct {
 	ComputeCount pulumi.IntPtrInput
 	// The email address used by Oracle to send notifications regarding databases and infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
 	CustomerContacts pulumi.StringArrayInput
+	// The database server model type of the cloud Exadata infrastructure resource. Changing this forces a new Cloud Exadata Infrastructure to be created.
+	DatabaseServerType pulumi.StringPtrInput
 	// The user-friendly name for the Cloud Exadata Infrastructure resource. The name does not need to be unique. Changing this forces a new Cloud Exadata Infrastructure to be created.
 	DisplayName pulumi.StringPtrInput
 	// The Azure Region where the Cloud Exadata Infrastructure should exist. Changing this forces a new Cloud Exadata Infrastructure to be created.
@@ -189,6 +201,8 @@ type ExadataInfrastructureState struct {
 	Shape pulumi.StringPtrInput
 	// The number of storage servers for the Cloud Exadata Infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
 	StorageCount pulumi.IntPtrInput
+	// The storage server model type of the cloud Exadata infrastructure resource. Changing this forces a new Cloud Exadata Infrastructure to be created.
+	StorageServerType pulumi.StringPtrInput
 	// A mapping of tags which should be assigned to the Cloud Exadata Infrastructure.
 	Tags pulumi.StringMapInput
 	// Cloud Exadata Infrastructure zones. Changing this forces a new Cloud Exadata Infrastructure to be created.
@@ -204,6 +218,8 @@ type exadataInfrastructureArgs struct {
 	ComputeCount int `pulumi:"computeCount"`
 	// The email address used by Oracle to send notifications regarding databases and infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
 	CustomerContacts []string `pulumi:"customerContacts"`
+	// The database server model type of the cloud Exadata infrastructure resource. Changing this forces a new Cloud Exadata Infrastructure to be created.
+	DatabaseServerType *string `pulumi:"databaseServerType"`
 	// The user-friendly name for the Cloud Exadata Infrastructure resource. The name does not need to be unique. Changing this forces a new Cloud Exadata Infrastructure to be created.
 	DisplayName string `pulumi:"displayName"`
 	// The Azure Region where the Cloud Exadata Infrastructure should exist. Changing this forces a new Cloud Exadata Infrastructure to be created.
@@ -218,6 +234,8 @@ type exadataInfrastructureArgs struct {
 	Shape string `pulumi:"shape"`
 	// The number of storage servers for the Cloud Exadata Infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
 	StorageCount int `pulumi:"storageCount"`
+	// The storage server model type of the cloud Exadata infrastructure resource. Changing this forces a new Cloud Exadata Infrastructure to be created.
+	StorageServerType *string `pulumi:"storageServerType"`
 	// A mapping of tags which should be assigned to the Cloud Exadata Infrastructure.
 	Tags map[string]string `pulumi:"tags"`
 	// Cloud Exadata Infrastructure zones. Changing this forces a new Cloud Exadata Infrastructure to be created.
@@ -230,6 +248,8 @@ type ExadataInfrastructureArgs struct {
 	ComputeCount pulumi.IntInput
 	// The email address used by Oracle to send notifications regarding databases and infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
 	CustomerContacts pulumi.StringArrayInput
+	// The database server model type of the cloud Exadata infrastructure resource. Changing this forces a new Cloud Exadata Infrastructure to be created.
+	DatabaseServerType pulumi.StringPtrInput
 	// The user-friendly name for the Cloud Exadata Infrastructure resource. The name does not need to be unique. Changing this forces a new Cloud Exadata Infrastructure to be created.
 	DisplayName pulumi.StringInput
 	// The Azure Region where the Cloud Exadata Infrastructure should exist. Changing this forces a new Cloud Exadata Infrastructure to be created.
@@ -244,6 +264,8 @@ type ExadataInfrastructureArgs struct {
 	Shape pulumi.StringInput
 	// The number of storage servers for the Cloud Exadata Infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
 	StorageCount pulumi.IntInput
+	// The storage server model type of the cloud Exadata infrastructure resource. Changing this forces a new Cloud Exadata Infrastructure to be created.
+	StorageServerType pulumi.StringPtrInput
 	// A mapping of tags which should be assigned to the Cloud Exadata Infrastructure.
 	Tags pulumi.StringMapInput
 	// Cloud Exadata Infrastructure zones. Changing this forces a new Cloud Exadata Infrastructure to be created.
@@ -347,6 +369,11 @@ func (o ExadataInfrastructureOutput) CustomerContacts() pulumi.StringArrayOutput
 	return o.ApplyT(func(v *ExadataInfrastructure) pulumi.StringArrayOutput { return v.CustomerContacts }).(pulumi.StringArrayOutput)
 }
 
+// The database server model type of the cloud Exadata infrastructure resource. Changing this forces a new Cloud Exadata Infrastructure to be created.
+func (o ExadataInfrastructureOutput) DatabaseServerType() pulumi.StringOutput {
+	return o.ApplyT(func(v *ExadataInfrastructure) pulumi.StringOutput { return v.DatabaseServerType }).(pulumi.StringOutput)
+}
+
 // The user-friendly name for the Cloud Exadata Infrastructure resource. The name does not need to be unique. Changing this forces a new Cloud Exadata Infrastructure to be created.
 func (o ExadataInfrastructureOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ExadataInfrastructure) pulumi.StringOutput { return v.DisplayName }).(pulumi.StringOutput)
@@ -382,6 +409,11 @@ func (o ExadataInfrastructureOutput) Shape() pulumi.StringOutput {
 // The number of storage servers for the Cloud Exadata Infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
 func (o ExadataInfrastructureOutput) StorageCount() pulumi.IntOutput {
 	return o.ApplyT(func(v *ExadataInfrastructure) pulumi.IntOutput { return v.StorageCount }).(pulumi.IntOutput)
+}
+
+// The storage server model type of the cloud Exadata infrastructure resource. Changing this forces a new Cloud Exadata Infrastructure to be created.
+func (o ExadataInfrastructureOutput) StorageServerType() pulumi.StringOutput {
+	return o.ApplyT(func(v *ExadataInfrastructure) pulumi.StringOutput { return v.StorageServerType }).(pulumi.StringOutput)
 }
 
 // A mapping of tags which should be assigned to the Cloud Exadata Infrastructure.

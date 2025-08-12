@@ -60,7 +60,7 @@ public final class PaloaltoFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `PaloAltoNetworks.Cloudngfw`: 2022-08-29
+     * * `PaloAltoNetworks.Cloudngfw` - 2022-08-29
      * 
      */
     public static Output<GetLocalRulestackResult> getLocalRulestack(GetLocalRulestackArgs args) {
@@ -111,7 +111,7 @@ public final class PaloaltoFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `PaloAltoNetworks.Cloudngfw`: 2022-08-29
+     * * `PaloAltoNetworks.Cloudngfw` - 2022-08-29
      * 
      */
     public static CompletableFuture<GetLocalRulestackResult> getLocalRulestackPlain(GetLocalRulestackPlainArgs args) {
@@ -162,7 +162,7 @@ public final class PaloaltoFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `PaloAltoNetworks.Cloudngfw`: 2022-08-29
+     * * `PaloAltoNetworks.Cloudngfw` - 2022-08-29
      * 
      */
     public static Output<GetLocalRulestackResult> getLocalRulestack(GetLocalRulestackArgs args, InvokeOptions options) {
@@ -213,7 +213,7 @@ public final class PaloaltoFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `PaloAltoNetworks.Cloudngfw`: 2022-08-29
+     * * `PaloAltoNetworks.Cloudngfw` - 2022-08-29
      * 
      */
     public static Output<GetLocalRulestackResult> getLocalRulestack(GetLocalRulestackArgs args, InvokeOutputOptions options) {
@@ -264,7 +264,7 @@ public final class PaloaltoFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `PaloAltoNetworks.Cloudngfw`: 2022-08-29
+     * * `PaloAltoNetworks.Cloudngfw` - 2022-08-29
      * 
      */
     public static CompletableFuture<GetLocalRulestackResult> getLocalRulestackPlain(GetLocalRulestackPlainArgs args, InvokeOptions options) {

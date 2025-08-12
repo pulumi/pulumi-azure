@@ -54,7 +54,7 @@ class MongoClusterArgs:
         :param pulumi.Input[_builtins.str] source_server_id: The ID of the replication source MongoDB Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] storage_size_in_gb: The size of the data disk space for the MongoDB Cluster.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the MongoDB Cluster.
-        :param pulumi.Input[_builtins.str] version: The version for the MongoDB Cluster. Possibles values are `5.0`, `6.0` and `7.0`.
+        :param pulumi.Input[_builtins.str] version: The version for the MongoDB Cluster. Possibles values are `5.0`, `6.0`, `7.0` and `8.0`.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if administrator_password is not None:
@@ -272,7 +272,7 @@ class MongoClusterArgs:
     @pulumi.getter
     def version(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The version for the MongoDB Cluster. Possibles values are `5.0`, `6.0` and `7.0`.
+        The version for the MongoDB Cluster. Possibles values are `5.0`, `6.0`, `7.0` and `8.0`.
         """
         return pulumi.get(self, "version")
 
@@ -319,7 +319,7 @@ class _MongoClusterState:
         :param pulumi.Input[_builtins.str] source_server_id: The ID of the replication source MongoDB Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] storage_size_in_gb: The size of the data disk space for the MongoDB Cluster.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the MongoDB Cluster.
-        :param pulumi.Input[_builtins.str] version: The version for the MongoDB Cluster. Possibles values are `5.0`, `6.0` and `7.0`.
+        :param pulumi.Input[_builtins.str] version: The version for the MongoDB Cluster. Possibles values are `5.0`, `6.0`, `7.0` and `8.0`.
         """
         if administrator_password is not None:
             pulumi.set(__self__, "administrator_password", administrator_password)
@@ -552,7 +552,7 @@ class _MongoClusterState:
     @pulumi.getter
     def version(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The version for the MongoDB Cluster. Possibles values are `5.0`, `6.0` and `7.0`.
+        The version for the MongoDB Cluster. Possibles values are `5.0`, `6.0`, `7.0` and `8.0`.
         """
         return pulumi.get(self, "version")
 
@@ -642,7 +642,7 @@ class MongoCluster(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.DocumentDB`: 2024-07-01
+        * `Microsoft.DocumentDB` - 2024-07-01
 
         ## Import
 
@@ -669,7 +669,7 @@ class MongoCluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] source_server_id: The ID of the replication source MongoDB Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] storage_size_in_gb: The size of the data disk space for the MongoDB Cluster.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the MongoDB Cluster.
-        :param pulumi.Input[_builtins.str] version: The version for the MongoDB Cluster. Possibles values are `5.0`, `6.0` and `7.0`.
+        :param pulumi.Input[_builtins.str] version: The version for the MongoDB Cluster. Possibles values are `5.0`, `6.0`, `7.0` and `8.0`.
         """
         ...
     @overload
@@ -735,7 +735,7 @@ class MongoCluster(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.DocumentDB`: 2024-07-01
+        * `Microsoft.DocumentDB` - 2024-07-01
 
         ## Import
 
@@ -856,7 +856,7 @@ class MongoCluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] source_server_id: The ID of the replication source MongoDB Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] storage_size_in_gb: The size of the data disk space for the MongoDB Cluster.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the MongoDB Cluster.
-        :param pulumi.Input[_builtins.str] version: The version for the MongoDB Cluster. Possibles values are `5.0`, `6.0` and `7.0`.
+        :param pulumi.Input[_builtins.str] version: The version for the MongoDB Cluster. Possibles values are `5.0`, `6.0`, `7.0` and `8.0`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1013,7 +1013,7 @@ class MongoCluster(pulumi.CustomResource):
     @pulumi.getter
     def version(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The version for the MongoDB Cluster. Possibles values are `5.0`, `6.0` and `7.0`.
+        The version for the MongoDB Cluster. Possibles values are `5.0`, `6.0`, `7.0` and `8.0`.
         """
         return pulumi.get(self, "version")
 

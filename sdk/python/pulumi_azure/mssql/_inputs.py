@@ -53,6 +53,8 @@ __all__ = [
     'ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgsDict',
     'ManagedInstanceIdentityArgs',
     'ManagedInstanceIdentityArgsDict',
+    'ManagedInstanceStartStopScheduleScheduleArgs',
+    'ManagedInstanceStartStopScheduleScheduleArgsDict',
     'ManagedInstanceVulnerabilityAssessmentRecurringScansArgs',
     'ManagedInstanceVulnerabilityAssessmentRecurringScansArgsDict',
     'ServerAzureadAdministratorArgs',
@@ -945,10 +947,6 @@ class JobAgentIdentityArgs:
 
 if not MYPY:
     class JobStepOutputTargetArgsDict(TypedDict):
-        job_credential_id: pulumi.Input[_builtins.str]
-        """
-        The ID of the Elastic Job Credential to use when connecting to the output destination.
-        """
         mssql_database_id: pulumi.Input[_builtins.str]
         """
         The ID of the output database.
@@ -956,6 +954,10 @@ if not MYPY:
         table_name: pulumi.Input[_builtins.str]
         """
         The name of the output table.
+        """
+        job_credential_id: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The ID of the Elastic Job Credential to use when connecting to the output destination.
         """
         schema_name: NotRequired[pulumi.Input[_builtins.str]]
         """
@@ -967,33 +969,22 @@ elif False:
 @pulumi.input_type
 class JobStepOutputTargetArgs:
     def __init__(__self__, *,
-                 job_credential_id: pulumi.Input[_builtins.str],
                  mssql_database_id: pulumi.Input[_builtins.str],
                  table_name: pulumi.Input[_builtins.str],
+                 job_credential_id: Optional[pulumi.Input[_builtins.str]] = None,
                  schema_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] job_credential_id: The ID of the Elastic Job Credential to use when connecting to the output destination.
         :param pulumi.Input[_builtins.str] mssql_database_id: The ID of the output database.
         :param pulumi.Input[_builtins.str] table_name: The name of the output table.
+        :param pulumi.Input[_builtins.str] job_credential_id: The ID of the Elastic Job Credential to use when connecting to the output destination.
         :param pulumi.Input[_builtins.str] schema_name: The name of the output schema. Defaults to `dbo`.
         """
-        pulumi.set(__self__, "job_credential_id", job_credential_id)
         pulumi.set(__self__, "mssql_database_id", mssql_database_id)
         pulumi.set(__self__, "table_name", table_name)
+        if job_credential_id is not None:
+            pulumi.set(__self__, "job_credential_id", job_credential_id)
         if schema_name is not None:
             pulumi.set(__self__, "schema_name", schema_name)
-
-    @_builtins.property
-    @pulumi.getter(name="jobCredentialId")
-    def job_credential_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ID of the Elastic Job Credential to use when connecting to the output destination.
-        """
-        return pulumi.get(self, "job_credential_id")
-
-    @job_credential_id.setter
-    def job_credential_id(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "job_credential_id", value)
 
     @_builtins.property
     @pulumi.getter(name="mssqlDatabaseId")
@@ -1018,6 +1009,18 @@ class JobStepOutputTargetArgs:
     @table_name.setter
     def table_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "table_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="jobCredentialId")
+    def job_credential_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The ID of the Elastic Job Credential to use when connecting to the output destination.
+        """
+        return pulumi.get(self, "job_credential_id")
+
+    @job_credential_id.setter
+    def job_credential_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "job_credential_id", value)
 
     @_builtins.property
     @pulumi.getter(name="schemaName")
@@ -1643,6 +1646,94 @@ class ManagedInstanceIdentityArgs:
     @tenant_id.setter
     def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
+
+
+if not MYPY:
+    class ManagedInstanceStartStopScheduleScheduleArgsDict(TypedDict):
+        start_day: pulumi.Input[_builtins.str]
+        """
+        Start day of the schedule. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, `Sunday`.
+        """
+        start_time: pulumi.Input[_builtins.str]
+        """
+        Start time of the schedule in 24-hour format (e.g., `08:00`).
+        """
+        stop_day: pulumi.Input[_builtins.str]
+        """
+        Stop day of the schedule. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, `Sunday`.
+        """
+        stop_time: pulumi.Input[_builtins.str]
+        """
+        Stop time of the schedule in 24-hour format (e.g., `17:00`).
+        """
+elif False:
+    ManagedInstanceStartStopScheduleScheduleArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ManagedInstanceStartStopScheduleScheduleArgs:
+    def __init__(__self__, *,
+                 start_day: pulumi.Input[_builtins.str],
+                 start_time: pulumi.Input[_builtins.str],
+                 stop_day: pulumi.Input[_builtins.str],
+                 stop_time: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] start_day: Start day of the schedule. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, `Sunday`.
+        :param pulumi.Input[_builtins.str] start_time: Start time of the schedule in 24-hour format (e.g., `08:00`).
+        :param pulumi.Input[_builtins.str] stop_day: Stop day of the schedule. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, `Sunday`.
+        :param pulumi.Input[_builtins.str] stop_time: Stop time of the schedule in 24-hour format (e.g., `17:00`).
+        """
+        pulumi.set(__self__, "start_day", start_day)
+        pulumi.set(__self__, "start_time", start_time)
+        pulumi.set(__self__, "stop_day", stop_day)
+        pulumi.set(__self__, "stop_time", stop_time)
+
+    @_builtins.property
+    @pulumi.getter(name="startDay")
+    def start_day(self) -> pulumi.Input[_builtins.str]:
+        """
+        Start day of the schedule. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, `Sunday`.
+        """
+        return pulumi.get(self, "start_day")
+
+    @start_day.setter
+    def start_day(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "start_day", value)
+
+    @_builtins.property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> pulumi.Input[_builtins.str]:
+        """
+        Start time of the schedule in 24-hour format (e.g., `08:00`).
+        """
+        return pulumi.get(self, "start_time")
+
+    @start_time.setter
+    def start_time(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "start_time", value)
+
+    @_builtins.property
+    @pulumi.getter(name="stopDay")
+    def stop_day(self) -> pulumi.Input[_builtins.str]:
+        """
+        Stop day of the schedule. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, `Sunday`.
+        """
+        return pulumi.get(self, "stop_day")
+
+    @stop_day.setter
+    def stop_day(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "stop_day", value)
+
+    @_builtins.property
+    @pulumi.getter(name="stopTime")
+    def stop_time(self) -> pulumi.Input[_builtins.str]:
+        """
+        Stop time of the schedule in 24-hour format (e.g., `17:00`).
+        """
+        return pulumi.get(self, "stop_time")
+
+    @stop_time.setter
+    def stop_time(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "stop_time", value)
 
 
 if not MYPY:

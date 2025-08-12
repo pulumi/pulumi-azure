@@ -15,6 +15,11 @@ export type EmailServiceDomain = import("./emailServiceDomain").EmailServiceDoma
 export const EmailServiceDomain: typeof import("./emailServiceDomain").EmailServiceDomain = null as any;
 utilities.lazyLoad(exports, ["EmailServiceDomain"], () => require("./emailServiceDomain"));
 
+export { EmailServiceDomainSenderUsernameArgs, EmailServiceDomainSenderUsernameState } from "./emailServiceDomainSenderUsername";
+export type EmailServiceDomainSenderUsername = import("./emailServiceDomainSenderUsername").EmailServiceDomainSenderUsername;
+export const EmailServiceDomainSenderUsername: typeof import("./emailServiceDomainSenderUsername").EmailServiceDomainSenderUsername = null as any;
+utilities.lazyLoad(exports, ["EmailServiceDomainSenderUsername"], () => require("./emailServiceDomainSenderUsername"));
+
 export { GetServiceArgs, GetServiceResult, GetServiceOutputArgs } from "./getService";
 export const getService: typeof import("./getService").getService = null as any;
 export const getServiceOutput: typeof import("./getService").getServiceOutput = null as any;
@@ -39,6 +44,8 @@ const _module = {
                 return new EmailService(name, <any>undefined, { urn })
             case "azure:communication/emailServiceDomain:EmailServiceDomain":
                 return new EmailServiceDomain(name, <any>undefined, { urn })
+            case "azure:communication/emailServiceDomainSenderUsername:EmailServiceDomainSenderUsername":
+                return new EmailServiceDomainSenderUsername(name, <any>undefined, { urn })
             case "azure:communication/service:Service":
                 return new Service(name, <any>undefined, { urn })
             case "azure:communication/serviceEmailDomainAssociation:ServiceEmailDomainAssociation":
@@ -50,5 +57,6 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("azure", "communication/emailService", _module)
 pulumi.runtime.registerResourceModule("azure", "communication/emailServiceDomain", _module)
+pulumi.runtime.registerResourceModule("azure", "communication/emailServiceDomainSenderUsername", _module)
 pulumi.runtime.registerResourceModule("azure", "communication/service", _module)
 pulumi.runtime.registerResourceModule("azure", "communication/serviceEmailDomainAssociation", _module)

@@ -197,6 +197,8 @@ __all__ = [
     'ServiceTenantAccessArgsDict',
     'ServiceVirtualNetworkConfigurationArgs',
     'ServiceVirtualNetworkConfigurationArgsDict',
+    'StandaloneGatewaySkuArgs',
+    'StandaloneGatewaySkuArgsDict',
 ]
 
 MYPY = False
@@ -9645,5 +9647,56 @@ class ServiceVirtualNetworkConfigurationArgs:
     @subnet_id.setter
     def subnet_id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "subnet_id", value)
+
+
+if not MYPY:
+    class StandaloneGatewaySkuArgsDict(TypedDict):
+        name: pulumi.Input[_builtins.str]
+        """
+        The name of the SKU. The only possible value is `WorkspaceGatewayPremium`.
+        """
+        capacity: NotRequired[pulumi.Input[_builtins.int]]
+        """
+        The number of deployed units of the SKU. Defaults to `1`.
+        """
+elif False:
+    StandaloneGatewaySkuArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class StandaloneGatewaySkuArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 capacity: Optional[pulumi.Input[_builtins.int]] = None):
+        """
+        :param pulumi.Input[_builtins.str] name: The name of the SKU. The only possible value is `WorkspaceGatewayPremium`.
+        :param pulumi.Input[_builtins.int] capacity: The number of deployed units of the SKU. Defaults to `1`.
+        """
+        pulumi.set(__self__, "name", name)
+        if capacity is not None:
+            pulumi.set(__self__, "capacity", capacity)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the SKU. The only possible value is `WorkspaceGatewayPremium`.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        The number of deployed units of the SKU. Defaults to `1`.
+        """
+        return pulumi.get(self, "capacity")
+
+    @capacity.setter
+    def capacity(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "capacity", value)
 
 

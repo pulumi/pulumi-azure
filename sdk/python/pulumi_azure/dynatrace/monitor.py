@@ -26,6 +26,7 @@ class MonitorArgs:
                  plan: pulumi.Input['MonitorPlanArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
                  user: pulumi.Input['MonitorUserArgs'],
+                 environment_properties: Optional[pulumi.Input[Sequence[pulumi.Input['MonitorEnvironmentPropertyArgs']]]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  monitoring_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -37,6 +38,7 @@ class MonitorArgs:
         :param pulumi.Input['MonitorPlanArgs'] plan: Billing plan information. A `plan` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Dynatrace monitor should exist. Changing this forces a new resource to be created.
         :param pulumi.Input['MonitorUserArgs'] user: User's information. A `user` block as defined below. Chainging this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['MonitorEnvironmentPropertyArgs']]] environment_properties: Properties of the Dynatrace environment. An `environment_properties` block as defined below.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Dynatrace monitor should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] monitoring_enabled: Flag specifying if the resource monitoring is enabled or disabled. Default is `true`.
         :param pulumi.Input[_builtins.str] name: Name of the Dynatrace monitor. Changing this forces a new resource to be created.
@@ -47,6 +49,8 @@ class MonitorArgs:
         pulumi.set(__self__, "plan", plan)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "user", user)
+        if environment_properties is not None:
+            pulumi.set(__self__, "environment_properties", environment_properties)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if monitoring_enabled is not None:
@@ -117,6 +121,18 @@ class MonitorArgs:
         pulumi.set(self, "user", value)
 
     @_builtins.property
+    @pulumi.getter(name="environmentProperties")
+    def environment_properties(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MonitorEnvironmentPropertyArgs']]]]:
+        """
+        Properties of the Dynatrace environment. An `environment_properties` block as defined below.
+        """
+        return pulumi.get(self, "environment_properties")
+
+    @environment_properties.setter
+    def environment_properties(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MonitorEnvironmentPropertyArgs']]]]):
+        pulumi.set(self, "environment_properties", value)
+
+    @_builtins.property
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -168,6 +184,7 @@ class MonitorArgs:
 @pulumi.input_type
 class _MonitorState:
     def __init__(__self__, *,
+                 environment_properties: Optional[pulumi.Input[Sequence[pulumi.Input['MonitorEnvironmentPropertyArgs']]]] = None,
                  identity: Optional[pulumi.Input['MonitorIdentityArgs']] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  marketplace_subscription: Optional[pulumi.Input[_builtins.str]] = None,
@@ -179,6 +196,7 @@ class _MonitorState:
                  user: Optional[pulumi.Input['MonitorUserArgs']] = None):
         """
         Input properties used for looking up and filtering Monitor resources.
+        :param pulumi.Input[Sequence[pulumi.Input['MonitorEnvironmentPropertyArgs']]] environment_properties: Properties of the Dynatrace environment. An `environment_properties` block as defined below.
         :param pulumi.Input['MonitorIdentityArgs'] identity: The kind of managed identity assigned to this resource.  A `identity` block as defined below.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Dynatrace monitor should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] marketplace_subscription: Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state. Possible values are `Active` and `Suspended`.
@@ -189,6 +207,8 @@ class _MonitorState:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input['MonitorUserArgs'] user: User's information. A `user` block as defined below. Chainging this forces a new resource to be created.
         """
+        if environment_properties is not None:
+            pulumi.set(__self__, "environment_properties", environment_properties)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if location is not None:
@@ -207,6 +227,18 @@ class _MonitorState:
             pulumi.set(__self__, "tags", tags)
         if user is not None:
             pulumi.set(__self__, "user", user)
+
+    @_builtins.property
+    @pulumi.getter(name="environmentProperties")
+    def environment_properties(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MonitorEnvironmentPropertyArgs']]]]:
+        """
+        Properties of the Dynatrace environment. An `environment_properties` block as defined below.
+        """
+        return pulumi.get(self, "environment_properties")
+
+    @environment_properties.setter
+    def environment_properties(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MonitorEnvironmentPropertyArgs']]]]):
+        pulumi.set(self, "environment_properties", value)
 
     @_builtins.property
     @pulumi.getter
@@ -323,6 +355,7 @@ class Monitor(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 environment_properties: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MonitorEnvironmentPropertyArgs', 'MonitorEnvironmentPropertyArgsDict']]]]] = None,
                  identity: Optional[pulumi.Input[Union['MonitorIdentityArgs', 'MonitorIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  marketplace_subscription: Optional[pulumi.Input[_builtins.str]] = None,
@@ -346,6 +379,7 @@ class Monitor(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MonitorEnvironmentPropertyArgs', 'MonitorEnvironmentPropertyArgsDict']]]] environment_properties: Properties of the Dynatrace environment. An `environment_properties` block as defined below.
         :param pulumi.Input[Union['MonitorIdentityArgs', 'MonitorIdentityArgsDict']] identity: The kind of managed identity assigned to this resource.  A `identity` block as defined below.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Dynatrace monitor should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] marketplace_subscription: Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state. Possible values are `Active` and `Suspended`.
@@ -388,6 +422,7 @@ class Monitor(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 environment_properties: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MonitorEnvironmentPropertyArgs', 'MonitorEnvironmentPropertyArgsDict']]]]] = None,
                  identity: Optional[pulumi.Input[Union['MonitorIdentityArgs', 'MonitorIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  marketplace_subscription: Optional[pulumi.Input[_builtins.str]] = None,
@@ -406,6 +441,7 @@ class Monitor(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = MonitorArgs.__new__(MonitorArgs)
 
+            __props__.__dict__["environment_properties"] = environment_properties
             if identity is None and not opts.urn:
                 raise TypeError("Missing required property 'identity'")
             __props__.__dict__["identity"] = identity
@@ -435,6 +471,7 @@ class Monitor(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            environment_properties: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MonitorEnvironmentPropertyArgs', 'MonitorEnvironmentPropertyArgsDict']]]]] = None,
             identity: Optional[pulumi.Input[Union['MonitorIdentityArgs', 'MonitorIdentityArgsDict']]] = None,
             location: Optional[pulumi.Input[_builtins.str]] = None,
             marketplace_subscription: Optional[pulumi.Input[_builtins.str]] = None,
@@ -451,6 +488,7 @@ class Monitor(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MonitorEnvironmentPropertyArgs', 'MonitorEnvironmentPropertyArgsDict']]]] environment_properties: Properties of the Dynatrace environment. An `environment_properties` block as defined below.
         :param pulumi.Input[Union['MonitorIdentityArgs', 'MonitorIdentityArgsDict']] identity: The kind of managed identity assigned to this resource.  A `identity` block as defined below.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Dynatrace monitor should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] marketplace_subscription: Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state. Possible values are `Active` and `Suspended`.
@@ -465,6 +503,7 @@ class Monitor(pulumi.CustomResource):
 
         __props__ = _MonitorState.__new__(_MonitorState)
 
+        __props__.__dict__["environment_properties"] = environment_properties
         __props__.__dict__["identity"] = identity
         __props__.__dict__["location"] = location
         __props__.__dict__["marketplace_subscription"] = marketplace_subscription
@@ -475,6 +514,14 @@ class Monitor(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         __props__.__dict__["user"] = user
         return Monitor(resource_name, opts=opts, __props__=__props__)
+
+    @_builtins.property
+    @pulumi.getter(name="environmentProperties")
+    def environment_properties(self) -> pulumi.Output[Optional[Sequence['outputs.MonitorEnvironmentProperty']]]:
+        """
+        Properties of the Dynatrace environment. An `environment_properties` block as defined below.
+        """
+        return pulumi.get(self, "environment_properties")
 
     @_builtins.property
     @pulumi.getter

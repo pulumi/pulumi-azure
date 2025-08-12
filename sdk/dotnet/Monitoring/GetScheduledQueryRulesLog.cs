@@ -42,7 +42,7 @@ namespace Pulumi.Azure.Monitoring
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Insights`: 2018-04-16
+        /// * `Microsoft.Insights` - 2018-04-16
         /// </summary>
         public static Task<GetScheduledQueryRulesLogResult> InvokeAsync(GetScheduledQueryRulesLogArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetScheduledQueryRulesLogResult>("azure:monitoring/getScheduledQueryRulesLog:getScheduledQueryRulesLog", args ?? new GetScheduledQueryRulesLogArgs(), options.WithDefaults());
@@ -78,7 +78,7 @@ namespace Pulumi.Azure.Monitoring
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Insights`: 2018-04-16
+        /// * `Microsoft.Insights` - 2018-04-16
         /// </summary>
         public static Output<GetScheduledQueryRulesLogResult> Invoke(GetScheduledQueryRulesLogInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetScheduledQueryRulesLogResult>("azure:monitoring/getScheduledQueryRulesLog:getScheduledQueryRulesLog", args ?? new GetScheduledQueryRulesLogInvokeArgs(), options.WithDefaults());
@@ -114,7 +114,7 @@ namespace Pulumi.Azure.Monitoring
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Insights`: 2018-04-16
+        /// * `Microsoft.Insights` - 2018-04-16
         /// </summary>
         public static Output<GetScheduledQueryRulesLogResult> Invoke(GetScheduledQueryRulesLogInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetScheduledQueryRulesLogResult>("azure:monitoring/getScheduledQueryRulesLog:getScheduledQueryRulesLog", args ?? new GetScheduledQueryRulesLogInvokeArgs(), options.WithDefaults());

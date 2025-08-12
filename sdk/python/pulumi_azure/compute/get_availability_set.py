@@ -149,7 +149,7 @@ def get_availability_set(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Compute`: 2024-03-01
+    * `Microsoft.Compute` - 2024-03-01
 
 
     :param _builtins.str name: The name of the Availability Set.
@@ -192,7 +192,7 @@ def get_availability_set_output(name: Optional[pulumi.Input[_builtins.str]] = No
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Compute`: 2024-03-01
+    * `Microsoft.Compute` - 2024-03-01
 
 
     :param _builtins.str name: The name of the Availability Set.

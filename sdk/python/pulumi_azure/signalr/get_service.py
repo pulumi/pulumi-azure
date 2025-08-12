@@ -265,7 +265,7 @@ def get_service(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.SignalRService`: 2024-03-01
+    * `Microsoft.SignalRService` - 2024-03-01
 
 
     :param _builtins.str name: Specifies the name of the SignalR service.
@@ -317,7 +317,7 @@ def get_service_output(name: Optional[pulumi.Input[_builtins.str]] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.SignalRService`: 2024-03-01
+    * `Microsoft.SignalRService` - 2024-03-01
 
 
     :param _builtins.str name: Specifies the name of the SignalR service.

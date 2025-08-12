@@ -291,7 +291,7 @@ def get_managed_disk(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Compute`: 2023-04-02
+    * `Microsoft.Compute` - 2023-04-02
 
 
     :param _builtins.str name: Specifies the name of the Managed Disk.
@@ -346,7 +346,7 @@ def get_managed_disk_output(name: Optional[pulumi.Input[_builtins.str]] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Compute`: 2023-04-02
+    * `Microsoft.Compute` - 2023-04-02
 
 
     :param _builtins.str name: Specifies the name of the Managed Disk.

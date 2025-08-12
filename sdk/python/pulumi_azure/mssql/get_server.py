@@ -198,7 +198,7 @@ def get_server(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Sql`: 2023-08-01-preview
+    * `Microsoft.Sql` - 2023-08-01-preview
 
 
     :param _builtins.str name: The name of this Microsoft SQL Server.
@@ -245,7 +245,7 @@ def get_server_output(name: Optional[pulumi.Input[_builtins.str]] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Sql`: 2023-08-01-preview
+    * `Microsoft.Sql` - 2023-08-01-preview
 
 
     :param _builtins.str name: The name of this Microsoft SQL Server.

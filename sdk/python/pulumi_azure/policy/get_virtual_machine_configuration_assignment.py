@@ -172,7 +172,7 @@ def get_virtual_machine_configuration_assignment(name: Optional[_builtins.str] =
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Compute`: 2020-06-25
+    * `Microsoft.Compute` - 2020-06-25
 
 
     :param _builtins.str name: Specifies the name of the Guest Configuration Assignment.
@@ -221,7 +221,7 @@ def get_virtual_machine_configuration_assignment_output(name: Optional[pulumi.In
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Compute`: 2020-06-25
+    * `Microsoft.Compute` - 2020-06-25
 
 
     :param _builtins.str name: Specifies the name of the Guest Configuration Assignment.

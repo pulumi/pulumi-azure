@@ -185,7 +185,7 @@ def get_subscription(api_management_id: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.ApiManagement`: 2022-08-01
+    * `Microsoft.ApiManagement` - 2022-08-01
 
 
     :param _builtins.str api_management_id: The ID of the API Management Service in which this Subscription exists.
@@ -231,7 +231,7 @@ def get_subscription_output(api_management_id: Optional[pulumi.Input[_builtins.s
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.ApiManagement`: 2022-08-01
+    * `Microsoft.ApiManagement` - 2022-08-01
 
 
     :param _builtins.str api_management_id: The ID of the API Management Service in which this Subscription exists.

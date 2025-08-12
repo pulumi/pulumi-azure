@@ -205,7 +205,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This resource uses the following Azure API Providers:
  *
- * * `Microsoft.Sql`: 2023-08-01-preview
+ * * `Microsoft.Sql` - 2023-08-01-preview
  *
  * ## Import
  *
@@ -246,9 +246,11 @@ export class ManagedInstance extends pulumi.CustomResource {
     /**
      * The administrator login name for the new SQL Managed Instance. Changing this forces a new resource to be created.
      */
-    public readonly administratorLogin!: pulumi.Output<string | undefined>;
+    public readonly administratorLogin!: pulumi.Output<string>;
     /**
      * The password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
+     *
+     * > **Note:** Unless `azure_active_directory_administrator.azuread_authentication_only_enabled` is set to `true`, `administratorLogin` and `administratorLoginPassword` are required.
      */
     public readonly administratorLoginPassword!: pulumi.Output<string | undefined>;
     /**
@@ -256,7 +258,7 @@ export class ManagedInstance extends pulumi.CustomResource {
      */
     public readonly azureActiveDirectoryAdministrator!: pulumi.Output<outputs.mssql.ManagedInstanceAzureActiveDirectoryAdministrator | undefined>;
     /**
-     * Specifies how the SQL Managed Instance will be collated. Default value is `SQL_Latin1_General_CP1_CI_AS`. Changing this forces a new resource to be created.
+     * Specifies how the SQL Managed Instance will be collated. Defaults to `SQL_Latin1_General_CP1_CI_AS`. Changing this forces a new resource to be created.
      */
     public readonly collation!: pulumi.Output<string | undefined>;
     /**
@@ -294,25 +296,24 @@ export class ManagedInstance extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * The name of the Public Maintenance Configuration window to apply to the SQL Managed Instance. Valid values include `SQL_Default` or an Azure Location in the format `SQL_{Location}_MI_{Size}`(for example `SQL_EastUS_MI_1`). Defaults to `SQL_Default`.
-     */
-    public readonly maintenanceConfigurationName!: pulumi.Output<string | undefined>;
-    /**
-     * The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`.
+     * The name of the Public Maintenance Configuration window to apply to the SQL Managed Instance. Possible values are `SQL_Default` or an Azure Location in the format `SQL_{Location}_MI_{Size}`(for example `SQL_EastUS_MI_1`). Defaults to `SQL_Default`.
+     *
+     * `minimumTlsVersion` - (Optional) The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`.
      *
      * > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
      */
+    public readonly maintenanceConfigurationName!: pulumi.Output<string | undefined>;
     public readonly minimumTlsVersion!: pulumi.Output<string | undefined>;
     /**
      * The name of the SQL Managed Instance. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Specifies how the SQL Managed Instance will be accessed. Default value is `Default`. Valid values include `Default`, `Proxy`, and `Redirect`.
+     * Specifies how the SQL Managed Instance will be accessed. Defaults to `Default`. Possible values are `Default`, `Proxy`, and `Redirect`.
      */
     public readonly proxyOverride!: pulumi.Output<string | undefined>;
     /**
-     * Is the public data endpoint enabled? Default value is `false`.
+     * Is the public data endpoint enabled? Defaults to `false`.
      */
     public readonly publicDataEndpointEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -324,7 +325,7 @@ export class ManagedInstance extends pulumi.CustomResource {
      */
     public readonly servicePrincipalType!: pulumi.Output<string | undefined>;
     /**
-     * Specifies the SKU Name for the SQL Managed Instance. Valid values include `GP_Gen4`, `GP_Gen5`, `GP_Gen8IM`, `GP_Gen8IH`, `BC_Gen4`, `BC_Gen5`, `BC_Gen8IM` or `BC_Gen8IH`.
+     * Specifies the SKU Name for the SQL Managed Instance. Possible values are `GP_Gen4`, `GP_Gen5`, `GP_Gen8IM`, `GP_Gen8IH`, `BC_Gen4`, `BC_Gen5`, `BC_Gen8IM` or `BC_Gen8IH`.
      */
     public readonly skuName!: pulumi.Output<string>;
     /**
@@ -344,7 +345,7 @@ export class ManagedInstance extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The TimeZone ID that the SQL Managed Instance will be operating in. Default value is `UTC`. Changing this forces a new resource to be created.
+     * The TimeZone ID that the SQL Managed Instance will be operating in. Defaults to `UTC`. Changing this forces a new resource to be created.
      */
     public readonly timezoneId!: pulumi.Output<string | undefined>;
     /**
@@ -352,7 +353,7 @@ export class ManagedInstance extends pulumi.CustomResource {
      */
     public readonly vcores!: pulumi.Output<number>;
     /**
-     * Specifies whether or not the SQL Managed Instance is zone redundant. Defaults to `false`.
+     * Specifies whether the SQL Managed Instance is zone redundant. Defaults to `false`.
      */
     public readonly zoneRedundantEnabled!: pulumi.Output<boolean | undefined>;
 
@@ -463,6 +464,8 @@ export interface ManagedInstanceState {
     administratorLogin?: pulumi.Input<string>;
     /**
      * The password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
+     *
+     * > **Note:** Unless `azure_active_directory_administrator.azuread_authentication_only_enabled` is set to `true`, `administratorLogin` and `administratorLoginPassword` are required.
      */
     administratorLoginPassword?: pulumi.Input<string>;
     /**
@@ -470,7 +473,7 @@ export interface ManagedInstanceState {
      */
     azureActiveDirectoryAdministrator?: pulumi.Input<inputs.mssql.ManagedInstanceAzureActiveDirectoryAdministrator>;
     /**
-     * Specifies how the SQL Managed Instance will be collated. Default value is `SQL_Latin1_General_CP1_CI_AS`. Changing this forces a new resource to be created.
+     * Specifies how the SQL Managed Instance will be collated. Defaults to `SQL_Latin1_General_CP1_CI_AS`. Changing this forces a new resource to be created.
      */
     collation?: pulumi.Input<string>;
     /**
@@ -508,25 +511,24 @@ export interface ManagedInstanceState {
      */
     location?: pulumi.Input<string>;
     /**
-     * The name of the Public Maintenance Configuration window to apply to the SQL Managed Instance. Valid values include `SQL_Default` or an Azure Location in the format `SQL_{Location}_MI_{Size}`(for example `SQL_EastUS_MI_1`). Defaults to `SQL_Default`.
-     */
-    maintenanceConfigurationName?: pulumi.Input<string>;
-    /**
-     * The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`.
+     * The name of the Public Maintenance Configuration window to apply to the SQL Managed Instance. Possible values are `SQL_Default` or an Azure Location in the format `SQL_{Location}_MI_{Size}`(for example `SQL_EastUS_MI_1`). Defaults to `SQL_Default`.
+     *
+     * `minimumTlsVersion` - (Optional) The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`.
      *
      * > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
      */
+    maintenanceConfigurationName?: pulumi.Input<string>;
     minimumTlsVersion?: pulumi.Input<string>;
     /**
      * The name of the SQL Managed Instance. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
-     * Specifies how the SQL Managed Instance will be accessed. Default value is `Default`. Valid values include `Default`, `Proxy`, and `Redirect`.
+     * Specifies how the SQL Managed Instance will be accessed. Defaults to `Default`. Possible values are `Default`, `Proxy`, and `Redirect`.
      */
     proxyOverride?: pulumi.Input<string>;
     /**
-     * Is the public data endpoint enabled? Default value is `false`.
+     * Is the public data endpoint enabled? Defaults to `false`.
      */
     publicDataEndpointEnabled?: pulumi.Input<boolean>;
     /**
@@ -538,7 +540,7 @@ export interface ManagedInstanceState {
      */
     servicePrincipalType?: pulumi.Input<string>;
     /**
-     * Specifies the SKU Name for the SQL Managed Instance. Valid values include `GP_Gen4`, `GP_Gen5`, `GP_Gen8IM`, `GP_Gen8IH`, `BC_Gen4`, `BC_Gen5`, `BC_Gen8IM` or `BC_Gen8IH`.
+     * Specifies the SKU Name for the SQL Managed Instance. Possible values are `GP_Gen4`, `GP_Gen5`, `GP_Gen8IM`, `GP_Gen8IH`, `BC_Gen4`, `BC_Gen5`, `BC_Gen8IM` or `BC_Gen8IH`.
      */
     skuName?: pulumi.Input<string>;
     /**
@@ -558,7 +560,7 @@ export interface ManagedInstanceState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The TimeZone ID that the SQL Managed Instance will be operating in. Default value is `UTC`. Changing this forces a new resource to be created.
+     * The TimeZone ID that the SQL Managed Instance will be operating in. Defaults to `UTC`. Changing this forces a new resource to be created.
      */
     timezoneId?: pulumi.Input<string>;
     /**
@@ -566,7 +568,7 @@ export interface ManagedInstanceState {
      */
     vcores?: pulumi.Input<number>;
     /**
-     * Specifies whether or not the SQL Managed Instance is zone redundant. Defaults to `false`.
+     * Specifies whether the SQL Managed Instance is zone redundant. Defaults to `false`.
      */
     zoneRedundantEnabled?: pulumi.Input<boolean>;
 }
@@ -581,6 +583,8 @@ export interface ManagedInstanceArgs {
     administratorLogin?: pulumi.Input<string>;
     /**
      * The password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
+     *
+     * > **Note:** Unless `azure_active_directory_administrator.azuread_authentication_only_enabled` is set to `true`, `administratorLogin` and `administratorLoginPassword` are required.
      */
     administratorLoginPassword?: pulumi.Input<string>;
     /**
@@ -588,7 +592,7 @@ export interface ManagedInstanceArgs {
      */
     azureActiveDirectoryAdministrator?: pulumi.Input<inputs.mssql.ManagedInstanceAzureActiveDirectoryAdministrator>;
     /**
-     * Specifies how the SQL Managed Instance will be collated. Default value is `SQL_Latin1_General_CP1_CI_AS`. Changing this forces a new resource to be created.
+     * Specifies how the SQL Managed Instance will be collated. Defaults to `SQL_Latin1_General_CP1_CI_AS`. Changing this forces a new resource to be created.
      */
     collation?: pulumi.Input<string>;
     /**
@@ -618,25 +622,24 @@ export interface ManagedInstanceArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * The name of the Public Maintenance Configuration window to apply to the SQL Managed Instance. Valid values include `SQL_Default` or an Azure Location in the format `SQL_{Location}_MI_{Size}`(for example `SQL_EastUS_MI_1`). Defaults to `SQL_Default`.
-     */
-    maintenanceConfigurationName?: pulumi.Input<string>;
-    /**
-     * The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`.
+     * The name of the Public Maintenance Configuration window to apply to the SQL Managed Instance. Possible values are `SQL_Default` or an Azure Location in the format `SQL_{Location}_MI_{Size}`(for example `SQL_EastUS_MI_1`). Defaults to `SQL_Default`.
+     *
+     * `minimumTlsVersion` - (Optional) The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`.
      *
      * > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
      */
+    maintenanceConfigurationName?: pulumi.Input<string>;
     minimumTlsVersion?: pulumi.Input<string>;
     /**
      * The name of the SQL Managed Instance. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
-     * Specifies how the SQL Managed Instance will be accessed. Default value is `Default`. Valid values include `Default`, `Proxy`, and `Redirect`.
+     * Specifies how the SQL Managed Instance will be accessed. Defaults to `Default`. Possible values are `Default`, `Proxy`, and `Redirect`.
      */
     proxyOverride?: pulumi.Input<string>;
     /**
-     * Is the public data endpoint enabled? Default value is `false`.
+     * Is the public data endpoint enabled? Defaults to `false`.
      */
     publicDataEndpointEnabled?: pulumi.Input<boolean>;
     /**
@@ -648,7 +651,7 @@ export interface ManagedInstanceArgs {
      */
     servicePrincipalType?: pulumi.Input<string>;
     /**
-     * Specifies the SKU Name for the SQL Managed Instance. Valid values include `GP_Gen4`, `GP_Gen5`, `GP_Gen8IM`, `GP_Gen8IH`, `BC_Gen4`, `BC_Gen5`, `BC_Gen8IM` or `BC_Gen8IH`.
+     * Specifies the SKU Name for the SQL Managed Instance. Possible values are `GP_Gen4`, `GP_Gen5`, `GP_Gen8IM`, `GP_Gen8IH`, `BC_Gen4`, `BC_Gen5`, `BC_Gen8IM` or `BC_Gen8IH`.
      */
     skuName: pulumi.Input<string>;
     /**
@@ -668,7 +671,7 @@ export interface ManagedInstanceArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The TimeZone ID that the SQL Managed Instance will be operating in. Default value is `UTC`. Changing this forces a new resource to be created.
+     * The TimeZone ID that the SQL Managed Instance will be operating in. Defaults to `UTC`. Changing this forces a new resource to be created.
      */
     timezoneId?: pulumi.Input<string>;
     /**
@@ -676,7 +679,7 @@ export interface ManagedInstanceArgs {
      */
     vcores: pulumi.Input<number>;
     /**
-     * Specifies whether or not the SQL Managed Instance is zone redundant. Defaults to `false`.
+     * Specifies whether the SQL Managed Instance is zone redundant. Defaults to `false`.
      */
     zoneRedundantEnabled?: pulumi.Input<boolean>;
 }

@@ -62,7 +62,7 @@ public final class AvsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.AVS`: 2022-05-01
+     * * `Microsoft.AVS` - 2022-05-01
      * 
      */
     public static Output<GetPrivateCloudResult> getPrivateCloud(GetPrivateCloudArgs args) {
@@ -115,7 +115,7 @@ public final class AvsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.AVS`: 2022-05-01
+     * * `Microsoft.AVS` - 2022-05-01
      * 
      */
     public static CompletableFuture<GetPrivateCloudResult> getPrivateCloudPlain(GetPrivateCloudPlainArgs args) {
@@ -168,7 +168,7 @@ public final class AvsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.AVS`: 2022-05-01
+     * * `Microsoft.AVS` - 2022-05-01
      * 
      */
     public static Output<GetPrivateCloudResult> getPrivateCloud(GetPrivateCloudArgs args, InvokeOptions options) {
@@ -221,7 +221,7 @@ public final class AvsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.AVS`: 2022-05-01
+     * * `Microsoft.AVS` - 2022-05-01
      * 
      */
     public static Output<GetPrivateCloudResult> getPrivateCloud(GetPrivateCloudArgs args, InvokeOutputOptions options) {
@@ -274,7 +274,7 @@ public final class AvsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.AVS`: 2022-05-01
+     * * `Microsoft.AVS` - 2022-05-01
      * 
      */
     public static CompletableFuture<GetPrivateCloudResult> getPrivateCloudPlain(GetPrivateCloudPlainArgs args, InvokeOptions options) {

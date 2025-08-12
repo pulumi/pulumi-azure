@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetGiVersionsPlainArgs extends com.pulumi.resources.InvokeArgs {
@@ -28,10 +30,42 @@ public final class GetGiVersionsPlainArgs extends com.pulumi.resources.InvokeArg
         return this.location;
     }
 
+    /**
+     * The model name of the Cloud Exadata Infrastructure resource. Possible values are `ExaDbXS`, `Exadata.X9M`, and `Exadata.X11M`. This is used to filter out the available GI versions compatible with the given model.
+     * 
+     */
+    @Import(name="shape")
+    private @Nullable String shape;
+
+    /**
+     * @return The model name of the Cloud Exadata Infrastructure resource. Possible values are `ExaDbXS`, `Exadata.X9M`, and `Exadata.X11M`. This is used to filter out the available GI versions compatible with the given model.
+     * 
+     */
+    public Optional<String> shape() {
+        return Optional.ofNullable(this.shape);
+    }
+
+    /**
+     * Indicates the Azure zone for the Cloud Exadata Infrastructure, used to filter the available GI versions within a given zone.
+     * 
+     */
+    @Import(name="zone")
+    private @Nullable String zone;
+
+    /**
+     * @return Indicates the Azure zone for the Cloud Exadata Infrastructure, used to filter the available GI versions within a given zone.
+     * 
+     */
+    public Optional<String> zone() {
+        return Optional.ofNullable(this.zone);
+    }
+
     private GetGiVersionsPlainArgs() {}
 
     private GetGiVersionsPlainArgs(GetGiVersionsPlainArgs $) {
         this.location = $.location;
+        this.shape = $.shape;
+        this.zone = $.zone;
     }
 
     public static Builder builder() {
@@ -60,6 +94,28 @@ public final class GetGiVersionsPlainArgs extends com.pulumi.resources.InvokeArg
          */
         public Builder location(String location) {
             $.location = location;
+            return this;
+        }
+
+        /**
+         * @param shape The model name of the Cloud Exadata Infrastructure resource. Possible values are `ExaDbXS`, `Exadata.X9M`, and `Exadata.X11M`. This is used to filter out the available GI versions compatible with the given model.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder shape(@Nullable String shape) {
+            $.shape = shape;
+            return this;
+        }
+
+        /**
+         * @param zone Indicates the Azure zone for the Cloud Exadata Infrastructure, used to filter the available GI versions within a given zone.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder zone(@Nullable String zone) {
+            $.zone = zone;
             return this;
         }
 

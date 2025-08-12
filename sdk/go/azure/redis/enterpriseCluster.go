@@ -56,7 +56,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This resource uses the following Azure API Providers:
 //
-// * `Microsoft.Cache`: 2024-10-01
+// * `Microsoft.Cache` - 2024-10-01
 //
 // ## Import
 //

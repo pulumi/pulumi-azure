@@ -68,7 +68,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This resource uses the following Azure API Providers:
  *
- * * `Microsoft.MobileNetwork`: 2022-11-01
+ * * `Microsoft.MobileNetwork` - 2022-11-01
  *
  * ## Import
  *
@@ -155,7 +155,7 @@ export class NetworkPacketCoreControlPlane extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * A list of Mobile Network Site IDs in which this packet core control plane should be deployed. The Sites must be in the same location as the packet core control plane.
+     * A list of Mobile Network Site IDs in which this packet core control plane should be deployed. The Sites must be in the same location as the packet core control plane. Currently, the API supports exactly 1 resource ID in the list. Changing this forces a new resource to be created.
      */
     public readonly siteIds!: pulumi.Output<string[]>;
     /**
@@ -295,7 +295,7 @@ export interface NetworkPacketCoreControlPlaneState {
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
-     * A list of Mobile Network Site IDs in which this packet core control plane should be deployed. The Sites must be in the same location as the packet core control plane.
+     * A list of Mobile Network Site IDs in which this packet core control plane should be deployed. The Sites must be in the same location as the packet core control plane. Currently, the API supports exactly 1 resource ID in the list. Changing this forces a new resource to be created.
      */
     siteIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -369,7 +369,7 @@ export interface NetworkPacketCoreControlPlaneArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * A list of Mobile Network Site IDs in which this packet core control plane should be deployed. The Sites must be in the same location as the packet core control plane.
+     * A list of Mobile Network Site IDs in which this packet core control plane should be deployed. The Sites must be in the same location as the packet core control plane. Currently, the API supports exactly 1 resource ID in the list. Changing this forces a new resource to be created.
      */
     siteIds: pulumi.Input<pulumi.Input<string>[]>;
     /**

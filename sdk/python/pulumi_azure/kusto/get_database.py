@@ -147,7 +147,7 @@ def get_database(cluster_name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Kusto`: 2024-04-13
+    * `Microsoft.Kusto` - 2024-04-13
 
 
     :param _builtins.str cluster_name: The name of the Kusto Cluster this database is added to.
@@ -193,7 +193,7 @@ def get_database_output(cluster_name: Optional[pulumi.Input[_builtins.str]] = No
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Kusto`: 2024-04-13
+    * `Microsoft.Kusto` - 2024-04-13
 
 
     :param _builtins.str cluster_name: The name of the Kusto Cluster this database is added to.

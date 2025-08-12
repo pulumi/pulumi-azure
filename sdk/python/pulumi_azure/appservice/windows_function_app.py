@@ -1420,7 +1420,7 @@ class WindowsFunctionApp(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.Web`: 2023-12-01, 2023-01-01
+        * `Microsoft.Web` - 2023-12-01, 2023-01-01
 
         ## Import
 
@@ -1525,7 +1525,7 @@ class WindowsFunctionApp(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.Web`: 2023-12-01, 2023-01-01
+        * `Microsoft.Web` - 2023-12-01, 2023-01-01
 
         ## Import
 

@@ -67,7 +67,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This resource uses the following Azure API Providers:
 //
-// * `Microsoft.Workloads`: 2024-09-01
+// * `Microsoft.Workloads` - 2024-09-01
 //
 // ## Import
 //

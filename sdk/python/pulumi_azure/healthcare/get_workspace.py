@@ -113,7 +113,7 @@ def get_workspace(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.HealthcareApis`: 2024-03-31
+    * `Microsoft.HealthcareApis` - 2024-03-31
 
 
     :param _builtins.str name: The name of the Healthcare Workspace.
@@ -153,7 +153,7 @@ def get_workspace_output(name: Optional[pulumi.Input[_builtins.str]] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.HealthcareApis`: 2024-03-31
+    * `Microsoft.HealthcareApis` - 2024-03-31
 
 
     :param _builtins.str name: The name of the Healthcare Workspace.

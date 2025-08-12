@@ -26,7 +26,7 @@ class GetServiceResult:
     """
     A collection of values returned by getService.
     """
-    def __init__(__self__, data_location=None, hostname=None, id=None, name=None, primary_connection_string=None, primary_key=None, resource_group_name=None, secondary_connection_string=None, secondary_key=None, tags=None):
+    def __init__(__self__, data_location=None, hostname=None, id=None, immutable_resource_id=None, name=None, primary_connection_string=None, primary_key=None, resource_group_name=None, secondary_connection_string=None, secondary_key=None, tags=None):
         if data_location and not isinstance(data_location, str):
             raise TypeError("Expected argument 'data_location' to be a str")
         pulumi.set(__self__, "data_location", data_location)
@@ -36,6 +36,9 @@ class GetServiceResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if immutable_resource_id and not isinstance(immutable_resource_id, str):
+            raise TypeError("Expected argument 'immutable_resource_id' to be a str")
+        pulumi.set(__self__, "immutable_resource_id", immutable_resource_id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -70,7 +73,7 @@ class GetServiceResult:
     @pulumi.getter
     def hostname(self) -> _builtins.str:
         """
-        The hostname of the Communication Service
+        The hostname of the Communication Service.
         """
         return pulumi.get(self, "hostname")
 
@@ -81,6 +84,14 @@ class GetServiceResult:
         The provider-assigned unique ID for this managed resource.
         """
         return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter(name="immutableResourceId")
+    def immutable_resource_id(self) -> _builtins.str:
+        """
+        The immutable resource id of the Communication Service.
+        """
+        return pulumi.get(self, "immutable_resource_id")
 
     @_builtins.property
     @pulumi.getter
@@ -142,6 +153,7 @@ class AwaitableGetServiceResult(GetServiceResult):
             data_location=self.data_location,
             hostname=self.hostname,
             id=self.id,
+            immutable_resource_id=self.immutable_resource_id,
             name=self.name,
             primary_connection_string=self.primary_connection_string,
             primary_key=self.primary_key,
@@ -173,7 +185,7 @@ def get_service(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Communication`: 2023-03-31
+    * `Microsoft.Communication` - 2023-03-31
 
 
     :param _builtins.str name: The name of this Communication Service.
@@ -191,6 +203,7 @@ def get_service(name: Optional[_builtins.str] = None,
         data_location=pulumi.get(__ret__, 'data_location'),
         hostname=pulumi.get(__ret__, 'hostname'),
         id=pulumi.get(__ret__, 'id'),
+        immutable_resource_id=pulumi.get(__ret__, 'immutable_resource_id'),
         name=pulumi.get(__ret__, 'name'),
         primary_connection_string=pulumi.get(__ret__, 'primary_connection_string'),
         primary_key=pulumi.get(__ret__, 'primary_key'),
@@ -220,7 +233,7 @@ def get_service_output(name: Optional[pulumi.Input[_builtins.str]] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Communication`: 2023-03-31
+    * `Microsoft.Communication` - 2023-03-31
 
 
     :param _builtins.str name: The name of this Communication Service.
@@ -237,6 +250,7 @@ def get_service_output(name: Optional[pulumi.Input[_builtins.str]] = None,
         data_location=pulumi.get(__response__, 'data_location'),
         hostname=pulumi.get(__response__, 'hostname'),
         id=pulumi.get(__response__, 'id'),
+        immutable_resource_id=pulumi.get(__response__, 'immutable_resource_id'),
         name=pulumi.get(__response__, 'name'),
         primary_connection_string=pulumi.get(__response__, 'primary_connection_string'),
         primary_key=pulumi.get(__response__, 'primary_key'),

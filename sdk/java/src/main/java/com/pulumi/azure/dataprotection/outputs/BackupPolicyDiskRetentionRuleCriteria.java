@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class BackupPolicyDiskRetentionRuleCriteria {
     /**
-     * @return Possible values are `FirstOfDay` and `FirstOfWeek`. Changing this forces a new Backup Policy Disk to be created.
+     * @return Possible values are `AllBackup`, `FirstOfDay`, `FirstOfWeek`, `FirstOfMonth` and `FirstOfYear`. These values mean the first successful backup of the day/week/month/year. Changing this forces a new Backup Policy Disk to be created.
      * 
      */
     private @Nullable String absoluteCriteria;
 
     private BackupPolicyDiskRetentionRuleCriteria() {}
     /**
-     * @return Possible values are `FirstOfDay` and `FirstOfWeek`. Changing this forces a new Backup Policy Disk to be created.
+     * @return Possible values are `AllBackup`, `FirstOfDay`, `FirstOfWeek`, `FirstOfMonth` and `FirstOfYear`. These values mean the first successful backup of the day/week/month/year. Changing this forces a new Backup Policy Disk to be created.
      * 
      */
     public Optional<String> absoluteCriteria() {

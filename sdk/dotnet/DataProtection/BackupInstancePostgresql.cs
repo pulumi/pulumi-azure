@@ -178,7 +178,7 @@ namespace Pulumi.Azure.DataProtection
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.DataProtection`: 2024-04-01
+    /// * `Microsoft.DataProtection` - 2024-04-01
     /// 
     /// ## Import
     /// 

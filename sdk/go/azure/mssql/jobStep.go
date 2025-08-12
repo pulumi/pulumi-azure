@@ -124,7 +124,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This resource uses the following Azure API Providers:
 //
-// * `Microsoft.Sql`: 2023-08-01-preview
+// * `Microsoft.Sql` - 2023-08-01-preview
 //
 // ## Import
 //
@@ -138,8 +138,10 @@ type JobStep struct {
 
 	// The initial retry interval in seconds. Defaults to `1`.
 	InitialRetryIntervalSeconds pulumi.IntPtrOutput `pulumi:"initialRetryIntervalSeconds"`
-	// The ID of the Elastic Job Credential to use when executing this Elastic Job Step.
-	JobCredentialId pulumi.StringOutput `pulumi:"jobCredentialId"`
+	// The ID of the Elastic Job Credential to use when executing this Elastic Job Step. Omit this argument to run the step under the Job Agent's managed identity (user-assigned).
+	//
+	// !> **Note:** Once set, `jobCredentialId` cannot be removed. Removing the credential will force a new resource to be created.
+	JobCredentialId pulumi.StringPtrOutput `pulumi:"jobCredentialId"`
 	// The ID of the Elastic Job. Changing this forces a new Elastic Job Step to be created.
 	JobId pulumi.StringOutput `pulumi:"jobId"`
 	// The index at which to insert this Elastic Job Step into the Elastic Job.
@@ -175,9 +177,6 @@ func NewJobStep(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.JobCredentialId == nil {
-		return nil, errors.New("invalid value for required argument 'JobCredentialId'")
-	}
 	if args.JobId == nil {
 		return nil, errors.New("invalid value for required argument 'JobId'")
 	}
@@ -215,7 +214,9 @@ func GetJobStep(ctx *pulumi.Context,
 type jobStepState struct {
 	// The initial retry interval in seconds. Defaults to `1`.
 	InitialRetryIntervalSeconds *int `pulumi:"initialRetryIntervalSeconds"`
-	// The ID of the Elastic Job Credential to use when executing this Elastic Job Step.
+	// The ID of the Elastic Job Credential to use when executing this Elastic Job Step. Omit this argument to run the step under the Job Agent's managed identity (user-assigned).
+	//
+	// !> **Note:** Once set, `jobCredentialId` cannot be removed. Removing the credential will force a new resource to be created.
 	JobCredentialId *string `pulumi:"jobCredentialId"`
 	// The ID of the Elastic Job. Changing this forces a new Elastic Job Step to be created.
 	JobId *string `pulumi:"jobId"`
@@ -248,7 +249,9 @@ type jobStepState struct {
 type JobStepState struct {
 	// The initial retry interval in seconds. Defaults to `1`.
 	InitialRetryIntervalSeconds pulumi.IntPtrInput
-	// The ID of the Elastic Job Credential to use when executing this Elastic Job Step.
+	// The ID of the Elastic Job Credential to use when executing this Elastic Job Step. Omit this argument to run the step under the Job Agent's managed identity (user-assigned).
+	//
+	// !> **Note:** Once set, `jobCredentialId` cannot be removed. Removing the credential will force a new resource to be created.
 	JobCredentialId pulumi.StringPtrInput
 	// The ID of the Elastic Job. Changing this forces a new Elastic Job Step to be created.
 	JobId pulumi.StringPtrInput
@@ -285,8 +288,10 @@ func (JobStepState) ElementType() reflect.Type {
 type jobStepArgs struct {
 	// The initial retry interval in seconds. Defaults to `1`.
 	InitialRetryIntervalSeconds *int `pulumi:"initialRetryIntervalSeconds"`
-	// The ID of the Elastic Job Credential to use when executing this Elastic Job Step.
-	JobCredentialId string `pulumi:"jobCredentialId"`
+	// The ID of the Elastic Job Credential to use when executing this Elastic Job Step. Omit this argument to run the step under the Job Agent's managed identity (user-assigned).
+	//
+	// !> **Note:** Once set, `jobCredentialId` cannot be removed. Removing the credential will force a new resource to be created.
+	JobCredentialId *string `pulumi:"jobCredentialId"`
 	// The ID of the Elastic Job. Changing this forces a new Elastic Job Step to be created.
 	JobId string `pulumi:"jobId"`
 	// The index at which to insert this Elastic Job Step into the Elastic Job.
@@ -319,8 +324,10 @@ type jobStepArgs struct {
 type JobStepArgs struct {
 	// The initial retry interval in seconds. Defaults to `1`.
 	InitialRetryIntervalSeconds pulumi.IntPtrInput
-	// The ID of the Elastic Job Credential to use when executing this Elastic Job Step.
-	JobCredentialId pulumi.StringInput
+	// The ID of the Elastic Job Credential to use when executing this Elastic Job Step. Omit this argument to run the step under the Job Agent's managed identity (user-assigned).
+	//
+	// !> **Note:** Once set, `jobCredentialId` cannot be removed. Removing the credential will force a new resource to be created.
+	JobCredentialId pulumi.StringPtrInput
 	// The ID of the Elastic Job. Changing this forces a new Elastic Job Step to be created.
 	JobId pulumi.StringInput
 	// The index at which to insert this Elastic Job Step into the Elastic Job.
@@ -441,9 +448,11 @@ func (o JobStepOutput) InitialRetryIntervalSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *JobStep) pulumi.IntPtrOutput { return v.InitialRetryIntervalSeconds }).(pulumi.IntPtrOutput)
 }
 
-// The ID of the Elastic Job Credential to use when executing this Elastic Job Step.
-func (o JobStepOutput) JobCredentialId() pulumi.StringOutput {
-	return o.ApplyT(func(v *JobStep) pulumi.StringOutput { return v.JobCredentialId }).(pulumi.StringOutput)
+// The ID of the Elastic Job Credential to use when executing this Elastic Job Step. Omit this argument to run the step under the Job Agent's managed identity (user-assigned).
+//
+// !> **Note:** Once set, `jobCredentialId` cannot be removed. Removing the credential will force a new resource to be created.
+func (o JobStepOutput) JobCredentialId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobStep) pulumi.StringPtrOutput { return v.JobCredentialId }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the Elastic Job. Changing this forces a new Elastic Job Step to be created.

@@ -64,7 +64,7 @@ public final class NotificationhubFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.NotificationHubs`: 2023-09-01
+     * * `Microsoft.NotificationHubs` - 2023-09-01
      * 
      */
     public static Output<GetHubResult> getHub(GetHubArgs args) {
@@ -116,7 +116,7 @@ public final class NotificationhubFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.NotificationHubs`: 2023-09-01
+     * * `Microsoft.NotificationHubs` - 2023-09-01
      * 
      */
     public static CompletableFuture<GetHubResult> getHubPlain(GetHubPlainArgs args) {
@@ -168,7 +168,7 @@ public final class NotificationhubFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.NotificationHubs`: 2023-09-01
+     * * `Microsoft.NotificationHubs` - 2023-09-01
      * 
      */
     public static Output<GetHubResult> getHub(GetHubArgs args, InvokeOptions options) {
@@ -220,7 +220,7 @@ public final class NotificationhubFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.NotificationHubs`: 2023-09-01
+     * * `Microsoft.NotificationHubs` - 2023-09-01
      * 
      */
     public static Output<GetHubResult> getHub(GetHubArgs args, InvokeOutputOptions options) {
@@ -272,7 +272,7 @@ public final class NotificationhubFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.NotificationHubs`: 2023-09-01
+     * * `Microsoft.NotificationHubs` - 2023-09-01
      * 
      */
     public static CompletableFuture<GetHubResult> getHubPlain(GetHubPlainArgs args, InvokeOptions options) {
@@ -323,7 +323,7 @@ public final class NotificationhubFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.NotificationHubs`: 2023-09-01
+     * * `Microsoft.NotificationHubs` - 2023-09-01
      * 
      */
     public static Output<GetNamespaceResult> getNamespace(GetNamespaceArgs args) {
@@ -374,7 +374,7 @@ public final class NotificationhubFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.NotificationHubs`: 2023-09-01
+     * * `Microsoft.NotificationHubs` - 2023-09-01
      * 
      */
     public static CompletableFuture<GetNamespaceResult> getNamespacePlain(GetNamespacePlainArgs args) {
@@ -425,7 +425,7 @@ public final class NotificationhubFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.NotificationHubs`: 2023-09-01
+     * * `Microsoft.NotificationHubs` - 2023-09-01
      * 
      */
     public static Output<GetNamespaceResult> getNamespace(GetNamespaceArgs args, InvokeOptions options) {
@@ -476,7 +476,7 @@ public final class NotificationhubFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.NotificationHubs`: 2023-09-01
+     * * `Microsoft.NotificationHubs` - 2023-09-01
      * 
      */
     public static Output<GetNamespaceResult> getNamespace(GetNamespaceArgs args, InvokeOutputOptions options) {
@@ -527,7 +527,7 @@ public final class NotificationhubFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.NotificationHubs`: 2023-09-01
+     * * `Microsoft.NotificationHubs` - 2023-09-01
      * 
      */
     public static CompletableFuture<GetNamespaceResult> getNamespacePlain(GetNamespacePlainArgs args, InvokeOptions options) {

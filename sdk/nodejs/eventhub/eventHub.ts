@@ -42,7 +42,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This resource uses the following Azure API Providers:
  *
- * * `Microsoft.EventHub`: 2024-01-01
+ * * `Microsoft.EventHub` - 2024-01-01
  *
  * ## Import
  *
@@ -119,6 +119,10 @@ export class EventHub extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
+     * A `retentionDescription` block as defined below.
+     */
+    public readonly retentionDescription!: pulumi.Output<outputs.eventhub.EventHubRetentionDescription>;
+    /**
      * Specifies the status of the Event Hub resource. Possible values are `Active`, `Disabled` and `SendDisabled`. Defaults to `Active`.
      */
     public readonly status!: pulumi.Output<string | undefined>;
@@ -144,12 +148,10 @@ export class EventHub extends pulumi.CustomResource {
             resourceInputs["partitionCount"] = state ? state.partitionCount : undefined;
             resourceInputs["partitionIds"] = state ? state.partitionIds : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["retentionDescription"] = state ? state.retentionDescription : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
         } else {
             const args = argsOrState as EventHubArgs | undefined;
-            if ((!args || args.messageRetention === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'messageRetention'");
-            }
             if ((!args || args.partitionCount === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'partitionCount'");
             }
@@ -160,6 +162,7 @@ export class EventHub extends pulumi.CustomResource {
             resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
             resourceInputs["partitionCount"] = args ? args.partitionCount : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["retentionDescription"] = args ? args.retentionDescription : undefined;
             resourceInputs["status"] = args ? args.status : undefined;
             resourceInputs["partitionIds"] = undefined /*out*/;
         }
@@ -211,6 +214,10 @@ export interface EventHubState {
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
+     * A `retentionDescription` block as defined below.
+     */
+    retentionDescription?: pulumi.Input<inputs.eventhub.EventHubRetentionDescription>;
+    /**
      * Specifies the status of the Event Hub resource. Possible values are `Active`, `Disabled` and `SendDisabled`. Defaults to `Active`.
      */
     status?: pulumi.Input<string>;
@@ -229,7 +236,7 @@ export interface EventHubArgs {
      *
      * > **Note:** When using a dedicated Event Hubs cluster, maximum value of `messageRetention` is 90 days. When using a shared parent EventHub Namespace, maximum value is 7 days; or 1 day when using a Basic SKU for the shared parent EventHub Namespace.
      */
-    messageRetention: pulumi.Input<number>;
+    messageRetention?: pulumi.Input<number>;
     /**
      * Specifies the name of the EventHub resource. Changing this forces a new resource to be created.
      */
@@ -254,6 +261,10 @@ export interface EventHubArgs {
      * @deprecated `resourceGroupName` has been deprecated in favour of `namespaceId` and will be removed in v5.0 of the AzureRM Provider
      */
     resourceGroupName?: pulumi.Input<string>;
+    /**
+     * A `retentionDescription` block as defined below.
+     */
+    retentionDescription?: pulumi.Input<inputs.eventhub.EventHubRetentionDescription>;
     /**
      * Specifies the status of the Event Hub resource. Possible values are `Active`, `Disabled` and `SendDisabled`. Defaults to `Active`.
      */

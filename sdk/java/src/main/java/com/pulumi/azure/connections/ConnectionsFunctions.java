@@ -4,8 +4,11 @@
 package com.pulumi.azure.connections;
 
 import com.pulumi.azure.Utilities;
+import com.pulumi.azure.connections.inputs.GetApiConnectionArgs;
+import com.pulumi.azure.connections.inputs.GetApiConnectionPlainArgs;
 import com.pulumi.azure.connections.inputs.GetManagedApiArgs;
 import com.pulumi.azure.connections.inputs.GetManagedApiPlainArgs;
+import com.pulumi.azure.connections.outputs.GetApiConnectionResult;
 import com.pulumi.azure.connections.outputs.GetManagedApiResult;
 import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
@@ -15,6 +18,271 @@ import com.pulumi.deployment.InvokeOutputOptions;
 import java.util.concurrent.CompletableFuture;
 
 public final class ConnectionsFunctions {
+    /**
+     * Use this data source to access information about an existing API Connection.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.connections.ConnectionsFunctions;
+     * import com.pulumi.azure.connections.inputs.GetApiConnectionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConnectionsFunctions.getApiConnection(GetApiConnectionArgs.builder()
+     *             .name("example-connection")
+     *             .resourceGroupName("example-resources")
+     *             .build());
+     * 
+     *         ctx.export("connectionId", example.id());
+     *         ctx.export("connectionName", example.name());
+     *         ctx.export("managedApiId", example.managedApiId());
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Web` - 2016-06-01
+     * 
+     */
+    public static Output<GetApiConnectionResult> getApiConnection(GetApiConnectionArgs args) {
+        return getApiConnection(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing API Connection.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.connections.ConnectionsFunctions;
+     * import com.pulumi.azure.connections.inputs.GetApiConnectionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConnectionsFunctions.getApiConnection(GetApiConnectionArgs.builder()
+     *             .name("example-connection")
+     *             .resourceGroupName("example-resources")
+     *             .build());
+     * 
+     *         ctx.export("connectionId", example.id());
+     *         ctx.export("connectionName", example.name());
+     *         ctx.export("managedApiId", example.managedApiId());
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Web` - 2016-06-01
+     * 
+     */
+    public static CompletableFuture<GetApiConnectionResult> getApiConnectionPlain(GetApiConnectionPlainArgs args) {
+        return getApiConnectionPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing API Connection.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.connections.ConnectionsFunctions;
+     * import com.pulumi.azure.connections.inputs.GetApiConnectionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConnectionsFunctions.getApiConnection(GetApiConnectionArgs.builder()
+     *             .name("example-connection")
+     *             .resourceGroupName("example-resources")
+     *             .build());
+     * 
+     *         ctx.export("connectionId", example.id());
+     *         ctx.export("connectionName", example.name());
+     *         ctx.export("managedApiId", example.managedApiId());
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Web` - 2016-06-01
+     * 
+     */
+    public static Output<GetApiConnectionResult> getApiConnection(GetApiConnectionArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:connections/getApiConnection:getApiConnection", TypeShape.of(GetApiConnectionResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing API Connection.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.connections.ConnectionsFunctions;
+     * import com.pulumi.azure.connections.inputs.GetApiConnectionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConnectionsFunctions.getApiConnection(GetApiConnectionArgs.builder()
+     *             .name("example-connection")
+     *             .resourceGroupName("example-resources")
+     *             .build());
+     * 
+     *         ctx.export("connectionId", example.id());
+     *         ctx.export("connectionName", example.name());
+     *         ctx.export("managedApiId", example.managedApiId());
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Web` - 2016-06-01
+     * 
+     */
+    public static Output<GetApiConnectionResult> getApiConnection(GetApiConnectionArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("azure:connections/getApiConnection:getApiConnection", TypeShape.of(GetApiConnectionResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing API Connection.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.connections.ConnectionsFunctions;
+     * import com.pulumi.azure.connections.inputs.GetApiConnectionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConnectionsFunctions.getApiConnection(GetApiConnectionArgs.builder()
+     *             .name("example-connection")
+     *             .resourceGroupName("example-resources")
+     *             .build());
+     * 
+     *         ctx.export("connectionId", example.id());
+     *         ctx.export("connectionName", example.name());
+     *         ctx.export("managedApiId", example.managedApiId());
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Web` - 2016-06-01
+     * 
+     */
+    public static CompletableFuture<GetApiConnectionResult> getApiConnectionPlain(GetApiConnectionPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azure:connections/getApiConnection:getApiConnection", TypeShape.of(GetApiConnectionResult.class), args, Utilities.withVersion(options));
+    }
     /**
      * Uses this data source to access information about an existing Managed API.
      * 
@@ -60,7 +328,7 @@ public final class ConnectionsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Web`: 2016-06-01
+     * * `Microsoft.Web` - 2016-06-01
      * 
      */
     public static Output<GetManagedApiResult> getManagedApi(GetManagedApiArgs args) {
@@ -111,7 +379,7 @@ public final class ConnectionsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Web`: 2016-06-01
+     * * `Microsoft.Web` - 2016-06-01
      * 
      */
     public static CompletableFuture<GetManagedApiResult> getManagedApiPlain(GetManagedApiPlainArgs args) {
@@ -162,7 +430,7 @@ public final class ConnectionsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Web`: 2016-06-01
+     * * `Microsoft.Web` - 2016-06-01
      * 
      */
     public static Output<GetManagedApiResult> getManagedApi(GetManagedApiArgs args, InvokeOptions options) {
@@ -213,7 +481,7 @@ public final class ConnectionsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Web`: 2016-06-01
+     * * `Microsoft.Web` - 2016-06-01
      * 
      */
     public static Output<GetManagedApiResult> getManagedApi(GetManagedApiArgs args, InvokeOutputOptions options) {
@@ -264,7 +532,7 @@ public final class ConnectionsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Web`: 2016-06-01
+     * * `Microsoft.Web` - 2016-06-01
      * 
      */
     public static CompletableFuture<GetManagedApiResult> getManagedApiPlain(GetManagedApiPlainArgs args, InvokeOptions options) {

@@ -292,6 +292,21 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
     }
 
     /**
+     * Specifies the Microsoft.Network API version used when creating networking resources in the Network Interface Configurations for Virtual Machine Scale Set. Possible values are `2020-11-01` and `2022-11-01`. Defaults to `2020-11-01`.
+     * 
+     */
+    @Import(name="networkApiVersion")
+    private @Nullable Output<String> networkApiVersion;
+
+    /**
+     * @return Specifies the Microsoft.Network API version used when creating networking resources in the Network Interface Configurations for Virtual Machine Scale Set. Possible values are `2020-11-01` and `2022-11-01`. Defaults to `2020-11-01`.
+     * 
+     */
+    public Optional<Output<String>> networkApiVersion() {
+        return Optional.ofNullable(this.networkApiVersion);
+    }
+
+    /**
      * One or more `network_interface` blocks as defined below.
      * 
      */
@@ -664,6 +679,7 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
         this.location = $.location;
         this.maxBidPrice = $.maxBidPrice;
         this.name = $.name;
+        this.networkApiVersion = $.networkApiVersion;
         this.networkInterfaces = $.networkInterfaces;
         this.osDisk = $.osDisk;
         this.osProfile = $.osProfile;
@@ -1076,6 +1092,27 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param networkApiVersion Specifies the Microsoft.Network API version used when creating networking resources in the Network Interface Configurations for Virtual Machine Scale Set. Possible values are `2020-11-01` and `2022-11-01`. Defaults to `2020-11-01`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder networkApiVersion(@Nullable Output<String> networkApiVersion) {
+            $.networkApiVersion = networkApiVersion;
+            return this;
+        }
+
+        /**
+         * @param networkApiVersion Specifies the Microsoft.Network API version used when creating networking resources in the Network Interface Configurations for Virtual Machine Scale Set. Possible values are `2020-11-01` and `2022-11-01`. Defaults to `2020-11-01`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder networkApiVersion(String networkApiVersion) {
+            return networkApiVersion(Output.of(networkApiVersion));
         }
 
         /**

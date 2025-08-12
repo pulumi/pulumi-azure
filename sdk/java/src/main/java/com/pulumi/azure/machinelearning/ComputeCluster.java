@@ -151,7 +151,7 @@ import javax.annotation.Nullable;
  * &lt;!-- This section is generated, changes will be overwritten --&gt;
  * This resource uses the following Azure API Providers:
  * 
- * * `Microsoft.MachineLearningServices`: 2024-04-01
+ * * `Microsoft.MachineLearningServices` - 2025-06-01
  * 
  * ## Import
  * 
@@ -263,14 +263,14 @@ public class ComputeCluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.nodePublicIpEnabled);
     }
     /**
-     * A `scale_settings` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
+     * A `scale_settings` block as defined below.
      * 
      */
     @Export(name="scaleSettings", refs={ComputeClusterScaleSettings.class}, tree="[0]")
     private Output<ComputeClusterScaleSettings> scaleSettings;
 
     /**
-     * @return A `scale_settings` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
+     * @return A `scale_settings` block as defined below.
      * 
      */
     public Output<ComputeClusterScaleSettings> scaleSettings() {
@@ -319,14 +319,14 @@ public class ComputeCluster extends com.pulumi.resources.CustomResource {
         return this.subnetResourceId;
     }
     /**
-     * A mapping of tags which should be assigned to the Machine Learning Compute Cluster. Changing this forces a new Machine Learning Compute Cluster to be created.
+     * A mapping of tags which should be assigned to the Machine Learning Compute Cluster.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A mapping of tags which should be assigned to the Machine Learning Compute Cluster. Changing this forces a new Machine Learning Compute Cluster to be created.
+     * @return A mapping of tags which should be assigned to the Machine Learning Compute Cluster.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {

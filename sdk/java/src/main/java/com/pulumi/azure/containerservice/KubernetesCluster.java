@@ -112,6 +112,13 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.ContainerService` - 2025-02-01
+ * 
  * ## Import
  * 
  * Managed Kubernetes Clusters can be imported using the `resource id`, e.g.
@@ -256,6 +263,20 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
      */
     public Output<String> currentKubernetesVersion() {
         return this.currentKubernetesVersion;
+    }
+    /**
+     * A list of up to 10 base64 encoded CA certificates that will be added to the trust store on nodes.
+     * 
+     */
+    @Export(name="customCaTrustCertificatesBase64s", refs={List.class,String.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<String>> customCaTrustCertificatesBase64s;
+
+    /**
+     * @return A list of up to 10 base64 encoded CA certificates that will be added to the trust store on nodes.
+     * 
+     */
+    public Output<Optional<List<String>>> customCaTrustCertificatesBase64s() {
+        return Codegen.optional(this.customCaTrustCertificatesBase64s);
     }
     /**
      * Specifies configuration for &#34;System&#34; mode node pool. A `default_node_pool` block as defined below.
@@ -428,14 +449,14 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.imageCleanerEnabled);
     }
     /**
-     * Specifies the interval in hours when images should be cleaned up. Defaults to `0`.
+     * Specifies the interval in hours when images should be cleaned up.
      * 
      */
     @Export(name="imageCleanerIntervalHours", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> imageCleanerIntervalHours;
 
     /**
-     * @return Specifies the interval in hours when images should be cleaned up. Defaults to `0`.
+     * @return Specifies the interval in hours when images should be cleaned up.
      * 
      */
     public Output<Optional<Integer>> imageCleanerIntervalHours() {

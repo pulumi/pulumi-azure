@@ -61,7 +61,7 @@ namespace Pulumi.Azure.AppService
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.Web`: 2023-12-01
+    /// * `Microsoft.Web` - 2023-12-01
     /// 
     /// ## Import
     /// 
@@ -270,6 +270,14 @@ namespace Pulumi.Azure.AppService
 
         [Output("virtualNetworkSubnetId")]
         public Output<string?> VirtualNetworkSubnetId { get; private set; } = null!;
+
+        /// <summary>
+        /// Should the traffic for the image pull be routed over virtual network enabled. Defaults to `false`.
+        /// 
+        /// &gt; **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. Must be set to `true` when running in an App Service Environment.
+        /// </summary>
+        [Output("vnetImagePullEnabled")]
+        public Output<bool?> VnetImagePullEnabled { get; private set; } = null!;
 
         /// <summary>
         /// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
@@ -498,6 +506,14 @@ namespace Pulumi.Azure.AppService
 
         [Input("virtualNetworkSubnetId")]
         public Input<string>? VirtualNetworkSubnetId { get; set; }
+
+        /// <summary>
+        /// Should the traffic for the image pull be routed over virtual network enabled. Defaults to `false`.
+        /// 
+        /// &gt; **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. Must be set to `true` when running in an App Service Environment.
+        /// </summary>
+        [Input("vnetImagePullEnabled")]
+        public Input<bool>? VnetImagePullEnabled { get; set; }
 
         /// <summary>
         /// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
@@ -781,6 +797,14 @@ namespace Pulumi.Azure.AppService
 
         [Input("virtualNetworkSubnetId")]
         public Input<string>? VirtualNetworkSubnetId { get; set; }
+
+        /// <summary>
+        /// Should the traffic for the image pull be routed over virtual network enabled. Defaults to `false`.
+        /// 
+        /// &gt; **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. Must be set to `true` when running in an App Service Environment.
+        /// </summary>
+        [Input("vnetImagePullEnabled")]
+        public Input<bool>? VnetImagePullEnabled { get; set; }
 
         /// <summary>
         /// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.

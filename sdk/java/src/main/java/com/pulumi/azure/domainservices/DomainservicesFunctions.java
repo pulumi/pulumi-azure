@@ -61,7 +61,7 @@ public final class DomainservicesFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.AAD`: 2021-05-01
+     * * `Microsoft.AAD` - 2021-05-01
      * 
      */
     public static Output<GetServiceResult> getService(GetServiceArgs args) {
@@ -113,7 +113,7 @@ public final class DomainservicesFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.AAD`: 2021-05-01
+     * * `Microsoft.AAD` - 2021-05-01
      * 
      */
     public static CompletableFuture<GetServiceResult> getServicePlain(GetServicePlainArgs args) {
@@ -165,7 +165,7 @@ public final class DomainservicesFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.AAD`: 2021-05-01
+     * * `Microsoft.AAD` - 2021-05-01
      * 
      */
     public static Output<GetServiceResult> getService(GetServiceArgs args, InvokeOptions options) {
@@ -217,7 +217,7 @@ public final class DomainservicesFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.AAD`: 2021-05-01
+     * * `Microsoft.AAD` - 2021-05-01
      * 
      */
     public static Output<GetServiceResult> getService(GetServiceArgs args, InvokeOutputOptions options) {
@@ -269,7 +269,7 @@ public final class DomainservicesFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.AAD`: 2021-05-01
+     * * `Microsoft.AAD` - 2021-05-01
      * 
      */
     public static CompletableFuture<GetServiceResult> getServicePlain(GetServicePlainArgs args, InvokeOptions options) {

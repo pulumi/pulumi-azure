@@ -12,6 +12,61 @@ namespace Pulumi.Azure.ContainerApp
     /// <summary>
     /// Manages a Container App Environment Certificate.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// using Std = Pulumi.Std;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     {
+    ///         Name = "example-resources",
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("example", new()
+    ///     {
+    ///         Name = "acctest-01",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         Sku = "PerGB2018",
+    ///         RetentionInDays = 30,
+    ///     });
+    /// 
+    ///     var exampleEnvironment = new Azure.ContainerApp.Environment("example", new()
+    ///     {
+    ///         Name = "myEnvironment",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         LogAnalyticsWorkspaceId = exampleAnalyticsWorkspace.Id,
+    ///     });
+    /// 
+    ///     var exampleEnvironmentCertificate = new Azure.ContainerApp.EnvironmentCertificate("example", new()
+    ///     {
+    ///         Name = "myfriendlyname",
+    ///         ContainerAppEnvironmentId = exampleEnvironment.Id,
+    ///         CertificateBlobBase64 = Std.Filebase64.Invoke(new()
+    ///         {
+    ///             Input = "path/to/certificate_file.pfx",
+    ///         }).Apply(invoke =&gt; invoke.Result),
+    ///         CertificatePassword = "$3cretSqu1rreL",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.App` - 2025-01-01
+    /// 
     /// ## Import
     /// 
     /// A Container App Environment Certificate can be imported using the `resource id`, e.g.

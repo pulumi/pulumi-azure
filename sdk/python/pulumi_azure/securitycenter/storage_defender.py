@@ -262,7 +262,7 @@ class StorageDefender(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.Security`: 2022-12-01-preview
+        * `Microsoft.Security` - 2022-12-01-preview
 
         ## Import
 
@@ -313,7 +313,7 @@ class StorageDefender(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.Security`: 2022-12-01-preview
+        * `Microsoft.Security` - 2022-12-01-preview
 
         ## Import
 

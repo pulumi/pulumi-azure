@@ -137,7 +137,7 @@ def get_device(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.DataBoxEdge`: 2022-03-01
+    * `Microsoft.DataBoxEdge` - 2022-03-01
 
 
     :param _builtins.str name: The name which should be used for this Databox Edge Device. Changing this forces a new Databox Edge Device to be created.
@@ -178,7 +178,7 @@ def get_device_output(name: Optional[pulumi.Input[_builtins.str]] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.DataBoxEdge`: 2022-03-01
+    * `Microsoft.DataBoxEdge` - 2022-03-01
 
 
     :param _builtins.str name: The name which should be used for this Databox Edge Device. Changing this forces a new Databox Edge Device to be created.

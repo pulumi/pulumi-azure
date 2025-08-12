@@ -86,7 +86,7 @@ namespace Pulumi.Azure.Datadog
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.Datadog`: 2021-03-01
+    /// * `Microsoft.Datadog` - 2021-03-01
     /// 
     /// ## Import
     /// 

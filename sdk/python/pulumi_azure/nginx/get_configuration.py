@@ -127,7 +127,7 @@ def get_configuration(nginx_deployment_id: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Nginx.NginxPlus`: 2024-11-01-preview
+    * `Nginx.NginxPlus` - 2024-11-01-preview
 
 
     :param _builtins.str nginx_deployment_id: The ID of the Nginx Deployment.
@@ -164,7 +164,7 @@ def get_configuration_output(nginx_deployment_id: Optional[pulumi.Input[_builtin
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Nginx.NginxPlus`: 2024-11-01-preview
+    * `Nginx.NginxPlus` - 2024-11-01-preview
 
 
     :param _builtins.str nginx_deployment_id: The ID of the Nginx Deployment.

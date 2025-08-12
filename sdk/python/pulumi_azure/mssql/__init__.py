@@ -14,6 +14,7 @@ from .failover_group import *
 from .firewall_rule import *
 from .get_database import *
 from .get_elastic_pool import *
+from .get_failover_group import *
 from .get_managed_database import *
 from .get_managed_instance import *
 from .get_server import *
@@ -28,6 +29,7 @@ from .managed_instance import *
 from .managed_instance_active_directory_administrator import *
 from .managed_instance_failover_group import *
 from .managed_instance_security_alert_policy import *
+from .managed_instance_start_stop_schedule import *
 from .managed_instance_transparent_data_encryption import *
 from .managed_instance_vulnerability_assessment import *
 from .outbound_firewall_rule import *

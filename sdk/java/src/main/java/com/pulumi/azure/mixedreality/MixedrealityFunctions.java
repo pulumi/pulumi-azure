@@ -62,7 +62,7 @@ public final class MixedrealityFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.MixedReality`: 2021-01-01
+     * * `Microsoft.MixedReality` - 2021-01-01
      * 
      */
     public static Output<GetSpatialAnchorsAccountResult> getSpatialAnchorsAccount(GetSpatialAnchorsAccountArgs args) {
@@ -115,7 +115,7 @@ public final class MixedrealityFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.MixedReality`: 2021-01-01
+     * * `Microsoft.MixedReality` - 2021-01-01
      * 
      */
     public static CompletableFuture<GetSpatialAnchorsAccountResult> getSpatialAnchorsAccountPlain(GetSpatialAnchorsAccountPlainArgs args) {
@@ -168,7 +168,7 @@ public final class MixedrealityFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.MixedReality`: 2021-01-01
+     * * `Microsoft.MixedReality` - 2021-01-01
      * 
      */
     public static Output<GetSpatialAnchorsAccountResult> getSpatialAnchorsAccount(GetSpatialAnchorsAccountArgs args, InvokeOptions options) {
@@ -221,7 +221,7 @@ public final class MixedrealityFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.MixedReality`: 2021-01-01
+     * * `Microsoft.MixedReality` - 2021-01-01
      * 
      */
     public static Output<GetSpatialAnchorsAccountResult> getSpatialAnchorsAccount(GetSpatialAnchorsAccountArgs args, InvokeOutputOptions options) {
@@ -274,7 +274,7 @@ public final class MixedrealityFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.MixedReality`: 2021-01-01
+     * * `Microsoft.MixedReality` - 2021-01-01
      * 
      */
     public static CompletableFuture<GetSpatialAnchorsAccountResult> getSpatialAnchorsAccountPlain(GetSpatialAnchorsAccountPlainArgs args, InvokeOptions options) {

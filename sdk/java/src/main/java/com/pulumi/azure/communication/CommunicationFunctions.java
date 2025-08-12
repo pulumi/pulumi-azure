@@ -60,7 +60,7 @@ public final class CommunicationFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Communication`: 2023-03-31
+     * * `Microsoft.Communication` - 2023-03-31
      * 
      */
     public static Output<GetServiceResult> getService(GetServiceArgs args) {
@@ -111,7 +111,7 @@ public final class CommunicationFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Communication`: 2023-03-31
+     * * `Microsoft.Communication` - 2023-03-31
      * 
      */
     public static CompletableFuture<GetServiceResult> getServicePlain(GetServicePlainArgs args) {
@@ -162,7 +162,7 @@ public final class CommunicationFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Communication`: 2023-03-31
+     * * `Microsoft.Communication` - 2023-03-31
      * 
      */
     public static Output<GetServiceResult> getService(GetServiceArgs args, InvokeOptions options) {
@@ -213,7 +213,7 @@ public final class CommunicationFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Communication`: 2023-03-31
+     * * `Microsoft.Communication` - 2023-03-31
      * 
      */
     public static Output<GetServiceResult> getService(GetServiceArgs args, InvokeOutputOptions options) {
@@ -264,7 +264,7 @@ public final class CommunicationFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Communication`: 2023-03-31
+     * * `Microsoft.Communication` - 2023-03-31
      * 
      */
     public static CompletableFuture<GetServiceResult> getServicePlain(GetServicePlainArgs args, InvokeOptions options) {

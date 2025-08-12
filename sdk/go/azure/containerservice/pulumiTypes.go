@@ -1940,6 +1940,8 @@ type FluxConfigurationGitRepository struct {
 	HttpsUser *string `pulumi:"httpsUser"`
 	// Specifies the name of a local secret on the Kubernetes cluster to use as the authentication secret rather than the managed or user-provided configuration secrets. It must be between 1 and 63 characters. It can contain only lowercase letters, numbers, and hyphens (-). It must start and end with a lowercase letter or number.
 	LocalAuthReference *string `pulumi:"localAuthReference"`
+	// Specifies the OIDC provider used for workload identity federation authentication against git repositories. Possible values are `Azure`, `Generic`.
+	Provider *string `pulumi:"provider"`
 	// Specifies the source reference type for the GitRepository object. Possible values are `branch`, `commit`, `semver` and `tag`.
 	ReferenceType string `pulumi:"referenceType"`
 	// Specifies the source reference value for the GitRepository object.
@@ -1976,6 +1978,8 @@ type FluxConfigurationGitRepositoryArgs struct {
 	HttpsUser pulumi.StringPtrInput `pulumi:"httpsUser"`
 	// Specifies the name of a local secret on the Kubernetes cluster to use as the authentication secret rather than the managed or user-provided configuration secrets. It must be between 1 and 63 characters. It can contain only lowercase letters, numbers, and hyphens (-). It must start and end with a lowercase letter or number.
 	LocalAuthReference pulumi.StringPtrInput `pulumi:"localAuthReference"`
+	// Specifies the OIDC provider used for workload identity federation authentication against git repositories. Possible values are `Azure`, `Generic`.
+	Provider pulumi.StringPtrInput `pulumi:"provider"`
 	// Specifies the source reference type for the GitRepository object. Possible values are `branch`, `commit`, `semver` and `tag`.
 	ReferenceType pulumi.StringInput `pulumi:"referenceType"`
 	// Specifies the source reference value for the GitRepository object.
@@ -2089,6 +2093,11 @@ func (o FluxConfigurationGitRepositoryOutput) LocalAuthReference() pulumi.String
 	return o.ApplyT(func(v FluxConfigurationGitRepository) *string { return v.LocalAuthReference }).(pulumi.StringPtrOutput)
 }
 
+// Specifies the OIDC provider used for workload identity federation authentication against git repositories. Possible values are `Azure`, `Generic`.
+func (o FluxConfigurationGitRepositoryOutput) Provider() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FluxConfigurationGitRepository) *string { return v.Provider }).(pulumi.StringPtrOutput)
+}
+
 // Specifies the source reference type for the GitRepository object. Possible values are `branch`, `commit`, `semver` and `tag`.
 func (o FluxConfigurationGitRepositoryOutput) ReferenceType() pulumi.StringOutput {
 	return o.ApplyT(func(v FluxConfigurationGitRepository) string { return v.ReferenceType }).(pulumi.StringOutput)
@@ -2185,6 +2194,16 @@ func (o FluxConfigurationGitRepositoryPtrOutput) LocalAuthReference() pulumi.Str
 			return nil
 		}
 		return v.LocalAuthReference
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the OIDC provider used for workload identity federation authentication against git repositories. Possible values are `Azure`, `Generic`.
+func (o FluxConfigurationGitRepositoryPtrOutput) Provider() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FluxConfigurationGitRepository) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Provider
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -6421,7 +6440,7 @@ type KubernetesClusterAutoScalerProfile struct {
 	ScanInterval *string `pulumi:"scanInterval"`
 	// If `true` cluster autoscaler will never delete nodes with pods with local storage, for example, EmptyDir or HostPath. Defaults to `true`.
 	SkipNodesWithLocalStorage *bool `pulumi:"skipNodesWithLocalStorage"`
-	// If `true` cluster autoscaler will never delete nodes with pods from kube-system (except for DaemonSet or mirror pods). Defaults to `true`.
+	// If `true` cluster autoscaler will never delete nodes with pods from kube-system (except for DaemonSet or mirror pods). Defaults to `false`. <!-- defaults to `false` in code, not in Schema -->
 	SkipNodesWithSystemPods *bool `pulumi:"skipNodesWithSystemPods"`
 }
 
@@ -6475,7 +6494,7 @@ type KubernetesClusterAutoScalerProfileArgs struct {
 	ScanInterval pulumi.StringPtrInput `pulumi:"scanInterval"`
 	// If `true` cluster autoscaler will never delete nodes with pods with local storage, for example, EmptyDir or HostPath. Defaults to `true`.
 	SkipNodesWithLocalStorage pulumi.BoolPtrInput `pulumi:"skipNodesWithLocalStorage"`
-	// If `true` cluster autoscaler will never delete nodes with pods from kube-system (except for DaemonSet or mirror pods). Defaults to `true`.
+	// If `true` cluster autoscaler will never delete nodes with pods from kube-system (except for DaemonSet or mirror pods). Defaults to `false`. <!-- defaults to `false` in code, not in Schema -->
 	SkipNodesWithSystemPods pulumi.BoolPtrInput `pulumi:"skipNodesWithSystemPods"`
 }
 
@@ -6651,7 +6670,7 @@ func (o KubernetesClusterAutoScalerProfileOutput) SkipNodesWithLocalStorage() pu
 	return o.ApplyT(func(v KubernetesClusterAutoScalerProfile) *bool { return v.SkipNodesWithLocalStorage }).(pulumi.BoolPtrOutput)
 }
 
-// If `true` cluster autoscaler will never delete nodes with pods from kube-system (except for DaemonSet or mirror pods). Defaults to `true`.
+// If `true` cluster autoscaler will never delete nodes with pods from kube-system (except for DaemonSet or mirror pods). Defaults to `false`. <!-- defaults to `false` in code, not in Schema -->
 func (o KubernetesClusterAutoScalerProfileOutput) SkipNodesWithSystemPods() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterAutoScalerProfile) *bool { return v.SkipNodesWithSystemPods }).(pulumi.BoolPtrOutput)
 }
@@ -6870,7 +6889,7 @@ func (o KubernetesClusterAutoScalerProfilePtrOutput) SkipNodesWithLocalStorage()
 	}).(pulumi.BoolPtrOutput)
 }
 
-// If `true` cluster autoscaler will never delete nodes with pods from kube-system (except for DaemonSet or mirror pods). Defaults to `true`.
+// If `true` cluster autoscaler will never delete nodes with pods from kube-system (except for DaemonSet or mirror pods). Defaults to `false`. <!-- defaults to `false` in code, not in Schema -->
 func (o KubernetesClusterAutoScalerProfilePtrOutput) SkipNodesWithSystemPods() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterAutoScalerProfile) *bool {
 		if v == nil {
@@ -7203,7 +7222,7 @@ type KubernetesClusterDefaultNodePool struct {
 	AutoScalingEnabled *bool `pulumi:"autoScalingEnabled"`
 	// Specifies the ID of the Capacity Reservation Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
 	CapacityReservationGroupId *string `pulumi:"capacityReservationGroupId"`
-	// Should the nodes in this Node Pool have Federal Information Processing Standard enabled? `temporaryNameForRotation` must be specified when changing this block. Changing this forces a new resource to be created.
+	// Should the nodes in this Node Pool have Federal Information Processing Standard enabled? `temporaryNameForRotation` must be specified when changing this block.
 	FipsEnabled *bool `pulumi:"fipsEnabled"`
 	// Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are `MIG1g`, `MIG2g`, `MIG3g`, `MIG4g` and `MIG7g`. Changing this forces a new resource to be created.
 	GpuInstance *string `pulumi:"gpuInstance"`
@@ -7302,7 +7321,7 @@ type KubernetesClusterDefaultNodePoolArgs struct {
 	AutoScalingEnabled pulumi.BoolPtrInput `pulumi:"autoScalingEnabled"`
 	// Specifies the ID of the Capacity Reservation Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
 	CapacityReservationGroupId pulumi.StringPtrInput `pulumi:"capacityReservationGroupId"`
-	// Should the nodes in this Node Pool have Federal Information Processing Standard enabled? `temporaryNameForRotation` must be specified when changing this block. Changing this forces a new resource to be created.
+	// Should the nodes in this Node Pool have Federal Information Processing Standard enabled? `temporaryNameForRotation` must be specified when changing this block.
 	FipsEnabled pulumi.BoolPtrInput `pulumi:"fipsEnabled"`
 	// Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are `MIG1g`, `MIG2g`, `MIG3g`, `MIG4g` and `MIG7g`. Changing this forces a new resource to be created.
 	GpuInstance pulumi.StringPtrInput `pulumi:"gpuInstance"`
@@ -7472,7 +7491,7 @@ func (o KubernetesClusterDefaultNodePoolOutput) CapacityReservationGroupId() pul
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *string { return v.CapacityReservationGroupId }).(pulumi.StringPtrOutput)
 }
 
-// Should the nodes in this Node Pool have Federal Information Processing Standard enabled? `temporaryNameForRotation` must be specified when changing this block. Changing this forces a new resource to be created.
+// Should the nodes in this Node Pool have Federal Information Processing Standard enabled? `temporaryNameForRotation` must be specified when changing this block.
 func (o KubernetesClusterDefaultNodePoolOutput) FipsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *bool { return v.FipsEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -7707,7 +7726,7 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) CapacityReservationGroupId() 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Should the nodes in this Node Pool have Federal Information Processing Standard enabled? `temporaryNameForRotation` must be specified when changing this block. Changing this forces a new resource to be created.
+// Should the nodes in this Node Pool have Federal Information Processing Standard enabled? `temporaryNameForRotation` must be specified when changing this block.
 func (o KubernetesClusterDefaultNodePoolPtrOutput) FipsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) *bool {
 		if v == nil {
@@ -8369,9 +8388,11 @@ type KubernetesClusterDefaultNodePoolLinuxOsConfig struct {
 	SwapFileSizeMb *int `pulumi:"swapFileSizeMb"`
 	// A `sysctlConfig` block as defined below.
 	SysctlConfig *KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig `pulumi:"sysctlConfig"`
+	// Specifies the Transparent Huge Page configuration. Possible values are `always`, `madvise` and `never`.
+	TransparentHugePage *string `pulumi:"transparentHugePage"`
 	// specifies the defrag configuration for Transparent Huge Page. Possible values are `always`, `defer`, `defer+madvise`, `madvise` and `never`.
 	TransparentHugePageDefrag *string `pulumi:"transparentHugePageDefrag"`
-	// Specifies the Transparent Huge Page enabled configuration. Possible values are `always`, `madvise` and `never`.
+	// Deprecated: this property has been deprecated in favour of `transparentHugePage` and will be removed in version 5.0 of the Provider.
 	TransparentHugePageEnabled *string `pulumi:"transparentHugePageEnabled"`
 }
 
@@ -8391,9 +8412,11 @@ type KubernetesClusterDefaultNodePoolLinuxOsConfigArgs struct {
 	SwapFileSizeMb pulumi.IntPtrInput `pulumi:"swapFileSizeMb"`
 	// A `sysctlConfig` block as defined below.
 	SysctlConfig KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrInput `pulumi:"sysctlConfig"`
+	// Specifies the Transparent Huge Page configuration. Possible values are `always`, `madvise` and `never`.
+	TransparentHugePage pulumi.StringPtrInput `pulumi:"transparentHugePage"`
 	// specifies the defrag configuration for Transparent Huge Page. Possible values are `always`, `defer`, `defer+madvise`, `madvise` and `never`.
 	TransparentHugePageDefrag pulumi.StringPtrInput `pulumi:"transparentHugePageDefrag"`
-	// Specifies the Transparent Huge Page enabled configuration. Possible values are `always`, `madvise` and `never`.
+	// Deprecated: this property has been deprecated in favour of `transparentHugePage` and will be removed in version 5.0 of the Provider.
 	TransparentHugePageEnabled pulumi.StringPtrInput `pulumi:"transparentHugePageEnabled"`
 }
 
@@ -8486,12 +8509,17 @@ func (o KubernetesClusterDefaultNodePoolLinuxOsConfigOutput) SysctlConfig() Kube
 	}).(KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrOutput)
 }
 
+// Specifies the Transparent Huge Page configuration. Possible values are `always`, `madvise` and `never`.
+func (o KubernetesClusterDefaultNodePoolLinuxOsConfigOutput) TransparentHugePage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePoolLinuxOsConfig) *string { return v.TransparentHugePage }).(pulumi.StringPtrOutput)
+}
+
 // specifies the defrag configuration for Transparent Huge Page. Possible values are `always`, `defer`, `defer+madvise`, `madvise` and `never`.
 func (o KubernetesClusterDefaultNodePoolLinuxOsConfigOutput) TransparentHugePageDefrag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePoolLinuxOsConfig) *string { return v.TransparentHugePageDefrag }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the Transparent Huge Page enabled configuration. Possible values are `always`, `madvise` and `never`.
+// Deprecated: this property has been deprecated in favour of `transparentHugePage` and will be removed in version 5.0 of the Provider.
 func (o KubernetesClusterDefaultNodePoolLinuxOsConfigOutput) TransparentHugePageEnabled() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePoolLinuxOsConfig) *string { return v.TransparentHugePageEnabled }).(pulumi.StringPtrOutput)
 }
@@ -8540,6 +8568,16 @@ func (o KubernetesClusterDefaultNodePoolLinuxOsConfigPtrOutput) SysctlConfig() K
 	}).(KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrOutput)
 }
 
+// Specifies the Transparent Huge Page configuration. Possible values are `always`, `madvise` and `never`.
+func (o KubernetesClusterDefaultNodePoolLinuxOsConfigPtrOutput) TransparentHugePage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterDefaultNodePoolLinuxOsConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TransparentHugePage
+	}).(pulumi.StringPtrOutput)
+}
+
 // specifies the defrag configuration for Transparent Huge Page. Possible values are `always`, `defer`, `defer+madvise`, `madvise` and `never`.
 func (o KubernetesClusterDefaultNodePoolLinuxOsConfigPtrOutput) TransparentHugePageDefrag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePoolLinuxOsConfig) *string {
@@ -8550,7 +8588,7 @@ func (o KubernetesClusterDefaultNodePoolLinuxOsConfigPtrOutput) TransparentHugeP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the Transparent Huge Page enabled configuration. Possible values are `always`, `madvise` and `never`.
+// Deprecated: this property has been deprecated in favour of `transparentHugePage` and will be removed in version 5.0 of the Provider.
 func (o KubernetesClusterDefaultNodePoolLinuxOsConfigPtrOutput) TransparentHugePageEnabled() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePoolLinuxOsConfig) *string {
 		if v == nil {
@@ -9560,7 +9598,7 @@ type KubernetesClusterDefaultNodePoolUpgradeSettings struct {
 	//
 	// > **Note:** If a percentage is provided, the number of surge nodes is calculated from the `nodeCount` value on the current cluster. Node surge can allow a cluster to have more nodes than `maxCount` during an upgrade. Ensure that your cluster has enough [IP space](https://docs.microsoft.com/azure/aks/upgrade-cluster#customize-node-surge-upgrade) during an upgrade.
 	MaxSurge string `pulumi:"maxSurge"`
-	// The amount of time in minutes to wait after draining a node and before reimaging and moving on to next node. Defaults to `0`.
+	// The amount of time in minutes to wait after draining a node and before reimaging and moving on to next node. Defaults to `0`. <!-- The 0 default happens in code, not in Schema -->
 	NodeSoakDurationInMinutes *int `pulumi:"nodeSoakDurationInMinutes"`
 }
 
@@ -9582,7 +9620,7 @@ type KubernetesClusterDefaultNodePoolUpgradeSettingsArgs struct {
 	//
 	// > **Note:** If a percentage is provided, the number of surge nodes is calculated from the `nodeCount` value on the current cluster. Node surge can allow a cluster to have more nodes than `maxCount` during an upgrade. Ensure that your cluster has enough [IP space](https://docs.microsoft.com/azure/aks/upgrade-cluster#customize-node-surge-upgrade) during an upgrade.
 	MaxSurge pulumi.StringInput `pulumi:"maxSurge"`
-	// The amount of time in minutes to wait after draining a node and before reimaging and moving on to next node. Defaults to `0`.
+	// The amount of time in minutes to wait after draining a node and before reimaging and moving on to next node. Defaults to `0`. <!-- The 0 default happens in code, not in Schema -->
 	NodeSoakDurationInMinutes pulumi.IntPtrInput `pulumi:"nodeSoakDurationInMinutes"`
 }
 
@@ -9675,7 +9713,7 @@ func (o KubernetesClusterDefaultNodePoolUpgradeSettingsOutput) MaxSurge() pulumi
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePoolUpgradeSettings) string { return v.MaxSurge }).(pulumi.StringOutput)
 }
 
-// The amount of time in minutes to wait after draining a node and before reimaging and moving on to next node. Defaults to `0`.
+// The amount of time in minutes to wait after draining a node and before reimaging and moving on to next node. Defaults to `0`. <!-- The 0 default happens in code, not in Schema -->
 func (o KubernetesClusterDefaultNodePoolUpgradeSettingsOutput) NodeSoakDurationInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePoolUpgradeSettings) *int { return v.NodeSoakDurationInMinutes }).(pulumi.IntPtrOutput)
 }
@@ -9726,7 +9764,7 @@ func (o KubernetesClusterDefaultNodePoolUpgradeSettingsPtrOutput) MaxSurge() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// The amount of time in minutes to wait after draining a node and before reimaging and moving on to next node. Defaults to `0`.
+// The amount of time in minutes to wait after draining a node and before reimaging and moving on to next node. Defaults to `0`. <!-- The 0 default happens in code, not in Schema -->
 func (o KubernetesClusterDefaultNodePoolUpgradeSettingsPtrOutput) NodeSoakDurationInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePoolUpgradeSettings) *int {
 		if v == nil {
@@ -12318,7 +12356,7 @@ type KubernetesClusterMaintenanceWindowAutoUpgrade struct {
 	DayOfWeek *string `pulumi:"dayOfWeek"`
 	// The duration of the window for maintenance to run in hours. Possible options are between `4` to `24`.
 	Duration int `pulumi:"duration"`
-	// Frequency of maintenance. Possible options are `Weekly`, `AbsoluteMonthly` and `RelativeMonthly`.
+	// Frequency of maintenance. Possible options are `Daily`, `Weekly`, `AbsoluteMonthly` and `RelativeMonthly`.
 	Frequency string `pulumi:"frequency"`
 	// The interval for maintenance runs. Depending on the frequency this interval is week or month based.
 	Interval int `pulumi:"interval"`
@@ -12353,7 +12391,7 @@ type KubernetesClusterMaintenanceWindowAutoUpgradeArgs struct {
 	DayOfWeek pulumi.StringPtrInput `pulumi:"dayOfWeek"`
 	// The duration of the window for maintenance to run in hours. Possible options are between `4` to `24`.
 	Duration pulumi.IntInput `pulumi:"duration"`
-	// Frequency of maintenance. Possible options are `Weekly`, `AbsoluteMonthly` and `RelativeMonthly`.
+	// Frequency of maintenance. Possible options are `Daily`, `Weekly`, `AbsoluteMonthly` and `RelativeMonthly`.
 	Frequency pulumi.StringInput `pulumi:"frequency"`
 	// The interval for maintenance runs. Depending on the frequency this interval is week or month based.
 	Interval pulumi.IntInput `pulumi:"interval"`
@@ -12462,7 +12500,7 @@ func (o KubernetesClusterMaintenanceWindowAutoUpgradeOutput) Duration() pulumi.I
 	return o.ApplyT(func(v KubernetesClusterMaintenanceWindowAutoUpgrade) int { return v.Duration }).(pulumi.IntOutput)
 }
 
-// Frequency of maintenance. Possible options are `Weekly`, `AbsoluteMonthly` and `RelativeMonthly`.
+// Frequency of maintenance. Possible options are `Daily`, `Weekly`, `AbsoluteMonthly` and `RelativeMonthly`.
 func (o KubernetesClusterMaintenanceWindowAutoUpgradeOutput) Frequency() pulumi.StringOutput {
 	return o.ApplyT(func(v KubernetesClusterMaintenanceWindowAutoUpgrade) string { return v.Frequency }).(pulumi.StringOutput)
 }
@@ -12554,7 +12592,7 @@ func (o KubernetesClusterMaintenanceWindowAutoUpgradePtrOutput) Duration() pulum
 	}).(pulumi.IntPtrOutput)
 }
 
-// Frequency of maintenance. Possible options are `Weekly`, `AbsoluteMonthly` and `RelativeMonthly`.
+// Frequency of maintenance. Possible options are `Daily`, `Weekly`, `AbsoluteMonthly` and `RelativeMonthly`.
 func (o KubernetesClusterMaintenanceWindowAutoUpgradePtrOutput) Frequency() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterMaintenanceWindowAutoUpgrade) *string {
 		if v == nil {
@@ -14831,9 +14869,11 @@ type KubernetesClusterNodePoolLinuxOsConfig struct {
 	SwapFileSizeMb *int `pulumi:"swapFileSizeMb"`
 	// A `sysctlConfig` block as defined below.
 	SysctlConfig *KubernetesClusterNodePoolLinuxOsConfigSysctlConfig `pulumi:"sysctlConfig"`
+	// Specifies the Transparent Huge Page configuration. Possible values are `always`, `madvise` and `never`.
+	TransparentHugePage *string `pulumi:"transparentHugePage"`
 	// specifies the defrag configuration for Transparent Huge Page. Possible values are `always`, `defer`, `defer+madvise`, `madvise` and `never`.
 	TransparentHugePageDefrag *string `pulumi:"transparentHugePageDefrag"`
-	// Specifies the Transparent Huge Page enabled configuration. Possible values are `always`, `madvise` and `never`.
+	// Deprecated: this property has been deprecated in favour of `transparentHugePage` and will be removed in version 5.0 of the Provider.
 	TransparentHugePageEnabled *string `pulumi:"transparentHugePageEnabled"`
 }
 
@@ -14853,9 +14893,11 @@ type KubernetesClusterNodePoolLinuxOsConfigArgs struct {
 	SwapFileSizeMb pulumi.IntPtrInput `pulumi:"swapFileSizeMb"`
 	// A `sysctlConfig` block as defined below.
 	SysctlConfig KubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrInput `pulumi:"sysctlConfig"`
+	// Specifies the Transparent Huge Page configuration. Possible values are `always`, `madvise` and `never`.
+	TransparentHugePage pulumi.StringPtrInput `pulumi:"transparentHugePage"`
 	// specifies the defrag configuration for Transparent Huge Page. Possible values are `always`, `defer`, `defer+madvise`, `madvise` and `never`.
 	TransparentHugePageDefrag pulumi.StringPtrInput `pulumi:"transparentHugePageDefrag"`
-	// Specifies the Transparent Huge Page enabled configuration. Possible values are `always`, `madvise` and `never`.
+	// Deprecated: this property has been deprecated in favour of `transparentHugePage` and will be removed in version 5.0 of the Provider.
 	TransparentHugePageEnabled pulumi.StringPtrInput `pulumi:"transparentHugePageEnabled"`
 }
 
@@ -14948,12 +14990,17 @@ func (o KubernetesClusterNodePoolLinuxOsConfigOutput) SysctlConfig() KubernetesC
 	}).(KubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrOutput)
 }
 
+// Specifies the Transparent Huge Page configuration. Possible values are `always`, `madvise` and `never`.
+func (o KubernetesClusterNodePoolLinuxOsConfigOutput) TransparentHugePage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterNodePoolLinuxOsConfig) *string { return v.TransparentHugePage }).(pulumi.StringPtrOutput)
+}
+
 // specifies the defrag configuration for Transparent Huge Page. Possible values are `always`, `defer`, `defer+madvise`, `madvise` and `never`.
 func (o KubernetesClusterNodePoolLinuxOsConfigOutput) TransparentHugePageDefrag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterNodePoolLinuxOsConfig) *string { return v.TransparentHugePageDefrag }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the Transparent Huge Page enabled configuration. Possible values are `always`, `madvise` and `never`.
+// Deprecated: this property has been deprecated in favour of `transparentHugePage` and will be removed in version 5.0 of the Provider.
 func (o KubernetesClusterNodePoolLinuxOsConfigOutput) TransparentHugePageEnabled() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterNodePoolLinuxOsConfig) *string { return v.TransparentHugePageEnabled }).(pulumi.StringPtrOutput)
 }
@@ -15002,6 +15049,16 @@ func (o KubernetesClusterNodePoolLinuxOsConfigPtrOutput) SysctlConfig() Kubernet
 	}).(KubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrOutput)
 }
 
+// Specifies the Transparent Huge Page configuration. Possible values are `always`, `madvise` and `never`.
+func (o KubernetesClusterNodePoolLinuxOsConfigPtrOutput) TransparentHugePage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterNodePoolLinuxOsConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TransparentHugePage
+	}).(pulumi.StringPtrOutput)
+}
+
 // specifies the defrag configuration for Transparent Huge Page. Possible values are `always`, `defer`, `defer+madvise`, `madvise` and `never`.
 func (o KubernetesClusterNodePoolLinuxOsConfigPtrOutput) TransparentHugePageDefrag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterNodePoolLinuxOsConfig) *string {
@@ -15012,7 +15069,7 @@ func (o KubernetesClusterNodePoolLinuxOsConfigPtrOutput) TransparentHugePageDefr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the Transparent Huge Page enabled configuration. Possible values are `always`, `madvise` and `never`.
+// Deprecated: this property has been deprecated in favour of `transparentHugePage` and will be removed in version 5.0 of the Provider.
 func (o KubernetesClusterNodePoolLinuxOsConfigPtrOutput) TransparentHugePageEnabled() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterNodePoolLinuxOsConfig) *string {
 		if v == nil {
@@ -17580,6 +17637,8 @@ func (o KubernetesClusterUpgradeOverridePtrOutput) ForceUpgradeEnabled() pulumi.
 }
 
 type KubernetesClusterWebAppRouting struct {
+	// Specifies the ingress type for the default `NginxIngressController` custom resource. The allowed values are `None`, `Internal`, `External` and `AnnotationControlled`. It defaults to `AnnotationControlled`.
+	DefaultNginxController *string `pulumi:"defaultNginxController"`
 	// Specifies the list of the DNS Zone IDs in which DNS entries are created for applications deployed to the cluster when Web App Routing is enabled. If not using Bring-Your-Own DNS zones this property should be set to an empty list.
 	DnsZoneIds []string `pulumi:"dnsZoneIds"`
 	// A `webAppRoutingIdentity` block is exported. The exported attributes are defined below.
@@ -17598,6 +17657,8 @@ type KubernetesClusterWebAppRoutingInput interface {
 }
 
 type KubernetesClusterWebAppRoutingArgs struct {
+	// Specifies the ingress type for the default `NginxIngressController` custom resource. The allowed values are `None`, `Internal`, `External` and `AnnotationControlled`. It defaults to `AnnotationControlled`.
+	DefaultNginxController pulumi.StringPtrInput `pulumi:"defaultNginxController"`
 	// Specifies the list of the DNS Zone IDs in which DNS entries are created for applications deployed to the cluster when Web App Routing is enabled. If not using Bring-Your-Own DNS zones this property should be set to an empty list.
 	DnsZoneIds pulumi.StringArrayInput `pulumi:"dnsZoneIds"`
 	// A `webAppRoutingIdentity` block is exported. The exported attributes are defined below.
@@ -17681,6 +17742,11 @@ func (o KubernetesClusterWebAppRoutingOutput) ToKubernetesClusterWebAppRoutingPt
 	}).(KubernetesClusterWebAppRoutingPtrOutput)
 }
 
+// Specifies the ingress type for the default `NginxIngressController` custom resource. The allowed values are `None`, `Internal`, `External` and `AnnotationControlled`. It defaults to `AnnotationControlled`.
+func (o KubernetesClusterWebAppRoutingOutput) DefaultNginxController() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterWebAppRouting) *string { return v.DefaultNginxController }).(pulumi.StringPtrOutput)
+}
+
 // Specifies the list of the DNS Zone IDs in which DNS entries are created for applications deployed to the cluster when Web App Routing is enabled. If not using Bring-Your-Own DNS zones this property should be set to an empty list.
 func (o KubernetesClusterWebAppRoutingOutput) DnsZoneIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v KubernetesClusterWebAppRouting) []string { return v.DnsZoneIds }).(pulumi.StringArrayOutput)
@@ -17715,6 +17781,16 @@ func (o KubernetesClusterWebAppRoutingPtrOutput) Elem() KubernetesClusterWebAppR
 		var ret KubernetesClusterWebAppRouting
 		return ret
 	}).(KubernetesClusterWebAppRoutingOutput)
+}
+
+// Specifies the ingress type for the default `NginxIngressController` custom resource. The allowed values are `None`, `Internal`, `External` and `AnnotationControlled`. It defaults to `AnnotationControlled`.
+func (o KubernetesClusterWebAppRoutingPtrOutput) DefaultNginxController() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterWebAppRouting) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultNginxController
+	}).(pulumi.StringPtrOutput)
 }
 
 // Specifies the list of the DNS Zone IDs in which DNS entries are created for applications deployed to the cluster when Web App Routing is enabled. If not using Bring-Your-Own DNS zones this property should be set to an empty list.
@@ -18214,8 +18290,6 @@ type KubernetesClusterWorkloadAutoscalerProfile struct {
 	// Specifies whether KEDA Autoscaler can be used for workloads.
 	KedaEnabled *bool `pulumi:"kedaEnabled"`
 	// Specifies whether Vertical Pod Autoscaler should be enabled.
-	//
-	// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AKS-VPAPreview` is enabled and the Resource Provider is re-registered, see the documentation for more information.
 	VerticalPodAutoscalerEnabled *bool `pulumi:"verticalPodAutoscalerEnabled"`
 }
 
@@ -18234,8 +18308,6 @@ type KubernetesClusterWorkloadAutoscalerProfileArgs struct {
 	// Specifies whether KEDA Autoscaler can be used for workloads.
 	KedaEnabled pulumi.BoolPtrInput `pulumi:"kedaEnabled"`
 	// Specifies whether Vertical Pod Autoscaler should be enabled.
-	//
-	// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AKS-VPAPreview` is enabled and the Resource Provider is re-registered, see the documentation for more information.
 	VerticalPodAutoscalerEnabled pulumi.BoolPtrInput `pulumi:"verticalPodAutoscalerEnabled"`
 }
 
@@ -18322,8 +18394,6 @@ func (o KubernetesClusterWorkloadAutoscalerProfileOutput) KedaEnabled() pulumi.B
 }
 
 // Specifies whether Vertical Pod Autoscaler should be enabled.
-//
-// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AKS-VPAPreview` is enabled and the Resource Provider is re-registered, see the documentation for more information.
 func (o KubernetesClusterWorkloadAutoscalerProfileOutput) VerticalPodAutoscalerEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterWorkloadAutoscalerProfile) *bool { return v.VerticalPodAutoscalerEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -18363,8 +18433,6 @@ func (o KubernetesClusterWorkloadAutoscalerProfilePtrOutput) KedaEnabled() pulum
 }
 
 // Specifies whether Vertical Pod Autoscaler should be enabled.
-//
-// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AKS-VPAPreview` is enabled and the Resource Provider is re-registered, see the documentation for more information.
 func (o KubernetesClusterWorkloadAutoscalerProfilePtrOutput) VerticalPodAutoscalerEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterWorkloadAutoscalerProfile) *bool {
 		if v == nil {

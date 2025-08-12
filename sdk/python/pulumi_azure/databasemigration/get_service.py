@@ -137,7 +137,7 @@ def get_service(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.DataMigration`: 2021-06-30
+    * `Microsoft.DataMigration` - 2021-06-30
 
 
     :param _builtins.str name: Specify the name of the database migration service.
@@ -179,7 +179,7 @@ def get_service_output(name: Optional[pulumi.Input[_builtins.str]] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.DataMigration`: 2021-06-30
+    * `Microsoft.DataMigration` - 2021-06-30
 
 
     :param _builtins.str name: Specify the name of the database migration service.

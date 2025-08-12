@@ -44,7 +44,7 @@ namespace Pulumi.Azure.Mobile
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.MobileNetwork`: 2022-11-01
+        /// * `Microsoft.MobileNetwork` - 2022-11-01
         /// </summary>
         public static Task<GetNetworkAttachedDataNetworkResult> InvokeAsync(GetNetworkAttachedDataNetworkArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkAttachedDataNetworkResult>("azure:mobile/getNetworkAttachedDataNetwork:getNetworkAttachedDataNetwork", args ?? new GetNetworkAttachedDataNetworkArgs(), options.WithDefaults());
@@ -82,7 +82,7 @@ namespace Pulumi.Azure.Mobile
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.MobileNetwork`: 2022-11-01
+        /// * `Microsoft.MobileNetwork` - 2022-11-01
         /// </summary>
         public static Output<GetNetworkAttachedDataNetworkResult> Invoke(GetNetworkAttachedDataNetworkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkAttachedDataNetworkResult>("azure:mobile/getNetworkAttachedDataNetwork:getNetworkAttachedDataNetwork", args ?? new GetNetworkAttachedDataNetworkInvokeArgs(), options.WithDefaults());
@@ -120,7 +120,7 @@ namespace Pulumi.Azure.Mobile
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.MobileNetwork`: 2022-11-01
+        /// * `Microsoft.MobileNetwork` - 2022-11-01
         /// </summary>
         public static Output<GetNetworkAttachedDataNetworkResult> Invoke(GetNetworkAttachedDataNetworkInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkAttachedDataNetworkResult>("azure:mobile/getNetworkAttachedDataNetwork:getNetworkAttachedDataNetwork", args ?? new GetNetworkAttachedDataNetworkInvokeArgs(), options.WithDefaults());

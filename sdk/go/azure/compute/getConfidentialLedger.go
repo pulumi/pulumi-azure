@@ -46,7 +46,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This data source uses the following Azure API Providers:
 //
-// * `Microsoft.ConfidentialLedger`: 2022-05-13
+// * `Microsoft.ConfidentialLedger` - 2022-05-13
 func GetConfidentialLedger(ctx *pulumi.Context, args *GetConfidentialLedgerArgs, opts ...pulumi.InvokeOption) (*GetConfidentialLedgerResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetConfidentialLedgerResult

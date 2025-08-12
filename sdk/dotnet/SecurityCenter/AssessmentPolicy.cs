@@ -37,7 +37,7 @@ namespace Pulumi.Azure.SecurityCenter
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.Security`: 2021-06-01
+    /// * `Microsoft.Security` - 2021-06-01
     /// 
     /// ## Import
     /// 

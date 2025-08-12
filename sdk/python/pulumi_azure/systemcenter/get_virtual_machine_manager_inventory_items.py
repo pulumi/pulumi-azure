@@ -101,7 +101,7 @@ def get_virtual_machine_manager_inventory_items(inventory_type: Optional[_builti
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.ScVmm`: 2023-10-07
+    * `Microsoft.ScVmm` - 2023-10-07
 
 
     :param _builtins.str inventory_type: The inventory type of the System Center Virtual Machine Manager Inventory Item. Possible values are `Cloud`, `VirtualMachine`, `VirtualMachineTemplate` and `VirtualNetwork`.
@@ -139,7 +139,7 @@ def get_virtual_machine_manager_inventory_items_output(inventory_type: Optional[
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.ScVmm`: 2023-10-07
+    * `Microsoft.ScVmm` - 2023-10-07
 
 
     :param _builtins.str inventory_type: The inventory type of the System Center Virtual Machine Manager Inventory Item. Possible values are `Cloud`, `VirtualMachine`, `VirtualMachineTemplate` and `VirtualNetwork`.

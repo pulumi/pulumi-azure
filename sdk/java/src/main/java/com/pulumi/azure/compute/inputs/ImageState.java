@@ -23,6 +23,8 @@ public final class ImageState extends com.pulumi.resources.ResourceArgs {
     /**
      * One or more `data_disk` blocks as defined below.
      * 
+     * &gt; **Note:** `data_disk` cannot be set together with `source_virtual_machine_id`.
+     * 
      */
     @Import(name="dataDisks")
     private @Nullable Output<List<ImageDataDiskArgs>> dataDisks;
@@ -30,24 +32,22 @@ public final class ImageState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return One or more `data_disk` blocks as defined below.
      * 
+     * &gt; **Note:** `data_disk` cannot be set together with `source_virtual_machine_id`.
+     * 
      */
     public Optional<Output<List<ImageDataDiskArgs>>> dataDisks() {
         return Optional.ofNullable(this.dataDisks);
     }
 
     /**
-     * The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
-     * 
-     * &gt; **Note:** `zone_resilient` can only be set to `true` if the image is stored in a region that supports availability zones.
+     * The Hyper-V Generation Type of the Virtual Machine created from the image as `V1`, `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="hyperVGeneration")
     private @Nullable Output<String> hyperVGeneration;
 
     /**
-     * @return The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
-     * 
-     * &gt; **Note:** `zone_resilient` can only be set to `true` if the image is stored in a region that supports availability zones.
+     * @return The Hyper-V Generation Type of the Virtual Machine created from the image as `V1`, `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> hyperVGeneration() {
@@ -87,12 +87,16 @@ public final class ImageState extends com.pulumi.resources.ResourceArgs {
     /**
      * One or more `os_disk` blocks as defined below. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note:** `os_disk` cannot be set together with `source_virtual_machine_id`.
+     * 
      */
     @Import(name="osDisk")
     private @Nullable Output<ImageOsDiskArgs> osDisk;
 
     /**
      * @return One or more `os_disk` blocks as defined below. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** `os_disk` cannot be set together with `source_virtual_machine_id`.
      * 
      */
     public Optional<Output<ImageOsDiskArgs>> osDisk() {
@@ -147,12 +151,20 @@ public final class ImageState extends com.pulumi.resources.ResourceArgs {
     /**
      * Is zone resiliency enabled? Defaults to `false`. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note:** `zone_resilient` can only be set to `true` if the image is stored in a region that supports availability zones.
+     * 
+     * &gt; **Note:** `zone_resilient` cannot be set together with `source_virtual_machine_id`.
+     * 
      */
     @Import(name="zoneResilient")
     private @Nullable Output<Boolean> zoneResilient;
 
     /**
      * @return Is zone resiliency enabled? Defaults to `false`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** `zone_resilient` can only be set to `true` if the image is stored in a region that supports availability zones.
+     * 
+     * &gt; **Note:** `zone_resilient` cannot be set together with `source_virtual_machine_id`.
      * 
      */
     public Optional<Output<Boolean>> zoneResilient() {
@@ -194,6 +206,8 @@ public final class ImageState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param dataDisks One or more `data_disk` blocks as defined below.
          * 
+         * &gt; **Note:** `data_disk` cannot be set together with `source_virtual_machine_id`.
+         * 
          * @return builder
          * 
          */
@@ -205,6 +219,8 @@ public final class ImageState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param dataDisks One or more `data_disk` blocks as defined below.
          * 
+         * &gt; **Note:** `data_disk` cannot be set together with `source_virtual_machine_id`.
+         * 
          * @return builder
          * 
          */
@@ -215,6 +231,8 @@ public final class ImageState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param dataDisks One or more `data_disk` blocks as defined below.
          * 
+         * &gt; **Note:** `data_disk` cannot be set together with `source_virtual_machine_id`.
+         * 
          * @return builder
          * 
          */
@@ -223,9 +241,7 @@ public final class ImageState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param hyperVGeneration The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
-         * 
-         * &gt; **Note:** `zone_resilient` can only be set to `true` if the image is stored in a region that supports availability zones.
+         * @param hyperVGeneration The Hyper-V Generation Type of the Virtual Machine created from the image as `V1`, `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -236,9 +252,7 @@ public final class ImageState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param hyperVGeneration The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
-         * 
-         * &gt; **Note:** `zone_resilient` can only be set to `true` if the image is stored in a region that supports availability zones.
+         * @param hyperVGeneration The Hyper-V Generation Type of the Virtual Machine created from the image as `V1`, `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -292,6 +306,8 @@ public final class ImageState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param osDisk One or more `os_disk` blocks as defined below. Changing this forces a new resource to be created.
          * 
+         * &gt; **Note:** `os_disk` cannot be set together with `source_virtual_machine_id`.
+         * 
          * @return builder
          * 
          */
@@ -302,6 +318,8 @@ public final class ImageState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param osDisk One or more `os_disk` blocks as defined below. Changing this forces a new resource to be created.
+         * 
+         * &gt; **Note:** `os_disk` cannot be set together with `source_virtual_machine_id`.
          * 
          * @return builder
          * 
@@ -376,6 +394,10 @@ public final class ImageState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param zoneResilient Is zone resiliency enabled? Defaults to `false`. Changing this forces a new resource to be created.
          * 
+         * &gt; **Note:** `zone_resilient` can only be set to `true` if the image is stored in a region that supports availability zones.
+         * 
+         * &gt; **Note:** `zone_resilient` cannot be set together with `source_virtual_machine_id`.
+         * 
          * @return builder
          * 
          */
@@ -386,6 +408,10 @@ public final class ImageState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param zoneResilient Is zone resiliency enabled? Defaults to `false`. Changing this forces a new resource to be created.
+         * 
+         * &gt; **Note:** `zone_resilient` can only be set to `true` if the image is stored in a region that supports availability zones.
+         * 
+         * &gt; **Note:** `zone_resilient` cannot be set together with `source_virtual_machine_id`.
          * 
          * @return builder
          * 

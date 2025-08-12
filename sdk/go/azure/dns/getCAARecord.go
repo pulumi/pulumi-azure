@@ -45,7 +45,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This data source uses the following Azure API Providers:
 //
-// * `Microsoft.Network`: 2018-05-01
+// * `Microsoft.Network` - 2018-05-01
 func GetCAARecord(ctx *pulumi.Context, args *GetCAARecordArgs, opts ...pulumi.InvokeOption) (*GetCAARecordResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetCAARecordResult

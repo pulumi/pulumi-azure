@@ -18,7 +18,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Manages a policy set definition.
+ * Manages a Policy Set Definition.
  * 
  * &gt; **Note:** Policy set definitions (also known as policy initiatives) do not take effect until they are assigned to a scope using a Policy Set Assignment.
  * 
@@ -49,9 +49,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new PolicySetDefinition("example", PolicySetDefinitionArgs.builder()
- *             .name("testPolicySet")
+ *             .name("example")
  *             .policyType("Custom")
- *             .displayName("Test Policy Set")
+ *             .displayName("Example")
  *             .parameters("""
  *     {
  *         "allowedLocations": {
@@ -65,6 +65,7 @@ import javax.annotation.Nullable;
  *     }
  *             """)
  *             .policyDefinitionReferences(PolicySetDefinitionPolicyDefinitionReferenceArgs.builder()
+ *                 .version("1.0.*")
  *                 .policyDefinitionId("/providers/Microsoft.Authorization/policyDefinitions/e765b5de-1225-4ba3-bd56-1ac6695af988")
  *                 .parameterValues("""
  *     {
@@ -80,102 +81,103 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.Authorization` - 2025-01-01
+ * 
+ * * `Microsoft.Management` - 2025-01-01
+ * 
  * ## Import
  * 
  * Policy Set Definitions can be imported using the `resource id`, e.g.
  * 
  * ```sh
- * $ pulumi import azure:policy/policySetDefinition:PolicySetDefinition example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/policySetDefinitions/testPolicySet
- * ```
- * 
- * or
- * 
- * ```sh
- * $ pulumi import azure:policy/policySetDefinition:PolicySetDefinition example /providers/Microsoft.Management/managementGroups/my-mgmt-group-id/providers/Microsoft.Authorization/policySetDefinitions/testPolicySet
+ * $ pulumi import azure:policy/policySetDefinition:PolicySetDefinition example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/policySetDefinitions/policySetDefinitionName
  * ```
  * 
  */
 @ResourceType(type="azure:policy/policySetDefinition:PolicySetDefinition")
 public class PolicySetDefinition extends com.pulumi.resources.CustomResource {
     /**
-     * The description of the policy set definition.
+     * The description of this Policy Set Definition.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
-     * @return The description of the policy set definition.
+     * @return The description of this Policy Set Definition.
      * 
      */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
     /**
-     * The display name of the policy set definition.
+     * The display name of this Policy Set Definition.
      * 
      */
     @Export(name="displayName", refs={String.class}, tree="[0]")
     private Output<String> displayName;
 
     /**
-     * @return The display name of the policy set definition.
+     * @return The display name of this Policy Set Definition.
      * 
      */
     public Output<String> displayName() {
         return this.displayName;
     }
     /**
-     * The id of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created.
+     * @deprecated
+     * `management_group_id` has been deprecated in favour of the `azure.management.GroupPolicySetDefinition` resource and will be removed in v5.0 of the AzureRM Provider.
      * 
      */
+    @Deprecated /* `management_group_id` has been deprecated in favour of the `azure.management.GroupPolicySetDefinition` resource and will be removed in v5.0 of the AzureRM Provider. */
     @Export(name="managementGroupId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> managementGroupId;
 
-    /**
-     * @return The id of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created.
-     * 
-     */
     public Output<Optional<String>> managementGroupId() {
         return Codegen.optional(this.managementGroupId);
     }
     /**
-     * The metadata for the policy set definition. This is a JSON object representing additional metadata that should be stored with the policy definition.
+     * The metadata for the Policy Set Definition in JSON format.
      * 
      */
     @Export(name="metadata", refs={String.class}, tree="[0]")
     private Output<String> metadata;
 
     /**
-     * @return The metadata for the policy set definition. This is a JSON object representing additional metadata that should be stored with the policy definition.
+     * @return The metadata for the Policy Set Definition in JSON format.
      * 
      */
     public Output<String> metadata() {
         return this.metadata;
     }
     /**
-     * The name of the policy set definition. Changing this forces a new resource to be created.
+     * The name which should be used for this Policy Set Definition. Changing this forces a new Policy Set Definition to be created.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of the policy set definition. Changing this forces a new resource to be created.
+     * @return The name which should be used for this Policy Set Definition. Changing this forces a new Policy Set Definition to be created.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * Parameters for the policy set definition. This field is a JSON object that allows you to parameterize your policy definition.
+     * The parameters for the Policy Set Definition in JSON format. Reducing the number of parameters forces a new resource to be created.
      * 
      */
     @Export(name="parameters", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> parameters;
 
     /**
-     * @return Parameters for the policy set definition. This field is a JSON object that allows you to parameterize your policy definition.
+     * @return The parameters for the Policy Set Definition in JSON format. Reducing the number of parameters forces a new resource to be created.
      * 
      */
     public Output<Optional<String>> parameters() {
@@ -210,14 +212,14 @@ public class PolicySetDefinition extends com.pulumi.resources.CustomResource {
         return this.policyDefinitionReferences;
     }
     /**
-     * The policy set type. Possible values are `BuiltIn`, `Custom`, `NotSpecified` and `Static`. Changing this forces a new resource to be created.
+     * The Policy Set Definition type. Possible values are `BuiltIn`, `Custom`, `NotSpecified`, and `Static`. Changing this forces a new Policy Set Definition to be created.
      * 
      */
     @Export(name="policyType", refs={String.class}, tree="[0]")
     private Output<String> policyType;
 
     /**
-     * @return The policy set type. Possible values are `BuiltIn`, `Custom`, `NotSpecified` and `Static`. Changing this forces a new resource to be created.
+     * @return The Policy Set Definition type. Possible values are `BuiltIn`, `Custom`, `NotSpecified`, and `Static`. Changing this forces a new Policy Set Definition to be created.
      * 
      */
     public Output<String> policyType() {

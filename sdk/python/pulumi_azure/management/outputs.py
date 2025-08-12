@@ -22,6 +22,8 @@ __all__ = [
     'GroupPolicyAssignmentOverrideSelector',
     'GroupPolicyAssignmentResourceSelector',
     'GroupPolicyAssignmentResourceSelectorSelector',
+    'GroupPolicySetDefinitionPolicyDefinitionGroup',
+    'GroupPolicySetDefinitionPolicyDefinitionReference',
 ]
 
 @pulumi.output_type
@@ -311,5 +313,179 @@ class GroupPolicyAssignmentResourceSelectorSelector(dict):
     @pulumi.getter(name="notIns")
     def not_ins(self) -> Optional[Sequence[_builtins.str]]:
         return pulumi.get(self, "not_ins")
+
+
+@pulumi.output_type
+class GroupPolicySetDefinitionPolicyDefinitionGroup(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "additionalMetadataResourceId":
+            suggest = "additional_metadata_resource_id"
+        elif key == "displayName":
+            suggest = "display_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GroupPolicySetDefinitionPolicyDefinitionGroup. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GroupPolicySetDefinitionPolicyDefinitionGroup.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GroupPolicySetDefinitionPolicyDefinitionGroup.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 additional_metadata_resource_id: Optional[_builtins.str] = None,
+                 category: Optional[_builtins.str] = None,
+                 description: Optional[_builtins.str] = None,
+                 display_name: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str name: The name which should be used for this Policy Definition Group.
+        :param _builtins.str additional_metadata_resource_id: The ID of a resource that contains additional metadata for this Policy Definition Group.
+        :param _builtins.str category: The category of this Policy Definition Group.
+        :param _builtins.str description: The description of this Policy Definition Group.
+        :param _builtins.str display_name: The display name of this Policy Definition Group.
+        """
+        pulumi.set(__self__, "name", name)
+        if additional_metadata_resource_id is not None:
+            pulumi.set(__self__, "additional_metadata_resource_id", additional_metadata_resource_id)
+        if category is not None:
+            pulumi.set(__self__, "category", category)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        The name which should be used for this Policy Definition Group.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="additionalMetadataResourceId")
+    def additional_metadata_resource_id(self) -> Optional[_builtins.str]:
+        """
+        The ID of a resource that contains additional metadata for this Policy Definition Group.
+        """
+        return pulumi.get(self, "additional_metadata_resource_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def category(self) -> Optional[_builtins.str]:
+        """
+        The category of this Policy Definition Group.
+        """
+        return pulumi.get(self, "category")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        """
+        The description of this Policy Definition Group.
+        """
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[_builtins.str]:
+        """
+        The display name of this Policy Definition Group.
+        """
+        return pulumi.get(self, "display_name")
+
+
+@pulumi.output_type
+class GroupPolicySetDefinitionPolicyDefinitionReference(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "policyDefinitionId":
+            suggest = "policy_definition_id"
+        elif key == "parameterValues":
+            suggest = "parameter_values"
+        elif key == "policyGroupNames":
+            suggest = "policy_group_names"
+        elif key == "referenceId":
+            suggest = "reference_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GroupPolicySetDefinitionPolicyDefinitionReference. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GroupPolicySetDefinitionPolicyDefinitionReference.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GroupPolicySetDefinitionPolicyDefinitionReference.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 policy_definition_id: _builtins.str,
+                 parameter_values: Optional[_builtins.str] = None,
+                 policy_group_names: Optional[Sequence[_builtins.str]] = None,
+                 reference_id: Optional[_builtins.str] = None,
+                 version: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str policy_definition_id: The ID of the Policy Definition to include in this Policy Set Definition.
+        :param _builtins.str parameter_values: Parameter values for the references Policy Definition in JSON format.
+        :param Sequence[_builtins.str] policy_group_names: Specifies a list of Policy Definition Groups names that this Policy Definition Reference belongs to.
+        :param _builtins.str reference_id: A unique ID within this Policy Set Definition for this Policy Definition Reference.
+        :param _builtins.str version: The version of the Policy Definition to use.
+        """
+        pulumi.set(__self__, "policy_definition_id", policy_definition_id)
+        if parameter_values is not None:
+            pulumi.set(__self__, "parameter_values", parameter_values)
+        if policy_group_names is not None:
+            pulumi.set(__self__, "policy_group_names", policy_group_names)
+        if reference_id is not None:
+            pulumi.set(__self__, "reference_id", reference_id)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @_builtins.property
+    @pulumi.getter(name="policyDefinitionId")
+    def policy_definition_id(self) -> _builtins.str:
+        """
+        The ID of the Policy Definition to include in this Policy Set Definition.
+        """
+        return pulumi.get(self, "policy_definition_id")
+
+    @_builtins.property
+    @pulumi.getter(name="parameterValues")
+    def parameter_values(self) -> Optional[_builtins.str]:
+        """
+        Parameter values for the references Policy Definition in JSON format.
+        """
+        return pulumi.get(self, "parameter_values")
+
+    @_builtins.property
+    @pulumi.getter(name="policyGroupNames")
+    def policy_group_names(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Specifies a list of Policy Definition Groups names that this Policy Definition Reference belongs to.
+        """
+        return pulumi.get(self, "policy_group_names")
+
+    @_builtins.property
+    @pulumi.getter(name="referenceId")
+    def reference_id(self) -> Optional[_builtins.str]:
+        """
+        A unique ID within this Policy Set Definition for this Policy Definition Reference.
+        """
+        return pulumi.get(self, "reference_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def version(self) -> Optional[_builtins.str]:
+        """
+        The version of the Policy Definition to use.
+        """
+        return pulumi.get(self, "version")
 
 

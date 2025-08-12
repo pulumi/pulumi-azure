@@ -40,7 +40,7 @@ namespace Pulumi.Azure.DomainServices
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.AAD`: 2021-05-01
+        /// * `Microsoft.AAD` - 2021-05-01
         /// </summary>
         public static Task<GetServiceResult> InvokeAsync(GetServiceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServiceResult>("azure:domainservices/getService:getService", args ?? new GetServiceArgs(), options.WithDefaults());
@@ -74,7 +74,7 @@ namespace Pulumi.Azure.DomainServices
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.AAD`: 2021-05-01
+        /// * `Microsoft.AAD` - 2021-05-01
         /// </summary>
         public static Output<GetServiceResult> Invoke(GetServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceResult>("azure:domainservices/getService:getService", args ?? new GetServiceInvokeArgs(), options.WithDefaults());
@@ -108,7 +108,7 @@ namespace Pulumi.Azure.DomainServices
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.AAD`: 2021-05-01
+        /// * `Microsoft.AAD` - 2021-05-01
         /// </summary>
         public static Output<GetServiceResult> Invoke(GetServiceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceResult>("azure:domainservices/getService:getService", args ?? new GetServiceInvokeArgs(), options.WithDefaults());

@@ -46,7 +46,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This data source uses the following Azure API Providers:
 //
-// * `Microsoft.DataShare`: 2019-11-01
+// * `Microsoft.DataShare` - 2019-11-01
 func LookupDatasetDataLakeGen2(ctx *pulumi.Context, args *LookupDatasetDataLakeGen2Args, opts ...pulumi.InvokeOption) (*LookupDatasetDataLakeGen2Result, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDatasetDataLakeGen2Result

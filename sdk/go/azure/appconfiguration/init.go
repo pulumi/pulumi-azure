@@ -31,6 +31,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &LicationLoadBalancer{}
 	case "azure:appconfiguration/licationLoadBalancerFrontend:LicationLoadBalancerFrontend":
 		r = &LicationLoadBalancerFrontend{}
+	case "azure:appconfiguration/licationLoadBalancerSecurityPolicy:LicationLoadBalancerSecurityPolicy":
+		r = &LicationLoadBalancerSecurityPolicy{}
 	case "azure:appconfiguration/licationLoadBalancerSubnetAssociation:LicationLoadBalancerSubnetAssociation":
 		r = &LicationLoadBalancerSubnetAssociation{}
 	default:
@@ -69,6 +71,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"appconfiguration/licationLoadBalancerFrontend",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"appconfiguration/licationLoadBalancerSecurityPolicy",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

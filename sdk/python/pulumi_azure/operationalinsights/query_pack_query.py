@@ -406,7 +406,7 @@ class QueryPackQuery(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.OperationalInsights`: 2019-09-01
+        * `Microsoft.OperationalInsights` - 2019-09-01
 
         ## Import
 
@@ -475,7 +475,7 @@ class QueryPackQuery(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.OperationalInsights`: 2019-09-01
+        * `Microsoft.OperationalInsights` - 2019-09-01
 
         ## Import
 

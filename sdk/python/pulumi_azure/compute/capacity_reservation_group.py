@@ -226,7 +226,7 @@ class CapacityReservationGroup(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.Compute`: 2022-03-01
+        * `Microsoft.Compute` - 2022-03-01
 
         ## Import
 
@@ -273,7 +273,7 @@ class CapacityReservationGroup(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.Compute`: 2022-03-01
+        * `Microsoft.Compute` - 2022-03-01
 
         ## Import
 

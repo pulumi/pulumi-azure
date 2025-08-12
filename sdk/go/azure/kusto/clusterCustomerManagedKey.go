@@ -138,7 +138,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This resource uses the following Azure API Providers:
 //
-// * `Microsoft.Kusto`: 2024-04-13
+// * `Microsoft.Kusto` - 2024-04-13
 //
 // ## Import
 //
@@ -153,11 +153,15 @@ type ClusterCustomerManagedKey struct {
 	// The ID of the Kusto Cluster. Changing this forces a new resource to be created.
 	ClusterId pulumi.StringOutput `pulumi:"clusterId"`
 	// The name of Key Vault Key.
-	KeyName pulumi.StringOutput `pulumi:"keyName"`
-	// The ID of the Key Vault.
-	KeyVaultId pulumi.StringOutput `pulumi:"keyVaultId"`
+	KeyName pulumi.StringPtrOutput `pulumi:"keyName"`
+	// The ID of the Key Vault for CMK encryption.
+	KeyVaultId pulumi.StringPtrOutput `pulumi:"keyVaultId"`
 	// The version of Key Vault Key.
 	KeyVersion pulumi.StringPtrOutput `pulumi:"keyVersion"`
+	// The Managed HSM Key ID for CMK encryption.
+	//
+	// > **Note:** Exactly one of `managedHsmKeyId` or `keyVaultId` must be specified.
+	ManagedHsmKeyId pulumi.StringPtrOutput `pulumi:"managedHsmKeyId"`
 	// The user assigned identity that has access to the Key Vault Key. If not specified, system assigned identity will be used.
 	UserIdentity pulumi.StringPtrOutput `pulumi:"userIdentity"`
 }
@@ -171,12 +175,6 @@ func NewClusterCustomerManagedKey(ctx *pulumi.Context,
 
 	if args.ClusterId == nil {
 		return nil, errors.New("invalid value for required argument 'ClusterId'")
-	}
-	if args.KeyName == nil {
-		return nil, errors.New("invalid value for required argument 'KeyName'")
-	}
-	if args.KeyVaultId == nil {
-		return nil, errors.New("invalid value for required argument 'KeyVaultId'")
 	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ClusterCustomerManagedKey
@@ -205,10 +203,14 @@ type clusterCustomerManagedKeyState struct {
 	ClusterId *string `pulumi:"clusterId"`
 	// The name of Key Vault Key.
 	KeyName *string `pulumi:"keyName"`
-	// The ID of the Key Vault.
+	// The ID of the Key Vault for CMK encryption.
 	KeyVaultId *string `pulumi:"keyVaultId"`
 	// The version of Key Vault Key.
 	KeyVersion *string `pulumi:"keyVersion"`
+	// The Managed HSM Key ID for CMK encryption.
+	//
+	// > **Note:** Exactly one of `managedHsmKeyId` or `keyVaultId` must be specified.
+	ManagedHsmKeyId *string `pulumi:"managedHsmKeyId"`
 	// The user assigned identity that has access to the Key Vault Key. If not specified, system assigned identity will be used.
 	UserIdentity *string `pulumi:"userIdentity"`
 }
@@ -218,10 +220,14 @@ type ClusterCustomerManagedKeyState struct {
 	ClusterId pulumi.StringPtrInput
 	// The name of Key Vault Key.
 	KeyName pulumi.StringPtrInput
-	// The ID of the Key Vault.
+	// The ID of the Key Vault for CMK encryption.
 	KeyVaultId pulumi.StringPtrInput
 	// The version of Key Vault Key.
 	KeyVersion pulumi.StringPtrInput
+	// The Managed HSM Key ID for CMK encryption.
+	//
+	// > **Note:** Exactly one of `managedHsmKeyId` or `keyVaultId` must be specified.
+	ManagedHsmKeyId pulumi.StringPtrInput
 	// The user assigned identity that has access to the Key Vault Key. If not specified, system assigned identity will be used.
 	UserIdentity pulumi.StringPtrInput
 }
@@ -234,11 +240,15 @@ type clusterCustomerManagedKeyArgs struct {
 	// The ID of the Kusto Cluster. Changing this forces a new resource to be created.
 	ClusterId string `pulumi:"clusterId"`
 	// The name of Key Vault Key.
-	KeyName string `pulumi:"keyName"`
-	// The ID of the Key Vault.
-	KeyVaultId string `pulumi:"keyVaultId"`
+	KeyName *string `pulumi:"keyName"`
+	// The ID of the Key Vault for CMK encryption.
+	KeyVaultId *string `pulumi:"keyVaultId"`
 	// The version of Key Vault Key.
 	KeyVersion *string `pulumi:"keyVersion"`
+	// The Managed HSM Key ID for CMK encryption.
+	//
+	// > **Note:** Exactly one of `managedHsmKeyId` or `keyVaultId` must be specified.
+	ManagedHsmKeyId *string `pulumi:"managedHsmKeyId"`
 	// The user assigned identity that has access to the Key Vault Key. If not specified, system assigned identity will be used.
 	UserIdentity *string `pulumi:"userIdentity"`
 }
@@ -248,11 +258,15 @@ type ClusterCustomerManagedKeyArgs struct {
 	// The ID of the Kusto Cluster. Changing this forces a new resource to be created.
 	ClusterId pulumi.StringInput
 	// The name of Key Vault Key.
-	KeyName pulumi.StringInput
-	// The ID of the Key Vault.
-	KeyVaultId pulumi.StringInput
+	KeyName pulumi.StringPtrInput
+	// The ID of the Key Vault for CMK encryption.
+	KeyVaultId pulumi.StringPtrInput
 	// The version of Key Vault Key.
 	KeyVersion pulumi.StringPtrInput
+	// The Managed HSM Key ID for CMK encryption.
+	//
+	// > **Note:** Exactly one of `managedHsmKeyId` or `keyVaultId` must be specified.
+	ManagedHsmKeyId pulumi.StringPtrInput
 	// The user assigned identity that has access to the Key Vault Key. If not specified, system assigned identity will be used.
 	UserIdentity pulumi.StringPtrInput
 }
@@ -350,18 +364,25 @@ func (o ClusterCustomerManagedKeyOutput) ClusterId() pulumi.StringOutput {
 }
 
 // The name of Key Vault Key.
-func (o ClusterCustomerManagedKeyOutput) KeyName() pulumi.StringOutput {
-	return o.ApplyT(func(v *ClusterCustomerManagedKey) pulumi.StringOutput { return v.KeyName }).(pulumi.StringOutput)
+func (o ClusterCustomerManagedKeyOutput) KeyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterCustomerManagedKey) pulumi.StringPtrOutput { return v.KeyName }).(pulumi.StringPtrOutput)
 }
 
-// The ID of the Key Vault.
-func (o ClusterCustomerManagedKeyOutput) KeyVaultId() pulumi.StringOutput {
-	return o.ApplyT(func(v *ClusterCustomerManagedKey) pulumi.StringOutput { return v.KeyVaultId }).(pulumi.StringOutput)
+// The ID of the Key Vault for CMK encryption.
+func (o ClusterCustomerManagedKeyOutput) KeyVaultId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterCustomerManagedKey) pulumi.StringPtrOutput { return v.KeyVaultId }).(pulumi.StringPtrOutput)
 }
 
 // The version of Key Vault Key.
 func (o ClusterCustomerManagedKeyOutput) KeyVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterCustomerManagedKey) pulumi.StringPtrOutput { return v.KeyVersion }).(pulumi.StringPtrOutput)
+}
+
+// The Managed HSM Key ID for CMK encryption.
+//
+// > **Note:** Exactly one of `managedHsmKeyId` or `keyVaultId` must be specified.
+func (o ClusterCustomerManagedKeyOutput) ManagedHsmKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterCustomerManagedKey) pulumi.StringPtrOutput { return v.ManagedHsmKeyId }).(pulumi.StringPtrOutput)
 }
 
 // The user assigned identity that has access to the Key Vault Key. If not specified, system assigned identity will be used.

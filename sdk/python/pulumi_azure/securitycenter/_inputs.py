@@ -108,17 +108,21 @@ if not MYPY:
         """
         The resource id of the target Logic App, Event Hub namespace or Log Analytics workspace.
         """
-        type: pulumi.Input[_builtins.str]
-        """
-        Type of Azure resource to send data to. Must be set to one of: `logicapp`, `eventhub` or `loganalytics`.
-        """
         connection_string: NotRequired[pulumi.Input[_builtins.str]]
         """
-        (Optional, but required when `type` is `eventhub`) A connection string to send data to the target Event Hub namespace, this should include a key with send permissions.
+        A connection string to send data to the target Event Hub namespace, this should include a key with send permissions.
+
+        > **Note:** `connection_string` is required when `type` is `EventHub`.
         """
         trigger_url: NotRequired[pulumi.Input[_builtins.str]]
         """
-        (Optional, but required when `type` is `logicapp`) The callback URL to trigger the Logic App that will receive and process data sent by this automation. This can be found in the Azure Portal under "See trigger history"
+        The callback URL to trigger the Logic App that will receive and process data sent by this automation. This can be found in the Azure Portal under "See trigger history"
+
+        > **Note:** `trigger_url` is required when `type` is `LogicApp`.
+        """
+        type: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Type of Azure resource to send data to. Possible values are `EventHub`, `LogicApp` and `Workspace`.
         """
 elif False:
     AutomationActionArgsDict: TypeAlias = Mapping[str, Any]
@@ -127,21 +131,26 @@ elif False:
 class AutomationActionArgs:
     def __init__(__self__, *,
                  resource_id: pulumi.Input[_builtins.str],
-                 type: pulumi.Input[_builtins.str],
                  connection_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 trigger_url: Optional[pulumi.Input[_builtins.str]] = None):
+                 trigger_url: Optional[pulumi.Input[_builtins.str]] = None,
+                 type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] resource_id: The resource id of the target Logic App, Event Hub namespace or Log Analytics workspace.
-        :param pulumi.Input[_builtins.str] type: Type of Azure resource to send data to. Must be set to one of: `logicapp`, `eventhub` or `loganalytics`.
-        :param pulumi.Input[_builtins.str] connection_string: (Optional, but required when `type` is `eventhub`) A connection string to send data to the target Event Hub namespace, this should include a key with send permissions.
-        :param pulumi.Input[_builtins.str] trigger_url: (Optional, but required when `type` is `logicapp`) The callback URL to trigger the Logic App that will receive and process data sent by this automation. This can be found in the Azure Portal under "See trigger history"
+        :param pulumi.Input[_builtins.str] connection_string: A connection string to send data to the target Event Hub namespace, this should include a key with send permissions.
+               
+               > **Note:** `connection_string` is required when `type` is `EventHub`.
+        :param pulumi.Input[_builtins.str] trigger_url: The callback URL to trigger the Logic App that will receive and process data sent by this automation. This can be found in the Azure Portal under "See trigger history"
+               
+               > **Note:** `trigger_url` is required when `type` is `LogicApp`.
+        :param pulumi.Input[_builtins.str] type: Type of Azure resource to send data to. Possible values are `EventHub`, `LogicApp` and `Workspace`.
         """
         pulumi.set(__self__, "resource_id", resource_id)
-        pulumi.set(__self__, "type", type)
         if connection_string is not None:
             pulumi.set(__self__, "connection_string", connection_string)
         if trigger_url is not None:
             pulumi.set(__self__, "trigger_url", trigger_url)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
 
     @_builtins.property
     @pulumi.getter(name="resourceId")
@@ -156,22 +165,12 @@ class AutomationActionArgs:
         pulumi.set(self, "resource_id", value)
 
     @_builtins.property
-    @pulumi.getter
-    def type(self) -> pulumi.Input[_builtins.str]:
-        """
-        Type of Azure resource to send data to. Must be set to one of: `logicapp`, `eventhub` or `loganalytics`.
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "type", value)
-
-    @_builtins.property
     @pulumi.getter(name="connectionString")
     def connection_string(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        (Optional, but required when `type` is `eventhub`) A connection string to send data to the target Event Hub namespace, this should include a key with send permissions.
+        A connection string to send data to the target Event Hub namespace, this should include a key with send permissions.
+
+        > **Note:** `connection_string` is required when `type` is `EventHub`.
         """
         return pulumi.get(self, "connection_string")
 
@@ -183,13 +182,27 @@ class AutomationActionArgs:
     @pulumi.getter(name="triggerUrl")
     def trigger_url(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        (Optional, but required when `type` is `logicapp`) The callback URL to trigger the Logic App that will receive and process data sent by this automation. This can be found in the Azure Portal under "See trigger history"
+        The callback URL to trigger the Logic App that will receive and process data sent by this automation. This can be found in the Azure Portal under "See trigger history"
+
+        > **Note:** `trigger_url` is required when `type` is `LogicApp`.
         """
         return pulumi.get(self, "trigger_url")
 
     @trigger_url.setter
     def trigger_url(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "trigger_url", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Type of Azure resource to send data to. Possible values are `EventHub`, `LogicApp` and `Workspace`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "type", value)
 
 
 if not MYPY:

@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.NotificationHubs`: 2023-09-01
+ * * `Microsoft.NotificationHubs` - 2023-09-01
  */
 export function getHub(args: GetHubArgs, opts?: pulumi.InvokeOptions): Promise<GetHubResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -107,7 +107,7 @@ export interface GetHubResult {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.NotificationHubs`: 2023-09-01
+ * * `Microsoft.NotificationHubs` - 2023-09-01
  */
 export function getHubOutput(args: GetHubOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetHubResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

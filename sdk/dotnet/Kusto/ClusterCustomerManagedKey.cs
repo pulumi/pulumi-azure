@@ -125,7 +125,7 @@ namespace Pulumi.Azure.Kusto
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.Kusto`: 2024-04-13
+    /// * `Microsoft.Kusto` - 2024-04-13
     /// 
     /// ## Import
     /// 
@@ -148,19 +148,27 @@ namespace Pulumi.Azure.Kusto
         /// The name of Key Vault Key.
         /// </summary>
         [Output("keyName")]
-        public Output<string> KeyName { get; private set; } = null!;
+        public Output<string?> KeyName { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the Key Vault.
+        /// The ID of the Key Vault for CMK encryption.
         /// </summary>
         [Output("keyVaultId")]
-        public Output<string> KeyVaultId { get; private set; } = null!;
+        public Output<string?> KeyVaultId { get; private set; } = null!;
 
         /// <summary>
         /// The version of Key Vault Key.
         /// </summary>
         [Output("keyVersion")]
         public Output<string?> KeyVersion { get; private set; } = null!;
+
+        /// <summary>
+        /// The Managed HSM Key ID for CMK encryption.
+        /// 
+        /// &gt; **Note:** Exactly one of `managed_hsm_key_id` or `key_vault_id` must be specified.
+        /// </summary>
+        [Output("managedHsmKeyId")]
+        public Output<string?> ManagedHsmKeyId { get; private set; } = null!;
 
         /// <summary>
         /// The user assigned identity that has access to the Key Vault Key. If not specified, system assigned identity will be used.
@@ -223,20 +231,28 @@ namespace Pulumi.Azure.Kusto
         /// <summary>
         /// The name of Key Vault Key.
         /// </summary>
-        [Input("keyName", required: true)]
-        public Input<string> KeyName { get; set; } = null!;
+        [Input("keyName")]
+        public Input<string>? KeyName { get; set; }
 
         /// <summary>
-        /// The ID of the Key Vault.
+        /// The ID of the Key Vault for CMK encryption.
         /// </summary>
-        [Input("keyVaultId", required: true)]
-        public Input<string> KeyVaultId { get; set; } = null!;
+        [Input("keyVaultId")]
+        public Input<string>? KeyVaultId { get; set; }
 
         /// <summary>
         /// The version of Key Vault Key.
         /// </summary>
         [Input("keyVersion")]
         public Input<string>? KeyVersion { get; set; }
+
+        /// <summary>
+        /// The Managed HSM Key ID for CMK encryption.
+        /// 
+        /// &gt; **Note:** Exactly one of `managed_hsm_key_id` or `key_vault_id` must be specified.
+        /// </summary>
+        [Input("managedHsmKeyId")]
+        public Input<string>? ManagedHsmKeyId { get; set; }
 
         /// <summary>
         /// The user assigned identity that has access to the Key Vault Key. If not specified, system assigned identity will be used.
@@ -265,7 +281,7 @@ namespace Pulumi.Azure.Kusto
         public Input<string>? KeyName { get; set; }
 
         /// <summary>
-        /// The ID of the Key Vault.
+        /// The ID of the Key Vault for CMK encryption.
         /// </summary>
         [Input("keyVaultId")]
         public Input<string>? KeyVaultId { get; set; }
@@ -275,6 +291,14 @@ namespace Pulumi.Azure.Kusto
         /// </summary>
         [Input("keyVersion")]
         public Input<string>? KeyVersion { get; set; }
+
+        /// <summary>
+        /// The Managed HSM Key ID for CMK encryption.
+        /// 
+        /// &gt; **Note:** Exactly one of `managed_hsm_key_id` or `key_vault_id` must be specified.
+        /// </summary>
+        [Input("managedHsmKeyId")]
+        public Input<string>? ManagedHsmKeyId { get; set; }
 
         /// <summary>
         /// The user assigned identity that has access to the Key Vault Key. If not specified, system assigned identity will be used.

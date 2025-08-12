@@ -35,12 +35,12 @@ class BackupPolicyArgs:
         :param pulumi.Input[_builtins.int] daily_backups_to_keep: Provides the number of daily backups to keep, defaults to `2` which is the minimum, maximum is 1019.
         :param pulumi.Input[_builtins.bool] enabled: Whether the Backup Policy is enabled. Defaults to `true`.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.int] monthly_backups_to_keep: Provides the number of monthly backups to keep, defaults to `1` which is the minimum, maximum is 1019.
+        :param pulumi.Input[_builtins.int] monthly_backups_to_keep: Provides the number of monthly backups to keep, defaults to `1`. The minimum is `0` and the maximum is `1019`.
                
                > **Note:** Currently, the combined (daily + weekly + monthy) retention counts cannot exceed 1019.
         :param pulumi.Input[_builtins.str] name: The name of the NetApp Backup Policy. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[_builtins.int] weekly_backups_to_keep: Provides the number of weekly backups to keep, defaults to `1` which is the minimum, maximum is 1019.
+        :param pulumi.Input[_builtins.int] weekly_backups_to_keep: Provides the number of weekly backups to keep, defaults to `1`. The minimum is `0` and the maximum is `1019`.
         """
         pulumi.set(__self__, "account_name", account_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -123,7 +123,7 @@ class BackupPolicyArgs:
     @pulumi.getter(name="monthlyBackupsToKeep")
     def monthly_backups_to_keep(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
-        Provides the number of monthly backups to keep, defaults to `1` which is the minimum, maximum is 1019.
+        Provides the number of monthly backups to keep, defaults to `1`. The minimum is `0` and the maximum is `1019`.
 
         > **Note:** Currently, the combined (daily + weekly + monthy) retention counts cannot exceed 1019.
         """
@@ -161,7 +161,7 @@ class BackupPolicyArgs:
     @pulumi.getter(name="weeklyBackupsToKeep")
     def weekly_backups_to_keep(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
-        Provides the number of weekly backups to keep, defaults to `1` which is the minimum, maximum is 1019.
+        Provides the number of weekly backups to keep, defaults to `1`. The minimum is `0` and the maximum is `1019`.
         """
         return pulumi.get(self, "weekly_backups_to_keep")
 
@@ -188,13 +188,13 @@ class _BackupPolicyState:
         :param pulumi.Input[_builtins.int] daily_backups_to_keep: Provides the number of daily backups to keep, defaults to `2` which is the minimum, maximum is 1019.
         :param pulumi.Input[_builtins.bool] enabled: Whether the Backup Policy is enabled. Defaults to `true`.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.int] monthly_backups_to_keep: Provides the number of monthly backups to keep, defaults to `1` which is the minimum, maximum is 1019.
+        :param pulumi.Input[_builtins.int] monthly_backups_to_keep: Provides the number of monthly backups to keep, defaults to `1`. The minimum is `0` and the maximum is `1019`.
                
                > **Note:** Currently, the combined (daily + weekly + monthy) retention counts cannot exceed 1019.
         :param pulumi.Input[_builtins.str] name: The name of the NetApp Backup Policy. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group where the NetApp Backup Policy should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[_builtins.int] weekly_backups_to_keep: Provides the number of weekly backups to keep, defaults to `1` which is the minimum, maximum is 1019.
+        :param pulumi.Input[_builtins.int] weekly_backups_to_keep: Provides the number of weekly backups to keep, defaults to `1`. The minimum is `0` and the maximum is `1019`.
         """
         if account_name is not None:
             pulumi.set(__self__, "account_name", account_name)
@@ -267,7 +267,7 @@ class _BackupPolicyState:
     @pulumi.getter(name="monthlyBackupsToKeep")
     def monthly_backups_to_keep(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
-        Provides the number of monthly backups to keep, defaults to `1` which is the minimum, maximum is 1019.
+        Provides the number of monthly backups to keep, defaults to `1`. The minimum is `0` and the maximum is `1019`.
 
         > **Note:** Currently, the combined (daily + weekly + monthy) retention counts cannot exceed 1019.
         """
@@ -317,7 +317,7 @@ class _BackupPolicyState:
     @pulumi.getter(name="weeklyBackupsToKeep")
     def weekly_backups_to_keep(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
-        Provides the number of weekly backups to keep, defaults to `1` which is the minimum, maximum is 1019.
+        Provides the number of weekly backups to keep, defaults to `1`. The minimum is `0` and the maximum is `1019`.
         """
         return pulumi.get(self, "weekly_backups_to_keep")
 
@@ -371,7 +371,7 @@ class BackupPolicy(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.NetApp`: 2025-01-01
+        * `Microsoft.NetApp` - 2025-01-01
 
         ## Import
 
@@ -387,13 +387,13 @@ class BackupPolicy(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] daily_backups_to_keep: Provides the number of daily backups to keep, defaults to `2` which is the minimum, maximum is 1019.
         :param pulumi.Input[_builtins.bool] enabled: Whether the Backup Policy is enabled. Defaults to `true`.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.int] monthly_backups_to_keep: Provides the number of monthly backups to keep, defaults to `1` which is the minimum, maximum is 1019.
+        :param pulumi.Input[_builtins.int] monthly_backups_to_keep: Provides the number of monthly backups to keep, defaults to `1`. The minimum is `0` and the maximum is `1019`.
                
                > **Note:** Currently, the combined (daily + weekly + monthy) retention counts cannot exceed 1019.
         :param pulumi.Input[_builtins.str] name: The name of the NetApp Backup Policy. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group where the NetApp Backup Policy should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[_builtins.int] weekly_backups_to_keep: Provides the number of weekly backups to keep, defaults to `1` which is the minimum, maximum is 1019.
+        :param pulumi.Input[_builtins.int] weekly_backups_to_keep: Provides the number of weekly backups to keep, defaults to `1`. The minimum is `0` and the maximum is `1019`.
         """
         ...
     @overload
@@ -430,7 +430,7 @@ class BackupPolicy(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.NetApp`: 2025-01-01
+        * `Microsoft.NetApp` - 2025-01-01
 
         ## Import
 
@@ -516,13 +516,13 @@ class BackupPolicy(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] daily_backups_to_keep: Provides the number of daily backups to keep, defaults to `2` which is the minimum, maximum is 1019.
         :param pulumi.Input[_builtins.bool] enabled: Whether the Backup Policy is enabled. Defaults to `true`.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.int] monthly_backups_to_keep: Provides the number of monthly backups to keep, defaults to `1` which is the minimum, maximum is 1019.
+        :param pulumi.Input[_builtins.int] monthly_backups_to_keep: Provides the number of monthly backups to keep, defaults to `1`. The minimum is `0` and the maximum is `1019`.
                
                > **Note:** Currently, the combined (daily + weekly + monthy) retention counts cannot exceed 1019.
         :param pulumi.Input[_builtins.str] name: The name of the NetApp Backup Policy. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group where the NetApp Backup Policy should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[_builtins.int] weekly_backups_to_keep: Provides the number of weekly backups to keep, defaults to `1` which is the minimum, maximum is 1019.
+        :param pulumi.Input[_builtins.int] weekly_backups_to_keep: Provides the number of weekly backups to keep, defaults to `1`. The minimum is `0` and the maximum is `1019`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -575,7 +575,7 @@ class BackupPolicy(pulumi.CustomResource):
     @pulumi.getter(name="monthlyBackupsToKeep")
     def monthly_backups_to_keep(self) -> pulumi.Output[Optional[_builtins.int]]:
         """
-        Provides the number of monthly backups to keep, defaults to `1` which is the minimum, maximum is 1019.
+        Provides the number of monthly backups to keep, defaults to `1`. The minimum is `0` and the maximum is `1019`.
 
         > **Note:** Currently, the combined (daily + weekly + monthy) retention counts cannot exceed 1019.
         """
@@ -609,7 +609,7 @@ class BackupPolicy(pulumi.CustomResource):
     @pulumi.getter(name="weeklyBackupsToKeep")
     def weekly_backups_to_keep(self) -> pulumi.Output[Optional[_builtins.int]]:
         """
-        Provides the number of weekly backups to keep, defaults to `1` which is the minimum, maximum is 1019.
+        Provides the number of weekly backups to keep, defaults to `1`. The minimum is `0` and the maximum is `1019`.
         """
         return pulumi.get(self, "weekly_backups_to_keep")
 

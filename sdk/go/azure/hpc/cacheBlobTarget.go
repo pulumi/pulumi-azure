@@ -137,7 +137,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This resource uses the following Azure API Providers:
 //
-// * `Microsoft.StorageCache`: 2023-05-01
+// * `Microsoft.StorageCache` - 2023-05-01
 //
 // ## Import
 //

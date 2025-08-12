@@ -84,7 +84,7 @@ import javax.annotation.Nullable;
  *             .serverId(primary.id())
  *             .skuName("S1")
  *             .collation("SQL_Latin1_General_CP1_CI_AS")
- *             .maxSizeGb(200)
+ *             .maxSizeGb(200.0)
  *             .build());
  * 
  *         var exampleFailoverGroup = new FailoverGroup("exampleFailoverGroup", FailoverGroupArgs.builder()
@@ -115,7 +115,7 @@ import javax.annotation.Nullable;
  * &lt;!-- This section is generated, changes will be overwritten --&gt;
  * This resource uses the following Azure API Providers:
  * 
- * * `Microsoft.Sql`: 2023-08-01-preview
+ * * `Microsoft.Sql` - 2023-08-01-preview
  * 
  * ## Import
  * 

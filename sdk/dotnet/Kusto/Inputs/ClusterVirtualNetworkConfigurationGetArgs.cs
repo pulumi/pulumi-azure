@@ -12,21 +12,12 @@ namespace Pulumi.Azure.Kusto.Inputs
 
     public sealed class ClusterVirtualNetworkConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Data management's service public IP address resource id.
-        /// </summary>
         [Input("dataManagementPublicIpId", required: true)]
         public Input<string> DataManagementPublicIpId { get; set; } = null!;
 
-        /// <summary>
-        /// Engine service's public IP address resource id.
-        /// </summary>
         [Input("enginePublicIpId", required: true)]
         public Input<string> EnginePublicIpId { get; set; } = null!;
 
-        /// <summary>
-        /// The subnet resource id.
-        /// </summary>
         [Input("subnetId", required: true)]
         public Input<string> SubnetId { get; set; } = null!;
 

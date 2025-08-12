@@ -109,7 +109,7 @@ def get_kubernetes_node_pool_snapshot(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.ContainerService`: 2024-09-01
+    * `Microsoft.ContainerService` - 2025-02-01
 
 
     :param _builtins.str name: The name of the Kubernetes Node Pool Snapshot.
@@ -148,7 +148,7 @@ def get_kubernetes_node_pool_snapshot_output(name: Optional[pulumi.Input[_builti
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.ContainerService`: 2024-09-01
+    * `Microsoft.ContainerService` - 2025-02-01
 
 
     :param _builtins.str name: The name of the Kubernetes Node Pool Snapshot.

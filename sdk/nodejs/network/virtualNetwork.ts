@@ -62,7 +62,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This resource uses the following Azure API Providers:
  *
- * * `Microsoft.Network`: 2024-05-01
+ * * `Microsoft.Network` - 2024-05-01
  *
  * ## Import
  *
@@ -103,7 +103,7 @@ export class VirtualNetwork extends pulumi.CustomResource {
     /**
      * The address space that is used the virtual network. You can supply more than one address space.
      *
-     * > **Note:** Exactly one of `addressSpace` or `ipAddressPool` must be specified. If `addressSpace` is not specified but you encounter a diff, this might indicate the `addressSpace` is allocated from the IP Address Pool. If this is the case, you may need to add this to ignore_changes.
+     * > **Note:** Exactly one of `addressSpace` or `ipAddressPool` must be specified.
      */
     public readonly addressSpaces!: pulumi.Output<string[] | undefined>;
     /**
@@ -232,7 +232,7 @@ export interface VirtualNetworkState {
     /**
      * The address space that is used the virtual network. You can supply more than one address space.
      *
-     * > **Note:** Exactly one of `addressSpace` or `ipAddressPool` must be specified. If `addressSpace` is not specified but you encounter a diff, this might indicate the `addressSpace` is allocated from the IP Address Pool. If this is the case, you may need to add this to ignore_changes.
+     * > **Note:** Exactly one of `addressSpace` or `ipAddressPool` must be specified.
      */
     addressSpaces?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -308,7 +308,7 @@ export interface VirtualNetworkArgs {
     /**
      * The address space that is used the virtual network. You can supply more than one address space.
      *
-     * > **Note:** Exactly one of `addressSpace` or `ipAddressPool` must be specified. If `addressSpace` is not specified but you encounter a diff, this might indicate the `addressSpace` is allocated from the IP Address Pool. If this is the case, you may need to add this to ignore_changes.
+     * > **Note:** Exactly one of `addressSpace` or `ipAddressPool` must be specified.
      */
     addressSpaces?: pulumi.Input<pulumi.Input<string>[]>;
     /**

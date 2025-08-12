@@ -102,7 +102,7 @@ public final class StorageFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Storage`: 2023-05-01
+     * * `Microsoft.Storage` - 2023-05-01
      * 
      */
     public static Output<GetAccountResult> getAccount(GetAccountArgs args) {
@@ -153,7 +153,7 @@ public final class StorageFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Storage`: 2023-05-01
+     * * `Microsoft.Storage` - 2023-05-01
      * 
      */
     public static CompletableFuture<GetAccountResult> getAccountPlain(GetAccountPlainArgs args) {
@@ -204,7 +204,7 @@ public final class StorageFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Storage`: 2023-05-01
+     * * `Microsoft.Storage` - 2023-05-01
      * 
      */
     public static Output<GetAccountResult> getAccount(GetAccountArgs args, InvokeOptions options) {
@@ -255,7 +255,7 @@ public final class StorageFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Storage`: 2023-05-01
+     * * `Microsoft.Storage` - 2023-05-01
      * 
      */
     public static Output<GetAccountResult> getAccount(GetAccountArgs args, InvokeOutputOptions options) {
@@ -306,7 +306,7 @@ public final class StorageFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Storage`: 2023-05-01
+     * * `Microsoft.Storage` - 2023-05-01
      * 
      */
     public static CompletableFuture<GetAccountResult> getAccountPlain(GetAccountPlainArgs args, InvokeOptions options) {
@@ -1723,7 +1723,7 @@ public final class StorageFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Storage`: 2023-05-01
+     * * `Microsoft.Storage` - 2023-05-01
      * 
      */
     public static Output<GetEncryptionScopeResult> getEncryptionScope(GetEncryptionScopeArgs args) {
@@ -1780,7 +1780,7 @@ public final class StorageFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Storage`: 2023-05-01
+     * * `Microsoft.Storage` - 2023-05-01
      * 
      */
     public static CompletableFuture<GetEncryptionScopeResult> getEncryptionScopePlain(GetEncryptionScopePlainArgs args) {
@@ -1837,7 +1837,7 @@ public final class StorageFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Storage`: 2023-05-01
+     * * `Microsoft.Storage` - 2023-05-01
      * 
      */
     public static Output<GetEncryptionScopeResult> getEncryptionScope(GetEncryptionScopeArgs args, InvokeOptions options) {
@@ -1894,7 +1894,7 @@ public final class StorageFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Storage`: 2023-05-01
+     * * `Microsoft.Storage` - 2023-05-01
      * 
      */
     public static Output<GetEncryptionScopeResult> getEncryptionScope(GetEncryptionScopeArgs args, InvokeOutputOptions options) {
@@ -1951,7 +1951,7 @@ public final class StorageFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Storage`: 2023-05-01
+     * * `Microsoft.Storage` - 2023-05-01
      * 
      */
     public static CompletableFuture<GetEncryptionScopeResult> getEncryptionScopePlain(GetEncryptionScopePlainArgs args, InvokeOptions options) {
@@ -2006,7 +2006,7 @@ public final class StorageFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Storage`: 2023-05-01
+     * * `Microsoft.Storage` - 2023-05-01
      * 
      */
     public static Output<GetPolicyResult> getPolicy(GetPolicyArgs args) {
@@ -2061,7 +2061,7 @@ public final class StorageFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Storage`: 2023-05-01
+     * * `Microsoft.Storage` - 2023-05-01
      * 
      */
     public static CompletableFuture<GetPolicyResult> getPolicyPlain(GetPolicyPlainArgs args) {
@@ -2116,7 +2116,7 @@ public final class StorageFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Storage`: 2023-05-01
+     * * `Microsoft.Storage` - 2023-05-01
      * 
      */
     public static Output<GetPolicyResult> getPolicy(GetPolicyArgs args, InvokeOptions options) {
@@ -2171,7 +2171,7 @@ public final class StorageFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Storage`: 2023-05-01
+     * * `Microsoft.Storage` - 2023-05-01
      * 
      */
     public static Output<GetPolicyResult> getPolicy(GetPolicyArgs args, InvokeOutputOptions options) {
@@ -2226,7 +2226,7 @@ public final class StorageFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Storage`: 2023-05-01
+     * * `Microsoft.Storage` - 2023-05-01
      * 
      */
     public static CompletableFuture<GetPolicyResult> getPolicyPlain(GetPolicyPlainArgs args, InvokeOptions options) {
@@ -2499,7 +2499,7 @@ public final class StorageFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Storage`: 2023-05-01
+     * * `Microsoft.Storage` - 2023-05-01
      * 
      */
     public static Output<GetShareResult> getShare(GetShareArgs args) {
@@ -2557,7 +2557,7 @@ public final class StorageFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Storage`: 2023-05-01
+     * * `Microsoft.Storage` - 2023-05-01
      * 
      */
     public static CompletableFuture<GetShareResult> getSharePlain(GetSharePlainArgs args) {
@@ -2615,7 +2615,7 @@ public final class StorageFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Storage`: 2023-05-01
+     * * `Microsoft.Storage` - 2023-05-01
      * 
      */
     public static Output<GetShareResult> getShare(GetShareArgs args, InvokeOptions options) {
@@ -2673,7 +2673,7 @@ public final class StorageFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Storage`: 2023-05-01
+     * * `Microsoft.Storage` - 2023-05-01
      * 
      */
     public static Output<GetShareResult> getShare(GetShareArgs args, InvokeOutputOptions options) {
@@ -2731,7 +2731,7 @@ public final class StorageFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Storage`: 2023-05-01
+     * * `Microsoft.Storage` - 2023-05-01
      * 
      */
     public static CompletableFuture<GetShareResult> getSharePlain(GetSharePlainArgs args, InvokeOptions options) {
@@ -2787,7 +2787,7 @@ public final class StorageFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Storage`: 2023-05-01
+     * * `Microsoft.Storage` - 2023-05-01
      * 
      */
     public static Output<GetStorageContainerResult> getStorageContainer(GetStorageContainerArgs args) {
@@ -2843,7 +2843,7 @@ public final class StorageFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Storage`: 2023-05-01
+     * * `Microsoft.Storage` - 2023-05-01
      * 
      */
     public static CompletableFuture<GetStorageContainerResult> getStorageContainerPlain(GetStorageContainerPlainArgs args) {
@@ -2899,7 +2899,7 @@ public final class StorageFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Storage`: 2023-05-01
+     * * `Microsoft.Storage` - 2023-05-01
      * 
      */
     public static Output<GetStorageContainerResult> getStorageContainer(GetStorageContainerArgs args, InvokeOptions options) {
@@ -2955,7 +2955,7 @@ public final class StorageFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Storage`: 2023-05-01
+     * * `Microsoft.Storage` - 2023-05-01
      * 
      */
     public static Output<GetStorageContainerResult> getStorageContainer(GetStorageContainerArgs args, InvokeOutputOptions options) {
@@ -3011,7 +3011,7 @@ public final class StorageFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Storage`: 2023-05-01
+     * * `Microsoft.Storage` - 2023-05-01
      * 
      */
     public static CompletableFuture<GetStorageContainerResult> getStorageContainerPlain(GetStorageContainerPlainArgs args, InvokeOptions options) {
@@ -3062,7 +3062,7 @@ public final class StorageFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.StorageSync`: 2020-03-01
+     * * `Microsoft.StorageSync` - 2020-03-01
      * 
      */
     public static Output<GetSyncResult> getSync(GetSyncArgs args) {
@@ -3113,7 +3113,7 @@ public final class StorageFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.StorageSync`: 2020-03-01
+     * * `Microsoft.StorageSync` - 2020-03-01
      * 
      */
     public static CompletableFuture<GetSyncResult> getSyncPlain(GetSyncPlainArgs args) {
@@ -3164,7 +3164,7 @@ public final class StorageFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.StorageSync`: 2020-03-01
+     * * `Microsoft.StorageSync` - 2020-03-01
      * 
      */
     public static Output<GetSyncResult> getSync(GetSyncArgs args, InvokeOptions options) {
@@ -3215,7 +3215,7 @@ public final class StorageFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.StorageSync`: 2020-03-01
+     * * `Microsoft.StorageSync` - 2020-03-01
      * 
      */
     public static Output<GetSyncResult> getSync(GetSyncArgs args, InvokeOutputOptions options) {
@@ -3266,7 +3266,7 @@ public final class StorageFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.StorageSync`: 2020-03-01
+     * * `Microsoft.StorageSync` - 2020-03-01
      * 
      */
     public static CompletableFuture<GetSyncResult> getSyncPlain(GetSyncPlainArgs args, InvokeOptions options) {
@@ -3317,7 +3317,7 @@ public final class StorageFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.StorageSync`: 2020-03-01
+     * * `Microsoft.StorageSync` - 2020-03-01
      * 
      */
     public static Output<GetSyncGroupResult> getSyncGroup(GetSyncGroupArgs args) {
@@ -3368,7 +3368,7 @@ public final class StorageFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.StorageSync`: 2020-03-01
+     * * `Microsoft.StorageSync` - 2020-03-01
      * 
      */
     public static CompletableFuture<GetSyncGroupResult> getSyncGroupPlain(GetSyncGroupPlainArgs args) {
@@ -3419,7 +3419,7 @@ public final class StorageFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.StorageSync`: 2020-03-01
+     * * `Microsoft.StorageSync` - 2020-03-01
      * 
      */
     public static Output<GetSyncGroupResult> getSyncGroup(GetSyncGroupArgs args, InvokeOptions options) {
@@ -3470,7 +3470,7 @@ public final class StorageFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.StorageSync`: 2020-03-01
+     * * `Microsoft.StorageSync` - 2020-03-01
      * 
      */
     public static Output<GetSyncGroupResult> getSyncGroup(GetSyncGroupArgs args, InvokeOutputOptions options) {
@@ -3521,7 +3521,7 @@ public final class StorageFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.StorageSync`: 2020-03-01
+     * * `Microsoft.StorageSync` - 2020-03-01
      * 
      */
     public static CompletableFuture<GetSyncGroupResult> getSyncGroupPlain(GetSyncGroupPlainArgs args, InvokeOptions options) {

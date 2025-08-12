@@ -30,6 +30,8 @@ type Volume struct {
 	AccountName pulumi.StringOutput `pulumi:"accountName"`
 	// Is the NetApp Volume enabled for Azure VMware Solution (AVS) datastore purpose. Defaults to `false`. Changing this forces a new resource to be created.
 	AzureVmwareDataStoreEnabled pulumi.BoolPtrOutput `pulumi:"azureVmwareDataStoreEnabled"`
+	// A `coolAccess` block as defined below.
+	CoolAccess VolumeCoolAccessPtrOutput `pulumi:"coolAccess"`
 	// Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnetId`, `location`, `serviceLevel`, `resourceGroupName` and `accountName`. Changing this forces a new resource to be created.
 	CreateFromSnapshotResourceId pulumi.StringPtrOutput `pulumi:"createFromSnapshotResourceId"`
 	// A `dataProtectionBackupPolicy` block as defined below.
@@ -149,6 +151,8 @@ type volumeState struct {
 	AccountName *string `pulumi:"accountName"`
 	// Is the NetApp Volume enabled for Azure VMware Solution (AVS) datastore purpose. Defaults to `false`. Changing this forces a new resource to be created.
 	AzureVmwareDataStoreEnabled *bool `pulumi:"azureVmwareDataStoreEnabled"`
+	// A `coolAccess` block as defined below.
+	CoolAccess *VolumeCoolAccess `pulumi:"coolAccess"`
 	// Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnetId`, `location`, `serviceLevel`, `resourceGroupName` and `accountName`. Changing this forces a new resource to be created.
 	CreateFromSnapshotResourceId *string `pulumi:"createFromSnapshotResourceId"`
 	// A `dataProtectionBackupPolicy` block as defined below.
@@ -218,6 +222,8 @@ type VolumeState struct {
 	AccountName pulumi.StringPtrInput
 	// Is the NetApp Volume enabled for Azure VMware Solution (AVS) datastore purpose. Defaults to `false`. Changing this forces a new resource to be created.
 	AzureVmwareDataStoreEnabled pulumi.BoolPtrInput
+	// A `coolAccess` block as defined below.
+	CoolAccess VolumeCoolAccessPtrInput
 	// Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnetId`, `location`, `serviceLevel`, `resourceGroupName` and `accountName`. Changing this forces a new resource to be created.
 	CreateFromSnapshotResourceId pulumi.StringPtrInput
 	// A `dataProtectionBackupPolicy` block as defined below.
@@ -291,6 +297,8 @@ type volumeArgs struct {
 	AccountName string `pulumi:"accountName"`
 	// Is the NetApp Volume enabled for Azure VMware Solution (AVS) datastore purpose. Defaults to `false`. Changing this forces a new resource to be created.
 	AzureVmwareDataStoreEnabled *bool `pulumi:"azureVmwareDataStoreEnabled"`
+	// A `coolAccess` block as defined below.
+	CoolAccess *VolumeCoolAccess `pulumi:"coolAccess"`
 	// Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnetId`, `location`, `serviceLevel`, `resourceGroupName` and `accountName`. Changing this forces a new resource to be created.
 	CreateFromSnapshotResourceId *string `pulumi:"createFromSnapshotResourceId"`
 	// A `dataProtectionBackupPolicy` block as defined below.
@@ -359,6 +367,8 @@ type VolumeArgs struct {
 	AccountName pulumi.StringInput
 	// Is the NetApp Volume enabled for Azure VMware Solution (AVS) datastore purpose. Defaults to `false`. Changing this forces a new resource to be created.
 	AzureVmwareDataStoreEnabled pulumi.BoolPtrInput
+	// A `coolAccess` block as defined below.
+	CoolAccess VolumeCoolAccessPtrInput
 	// Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnetId`, `location`, `serviceLevel`, `resourceGroupName` and `accountName`. Changing this forces a new resource to be created.
 	CreateFromSnapshotResourceId pulumi.StringPtrInput
 	// A `dataProtectionBackupPolicy` block as defined below.
@@ -516,6 +526,11 @@ func (o VolumeOutput) AccountName() pulumi.StringOutput {
 // Is the NetApp Volume enabled for Azure VMware Solution (AVS) datastore purpose. Defaults to `false`. Changing this forces a new resource to be created.
 func (o VolumeOutput) AzureVmwareDataStoreEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Volume) pulumi.BoolPtrOutput { return v.AzureVmwareDataStoreEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// A `coolAccess` block as defined below.
+func (o VolumeOutput) CoolAccess() VolumeCoolAccessPtrOutput {
+	return o.ApplyT(func(v *Volume) VolumeCoolAccessPtrOutput { return v.CoolAccess }).(VolumeCoolAccessPtrOutput)
 }
 
 // Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnetId`, `location`, `serviceLevel`, `resourceGroupName` and `accountName`. Changing this forces a new resource to be created.

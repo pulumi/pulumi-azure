@@ -46,7 +46,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This data source uses the following Azure API Providers:
 //
-// * `Microsoft.DevCenter`: 2025-02-01
+// * `Microsoft.DevCenter` - 2025-02-01
 func LookupDevBoxDefinition(ctx *pulumi.Context, args *LookupDevBoxDefinitionArgs, opts ...pulumi.InvokeOption) (*LookupDevBoxDefinitionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDevBoxDefinitionResult
@@ -68,6 +68,8 @@ type LookupDevBoxDefinitionArgs struct {
 // A collection of values returned by getDevBoxDefinition.
 type LookupDevBoxDefinitionResult struct {
 	DevCenterId string `pulumi:"devCenterId"`
+	// Whether Dev Boxes created with this definition are capable of hibernation.
+	HibernateSupportEnabled bool `pulumi:"hibernateSupportEnabled"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The ID of the image for the Dev Center Dev Box Definition.
@@ -119,6 +121,11 @@ func (o LookupDevBoxDefinitionResultOutput) ToLookupDevBoxDefinitionResultOutput
 
 func (o LookupDevBoxDefinitionResultOutput) DevCenterId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDevBoxDefinitionResult) string { return v.DevCenterId }).(pulumi.StringOutput)
+}
+
+// Whether Dev Boxes created with this definition are capable of hibernation.
+func (o LookupDevBoxDefinitionResultOutput) HibernateSupportEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupDevBoxDefinitionResult) bool { return v.HibernateSupportEnabled }).(pulumi.BoolOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.

@@ -89,7 +89,7 @@ import javax.annotation.Nullable;
  * &lt;!-- This section is generated, changes will be overwritten --&gt;
  * This resource uses the following Azure API Providers:
  * 
- * * `Microsoft.DataMigration`: 2021-06-30
+ * * `Microsoft.DataMigration` - 2021-06-30
  * 
  * ## Import
  * 

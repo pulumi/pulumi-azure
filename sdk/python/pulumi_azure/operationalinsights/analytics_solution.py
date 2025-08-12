@@ -307,7 +307,7 @@ class AnalyticsSolution(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.OperationsManagement`: 2015-11-01-preview
+        * `Microsoft.OperationsManagement` - 2015-11-01-preview
 
         ## Import
 
@@ -373,7 +373,7 @@ class AnalyticsSolution(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.OperationsManagement`: 2015-11-01-preview
+        * `Microsoft.OperationsManagement` - 2015-11-01-preview
 
         ## Import
 

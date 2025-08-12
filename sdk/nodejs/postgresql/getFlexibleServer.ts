@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.DBforPostgreSQL`: 2024-08-01
+ * * `Microsoft.DBforPostgreSQL` - 2024-08-01
  */
 export function getFlexibleServer(args: GetFlexibleServerArgs, opts?: pulumi.InvokeOptions): Promise<GetFlexibleServerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -125,7 +125,7 @@ export interface GetFlexibleServerResult {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.DBforPostgreSQL`: 2024-08-01
+ * * `Microsoft.DBforPostgreSQL` - 2024-08-01
  */
 export function getFlexibleServerOutput(args: GetFlexibleServerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFlexibleServerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

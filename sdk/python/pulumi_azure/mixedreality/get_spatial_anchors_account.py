@@ -136,7 +136,7 @@ def get_spatial_anchors_account(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.MixedReality`: 2021-01-01
+    * `Microsoft.MixedReality` - 2021-01-01
 
 
     :param _builtins.str name: Specifies the name of the Spatial Anchors Account. Changing this forces a new resource to be created. Must be globally unique.
@@ -180,7 +180,7 @@ def get_spatial_anchors_account_output(name: Optional[pulumi.Input[_builtins.str
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.MixedReality`: 2021-01-01
+    * `Microsoft.MixedReality` - 2021-01-01
 
 
     :param _builtins.str name: Specifies the name of the Spatial Anchors Account. Changing this forces a new resource to be created. Must be globally unique.

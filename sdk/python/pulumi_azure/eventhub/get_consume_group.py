@@ -122,7 +122,7 @@ def get_consume_group(eventhub_name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.EventHub`: 2024-01-01
+    * `Microsoft.EventHub` - 2024-01-01
 
 
     :param _builtins.str eventhub_name: Specifies the name of the EventHub.
@@ -170,7 +170,7 @@ def get_consume_group_output(eventhub_name: Optional[pulumi.Input[_builtins.str]
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.EventHub`: 2024-01-01
+    * `Microsoft.EventHub` - 2024-01-01
 
 
     :param _builtins.str eventhub_name: Specifies the name of the EventHub.

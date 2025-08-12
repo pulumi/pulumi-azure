@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetAutonomousDatabaseResult',
@@ -26,7 +27,7 @@ class GetAutonomousDatabaseResult:
     """
     A collection of values returned by getAutonomousDatabase.
     """
-    def __init__(__self__, actual_used_data_storage_size_in_tbs=None, allocated_storage_size_in_tbs=None, allowed_ips=None, auto_scaling_enabled=None, auto_scaling_for_storage_enabled=None, autonomous_database_id=None, available_upgrade_versions=None, backup_retention_period_in_days=None, character_set=None, compute_count=None, cpu_core_count=None, data_storage_size_in_gbs=None, data_storage_size_in_tbs=None, db_node_storage_size_in_gbs=None, db_version=None, display_name=None, failed_data_recovery_in_seconds=None, id=None, in_memory_area_in_gbs=None, lifecycle_details=None, local_adg_auto_failover_max_data_loss_limit=None, local_data_guard_enabled=None, location=None, memory_per_oracle_compute_unit_in_gbs=None, mtls_connection_required=None, name=None, national_character_set=None, next_long_term_backup_time_stamp=None, oci_url=None, ocid=None, peer_db_id=None, peer_db_ids=None, preview=None, preview_version_with_service_terms_accepted=None, private_endpoint=None, private_endpoint_ip=None, private_endpoint_label=None, provisionable_cpuses=None, remote_data_guard_enabled=None, resource_group_name=None, service_console_url=None, sql_web_developer_url=None, subnet_id=None, supported_regions_to_clone_tos=None, tags=None, time_created=None, time_data_guard_role_changed=None, time_deletion_of_free_autonomous_database=None, time_local_data_guard_enabled_on=None, time_maintenance_begin=None, time_maintenance_end=None, time_of_last_failover=None, time_of_last_refresh=None, time_of_last_refresh_point=None, time_of_last_switchover=None, time_reclamation_of_free_autonomous_database=None, used_data_storage_size_in_gbs=None, used_data_storage_size_in_tbs=None, virtual_network_id=None):
+    def __init__(__self__, actual_used_data_storage_size_in_tbs=None, allocated_storage_size_in_tbs=None, allowed_ips=None, auto_scaling_enabled=None, auto_scaling_for_storage_enabled=None, autonomous_database_id=None, available_upgrade_versions=None, backup_retention_period_in_days=None, character_set=None, compute_count=None, cpu_core_count=None, data_storage_size_in_gbs=None, data_storage_size_in_tbs=None, db_node_storage_size_in_gbs=None, db_version=None, display_name=None, failed_data_recovery_in_seconds=None, id=None, in_memory_area_in_gbs=None, lifecycle_details=None, local_adg_auto_failover_max_data_loss_limit=None, local_data_guard_enabled=None, location=None, long_term_backup_schedules=None, memory_per_oracle_compute_unit_in_gbs=None, mtls_connection_required=None, name=None, national_character_set=None, next_long_term_backup_time_stamp=None, oci_url=None, ocid=None, peer_db_id=None, peer_db_ids=None, preview=None, preview_version_with_service_terms_accepted=None, private_endpoint=None, private_endpoint_ip=None, private_endpoint_label=None, provisionable_cpuses=None, remote_data_guard_enabled=None, resource_group_name=None, service_console_url=None, sql_web_developer_url=None, subnet_id=None, supported_regions_to_clone_tos=None, tags=None, time_created=None, time_data_guard_role_changed=None, time_deletion_of_free_autonomous_database=None, time_local_data_guard_enabled_on=None, time_maintenance_begin=None, time_maintenance_end=None, time_of_last_failover=None, time_of_last_refresh=None, time_of_last_refresh_point=None, time_of_last_switchover=None, time_reclamation_of_free_autonomous_database=None, used_data_storage_size_in_gbs=None, used_data_storage_size_in_tbs=None, virtual_network_id=None):
         if actual_used_data_storage_size_in_tbs and not isinstance(actual_used_data_storage_size_in_tbs, float):
             raise TypeError("Expected argument 'actual_used_data_storage_size_in_tbs' to be a float")
         pulumi.set(__self__, "actual_used_data_storage_size_in_tbs", actual_used_data_storage_size_in_tbs)
@@ -96,6 +97,9 @@ class GetAutonomousDatabaseResult:
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
+        if long_term_backup_schedules and not isinstance(long_term_backup_schedules, list):
+            raise TypeError("Expected argument 'long_term_backup_schedules' to be a list")
+        pulumi.set(__self__, "long_term_backup_schedules", long_term_backup_schedules)
         if memory_per_oracle_compute_unit_in_gbs and not isinstance(memory_per_oracle_compute_unit_in_gbs, int):
             raise TypeError("Expected argument 'memory_per_oracle_compute_unit_in_gbs' to be a int")
         pulumi.set(__self__, "memory_per_oracle_compute_unit_in_gbs", memory_per_oracle_compute_unit_in_gbs)
@@ -388,6 +392,14 @@ class GetAutonomousDatabaseResult:
         The Azure Region where the Autonomous Database exists.
         """
         return pulumi.get(self, "location")
+
+    @_builtins.property
+    @pulumi.getter(name="longTermBackupSchedules")
+    def long_term_backup_schedules(self) -> Sequence['outputs.GetAutonomousDatabaseLongTermBackupScheduleResult']:
+        """
+        A `long_term_backup_schedule` block as defined below
+        """
+        return pulumi.get(self, "long_term_backup_schedules")
 
     @_builtins.property
     @pulumi.getter(name="memoryPerOracleComputeUnitInGbs")
@@ -698,6 +710,7 @@ class AwaitableGetAutonomousDatabaseResult(GetAutonomousDatabaseResult):
             local_adg_auto_failover_max_data_loss_limit=self.local_adg_auto_failover_max_data_loss_limit,
             local_data_guard_enabled=self.local_data_guard_enabled,
             location=self.location,
+            long_term_backup_schedules=self.long_term_backup_schedules,
             memory_per_oracle_compute_unit_in_gbs=self.memory_per_oracle_compute_unit_in_gbs,
             mtls_connection_required=self.mtls_connection_required,
             name=self.name,
@@ -758,7 +771,7 @@ def get_autonomous_database(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Oracle.Database`: 2024-06-01
+    * `Oracle.Database` - 2025-03-01
 
 
     :param _builtins.str name: The name of this Autonomous Database.
@@ -794,6 +807,7 @@ def get_autonomous_database(name: Optional[_builtins.str] = None,
         local_adg_auto_failover_max_data_loss_limit=pulumi.get(__ret__, 'local_adg_auto_failover_max_data_loss_limit'),
         local_data_guard_enabled=pulumi.get(__ret__, 'local_data_guard_enabled'),
         location=pulumi.get(__ret__, 'location'),
+        long_term_backup_schedules=pulumi.get(__ret__, 'long_term_backup_schedules'),
         memory_per_oracle_compute_unit_in_gbs=pulumi.get(__ret__, 'memory_per_oracle_compute_unit_in_gbs'),
         mtls_connection_required=pulumi.get(__ret__, 'mtls_connection_required'),
         name=pulumi.get(__ret__, 'name'),
@@ -852,7 +866,7 @@ def get_autonomous_database_output(name: Optional[pulumi.Input[_builtins.str]] =
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Oracle.Database`: 2024-06-01
+    * `Oracle.Database` - 2025-03-01
 
 
     :param _builtins.str name: The name of this Autonomous Database.
@@ -887,6 +901,7 @@ def get_autonomous_database_output(name: Optional[pulumi.Input[_builtins.str]] =
         local_adg_auto_failover_max_data_loss_limit=pulumi.get(__response__, 'local_adg_auto_failover_max_data_loss_limit'),
         local_data_guard_enabled=pulumi.get(__response__, 'local_data_guard_enabled'),
         location=pulumi.get(__response__, 'location'),
+        long_term_backup_schedules=pulumi.get(__response__, 'long_term_backup_schedules'),
         memory_per_oracle_compute_unit_in_gbs=pulumi.get(__response__, 'memory_per_oracle_compute_unit_in_gbs'),
         mtls_connection_required=pulumi.get(__response__, 'mtls_connection_required'),
         name=pulumi.get(__response__, 'name'),

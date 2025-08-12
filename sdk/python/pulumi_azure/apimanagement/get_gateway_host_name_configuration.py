@@ -176,7 +176,7 @@ def get_gateway_host_name_configuration(api_management_id: Optional[_builtins.st
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.ApiManagement`: 2022-08-01
+    * `Microsoft.ApiManagement` - 2022-08-01
 
 
     :param _builtins.str api_management_id: The ID of the API Management Service.
@@ -230,7 +230,7 @@ def get_gateway_host_name_configuration_output(api_management_id: Optional[pulum
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.ApiManagement`: 2022-08-01
+    * `Microsoft.ApiManagement` - 2022-08-01
 
 
     :param _builtins.str api_management_id: The ID of the API Management Service.

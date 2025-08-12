@@ -380,7 +380,7 @@ class Automation(pulumi.CustomResource):
             location=example.location,
             resource_group_name=example.name,
             actions=[{
-                "type": "eventhub",
+                "type": "EventHub",
                 "resource_id": example_event_hub.id,
                 "connection_string": example_authorization_rule.primary_connection_string,
             }],
@@ -403,7 +403,7 @@ class Automation(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.Security`: 2019-01-01-preview
+        * `Microsoft.Security` - 2019-01-01-preview
 
         ## Import
 
@@ -471,7 +471,7 @@ class Automation(pulumi.CustomResource):
             location=example.location,
             resource_group_name=example.name,
             actions=[{
-                "type": "eventhub",
+                "type": "EventHub",
                 "resource_id": example_event_hub.id,
                 "connection_string": example_authorization_rule.primary_connection_string,
             }],
@@ -494,7 +494,7 @@ class Automation(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.Security`: 2019-01-01-preview
+        * `Microsoft.Security` - 2019-01-01-preview
 
         ## Import
 

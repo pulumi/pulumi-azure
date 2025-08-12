@@ -22,7 +22,6 @@ public final class GetAppTemplateInitContainerVolumeMount {
     private String path;
     /**
      * @return The sub path of the volume to be mounted in the container.
-     * ---
      * 
      */
     private String subPath;
@@ -44,7 +43,6 @@ public final class GetAppTemplateInitContainerVolumeMount {
     }
     /**
      * @return The sub path of the volume to be mounted in the container.
-     * ---
      * 
      */
     public String subPath() {

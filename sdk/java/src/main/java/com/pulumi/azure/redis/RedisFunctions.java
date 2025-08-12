@@ -64,7 +64,7 @@ public final class RedisFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Cache`: 2024-11-01
+     * * `Microsoft.Cache` - 2024-11-01
      * 
      */
     public static Output<GetCacheResult> getCache(GetCacheArgs args) {
@@ -116,7 +116,7 @@ public final class RedisFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Cache`: 2024-11-01
+     * * `Microsoft.Cache` - 2024-11-01
      * 
      */
     public static CompletableFuture<GetCacheResult> getCachePlain(GetCachePlainArgs args) {
@@ -168,7 +168,7 @@ public final class RedisFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Cache`: 2024-11-01
+     * * `Microsoft.Cache` - 2024-11-01
      * 
      */
     public static Output<GetCacheResult> getCache(GetCacheArgs args, InvokeOptions options) {
@@ -220,7 +220,7 @@ public final class RedisFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Cache`: 2024-11-01
+     * * `Microsoft.Cache` - 2024-11-01
      * 
      */
     public static Output<GetCacheResult> getCache(GetCacheArgs args, InvokeOutputOptions options) {
@@ -272,7 +272,7 @@ public final class RedisFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Cache`: 2024-11-01
+     * * `Microsoft.Cache` - 2024-11-01
      * 
      */
     public static CompletableFuture<GetCacheResult> getCachePlain(GetCachePlainArgs args, InvokeOptions options) {
@@ -291,7 +291,7 @@ public final class RedisFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Cache`: 2024-10-01
+     * * `Microsoft.Cache` - 2024-10-01
      * 
      */
     public static Output<GetEnterpriseDatabaseResult> getEnterpriseDatabase(GetEnterpriseDatabaseArgs args) {
@@ -310,7 +310,7 @@ public final class RedisFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Cache`: 2024-10-01
+     * * `Microsoft.Cache` - 2024-10-01
      * 
      */
     public static CompletableFuture<GetEnterpriseDatabaseResult> getEnterpriseDatabasePlain(GetEnterpriseDatabasePlainArgs args) {
@@ -329,7 +329,7 @@ public final class RedisFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Cache`: 2024-10-01
+     * * `Microsoft.Cache` - 2024-10-01
      * 
      */
     public static Output<GetEnterpriseDatabaseResult> getEnterpriseDatabase(GetEnterpriseDatabaseArgs args, InvokeOptions options) {
@@ -348,7 +348,7 @@ public final class RedisFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Cache`: 2024-10-01
+     * * `Microsoft.Cache` - 2024-10-01
      * 
      */
     public static Output<GetEnterpriseDatabaseResult> getEnterpriseDatabase(GetEnterpriseDatabaseArgs args, InvokeOutputOptions options) {
@@ -367,7 +367,7 @@ public final class RedisFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Cache`: 2024-10-01
+     * * `Microsoft.Cache` - 2024-10-01
      * 
      */
     public static CompletableFuture<GetEnterpriseDatabaseResult> getEnterpriseDatabasePlain(GetEnterpriseDatabasePlainArgs args, InvokeOptions options) {

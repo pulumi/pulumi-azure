@@ -60,7 +60,7 @@ public final class LoadtestFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.LoadTestService`: 2022-12-01
+     * * `Microsoft.LoadTestService` - 2022-12-01
      * 
      */
     public static Output<GetResult> get(GetArgs args) {
@@ -111,7 +111,7 @@ public final class LoadtestFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.LoadTestService`: 2022-12-01
+     * * `Microsoft.LoadTestService` - 2022-12-01
      * 
      */
     public static CompletableFuture<GetResult> getPlain(GetPlainArgs args) {
@@ -162,7 +162,7 @@ public final class LoadtestFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.LoadTestService`: 2022-12-01
+     * * `Microsoft.LoadTestService` - 2022-12-01
      * 
      */
     public static Output<GetResult> get(GetArgs args, InvokeOptions options) {
@@ -213,7 +213,7 @@ public final class LoadtestFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.LoadTestService`: 2022-12-01
+     * * `Microsoft.LoadTestService` - 2022-12-01
      * 
      */
     public static Output<GetResult> get(GetArgs args, InvokeOutputOptions options) {
@@ -264,7 +264,7 @@ public final class LoadtestFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.LoadTestService`: 2022-12-01
+     * * `Microsoft.LoadTestService` - 2022-12-01
      * 
      */
     public static CompletableFuture<GetResult> getPlain(GetPlainArgs args, InvokeOptions options) {

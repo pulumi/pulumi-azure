@@ -377,7 +377,7 @@ class AuthorizationRule(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.NotificationHubs`: 2023-09-01
+        * `Microsoft.NotificationHubs` - 2023-09-01
 
         ## Import
 
@@ -443,7 +443,7 @@ class AuthorizationRule(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.NotificationHubs`: 2023-09-01
+        * `Microsoft.NotificationHubs` - 2023-09-01
 
         ## Import
 

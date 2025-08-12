@@ -510,7 +510,7 @@ class CassandraDatacenter(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.DocumentDB`: 2023-04-15
+        * `Microsoft.DocumentDB` - 2023-04-15
 
         ## Import
 
@@ -596,7 +596,7 @@ class CassandraDatacenter(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.DocumentDB`: 2023-04-15
+        * `Microsoft.DocumentDB` - 2023-04-15
 
         ## Import
 

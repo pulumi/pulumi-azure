@@ -52,7 +52,7 @@ class ServiceArgs:
         :param pulumi.Input[_builtins.str] publisher_email: The email of publisher/company.
         :param pulumi.Input[_builtins.str] publisher_name: The name of publisher/company.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group in which the API Management Service should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] sku_name: `sku_name` is a string consisting of two parts separated by an underscore(\\_). The first part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
+        :param pulumi.Input[_builtins.str] sku_name: `sku_name` is a string consisting of two parts separated by an underscore(\\_). The first part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `BasicV2`, `Standard`, `StandardV2`, `Premium` and `PremiumV2`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
                
                > **Note:** Premium SKUs are limited to a default maximum of 12 (i.e. `Premium_12`), this can, however, be increased via support request.
                
@@ -177,7 +177,7 @@ class ServiceArgs:
     @pulumi.getter(name="skuName")
     def sku_name(self) -> pulumi.Input[_builtins.str]:
         """
-        `sku_name` is a string consisting of two parts separated by an underscore(\\_). The first part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
+        `sku_name` is a string consisting of two parts separated by an underscore(\\_). The first part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `BasicV2`, `Standard`, `StandardV2`, `Premium` and `PremiumV2`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
 
         > **Note:** Premium SKUs are limited to a default maximum of 12 (i.e. `Premium_12`), this can, however, be increased via support request.
 
@@ -533,7 +533,7 @@ class _ServiceState:
         :param pulumi.Input['ServiceSecurityArgs'] security: A `security` block as defined below.
         :param pulumi.Input['ServiceSignInArgs'] sign_in: A `sign_in` block as defined below.
         :param pulumi.Input['ServiceSignUpArgs'] sign_up: A `sign_up` block as defined below.
-        :param pulumi.Input[_builtins.str] sku_name: `sku_name` is a string consisting of two parts separated by an underscore(\\_). The first part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
+        :param pulumi.Input[_builtins.str] sku_name: `sku_name` is a string consisting of two parts separated by an underscore(\\_). The first part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `BasicV2`, `Standard`, `StandardV2`, `Premium` and `PremiumV2`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
                
                > **Note:** Premium SKUs are limited to a default maximum of 12 (i.e. `Premium_12`), this can, however, be increased via support request.
                
@@ -961,7 +961,7 @@ class _ServiceState:
     @pulumi.getter(name="skuName")
     def sku_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        `sku_name` is a string consisting of two parts separated by an underscore(\\_). The first part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
+        `sku_name` is a string consisting of two parts separated by an underscore(\\_). The first part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `BasicV2`, `Standard`, `StandardV2`, `Premium` and `PremiumV2`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
 
         > **Note:** Premium SKUs are limited to a default maximum of 12 (i.e. `Premium_12`), this can, however, be increased via support request.
 
@@ -1095,7 +1095,7 @@ class Service(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.ApiManagement`: 2022-08-01
+        * `Microsoft.ApiManagement` - 2024-05-01, 2022-08-01
 
         ## Import
 
@@ -1131,7 +1131,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[Union['ServiceSecurityArgs', 'ServiceSecurityArgsDict']] security: A `security` block as defined below.
         :param pulumi.Input[Union['ServiceSignInArgs', 'ServiceSignInArgsDict']] sign_in: A `sign_in` block as defined below.
         :param pulumi.Input[Union['ServiceSignUpArgs', 'ServiceSignUpArgsDict']] sign_up: A `sign_up` block as defined below.
-        :param pulumi.Input[_builtins.str] sku_name: `sku_name` is a string consisting of two parts separated by an underscore(\\_). The first part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
+        :param pulumi.Input[_builtins.str] sku_name: `sku_name` is a string consisting of two parts separated by an underscore(\\_). The first part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `BasicV2`, `Standard`, `StandardV2`, `Premium` and `PremiumV2`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
                
                > **Note:** Premium SKUs are limited to a default maximum of 12 (i.e. `Premium_12`), this can, however, be increased via support request.
                
@@ -1176,7 +1176,7 @@ class Service(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.ApiManagement`: 2022-08-01
+        * `Microsoft.ApiManagement` - 2024-05-01, 2022-08-01
 
         ## Import
 
@@ -1361,7 +1361,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[Union['ServiceSecurityArgs', 'ServiceSecurityArgsDict']] security: A `security` block as defined below.
         :param pulumi.Input[Union['ServiceSignInArgs', 'ServiceSignInArgsDict']] sign_in: A `sign_in` block as defined below.
         :param pulumi.Input[Union['ServiceSignUpArgs', 'ServiceSignUpArgsDict']] sign_up: A `sign_up` block as defined below.
-        :param pulumi.Input[_builtins.str] sku_name: `sku_name` is a string consisting of two parts separated by an underscore(\\_). The first part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
+        :param pulumi.Input[_builtins.str] sku_name: `sku_name` is a string consisting of two parts separated by an underscore(\\_). The first part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `BasicV2`, `Standard`, `StandardV2`, `Premium` and `PremiumV2`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
                
                > **Note:** Premium SKUs are limited to a default maximum of 12 (i.e. `Premium_12`), this can, however, be increased via support request.
                
@@ -1648,7 +1648,7 @@ class Service(pulumi.CustomResource):
     @pulumi.getter(name="skuName")
     def sku_name(self) -> pulumi.Output[_builtins.str]:
         """
-        `sku_name` is a string consisting of two parts separated by an underscore(\\_). The first part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
+        `sku_name` is a string consisting of two parts separated by an underscore(\\_). The first part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `BasicV2`, `Standard`, `StandardV2`, `Premium` and `PremiumV2`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
 
         > **Note:** Premium SKUs are limited to a default maximum of 12 (i.e. `Premium_12`), this can, however, be increased via support request.
 

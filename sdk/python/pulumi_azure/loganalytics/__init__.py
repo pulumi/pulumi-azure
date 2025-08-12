@@ -11,6 +11,7 @@ from .cluster_customer_managed_key import *
 from .data_export_rule import *
 from .data_source_windows_event import *
 from .data_source_windows_performance_counter import *
+from .get_workspace_table import *
 from .linked_service import *
 from .linked_storage_account import *
 from .query_pack import *

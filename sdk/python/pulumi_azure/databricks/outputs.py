@@ -21,6 +21,7 @@ __all__ = [
     'WorkspaceManagedDiskIdentity',
     'WorkspaceStorageAccountIdentity',
     'GetAccessConnectorIdentityResult',
+    'GetWorkspaceCustomParameterResult',
     'GetWorkspaceEnhancedSecurityComplianceResult',
     'GetWorkspaceManagedDiskIdentityResult',
     'GetWorkspacePrivateEndpointConnectionConnectionResult',
@@ -575,6 +576,123 @@ class GetAccessConnectorIdentityResult(dict):
         The type of Managed Service Identity that is configured on this Access Connector.
         """
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GetWorkspaceCustomParameterResult(dict):
+    def __init__(__self__, *,
+                 machine_learning_workspace_id: _builtins.str,
+                 nat_gateway_name: _builtins.str,
+                 no_public_ip: _builtins.bool,
+                 private_subnet_name: _builtins.str,
+                 public_ip_name: _builtins.str,
+                 public_subnet_name: _builtins.str,
+                 storage_account_name: _builtins.str,
+                 storage_account_sku_name: _builtins.str,
+                 virtual_network_id: _builtins.str,
+                 vnet_address_prefix: _builtins.str):
+        """
+        :param _builtins.str machine_learning_workspace_id: The ID of a Azure Machine Learning workspace to link with Databricks workspace.
+        :param _builtins.str nat_gateway_name: Name of the NAT gateway for Secure Cluster Connectivity (No Public IP) workspace subnets (only for workspace with managed virtual network).
+        :param _builtins.bool no_public_ip: Are public IP Addresses not allowed?
+        :param _builtins.str private_subnet_name: The name of the Private Subnet within the Virtual Network.
+        :param _builtins.str public_ip_name: Name of the Public IP for No Public IP workspace with managed virtual network.
+        :param _builtins.str public_subnet_name: The name of the Public Subnet within the Virtual Network.
+        :param _builtins.str storage_account_name: Default Databricks File Storage account name.
+        :param _builtins.str storage_account_sku_name: Storage account SKU name.
+        :param _builtins.str virtual_network_id: The ID of a Virtual Network where this Databricks Cluster should be created.
+        :param _builtins.str vnet_address_prefix: Address prefix for Managed virtual network.
+        """
+        pulumi.set(__self__, "machine_learning_workspace_id", machine_learning_workspace_id)
+        pulumi.set(__self__, "nat_gateway_name", nat_gateway_name)
+        pulumi.set(__self__, "no_public_ip", no_public_ip)
+        pulumi.set(__self__, "private_subnet_name", private_subnet_name)
+        pulumi.set(__self__, "public_ip_name", public_ip_name)
+        pulumi.set(__self__, "public_subnet_name", public_subnet_name)
+        pulumi.set(__self__, "storage_account_name", storage_account_name)
+        pulumi.set(__self__, "storage_account_sku_name", storage_account_sku_name)
+        pulumi.set(__self__, "virtual_network_id", virtual_network_id)
+        pulumi.set(__self__, "vnet_address_prefix", vnet_address_prefix)
+
+    @_builtins.property
+    @pulumi.getter(name="machineLearningWorkspaceId")
+    def machine_learning_workspace_id(self) -> _builtins.str:
+        """
+        The ID of a Azure Machine Learning workspace to link with Databricks workspace.
+        """
+        return pulumi.get(self, "machine_learning_workspace_id")
+
+    @_builtins.property
+    @pulumi.getter(name="natGatewayName")
+    def nat_gateway_name(self) -> _builtins.str:
+        """
+        Name of the NAT gateway for Secure Cluster Connectivity (No Public IP) workspace subnets (only for workspace with managed virtual network).
+        """
+        return pulumi.get(self, "nat_gateway_name")
+
+    @_builtins.property
+    @pulumi.getter(name="noPublicIp")
+    def no_public_ip(self) -> _builtins.bool:
+        """
+        Are public IP Addresses not allowed?
+        """
+        return pulumi.get(self, "no_public_ip")
+
+    @_builtins.property
+    @pulumi.getter(name="privateSubnetName")
+    def private_subnet_name(self) -> _builtins.str:
+        """
+        The name of the Private Subnet within the Virtual Network.
+        """
+        return pulumi.get(self, "private_subnet_name")
+
+    @_builtins.property
+    @pulumi.getter(name="publicIpName")
+    def public_ip_name(self) -> _builtins.str:
+        """
+        Name of the Public IP for No Public IP workspace with managed virtual network.
+        """
+        return pulumi.get(self, "public_ip_name")
+
+    @_builtins.property
+    @pulumi.getter(name="publicSubnetName")
+    def public_subnet_name(self) -> _builtins.str:
+        """
+        The name of the Public Subnet within the Virtual Network.
+        """
+        return pulumi.get(self, "public_subnet_name")
+
+    @_builtins.property
+    @pulumi.getter(name="storageAccountName")
+    def storage_account_name(self) -> _builtins.str:
+        """
+        Default Databricks File Storage account name.
+        """
+        return pulumi.get(self, "storage_account_name")
+
+    @_builtins.property
+    @pulumi.getter(name="storageAccountSkuName")
+    def storage_account_sku_name(self) -> _builtins.str:
+        """
+        Storage account SKU name.
+        """
+        return pulumi.get(self, "storage_account_sku_name")
+
+    @_builtins.property
+    @pulumi.getter(name="virtualNetworkId")
+    def virtual_network_id(self) -> _builtins.str:
+        """
+        The ID of a Virtual Network where this Databricks Cluster should be created.
+        """
+        return pulumi.get(self, "virtual_network_id")
+
+    @_builtins.property
+    @pulumi.getter(name="vnetAddressPrefix")
+    def vnet_address_prefix(self) -> _builtins.str:
+        """
+        Address prefix for Managed virtual network.
+        """
+        return pulumi.get(self, "vnet_address_prefix")
 
 
 @pulumi.output_type

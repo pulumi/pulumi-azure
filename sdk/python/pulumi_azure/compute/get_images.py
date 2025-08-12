@@ -100,7 +100,7 @@ def get_images(resource_group_name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Compute`: 2022-03-01
+    * `Microsoft.Compute` - 2022-03-01
 
 
     :param _builtins.str resource_group_name: The name of the Resource Group in which the Image exists.
@@ -137,7 +137,7 @@ def get_images_output(resource_group_name: Optional[pulumi.Input[_builtins.str]]
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Compute`: 2022-03-01
+    * `Microsoft.Compute` - 2022-03-01
 
 
     :param _builtins.str resource_group_name: The name of the Resource Group in which the Image exists.

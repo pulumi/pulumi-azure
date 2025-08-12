@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `PaloAltoNetworks.Cloudngfw`: 2022-08-29
+ * * `PaloAltoNetworks.Cloudngfw` - 2022-08-29
  */
 export function getLocalRulestack(args: GetLocalRulestackArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalRulestackResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -121,7 +121,7 @@ export interface GetLocalRulestackResult {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `PaloAltoNetworks.Cloudngfw`: 2022-08-29
+ * * `PaloAltoNetworks.Cloudngfw` - 2022-08-29
  */
 export function getLocalRulestackOutput(args: GetLocalRulestackOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLocalRulestackResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

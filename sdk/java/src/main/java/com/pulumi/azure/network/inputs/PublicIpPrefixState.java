@@ -19,6 +19,25 @@ public final class PublicIpPrefixState extends com.pulumi.resources.ResourceArgs
     public static final PublicIpPrefixState Empty = new PublicIpPrefixState();
 
     /**
+     * The Custom IP Prefix ID associated with the Public IP Prefix. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** When `ip_version` is set to `IPv6`, `custom_ip_prefix_id` must reference a regional (child) range rather than a global (parent) range. For more details on creating a Public IP Prefix from a custom IP prefix, see [here](https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/manage-custom-ip-address-prefix#create-a-public-ip-prefix-from-a-custom-ip-prefix).
+     * 
+     */
+    @Import(name="customIpPrefixId")
+    private @Nullable Output<String> customIpPrefixId;
+
+    /**
+     * @return The Custom IP Prefix ID associated with the Public IP Prefix. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** When `ip_version` is set to `IPv6`, `custom_ip_prefix_id` must reference a regional (child) range rather than a global (parent) range. For more details on creating a Public IP Prefix from a custom IP prefix, see [here](https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/manage-custom-ip-address-prefix#create-a-public-ip-prefix-from-a-custom-ip-prefix).
+     * 
+     */
+    public Optional<Output<String>> customIpPrefixId() {
+        return Optional.ofNullable(this.customIpPrefixId);
+    }
+
+    /**
      * The IP address prefix value that was allocated.
      * 
      */
@@ -183,6 +202,7 @@ public final class PublicIpPrefixState extends com.pulumi.resources.ResourceArgs
     private PublicIpPrefixState() {}
 
     private PublicIpPrefixState(PublicIpPrefixState $) {
+        this.customIpPrefixId = $.customIpPrefixId;
         this.ipPrefix = $.ipPrefix;
         this.ipVersion = $.ipVersion;
         this.location = $.location;
@@ -211,6 +231,31 @@ public final class PublicIpPrefixState extends com.pulumi.resources.ResourceArgs
 
         public Builder(PublicIpPrefixState defaults) {
             $ = new PublicIpPrefixState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param customIpPrefixId The Custom IP Prefix ID associated with the Public IP Prefix. Changing this forces a new resource to be created.
+         * 
+         * &gt; **Note:** When `ip_version` is set to `IPv6`, `custom_ip_prefix_id` must reference a regional (child) range rather than a global (parent) range. For more details on creating a Public IP Prefix from a custom IP prefix, see [here](https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/manage-custom-ip-address-prefix#create-a-public-ip-prefix-from-a-custom-ip-prefix).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customIpPrefixId(@Nullable Output<String> customIpPrefixId) {
+            $.customIpPrefixId = customIpPrefixId;
+            return this;
+        }
+
+        /**
+         * @param customIpPrefixId The Custom IP Prefix ID associated with the Public IP Prefix. Changing this forces a new resource to be created.
+         * 
+         * &gt; **Note:** When `ip_version` is set to `IPv6`, `custom_ip_prefix_id` must reference a regional (child) range rather than a global (parent) range. For more details on creating a Public IP Prefix from a custom IP prefix, see [here](https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/manage-custom-ip-address-prefix#create-a-public-ip-prefix-from-a-custom-ip-prefix).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customIpPrefixId(String customIpPrefixId) {
+            return customIpPrefixId(Output.of(customIpPrefixId));
         }
 
         /**

@@ -197,7 +197,7 @@ def get_data_collection_endpoint(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Insights`: 2023-03-11
+    * `Microsoft.Insights` - 2023-03-11
 
 
     :param _builtins.str name: Specifies the name of the Data Collection Endpoint.
@@ -244,7 +244,7 @@ def get_data_collection_endpoint_output(name: Optional[pulumi.Input[_builtins.st
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Insights`: 2023-03-11
+    * `Microsoft.Insights` - 2023-03-11
 
 
     :param _builtins.str name: Specifies the name of the Data Collection Endpoint.

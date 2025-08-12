@@ -95,7 +95,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This resource uses the following Azure API Providers:
  *
- * * `Microsoft.MobileNetwork`: 2022-11-01
+ * * `Microsoft.MobileNetwork` - 2022-11-01
  *
  * ## Import
  *

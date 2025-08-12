@@ -60,7 +60,7 @@ public final class PortalFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Portal`: 2019-01-01-preview
+     * * `Microsoft.Portal` - 2019-01-01-preview
      * 
      */
     public static Output<Azurerm_portal_dashboardResult> azurerm_portal_dashboard(Azurerm_portal_dashboardArgs args) {
@@ -111,7 +111,7 @@ public final class PortalFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Portal`: 2019-01-01-preview
+     * * `Microsoft.Portal` - 2019-01-01-preview
      * 
      */
     public static CompletableFuture<Azurerm_portal_dashboardResult> azurerm_portal_dashboardPlain(Azurerm_portal_dashboardPlainArgs args) {
@@ -162,7 +162,7 @@ public final class PortalFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Portal`: 2019-01-01-preview
+     * * `Microsoft.Portal` - 2019-01-01-preview
      * 
      */
     public static Output<Azurerm_portal_dashboardResult> azurerm_portal_dashboard(Azurerm_portal_dashboardArgs args, InvokeOptions options) {
@@ -213,7 +213,7 @@ public final class PortalFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Portal`: 2019-01-01-preview
+     * * `Microsoft.Portal` - 2019-01-01-preview
      * 
      */
     public static Output<Azurerm_portal_dashboardResult> azurerm_portal_dashboard(Azurerm_portal_dashboardArgs args, InvokeOutputOptions options) {
@@ -264,7 +264,7 @@ public final class PortalFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Portal`: 2019-01-01-preview
+     * * `Microsoft.Portal` - 2019-01-01-preview
      * 
      */
     public static CompletableFuture<Azurerm_portal_dashboardResult> azurerm_portal_dashboardPlain(Azurerm_portal_dashboardPlainArgs args, InvokeOptions options) {

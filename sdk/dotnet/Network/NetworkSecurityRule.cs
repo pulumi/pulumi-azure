@@ -62,7 +62,7 @@ namespace Pulumi.Azure.Network
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.Network`: 2024-05-01
+    /// * `Microsoft.Network` - 2024-05-01
     /// 
     /// ## Import
     /// 
@@ -88,19 +88,21 @@ namespace Pulumi.Azure.Network
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// CIDR or destination IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used. Besides, it also supports all available Service Tags like ‘Sql.WestEurope‘, ‘Storage.EastUS‘, etc. You can list the available service tags with the CLI: ```shell az network list-service-tags --location westcentralus```. For further information please see [Azure CLI - az network list-service-tags](https://docs.microsoft.com/cli/azure/network?view=azure-cli-latest#az-network-list-service-tags). This is required if `destination_address_prefixes` is not specified.
+        /// CIDR or destination IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used. Besides, it also supports all available Service Tags like ‘Sql.WestEurope‘, ‘Storage.EastUS‘, etc. You can list the available service tags with the CLI: ```shell az network list-service-tags --location westcentralus```. For further information please see [Azure CLI - az network list-service-tags](https://docs.microsoft.com/cli/azure/network?view=azure-cli-latest#az-network-list-service-tags).
         /// </summary>
         [Output("destinationAddressPrefix")]
         public Output<string?> DestinationAddressPrefix { get; private set; } = null!;
 
         /// <summary>
-        /// List of destination address prefixes. Tags may not be used. This is required if `destination_address_prefix` is not specified.
+        /// List of destination address prefixes. Tags may not be used.
         /// </summary>
         [Output("destinationAddressPrefixes")]
         public Output<ImmutableArray<string>> DestinationAddressPrefixes { get; private set; } = null!;
 
         /// <summary>
         /// A List of destination Application Security Group IDs
+        /// 
+        /// &gt; **Note:** One of `destination_address_prefix`, `destination_address_prefixes` or `destination_application_security_group_ids` must be specified.
         /// </summary>
         [Output("destinationApplicationSecurityGroupIds")]
         public Output<string?> DestinationApplicationSecurityGroupIds { get; private set; } = null!;
@@ -154,19 +156,21 @@ namespace Pulumi.Azure.Network
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// CIDR or source IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used. This is required if `source_address_prefixes` is not specified.
+        /// CIDR or source IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used.
         /// </summary>
         [Output("sourceAddressPrefix")]
         public Output<string?> SourceAddressPrefix { get; private set; } = null!;
 
         /// <summary>
-        /// List of source address prefixes. Tags may not be used. This is required if `source_address_prefix` is not specified.
+        /// List of source address prefixes. Tags may not be used.
         /// </summary>
         [Output("sourceAddressPrefixes")]
         public Output<ImmutableArray<string>> SourceAddressPrefixes { get; private set; } = null!;
 
         /// <summary>
         /// A List of source Application Security Group IDs
+        /// 
+        /// &gt; **Note:** One of `source_address_prefix`, `source_address_prefixes` or `source_application_security_group_ids` must be specified.
         /// </summary>
         [Output("sourceApplicationSecurityGroupIds")]
         public Output<string?> SourceApplicationSecurityGroupIds { get; private set; } = null!;
@@ -242,7 +246,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// CIDR or destination IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used. Besides, it also supports all available Service Tags like ‘Sql.WestEurope‘, ‘Storage.EastUS‘, etc. You can list the available service tags with the CLI: ```shell az network list-service-tags --location westcentralus```. For further information please see [Azure CLI - az network list-service-tags](https://docs.microsoft.com/cli/azure/network?view=azure-cli-latest#az-network-list-service-tags). This is required if `destination_address_prefixes` is not specified.
+        /// CIDR or destination IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used. Besides, it also supports all available Service Tags like ‘Sql.WestEurope‘, ‘Storage.EastUS‘, etc. You can list the available service tags with the CLI: ```shell az network list-service-tags --location westcentralus```. For further information please see [Azure CLI - az network list-service-tags](https://docs.microsoft.com/cli/azure/network?view=azure-cli-latest#az-network-list-service-tags).
         /// </summary>
         [Input("destinationAddressPrefix")]
         public Input<string>? DestinationAddressPrefix { get; set; }
@@ -251,7 +255,7 @@ namespace Pulumi.Azure.Network
         private InputList<string>? _destinationAddressPrefixes;
 
         /// <summary>
-        /// List of destination address prefixes. Tags may not be used. This is required if `destination_address_prefix` is not specified.
+        /// List of destination address prefixes. Tags may not be used.
         /// </summary>
         public InputList<string> DestinationAddressPrefixes
         {
@@ -261,6 +265,8 @@ namespace Pulumi.Azure.Network
 
         /// <summary>
         /// A List of destination Application Security Group IDs
+        /// 
+        /// &gt; **Note:** One of `destination_address_prefix`, `destination_address_prefixes` or `destination_application_security_group_ids` must be specified.
         /// </summary>
         [Input("destinationApplicationSecurityGroupIds")]
         public Input<string>? DestinationApplicationSecurityGroupIds { get; set; }
@@ -320,7 +326,7 @@ namespace Pulumi.Azure.Network
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// CIDR or source IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used. This is required if `source_address_prefixes` is not specified.
+        /// CIDR or source IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used.
         /// </summary>
         [Input("sourceAddressPrefix")]
         public Input<string>? SourceAddressPrefix { get; set; }
@@ -329,7 +335,7 @@ namespace Pulumi.Azure.Network
         private InputList<string>? _sourceAddressPrefixes;
 
         /// <summary>
-        /// List of source address prefixes. Tags may not be used. This is required if `source_address_prefix` is not specified.
+        /// List of source address prefixes. Tags may not be used.
         /// </summary>
         public InputList<string> SourceAddressPrefixes
         {
@@ -339,6 +345,8 @@ namespace Pulumi.Azure.Network
 
         /// <summary>
         /// A List of source Application Security Group IDs
+        /// 
+        /// &gt; **Note:** One of `source_address_prefix`, `source_address_prefixes` or `source_application_security_group_ids` must be specified.
         /// </summary>
         [Input("sourceApplicationSecurityGroupIds")]
         public Input<string>? SourceApplicationSecurityGroupIds { get; set; }
@@ -382,7 +390,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// CIDR or destination IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used. Besides, it also supports all available Service Tags like ‘Sql.WestEurope‘, ‘Storage.EastUS‘, etc. You can list the available service tags with the CLI: ```shell az network list-service-tags --location westcentralus```. For further information please see [Azure CLI - az network list-service-tags](https://docs.microsoft.com/cli/azure/network?view=azure-cli-latest#az-network-list-service-tags). This is required if `destination_address_prefixes` is not specified.
+        /// CIDR or destination IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used. Besides, it also supports all available Service Tags like ‘Sql.WestEurope‘, ‘Storage.EastUS‘, etc. You can list the available service tags with the CLI: ```shell az network list-service-tags --location westcentralus```. For further information please see [Azure CLI - az network list-service-tags](https://docs.microsoft.com/cli/azure/network?view=azure-cli-latest#az-network-list-service-tags).
         /// </summary>
         [Input("destinationAddressPrefix")]
         public Input<string>? DestinationAddressPrefix { get; set; }
@@ -391,7 +399,7 @@ namespace Pulumi.Azure.Network
         private InputList<string>? _destinationAddressPrefixes;
 
         /// <summary>
-        /// List of destination address prefixes. Tags may not be used. This is required if `destination_address_prefix` is not specified.
+        /// List of destination address prefixes. Tags may not be used.
         /// </summary>
         public InputList<string> DestinationAddressPrefixes
         {
@@ -401,6 +409,8 @@ namespace Pulumi.Azure.Network
 
         /// <summary>
         /// A List of destination Application Security Group IDs
+        /// 
+        /// &gt; **Note:** One of `destination_address_prefix`, `destination_address_prefixes` or `destination_application_security_group_ids` must be specified.
         /// </summary>
         [Input("destinationApplicationSecurityGroupIds")]
         public Input<string>? DestinationApplicationSecurityGroupIds { get; set; }
@@ -460,7 +470,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// CIDR or source IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used. This is required if `source_address_prefixes` is not specified.
+        /// CIDR or source IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used.
         /// </summary>
         [Input("sourceAddressPrefix")]
         public Input<string>? SourceAddressPrefix { get; set; }
@@ -469,7 +479,7 @@ namespace Pulumi.Azure.Network
         private InputList<string>? _sourceAddressPrefixes;
 
         /// <summary>
-        /// List of source address prefixes. Tags may not be used. This is required if `source_address_prefix` is not specified.
+        /// List of source address prefixes. Tags may not be used.
         /// </summary>
         public InputList<string> SourceAddressPrefixes
         {
@@ -479,6 +489,8 @@ namespace Pulumi.Azure.Network
 
         /// <summary>
         /// A List of source Application Security Group IDs
+        /// 
+        /// &gt; **Note:** One of `source_address_prefix`, `source_address_prefixes` or `source_application_security_group_ids` must be specified.
         /// </summary>
         [Input("sourceApplicationSecurityGroupIds")]
         public Input<string>? SourceApplicationSecurityGroupIds { get; set; }

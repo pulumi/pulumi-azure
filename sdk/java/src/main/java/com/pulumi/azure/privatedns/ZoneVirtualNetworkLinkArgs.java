@@ -64,6 +64,21 @@ public final class ZoneVirtualNetworkLinkArgs extends com.pulumi.resources.Resou
     }
 
     /**
+     * Specifies the resolution policy of the Private DNS Zone Virtual Network Link. Possible values are `Default` and `NxDomainRedirect`.
+     * 
+     */
+    @Import(name="resolutionPolicy")
+    private @Nullable Output<String> resolutionPolicy;
+
+    /**
+     * @return Specifies the resolution policy of the Private DNS Zone Virtual Network Link. Possible values are `Default` and `NxDomainRedirect`.
+     * 
+     */
+    public Optional<Output<String>> resolutionPolicy() {
+        return Optional.ofNullable(this.resolutionPolicy);
+    }
+
+    /**
      * Specifies the resource group where the Private DNS Zone exists. Changing this forces a new resource to be created.
      * 
      */
@@ -114,6 +129,7 @@ public final class ZoneVirtualNetworkLinkArgs extends com.pulumi.resources.Resou
         this.name = $.name;
         this.privateDnsZoneName = $.privateDnsZoneName;
         this.registrationEnabled = $.registrationEnabled;
+        this.resolutionPolicy = $.resolutionPolicy;
         this.resourceGroupName = $.resourceGroupName;
         this.tags = $.tags;
         this.virtualNetworkId = $.virtualNetworkId;
@@ -198,6 +214,27 @@ public final class ZoneVirtualNetworkLinkArgs extends com.pulumi.resources.Resou
          */
         public Builder registrationEnabled(Boolean registrationEnabled) {
             return registrationEnabled(Output.of(registrationEnabled));
+        }
+
+        /**
+         * @param resolutionPolicy Specifies the resolution policy of the Private DNS Zone Virtual Network Link. Possible values are `Default` and `NxDomainRedirect`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resolutionPolicy(@Nullable Output<String> resolutionPolicy) {
+            $.resolutionPolicy = resolutionPolicy;
+            return this;
+        }
+
+        /**
+         * @param resolutionPolicy Specifies the resolution policy of the Private DNS Zone Virtual Network Link. Possible values are `Default` and `NxDomainRedirect`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resolutionPolicy(String resolutionPolicy) {
+            return resolutionPolicy(Output.of(resolutionPolicy));
         }
 
         /**

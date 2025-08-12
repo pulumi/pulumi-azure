@@ -158,7 +158,7 @@ def get_dps(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Devices`: 2022-02-05
+    * `Microsoft.Devices` - 2022-02-05
 
 
     :param _builtins.str name: Specifies the name of the Iot Device Provisioning Service resource.
@@ -203,7 +203,7 @@ def get_dps_output(name: Optional[pulumi.Input[_builtins.str]] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Devices`: 2022-02-05
+    * `Microsoft.Devices` - 2022-02-05
 
 
     :param _builtins.str name: Specifies the name of the Iot Device Provisioning Service resource.

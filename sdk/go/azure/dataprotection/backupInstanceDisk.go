@@ -115,7 +115,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This resource uses the following Azure API Providers:
 //
-// * `Microsoft.DataProtection`: 2024-04-01
+// * `Microsoft.DataProtection` - 2024-04-01
 //
 // ## Import
 //
@@ -137,6 +137,8 @@ type BackupInstanceDisk struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the Resource Group where snapshots are stored. Changing this forces a new Backup Instance Disk to be created.
 	SnapshotResourceGroupName pulumi.StringOutput `pulumi:"snapshotResourceGroupName"`
+	// The subscription ID of the Resource Group where snapshots are stored. The default value is the subscription ID of the Backup Vault. Changing this forces a new Backup Instance Disk to be created.
+	SnapshotSubscriptionId pulumi.StringPtrOutput `pulumi:"snapshotSubscriptionId"`
 	// The ID of the Backup Vault within which the Backup Instance Disk should exist. Changing this forces a new Backup Instance Disk to be created.
 	VaultId pulumi.StringOutput `pulumi:"vaultId"`
 }
@@ -193,6 +195,8 @@ type backupInstanceDiskState struct {
 	Name *string `pulumi:"name"`
 	// The name of the Resource Group where snapshots are stored. Changing this forces a new Backup Instance Disk to be created.
 	SnapshotResourceGroupName *string `pulumi:"snapshotResourceGroupName"`
+	// The subscription ID of the Resource Group where snapshots are stored. The default value is the subscription ID of the Backup Vault. Changing this forces a new Backup Instance Disk to be created.
+	SnapshotSubscriptionId *string `pulumi:"snapshotSubscriptionId"`
 	// The ID of the Backup Vault within which the Backup Instance Disk should exist. Changing this forces a new Backup Instance Disk to be created.
 	VaultId *string `pulumi:"vaultId"`
 }
@@ -208,6 +212,8 @@ type BackupInstanceDiskState struct {
 	Name pulumi.StringPtrInput
 	// The name of the Resource Group where snapshots are stored. Changing this forces a new Backup Instance Disk to be created.
 	SnapshotResourceGroupName pulumi.StringPtrInput
+	// The subscription ID of the Resource Group where snapshots are stored. The default value is the subscription ID of the Backup Vault. Changing this forces a new Backup Instance Disk to be created.
+	SnapshotSubscriptionId pulumi.StringPtrInput
 	// The ID of the Backup Vault within which the Backup Instance Disk should exist. Changing this forces a new Backup Instance Disk to be created.
 	VaultId pulumi.StringPtrInput
 }
@@ -227,6 +233,8 @@ type backupInstanceDiskArgs struct {
 	Name *string `pulumi:"name"`
 	// The name of the Resource Group where snapshots are stored. Changing this forces a new Backup Instance Disk to be created.
 	SnapshotResourceGroupName string `pulumi:"snapshotResourceGroupName"`
+	// The subscription ID of the Resource Group where snapshots are stored. The default value is the subscription ID of the Backup Vault. Changing this forces a new Backup Instance Disk to be created.
+	SnapshotSubscriptionId *string `pulumi:"snapshotSubscriptionId"`
 	// The ID of the Backup Vault within which the Backup Instance Disk should exist. Changing this forces a new Backup Instance Disk to be created.
 	VaultId string `pulumi:"vaultId"`
 }
@@ -243,6 +251,8 @@ type BackupInstanceDiskArgs struct {
 	Name pulumi.StringPtrInput
 	// The name of the Resource Group where snapshots are stored. Changing this forces a new Backup Instance Disk to be created.
 	SnapshotResourceGroupName pulumi.StringInput
+	// The subscription ID of the Resource Group where snapshots are stored. The default value is the subscription ID of the Backup Vault. Changing this forces a new Backup Instance Disk to be created.
+	SnapshotSubscriptionId pulumi.StringPtrInput
 	// The ID of the Backup Vault within which the Backup Instance Disk should exist. Changing this forces a new Backup Instance Disk to be created.
 	VaultId pulumi.StringInput
 }
@@ -357,6 +367,11 @@ func (o BackupInstanceDiskOutput) Name() pulumi.StringOutput {
 // The name of the Resource Group where snapshots are stored. Changing this forces a new Backup Instance Disk to be created.
 func (o BackupInstanceDiskOutput) SnapshotResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *BackupInstanceDisk) pulumi.StringOutput { return v.SnapshotResourceGroupName }).(pulumi.StringOutput)
+}
+
+// The subscription ID of the Resource Group where snapshots are stored. The default value is the subscription ID of the Backup Vault. Changing this forces a new Backup Instance Disk to be created.
+func (o BackupInstanceDiskOutput) SnapshotSubscriptionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BackupInstanceDisk) pulumi.StringPtrOutput { return v.SnapshotSubscriptionId }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the Backup Vault within which the Backup Instance Disk should exist. Changing this forces a new Backup Instance Disk to be created.

@@ -60,7 +60,7 @@ public final class DigitaltwinsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DigitalTwins`: 2023-01-31
+     * * `Microsoft.DigitalTwins` - 2023-01-31
      * 
      */
     public static Output<GetInstanceResult> getInstance(GetInstanceArgs args) {
@@ -111,7 +111,7 @@ public final class DigitaltwinsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DigitalTwins`: 2023-01-31
+     * * `Microsoft.DigitalTwins` - 2023-01-31
      * 
      */
     public static CompletableFuture<GetInstanceResult> getInstancePlain(GetInstancePlainArgs args) {
@@ -162,7 +162,7 @@ public final class DigitaltwinsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DigitalTwins`: 2023-01-31
+     * * `Microsoft.DigitalTwins` - 2023-01-31
      * 
      */
     public static Output<GetInstanceResult> getInstance(GetInstanceArgs args, InvokeOptions options) {
@@ -213,7 +213,7 @@ public final class DigitaltwinsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DigitalTwins`: 2023-01-31
+     * * `Microsoft.DigitalTwins` - 2023-01-31
      * 
      */
     public static Output<GetInstanceResult> getInstance(GetInstanceArgs args, InvokeOutputOptions options) {
@@ -264,7 +264,7 @@ public final class DigitaltwinsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DigitalTwins`: 2023-01-31
+     * * `Microsoft.DigitalTwins` - 2023-01-31
      * 
      */
     public static CompletableFuture<GetInstanceResult> getInstancePlain(GetInstancePlainArgs args, InvokeOptions options) {

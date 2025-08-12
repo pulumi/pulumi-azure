@@ -148,7 +148,7 @@ def get_project(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.DataMigration`: 2021-06-30
+    * `Microsoft.DataMigration` - 2021-06-30
 
 
     :param _builtins.str name: Name of the database migration project.
@@ -195,7 +195,7 @@ def get_project_output(name: Optional[pulumi.Input[_builtins.str]] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.DataMigration`: 2021-06-30
+    * `Microsoft.DataMigration` - 2021-06-30
 
 
     :param _builtins.str name: Name of the database migration project.

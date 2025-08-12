@@ -82,7 +82,7 @@ import javax.annotation.Nullable;
  * &lt;!-- This section is generated, changes will be overwritten --&gt;
  * This resource uses the following Azure API Providers:
  * 
- * * `Microsoft.KeyVault`: 2023-07-01
+ * * `Microsoft.KeyVault` - 2023-07-01
  * 
  * ## Import
  * 
@@ -166,14 +166,14 @@ public class ManagedHardwareSecurityModule extends com.pulumi.resources.CustomRe
         return this.networkAcls;
     }
     /**
-     * Whether traffic from public networks is permitted. Defaults to `true`. Changing this forces a new resource to be created.
+     * Whether traffic from public networks is permitted. Defaults to `true`.
      * 
      */
     @Export(name="publicNetworkAccessEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> publicNetworkAccessEnabled;
 
     /**
-     * @return Whether traffic from public networks is permitted. Defaults to `true`. Changing this forces a new resource to be created.
+     * @return Whether traffic from public networks is permitted. Defaults to `true`.
      * 
      */
     public Output<Optional<Boolean>> publicNetworkAccessEnabled() {

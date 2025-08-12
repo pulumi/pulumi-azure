@@ -23,6 +23,8 @@ __all__ = [
     'FileSystemIdentityArgsDict',
     'FileSystemMaintenanceWindowArgs',
     'FileSystemMaintenanceWindowArgsDict',
+    'FileSystemRootSquashArgs',
+    'FileSystemRootSquashArgsDict',
 ]
 
 MYPY = False
@@ -251,5 +253,95 @@ class FileSystemMaintenanceWindowArgs:
     @time_of_day_in_utc.setter
     def time_of_day_in_utc(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "time_of_day_in_utc", value)
+
+
+if not MYPY:
+    class FileSystemRootSquashArgsDict(TypedDict):
+        mode: pulumi.Input[_builtins.str]
+        """
+        Squash mode of the AML file system. Possible values are `RootOnly`, and `All`.
+        """
+        no_squash_nids: pulumi.Input[_builtins.str]
+        """
+        NID IP Address list(s) to be added to the TrustedSystems, separated by semicolons.
+        """
+        squash_gid: NotRequired[pulumi.Input[_builtins.int]]
+        """
+        The GID to be used for the root squash. Defaults to `0`.
+        """
+        squash_uid: NotRequired[pulumi.Input[_builtins.int]]
+        """
+        The UID to be used for the root squash. Defaults to `0`.
+        """
+elif False:
+    FileSystemRootSquashArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class FileSystemRootSquashArgs:
+    def __init__(__self__, *,
+                 mode: pulumi.Input[_builtins.str],
+                 no_squash_nids: pulumi.Input[_builtins.str],
+                 squash_gid: Optional[pulumi.Input[_builtins.int]] = None,
+                 squash_uid: Optional[pulumi.Input[_builtins.int]] = None):
+        """
+        :param pulumi.Input[_builtins.str] mode: Squash mode of the AML file system. Possible values are `RootOnly`, and `All`.
+        :param pulumi.Input[_builtins.str] no_squash_nids: NID IP Address list(s) to be added to the TrustedSystems, separated by semicolons.
+        :param pulumi.Input[_builtins.int] squash_gid: The GID to be used for the root squash. Defaults to `0`.
+        :param pulumi.Input[_builtins.int] squash_uid: The UID to be used for the root squash. Defaults to `0`.
+        """
+        pulumi.set(__self__, "mode", mode)
+        pulumi.set(__self__, "no_squash_nids", no_squash_nids)
+        if squash_gid is not None:
+            pulumi.set(__self__, "squash_gid", squash_gid)
+        if squash_uid is not None:
+            pulumi.set(__self__, "squash_uid", squash_uid)
+
+    @_builtins.property
+    @pulumi.getter
+    def mode(self) -> pulumi.Input[_builtins.str]:
+        """
+        Squash mode of the AML file system. Possible values are `RootOnly`, and `All`.
+        """
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "mode", value)
+
+    @_builtins.property
+    @pulumi.getter(name="noSquashNids")
+    def no_squash_nids(self) -> pulumi.Input[_builtins.str]:
+        """
+        NID IP Address list(s) to be added to the TrustedSystems, separated by semicolons.
+        """
+        return pulumi.get(self, "no_squash_nids")
+
+    @no_squash_nids.setter
+    def no_squash_nids(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "no_squash_nids", value)
+
+    @_builtins.property
+    @pulumi.getter(name="squashGid")
+    def squash_gid(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        The GID to be used for the root squash. Defaults to `0`.
+        """
+        return pulumi.get(self, "squash_gid")
+
+    @squash_gid.setter
+    def squash_gid(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "squash_gid", value)
+
+    @_builtins.property
+    @pulumi.getter(name="squashUid")
+    def squash_uid(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        The UID to be used for the root squash. Defaults to `0`.
+        """
+        return pulumi.get(self, "squash_uid")
+
+    @squash_uid.setter
+    def squash_uid(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "squash_uid", value)
 
 

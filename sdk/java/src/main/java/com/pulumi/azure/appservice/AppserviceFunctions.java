@@ -999,7 +999,7 @@ public final class AppserviceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Web`: 2023-01-01
+     * * `Microsoft.Web` - 2023-01-01
      * 
      */
     public static Output<GetEnvironmentV3Result> getEnvironmentV3(GetEnvironmentV3Args args) {
@@ -1050,7 +1050,7 @@ public final class AppserviceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Web`: 2023-01-01
+     * * `Microsoft.Web` - 2023-01-01
      * 
      */
     public static CompletableFuture<GetEnvironmentV3Result> getEnvironmentV3Plain(GetEnvironmentV3PlainArgs args) {
@@ -1101,7 +1101,7 @@ public final class AppserviceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Web`: 2023-01-01
+     * * `Microsoft.Web` - 2023-01-01
      * 
      */
     public static Output<GetEnvironmentV3Result> getEnvironmentV3(GetEnvironmentV3Args args, InvokeOptions options) {
@@ -1152,7 +1152,7 @@ public final class AppserviceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Web`: 2023-01-01
+     * * `Microsoft.Web` - 2023-01-01
      * 
      */
     public static Output<GetEnvironmentV3Result> getEnvironmentV3(GetEnvironmentV3Args args, InvokeOutputOptions options) {
@@ -1203,7 +1203,7 @@ public final class AppserviceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Web`: 2023-01-01
+     * * `Microsoft.Web` - 2023-01-01
      * 
      */
     public static CompletableFuture<GetEnvironmentV3Result> getEnvironmentV3Plain(GetEnvironmentV3PlainArgs args, InvokeOptions options) {
@@ -1694,7 +1694,7 @@ public final class AppserviceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Web`: 2023-12-01
+     * * `Microsoft.Web` - 2023-12-01
      * 
      */
     public static Output<GetLinuxFunctionAppResult> getLinuxFunctionApp(GetLinuxFunctionAppArgs args) {
@@ -1745,7 +1745,7 @@ public final class AppserviceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Web`: 2023-12-01
+     * * `Microsoft.Web` - 2023-12-01
      * 
      */
     public static CompletableFuture<GetLinuxFunctionAppResult> getLinuxFunctionAppPlain(GetLinuxFunctionAppPlainArgs args) {
@@ -1796,7 +1796,7 @@ public final class AppserviceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Web`: 2023-12-01
+     * * `Microsoft.Web` - 2023-12-01
      * 
      */
     public static Output<GetLinuxFunctionAppResult> getLinuxFunctionApp(GetLinuxFunctionAppArgs args, InvokeOptions options) {
@@ -1847,7 +1847,7 @@ public final class AppserviceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Web`: 2023-12-01
+     * * `Microsoft.Web` - 2023-12-01
      * 
      */
     public static Output<GetLinuxFunctionAppResult> getLinuxFunctionApp(GetLinuxFunctionAppArgs args, InvokeOutputOptions options) {
@@ -1898,7 +1898,7 @@ public final class AppserviceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Web`: 2023-12-01
+     * * `Microsoft.Web` - 2023-12-01
      * 
      */
     public static CompletableFuture<GetLinuxFunctionAppResult> getLinuxFunctionAppPlain(GetLinuxFunctionAppPlainArgs args, InvokeOptions options) {
@@ -1949,7 +1949,7 @@ public final class AppserviceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Web`: 2023-12-01
+     * * `Microsoft.Web` - 2023-12-01
      * 
      */
     public static Output<GetLinuxWebAppResult> getLinuxWebApp(GetLinuxWebAppArgs args) {
@@ -2000,7 +2000,7 @@ public final class AppserviceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Web`: 2023-12-01
+     * * `Microsoft.Web` - 2023-12-01
      * 
      */
     public static CompletableFuture<GetLinuxWebAppResult> getLinuxWebAppPlain(GetLinuxWebAppPlainArgs args) {
@@ -2051,7 +2051,7 @@ public final class AppserviceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Web`: 2023-12-01
+     * * `Microsoft.Web` - 2023-12-01
      * 
      */
     public static Output<GetLinuxWebAppResult> getLinuxWebApp(GetLinuxWebAppArgs args, InvokeOptions options) {
@@ -2102,7 +2102,7 @@ public final class AppserviceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Web`: 2023-12-01
+     * * `Microsoft.Web` - 2023-12-01
      * 
      */
     public static Output<GetLinuxWebAppResult> getLinuxWebApp(GetLinuxWebAppArgs args, InvokeOutputOptions options) {
@@ -2153,7 +2153,7 @@ public final class AppserviceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Web`: 2023-12-01
+     * * `Microsoft.Web` - 2023-12-01
      * 
      */
     public static CompletableFuture<GetLinuxWebAppResult> getLinuxWebAppPlain(GetLinuxWebAppPlainArgs args, InvokeOptions options) {
@@ -2204,7 +2204,7 @@ public final class AppserviceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Web`: 2023-12-01
+     * * `Microsoft.Web` - 2023-12-01
      * 
      */
     public static Output<GetServicePlanResult> getServicePlan(GetServicePlanArgs args) {
@@ -2255,7 +2255,7 @@ public final class AppserviceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Web`: 2023-12-01
+     * * `Microsoft.Web` - 2023-12-01
      * 
      */
     public static CompletableFuture<GetServicePlanResult> getServicePlanPlain(GetServicePlanPlainArgs args) {
@@ -2306,7 +2306,7 @@ public final class AppserviceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Web`: 2023-12-01
+     * * `Microsoft.Web` - 2023-12-01
      * 
      */
     public static Output<GetServicePlanResult> getServicePlan(GetServicePlanArgs args, InvokeOptions options) {
@@ -2357,7 +2357,7 @@ public final class AppserviceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Web`: 2023-12-01
+     * * `Microsoft.Web` - 2023-12-01
      * 
      */
     public static Output<GetServicePlanResult> getServicePlan(GetServicePlanArgs args, InvokeOutputOptions options) {
@@ -2408,7 +2408,7 @@ public final class AppserviceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Web`: 2023-12-01
+     * * `Microsoft.Web` - 2023-12-01
      * 
      */
     public static CompletableFuture<GetServicePlanResult> getServicePlanPlain(GetServicePlanPlainArgs args, InvokeOptions options) {
@@ -2456,7 +2456,7 @@ public final class AppserviceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Web`: 2023-01-01
+     * * `Microsoft.Web` - 2023-01-01
      * 
      */
     public static Output<GetSourceControlTokenResult> getSourceControlToken(GetSourceControlTokenArgs args) {
@@ -2504,7 +2504,7 @@ public final class AppserviceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Web`: 2023-01-01
+     * * `Microsoft.Web` - 2023-01-01
      * 
      */
     public static CompletableFuture<GetSourceControlTokenResult> getSourceControlTokenPlain(GetSourceControlTokenPlainArgs args) {
@@ -2552,7 +2552,7 @@ public final class AppserviceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Web`: 2023-01-01
+     * * `Microsoft.Web` - 2023-01-01
      * 
      */
     public static Output<GetSourceControlTokenResult> getSourceControlToken(GetSourceControlTokenArgs args, InvokeOptions options) {
@@ -2600,7 +2600,7 @@ public final class AppserviceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Web`: 2023-01-01
+     * * `Microsoft.Web` - 2023-01-01
      * 
      */
     public static Output<GetSourceControlTokenResult> getSourceControlToken(GetSourceControlTokenArgs args, InvokeOutputOptions options) {
@@ -2648,7 +2648,7 @@ public final class AppserviceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Web`: 2023-01-01
+     * * `Microsoft.Web` - 2023-01-01
      * 
      */
     public static CompletableFuture<GetSourceControlTokenResult> getSourceControlTokenPlain(GetSourceControlTokenPlainArgs args, InvokeOptions options) {
@@ -2698,7 +2698,7 @@ public final class AppserviceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Web`: 2023-01-01
+     * * `Microsoft.Web` - 2023-01-01
      * 
      */
     public static Output<GetStaticWebAppResult> getStaticWebApp(GetStaticWebAppArgs args) {
@@ -2748,7 +2748,7 @@ public final class AppserviceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Web`: 2023-01-01
+     * * `Microsoft.Web` - 2023-01-01
      * 
      */
     public static CompletableFuture<GetStaticWebAppResult> getStaticWebAppPlain(GetStaticWebAppPlainArgs args) {
@@ -2798,7 +2798,7 @@ public final class AppserviceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Web`: 2023-01-01
+     * * `Microsoft.Web` - 2023-01-01
      * 
      */
     public static Output<GetStaticWebAppResult> getStaticWebApp(GetStaticWebAppArgs args, InvokeOptions options) {
@@ -2848,7 +2848,7 @@ public final class AppserviceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Web`: 2023-01-01
+     * * `Microsoft.Web` - 2023-01-01
      * 
      */
     public static Output<GetStaticWebAppResult> getStaticWebApp(GetStaticWebAppArgs args, InvokeOutputOptions options) {
@@ -2898,7 +2898,7 @@ public final class AppserviceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Web`: 2023-01-01
+     * * `Microsoft.Web` - 2023-01-01
      * 
      */
     public static CompletableFuture<GetStaticWebAppResult> getStaticWebAppPlain(GetStaticWebAppPlainArgs args, InvokeOptions options) {
@@ -2949,7 +2949,7 @@ public final class AppserviceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Web`: 2023-12-01
+     * * `Microsoft.Web` - 2023-12-01
      * 
      */
     public static Output<GetWindowsFunctionAppResult> getWindowsFunctionApp(GetWindowsFunctionAppArgs args) {
@@ -3000,7 +3000,7 @@ public final class AppserviceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Web`: 2023-12-01
+     * * `Microsoft.Web` - 2023-12-01
      * 
      */
     public static CompletableFuture<GetWindowsFunctionAppResult> getWindowsFunctionAppPlain(GetWindowsFunctionAppPlainArgs args) {
@@ -3051,7 +3051,7 @@ public final class AppserviceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Web`: 2023-12-01
+     * * `Microsoft.Web` - 2023-12-01
      * 
      */
     public static Output<GetWindowsFunctionAppResult> getWindowsFunctionApp(GetWindowsFunctionAppArgs args, InvokeOptions options) {
@@ -3102,7 +3102,7 @@ public final class AppserviceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Web`: 2023-12-01
+     * * `Microsoft.Web` - 2023-12-01
      * 
      */
     public static Output<GetWindowsFunctionAppResult> getWindowsFunctionApp(GetWindowsFunctionAppArgs args, InvokeOutputOptions options) {
@@ -3153,7 +3153,7 @@ public final class AppserviceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Web`: 2023-12-01
+     * * `Microsoft.Web` - 2023-12-01
      * 
      */
     public static CompletableFuture<GetWindowsFunctionAppResult> getWindowsFunctionAppPlain(GetWindowsFunctionAppPlainArgs args, InvokeOptions options) {
@@ -3204,7 +3204,7 @@ public final class AppserviceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Web`: 2023-12-01
+     * * `Microsoft.Web` - 2023-12-01
      * 
      */
     public static Output<GetWindowsWebAppResult> getWindowsWebApp(GetWindowsWebAppArgs args) {
@@ -3255,7 +3255,7 @@ public final class AppserviceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Web`: 2023-12-01
+     * * `Microsoft.Web` - 2023-12-01
      * 
      */
     public static CompletableFuture<GetWindowsWebAppResult> getWindowsWebAppPlain(GetWindowsWebAppPlainArgs args) {
@@ -3306,7 +3306,7 @@ public final class AppserviceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Web`: 2023-12-01
+     * * `Microsoft.Web` - 2023-12-01
      * 
      */
     public static Output<GetWindowsWebAppResult> getWindowsWebApp(GetWindowsWebAppArgs args, InvokeOptions options) {
@@ -3357,7 +3357,7 @@ public final class AppserviceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Web`: 2023-12-01
+     * * `Microsoft.Web` - 2023-12-01
      * 
      */
     public static Output<GetWindowsWebAppResult> getWindowsWebApp(GetWindowsWebAppArgs args, InvokeOutputOptions options) {
@@ -3408,7 +3408,7 @@ public final class AppserviceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Web`: 2023-12-01
+     * * `Microsoft.Web` - 2023-12-01
      * 
      */
     public static CompletableFuture<GetWindowsWebAppResult> getWindowsWebAppPlain(GetWindowsWebAppPlainArgs args, InvokeOptions options) {

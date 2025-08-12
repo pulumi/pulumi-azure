@@ -74,7 +74,7 @@ import javax.annotation.Nullable;
  *             .serverId(exampleServer.id())
  *             .collation("SQL_Latin1_General_CP1_CI_AS")
  *             .licenseType("LicenseIncluded")
- *             .maxSizeGb(2)
+ *             .maxSizeGb(2.0)
  *             .skuName("S0")
  *             .enclaveType("VBS")
  *             .tags(Map.of("foo", "bar"))
@@ -204,7 +204,7 @@ import javax.annotation.Nullable;
  *             .serverId(exampleServer.id())
  *             .collation("SQL_Latin1_General_CP1_CI_AS")
  *             .licenseType("LicenseIncluded")
- *             .maxSizeGb(4)
+ *             .maxSizeGb(4.0)
  *             .readScale(true)
  *             .skuName("S0")
  *             .zoneRedundant(true)
@@ -228,7 +228,7 @@ import javax.annotation.Nullable;
  * &lt;!-- This section is generated, changes will be overwritten --&gt;
  * This resource uses the following Azure API Providers:
  * 
- * * `Microsoft.Sql`: 2023-08-01-preview
+ * * `Microsoft.Sql` - 2023-08-01-preview
  * 
  * ## Import
  * 
@@ -450,19 +450,19 @@ public class Database extends com.pulumi.resources.CustomResource {
     /**
      * The max size of the database in gigabytes.
      * 
-     * &gt; **Note:** This value should not be configured when the `create_mode` is `Secondary` or `OnlineSecondary`, as the sizing of the primary is then used as per [Azure documentation](https://docs.microsoft.com/azure/azure-sql/database/single-database-scale#geo-replicated-database).
+     * &gt; **Note:** This value should not be configured when the `create_mode` is `Secondary` or `OnlineSecondary`, as the sizing of the primary is then used as per [Azure documentation](https://docs.microsoft.com/azure/azure-sql/database/single-database-scale#geo-replicated-database). The value of `max_size_gb` accepts `0.1`, `0.5` and positive integers greater than or equal to 1. `0.1` means `100MB`, and `0.5` means `500MB`.
      * 
      */
-    @Export(name="maxSizeGb", refs={Integer.class}, tree="[0]")
-    private Output<Integer> maxSizeGb;
+    @Export(name="maxSizeGb", refs={Double.class}, tree="[0]")
+    private Output<Double> maxSizeGb;
 
     /**
      * @return The max size of the database in gigabytes.
      * 
-     * &gt; **Note:** This value should not be configured when the `create_mode` is `Secondary` or `OnlineSecondary`, as the sizing of the primary is then used as per [Azure documentation](https://docs.microsoft.com/azure/azure-sql/database/single-database-scale#geo-replicated-database).
+     * &gt; **Note:** This value should not be configured when the `create_mode` is `Secondary` or `OnlineSecondary`, as the sizing of the primary is then used as per [Azure documentation](https://docs.microsoft.com/azure/azure-sql/database/single-database-scale#geo-replicated-database). The value of `max_size_gb` accepts `0.1`, `0.5` and positive integers greater than or equal to 1. `0.1` means `100MB`, and `0.5` means `500MB`.
      * 
      */
-    public Output<Integer> maxSizeGb() {
+    public Output<Double> maxSizeGb() {
         return this.maxSizeGb;
     }
     /**
@@ -606,14 +606,14 @@ public class Database extends com.pulumi.resources.CustomResource {
         return this.sampleName;
     }
     /**
-     * How do you want your replica to be made? Valid values include `Geo` and `Named`. Defaults to `Geo`. Changing this forces a new resource to be created.
+     * How do you want your replica to be made? Valid values include `Geo`, `Named` and `Standby`. Defaults to `Geo`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="secondaryType", refs={String.class}, tree="[0]")
     private Output<String> secondaryType;
 
     /**
-     * @return How do you want your replica to be made? Valid values include `Geo` and `Named`. Defaults to `Geo`. Changing this forces a new resource to be created.
+     * @return How do you want your replica to be made? Valid values include `Geo`, `Named` and `Standby`. Defaults to `Geo`. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> secondaryType() {

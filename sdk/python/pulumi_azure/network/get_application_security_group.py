@@ -113,7 +113,7 @@ def get_application_security_group(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Network`: 2024-05-01
+    * `Microsoft.Network` - 2024-05-01
 
 
     :param _builtins.str name: The name of the Application Security Group.
@@ -153,7 +153,7 @@ def get_application_security_group_output(name: Optional[pulumi.Input[_builtins.
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Network`: 2024-05-01
+    * `Microsoft.Network` - 2024-05-01
 
 
     :param _builtins.str name: The name of the Application Security Group.

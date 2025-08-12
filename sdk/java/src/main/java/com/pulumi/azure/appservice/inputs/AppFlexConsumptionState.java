@@ -240,14 +240,14 @@ public final class AppFlexConsumptionState extends com.pulumi.resources.Resource
     }
 
     /**
-     * The memory size of the instances on which your app runs. The [currently supported values](https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-plan#instance-memory) are `2048` or `4096`.
+     * The memory size of the instances on which your app runs. Reference the Microsoft Documentation for the [currently supported values](https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-plan#instance-memory). Defaults to `2048`.
      * 
      */
     @Import(name="instanceMemoryInMb")
     private @Nullable Output<Integer> instanceMemoryInMb;
 
     /**
-     * @return The memory size of the instances on which your app runs. The [currently supported values](https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-plan#instance-memory) are `2048` or `4096`.
+     * @return The memory size of the instances on which your app runs. Reference the Microsoft Documentation for the [currently supported values](https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-plan#instance-memory). Defaults to `2048`.
      * 
      */
     public Optional<Output<Integer>> instanceMemoryInMb() {
@@ -1017,7 +1017,7 @@ public final class AppFlexConsumptionState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param instanceMemoryInMb The memory size of the instances on which your app runs. The [currently supported values](https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-plan#instance-memory) are `2048` or `4096`.
+         * @param instanceMemoryInMb The memory size of the instances on which your app runs. Reference the Microsoft Documentation for the [currently supported values](https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-plan#instance-memory). Defaults to `2048`.
          * 
          * @return builder
          * 
@@ -1028,7 +1028,7 @@ public final class AppFlexConsumptionState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param instanceMemoryInMb The memory size of the instances on which your app runs. The [currently supported values](https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-plan#instance-memory) are `2048` or `4096`.
+         * @param instanceMemoryInMb The memory size of the instances on which your app runs. Reference the Microsoft Documentation for the [currently supported values](https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-plan#instance-memory). Defaults to `2048`.
          * 
          * @return builder
          * 

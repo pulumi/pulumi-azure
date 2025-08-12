@@ -82,6 +82,21 @@ public final class VpnGatewayConnectionVpnLinkArgs extends com.pulumi.resources.
     }
 
     /**
+     * The dead peer detection timeout of this connection in seconds. Possible values are between `9` and `3600`.
+     * 
+     */
+    @Import(name="dpdTimeoutSeconds")
+    private @Nullable Output<Integer> dpdTimeoutSeconds;
+
+    /**
+     * @return The dead peer detection timeout of this connection in seconds. Possible values are between `9` and `3600`.
+     * 
+     */
+    public Optional<Output<Integer>> dpdTimeoutSeconds() {
+        return Optional.ofNullable(this.dpdTimeoutSeconds);
+    }
+
+    /**
      * A list of the egress NAT Rule Ids.
      * 
      */
@@ -253,6 +268,7 @@ public final class VpnGatewayConnectionVpnLinkArgs extends com.pulumi.resources.
         this.bgpEnabled = $.bgpEnabled;
         this.connectionMode = $.connectionMode;
         this.customBgpAddresses = $.customBgpAddresses;
+        this.dpdTimeoutSeconds = $.dpdTimeoutSeconds;
         this.egressNatRuleIds = $.egressNatRuleIds;
         this.ingressNatRuleIds = $.ingressNatRuleIds;
         this.ipsecPolicies = $.ipsecPolicies;
@@ -376,6 +392,27 @@ public final class VpnGatewayConnectionVpnLinkArgs extends com.pulumi.resources.
          */
         public Builder customBgpAddresses(VpnGatewayConnectionVpnLinkCustomBgpAddressArgs... customBgpAddresses) {
             return customBgpAddresses(List.of(customBgpAddresses));
+        }
+
+        /**
+         * @param dpdTimeoutSeconds The dead peer detection timeout of this connection in seconds. Possible values are between `9` and `3600`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dpdTimeoutSeconds(@Nullable Output<Integer> dpdTimeoutSeconds) {
+            $.dpdTimeoutSeconds = dpdTimeoutSeconds;
+            return this;
+        }
+
+        /**
+         * @param dpdTimeoutSeconds The dead peer detection timeout of this connection in seconds. Possible values are between `9` and `3600`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dpdTimeoutSeconds(Integer dpdTimeoutSeconds) {
+            return dpdTimeoutSeconds(Output.of(dpdTimeoutSeconds));
         }
 
         /**

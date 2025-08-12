@@ -24,6 +24,12 @@ namespace Pulumi.Azure.ContainerApp.Inputs
         [Input("clientCertificateMode")]
         public Input<string>? ClientCertificateMode { get; set; }
 
+        /// <summary>
+        /// A `cors` block as defined below.
+        /// </summary>
+        [Input("cors")]
+        public Input<Inputs.AppIngressCorsGetArgs>? Cors { get; set; }
+
         [Input("customDomains")]
         private InputList<Inputs.AppIngressCustomDomainGetArgs>? _customDomains;
 

@@ -246,19 +246,19 @@ public final class DatabaseState extends com.pulumi.resources.ResourceArgs {
     /**
      * The max size of the database in gigabytes.
      * 
-     * &gt; **Note:** This value should not be configured when the `create_mode` is `Secondary` or `OnlineSecondary`, as the sizing of the primary is then used as per [Azure documentation](https://docs.microsoft.com/azure/azure-sql/database/single-database-scale#geo-replicated-database).
+     * &gt; **Note:** This value should not be configured when the `create_mode` is `Secondary` or `OnlineSecondary`, as the sizing of the primary is then used as per [Azure documentation](https://docs.microsoft.com/azure/azure-sql/database/single-database-scale#geo-replicated-database). The value of `max_size_gb` accepts `0.1`, `0.5` and positive integers greater than or equal to 1. `0.1` means `100MB`, and `0.5` means `500MB`.
      * 
      */
     @Import(name="maxSizeGb")
-    private @Nullable Output<Integer> maxSizeGb;
+    private @Nullable Output<Double> maxSizeGb;
 
     /**
      * @return The max size of the database in gigabytes.
      * 
-     * &gt; **Note:** This value should not be configured when the `create_mode` is `Secondary` or `OnlineSecondary`, as the sizing of the primary is then used as per [Azure documentation](https://docs.microsoft.com/azure/azure-sql/database/single-database-scale#geo-replicated-database).
+     * &gt; **Note:** This value should not be configured when the `create_mode` is `Secondary` or `OnlineSecondary`, as the sizing of the primary is then used as per [Azure documentation](https://docs.microsoft.com/azure/azure-sql/database/single-database-scale#geo-replicated-database). The value of `max_size_gb` accepts `0.1`, `0.5` and positive integers greater than or equal to 1. `0.1` means `100MB`, and `0.5` means `500MB`.
      * 
      */
-    public Optional<Output<Integer>> maxSizeGb() {
+    public Optional<Output<Double>> maxSizeGb() {
         return Optional.ofNullable(this.maxSizeGb);
     }
 
@@ -413,14 +413,14 @@ public final class DatabaseState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * How do you want your replica to be made? Valid values include `Geo` and `Named`. Defaults to `Geo`. Changing this forces a new resource to be created.
+     * How do you want your replica to be made? Valid values include `Geo`, `Named` and `Standby`. Defaults to `Geo`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="secondaryType")
     private @Nullable Output<String> secondaryType;
 
     /**
-     * @return How do you want your replica to be made? Valid values include `Geo` and `Named`. Defaults to `Geo`. Changing this forces a new resource to be created.
+     * @return How do you want your replica to be made? Valid values include `Geo`, `Named` and `Standby`. Defaults to `Geo`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> secondaryType() {
@@ -959,12 +959,12 @@ public final class DatabaseState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param maxSizeGb The max size of the database in gigabytes.
          * 
-         * &gt; **Note:** This value should not be configured when the `create_mode` is `Secondary` or `OnlineSecondary`, as the sizing of the primary is then used as per [Azure documentation](https://docs.microsoft.com/azure/azure-sql/database/single-database-scale#geo-replicated-database).
+         * &gt; **Note:** This value should not be configured when the `create_mode` is `Secondary` or `OnlineSecondary`, as the sizing of the primary is then used as per [Azure documentation](https://docs.microsoft.com/azure/azure-sql/database/single-database-scale#geo-replicated-database). The value of `max_size_gb` accepts `0.1`, `0.5` and positive integers greater than or equal to 1. `0.1` means `100MB`, and `0.5` means `500MB`.
          * 
          * @return builder
          * 
          */
-        public Builder maxSizeGb(@Nullable Output<Integer> maxSizeGb) {
+        public Builder maxSizeGb(@Nullable Output<Double> maxSizeGb) {
             $.maxSizeGb = maxSizeGb;
             return this;
         }
@@ -972,12 +972,12 @@ public final class DatabaseState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param maxSizeGb The max size of the database in gigabytes.
          * 
-         * &gt; **Note:** This value should not be configured when the `create_mode` is `Secondary` or `OnlineSecondary`, as the sizing of the primary is then used as per [Azure documentation](https://docs.microsoft.com/azure/azure-sql/database/single-database-scale#geo-replicated-database).
+         * &gt; **Note:** This value should not be configured when the `create_mode` is `Secondary` or `OnlineSecondary`, as the sizing of the primary is then used as per [Azure documentation](https://docs.microsoft.com/azure/azure-sql/database/single-database-scale#geo-replicated-database). The value of `max_size_gb` accepts `0.1`, `0.5` and positive integers greater than or equal to 1. `0.1` means `100MB`, and `0.5` means `500MB`.
          * 
          * @return builder
          * 
          */
-        public Builder maxSizeGb(Integer maxSizeGb) {
+        public Builder maxSizeGb(Double maxSizeGb) {
             return maxSizeGb(Output.of(maxSizeGb));
         }
 
@@ -1192,7 +1192,7 @@ public final class DatabaseState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param secondaryType How do you want your replica to be made? Valid values include `Geo` and `Named`. Defaults to `Geo`. Changing this forces a new resource to be created.
+         * @param secondaryType How do you want your replica to be made? Valid values include `Geo`, `Named` and `Standby`. Defaults to `Geo`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -1203,7 +1203,7 @@ public final class DatabaseState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param secondaryType How do you want your replica to be made? Valid values include `Geo` and `Named`. Defaults to `Geo`. Changing this forces a new resource to be created.
+         * @param secondaryType How do you want your replica to be made? Valid values include `Geo`, `Named` and `Standby`. Defaults to `Geo`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

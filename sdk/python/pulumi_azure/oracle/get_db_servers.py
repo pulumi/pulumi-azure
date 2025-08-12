@@ -102,7 +102,7 @@ def get_db_servers(cloud_exadata_infrastructure_name: Optional[_builtins.str] = 
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Oracle.Database`: 2024-06-01
+    * `Oracle.Database` - 2025-03-01
 
 
     :param _builtins.str cloud_exadata_infrastructure_name: The name of the Cloud Exadata Infrastructure.
@@ -141,7 +141,7 @@ def get_db_servers_output(cloud_exadata_infrastructure_name: Optional[pulumi.Inp
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Oracle.Database`: 2024-06-01
+    * `Oracle.Database` - 2025-03-01
 
 
     :param _builtins.str cloud_exadata_infrastructure_name: The name of the Cloud Exadata Infrastructure.

@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.DataShare`: 2019-11-01
+ * * `Microsoft.DataShare` - 2019-11-01
  */
 export function getDatasetDataLakeGen2(args: GetDatasetDataLakeGen2Args, opts?: pulumi.InvokeOptions): Promise<GetDatasetDataLakeGen2Result> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -101,7 +101,7 @@ export interface GetDatasetDataLakeGen2Result {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.DataShare`: 2019-11-01
+ * * `Microsoft.DataShare` - 2019-11-01
  */
 export function getDatasetDataLakeGen2Output(args: GetDatasetDataLakeGen2OutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDatasetDataLakeGen2Result> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

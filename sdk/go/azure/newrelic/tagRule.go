@@ -88,7 +88,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This resource uses the following Azure API Providers:
 //
-// * `NewRelic.Observability`: 2024-03-01
+// * `NewRelic.Observability` - 2024-03-01
 //
 // ## Import
 //

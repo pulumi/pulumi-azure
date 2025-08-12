@@ -51,7 +51,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This data source uses the following Azure API Providers:
 //
-// * `Microsoft.Advisor`: 2023-01-01
+// * `Microsoft.Advisor` - 2023-01-01
 func GetRecommendations(ctx *pulumi.Context, args *GetRecommendationsArgs, opts ...pulumi.InvokeOption) (*GetRecommendationsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetRecommendationsResult

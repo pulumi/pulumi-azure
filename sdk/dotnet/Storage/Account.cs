@@ -120,7 +120,7 @@ namespace Pulumi.Azure.Storage
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.Storage`: 2023-05-01
+    /// * `Microsoft.Storage` - 2023-05-01
     /// 
     /// ## Import
     /// 
@@ -526,6 +526,12 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         [Output("primaryWebMicrosoftHost")]
         public Output<string> PrimaryWebMicrosoftHost { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the version of the **provisioned** billing model (e.g. when `account_kind = "FileStorage"` for Storage File). Possible value is `V2`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("provisionedBillingModelVersion")]
+        public Output<string?> ProvisionedBillingModelVersion { get; private set; } = null!;
 
         /// <summary>
         /// Whether the public network access is enabled? Defaults to `true`.
@@ -1058,6 +1064,12 @@ namespace Pulumi.Azure.Storage
         public Input<bool>? Nfsv3Enabled { get; set; }
 
         /// <summary>
+        /// Specifies the version of the **provisioned** billing model (e.g. when `account_kind = "FileStorage"` for Storage File). Possible value is `V2`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("provisionedBillingModelVersion")]
+        public Input<string>? ProvisionedBillingModelVersion { get; set; }
+
+        /// <summary>
         /// Whether the public network access is enabled? Defaults to `true`.
         /// </summary>
         [Input("publicNetworkAccessEnabled")]
@@ -1575,6 +1587,12 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         [Input("primaryWebMicrosoftHost")]
         public Input<string>? PrimaryWebMicrosoftHost { get; set; }
+
+        /// <summary>
+        /// Specifies the version of the **provisioned** billing model (e.g. when `account_kind = "FileStorage"` for Storage File). Possible value is `V2`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("provisionedBillingModelVersion")]
+        public Input<string>? ProvisionedBillingModelVersion { get; set; }
 
         /// <summary>
         /// Whether the public network access is enabled? Defaults to `true`.

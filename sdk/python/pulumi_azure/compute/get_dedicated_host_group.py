@@ -149,7 +149,7 @@ def get_dedicated_host_group(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Compute`: 2024-03-01
+    * `Microsoft.Compute` - 2024-03-01
 
 
     :param _builtins.str name: Specifies the name of the Dedicated Host Group.
@@ -192,7 +192,7 @@ def get_dedicated_host_group_output(name: Optional[pulumi.Input[_builtins.str]] 
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Compute`: 2024-03-01
+    * `Microsoft.Compute` - 2024-03-01
 
 
     :param _builtins.str name: Specifies the name of the Dedicated Host Group.

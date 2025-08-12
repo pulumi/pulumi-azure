@@ -111,6 +111,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &NetworkManagerSubscriptionConnection{}
 	case "azure:network/networkManagerVerifierWorkspace:NetworkManagerVerifierWorkspace":
 		r = &NetworkManagerVerifierWorkspace{}
+	case "azure:network/networkManagerVerifierWorkspaceReachabilityAnalysisIntent:NetworkManagerVerifierWorkspaceReachabilityAnalysisIntent":
+		r = &NetworkManagerVerifierWorkspaceReachabilityAnalysisIntent{}
 	case "azure:network/networkSecurityGroup:NetworkSecurityGroup":
 		r = &NetworkSecurityGroup{}
 	case "azure:network/networkSecurityRule:NetworkSecurityRule":
@@ -433,6 +435,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"network/networkManagerVerifierWorkspace",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"network/networkManagerVerifierWorkspaceReachabilityAnalysisIntent",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

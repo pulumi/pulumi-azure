@@ -272,7 +272,7 @@ def get_private_cloud(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.AVS`: 2022-05-01
+    * `Microsoft.AVS` - 2022-05-01
 
 
     :param _builtins.str name: The name of this Azure VMware Solution Private Cloud.
@@ -327,7 +327,7 @@ def get_private_cloud_output(name: Optional[pulumi.Input[_builtins.str]] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.AVS`: 2022-05-01
+    * `Microsoft.AVS` - 2022-05-01
 
 
     :param _builtins.str name: The name of this Azure VMware Solution Private Cloud.

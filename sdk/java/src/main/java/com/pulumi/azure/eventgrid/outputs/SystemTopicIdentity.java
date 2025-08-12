@@ -16,9 +16,9 @@ public final class SystemTopicIdentity {
     /**
      * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid System Topic.
      * 
-     * &gt; **Note:** This is required when `type` is set to `UserAssigned`
+     * &gt; **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
      * 
-     * &gt; **Note:** When `type` is set to `SystemAssigned`, The assigned `principal_id` and `tenant_id` can be retrieved after the Event Grid System Topic has been created. More details are available below.
+     * &gt; **Note:** When `type` is set to `SystemAssigned`, The assigned `principal_id` and `tenant_id` can be retrieved after the Event Grid System Topic has been created.
      * 
      */
     private @Nullable List<String> identityIds;
@@ -33,7 +33,7 @@ public final class SystemTopicIdentity {
      */
     private @Nullable String tenantId;
     /**
-     * @return Specifies the type of Managed Service Identity that should be configured on this Event Grid System Topic. Possible values are `SystemAssigned`, `UserAssigned`.
+     * @return Specifies the type of Managed Service Identity that should be configured on this Event Grid System Topic. Possible values are `SystemAssigned`, `UserAssigned`, and `SystemAssigned, UserAssigned`.
      * 
      */
     private String type;
@@ -42,9 +42,9 @@ public final class SystemTopicIdentity {
     /**
      * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid System Topic.
      * 
-     * &gt; **Note:** This is required when `type` is set to `UserAssigned`
+     * &gt; **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
      * 
-     * &gt; **Note:** When `type` is set to `SystemAssigned`, The assigned `principal_id` and `tenant_id` can be retrieved after the Event Grid System Topic has been created. More details are available below.
+     * &gt; **Note:** When `type` is set to `SystemAssigned`, The assigned `principal_id` and `tenant_id` can be retrieved after the Event Grid System Topic has been created.
      * 
      */
     public List<String> identityIds() {
@@ -65,7 +65,7 @@ public final class SystemTopicIdentity {
         return Optional.ofNullable(this.tenantId);
     }
     /**
-     * @return Specifies the type of Managed Service Identity that should be configured on this Event Grid System Topic. Possible values are `SystemAssigned`, `UserAssigned`.
+     * @return Specifies the type of Managed Service Identity that should be configured on this Event Grid System Topic. Possible values are `SystemAssigned`, `UserAssigned`, and `SystemAssigned, UserAssigned`.
      * 
      */
     public String type() {

@@ -50,6 +50,21 @@ public final class LinkServiceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The destination IP address of the Private Link Service.
+     * 
+     */
+    @Import(name="destinationIpAddress")
+    private @Nullable Output<String> destinationIpAddress;
+
+    /**
+     * @return The destination IP address of the Private Link Service.
+     * 
+     */
+    public Optional<Output<String>> destinationIpAddress() {
+        return Optional.ofNullable(this.destinationIpAddress);
+    }
+
+    /**
      * Should the Private Link Service support the Proxy Protocol?
      * 
      */
@@ -193,6 +208,7 @@ public final class LinkServiceState extends com.pulumi.resources.ResourceArgs {
     private LinkServiceState(LinkServiceState $) {
         this.alias = $.alias;
         this.autoApprovalSubscriptionIds = $.autoApprovalSubscriptionIds;
+        this.destinationIpAddress = $.destinationIpAddress;
         this.enableProxyProtocol = $.enableProxyProtocol;
         this.fqdns = $.fqdns;
         this.loadBalancerFrontendIpConfigurationIds = $.loadBalancerFrontendIpConfigurationIds;
@@ -272,6 +288,27 @@ public final class LinkServiceState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder autoApprovalSubscriptionIds(String... autoApprovalSubscriptionIds) {
             return autoApprovalSubscriptionIds(List.of(autoApprovalSubscriptionIds));
+        }
+
+        /**
+         * @param destinationIpAddress The destination IP address of the Private Link Service.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder destinationIpAddress(@Nullable Output<String> destinationIpAddress) {
+            $.destinationIpAddress = destinationIpAddress;
+            return this;
+        }
+
+        /**
+         * @param destinationIpAddress The destination IP address of the Private Link Service.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder destinationIpAddress(String destinationIpAddress) {
+            return destinationIpAddress(Output.of(destinationIpAddress));
         }
 
         /**

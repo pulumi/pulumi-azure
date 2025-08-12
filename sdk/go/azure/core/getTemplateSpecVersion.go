@@ -47,7 +47,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This data source uses the following Azure API Providers:
 //
-// * `Microsoft.Resources`: 2022-02-01
+// * `Microsoft.Resources` - 2022-02-01
 func GetTemplateSpecVersion(ctx *pulumi.Context, args *GetTemplateSpecVersionArgs, opts ...pulumi.InvokeOption) (*GetTemplateSpecVersionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetTemplateSpecVersionResult

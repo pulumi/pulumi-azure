@@ -52,14 +52,14 @@ public final class KubernetesClusterDefaultNodePoolUpgradeSettingsArgs extends c
     }
 
     /**
-     * The amount of time in minutes to wait after draining a node and before reimaging and moving on to next node. Defaults to `0`.
+     * The amount of time in minutes to wait after draining a node and before reimaging and moving on to next node. Defaults to `0`. &lt;!-- The 0 default happens in code, not in Schema --&gt;
      * 
      */
     @Import(name="nodeSoakDurationInMinutes")
     private @Nullable Output<Integer> nodeSoakDurationInMinutes;
 
     /**
-     * @return The amount of time in minutes to wait after draining a node and before reimaging and moving on to next node. Defaults to `0`.
+     * @return The amount of time in minutes to wait after draining a node and before reimaging and moving on to next node. Defaults to `0`. &lt;!-- The 0 default happens in code, not in Schema --&gt;
      * 
      */
     public Optional<Output<Integer>> nodeSoakDurationInMinutes() {
@@ -139,7 +139,7 @@ public final class KubernetesClusterDefaultNodePoolUpgradeSettingsArgs extends c
         }
 
         /**
-         * @param nodeSoakDurationInMinutes The amount of time in minutes to wait after draining a node and before reimaging and moving on to next node. Defaults to `0`.
+         * @param nodeSoakDurationInMinutes The amount of time in minutes to wait after draining a node and before reimaging and moving on to next node. Defaults to `0`. &lt;!-- The 0 default happens in code, not in Schema --&gt;
          * 
          * @return builder
          * 
@@ -150,7 +150,7 @@ public final class KubernetesClusterDefaultNodePoolUpgradeSettingsArgs extends c
         }
 
         /**
-         * @param nodeSoakDurationInMinutes The amount of time in minutes to wait after draining a node and before reimaging and moving on to next node. Defaults to `0`.
+         * @param nodeSoakDurationInMinutes The amount of time in minutes to wait after draining a node and before reimaging and moving on to next node. Defaults to `0`. &lt;!-- The 0 default happens in code, not in Schema --&gt;
          * 
          * @return builder
          * 

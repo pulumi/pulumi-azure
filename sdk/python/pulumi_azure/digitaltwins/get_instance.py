@@ -125,7 +125,7 @@ def get_instance(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.DigitalTwins`: 2023-01-31
+    * `Microsoft.DigitalTwins` - 2023-01-31
 
 
     :param _builtins.str name: The name of this Digital Twins instance.
@@ -166,7 +166,7 @@ def get_instance_output(name: Optional[pulumi.Input[_builtins.str]] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.DigitalTwins`: 2023-01-31
+    * `Microsoft.DigitalTwins` - 2023-01-31
 
 
     :param _builtins.str name: The name of this Digital Twins instance.

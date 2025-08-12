@@ -39,7 +39,7 @@ namespace Pulumi.Azure.AppService
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Web`: 2023-01-01
+        /// * `Microsoft.Web` - 2023-01-01
         /// </summary>
         public static Task<GetSourceControlTokenResult> InvokeAsync(GetSourceControlTokenArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSourceControlTokenResult>("azure:appservice/getSourceControlToken:getSourceControlToken", args ?? new GetSourceControlTokenArgs(), options.WithDefaults());
@@ -72,7 +72,7 @@ namespace Pulumi.Azure.AppService
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Web`: 2023-01-01
+        /// * `Microsoft.Web` - 2023-01-01
         /// </summary>
         public static Output<GetSourceControlTokenResult> Invoke(GetSourceControlTokenInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSourceControlTokenResult>("azure:appservice/getSourceControlToken:getSourceControlToken", args ?? new GetSourceControlTokenInvokeArgs(), options.WithDefaults());
@@ -105,7 +105,7 @@ namespace Pulumi.Azure.AppService
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Web`: 2023-01-01
+        /// * `Microsoft.Web` - 2023-01-01
         /// </summary>
         public static Output<GetSourceControlTokenResult> Invoke(GetSourceControlTokenInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSourceControlTokenResult>("azure:appservice/getSourceControlToken:getSourceControlToken", args ?? new GetSourceControlTokenInvokeArgs(), options.WithDefaults());

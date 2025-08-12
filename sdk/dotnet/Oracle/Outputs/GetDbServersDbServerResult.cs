@@ -26,6 +26,10 @@ namespace Pulumi.Azure.Oracle.Outputs
         /// </summary>
         public readonly string CompartmentId;
         /// <summary>
+        /// The compute model of the Exadata Infrastructure.
+        /// </summary>
+        public readonly string ComputeModel;
+        /// <summary>
         /// The number of CPU cores enabled on the DB Server.
         /// </summary>
         public readonly int CpuCoreCount;
@@ -94,6 +98,8 @@ namespace Pulumi.Azure.Oracle.Outputs
 
             string compartmentId,
 
+            string computeModel,
+
             int cpuCoreCount,
 
             ImmutableArray<string> dbNodeIds,
@@ -127,6 +133,7 @@ namespace Pulumi.Azure.Oracle.Outputs
             AutonomousVirtualMachineDs = autonomousVirtualMachineDs;
             AutonomousVmClusterIds = autonomousVmClusterIds;
             CompartmentId = compartmentId;
+            ComputeModel = computeModel;
             CpuCoreCount = cpuCoreCount;
             DbNodeIds = dbNodeIds;
             DbNodeStorageSizeInGbs = dbNodeStorageSizeInGbs;

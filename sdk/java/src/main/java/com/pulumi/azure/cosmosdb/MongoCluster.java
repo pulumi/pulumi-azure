@@ -136,7 +136,7 @@ import javax.annotation.Nullable;
  * &lt;!-- This section is generated, changes will be overwritten --&gt;
  * This resource uses the following Azure API Providers:
  * 
- * * `Microsoft.DocumentDB`: 2024-07-01
+ * * `Microsoft.DocumentDB` - 2024-07-01
  * 
  * ## Import
  * 
@@ -374,14 +374,14 @@ public class MongoCluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * The version for the MongoDB Cluster. Possibles values are `5.0`, `6.0` and `7.0`.
+     * The version for the MongoDB Cluster. Possibles values are `5.0`, `6.0`, `7.0` and `8.0`.
      * 
      */
     @Export(name="version", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> version;
 
     /**
-     * @return The version for the MongoDB Cluster. Possibles values are `5.0`, `6.0` and `7.0`.
+     * @return The version for the MongoDB Cluster. Possibles values are `5.0`, `6.0`, `7.0` and `8.0`.
      * 
      */
     public Output<Optional<String>> version() {

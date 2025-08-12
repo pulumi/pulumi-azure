@@ -34,15 +34,21 @@ class ImageArgs:
         The set of arguments for constructing a Image resource.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the image. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['ImageDataDiskArgs']]] data_disks: One or more `data_disk` blocks as defined below.
-        :param pulumi.Input[_builtins.str] hyper_v_generation: The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
                
-               > **Note:** `zone_resilient` can only be set to `true` if the image is stored in a region that supports availability zones.
+               > **Note:** `data_disk` cannot be set together with `source_virtual_machine_id`.
+        :param pulumi.Input[_builtins.str] hyper_v_generation: The Hyper-V Generation Type of the Virtual Machine created from the image as `V1`, `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] location: Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the image. Changing this forces a new resource to be created.
         :param pulumi.Input['ImageOsDiskArgs'] os_disk: One or more `os_disk` blocks as defined below. Changing this forces a new resource to be created.
+               
+               > **Note:** `os_disk` cannot be set together with `source_virtual_machine_id`.
         :param pulumi.Input[_builtins.str] source_virtual_machine_id: The Virtual Machine ID from which to create the image.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[_builtins.bool] zone_resilient: Is zone resiliency enabled? Defaults to `false`. Changing this forces a new resource to be created.
+               
+               > **Note:** `zone_resilient` can only be set to `true` if the image is stored in a region that supports availability zones.
+               
+               > **Note:** `zone_resilient` cannot be set together with `source_virtual_machine_id`.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if data_disks is not None:
@@ -79,6 +85,8 @@ class ImageArgs:
     def data_disks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ImageDataDiskArgs']]]]:
         """
         One or more `data_disk` blocks as defined below.
+
+        > **Note:** `data_disk` cannot be set together with `source_virtual_machine_id`.
         """
         return pulumi.get(self, "data_disks")
 
@@ -90,9 +98,7 @@ class ImageArgs:
     @pulumi.getter(name="hyperVGeneration")
     def hyper_v_generation(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
-
-        > **Note:** `zone_resilient` can only be set to `true` if the image is stored in a region that supports availability zones.
+        The Hyper-V Generation Type of the Virtual Machine created from the image as `V1`, `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "hyper_v_generation")
 
@@ -129,6 +135,8 @@ class ImageArgs:
     def os_disk(self) -> Optional[pulumi.Input['ImageOsDiskArgs']]:
         """
         One or more `os_disk` blocks as defined below. Changing this forces a new resource to be created.
+
+        > **Note:** `os_disk` cannot be set together with `source_virtual_machine_id`.
         """
         return pulumi.get(self, "os_disk")
 
@@ -165,6 +173,10 @@ class ImageArgs:
     def zone_resilient(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
         Is zone resiliency enabled? Defaults to `false`. Changing this forces a new resource to be created.
+
+        > **Note:** `zone_resilient` can only be set to `true` if the image is stored in a region that supports availability zones.
+
+        > **Note:** `zone_resilient` cannot be set together with `source_virtual_machine_id`.
         """
         return pulumi.get(self, "zone_resilient")
 
@@ -188,16 +200,22 @@ class _ImageState:
         """
         Input properties used for looking up and filtering Image resources.
         :param pulumi.Input[Sequence[pulumi.Input['ImageDataDiskArgs']]] data_disks: One or more `data_disk` blocks as defined below.
-        :param pulumi.Input[_builtins.str] hyper_v_generation: The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
                
-               > **Note:** `zone_resilient` can only be set to `true` if the image is stored in a region that supports availability zones.
+               > **Note:** `data_disk` cannot be set together with `source_virtual_machine_id`.
+        :param pulumi.Input[_builtins.str] hyper_v_generation: The Hyper-V Generation Type of the Virtual Machine created from the image as `V1`, `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] location: Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the image. Changing this forces a new resource to be created.
         :param pulumi.Input['ImageOsDiskArgs'] os_disk: One or more `os_disk` blocks as defined below. Changing this forces a new resource to be created.
+               
+               > **Note:** `os_disk` cannot be set together with `source_virtual_machine_id`.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the image. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] source_virtual_machine_id: The Virtual Machine ID from which to create the image.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[_builtins.bool] zone_resilient: Is zone resiliency enabled? Defaults to `false`. Changing this forces a new resource to be created.
+               
+               > **Note:** `zone_resilient` can only be set to `true` if the image is stored in a region that supports availability zones.
+               
+               > **Note:** `zone_resilient` cannot be set together with `source_virtual_machine_id`.
         """
         if data_disks is not None:
             pulumi.set(__self__, "data_disks", data_disks)
@@ -223,6 +241,8 @@ class _ImageState:
     def data_disks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ImageDataDiskArgs']]]]:
         """
         One or more `data_disk` blocks as defined below.
+
+        > **Note:** `data_disk` cannot be set together with `source_virtual_machine_id`.
         """
         return pulumi.get(self, "data_disks")
 
@@ -234,9 +254,7 @@ class _ImageState:
     @pulumi.getter(name="hyperVGeneration")
     def hyper_v_generation(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
-
-        > **Note:** `zone_resilient` can only be set to `true` if the image is stored in a region that supports availability zones.
+        The Hyper-V Generation Type of the Virtual Machine created from the image as `V1`, `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "hyper_v_generation")
 
@@ -273,6 +291,8 @@ class _ImageState:
     def os_disk(self) -> Optional[pulumi.Input['ImageOsDiskArgs']]:
         """
         One or more `os_disk` blocks as defined below. Changing this forces a new resource to be created.
+
+        > **Note:** `os_disk` cannot be set together with `source_virtual_machine_id`.
         """
         return pulumi.get(self, "os_disk")
 
@@ -321,6 +341,10 @@ class _ImageState:
     def zone_resilient(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
         Is zone resiliency enabled? Defaults to `false`. Changing this forces a new resource to be created.
+
+        > **Note:** `zone_resilient` can only be set to `true` if the image is stored in a region that supports availability zones.
+
+        > **Note:** `zone_resilient` cannot be set together with `source_virtual_machine_id`.
         """
         return pulumi.get(self, "zone_resilient")
 
@@ -370,7 +394,7 @@ class Image(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.Compute`: 2022-03-01
+        * `Microsoft.Compute` - 2022-03-01
 
         ## Import
 
@@ -383,16 +407,22 @@ class Image(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ImageDataDiskArgs', 'ImageDataDiskArgsDict']]]] data_disks: One or more `data_disk` blocks as defined below.
-        :param pulumi.Input[_builtins.str] hyper_v_generation: The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
                
-               > **Note:** `zone_resilient` can only be set to `true` if the image is stored in a region that supports availability zones.
+               > **Note:** `data_disk` cannot be set together with `source_virtual_machine_id`.
+        :param pulumi.Input[_builtins.str] hyper_v_generation: The Hyper-V Generation Type of the Virtual Machine created from the image as `V1`, `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] location: Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the image. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['ImageOsDiskArgs', 'ImageOsDiskArgsDict']] os_disk: One or more `os_disk` blocks as defined below. Changing this forces a new resource to be created.
+               
+               > **Note:** `os_disk` cannot be set together with `source_virtual_machine_id`.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the image. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] source_virtual_machine_id: The Virtual Machine ID from which to create the image.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[_builtins.bool] zone_resilient: Is zone resiliency enabled? Defaults to `false`. Changing this forces a new resource to be created.
+               
+               > **Note:** `zone_resilient` can only be set to `true` if the image is stored in a region that supports availability zones.
+               
+               > **Note:** `zone_resilient` cannot be set together with `source_virtual_machine_id`.
         """
         ...
     @overload
@@ -425,7 +455,7 @@ class Image(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.Compute`: 2022-03-01
+        * `Microsoft.Compute` - 2022-03-01
 
         ## Import
 
@@ -506,16 +536,22 @@ class Image(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ImageDataDiskArgs', 'ImageDataDiskArgsDict']]]] data_disks: One or more `data_disk` blocks as defined below.
-        :param pulumi.Input[_builtins.str] hyper_v_generation: The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
                
-               > **Note:** `zone_resilient` can only be set to `true` if the image is stored in a region that supports availability zones.
+               > **Note:** `data_disk` cannot be set together with `source_virtual_machine_id`.
+        :param pulumi.Input[_builtins.str] hyper_v_generation: The Hyper-V Generation Type of the Virtual Machine created from the image as `V1`, `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] location: Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the image. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['ImageOsDiskArgs', 'ImageOsDiskArgsDict']] os_disk: One or more `os_disk` blocks as defined below. Changing this forces a new resource to be created.
+               
+               > **Note:** `os_disk` cannot be set together with `source_virtual_machine_id`.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the image. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] source_virtual_machine_id: The Virtual Machine ID from which to create the image.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[_builtins.bool] zone_resilient: Is zone resiliency enabled? Defaults to `false`. Changing this forces a new resource to be created.
+               
+               > **Note:** `zone_resilient` can only be set to `true` if the image is stored in a region that supports availability zones.
+               
+               > **Note:** `zone_resilient` cannot be set together with `source_virtual_machine_id`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -537,6 +573,8 @@ class Image(pulumi.CustomResource):
     def data_disks(self) -> pulumi.Output[Optional[Sequence['outputs.ImageDataDisk']]]:
         """
         One or more `data_disk` blocks as defined below.
+
+        > **Note:** `data_disk` cannot be set together with `source_virtual_machine_id`.
         """
         return pulumi.get(self, "data_disks")
 
@@ -544,9 +582,7 @@ class Image(pulumi.CustomResource):
     @pulumi.getter(name="hyperVGeneration")
     def hyper_v_generation(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
-
-        > **Note:** `zone_resilient` can only be set to `true` if the image is stored in a region that supports availability zones.
+        The Hyper-V Generation Type of the Virtual Machine created from the image as `V1`, `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "hyper_v_generation")
 
@@ -571,6 +607,8 @@ class Image(pulumi.CustomResource):
     def os_disk(self) -> pulumi.Output[Optional['outputs.ImageOsDisk']]:
         """
         One or more `os_disk` blocks as defined below. Changing this forces a new resource to be created.
+
+        > **Note:** `os_disk` cannot be set together with `source_virtual_machine_id`.
         """
         return pulumi.get(self, "os_disk")
 
@@ -603,6 +641,10 @@ class Image(pulumi.CustomResource):
     def zone_resilient(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
         Is zone resiliency enabled? Defaults to `false`. Changing this forces a new resource to be created.
+
+        > **Note:** `zone_resilient` can only be set to `true` if the image is stored in a region that supports availability zones.
+
+        > **Note:** `zone_resilient` cannot be set together with `source_virtual_machine_id`.
         """
         return pulumi.get(self, "zone_resilient")
 

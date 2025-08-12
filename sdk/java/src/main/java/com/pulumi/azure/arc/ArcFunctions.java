@@ -60,7 +60,7 @@ public final class ArcFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ResourceConnector`: 2022-10-27
+     * * `Microsoft.ResourceConnector` - 2022-10-27
      * 
      */
     public static Output<GetResourceBridgeApplianceResult> getResourceBridgeAppliance(GetResourceBridgeApplianceArgs args) {
@@ -111,7 +111,7 @@ public final class ArcFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ResourceConnector`: 2022-10-27
+     * * `Microsoft.ResourceConnector` - 2022-10-27
      * 
      */
     public static CompletableFuture<GetResourceBridgeApplianceResult> getResourceBridgeAppliancePlain(GetResourceBridgeAppliancePlainArgs args) {
@@ -162,7 +162,7 @@ public final class ArcFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ResourceConnector`: 2022-10-27
+     * * `Microsoft.ResourceConnector` - 2022-10-27
      * 
      */
     public static Output<GetResourceBridgeApplianceResult> getResourceBridgeAppliance(GetResourceBridgeApplianceArgs args, InvokeOptions options) {
@@ -213,7 +213,7 @@ public final class ArcFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ResourceConnector`: 2022-10-27
+     * * `Microsoft.ResourceConnector` - 2022-10-27
      * 
      */
     public static Output<GetResourceBridgeApplianceResult> getResourceBridgeAppliance(GetResourceBridgeApplianceArgs args, InvokeOutputOptions options) {
@@ -264,7 +264,7 @@ public final class ArcFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ResourceConnector`: 2022-10-27
+     * * `Microsoft.ResourceConnector` - 2022-10-27
      * 
      */
     public static CompletableFuture<GetResourceBridgeApplianceResult> getResourceBridgeAppliancePlain(GetResourceBridgeAppliancePlainArgs args, InvokeOptions options) {

@@ -955,7 +955,7 @@ public final class CdnFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Cdn`: 2024-02-01
+     * * `Microsoft.Cdn` - 2024-02-01
      * 
      */
     public static Output<GetFrontdoorProfileResult> getFrontdoorProfile(GetFrontdoorProfileArgs args) {
@@ -1005,7 +1005,7 @@ public final class CdnFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Cdn`: 2024-02-01
+     * * `Microsoft.Cdn` - 2024-02-01
      * 
      */
     public static CompletableFuture<GetFrontdoorProfileResult> getFrontdoorProfilePlain(GetFrontdoorProfilePlainArgs args) {
@@ -1055,7 +1055,7 @@ public final class CdnFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Cdn`: 2024-02-01
+     * * `Microsoft.Cdn` - 2024-02-01
      * 
      */
     public static Output<GetFrontdoorProfileResult> getFrontdoorProfile(GetFrontdoorProfileArgs args, InvokeOptions options) {
@@ -1105,7 +1105,7 @@ public final class CdnFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Cdn`: 2024-02-01
+     * * `Microsoft.Cdn` - 2024-02-01
      * 
      */
     public static Output<GetFrontdoorProfileResult> getFrontdoorProfile(GetFrontdoorProfileArgs args, InvokeOutputOptions options) {
@@ -1155,7 +1155,7 @@ public final class CdnFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Cdn`: 2024-02-01
+     * * `Microsoft.Cdn` - 2024-02-01
      * 
      */
     public static CompletableFuture<GetFrontdoorProfileResult> getFrontdoorProfilePlain(GetFrontdoorProfilePlainArgs args, InvokeOptions options) {
@@ -1206,7 +1206,7 @@ public final class CdnFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Cdn`: 2024-02-01
+     * * `Microsoft.Cdn` - 2024-02-01
      * 
      */
     public static Output<GetFrontdoorRuleSetResult> getFrontdoorRuleSet(GetFrontdoorRuleSetArgs args) {
@@ -1257,7 +1257,7 @@ public final class CdnFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Cdn`: 2024-02-01
+     * * `Microsoft.Cdn` - 2024-02-01
      * 
      */
     public static CompletableFuture<GetFrontdoorRuleSetResult> getFrontdoorRuleSetPlain(GetFrontdoorRuleSetPlainArgs args) {
@@ -1308,7 +1308,7 @@ public final class CdnFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Cdn`: 2024-02-01
+     * * `Microsoft.Cdn` - 2024-02-01
      * 
      */
     public static Output<GetFrontdoorRuleSetResult> getFrontdoorRuleSet(GetFrontdoorRuleSetArgs args, InvokeOptions options) {
@@ -1359,7 +1359,7 @@ public final class CdnFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Cdn`: 2024-02-01
+     * * `Microsoft.Cdn` - 2024-02-01
      * 
      */
     public static Output<GetFrontdoorRuleSetResult> getFrontdoorRuleSet(GetFrontdoorRuleSetArgs args, InvokeOutputOptions options) {
@@ -1410,7 +1410,7 @@ public final class CdnFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Cdn`: 2024-02-01
+     * * `Microsoft.Cdn` - 2024-02-01
      * 
      */
     public static CompletableFuture<GetFrontdoorRuleSetResult> getFrontdoorRuleSetPlain(GetFrontdoorRuleSetPlainArgs args, InvokeOptions options) {

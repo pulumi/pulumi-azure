@@ -98,7 +98,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This resource uses the following Azure API Providers:
 //
-// * `Microsoft.Automation`: 2020-01-13-preview
+// * `Microsoft.Automation` - 2020-01-13-preview
 //
 // ## Import
 //

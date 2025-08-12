@@ -75,7 +75,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This resource uses the following Azure API Providers:
 //
-// * `Microsoft.HybridCompute`: 2022-05-04
+// * `Microsoft.HybridCompute` - 2022-05-04
 //
 // ## Import
 //

@@ -304,14 +304,14 @@ public final class KubernetesClusterAutoScalerProfileArgs extends com.pulumi.res
     }
 
     /**
-     * If `true` cluster autoscaler will never delete nodes with pods from kube-system (except for DaemonSet or mirror pods). Defaults to `true`.
+     * If `true` cluster autoscaler will never delete nodes with pods from kube-system (except for DaemonSet or mirror pods). Defaults to `false`. &lt;!-- defaults to `false` in code, not in Schema --&gt;
      * 
      */
     @Import(name="skipNodesWithSystemPods")
     private @Nullable Output<Boolean> skipNodesWithSystemPods;
 
     /**
-     * @return If `true` cluster autoscaler will never delete nodes with pods from kube-system (except for DaemonSet or mirror pods). Defaults to `true`.
+     * @return If `true` cluster autoscaler will never delete nodes with pods from kube-system (except for DaemonSet or mirror pods). Defaults to `false`. &lt;!-- defaults to `false` in code, not in Schema --&gt;
      * 
      */
     public Optional<Output<Boolean>> skipNodesWithSystemPods() {
@@ -761,7 +761,7 @@ public final class KubernetesClusterAutoScalerProfileArgs extends com.pulumi.res
         }
 
         /**
-         * @param skipNodesWithSystemPods If `true` cluster autoscaler will never delete nodes with pods from kube-system (except for DaemonSet or mirror pods). Defaults to `true`.
+         * @param skipNodesWithSystemPods If `true` cluster autoscaler will never delete nodes with pods from kube-system (except for DaemonSet or mirror pods). Defaults to `false`. &lt;!-- defaults to `false` in code, not in Schema --&gt;
          * 
          * @return builder
          * 
@@ -772,7 +772,7 @@ public final class KubernetesClusterAutoScalerProfileArgs extends com.pulumi.res
         }
 
         /**
-         * @param skipNodesWithSystemPods If `true` cluster autoscaler will never delete nodes with pods from kube-system (except for DaemonSet or mirror pods). Defaults to `true`.
+         * @param skipNodesWithSystemPods If `true` cluster autoscaler will never delete nodes with pods from kube-system (except for DaemonSet or mirror pods). Defaults to `false`. &lt;!-- defaults to `false` in code, not in Schema --&gt;
          * 
          * @return builder
          * 

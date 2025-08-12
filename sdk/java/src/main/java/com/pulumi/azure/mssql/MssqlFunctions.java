@@ -8,6 +8,8 @@ import com.pulumi.azure.mssql.inputs.GetDatabaseArgs;
 import com.pulumi.azure.mssql.inputs.GetDatabasePlainArgs;
 import com.pulumi.azure.mssql.inputs.GetElasticPoolArgs;
 import com.pulumi.azure.mssql.inputs.GetElasticPoolPlainArgs;
+import com.pulumi.azure.mssql.inputs.GetFailoverGroupArgs;
+import com.pulumi.azure.mssql.inputs.GetFailoverGroupPlainArgs;
 import com.pulumi.azure.mssql.inputs.GetManagedDatabaseArgs;
 import com.pulumi.azure.mssql.inputs.GetManagedDatabasePlainArgs;
 import com.pulumi.azure.mssql.inputs.GetManagedInstanceArgs;
@@ -16,6 +18,7 @@ import com.pulumi.azure.mssql.inputs.GetServerArgs;
 import com.pulumi.azure.mssql.inputs.GetServerPlainArgs;
 import com.pulumi.azure.mssql.outputs.GetDatabaseResult;
 import com.pulumi.azure.mssql.outputs.GetElasticPoolResult;
+import com.pulumi.azure.mssql.outputs.GetFailoverGroupResult;
 import com.pulumi.azure.mssql.outputs.GetManagedDatabaseResult;
 import com.pulumi.azure.mssql.outputs.GetManagedInstanceResult;
 import com.pulumi.azure.mssql.outputs.GetServerResult;
@@ -90,7 +93,7 @@ public final class MssqlFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Sql`: 2023-08-01-preview
+     * * `Microsoft.Sql` - 2023-08-01-preview
      * 
      */
     public static Output<GetDatabaseResult> getDatabase(GetDatabaseArgs args) {
@@ -159,7 +162,7 @@ public final class MssqlFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Sql`: 2023-08-01-preview
+     * * `Microsoft.Sql` - 2023-08-01-preview
      * 
      */
     public static CompletableFuture<GetDatabaseResult> getDatabasePlain(GetDatabasePlainArgs args) {
@@ -228,7 +231,7 @@ public final class MssqlFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Sql`: 2023-08-01-preview
+     * * `Microsoft.Sql` - 2023-08-01-preview
      * 
      */
     public static Output<GetDatabaseResult> getDatabase(GetDatabaseArgs args, InvokeOptions options) {
@@ -297,7 +300,7 @@ public final class MssqlFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Sql`: 2023-08-01-preview
+     * * `Microsoft.Sql` - 2023-08-01-preview
      * 
      */
     public static Output<GetDatabaseResult> getDatabase(GetDatabaseArgs args, InvokeOutputOptions options) {
@@ -366,7 +369,7 @@ public final class MssqlFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Sql`: 2023-08-01-preview
+     * * `Microsoft.Sql` - 2023-08-01-preview
      * 
      */
     public static CompletableFuture<GetDatabaseResult> getDatabasePlain(GetDatabasePlainArgs args, InvokeOptions options) {
@@ -418,7 +421,7 @@ public final class MssqlFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Sql`: 2023-08-01-preview
+     * * `Microsoft.Sql` - 2023-08-01-preview
      * 
      */
     public static Output<GetElasticPoolResult> getElasticPool(GetElasticPoolArgs args) {
@@ -470,7 +473,7 @@ public final class MssqlFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Sql`: 2023-08-01-preview
+     * * `Microsoft.Sql` - 2023-08-01-preview
      * 
      */
     public static CompletableFuture<GetElasticPoolResult> getElasticPoolPlain(GetElasticPoolPlainArgs args) {
@@ -522,7 +525,7 @@ public final class MssqlFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Sql`: 2023-08-01-preview
+     * * `Microsoft.Sql` - 2023-08-01-preview
      * 
      */
     public static Output<GetElasticPoolResult> getElasticPool(GetElasticPoolArgs args, InvokeOptions options) {
@@ -574,7 +577,7 @@ public final class MssqlFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Sql`: 2023-08-01-preview
+     * * `Microsoft.Sql` - 2023-08-01-preview
      * 
      */
     public static Output<GetElasticPoolResult> getElasticPool(GetElasticPoolArgs args, InvokeOutputOptions options) {
@@ -626,11 +629,266 @@ public final class MssqlFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Sql`: 2023-08-01-preview
+     * * `Microsoft.Sql` - 2023-08-01-preview
      * 
      */
     public static CompletableFuture<GetElasticPoolResult> getElasticPoolPlain(GetElasticPoolPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:mssql/getElasticPool:getElasticPool", TypeShape.of(GetElasticPoolResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Microsoft Azure SQL Failover Group.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.mssql.MssqlFunctions;
+     * import com.pulumi.azure.mssql.inputs.GetFailoverGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = MssqlFunctions.getFailoverGroup(GetFailoverGroupArgs.builder()
+     *             .name("example")
+     *             .serverId("example-sql-server")
+     *             .build());
+     * 
+     *         ctx.export("mssqlFailoverGroupId", example.id());
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Sql` - 2023-08-01-preview
+     * 
+     */
+    public static Output<GetFailoverGroupResult> getFailoverGroup(GetFailoverGroupArgs args) {
+        return getFailoverGroup(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing Microsoft Azure SQL Failover Group.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.mssql.MssqlFunctions;
+     * import com.pulumi.azure.mssql.inputs.GetFailoverGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = MssqlFunctions.getFailoverGroup(GetFailoverGroupArgs.builder()
+     *             .name("example")
+     *             .serverId("example-sql-server")
+     *             .build());
+     * 
+     *         ctx.export("mssqlFailoverGroupId", example.id());
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Sql` - 2023-08-01-preview
+     * 
+     */
+    public static CompletableFuture<GetFailoverGroupResult> getFailoverGroupPlain(GetFailoverGroupPlainArgs args) {
+        return getFailoverGroupPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing Microsoft Azure SQL Failover Group.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.mssql.MssqlFunctions;
+     * import com.pulumi.azure.mssql.inputs.GetFailoverGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = MssqlFunctions.getFailoverGroup(GetFailoverGroupArgs.builder()
+     *             .name("example")
+     *             .serverId("example-sql-server")
+     *             .build());
+     * 
+     *         ctx.export("mssqlFailoverGroupId", example.id());
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Sql` - 2023-08-01-preview
+     * 
+     */
+    public static Output<GetFailoverGroupResult> getFailoverGroup(GetFailoverGroupArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:mssql/getFailoverGroup:getFailoverGroup", TypeShape.of(GetFailoverGroupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Microsoft Azure SQL Failover Group.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.mssql.MssqlFunctions;
+     * import com.pulumi.azure.mssql.inputs.GetFailoverGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = MssqlFunctions.getFailoverGroup(GetFailoverGroupArgs.builder()
+     *             .name("example")
+     *             .serverId("example-sql-server")
+     *             .build());
+     * 
+     *         ctx.export("mssqlFailoverGroupId", example.id());
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Sql` - 2023-08-01-preview
+     * 
+     */
+    public static Output<GetFailoverGroupResult> getFailoverGroup(GetFailoverGroupArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("azure:mssql/getFailoverGroup:getFailoverGroup", TypeShape.of(GetFailoverGroupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Microsoft Azure SQL Failover Group.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.mssql.MssqlFunctions;
+     * import com.pulumi.azure.mssql.inputs.GetFailoverGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = MssqlFunctions.getFailoverGroup(GetFailoverGroupArgs.builder()
+     *             .name("example")
+     *             .serverId("example-sql-server")
+     *             .build());
+     * 
+     *         ctx.export("mssqlFailoverGroupId", example.id());
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Sql` - 2023-08-01-preview
+     * 
+     */
+    public static CompletableFuture<GetFailoverGroupResult> getFailoverGroupPlain(GetFailoverGroupPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azure:mssql/getFailoverGroup:getFailoverGroup", TypeShape.of(GetFailoverGroupResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Azure SQL Azure Managed Database.
@@ -645,7 +903,7 @@ public final class MssqlFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Sql`: 2023-08-01-preview
+     * * `Microsoft.Sql` - 2023-08-01-preview
      * 
      */
     public static Output<GetManagedDatabaseResult> getManagedDatabase(GetManagedDatabaseArgs args) {
@@ -664,7 +922,7 @@ public final class MssqlFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Sql`: 2023-08-01-preview
+     * * `Microsoft.Sql` - 2023-08-01-preview
      * 
      */
     public static CompletableFuture<GetManagedDatabaseResult> getManagedDatabasePlain(GetManagedDatabasePlainArgs args) {
@@ -683,7 +941,7 @@ public final class MssqlFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Sql`: 2023-08-01-preview
+     * * `Microsoft.Sql` - 2023-08-01-preview
      * 
      */
     public static Output<GetManagedDatabaseResult> getManagedDatabase(GetManagedDatabaseArgs args, InvokeOptions options) {
@@ -702,7 +960,7 @@ public final class MssqlFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Sql`: 2023-08-01-preview
+     * * `Microsoft.Sql` - 2023-08-01-preview
      * 
      */
     public static Output<GetManagedDatabaseResult> getManagedDatabase(GetManagedDatabaseArgs args, InvokeOutputOptions options) {
@@ -721,7 +979,7 @@ public final class MssqlFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Sql`: 2023-08-01-preview
+     * * `Microsoft.Sql` - 2023-08-01-preview
      * 
      */
     public static CompletableFuture<GetManagedDatabaseResult> getManagedDatabasePlain(GetManagedDatabasePlainArgs args, InvokeOptions options) {
@@ -771,7 +1029,7 @@ public final class MssqlFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Sql`: 2023-08-01-preview
+     * * `Microsoft.Sql` - 2023-08-01-preview
      * 
      */
     public static Output<GetManagedInstanceResult> getManagedInstance(GetManagedInstanceArgs args) {
@@ -821,7 +1079,7 @@ public final class MssqlFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Sql`: 2023-08-01-preview
+     * * `Microsoft.Sql` - 2023-08-01-preview
      * 
      */
     public static CompletableFuture<GetManagedInstanceResult> getManagedInstancePlain(GetManagedInstancePlainArgs args) {
@@ -871,7 +1129,7 @@ public final class MssqlFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Sql`: 2023-08-01-preview
+     * * `Microsoft.Sql` - 2023-08-01-preview
      * 
      */
     public static Output<GetManagedInstanceResult> getManagedInstance(GetManagedInstanceArgs args, InvokeOptions options) {
@@ -921,7 +1179,7 @@ public final class MssqlFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Sql`: 2023-08-01-preview
+     * * `Microsoft.Sql` - 2023-08-01-preview
      * 
      */
     public static Output<GetManagedInstanceResult> getManagedInstance(GetManagedInstanceArgs args, InvokeOutputOptions options) {
@@ -971,7 +1229,7 @@ public final class MssqlFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Sql`: 2023-08-01-preview
+     * * `Microsoft.Sql` - 2023-08-01-preview
      * 
      */
     public static CompletableFuture<GetManagedInstanceResult> getManagedInstancePlain(GetManagedInstancePlainArgs args, InvokeOptions options) {
@@ -1022,7 +1280,7 @@ public final class MssqlFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Sql`: 2023-08-01-preview
+     * * `Microsoft.Sql` - 2023-08-01-preview
      * 
      */
     public static Output<GetServerResult> getServer(GetServerArgs args) {
@@ -1073,7 +1331,7 @@ public final class MssqlFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Sql`: 2023-08-01-preview
+     * * `Microsoft.Sql` - 2023-08-01-preview
      * 
      */
     public static CompletableFuture<GetServerResult> getServerPlain(GetServerPlainArgs args) {
@@ -1124,7 +1382,7 @@ public final class MssqlFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Sql`: 2023-08-01-preview
+     * * `Microsoft.Sql` - 2023-08-01-preview
      * 
      */
     public static Output<GetServerResult> getServer(GetServerArgs args, InvokeOptions options) {
@@ -1175,7 +1433,7 @@ public final class MssqlFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Sql`: 2023-08-01-preview
+     * * `Microsoft.Sql` - 2023-08-01-preview
      * 
      */
     public static Output<GetServerResult> getServer(GetServerArgs args, InvokeOutputOptions options) {
@@ -1226,7 +1484,7 @@ public final class MssqlFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Sql`: 2023-08-01-preview
+     * * `Microsoft.Sql` - 2023-08-01-preview
      * 
      */
     public static CompletableFuture<GetServerResult> getServerPlain(GetServerPlainArgs args, InvokeOptions options) {

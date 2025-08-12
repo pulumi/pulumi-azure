@@ -15,13 +15,75 @@ else:
 from .. import _utilities
 
 __all__ = [
+    'AutonomousDatabaseLongTermBackupScheduleArgs',
+    'AutonomousDatabaseLongTermBackupScheduleArgsDict',
     'CloudVmClusterDataCollectionOptionsArgs',
     'CloudVmClusterDataCollectionOptionsArgsDict',
+    'CloudVmClusterFileSystemConfigurationArgs',
+    'CloudVmClusterFileSystemConfigurationArgsDict',
     'ExadataInfrastructureMaintenanceWindowArgs',
     'ExadataInfrastructureMaintenanceWindowArgsDict',
 ]
 
 MYPY = False
+
+if not MYPY:
+    class AutonomousDatabaseLongTermBackupScheduleArgsDict(TypedDict):
+        enabled: pulumi.Input[_builtins.bool]
+        repeat_cadence: pulumi.Input[_builtins.str]
+        retention_period_in_days: pulumi.Input[_builtins.int]
+        time_of_backup: pulumi.Input[_builtins.str]
+elif False:
+    AutonomousDatabaseLongTermBackupScheduleArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AutonomousDatabaseLongTermBackupScheduleArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[_builtins.bool],
+                 repeat_cadence: pulumi.Input[_builtins.str],
+                 retention_period_in_days: pulumi.Input[_builtins.int],
+                 time_of_backup: pulumi.Input[_builtins.str]):
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "repeat_cadence", repeat_cadence)
+        pulumi.set(__self__, "retention_period_in_days", retention_period_in_days)
+        pulumi.set(__self__, "time_of_backup", time_of_backup)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[_builtins.bool]:
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[_builtins.bool]):
+        pulumi.set(self, "enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="repeatCadence")
+    def repeat_cadence(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "repeat_cadence")
+
+    @repeat_cadence.setter
+    def repeat_cadence(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "repeat_cadence", value)
+
+    @_builtins.property
+    @pulumi.getter(name="retentionPeriodInDays")
+    def retention_period_in_days(self) -> pulumi.Input[_builtins.int]:
+        return pulumi.get(self, "retention_period_in_days")
+
+    @retention_period_in_days.setter
+    def retention_period_in_days(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "retention_period_in_days", value)
+
+    @_builtins.property
+    @pulumi.getter(name="timeOfBackup")
+    def time_of_backup(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "time_of_backup")
+
+    @time_of_backup.setter
+    def time_of_backup(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "time_of_backup", value)
+
 
 if not MYPY:
     class CloudVmClusterDataCollectionOptionsArgsDict(TypedDict):
@@ -93,6 +155,58 @@ class CloudVmClusterDataCollectionOptionsArgs:
     @incident_logs_enabled.setter
     def incident_logs_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "incident_logs_enabled", value)
+
+
+if not MYPY:
+    class CloudVmClusterFileSystemConfigurationArgsDict(TypedDict):
+        mount_point: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The mount path of the file system.
+        """
+        size_in_gb: NotRequired[pulumi.Input[_builtins.int]]
+        """
+        The size of the virtual machine's file system.
+        """
+elif False:
+    CloudVmClusterFileSystemConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CloudVmClusterFileSystemConfigurationArgs:
+    def __init__(__self__, *,
+                 mount_point: Optional[pulumi.Input[_builtins.str]] = None,
+                 size_in_gb: Optional[pulumi.Input[_builtins.int]] = None):
+        """
+        :param pulumi.Input[_builtins.str] mount_point: The mount path of the file system.
+        :param pulumi.Input[_builtins.int] size_in_gb: The size of the virtual machine's file system.
+        """
+        if mount_point is not None:
+            pulumi.set(__self__, "mount_point", mount_point)
+        if size_in_gb is not None:
+            pulumi.set(__self__, "size_in_gb", size_in_gb)
+
+    @_builtins.property
+    @pulumi.getter(name="mountPoint")
+    def mount_point(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The mount path of the file system.
+        """
+        return pulumi.get(self, "mount_point")
+
+    @mount_point.setter
+    def mount_point(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "mount_point", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sizeInGb")
+    def size_in_gb(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        The size of the virtual machine's file system.
+        """
+        return pulumi.get(self, "size_in_gb")
+
+    @size_in_gb.setter
+    def size_in_gb(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "size_in_gb", value)
 
 
 if not MYPY:

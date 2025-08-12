@@ -417,7 +417,7 @@ def get(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.HybridCompute`: 2022-11-10
+    * `Microsoft.HybridCompute` - 2022-11-10
 
 
     :param _builtins.str name: The name of this Azure Arc machine.
@@ -482,7 +482,7 @@ def get_output(name: Optional[pulumi.Input[_builtins.str]] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.HybridCompute`: 2022-11-10
+    * `Microsoft.HybridCompute` - 2022-11-10
 
 
     :param _builtins.str name: The name of this Azure Arc machine.

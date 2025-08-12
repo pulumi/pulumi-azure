@@ -29,6 +29,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &GroupPolicyExemption{}
 	case "azure:management/groupPolicyRemediation:GroupPolicyRemediation":
 		r = &GroupPolicyRemediation{}
+	case "azure:management/groupPolicySetDefinition:GroupPolicySetDefinition":
+		r = &GroupPolicySetDefinition{}
 	case "azure:management/groupSubscriptionAssociation:GroupSubscriptionAssociation":
 		r = &GroupSubscriptionAssociation{}
 	case "azure:management/groupTemplateDeployment:GroupTemplateDeployment":
@@ -70,6 +72,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"management/groupPolicyRemediation",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"management/groupPolicySetDefinition",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

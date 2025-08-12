@@ -918,7 +918,7 @@ class Group(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.ContainerInstance`: 2023-05-01
+        * `Microsoft.ContainerInstance` - 2023-05-01
 
         ## Import
 
@@ -1018,7 +1018,7 @@ class Group(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.ContainerInstance`: 2023-05-01
+        * `Microsoft.ContainerInstance` - 2023-05-01
 
         ## Import
 

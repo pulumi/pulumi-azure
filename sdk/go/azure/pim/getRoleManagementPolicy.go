@@ -104,7 +104,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This data source uses the following Azure API Providers:
 //
-// * `Microsoft.Authorization`: 2020-10-01
+// * `Microsoft.Authorization` - 2020-10-01
 func LookupRoleManagementPolicy(ctx *pulumi.Context, args *LookupRoleManagementPolicyArgs, opts ...pulumi.InvokeOption) (*LookupRoleManagementPolicyResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupRoleManagementPolicyResult

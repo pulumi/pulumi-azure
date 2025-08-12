@@ -71,7 +71,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This resource uses the following Azure API Providers:
 //
-// * `Microsoft.KeyVault`: 2023-07-01
+// * `Microsoft.KeyVault` - 2023-07-01
 //
 // ## Import
 //
@@ -93,7 +93,7 @@ type ManagedHardwareSecurityModule struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A `networkAcls` block as defined below.
 	NetworkAcls ManagedHardwareSecurityModuleNetworkAclsOutput `pulumi:"networkAcls"`
-	// Whether traffic from public networks is permitted. Defaults to `true`. Changing this forces a new resource to be created.
+	// Whether traffic from public networks is permitted. Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
 	// Is Purge Protection enabled for this Key Vault Managed Hardware Security Module? Changing this forces a new resource to be created.
 	PurgeProtectionEnabled pulumi.BoolPtrOutput `pulumi:"purgeProtectionEnabled"`
@@ -171,7 +171,7 @@ type managedHardwareSecurityModuleState struct {
 	Name *string `pulumi:"name"`
 	// A `networkAcls` block as defined below.
 	NetworkAcls *ManagedHardwareSecurityModuleNetworkAcls `pulumi:"networkAcls"`
-	// Whether traffic from public networks is permitted. Defaults to `true`. Changing this forces a new resource to be created.
+	// Whether traffic from public networks is permitted. Defaults to `true`.
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// Is Purge Protection enabled for this Key Vault Managed Hardware Security Module? Changing this forces a new resource to be created.
 	PurgeProtectionEnabled *bool `pulumi:"purgeProtectionEnabled"`
@@ -204,7 +204,7 @@ type ManagedHardwareSecurityModuleState struct {
 	Name pulumi.StringPtrInput
 	// A `networkAcls` block as defined below.
 	NetworkAcls ManagedHardwareSecurityModuleNetworkAclsPtrInput
-	// Whether traffic from public networks is permitted. Defaults to `true`. Changing this forces a new resource to be created.
+	// Whether traffic from public networks is permitted. Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// Is Purge Protection enabled for this Key Vault Managed Hardware Security Module? Changing this forces a new resource to be created.
 	PurgeProtectionEnabled pulumi.BoolPtrInput
@@ -239,7 +239,7 @@ type managedHardwareSecurityModuleArgs struct {
 	Name *string `pulumi:"name"`
 	// A `networkAcls` block as defined below.
 	NetworkAcls *ManagedHardwareSecurityModuleNetworkAcls `pulumi:"networkAcls"`
-	// Whether traffic from public networks is permitted. Defaults to `true`. Changing this forces a new resource to be created.
+	// Whether traffic from public networks is permitted. Defaults to `true`.
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// Is Purge Protection enabled for this Key Vault Managed Hardware Security Module? Changing this forces a new resource to be created.
 	PurgeProtectionEnabled *bool `pulumi:"purgeProtectionEnabled"`
@@ -269,7 +269,7 @@ type ManagedHardwareSecurityModuleArgs struct {
 	Name pulumi.StringPtrInput
 	// A `networkAcls` block as defined below.
 	NetworkAcls ManagedHardwareSecurityModuleNetworkAclsPtrInput
-	// Whether traffic from public networks is permitted. Defaults to `true`. Changing this forces a new resource to be created.
+	// Whether traffic from public networks is permitted. Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// Is Purge Protection enabled for this Key Vault Managed Hardware Security Module? Changing this forces a new resource to be created.
 	PurgeProtectionEnabled pulumi.BoolPtrInput
@@ -403,7 +403,7 @@ func (o ManagedHardwareSecurityModuleOutput) NetworkAcls() ManagedHardwareSecuri
 	}).(ManagedHardwareSecurityModuleNetworkAclsOutput)
 }
 
-// Whether traffic from public networks is permitted. Defaults to `true`. Changing this forces a new resource to be created.
+// Whether traffic from public networks is permitted. Defaults to `true`.
 func (o ManagedHardwareSecurityModuleOutput) PublicNetworkAccessEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ManagedHardwareSecurityModule) pulumi.BoolPtrOutput { return v.PublicNetworkAccessEnabled }).(pulumi.BoolPtrOutput)
 }

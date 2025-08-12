@@ -103,7 +103,7 @@ type Definition struct {
 	Mode pulumi.StringOutput `pulumi:"mode"`
 	// The name of the policy definition. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Parameters for the policy definition. This field is a JSON string that allows you to parameterize your policy definition.
+	// Parameters for the policy definition. This field is a JSON string that allows you to parameterize your policy definition. Reducing the number of parameters forces a new resource to be created.
 	Parameters pulumi.StringPtrOutput `pulumi:"parameters"`
 	// The policy rule for the policy definition. This is a JSON string representing the rule that contains an if and a then block.
 	PolicyRule pulumi.StringPtrOutput `pulumi:"policyRule"`
@@ -166,7 +166,7 @@ type definitionState struct {
 	Mode *string `pulumi:"mode"`
 	// The name of the policy definition. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// Parameters for the policy definition. This field is a JSON string that allows you to parameterize your policy definition.
+	// Parameters for the policy definition. This field is a JSON string that allows you to parameterize your policy definition. Reducing the number of parameters forces a new resource to be created.
 	Parameters *string `pulumi:"parameters"`
 	// The policy rule for the policy definition. This is a JSON string representing the rule that contains an if and a then block.
 	PolicyRule *string `pulumi:"policyRule"`
@@ -191,7 +191,7 @@ type DefinitionState struct {
 	Mode pulumi.StringPtrInput
 	// The name of the policy definition. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// Parameters for the policy definition. This field is a JSON string that allows you to parameterize your policy definition.
+	// Parameters for the policy definition. This field is a JSON string that allows you to parameterize your policy definition. Reducing the number of parameters forces a new resource to be created.
 	Parameters pulumi.StringPtrInput
 	// The policy rule for the policy definition. This is a JSON string representing the rule that contains an if and a then block.
 	PolicyRule pulumi.StringPtrInput
@@ -220,7 +220,7 @@ type definitionArgs struct {
 	Mode string `pulumi:"mode"`
 	// The name of the policy definition. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// Parameters for the policy definition. This field is a JSON string that allows you to parameterize your policy definition.
+	// Parameters for the policy definition. This field is a JSON string that allows you to parameterize your policy definition. Reducing the number of parameters forces a new resource to be created.
 	Parameters *string `pulumi:"parameters"`
 	// The policy rule for the policy definition. This is a JSON string representing the rule that contains an if and a then block.
 	PolicyRule *string `pulumi:"policyRule"`
@@ -244,7 +244,7 @@ type DefinitionArgs struct {
 	Mode pulumi.StringInput
 	// The name of the policy definition. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// Parameters for the policy definition. This field is a JSON string that allows you to parameterize your policy definition.
+	// Parameters for the policy definition. This field is a JSON string that allows you to parameterize your policy definition. Reducing the number of parameters forces a new resource to be created.
 	Parameters pulumi.StringPtrInput
 	// The policy rule for the policy definition. This is a JSON string representing the rule that contains an if and a then block.
 	PolicyRule pulumi.StringPtrInput
@@ -371,7 +371,7 @@ func (o DefinitionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Definition) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Parameters for the policy definition. This field is a JSON string that allows you to parameterize your policy definition.
+// Parameters for the policy definition. This field is a JSON string that allows you to parameterize your policy definition. Reducing the number of parameters forces a new resource to be created.
 func (o DefinitionOutput) Parameters() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Definition) pulumi.StringPtrOutput { return v.Parameters }).(pulumi.StringPtrOutput)
 }

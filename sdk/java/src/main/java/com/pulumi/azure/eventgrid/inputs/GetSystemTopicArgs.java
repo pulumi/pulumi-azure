@@ -15,14 +15,14 @@ public final class GetSystemTopicArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetSystemTopicArgs Empty = new GetSystemTopicArgs();
 
     /**
-     * The name of the EventGrid System Topic resource.
+     * The name of the Event Grid System Topic resource.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the EventGrid System Topic resource.
+     * @return The name of the Event Grid System Topic resource.
      * 
      */
     public Output<String> name() {
@@ -30,14 +30,14 @@ public final class GetSystemTopicArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The name of the resource group in which the EventGrid System Topic exists.
+     * The name of the resource group in which the Event Grid System Topic exists.
      * 
      */
     @Import(name="resourceGroupName", required=true)
     private Output<String> resourceGroupName;
 
     /**
-     * @return The name of the resource group in which the EventGrid System Topic exists.
+     * @return The name of the resource group in which the Event Grid System Topic exists.
      * 
      */
     public Output<String> resourceGroupName() {
@@ -70,7 +70,7 @@ public final class GetSystemTopicArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name The name of the EventGrid System Topic resource.
+         * @param name The name of the Event Grid System Topic resource.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class GetSystemTopicArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name The name of the EventGrid System Topic resource.
+         * @param name The name of the Event Grid System Topic resource.
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class GetSystemTopicArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param resourceGroupName The name of the resource group in which the EventGrid System Topic exists.
+         * @param resourceGroupName The name of the resource group in which the Event Grid System Topic exists.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class GetSystemTopicArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param resourceGroupName The name of the resource group in which the EventGrid System Topic exists.
+         * @param resourceGroupName The name of the resource group in which the Event Grid System Topic exists.
          * 
          * @return builder
          * 

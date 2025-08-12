@@ -19,6 +19,21 @@ public final class KubernetesClusterWebAppRoutingArgs extends com.pulumi.resourc
     public static final KubernetesClusterWebAppRoutingArgs Empty = new KubernetesClusterWebAppRoutingArgs();
 
     /**
+     * Specifies the ingress type for the default `NginxIngressController` custom resource. The allowed values are `None`, `Internal`, `External` and `AnnotationControlled`. It defaults to `AnnotationControlled`.
+     * 
+     */
+    @Import(name="defaultNginxController")
+    private @Nullable Output<String> defaultNginxController;
+
+    /**
+     * @return Specifies the ingress type for the default `NginxIngressController` custom resource. The allowed values are `None`, `Internal`, `External` and `AnnotationControlled`. It defaults to `AnnotationControlled`.
+     * 
+     */
+    public Optional<Output<String>> defaultNginxController() {
+        return Optional.ofNullable(this.defaultNginxController);
+    }
+
+    /**
      * Specifies the list of the DNS Zone IDs in which DNS entries are created for applications deployed to the cluster when Web App Routing is enabled. If not using Bring-Your-Own DNS zones this property should be set to an empty list.
      * 
      */
@@ -51,6 +66,7 @@ public final class KubernetesClusterWebAppRoutingArgs extends com.pulumi.resourc
     private KubernetesClusterWebAppRoutingArgs() {}
 
     private KubernetesClusterWebAppRoutingArgs(KubernetesClusterWebAppRoutingArgs $) {
+        this.defaultNginxController = $.defaultNginxController;
         this.dnsZoneIds = $.dnsZoneIds;
         this.webAppRoutingIdentities = $.webAppRoutingIdentities;
     }
@@ -71,6 +87,27 @@ public final class KubernetesClusterWebAppRoutingArgs extends com.pulumi.resourc
 
         public Builder(KubernetesClusterWebAppRoutingArgs defaults) {
             $ = new KubernetesClusterWebAppRoutingArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param defaultNginxController Specifies the ingress type for the default `NginxIngressController` custom resource. The allowed values are `None`, `Internal`, `External` and `AnnotationControlled`. It defaults to `AnnotationControlled`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder defaultNginxController(@Nullable Output<String> defaultNginxController) {
+            $.defaultNginxController = defaultNginxController;
+            return this;
+        }
+
+        /**
+         * @param defaultNginxController Specifies the ingress type for the default `NginxIngressController` custom resource. The allowed values are `None`, `Internal`, `External` and `AnnotationControlled`. It defaults to `AnnotationControlled`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder defaultNginxController(String defaultNginxController) {
+            return defaultNginxController(Output.of(defaultNginxController));
         }
 
         /**

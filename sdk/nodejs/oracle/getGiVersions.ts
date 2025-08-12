@@ -17,7 +17,9 @@ import * as utilities from "../utilities";
  *
  * export = async () => {
  *     const example = await azure.oracle.getGiVersions({
- *         location: "West Europe",
+ *         location: "eastus",
+ *         zone: "2",
+ *         shape: "Exadata.X9M",
  *     });
  *     return {
  *         example: example,
@@ -30,12 +32,14 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Oracle.Database`: 2024-06-01
+ * * `Oracle.Database` - 2025-03-01
  */
 export function getGiVersions(args: GetGiVersionsArgs, opts?: pulumi.InvokeOptions): Promise<GetGiVersionsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:oracle/getGiVersions:getGiVersions", {
         "location": args.location,
+        "shape": args.shape,
+        "zone": args.zone,
     }, opts);
 }
 
@@ -47,6 +51,14 @@ export interface GetGiVersionsArgs {
      * The Azure Region to query for the GI Versions in.
      */
     location: string;
+    /**
+     * The model name of the Cloud Exadata Infrastructure resource. Possible values are `ExaDbXS`, `Exadata.X9M`, and `Exadata.X11M`. This is used to filter out the available GI versions compatible with the given model.
+     */
+    shape?: string;
+    /**
+     * Indicates the Azure zone for the Cloud Exadata Infrastructure, used to filter the available GI versions within a given zone.
+     */
+    zone?: string;
 }
 
 /**
@@ -58,10 +70,12 @@ export interface GetGiVersionsResult {
      */
     readonly id: string;
     readonly location: string;
+    readonly shape?: string;
     /**
      * A list of valid GI software versions.
      */
     readonly versions: string[];
+    readonly zone?: string;
 }
 /**
  * This data source provides the list of GI Versions in Oracle Cloud Infrastructure Database service.
@@ -76,7 +90,9 @@ export interface GetGiVersionsResult {
  *
  * export = async () => {
  *     const example = await azure.oracle.getGiVersions({
- *         location: "West Europe",
+ *         location: "eastus",
+ *         zone: "2",
+ *         shape: "Exadata.X9M",
  *     });
  *     return {
  *         example: example,
@@ -89,12 +105,14 @@ export interface GetGiVersionsResult {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Oracle.Database`: 2024-06-01
+ * * `Oracle.Database` - 2025-03-01
  */
 export function getGiVersionsOutput(args: GetGiVersionsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGiVersionsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:oracle/getGiVersions:getGiVersions", {
         "location": args.location,
+        "shape": args.shape,
+        "zone": args.zone,
     }, opts);
 }
 
@@ -106,4 +124,12 @@ export interface GetGiVersionsOutputArgs {
      * The Azure Region to query for the GI Versions in.
      */
     location: pulumi.Input<string>;
+    /**
+     * The model name of the Cloud Exadata Infrastructure resource. Possible values are `ExaDbXS`, `Exadata.X9M`, and `Exadata.X11M`. This is used to filter out the available GI versions compatible with the given model.
+     */
+    shape?: pulumi.Input<string>;
+    /**
+     * Indicates the Azure zone for the Cloud Exadata Infrastructure, used to filter the available GI versions within a given zone.
+     */
+    zone?: pulumi.Input<string>;
 }

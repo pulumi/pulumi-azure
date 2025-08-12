@@ -306,7 +306,7 @@ def get_configuration_store(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.AppConfiguration`: 2024-05-01
+    * `Microsoft.AppConfiguration` - 2024-05-01
 
 
     :param _builtins.str name: The Name of this App Configuration.
@@ -362,7 +362,7 @@ def get_configuration_store_output(name: Optional[pulumi.Input[_builtins.str]] =
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.AppConfiguration`: 2024-05-01
+    * `Microsoft.AppConfiguration` - 2024-05-01
 
 
     :param _builtins.str name: The Name of this App Configuration.

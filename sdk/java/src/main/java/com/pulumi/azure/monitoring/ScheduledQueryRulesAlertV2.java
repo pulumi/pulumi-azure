@@ -159,7 +159,7 @@ import javax.annotation.Nullable;
  * &lt;!-- This section is generated, changes will be overwritten --&gt;
  * This resource uses the following Azure API Providers:
  * 
- * * `Microsoft.Insights`: 2023-03-15-preview
+ * * `Microsoft.Insights` - 2023-03-15-preview
  * 
  * ## Import
  * 

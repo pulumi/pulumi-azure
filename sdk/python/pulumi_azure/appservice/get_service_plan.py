@@ -221,7 +221,7 @@ def get_service_plan(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Web`: 2023-12-01
+    * `Microsoft.Web` - 2023-12-01
 
 
     :param _builtins.str name: The name of this Service Plan.
@@ -270,7 +270,7 @@ def get_service_plan_output(name: Optional[pulumi.Input[_builtins.str]] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Web`: 2023-12-01
+    * `Microsoft.Web` - 2023-12-01
 
 
     :param _builtins.str name: The name of this Service Plan.

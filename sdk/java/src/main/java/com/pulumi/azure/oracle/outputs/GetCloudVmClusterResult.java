@@ -4,6 +4,7 @@
 package com.pulumi.azure.oracle.outputs;
 
 import com.pulumi.azure.oracle.outputs.GetCloudVmClusterDataCollectionOption;
+import com.pulumi.azure.oracle.outputs.GetCloudVmClusterFileSystemConfiguration;
 import com.pulumi.azure.oracle.outputs.GetCloudVmClusterIormConfigCach;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -37,6 +38,11 @@ public final class GetCloudVmClusterResult {
      * 
      */
     private String compartmentId;
+    /**
+     * @return The compute model of the Exadata Infrastructure.
+     * 
+     */
+    private String computeModel;
     /**
      * @return A `compute_nodes` block as defined below.
      * 
@@ -87,6 +93,11 @@ public final class GetCloudVmClusterResult {
      * 
      */
     private String domain;
+    /**
+     * @return A `file_system_configuration` block as defined below.
+     * 
+     */
+    private List<GetCloudVmClusterFileSystemConfiguration> fileSystemConfigurations;
     /**
      * @return A valid Oracle Grid Infrastructure (GI) software version.
      * 
@@ -301,6 +312,13 @@ public final class GetCloudVmClusterResult {
         return this.compartmentId;
     }
     /**
+     * @return The compute model of the Exadata Infrastructure.
+     * 
+     */
+    public String computeModel() {
+        return this.computeModel;
+    }
+    /**
      * @return A `compute_nodes` block as defined below.
      * 
      */
@@ -369,6 +387,13 @@ public final class GetCloudVmClusterResult {
      */
     public String domain() {
         return this.domain;
+    }
+    /**
+     * @return A `file_system_configuration` block as defined below.
+     * 
+     */
+    public List<GetCloudVmClusterFileSystemConfiguration> fileSystemConfigurations() {
+        return this.fileSystemConfigurations;
     }
     /**
      * @return A valid Oracle Grid Infrastructure (GI) software version.
@@ -643,6 +668,7 @@ public final class GetCloudVmClusterResult {
         private String cloudExadataInfrastructureId;
         private String clusterName;
         private String compartmentId;
+        private String computeModel;
         private List<String> computeNodes;
         private Integer cpuCoreCount;
         private List<GetCloudVmClusterDataCollectionOption> dataCollectionOptions;
@@ -653,6 +679,7 @@ public final class GetCloudVmClusterResult {
         private String diskRedundancy;
         private String displayName;
         private String domain;
+        private List<GetCloudVmClusterFileSystemConfiguration> fileSystemConfigurations;
         private String giVersion;
         private String hostname;
         private String hostnameActual;
@@ -698,6 +725,7 @@ public final class GetCloudVmClusterResult {
     	      this.cloudExadataInfrastructureId = defaults.cloudExadataInfrastructureId;
     	      this.clusterName = defaults.clusterName;
     	      this.compartmentId = defaults.compartmentId;
+    	      this.computeModel = defaults.computeModel;
     	      this.computeNodes = defaults.computeNodes;
     	      this.cpuCoreCount = defaults.cpuCoreCount;
     	      this.dataCollectionOptions = defaults.dataCollectionOptions;
@@ -708,6 +736,7 @@ public final class GetCloudVmClusterResult {
     	      this.diskRedundancy = defaults.diskRedundancy;
     	      this.displayName = defaults.displayName;
     	      this.domain = defaults.domain;
+    	      this.fileSystemConfigurations = defaults.fileSystemConfigurations;
     	      this.giVersion = defaults.giVersion;
     	      this.hostname = defaults.hostname;
     	      this.hostnameActual = defaults.hostnameActual;
@@ -778,6 +807,14 @@ public final class GetCloudVmClusterResult {
               throw new MissingRequiredPropertyException("GetCloudVmClusterResult", "compartmentId");
             }
             this.compartmentId = compartmentId;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder computeModel(String computeModel) {
+            if (computeModel == null) {
+              throw new MissingRequiredPropertyException("GetCloudVmClusterResult", "computeModel");
+            }
+            this.computeModel = computeModel;
             return this;
         }
         @CustomType.Setter
@@ -868,6 +905,17 @@ public final class GetCloudVmClusterResult {
             }
             this.domain = domain;
             return this;
+        }
+        @CustomType.Setter
+        public Builder fileSystemConfigurations(List<GetCloudVmClusterFileSystemConfiguration> fileSystemConfigurations) {
+            if (fileSystemConfigurations == null) {
+              throw new MissingRequiredPropertyException("GetCloudVmClusterResult", "fileSystemConfigurations");
+            }
+            this.fileSystemConfigurations = fileSystemConfigurations;
+            return this;
+        }
+        public Builder fileSystemConfigurations(GetCloudVmClusterFileSystemConfiguration... fileSystemConfigurations) {
+            return fileSystemConfigurations(List.of(fileSystemConfigurations));
         }
         @CustomType.Setter
         public Builder giVersion(String giVersion) {
@@ -1191,6 +1239,7 @@ public final class GetCloudVmClusterResult {
             _resultValue.cloudExadataInfrastructureId = cloudExadataInfrastructureId;
             _resultValue.clusterName = clusterName;
             _resultValue.compartmentId = compartmentId;
+            _resultValue.computeModel = computeModel;
             _resultValue.computeNodes = computeNodes;
             _resultValue.cpuCoreCount = cpuCoreCount;
             _resultValue.dataCollectionOptions = dataCollectionOptions;
@@ -1201,6 +1250,7 @@ public final class GetCloudVmClusterResult {
             _resultValue.diskRedundancy = diskRedundancy;
             _resultValue.displayName = displayName;
             _resultValue.domain = domain;
+            _resultValue.fileSystemConfigurations = fileSystemConfigurations;
             _resultValue.giVersion = giVersion;
             _resultValue.hostname = hostname;
             _resultValue.hostnameActual = hostnameActual;

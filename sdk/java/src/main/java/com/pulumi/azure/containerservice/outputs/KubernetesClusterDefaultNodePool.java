@@ -35,7 +35,7 @@ public final class KubernetesClusterDefaultNodePool {
      */
     private @Nullable String capacityReservationGroupId;
     /**
-     * @return Should the nodes in this Node Pool have Federal Information Processing Standard enabled? `temporary_name_for_rotation` must be specified when changing this block. Changing this forces a new resource to be created.
+     * @return Should the nodes in this Node Pool have Federal Information Processing Standard enabled? `temporary_name_for_rotation` must be specified when changing this block.
      * 
      */
     private @Nullable Boolean fipsEnabled;
@@ -225,7 +225,7 @@ public final class KubernetesClusterDefaultNodePool {
         return Optional.ofNullable(this.capacityReservationGroupId);
     }
     /**
-     * @return Should the nodes in this Node Pool have Federal Information Processing Standard enabled? `temporary_name_for_rotation` must be specified when changing this block. Changing this forces a new resource to be created.
+     * @return Should the nodes in this Node Pool have Federal Information Processing Standard enabled? `temporary_name_for_rotation` must be specified when changing this block.
      * 
      */
     public Optional<Boolean> fipsEnabled() {

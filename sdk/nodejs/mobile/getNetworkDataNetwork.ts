@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.MobileNetwork`: 2022-11-01
+ * * `Microsoft.MobileNetwork` - 2022-11-01
  */
 export function getNetworkDataNetwork(args: GetNetworkDataNetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkDataNetworkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -99,7 +99,7 @@ export interface GetNetworkDataNetworkResult {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.MobileNetwork`: 2022-11-01
+ * * `Microsoft.MobileNetwork` - 2022-11-01
  */
 export function getNetworkDataNetworkOutput(args: GetNetworkDataNetworkOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNetworkDataNetworkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

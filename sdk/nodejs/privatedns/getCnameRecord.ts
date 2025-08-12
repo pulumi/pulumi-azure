@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Network`: 2024-06-01
+ * * `Microsoft.Network` - 2024-06-01
  */
 export function getCnameRecord(args: GetCnameRecordArgs, opts?: pulumi.InvokeOptions): Promise<GetCnameRecordResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -102,7 +102,7 @@ export interface GetCnameRecordResult {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Network`: 2024-06-01
+ * * `Microsoft.Network` - 2024-06-01
  */
 export function getCnameRecordOutput(args: GetCnameRecordOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCnameRecordResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -526,7 +526,7 @@ public final class AppconfigurationFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.AppConfiguration`: 2024-05-01
+     * * `Microsoft.AppConfiguration` - 2024-05-01
      * 
      */
     public static Output<GetConfigurationStoreResult> getConfigurationStore(GetConfigurationStoreArgs args) {
@@ -577,7 +577,7 @@ public final class AppconfigurationFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.AppConfiguration`: 2024-05-01
+     * * `Microsoft.AppConfiguration` - 2024-05-01
      * 
      */
     public static CompletableFuture<GetConfigurationStoreResult> getConfigurationStorePlain(GetConfigurationStorePlainArgs args) {
@@ -628,7 +628,7 @@ public final class AppconfigurationFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.AppConfiguration`: 2024-05-01
+     * * `Microsoft.AppConfiguration` - 2024-05-01
      * 
      */
     public static Output<GetConfigurationStoreResult> getConfigurationStore(GetConfigurationStoreArgs args, InvokeOptions options) {
@@ -679,7 +679,7 @@ public final class AppconfigurationFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.AppConfiguration`: 2024-05-01
+     * * `Microsoft.AppConfiguration` - 2024-05-01
      * 
      */
     public static Output<GetConfigurationStoreResult> getConfigurationStore(GetConfigurationStoreArgs args, InvokeOutputOptions options) {
@@ -730,7 +730,7 @@ public final class AppconfigurationFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.AppConfiguration`: 2024-05-01
+     * * `Microsoft.AppConfiguration` - 2024-05-01
      * 
      */
     public static CompletableFuture<GetConfigurationStoreResult> getConfigurationStorePlain(GetConfigurationStorePlainArgs args, InvokeOptions options) {

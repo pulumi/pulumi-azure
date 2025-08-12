@@ -240,7 +240,7 @@ def get_elasticsearch(logs: Optional[Sequence[Union['GetElasticsearchLogArgs', '
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Elastic`: 2023-06-01
+    * `Microsoft.Elastic` - 2023-06-01
 
 
     :param Sequence[Union['GetElasticsearchLogArgs', 'GetElasticsearchLogArgsDict']] logs: A `logs` block as defined below.
@@ -294,7 +294,7 @@ def get_elasticsearch_output(logs: Optional[pulumi.Input[Optional[Sequence[Union
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Elastic`: 2023-06-01
+    * `Microsoft.Elastic` - 2023-06-01
 
 
     :param Sequence[Union['GetElasticsearchLogArgs', 'GetElasticsearchLogArgsDict']] logs: A `logs` block as defined below.

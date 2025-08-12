@@ -46,7 +46,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This data source uses the following Azure API Providers:
 //
-// * `Microsoft.Compute`: 2024-03-01
+// * `Microsoft.Compute` - 2024-03-01
 func LookupAvailabilitySet(ctx *pulumi.Context, args *LookupAvailabilitySetArgs, opts ...pulumi.InvokeOption) (*LookupAvailabilitySetResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupAvailabilitySetResult

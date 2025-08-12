@@ -174,6 +174,17 @@ namespace Pulumi.Azure
             set => _metadataHost.Set(value);
         }
 
+        private static readonly __Value<string?> _msiApiVersion = new __Value<string?>(() => __config.Get("msiApiVersion"));
+        /// <summary>
+        /// The API version to use for Managed Service Identity (IMDS) - for cases where the default API version is not supported by
+        /// the endpoint. e.g. for Azure Container Apps.
+        /// </summary>
+        public static string? MsiApiVersion
+        {
+            get => _msiApiVersion.Get();
+            set => _msiApiVersion.Set(value);
+        }
+
         private static readonly __Value<string?> _msiEndpoint = new __Value<string?>(() => __config.Get("msiEndpoint"));
         /// <summary>
         /// The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected

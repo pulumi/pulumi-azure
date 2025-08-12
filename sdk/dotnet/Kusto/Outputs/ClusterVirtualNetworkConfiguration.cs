@@ -13,17 +13,8 @@ namespace Pulumi.Azure.Kusto.Outputs
     [OutputType]
     public sealed class ClusterVirtualNetworkConfiguration
     {
-        /// <summary>
-        /// Data management's service public IP address resource id.
-        /// </summary>
         public readonly string DataManagementPublicIpId;
-        /// <summary>
-        /// Engine service's public IP address resource id.
-        /// </summary>
         public readonly string EnginePublicIpId;
-        /// <summary>
-        /// The subnet resource id.
-        /// </summary>
         public readonly string SubnetId;
 
         [OutputConstructor]

@@ -43,6 +43,24 @@ namespace Pulumi.Azure.Core
     ///                 },
     ///             },
     ///         },
+    ///         Pivots = new[]
+    ///         {
+    ///             new Azure.Core.Inputs.SubscriptionCostManagementViewPivotArgs
+    ///             {
+    ///                 Type = "Dimension",
+    ///                 Name = "ServiceName",
+    ///             },
+    ///             new Azure.Core.Inputs.SubscriptionCostManagementViewPivotArgs
+    ///             {
+    ///                 Type = "Dimension",
+    ///                 Name = "ResourceLocation",
+    ///             },
+    ///             new Azure.Core.Inputs.SubscriptionCostManagementViewPivotArgs
+    ///             {
+    ///                 Type = "Dimension",
+    ///                 Name = "ResourceGroupName",
+    ///             },
+    ///         },
     ///     });
     /// 
     /// });
@@ -53,7 +71,7 @@ namespace Pulumi.Azure.Core
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.CostManagement`: 2023-08-01
+    /// * `Microsoft.CostManagement` - 2023-08-01
     /// 
     /// ## Import
     /// 

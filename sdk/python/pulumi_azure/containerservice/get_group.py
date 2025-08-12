@@ -177,7 +177,7 @@ def get_group(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.ContainerInstance`: 2023-05-01
+    * `Microsoft.ContainerInstance` - 2023-05-01
 
 
     :param _builtins.str name: The name of this Container Group instance.
@@ -227,7 +227,7 @@ def get_group_output(name: Optional[pulumi.Input[_builtins.str]] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.ContainerInstance`: 2023-05-01
+    * `Microsoft.ContainerInstance` - 2023-05-01
 
 
     :param _builtins.str name: The name of this Container Group instance.

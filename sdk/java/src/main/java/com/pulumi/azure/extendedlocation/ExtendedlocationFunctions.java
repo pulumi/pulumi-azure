@@ -60,7 +60,7 @@ public final class ExtendedlocationFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ExtendedLocation`: 2021-08-15
+     * * `Microsoft.ExtendedLocation` - 2021-08-15
      * 
      */
     public static Output<GetCustomLocationResult> getCustomLocation(GetCustomLocationArgs args) {
@@ -111,7 +111,7 @@ public final class ExtendedlocationFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ExtendedLocation`: 2021-08-15
+     * * `Microsoft.ExtendedLocation` - 2021-08-15
      * 
      */
     public static CompletableFuture<GetCustomLocationResult> getCustomLocationPlain(GetCustomLocationPlainArgs args) {
@@ -162,7 +162,7 @@ public final class ExtendedlocationFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ExtendedLocation`: 2021-08-15
+     * * `Microsoft.ExtendedLocation` - 2021-08-15
      * 
      */
     public static Output<GetCustomLocationResult> getCustomLocation(GetCustomLocationArgs args, InvokeOptions options) {
@@ -213,7 +213,7 @@ public final class ExtendedlocationFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ExtendedLocation`: 2021-08-15
+     * * `Microsoft.ExtendedLocation` - 2021-08-15
      * 
      */
     public static Output<GetCustomLocationResult> getCustomLocation(GetCustomLocationArgs args, InvokeOutputOptions options) {
@@ -264,7 +264,7 @@ public final class ExtendedlocationFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ExtendedLocation`: 2021-08-15
+     * * `Microsoft.ExtendedLocation` - 2021-08-15
      * 
      */
     public static CompletableFuture<GetCustomLocationResult> getCustomLocationPlain(GetCustomLocationPlainArgs args, InvokeOptions options) {

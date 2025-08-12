@@ -127,7 +127,7 @@ import javax.annotation.Nullable;
  * &lt;!-- This section is generated, changes will be overwritten --&gt;
  * This resource uses the following Azure API Providers:
  * 
- * * `Microsoft.MachineLearningServices`: 2024-04-01
+ * * `Microsoft.MachineLearningServices` - 2025-06-01
  * 
  * ## Import
  * 
@@ -217,7 +217,7 @@ public class DatastoreBlobstorage extends com.pulumi.resources.CustomResource {
     /**
      * The Shared Access Signature of the Storage Account. Conflicts with `account_key`.
      * 
-     * &gt; **Note:** One of `account_key` or `shared_access_signature` must be specified.
+     * &gt; **Note:** If `service_data_auth_identity` is set to `None` or omitted, one of `account_key` or `shared_access_signature` must be specified.
      * 
      */
     @Export(name="sharedAccessSignature", refs={String.class}, tree="[0]")
@@ -226,7 +226,7 @@ public class DatastoreBlobstorage extends com.pulumi.resources.CustomResource {
     /**
      * @return The Shared Access Signature of the Storage Account. Conflicts with `account_key`.
      * 
-     * &gt; **Note:** One of `account_key` or `shared_access_signature` must be specified.
+     * &gt; **Note:** If `service_data_auth_identity` is set to `None` or omitted, one of `account_key` or `shared_access_signature` must be specified.
      * 
      */
     public Output<Optional<String>> sharedAccessSignature() {

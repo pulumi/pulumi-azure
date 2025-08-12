@@ -59,7 +59,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This data source uses the following Azure API Providers:
 //
-// * `Microsoft.Blueprint`: 2018-11-01-preview
+// * `Microsoft.Blueprint` - 2018-11-01-preview
 func GetDefinition(ctx *pulumi.Context, args *GetDefinitionArgs, opts ...pulumi.InvokeOption) (*GetDefinitionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetDefinitionResult

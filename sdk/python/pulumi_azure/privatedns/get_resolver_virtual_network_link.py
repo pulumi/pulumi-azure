@@ -112,7 +112,7 @@ def get_resolver_virtual_network_link(dns_forwarding_ruleset_id: Optional[_built
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Network`: 2022-07-01
+    * `Microsoft.Network` - 2022-07-01
 
 
     :param _builtins.str dns_forwarding_ruleset_id: ID of the Private DNS Resolver DNS Forwarding Ruleset.
@@ -151,7 +151,7 @@ def get_resolver_virtual_network_link_output(dns_forwarding_ruleset_id: Optional
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Network`: 2022-07-01
+    * `Microsoft.Network` - 2022-07-01
 
 
     :param _builtins.str dns_forwarding_ruleset_id: ID of the Private DNS Resolver DNS Forwarding Ruleset.

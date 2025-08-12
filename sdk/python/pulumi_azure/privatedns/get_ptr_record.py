@@ -147,7 +147,7 @@ def get_ptr_record(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Network`: 2024-06-01
+    * `Microsoft.Network` - 2024-06-01
 
 
     :param _builtins.str name: The name of the Private DNS PTR Record.
@@ -193,7 +193,7 @@ def get_ptr_record_output(name: Optional[pulumi.Input[_builtins.str]] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Network`: 2024-06-01
+    * `Microsoft.Network` - 2024-06-01
 
 
     :param _builtins.str name: The name of the Private DNS PTR Record.

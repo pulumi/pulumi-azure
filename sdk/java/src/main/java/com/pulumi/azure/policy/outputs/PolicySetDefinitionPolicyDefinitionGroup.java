@@ -13,62 +13,62 @@ import javax.annotation.Nullable;
 @CustomType
 public final class PolicySetDefinitionPolicyDefinitionGroup {
     /**
-     * @return The ID of a resource that contains additional metadata about this policy definition group.
+     * @return The ID of a resource that contains additional metadata for this Policy Definition Group.
      * 
      */
     private @Nullable String additionalMetadataResourceId;
     /**
-     * @return The category of this policy definition group.
+     * @return The category of this Policy Definition Group.
      * 
      */
     private @Nullable String category;
     /**
-     * @return The description of this policy definition group.
+     * @return The description of this Policy Definition Group.
      * 
      */
     private @Nullable String description;
     /**
-     * @return The display name of this policy definition group.
+     * @return The display name of this Policy Definition Group.
      * 
      */
     private @Nullable String displayName;
     /**
-     * @return The name of this policy definition group.
+     * @return The name which should be used for this Policy Definition Group.
      * 
      */
     private String name;
 
     private PolicySetDefinitionPolicyDefinitionGroup() {}
     /**
-     * @return The ID of a resource that contains additional metadata about this policy definition group.
+     * @return The ID of a resource that contains additional metadata for this Policy Definition Group.
      * 
      */
     public Optional<String> additionalMetadataResourceId() {
         return Optional.ofNullable(this.additionalMetadataResourceId);
     }
     /**
-     * @return The category of this policy definition group.
+     * @return The category of this Policy Definition Group.
      * 
      */
     public Optional<String> category() {
         return Optional.ofNullable(this.category);
     }
     /**
-     * @return The description of this policy definition group.
+     * @return The description of this Policy Definition Group.
      * 
      */
     public Optional<String> description() {
         return Optional.ofNullable(this.description);
     }
     /**
-     * @return The display name of this policy definition group.
+     * @return The display name of this Policy Definition Group.
      * 
      */
     public Optional<String> displayName() {
         return Optional.ofNullable(this.displayName);
     }
     /**
-     * @return The name of this policy definition group.
+     * @return The name which should be used for this Policy Definition Group.
      * 
      */
     public String name() {

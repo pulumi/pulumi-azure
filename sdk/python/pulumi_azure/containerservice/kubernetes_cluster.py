@@ -31,6 +31,7 @@ class KubernetesClusterArgs:
                  azure_policy_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  confidential_computing: Optional[pulumi.Input['KubernetesClusterConfidentialComputingArgs']] = None,
                  cost_analysis_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 custom_ca_trust_certificates_base64s: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  disk_encryption_set_id: Optional[pulumi.Input[_builtins.str]] = None,
                  dns_prefix: Optional[pulumi.Input[_builtins.str]] = None,
                  dns_prefix_private_cluster: Optional[pulumi.Input[_builtins.str]] = None,
@@ -92,6 +93,7 @@ class KubernetesClusterArgs:
         :param pulumi.Input[_builtins.bool] azure_policy_enabled: Should the Azure Policy Add-On be enabled? For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
         :param pulumi.Input['KubernetesClusterConfidentialComputingArgs'] confidential_computing: A `confidential_computing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)
         :param pulumi.Input[_builtins.bool] cost_analysis_enabled: Should cost analysis be enabled for this Kubernetes Cluster? Defaults to `false`. The `sku_tier` must be set to `Standard` or `Premium` to enable this feature. Enabling this will add Kubernetes Namespace and Deployment details to the Cost Analysis views in the Azure portal.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] custom_ca_trust_certificates_base64s: A list of up to 10 base64 encoded CA certificates that will be added to the trust store on nodes.
         :param pulumi.Input[_builtins.str] disk_encryption_set_id: The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/azure/aks/azure-disk-customer-managed-keys). Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] dns_prefix: DNS prefix specified when creating the managed cluster. Possible values must begin and end with a letter or number, contain only letters, numbers, and hyphens and be between 1 and 54 characters in length. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] dns_prefix_private_cluster: Specifies the DNS prefix to use with private clusters. Changing this forces a new resource to be created.
@@ -108,7 +110,7 @@ class KubernetesClusterArgs:
                
                !> **Note:** A migration scenario from `service_principal` to `identity` is supported. When upgrading `service_principal` to `identity`, your cluster's control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `service_principal` until you upgrade your Node Pool.
         :param pulumi.Input[_builtins.bool] image_cleaner_enabled: Specifies whether Image Cleaner is enabled.
-        :param pulumi.Input[_builtins.int] image_cleaner_interval_hours: Specifies the interval in hours when images should be cleaned up. Defaults to `0`.
+        :param pulumi.Input[_builtins.int] image_cleaner_interval_hours: Specifies the interval in hours when images should be cleaned up.
         :param pulumi.Input['KubernetesClusterIngressApplicationGatewayArgs'] ingress_application_gateway: A `ingress_application_gateway` block as defined below.
                
                > **Note:** Since the Application Gateway is deployed inside a Virtual Network, users (and Service Principals) that are operating the Application Gateway must have the `Microsoft.Network/virtualNetworks/subnets/join/action` permission on the Virtual Network or Subnet. For more details, please visit [Virtual Network Permission](https://learn.microsoft.com/en-us/azure/application-gateway/configuration-infrastructure#virtual-network-permission).
@@ -216,6 +218,8 @@ class KubernetesClusterArgs:
             pulumi.set(__self__, "confidential_computing", confidential_computing)
         if cost_analysis_enabled is not None:
             pulumi.set(__self__, "cost_analysis_enabled", cost_analysis_enabled)
+        if custom_ca_trust_certificates_base64s is not None:
+            pulumi.set(__self__, "custom_ca_trust_certificates_base64s", custom_ca_trust_certificates_base64s)
         if disk_encryption_set_id is not None:
             pulumi.set(__self__, "disk_encryption_set_id", disk_encryption_set_id)
         if dns_prefix is not None:
@@ -432,6 +436,18 @@ class KubernetesClusterArgs:
         pulumi.set(self, "cost_analysis_enabled", value)
 
     @_builtins.property
+    @pulumi.getter(name="customCaTrustCertificatesBase64s")
+    def custom_ca_trust_certificates_base64s(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        A list of up to 10 base64 encoded CA certificates that will be added to the trust store on nodes.
+        """
+        return pulumi.get(self, "custom_ca_trust_certificates_base64s")
+
+    @custom_ca_trust_certificates_base64s.setter
+    def custom_ca_trust_certificates_base64s(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "custom_ca_trust_certificates_base64s", value)
+
+    @_builtins.property
     @pulumi.getter(name="diskEncryptionSetId")
     def disk_encryption_set_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -539,7 +555,7 @@ class KubernetesClusterArgs:
     @pulumi.getter(name="imageCleanerIntervalHours")
     def image_cleaner_interval_hours(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
-        Specifies the interval in hours when images should be cleaned up. Defaults to `0`.
+        Specifies the interval in hours when images should be cleaned up.
         """
         return pulumi.get(self, "image_cleaner_interval_hours")
 
@@ -1044,6 +1060,7 @@ class _KubernetesClusterState:
                  confidential_computing: Optional[pulumi.Input['KubernetesClusterConfidentialComputingArgs']] = None,
                  cost_analysis_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  current_kubernetes_version: Optional[pulumi.Input[_builtins.str]] = None,
+                 custom_ca_trust_certificates_base64s: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  default_node_pool: Optional[pulumi.Input['KubernetesClusterDefaultNodePoolArgs']] = None,
                  disk_encryption_set_id: Optional[pulumi.Input[_builtins.str]] = None,
                  dns_prefix: Optional[pulumi.Input[_builtins.str]] = None,
@@ -1116,6 +1133,7 @@ class _KubernetesClusterState:
         :param pulumi.Input['KubernetesClusterConfidentialComputingArgs'] confidential_computing: A `confidential_computing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)
         :param pulumi.Input[_builtins.bool] cost_analysis_enabled: Should cost analysis be enabled for this Kubernetes Cluster? Defaults to `false`. The `sku_tier` must be set to `Standard` or `Premium` to enable this feature. Enabling this will add Kubernetes Namespace and Deployment details to the Cost Analysis views in the Azure portal.
         :param pulumi.Input[_builtins.str] current_kubernetes_version: The current version running on the Azure Kubernetes Managed Cluster.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] custom_ca_trust_certificates_base64s: A list of up to 10 base64 encoded CA certificates that will be added to the trust store on nodes.
         :param pulumi.Input['KubernetesClusterDefaultNodePoolArgs'] default_node_pool: Specifies configuration for "System" mode node pool. A `default_node_pool` block as defined below.
         :param pulumi.Input[_builtins.str] disk_encryption_set_id: The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/azure/aks/azure-disk-customer-managed-keys). Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] dns_prefix: DNS prefix specified when creating the managed cluster. Possible values must begin and end with a letter or number, contain only letters, numbers, and hyphens and be between 1 and 54 characters in length. Changing this forces a new resource to be created.
@@ -1135,7 +1153,7 @@ class _KubernetesClusterState:
                
                !> **Note:** A migration scenario from `service_principal` to `identity` is supported. When upgrading `service_principal` to `identity`, your cluster's control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `service_principal` until you upgrade your Node Pool.
         :param pulumi.Input[_builtins.bool] image_cleaner_enabled: Specifies whether Image Cleaner is enabled.
-        :param pulumi.Input[_builtins.int] image_cleaner_interval_hours: Specifies the interval in hours when images should be cleaned up. Defaults to `0`.
+        :param pulumi.Input[_builtins.int] image_cleaner_interval_hours: Specifies the interval in hours when images should be cleaned up.
         :param pulumi.Input['KubernetesClusterIngressApplicationGatewayArgs'] ingress_application_gateway: A `ingress_application_gateway` block as defined below.
                
                > **Note:** Since the Application Gateway is deployed inside a Virtual Network, users (and Service Principals) that are operating the Application Gateway must have the `Microsoft.Network/virtualNetworks/subnets/join/action` permission on the Virtual Network or Subnet. For more details, please visit [Virtual Network Permission](https://learn.microsoft.com/en-us/azure/application-gateway/configuration-infrastructure#virtual-network-permission).
@@ -1252,6 +1270,8 @@ class _KubernetesClusterState:
             pulumi.set(__self__, "cost_analysis_enabled", cost_analysis_enabled)
         if current_kubernetes_version is not None:
             pulumi.set(__self__, "current_kubernetes_version", current_kubernetes_version)
+        if custom_ca_trust_certificates_base64s is not None:
+            pulumi.set(__self__, "custom_ca_trust_certificates_base64s", custom_ca_trust_certificates_base64s)
         if default_node_pool is not None:
             pulumi.set(__self__, "default_node_pool", default_node_pool)
         if disk_encryption_set_id is not None:
@@ -1480,6 +1500,18 @@ class _KubernetesClusterState:
         pulumi.set(self, "current_kubernetes_version", value)
 
     @_builtins.property
+    @pulumi.getter(name="customCaTrustCertificatesBase64s")
+    def custom_ca_trust_certificates_base64s(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        A list of up to 10 base64 encoded CA certificates that will be added to the trust store on nodes.
+        """
+        return pulumi.get(self, "custom_ca_trust_certificates_base64s")
+
+    @custom_ca_trust_certificates_base64s.setter
+    def custom_ca_trust_certificates_base64s(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "custom_ca_trust_certificates_base64s", value)
+
+    @_builtins.property
     @pulumi.getter(name="defaultNodePool")
     def default_node_pool(self) -> Optional[pulumi.Input['KubernetesClusterDefaultNodePoolArgs']]:
         """
@@ -1623,7 +1655,7 @@ class _KubernetesClusterState:
     @pulumi.getter(name="imageCleanerIntervalHours")
     def image_cleaner_interval_hours(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
-        Specifies the interval in hours when images should be cleaned up. Defaults to `0`.
+        Specifies the interval in hours when images should be cleaned up.
         """
         return pulumi.get(self, "image_cleaner_interval_hours")
 
@@ -2238,6 +2270,7 @@ class KubernetesCluster(pulumi.CustomResource):
                  azure_policy_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  confidential_computing: Optional[pulumi.Input[Union['KubernetesClusterConfidentialComputingArgs', 'KubernetesClusterConfidentialComputingArgsDict']]] = None,
                  cost_analysis_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 custom_ca_trust_certificates_base64s: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  default_node_pool: Optional[pulumi.Input[Union['KubernetesClusterDefaultNodePoolArgs', 'KubernetesClusterDefaultNodePoolArgsDict']]] = None,
                  disk_encryption_set_id: Optional[pulumi.Input[_builtins.str]] = None,
                  dns_prefix: Optional[pulumi.Input[_builtins.str]] = None,
@@ -2322,6 +2355,13 @@ class KubernetesCluster(pulumi.CustomResource):
         pulumi.export("kubeConfig", example_kubernetes_cluster.kube_config_raw)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ContainerService` - 2025-02-01
+
         ## Import
 
         Managed Kubernetes Clusters can be imported using the `resource id`, e.g.
@@ -2344,6 +2384,7 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] azure_policy_enabled: Should the Azure Policy Add-On be enabled? For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
         :param pulumi.Input[Union['KubernetesClusterConfidentialComputingArgs', 'KubernetesClusterConfidentialComputingArgsDict']] confidential_computing: A `confidential_computing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)
         :param pulumi.Input[_builtins.bool] cost_analysis_enabled: Should cost analysis be enabled for this Kubernetes Cluster? Defaults to `false`. The `sku_tier` must be set to `Standard` or `Premium` to enable this feature. Enabling this will add Kubernetes Namespace and Deployment details to the Cost Analysis views in the Azure portal.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] custom_ca_trust_certificates_base64s: A list of up to 10 base64 encoded CA certificates that will be added to the trust store on nodes.
         :param pulumi.Input[Union['KubernetesClusterDefaultNodePoolArgs', 'KubernetesClusterDefaultNodePoolArgsDict']] default_node_pool: Specifies configuration for "System" mode node pool. A `default_node_pool` block as defined below.
         :param pulumi.Input[_builtins.str] disk_encryption_set_id: The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/azure/aks/azure-disk-customer-managed-keys). Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] dns_prefix: DNS prefix specified when creating the managed cluster. Possible values must begin and end with a letter or number, contain only letters, numbers, and hyphens and be between 1 and 54 characters in length. Changing this forces a new resource to be created.
@@ -2361,7 +2402,7 @@ class KubernetesCluster(pulumi.CustomResource):
                
                !> **Note:** A migration scenario from `service_principal` to `identity` is supported. When upgrading `service_principal` to `identity`, your cluster's control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `service_principal` until you upgrade your Node Pool.
         :param pulumi.Input[_builtins.bool] image_cleaner_enabled: Specifies whether Image Cleaner is enabled.
-        :param pulumi.Input[_builtins.int] image_cleaner_interval_hours: Specifies the interval in hours when images should be cleaned up. Defaults to `0`.
+        :param pulumi.Input[_builtins.int] image_cleaner_interval_hours: Specifies the interval in hours when images should be cleaned up.
         :param pulumi.Input[Union['KubernetesClusterIngressApplicationGatewayArgs', 'KubernetesClusterIngressApplicationGatewayArgsDict']] ingress_application_gateway: A `ingress_application_gateway` block as defined below.
                
                > **Note:** Since the Application Gateway is deployed inside a Virtual Network, users (and Service Principals) that are operating the Application Gateway must have the `Microsoft.Network/virtualNetworks/subnets/join/action` permission on the Virtual Network or Subnet. For more details, please visit [Virtual Network Permission](https://learn.microsoft.com/en-us/azure/application-gateway/configuration-infrastructure#virtual-network-permission).
@@ -2494,6 +2535,13 @@ class KubernetesCluster(pulumi.CustomResource):
         pulumi.export("kubeConfig", example_kubernetes_cluster.kube_config_raw)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ContainerService` - 2025-02-01
+
         ## Import
 
         Managed Kubernetes Clusters can be imported using the `resource id`, e.g.
@@ -2525,6 +2573,7 @@ class KubernetesCluster(pulumi.CustomResource):
                  azure_policy_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  confidential_computing: Optional[pulumi.Input[Union['KubernetesClusterConfidentialComputingArgs', 'KubernetesClusterConfidentialComputingArgsDict']]] = None,
                  cost_analysis_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 custom_ca_trust_certificates_base64s: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  default_node_pool: Optional[pulumi.Input[Union['KubernetesClusterDefaultNodePoolArgs', 'KubernetesClusterDefaultNodePoolArgsDict']]] = None,
                  disk_encryption_set_id: Optional[pulumi.Input[_builtins.str]] = None,
                  dns_prefix: Optional[pulumi.Input[_builtins.str]] = None,
@@ -2589,6 +2638,7 @@ class KubernetesCluster(pulumi.CustomResource):
             __props__.__dict__["azure_policy_enabled"] = azure_policy_enabled
             __props__.__dict__["confidential_computing"] = confidential_computing
             __props__.__dict__["cost_analysis_enabled"] = cost_analysis_enabled
+            __props__.__dict__["custom_ca_trust_certificates_base64s"] = custom_ca_trust_certificates_base64s
             if default_node_pool is None and not opts.urn:
                 raise TypeError("Missing required property 'default_node_pool'")
             __props__.__dict__["default_node_pool"] = default_node_pool
@@ -2672,6 +2722,7 @@ class KubernetesCluster(pulumi.CustomResource):
             confidential_computing: Optional[pulumi.Input[Union['KubernetesClusterConfidentialComputingArgs', 'KubernetesClusterConfidentialComputingArgsDict']]] = None,
             cost_analysis_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
             current_kubernetes_version: Optional[pulumi.Input[_builtins.str]] = None,
+            custom_ca_trust_certificates_base64s: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
             default_node_pool: Optional[pulumi.Input[Union['KubernetesClusterDefaultNodePoolArgs', 'KubernetesClusterDefaultNodePoolArgsDict']]] = None,
             disk_encryption_set_id: Optional[pulumi.Input[_builtins.str]] = None,
             dns_prefix: Optional[pulumi.Input[_builtins.str]] = None,
@@ -2749,6 +2800,7 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[Union['KubernetesClusterConfidentialComputingArgs', 'KubernetesClusterConfidentialComputingArgsDict']] confidential_computing: A `confidential_computing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)
         :param pulumi.Input[_builtins.bool] cost_analysis_enabled: Should cost analysis be enabled for this Kubernetes Cluster? Defaults to `false`. The `sku_tier` must be set to `Standard` or `Premium` to enable this feature. Enabling this will add Kubernetes Namespace and Deployment details to the Cost Analysis views in the Azure portal.
         :param pulumi.Input[_builtins.str] current_kubernetes_version: The current version running on the Azure Kubernetes Managed Cluster.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] custom_ca_trust_certificates_base64s: A list of up to 10 base64 encoded CA certificates that will be added to the trust store on nodes.
         :param pulumi.Input[Union['KubernetesClusterDefaultNodePoolArgs', 'KubernetesClusterDefaultNodePoolArgsDict']] default_node_pool: Specifies configuration for "System" mode node pool. A `default_node_pool` block as defined below.
         :param pulumi.Input[_builtins.str] disk_encryption_set_id: The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/azure/aks/azure-disk-customer-managed-keys). Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] dns_prefix: DNS prefix specified when creating the managed cluster. Possible values must begin and end with a letter or number, contain only letters, numbers, and hyphens and be between 1 and 54 characters in length. Changing this forces a new resource to be created.
@@ -2768,7 +2820,7 @@ class KubernetesCluster(pulumi.CustomResource):
                
                !> **Note:** A migration scenario from `service_principal` to `identity` is supported. When upgrading `service_principal` to `identity`, your cluster's control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `service_principal` until you upgrade your Node Pool.
         :param pulumi.Input[_builtins.bool] image_cleaner_enabled: Specifies whether Image Cleaner is enabled.
-        :param pulumi.Input[_builtins.int] image_cleaner_interval_hours: Specifies the interval in hours when images should be cleaned up. Defaults to `0`.
+        :param pulumi.Input[_builtins.int] image_cleaner_interval_hours: Specifies the interval in hours when images should be cleaned up.
         :param pulumi.Input[Union['KubernetesClusterIngressApplicationGatewayArgs', 'KubernetesClusterIngressApplicationGatewayArgsDict']] ingress_application_gateway: A `ingress_application_gateway` block as defined below.
                
                > **Note:** Since the Application Gateway is deployed inside a Virtual Network, users (and Service Principals) that are operating the Application Gateway must have the `Microsoft.Network/virtualNetworks/subnets/join/action` permission on the Virtual Network or Subnet. For more details, please visit [Virtual Network Permission](https://learn.microsoft.com/en-us/azure/application-gateway/configuration-infrastructure#virtual-network-permission).
@@ -2880,6 +2932,7 @@ class KubernetesCluster(pulumi.CustomResource):
         __props__.__dict__["confidential_computing"] = confidential_computing
         __props__.__dict__["cost_analysis_enabled"] = cost_analysis_enabled
         __props__.__dict__["current_kubernetes_version"] = current_kubernetes_version
+        __props__.__dict__["custom_ca_trust_certificates_base64s"] = custom_ca_trust_certificates_base64s
         __props__.__dict__["default_node_pool"] = default_node_pool
         __props__.__dict__["disk_encryption_set_id"] = disk_encryption_set_id
         __props__.__dict__["dns_prefix"] = dns_prefix
@@ -3016,6 +3069,14 @@ class KubernetesCluster(pulumi.CustomResource):
         return pulumi.get(self, "current_kubernetes_version")
 
     @_builtins.property
+    @pulumi.getter(name="customCaTrustCertificatesBase64s")
+    def custom_ca_trust_certificates_base64s(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        A list of up to 10 base64 encoded CA certificates that will be added to the trust store on nodes.
+        """
+        return pulumi.get(self, "custom_ca_trust_certificates_base64s")
+
+    @_builtins.property
     @pulumi.getter(name="defaultNodePool")
     def default_node_pool(self) -> pulumi.Output['outputs.KubernetesClusterDefaultNodePool']:
         """
@@ -3115,7 +3176,7 @@ class KubernetesCluster(pulumi.CustomResource):
     @pulumi.getter(name="imageCleanerIntervalHours")
     def image_cleaner_interval_hours(self) -> pulumi.Output[Optional[_builtins.int]]:
         """
-        Specifies the interval in hours when images should be cleaned up. Defaults to `0`.
+        Specifies the interval in hours when images should be cleaned up.
         """
         return pulumi.get(self, "image_cleaner_interval_hours")
 

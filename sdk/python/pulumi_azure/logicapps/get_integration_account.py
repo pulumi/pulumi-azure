@@ -125,7 +125,7 @@ def get_integration_account(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Logic`: 2019-05-01
+    * `Microsoft.Logic` - 2019-05-01
 
 
     :param _builtins.str name: The name of this Logic App Integration Account.
@@ -166,7 +166,7 @@ def get_integration_account_output(name: Optional[pulumi.Input[_builtins.str]] =
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Logic`: 2019-05-01
+    * `Microsoft.Logic` - 2019-05-01
 
 
     :param _builtins.str name: The name of this Logic App Integration Account.

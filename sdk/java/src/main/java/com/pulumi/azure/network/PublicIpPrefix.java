@@ -71,7 +71,7 @@ import javax.annotation.Nullable;
  * &lt;!-- This section is generated, changes will be overwritten --&gt;
  * This resource uses the following Azure API Providers:
  * 
- * * `Microsoft.Network`: 2024-05-01
+ * * `Microsoft.Network` - 2024-05-01
  * 
  * ## Import
  * 
@@ -84,6 +84,24 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="azure:network/publicIpPrefix:PublicIpPrefix")
 public class PublicIpPrefix extends com.pulumi.resources.CustomResource {
+    /**
+     * The Custom IP Prefix ID associated with the Public IP Prefix. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** When `ip_version` is set to `IPv6`, `custom_ip_prefix_id` must reference a regional (child) range rather than a global (parent) range. For more details on creating a Public IP Prefix from a custom IP prefix, see [here](https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/manage-custom-ip-address-prefix#create-a-public-ip-prefix-from-a-custom-ip-prefix).
+     * 
+     */
+    @Export(name="customIpPrefixId", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> customIpPrefixId;
+
+    /**
+     * @return The Custom IP Prefix ID associated with the Public IP Prefix. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** When `ip_version` is set to `IPv6`, `custom_ip_prefix_id` must reference a regional (child) range rather than a global (parent) range. For more details on creating a Public IP Prefix from a custom IP prefix, see [here](https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/manage-custom-ip-address-prefix#create-a-public-ip-prefix-from-a-custom-ip-prefix).
+     * 
+     */
+    public Output<Optional<String>> customIpPrefixId() {
+        return Codegen.optional(this.customIpPrefixId);
+    }
     /**
      * The IP address prefix value that was allocated.
      * 

@@ -42,7 +42,7 @@ namespace Pulumi.Azure.DevCenter
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.DevCenter`: 2025-02-01
+        /// * `Microsoft.DevCenter` - 2025-02-01
         /// </summary>
         public static Task<GetProjectEnvironmentTypeResult> InvokeAsync(GetProjectEnvironmentTypeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetProjectEnvironmentTypeResult>("azure:devcenter/getProjectEnvironmentType:getProjectEnvironmentType", args ?? new GetProjectEnvironmentTypeArgs(), options.WithDefaults());
@@ -78,7 +78,7 @@ namespace Pulumi.Azure.DevCenter
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.DevCenter`: 2025-02-01
+        /// * `Microsoft.DevCenter` - 2025-02-01
         /// </summary>
         public static Output<GetProjectEnvironmentTypeResult> Invoke(GetProjectEnvironmentTypeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProjectEnvironmentTypeResult>("azure:devcenter/getProjectEnvironmentType:getProjectEnvironmentType", args ?? new GetProjectEnvironmentTypeInvokeArgs(), options.WithDefaults());
@@ -114,7 +114,7 @@ namespace Pulumi.Azure.DevCenter
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.DevCenter`: 2025-02-01
+        /// * `Microsoft.DevCenter` - 2025-02-01
         /// </summary>
         public static Output<GetProjectEnvironmentTypeResult> Invoke(GetProjectEnvironmentTypeInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetProjectEnvironmentTypeResult>("azure:devcenter/getProjectEnvironmentType:getProjectEnvironmentType", args ?? new GetProjectEnvironmentTypeInvokeArgs(), options.WithDefaults());

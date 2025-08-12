@@ -97,7 +97,7 @@ def get_source_control_token(type: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Web`: 2023-01-01
+    * `Microsoft.Web` - 2023-01-01
 
 
     :param _builtins.str type: The Token type. Possible values include `Bitbucket`, `Dropbox`, `Github`, and `OneDrive`.
@@ -130,7 +130,7 @@ def get_source_control_token_output(type: Optional[pulumi.Input[_builtins.str]] 
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Web`: 2023-01-01
+    * `Microsoft.Web` - 2023-01-01
 
 
     :param _builtins.str type: The Token type. Possible values include `Bitbucket`, `Dropbox`, `Github`, and `OneDrive`.

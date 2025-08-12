@@ -126,7 +126,7 @@ def get_access_connector(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Databricks`: 2022-10-01-preview
+    * `Microsoft.Databricks` - 2022-10-01-preview
 
 
     :param _builtins.str name: The name of this Databricks Access Connector.
@@ -167,7 +167,7 @@ def get_access_connector_output(name: Optional[pulumi.Input[_builtins.str]] = No
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Databricks`: 2022-10-01-preview
+    * `Microsoft.Databricks` - 2022-10-01-preview
 
 
     :param _builtins.str name: The name of this Databricks Access Connector.

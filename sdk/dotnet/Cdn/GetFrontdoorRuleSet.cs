@@ -39,7 +39,7 @@ namespace Pulumi.Azure.Cdn
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Cdn`: 2024-02-01
+        /// * `Microsoft.Cdn` - 2024-02-01
         /// </summary>
         public static Task<GetFrontdoorRuleSetResult> InvokeAsync(GetFrontdoorRuleSetArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFrontdoorRuleSetResult>("azure:cdn/getFrontdoorRuleSet:getFrontdoorRuleSet", args ?? new GetFrontdoorRuleSetArgs(), options.WithDefaults());
@@ -72,7 +72,7 @@ namespace Pulumi.Azure.Cdn
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Cdn`: 2024-02-01
+        /// * `Microsoft.Cdn` - 2024-02-01
         /// </summary>
         public static Output<GetFrontdoorRuleSetResult> Invoke(GetFrontdoorRuleSetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFrontdoorRuleSetResult>("azure:cdn/getFrontdoorRuleSet:getFrontdoorRuleSet", args ?? new GetFrontdoorRuleSetInvokeArgs(), options.WithDefaults());
@@ -105,7 +105,7 @@ namespace Pulumi.Azure.Cdn
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Cdn`: 2024-02-01
+        /// * `Microsoft.Cdn` - 2024-02-01
         /// </summary>
         public static Output<GetFrontdoorRuleSetResult> Invoke(GetFrontdoorRuleSetInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetFrontdoorRuleSetResult>("azure:cdn/getFrontdoorRuleSet:getFrontdoorRuleSet", args ?? new GetFrontdoorRuleSetInvokeArgs(), options.WithDefaults());

@@ -38,7 +38,7 @@ namespace Pulumi.Azure.Iot
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Devices`: 2022-02-05
+        /// * `Microsoft.Devices` - 2022-02-05
         /// </summary>
         public static Task<GetDpsResult> InvokeAsync(GetDpsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDpsResult>("azure:iot/getDps:getDps", args ?? new GetDpsArgs(), options.WithDefaults());
@@ -70,7 +70,7 @@ namespace Pulumi.Azure.Iot
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Devices`: 2022-02-05
+        /// * `Microsoft.Devices` - 2022-02-05
         /// </summary>
         public static Output<GetDpsResult> Invoke(GetDpsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDpsResult>("azure:iot/getDps:getDps", args ?? new GetDpsInvokeArgs(), options.WithDefaults());
@@ -102,7 +102,7 @@ namespace Pulumi.Azure.Iot
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Devices`: 2022-02-05
+        /// * `Microsoft.Devices` - 2022-02-05
         /// </summary>
         public static Output<GetDpsResult> Invoke(GetDpsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDpsResult>("azure:iot/getDps:getDps", args ?? new GetDpsInvokeArgs(), options.WithDefaults());

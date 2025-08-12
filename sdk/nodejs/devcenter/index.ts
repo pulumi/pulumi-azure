@@ -55,6 +55,11 @@ export const getDevBoxDefinition: typeof import("./getDevBoxDefinition").getDevB
 export const getDevBoxDefinitionOutput: typeof import("./getDevBoxDefinition").getDevBoxDefinitionOutput = null as any;
 utilities.lazyLoad(exports, ["getDevBoxDefinition","getDevBoxDefinitionOutput"], () => require("./getDevBoxDefinition"));
 
+export { GetEnvironmentTypeArgs, GetEnvironmentTypeResult, GetEnvironmentTypeOutputArgs } from "./getEnvironmentType";
+export const getEnvironmentType: typeof import("./getEnvironmentType").getEnvironmentType = null as any;
+export const getEnvironmentTypeOutput: typeof import("./getEnvironmentType").getEnvironmentTypeOutput = null as any;
+utilities.lazyLoad(exports, ["getEnvironmentType","getEnvironmentTypeOutput"], () => require("./getEnvironmentType"));
+
 export { GetGalleryArgs, GetGalleryResult, GetGalleryOutputArgs } from "./getGallery";
 export const getGallery: typeof import("./getGallery").getGallery = null as any;
 export const getGalleryOutput: typeof import("./getGallery").getGalleryOutput = null as any;
@@ -74,6 +79,11 @@ export { GetProjectEnvironmentTypeArgs, GetProjectEnvironmentTypeResult, GetProj
 export const getProjectEnvironmentType: typeof import("./getProjectEnvironmentType").getProjectEnvironmentType = null as any;
 export const getProjectEnvironmentTypeOutput: typeof import("./getProjectEnvironmentType").getProjectEnvironmentTypeOutput = null as any;
 utilities.lazyLoad(exports, ["getProjectEnvironmentType","getProjectEnvironmentTypeOutput"], () => require("./getProjectEnvironmentType"));
+
+export { GetProjectPoolArgs, GetProjectPoolResult, GetProjectPoolOutputArgs } from "./getProjectPool";
+export const getProjectPool: typeof import("./getProjectPool").getProjectPool = null as any;
+export const getProjectPoolOutput: typeof import("./getProjectPool").getProjectPoolOutput = null as any;
+utilities.lazyLoad(exports, ["getProjectPool","getProjectPoolOutput"], () => require("./getProjectPool"));
 
 export { NetworkConnectionArgs, NetworkConnectionState } from "./networkConnection";
 export type NetworkConnection = import("./networkConnection").NetworkConnection;

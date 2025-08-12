@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.oracle.outputs;
 
+import com.pulumi.azure.oracle.outputs.GetAutonomousDatabaseLongTermBackupSchedule;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
@@ -130,6 +131,11 @@ public final class GetAutonomousDatabaseResult {
      * 
      */
     private String location;
+    /**
+     * @return A `long_term_backup_schedule` block as defined below
+     * 
+     */
+    private List<GetAutonomousDatabaseLongTermBackupSchedule> longTermBackupSchedules;
     /**
      * @return The amount of memory (in GBs) enabled per ECPU or OCPU.
      * 
@@ -462,6 +468,13 @@ public final class GetAutonomousDatabaseResult {
         return this.location;
     }
     /**
+     * @return A `long_term_backup_schedule` block as defined below
+     * 
+     */
+    public List<GetAutonomousDatabaseLongTermBackupSchedule> longTermBackupSchedules() {
+        return this.longTermBackupSchedules;
+    }
+    /**
      * @return The amount of memory (in GBs) enabled per ECPU or OCPU.
      * 
      */
@@ -734,6 +747,7 @@ public final class GetAutonomousDatabaseResult {
         private Integer localAdgAutoFailoverMaxDataLossLimit;
         private Boolean localDataGuardEnabled;
         private String location;
+        private List<GetAutonomousDatabaseLongTermBackupSchedule> longTermBackupSchedules;
         private Integer memoryPerOracleComputeUnitInGbs;
         private Boolean mtlsConnectionRequired;
         private String name;
@@ -796,6 +810,7 @@ public final class GetAutonomousDatabaseResult {
     	      this.localAdgAutoFailoverMaxDataLossLimit = defaults.localAdgAutoFailoverMaxDataLossLimit;
     	      this.localDataGuardEnabled = defaults.localDataGuardEnabled;
     	      this.location = defaults.location;
+    	      this.longTermBackupSchedules = defaults.longTermBackupSchedules;
     	      this.memoryPerOracleComputeUnitInGbs = defaults.memoryPerOracleComputeUnitInGbs;
     	      this.mtlsConnectionRequired = defaults.mtlsConnectionRequired;
     	      this.name = defaults.name;
@@ -1023,6 +1038,17 @@ public final class GetAutonomousDatabaseResult {
             }
             this.location = location;
             return this;
+        }
+        @CustomType.Setter
+        public Builder longTermBackupSchedules(List<GetAutonomousDatabaseLongTermBackupSchedule> longTermBackupSchedules) {
+            if (longTermBackupSchedules == null) {
+              throw new MissingRequiredPropertyException("GetAutonomousDatabaseResult", "longTermBackupSchedules");
+            }
+            this.longTermBackupSchedules = longTermBackupSchedules;
+            return this;
+        }
+        public Builder longTermBackupSchedules(GetAutonomousDatabaseLongTermBackupSchedule... longTermBackupSchedules) {
+            return longTermBackupSchedules(List.of(longTermBackupSchedules));
         }
         @CustomType.Setter
         public Builder memoryPerOracleComputeUnitInGbs(Integer memoryPerOracleComputeUnitInGbs) {
@@ -1346,6 +1372,7 @@ public final class GetAutonomousDatabaseResult {
             _resultValue.localAdgAutoFailoverMaxDataLossLimit = localAdgAutoFailoverMaxDataLossLimit;
             _resultValue.localDataGuardEnabled = localDataGuardEnabled;
             _resultValue.location = location;
+            _resultValue.longTermBackupSchedules = longTermBackupSchedules;
             _resultValue.memoryPerOracleComputeUnitInGbs = memoryPerOracleComputeUnitInGbs;
             _resultValue.mtlsConnectionRequired = mtlsConnectionRequired;
             _resultValue.name = name;

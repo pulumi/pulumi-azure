@@ -14,15 +14,15 @@ namespace Pulumi.Azure.MachineLearning.Outputs
     public sealed class ComputeClusterScaleSettings
     {
         /// <summary>
-        /// Maximum node count. Changing this forces a new Machine Learning Compute Cluster to be created.
+        /// Maximum node count.
         /// </summary>
         public readonly int MaxNodeCount;
         /// <summary>
-        /// Minimal node count. Changing this forces a new Machine Learning Compute Cluster to be created.
+        /// Minimal node count.
         /// </summary>
         public readonly int MinNodeCount;
         /// <summary>
-        /// Node Idle Time Before Scale Down: defines the time until the compute is shutdown when it has gone into Idle state. Is defined according to W3C XML schema standard for duration. Changing this forces a new Machine Learning Compute Cluster to be created.
+        /// Node Idle Time Before Scale Down: defines the time until the compute is shutdown when it has gone into Idle state. Is defined according to W3C XML schema standard for duration.
         /// </summary>
         public readonly string ScaleDownNodesAfterIdleDuration;
 

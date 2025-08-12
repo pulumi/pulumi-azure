@@ -161,7 +161,7 @@ def get_directory(domain_name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.AzureActiveDirectory`: 2021-04-01-preview
+    * `Microsoft.AzureActiveDirectory` - 2021-04-01-preview
 
 
     :param _builtins.str domain_name: Domain name of the B2C tenant, including the `.onmicrosoft.com` suffix.
@@ -205,7 +205,7 @@ def get_directory_output(domain_name: Optional[pulumi.Input[_builtins.str]] = No
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.AzureActiveDirectory`: 2021-04-01-preview
+    * `Microsoft.AzureActiveDirectory` - 2021-04-01-preview
 
 
     :param _builtins.str domain_name: Domain name of the B2C tenant, including the `.onmicrosoft.com` suffix.

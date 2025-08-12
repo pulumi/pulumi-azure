@@ -30,6 +30,11 @@ export type DataSourceWindowsPerformanceCounter = import("./dataSourceWindowsPer
 export const DataSourceWindowsPerformanceCounter: typeof import("./dataSourceWindowsPerformanceCounter").DataSourceWindowsPerformanceCounter = null as any;
 utilities.lazyLoad(exports, ["DataSourceWindowsPerformanceCounter"], () => require("./dataSourceWindowsPerformanceCounter"));
 
+export { GetWorkspaceTableArgs, GetWorkspaceTableResult, GetWorkspaceTableOutputArgs } from "./getWorkspaceTable";
+export const getWorkspaceTable: typeof import("./getWorkspaceTable").getWorkspaceTable = null as any;
+export const getWorkspaceTableOutput: typeof import("./getWorkspaceTable").getWorkspaceTableOutput = null as any;
+utilities.lazyLoad(exports, ["getWorkspaceTable","getWorkspaceTableOutput"], () => require("./getWorkspaceTable"));
+
 export { LinkedServiceArgs, LinkedServiceState } from "./linkedService";
 export type LinkedService = import("./linkedService").LinkedService;
 export const LinkedService: typeof import("./linkedService").LinkedService = null as any;

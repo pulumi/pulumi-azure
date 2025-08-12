@@ -69,7 +69,7 @@ public final class BatchFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Batch`: 2024-07-01
+     * * `Microsoft.Batch` - 2024-07-01
      * 
      */
     public static Output<GetAccountResult> getAccount(GetAccountArgs args) {
@@ -120,7 +120,7 @@ public final class BatchFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Batch`: 2024-07-01
+     * * `Microsoft.Batch` - 2024-07-01
      * 
      */
     public static CompletableFuture<GetAccountResult> getAccountPlain(GetAccountPlainArgs args) {
@@ -171,7 +171,7 @@ public final class BatchFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Batch`: 2024-07-01
+     * * `Microsoft.Batch` - 2024-07-01
      * 
      */
     public static Output<GetAccountResult> getAccount(GetAccountArgs args, InvokeOptions options) {
@@ -222,7 +222,7 @@ public final class BatchFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Batch`: 2024-07-01
+     * * `Microsoft.Batch` - 2024-07-01
      * 
      */
     public static Output<GetAccountResult> getAccount(GetAccountArgs args, InvokeOutputOptions options) {
@@ -273,7 +273,7 @@ public final class BatchFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Batch`: 2024-07-01
+     * * `Microsoft.Batch` - 2024-07-01
      * 
      */
     public static CompletableFuture<GetAccountResult> getAccountPlain(GetAccountPlainArgs args, InvokeOptions options) {
@@ -325,7 +325,7 @@ public final class BatchFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Batch`: 2024-07-01
+     * * `Microsoft.Batch` - 2024-07-01
      * 
      */
     public static Output<GetApplicationResult> getApplication(GetApplicationArgs args) {
@@ -377,7 +377,7 @@ public final class BatchFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Batch`: 2024-07-01
+     * * `Microsoft.Batch` - 2024-07-01
      * 
      */
     public static CompletableFuture<GetApplicationResult> getApplicationPlain(GetApplicationPlainArgs args) {
@@ -429,7 +429,7 @@ public final class BatchFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Batch`: 2024-07-01
+     * * `Microsoft.Batch` - 2024-07-01
      * 
      */
     public static Output<GetApplicationResult> getApplication(GetApplicationArgs args, InvokeOptions options) {
@@ -481,7 +481,7 @@ public final class BatchFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Batch`: 2024-07-01
+     * * `Microsoft.Batch` - 2024-07-01
      * 
      */
     public static Output<GetApplicationResult> getApplication(GetApplicationArgs args, InvokeOutputOptions options) {
@@ -533,7 +533,7 @@ public final class BatchFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Batch`: 2024-07-01
+     * * `Microsoft.Batch` - 2024-07-01
      * 
      */
     public static CompletableFuture<GetApplicationResult> getApplicationPlain(GetApplicationPlainArgs args, InvokeOptions options) {
@@ -585,7 +585,7 @@ public final class BatchFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Batch`: 2024-07-01
+     * * `Microsoft.Batch` - 2024-07-01
      * 
      */
     public static Output<GetCertificateResult> getCertificate(GetCertificateArgs args) {
@@ -637,7 +637,7 @@ public final class BatchFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Batch`: 2024-07-01
+     * * `Microsoft.Batch` - 2024-07-01
      * 
      */
     public static CompletableFuture<GetCertificateResult> getCertificatePlain(GetCertificatePlainArgs args) {
@@ -689,7 +689,7 @@ public final class BatchFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Batch`: 2024-07-01
+     * * `Microsoft.Batch` - 2024-07-01
      * 
      */
     public static Output<GetCertificateResult> getCertificate(GetCertificateArgs args, InvokeOptions options) {
@@ -741,7 +741,7 @@ public final class BatchFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Batch`: 2024-07-01
+     * * `Microsoft.Batch` - 2024-07-01
      * 
      */
     public static Output<GetCertificateResult> getCertificate(GetCertificateArgs args, InvokeOutputOptions options) {
@@ -793,7 +793,7 @@ public final class BatchFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Batch`: 2024-07-01
+     * * `Microsoft.Batch` - 2024-07-01
      * 
      */
     public static CompletableFuture<GetCertificateResult> getCertificatePlain(GetCertificatePlainArgs args, InvokeOptions options) {
@@ -844,7 +844,7 @@ public final class BatchFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Batch`: 2024-07-01
+     * * `Microsoft.Batch` - 2024-07-01
      * 
      */
     public static Output<GetPoolResult> getPool(GetPoolArgs args) {
@@ -895,7 +895,7 @@ public final class BatchFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Batch`: 2024-07-01
+     * * `Microsoft.Batch` - 2024-07-01
      * 
      */
     public static CompletableFuture<GetPoolResult> getPoolPlain(GetPoolPlainArgs args) {
@@ -946,7 +946,7 @@ public final class BatchFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Batch`: 2024-07-01
+     * * `Microsoft.Batch` - 2024-07-01
      * 
      */
     public static Output<GetPoolResult> getPool(GetPoolArgs args, InvokeOptions options) {
@@ -997,7 +997,7 @@ public final class BatchFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Batch`: 2024-07-01
+     * * `Microsoft.Batch` - 2024-07-01
      * 
      */
     public static Output<GetPoolResult> getPool(GetPoolArgs args, InvokeOutputOptions options) {
@@ -1048,7 +1048,7 @@ public final class BatchFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Batch`: 2024-07-01
+     * * `Microsoft.Batch` - 2024-07-01
      * 
      */
     public static CompletableFuture<GetPoolResult> getPoolPlain(GetPoolPlainArgs args, InvokeOptions options) {

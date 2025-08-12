@@ -156,7 +156,7 @@ def get_backend_address_pool(loadbalancer_id: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Network`: 2023-09-01
+    * `Microsoft.Network` - 2023-09-01
 
 
     :param _builtins.str loadbalancer_id: The ID of the Load Balancer in which the Backend Address Pool exists.
@@ -202,7 +202,7 @@ def get_backend_address_pool_output(loadbalancer_id: Optional[pulumi.Input[_buil
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Network`: 2023-09-01
+    * `Microsoft.Network` - 2023-09-01
 
 
     :param _builtins.str loadbalancer_id: The ID of the Load Balancer in which the Backend Address Pool exists.

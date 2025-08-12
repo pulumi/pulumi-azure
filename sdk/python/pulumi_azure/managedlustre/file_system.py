@@ -32,6 +32,7 @@ class FileSystemArgs:
                  identity: Optional[pulumi.Input['FileSystemIdentityArgs']] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 root_squash: Optional[pulumi.Input['FileSystemRootSquashArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a FileSystem resource.
@@ -48,6 +49,7 @@ class FileSystemArgs:
         :param pulumi.Input['FileSystemIdentityArgs'] identity: An `identity` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Azure Managed Lustre File System should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Azure Managed Lustre File System. Changing this forces a new resource to be created.
+        :param pulumi.Input['FileSystemRootSquashArgs'] root_squash: A `root_squash` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Azure Managed Lustre File System.
         """
         pulumi.set(__self__, "maintenance_window", maintenance_window)
@@ -66,6 +68,8 @@ class FileSystemArgs:
             pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if root_squash is not None:
+            pulumi.set(__self__, "root_squash", root_squash)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -204,6 +208,18 @@ class FileSystemArgs:
         pulumi.set(self, "name", value)
 
     @_builtins.property
+    @pulumi.getter(name="rootSquash")
+    def root_squash(self) -> Optional[pulumi.Input['FileSystemRootSquashArgs']]:
+        """
+        A `root_squash` block as defined below.
+        """
+        return pulumi.get(self, "root_squash")
+
+    @root_squash.setter
+    def root_squash(self, value: Optional[pulumi.Input['FileSystemRootSquashArgs']]):
+        pulumi.set(self, "root_squash", value)
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
@@ -227,6 +243,7 @@ class _FileSystemState:
                  mgs_address: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 root_squash: Optional[pulumi.Input['FileSystemRootSquashArgs']] = None,
                  sku_name: Optional[pulumi.Input[_builtins.str]] = None,
                  storage_capacity_in_tb: Optional[pulumi.Input[_builtins.int]] = None,
                  subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -244,6 +261,7 @@ class _FileSystemState:
         :param pulumi.Input[_builtins.str] mgs_address: IP Address of Managed Lustre File System Services.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Azure Managed Lustre File System. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Azure Managed Lustre File System should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input['FileSystemRootSquashArgs'] root_squash: A `root_squash` block as defined below.
         :param pulumi.Input[_builtins.str] sku_name: The SKU name for the Azure Managed Lustre File System. Possible values are `AMLFS-Durable-Premium-40`, `AMLFS-Durable-Premium-125`, `AMLFS-Durable-Premium-250` and `AMLFS-Durable-Premium-500`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] storage_capacity_in_tb: The size of the Azure Managed Lustre File System in TiB. The valid values for this field are dependant on which `sku_name` has been defined in the configuration file. For more information on the valid values for this field please see the [product documentation](https://learn.microsoft.com/azure/azure-managed-lustre/create-file-system-resource-manager#file-system-type-and-size-options). Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] subnet_id: The resource ID of the Subnet that is used for managing the Azure Managed Lustre file system and for client-facing operations. This subnet should have at least a /24 subnet mask within the Virtual Network's address space. Changing this forces a new resource to be created.
@@ -266,6 +284,8 @@ class _FileSystemState:
             pulumi.set(__self__, "name", name)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if root_squash is not None:
+            pulumi.set(__self__, "root_squash", root_squash)
         if sku_name is not None:
             pulumi.set(__self__, "sku_name", sku_name)
         if storage_capacity_in_tb is not None:
@@ -376,6 +396,18 @@ class _FileSystemState:
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="rootSquash")
+    def root_squash(self) -> Optional[pulumi.Input['FileSystemRootSquashArgs']]:
+        """
+        A `root_squash` block as defined below.
+        """
+        return pulumi.get(self, "root_squash")
+
+    @root_squash.setter
+    def root_squash(self, value: Optional[pulumi.Input['FileSystemRootSquashArgs']]):
+        pulumi.set(self, "root_squash", value)
+
+    @_builtins.property
     @pulumi.getter(name="skuName")
     def sku_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -449,6 +481,7 @@ class FileSystem(pulumi.CustomResource):
                  maintenance_window: Optional[pulumi.Input[Union['FileSystemMaintenanceWindowArgs', 'FileSystemMaintenanceWindowArgsDict']]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 root_squash: Optional[pulumi.Input[Union['FileSystemRootSquashArgs', 'FileSystemRootSquashArgsDict']]] = None,
                  sku_name: Optional[pulumi.Input[_builtins.str]] = None,
                  storage_capacity_in_tb: Optional[pulumi.Input[_builtins.int]] = None,
                  subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -477,6 +510,7 @@ class FileSystem(pulumi.CustomResource):
         :param pulumi.Input[Union['FileSystemMaintenanceWindowArgs', 'FileSystemMaintenanceWindowArgsDict']] maintenance_window: A `maintenance_window` block as defined below.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Azure Managed Lustre File System. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Azure Managed Lustre File System should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['FileSystemRootSquashArgs', 'FileSystemRootSquashArgsDict']] root_squash: A `root_squash` block as defined below.
         :param pulumi.Input[_builtins.str] sku_name: The SKU name for the Azure Managed Lustre File System. Possible values are `AMLFS-Durable-Premium-40`, `AMLFS-Durable-Premium-125`, `AMLFS-Durable-Premium-250` and `AMLFS-Durable-Premium-500`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] storage_capacity_in_tb: The size of the Azure Managed Lustre File System in TiB. The valid values for this field are dependant on which `sku_name` has been defined in the configuration file. For more information on the valid values for this field please see the [product documentation](https://learn.microsoft.com/azure/azure-managed-lustre/create-file-system-resource-manager#file-system-type-and-size-options). Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] subnet_id: The resource ID of the Subnet that is used for managing the Azure Managed Lustre file system and for client-facing operations. This subnet should have at least a /24 subnet mask within the Virtual Network's address space. Changing this forces a new resource to be created.
@@ -522,6 +556,7 @@ class FileSystem(pulumi.CustomResource):
                  maintenance_window: Optional[pulumi.Input[Union['FileSystemMaintenanceWindowArgs', 'FileSystemMaintenanceWindowArgsDict']]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 root_squash: Optional[pulumi.Input[Union['FileSystemRootSquashArgs', 'FileSystemRootSquashArgsDict']]] = None,
                  sku_name: Optional[pulumi.Input[_builtins.str]] = None,
                  storage_capacity_in_tb: Optional[pulumi.Input[_builtins.int]] = None,
                  subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -547,6 +582,7 @@ class FileSystem(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["root_squash"] = root_squash
             if sku_name is None and not opts.urn:
                 raise TypeError("Missing required property 'sku_name'")
             __props__.__dict__["sku_name"] = sku_name
@@ -579,6 +615,7 @@ class FileSystem(pulumi.CustomResource):
             mgs_address: Optional[pulumi.Input[_builtins.str]] = None,
             name: Optional[pulumi.Input[_builtins.str]] = None,
             resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+            root_squash: Optional[pulumi.Input[Union['FileSystemRootSquashArgs', 'FileSystemRootSquashArgsDict']]] = None,
             sku_name: Optional[pulumi.Input[_builtins.str]] = None,
             storage_capacity_in_tb: Optional[pulumi.Input[_builtins.int]] = None,
             subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -601,6 +638,7 @@ class FileSystem(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] mgs_address: IP Address of Managed Lustre File System Services.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Azure Managed Lustre File System. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Azure Managed Lustre File System should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['FileSystemRootSquashArgs', 'FileSystemRootSquashArgsDict']] root_squash: A `root_squash` block as defined below.
         :param pulumi.Input[_builtins.str] sku_name: The SKU name for the Azure Managed Lustre File System. Possible values are `AMLFS-Durable-Premium-40`, `AMLFS-Durable-Premium-125`, `AMLFS-Durable-Premium-250` and `AMLFS-Durable-Premium-500`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] storage_capacity_in_tb: The size of the Azure Managed Lustre File System in TiB. The valid values for this field are dependant on which `sku_name` has been defined in the configuration file. For more information on the valid values for this field please see the [product documentation](https://learn.microsoft.com/azure/azure-managed-lustre/create-file-system-resource-manager#file-system-type-and-size-options). Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] subnet_id: The resource ID of the Subnet that is used for managing the Azure Managed Lustre file system and for client-facing operations. This subnet should have at least a /24 subnet mask within the Virtual Network's address space. Changing this forces a new resource to be created.
@@ -619,6 +657,7 @@ class FileSystem(pulumi.CustomResource):
         __props__.__dict__["mgs_address"] = mgs_address
         __props__.__dict__["name"] = name
         __props__.__dict__["resource_group_name"] = resource_group_name
+        __props__.__dict__["root_squash"] = root_squash
         __props__.__dict__["sku_name"] = sku_name
         __props__.__dict__["storage_capacity_in_tb"] = storage_capacity_in_tb
         __props__.__dict__["subnet_id"] = subnet_id
@@ -691,6 +730,14 @@ class FileSystem(pulumi.CustomResource):
         The name of the Resource Group where the Azure Managed Lustre File System should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
+
+    @_builtins.property
+    @pulumi.getter(name="rootSquash")
+    def root_squash(self) -> pulumi.Output[Optional['outputs.FileSystemRootSquash']]:
+        """
+        A `root_squash` block as defined below.
+        """
+        return pulumi.get(self, "root_squash")
 
     @_builtins.property
     @pulumi.getter(name="skuName")

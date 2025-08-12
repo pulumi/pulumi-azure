@@ -27,6 +27,8 @@ __all__ = [
     'SnapshotPolicyMonthlyScheduleArgsDict',
     'SnapshotPolicyWeeklyScheduleArgs',
     'SnapshotPolicyWeeklyScheduleArgsDict',
+    'VolumeCoolAccessArgs',
+    'VolumeCoolAccessArgsDict',
     'VolumeDataProtectionBackupPolicyArgs',
     'VolumeDataProtectionBackupPolicyArgsDict',
     'VolumeDataProtectionReplicationArgs',
@@ -723,6 +725,75 @@ class SnapshotPolicyWeeklyScheduleArgs:
 
 
 if not MYPY:
+    class VolumeCoolAccessArgsDict(TypedDict):
+        coolness_period_in_days: pulumi.Input[_builtins.int]
+        """
+        The coolness period in days for the volume. Possible vales are between `2` and `183`.
+        """
+        retrieval_policy: pulumi.Input[_builtins.str]
+        """
+        The cool access retrieval policy for the volume. Possible values are `Default`, `Never` and `OnRead`.
+        """
+        tiering_policy: pulumi.Input[_builtins.str]
+        """
+        The cool access tiering policy for the volume. Possible values are `Auto` and `SnapshotOnly`.
+        """
+elif False:
+    VolumeCoolAccessArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class VolumeCoolAccessArgs:
+    def __init__(__self__, *,
+                 coolness_period_in_days: pulumi.Input[_builtins.int],
+                 retrieval_policy: pulumi.Input[_builtins.str],
+                 tiering_policy: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.int] coolness_period_in_days: The coolness period in days for the volume. Possible vales are between `2` and `183`.
+        :param pulumi.Input[_builtins.str] retrieval_policy: The cool access retrieval policy for the volume. Possible values are `Default`, `Never` and `OnRead`.
+        :param pulumi.Input[_builtins.str] tiering_policy: The cool access tiering policy for the volume. Possible values are `Auto` and `SnapshotOnly`.
+        """
+        pulumi.set(__self__, "coolness_period_in_days", coolness_period_in_days)
+        pulumi.set(__self__, "retrieval_policy", retrieval_policy)
+        pulumi.set(__self__, "tiering_policy", tiering_policy)
+
+    @_builtins.property
+    @pulumi.getter(name="coolnessPeriodInDays")
+    def coolness_period_in_days(self) -> pulumi.Input[_builtins.int]:
+        """
+        The coolness period in days for the volume. Possible vales are between `2` and `183`.
+        """
+        return pulumi.get(self, "coolness_period_in_days")
+
+    @coolness_period_in_days.setter
+    def coolness_period_in_days(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "coolness_period_in_days", value)
+
+    @_builtins.property
+    @pulumi.getter(name="retrievalPolicy")
+    def retrieval_policy(self) -> pulumi.Input[_builtins.str]:
+        """
+        The cool access retrieval policy for the volume. Possible values are `Default`, `Never` and `OnRead`.
+        """
+        return pulumi.get(self, "retrieval_policy")
+
+    @retrieval_policy.setter
+    def retrieval_policy(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "retrieval_policy", value)
+
+    @_builtins.property
+    @pulumi.getter(name="tieringPolicy")
+    def tiering_policy(self) -> pulumi.Input[_builtins.str]:
+        """
+        The cool access tiering policy for the volume. Possible values are `Auto` and `SnapshotOnly`.
+        """
+        return pulumi.get(self, "tiering_policy")
+
+    @tiering_policy.setter
+    def tiering_policy(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "tiering_policy", value)
+
+
+if not MYPY:
     class VolumeDataProtectionBackupPolicyArgsDict(TypedDict):
         backup_policy_id: pulumi.Input[_builtins.str]
         """
@@ -976,10 +1047,11 @@ if not MYPY:
         """
         Is Kerberos 5p read/write permitted to this volume?
         """
+        protocol: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        A list of allowed protocols. Valid values include `CIFS`, `NFSv3`, or `NFSv4.1`. Only a single element is supported at this time. This replaces the previous arguments: `cifs_enabled`, `nfsv3_enabled` and `nfsv4_enabled`.
+        """
         protocols_enabled: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A list of allowed protocols. Valid values include `CIFS`, `NFSv3`, or `NFSv4.1`. Only one value is supported at this time. This replaces the previous arguments: `cifs_enabled`, `nfsv3_enabled` and `nfsv4_enabled`.
-        """
         root_access_enabled: NotRequired[pulumi.Input[_builtins.bool]]
         """
         Is root access permitted to this volume?
@@ -1006,6 +1078,7 @@ class VolumeExportPolicyRuleArgs:
                  kerberos5i_read_write_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  kerberos5p_read_only_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  kerberos5p_read_write_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 protocol: Optional[pulumi.Input[_builtins.str]] = None,
                  protocols_enabled: Optional[pulumi.Input[_builtins.str]] = None,
                  root_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  unix_read_only: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -1019,7 +1092,7 @@ class VolumeExportPolicyRuleArgs:
         :param pulumi.Input[_builtins.bool] kerberos5i_read_write_enabled: Is Kerberos 5i read/write permitted to this volume?
         :param pulumi.Input[_builtins.bool] kerberos5p_read_only_enabled: Is Kerberos 5p read-only permitted to this volume?
         :param pulumi.Input[_builtins.bool] kerberos5p_read_write_enabled: Is Kerberos 5p read/write permitted to this volume?
-        :param pulumi.Input[_builtins.str] protocols_enabled: A list of allowed protocols. Valid values include `CIFS`, `NFSv3`, or `NFSv4.1`. Only one value is supported at this time. This replaces the previous arguments: `cifs_enabled`, `nfsv3_enabled` and `nfsv4_enabled`.
+        :param pulumi.Input[_builtins.str] protocol: A list of allowed protocols. Valid values include `CIFS`, `NFSv3`, or `NFSv4.1`. Only a single element is supported at this time. This replaces the previous arguments: `cifs_enabled`, `nfsv3_enabled` and `nfsv4_enabled`.
         :param pulumi.Input[_builtins.bool] root_access_enabled: Is root access permitted to this volume?
         :param pulumi.Input[_builtins.bool] unix_read_only: Is the file system on unix read only?
         :param pulumi.Input[_builtins.bool] unix_read_write: Is the file system on unix read and write?
@@ -1038,6 +1111,11 @@ class VolumeExportPolicyRuleArgs:
             pulumi.set(__self__, "kerberos5p_read_only_enabled", kerberos5p_read_only_enabled)
         if kerberos5p_read_write_enabled is not None:
             pulumi.set(__self__, "kerberos5p_read_write_enabled", kerberos5p_read_write_enabled)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+        if protocols_enabled is not None:
+            warnings.warn("""this property has been deprecated in favour of `export_policy_rule.protocol` and will be removed in version 5.0 of the Provider.""", DeprecationWarning)
+            pulumi.log.warn("""protocols_enabled is deprecated: this property has been deprecated in favour of `export_policy_rule.protocol` and will be removed in version 5.0 of the Provider.""")
         if protocols_enabled is not None:
             pulumi.set(__self__, "protocols_enabled", protocols_enabled)
         if root_access_enabled is not None:
@@ -1144,11 +1222,21 @@ class VolumeExportPolicyRuleArgs:
         pulumi.set(self, "kerberos5p_read_write_enabled", value)
 
     @_builtins.property
+    @pulumi.getter
+    def protocol(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        A list of allowed protocols. Valid values include `CIFS`, `NFSv3`, or `NFSv4.1`. Only a single element is supported at this time. This replaces the previous arguments: `cifs_enabled`, `nfsv3_enabled` and `nfsv4_enabled`.
+        """
+        return pulumi.get(self, "protocol")
+
+    @protocol.setter
+    def protocol(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "protocol", value)
+
+    @_builtins.property
     @pulumi.getter(name="protocolsEnabled")
+    @_utilities.deprecated("""this property has been deprecated in favour of `export_policy_rule.protocol` and will be removed in version 5.0 of the Provider.""")
     def protocols_enabled(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A list of allowed protocols. Valid values include `CIFS`, `NFSv3`, or `NFSv4.1`. Only one value is supported at this time. This replaces the previous arguments: `cifs_enabled`, `nfsv3_enabled` and `nfsv4_enabled`.
-        """
         return pulumi.get(self, "protocols_enabled")
 
     @protocols_enabled.setter

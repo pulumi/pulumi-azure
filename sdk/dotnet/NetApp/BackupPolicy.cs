@@ -52,7 +52,7 @@ namespace Pulumi.Azure.NetApp
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.NetApp`: 2025-01-01
+    /// * `Microsoft.NetApp` - 2025-01-01
     /// 
     /// ## Import
     /// 
@@ -90,7 +90,7 @@ namespace Pulumi.Azure.NetApp
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// Provides the number of monthly backups to keep, defaults to `1` which is the minimum, maximum is 1019.
+        /// Provides the number of monthly backups to keep, defaults to `1`. The minimum is `0` and the maximum is `1019`.
         /// 
         /// &gt; **Note:** Currently, the combined (daily + weekly + monthy) retention counts cannot exceed 1019.
         /// </summary>
@@ -116,7 +116,7 @@ namespace Pulumi.Azure.NetApp
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Provides the number of weekly backups to keep, defaults to `1` which is the minimum, maximum is 1019.
+        /// Provides the number of weekly backups to keep, defaults to `1`. The minimum is `0` and the maximum is `1019`.
         /// </summary>
         [Output("weeklyBackupsToKeep")]
         public Output<int?> WeeklyBackupsToKeep { get; private set; } = null!;
@@ -192,7 +192,7 @@ namespace Pulumi.Azure.NetApp
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Provides the number of monthly backups to keep, defaults to `1` which is the minimum, maximum is 1019.
+        /// Provides the number of monthly backups to keep, defaults to `1`. The minimum is `0` and the maximum is `1019`.
         /// 
         /// &gt; **Note:** Currently, the combined (daily + weekly + monthy) retention counts cannot exceed 1019.
         /// </summary>
@@ -224,7 +224,7 @@ namespace Pulumi.Azure.NetApp
         }
 
         /// <summary>
-        /// Provides the number of weekly backups to keep, defaults to `1` which is the minimum, maximum is 1019.
+        /// Provides the number of weekly backups to keep, defaults to `1`. The minimum is `0` and the maximum is `1019`.
         /// </summary>
         [Input("weeklyBackupsToKeep")]
         public Input<int>? WeeklyBackupsToKeep { get; set; }
@@ -262,7 +262,7 @@ namespace Pulumi.Azure.NetApp
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Provides the number of monthly backups to keep, defaults to `1` which is the minimum, maximum is 1019.
+        /// Provides the number of monthly backups to keep, defaults to `1`. The minimum is `0` and the maximum is `1019`.
         /// 
         /// &gt; **Note:** Currently, the combined (daily + weekly + monthy) retention counts cannot exceed 1019.
         /// </summary>
@@ -294,7 +294,7 @@ namespace Pulumi.Azure.NetApp
         }
 
         /// <summary>
-        /// Provides the number of weekly backups to keep, defaults to `1` which is the minimum, maximum is 1019.
+        /// Provides the number of weekly backups to keep, defaults to `1`. The minimum is `0` and the maximum is `1019`.
         /// </summary>
         [Input("weeklyBackupsToKeep")]
         public Input<int>? WeeklyBackupsToKeep { get; set; }

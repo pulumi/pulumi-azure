@@ -25,6 +25,8 @@ public final class VirtualNetworkIpAddressPool {
     /**
      * @return The number of IP addresses to allocated to the Virtual Network. The value must be a string that represents a positive number, e.g., `&#34;100&#34;`.
      * 
+     * &gt; **Note:** `number_of_ip_addresses` cannot be decreased.
+     * 
      */
     private String numberOfIpAddresses;
 
@@ -45,6 +47,8 @@ public final class VirtualNetworkIpAddressPool {
     }
     /**
      * @return The number of IP addresses to allocated to the Virtual Network. The value must be a string that represents a positive number, e.g., `&#34;100&#34;`.
+     * 
+     * &gt; **Note:** `number_of_ip_addresses` cannot be decreased.
      * 
      */
     public String numberOfIpAddresses() {

@@ -28,7 +28,8 @@ namespace Pulumi.Azure.Oracle
         /// {
         ///     var example = Azure.Oracle.GetDbSystemShapes.Invoke(new()
         ///     {
-        ///         Location = "West Europe",
+        ///         Location = "eastus",
+        ///         Zone = "2",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
@@ -43,7 +44,7 @@ namespace Pulumi.Azure.Oracle
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Oracle.Database`: 2024-06-01
+        /// * `Oracle.Database` - 2025-03-01
         /// </summary>
         public static Task<GetDbSystemShapesResult> InvokeAsync(GetDbSystemShapesArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDbSystemShapesResult>("azure:oracle/getDbSystemShapes:getDbSystemShapes", args ?? new GetDbSystemShapesArgs(), options.WithDefaults());
@@ -65,7 +66,8 @@ namespace Pulumi.Azure.Oracle
         /// {
         ///     var example = Azure.Oracle.GetDbSystemShapes.Invoke(new()
         ///     {
-        ///         Location = "West Europe",
+        ///         Location = "eastus",
+        ///         Zone = "2",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
@@ -80,7 +82,7 @@ namespace Pulumi.Azure.Oracle
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Oracle.Database`: 2024-06-01
+        /// * `Oracle.Database` - 2025-03-01
         /// </summary>
         public static Output<GetDbSystemShapesResult> Invoke(GetDbSystemShapesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDbSystemShapesResult>("azure:oracle/getDbSystemShapes:getDbSystemShapes", args ?? new GetDbSystemShapesInvokeArgs(), options.WithDefaults());
@@ -102,7 +104,8 @@ namespace Pulumi.Azure.Oracle
         /// {
         ///     var example = Azure.Oracle.GetDbSystemShapes.Invoke(new()
         ///     {
-        ///         Location = "West Europe",
+        ///         Location = "eastus",
+        ///         Zone = "2",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
@@ -117,7 +120,7 @@ namespace Pulumi.Azure.Oracle
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Oracle.Database`: 2024-06-01
+        /// * `Oracle.Database` - 2025-03-01
         /// </summary>
         public static Output<GetDbSystemShapesResult> Invoke(GetDbSystemShapesInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDbSystemShapesResult>("azure:oracle/getDbSystemShapes:getDbSystemShapes", args ?? new GetDbSystemShapesInvokeArgs(), options.WithDefaults());
@@ -132,6 +135,12 @@ namespace Pulumi.Azure.Oracle
         [Input("location", required: true)]
         public string Location { get; set; } = null!;
 
+        /// <summary>
+        /// The Cloud Exadata Infrastructure Azure zone, used to filter out the available DB System Shapes in the specific zone.
+        /// </summary>
+        [Input("zone")]
+        public string? Zone { get; set; }
+
         public GetDbSystemShapesArgs()
         {
         }
@@ -145,6 +154,12 @@ namespace Pulumi.Azure.Oracle
         /// </summary>
         [Input("location", required: true)]
         public Input<string> Location { get; set; } = null!;
+
+        /// <summary>
+        /// The Cloud Exadata Infrastructure Azure zone, used to filter out the available DB System Shapes in the specific zone.
+        /// </summary>
+        [Input("zone")]
+        public Input<string>? Zone { get; set; }
 
         public GetDbSystemShapesInvokeArgs()
         {
@@ -165,6 +180,7 @@ namespace Pulumi.Azure.Oracle
         /// </summary>
         public readonly string Id;
         public readonly string Location;
+        public readonly string? Zone;
 
         [OutputConstructor]
         private GetDbSystemShapesResult(
@@ -172,11 +188,14 @@ namespace Pulumi.Azure.Oracle
 
             string id,
 
-            string location)
+            string location,
+
+            string? zone)
         {
             DbSystemShapes = dbSystemShapes;
             Id = id;
             Location = location;
+            Zone = zone;
         }
     }
 }

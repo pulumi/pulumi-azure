@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Compute`: 2022-03-03
+ * * `Microsoft.Compute` - 2022-03-03
  */
 export function getSharedImage(args: GetSharedImageArgs, opts?: pulumi.InvokeOptions): Promise<GetSharedImageResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -161,7 +161,7 @@ export interface GetSharedImageResult {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Compute`: 2022-03-03
+ * * `Microsoft.Compute` - 2022-03-03
  */
 export function getSharedImageOutput(args: GetSharedImageOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSharedImageResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

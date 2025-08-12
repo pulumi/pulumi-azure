@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &EmailService{}
 	case "azure:communication/emailServiceDomain:EmailServiceDomain":
 		r = &EmailServiceDomain{}
+	case "azure:communication/emailServiceDomainSenderUsername:EmailServiceDomainSenderUsername":
+		r = &EmailServiceDomainSenderUsername{}
 	case "azure:communication/service:Service":
 		r = &Service{}
 	case "azure:communication/serviceEmailDomainAssociation:ServiceEmailDomainAssociation":
@@ -50,6 +52,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"communication/emailServiceDomain",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"communication/emailServiceDomainSenderUsername",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

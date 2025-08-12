@@ -80,6 +80,10 @@ export class FileSystem extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
+     * A `rootSquash` block as defined below.
+     */
+    public readonly rootSquash!: pulumi.Output<outputs.managedlustre.FileSystemRootSquash | undefined>;
+    /**
      * The SKU name for the Azure Managed Lustre File System. Possible values are `AMLFS-Durable-Premium-40`, `AMLFS-Durable-Premium-125`, `AMLFS-Durable-Premium-250` and `AMLFS-Durable-Premium-500`. Changing this forces a new resource to be created.
      */
     public readonly skuName!: pulumi.Output<string>;
@@ -121,6 +125,7 @@ export class FileSystem extends pulumi.CustomResource {
             resourceInputs["mgsAddress"] = state ? state.mgsAddress : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["rootSquash"] = state ? state.rootSquash : undefined;
             resourceInputs["skuName"] = state ? state.skuName : undefined;
             resourceInputs["storageCapacityInTb"] = state ? state.storageCapacityInTb : undefined;
             resourceInputs["subnetId"] = state ? state.subnetId : undefined;
@@ -153,6 +158,7 @@ export class FileSystem extends pulumi.CustomResource {
             resourceInputs["maintenanceWindow"] = args ? args.maintenanceWindow : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["rootSquash"] = args ? args.rootSquash : undefined;
             resourceInputs["skuName"] = args ? args.skuName : undefined;
             resourceInputs["storageCapacityInTb"] = args ? args.storageCapacityInTb : undefined;
             resourceInputs["subnetId"] = args ? args.subnetId : undefined;
@@ -203,6 +209,10 @@ export interface FileSystemState {
      * The name of the Resource Group where the Azure Managed Lustre File System should exist. Changing this forces a new resource to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
+    /**
+     * A `rootSquash` block as defined below.
+     */
+    rootSquash?: pulumi.Input<inputs.managedlustre.FileSystemRootSquash>;
     /**
      * The SKU name for the Azure Managed Lustre File System. Possible values are `AMLFS-Durable-Premium-40`, `AMLFS-Durable-Premium-125`, `AMLFS-Durable-Premium-250` and `AMLFS-Durable-Premium-500`. Changing this forces a new resource to be created.
      */
@@ -259,6 +269,10 @@ export interface FileSystemArgs {
      * The name of the Resource Group where the Azure Managed Lustre File System should exist. Changing this forces a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * A `rootSquash` block as defined below.
+     */
+    rootSquash?: pulumi.Input<inputs.managedlustre.FileSystemRootSquash>;
     /**
      * The SKU name for the Azure Managed Lustre File System. Possible values are `AMLFS-Durable-Premium-40`, `AMLFS-Durable-Premium-125`, `AMLFS-Durable-Premium-250` and `AMLFS-Durable-Premium-500`. Changing this forces a new resource to be created.
      */

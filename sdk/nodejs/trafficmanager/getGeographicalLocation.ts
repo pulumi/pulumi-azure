@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Network`: 2022-04-01
+ * * `Microsoft.Network` - 2022-04-01
  */
 /** @deprecated azure.trafficmanager.getGeographicalLocation has been deprecated in favor of azure.network.getTrafficManager */
 export function getGeographicalLocation(args: GetGeographicalLocationArgs, opts?: pulumi.InvokeOptions): Promise<GetGeographicalLocationResult> {
@@ -79,7 +79,7 @@ export interface GetGeographicalLocationResult {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Network`: 2022-04-01
+ * * `Microsoft.Network` - 2022-04-01
  */
 /** @deprecated azure.trafficmanager.getGeographicalLocation has been deprecated in favor of azure.network.getTrafficManager */
 export function getGeographicalLocationOutput(args: GetGeographicalLocationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGeographicalLocationResult> {

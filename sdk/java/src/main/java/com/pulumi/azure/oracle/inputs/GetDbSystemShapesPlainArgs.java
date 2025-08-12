@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetDbSystemShapesPlainArgs extends com.pulumi.resources.InvokeArgs {
@@ -28,10 +30,26 @@ public final class GetDbSystemShapesPlainArgs extends com.pulumi.resources.Invok
         return this.location;
     }
 
+    /**
+     * The Cloud Exadata Infrastructure Azure zone, used to filter out the available DB System Shapes in the specific zone.
+     * 
+     */
+    @Import(name="zone")
+    private @Nullable String zone;
+
+    /**
+     * @return The Cloud Exadata Infrastructure Azure zone, used to filter out the available DB System Shapes in the specific zone.
+     * 
+     */
+    public Optional<String> zone() {
+        return Optional.ofNullable(this.zone);
+    }
+
     private GetDbSystemShapesPlainArgs() {}
 
     private GetDbSystemShapesPlainArgs(GetDbSystemShapesPlainArgs $) {
         this.location = $.location;
+        this.zone = $.zone;
     }
 
     public static Builder builder() {
@@ -60,6 +78,17 @@ public final class GetDbSystemShapesPlainArgs extends com.pulumi.resources.Invok
          */
         public Builder location(String location) {
             $.location = location;
+            return this;
+        }
+
+        /**
+         * @param zone The Cloud Exadata Infrastructure Azure zone, used to filter out the available DB System Shapes in the specific zone.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder zone(@Nullable String zone) {
+            $.zone = zone;
             return this;
         }
 

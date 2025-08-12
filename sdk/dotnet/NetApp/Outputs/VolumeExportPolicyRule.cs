@@ -42,8 +42,9 @@ namespace Pulumi.Azure.NetApp.Outputs
         /// </summary>
         public readonly bool? Kerberos5pReadWriteEnabled;
         /// <summary>
-        /// A list of allowed protocols. Valid values include `CIFS`, `NFSv3`, or `NFSv4.1`. Only one value is supported at this time. This replaces the previous arguments: `cifs_enabled`, `nfsv3_enabled` and `nfsv4_enabled`.
+        /// A list of allowed protocols. Valid values include `CIFS`, `NFSv3`, or `NFSv4.1`. Only a single element is supported at this time. This replaces the previous arguments: `cifs_enabled`, `nfsv3_enabled` and `nfsv4_enabled`.
         /// </summary>
+        public readonly string? Protocol;
         public readonly string? ProtocolsEnabled;
         /// <summary>
         /// Is root access permitted to this volume?
@@ -78,6 +79,8 @@ namespace Pulumi.Azure.NetApp.Outputs
 
             bool? kerberos5pReadWriteEnabled,
 
+            string? protocol,
+
             string? protocolsEnabled,
 
             bool? rootAccessEnabled,
@@ -95,6 +98,7 @@ namespace Pulumi.Azure.NetApp.Outputs
             Kerberos5iReadWriteEnabled = kerberos5iReadWriteEnabled;
             Kerberos5pReadOnlyEnabled = kerberos5pReadOnlyEnabled;
             Kerberos5pReadWriteEnabled = kerberos5pReadWriteEnabled;
+            Protocol = protocol;
             ProtocolsEnabled = protocolsEnabled;
             RootAccessEnabled = rootAccessEnabled;
             RuleIndex = ruleIndex;

@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.DevTestLab`: 2018-09-15
+ * * `Microsoft.DevTestLab` - 2018-09-15
  */
 export function getLab(args: GetLabArgs, opts?: pulumi.InvokeOptions): Promise<GetLabResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -117,7 +117,7 @@ export interface GetLabResult {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.DevTestLab`: 2018-09-15
+ * * `Microsoft.DevTestLab` - 2018-09-15
  */
 export function getLabOutput(args: GetLabOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLabResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

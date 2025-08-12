@@ -96,7 +96,7 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .actions(AutomationActionArgs.builder()
- *                 .type("eventhub")
+ *                 .type("EventHub")
  *                 .resourceId(exampleEventHub.id())
  *                 .connectionString(exampleAuthorizationRule.primaryConnectionString())
  *                 .build())
@@ -125,7 +125,7 @@ import javax.annotation.Nullable;
  * &lt;!-- This section is generated, changes will be overwritten --&gt;
  * This resource uses the following Azure API Providers:
  * 
- * * `Microsoft.Security`: 2019-01-01-preview
+ * * `Microsoft.Security` - 2019-01-01-preview
  * 
  * ## Import
  * 

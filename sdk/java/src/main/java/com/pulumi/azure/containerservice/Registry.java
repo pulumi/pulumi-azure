@@ -234,7 +234,7 @@ import javax.annotation.Nullable;
  * &lt;!-- This section is generated, changes will be overwritten --&gt;
  * This resource uses the following Azure API Providers:
  * 
- * * `Microsoft.ContainerRegistry`: 2023-11-01-preview
+ * * `Microsoft.ContainerRegistry` - 2023-11-01-preview
  * 
  * ## Import
  * 
@@ -316,6 +316,20 @@ public class Registry extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Boolean>> dataEndpointEnabled() {
         return Codegen.optional(this.dataEndpointEnabled);
+    }
+    /**
+     * A set of data endpoint hostnames associated with the container registry if data endpoints are enabled.
+     * 
+     */
+    @Export(name="dataEndpointHostNames", refs={List.class,String.class}, tree="[0,1]")
+    private Output<List<String>> dataEndpointHostNames;
+
+    /**
+     * @return A set of data endpoint hostnames associated with the container registry if data endpoints are enabled.
+     * 
+     */
+    public Output<List<String>> dataEndpointHostNames() {
+        return this.dataEndpointHostNames;
     }
     /**
      * An `encryption` block as documented below.

@@ -26,7 +26,10 @@ class GetAgreementResult:
     """
     A collection of values returned by getAgreement.
     """
-    def __init__(__self__, id=None, license_text_link=None, offer=None, plan=None, privacy_policy_link=None, publisher=None):
+    def __init__(__self__, accepted=None, id=None, license_text_link=None, offer=None, plan=None, privacy_policy_link=None, publisher=None):
+        if accepted and not isinstance(accepted, bool):
+            raise TypeError("Expected argument 'accepted' to be a bool")
+        pulumi.set(__self__, "accepted", accepted)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -45,6 +48,14 @@ class GetAgreementResult:
         if publisher and not isinstance(publisher, str):
             raise TypeError("Expected argument 'publisher' to be a str")
         pulumi.set(__self__, "publisher", publisher)
+
+    @_builtins.property
+    @pulumi.getter
+    def accepted(self) -> _builtins.bool:
+        """
+        Whether the Marketplace Agreement has been accepted.
+        """
+        return pulumi.get(self, "accepted")
 
     @_builtins.property
     @pulumi.getter
@@ -86,6 +97,7 @@ class AwaitableGetAgreementResult(GetAgreementResult):
         if False:
             yield self
         return GetAgreementResult(
+            accepted=self.accepted,
             id=self.id,
             license_text_link=self.license_text_link,
             offer=self.offer,
@@ -111,6 +123,7 @@ def get_agreement(offer: Optional[_builtins.str] = None,
         offer="waf",
         plan="hourly")
     pulumi.export("azurermMarketplaceAgreementId", id)
+    pulumi.export("azurermMarketplaceAgreementAccepted", accepted)
     ```
 
     ## API Providers
@@ -118,7 +131,7 @@ def get_agreement(offer: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.MarketplaceOrdering`: 2015-06-01
+    * `Microsoft.MarketplaceOrdering` - 2015-06-01
 
 
     :param _builtins.str offer: The Offer of the Marketplace Image.
@@ -133,6 +146,7 @@ def get_agreement(offer: Optional[_builtins.str] = None,
     __ret__ = pulumi.runtime.invoke('azure:marketplace/getAgreement:getAgreement', __args__, opts=opts, typ=GetAgreementResult).value
 
     return AwaitableGetAgreementResult(
+        accepted=pulumi.get(__ret__, 'accepted'),
         id=pulumi.get(__ret__, 'id'),
         license_text_link=pulumi.get(__ret__, 'license_text_link'),
         offer=pulumi.get(__ret__, 'offer'),
@@ -156,6 +170,7 @@ def get_agreement_output(offer: Optional[pulumi.Input[_builtins.str]] = None,
         offer="waf",
         plan="hourly")
     pulumi.export("azurermMarketplaceAgreementId", id)
+    pulumi.export("azurermMarketplaceAgreementAccepted", accepted)
     ```
 
     ## API Providers
@@ -163,7 +178,7 @@ def get_agreement_output(offer: Optional[pulumi.Input[_builtins.str]] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.MarketplaceOrdering`: 2015-06-01
+    * `Microsoft.MarketplaceOrdering` - 2015-06-01
 
 
     :param _builtins.str offer: The Offer of the Marketplace Image.
@@ -177,6 +192,7 @@ def get_agreement_output(offer: Optional[pulumi.Input[_builtins.str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:marketplace/getAgreement:getAgreement', __args__, opts=opts, typ=GetAgreementResult)
     return __ret__.apply(lambda __response__: GetAgreementResult(
+        accepted=pulumi.get(__response__, 'accepted'),
         id=pulumi.get(__response__, 'id'),
         license_text_link=pulumi.get(__response__, 'license_text_link'),
         offer=pulumi.get(__response__, 'offer'),

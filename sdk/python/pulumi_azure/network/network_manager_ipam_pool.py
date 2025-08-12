@@ -20,9 +20,9 @@ __all__ = ['NetworkManagerIpamPoolArgs', 'NetworkManagerIpamPool']
 class NetworkManagerIpamPoolArgs:
     def __init__(__self__, *,
                  address_prefixes: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 display_name: pulumi.Input[_builtins.str],
                  network_manager_id: pulumi.Input[_builtins.str],
                  description: Optional[pulumi.Input[_builtins.str]] = None,
+                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  parent_pool_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -30,19 +30,20 @@ class NetworkManagerIpamPoolArgs:
         """
         The set of arguments for constructing a NetworkManagerIpamPool resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] address_prefixes: Specifies a list of IPv4 or IPv6 IP address prefixes. Changing this forces a new Network Manager IPAM Pool to be created.
-        :param pulumi.Input[_builtins.str] display_name: The display name for the Network Manager IPAM Pool.
         :param pulumi.Input[_builtins.str] network_manager_id: The ID of the parent Network Manager. Changing this forces a new Network Manager IPAM Pool to be created.
         :param pulumi.Input[_builtins.str] description: The description of the Network Manager IPAM Pool.
+        :param pulumi.Input[_builtins.str] display_name: The display name for the Network Manager IPAM Pool.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Network Manager IPAM Pool should exist. Changing this forces a new Network Manager IPAM Pool to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Network Manager IPAM Pool. Changing this forces a new Network Manager IPAM Pool to be created.
         :param pulumi.Input[_builtins.str] parent_pool_name: The name of the parent IPAM Pool. Changing this forces a new Network Manager IPAM Pool to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Network Manager IPAM Pool.
         """
         pulumi.set(__self__, "address_prefixes", address_prefixes)
-        pulumi.set(__self__, "display_name", display_name)
         pulumi.set(__self__, "network_manager_id", network_manager_id)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
@@ -63,18 +64,6 @@ class NetworkManagerIpamPoolArgs:
     @address_prefixes.setter
     def address_prefixes(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
         pulumi.set(self, "address_prefixes", value)
-
-    @_builtins.property
-    @pulumi.getter(name="displayName")
-    def display_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The display name for the Network Manager IPAM Pool.
-        """
-        return pulumi.get(self, "display_name")
-
-    @display_name.setter
-    def display_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkManagerId")
@@ -99,6 +88,18 @@ class NetworkManagerIpamPoolArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The display name for the Network Manager IPAM Pool.
+        """
+        return pulumi.get(self, "display_name")
+
+    @display_name.setter
+    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -337,7 +338,7 @@ class NetworkManagerIpamPool(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.Network`: 2024-05-01
+        * `Microsoft.Network` - 2024-05-01
 
         ## Import
 
@@ -401,7 +402,7 @@ class NetworkManagerIpamPool(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.Network`: 2024-05-01
+        * `Microsoft.Network` - 2024-05-01
 
         ## Import
 
@@ -447,8 +448,6 @@ class NetworkManagerIpamPool(pulumi.CustomResource):
                 raise TypeError("Missing required property 'address_prefixes'")
             __props__.__dict__["address_prefixes"] = address_prefixes
             __props__.__dict__["description"] = description
-            if display_name is None and not opts.urn:
-                raise TypeError("Missing required property 'display_name'")
             __props__.__dict__["display_name"] = display_name
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
@@ -523,7 +522,7 @@ class NetworkManagerIpamPool(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> pulumi.Output[_builtins.str]:
+    def display_name(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
         The display name for the Network Manager IPAM Pool.
         """

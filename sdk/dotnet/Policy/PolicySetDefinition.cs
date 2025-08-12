@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Policy
 {
     /// <summary>
-    /// Manages a policy set definition.
+    /// Manages a Policy Set Definition.
     /// 
     /// &gt; **Note:** Policy set definitions (also known as policy initiatives) do not take effect until they are assigned to a scope using a Policy Set Assignment.
     /// 
@@ -26,9 +26,9 @@ namespace Pulumi.Azure.Policy
     /// {
     ///     var example = new Azure.Policy.PolicySetDefinition("example", new()
     ///     {
-    ///         Name = "testPolicySet",
+    ///         Name = "example",
     ///         PolicyType = "Custom",
-    ///         DisplayName = "Test Policy Set",
+    ///         DisplayName = "Example",
     ///         Parameters = @"    {
     ///         ""allowedLocations"": {
     ///             ""type"": ""Array"",
@@ -44,6 +44,7 @@ namespace Pulumi.Azure.Policy
     ///         {
     ///             new Azure.Policy.Inputs.PolicySetDefinitionPolicyDefinitionReferenceArgs
     ///             {
+    ///                 Version = "1.0.*",
     ///                 PolicyDefinitionId = "/providers/Microsoft.Authorization/policyDefinitions/e765b5de-1225-4ba3-bd56-1ac6695af988",
     ///                 ParameterValues = @"    {
     ///       ""listOfAllowedLocations"": {""value"": ""[parameters('allowedLocations')]""}
@@ -56,55 +57,55 @@ namespace Pulumi.Azure.Policy
     /// });
     /// ```
     /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.Authorization` - 2025-01-01
+    /// 
+    /// * `Microsoft.Management` - 2025-01-01
+    /// 
     /// ## Import
     /// 
     /// Policy Set Definitions can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    /// $ pulumi import azure:policy/policySetDefinition:PolicySetDefinition example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/policySetDefinitions/testPolicySet
-    /// ```
-    /// 
-    /// or
-    /// 
-    /// ```sh
-    /// $ pulumi import azure:policy/policySetDefinition:PolicySetDefinition example /providers/Microsoft.Management/managementGroups/my-mgmt-group-id/providers/Microsoft.Authorization/policySetDefinitions/testPolicySet
+    /// $ pulumi import azure:policy/policySetDefinition:PolicySetDefinition example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/policySetDefinitions/policySetDefinitionName
     /// ```
     /// </summary>
     [AzureResourceType("azure:policy/policySetDefinition:PolicySetDefinition")]
     public partial class PolicySetDefinition : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The description of the policy set definition.
+        /// The description of this Policy Set Definition.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The display name of the policy set definition.
+        /// The display name of this Policy Set Definition.
         /// </summary>
         [Output("displayName")]
         public Output<string> DisplayName { get; private set; } = null!;
 
-        /// <summary>
-        /// The id of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created.
-        /// </summary>
         [Output("managementGroupId")]
         public Output<string?> ManagementGroupId { get; private set; } = null!;
 
         /// <summary>
-        /// The metadata for the policy set definition. This is a JSON object representing additional metadata that should be stored with the policy definition.
+        /// The metadata for the Policy Set Definition in JSON format.
         /// </summary>
         [Output("metadata")]
         public Output<string> Metadata { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the policy set definition. Changing this forces a new resource to be created.
+        /// The name which should be used for this Policy Set Definition. Changing this forces a new Policy Set Definition to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Parameters for the policy set definition. This field is a JSON object that allows you to parameterize your policy definition.
+        /// The parameters for the Policy Set Definition in JSON format. Reducing the number of parameters forces a new resource to be created.
         /// </summary>
         [Output("parameters")]
         public Output<string?> Parameters { get; private set; } = null!;
@@ -122,7 +123,7 @@ namespace Pulumi.Azure.Policy
         public Output<ImmutableArray<Outputs.PolicySetDefinitionPolicyDefinitionReference>> PolicyDefinitionReferences { get; private set; } = null!;
 
         /// <summary>
-        /// The policy set type. Possible values are `BuiltIn`, `Custom`, `NotSpecified` and `Static`. Changing this forces a new resource to be created.
+        /// The Policy Set Definition type. Possible values are `BuiltIn`, `Custom`, `NotSpecified`, and `Static`. Changing this forces a new Policy Set Definition to be created.
         /// </summary>
         [Output("policyType")]
         public Output<string> PolicyType { get; private set; } = null!;
@@ -174,37 +175,34 @@ namespace Pulumi.Azure.Policy
     public sealed class PolicySetDefinitionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The description of the policy set definition.
+        /// The description of this Policy Set Definition.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The display name of the policy set definition.
+        /// The display name of this Policy Set Definition.
         /// </summary>
         [Input("displayName", required: true)]
         public Input<string> DisplayName { get; set; } = null!;
 
-        /// <summary>
-        /// The id of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created.
-        /// </summary>
         [Input("managementGroupId")]
         public Input<string>? ManagementGroupId { get; set; }
 
         /// <summary>
-        /// The metadata for the policy set definition. This is a JSON object representing additional metadata that should be stored with the policy definition.
+        /// The metadata for the Policy Set Definition in JSON format.
         /// </summary>
         [Input("metadata")]
         public Input<string>? Metadata { get; set; }
 
         /// <summary>
-        /// The name of the policy set definition. Changing this forces a new resource to be created.
+        /// The name which should be used for this Policy Set Definition. Changing this forces a new Policy Set Definition to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Parameters for the policy set definition. This field is a JSON object that allows you to parameterize your policy definition.
+        /// The parameters for the Policy Set Definition in JSON format. Reducing the number of parameters forces a new resource to be created.
         /// </summary>
         [Input("parameters")]
         public Input<string>? Parameters { get; set; }
@@ -234,7 +232,7 @@ namespace Pulumi.Azure.Policy
         }
 
         /// <summary>
-        /// The policy set type. Possible values are `BuiltIn`, `Custom`, `NotSpecified` and `Static`. Changing this forces a new resource to be created.
+        /// The Policy Set Definition type. Possible values are `BuiltIn`, `Custom`, `NotSpecified`, and `Static`. Changing this forces a new Policy Set Definition to be created.
         /// </summary>
         [Input("policyType", required: true)]
         public Input<string> PolicyType { get; set; } = null!;
@@ -248,37 +246,34 @@ namespace Pulumi.Azure.Policy
     public sealed class PolicySetDefinitionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The description of the policy set definition.
+        /// The description of this Policy Set Definition.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The display name of the policy set definition.
+        /// The display name of this Policy Set Definition.
         /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
 
-        /// <summary>
-        /// The id of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created.
-        /// </summary>
         [Input("managementGroupId")]
         public Input<string>? ManagementGroupId { get; set; }
 
         /// <summary>
-        /// The metadata for the policy set definition. This is a JSON object representing additional metadata that should be stored with the policy definition.
+        /// The metadata for the Policy Set Definition in JSON format.
         /// </summary>
         [Input("metadata")]
         public Input<string>? Metadata { get; set; }
 
         /// <summary>
-        /// The name of the policy set definition. Changing this forces a new resource to be created.
+        /// The name which should be used for this Policy Set Definition. Changing this forces a new Policy Set Definition to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Parameters for the policy set definition. This field is a JSON object that allows you to parameterize your policy definition.
+        /// The parameters for the Policy Set Definition in JSON format. Reducing the number of parameters forces a new resource to be created.
         /// </summary>
         [Input("parameters")]
         public Input<string>? Parameters { get; set; }
@@ -308,7 +303,7 @@ namespace Pulumi.Azure.Policy
         }
 
         /// <summary>
-        /// The policy set type. Possible values are `BuiltIn`, `Custom`, `NotSpecified` and `Static`. Changing this forces a new resource to be created.
+        /// The Policy Set Definition type. Possible values are `BuiltIn`, `Custom`, `NotSpecified`, and `Static`. Changing this forces a new Policy Set Definition to be created.
         /// </summary>
         [Input("policyType")]
         public Input<string>? PolicyType { get; set; }

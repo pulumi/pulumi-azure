@@ -40,7 +40,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This resource uses the following Azure API Providers:
  *
- * * `Microsoft.Web`: 2023-12-01, 2023-01-01
+ * * `Microsoft.Web` - 2023-12-01, 2023-01-01
  *
  * ## Import
  *
@@ -213,6 +213,12 @@ export class LinuxWebApp extends pulumi.CustomResource {
     public readonly virtualNetworkBackupRestoreEnabled!: pulumi.Output<boolean | undefined>;
     public readonly virtualNetworkSubnetId!: pulumi.Output<string | undefined>;
     /**
+     * Should the traffic for the image pull be routed over virtual network enabled. Defaults to `false`.
+     *
+     * > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. Must be set to `true` when running in an App Service Environment.
+     */
+    public readonly vnetImagePullEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
      *
      * > **Note:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
@@ -273,6 +279,7 @@ export class LinuxWebApp extends pulumi.CustomResource {
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["virtualNetworkBackupRestoreEnabled"] = state ? state.virtualNetworkBackupRestoreEnabled : undefined;
             resourceInputs["virtualNetworkSubnetId"] = state ? state.virtualNetworkSubnetId : undefined;
+            resourceInputs["vnetImagePullEnabled"] = state ? state.vnetImagePullEnabled : undefined;
             resourceInputs["webdeployPublishBasicAuthenticationEnabled"] = state ? state.webdeployPublishBasicAuthenticationEnabled : undefined;
             resourceInputs["zipDeployFile"] = state ? state.zipDeployFile : undefined;
         } else {
@@ -312,6 +319,7 @@ export class LinuxWebApp extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["virtualNetworkBackupRestoreEnabled"] = args ? args.virtualNetworkBackupRestoreEnabled : undefined;
             resourceInputs["virtualNetworkSubnetId"] = args ? args.virtualNetworkSubnetId : undefined;
+            resourceInputs["vnetImagePullEnabled"] = args ? args.vnetImagePullEnabled : undefined;
             resourceInputs["webdeployPublishBasicAuthenticationEnabled"] = args ? args.webdeployPublishBasicAuthenticationEnabled : undefined;
             resourceInputs["zipDeployFile"] = args ? args.zipDeployFile : undefined;
             resourceInputs["customDomainVerificationId"] = undefined /*out*/;
@@ -470,6 +478,12 @@ export interface LinuxWebAppState {
     virtualNetworkBackupRestoreEnabled?: pulumi.Input<boolean>;
     virtualNetworkSubnetId?: pulumi.Input<string>;
     /**
+     * Should the traffic for the image pull be routed over virtual network enabled. Defaults to `false`.
+     *
+     * > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. Must be set to `true` when running in an App Service Environment.
+     */
+    vnetImagePullEnabled?: pulumi.Input<boolean>;
+    /**
      * Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
      *
      * > **Note:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
@@ -585,6 +599,12 @@ export interface LinuxWebAppArgs {
      */
     virtualNetworkBackupRestoreEnabled?: pulumi.Input<boolean>;
     virtualNetworkSubnetId?: pulumi.Input<string>;
+    /**
+     * Should the traffic for the image pull be routed over virtual network enabled. Defaults to `false`.
+     *
+     * > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. Must be set to `true` when running in an App Service Environment.
+     */
+    vnetImagePullEnabled?: pulumi.Input<boolean>;
     /**
      * Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
      *

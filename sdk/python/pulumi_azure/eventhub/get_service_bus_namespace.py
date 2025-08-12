@@ -213,7 +213,7 @@ def get_service_bus_namespace(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.ServiceBus`: 2022-10-01-preview, 2021-06-01-preview
+    * `Microsoft.ServiceBus` - 2024-01-01
 
 
     :param _builtins.str name: Specifies the name of the ServiceBus Namespace.
@@ -262,7 +262,7 @@ def get_service_bus_namespace_output(name: Optional[pulumi.Input[_builtins.str]]
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.ServiceBus`: 2022-10-01-preview, 2021-06-01-preview
+    * `Microsoft.ServiceBus` - 2024-01-01
 
 
     :param _builtins.str name: Specifies the name of the ServiceBus Namespace.

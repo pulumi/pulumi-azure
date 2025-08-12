@@ -68,9 +68,9 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This resource uses the following Azure API Providers:
 //
-// * `Microsoft.App`: 2025-01-01
+// * `Microsoft.App` - 2025-01-01
 //
-// * `Microsoft.OperationalInsights`: 2020-08-01
+// * `Microsoft.OperationalInsights` - 2020-08-01
 //
 // ## Import
 //
@@ -90,6 +90,8 @@ type Environment struct {
 	DefaultDomain pulumi.StringOutput `pulumi:"defaultDomain"`
 	// The network addressing in which the Container Apps in this Container App Environment will reside in CIDR notation.
 	DockerBridgeCidr pulumi.StringOutput `pulumi:"dockerBridgeCidr"`
+	// An `identity` block as defined below.
+	Identity EnvironmentIdentityPtrOutput `pulumi:"identity"`
 	// Name of the platform-managed resource group created for the Managed Environment to host infrastructure resources. Changing this forces a new resource to be created.
 	//
 	// > **Note:** Only valid if a `workloadProfile` is specified. If `infrastructureSubnetId` is specified, this resource group will be created in the same subscription as `infrastructureSubnetId`.
@@ -182,6 +184,8 @@ type environmentState struct {
 	DefaultDomain *string `pulumi:"defaultDomain"`
 	// The network addressing in which the Container Apps in this Container App Environment will reside in CIDR notation.
 	DockerBridgeCidr *string `pulumi:"dockerBridgeCidr"`
+	// An `identity` block as defined below.
+	Identity *EnvironmentIdentity `pulumi:"identity"`
 	// Name of the platform-managed resource group created for the Managed Environment to host infrastructure resources. Changing this forces a new resource to be created.
 	//
 	// > **Note:** Only valid if a `workloadProfile` is specified. If `infrastructureSubnetId` is specified, this resource group will be created in the same subscription as `infrastructureSubnetId`.
@@ -235,6 +239,8 @@ type EnvironmentState struct {
 	DefaultDomain pulumi.StringPtrInput
 	// The network addressing in which the Container Apps in this Container App Environment will reside in CIDR notation.
 	DockerBridgeCidr pulumi.StringPtrInput
+	// An `identity` block as defined below.
+	Identity EnvironmentIdentityPtrInput
 	// Name of the platform-managed resource group created for the Managed Environment to host infrastructure resources. Changing this forces a new resource to be created.
 	//
 	// > **Note:** Only valid if a `workloadProfile` is specified. If `infrastructureSubnetId` is specified, this resource group will be created in the same subscription as `infrastructureSubnetId`.
@@ -286,6 +292,8 @@ func (EnvironmentState) ElementType() reflect.Type {
 type environmentArgs struct {
 	// Application Insights connection string used by Dapr to export Service to Service communication telemetry. Changing this forces a new resource to be created.
 	DaprApplicationInsightsConnectionString *string `pulumi:"daprApplicationInsightsConnectionString"`
+	// An `identity` block as defined below.
+	Identity *EnvironmentIdentity `pulumi:"identity"`
 	// Name of the platform-managed resource group created for the Managed Environment to host infrastructure resources. Changing this forces a new resource to be created.
 	//
 	// > **Note:** Only valid if a `workloadProfile` is specified. If `infrastructureSubnetId` is specified, this resource group will be created in the same subscription as `infrastructureSubnetId`.
@@ -328,6 +336,8 @@ type environmentArgs struct {
 type EnvironmentArgs struct {
 	// Application Insights connection string used by Dapr to export Service to Service communication telemetry. Changing this forces a new resource to be created.
 	DaprApplicationInsightsConnectionString pulumi.StringPtrInput
+	// An `identity` block as defined below.
+	Identity EnvironmentIdentityPtrInput
 	// Name of the platform-managed resource group created for the Managed Environment to host infrastructure resources. Changing this forces a new resource to be created.
 	//
 	// > **Note:** Only valid if a `workloadProfile` is specified. If `infrastructureSubnetId` is specified, this resource group will be created in the same subscription as `infrastructureSubnetId`.
@@ -471,6 +481,11 @@ func (o EnvironmentOutput) DefaultDomain() pulumi.StringOutput {
 // The network addressing in which the Container Apps in this Container App Environment will reside in CIDR notation.
 func (o EnvironmentOutput) DockerBridgeCidr() pulumi.StringOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.DockerBridgeCidr }).(pulumi.StringOutput)
+}
+
+// An `identity` block as defined below.
+func (o EnvironmentOutput) Identity() EnvironmentIdentityPtrOutput {
+	return o.ApplyT(func(v *Environment) EnvironmentIdentityPtrOutput { return v.Identity }).(EnvironmentIdentityPtrOutput)
 }
 
 // Name of the platform-managed resource group created for the Managed Environment to host infrastructure resources. Changing this forces a new resource to be created.

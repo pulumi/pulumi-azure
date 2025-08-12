@@ -389,7 +389,7 @@ class VirtualMachineManagerVirtualMachineInstance(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.ScVmm`: 2023-10-07
+        * `Microsoft.ScVmm` - 2023-10-07
 
         ## Import
 
@@ -485,7 +485,7 @@ class VirtualMachineManagerVirtualMachineInstance(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.ScVmm`: 2023-10-07
+        * `Microsoft.ScVmm` - 2023-10-07
 
         ## Import
 

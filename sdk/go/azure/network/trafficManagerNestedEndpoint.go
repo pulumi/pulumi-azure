@@ -108,7 +108,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This resource uses the following Azure API Providers:
 //
-// * `Microsoft.Network`: 2022-04-01
+// * `Microsoft.Network` - 2022-04-01
 //
 // ## Import
 //

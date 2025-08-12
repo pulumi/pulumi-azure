@@ -1581,7 +1581,7 @@ public final class KeyvaultFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.KeyVault`: 2023-07-01
+     * * `Microsoft.KeyVault` - 2023-07-01
      * 
      */
     public static Output<GetManagedHardwareSecurityModuleResult> getManagedHardwareSecurityModule(GetManagedHardwareSecurityModuleArgs args) {
@@ -1632,7 +1632,7 @@ public final class KeyvaultFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.KeyVault`: 2023-07-01
+     * * `Microsoft.KeyVault` - 2023-07-01
      * 
      */
     public static CompletableFuture<GetManagedHardwareSecurityModuleResult> getManagedHardwareSecurityModulePlain(GetManagedHardwareSecurityModulePlainArgs args) {
@@ -1683,7 +1683,7 @@ public final class KeyvaultFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.KeyVault`: 2023-07-01
+     * * `Microsoft.KeyVault` - 2023-07-01
      * 
      */
     public static Output<GetManagedHardwareSecurityModuleResult> getManagedHardwareSecurityModule(GetManagedHardwareSecurityModuleArgs args, InvokeOptions options) {
@@ -1734,7 +1734,7 @@ public final class KeyvaultFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.KeyVault`: 2023-07-01
+     * * `Microsoft.KeyVault` - 2023-07-01
      * 
      */
     public static Output<GetManagedHardwareSecurityModuleResult> getManagedHardwareSecurityModule(GetManagedHardwareSecurityModuleArgs args, InvokeOutputOptions options) {
@@ -1785,7 +1785,7 @@ public final class KeyvaultFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.KeyVault`: 2023-07-01
+     * * `Microsoft.KeyVault` - 2023-07-01
      * 
      */
     public static CompletableFuture<GetManagedHardwareSecurityModuleResult> getManagedHardwareSecurityModulePlain(GetManagedHardwareSecurityModulePlainArgs args, InvokeOptions options) {

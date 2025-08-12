@@ -40,6 +40,13 @@ import (
 //
 // ```
 //
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This data source uses the following Azure API Providers:
+//
+// * `Microsoft.Management` - 2020-05-01
+//
 // Deprecated: azure.managementgroups.getManagementGroup has been deprecated in favor of azure.management.getGroup
 func LookupManagementGroup(ctx *pulumi.Context, args *LookupManagementGroupArgs, opts ...pulumi.InvokeOption) (*LookupManagementGroupResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)

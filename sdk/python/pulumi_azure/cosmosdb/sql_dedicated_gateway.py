@@ -171,7 +171,7 @@ class SqlDedicatedGateway(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.DocumentDB`: 2022-05-15
+        * `Microsoft.DocumentDB` - 2022-05-15
 
         ## Import
 
@@ -229,7 +229,7 @@ class SqlDedicatedGateway(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.DocumentDB`: 2022-05-15
+        * `Microsoft.DocumentDB` - 2022-05-15
 
         ## Import
 

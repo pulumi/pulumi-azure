@@ -205,7 +205,7 @@ func (o FlexibleServerAuthenticationPtrOutput) TenantId() pulumi.StringPtrOutput
 }
 
 type FlexibleServerCustomerManagedKey struct {
-	// The versioned ID of the geo backup Key Vault Key.
+	// The versioned/versionless ID of the geo backup Key Vault Key.
 	//
 	// > **Note:** The key vault in which this key exists must be in the same region as the geo-redundant backup.
 	GeoBackupKeyVaultKeyId *string `pulumi:"geoBackupKeyVaultKeyId"`
@@ -233,7 +233,7 @@ type FlexibleServerCustomerManagedKeyInput interface {
 }
 
 type FlexibleServerCustomerManagedKeyArgs struct {
-	// The versioned ID of the geo backup Key Vault Key.
+	// The versioned/versionless ID of the geo backup Key Vault Key.
 	//
 	// > **Note:** The key vault in which this key exists must be in the same region as the geo-redundant backup.
 	GeoBackupKeyVaultKeyId pulumi.StringPtrInput `pulumi:"geoBackupKeyVaultKeyId"`
@@ -326,7 +326,7 @@ func (o FlexibleServerCustomerManagedKeyOutput) ToFlexibleServerCustomerManagedK
 	}).(FlexibleServerCustomerManagedKeyPtrOutput)
 }
 
-// The versioned ID of the geo backup Key Vault Key.
+// The versioned/versionless ID of the geo backup Key Vault Key.
 //
 // > **Note:** The key vault in which this key exists must be in the same region as the geo-redundant backup.
 func (o FlexibleServerCustomerManagedKeyOutput) GeoBackupKeyVaultKeyId() pulumi.StringPtrOutput {
@@ -376,7 +376,7 @@ func (o FlexibleServerCustomerManagedKeyPtrOutput) Elem() FlexibleServerCustomer
 	}).(FlexibleServerCustomerManagedKeyOutput)
 }
 
-// The versioned ID of the geo backup Key Vault Key.
+// The versioned/versionless ID of the geo backup Key Vault Key.
 //
 // > **Note:** The key vault in which this key exists must be in the same region as the geo-redundant backup.
 func (o FlexibleServerCustomerManagedKeyPtrOutput) GeoBackupKeyVaultKeyId() pulumi.StringPtrOutput {

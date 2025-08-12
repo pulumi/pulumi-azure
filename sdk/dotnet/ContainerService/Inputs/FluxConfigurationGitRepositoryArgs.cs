@@ -57,6 +57,12 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public Input<string>? LocalAuthReference { get; set; }
 
         /// <summary>
+        /// Specifies the OIDC provider used for workload identity federation authentication against git repositories. Possible values are `Azure`, `Generic`.
+        /// </summary>
+        [Input("provider")]
+        public Input<string>? Provider { get; set; }
+
+        /// <summary>
         /// Specifies the source reference type for the GitRepository object. Possible values are `branch`, `commit`, `semver` and `tag`.
         /// </summary>
         [Input("referenceType", required: true)]

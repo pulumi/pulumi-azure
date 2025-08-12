@@ -22,6 +22,69 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.operationalinsights.AnalyticsWorkspace;
+ * import com.pulumi.azure.operationalinsights.AnalyticsWorkspaceArgs;
+ * import com.pulumi.azure.containerapp.Environment;
+ * import com.pulumi.azure.containerapp.EnvironmentArgs;
+ * import com.pulumi.azure.containerapp.EnvironmentCertificate;
+ * import com.pulumi.azure.containerapp.EnvironmentCertificateArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.Filebase64Args;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
+ *             .name("example-resources")
+ *             .location("West Europe")
+ *             .build());
+ * 
+ *         var exampleAnalyticsWorkspace = new AnalyticsWorkspace("exampleAnalyticsWorkspace", AnalyticsWorkspaceArgs.builder()
+ *             .name("acctest-01")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .sku("PerGB2018")
+ *             .retentionInDays(30)
+ *             .build());
+ * 
+ *         var exampleEnvironment = new Environment("exampleEnvironment", EnvironmentArgs.builder()
+ *             .name("myEnvironment")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .logAnalyticsWorkspaceId(exampleAnalyticsWorkspace.id())
+ *             .build());
+ * 
+ *         var exampleEnvironmentCertificate = new EnvironmentCertificate("exampleEnvironmentCertificate", EnvironmentCertificateArgs.builder()
+ *             .name("myfriendlyname")
+ *             .containerAppEnvironmentId(exampleEnvironment.id())
+ *             .certificateBlobBase64(StdFunctions.filebase64(Filebase64Args.builder()
+ *                 .input("path/to/certificate_file.pfx")
+ *                 .build()).result())
+ *             .certificatePassword("$3cretSqu1rreL")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## API Providers
@@ -29,7 +92,7 @@ import javax.annotation.Nullable;
  * &lt;!-- This section is generated, changes will be overwritten --&gt;
  * This resource uses the following Azure API Providers:
  * 
- * * `Microsoft.App`: 2025-01-01
+ * * `Microsoft.App` - 2025-01-01
  * 
  * ## Import
  * 

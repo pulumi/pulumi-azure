@@ -179,7 +179,7 @@ def get_role_management_policy(role_definition_id: Optional[_builtins.str] = Non
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Authorization`: 2020-10-01
+    * `Microsoft.Authorization` - 2020-10-01
 
 
     :param _builtins.str role_definition_id: The scoped Role Definition ID of the role for which this policy applies.
@@ -240,7 +240,7 @@ def get_role_management_policy_output(role_definition_id: Optional[pulumi.Input[
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Authorization`: 2020-10-01
+    * `Microsoft.Authorization` - 2020-10-01
 
 
     :param _builtins.str role_definition_id: The scoped Role Definition ID of the role for which this policy applies.

@@ -185,7 +185,7 @@ def get_service(location: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.HealthcareApis`: 2022-12-01
+    * `Microsoft.HealthcareApis` - 2022-12-01
 
 
     :param _builtins.str location: The Azure Region where the Service is located.
@@ -235,7 +235,7 @@ def get_service_output(location: Optional[pulumi.Input[_builtins.str]] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.HealthcareApis`: 2022-12-01
+    * `Microsoft.HealthcareApis` - 2022-12-01
 
 
     :param _builtins.str location: The Azure Region where the Service is located.

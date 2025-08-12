@@ -106,7 +106,7 @@ namespace Pulumi.Azure.MSSql
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.Sql`: 2023-08-01-preview
+    /// * `Microsoft.Sql` - 2023-08-01-preview
     /// 
     /// ## Import
     /// 
@@ -126,10 +126,12 @@ namespace Pulumi.Azure.MSSql
         public Output<int?> InitialRetryIntervalSeconds { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the Elastic Job Credential to use when executing this Elastic Job Step.
+        /// The ID of the Elastic Job Credential to use when executing this Elastic Job Step. Omit this argument to run the step under the Job Agent's managed identity (user-assigned).
+        /// 
+        /// !&gt; **Note:** Once set, `job_credential_id` cannot be removed. Removing the credential will force a new resource to be created.
         /// </summary>
         [Output("jobCredentialId")]
-        public Output<string> JobCredentialId { get; private set; } = null!;
+        public Output<string?> JobCredentialId { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the Elastic Job. Changing this forces a new Elastic Job Step to be created.
@@ -250,10 +252,12 @@ namespace Pulumi.Azure.MSSql
         public Input<int>? InitialRetryIntervalSeconds { get; set; }
 
         /// <summary>
-        /// The ID of the Elastic Job Credential to use when executing this Elastic Job Step.
+        /// The ID of the Elastic Job Credential to use when executing this Elastic Job Step. Omit this argument to run the step under the Job Agent's managed identity (user-assigned).
+        /// 
+        /// !&gt; **Note:** Once set, `job_credential_id` cannot be removed. Removing the credential will force a new resource to be created.
         /// </summary>
-        [Input("jobCredentialId", required: true)]
-        public Input<string> JobCredentialId { get; set; } = null!;
+        [Input("jobCredentialId")]
+        public Input<string>? JobCredentialId { get; set; }
 
         /// <summary>
         /// The ID of the Elastic Job. Changing this forces a new Elastic Job Step to be created.
@@ -336,7 +340,9 @@ namespace Pulumi.Azure.MSSql
         public Input<int>? InitialRetryIntervalSeconds { get; set; }
 
         /// <summary>
-        /// The ID of the Elastic Job Credential to use when executing this Elastic Job Step.
+        /// The ID of the Elastic Job Credential to use when executing this Elastic Job Step. Omit this argument to run the step under the Job Agent's managed identity (user-assigned).
+        /// 
+        /// !&gt; **Note:** Once set, `job_credential_id` cannot be removed. Removing the credential will force a new resource to be created.
         /// </summary>
         [Input("jobCredentialId")]
         public Input<string>? JobCredentialId { get; set; }

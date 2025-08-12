@@ -46,7 +46,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This data source uses the following Azure API Providers:
 //
-// * `Microsoft.DataShare`: 2019-11-01
+// * `Microsoft.DataShare` - 2019-11-01
 func LookupDatasetKustoDatabase(ctx *pulumi.Context, args *LookupDatasetKustoDatabaseArgs, opts ...pulumi.InvokeOption) (*LookupDatasetKustoDatabaseResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDatasetKustoDatabaseResult

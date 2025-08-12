@@ -47,7 +47,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This data source uses the following Azure API Providers:
 //
-// * `Microsoft.HDInsight`: 2021-06-01
+// * `Microsoft.HDInsight` - 2021-06-01
 func GetCluster(ctx *pulumi.Context, args *GetClusterArgs, opts ...pulumi.InvokeOption) (*GetClusterResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetClusterResult

@@ -38,7 +38,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This resource uses the following Azure API Providers:
  *
- * * `Microsoft.Kusto`: 2024-04-13
+ * * `Microsoft.Kusto` - 2024-04-13
  *
  * ## Import
  *
@@ -165,9 +165,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly uri!: pulumi.Output<string>;
     /**
-     * A `virtualNetworkConfiguration` block as defined below.
-     *
-     * > **Note:** Currently removing `virtualNetworkConfiguration` sets the `virtualNetworkConfiguration` to `Disabled` state. But any changes to `virtualNetworkConfiguration` in `Disabled` state forces a new resource to be created.
+     * @deprecated The `virtualNetworkConfiguration` block has been deprecated as it is no longer supported by Azure and will be removed in v5.0 of the AzureRM Provider - for more information see https://techcommunity.microsoft.com/blog/azuredataexplorer/deprecation-of-virtual-network-injection-for-azure-data-explorer/4198192
      */
     public readonly virtualNetworkConfiguration!: pulumi.Output<outputs.kusto.ClusterVirtualNetworkConfiguration | undefined>;
     /**
@@ -341,9 +339,7 @@ export interface ClusterState {
      */
     uri?: pulumi.Input<string>;
     /**
-     * A `virtualNetworkConfiguration` block as defined below.
-     *
-     * > **Note:** Currently removing `virtualNetworkConfiguration` sets the `virtualNetworkConfiguration` to `Disabled` state. But any changes to `virtualNetworkConfiguration` in `Disabled` state forces a new resource to be created.
+     * @deprecated The `virtualNetworkConfiguration` block has been deprecated as it is no longer supported by Azure and will be removed in v5.0 of the AzureRM Provider - for more information see https://techcommunity.microsoft.com/blog/azuredataexplorer/deprecation-of-virtual-network-injection-for-azure-data-explorer/4198192
      */
     virtualNetworkConfiguration?: pulumi.Input<inputs.kusto.ClusterVirtualNetworkConfiguration>;
     /**
@@ -437,9 +433,7 @@ export interface ClusterArgs {
      */
     trustedExternalTenants?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A `virtualNetworkConfiguration` block as defined below.
-     *
-     * > **Note:** Currently removing `virtualNetworkConfiguration` sets the `virtualNetworkConfiguration` to `Disabled` state. But any changes to `virtualNetworkConfiguration` in `Disabled` state forces a new resource to be created.
+     * @deprecated The `virtualNetworkConfiguration` block has been deprecated as it is no longer supported by Azure and will be removed in v5.0 of the AzureRM Provider - for more information see https://techcommunity.microsoft.com/blog/azuredataexplorer/deprecation-of-virtual-network-injection-for-azure-data-explorer/4198192
      */
     virtualNetworkConfiguration?: pulumi.Input<inputs.kusto.ClusterVirtualNetworkConfiguration>;
     /**

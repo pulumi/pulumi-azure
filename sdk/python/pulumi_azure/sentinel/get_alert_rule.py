@@ -91,7 +91,7 @@ def get_alert_rule(log_analytics_workspace_id: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.OperationalInsights`: 2023-12-01-preview
+    * `Microsoft.OperationalInsights` - 2023-12-01-preview
 
 
     :param _builtins.str log_analytics_workspace_id: The ID of the Log Analytics Workspace this Sentinel Alert Rule belongs to.
@@ -131,7 +131,7 @@ def get_alert_rule_output(log_analytics_workspace_id: Optional[pulumi.Input[_bui
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.OperationalInsights`: 2023-12-01-preview
+    * `Microsoft.OperationalInsights` - 2023-12-01-preview
 
 
     :param _builtins.str log_analytics_workspace_id: The ID of the Log Analytics Workspace this Sentinel Alert Rule belongs to.

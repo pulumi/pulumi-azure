@@ -38,7 +38,7 @@ namespace Pulumi.Azure.SystemCenter
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.ScVmm`: 2023-10-07
+        /// * `Microsoft.ScVmm` - 2023-10-07
         /// </summary>
         public static Task<GetVirtualMachineManagerInventoryItemsResult> InvokeAsync(GetVirtualMachineManagerInventoryItemsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineManagerInventoryItemsResult>("azure:systemcenter/getVirtualMachineManagerInventoryItems:getVirtualMachineManagerInventoryItems", args ?? new GetVirtualMachineManagerInventoryItemsArgs(), options.WithDefaults());
@@ -70,7 +70,7 @@ namespace Pulumi.Azure.SystemCenter
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.ScVmm`: 2023-10-07
+        /// * `Microsoft.ScVmm` - 2023-10-07
         /// </summary>
         public static Output<GetVirtualMachineManagerInventoryItemsResult> Invoke(GetVirtualMachineManagerInventoryItemsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualMachineManagerInventoryItemsResult>("azure:systemcenter/getVirtualMachineManagerInventoryItems:getVirtualMachineManagerInventoryItems", args ?? new GetVirtualMachineManagerInventoryItemsInvokeArgs(), options.WithDefaults());
@@ -102,7 +102,7 @@ namespace Pulumi.Azure.SystemCenter
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.ScVmm`: 2023-10-07
+        /// * `Microsoft.ScVmm` - 2023-10-07
         /// </summary>
         public static Output<GetVirtualMachineManagerInventoryItemsResult> Invoke(GetVirtualMachineManagerInventoryItemsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualMachineManagerInventoryItemsResult>("azure:systemcenter/getVirtualMachineManagerInventoryItems:getVirtualMachineManagerInventoryItems", args ?? new GetVirtualMachineManagerInventoryItemsInvokeArgs(), options.WithDefaults());

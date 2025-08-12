@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.HealthcareApis`: 2022-12-01
+ * * `Microsoft.HealthcareApis` - 2022-12-01
  */
 export function getMedtechService(args: GetMedtechServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetMedtechServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -103,7 +103,7 @@ export interface GetMedtechServiceResult {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.HealthcareApis`: 2022-12-01
+ * * `Microsoft.HealthcareApis` - 2022-12-01
  */
 export function getMedtechServiceOutput(args: GetMedtechServiceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMedtechServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

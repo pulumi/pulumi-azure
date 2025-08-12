@@ -216,11 +216,11 @@ func (o ComputeClusterIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 type ComputeClusterScaleSettings struct {
-	// Maximum node count. Changing this forces a new Machine Learning Compute Cluster to be created.
+	// Maximum node count.
 	MaxNodeCount int `pulumi:"maxNodeCount"`
-	// Minimal node count. Changing this forces a new Machine Learning Compute Cluster to be created.
+	// Minimal node count.
 	MinNodeCount int `pulumi:"minNodeCount"`
-	// Node Idle Time Before Scale Down: defines the time until the compute is shutdown when it has gone into Idle state. Is defined according to W3C XML schema standard for duration. Changing this forces a new Machine Learning Compute Cluster to be created.
+	// Node Idle Time Before Scale Down: defines the time until the compute is shutdown when it has gone into Idle state. Is defined according to W3C XML schema standard for duration.
 	ScaleDownNodesAfterIdleDuration string `pulumi:"scaleDownNodesAfterIdleDuration"`
 }
 
@@ -236,11 +236,11 @@ type ComputeClusterScaleSettingsInput interface {
 }
 
 type ComputeClusterScaleSettingsArgs struct {
-	// Maximum node count. Changing this forces a new Machine Learning Compute Cluster to be created.
+	// Maximum node count.
 	MaxNodeCount pulumi.IntInput `pulumi:"maxNodeCount"`
-	// Minimal node count. Changing this forces a new Machine Learning Compute Cluster to be created.
+	// Minimal node count.
 	MinNodeCount pulumi.IntInput `pulumi:"minNodeCount"`
-	// Node Idle Time Before Scale Down: defines the time until the compute is shutdown when it has gone into Idle state. Is defined according to W3C XML schema standard for duration. Changing this forces a new Machine Learning Compute Cluster to be created.
+	// Node Idle Time Before Scale Down: defines the time until the compute is shutdown when it has gone into Idle state. Is defined according to W3C XML schema standard for duration.
 	ScaleDownNodesAfterIdleDuration pulumi.StringInput `pulumi:"scaleDownNodesAfterIdleDuration"`
 }
 
@@ -321,17 +321,17 @@ func (o ComputeClusterScaleSettingsOutput) ToComputeClusterScaleSettingsPtrOutpu
 	}).(ComputeClusterScaleSettingsPtrOutput)
 }
 
-// Maximum node count. Changing this forces a new Machine Learning Compute Cluster to be created.
+// Maximum node count.
 func (o ComputeClusterScaleSettingsOutput) MaxNodeCount() pulumi.IntOutput {
 	return o.ApplyT(func(v ComputeClusterScaleSettings) int { return v.MaxNodeCount }).(pulumi.IntOutput)
 }
 
-// Minimal node count. Changing this forces a new Machine Learning Compute Cluster to be created.
+// Minimal node count.
 func (o ComputeClusterScaleSettingsOutput) MinNodeCount() pulumi.IntOutput {
 	return o.ApplyT(func(v ComputeClusterScaleSettings) int { return v.MinNodeCount }).(pulumi.IntOutput)
 }
 
-// Node Idle Time Before Scale Down: defines the time until the compute is shutdown when it has gone into Idle state. Is defined according to W3C XML schema standard for duration. Changing this forces a new Machine Learning Compute Cluster to be created.
+// Node Idle Time Before Scale Down: defines the time until the compute is shutdown when it has gone into Idle state. Is defined according to W3C XML schema standard for duration.
 func (o ComputeClusterScaleSettingsOutput) ScaleDownNodesAfterIdleDuration() pulumi.StringOutput {
 	return o.ApplyT(func(v ComputeClusterScaleSettings) string { return v.ScaleDownNodesAfterIdleDuration }).(pulumi.StringOutput)
 }
@@ -360,7 +360,7 @@ func (o ComputeClusterScaleSettingsPtrOutput) Elem() ComputeClusterScaleSettings
 	}).(ComputeClusterScaleSettingsOutput)
 }
 
-// Maximum node count. Changing this forces a new Machine Learning Compute Cluster to be created.
+// Maximum node count.
 func (o ComputeClusterScaleSettingsPtrOutput) MaxNodeCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ComputeClusterScaleSettings) *int {
 		if v == nil {
@@ -370,7 +370,7 @@ func (o ComputeClusterScaleSettingsPtrOutput) MaxNodeCount() pulumi.IntPtrOutput
 	}).(pulumi.IntPtrOutput)
 }
 
-// Minimal node count. Changing this forces a new Machine Learning Compute Cluster to be created.
+// Minimal node count.
 func (o ComputeClusterScaleSettingsPtrOutput) MinNodeCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ComputeClusterScaleSettings) *int {
 		if v == nil {
@@ -380,7 +380,7 @@ func (o ComputeClusterScaleSettingsPtrOutput) MinNodeCount() pulumi.IntPtrOutput
 	}).(pulumi.IntPtrOutput)
 }
 
-// Node Idle Time Before Scale Down: defines the time until the compute is shutdown when it has gone into Idle state. Is defined according to W3C XML schema standard for duration. Changing this forces a new Machine Learning Compute Cluster to be created.
+// Node Idle Time Before Scale Down: defines the time until the compute is shutdown when it has gone into Idle state. Is defined according to W3C XML schema standard for duration.
 func (o ComputeClusterScaleSettingsPtrOutput) ScaleDownNodesAfterIdleDuration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ComputeClusterScaleSettings) *string {
 		if v == nil {

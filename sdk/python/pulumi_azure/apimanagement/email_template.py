@@ -281,7 +281,7 @@ class EmailTemplate(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.ApiManagement`: 2022-08-01
+        * `Microsoft.ApiManagement` - 2022-08-01
 
         ## Import
 
@@ -349,7 +349,7 @@ class EmailTemplate(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.ApiManagement`: 2022-08-01
+        * `Microsoft.ApiManagement` - 2022-08-01
 
         ## Import
 

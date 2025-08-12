@@ -35,6 +35,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.SubscriptionCostManagementView;
  * import com.pulumi.azure.core.SubscriptionCostManagementViewArgs;
  * import com.pulumi.azure.core.inputs.SubscriptionCostManagementViewDatasetArgs;
+ * import com.pulumi.azure.core.inputs.SubscriptionCostManagementViewPivotArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -63,6 +64,19 @@ import javax.annotation.Nullable;
  *                     .columnName("Cost")
  *                     .build())
  *                 .build())
+ *             .pivots(            
+ *                 SubscriptionCostManagementViewPivotArgs.builder()
+ *                     .type("Dimension")
+ *                     .name("ServiceName")
+ *                     .build(),
+ *                 SubscriptionCostManagementViewPivotArgs.builder()
+ *                     .type("Dimension")
+ *                     .name("ResourceLocation")
+ *                     .build(),
+ *                 SubscriptionCostManagementViewPivotArgs.builder()
+ *                     .type("Dimension")
+ *                     .name("ResourceGroupName")
+ *                     .build())
  *             .build());
  * 
  *     }
@@ -76,7 +90,7 @@ import javax.annotation.Nullable;
  * &lt;!-- This section is generated, changes will be overwritten --&gt;
  * This resource uses the following Azure API Providers:
  * 
- * * `Microsoft.CostManagement`: 2023-08-01
+ * * `Microsoft.CostManagement` - 2023-08-01
  * 
  * ## Import
  * 

@@ -74,7 +74,7 @@ import javax.annotation.Nullable;
  * &lt;!-- This section is generated, changes will be overwritten --&gt;
  * This resource uses the following Azure API Providers:
  * 
- * * `Microsoft.Compute`: 2022-03-01
+ * * `Microsoft.Compute` - 2022-03-01
  * 
  * ## Import
  * 
@@ -90,6 +90,8 @@ public class Image extends com.pulumi.resources.CustomResource {
     /**
      * One or more `data_disk` blocks as defined below.
      * 
+     * &gt; **Note:** `data_disk` cannot be set together with `source_virtual_machine_id`.
+     * 
      */
     @Export(name="dataDisks", refs={List.class,ImageDataDisk.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ImageDataDisk>> dataDisks;
@@ -97,23 +99,21 @@ public class Image extends com.pulumi.resources.CustomResource {
     /**
      * @return One or more `data_disk` blocks as defined below.
      * 
+     * &gt; **Note:** `data_disk` cannot be set together with `source_virtual_machine_id`.
+     * 
      */
     public Output<Optional<List<ImageDataDisk>>> dataDisks() {
         return Codegen.optional(this.dataDisks);
     }
     /**
-     * The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
-     * 
-     * &gt; **Note:** `zone_resilient` can only be set to `true` if the image is stored in a region that supports availability zones.
+     * The Hyper-V Generation Type of the Virtual Machine created from the image as `V1`, `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="hyperVGeneration", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> hyperVGeneration;
 
     /**
-     * @return The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
-     * 
-     * &gt; **Note:** `zone_resilient` can only be set to `true` if the image is stored in a region that supports availability zones.
+     * @return The Hyper-V Generation Type of the Virtual Machine created from the image as `V1`, `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<String>> hyperVGeneration() {
@@ -150,12 +150,16 @@ public class Image extends com.pulumi.resources.CustomResource {
     /**
      * One or more `os_disk` blocks as defined below. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note:** `os_disk` cannot be set together with `source_virtual_machine_id`.
+     * 
      */
     @Export(name="osDisk", refs={ImageOsDisk.class}, tree="[0]")
     private Output</* @Nullable */ ImageOsDisk> osDisk;
 
     /**
      * @return One or more `os_disk` blocks as defined below. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** `os_disk` cannot be set together with `source_virtual_machine_id`.
      * 
      */
     public Output<Optional<ImageOsDisk>> osDisk() {
@@ -206,12 +210,20 @@ public class Image extends com.pulumi.resources.CustomResource {
     /**
      * Is zone resiliency enabled? Defaults to `false`. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note:** `zone_resilient` can only be set to `true` if the image is stored in a region that supports availability zones.
+     * 
+     * &gt; **Note:** `zone_resilient` cannot be set together with `source_virtual_machine_id`.
+     * 
      */
     @Export(name="zoneResilient", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> zoneResilient;
 
     /**
      * @return Is zone resiliency enabled? Defaults to `false`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** `zone_resilient` can only be set to `true` if the image is stored in a region that supports availability zones.
+     * 
+     * &gt; **Note:** `zone_resilient` cannot be set together with `source_virtual_machine_id`.
      * 
      */
     public Output<Optional<Boolean>> zoneResilient() {

@@ -699,7 +699,7 @@ class ActionGroup(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.Insights`: 2023-01-01
+        * `Microsoft.Insights` - 2023-01-01
 
         ## Import
 
@@ -834,7 +834,7 @@ class ActionGroup(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.Insights`: 2023-01-01
+        * `Microsoft.Insights` - 2023-01-01
 
         ## Import
 

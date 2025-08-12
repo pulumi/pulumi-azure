@@ -43,7 +43,7 @@ namespace Pulumi.Azure.Automation
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Automation`: 2023-11-01
+        /// * `Microsoft.Automation` - 2023-11-01
         /// </summary>
         public static Task<GetRunbookResult> InvokeAsync(GetRunbookArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRunbookResult>("azure:automation/getRunbook:getRunbook", args ?? new GetRunbookArgs(), options.WithDefaults());
@@ -80,7 +80,7 @@ namespace Pulumi.Azure.Automation
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Automation`: 2023-11-01
+        /// * `Microsoft.Automation` - 2023-11-01
         /// </summary>
         public static Output<GetRunbookResult> Invoke(GetRunbookInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRunbookResult>("azure:automation/getRunbook:getRunbook", args ?? new GetRunbookInvokeArgs(), options.WithDefaults());
@@ -117,7 +117,7 @@ namespace Pulumi.Azure.Automation
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Automation`: 2023-11-01
+        /// * `Microsoft.Automation` - 2023-11-01
         /// </summary>
         public static Output<GetRunbookResult> Invoke(GetRunbookInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetRunbookResult>("azure:automation/getRunbook:getRunbook", args ?? new GetRunbookInvokeArgs(), options.WithDefaults());

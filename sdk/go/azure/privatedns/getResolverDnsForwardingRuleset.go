@@ -45,7 +45,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This data source uses the following Azure API Providers:
 //
-// * `Microsoft.Network`: 2022-07-01
+// * `Microsoft.Network` - 2022-07-01
 func LookupResolverDnsForwardingRuleset(ctx *pulumi.Context, args *LookupResolverDnsForwardingRulesetArgs, opts ...pulumi.InvokeOption) (*LookupResolverDnsForwardingRulesetResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupResolverDnsForwardingRulesetResult

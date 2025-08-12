@@ -55,7 +55,7 @@ namespace Pulumi.Azure.DevCenter
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.DevCenter`: 2025-02-01
+    /// * `Microsoft.DevCenter` - 2025-02-01
     /// 
     /// ## Import
     /// 

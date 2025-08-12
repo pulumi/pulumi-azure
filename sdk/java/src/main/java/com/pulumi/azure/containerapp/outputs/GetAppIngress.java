@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.containerapp.outputs;
 
+import com.pulumi.azure.containerapp.outputs.GetAppIngressCor;
 import com.pulumi.azure.containerapp.outputs.GetAppIngressCustomDomain;
 import com.pulumi.azure.containerapp.outputs.GetAppIngressIpSecurityRestriction;
 import com.pulumi.azure.containerapp.outputs.GetAppIngressTrafficWeight;
@@ -26,6 +27,11 @@ public final class GetAppIngress {
      * 
      */
     private String clientCertificateMode;
+    /**
+     * @return A `cors` block as detailed below.
+     * 
+     */
+    private List<GetAppIngressCor> cors;
     /**
      * @return One or more `custom_domain` block as detailed below.
      * 
@@ -81,6 +87,13 @@ public final class GetAppIngress {
      */
     public String clientCertificateMode() {
         return this.clientCertificateMode;
+    }
+    /**
+     * @return A `cors` block as detailed below.
+     * 
+     */
+    public List<GetAppIngressCor> cors() {
+        return this.cors;
     }
     /**
      * @return One or more `custom_domain` block as detailed below.
@@ -150,6 +163,7 @@ public final class GetAppIngress {
     public static final class Builder {
         private Boolean allowInsecureConnections;
         private String clientCertificateMode;
+        private List<GetAppIngressCor> cors;
         private List<GetAppIngressCustomDomain> customDomains;
         private Integer exposedPort;
         private Boolean externalEnabled;
@@ -163,6 +177,7 @@ public final class GetAppIngress {
     	      Objects.requireNonNull(defaults);
     	      this.allowInsecureConnections = defaults.allowInsecureConnections;
     	      this.clientCertificateMode = defaults.clientCertificateMode;
+    	      this.cors = defaults.cors;
     	      this.customDomains = defaults.customDomains;
     	      this.exposedPort = defaults.exposedPort;
     	      this.externalEnabled = defaults.externalEnabled;
@@ -188,6 +203,17 @@ public final class GetAppIngress {
             }
             this.clientCertificateMode = clientCertificateMode;
             return this;
+        }
+        @CustomType.Setter
+        public Builder cors(List<GetAppIngressCor> cors) {
+            if (cors == null) {
+              throw new MissingRequiredPropertyException("GetAppIngress", "cors");
+            }
+            this.cors = cors;
+            return this;
+        }
+        public Builder cors(GetAppIngressCor... cors) {
+            return cors(List.of(cors));
         }
         @CustomType.Setter
         public Builder customDomains(List<GetAppIngressCustomDomain> customDomains) {
@@ -266,6 +292,7 @@ public final class GetAppIngress {
             final var _resultValue = new GetAppIngress();
             _resultValue.allowInsecureConnections = allowInsecureConnections;
             _resultValue.clientCertificateMode = clientCertificateMode;
+            _resultValue.cors = cors;
             _resultValue.customDomains = customDomains;
             _resultValue.exposedPort = exposedPort;
             _resultValue.externalEnabled = externalEnabled;

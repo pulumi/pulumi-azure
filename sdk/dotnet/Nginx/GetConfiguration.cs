@@ -41,7 +41,7 @@ namespace Pulumi.Azure.Nginx
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Nginx.NginxPlus`: 2024-11-01-preview
+        /// * `Nginx.NginxPlus` - 2024-11-01-preview
         /// </summary>
         public static Task<GetConfigurationResult> InvokeAsync(GetConfigurationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationResult>("azure:nginx/getConfiguration:getConfiguration", args ?? new GetConfigurationArgs(), options.WithDefaults());
@@ -76,7 +76,7 @@ namespace Pulumi.Azure.Nginx
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Nginx.NginxPlus`: 2024-11-01-preview
+        /// * `Nginx.NginxPlus` - 2024-11-01-preview
         /// </summary>
         public static Output<GetConfigurationResult> Invoke(GetConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConfigurationResult>("azure:nginx/getConfiguration:getConfiguration", args ?? new GetConfigurationInvokeArgs(), options.WithDefaults());
@@ -111,7 +111,7 @@ namespace Pulumi.Azure.Nginx
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Nginx.NginxPlus`: 2024-11-01-preview
+        /// * `Nginx.NginxPlus` - 2024-11-01-preview
         /// </summary>
         public static Output<GetConfigurationResult> Invoke(GetConfigurationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetConfigurationResult>("azure:nginx/getConfiguration:getConfiguration", args ?? new GetConfigurationInvokeArgs(), options.WithDefaults());

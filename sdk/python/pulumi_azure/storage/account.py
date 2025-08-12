@@ -48,6 +48,7 @@ class AccountArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  network_rules: Optional[pulumi.Input['AccountNetworkRulesArgs']] = None,
                  nfsv3_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 provisioned_billing_model_version: Optional[pulumi.Input[_builtins.str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  queue_encryption_key_type: Optional[pulumi.Input[_builtins.str]] = None,
                  queue_properties: Optional[pulumi.Input['AccountQueuePropertiesArgs']] = None,
@@ -110,6 +111,7 @@ class AccountArgs:
         :param pulumi.Input[_builtins.bool] nfsv3_enabled: Is NFSv3 protocol enabled? Changing this forces a new resource to be created. Defaults to `false`.
                
                > **Note:** This can only be `true` when `account_tier` is `Standard` and `account_kind` is `StorageV2`, or `account_tier` is `Premium` and `account_kind` is `BlockBlobStorage`. Additionally, the `is_hns_enabled` is `true` and `account_replication_type` must be `LRS` or `RAGRS`.
+        :param pulumi.Input[_builtins.str] provisioned_billing_model_version: Specifies the version of the **provisioned** billing model (e.g. when `account_kind = "FileStorage"` for Storage File). Possible value is `V2`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] public_network_access_enabled: Whether the public network access is enabled? Defaults to `true`.
         :param pulumi.Input[_builtins.str] queue_encryption_key_type: The encryption type of the queue service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
         :param pulumi.Input['AccountQueuePropertiesArgs'] queue_properties: A `queue_properties` block as defined below.
@@ -184,6 +186,8 @@ class AccountArgs:
             pulumi.set(__self__, "network_rules", network_rules)
         if nfsv3_enabled is not None:
             pulumi.set(__self__, "nfsv3_enabled", nfsv3_enabled)
+        if provisioned_billing_model_version is not None:
+            pulumi.set(__self__, "provisioned_billing_model_version", provisioned_billing_model_version)
         if public_network_access_enabled is not None:
             pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if queue_encryption_key_type is not None:
@@ -560,6 +564,18 @@ class AccountArgs:
         pulumi.set(self, "nfsv3_enabled", value)
 
     @_builtins.property
+    @pulumi.getter(name="provisionedBillingModelVersion")
+    def provisioned_billing_model_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies the version of the **provisioned** billing model (e.g. when `account_kind = "FileStorage"` for Storage File). Possible value is `V2`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "provisioned_billing_model_version")
+
+    @provisioned_billing_model_version.setter
+    def provisioned_billing_model_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "provisioned_billing_model_version", value)
+
+    @_builtins.property
     @pulumi.getter(name="publicNetworkAccessEnabled")
     def public_network_access_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
@@ -768,6 +784,7 @@ class _AccountState:
                  primary_web_internet_host: Optional[pulumi.Input[_builtins.str]] = None,
                  primary_web_microsoft_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
                  primary_web_microsoft_host: Optional[pulumi.Input[_builtins.str]] = None,
+                 provisioned_billing_model_version: Optional[pulumi.Input[_builtins.str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  queue_encryption_key_type: Optional[pulumi.Input[_builtins.str]] = None,
                  queue_properties: Optional[pulumi.Input['AccountQueuePropertiesArgs']] = None,
@@ -902,6 +919,7 @@ class _AccountState:
         :param pulumi.Input[_builtins.str] primary_web_internet_host: The internet routing hostname with port if applicable for web storage in the primary location.
         :param pulumi.Input[_builtins.str] primary_web_microsoft_endpoint: The microsoft routing endpoint URL for web storage in the primary location.
         :param pulumi.Input[_builtins.str] primary_web_microsoft_host: The microsoft routing hostname with port if applicable for web storage in the primary location.
+        :param pulumi.Input[_builtins.str] provisioned_billing_model_version: Specifies the version of the **provisioned** billing model (e.g. when `account_kind = "FileStorage"` for Storage File). Possible value is `V2`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] public_network_access_enabled: Whether the public network access is enabled? Defaults to `true`.
         :param pulumi.Input[_builtins.str] queue_encryption_key_type: The encryption type of the queue service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
         :param pulumi.Input['AccountQueuePropertiesArgs'] queue_properties: A `queue_properties` block as defined below.
@@ -1086,6 +1104,8 @@ class _AccountState:
             pulumi.set(__self__, "primary_web_microsoft_endpoint", primary_web_microsoft_endpoint)
         if primary_web_microsoft_host is not None:
             pulumi.set(__self__, "primary_web_microsoft_host", primary_web_microsoft_host)
+        if provisioned_billing_model_version is not None:
+            pulumi.set(__self__, "provisioned_billing_model_version", provisioned_billing_model_version)
         if public_network_access_enabled is not None:
             pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if queue_encryption_key_type is not None:
@@ -1956,6 +1976,18 @@ class _AccountState:
         pulumi.set(self, "primary_web_microsoft_host", value)
 
     @_builtins.property
+    @pulumi.getter(name="provisionedBillingModelVersion")
+    def provisioned_billing_model_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies the version of the **provisioned** billing model (e.g. when `account_kind = "FileStorage"` for Storage File). Possible value is `V2`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "provisioned_billing_model_version")
+
+    @provisioned_billing_model_version.setter
+    def provisioned_billing_model_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "provisioned_billing_model_version", value)
+
+    @_builtins.property
     @pulumi.getter(name="publicNetworkAccessEnabled")
     def public_network_access_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
@@ -2575,6 +2607,7 @@ class Account(pulumi.CustomResource):
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  network_rules: Optional[pulumi.Input[Union['AccountNetworkRulesArgs', 'AccountNetworkRulesArgsDict']]] = None,
                  nfsv3_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 provisioned_billing_model_version: Optional[pulumi.Input[_builtins.str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  queue_encryption_key_type: Optional[pulumi.Input[_builtins.str]] = None,
                  queue_properties: Optional[pulumi.Input[Union['AccountQueuePropertiesArgs', 'AccountQueuePropertiesArgsDict']]] = None,
@@ -2655,7 +2688,7 @@ class Account(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.Storage`: 2023-05-01
+        * `Microsoft.Storage` - 2023-05-01
 
         ## Import
 
@@ -2715,6 +2748,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] nfsv3_enabled: Is NFSv3 protocol enabled? Changing this forces a new resource to be created. Defaults to `false`.
                
                > **Note:** This can only be `true` when `account_tier` is `Standard` and `account_kind` is `StorageV2`, or `account_tier` is `Premium` and `account_kind` is `BlockBlobStorage`. Additionally, the `is_hns_enabled` is `true` and `account_replication_type` must be `LRS` or `RAGRS`.
+        :param pulumi.Input[_builtins.str] provisioned_billing_model_version: Specifies the version of the **provisioned** billing model (e.g. when `account_kind = "FileStorage"` for Storage File). Possible value is `V2`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] public_network_access_enabled: Whether the public network access is enabled? Defaults to `true`.
         :param pulumi.Input[_builtins.str] queue_encryption_key_type: The encryption type of the queue service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
         :param pulumi.Input[Union['AccountQueuePropertiesArgs', 'AccountQueuePropertiesArgsDict']] queue_properties: A `queue_properties` block as defined below.
@@ -2812,7 +2846,7 @@ class Account(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.Storage`: 2023-05-01
+        * `Microsoft.Storage` - 2023-05-01
 
         ## Import
 
@@ -2863,6 +2897,7 @@ class Account(pulumi.CustomResource):
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  network_rules: Optional[pulumi.Input[Union['AccountNetworkRulesArgs', 'AccountNetworkRulesArgsDict']]] = None,
                  nfsv3_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 provisioned_billing_model_version: Optional[pulumi.Input[_builtins.str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  queue_encryption_key_type: Optional[pulumi.Input[_builtins.str]] = None,
                  queue_properties: Optional[pulumi.Input[Union['AccountQueuePropertiesArgs', 'AccountQueuePropertiesArgsDict']]] = None,
@@ -2914,6 +2949,7 @@ class Account(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["network_rules"] = network_rules
             __props__.__dict__["nfsv3_enabled"] = nfsv3_enabled
+            __props__.__dict__["provisioned_billing_model_version"] = provisioned_billing_model_version
             __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
             __props__.__dict__["queue_encryption_key_type"] = queue_encryption_key_type
             __props__.__dict__["queue_properties"] = queue_properties
@@ -3074,6 +3110,7 @@ class Account(pulumi.CustomResource):
             primary_web_internet_host: Optional[pulumi.Input[_builtins.str]] = None,
             primary_web_microsoft_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
             primary_web_microsoft_host: Optional[pulumi.Input[_builtins.str]] = None,
+            provisioned_billing_model_version: Optional[pulumi.Input[_builtins.str]] = None,
             public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
             queue_encryption_key_type: Optional[pulumi.Input[_builtins.str]] = None,
             queue_properties: Optional[pulumi.Input[Union['AccountQueuePropertiesArgs', 'AccountQueuePropertiesArgsDict']]] = None,
@@ -3213,6 +3250,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] primary_web_internet_host: The internet routing hostname with port if applicable for web storage in the primary location.
         :param pulumi.Input[_builtins.str] primary_web_microsoft_endpoint: The microsoft routing endpoint URL for web storage in the primary location.
         :param pulumi.Input[_builtins.str] primary_web_microsoft_host: The microsoft routing hostname with port if applicable for web storage in the primary location.
+        :param pulumi.Input[_builtins.str] provisioned_billing_model_version: Specifies the version of the **provisioned** billing model (e.g. when `account_kind = "FileStorage"` for Storage File). Possible value is `V2`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] public_network_access_enabled: Whether the public network access is enabled? Defaults to `true`.
         :param pulumi.Input[_builtins.str] queue_encryption_key_type: The encryption type of the queue service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
         :param pulumi.Input[Union['AccountQueuePropertiesArgs', 'AccountQueuePropertiesArgsDict']] queue_properties: A `queue_properties` block as defined below.
@@ -3339,6 +3377,7 @@ class Account(pulumi.CustomResource):
         __props__.__dict__["primary_web_internet_host"] = primary_web_internet_host
         __props__.__dict__["primary_web_microsoft_endpoint"] = primary_web_microsoft_endpoint
         __props__.__dict__["primary_web_microsoft_host"] = primary_web_microsoft_host
+        __props__.__dict__["provisioned_billing_model_version"] = provisioned_billing_model_version
         __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
         __props__.__dict__["queue_encryption_key_type"] = queue_encryption_key_type
         __props__.__dict__["queue_properties"] = queue_properties
@@ -3906,6 +3945,14 @@ class Account(pulumi.CustomResource):
         The microsoft routing hostname with port if applicable for web storage in the primary location.
         """
         return pulumi.get(self, "primary_web_microsoft_host")
+
+    @_builtins.property
+    @pulumi.getter(name="provisionedBillingModelVersion")
+    def provisioned_billing_model_version(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Specifies the version of the **provisioned** billing model (e.g. when `account_kind = "FileStorage"` for Storage File). Possible value is `V2`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "provisioned_billing_model_version")
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccessEnabled")

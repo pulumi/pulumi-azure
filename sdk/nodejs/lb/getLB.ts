@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Network`: 2023-09-01
+ * * `Microsoft.Network` - 2023-09-01
  */
 export function getLB(args: GetLBArgs, opts?: pulumi.InvokeOptions): Promise<GetLBResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -110,7 +110,7 @@ export interface GetLBResult {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Network`: 2023-09-01
+ * * `Microsoft.Network` - 2023-09-01
  */
 export function getLBOutput(args: GetLBOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLBResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

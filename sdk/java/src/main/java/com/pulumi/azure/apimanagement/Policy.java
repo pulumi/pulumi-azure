@@ -92,7 +92,7 @@ import javax.annotation.Nullable;
  * &lt;!-- This section is generated, changes will be overwritten --&gt;
  * This resource uses the following Azure API Providers:
  * 
- * * `Microsoft.ApiManagement`: 2022-08-01
+ * * `Microsoft.ApiManagement` - 2024-05-01, 2022-08-01
  * 
  * ## Import
  * 

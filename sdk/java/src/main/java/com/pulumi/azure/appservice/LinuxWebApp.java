@@ -93,7 +93,7 @@ import javax.annotation.Nullable;
  * &lt;!-- This section is generated, changes will be overwritten --&gt;
  * This resource uses the following Azure API Providers:
  * 
- * * `Microsoft.Web`: 2023-12-01, 2023-01-01
+ * * `Microsoft.Web` - 2023-12-01, 2023-01-01
  * 
  * ## Import
  * 
@@ -579,6 +579,24 @@ public class LinuxWebApp extends com.pulumi.resources.CustomResource {
 
     public Output<Optional<String>> virtualNetworkSubnetId() {
         return Codegen.optional(this.virtualNetworkSubnetId);
+    }
+    /**
+     * Should the traffic for the image pull be routed over virtual network enabled. Defaults to `false`.
+     * 
+     * &gt; **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. Must be set to `true` when running in an App Service Environment.
+     * 
+     */
+    @Export(name="vnetImagePullEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> vnetImagePullEnabled;
+
+    /**
+     * @return Should the traffic for the image pull be routed over virtual network enabled. Defaults to `false`.
+     * 
+     * &gt; **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. Must be set to `true` when running in an App Service Environment.
+     * 
+     */
+    public Output<Optional<Boolean>> vnetImagePullEnabled() {
+        return Codegen.optional(this.vnetImagePullEnabled);
     }
     /**
      * Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.

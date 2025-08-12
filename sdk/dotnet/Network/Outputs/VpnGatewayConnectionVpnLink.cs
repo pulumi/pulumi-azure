@@ -30,6 +30,10 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.VpnGatewayConnectionVpnLinkCustomBgpAddress> CustomBgpAddresses;
         /// <summary>
+        /// The dead peer detection timeout of this connection in seconds. Possible values are between `9` and `3600`.
+        /// </summary>
+        public readonly int? DpdTimeoutSeconds;
+        /// <summary>
         /// A list of the egress NAT Rule Ids.
         /// </summary>
         public readonly ImmutableArray<string> EgressNatRuleIds;
@@ -84,6 +88,8 @@ namespace Pulumi.Azure.Network.Outputs
 
             ImmutableArray<Outputs.VpnGatewayConnectionVpnLinkCustomBgpAddress> customBgpAddresses,
 
+            int? dpdTimeoutSeconds,
+
             ImmutableArray<string> egressNatRuleIds,
 
             ImmutableArray<string> ingressNatRuleIds,
@@ -110,6 +116,7 @@ namespace Pulumi.Azure.Network.Outputs
             BgpEnabled = bgpEnabled;
             ConnectionMode = connectionMode;
             CustomBgpAddresses = customBgpAddresses;
+            DpdTimeoutSeconds = dpdTimeoutSeconds;
             EgressNatRuleIds = egressNatRuleIds;
             IngressNatRuleIds = ingressNatRuleIds;
             IpsecPolicies = ipsecPolicies;

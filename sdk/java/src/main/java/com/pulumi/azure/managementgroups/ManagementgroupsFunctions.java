@@ -54,6 +54,13 @@ public final class ManagementgroupsFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Management` - 2020-05-01
+     * 
      * @deprecated
      * azure.managementgroups.getManagementGroup has been deprecated in favor of azure.management.getGroup
      * 
@@ -100,6 +107,13 @@ public final class ManagementgroupsFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Management` - 2020-05-01
      * 
      * @deprecated
      * azure.managementgroups.getManagementGroup has been deprecated in favor of azure.management.getGroup
@@ -148,6 +162,13 @@ public final class ManagementgroupsFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Management` - 2020-05-01
+     * 
      * @deprecated
      * azure.managementgroups.getManagementGroup has been deprecated in favor of azure.management.getGroup
      * 
@@ -194,6 +215,13 @@ public final class ManagementgroupsFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Management` - 2020-05-01
      * 
      * @deprecated
      * azure.managementgroups.getManagementGroup has been deprecated in favor of azure.management.getGroup
@@ -242,6 +270,13 @@ public final class ManagementgroupsFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Management` - 2020-05-01
+     * 
      * @deprecated
      * azure.managementgroups.getManagementGroup has been deprecated in favor of azure.management.getGroup
      * 
@@ -289,6 +324,13 @@ public final class ManagementgroupsFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Management` - 2020-05-01
+     * 
      * @deprecated
      * azure.managementgroups.getManagementGroup has been deprecated in favor of azure.management.getGroup
      * 
@@ -335,6 +377,13 @@ public final class ManagementgroupsFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Management` - 2020-05-01
      * 
      * @deprecated
      * azure.managementgroups.getManagementGroup has been deprecated in favor of azure.management.getGroup

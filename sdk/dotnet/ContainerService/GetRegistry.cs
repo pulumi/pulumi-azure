@@ -42,7 +42,7 @@ namespace Pulumi.Azure.ContainerService
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.ContainerRegistry`: 2023-11-01-preview
+        /// * `Microsoft.ContainerRegistry` - 2023-11-01-preview
         /// </summary>
         public static Task<GetRegistryResult> InvokeAsync(GetRegistryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRegistryResult>("azure:containerservice/getRegistry:getRegistry", args ?? new GetRegistryArgs(), options.WithDefaults());
@@ -78,7 +78,7 @@ namespace Pulumi.Azure.ContainerService
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.ContainerRegistry`: 2023-11-01-preview
+        /// * `Microsoft.ContainerRegistry` - 2023-11-01-preview
         /// </summary>
         public static Output<GetRegistryResult> Invoke(GetRegistryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRegistryResult>("azure:containerservice/getRegistry:getRegistry", args ?? new GetRegistryInvokeArgs(), options.WithDefaults());
@@ -114,7 +114,7 @@ namespace Pulumi.Azure.ContainerService
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.ContainerRegistry`: 2023-11-01-preview
+        /// * `Microsoft.ContainerRegistry` - 2023-11-01-preview
         /// </summary>
         public static Output<GetRegistryResult> Invoke(GetRegistryInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetRegistryResult>("azure:containerservice/getRegistry:getRegistry", args ?? new GetRegistryInvokeArgs(), options.WithDefaults());
@@ -182,6 +182,10 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         public readonly bool DataEndpointEnabled;
         /// <summary>
+        /// A set of data endpoint hostnames associated with the container registry if data endpoints are enabled.
+        /// </summary>
+        public readonly ImmutableArray<string> DataEndpointHostNames;
+        /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
@@ -214,6 +218,8 @@ namespace Pulumi.Azure.ContainerService
 
             bool dataEndpointEnabled,
 
+            ImmutableArray<string> dataEndpointHostNames,
+
             string id,
 
             string location,
@@ -232,6 +238,7 @@ namespace Pulumi.Azure.ContainerService
             AdminPassword = adminPassword;
             AdminUsername = adminUsername;
             DataEndpointEnabled = dataEndpointEnabled;
+            DataEndpointHostNames = dataEndpointHostNames;
             Id = id;
             Location = location;
             LoginServer = loginServer;

@@ -80,7 +80,7 @@ import javax.annotation.Nullable;
  * &lt;!-- This section is generated, changes will be overwritten --&gt;
  * This resource uses the following Azure API Providers:
  * 
- * * `Microsoft.ContainerRegistry`: 2023-07-01
+ * * `Microsoft.ContainerRegistry` - 2023-07-01
  * 
  * ## Import
  * 

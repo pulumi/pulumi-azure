@@ -44,7 +44,7 @@ namespace Pulumi.Azure.Mobile
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.MobileNetwork`: 2022-11-01
+        /// * `Microsoft.MobileNetwork` - 2022-11-01
         /// </summary>
         public static Task<GetNetworkSimGroupResult> InvokeAsync(GetNetworkSimGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkSimGroupResult>("azure:mobile/getNetworkSimGroup:getNetworkSimGroup", args ?? new GetNetworkSimGroupArgs(), options.WithDefaults());
@@ -82,7 +82,7 @@ namespace Pulumi.Azure.Mobile
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.MobileNetwork`: 2022-11-01
+        /// * `Microsoft.MobileNetwork` - 2022-11-01
         /// </summary>
         public static Output<GetNetworkSimGroupResult> Invoke(GetNetworkSimGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkSimGroupResult>("azure:mobile/getNetworkSimGroup:getNetworkSimGroup", args ?? new GetNetworkSimGroupInvokeArgs(), options.WithDefaults());
@@ -120,7 +120,7 @@ namespace Pulumi.Azure.Mobile
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.MobileNetwork`: 2022-11-01
+        /// * `Microsoft.MobileNetwork` - 2022-11-01
         /// </summary>
         public static Output<GetNetworkSimGroupResult> Invoke(GetNetworkSimGroupInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkSimGroupResult>("azure:mobile/getNetworkSimGroup:getNetworkSimGroup", args ?? new GetNetworkSimGroupInvokeArgs(), options.WithDefaults());

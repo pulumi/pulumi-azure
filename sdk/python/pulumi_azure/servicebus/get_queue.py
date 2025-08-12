@@ -318,7 +318,7 @@ def get_queue(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.ServiceBus`: 2022-10-01-preview, 2021-06-01-preview
+    * `Microsoft.ServiceBus` - 2024-01-01
 
 
     :param _builtins.str name: The name of this Service Bus Queue.
@@ -380,7 +380,7 @@ def get_queue_output(name: Optional[pulumi.Input[_builtins.str]] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.ServiceBus`: 2022-10-01-preview, 2021-06-01-preview
+    * `Microsoft.ServiceBus` - 2024-01-01
 
 
     :param _builtins.str name: The name of this Service Bus Queue.

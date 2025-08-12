@@ -46,14 +46,14 @@ public final class ClusterCustomerManagedKeyState extends com.pulumi.resources.R
     }
 
     /**
-     * The ID of the Key Vault.
+     * The ID of the Key Vault for CMK encryption.
      * 
      */
     @Import(name="keyVaultId")
     private @Nullable Output<String> keyVaultId;
 
     /**
-     * @return The ID of the Key Vault.
+     * @return The ID of the Key Vault for CMK encryption.
      * 
      */
     public Optional<Output<String>> keyVaultId() {
@@ -73,6 +73,25 @@ public final class ClusterCustomerManagedKeyState extends com.pulumi.resources.R
      */
     public Optional<Output<String>> keyVersion() {
         return Optional.ofNullable(this.keyVersion);
+    }
+
+    /**
+     * The Managed HSM Key ID for CMK encryption.
+     * 
+     * &gt; **Note:** Exactly one of `managed_hsm_key_id` or `key_vault_id` must be specified.
+     * 
+     */
+    @Import(name="managedHsmKeyId")
+    private @Nullable Output<String> managedHsmKeyId;
+
+    /**
+     * @return The Managed HSM Key ID for CMK encryption.
+     * 
+     * &gt; **Note:** Exactly one of `managed_hsm_key_id` or `key_vault_id` must be specified.
+     * 
+     */
+    public Optional<Output<String>> managedHsmKeyId() {
+        return Optional.ofNullable(this.managedHsmKeyId);
     }
 
     /**
@@ -97,6 +116,7 @@ public final class ClusterCustomerManagedKeyState extends com.pulumi.resources.R
         this.keyName = $.keyName;
         this.keyVaultId = $.keyVaultId;
         this.keyVersion = $.keyVersion;
+        this.managedHsmKeyId = $.managedHsmKeyId;
         this.userIdentity = $.userIdentity;
     }
 
@@ -161,7 +181,7 @@ public final class ClusterCustomerManagedKeyState extends com.pulumi.resources.R
         }
 
         /**
-         * @param keyVaultId The ID of the Key Vault.
+         * @param keyVaultId The ID of the Key Vault for CMK encryption.
          * 
          * @return builder
          * 
@@ -172,7 +192,7 @@ public final class ClusterCustomerManagedKeyState extends com.pulumi.resources.R
         }
 
         /**
-         * @param keyVaultId The ID of the Key Vault.
+         * @param keyVaultId The ID of the Key Vault for CMK encryption.
          * 
          * @return builder
          * 
@@ -200,6 +220,31 @@ public final class ClusterCustomerManagedKeyState extends com.pulumi.resources.R
          */
         public Builder keyVersion(String keyVersion) {
             return keyVersion(Output.of(keyVersion));
+        }
+
+        /**
+         * @param managedHsmKeyId The Managed HSM Key ID for CMK encryption.
+         * 
+         * &gt; **Note:** Exactly one of `managed_hsm_key_id` or `key_vault_id` must be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder managedHsmKeyId(@Nullable Output<String> managedHsmKeyId) {
+            $.managedHsmKeyId = managedHsmKeyId;
+            return this;
+        }
+
+        /**
+         * @param managedHsmKeyId The Managed HSM Key ID for CMK encryption.
+         * 
+         * &gt; **Note:** Exactly one of `managed_hsm_key_id` or `key_vault_id` must be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder managedHsmKeyId(String managedHsmKeyId) {
+            return managedHsmKeyId(Output.of(managedHsmKeyId));
         }
 
         /**

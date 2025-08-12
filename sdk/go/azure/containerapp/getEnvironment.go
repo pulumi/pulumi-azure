@@ -45,9 +45,9 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This data source uses the following Azure API Providers:
 //
-// * `Microsoft.App`: 2025-01-01
+// * `Microsoft.App` - 2025-01-01
 //
-// * `Microsoft.OperationalInsights`: 2020-08-01
+// * `Microsoft.OperationalInsights` - 2020-08-01
 func LookupEnvironment(ctx *pulumi.Context, args *LookupEnvironmentArgs, opts ...pulumi.InvokeOption) (*LookupEnvironmentResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupEnvironmentResult

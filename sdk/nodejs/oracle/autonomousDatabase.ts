@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -48,6 +50,10 @@ export class AutonomousDatabase extends pulumi.CustomResource {
      */
     public readonly adminPassword!: pulumi.Output<string>;
     /**
+     * (Optional) Defines the network access type for the Autonomous Database. If the property is explicitly set to an empty list, it allows secure public access to the database from any IP address. If specific ACL (Access Control List) values are provided, access will be restricted to only the specified IP addresses.
+     */
+    public readonly allowedIps!: pulumi.Output<string[] | undefined>;
+    /**
      * Indicates if auto scaling is enabled for the Autonomous Database CPU core count. The default value is `true`.
      */
     public readonly autoScalingEnabled!: pulumi.Output<boolean>;
@@ -56,7 +62,7 @@ export class AutonomousDatabase extends pulumi.CustomResource {
      */
     public readonly autoScalingForStorageEnabled!: pulumi.Output<boolean>;
     /**
-     * (Updatable) Retention period, in days, for backups. Changing this forces a new Autonomous Database to be created.
+     * Retention period, in days, for backups.
      */
     public readonly backupRetentionPeriodInDays!: pulumi.Output<number>;
     /**
@@ -71,9 +77,6 @@ export class AutonomousDatabase extends pulumi.CustomResource {
      * The compute model of the Autonomous Database. This is required if using the `computeCount` parameter. If using `cpuCoreCount` then it is an error to specify `computeModel` to a non-null value. ECPU compute model is the recommended model and OCPU compute model is legacy. Changing this forces a new Autonomous Database to be created.
      */
     public readonly computeModel!: pulumi.Output<string>;
-    /**
-     * Specifies a list of customer contacts as email addresses. Changing this forces a new Autonomous Database to be created.
-     */
     public readonly customerContacts!: pulumi.Output<string[]>;
     /**
      * The maximum storage that can be allocated for the database, in terabytes.
@@ -103,8 +106,11 @@ export class AutonomousDatabase extends pulumi.CustomResource {
      * The Azure Region where the Autonomous Database should exist. Changing this forces a new Autonomous Database to be created.
      */
     public readonly location!: pulumi.Output<string>;
+    public readonly longTermBackupSchedule!: pulumi.Output<outputs.oracle.AutonomousDatabaseLongTermBackupSchedule | undefined>;
     /**
-     * Specifies if the Autonomous Database requires mTLS connections. Changing this forces a new Autonomous Database to be created.
+     * Specifies if the Autonomous Database requires mTLS connections. Changing this forces a new Autonomous Database to be created. Default value `false`.
+     *
+     * > **Note:** `mtlsConnectionRequired`  must be set to `true` for all workload types except 'APEX' when creating a database with public access.
      */
     public readonly mtlsConnectionRequired!: pulumi.Output<boolean>;
     /**
@@ -122,15 +128,12 @@ export class AutonomousDatabase extends pulumi.CustomResource {
     /**
      * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the subnet the resource is associated with. Changing this forces a new Autonomous Database to be created.
      */
-    public readonly subnetId!: pulumi.Output<string>;
-    /**
-     * A mapping of tags which should be assigned to the Autonomous Database.
-     */
+    public readonly subnetId!: pulumi.Output<string | undefined>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The ID of the vnet associated with the cloud VM cluster. Changing this forces a new Autonomous Database to be created.
      */
-    public readonly virtualNetworkId!: pulumi.Output<string>;
+    public readonly virtualNetworkId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a AutonomousDatabase resource with the given unique name, arguments, and options.
@@ -146,6 +149,7 @@ export class AutonomousDatabase extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as AutonomousDatabaseState | undefined;
             resourceInputs["adminPassword"] = state ? state.adminPassword : undefined;
+            resourceInputs["allowedIps"] = state ? state.allowedIps : undefined;
             resourceInputs["autoScalingEnabled"] = state ? state.autoScalingEnabled : undefined;
             resourceInputs["autoScalingForStorageEnabled"] = state ? state.autoScalingForStorageEnabled : undefined;
             resourceInputs["backupRetentionPeriodInDays"] = state ? state.backupRetentionPeriodInDays : undefined;
@@ -159,6 +163,7 @@ export class AutonomousDatabase extends pulumi.CustomResource {
             resourceInputs["displayName"] = state ? state.displayName : undefined;
             resourceInputs["licenseModel"] = state ? state.licenseModel : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["longTermBackupSchedule"] = state ? state.longTermBackupSchedule : undefined;
             resourceInputs["mtlsConnectionRequired"] = state ? state.mtlsConnectionRequired : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["nationalCharacterSet"] = state ? state.nationalCharacterSet : undefined;
@@ -213,13 +218,8 @@ export class AutonomousDatabase extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.subnetId === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'subnetId'");
-            }
-            if ((!args || args.virtualNetworkId === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'virtualNetworkId'");
-            }
             resourceInputs["adminPassword"] = args?.adminPassword ? pulumi.secret(args.adminPassword) : undefined;
+            resourceInputs["allowedIps"] = args ? args.allowedIps : undefined;
             resourceInputs["autoScalingEnabled"] = args ? args.autoScalingEnabled : undefined;
             resourceInputs["autoScalingForStorageEnabled"] = args ? args.autoScalingForStorageEnabled : undefined;
             resourceInputs["backupRetentionPeriodInDays"] = args ? args.backupRetentionPeriodInDays : undefined;
@@ -233,6 +233,7 @@ export class AutonomousDatabase extends pulumi.CustomResource {
             resourceInputs["displayName"] = args ? args.displayName : undefined;
             resourceInputs["licenseModel"] = args ? args.licenseModel : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["longTermBackupSchedule"] = args ? args.longTermBackupSchedule : undefined;
             resourceInputs["mtlsConnectionRequired"] = args ? args.mtlsConnectionRequired : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["nationalCharacterSet"] = args ? args.nationalCharacterSet : undefined;
@@ -257,6 +258,10 @@ export interface AutonomousDatabaseState {
      */
     adminPassword?: pulumi.Input<string>;
     /**
+     * (Optional) Defines the network access type for the Autonomous Database. If the property is explicitly set to an empty list, it allows secure public access to the database from any IP address. If specific ACL (Access Control List) values are provided, access will be restricted to only the specified IP addresses.
+     */
+    allowedIps?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * Indicates if auto scaling is enabled for the Autonomous Database CPU core count. The default value is `true`.
      */
     autoScalingEnabled?: pulumi.Input<boolean>;
@@ -265,7 +270,7 @@ export interface AutonomousDatabaseState {
      */
     autoScalingForStorageEnabled?: pulumi.Input<boolean>;
     /**
-     * (Updatable) Retention period, in days, for backups. Changing this forces a new Autonomous Database to be created.
+     * Retention period, in days, for backups.
      */
     backupRetentionPeriodInDays?: pulumi.Input<number>;
     /**
@@ -280,9 +285,6 @@ export interface AutonomousDatabaseState {
      * The compute model of the Autonomous Database. This is required if using the `computeCount` parameter. If using `cpuCoreCount` then it is an error to specify `computeModel` to a non-null value. ECPU compute model is the recommended model and OCPU compute model is legacy. Changing this forces a new Autonomous Database to be created.
      */
     computeModel?: pulumi.Input<string>;
-    /**
-     * Specifies a list of customer contacts as email addresses. Changing this forces a new Autonomous Database to be created.
-     */
     customerContacts?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The maximum storage that can be allocated for the database, in terabytes.
@@ -312,8 +314,11 @@ export interface AutonomousDatabaseState {
      * The Azure Region where the Autonomous Database should exist. Changing this forces a new Autonomous Database to be created.
      */
     location?: pulumi.Input<string>;
+    longTermBackupSchedule?: pulumi.Input<inputs.oracle.AutonomousDatabaseLongTermBackupSchedule>;
     /**
-     * Specifies if the Autonomous Database requires mTLS connections. Changing this forces a new Autonomous Database to be created.
+     * Specifies if the Autonomous Database requires mTLS connections. Changing this forces a new Autonomous Database to be created. Default value `false`.
+     *
+     * > **Note:** `mtlsConnectionRequired`  must be set to `true` for all workload types except 'APEX' when creating a database with public access.
      */
     mtlsConnectionRequired?: pulumi.Input<boolean>;
     /**
@@ -332,9 +337,6 @@ export interface AutonomousDatabaseState {
      * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the subnet the resource is associated with. Changing this forces a new Autonomous Database to be created.
      */
     subnetId?: pulumi.Input<string>;
-    /**
-     * A mapping of tags which should be assigned to the Autonomous Database.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The ID of the vnet associated with the cloud VM cluster. Changing this forces a new Autonomous Database to be created.
@@ -351,6 +353,10 @@ export interface AutonomousDatabaseArgs {
      */
     adminPassword: pulumi.Input<string>;
     /**
+     * (Optional) Defines the network access type for the Autonomous Database. If the property is explicitly set to an empty list, it allows secure public access to the database from any IP address. If specific ACL (Access Control List) values are provided, access will be restricted to only the specified IP addresses.
+     */
+    allowedIps?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * Indicates if auto scaling is enabled for the Autonomous Database CPU core count. The default value is `true`.
      */
     autoScalingEnabled: pulumi.Input<boolean>;
@@ -359,7 +365,7 @@ export interface AutonomousDatabaseArgs {
      */
     autoScalingForStorageEnabled: pulumi.Input<boolean>;
     /**
-     * (Updatable) Retention period, in days, for backups. Changing this forces a new Autonomous Database to be created.
+     * Retention period, in days, for backups.
      */
     backupRetentionPeriodInDays: pulumi.Input<number>;
     /**
@@ -374,9 +380,6 @@ export interface AutonomousDatabaseArgs {
      * The compute model of the Autonomous Database. This is required if using the `computeCount` parameter. If using `cpuCoreCount` then it is an error to specify `computeModel` to a non-null value. ECPU compute model is the recommended model and OCPU compute model is legacy. Changing this forces a new Autonomous Database to be created.
      */
     computeModel: pulumi.Input<string>;
-    /**
-     * Specifies a list of customer contacts as email addresses. Changing this forces a new Autonomous Database to be created.
-     */
     customerContacts?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The maximum storage that can be allocated for the database, in terabytes.
@@ -406,8 +409,11 @@ export interface AutonomousDatabaseArgs {
      * The Azure Region where the Autonomous Database should exist. Changing this forces a new Autonomous Database to be created.
      */
     location?: pulumi.Input<string>;
+    longTermBackupSchedule?: pulumi.Input<inputs.oracle.AutonomousDatabaseLongTermBackupSchedule>;
     /**
-     * Specifies if the Autonomous Database requires mTLS connections. Changing this forces a new Autonomous Database to be created.
+     * Specifies if the Autonomous Database requires mTLS connections. Changing this forces a new Autonomous Database to be created. Default value `false`.
+     *
+     * > **Note:** `mtlsConnectionRequired`  must be set to `true` for all workload types except 'APEX' when creating a database with public access.
      */
     mtlsConnectionRequired: pulumi.Input<boolean>;
     /**
@@ -425,13 +431,10 @@ export interface AutonomousDatabaseArgs {
     /**
      * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the subnet the resource is associated with. Changing this forces a new Autonomous Database to be created.
      */
-    subnetId: pulumi.Input<string>;
-    /**
-     * A mapping of tags which should be assigned to the Autonomous Database.
-     */
+    subnetId?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The ID of the vnet associated with the cloud VM cluster. Changing this forces a new Autonomous Database to be created.
      */
-    virtualNetworkId: pulumi.Input<string>;
+    virtualNetworkId?: pulumi.Input<string>;
 }

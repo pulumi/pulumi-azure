@@ -121,7 +121,7 @@ def get_platform_image(location: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Compute`: 2024-03-01
+    * `Microsoft.Compute` - 2024-03-01
 
 
     :param _builtins.str location: Specifies the Location to pull information about this Platform Image from.
@@ -173,7 +173,7 @@ def get_platform_image_output(location: Optional[pulumi.Input[_builtins.str]] = 
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Compute`: 2024-03-01
+    * `Microsoft.Compute` - 2024-03-01
 
 
     :param _builtins.str location: Specifies the Location to pull information about this Platform Image from.

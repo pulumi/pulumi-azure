@@ -122,7 +122,7 @@ def get_shared_image_versions(gallery_name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Compute`: 2023-07-03
+    * `Microsoft.Compute` - 2023-07-03
 
 
     :param _builtins.str gallery_name: The name of the Shared Image in which the Shared Image exists.
@@ -169,7 +169,7 @@ def get_shared_image_versions_output(gallery_name: Optional[pulumi.Input[_builti
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Compute`: 2023-07-03
+    * `Microsoft.Compute` - 2023-07-03
 
 
     :param _builtins.str gallery_name: The name of the Shared Image in which the Shared Image exists.

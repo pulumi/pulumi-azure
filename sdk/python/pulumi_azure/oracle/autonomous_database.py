@@ -13,6 +13,8 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['AutonomousDatabaseArgs', 'AutonomousDatabase']
 
@@ -34,18 +36,20 @@ class AutonomousDatabaseArgs:
                  mtls_connection_required: pulumi.Input[_builtins.bool],
                  national_character_set: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 subnet_id: pulumi.Input[_builtins.str],
-                 virtual_network_id: pulumi.Input[_builtins.str],
+                 allowed_ips: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  customer_contacts: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
+                 long_term_backup_schedule: Optional[pulumi.Input['AutonomousDatabaseLongTermBackupScheduleArgs']] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 virtual_network_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AutonomousDatabase resource.
         :param pulumi.Input[_builtins.str] admin_password: The password must be between `12` and `30 `characters long, and must contain at least 1 uppercase, 1 lowercase, and 1 numeric character. It cannot contain the double quote symbol (") or the username "admin", regardless of casing. Changing this forces a new Autonomous Database to be created.
         :param pulumi.Input[_builtins.bool] auto_scaling_enabled: Indicates if auto scaling is enabled for the Autonomous Database CPU core count. The default value is `true`.
         :param pulumi.Input[_builtins.bool] auto_scaling_for_storage_enabled: Indicates if auto scaling is enabled for the Autonomous Database storage. The default value is `false`.
-        :param pulumi.Input[_builtins.int] backup_retention_period_in_days: (Updatable) Retention period, in days, for backups. Changing this forces a new Autonomous Database to be created.
+        :param pulumi.Input[_builtins.int] backup_retention_period_in_days: Retention period, in days, for backups.
         :param pulumi.Input[_builtins.str] character_set: The character set for the autonomous database.  The default is `AL32UTF8`. Allowed values are:  `AL32UTF8`, `AR8ADOS710`, `AR8ADOS720`, `AR8APTEC715`, `AR8ARABICMACS`, `AR8ASMO8X`, `AR8ISO8859P6`, `AR8MSWIN1256`, `AR8MUSSAD768`, `AR8NAFITHA711`, `AR8NAFITHA721`, `AR8SAKHR706`, `AR8SAKHR707`, `AZ8ISO8859P9E`, `BG8MSWIN`, `BG8PC437S`, `BLT8CP921`, `BLT8ISO8859P13`, `BLT8MSWIN1257`, `BLT8PC775`, `BN8BSCII`, `CDN8PC863`, `CEL8ISO8859P14`, `CL8ISO8859P5`, `CL8ISOIR111`, `CL8KOI8R`, `CL8KOI8U`, `CL8MACCYRILLICS`, `CL8MSWIN1251`, `EE8ISO8859P2`, `EE8MACCES`, `EE8MACCROATIANS`, `EE8MSWIN1250`, `EE8PC852`, `EL8DEC`, `EL8ISO8859P7`, `EL8MACGREEKS`, `EL8MSWIN1253`, `EL8PC437S`, `EL8PC851`, `EL8PC869`, `ET8MSWIN923`, `HU8ABMOD`, `HU8CWI2`, `IN8ISCII`, `IS8PC861`, `IW8ISO8859P8`, `IW8MACHEBREWS`, `IW8MSWIN1255`, `IW8PC1507`, `JA16EUC`, `JA16EUCTILDE`, `JA16SJIS`, `JA16SJISTILDE`, `JA16VMS`, `KO16KSC5601`, `KO16KSCCS`, `KO16MSWIN949`, `LA8ISO6937`, `LA8PASSPORT`, `LT8MSWIN921`, `LT8PC772`, `LT8PC774`, `LV8PC1117`, `LV8PC8LR`, `LV8RST104090`, `N8PC865`, `NE8ISO8859P10`, `NEE8ISO8859P4`, `RU8BESTA`, `RU8PC855`, `RU8PC866`, `SE8ISO8859P3`, `TH8MACTHAIS`, `TH8TISASCII`, `TR8DEC`, `TR8MACTURKISHS`, `TR8MSWIN1254`, `TR8PC857`, `US7ASCII`, `US8PC437`, `UTF8`, `VN8MSWIN1258`, `VN8VN3`, `WE8DEC`, `WE8DG`, `WE8ISO8859P1`, `WE8ISO8859P15`, `WE8ISO8859P9`, `WE8MACROMAN8S`, `WE8MSWIN1252`, `WE8NCR4970`, `WE8NEXTSTEP`, `WE8PC850`, `WE8PC858`, `WE8PC860`, `WE8ROMAN8`, `ZHS16CGB231280`, `ZHS16GBK`, `ZHT16BIG5`, `ZHT16CCDC`, `ZHT16DBT`, `ZHT16HKSCS`, `ZHT16MSWIN950`, `ZHT32EUC`, `ZHT32SOPS`, `ZHT32TRIS`. Changing this forces a new Autonomous Database to be created
         :param pulumi.Input[_builtins.float] compute_count: The compute amount (CPUs) available to the database. Minimum and maximum values depend on the compute model and whether the database is an Autonomous Database Serverless instance or an Autonomous Database on Dedicated Exadata Infrastructure.  For an Autonomous Database Serverless instance, the `ECPU` compute model requires a minimum value of one, for databases in the elastic resource pool and minimum value of two, otherwise. Required when using the `computeModel` parameter. When using `cpuCoreCount` parameter, it is an error to specify computeCount to a non-null value. Providing `computeModel` and `computeCount` is the preferred method for both OCPU and ECPU.
         :param pulumi.Input[_builtins.str] compute_model: The compute model of the Autonomous Database. This is required if using the `computeCount` parameter. If using `cpuCoreCount` then it is an error to specify `computeModel` to a non-null value. ECPU compute model is the recommended model and OCPU compute model is legacy. Changing this forces a new Autonomous Database to be created.
@@ -58,15 +62,16 @@ class AutonomousDatabaseArgs:
                * APEX - indicates an Autonomous Database with the Oracle APEX Application Development workload type.
         :param pulumi.Input[_builtins.str] display_name: The user-friendly name for the Autonomous Database. The name does not have to be unique. Changing this forces a new Autonomous Database to be created.
         :param pulumi.Input[_builtins.str] license_model: The Oracle license model that applies to the Oracle Autonomous Database. Changing this forces a new Autonomous Database to be created. Bring your own license (BYOL) allows you to apply your current on-premises Oracle software licenses to equivalent, highly automated Oracle services in the cloud. License Included allows you to subscribe to new Oracle Database software licenses and the Oracle Database service. Note that when provisioning an [Autonomous Database on dedicated Exadata infrastructure](https://docs.oracle.com/en/cloud/paas/autonomous-database/index.html), this attribute must be null. It is already set at the Autonomous Exadata Infrastructure level. When provisioning an [Autonomous Database Serverless] (https://docs.oracle.com/en/cloud/paas/autonomous-database/index.html) database, if a value is not specified, the system defaults the value to `BRING_YOUR_OWN_LICENSE`. Bring your own license (BYOL) also allows you to select the DB edition using the optional parameter.
-        :param pulumi.Input[_builtins.bool] mtls_connection_required: Specifies if the Autonomous Database requires mTLS connections. Changing this forces a new Autonomous Database to be created.
+        :param pulumi.Input[_builtins.bool] mtls_connection_required: Specifies if the Autonomous Database requires mTLS connections. Changing this forces a new Autonomous Database to be created. Default value `false`.
+               
+               > **Note:** `mtls_connection_required`  must be set to `true` for all workload types except 'APEX' when creating a database with public access.
         :param pulumi.Input[_builtins.str] national_character_set: The national character set for the autonomous database. Changing this forces a new Autonomous Database to be created. The default is AL16UTF16. Allowed values are: AL16UTF16 or UTF8.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Autonomous Database should exist. Changing this forces a new Autonomous Database to be created.
-        :param pulumi.Input[_builtins.str] subnet_id: The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the subnet the resource is associated with. Changing this forces a new Autonomous Database to be created.
-        :param pulumi.Input[_builtins.str] virtual_network_id: The ID of the vnet associated with the cloud VM cluster. Changing this forces a new Autonomous Database to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] customer_contacts: Specifies a list of customer contacts as email addresses. Changing this forces a new Autonomous Database to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_ips: (Optional) Defines the network access type for the Autonomous Database. If the property is explicitly set to an empty list, it allows secure public access to the database from any IP address. If specific ACL (Access Control List) values are provided, access will be restricted to only the specified IP addresses.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Autonomous Database should exist. Changing this forces a new Autonomous Database to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Autonomous Database. Changing this forces a new Autonomous Database to be created.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Autonomous Database.
+        :param pulumi.Input[_builtins.str] subnet_id: The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the subnet the resource is associated with. Changing this forces a new Autonomous Database to be created.
+        :param pulumi.Input[_builtins.str] virtual_network_id: The ID of the vnet associated with the cloud VM cluster. Changing this forces a new Autonomous Database to be created.
         """
         pulumi.set(__self__, "admin_password", admin_password)
         pulumi.set(__self__, "auto_scaling_enabled", auto_scaling_enabled)
@@ -83,16 +88,22 @@ class AutonomousDatabaseArgs:
         pulumi.set(__self__, "mtls_connection_required", mtls_connection_required)
         pulumi.set(__self__, "national_character_set", national_character_set)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "subnet_id", subnet_id)
-        pulumi.set(__self__, "virtual_network_id", virtual_network_id)
+        if allowed_ips is not None:
+            pulumi.set(__self__, "allowed_ips", allowed_ips)
         if customer_contacts is not None:
             pulumi.set(__self__, "customer_contacts", customer_contacts)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if long_term_backup_schedule is not None:
+            pulumi.set(__self__, "long_term_backup_schedule", long_term_backup_schedule)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if subnet_id is not None:
+            pulumi.set(__self__, "subnet_id", subnet_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if virtual_network_id is not None:
+            pulumi.set(__self__, "virtual_network_id", virtual_network_id)
 
     @_builtins.property
     @pulumi.getter(name="adminPassword")
@@ -134,7 +145,7 @@ class AutonomousDatabaseArgs:
     @pulumi.getter(name="backupRetentionPeriodInDays")
     def backup_retention_period_in_days(self) -> pulumi.Input[_builtins.int]:
         """
-        (Updatable) Retention period, in days, for backups. Changing this forces a new Autonomous Database to be created.
+        Retention period, in days, for backups.
         """
         return pulumi.get(self, "backup_retention_period_in_days")
 
@@ -246,7 +257,9 @@ class AutonomousDatabaseArgs:
     @pulumi.getter(name="mtlsConnectionRequired")
     def mtls_connection_required(self) -> pulumi.Input[_builtins.bool]:
         """
-        Specifies if the Autonomous Database requires mTLS connections. Changing this forces a new Autonomous Database to be created.
+        Specifies if the Autonomous Database requires mTLS connections. Changing this forces a new Autonomous Database to be created. Default value `false`.
+
+        > **Note:** `mtls_connection_required`  must be set to `true` for all workload types except 'APEX' when creating a database with public access.
         """
         return pulumi.get(self, "mtls_connection_required")
 
@@ -279,35 +292,20 @@ class AutonomousDatabaseArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
-    @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> pulumi.Input[_builtins.str]:
+    @pulumi.getter(name="allowedIps")
+    def allowed_ips(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the subnet the resource is associated with. Changing this forces a new Autonomous Database to be created.
+        (Optional) Defines the network access type for the Autonomous Database. If the property is explicitly set to an empty list, it allows secure public access to the database from any IP address. If specific ACL (Access Control List) values are provided, access will be restricted to only the specified IP addresses.
         """
-        return pulumi.get(self, "subnet_id")
+        return pulumi.get(self, "allowed_ips")
 
-    @subnet_id.setter
-    def subnet_id(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "subnet_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="virtualNetworkId")
-    def virtual_network_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ID of the vnet associated with the cloud VM cluster. Changing this forces a new Autonomous Database to be created.
-        """
-        return pulumi.get(self, "virtual_network_id")
-
-    @virtual_network_id.setter
-    def virtual_network_id(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "virtual_network_id", value)
+    @allowed_ips.setter
+    def allowed_ips(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "allowed_ips", value)
 
     @_builtins.property
     @pulumi.getter(name="customerContacts")
     def customer_contacts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Specifies a list of customer contacts as email addresses. Changing this forces a new Autonomous Database to be created.
-        """
         return pulumi.get(self, "customer_contacts")
 
     @customer_contacts.setter
@@ -327,6 +325,15 @@ class AutonomousDatabaseArgs:
         pulumi.set(self, "location", value)
 
     @_builtins.property
+    @pulumi.getter(name="longTermBackupSchedule")
+    def long_term_backup_schedule(self) -> Optional[pulumi.Input['AutonomousDatabaseLongTermBackupScheduleArgs']]:
+        return pulumi.get(self, "long_term_backup_schedule")
+
+    @long_term_backup_schedule.setter
+    def long_term_backup_schedule(self, value: Optional[pulumi.Input['AutonomousDatabaseLongTermBackupScheduleArgs']]):
+        pulumi.set(self, "long_term_backup_schedule", value)
+
+    @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -339,22 +346,44 @@ class AutonomousDatabaseArgs:
         pulumi.set(self, "name", value)
 
     @_builtins.property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the subnet the resource is associated with. Changing this forces a new Autonomous Database to be created.
+        """
+        return pulumi.get(self, "subnet_id")
+
+    @subnet_id.setter
+    def subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "subnet_id", value)
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A mapping of tags which should be assigned to the Autonomous Database.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
+    @_builtins.property
+    @pulumi.getter(name="virtualNetworkId")
+    def virtual_network_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The ID of the vnet associated with the cloud VM cluster. Changing this forces a new Autonomous Database to be created.
+        """
+        return pulumi.get(self, "virtual_network_id")
+
+    @virtual_network_id.setter
+    def virtual_network_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "virtual_network_id", value)
+
 
 @pulumi.input_type
 class _AutonomousDatabaseState:
     def __init__(__self__, *,
                  admin_password: Optional[pulumi.Input[_builtins.str]] = None,
+                 allowed_ips: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  auto_scaling_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  auto_scaling_for_storage_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  backup_retention_period_in_days: Optional[pulumi.Input[_builtins.int]] = None,
@@ -368,6 +397,7 @@ class _AutonomousDatabaseState:
                  display_name: Optional[pulumi.Input[_builtins.str]] = None,
                  license_model: Optional[pulumi.Input[_builtins.str]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
+                 long_term_backup_schedule: Optional[pulumi.Input['AutonomousDatabaseLongTermBackupScheduleArgs']] = None,
                  mtls_connection_required: Optional[pulumi.Input[_builtins.bool]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  national_character_set: Optional[pulumi.Input[_builtins.str]] = None,
@@ -378,13 +408,13 @@ class _AutonomousDatabaseState:
         """
         Input properties used for looking up and filtering AutonomousDatabase resources.
         :param pulumi.Input[_builtins.str] admin_password: The password must be between `12` and `30 `characters long, and must contain at least 1 uppercase, 1 lowercase, and 1 numeric character. It cannot contain the double quote symbol (") or the username "admin", regardless of casing. Changing this forces a new Autonomous Database to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_ips: (Optional) Defines the network access type for the Autonomous Database. If the property is explicitly set to an empty list, it allows secure public access to the database from any IP address. If specific ACL (Access Control List) values are provided, access will be restricted to only the specified IP addresses.
         :param pulumi.Input[_builtins.bool] auto_scaling_enabled: Indicates if auto scaling is enabled for the Autonomous Database CPU core count. The default value is `true`.
         :param pulumi.Input[_builtins.bool] auto_scaling_for_storage_enabled: Indicates if auto scaling is enabled for the Autonomous Database storage. The default value is `false`.
-        :param pulumi.Input[_builtins.int] backup_retention_period_in_days: (Updatable) Retention period, in days, for backups. Changing this forces a new Autonomous Database to be created.
+        :param pulumi.Input[_builtins.int] backup_retention_period_in_days: Retention period, in days, for backups.
         :param pulumi.Input[_builtins.str] character_set: The character set for the autonomous database.  The default is `AL32UTF8`. Allowed values are:  `AL32UTF8`, `AR8ADOS710`, `AR8ADOS720`, `AR8APTEC715`, `AR8ARABICMACS`, `AR8ASMO8X`, `AR8ISO8859P6`, `AR8MSWIN1256`, `AR8MUSSAD768`, `AR8NAFITHA711`, `AR8NAFITHA721`, `AR8SAKHR706`, `AR8SAKHR707`, `AZ8ISO8859P9E`, `BG8MSWIN`, `BG8PC437S`, `BLT8CP921`, `BLT8ISO8859P13`, `BLT8MSWIN1257`, `BLT8PC775`, `BN8BSCII`, `CDN8PC863`, `CEL8ISO8859P14`, `CL8ISO8859P5`, `CL8ISOIR111`, `CL8KOI8R`, `CL8KOI8U`, `CL8MACCYRILLICS`, `CL8MSWIN1251`, `EE8ISO8859P2`, `EE8MACCES`, `EE8MACCROATIANS`, `EE8MSWIN1250`, `EE8PC852`, `EL8DEC`, `EL8ISO8859P7`, `EL8MACGREEKS`, `EL8MSWIN1253`, `EL8PC437S`, `EL8PC851`, `EL8PC869`, `ET8MSWIN923`, `HU8ABMOD`, `HU8CWI2`, `IN8ISCII`, `IS8PC861`, `IW8ISO8859P8`, `IW8MACHEBREWS`, `IW8MSWIN1255`, `IW8PC1507`, `JA16EUC`, `JA16EUCTILDE`, `JA16SJIS`, `JA16SJISTILDE`, `JA16VMS`, `KO16KSC5601`, `KO16KSCCS`, `KO16MSWIN949`, `LA8ISO6937`, `LA8PASSPORT`, `LT8MSWIN921`, `LT8PC772`, `LT8PC774`, `LV8PC1117`, `LV8PC8LR`, `LV8RST104090`, `N8PC865`, `NE8ISO8859P10`, `NEE8ISO8859P4`, `RU8BESTA`, `RU8PC855`, `RU8PC866`, `SE8ISO8859P3`, `TH8MACTHAIS`, `TH8TISASCII`, `TR8DEC`, `TR8MACTURKISHS`, `TR8MSWIN1254`, `TR8PC857`, `US7ASCII`, `US8PC437`, `UTF8`, `VN8MSWIN1258`, `VN8VN3`, `WE8DEC`, `WE8DG`, `WE8ISO8859P1`, `WE8ISO8859P15`, `WE8ISO8859P9`, `WE8MACROMAN8S`, `WE8MSWIN1252`, `WE8NCR4970`, `WE8NEXTSTEP`, `WE8PC850`, `WE8PC858`, `WE8PC860`, `WE8ROMAN8`, `ZHS16CGB231280`, `ZHS16GBK`, `ZHT16BIG5`, `ZHT16CCDC`, `ZHT16DBT`, `ZHT16HKSCS`, `ZHT16MSWIN950`, `ZHT32EUC`, `ZHT32SOPS`, `ZHT32TRIS`. Changing this forces a new Autonomous Database to be created
         :param pulumi.Input[_builtins.float] compute_count: The compute amount (CPUs) available to the database. Minimum and maximum values depend on the compute model and whether the database is an Autonomous Database Serverless instance or an Autonomous Database on Dedicated Exadata Infrastructure.  For an Autonomous Database Serverless instance, the `ECPU` compute model requires a minimum value of one, for databases in the elastic resource pool and minimum value of two, otherwise. Required when using the `computeModel` parameter. When using `cpuCoreCount` parameter, it is an error to specify computeCount to a non-null value. Providing `computeModel` and `computeCount` is the preferred method for both OCPU and ECPU.
         :param pulumi.Input[_builtins.str] compute_model: The compute model of the Autonomous Database. This is required if using the `computeCount` parameter. If using `cpuCoreCount` then it is an error to specify `computeModel` to a non-null value. ECPU compute model is the recommended model and OCPU compute model is legacy. Changing this forces a new Autonomous Database to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] customer_contacts: Specifies a list of customer contacts as email addresses. Changing this forces a new Autonomous Database to be created.
         :param pulumi.Input[_builtins.int] data_storage_size_in_tbs: The maximum storage that can be allocated for the database, in terabytes.
         :param pulumi.Input[_builtins.str] db_version: A valid Oracle Database version for Autonomous Database. Changing this forces a new Autonomous Database to be created.
         :param pulumi.Input[_builtins.str] db_workload: The Autonomous Database workload type. Changing this forces a new Autonomous Database to be created. The following values are valid:
@@ -395,16 +425,19 @@ class _AutonomousDatabaseState:
         :param pulumi.Input[_builtins.str] display_name: The user-friendly name for the Autonomous Database. The name does not have to be unique. Changing this forces a new Autonomous Database to be created.
         :param pulumi.Input[_builtins.str] license_model: The Oracle license model that applies to the Oracle Autonomous Database. Changing this forces a new Autonomous Database to be created. Bring your own license (BYOL) allows you to apply your current on-premises Oracle software licenses to equivalent, highly automated Oracle services in the cloud. License Included allows you to subscribe to new Oracle Database software licenses and the Oracle Database service. Note that when provisioning an [Autonomous Database on dedicated Exadata infrastructure](https://docs.oracle.com/en/cloud/paas/autonomous-database/index.html), this attribute must be null. It is already set at the Autonomous Exadata Infrastructure level. When provisioning an [Autonomous Database Serverless] (https://docs.oracle.com/en/cloud/paas/autonomous-database/index.html) database, if a value is not specified, the system defaults the value to `BRING_YOUR_OWN_LICENSE`. Bring your own license (BYOL) also allows you to select the DB edition using the optional parameter.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Autonomous Database should exist. Changing this forces a new Autonomous Database to be created.
-        :param pulumi.Input[_builtins.bool] mtls_connection_required: Specifies if the Autonomous Database requires mTLS connections. Changing this forces a new Autonomous Database to be created.
+        :param pulumi.Input[_builtins.bool] mtls_connection_required: Specifies if the Autonomous Database requires mTLS connections. Changing this forces a new Autonomous Database to be created. Default value `false`.
+               
+               > **Note:** `mtls_connection_required`  must be set to `true` for all workload types except 'APEX' when creating a database with public access.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Autonomous Database. Changing this forces a new Autonomous Database to be created.
         :param pulumi.Input[_builtins.str] national_character_set: The national character set for the autonomous database. Changing this forces a new Autonomous Database to be created. The default is AL16UTF16. Allowed values are: AL16UTF16 or UTF8.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Autonomous Database should exist. Changing this forces a new Autonomous Database to be created.
         :param pulumi.Input[_builtins.str] subnet_id: The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the subnet the resource is associated with. Changing this forces a new Autonomous Database to be created.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Autonomous Database.
         :param pulumi.Input[_builtins.str] virtual_network_id: The ID of the vnet associated with the cloud VM cluster. Changing this forces a new Autonomous Database to be created.
         """
         if admin_password is not None:
             pulumi.set(__self__, "admin_password", admin_password)
+        if allowed_ips is not None:
+            pulumi.set(__self__, "allowed_ips", allowed_ips)
         if auto_scaling_enabled is not None:
             pulumi.set(__self__, "auto_scaling_enabled", auto_scaling_enabled)
         if auto_scaling_for_storage_enabled is not None:
@@ -431,6 +464,8 @@ class _AutonomousDatabaseState:
             pulumi.set(__self__, "license_model", license_model)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if long_term_backup_schedule is not None:
+            pulumi.set(__self__, "long_term_backup_schedule", long_term_backup_schedule)
         if mtls_connection_required is not None:
             pulumi.set(__self__, "mtls_connection_required", mtls_connection_required)
         if name is not None:
@@ -457,6 +492,18 @@ class _AutonomousDatabaseState:
     @admin_password.setter
     def admin_password(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "admin_password", value)
+
+    @_builtins.property
+    @pulumi.getter(name="allowedIps")
+    def allowed_ips(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        (Optional) Defines the network access type for the Autonomous Database. If the property is explicitly set to an empty list, it allows secure public access to the database from any IP address. If specific ACL (Access Control List) values are provided, access will be restricted to only the specified IP addresses.
+        """
+        return pulumi.get(self, "allowed_ips")
+
+    @allowed_ips.setter
+    def allowed_ips(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "allowed_ips", value)
 
     @_builtins.property
     @pulumi.getter(name="autoScalingEnabled")
@@ -486,7 +533,7 @@ class _AutonomousDatabaseState:
     @pulumi.getter(name="backupRetentionPeriodInDays")
     def backup_retention_period_in_days(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
-        (Updatable) Retention period, in days, for backups. Changing this forces a new Autonomous Database to be created.
+        Retention period, in days, for backups.
         """
         return pulumi.get(self, "backup_retention_period_in_days")
 
@@ -533,9 +580,6 @@ class _AutonomousDatabaseState:
     @_builtins.property
     @pulumi.getter(name="customerContacts")
     def customer_contacts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Specifies a list of customer contacts as email addresses. Changing this forces a new Autonomous Database to be created.
-        """
         return pulumi.get(self, "customer_contacts")
 
     @customer_contacts.setter
@@ -619,10 +663,21 @@ class _AutonomousDatabaseState:
         pulumi.set(self, "location", value)
 
     @_builtins.property
+    @pulumi.getter(name="longTermBackupSchedule")
+    def long_term_backup_schedule(self) -> Optional[pulumi.Input['AutonomousDatabaseLongTermBackupScheduleArgs']]:
+        return pulumi.get(self, "long_term_backup_schedule")
+
+    @long_term_backup_schedule.setter
+    def long_term_backup_schedule(self, value: Optional[pulumi.Input['AutonomousDatabaseLongTermBackupScheduleArgs']]):
+        pulumi.set(self, "long_term_backup_schedule", value)
+
+    @_builtins.property
     @pulumi.getter(name="mtlsConnectionRequired")
     def mtls_connection_required(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Specifies if the Autonomous Database requires mTLS connections. Changing this forces a new Autonomous Database to be created.
+        Specifies if the Autonomous Database requires mTLS connections. Changing this forces a new Autonomous Database to be created. Default value `false`.
+
+        > **Note:** `mtls_connection_required`  must be set to `true` for all workload types except 'APEX' when creating a database with public access.
         """
         return pulumi.get(self, "mtls_connection_required")
 
@@ -681,9 +736,6 @@ class _AutonomousDatabaseState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A mapping of tags which should be assigned to the Autonomous Database.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -710,6 +762,7 @@ class AutonomousDatabase(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  admin_password: Optional[pulumi.Input[_builtins.str]] = None,
+                 allowed_ips: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  auto_scaling_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  auto_scaling_for_storage_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  backup_retention_period_in_days: Optional[pulumi.Input[_builtins.int]] = None,
@@ -723,6 +776,7 @@ class AutonomousDatabase(pulumi.CustomResource):
                  display_name: Optional[pulumi.Input[_builtins.str]] = None,
                  license_model: Optional[pulumi.Input[_builtins.str]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
+                 long_term_backup_schedule: Optional[pulumi.Input[Union['AutonomousDatabaseLongTermBackupScheduleArgs', 'AutonomousDatabaseLongTermBackupScheduleArgsDict']]] = None,
                  mtls_connection_required: Optional[pulumi.Input[_builtins.bool]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  national_character_set: Optional[pulumi.Input[_builtins.str]] = None,
@@ -745,13 +799,13 @@ class AutonomousDatabase(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] admin_password: The password must be between `12` and `30 `characters long, and must contain at least 1 uppercase, 1 lowercase, and 1 numeric character. It cannot contain the double quote symbol (") or the username "admin", regardless of casing. Changing this forces a new Autonomous Database to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_ips: (Optional) Defines the network access type for the Autonomous Database. If the property is explicitly set to an empty list, it allows secure public access to the database from any IP address. If specific ACL (Access Control List) values are provided, access will be restricted to only the specified IP addresses.
         :param pulumi.Input[_builtins.bool] auto_scaling_enabled: Indicates if auto scaling is enabled for the Autonomous Database CPU core count. The default value is `true`.
         :param pulumi.Input[_builtins.bool] auto_scaling_for_storage_enabled: Indicates if auto scaling is enabled for the Autonomous Database storage. The default value is `false`.
-        :param pulumi.Input[_builtins.int] backup_retention_period_in_days: (Updatable) Retention period, in days, for backups. Changing this forces a new Autonomous Database to be created.
+        :param pulumi.Input[_builtins.int] backup_retention_period_in_days: Retention period, in days, for backups.
         :param pulumi.Input[_builtins.str] character_set: The character set for the autonomous database.  The default is `AL32UTF8`. Allowed values are:  `AL32UTF8`, `AR8ADOS710`, `AR8ADOS720`, `AR8APTEC715`, `AR8ARABICMACS`, `AR8ASMO8X`, `AR8ISO8859P6`, `AR8MSWIN1256`, `AR8MUSSAD768`, `AR8NAFITHA711`, `AR8NAFITHA721`, `AR8SAKHR706`, `AR8SAKHR707`, `AZ8ISO8859P9E`, `BG8MSWIN`, `BG8PC437S`, `BLT8CP921`, `BLT8ISO8859P13`, `BLT8MSWIN1257`, `BLT8PC775`, `BN8BSCII`, `CDN8PC863`, `CEL8ISO8859P14`, `CL8ISO8859P5`, `CL8ISOIR111`, `CL8KOI8R`, `CL8KOI8U`, `CL8MACCYRILLICS`, `CL8MSWIN1251`, `EE8ISO8859P2`, `EE8MACCES`, `EE8MACCROATIANS`, `EE8MSWIN1250`, `EE8PC852`, `EL8DEC`, `EL8ISO8859P7`, `EL8MACGREEKS`, `EL8MSWIN1253`, `EL8PC437S`, `EL8PC851`, `EL8PC869`, `ET8MSWIN923`, `HU8ABMOD`, `HU8CWI2`, `IN8ISCII`, `IS8PC861`, `IW8ISO8859P8`, `IW8MACHEBREWS`, `IW8MSWIN1255`, `IW8PC1507`, `JA16EUC`, `JA16EUCTILDE`, `JA16SJIS`, `JA16SJISTILDE`, `JA16VMS`, `KO16KSC5601`, `KO16KSCCS`, `KO16MSWIN949`, `LA8ISO6937`, `LA8PASSPORT`, `LT8MSWIN921`, `LT8PC772`, `LT8PC774`, `LV8PC1117`, `LV8PC8LR`, `LV8RST104090`, `N8PC865`, `NE8ISO8859P10`, `NEE8ISO8859P4`, `RU8BESTA`, `RU8PC855`, `RU8PC866`, `SE8ISO8859P3`, `TH8MACTHAIS`, `TH8TISASCII`, `TR8DEC`, `TR8MACTURKISHS`, `TR8MSWIN1254`, `TR8PC857`, `US7ASCII`, `US8PC437`, `UTF8`, `VN8MSWIN1258`, `VN8VN3`, `WE8DEC`, `WE8DG`, `WE8ISO8859P1`, `WE8ISO8859P15`, `WE8ISO8859P9`, `WE8MACROMAN8S`, `WE8MSWIN1252`, `WE8NCR4970`, `WE8NEXTSTEP`, `WE8PC850`, `WE8PC858`, `WE8PC860`, `WE8ROMAN8`, `ZHS16CGB231280`, `ZHS16GBK`, `ZHT16BIG5`, `ZHT16CCDC`, `ZHT16DBT`, `ZHT16HKSCS`, `ZHT16MSWIN950`, `ZHT32EUC`, `ZHT32SOPS`, `ZHT32TRIS`. Changing this forces a new Autonomous Database to be created
         :param pulumi.Input[_builtins.float] compute_count: The compute amount (CPUs) available to the database. Minimum and maximum values depend on the compute model and whether the database is an Autonomous Database Serverless instance or an Autonomous Database on Dedicated Exadata Infrastructure.  For an Autonomous Database Serverless instance, the `ECPU` compute model requires a minimum value of one, for databases in the elastic resource pool and minimum value of two, otherwise. Required when using the `computeModel` parameter. When using `cpuCoreCount` parameter, it is an error to specify computeCount to a non-null value. Providing `computeModel` and `computeCount` is the preferred method for both OCPU and ECPU.
         :param pulumi.Input[_builtins.str] compute_model: The compute model of the Autonomous Database. This is required if using the `computeCount` parameter. If using `cpuCoreCount` then it is an error to specify `computeModel` to a non-null value. ECPU compute model is the recommended model and OCPU compute model is legacy. Changing this forces a new Autonomous Database to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] customer_contacts: Specifies a list of customer contacts as email addresses. Changing this forces a new Autonomous Database to be created.
         :param pulumi.Input[_builtins.int] data_storage_size_in_tbs: The maximum storage that can be allocated for the database, in terabytes.
         :param pulumi.Input[_builtins.str] db_version: A valid Oracle Database version for Autonomous Database. Changing this forces a new Autonomous Database to be created.
         :param pulumi.Input[_builtins.str] db_workload: The Autonomous Database workload type. Changing this forces a new Autonomous Database to be created. The following values are valid:
@@ -762,12 +816,13 @@ class AutonomousDatabase(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] display_name: The user-friendly name for the Autonomous Database. The name does not have to be unique. Changing this forces a new Autonomous Database to be created.
         :param pulumi.Input[_builtins.str] license_model: The Oracle license model that applies to the Oracle Autonomous Database. Changing this forces a new Autonomous Database to be created. Bring your own license (BYOL) allows you to apply your current on-premises Oracle software licenses to equivalent, highly automated Oracle services in the cloud. License Included allows you to subscribe to new Oracle Database software licenses and the Oracle Database service. Note that when provisioning an [Autonomous Database on dedicated Exadata infrastructure](https://docs.oracle.com/en/cloud/paas/autonomous-database/index.html), this attribute must be null. It is already set at the Autonomous Exadata Infrastructure level. When provisioning an [Autonomous Database Serverless] (https://docs.oracle.com/en/cloud/paas/autonomous-database/index.html) database, if a value is not specified, the system defaults the value to `BRING_YOUR_OWN_LICENSE`. Bring your own license (BYOL) also allows you to select the DB edition using the optional parameter.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Autonomous Database should exist. Changing this forces a new Autonomous Database to be created.
-        :param pulumi.Input[_builtins.bool] mtls_connection_required: Specifies if the Autonomous Database requires mTLS connections. Changing this forces a new Autonomous Database to be created.
+        :param pulumi.Input[_builtins.bool] mtls_connection_required: Specifies if the Autonomous Database requires mTLS connections. Changing this forces a new Autonomous Database to be created. Default value `false`.
+               
+               > **Note:** `mtls_connection_required`  must be set to `true` for all workload types except 'APEX' when creating a database with public access.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Autonomous Database. Changing this forces a new Autonomous Database to be created.
         :param pulumi.Input[_builtins.str] national_character_set: The national character set for the autonomous database. Changing this forces a new Autonomous Database to be created. The default is AL16UTF16. Allowed values are: AL16UTF16 or UTF8.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Autonomous Database should exist. Changing this forces a new Autonomous Database to be created.
         :param pulumi.Input[_builtins.str] subnet_id: The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the subnet the resource is associated with. Changing this forces a new Autonomous Database to be created.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Autonomous Database.
         :param pulumi.Input[_builtins.str] virtual_network_id: The ID of the vnet associated with the cloud VM cluster. Changing this forces a new Autonomous Database to be created.
         """
         ...
@@ -803,6 +858,7 @@ class AutonomousDatabase(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  admin_password: Optional[pulumi.Input[_builtins.str]] = None,
+                 allowed_ips: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  auto_scaling_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  auto_scaling_for_storage_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  backup_retention_period_in_days: Optional[pulumi.Input[_builtins.int]] = None,
@@ -816,6 +872,7 @@ class AutonomousDatabase(pulumi.CustomResource):
                  display_name: Optional[pulumi.Input[_builtins.str]] = None,
                  license_model: Optional[pulumi.Input[_builtins.str]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
+                 long_term_backup_schedule: Optional[pulumi.Input[Union['AutonomousDatabaseLongTermBackupScheduleArgs', 'AutonomousDatabaseLongTermBackupScheduleArgsDict']]] = None,
                  mtls_connection_required: Optional[pulumi.Input[_builtins.bool]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  national_character_set: Optional[pulumi.Input[_builtins.str]] = None,
@@ -835,6 +892,7 @@ class AutonomousDatabase(pulumi.CustomResource):
             if admin_password is None and not opts.urn:
                 raise TypeError("Missing required property 'admin_password'")
             __props__.__dict__["admin_password"] = None if admin_password is None else pulumi.Output.secret(admin_password)
+            __props__.__dict__["allowed_ips"] = allowed_ips
             if auto_scaling_enabled is None and not opts.urn:
                 raise TypeError("Missing required property 'auto_scaling_enabled'")
             __props__.__dict__["auto_scaling_enabled"] = auto_scaling_enabled
@@ -870,6 +928,7 @@ class AutonomousDatabase(pulumi.CustomResource):
                 raise TypeError("Missing required property 'license_model'")
             __props__.__dict__["license_model"] = license_model
             __props__.__dict__["location"] = location
+            __props__.__dict__["long_term_backup_schedule"] = long_term_backup_schedule
             if mtls_connection_required is None and not opts.urn:
                 raise TypeError("Missing required property 'mtls_connection_required'")
             __props__.__dict__["mtls_connection_required"] = mtls_connection_required
@@ -880,12 +939,8 @@ class AutonomousDatabase(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if subnet_id is None and not opts.urn:
-                raise TypeError("Missing required property 'subnet_id'")
             __props__.__dict__["subnet_id"] = subnet_id
             __props__.__dict__["tags"] = tags
-            if virtual_network_id is None and not opts.urn:
-                raise TypeError("Missing required property 'virtual_network_id'")
             __props__.__dict__["virtual_network_id"] = virtual_network_id
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["adminPassword"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
@@ -900,6 +955,7 @@ class AutonomousDatabase(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             admin_password: Optional[pulumi.Input[_builtins.str]] = None,
+            allowed_ips: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
             auto_scaling_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
             auto_scaling_for_storage_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
             backup_retention_period_in_days: Optional[pulumi.Input[_builtins.int]] = None,
@@ -913,6 +969,7 @@ class AutonomousDatabase(pulumi.CustomResource):
             display_name: Optional[pulumi.Input[_builtins.str]] = None,
             license_model: Optional[pulumi.Input[_builtins.str]] = None,
             location: Optional[pulumi.Input[_builtins.str]] = None,
+            long_term_backup_schedule: Optional[pulumi.Input[Union['AutonomousDatabaseLongTermBackupScheduleArgs', 'AutonomousDatabaseLongTermBackupScheduleArgsDict']]] = None,
             mtls_connection_required: Optional[pulumi.Input[_builtins.bool]] = None,
             name: Optional[pulumi.Input[_builtins.str]] = None,
             national_character_set: Optional[pulumi.Input[_builtins.str]] = None,
@@ -928,13 +985,13 @@ class AutonomousDatabase(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] admin_password: The password must be between `12` and `30 `characters long, and must contain at least 1 uppercase, 1 lowercase, and 1 numeric character. It cannot contain the double quote symbol (") or the username "admin", regardless of casing. Changing this forces a new Autonomous Database to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_ips: (Optional) Defines the network access type for the Autonomous Database. If the property is explicitly set to an empty list, it allows secure public access to the database from any IP address. If specific ACL (Access Control List) values are provided, access will be restricted to only the specified IP addresses.
         :param pulumi.Input[_builtins.bool] auto_scaling_enabled: Indicates if auto scaling is enabled for the Autonomous Database CPU core count. The default value is `true`.
         :param pulumi.Input[_builtins.bool] auto_scaling_for_storage_enabled: Indicates if auto scaling is enabled for the Autonomous Database storage. The default value is `false`.
-        :param pulumi.Input[_builtins.int] backup_retention_period_in_days: (Updatable) Retention period, in days, for backups. Changing this forces a new Autonomous Database to be created.
+        :param pulumi.Input[_builtins.int] backup_retention_period_in_days: Retention period, in days, for backups.
         :param pulumi.Input[_builtins.str] character_set: The character set for the autonomous database.  The default is `AL32UTF8`. Allowed values are:  `AL32UTF8`, `AR8ADOS710`, `AR8ADOS720`, `AR8APTEC715`, `AR8ARABICMACS`, `AR8ASMO8X`, `AR8ISO8859P6`, `AR8MSWIN1256`, `AR8MUSSAD768`, `AR8NAFITHA711`, `AR8NAFITHA721`, `AR8SAKHR706`, `AR8SAKHR707`, `AZ8ISO8859P9E`, `BG8MSWIN`, `BG8PC437S`, `BLT8CP921`, `BLT8ISO8859P13`, `BLT8MSWIN1257`, `BLT8PC775`, `BN8BSCII`, `CDN8PC863`, `CEL8ISO8859P14`, `CL8ISO8859P5`, `CL8ISOIR111`, `CL8KOI8R`, `CL8KOI8U`, `CL8MACCYRILLICS`, `CL8MSWIN1251`, `EE8ISO8859P2`, `EE8MACCES`, `EE8MACCROATIANS`, `EE8MSWIN1250`, `EE8PC852`, `EL8DEC`, `EL8ISO8859P7`, `EL8MACGREEKS`, `EL8MSWIN1253`, `EL8PC437S`, `EL8PC851`, `EL8PC869`, `ET8MSWIN923`, `HU8ABMOD`, `HU8CWI2`, `IN8ISCII`, `IS8PC861`, `IW8ISO8859P8`, `IW8MACHEBREWS`, `IW8MSWIN1255`, `IW8PC1507`, `JA16EUC`, `JA16EUCTILDE`, `JA16SJIS`, `JA16SJISTILDE`, `JA16VMS`, `KO16KSC5601`, `KO16KSCCS`, `KO16MSWIN949`, `LA8ISO6937`, `LA8PASSPORT`, `LT8MSWIN921`, `LT8PC772`, `LT8PC774`, `LV8PC1117`, `LV8PC8LR`, `LV8RST104090`, `N8PC865`, `NE8ISO8859P10`, `NEE8ISO8859P4`, `RU8BESTA`, `RU8PC855`, `RU8PC866`, `SE8ISO8859P3`, `TH8MACTHAIS`, `TH8TISASCII`, `TR8DEC`, `TR8MACTURKISHS`, `TR8MSWIN1254`, `TR8PC857`, `US7ASCII`, `US8PC437`, `UTF8`, `VN8MSWIN1258`, `VN8VN3`, `WE8DEC`, `WE8DG`, `WE8ISO8859P1`, `WE8ISO8859P15`, `WE8ISO8859P9`, `WE8MACROMAN8S`, `WE8MSWIN1252`, `WE8NCR4970`, `WE8NEXTSTEP`, `WE8PC850`, `WE8PC858`, `WE8PC860`, `WE8ROMAN8`, `ZHS16CGB231280`, `ZHS16GBK`, `ZHT16BIG5`, `ZHT16CCDC`, `ZHT16DBT`, `ZHT16HKSCS`, `ZHT16MSWIN950`, `ZHT32EUC`, `ZHT32SOPS`, `ZHT32TRIS`. Changing this forces a new Autonomous Database to be created
         :param pulumi.Input[_builtins.float] compute_count: The compute amount (CPUs) available to the database. Minimum and maximum values depend on the compute model and whether the database is an Autonomous Database Serverless instance or an Autonomous Database on Dedicated Exadata Infrastructure.  For an Autonomous Database Serverless instance, the `ECPU` compute model requires a minimum value of one, for databases in the elastic resource pool and minimum value of two, otherwise. Required when using the `computeModel` parameter. When using `cpuCoreCount` parameter, it is an error to specify computeCount to a non-null value. Providing `computeModel` and `computeCount` is the preferred method for both OCPU and ECPU.
         :param pulumi.Input[_builtins.str] compute_model: The compute model of the Autonomous Database. This is required if using the `computeCount` parameter. If using `cpuCoreCount` then it is an error to specify `computeModel` to a non-null value. ECPU compute model is the recommended model and OCPU compute model is legacy. Changing this forces a new Autonomous Database to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] customer_contacts: Specifies a list of customer contacts as email addresses. Changing this forces a new Autonomous Database to be created.
         :param pulumi.Input[_builtins.int] data_storage_size_in_tbs: The maximum storage that can be allocated for the database, in terabytes.
         :param pulumi.Input[_builtins.str] db_version: A valid Oracle Database version for Autonomous Database. Changing this forces a new Autonomous Database to be created.
         :param pulumi.Input[_builtins.str] db_workload: The Autonomous Database workload type. Changing this forces a new Autonomous Database to be created. The following values are valid:
@@ -945,12 +1002,13 @@ class AutonomousDatabase(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] display_name: The user-friendly name for the Autonomous Database. The name does not have to be unique. Changing this forces a new Autonomous Database to be created.
         :param pulumi.Input[_builtins.str] license_model: The Oracle license model that applies to the Oracle Autonomous Database. Changing this forces a new Autonomous Database to be created. Bring your own license (BYOL) allows you to apply your current on-premises Oracle software licenses to equivalent, highly automated Oracle services in the cloud. License Included allows you to subscribe to new Oracle Database software licenses and the Oracle Database service. Note that when provisioning an [Autonomous Database on dedicated Exadata infrastructure](https://docs.oracle.com/en/cloud/paas/autonomous-database/index.html), this attribute must be null. It is already set at the Autonomous Exadata Infrastructure level. When provisioning an [Autonomous Database Serverless] (https://docs.oracle.com/en/cloud/paas/autonomous-database/index.html) database, if a value is not specified, the system defaults the value to `BRING_YOUR_OWN_LICENSE`. Bring your own license (BYOL) also allows you to select the DB edition using the optional parameter.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Autonomous Database should exist. Changing this forces a new Autonomous Database to be created.
-        :param pulumi.Input[_builtins.bool] mtls_connection_required: Specifies if the Autonomous Database requires mTLS connections. Changing this forces a new Autonomous Database to be created.
+        :param pulumi.Input[_builtins.bool] mtls_connection_required: Specifies if the Autonomous Database requires mTLS connections. Changing this forces a new Autonomous Database to be created. Default value `false`.
+               
+               > **Note:** `mtls_connection_required`  must be set to `true` for all workload types except 'APEX' when creating a database with public access.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Autonomous Database. Changing this forces a new Autonomous Database to be created.
         :param pulumi.Input[_builtins.str] national_character_set: The national character set for the autonomous database. Changing this forces a new Autonomous Database to be created. The default is AL16UTF16. Allowed values are: AL16UTF16 or UTF8.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Autonomous Database should exist. Changing this forces a new Autonomous Database to be created.
         :param pulumi.Input[_builtins.str] subnet_id: The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the subnet the resource is associated with. Changing this forces a new Autonomous Database to be created.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Autonomous Database.
         :param pulumi.Input[_builtins.str] virtual_network_id: The ID of the vnet associated with the cloud VM cluster. Changing this forces a new Autonomous Database to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -958,6 +1016,7 @@ class AutonomousDatabase(pulumi.CustomResource):
         __props__ = _AutonomousDatabaseState.__new__(_AutonomousDatabaseState)
 
         __props__.__dict__["admin_password"] = admin_password
+        __props__.__dict__["allowed_ips"] = allowed_ips
         __props__.__dict__["auto_scaling_enabled"] = auto_scaling_enabled
         __props__.__dict__["auto_scaling_for_storage_enabled"] = auto_scaling_for_storage_enabled
         __props__.__dict__["backup_retention_period_in_days"] = backup_retention_period_in_days
@@ -971,6 +1030,7 @@ class AutonomousDatabase(pulumi.CustomResource):
         __props__.__dict__["display_name"] = display_name
         __props__.__dict__["license_model"] = license_model
         __props__.__dict__["location"] = location
+        __props__.__dict__["long_term_backup_schedule"] = long_term_backup_schedule
         __props__.__dict__["mtls_connection_required"] = mtls_connection_required
         __props__.__dict__["name"] = name
         __props__.__dict__["national_character_set"] = national_character_set
@@ -987,6 +1047,14 @@ class AutonomousDatabase(pulumi.CustomResource):
         The password must be between `12` and `30 `characters long, and must contain at least 1 uppercase, 1 lowercase, and 1 numeric character. It cannot contain the double quote symbol (") or the username "admin", regardless of casing. Changing this forces a new Autonomous Database to be created.
         """
         return pulumi.get(self, "admin_password")
+
+    @_builtins.property
+    @pulumi.getter(name="allowedIps")
+    def allowed_ips(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        (Optional) Defines the network access type for the Autonomous Database. If the property is explicitly set to an empty list, it allows secure public access to the database from any IP address. If specific ACL (Access Control List) values are provided, access will be restricted to only the specified IP addresses.
+        """
+        return pulumi.get(self, "allowed_ips")
 
     @_builtins.property
     @pulumi.getter(name="autoScalingEnabled")
@@ -1008,7 +1076,7 @@ class AutonomousDatabase(pulumi.CustomResource):
     @pulumi.getter(name="backupRetentionPeriodInDays")
     def backup_retention_period_in_days(self) -> pulumi.Output[_builtins.int]:
         """
-        (Updatable) Retention period, in days, for backups. Changing this forces a new Autonomous Database to be created.
+        Retention period, in days, for backups.
         """
         return pulumi.get(self, "backup_retention_period_in_days")
 
@@ -1039,9 +1107,6 @@ class AutonomousDatabase(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="customerContacts")
     def customer_contacts(self) -> pulumi.Output[Sequence[_builtins.str]]:
-        """
-        Specifies a list of customer contacts as email addresses. Changing this forces a new Autonomous Database to be created.
-        """
         return pulumi.get(self, "customer_contacts")
 
     @_builtins.property
@@ -1097,10 +1162,17 @@ class AutonomousDatabase(pulumi.CustomResource):
         return pulumi.get(self, "location")
 
     @_builtins.property
+    @pulumi.getter(name="longTermBackupSchedule")
+    def long_term_backup_schedule(self) -> pulumi.Output[Optional['outputs.AutonomousDatabaseLongTermBackupSchedule']]:
+        return pulumi.get(self, "long_term_backup_schedule")
+
+    @_builtins.property
     @pulumi.getter(name="mtlsConnectionRequired")
     def mtls_connection_required(self) -> pulumi.Output[_builtins.bool]:
         """
-        Specifies if the Autonomous Database requires mTLS connections. Changing this forces a new Autonomous Database to be created.
+        Specifies if the Autonomous Database requires mTLS connections. Changing this forces a new Autonomous Database to be created. Default value `false`.
+
+        > **Note:** `mtls_connection_required`  must be set to `true` for all workload types except 'APEX' when creating a database with public access.
         """
         return pulumi.get(self, "mtls_connection_required")
 
@@ -1130,7 +1202,7 @@ class AutonomousDatabase(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> pulumi.Output[_builtins.str]:
+    def subnet_id(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
         The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the subnet the resource is associated with. Changing this forces a new Autonomous Database to be created.
         """
@@ -1139,14 +1211,11 @@ class AutonomousDatabase(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        A mapping of tags which should be assigned to the Autonomous Database.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="virtualNetworkId")
-    def virtual_network_id(self) -> pulumi.Output[_builtins.str]:
+    def virtual_network_id(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
         The ID of the vnet associated with the cloud VM cluster. Changing this forces a new Autonomous Database to be created.
         """

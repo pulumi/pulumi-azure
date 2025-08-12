@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.NetApp`: 2025-01-01
+ * * `Microsoft.NetApp` - 2025-01-01
  */
 export function getVolumeGroupSapHana(args: GetVolumeGroupSapHanaArgs, opts?: pulumi.InvokeOptions): Promise<GetVolumeGroupSapHanaResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -110,7 +110,7 @@ export interface GetVolumeGroupSapHanaResult {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.NetApp`: 2025-01-01
+ * * `Microsoft.NetApp` - 2025-01-01
  */
 export function getVolumeGroupSapHanaOutput(args: GetVolumeGroupSapHanaOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVolumeGroupSapHanaResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

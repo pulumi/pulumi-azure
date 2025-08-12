@@ -90,7 +90,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly bool? SkipNodesWithLocalStorage;
         /// <summary>
-        /// If `true` cluster autoscaler will never delete nodes with pods from kube-system (except for DaemonSet or mirror pods). Defaults to `true`.
+        /// If `true` cluster autoscaler will never delete nodes with pods from kube-system (except for DaemonSet or mirror pods). Defaults to `false`. &lt;!-- defaults to `false` in code, not in Schema --&gt;
         /// </summary>
         public readonly bool? SkipNodesWithSystemPods;
 

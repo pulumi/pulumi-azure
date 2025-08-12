@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.netapp;
 
+import com.pulumi.azure.netapp.inputs.VolumeCoolAccessArgs;
 import com.pulumi.azure.netapp.inputs.VolumeDataProtectionBackupPolicyArgs;
 import com.pulumi.azure.netapp.inputs.VolumeDataProtectionReplicationArgs;
 import com.pulumi.azure.netapp.inputs.VolumeDataProtectionSnapshotPolicyArgs;
@@ -53,6 +54,21 @@ public final class VolumeArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<Boolean>> azureVmwareDataStoreEnabled() {
         return Optional.ofNullable(this.azureVmwareDataStoreEnabled);
+    }
+
+    /**
+     * A `cool_access` block as defined below.
+     * 
+     */
+    @Import(name="coolAccess")
+    private @Nullable Output<VolumeCoolAccessArgs> coolAccess;
+
+    /**
+     * @return A `cool_access` block as defined below.
+     * 
+     */
+    public Optional<Output<VolumeCoolAccessArgs>> coolAccess() {
+        return Optional.ofNullable(this.coolAccess);
     }
 
     /**
@@ -482,6 +498,7 @@ public final class VolumeArgs extends com.pulumi.resources.ResourceArgs {
     private VolumeArgs(VolumeArgs $) {
         this.accountName = $.accountName;
         this.azureVmwareDataStoreEnabled = $.azureVmwareDataStoreEnabled;
+        this.coolAccess = $.coolAccess;
         this.createFromSnapshotResourceId = $.createFromSnapshotResourceId;
         this.dataProtectionBackupPolicy = $.dataProtectionBackupPolicy;
         this.dataProtectionReplication = $.dataProtectionReplication;
@@ -570,6 +587,27 @@ public final class VolumeArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder azureVmwareDataStoreEnabled(Boolean azureVmwareDataStoreEnabled) {
             return azureVmwareDataStoreEnabled(Output.of(azureVmwareDataStoreEnabled));
+        }
+
+        /**
+         * @param coolAccess A `cool_access` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder coolAccess(@Nullable Output<VolumeCoolAccessArgs> coolAccess) {
+            $.coolAccess = coolAccess;
+            return this;
+        }
+
+        /**
+         * @param coolAccess A `cool_access` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder coolAccess(VolumeCoolAccessArgs coolAccess) {
+            return coolAccess(Output.of(coolAccess));
         }
 
         /**

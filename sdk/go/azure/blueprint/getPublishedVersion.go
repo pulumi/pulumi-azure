@@ -53,7 +53,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This data source uses the following Azure API Providers:
 //
-// * `Microsoft.Blueprint`: 2018-11-01-preview
+// * `Microsoft.Blueprint` - 2018-11-01-preview
 func GetPublishedVersion(ctx *pulumi.Context, args *GetPublishedVersionArgs, opts ...pulumi.InvokeOption) (*GetPublishedVersionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetPublishedVersionResult

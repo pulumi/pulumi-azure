@@ -63,7 +63,7 @@ public final class DevtestFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DevTestLab`: 2018-09-15
+     * * `Microsoft.DevTestLab` - 2018-09-15
      * 
      */
     public static Output<GetLabResult> getLab(GetLabArgs args) {
@@ -114,7 +114,7 @@ public final class DevtestFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DevTestLab`: 2018-09-15
+     * * `Microsoft.DevTestLab` - 2018-09-15
      * 
      */
     public static CompletableFuture<GetLabResult> getLabPlain(GetLabPlainArgs args) {
@@ -165,7 +165,7 @@ public final class DevtestFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DevTestLab`: 2018-09-15
+     * * `Microsoft.DevTestLab` - 2018-09-15
      * 
      */
     public static Output<GetLabResult> getLab(GetLabArgs args, InvokeOptions options) {
@@ -216,7 +216,7 @@ public final class DevtestFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DevTestLab`: 2018-09-15
+     * * `Microsoft.DevTestLab` - 2018-09-15
      * 
      */
     public static Output<GetLabResult> getLab(GetLabArgs args, InvokeOutputOptions options) {
@@ -267,7 +267,7 @@ public final class DevtestFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DevTestLab`: 2018-09-15
+     * * `Microsoft.DevTestLab` - 2018-09-15
      * 
      */
     public static CompletableFuture<GetLabResult> getLabPlain(GetLabPlainArgs args, InvokeOptions options) {
@@ -319,7 +319,7 @@ public final class DevtestFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DevTestLab`: 2018-09-15
+     * * `Microsoft.DevTestLab` - 2018-09-15
      * 
      */
     public static Output<GetVirtualNetworkResult> getVirtualNetwork(GetVirtualNetworkArgs args) {
@@ -371,7 +371,7 @@ public final class DevtestFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DevTestLab`: 2018-09-15
+     * * `Microsoft.DevTestLab` - 2018-09-15
      * 
      */
     public static CompletableFuture<GetVirtualNetworkResult> getVirtualNetworkPlain(GetVirtualNetworkPlainArgs args) {
@@ -423,7 +423,7 @@ public final class DevtestFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DevTestLab`: 2018-09-15
+     * * `Microsoft.DevTestLab` - 2018-09-15
      * 
      */
     public static Output<GetVirtualNetworkResult> getVirtualNetwork(GetVirtualNetworkArgs args, InvokeOptions options) {
@@ -475,7 +475,7 @@ public final class DevtestFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DevTestLab`: 2018-09-15
+     * * `Microsoft.DevTestLab` - 2018-09-15
      * 
      */
     public static Output<GetVirtualNetworkResult> getVirtualNetwork(GetVirtualNetworkArgs args, InvokeOutputOptions options) {
@@ -527,7 +527,7 @@ public final class DevtestFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DevTestLab`: 2018-09-15
+     * * `Microsoft.DevTestLab` - 2018-09-15
      * 
      */
     public static CompletableFuture<GetVirtualNetworkResult> getVirtualNetworkPlain(GetVirtualNetworkPlainArgs args, InvokeOptions options) {

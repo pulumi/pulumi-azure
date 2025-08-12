@@ -64,7 +64,7 @@ namespace Pulumi.Azure.DevCenter
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.DevCenter`: 2025-02-01
+    /// * `Microsoft.DevCenter` - 2025-02-01
     /// 
     /// ## Import
     /// 
@@ -106,6 +106,12 @@ namespace Pulumi.Azure.DevCenter
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether the project catalogs associated with projects in this Dev Center are allowed to sync catalog items. Defaults to `false`.
+        /// </summary>
+        [Output("projectCatalogItemSyncEnabled")]
+        public Output<bool?> ProjectCatalogItemSyncEnabled { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the name of the Resource Group within which this Dev Center should exist. Changing this forces a new Dev Center to be created.
@@ -184,6 +190,12 @@ namespace Pulumi.Azure.DevCenter
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// Whether the project catalogs associated with projects in this Dev Center are allowed to sync catalog items. Defaults to `false`.
+        /// </summary>
+        [Input("projectCatalogItemSyncEnabled")]
+        public Input<bool>? ProjectCatalogItemSyncEnabled { get; set; }
+
+        /// <summary>
         /// Specifies the name of the Resource Group within which this Dev Center should exist. Changing this forces a new Dev Center to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -232,6 +244,12 @@ namespace Pulumi.Azure.DevCenter
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Whether the project catalogs associated with projects in this Dev Center are allowed to sync catalog items. Defaults to `false`.
+        /// </summary>
+        [Input("projectCatalogItemSyncEnabled")]
+        public Input<bool>? ProjectCatalogItemSyncEnabled { get; set; }
 
         /// <summary>
         /// Specifies the name of the Resource Group within which this Dev Center should exist. Changing this forces a new Dev Center to be created.

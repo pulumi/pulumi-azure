@@ -124,7 +124,7 @@ def get_resolver_dns_forwarding_ruleset(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Network`: 2022-07-01
+    * `Microsoft.Network` - 2022-07-01
 
 
     :param _builtins.str name: Name of the existing Private DNS Resolver Dns Forwarding Ruleset.
@@ -164,7 +164,7 @@ def get_resolver_dns_forwarding_ruleset_output(name: Optional[pulumi.Input[_buil
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Network`: 2022-07-01
+    * `Microsoft.Network` - 2022-07-01
 
 
     :param _builtins.str name: Name of the existing Private DNS Resolver Dns Forwarding Ruleset.

@@ -4213,7 +4213,7 @@ type ApplicationGatewaySslCertificate struct {
 	Id *string `pulumi:"id"`
 	// The Secret ID of the (base-64 encoded unencrypted pfx) `Secret` or `Certificate` object stored in Azure KeyVault. You need to enable soft delete for Key Vault to use this feature. Required if `data` is not set.
 	//
-	// > **Note:** To implement certificate rotation, `versionlessSecretId` should be used, although `secretId` is also supported.
+	// > **Note:** To implement certificate rotation, the `keyvault.Secret` attribute `versionlessId` should be used, although `id` is also supported.
 	//
 	// > **Note:** TLS termination with Key Vault certificates is limited to the [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/key-vault-certs).
 	//
@@ -4247,7 +4247,7 @@ type ApplicationGatewaySslCertificateArgs struct {
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// The Secret ID of the (base-64 encoded unencrypted pfx) `Secret` or `Certificate` object stored in Azure KeyVault. You need to enable soft delete for Key Vault to use this feature. Required if `data` is not set.
 	//
-	// > **Note:** To implement certificate rotation, `versionlessSecretId` should be used, although `secretId` is also supported.
+	// > **Note:** To implement certificate rotation, the `keyvault.Secret` attribute `versionlessId` should be used, although `id` is also supported.
 	//
 	// > **Note:** TLS termination with Key Vault certificates is limited to the [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/key-vault-certs).
 	//
@@ -4326,7 +4326,7 @@ func (o ApplicationGatewaySslCertificateOutput) Id() pulumi.StringPtrOutput {
 
 // The Secret ID of the (base-64 encoded unencrypted pfx) `Secret` or `Certificate` object stored in Azure KeyVault. You need to enable soft delete for Key Vault to use this feature. Required if `data` is not set.
 //
-// > **Note:** To implement certificate rotation, `versionlessSecretId` should be used, although `secretId` is also supported.
+// > **Note:** To implement certificate rotation, the `keyvault.Secret` attribute `versionlessId` should be used, although `id` is also supported.
 //
 // > **Note:** TLS termination with Key Vault certificates is limited to the [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/key-vault-certs).
 //
@@ -14693,6 +14693,229 @@ func (o NetworkManagerScopePtrOutput) SubscriptionIds() pulumi.StringArrayOutput
 	}).(pulumi.StringArrayOutput)
 }
 
+type NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTraffic struct {
+	// Specifies a list of IPv4 or IPv6 addresses or ranges using CIDR notation of the source you want to verify. Changing this forces a new Network Manager Verifier Workspace Reachability Analysis Intent to be created.
+	DestinationIps []string `pulumi:"destinationIps"`
+	// Specifies a list of ports or ranges of the destination you want to verify. To specify any port, use `["*"]`. Changing this forces a new Network Manager Verifier Workspace Reachability Analysis Intent to be created.
+	DestinationPorts []string `pulumi:"destinationPorts"`
+	// Specifies a list of network protocols. Possible values are `Any`, `TCP`, `UDP` and `ICMP`. Changing this forces a new Network Manager Verifier Workspace Reachability Analysis Intent to be created.
+	Protocols []string `pulumi:"protocols"`
+	// Specifies a list of IPv4 or IPv6 addresses or ranges using CIDR notation of the source you want to verify. Changing this forces a new Network Manager Verifier Workspace Reachability Analysis Intent to be created.
+	SourceIps []string `pulumi:"sourceIps"`
+	// Specifies a list of ports or ranges of the source you want to verify. To specify any port, use `["*"]`. Changing this forces a new Network Manager Verifier Workspace Reachability Analysis Intent to be created.
+	SourcePorts []string `pulumi:"sourcePorts"`
+}
+
+// NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficInput is an input type that accepts NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficArgs and NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficOutput values.
+// You can construct a concrete instance of `NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficInput` via:
+//
+//	NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficArgs{...}
+type NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficInput interface {
+	pulumi.Input
+
+	ToNetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficOutput() NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficOutput
+	ToNetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficOutputWithContext(context.Context) NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficOutput
+}
+
+type NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficArgs struct {
+	// Specifies a list of IPv4 or IPv6 addresses or ranges using CIDR notation of the source you want to verify. Changing this forces a new Network Manager Verifier Workspace Reachability Analysis Intent to be created.
+	DestinationIps pulumi.StringArrayInput `pulumi:"destinationIps"`
+	// Specifies a list of ports or ranges of the destination you want to verify. To specify any port, use `["*"]`. Changing this forces a new Network Manager Verifier Workspace Reachability Analysis Intent to be created.
+	DestinationPorts pulumi.StringArrayInput `pulumi:"destinationPorts"`
+	// Specifies a list of network protocols. Possible values are `Any`, `TCP`, `UDP` and `ICMP`. Changing this forces a new Network Manager Verifier Workspace Reachability Analysis Intent to be created.
+	Protocols pulumi.StringArrayInput `pulumi:"protocols"`
+	// Specifies a list of IPv4 or IPv6 addresses or ranges using CIDR notation of the source you want to verify. Changing this forces a new Network Manager Verifier Workspace Reachability Analysis Intent to be created.
+	SourceIps pulumi.StringArrayInput `pulumi:"sourceIps"`
+	// Specifies a list of ports or ranges of the source you want to verify. To specify any port, use `["*"]`. Changing this forces a new Network Manager Verifier Workspace Reachability Analysis Intent to be created.
+	SourcePorts pulumi.StringArrayInput `pulumi:"sourcePorts"`
+}
+
+func (NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTraffic)(nil)).Elem()
+}
+
+func (i NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficArgs) ToNetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficOutput() NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficOutput {
+	return i.ToNetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficOutputWithContext(context.Background())
+}
+
+func (i NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficArgs) ToNetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficOutputWithContext(ctx context.Context) NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficOutput)
+}
+
+func (i NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficArgs) ToNetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficPtrOutput() NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficPtrOutput {
+	return i.ToNetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficPtrOutputWithContext(context.Background())
+}
+
+func (i NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficArgs) ToNetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficPtrOutputWithContext(ctx context.Context) NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficOutput).ToNetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficPtrOutputWithContext(ctx)
+}
+
+// NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficPtrInput is an input type that accepts NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficArgs, NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficPtr and NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficPtrOutput values.
+// You can construct a concrete instance of `NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficPtrInput` via:
+//
+//	        NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficArgs{...}
+//
+//	or:
+//
+//	        nil
+type NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficPtrInput interface {
+	pulumi.Input
+
+	ToNetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficPtrOutput() NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficPtrOutput
+	ToNetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficPtrOutputWithContext(context.Context) NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficPtrOutput
+}
+
+type networkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficPtrType NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficArgs
+
+func NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficPtr(v *NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficArgs) NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficPtrInput {
+	return (*networkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficPtrType)(v)
+}
+
+func (*networkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTraffic)(nil)).Elem()
+}
+
+func (i *networkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficPtrType) ToNetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficPtrOutput() NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficPtrOutput {
+	return i.ToNetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficPtrOutputWithContext(context.Background())
+}
+
+func (i *networkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficPtrType) ToNetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficPtrOutputWithContext(ctx context.Context) NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficPtrOutput)
+}
+
+type NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficOutput struct{ *pulumi.OutputState }
+
+func (NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTraffic)(nil)).Elem()
+}
+
+func (o NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficOutput) ToNetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficOutput() NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficOutput {
+	return o
+}
+
+func (o NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficOutput) ToNetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficOutputWithContext(ctx context.Context) NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficOutput {
+	return o
+}
+
+func (o NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficOutput) ToNetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficPtrOutput() NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficPtrOutput {
+	return o.ToNetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficPtrOutputWithContext(context.Background())
+}
+
+func (o NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficOutput) ToNetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficPtrOutputWithContext(ctx context.Context) NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTraffic) *NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTraffic {
+		return &v
+	}).(NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficPtrOutput)
+}
+
+// Specifies a list of IPv4 or IPv6 addresses or ranges using CIDR notation of the source you want to verify. Changing this forces a new Network Manager Verifier Workspace Reachability Analysis Intent to be created.
+func (o NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficOutput) DestinationIps() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTraffic) []string {
+		return v.DestinationIps
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specifies a list of ports or ranges of the destination you want to verify. To specify any port, use `["*"]`. Changing this forces a new Network Manager Verifier Workspace Reachability Analysis Intent to be created.
+func (o NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficOutput) DestinationPorts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTraffic) []string {
+		return v.DestinationPorts
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specifies a list of network protocols. Possible values are `Any`, `TCP`, `UDP` and `ICMP`. Changing this forces a new Network Manager Verifier Workspace Reachability Analysis Intent to be created.
+func (o NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficOutput) Protocols() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTraffic) []string {
+		return v.Protocols
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specifies a list of IPv4 or IPv6 addresses or ranges using CIDR notation of the source you want to verify. Changing this forces a new Network Manager Verifier Workspace Reachability Analysis Intent to be created.
+func (o NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficOutput) SourceIps() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTraffic) []string {
+		return v.SourceIps
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specifies a list of ports or ranges of the source you want to verify. To specify any port, use `["*"]`. Changing this forces a new Network Manager Verifier Workspace Reachability Analysis Intent to be created.
+func (o NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficOutput) SourcePorts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTraffic) []string {
+		return v.SourcePorts
+	}).(pulumi.StringArrayOutput)
+}
+
+type NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficPtrOutput struct{ *pulumi.OutputState }
+
+func (NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTraffic)(nil)).Elem()
+}
+
+func (o NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficPtrOutput) ToNetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficPtrOutput() NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficPtrOutput {
+	return o
+}
+
+func (o NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficPtrOutput) ToNetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficPtrOutputWithContext(ctx context.Context) NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficPtrOutput {
+	return o
+}
+
+func (o NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficPtrOutput) Elem() NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficOutput {
+	return o.ApplyT(func(v *NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTraffic) NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTraffic {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTraffic
+		return ret
+	}).(NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficOutput)
+}
+
+// Specifies a list of IPv4 or IPv6 addresses or ranges using CIDR notation of the source you want to verify. Changing this forces a new Network Manager Verifier Workspace Reachability Analysis Intent to be created.
+func (o NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficPtrOutput) DestinationIps() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTraffic) []string {
+		if v == nil {
+			return nil
+		}
+		return v.DestinationIps
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specifies a list of ports or ranges of the destination you want to verify. To specify any port, use `["*"]`. Changing this forces a new Network Manager Verifier Workspace Reachability Analysis Intent to be created.
+func (o NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficPtrOutput) DestinationPorts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTraffic) []string {
+		if v == nil {
+			return nil
+		}
+		return v.DestinationPorts
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specifies a list of network protocols. Possible values are `Any`, `TCP`, `UDP` and `ICMP`. Changing this forces a new Network Manager Verifier Workspace Reachability Analysis Intent to be created.
+func (o NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficPtrOutput) Protocols() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTraffic) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Protocols
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specifies a list of IPv4 or IPv6 addresses or ranges using CIDR notation of the source you want to verify. Changing this forces a new Network Manager Verifier Workspace Reachability Analysis Intent to be created.
+func (o NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficPtrOutput) SourceIps() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTraffic) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SourceIps
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specifies a list of ports or ranges of the source you want to verify. To specify any port, use `["*"]`. Changing this forces a new Network Manager Verifier Workspace Reachability Analysis Intent to be created.
+func (o NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficPtrOutput) SourcePorts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTraffic) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SourcePorts
+	}).(pulumi.StringArrayOutput)
+}
+
 type NetworkSecurityGroupSecurityRule struct {
 	// Specifies whether network traffic is allowed or denied. Possible values are `Allow` and `Deny`.
 	Access string `pulumi:"access"`
@@ -17167,6 +17390,189 @@ func (o SubnetDelegationServiceDelegationOutput) Actions() pulumi.StringArrayOut
 // The name of service to delegate to. Possible values are `GitHub.Network/networkSettings`, `Informatica.DataManagement/organizations`, `Microsoft.ApiManagement/service`, `Microsoft.Apollo/npu`, `Microsoft.App/environments`, `Microsoft.App/testClients`, `Microsoft.AVS/PrivateClouds`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureHostedService`, `Microsoft.BareMetal/AzureHPC`, `Microsoft.BareMetal/AzurePaymentHSM`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.BareMetal/MonitoringServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.CloudTest/hostedpools`, `Microsoft.CloudTest/images`, `Microsoft.CloudTest/pools`, `Microsoft.Codespaces/plans`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.ContainerService/managedClusters`, `Microsoft.ContainerService/TestClients`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/servers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.DelegatedNetwork/controller`, `Microsoft.DevCenter/networkConnection`, `Microsoft.DevOpsInfrastructure/pools`, `Microsoft.DocumentDB/cassandraClusters`, `Microsoft.Fidalgo/networkSettings`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.LabServices/labplans`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.MachineLearningServices/workspaces`, `Microsoft.Netapp/volumes`, `Microsoft.Network/dnsResolvers`, `Microsoft.Network/managedResolvers`, `Microsoft.Network/fpgaNetworkInterfaces`, `Microsoft.Network/networkWatchers.`, `Microsoft.Network/virtualNetworkGateways`, `Microsoft.Orbital/orbitalGateways`, `Microsoft.PowerPlatform/enterprisePolicies`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.ServiceNetworking/trafficControllers`, `Microsoft.Singularity/accounts/networks`, `Microsoft.Singularity/accounts/npu`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/managedInstancesOnebox`, `Microsoft.Sql/managedInstancesStage`, `Microsoft.Sql/managedInstancesTest`, `Microsoft.Sql/servers`, `Microsoft.StoragePool/diskPools`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, `Microsoft.Web/serverFarms`, `NGINX.NGINXPLUS/nginxDeployments`, `PaloAltoNetworks.Cloudngfw/firewalls`, `Qumulo.Storage/fileSystems`, and `Oracle.Database/networkAttachments`.
 func (o SubnetDelegationServiceDelegationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SubnetDelegationServiceDelegation) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type SubnetIpAddressPool struct {
+	// The list of IP address prefixes allocated to the subnet.
+	AllocatedIpAddressPrefixes []string `pulumi:"allocatedIpAddressPrefixes"`
+	// The ID of the Network Manager IP Address Management (IPAM) Pool.
+	Id string `pulumi:"id"`
+	// The number of IP addresses to allocated to the subnet. The value must be a string that represents a positive number, e.g., `"100"`.
+	//
+	// > **Note:** `numberOfIpAddresses` cannot be decreased.
+	NumberOfIpAddresses string `pulumi:"numberOfIpAddresses"`
+}
+
+// SubnetIpAddressPoolInput is an input type that accepts SubnetIpAddressPoolArgs and SubnetIpAddressPoolOutput values.
+// You can construct a concrete instance of `SubnetIpAddressPoolInput` via:
+//
+//	SubnetIpAddressPoolArgs{...}
+type SubnetIpAddressPoolInput interface {
+	pulumi.Input
+
+	ToSubnetIpAddressPoolOutput() SubnetIpAddressPoolOutput
+	ToSubnetIpAddressPoolOutputWithContext(context.Context) SubnetIpAddressPoolOutput
+}
+
+type SubnetIpAddressPoolArgs struct {
+	// The list of IP address prefixes allocated to the subnet.
+	AllocatedIpAddressPrefixes pulumi.StringArrayInput `pulumi:"allocatedIpAddressPrefixes"`
+	// The ID of the Network Manager IP Address Management (IPAM) Pool.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The number of IP addresses to allocated to the subnet. The value must be a string that represents a positive number, e.g., `"100"`.
+	//
+	// > **Note:** `numberOfIpAddresses` cannot be decreased.
+	NumberOfIpAddresses pulumi.StringInput `pulumi:"numberOfIpAddresses"`
+}
+
+func (SubnetIpAddressPoolArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubnetIpAddressPool)(nil)).Elem()
+}
+
+func (i SubnetIpAddressPoolArgs) ToSubnetIpAddressPoolOutput() SubnetIpAddressPoolOutput {
+	return i.ToSubnetIpAddressPoolOutputWithContext(context.Background())
+}
+
+func (i SubnetIpAddressPoolArgs) ToSubnetIpAddressPoolOutputWithContext(ctx context.Context) SubnetIpAddressPoolOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubnetIpAddressPoolOutput)
+}
+
+func (i SubnetIpAddressPoolArgs) ToSubnetIpAddressPoolPtrOutput() SubnetIpAddressPoolPtrOutput {
+	return i.ToSubnetIpAddressPoolPtrOutputWithContext(context.Background())
+}
+
+func (i SubnetIpAddressPoolArgs) ToSubnetIpAddressPoolPtrOutputWithContext(ctx context.Context) SubnetIpAddressPoolPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubnetIpAddressPoolOutput).ToSubnetIpAddressPoolPtrOutputWithContext(ctx)
+}
+
+// SubnetIpAddressPoolPtrInput is an input type that accepts SubnetIpAddressPoolArgs, SubnetIpAddressPoolPtr and SubnetIpAddressPoolPtrOutput values.
+// You can construct a concrete instance of `SubnetIpAddressPoolPtrInput` via:
+//
+//	        SubnetIpAddressPoolArgs{...}
+//
+//	or:
+//
+//	        nil
+type SubnetIpAddressPoolPtrInput interface {
+	pulumi.Input
+
+	ToSubnetIpAddressPoolPtrOutput() SubnetIpAddressPoolPtrOutput
+	ToSubnetIpAddressPoolPtrOutputWithContext(context.Context) SubnetIpAddressPoolPtrOutput
+}
+
+type subnetIpAddressPoolPtrType SubnetIpAddressPoolArgs
+
+func SubnetIpAddressPoolPtr(v *SubnetIpAddressPoolArgs) SubnetIpAddressPoolPtrInput {
+	return (*subnetIpAddressPoolPtrType)(v)
+}
+
+func (*subnetIpAddressPoolPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SubnetIpAddressPool)(nil)).Elem()
+}
+
+func (i *subnetIpAddressPoolPtrType) ToSubnetIpAddressPoolPtrOutput() SubnetIpAddressPoolPtrOutput {
+	return i.ToSubnetIpAddressPoolPtrOutputWithContext(context.Background())
+}
+
+func (i *subnetIpAddressPoolPtrType) ToSubnetIpAddressPoolPtrOutputWithContext(ctx context.Context) SubnetIpAddressPoolPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubnetIpAddressPoolPtrOutput)
+}
+
+type SubnetIpAddressPoolOutput struct{ *pulumi.OutputState }
+
+func (SubnetIpAddressPoolOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubnetIpAddressPool)(nil)).Elem()
+}
+
+func (o SubnetIpAddressPoolOutput) ToSubnetIpAddressPoolOutput() SubnetIpAddressPoolOutput {
+	return o
+}
+
+func (o SubnetIpAddressPoolOutput) ToSubnetIpAddressPoolOutputWithContext(ctx context.Context) SubnetIpAddressPoolOutput {
+	return o
+}
+
+func (o SubnetIpAddressPoolOutput) ToSubnetIpAddressPoolPtrOutput() SubnetIpAddressPoolPtrOutput {
+	return o.ToSubnetIpAddressPoolPtrOutputWithContext(context.Background())
+}
+
+func (o SubnetIpAddressPoolOutput) ToSubnetIpAddressPoolPtrOutputWithContext(ctx context.Context) SubnetIpAddressPoolPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SubnetIpAddressPool) *SubnetIpAddressPool {
+		return &v
+	}).(SubnetIpAddressPoolPtrOutput)
+}
+
+// The list of IP address prefixes allocated to the subnet.
+func (o SubnetIpAddressPoolOutput) AllocatedIpAddressPrefixes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SubnetIpAddressPool) []string { return v.AllocatedIpAddressPrefixes }).(pulumi.StringArrayOutput)
+}
+
+// The ID of the Network Manager IP Address Management (IPAM) Pool.
+func (o SubnetIpAddressPoolOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v SubnetIpAddressPool) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The number of IP addresses to allocated to the subnet. The value must be a string that represents a positive number, e.g., `"100"`.
+//
+// > **Note:** `numberOfIpAddresses` cannot be decreased.
+func (o SubnetIpAddressPoolOutput) NumberOfIpAddresses() pulumi.StringOutput {
+	return o.ApplyT(func(v SubnetIpAddressPool) string { return v.NumberOfIpAddresses }).(pulumi.StringOutput)
+}
+
+type SubnetIpAddressPoolPtrOutput struct{ *pulumi.OutputState }
+
+func (SubnetIpAddressPoolPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SubnetIpAddressPool)(nil)).Elem()
+}
+
+func (o SubnetIpAddressPoolPtrOutput) ToSubnetIpAddressPoolPtrOutput() SubnetIpAddressPoolPtrOutput {
+	return o
+}
+
+func (o SubnetIpAddressPoolPtrOutput) ToSubnetIpAddressPoolPtrOutputWithContext(ctx context.Context) SubnetIpAddressPoolPtrOutput {
+	return o
+}
+
+func (o SubnetIpAddressPoolPtrOutput) Elem() SubnetIpAddressPoolOutput {
+	return o.ApplyT(func(v *SubnetIpAddressPool) SubnetIpAddressPool {
+		if v != nil {
+			return *v
+		}
+		var ret SubnetIpAddressPool
+		return ret
+	}).(SubnetIpAddressPoolOutput)
+}
+
+// The list of IP address prefixes allocated to the subnet.
+func (o SubnetIpAddressPoolPtrOutput) AllocatedIpAddressPrefixes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SubnetIpAddressPool) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AllocatedIpAddressPrefixes
+	}).(pulumi.StringArrayOutput)
+}
+
+// The ID of the Network Manager IP Address Management (IPAM) Pool.
+func (o SubnetIpAddressPoolPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SubnetIpAddressPool) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+// The number of IP addresses to allocated to the subnet. The value must be a string that represents a positive number, e.g., `"100"`.
+//
+// > **Note:** `numberOfIpAddresses` cannot be decreased.
+func (o SubnetIpAddressPoolPtrOutput) NumberOfIpAddresses() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SubnetIpAddressPool) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.NumberOfIpAddresses
+	}).(pulumi.StringPtrOutput)
 }
 
 type SubnetServiceEndpointStoragePolicyDefinition struct {
@@ -20608,7 +21014,7 @@ type VirtualNetworkGatewayIpConfiguration struct {
 	// Defines how the private IP address of the gateways virtual interface is assigned. The only valid value is `Dynamic` for Virtual Network Gateway (`Static` is not supported by the service yet). Defaults to `Dynamic`.
 	PrivateIpAddressAllocation *string `pulumi:"privateIpAddressAllocation"`
 	// The ID of the public IP address to associate with the Virtual Network Gateway.
-	PublicIpAddressId string `pulumi:"publicIpAddressId"`
+	PublicIpAddressId *string `pulumi:"publicIpAddressId"`
 	// The ID of the gateway subnet of a virtual network in which the virtual network gateway will be created. It is mandatory that the associated subnet is named `GatewaySubnet`. Therefore, each virtual network can contain at most a single Virtual Network Gateway.
 	SubnetId string `pulumi:"subnetId"`
 }
@@ -20630,7 +21036,7 @@ type VirtualNetworkGatewayIpConfigurationArgs struct {
 	// Defines how the private IP address of the gateways virtual interface is assigned. The only valid value is `Dynamic` for Virtual Network Gateway (`Static` is not supported by the service yet). Defaults to `Dynamic`.
 	PrivateIpAddressAllocation pulumi.StringPtrInput `pulumi:"privateIpAddressAllocation"`
 	// The ID of the public IP address to associate with the Virtual Network Gateway.
-	PublicIpAddressId pulumi.StringInput `pulumi:"publicIpAddressId"`
+	PublicIpAddressId pulumi.StringPtrInput `pulumi:"publicIpAddressId"`
 	// The ID of the gateway subnet of a virtual network in which the virtual network gateway will be created. It is mandatory that the associated subnet is named `GatewaySubnet`. Therefore, each virtual network can contain at most a single Virtual Network Gateway.
 	SubnetId pulumi.StringInput `pulumi:"subnetId"`
 }
@@ -20697,8 +21103,8 @@ func (o VirtualNetworkGatewayIpConfigurationOutput) PrivateIpAddressAllocation()
 }
 
 // The ID of the public IP address to associate with the Virtual Network Gateway.
-func (o VirtualNetworkGatewayIpConfigurationOutput) PublicIpAddressId() pulumi.StringOutput {
-	return o.ApplyT(func(v VirtualNetworkGatewayIpConfiguration) string { return v.PublicIpAddressId }).(pulumi.StringOutput)
+func (o VirtualNetworkGatewayIpConfigurationOutput) PublicIpAddressId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VirtualNetworkGatewayIpConfiguration) *string { return v.PublicIpAddressId }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the gateway subnet of a virtual network in which the virtual network gateway will be created. It is mandatory that the associated subnet is named `GatewaySubnet`. Therefore, each virtual network can contain at most a single Virtual Network Gateway.
@@ -22306,6 +22712,8 @@ type VirtualNetworkIpAddressPool struct {
 	// The ID of the Network Manager IP Address Management (IPAM) Pool.
 	Id string `pulumi:"id"`
 	// The number of IP addresses to allocated to the Virtual Network. The value must be a string that represents a positive number, e.g., `"100"`.
+	//
+	// > **Note:** `numberOfIpAddresses` cannot be decreased.
 	NumberOfIpAddresses string `pulumi:"numberOfIpAddresses"`
 }
 
@@ -22326,6 +22734,8 @@ type VirtualNetworkIpAddressPoolArgs struct {
 	// The ID of the Network Manager IP Address Management (IPAM) Pool.
 	Id pulumi.StringInput `pulumi:"id"`
 	// The number of IP addresses to allocated to the Virtual Network. The value must be a string that represents a positive number, e.g., `"100"`.
+	//
+	// > **Note:** `numberOfIpAddresses` cannot be decreased.
 	NumberOfIpAddresses pulumi.StringInput `pulumi:"numberOfIpAddresses"`
 }
 
@@ -22391,6 +22801,8 @@ func (o VirtualNetworkIpAddressPoolOutput) Id() pulumi.StringOutput {
 }
 
 // The number of IP addresses to allocated to the Virtual Network. The value must be a string that represents a positive number, e.g., `"100"`.
+//
+// > **Note:** `numberOfIpAddresses` cannot be decreased.
 func (o VirtualNetworkIpAddressPoolOutput) NumberOfIpAddresses() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNetworkIpAddressPool) string { return v.NumberOfIpAddresses }).(pulumi.StringOutput)
 }
@@ -24232,6 +24644,8 @@ type VpnGatewayConnectionVpnLink struct {
 	ConnectionMode *string `pulumi:"connectionMode"`
 	// One or more `customBgpAddress` blocks as defined below.
 	CustomBgpAddresses []VpnGatewayConnectionVpnLinkCustomBgpAddress `pulumi:"customBgpAddresses"`
+	// The dead peer detection timeout of this connection in seconds. Possible values are between `9` and `3600`.
+	DpdTimeoutSeconds *int `pulumi:"dpdTimeoutSeconds"`
 	// A list of the egress NAT Rule Ids.
 	EgressNatRuleIds []string `pulumi:"egressNatRuleIds"`
 	// A list of the ingress NAT Rule Ids.
@@ -24276,6 +24690,8 @@ type VpnGatewayConnectionVpnLinkArgs struct {
 	ConnectionMode pulumi.StringPtrInput `pulumi:"connectionMode"`
 	// One or more `customBgpAddress` blocks as defined below.
 	CustomBgpAddresses VpnGatewayConnectionVpnLinkCustomBgpAddressArrayInput `pulumi:"customBgpAddresses"`
+	// The dead peer detection timeout of this connection in seconds. Possible values are between `9` and `3600`.
+	DpdTimeoutSeconds pulumi.IntPtrInput `pulumi:"dpdTimeoutSeconds"`
 	// A list of the egress NAT Rule Ids.
 	EgressNatRuleIds pulumi.StringArrayInput `pulumi:"egressNatRuleIds"`
 	// A list of the ingress NAT Rule Ids.
@@ -24371,6 +24787,11 @@ func (o VpnGatewayConnectionVpnLinkOutput) CustomBgpAddresses() VpnGatewayConnec
 	return o.ApplyT(func(v VpnGatewayConnectionVpnLink) []VpnGatewayConnectionVpnLinkCustomBgpAddress {
 		return v.CustomBgpAddresses
 	}).(VpnGatewayConnectionVpnLinkCustomBgpAddressArrayOutput)
+}
+
+// The dead peer detection timeout of this connection in seconds. Possible values are between `9` and `3600`.
+func (o VpnGatewayConnectionVpnLinkOutput) DpdTimeoutSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v VpnGatewayConnectionVpnLink) *int { return v.DpdTimeoutSeconds }).(pulumi.IntPtrOutput)
 }
 
 // A list of the egress NAT Rule Ids.
@@ -37859,6 +38280,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkManagerCrossTenantScopeArrayInput)(nil)).Elem(), NetworkManagerCrossTenantScopeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkManagerScopeInput)(nil)).Elem(), NetworkManagerScopeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkManagerScopePtrInput)(nil)).Elem(), NetworkManagerScopeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficInput)(nil)).Elem(), NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficPtrInput)(nil)).Elem(), NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkSecurityGroupSecurityRuleInput)(nil)).Elem(), NetworkSecurityGroupSecurityRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkSecurityGroupSecurityRuleArrayInput)(nil)).Elem(), NetworkSecurityGroupSecurityRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkWatcherFlowLogRetentionPolicyInput)(nil)).Elem(), NetworkWatcherFlowLogRetentionPolicyArgs{})
@@ -37893,6 +38316,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SubnetDelegationInput)(nil)).Elem(), SubnetDelegationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SubnetDelegationArrayInput)(nil)).Elem(), SubnetDelegationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SubnetDelegationServiceDelegationInput)(nil)).Elem(), SubnetDelegationServiceDelegationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SubnetIpAddressPoolInput)(nil)).Elem(), SubnetIpAddressPoolArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SubnetIpAddressPoolPtrInput)(nil)).Elem(), SubnetIpAddressPoolArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SubnetServiceEndpointStoragePolicyDefinitionInput)(nil)).Elem(), SubnetServiceEndpointStoragePolicyDefinitionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SubnetServiceEndpointStoragePolicyDefinitionArrayInput)(nil)).Elem(), SubnetServiceEndpointStoragePolicyDefinitionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TrafficManagerAzureEndpointCustomHeaderInput)(nil)).Elem(), TrafficManagerAzureEndpointCustomHeaderArgs{})
@@ -38368,6 +38793,8 @@ func init() {
 	pulumi.RegisterOutputType(NetworkManagerCrossTenantScopeArrayOutput{})
 	pulumi.RegisterOutputType(NetworkManagerScopeOutput{})
 	pulumi.RegisterOutputType(NetworkManagerScopePtrOutput{})
+	pulumi.RegisterOutputType(NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficOutput{})
+	pulumi.RegisterOutputType(NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficPtrOutput{})
 	pulumi.RegisterOutputType(NetworkSecurityGroupSecurityRuleOutput{})
 	pulumi.RegisterOutputType(NetworkSecurityGroupSecurityRuleArrayOutput{})
 	pulumi.RegisterOutputType(NetworkWatcherFlowLogRetentionPolicyOutput{})
@@ -38402,6 +38829,8 @@ func init() {
 	pulumi.RegisterOutputType(SubnetDelegationOutput{})
 	pulumi.RegisterOutputType(SubnetDelegationArrayOutput{})
 	pulumi.RegisterOutputType(SubnetDelegationServiceDelegationOutput{})
+	pulumi.RegisterOutputType(SubnetIpAddressPoolOutput{})
+	pulumi.RegisterOutputType(SubnetIpAddressPoolPtrOutput{})
 	pulumi.RegisterOutputType(SubnetServiceEndpointStoragePolicyDefinitionOutput{})
 	pulumi.RegisterOutputType(SubnetServiceEndpointStoragePolicyDefinitionArrayOutput{})
 	pulumi.RegisterOutputType(TrafficManagerAzureEndpointCustomHeaderOutput{})

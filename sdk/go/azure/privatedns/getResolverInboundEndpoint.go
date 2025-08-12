@@ -45,7 +45,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This data source uses the following Azure API Providers:
 //
-// * `Microsoft.Network`: 2022-07-01
+// * `Microsoft.Network` - 2022-07-01
 func LookupResolverInboundEndpoint(ctx *pulumi.Context, args *LookupResolverInboundEndpointArgs, opts ...pulumi.InvokeOption) (*LookupResolverInboundEndpointResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupResolverInboundEndpointResult

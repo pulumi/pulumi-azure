@@ -21,24 +21,26 @@ __all__ = ['LinkServiceArgs', 'LinkService']
 @pulumi.input_type
 class LinkServiceArgs:
     def __init__(__self__, *,
-                 load_balancer_frontend_ip_configuration_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  nat_ip_configurations: pulumi.Input[Sequence[pulumi.Input['LinkServiceNatIpConfigurationArgs']]],
                  resource_group_name: pulumi.Input[_builtins.str],
                  auto_approval_subscription_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 destination_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
                  enable_proxy_protocol: Optional[pulumi.Input[_builtins.bool]] = None,
                  fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 load_balancer_frontend_ip_configuration_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  visibility_subscription_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a LinkService resource.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] load_balancer_frontend_ip_configuration_ids: A list of Frontend IP Configuration IDs from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['LinkServiceNatIpConfigurationArgs']]] nat_ip_configurations: One or more (up to 8) `nat_ip_configuration` block as defined below.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Private Link Service should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] auto_approval_subscription_ids: A list of Subscription UUID/GUID's that will be automatically be able to use this Private Link Service.
+        :param pulumi.Input[_builtins.str] destination_ip_address: The destination IP address of the Private Link Service.
         :param pulumi.Input[_builtins.bool] enable_proxy_protocol: Should the Private Link Service support the Proxy Protocol?
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] fqdns: List of FQDNs allowed for the Private Link Service.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] load_balancer_frontend_ip_configuration_ids: A list of Frontend IP Configuration IDs from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of this Private Link Service. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
@@ -46,15 +48,18 @@ class LinkServiceArgs:
                
                > **Note:** If no Subscription IDs are specified then Azure allows every Subscription to see this Private Link Service.
         """
-        pulumi.set(__self__, "load_balancer_frontend_ip_configuration_ids", load_balancer_frontend_ip_configuration_ids)
         pulumi.set(__self__, "nat_ip_configurations", nat_ip_configurations)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if auto_approval_subscription_ids is not None:
             pulumi.set(__self__, "auto_approval_subscription_ids", auto_approval_subscription_ids)
+        if destination_ip_address is not None:
+            pulumi.set(__self__, "destination_ip_address", destination_ip_address)
         if enable_proxy_protocol is not None:
             pulumi.set(__self__, "enable_proxy_protocol", enable_proxy_protocol)
         if fqdns is not None:
             pulumi.set(__self__, "fqdns", fqdns)
+        if load_balancer_frontend_ip_configuration_ids is not None:
+            pulumi.set(__self__, "load_balancer_frontend_ip_configuration_ids", load_balancer_frontend_ip_configuration_ids)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
@@ -63,18 +68,6 @@ class LinkServiceArgs:
             pulumi.set(__self__, "tags", tags)
         if visibility_subscription_ids is not None:
             pulumi.set(__self__, "visibility_subscription_ids", visibility_subscription_ids)
-
-    @_builtins.property
-    @pulumi.getter(name="loadBalancerFrontendIpConfigurationIds")
-    def load_balancer_frontend_ip_configuration_ids(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
-        """
-        A list of Frontend IP Configuration IDs from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "load_balancer_frontend_ip_configuration_ids")
-
-    @load_balancer_frontend_ip_configuration_ids.setter
-    def load_balancer_frontend_ip_configuration_ids(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
-        pulumi.set(self, "load_balancer_frontend_ip_configuration_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="natIpConfigurations")
@@ -113,6 +106,18 @@ class LinkServiceArgs:
         pulumi.set(self, "auto_approval_subscription_ids", value)
 
     @_builtins.property
+    @pulumi.getter(name="destinationIpAddress")
+    def destination_ip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The destination IP address of the Private Link Service.
+        """
+        return pulumi.get(self, "destination_ip_address")
+
+    @destination_ip_address.setter
+    def destination_ip_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "destination_ip_address", value)
+
+    @_builtins.property
     @pulumi.getter(name="enableProxyProtocol")
     def enable_proxy_protocol(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
@@ -135,6 +140,18 @@ class LinkServiceArgs:
     @fqdns.setter
     def fqdns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "fqdns", value)
+
+    @_builtins.property
+    @pulumi.getter(name="loadBalancerFrontendIpConfigurationIds")
+    def load_balancer_frontend_ip_configuration_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        A list of Frontend IP Configuration IDs from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "load_balancer_frontend_ip_configuration_ids")
+
+    @load_balancer_frontend_ip_configuration_ids.setter
+    def load_balancer_frontend_ip_configuration_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "load_balancer_frontend_ip_configuration_ids", value)
 
     @_builtins.property
     @pulumi.getter
@@ -192,6 +209,7 @@ class _LinkServiceState:
     def __init__(__self__, *,
                  alias: Optional[pulumi.Input[_builtins.str]] = None,
                  auto_approval_subscription_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 destination_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
                  enable_proxy_protocol: Optional[pulumi.Input[_builtins.bool]] = None,
                  fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  load_balancer_frontend_ip_configuration_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -205,6 +223,7 @@ class _LinkServiceState:
         Input properties used for looking up and filtering LinkService resources.
         :param pulumi.Input[_builtins.str] alias: A globally unique DNS Name for your Private Link Service. You can use this alias to request a connection to your Private Link Service.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] auto_approval_subscription_ids: A list of Subscription UUID/GUID's that will be automatically be able to use this Private Link Service.
+        :param pulumi.Input[_builtins.str] destination_ip_address: The destination IP address of the Private Link Service.
         :param pulumi.Input[_builtins.bool] enable_proxy_protocol: Should the Private Link Service support the Proxy Protocol?
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] fqdns: List of FQDNs allowed for the Private Link Service.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] load_balancer_frontend_ip_configuration_ids: A list of Frontend IP Configuration IDs from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running. Changing this forces a new resource to be created.
@@ -221,6 +240,8 @@ class _LinkServiceState:
             pulumi.set(__self__, "alias", alias)
         if auto_approval_subscription_ids is not None:
             pulumi.set(__self__, "auto_approval_subscription_ids", auto_approval_subscription_ids)
+        if destination_ip_address is not None:
+            pulumi.set(__self__, "destination_ip_address", destination_ip_address)
         if enable_proxy_protocol is not None:
             pulumi.set(__self__, "enable_proxy_protocol", enable_proxy_protocol)
         if fqdns is not None:
@@ -263,6 +284,18 @@ class _LinkServiceState:
     @auto_approval_subscription_ids.setter
     def auto_approval_subscription_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "auto_approval_subscription_ids", value)
+
+    @_builtins.property
+    @pulumi.getter(name="destinationIpAddress")
+    def destination_ip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The destination IP address of the Private Link Service.
+        """
+        return pulumi.get(self, "destination_ip_address")
+
+    @destination_ip_address.setter
+    def destination_ip_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "destination_ip_address", value)
 
     @_builtins.property
     @pulumi.getter(name="enableProxyProtocol")
@@ -382,6 +415,7 @@ class LinkService(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_approval_subscription_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 destination_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
                  enable_proxy_protocol: Optional[pulumi.Input[_builtins.bool]] = None,
                  fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  load_balancer_frontend_ip_configuration_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -408,6 +442,7 @@ class LinkService(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] auto_approval_subscription_ids: A list of Subscription UUID/GUID's that will be automatically be able to use this Private Link Service.
+        :param pulumi.Input[_builtins.str] destination_ip_address: The destination IP address of the Private Link Service.
         :param pulumi.Input[_builtins.bool] enable_proxy_protocol: Should the Private Link Service support the Proxy Protocol?
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] fqdns: List of FQDNs allowed for the Private Link Service.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] load_balancer_frontend_ip_configuration_ids: A list of Frontend IP Configuration IDs from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running. Changing this forces a new resource to be created.
@@ -455,6 +490,7 @@ class LinkService(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_approval_subscription_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 destination_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
                  enable_proxy_protocol: Optional[pulumi.Input[_builtins.bool]] = None,
                  fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  load_balancer_frontend_ip_configuration_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -474,10 +510,9 @@ class LinkService(pulumi.CustomResource):
             __props__ = LinkServiceArgs.__new__(LinkServiceArgs)
 
             __props__.__dict__["auto_approval_subscription_ids"] = auto_approval_subscription_ids
+            __props__.__dict__["destination_ip_address"] = destination_ip_address
             __props__.__dict__["enable_proxy_protocol"] = enable_proxy_protocol
             __props__.__dict__["fqdns"] = fqdns
-            if load_balancer_frontend_ip_configuration_ids is None and not opts.urn:
-                raise TypeError("Missing required property 'load_balancer_frontend_ip_configuration_ids'")
             __props__.__dict__["load_balancer_frontend_ip_configuration_ids"] = load_balancer_frontend_ip_configuration_ids
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
@@ -502,6 +537,7 @@ class LinkService(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             alias: Optional[pulumi.Input[_builtins.str]] = None,
             auto_approval_subscription_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            destination_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
             enable_proxy_protocol: Optional[pulumi.Input[_builtins.bool]] = None,
             fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
             load_balancer_frontend_ip_configuration_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -520,6 +556,7 @@ class LinkService(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] alias: A globally unique DNS Name for your Private Link Service. You can use this alias to request a connection to your Private Link Service.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] auto_approval_subscription_ids: A list of Subscription UUID/GUID's that will be automatically be able to use this Private Link Service.
+        :param pulumi.Input[_builtins.str] destination_ip_address: The destination IP address of the Private Link Service.
         :param pulumi.Input[_builtins.bool] enable_proxy_protocol: Should the Private Link Service support the Proxy Protocol?
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] fqdns: List of FQDNs allowed for the Private Link Service.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] load_balancer_frontend_ip_configuration_ids: A list of Frontend IP Configuration IDs from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running. Changing this forces a new resource to be created.
@@ -538,6 +575,7 @@ class LinkService(pulumi.CustomResource):
 
         __props__.__dict__["alias"] = alias
         __props__.__dict__["auto_approval_subscription_ids"] = auto_approval_subscription_ids
+        __props__.__dict__["destination_ip_address"] = destination_ip_address
         __props__.__dict__["enable_proxy_protocol"] = enable_proxy_protocol
         __props__.__dict__["fqdns"] = fqdns
         __props__.__dict__["load_balancer_frontend_ip_configuration_ids"] = load_balancer_frontend_ip_configuration_ids
@@ -566,6 +604,14 @@ class LinkService(pulumi.CustomResource):
         return pulumi.get(self, "auto_approval_subscription_ids")
 
     @_builtins.property
+    @pulumi.getter(name="destinationIpAddress")
+    def destination_ip_address(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The destination IP address of the Private Link Service.
+        """
+        return pulumi.get(self, "destination_ip_address")
+
+    @_builtins.property
     @pulumi.getter(name="enableProxyProtocol")
     def enable_proxy_protocol(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
@@ -583,7 +629,7 @@ class LinkService(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="loadBalancerFrontendIpConfigurationIds")
-    def load_balancer_frontend_ip_configuration_ids(self) -> pulumi.Output[Sequence[_builtins.str]]:
+    def load_balancer_frontend_ip_configuration_ids(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
         """
         A list of Frontend IP Configuration IDs from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running. Changing this forces a new resource to be created.
         """

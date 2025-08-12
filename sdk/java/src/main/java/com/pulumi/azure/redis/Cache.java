@@ -86,6 +86,13 @@ import javax.annotation.Nullable;
  * * [Azure Cache for Redis planning](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-planning-faq)
  * * [Redis: Available Configuration Settings](https://redis.io/topics/config)
  * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.Cache` - 2024-11-01
+ * 
  * ## Import
  * 
  * Redis Cache&#39;s can be imported using the `resource id`, e.g.

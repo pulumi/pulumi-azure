@@ -57,7 +57,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This resource uses the following Azure API Providers:
 //
-// * `Microsoft.RecoveryServices`: 2024-04-01, 2024-01-01
+// * `Microsoft.RecoveryServices` - 2024-04-01, 2024-01-01
 //
 // ## Import
 //

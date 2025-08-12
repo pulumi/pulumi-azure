@@ -31,6 +31,7 @@ class AnalyticsWorkspaceArgs:
                  internet_ingestion_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  internet_query_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  local_authentication_disabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 local_authentication_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  reservation_capacity_in_gb_per_day: Optional[pulumi.Input[_builtins.int]] = None,
@@ -40,7 +41,7 @@ class AnalyticsWorkspaceArgs:
         """
         The set of arguments for constructing a AnalyticsWorkspace resource.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which the Log Analytics workspace is created. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.bool] allow_resource_only_permissions: Specifies if the log Analytics Workspace allow users accessing to data associated with resources they have permission to view, without permission to workspace. Defaults to `true`.
+        :param pulumi.Input[_builtins.bool] allow_resource_only_permissions: Specifies if the log Analytics Workspace allows users accessing to data associated with the resources they have permission to view, without permission to workspace. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] cmk_for_query_forced: Is Customer Managed Storage mandatory for query management?
         :param pulumi.Input[_builtins.float] daily_quota_gb: The workspace daily quota for ingestion in GB. Defaults to `-1` (unlimited) if omitted.
         :param pulumi.Input[_builtins.str] data_collection_rule_id: The ID of the Data Collection Rule to use for this workspace.
@@ -48,14 +49,14 @@ class AnalyticsWorkspaceArgs:
         :param pulumi.Input[_builtins.bool] immediate_data_purge_on30_days_enabled: Whether to remove the data in the Log Analytics Workspace immediately after 30 days.
         :param pulumi.Input[_builtins.bool] internet_ingestion_enabled: Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.
         :param pulumi.Input[_builtins.bool] internet_query_enabled: Should the Log Analytics Workspace support querying over the Public Internet? Defaults to `true`.
-        :param pulumi.Input[_builtins.bool] local_authentication_disabled: Specifies if the log Analytics workspace should enforce authentication using Azure AD. Defaults to `false`.
+        :param pulumi.Input[_builtins.bool] local_authentication_enabled: Specifies if the log Analytics workspace should allow local authentication methods in addition to Microsoft Entra (Azure AD). Defaults to `true`.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Log Analytics Workspace. Workspace name should include 4-63 letters, digits or '-'. The '-' shouldn't be the first or the last symbol. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] reservation_capacity_in_gb_per_day: The capacity reservation level in GB for this workspace. Possible values are `100`, `200`, `300`, `400`, `500`, `1000`, `2000` and `5000`.
                
                > **Note:** `reservation_capacity_in_gb_per_day` can only be used when the `sku` is set to `CapacityReservation`.
         :param pulumi.Input[_builtins.int] retention_in_days: The workspace data retention in days. Possible values are between `30` and `730`.
-        :param pulumi.Input[_builtins.str] sku: Specifies the SKU of the Log Analytics Workspace. Possible values are `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, `CapacityReservation`, `PerGB2018`, and `LACluster`. Defaults to `PerGB2018`.
+        :param pulumi.Input[_builtins.str] sku: Specifies the SKU of the Log Analytics Workspace. Possible values are `PerNode`, `Standalone`, `Unlimited`, `CapacityReservation`, `PerGB2018`, and `LACluster`. Defaults to `PerGB2018`.
                
                > **Note:** `sku` should only be set to `LACluster` when the Log Analytics Workspace is linked to a Log Analytics Cluster. Additionally, `sku` cannot be modified while linked.
                
@@ -82,7 +83,12 @@ class AnalyticsWorkspaceArgs:
         if internet_query_enabled is not None:
             pulumi.set(__self__, "internet_query_enabled", internet_query_enabled)
         if local_authentication_disabled is not None:
+            warnings.warn("""`local_authentication_disabled` has been deprecated in favour of `local_authentication_enabled` and will be removed in v5.0 of the AzureRM Provider""", DeprecationWarning)
+            pulumi.log.warn("""local_authentication_disabled is deprecated: `local_authentication_disabled` has been deprecated in favour of `local_authentication_enabled` and will be removed in v5.0 of the AzureRM Provider""")
+        if local_authentication_disabled is not None:
             pulumi.set(__self__, "local_authentication_disabled", local_authentication_disabled)
+        if local_authentication_enabled is not None:
+            pulumi.set(__self__, "local_authentication_enabled", local_authentication_enabled)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
@@ -112,7 +118,7 @@ class AnalyticsWorkspaceArgs:
     @pulumi.getter(name="allowResourceOnlyPermissions")
     def allow_resource_only_permissions(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Specifies if the log Analytics Workspace allow users accessing to data associated with resources they have permission to view, without permission to workspace. Defaults to `true`.
+        Specifies if the log Analytics Workspace allows users accessing to data associated with the resources they have permission to view, without permission to workspace. Defaults to `true`.
         """
         return pulumi.get(self, "allow_resource_only_permissions")
 
@@ -206,15 +212,25 @@ class AnalyticsWorkspaceArgs:
 
     @_builtins.property
     @pulumi.getter(name="localAuthenticationDisabled")
+    @_utilities.deprecated("""`local_authentication_disabled` has been deprecated in favour of `local_authentication_enabled` and will be removed in v5.0 of the AzureRM Provider""")
     def local_authentication_disabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Specifies if the log Analytics workspace should enforce authentication using Azure AD. Defaults to `false`.
-        """
         return pulumi.get(self, "local_authentication_disabled")
 
     @local_authentication_disabled.setter
     def local_authentication_disabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "local_authentication_disabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="localAuthenticationEnabled")
+    def local_authentication_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Specifies if the log Analytics workspace should allow local authentication methods in addition to Microsoft Entra (Azure AD). Defaults to `true`.
+        """
+        return pulumi.get(self, "local_authentication_enabled")
+
+    @local_authentication_enabled.setter
+    def local_authentication_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "local_authentication_enabled", value)
 
     @_builtins.property
     @pulumi.getter
@@ -270,7 +286,7 @@ class AnalyticsWorkspaceArgs:
     @pulumi.getter
     def sku(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Specifies the SKU of the Log Analytics Workspace. Possible values are `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, `CapacityReservation`, `PerGB2018`, and `LACluster`. Defaults to `PerGB2018`.
+        Specifies the SKU of the Log Analytics Workspace. Possible values are `PerNode`, `Standalone`, `Unlimited`, `CapacityReservation`, `PerGB2018`, and `LACluster`. Defaults to `PerGB2018`.
 
         > **Note:** `sku` should only be set to `LACluster` when the Log Analytics Workspace is linked to a Log Analytics Cluster. Additionally, `sku` cannot be modified while linked.
 
@@ -309,6 +325,7 @@ class _AnalyticsWorkspaceState:
                  internet_ingestion_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  internet_query_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  local_authentication_disabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 local_authentication_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  primary_shared_key: Optional[pulumi.Input[_builtins.str]] = None,
@@ -321,7 +338,7 @@ class _AnalyticsWorkspaceState:
                  workspace_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AnalyticsWorkspace resources.
-        :param pulumi.Input[_builtins.bool] allow_resource_only_permissions: Specifies if the log Analytics Workspace allow users accessing to data associated with resources they have permission to view, without permission to workspace. Defaults to `true`.
+        :param pulumi.Input[_builtins.bool] allow_resource_only_permissions: Specifies if the log Analytics Workspace allows users accessing to data associated with the resources they have permission to view, without permission to workspace. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] cmk_for_query_forced: Is Customer Managed Storage mandatory for query management?
         :param pulumi.Input[_builtins.float] daily_quota_gb: The workspace daily quota for ingestion in GB. Defaults to `-1` (unlimited) if omitted.
         :param pulumi.Input[_builtins.str] data_collection_rule_id: The ID of the Data Collection Rule to use for this workspace.
@@ -329,7 +346,7 @@ class _AnalyticsWorkspaceState:
         :param pulumi.Input[_builtins.bool] immediate_data_purge_on30_days_enabled: Whether to remove the data in the Log Analytics Workspace immediately after 30 days.
         :param pulumi.Input[_builtins.bool] internet_ingestion_enabled: Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.
         :param pulumi.Input[_builtins.bool] internet_query_enabled: Should the Log Analytics Workspace support querying over the Public Internet? Defaults to `true`.
-        :param pulumi.Input[_builtins.bool] local_authentication_disabled: Specifies if the log Analytics workspace should enforce authentication using Azure AD. Defaults to `false`.
+        :param pulumi.Input[_builtins.bool] local_authentication_enabled: Specifies if the log Analytics workspace should allow local authentication methods in addition to Microsoft Entra (Azure AD). Defaults to `true`.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Log Analytics Workspace. Workspace name should include 4-63 letters, digits or '-'. The '-' shouldn't be the first or the last symbol. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] primary_shared_key: The Primary shared key for the Log Analytics Workspace.
@@ -339,7 +356,7 @@ class _AnalyticsWorkspaceState:
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which the Log Analytics workspace is created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] retention_in_days: The workspace data retention in days. Possible values are between `30` and `730`.
         :param pulumi.Input[_builtins.str] secondary_shared_key: The Secondary shared key for the Log Analytics Workspace.
-        :param pulumi.Input[_builtins.str] sku: Specifies the SKU of the Log Analytics Workspace. Possible values are `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, `CapacityReservation`, `PerGB2018`, and `LACluster`. Defaults to `PerGB2018`.
+        :param pulumi.Input[_builtins.str] sku: Specifies the SKU of the Log Analytics Workspace. Possible values are `PerNode`, `Standalone`, `Unlimited`, `CapacityReservation`, `PerGB2018`, and `LACluster`. Defaults to `PerGB2018`.
                
                > **Note:** `sku` should only be set to `LACluster` when the Log Analytics Workspace is linked to a Log Analytics Cluster. Additionally, `sku` cannot be modified while linked.
                
@@ -366,7 +383,12 @@ class _AnalyticsWorkspaceState:
         if internet_query_enabled is not None:
             pulumi.set(__self__, "internet_query_enabled", internet_query_enabled)
         if local_authentication_disabled is not None:
+            warnings.warn("""`local_authentication_disabled` has been deprecated in favour of `local_authentication_enabled` and will be removed in v5.0 of the AzureRM Provider""", DeprecationWarning)
+            pulumi.log.warn("""local_authentication_disabled is deprecated: `local_authentication_disabled` has been deprecated in favour of `local_authentication_enabled` and will be removed in v5.0 of the AzureRM Provider""")
+        if local_authentication_disabled is not None:
             pulumi.set(__self__, "local_authentication_disabled", local_authentication_disabled)
+        if local_authentication_enabled is not None:
+            pulumi.set(__self__, "local_authentication_enabled", local_authentication_enabled)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
@@ -392,7 +414,7 @@ class _AnalyticsWorkspaceState:
     @pulumi.getter(name="allowResourceOnlyPermissions")
     def allow_resource_only_permissions(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Specifies if the log Analytics Workspace allow users accessing to data associated with resources they have permission to view, without permission to workspace. Defaults to `true`.
+        Specifies if the log Analytics Workspace allows users accessing to data associated with the resources they have permission to view, without permission to workspace. Defaults to `true`.
         """
         return pulumi.get(self, "allow_resource_only_permissions")
 
@@ -486,15 +508,25 @@ class _AnalyticsWorkspaceState:
 
     @_builtins.property
     @pulumi.getter(name="localAuthenticationDisabled")
+    @_utilities.deprecated("""`local_authentication_disabled` has been deprecated in favour of `local_authentication_enabled` and will be removed in v5.0 of the AzureRM Provider""")
     def local_authentication_disabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Specifies if the log Analytics workspace should enforce authentication using Azure AD. Defaults to `false`.
-        """
         return pulumi.get(self, "local_authentication_disabled")
 
     @local_authentication_disabled.setter
     def local_authentication_disabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "local_authentication_disabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="localAuthenticationEnabled")
+    def local_authentication_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Specifies if the log Analytics workspace should allow local authentication methods in addition to Microsoft Entra (Azure AD). Defaults to `true`.
+        """
+        return pulumi.get(self, "local_authentication_enabled")
+
+    @local_authentication_enabled.setter
+    def local_authentication_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "local_authentication_enabled", value)
 
     @_builtins.property
     @pulumi.getter
@@ -586,7 +618,7 @@ class _AnalyticsWorkspaceState:
     @pulumi.getter
     def sku(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Specifies the SKU of the Log Analytics Workspace. Possible values are `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, `CapacityReservation`, `PerGB2018`, and `LACluster`. Defaults to `PerGB2018`.
+        Specifies the SKU of the Log Analytics Workspace. Possible values are `PerNode`, `Standalone`, `Unlimited`, `CapacityReservation`, `PerGB2018`, and `LACluster`. Defaults to `PerGB2018`.
 
         > **Note:** `sku` should only be set to `LACluster` when the Log Analytics Workspace is linked to a Log Analytics Cluster. Additionally, `sku` cannot be modified while linked.
 
@@ -640,6 +672,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
                  internet_ingestion_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  internet_query_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  local_authentication_disabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 local_authentication_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  reservation_capacity_in_gb_per_day: Optional[pulumi.Input[_builtins.int]] = None,
@@ -673,7 +706,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.OperationalInsights`: 2022-10-01, 2020-08-01
+        * `Microsoft.OperationalInsights` - 2022-10-01, 2020-08-01
 
         ## Import
 
@@ -685,7 +718,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.bool] allow_resource_only_permissions: Specifies if the log Analytics Workspace allow users accessing to data associated with resources they have permission to view, without permission to workspace. Defaults to `true`.
+        :param pulumi.Input[_builtins.bool] allow_resource_only_permissions: Specifies if the log Analytics Workspace allows users accessing to data associated with the resources they have permission to view, without permission to workspace. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] cmk_for_query_forced: Is Customer Managed Storage mandatory for query management?
         :param pulumi.Input[_builtins.float] daily_quota_gb: The workspace daily quota for ingestion in GB. Defaults to `-1` (unlimited) if omitted.
         :param pulumi.Input[_builtins.str] data_collection_rule_id: The ID of the Data Collection Rule to use for this workspace.
@@ -693,7 +726,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] immediate_data_purge_on30_days_enabled: Whether to remove the data in the Log Analytics Workspace immediately after 30 days.
         :param pulumi.Input[_builtins.bool] internet_ingestion_enabled: Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.
         :param pulumi.Input[_builtins.bool] internet_query_enabled: Should the Log Analytics Workspace support querying over the Public Internet? Defaults to `true`.
-        :param pulumi.Input[_builtins.bool] local_authentication_disabled: Specifies if the log Analytics workspace should enforce authentication using Azure AD. Defaults to `false`.
+        :param pulumi.Input[_builtins.bool] local_authentication_enabled: Specifies if the log Analytics workspace should allow local authentication methods in addition to Microsoft Entra (Azure AD). Defaults to `true`.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Log Analytics Workspace. Workspace name should include 4-63 letters, digits or '-'. The '-' shouldn't be the first or the last symbol. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] reservation_capacity_in_gb_per_day: The capacity reservation level in GB for this workspace. Possible values are `100`, `200`, `300`, `400`, `500`, `1000`, `2000` and `5000`.
@@ -701,7 +734,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
                > **Note:** `reservation_capacity_in_gb_per_day` can only be used when the `sku` is set to `CapacityReservation`.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which the Log Analytics workspace is created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] retention_in_days: The workspace data retention in days. Possible values are between `30` and `730`.
-        :param pulumi.Input[_builtins.str] sku: Specifies the SKU of the Log Analytics Workspace. Possible values are `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, `CapacityReservation`, `PerGB2018`, and `LACluster`. Defaults to `PerGB2018`.
+        :param pulumi.Input[_builtins.str] sku: Specifies the SKU of the Log Analytics Workspace. Possible values are `PerNode`, `Standalone`, `Unlimited`, `CapacityReservation`, `PerGB2018`, and `LACluster`. Defaults to `PerGB2018`.
                
                > **Note:** `sku` should only be set to `LACluster` when the Log Analytics Workspace is linked to a Log Analytics Cluster. Additionally, `sku` cannot be modified while linked.
                
@@ -741,7 +774,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.OperationalInsights`: 2022-10-01, 2020-08-01
+        * `Microsoft.OperationalInsights` - 2022-10-01, 2020-08-01
 
         ## Import
 
@@ -775,6 +808,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
                  internet_ingestion_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  internet_query_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  local_authentication_disabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 local_authentication_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  reservation_capacity_in_gb_per_day: Optional[pulumi.Input[_builtins.int]] = None,
@@ -800,6 +834,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
             __props__.__dict__["internet_ingestion_enabled"] = internet_ingestion_enabled
             __props__.__dict__["internet_query_enabled"] = internet_query_enabled
             __props__.__dict__["local_authentication_disabled"] = local_authentication_disabled
+            __props__.__dict__["local_authentication_enabled"] = local_authentication_enabled
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
             __props__.__dict__["reservation_capacity_in_gb_per_day"] = reservation_capacity_in_gb_per_day
@@ -833,6 +868,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
             internet_ingestion_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
             internet_query_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
             local_authentication_disabled: Optional[pulumi.Input[_builtins.bool]] = None,
+            local_authentication_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
             location: Optional[pulumi.Input[_builtins.str]] = None,
             name: Optional[pulumi.Input[_builtins.str]] = None,
             primary_shared_key: Optional[pulumi.Input[_builtins.str]] = None,
@@ -850,7 +886,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.bool] allow_resource_only_permissions: Specifies if the log Analytics Workspace allow users accessing to data associated with resources they have permission to view, without permission to workspace. Defaults to `true`.
+        :param pulumi.Input[_builtins.bool] allow_resource_only_permissions: Specifies if the log Analytics Workspace allows users accessing to data associated with the resources they have permission to view, without permission to workspace. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] cmk_for_query_forced: Is Customer Managed Storage mandatory for query management?
         :param pulumi.Input[_builtins.float] daily_quota_gb: The workspace daily quota for ingestion in GB. Defaults to `-1` (unlimited) if omitted.
         :param pulumi.Input[_builtins.str] data_collection_rule_id: The ID of the Data Collection Rule to use for this workspace.
@@ -858,7 +894,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] immediate_data_purge_on30_days_enabled: Whether to remove the data in the Log Analytics Workspace immediately after 30 days.
         :param pulumi.Input[_builtins.bool] internet_ingestion_enabled: Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.
         :param pulumi.Input[_builtins.bool] internet_query_enabled: Should the Log Analytics Workspace support querying over the Public Internet? Defaults to `true`.
-        :param pulumi.Input[_builtins.bool] local_authentication_disabled: Specifies if the log Analytics workspace should enforce authentication using Azure AD. Defaults to `false`.
+        :param pulumi.Input[_builtins.bool] local_authentication_enabled: Specifies if the log Analytics workspace should allow local authentication methods in addition to Microsoft Entra (Azure AD). Defaults to `true`.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Log Analytics Workspace. Workspace name should include 4-63 letters, digits or '-'. The '-' shouldn't be the first or the last symbol. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] primary_shared_key: The Primary shared key for the Log Analytics Workspace.
@@ -868,7 +904,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which the Log Analytics workspace is created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] retention_in_days: The workspace data retention in days. Possible values are between `30` and `730`.
         :param pulumi.Input[_builtins.str] secondary_shared_key: The Secondary shared key for the Log Analytics Workspace.
-        :param pulumi.Input[_builtins.str] sku: Specifies the SKU of the Log Analytics Workspace. Possible values are `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, `CapacityReservation`, `PerGB2018`, and `LACluster`. Defaults to `PerGB2018`.
+        :param pulumi.Input[_builtins.str] sku: Specifies the SKU of the Log Analytics Workspace. Possible values are `PerNode`, `Standalone`, `Unlimited`, `CapacityReservation`, `PerGB2018`, and `LACluster`. Defaults to `PerGB2018`.
                
                > **Note:** `sku` should only be set to `LACluster` when the Log Analytics Workspace is linked to a Log Analytics Cluster. Additionally, `sku` cannot be modified while linked.
                
@@ -891,6 +927,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
         __props__.__dict__["internet_ingestion_enabled"] = internet_ingestion_enabled
         __props__.__dict__["internet_query_enabled"] = internet_query_enabled
         __props__.__dict__["local_authentication_disabled"] = local_authentication_disabled
+        __props__.__dict__["local_authentication_enabled"] = local_authentication_enabled
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
         __props__.__dict__["primary_shared_key"] = primary_shared_key
@@ -907,7 +944,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
     @pulumi.getter(name="allowResourceOnlyPermissions")
     def allow_resource_only_permissions(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        Specifies if the log Analytics Workspace allow users accessing to data associated with resources they have permission to view, without permission to workspace. Defaults to `true`.
+        Specifies if the log Analytics Workspace allows users accessing to data associated with the resources they have permission to view, without permission to workspace. Defaults to `true`.
         """
         return pulumi.get(self, "allow_resource_only_permissions")
 
@@ -969,11 +1006,17 @@ class AnalyticsWorkspace(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="localAuthenticationDisabled")
-    def local_authentication_disabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Specifies if the log Analytics workspace should enforce authentication using Azure AD. Defaults to `false`.
-        """
+    @_utilities.deprecated("""`local_authentication_disabled` has been deprecated in favour of `local_authentication_enabled` and will be removed in v5.0 of the AzureRM Provider""")
+    def local_authentication_disabled(self) -> pulumi.Output[_builtins.bool]:
         return pulumi.get(self, "local_authentication_disabled")
+
+    @_builtins.property
+    @pulumi.getter(name="localAuthenticationEnabled")
+    def local_authentication_enabled(self) -> pulumi.Output[_builtins.bool]:
+        """
+        Specifies if the log Analytics workspace should allow local authentication methods in addition to Microsoft Entra (Azure AD). Defaults to `true`.
+        """
+        return pulumi.get(self, "local_authentication_enabled")
 
     @_builtins.property
     @pulumi.getter
@@ -1037,7 +1080,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
     @pulumi.getter
     def sku(self) -> pulumi.Output[_builtins.str]:
         """
-        Specifies the SKU of the Log Analytics Workspace. Possible values are `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, `CapacityReservation`, `PerGB2018`, and `LACluster`. Defaults to `PerGB2018`.
+        Specifies the SKU of the Log Analytics Workspace. Possible values are `PerNode`, `Standalone`, `Unlimited`, `CapacityReservation`, `PerGB2018`, and `LACluster`. Defaults to `PerGB2018`.
 
         > **Note:** `sku` should only be set to `LACluster` when the Log Analytics Workspace is linked to a Log Analytics Cluster. Additionally, `sku` cannot be modified while linked.
 

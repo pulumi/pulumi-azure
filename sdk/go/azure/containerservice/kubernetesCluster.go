@@ -70,6 +70,13 @@ import (
 //
 // ```
 //
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.ContainerService` - 2025-02-01
+//
 // ## Import
 //
 // Managed Kubernetes Clusters can be imported using the `resource id`, e.g.
@@ -102,6 +109,8 @@ type KubernetesCluster struct {
 	CostAnalysisEnabled pulumi.BoolPtrOutput `pulumi:"costAnalysisEnabled"`
 	// The current version running on the Azure Kubernetes Managed Cluster.
 	CurrentKubernetesVersion pulumi.StringOutput `pulumi:"currentKubernetesVersion"`
+	// A list of up to 10 base64 encoded CA certificates that will be added to the trust store on nodes.
+	CustomCaTrustCertificatesBase64s pulumi.StringArrayOutput `pulumi:"customCaTrustCertificatesBase64s"`
 	// Specifies configuration for "System" mode node pool. A `defaultNodePool` block as defined below.
 	DefaultNodePool KubernetesClusterDefaultNodePoolOutput `pulumi:"defaultNodePool"`
 	// The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/azure/aks/azure-disk-customer-managed-keys). Changing this forces a new resource to be created.
@@ -132,7 +141,7 @@ type KubernetesCluster struct {
 	Identity KubernetesClusterIdentityPtrOutput `pulumi:"identity"`
 	// Specifies whether Image Cleaner is enabled.
 	ImageCleanerEnabled pulumi.BoolPtrOutput `pulumi:"imageCleanerEnabled"`
-	// Specifies the interval in hours when images should be cleaned up. Defaults to `0`.
+	// Specifies the interval in hours when images should be cleaned up.
 	ImageCleanerIntervalHours pulumi.IntPtrOutput `pulumi:"imageCleanerIntervalHours"`
 	// A `ingressApplicationGateway` block as defined below.
 	//
@@ -376,6 +385,8 @@ type kubernetesClusterState struct {
 	CostAnalysisEnabled *bool `pulumi:"costAnalysisEnabled"`
 	// The current version running on the Azure Kubernetes Managed Cluster.
 	CurrentKubernetesVersion *string `pulumi:"currentKubernetesVersion"`
+	// A list of up to 10 base64 encoded CA certificates that will be added to the trust store on nodes.
+	CustomCaTrustCertificatesBase64s []string `pulumi:"customCaTrustCertificatesBase64s"`
 	// Specifies configuration for "System" mode node pool. A `defaultNodePool` block as defined below.
 	DefaultNodePool *KubernetesClusterDefaultNodePool `pulumi:"defaultNodePool"`
 	// The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/azure/aks/azure-disk-customer-managed-keys). Changing this forces a new resource to be created.
@@ -406,7 +417,7 @@ type kubernetesClusterState struct {
 	Identity *KubernetesClusterIdentity `pulumi:"identity"`
 	// Specifies whether Image Cleaner is enabled.
 	ImageCleanerEnabled *bool `pulumi:"imageCleanerEnabled"`
-	// Specifies the interval in hours when images should be cleaned up. Defaults to `0`.
+	// Specifies the interval in hours when images should be cleaned up.
 	ImageCleanerIntervalHours *int `pulumi:"imageCleanerIntervalHours"`
 	// A `ingressApplicationGateway` block as defined below.
 	//
@@ -608,6 +619,8 @@ type KubernetesClusterState struct {
 	CostAnalysisEnabled pulumi.BoolPtrInput
 	// The current version running on the Azure Kubernetes Managed Cluster.
 	CurrentKubernetesVersion pulumi.StringPtrInput
+	// A list of up to 10 base64 encoded CA certificates that will be added to the trust store on nodes.
+	CustomCaTrustCertificatesBase64s pulumi.StringArrayInput
 	// Specifies configuration for "System" mode node pool. A `defaultNodePool` block as defined below.
 	DefaultNodePool KubernetesClusterDefaultNodePoolPtrInput
 	// The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/azure/aks/azure-disk-customer-managed-keys). Changing this forces a new resource to be created.
@@ -638,7 +651,7 @@ type KubernetesClusterState struct {
 	Identity KubernetesClusterIdentityPtrInput
 	// Specifies whether Image Cleaner is enabled.
 	ImageCleanerEnabled pulumi.BoolPtrInput
-	// Specifies the interval in hours when images should be cleaned up. Defaults to `0`.
+	// Specifies the interval in hours when images should be cleaned up.
 	ImageCleanerIntervalHours pulumi.IntPtrInput
 	// A `ingressApplicationGateway` block as defined below.
 	//
@@ -842,6 +855,8 @@ type kubernetesClusterArgs struct {
 	ConfidentialComputing *KubernetesClusterConfidentialComputing `pulumi:"confidentialComputing"`
 	// Should cost analysis be enabled for this Kubernetes Cluster? Defaults to `false`. The `skuTier` must be set to `Standard` or `Premium` to enable this feature. Enabling this will add Kubernetes Namespace and Deployment details to the Cost Analysis views in the Azure portal.
 	CostAnalysisEnabled *bool `pulumi:"costAnalysisEnabled"`
+	// A list of up to 10 base64 encoded CA certificates that will be added to the trust store on nodes.
+	CustomCaTrustCertificatesBase64s []string `pulumi:"customCaTrustCertificatesBase64s"`
 	// Specifies configuration for "System" mode node pool. A `defaultNodePool` block as defined below.
 	DefaultNodePool KubernetesClusterDefaultNodePool `pulumi:"defaultNodePool"`
 	// The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/azure/aks/azure-disk-customer-managed-keys). Changing this forces a new resource to be created.
@@ -868,7 +883,7 @@ type kubernetesClusterArgs struct {
 	Identity *KubernetesClusterIdentity `pulumi:"identity"`
 	// Specifies whether Image Cleaner is enabled.
 	ImageCleanerEnabled *bool `pulumi:"imageCleanerEnabled"`
-	// Specifies the interval in hours when images should be cleaned up. Defaults to `0`.
+	// Specifies the interval in hours when images should be cleaned up.
 	ImageCleanerIntervalHours *int `pulumi:"imageCleanerIntervalHours"`
 	// A `ingressApplicationGateway` block as defined below.
 	//
@@ -1053,6 +1068,8 @@ type KubernetesClusterArgs struct {
 	ConfidentialComputing KubernetesClusterConfidentialComputingPtrInput
 	// Should cost analysis be enabled for this Kubernetes Cluster? Defaults to `false`. The `skuTier` must be set to `Standard` or `Premium` to enable this feature. Enabling this will add Kubernetes Namespace and Deployment details to the Cost Analysis views in the Azure portal.
 	CostAnalysisEnabled pulumi.BoolPtrInput
+	// A list of up to 10 base64 encoded CA certificates that will be added to the trust store on nodes.
+	CustomCaTrustCertificatesBase64s pulumi.StringArrayInput
 	// Specifies configuration for "System" mode node pool. A `defaultNodePool` block as defined below.
 	DefaultNodePool KubernetesClusterDefaultNodePoolInput
 	// The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/azure/aks/azure-disk-customer-managed-keys). Changing this forces a new resource to be created.
@@ -1079,7 +1096,7 @@ type KubernetesClusterArgs struct {
 	Identity KubernetesClusterIdentityPtrInput
 	// Specifies whether Image Cleaner is enabled.
 	ImageCleanerEnabled pulumi.BoolPtrInput
-	// Specifies the interval in hours when images should be cleaned up. Defaults to `0`.
+	// Specifies the interval in hours when images should be cleaned up.
 	ImageCleanerIntervalHours pulumi.IntPtrInput
 	// A `ingressApplicationGateway` block as defined below.
 	//
@@ -1384,6 +1401,11 @@ func (o KubernetesClusterOutput) CurrentKubernetesVersion() pulumi.StringOutput 
 	return o.ApplyT(func(v *KubernetesCluster) pulumi.StringOutput { return v.CurrentKubernetesVersion }).(pulumi.StringOutput)
 }
 
+// A list of up to 10 base64 encoded CA certificates that will be added to the trust store on nodes.
+func (o KubernetesClusterOutput) CustomCaTrustCertificatesBase64s() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *KubernetesCluster) pulumi.StringArrayOutput { return v.CustomCaTrustCertificatesBase64s }).(pulumi.StringArrayOutput)
+}
+
 // Specifies configuration for "System" mode node pool. A `defaultNodePool` block as defined below.
 func (o KubernetesClusterOutput) DefaultNodePool() KubernetesClusterDefaultNodePoolOutput {
 	return o.ApplyT(func(v *KubernetesCluster) KubernetesClusterDefaultNodePoolOutput { return v.DefaultNodePool }).(KubernetesClusterDefaultNodePoolOutput)
@@ -1447,7 +1469,7 @@ func (o KubernetesClusterOutput) ImageCleanerEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KubernetesCluster) pulumi.BoolPtrOutput { return v.ImageCleanerEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies the interval in hours when images should be cleaned up. Defaults to `0`.
+// Specifies the interval in hours when images should be cleaned up.
 func (o KubernetesClusterOutput) ImageCleanerIntervalHours() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *KubernetesCluster) pulumi.IntPtrOutput { return v.ImageCleanerIntervalHours }).(pulumi.IntPtrOutput)
 }

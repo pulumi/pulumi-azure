@@ -5603,6 +5603,112 @@ func (o PartnerConfigurationPartnerAuthorizationArrayOutput) Index(i pulumi.IntI
 	}).(PartnerConfigurationPartnerAuthorizationOutput)
 }
 
+type PartnerNamespaceInboundIpRule struct {
+	// The action to take when the rule is matched. The only possible value is `Allow`. Defaults to `Allow`.
+	Action *string `pulumi:"action"`
+	// The IP mask (CIDR) to match on.
+	IpMask string `pulumi:"ipMask"`
+}
+
+// PartnerNamespaceInboundIpRuleInput is an input type that accepts PartnerNamespaceInboundIpRuleArgs and PartnerNamespaceInboundIpRuleOutput values.
+// You can construct a concrete instance of `PartnerNamespaceInboundIpRuleInput` via:
+//
+//	PartnerNamespaceInboundIpRuleArgs{...}
+type PartnerNamespaceInboundIpRuleInput interface {
+	pulumi.Input
+
+	ToPartnerNamespaceInboundIpRuleOutput() PartnerNamespaceInboundIpRuleOutput
+	ToPartnerNamespaceInboundIpRuleOutputWithContext(context.Context) PartnerNamespaceInboundIpRuleOutput
+}
+
+type PartnerNamespaceInboundIpRuleArgs struct {
+	// The action to take when the rule is matched. The only possible value is `Allow`. Defaults to `Allow`.
+	Action pulumi.StringPtrInput `pulumi:"action"`
+	// The IP mask (CIDR) to match on.
+	IpMask pulumi.StringInput `pulumi:"ipMask"`
+}
+
+func (PartnerNamespaceInboundIpRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PartnerNamespaceInboundIpRule)(nil)).Elem()
+}
+
+func (i PartnerNamespaceInboundIpRuleArgs) ToPartnerNamespaceInboundIpRuleOutput() PartnerNamespaceInboundIpRuleOutput {
+	return i.ToPartnerNamespaceInboundIpRuleOutputWithContext(context.Background())
+}
+
+func (i PartnerNamespaceInboundIpRuleArgs) ToPartnerNamespaceInboundIpRuleOutputWithContext(ctx context.Context) PartnerNamespaceInboundIpRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartnerNamespaceInboundIpRuleOutput)
+}
+
+// PartnerNamespaceInboundIpRuleArrayInput is an input type that accepts PartnerNamespaceInboundIpRuleArray and PartnerNamespaceInboundIpRuleArrayOutput values.
+// You can construct a concrete instance of `PartnerNamespaceInboundIpRuleArrayInput` via:
+//
+//	PartnerNamespaceInboundIpRuleArray{ PartnerNamespaceInboundIpRuleArgs{...} }
+type PartnerNamespaceInboundIpRuleArrayInput interface {
+	pulumi.Input
+
+	ToPartnerNamespaceInboundIpRuleArrayOutput() PartnerNamespaceInboundIpRuleArrayOutput
+	ToPartnerNamespaceInboundIpRuleArrayOutputWithContext(context.Context) PartnerNamespaceInboundIpRuleArrayOutput
+}
+
+type PartnerNamespaceInboundIpRuleArray []PartnerNamespaceInboundIpRuleInput
+
+func (PartnerNamespaceInboundIpRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PartnerNamespaceInboundIpRule)(nil)).Elem()
+}
+
+func (i PartnerNamespaceInboundIpRuleArray) ToPartnerNamespaceInboundIpRuleArrayOutput() PartnerNamespaceInboundIpRuleArrayOutput {
+	return i.ToPartnerNamespaceInboundIpRuleArrayOutputWithContext(context.Background())
+}
+
+func (i PartnerNamespaceInboundIpRuleArray) ToPartnerNamespaceInboundIpRuleArrayOutputWithContext(ctx context.Context) PartnerNamespaceInboundIpRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartnerNamespaceInboundIpRuleArrayOutput)
+}
+
+type PartnerNamespaceInboundIpRuleOutput struct{ *pulumi.OutputState }
+
+func (PartnerNamespaceInboundIpRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PartnerNamespaceInboundIpRule)(nil)).Elem()
+}
+
+func (o PartnerNamespaceInboundIpRuleOutput) ToPartnerNamespaceInboundIpRuleOutput() PartnerNamespaceInboundIpRuleOutput {
+	return o
+}
+
+func (o PartnerNamespaceInboundIpRuleOutput) ToPartnerNamespaceInboundIpRuleOutputWithContext(ctx context.Context) PartnerNamespaceInboundIpRuleOutput {
+	return o
+}
+
+// The action to take when the rule is matched. The only possible value is `Allow`. Defaults to `Allow`.
+func (o PartnerNamespaceInboundIpRuleOutput) Action() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PartnerNamespaceInboundIpRule) *string { return v.Action }).(pulumi.StringPtrOutput)
+}
+
+// The IP mask (CIDR) to match on.
+func (o PartnerNamespaceInboundIpRuleOutput) IpMask() pulumi.StringOutput {
+	return o.ApplyT(func(v PartnerNamespaceInboundIpRule) string { return v.IpMask }).(pulumi.StringOutput)
+}
+
+type PartnerNamespaceInboundIpRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (PartnerNamespaceInboundIpRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PartnerNamespaceInboundIpRule)(nil)).Elem()
+}
+
+func (o PartnerNamespaceInboundIpRuleArrayOutput) ToPartnerNamespaceInboundIpRuleArrayOutput() PartnerNamespaceInboundIpRuleArrayOutput {
+	return o
+}
+
+func (o PartnerNamespaceInboundIpRuleArrayOutput) ToPartnerNamespaceInboundIpRuleArrayOutputWithContext(ctx context.Context) PartnerNamespaceInboundIpRuleArrayOutput {
+	return o
+}
+
+func (o PartnerNamespaceInboundIpRuleArrayOutput) Index(i pulumi.IntInput) PartnerNamespaceInboundIpRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PartnerNamespaceInboundIpRule {
+		return vs[0].([]PartnerNamespaceInboundIpRule)[vs[1].(int)]
+	}).(PartnerNamespaceInboundIpRuleOutput)
+}
+
 type SystemTopicEventSubscriptionAdvancedFilter struct {
 	// Compares a value of an event using a single boolean value.
 	BoolEquals []SystemTopicEventSubscriptionAdvancedFilterBoolEqual `pulumi:"boolEquals"`
@@ -9702,15 +9808,15 @@ func (o SystemTopicEventSubscriptionWebhookEndpointPtrOutput) Url() pulumi.Strin
 type SystemTopicIdentity struct {
 	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid System Topic.
 	//
-	// > **Note:** This is required when `type` is set to `UserAssigned`
+	// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 	//
-	// > **Note:** When `type` is set to `SystemAssigned`, The assigned `principalId` and `tenantId` can be retrieved after the Event Grid System Topic has been created. More details are available below.
+	// > **Note:** When `type` is set to `SystemAssigned`, The assigned `principalId` and `tenantId` can be retrieved after the Event Grid System Topic has been created.
 	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId *string `pulumi:"principalId"`
 	// The Tenant ID associated with this Managed Service Identity.
 	TenantId *string `pulumi:"tenantId"`
-	// Specifies the type of Managed Service Identity that should be configured on this Event Grid System Topic. Possible values are `SystemAssigned`, `UserAssigned`.
+	// Specifies the type of Managed Service Identity that should be configured on this Event Grid System Topic. Possible values are `SystemAssigned`, `UserAssigned`, and `SystemAssigned, UserAssigned`.
 	Type string `pulumi:"type"`
 }
 
@@ -9728,15 +9834,15 @@ type SystemTopicIdentityInput interface {
 type SystemTopicIdentityArgs struct {
 	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid System Topic.
 	//
-	// > **Note:** This is required when `type` is set to `UserAssigned`
+	// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 	//
-	// > **Note:** When `type` is set to `SystemAssigned`, The assigned `principalId` and `tenantId` can be retrieved after the Event Grid System Topic has been created. More details are available below.
+	// > **Note:** When `type` is set to `SystemAssigned`, The assigned `principalId` and `tenantId` can be retrieved after the Event Grid System Topic has been created.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
 	// The Tenant ID associated with this Managed Service Identity.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
-	// Specifies the type of Managed Service Identity that should be configured on this Event Grid System Topic. Possible values are `SystemAssigned`, `UserAssigned`.
+	// Specifies the type of Managed Service Identity that should be configured on this Event Grid System Topic. Possible values are `SystemAssigned`, `UserAssigned`, and `SystemAssigned, UserAssigned`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -9819,9 +9925,9 @@ func (o SystemTopicIdentityOutput) ToSystemTopicIdentityPtrOutputWithContext(ctx
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid System Topic.
 //
-// > **Note:** This is required when `type` is set to `UserAssigned`
+// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 //
-// > **Note:** When `type` is set to `SystemAssigned`, The assigned `principalId` and `tenantId` can be retrieved after the Event Grid System Topic has been created. More details are available below.
+// > **Note:** When `type` is set to `SystemAssigned`, The assigned `principalId` and `tenantId` can be retrieved after the Event Grid System Topic has been created.
 func (o SystemTopicIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SystemTopicIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
@@ -9836,7 +9942,7 @@ func (o SystemTopicIdentityOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemTopicIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the type of Managed Service Identity that should be configured on this Event Grid System Topic. Possible values are `SystemAssigned`, `UserAssigned`.
+// Specifies the type of Managed Service Identity that should be configured on this Event Grid System Topic. Possible values are `SystemAssigned`, `UserAssigned`, and `SystemAssigned, UserAssigned`.
 func (o SystemTopicIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SystemTopicIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -9867,9 +9973,9 @@ func (o SystemTopicIdentityPtrOutput) Elem() SystemTopicIdentityOutput {
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid System Topic.
 //
-// > **Note:** This is required when `type` is set to `UserAssigned`
+// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 //
-// > **Note:** When `type` is set to `SystemAssigned`, The assigned `principalId` and `tenantId` can be retrieved after the Event Grid System Topic has been created. More details are available below.
+// > **Note:** When `type` is set to `SystemAssigned`, The assigned `principalId` and `tenantId` can be retrieved after the Event Grid System Topic has been created.
 func (o SystemTopicIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SystemTopicIdentity) []string {
 		if v == nil {
@@ -9899,7 +10005,7 @@ func (o SystemTopicIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the type of Managed Service Identity that should be configured on this Event Grid System Topic. Possible values are `SystemAssigned`, `UserAssigned`.
+// Specifies the type of Managed Service Identity that should be configured on this Event Grid System Topic. Possible values are `SystemAssigned`, `UserAssigned`, and `SystemAssigned, UserAssigned`.
 func (o SystemTopicIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemTopicIdentity) *string {
 		if v == nil {
@@ -11119,6 +11225,112 @@ func (o GetDomainInputMappingFieldArrayOutput) Index(i pulumi.IntInput) GetDomai
 	}).(GetDomainInputMappingFieldOutput)
 }
 
+type GetPartnerNamespaceInboundIpRule struct {
+	// The action to take when the rule is matched.
+	Action string `pulumi:"action"`
+	// The IP mask (CIDR) to match on.
+	IpMask string `pulumi:"ipMask"`
+}
+
+// GetPartnerNamespaceInboundIpRuleInput is an input type that accepts GetPartnerNamespaceInboundIpRuleArgs and GetPartnerNamespaceInboundIpRuleOutput values.
+// You can construct a concrete instance of `GetPartnerNamespaceInboundIpRuleInput` via:
+//
+//	GetPartnerNamespaceInboundIpRuleArgs{...}
+type GetPartnerNamespaceInboundIpRuleInput interface {
+	pulumi.Input
+
+	ToGetPartnerNamespaceInboundIpRuleOutput() GetPartnerNamespaceInboundIpRuleOutput
+	ToGetPartnerNamespaceInboundIpRuleOutputWithContext(context.Context) GetPartnerNamespaceInboundIpRuleOutput
+}
+
+type GetPartnerNamespaceInboundIpRuleArgs struct {
+	// The action to take when the rule is matched.
+	Action pulumi.StringInput `pulumi:"action"`
+	// The IP mask (CIDR) to match on.
+	IpMask pulumi.StringInput `pulumi:"ipMask"`
+}
+
+func (GetPartnerNamespaceInboundIpRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPartnerNamespaceInboundIpRule)(nil)).Elem()
+}
+
+func (i GetPartnerNamespaceInboundIpRuleArgs) ToGetPartnerNamespaceInboundIpRuleOutput() GetPartnerNamespaceInboundIpRuleOutput {
+	return i.ToGetPartnerNamespaceInboundIpRuleOutputWithContext(context.Background())
+}
+
+func (i GetPartnerNamespaceInboundIpRuleArgs) ToGetPartnerNamespaceInboundIpRuleOutputWithContext(ctx context.Context) GetPartnerNamespaceInboundIpRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPartnerNamespaceInboundIpRuleOutput)
+}
+
+// GetPartnerNamespaceInboundIpRuleArrayInput is an input type that accepts GetPartnerNamespaceInboundIpRuleArray and GetPartnerNamespaceInboundIpRuleArrayOutput values.
+// You can construct a concrete instance of `GetPartnerNamespaceInboundIpRuleArrayInput` via:
+//
+//	GetPartnerNamespaceInboundIpRuleArray{ GetPartnerNamespaceInboundIpRuleArgs{...} }
+type GetPartnerNamespaceInboundIpRuleArrayInput interface {
+	pulumi.Input
+
+	ToGetPartnerNamespaceInboundIpRuleArrayOutput() GetPartnerNamespaceInboundIpRuleArrayOutput
+	ToGetPartnerNamespaceInboundIpRuleArrayOutputWithContext(context.Context) GetPartnerNamespaceInboundIpRuleArrayOutput
+}
+
+type GetPartnerNamespaceInboundIpRuleArray []GetPartnerNamespaceInboundIpRuleInput
+
+func (GetPartnerNamespaceInboundIpRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPartnerNamespaceInboundIpRule)(nil)).Elem()
+}
+
+func (i GetPartnerNamespaceInboundIpRuleArray) ToGetPartnerNamespaceInboundIpRuleArrayOutput() GetPartnerNamespaceInboundIpRuleArrayOutput {
+	return i.ToGetPartnerNamespaceInboundIpRuleArrayOutputWithContext(context.Background())
+}
+
+func (i GetPartnerNamespaceInboundIpRuleArray) ToGetPartnerNamespaceInboundIpRuleArrayOutputWithContext(ctx context.Context) GetPartnerNamespaceInboundIpRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPartnerNamespaceInboundIpRuleArrayOutput)
+}
+
+type GetPartnerNamespaceInboundIpRuleOutput struct{ *pulumi.OutputState }
+
+func (GetPartnerNamespaceInboundIpRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPartnerNamespaceInboundIpRule)(nil)).Elem()
+}
+
+func (o GetPartnerNamespaceInboundIpRuleOutput) ToGetPartnerNamespaceInboundIpRuleOutput() GetPartnerNamespaceInboundIpRuleOutput {
+	return o
+}
+
+func (o GetPartnerNamespaceInboundIpRuleOutput) ToGetPartnerNamespaceInboundIpRuleOutputWithContext(ctx context.Context) GetPartnerNamespaceInboundIpRuleOutput {
+	return o
+}
+
+// The action to take when the rule is matched.
+func (o GetPartnerNamespaceInboundIpRuleOutput) Action() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPartnerNamespaceInboundIpRule) string { return v.Action }).(pulumi.StringOutput)
+}
+
+// The IP mask (CIDR) to match on.
+func (o GetPartnerNamespaceInboundIpRuleOutput) IpMask() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPartnerNamespaceInboundIpRule) string { return v.IpMask }).(pulumi.StringOutput)
+}
+
+type GetPartnerNamespaceInboundIpRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (GetPartnerNamespaceInboundIpRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPartnerNamespaceInboundIpRule)(nil)).Elem()
+}
+
+func (o GetPartnerNamespaceInboundIpRuleArrayOutput) ToGetPartnerNamespaceInboundIpRuleArrayOutput() GetPartnerNamespaceInboundIpRuleArrayOutput {
+	return o
+}
+
+func (o GetPartnerNamespaceInboundIpRuleArrayOutput) ToGetPartnerNamespaceInboundIpRuleArrayOutputWithContext(ctx context.Context) GetPartnerNamespaceInboundIpRuleArrayOutput {
+	return o
+}
+
+func (o GetPartnerNamespaceInboundIpRuleArrayOutput) Index(i pulumi.IntInput) GetPartnerNamespaceInboundIpRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPartnerNamespaceInboundIpRule {
+		return vs[0].([]GetPartnerNamespaceInboundIpRule)[vs[1].(int)]
+	}).(GetPartnerNamespaceInboundIpRuleOutput)
+}
+
 type GetSystemTopicIdentity struct {
 	// The list of User Assigned Managed Identity IDs assigned to this Event Grid System Topic.
 	IdentityIds []string `pulumi:"identityIds"`
@@ -11322,6 +11534,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*NamespaceTopicSpacesConfigurationStaticRoutingEnrichmentArrayInput)(nil)).Elem(), NamespaceTopicSpacesConfigurationStaticRoutingEnrichmentArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PartnerConfigurationPartnerAuthorizationInput)(nil)).Elem(), PartnerConfigurationPartnerAuthorizationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PartnerConfigurationPartnerAuthorizationArrayInput)(nil)).Elem(), PartnerConfigurationPartnerAuthorizationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PartnerNamespaceInboundIpRuleInput)(nil)).Elem(), PartnerNamespaceInboundIpRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PartnerNamespaceInboundIpRuleArrayInput)(nil)).Elem(), PartnerNamespaceInboundIpRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SystemTopicEventSubscriptionAdvancedFilterInput)(nil)).Elem(), SystemTopicEventSubscriptionAdvancedFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SystemTopicEventSubscriptionAdvancedFilterPtrInput)(nil)).Elem(), SystemTopicEventSubscriptionAdvancedFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SystemTopicEventSubscriptionAdvancedFilterBoolEqualInput)(nil)).Elem(), SystemTopicEventSubscriptionAdvancedFilterBoolEqualArgs{})
@@ -11398,6 +11612,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainInputMappingDefaultValueArrayInput)(nil)).Elem(), GetDomainInputMappingDefaultValueArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainInputMappingFieldInput)(nil)).Elem(), GetDomainInputMappingFieldArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainInputMappingFieldArrayInput)(nil)).Elem(), GetDomainInputMappingFieldArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPartnerNamespaceInboundIpRuleInput)(nil)).Elem(), GetPartnerNamespaceInboundIpRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPartnerNamespaceInboundIpRuleArrayInput)(nil)).Elem(), GetPartnerNamespaceInboundIpRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSystemTopicIdentityInput)(nil)).Elem(), GetSystemTopicIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSystemTopicIdentityArrayInput)(nil)).Elem(), GetSystemTopicIdentityArray{})
 	pulumi.RegisterOutputType(DomainIdentityOutput{})
@@ -11478,6 +11694,8 @@ func init() {
 	pulumi.RegisterOutputType(NamespaceTopicSpacesConfigurationStaticRoutingEnrichmentArrayOutput{})
 	pulumi.RegisterOutputType(PartnerConfigurationPartnerAuthorizationOutput{})
 	pulumi.RegisterOutputType(PartnerConfigurationPartnerAuthorizationArrayOutput{})
+	pulumi.RegisterOutputType(PartnerNamespaceInboundIpRuleOutput{})
+	pulumi.RegisterOutputType(PartnerNamespaceInboundIpRuleArrayOutput{})
 	pulumi.RegisterOutputType(SystemTopicEventSubscriptionAdvancedFilterOutput{})
 	pulumi.RegisterOutputType(SystemTopicEventSubscriptionAdvancedFilterPtrOutput{})
 	pulumi.RegisterOutputType(SystemTopicEventSubscriptionAdvancedFilterBoolEqualOutput{})
@@ -11554,6 +11772,8 @@ func init() {
 	pulumi.RegisterOutputType(GetDomainInputMappingDefaultValueArrayOutput{})
 	pulumi.RegisterOutputType(GetDomainInputMappingFieldOutput{})
 	pulumi.RegisterOutputType(GetDomainInputMappingFieldArrayOutput{})
+	pulumi.RegisterOutputType(GetPartnerNamespaceInboundIpRuleOutput{})
+	pulumi.RegisterOutputType(GetPartnerNamespaceInboundIpRuleArrayOutput{})
 	pulumi.RegisterOutputType(GetSystemTopicIdentityOutput{})
 	pulumi.RegisterOutputType(GetSystemTopicIdentityArrayOutput{})
 }

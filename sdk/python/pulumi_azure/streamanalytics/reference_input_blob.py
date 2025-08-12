@@ -441,7 +441,7 @@ class ReferenceInputBlob(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.StreamAnalytics`: 2020-03-01
+        * `Microsoft.StreamAnalytics` - 2020-03-01
 
         ## Import
 
@@ -516,7 +516,7 @@ class ReferenceInputBlob(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.StreamAnalytics`: 2020-03-01
+        * `Microsoft.StreamAnalytics` - 2020-03-01
 
         ## Import
 

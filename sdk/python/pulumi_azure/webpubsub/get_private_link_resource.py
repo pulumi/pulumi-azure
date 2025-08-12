@@ -99,7 +99,7 @@ def get_private_link_resource(web_pubsub_id: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.SignalRService`: 2024-03-01
+    * `Microsoft.SignalRService` - 2024-03-01
 
 
     :param _builtins.str web_pubsub_id: The ID of an existing Web Pubsub Resource which Private Link Resource should be retrieved for.
@@ -141,7 +141,7 @@ def get_private_link_resource_output(web_pubsub_id: Optional[pulumi.Input[_built
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.SignalRService`: 2024-03-01
+    * `Microsoft.SignalRService` - 2024-03-01
 
 
     :param _builtins.str web_pubsub_id: The ID of an existing Web Pubsub Resource which Private Link Resource should be retrieved for.

@@ -38,7 +38,7 @@ class ComputeClusterArgs:
         """
         The set of arguments for constructing a ComputeCluster resource.
         :param pulumi.Input[_builtins.str] machine_learning_workspace_id: The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning Compute Cluster to be created.
-        :param pulumi.Input['ComputeClusterScaleSettingsArgs'] scale_settings: A `scale_settings` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
+        :param pulumi.Input['ComputeClusterScaleSettingsArgs'] scale_settings: A `scale_settings` block as defined below.
         :param pulumi.Input[_builtins.str] vm_priority: The priority of the VM. Changing this forces a new Machine Learning Compute Cluster to be created. Accepted values are `Dedicated` and `LowPriority`.
         :param pulumi.Input[_builtins.str] vm_size: The size of the VM. Changing this forces a new Machine Learning Compute Cluster to be created.
         :param pulumi.Input[_builtins.str] description: The description of the Machine Learning compute. Changing this forces a new Machine Learning Compute Cluster to be created.
@@ -50,7 +50,7 @@ class ComputeClusterArgs:
         :param pulumi.Input['ComputeClusterSshArgs'] ssh: Credentials for an administrator user account that will be created on each compute node. A `ssh` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
         :param pulumi.Input[_builtins.bool] ssh_public_access_enabled: A boolean value indicating whether enable the public SSH port. Defaults to `false`. Changing this forces a new Machine Learning Compute Cluster to be created.
         :param pulumi.Input[_builtins.str] subnet_resource_id: The ID of the Subnet that the Compute Cluster should reside in. Changing this forces a new Machine Learning Compute Cluster to be created.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Machine Learning Compute Cluster. Changing this forces a new Machine Learning Compute Cluster to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Machine Learning Compute Cluster.
         """
         pulumi.set(__self__, "machine_learning_workspace_id", machine_learning_workspace_id)
         pulumi.set(__self__, "scale_settings", scale_settings)
@@ -93,7 +93,7 @@ class ComputeClusterArgs:
     @pulumi.getter(name="scaleSettings")
     def scale_settings(self) -> pulumi.Input['ComputeClusterScaleSettingsArgs']:
         """
-        A `scale_settings` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
+        A `scale_settings` block as defined below.
         """
         return pulumi.get(self, "scale_settings")
 
@@ -237,7 +237,7 @@ class ComputeClusterArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A mapping of tags which should be assigned to the Machine Learning Compute Cluster. Changing this forces a new Machine Learning Compute Cluster to be created.
+        A mapping of tags which should be assigned to the Machine Learning Compute Cluster.
         """
         return pulumi.get(self, "tags")
 
@@ -272,11 +272,11 @@ class _ComputeClusterState:
         :param pulumi.Input[_builtins.str] machine_learning_workspace_id: The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning Compute Cluster to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Machine Learning Compute Cluster. Changing this forces a new Machine Learning Compute Cluster to be created.
         :param pulumi.Input[_builtins.bool] node_public_ip_enabled: Whether the compute cluster will have a public ip. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
-        :param pulumi.Input['ComputeClusterScaleSettingsArgs'] scale_settings: A `scale_settings` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
+        :param pulumi.Input['ComputeClusterScaleSettingsArgs'] scale_settings: A `scale_settings` block as defined below.
         :param pulumi.Input['ComputeClusterSshArgs'] ssh: Credentials for an administrator user account that will be created on each compute node. A `ssh` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
         :param pulumi.Input[_builtins.bool] ssh_public_access_enabled: A boolean value indicating whether enable the public SSH port. Defaults to `false`. Changing this forces a new Machine Learning Compute Cluster to be created.
         :param pulumi.Input[_builtins.str] subnet_resource_id: The ID of the Subnet that the Compute Cluster should reside in. Changing this forces a new Machine Learning Compute Cluster to be created.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Machine Learning Compute Cluster. Changing this forces a new Machine Learning Compute Cluster to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Machine Learning Compute Cluster.
         :param pulumi.Input[_builtins.str] vm_priority: The priority of the VM. Changing this forces a new Machine Learning Compute Cluster to be created. Accepted values are `Dedicated` and `LowPriority`.
         :param pulumi.Input[_builtins.str] vm_size: The size of the VM. Changing this forces a new Machine Learning Compute Cluster to be created.
         """
@@ -397,7 +397,7 @@ class _ComputeClusterState:
     @pulumi.getter(name="scaleSettings")
     def scale_settings(self) -> Optional[pulumi.Input['ComputeClusterScaleSettingsArgs']]:
         """
-        A `scale_settings` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
+        A `scale_settings` block as defined below.
         """
         return pulumi.get(self, "scale_settings")
 
@@ -445,7 +445,7 @@ class _ComputeClusterState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A mapping of tags which should be assigned to the Machine Learning Compute Cluster. Changing this forces a new Machine Learning Compute Cluster to be created.
+        A mapping of tags which should be assigned to the Machine Learning Compute Cluster.
         """
         return pulumi.get(self, "tags")
 
@@ -575,7 +575,7 @@ class ComputeCluster(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.MachineLearningServices`: 2024-04-01
+        * `Microsoft.MachineLearningServices` - 2025-06-01
 
         ## Import
 
@@ -594,11 +594,11 @@ class ComputeCluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] machine_learning_workspace_id: The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning Compute Cluster to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Machine Learning Compute Cluster. Changing this forces a new Machine Learning Compute Cluster to be created.
         :param pulumi.Input[_builtins.bool] node_public_ip_enabled: Whether the compute cluster will have a public ip. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
-        :param pulumi.Input[Union['ComputeClusterScaleSettingsArgs', 'ComputeClusterScaleSettingsArgsDict']] scale_settings: A `scale_settings` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
+        :param pulumi.Input[Union['ComputeClusterScaleSettingsArgs', 'ComputeClusterScaleSettingsArgsDict']] scale_settings: A `scale_settings` block as defined below.
         :param pulumi.Input[Union['ComputeClusterSshArgs', 'ComputeClusterSshArgsDict']] ssh: Credentials for an administrator user account that will be created on each compute node. A `ssh` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
         :param pulumi.Input[_builtins.bool] ssh_public_access_enabled: A boolean value indicating whether enable the public SSH port. Defaults to `false`. Changing this forces a new Machine Learning Compute Cluster to be created.
         :param pulumi.Input[_builtins.str] subnet_resource_id: The ID of the Subnet that the Compute Cluster should reside in. Changing this forces a new Machine Learning Compute Cluster to be created.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Machine Learning Compute Cluster. Changing this forces a new Machine Learning Compute Cluster to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Machine Learning Compute Cluster.
         :param pulumi.Input[_builtins.str] vm_priority: The priority of the VM. Changing this forces a new Machine Learning Compute Cluster to be created. Accepted values are `Dedicated` and `LowPriority`.
         :param pulumi.Input[_builtins.str] vm_size: The size of the VM. Changing this forces a new Machine Learning Compute Cluster to be created.
         """
@@ -684,7 +684,7 @@ class ComputeCluster(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.MachineLearningServices`: 2024-04-01
+        * `Microsoft.MachineLearningServices` - 2025-06-01
 
         ## Import
 
@@ -792,11 +792,11 @@ class ComputeCluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] machine_learning_workspace_id: The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning Compute Cluster to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Machine Learning Compute Cluster. Changing this forces a new Machine Learning Compute Cluster to be created.
         :param pulumi.Input[_builtins.bool] node_public_ip_enabled: Whether the compute cluster will have a public ip. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
-        :param pulumi.Input[Union['ComputeClusterScaleSettingsArgs', 'ComputeClusterScaleSettingsArgsDict']] scale_settings: A `scale_settings` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
+        :param pulumi.Input[Union['ComputeClusterScaleSettingsArgs', 'ComputeClusterScaleSettingsArgsDict']] scale_settings: A `scale_settings` block as defined below.
         :param pulumi.Input[Union['ComputeClusterSshArgs', 'ComputeClusterSshArgsDict']] ssh: Credentials for an administrator user account that will be created on each compute node. A `ssh` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
         :param pulumi.Input[_builtins.bool] ssh_public_access_enabled: A boolean value indicating whether enable the public SSH port. Defaults to `false`. Changing this forces a new Machine Learning Compute Cluster to be created.
         :param pulumi.Input[_builtins.str] subnet_resource_id: The ID of the Subnet that the Compute Cluster should reside in. Changing this forces a new Machine Learning Compute Cluster to be created.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Machine Learning Compute Cluster. Changing this forces a new Machine Learning Compute Cluster to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Machine Learning Compute Cluster.
         :param pulumi.Input[_builtins.str] vm_priority: The priority of the VM. Changing this forces a new Machine Learning Compute Cluster to be created. Accepted values are `Dedicated` and `LowPriority`.
         :param pulumi.Input[_builtins.str] vm_size: The size of the VM. Changing this forces a new Machine Learning Compute Cluster to be created.
         """
@@ -880,7 +880,7 @@ class ComputeCluster(pulumi.CustomResource):
     @pulumi.getter(name="scaleSettings")
     def scale_settings(self) -> pulumi.Output['outputs.ComputeClusterScaleSettings']:
         """
-        A `scale_settings` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
+        A `scale_settings` block as defined below.
         """
         return pulumi.get(self, "scale_settings")
 
@@ -912,7 +912,7 @@ class ComputeCluster(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
         """
-        A mapping of tags which should be assigned to the Machine Learning Compute Cluster. Changing this forces a new Machine Learning Compute Cluster to be created.
+        A mapping of tags which should be assigned to the Machine Learning Compute Cluster.
         """
         return pulumi.get(self, "tags")
 

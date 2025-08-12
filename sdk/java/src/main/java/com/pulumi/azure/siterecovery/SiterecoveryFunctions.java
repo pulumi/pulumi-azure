@@ -69,7 +69,7 @@ public final class SiterecoveryFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.RecoveryServices`: 2024-04-01
+     * * `Microsoft.RecoveryServices` - 2024-04-01
      * 
      */
     public static Output<GetFabricResult> getFabric(GetFabricArgs args) {
@@ -120,7 +120,7 @@ public final class SiterecoveryFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.RecoveryServices`: 2024-04-01
+     * * `Microsoft.RecoveryServices` - 2024-04-01
      * 
      */
     public static CompletableFuture<GetFabricResult> getFabricPlain(GetFabricPlainArgs args) {
@@ -171,7 +171,7 @@ public final class SiterecoveryFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.RecoveryServices`: 2024-04-01
+     * * `Microsoft.RecoveryServices` - 2024-04-01
      * 
      */
     public static Output<GetFabricResult> getFabric(GetFabricArgs args, InvokeOptions options) {
@@ -222,7 +222,7 @@ public final class SiterecoveryFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.RecoveryServices`: 2024-04-01
+     * * `Microsoft.RecoveryServices` - 2024-04-01
      * 
      */
     public static Output<GetFabricResult> getFabric(GetFabricArgs args, InvokeOutputOptions options) {
@@ -273,7 +273,7 @@ public final class SiterecoveryFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.RecoveryServices`: 2024-04-01
+     * * `Microsoft.RecoveryServices` - 2024-04-01
      * 
      */
     public static CompletableFuture<GetFabricResult> getFabricPlain(GetFabricPlainArgs args, InvokeOptions options) {
@@ -325,7 +325,7 @@ public final class SiterecoveryFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.RecoveryServices`: 2024-04-01
+     * * `Microsoft.RecoveryServices` - 2024-04-01
      * 
      */
     public static Output<GetProtectionContainerResult> getProtectionContainer(GetProtectionContainerArgs args) {
@@ -377,7 +377,7 @@ public final class SiterecoveryFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.RecoveryServices`: 2024-04-01
+     * * `Microsoft.RecoveryServices` - 2024-04-01
      * 
      */
     public static CompletableFuture<GetProtectionContainerResult> getProtectionContainerPlain(GetProtectionContainerPlainArgs args) {
@@ -429,7 +429,7 @@ public final class SiterecoveryFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.RecoveryServices`: 2024-04-01
+     * * `Microsoft.RecoveryServices` - 2024-04-01
      * 
      */
     public static Output<GetProtectionContainerResult> getProtectionContainer(GetProtectionContainerArgs args, InvokeOptions options) {
@@ -481,7 +481,7 @@ public final class SiterecoveryFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.RecoveryServices`: 2024-04-01
+     * * `Microsoft.RecoveryServices` - 2024-04-01
      * 
      */
     public static Output<GetProtectionContainerResult> getProtectionContainer(GetProtectionContainerArgs args, InvokeOutputOptions options) {
@@ -533,7 +533,7 @@ public final class SiterecoveryFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.RecoveryServices`: 2024-04-01
+     * * `Microsoft.RecoveryServices` - 2024-04-01
      * 
      */
     public static CompletableFuture<GetProtectionContainerResult> getProtectionContainerPlain(GetProtectionContainerPlainArgs args, InvokeOptions options) {
@@ -584,7 +584,7 @@ public final class SiterecoveryFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.RecoveryServices`: 2024-04-01
+     * * `Microsoft.RecoveryServices` - 2024-04-01
      * 
      */
     public static Output<GetReplicationPolicyResult> getReplicationPolicy(GetReplicationPolicyArgs args) {
@@ -635,7 +635,7 @@ public final class SiterecoveryFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.RecoveryServices`: 2024-04-01
+     * * `Microsoft.RecoveryServices` - 2024-04-01
      * 
      */
     public static CompletableFuture<GetReplicationPolicyResult> getReplicationPolicyPlain(GetReplicationPolicyPlainArgs args) {
@@ -686,7 +686,7 @@ public final class SiterecoveryFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.RecoveryServices`: 2024-04-01
+     * * `Microsoft.RecoveryServices` - 2024-04-01
      * 
      */
     public static Output<GetReplicationPolicyResult> getReplicationPolicy(GetReplicationPolicyArgs args, InvokeOptions options) {
@@ -737,7 +737,7 @@ public final class SiterecoveryFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.RecoveryServices`: 2024-04-01
+     * * `Microsoft.RecoveryServices` - 2024-04-01
      * 
      */
     public static Output<GetReplicationPolicyResult> getReplicationPolicy(GetReplicationPolicyArgs args, InvokeOutputOptions options) {
@@ -788,7 +788,7 @@ public final class SiterecoveryFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.RecoveryServices`: 2024-04-01
+     * * `Microsoft.RecoveryServices` - 2024-04-01
      * 
      */
     public static CompletableFuture<GetReplicationPolicyResult> getReplicationPolicyPlain(GetReplicationPolicyPlainArgs args, InvokeOptions options) {
@@ -845,7 +845,7 @@ public final class SiterecoveryFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.RecoveryServices`: 2024-04-01
+     * * `Microsoft.RecoveryServices` - 2024-04-01
      * 
      */
     public static Output<GetReplicationRecoveryPlanResult> getReplicationRecoveryPlan(GetReplicationRecoveryPlanArgs args) {
@@ -902,7 +902,7 @@ public final class SiterecoveryFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.RecoveryServices`: 2024-04-01
+     * * `Microsoft.RecoveryServices` - 2024-04-01
      * 
      */
     public static CompletableFuture<GetReplicationRecoveryPlanResult> getReplicationRecoveryPlanPlain(GetReplicationRecoveryPlanPlainArgs args) {
@@ -959,7 +959,7 @@ public final class SiterecoveryFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.RecoveryServices`: 2024-04-01
+     * * `Microsoft.RecoveryServices` - 2024-04-01
      * 
      */
     public static Output<GetReplicationRecoveryPlanResult> getReplicationRecoveryPlan(GetReplicationRecoveryPlanArgs args, InvokeOptions options) {
@@ -1016,7 +1016,7 @@ public final class SiterecoveryFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.RecoveryServices`: 2024-04-01
+     * * `Microsoft.RecoveryServices` - 2024-04-01
      * 
      */
     public static Output<GetReplicationRecoveryPlanResult> getReplicationRecoveryPlan(GetReplicationRecoveryPlanArgs args, InvokeOutputOptions options) {
@@ -1073,7 +1073,7 @@ public final class SiterecoveryFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.RecoveryServices`: 2024-04-01
+     * * `Microsoft.RecoveryServices` - 2024-04-01
      * 
      */
     public static CompletableFuture<GetReplicationRecoveryPlanResult> getReplicationRecoveryPlanPlain(GetReplicationRecoveryPlanPlainArgs args, InvokeOptions options) {

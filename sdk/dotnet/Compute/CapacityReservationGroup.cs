@@ -43,7 +43,7 @@ namespace Pulumi.Azure.Compute
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.Compute`: 2022-03-01
+    /// * `Microsoft.Compute` - 2022-03-01
     /// 
     /// ## Import
     /// 

@@ -78,7 +78,7 @@ public final class MonitoringFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Insights`: 2023-01-01
+     * * `Microsoft.Insights` - 2023-01-01
      * 
      */
     public static Output<GetActionGroupResult> getActionGroup(GetActionGroupArgs args) {
@@ -129,7 +129,7 @@ public final class MonitoringFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Insights`: 2023-01-01
+     * * `Microsoft.Insights` - 2023-01-01
      * 
      */
     public static CompletableFuture<GetActionGroupResult> getActionGroupPlain(GetActionGroupPlainArgs args) {
@@ -180,7 +180,7 @@ public final class MonitoringFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Insights`: 2023-01-01
+     * * `Microsoft.Insights` - 2023-01-01
      * 
      */
     public static Output<GetActionGroupResult> getActionGroup(GetActionGroupArgs args, InvokeOptions options) {
@@ -231,7 +231,7 @@ public final class MonitoringFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Insights`: 2023-01-01
+     * * `Microsoft.Insights` - 2023-01-01
      * 
      */
     public static Output<GetActionGroupResult> getActionGroup(GetActionGroupArgs args, InvokeOutputOptions options) {
@@ -282,7 +282,7 @@ public final class MonitoringFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Insights`: 2023-01-01
+     * * `Microsoft.Insights` - 2023-01-01
      * 
      */
     public static CompletableFuture<GetActionGroupResult> getActionGroupPlain(GetActionGroupPlainArgs args, InvokeOptions options) {
@@ -333,7 +333,7 @@ public final class MonitoringFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Insights`: 2023-03-11
+     * * `Microsoft.Insights` - 2023-03-11
      * 
      */
     public static Output<GetDataCollectionEndpointResult> getDataCollectionEndpoint(GetDataCollectionEndpointArgs args) {
@@ -384,7 +384,7 @@ public final class MonitoringFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Insights`: 2023-03-11
+     * * `Microsoft.Insights` - 2023-03-11
      * 
      */
     public static CompletableFuture<GetDataCollectionEndpointResult> getDataCollectionEndpointPlain(GetDataCollectionEndpointPlainArgs args) {
@@ -435,7 +435,7 @@ public final class MonitoringFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Insights`: 2023-03-11
+     * * `Microsoft.Insights` - 2023-03-11
      * 
      */
     public static Output<GetDataCollectionEndpointResult> getDataCollectionEndpoint(GetDataCollectionEndpointArgs args, InvokeOptions options) {
@@ -486,7 +486,7 @@ public final class MonitoringFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Insights`: 2023-03-11
+     * * `Microsoft.Insights` - 2023-03-11
      * 
      */
     public static Output<GetDataCollectionEndpointResult> getDataCollectionEndpoint(GetDataCollectionEndpointArgs args, InvokeOutputOptions options) {
@@ -537,7 +537,7 @@ public final class MonitoringFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Insights`: 2023-03-11
+     * * `Microsoft.Insights` - 2023-03-11
      * 
      */
     public static CompletableFuture<GetDataCollectionEndpointResult> getDataCollectionEndpointPlain(GetDataCollectionEndpointPlainArgs args, InvokeOptions options) {
@@ -588,7 +588,7 @@ public final class MonitoringFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Insights`: 2023-03-11
+     * * `Microsoft.Insights` - 2023-03-11
      * 
      */
     public static Output<GetDataCollectionRuleResult> getDataCollectionRule(GetDataCollectionRuleArgs args) {
@@ -639,7 +639,7 @@ public final class MonitoringFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Insights`: 2023-03-11
+     * * `Microsoft.Insights` - 2023-03-11
      * 
      */
     public static CompletableFuture<GetDataCollectionRuleResult> getDataCollectionRulePlain(GetDataCollectionRulePlainArgs args) {
@@ -690,7 +690,7 @@ public final class MonitoringFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Insights`: 2023-03-11
+     * * `Microsoft.Insights` - 2023-03-11
      * 
      */
     public static Output<GetDataCollectionRuleResult> getDataCollectionRule(GetDataCollectionRuleArgs args, InvokeOptions options) {
@@ -741,7 +741,7 @@ public final class MonitoringFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Insights`: 2023-03-11
+     * * `Microsoft.Insights` - 2023-03-11
      * 
      */
     public static Output<GetDataCollectionRuleResult> getDataCollectionRule(GetDataCollectionRuleArgs args, InvokeOutputOptions options) {
@@ -792,7 +792,7 @@ public final class MonitoringFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Insights`: 2023-03-11
+     * * `Microsoft.Insights` - 2023-03-11
      * 
      */
     public static CompletableFuture<GetDataCollectionRuleResult> getDataCollectionRulePlain(GetDataCollectionRulePlainArgs args, InvokeOptions options) {
@@ -848,7 +848,7 @@ public final class MonitoringFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Insights`: 2021-05-01-preview
+     * * `Microsoft.Insights` - 2021-05-01-preview
      * 
      */
     public static Output<GetDiagnosticCategoriesResult> getDiagnosticCategories(GetDiagnosticCategoriesArgs args) {
@@ -904,7 +904,7 @@ public final class MonitoringFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Insights`: 2021-05-01-preview
+     * * `Microsoft.Insights` - 2021-05-01-preview
      * 
      */
     public static CompletableFuture<GetDiagnosticCategoriesResult> getDiagnosticCategoriesPlain(GetDiagnosticCategoriesPlainArgs args) {
@@ -960,7 +960,7 @@ public final class MonitoringFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Insights`: 2021-05-01-preview
+     * * `Microsoft.Insights` - 2021-05-01-preview
      * 
      */
     public static Output<GetDiagnosticCategoriesResult> getDiagnosticCategories(GetDiagnosticCategoriesArgs args, InvokeOptions options) {
@@ -1016,7 +1016,7 @@ public final class MonitoringFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Insights`: 2021-05-01-preview
+     * * `Microsoft.Insights` - 2021-05-01-preview
      * 
      */
     public static Output<GetDiagnosticCategoriesResult> getDiagnosticCategories(GetDiagnosticCategoriesArgs args, InvokeOutputOptions options) {
@@ -1072,7 +1072,7 @@ public final class MonitoringFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Insights`: 2021-05-01-preview
+     * * `Microsoft.Insights` - 2021-05-01-preview
      * 
      */
     public static CompletableFuture<GetDiagnosticCategoriesResult> getDiagnosticCategoriesPlain(GetDiagnosticCategoriesPlainArgs args, InvokeOptions options) {
@@ -1123,7 +1123,7 @@ public final class MonitoringFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Insights`: 2018-04-16
+     * * `Microsoft.Insights` - 2018-04-16
      * 
      */
     public static Output<GetScheduledQueryRulesAlertResult> getScheduledQueryRulesAlert(GetScheduledQueryRulesAlertArgs args) {
@@ -1174,7 +1174,7 @@ public final class MonitoringFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Insights`: 2018-04-16
+     * * `Microsoft.Insights` - 2018-04-16
      * 
      */
     public static CompletableFuture<GetScheduledQueryRulesAlertResult> getScheduledQueryRulesAlertPlain(GetScheduledQueryRulesAlertPlainArgs args) {
@@ -1225,7 +1225,7 @@ public final class MonitoringFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Insights`: 2018-04-16
+     * * `Microsoft.Insights` - 2018-04-16
      * 
      */
     public static Output<GetScheduledQueryRulesAlertResult> getScheduledQueryRulesAlert(GetScheduledQueryRulesAlertArgs args, InvokeOptions options) {
@@ -1276,7 +1276,7 @@ public final class MonitoringFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Insights`: 2018-04-16
+     * * `Microsoft.Insights` - 2018-04-16
      * 
      */
     public static Output<GetScheduledQueryRulesAlertResult> getScheduledQueryRulesAlert(GetScheduledQueryRulesAlertArgs args, InvokeOutputOptions options) {
@@ -1327,7 +1327,7 @@ public final class MonitoringFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Insights`: 2018-04-16
+     * * `Microsoft.Insights` - 2018-04-16
      * 
      */
     public static CompletableFuture<GetScheduledQueryRulesAlertResult> getScheduledQueryRulesAlertPlain(GetScheduledQueryRulesAlertPlainArgs args, InvokeOptions options) {
@@ -1378,7 +1378,7 @@ public final class MonitoringFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Insights`: 2018-04-16
+     * * `Microsoft.Insights` - 2018-04-16
      * 
      */
     public static Output<GetScheduledQueryRulesLogResult> getScheduledQueryRulesLog(GetScheduledQueryRulesLogArgs args) {
@@ -1429,7 +1429,7 @@ public final class MonitoringFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Insights`: 2018-04-16
+     * * `Microsoft.Insights` - 2018-04-16
      * 
      */
     public static CompletableFuture<GetScheduledQueryRulesLogResult> getScheduledQueryRulesLogPlain(GetScheduledQueryRulesLogPlainArgs args) {
@@ -1480,7 +1480,7 @@ public final class MonitoringFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Insights`: 2018-04-16
+     * * `Microsoft.Insights` - 2018-04-16
      * 
      */
     public static Output<GetScheduledQueryRulesLogResult> getScheduledQueryRulesLog(GetScheduledQueryRulesLogArgs args, InvokeOptions options) {
@@ -1531,7 +1531,7 @@ public final class MonitoringFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Insights`: 2018-04-16
+     * * `Microsoft.Insights` - 2018-04-16
      * 
      */
     public static Output<GetScheduledQueryRulesLogResult> getScheduledQueryRulesLog(GetScheduledQueryRulesLogArgs args, InvokeOutputOptions options) {
@@ -1582,7 +1582,7 @@ public final class MonitoringFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Insights`: 2018-04-16
+     * * `Microsoft.Insights` - 2018-04-16
      * 
      */
     public static CompletableFuture<GetScheduledQueryRulesLogResult> getScheduledQueryRulesLogPlain(GetScheduledQueryRulesLogPlainArgs args, InvokeOptions options) {
@@ -1633,7 +1633,7 @@ public final class MonitoringFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Monitor`: 2023-04-03
+     * * `Microsoft.Monitor` - 2023-04-03
      * 
      */
     public static Output<GetWorkspaceResult> getWorkspace(GetWorkspaceArgs args) {
@@ -1684,7 +1684,7 @@ public final class MonitoringFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Monitor`: 2023-04-03
+     * * `Microsoft.Monitor` - 2023-04-03
      * 
      */
     public static CompletableFuture<GetWorkspaceResult> getWorkspacePlain(GetWorkspacePlainArgs args) {
@@ -1735,7 +1735,7 @@ public final class MonitoringFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Monitor`: 2023-04-03
+     * * `Microsoft.Monitor` - 2023-04-03
      * 
      */
     public static Output<GetWorkspaceResult> getWorkspace(GetWorkspaceArgs args, InvokeOptions options) {
@@ -1786,7 +1786,7 @@ public final class MonitoringFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Monitor`: 2023-04-03
+     * * `Microsoft.Monitor` - 2023-04-03
      * 
      */
     public static Output<GetWorkspaceResult> getWorkspace(GetWorkspaceArgs args, InvokeOutputOptions options) {
@@ -1837,7 +1837,7 @@ public final class MonitoringFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Monitor`: 2023-04-03
+     * * `Microsoft.Monitor` - 2023-04-03
      * 
      */
     public static CompletableFuture<GetWorkspaceResult> getWorkspacePlain(GetWorkspacePlainArgs args, InvokeOptions options) {

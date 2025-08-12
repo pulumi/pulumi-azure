@@ -8,12 +8,18 @@ import com.pulumi.azure.eventgrid.inputs.GetDomainArgs;
 import com.pulumi.azure.eventgrid.inputs.GetDomainPlainArgs;
 import com.pulumi.azure.eventgrid.inputs.GetDomainTopicArgs;
 import com.pulumi.azure.eventgrid.inputs.GetDomainTopicPlainArgs;
+import com.pulumi.azure.eventgrid.inputs.GetPartnerNamespaceArgs;
+import com.pulumi.azure.eventgrid.inputs.GetPartnerNamespacePlainArgs;
+import com.pulumi.azure.eventgrid.inputs.GetPartnerRegistrationArgs;
+import com.pulumi.azure.eventgrid.inputs.GetPartnerRegistrationPlainArgs;
 import com.pulumi.azure.eventgrid.inputs.GetSystemTopicArgs;
 import com.pulumi.azure.eventgrid.inputs.GetSystemTopicPlainArgs;
 import com.pulumi.azure.eventgrid.inputs.GetTopicArgs;
 import com.pulumi.azure.eventgrid.inputs.GetTopicPlainArgs;
 import com.pulumi.azure.eventgrid.outputs.GetDomainResult;
 import com.pulumi.azure.eventgrid.outputs.GetDomainTopicResult;
+import com.pulumi.azure.eventgrid.outputs.GetPartnerNamespaceResult;
+import com.pulumi.azure.eventgrid.outputs.GetPartnerRegistrationResult;
 import com.pulumi.azure.eventgrid.outputs.GetSystemTopicResult;
 import com.pulumi.azure.eventgrid.outputs.GetTopicResult;
 import com.pulumi.core.Output;
@@ -69,7 +75,7 @@ public final class EventgridFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.EventGrid`: 2022-06-15
+     * * `Microsoft.EventGrid` - 2022-06-15
      * 
      */
     public static Output<GetDomainResult> getDomain(GetDomainArgs args) {
@@ -120,7 +126,7 @@ public final class EventgridFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.EventGrid`: 2022-06-15
+     * * `Microsoft.EventGrid` - 2022-06-15
      * 
      */
     public static CompletableFuture<GetDomainResult> getDomainPlain(GetDomainPlainArgs args) {
@@ -171,7 +177,7 @@ public final class EventgridFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.EventGrid`: 2022-06-15
+     * * `Microsoft.EventGrid` - 2022-06-15
      * 
      */
     public static Output<GetDomainResult> getDomain(GetDomainArgs args, InvokeOptions options) {
@@ -222,7 +228,7 @@ public final class EventgridFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.EventGrid`: 2022-06-15
+     * * `Microsoft.EventGrid` - 2022-06-15
      * 
      */
     public static Output<GetDomainResult> getDomain(GetDomainArgs args, InvokeOutputOptions options) {
@@ -273,7 +279,7 @@ public final class EventgridFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.EventGrid`: 2022-06-15
+     * * `Microsoft.EventGrid` - 2022-06-15
      * 
      */
     public static CompletableFuture<GetDomainResult> getDomainPlain(GetDomainPlainArgs args, InvokeOptions options) {
@@ -323,7 +329,7 @@ public final class EventgridFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.EventGrid`: 2022-06-15
+     * * `Microsoft.EventGrid` - 2022-06-15
      * 
      */
     public static Output<GetDomainTopicResult> getDomainTopic(GetDomainTopicArgs args) {
@@ -373,7 +379,7 @@ public final class EventgridFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.EventGrid`: 2022-06-15
+     * * `Microsoft.EventGrid` - 2022-06-15
      * 
      */
     public static CompletableFuture<GetDomainTopicResult> getDomainTopicPlain(GetDomainTopicPlainArgs args) {
@@ -423,7 +429,7 @@ public final class EventgridFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.EventGrid`: 2022-06-15
+     * * `Microsoft.EventGrid` - 2022-06-15
      * 
      */
     public static Output<GetDomainTopicResult> getDomainTopic(GetDomainTopicArgs args, InvokeOptions options) {
@@ -473,7 +479,7 @@ public final class EventgridFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.EventGrid`: 2022-06-15
+     * * `Microsoft.EventGrid` - 2022-06-15
      * 
      */
     public static Output<GetDomainTopicResult> getDomainTopic(GetDomainTopicArgs args, InvokeOutputOptions options) {
@@ -523,14 +529,524 @@ public final class EventgridFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.EventGrid`: 2022-06-15
+     * * `Microsoft.EventGrid` - 2022-06-15
      * 
      */
     public static CompletableFuture<GetDomainTopicResult> getDomainTopicPlain(GetDomainTopicPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:eventgrid/getDomainTopic:getDomainTopic", TypeShape.of(GetDomainTopicResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to access information about an existing EventGrid System Topic
+     * Use this data source to access information about an existing Event Grid Partner Namespace
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.eventgrid.EventgridFunctions;
+     * import com.pulumi.azure.eventgrid.inputs.GetPartnerNamespaceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = EventgridFunctions.getPartnerNamespace(GetPartnerNamespaceArgs.builder()
+     *             .name("my-eventgrid-partner-namespace")
+     *             .resourceGroupName("example-resources")
+     *             .build());
+     * 
+     *         ctx.export("eventgridPartnerNamespaceEndpoint", example.endpoint());
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.EventGrid` - 2022-06-15
+     * 
+     */
+    public static Output<GetPartnerNamespaceResult> getPartnerNamespace(GetPartnerNamespaceArgs args) {
+        return getPartnerNamespace(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing Event Grid Partner Namespace
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.eventgrid.EventgridFunctions;
+     * import com.pulumi.azure.eventgrid.inputs.GetPartnerNamespaceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = EventgridFunctions.getPartnerNamespace(GetPartnerNamespaceArgs.builder()
+     *             .name("my-eventgrid-partner-namespace")
+     *             .resourceGroupName("example-resources")
+     *             .build());
+     * 
+     *         ctx.export("eventgridPartnerNamespaceEndpoint", example.endpoint());
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.EventGrid` - 2022-06-15
+     * 
+     */
+    public static CompletableFuture<GetPartnerNamespaceResult> getPartnerNamespacePlain(GetPartnerNamespacePlainArgs args) {
+        return getPartnerNamespacePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing Event Grid Partner Namespace
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.eventgrid.EventgridFunctions;
+     * import com.pulumi.azure.eventgrid.inputs.GetPartnerNamespaceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = EventgridFunctions.getPartnerNamespace(GetPartnerNamespaceArgs.builder()
+     *             .name("my-eventgrid-partner-namespace")
+     *             .resourceGroupName("example-resources")
+     *             .build());
+     * 
+     *         ctx.export("eventgridPartnerNamespaceEndpoint", example.endpoint());
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.EventGrid` - 2022-06-15
+     * 
+     */
+    public static Output<GetPartnerNamespaceResult> getPartnerNamespace(GetPartnerNamespaceArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:eventgrid/getPartnerNamespace:getPartnerNamespace", TypeShape.of(GetPartnerNamespaceResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Event Grid Partner Namespace
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.eventgrid.EventgridFunctions;
+     * import com.pulumi.azure.eventgrid.inputs.GetPartnerNamespaceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = EventgridFunctions.getPartnerNamespace(GetPartnerNamespaceArgs.builder()
+     *             .name("my-eventgrid-partner-namespace")
+     *             .resourceGroupName("example-resources")
+     *             .build());
+     * 
+     *         ctx.export("eventgridPartnerNamespaceEndpoint", example.endpoint());
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.EventGrid` - 2022-06-15
+     * 
+     */
+    public static Output<GetPartnerNamespaceResult> getPartnerNamespace(GetPartnerNamespaceArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("azure:eventgrid/getPartnerNamespace:getPartnerNamespace", TypeShape.of(GetPartnerNamespaceResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Event Grid Partner Namespace
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.eventgrid.EventgridFunctions;
+     * import com.pulumi.azure.eventgrid.inputs.GetPartnerNamespaceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = EventgridFunctions.getPartnerNamespace(GetPartnerNamespaceArgs.builder()
+     *             .name("my-eventgrid-partner-namespace")
+     *             .resourceGroupName("example-resources")
+     *             .build());
+     * 
+     *         ctx.export("eventgridPartnerNamespaceEndpoint", example.endpoint());
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.EventGrid` - 2022-06-15
+     * 
+     */
+    public static CompletableFuture<GetPartnerNamespaceResult> getPartnerNamespacePlain(GetPartnerNamespacePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azure:eventgrid/getPartnerNamespace:getPartnerNamespace", TypeShape.of(GetPartnerNamespaceResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing EventGrid Partner Registration
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.eventgrid.EventgridFunctions;
+     * import com.pulumi.azure.eventgrid.inputs.GetPartnerRegistrationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = EventgridFunctions.getPartnerRegistration(GetPartnerRegistrationArgs.builder()
+     *             .name("my-eventgrid-partner-registration")
+     *             .resourceGroupName("example-resources")
+     *             .build());
+     * 
+     *         ctx.export("eventgridPartnerRegistrationId", example.partnerRegistrationId());
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.EventGrid` - 2022-06-15
+     * 
+     */
+    public static Output<GetPartnerRegistrationResult> getPartnerRegistration(GetPartnerRegistrationArgs args) {
+        return getPartnerRegistration(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing EventGrid Partner Registration
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.eventgrid.EventgridFunctions;
+     * import com.pulumi.azure.eventgrid.inputs.GetPartnerRegistrationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = EventgridFunctions.getPartnerRegistration(GetPartnerRegistrationArgs.builder()
+     *             .name("my-eventgrid-partner-registration")
+     *             .resourceGroupName("example-resources")
+     *             .build());
+     * 
+     *         ctx.export("eventgridPartnerRegistrationId", example.partnerRegistrationId());
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.EventGrid` - 2022-06-15
+     * 
+     */
+    public static CompletableFuture<GetPartnerRegistrationResult> getPartnerRegistrationPlain(GetPartnerRegistrationPlainArgs args) {
+        return getPartnerRegistrationPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing EventGrid Partner Registration
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.eventgrid.EventgridFunctions;
+     * import com.pulumi.azure.eventgrid.inputs.GetPartnerRegistrationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = EventgridFunctions.getPartnerRegistration(GetPartnerRegistrationArgs.builder()
+     *             .name("my-eventgrid-partner-registration")
+     *             .resourceGroupName("example-resources")
+     *             .build());
+     * 
+     *         ctx.export("eventgridPartnerRegistrationId", example.partnerRegistrationId());
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.EventGrid` - 2022-06-15
+     * 
+     */
+    public static Output<GetPartnerRegistrationResult> getPartnerRegistration(GetPartnerRegistrationArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:eventgrid/getPartnerRegistration:getPartnerRegistration", TypeShape.of(GetPartnerRegistrationResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing EventGrid Partner Registration
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.eventgrid.EventgridFunctions;
+     * import com.pulumi.azure.eventgrid.inputs.GetPartnerRegistrationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = EventgridFunctions.getPartnerRegistration(GetPartnerRegistrationArgs.builder()
+     *             .name("my-eventgrid-partner-registration")
+     *             .resourceGroupName("example-resources")
+     *             .build());
+     * 
+     *         ctx.export("eventgridPartnerRegistrationId", example.partnerRegistrationId());
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.EventGrid` - 2022-06-15
+     * 
+     */
+    public static Output<GetPartnerRegistrationResult> getPartnerRegistration(GetPartnerRegistrationArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("azure:eventgrid/getPartnerRegistration:getPartnerRegistration", TypeShape.of(GetPartnerRegistrationResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing EventGrid Partner Registration
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.eventgrid.EventgridFunctions;
+     * import com.pulumi.azure.eventgrid.inputs.GetPartnerRegistrationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = EventgridFunctions.getPartnerRegistration(GetPartnerRegistrationArgs.builder()
+     *             .name("my-eventgrid-partner-registration")
+     *             .resourceGroupName("example-resources")
+     *             .build());
+     * 
+     *         ctx.export("eventgridPartnerRegistrationId", example.partnerRegistrationId());
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.EventGrid` - 2022-06-15
+     * 
+     */
+    public static CompletableFuture<GetPartnerRegistrationResult> getPartnerRegistrationPlain(GetPartnerRegistrationPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azure:eventgrid/getPartnerRegistration:getPartnerRegistration", TypeShape.of(GetPartnerRegistrationResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Event Grid System Topic
      * 
      * ## Example Usage
      * 
@@ -573,14 +1089,14 @@ public final class EventgridFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.EventGrid`: 2022-06-15
+     * * `Microsoft.EventGrid` - 2022-06-15
      * 
      */
     public static Output<GetSystemTopicResult> getSystemTopic(GetSystemTopicArgs args) {
         return getSystemTopic(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to access information about an existing EventGrid System Topic
+     * Use this data source to access information about an existing Event Grid System Topic
      * 
      * ## Example Usage
      * 
@@ -623,14 +1139,14 @@ public final class EventgridFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.EventGrid`: 2022-06-15
+     * * `Microsoft.EventGrid` - 2022-06-15
      * 
      */
     public static CompletableFuture<GetSystemTopicResult> getSystemTopicPlain(GetSystemTopicPlainArgs args) {
         return getSystemTopicPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to access information about an existing EventGrid System Topic
+     * Use this data source to access information about an existing Event Grid System Topic
      * 
      * ## Example Usage
      * 
@@ -673,14 +1189,14 @@ public final class EventgridFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.EventGrid`: 2022-06-15
+     * * `Microsoft.EventGrid` - 2022-06-15
      * 
      */
     public static Output<GetSystemTopicResult> getSystemTopic(GetSystemTopicArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:eventgrid/getSystemTopic:getSystemTopic", TypeShape.of(GetSystemTopicResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to access information about an existing EventGrid System Topic
+     * Use this data source to access information about an existing Event Grid System Topic
      * 
      * ## Example Usage
      * 
@@ -723,14 +1239,14 @@ public final class EventgridFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.EventGrid`: 2022-06-15
+     * * `Microsoft.EventGrid` - 2022-06-15
      * 
      */
     public static Output<GetSystemTopicResult> getSystemTopic(GetSystemTopicArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:eventgrid/getSystemTopic:getSystemTopic", TypeShape.of(GetSystemTopicResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to access information about an existing EventGrid System Topic
+     * Use this data source to access information about an existing Event Grid System Topic
      * 
      * ## Example Usage
      * 
@@ -773,7 +1289,7 @@ public final class EventgridFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.EventGrid`: 2022-06-15
+     * * `Microsoft.EventGrid` - 2022-06-15
      * 
      */
     public static CompletableFuture<GetSystemTopicResult> getSystemTopicPlain(GetSystemTopicPlainArgs args, InvokeOptions options) {
@@ -823,7 +1339,7 @@ public final class EventgridFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.EventGrid`: 2022-06-15
+     * * `Microsoft.EventGrid` - 2022-06-15
      * 
      */
     public static Output<GetTopicResult> getTopic(GetTopicArgs args) {
@@ -873,7 +1389,7 @@ public final class EventgridFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.EventGrid`: 2022-06-15
+     * * `Microsoft.EventGrid` - 2022-06-15
      * 
      */
     public static CompletableFuture<GetTopicResult> getTopicPlain(GetTopicPlainArgs args) {
@@ -923,7 +1439,7 @@ public final class EventgridFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.EventGrid`: 2022-06-15
+     * * `Microsoft.EventGrid` - 2022-06-15
      * 
      */
     public static Output<GetTopicResult> getTopic(GetTopicArgs args, InvokeOptions options) {
@@ -973,7 +1489,7 @@ public final class EventgridFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.EventGrid`: 2022-06-15
+     * * `Microsoft.EventGrid` - 2022-06-15
      * 
      */
     public static Output<GetTopicResult> getTopic(GetTopicArgs args, InvokeOutputOptions options) {
@@ -1023,7 +1539,7 @@ public final class EventgridFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.EventGrid`: 2022-06-15
+     * * `Microsoft.EventGrid` - 2022-06-15
      * 
      */
     public static CompletableFuture<GetTopicResult> getTopicPlain(GetTopicPlainArgs args, InvokeOptions options) {

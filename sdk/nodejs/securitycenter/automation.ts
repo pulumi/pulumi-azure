@@ -48,7 +48,7 @@ import * as utilities from "../utilities";
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     actions: [{
- *         type: "eventhub",
+ *         type: "EventHub",
  *         resourceId: exampleEventHub.id,
  *         connectionString: exampleAuthorizationRule.primaryConnectionString,
  *     }],
@@ -72,7 +72,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This resource uses the following Azure API Providers:
  *
- * * `Microsoft.Security`: 2019-01-01-preview
+ * * `Microsoft.Security` - 2019-01-01-preview
  *
  * ## Import
  *

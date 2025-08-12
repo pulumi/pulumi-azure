@@ -119,7 +119,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This resource uses the following Azure API Providers:
 //
-// * `Microsoft.Consumption`: 2019-10-01
+// * `Microsoft.Consumption` - 2019-10-01
 //
 // ## Import
 //

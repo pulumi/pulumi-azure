@@ -51,9 +51,16 @@ public final class VolumeExportPolicyRule {
      */
     private @Nullable Boolean kerberos5pReadWriteEnabled;
     /**
-     * @return A list of allowed protocols. Valid values include `CIFS`, `NFSv3`, or `NFSv4.1`. Only one value is supported at this time. This replaces the previous arguments: `cifs_enabled`, `nfsv3_enabled` and `nfsv4_enabled`.
+     * @return A list of allowed protocols. Valid values include `CIFS`, `NFSv3`, or `NFSv4.1`. Only a single element is supported at this time. This replaces the previous arguments: `cifs_enabled`, `nfsv3_enabled` and `nfsv4_enabled`.
      * 
      */
+    private @Nullable String protocol;
+    /**
+     * @deprecated
+     * this property has been deprecated in favour of `export_policy_rule.protocol` and will be removed in version 5.0 of the Provider.
+     * 
+     */
+    @Deprecated /* this property has been deprecated in favour of `export_policy_rule.protocol` and will be removed in version 5.0 of the Provider. */
     private @Nullable String protocolsEnabled;
     /**
      * @return Is root access permitted to this volume?
@@ -127,9 +134,18 @@ public final class VolumeExportPolicyRule {
         return Optional.ofNullable(this.kerberos5pReadWriteEnabled);
     }
     /**
-     * @return A list of allowed protocols. Valid values include `CIFS`, `NFSv3`, or `NFSv4.1`. Only one value is supported at this time. This replaces the previous arguments: `cifs_enabled`, `nfsv3_enabled` and `nfsv4_enabled`.
+     * @return A list of allowed protocols. Valid values include `CIFS`, `NFSv3`, or `NFSv4.1`. Only a single element is supported at this time. This replaces the previous arguments: `cifs_enabled`, `nfsv3_enabled` and `nfsv4_enabled`.
      * 
      */
+    public Optional<String> protocol() {
+        return Optional.ofNullable(this.protocol);
+    }
+    /**
+     * @deprecated
+     * this property has been deprecated in favour of `export_policy_rule.protocol` and will be removed in version 5.0 of the Provider.
+     * 
+     */
+    @Deprecated /* this property has been deprecated in favour of `export_policy_rule.protocol` and will be removed in version 5.0 of the Provider. */
     public Optional<String> protocolsEnabled() {
         return Optional.ofNullable(this.protocolsEnabled);
     }
@@ -178,6 +194,7 @@ public final class VolumeExportPolicyRule {
         private @Nullable Boolean kerberos5iReadWriteEnabled;
         private @Nullable Boolean kerberos5pReadOnlyEnabled;
         private @Nullable Boolean kerberos5pReadWriteEnabled;
+        private @Nullable String protocol;
         private @Nullable String protocolsEnabled;
         private @Nullable Boolean rootAccessEnabled;
         private Integer ruleIndex;
@@ -193,6 +210,7 @@ public final class VolumeExportPolicyRule {
     	      this.kerberos5iReadWriteEnabled = defaults.kerberos5iReadWriteEnabled;
     	      this.kerberos5pReadOnlyEnabled = defaults.kerberos5pReadOnlyEnabled;
     	      this.kerberos5pReadWriteEnabled = defaults.kerberos5pReadWriteEnabled;
+    	      this.protocol = defaults.protocol;
     	      this.protocolsEnabled = defaults.protocolsEnabled;
     	      this.rootAccessEnabled = defaults.rootAccessEnabled;
     	      this.ruleIndex = defaults.ruleIndex;
@@ -248,6 +266,12 @@ public final class VolumeExportPolicyRule {
             return this;
         }
         @CustomType.Setter
+        public Builder protocol(@Nullable String protocol) {
+
+            this.protocol = protocol;
+            return this;
+        }
+        @CustomType.Setter
         public Builder protocolsEnabled(@Nullable String protocolsEnabled) {
 
             this.protocolsEnabled = protocolsEnabled;
@@ -288,6 +312,7 @@ public final class VolumeExportPolicyRule {
             _resultValue.kerberos5iReadWriteEnabled = kerberos5iReadWriteEnabled;
             _resultValue.kerberos5pReadOnlyEnabled = kerberos5pReadOnlyEnabled;
             _resultValue.kerberos5pReadWriteEnabled = kerberos5pReadWriteEnabled;
+            _resultValue.protocol = protocol;
             _resultValue.protocolsEnabled = protocolsEnabled;
             _resultValue.rootAccessEnabled = rootAccessEnabled;
             _resultValue.ruleIndex = ruleIndex;

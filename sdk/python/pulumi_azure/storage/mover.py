@@ -230,7 +230,7 @@ class Mover(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.StorageMover`: 2023-03-01
+        * `Microsoft.StorageMover` - 2023-03-01
 
         ## Import
 
@@ -281,7 +281,7 @@ class Mover(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.StorageMover`: 2023-03-01
+        * `Microsoft.StorageMover` - 2023-03-01
 
         ## Import
 

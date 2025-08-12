@@ -12,6 +12,7 @@ from .group import *
 from .group_policy_assignment import *
 from .group_policy_exemption import *
 from .group_policy_remediation import *
+from .group_policy_set_definition import *
 from .group_subscription_association import *
 from .group_template_deployment import *
 from .lock import *

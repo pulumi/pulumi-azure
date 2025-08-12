@@ -35,6 +35,7 @@ __all__ = [
     'ManagedInstanceFailoverGroupPartnerRegion',
     'ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicy',
     'ManagedInstanceIdentity',
+    'ManagedInstanceStartStopScheduleSchedule',
     'ManagedInstanceVulnerabilityAssessmentRecurringScans',
     'ServerAzureadAdministrator',
     'ServerIdentity',
@@ -57,6 +58,8 @@ __all__ = [
     'VirtualMachineWsfcDomainCredential',
     'GetDatabaseIdentityResult',
     'GetElasticPoolSkusResult',
+    'GetFailoverGroupPartnerServerResult',
+    'GetFailoverGroupReadWriteEndpointFailoverPolicyResult',
     'GetManagedDatabaseLongTermRetentionPolicyResult',
     'GetManagedDatabasePointInTimeRestoreResult',
     'GetManagedInstanceIdentityResult',
@@ -736,12 +739,12 @@ class JobStepOutputTarget(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "jobCredentialId":
-            suggest = "job_credential_id"
-        elif key == "mssqlDatabaseId":
+        if key == "mssqlDatabaseId":
             suggest = "mssql_database_id"
         elif key == "tableName":
             suggest = "table_name"
+        elif key == "jobCredentialId":
+            suggest = "job_credential_id"
         elif key == "schemaName":
             suggest = "schema_name"
 
@@ -757,29 +760,22 @@ class JobStepOutputTarget(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 job_credential_id: _builtins.str,
                  mssql_database_id: _builtins.str,
                  table_name: _builtins.str,
+                 job_credential_id: Optional[_builtins.str] = None,
                  schema_name: Optional[_builtins.str] = None):
         """
-        :param _builtins.str job_credential_id: The ID of the Elastic Job Credential to use when connecting to the output destination.
         :param _builtins.str mssql_database_id: The ID of the output database.
         :param _builtins.str table_name: The name of the output table.
+        :param _builtins.str job_credential_id: The ID of the Elastic Job Credential to use when connecting to the output destination.
         :param _builtins.str schema_name: The name of the output schema. Defaults to `dbo`.
         """
-        pulumi.set(__self__, "job_credential_id", job_credential_id)
         pulumi.set(__self__, "mssql_database_id", mssql_database_id)
         pulumi.set(__self__, "table_name", table_name)
+        if job_credential_id is not None:
+            pulumi.set(__self__, "job_credential_id", job_credential_id)
         if schema_name is not None:
             pulumi.set(__self__, "schema_name", schema_name)
-
-    @_builtins.property
-    @pulumi.getter(name="jobCredentialId")
-    def job_credential_id(self) -> _builtins.str:
-        """
-        The ID of the Elastic Job Credential to use when connecting to the output destination.
-        """
-        return pulumi.get(self, "job_credential_id")
 
     @_builtins.property
     @pulumi.getter(name="mssqlDatabaseId")
@@ -796,6 +792,14 @@ class JobStepOutputTarget(dict):
         The name of the output table.
         """
         return pulumi.get(self, "table_name")
+
+    @_builtins.property
+    @pulumi.getter(name="jobCredentialId")
+    def job_credential_id(self) -> Optional[_builtins.str]:
+        """
+        The ID of the Elastic Job Credential to use when connecting to the output destination.
+        """
+        return pulumi.get(self, "job_credential_id")
 
     @_builtins.property
     @pulumi.getter(name="schemaName")
@@ -1301,6 +1305,80 @@ class ManagedInstanceIdentity(dict):
         The Tenant ID for the Service Principal associated with the Identity of this SQL Managed Instance.
         """
         return pulumi.get(self, "tenant_id")
+
+
+@pulumi.output_type
+class ManagedInstanceStartStopScheduleSchedule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "startDay":
+            suggest = "start_day"
+        elif key == "startTime":
+            suggest = "start_time"
+        elif key == "stopDay":
+            suggest = "stop_day"
+        elif key == "stopTime":
+            suggest = "stop_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedInstanceStartStopScheduleSchedule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedInstanceStartStopScheduleSchedule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedInstanceStartStopScheduleSchedule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 start_day: _builtins.str,
+                 start_time: _builtins.str,
+                 stop_day: _builtins.str,
+                 stop_time: _builtins.str):
+        """
+        :param _builtins.str start_day: Start day of the schedule. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, `Sunday`.
+        :param _builtins.str start_time: Start time of the schedule in 24-hour format (e.g., `08:00`).
+        :param _builtins.str stop_day: Stop day of the schedule. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, `Sunday`.
+        :param _builtins.str stop_time: Stop time of the schedule in 24-hour format (e.g., `17:00`).
+        """
+        pulumi.set(__self__, "start_day", start_day)
+        pulumi.set(__self__, "start_time", start_time)
+        pulumi.set(__self__, "stop_day", stop_day)
+        pulumi.set(__self__, "stop_time", stop_time)
+
+    @_builtins.property
+    @pulumi.getter(name="startDay")
+    def start_day(self) -> _builtins.str:
+        """
+        Start day of the schedule. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, `Sunday`.
+        """
+        return pulumi.get(self, "start_day")
+
+    @_builtins.property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> _builtins.str:
+        """
+        Start time of the schedule in 24-hour format (e.g., `08:00`).
+        """
+        return pulumi.get(self, "start_time")
+
+    @_builtins.property
+    @pulumi.getter(name="stopDay")
+    def stop_day(self) -> _builtins.str:
+        """
+        Stop day of the schedule. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, `Sunday`.
+        """
+        return pulumi.get(self, "stop_day")
+
+    @_builtins.property
+    @pulumi.getter(name="stopTime")
+    def stop_time(self) -> _builtins.str:
+        """
+        Stop time of the schedule in 24-hour format (e.g., `17:00`).
+        """
+        return pulumi.get(self, "stop_time")
 
 
 @pulumi.output_type
@@ -2983,6 +3061,75 @@ class GetElasticPoolSkusResult(dict):
         The tier of the particular SKU.
         """
         return pulumi.get(self, "tier")
+
+
+@pulumi.output_type
+class GetFailoverGroupPartnerServerResult(dict):
+    def __init__(__self__, *,
+                 id: _builtins.str,
+                 location: _builtins.str,
+                 role: _builtins.str):
+        """
+        :param _builtins.str id: The ID of the partner SQL server.
+        :param _builtins.str location: The location of the partner server.
+        :param _builtins.str role: The replication role of the partner server.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "location", location)
+        pulumi.set(__self__, "role", role)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        """
+        The ID of the partner SQL server.
+        """
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter
+    def location(self) -> _builtins.str:
+        """
+        The location of the partner server.
+        """
+        return pulumi.get(self, "location")
+
+    @_builtins.property
+    @pulumi.getter
+    def role(self) -> _builtins.str:
+        """
+        The replication role of the partner server.
+        """
+        return pulumi.get(self, "role")
+
+
+@pulumi.output_type
+class GetFailoverGroupReadWriteEndpointFailoverPolicyResult(dict):
+    def __init__(__self__, *,
+                 grace_minutes: _builtins.int,
+                 mode: _builtins.str):
+        """
+        :param _builtins.int grace_minutes: The grace period in minutes, before failover with data loss is attempted for the read-write endpoint.
+        :param _builtins.str mode: The failover policy of the read-write endpoint for the Failover Group.
+        """
+        pulumi.set(__self__, "grace_minutes", grace_minutes)
+        pulumi.set(__self__, "mode", mode)
+
+    @_builtins.property
+    @pulumi.getter(name="graceMinutes")
+    def grace_minutes(self) -> _builtins.int:
+        """
+        The grace period in minutes, before failover with data loss is attempted for the read-write endpoint.
+        """
+        return pulumi.get(self, "grace_minutes")
+
+    @_builtins.property
+    @pulumi.getter
+    def mode(self) -> _builtins.str:
+        """
+        The failover policy of the read-write endpoint for the Failover Group.
+        """
+        return pulumi.get(self, "mode")
 
 
 @pulumi.output_type

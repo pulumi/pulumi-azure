@@ -44,7 +44,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This resource uses the following Azure API Providers:
  *
- * * `Microsoft.Network`: 2024-05-01
+ * * `Microsoft.Network` - 2024-05-01
  *
  * ## Import
  *
@@ -93,7 +93,7 @@ export class NetworkManagerIpamPool extends pulumi.CustomResource {
     /**
      * The display name for the Network Manager IPAM Pool.
      */
-    public readonly displayName!: pulumi.Output<string>;
+    public readonly displayName!: pulumi.Output<string | undefined>;
     /**
      * The Azure Region where the Network Manager IPAM Pool should exist. Changing this forces a new Network Manager IPAM Pool to be created.
      */
@@ -140,9 +140,6 @@ export class NetworkManagerIpamPool extends pulumi.CustomResource {
             const args = argsOrState as NetworkManagerIpamPoolArgs | undefined;
             if ((!args || args.addressPrefixes === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'addressPrefixes'");
-            }
-            if ((!args || args.displayName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'displayName'");
             }
             if ((!args || args.networkManagerId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'networkManagerId'");
@@ -214,7 +211,7 @@ export interface NetworkManagerIpamPoolArgs {
     /**
      * The display name for the Network Manager IPAM Pool.
      */
-    displayName: pulumi.Input<string>;
+    displayName?: pulumi.Input<string>;
     /**
      * The Azure Region where the Network Manager IPAM Pool should exist. Changing this forces a new Network Manager IPAM Pool to be created.
      */

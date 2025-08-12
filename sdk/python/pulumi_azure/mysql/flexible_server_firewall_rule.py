@@ -281,7 +281,7 @@ class FlexibleServerFirewallRule(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.DBforMySQL`: 2023-12-30
+        * `Microsoft.DBforMySQL` - 2023-12-30
 
         ## Import
 
@@ -380,7 +380,7 @@ class FlexibleServerFirewallRule(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.DBforMySQL`: 2023-12-30
+        * `Microsoft.DBforMySQL` - 2023-12-30
 
         ## Import
 

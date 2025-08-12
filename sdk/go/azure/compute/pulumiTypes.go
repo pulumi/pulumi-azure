@@ -4820,6 +4820,14 @@ func (o LinuxVirtualMachineScaleSetIdentityPtrOutput) Type() pulumi.StringPtrOut
 }
 
 type LinuxVirtualMachineScaleSetNetworkInterface struct {
+	// Specifies the auxiliary mode used to enable network high-performance feature on Network Virtual Appliances (NVAs). This feature offers competitive performance in Connections Per Second (CPS) optimization, along with improvements to handling large amounts of simultaneous connections. Possible values are `AcceleratedConnections` and `Floating`.
+	//
+	// > **Note:** `auxiliaryMode` is in **Preview** and requires that the prerequisites are enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
+	AuxiliaryMode *string `pulumi:"auxiliaryMode"`
+	// Specifies the SKU used for the network high-performance feature on Network Virtual Appliances (NVAs). Possible values are `A1`, `A2`, `A4` and `A8`.
+	//
+	// > **Note:** `auxiliarySku` is in **Preview** and requires that the prerequisites are enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
+	AuxiliarySku *string `pulumi:"auxiliarySku"`
 	// A list of IP Addresses of DNS Servers which should be assigned to the Network Interface.
 	DnsServers []string `pulumi:"dnsServers"`
 	// Does this Network Interface support Accelerated Networking? Defaults to `false`.
@@ -4850,6 +4858,14 @@ type LinuxVirtualMachineScaleSetNetworkInterfaceInput interface {
 }
 
 type LinuxVirtualMachineScaleSetNetworkInterfaceArgs struct {
+	// Specifies the auxiliary mode used to enable network high-performance feature on Network Virtual Appliances (NVAs). This feature offers competitive performance in Connections Per Second (CPS) optimization, along with improvements to handling large amounts of simultaneous connections. Possible values are `AcceleratedConnections` and `Floating`.
+	//
+	// > **Note:** `auxiliaryMode` is in **Preview** and requires that the prerequisites are enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
+	AuxiliaryMode pulumi.StringPtrInput `pulumi:"auxiliaryMode"`
+	// Specifies the SKU used for the network high-performance feature on Network Virtual Appliances (NVAs). Possible values are `A1`, `A2`, `A4` and `A8`.
+	//
+	// > **Note:** `auxiliarySku` is in **Preview** and requires that the prerequisites are enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
+	AuxiliarySku pulumi.StringPtrInput `pulumi:"auxiliarySku"`
 	// A list of IP Addresses of DNS Servers which should be assigned to the Network Interface.
 	DnsServers pulumi.StringArrayInput `pulumi:"dnsServers"`
 	// Does this Network Interface support Accelerated Networking? Defaults to `false`.
@@ -4917,6 +4933,20 @@ func (o LinuxVirtualMachineScaleSetNetworkInterfaceOutput) ToLinuxVirtualMachine
 
 func (o LinuxVirtualMachineScaleSetNetworkInterfaceOutput) ToLinuxVirtualMachineScaleSetNetworkInterfaceOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetNetworkInterfaceOutput {
 	return o
+}
+
+// Specifies the auxiliary mode used to enable network high-performance feature on Network Virtual Appliances (NVAs). This feature offers competitive performance in Connections Per Second (CPS) optimization, along with improvements to handling large amounts of simultaneous connections. Possible values are `AcceleratedConnections` and `Floating`.
+//
+// > **Note:** `auxiliaryMode` is in **Preview** and requires that the prerequisites are enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
+func (o LinuxVirtualMachineScaleSetNetworkInterfaceOutput) AuxiliaryMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetNetworkInterface) *string { return v.AuxiliaryMode }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the SKU used for the network high-performance feature on Network Virtual Appliances (NVAs). Possible values are `A1`, `A2`, `A4` and `A8`.
+//
+// > **Note:** `auxiliarySku` is in **Preview** and requires that the prerequisites are enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
+func (o LinuxVirtualMachineScaleSetNetworkInterfaceOutput) AuxiliarySku() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetNetworkInterface) *string { return v.AuxiliarySku }).(pulumi.StringPtrOutput)
 }
 
 // A list of IP Addresses of DNS Servers which should be assigned to the Network Interface.
@@ -9473,6 +9503,14 @@ func (o OrchestratedVirtualMachineScaleSetIdentityPtrOutput) Type() pulumi.Strin
 }
 
 type OrchestratedVirtualMachineScaleSetNetworkInterface struct {
+	// Specifies the auxiliary mode used to enable network high-performance feature on Network Virtual Appliances (NVAs). This feature offers competitive performance in Connections Per Second (CPS) optimization, along with improvements to handling large amounts of simultaneous connections. Possible values are `AcceleratedConnections` and `Floating`.
+	//
+	// > **Note:** `auxiliaryMode` is in **Preview** and requires that the prerequisites are enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
+	AuxiliaryMode *string `pulumi:"auxiliaryMode"`
+	// Specifies the SKU used for the network high-performance feature on Network Virtual Appliances (NVAs). Possible values are `A1`, `A2`, `A4` and `A8`.
+	//
+	// > **Note:** `auxiliarySku` is in **Preview** and requires that the prerequisites are enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
+	AuxiliarySku *string `pulumi:"auxiliarySku"`
 	// A list of IP Addresses of DNS Servers which should be assigned to the Network Interface.
 	DnsServers []string `pulumi:"dnsServers"`
 	// Does this Network Interface support Accelerated Networking? Possible values are `true` and `false`. Defaults to `false`.
@@ -9503,6 +9541,14 @@ type OrchestratedVirtualMachineScaleSetNetworkInterfaceInput interface {
 }
 
 type OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs struct {
+	// Specifies the auxiliary mode used to enable network high-performance feature on Network Virtual Appliances (NVAs). This feature offers competitive performance in Connections Per Second (CPS) optimization, along with improvements to handling large amounts of simultaneous connections. Possible values are `AcceleratedConnections` and `Floating`.
+	//
+	// > **Note:** `auxiliaryMode` is in **Preview** and requires that the prerequisites are enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
+	AuxiliaryMode pulumi.StringPtrInput `pulumi:"auxiliaryMode"`
+	// Specifies the SKU used for the network high-performance feature on Network Virtual Appliances (NVAs). Possible values are `A1`, `A2`, `A4` and `A8`.
+	//
+	// > **Note:** `auxiliarySku` is in **Preview** and requires that the prerequisites are enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
+	AuxiliarySku pulumi.StringPtrInput `pulumi:"auxiliarySku"`
 	// A list of IP Addresses of DNS Servers which should be assigned to the Network Interface.
 	DnsServers pulumi.StringArrayInput `pulumi:"dnsServers"`
 	// Does this Network Interface support Accelerated Networking? Possible values are `true` and `false`. Defaults to `false`.
@@ -9570,6 +9616,20 @@ func (o OrchestratedVirtualMachineScaleSetNetworkInterfaceOutput) ToOrchestrated
 
 func (o OrchestratedVirtualMachineScaleSetNetworkInterfaceOutput) ToOrchestratedVirtualMachineScaleSetNetworkInterfaceOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetNetworkInterfaceOutput {
 	return o
+}
+
+// Specifies the auxiliary mode used to enable network high-performance feature on Network Virtual Appliances (NVAs). This feature offers competitive performance in Connections Per Second (CPS) optimization, along with improvements to handling large amounts of simultaneous connections. Possible values are `AcceleratedConnections` and `Floating`.
+//
+// > **Note:** `auxiliaryMode` is in **Preview** and requires that the prerequisites are enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
+func (o OrchestratedVirtualMachineScaleSetNetworkInterfaceOutput) AuxiliaryMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetNetworkInterface) *string { return v.AuxiliaryMode }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the SKU used for the network high-performance feature on Network Virtual Appliances (NVAs). Possible values are `A1`, `A2`, `A4` and `A8`.
+//
+// > **Note:** `auxiliarySku` is in **Preview** and requires that the prerequisites are enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
+func (o OrchestratedVirtualMachineScaleSetNetworkInterfaceOutput) AuxiliarySku() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetNetworkInterface) *string { return v.AuxiliarySku }).(pulumi.StringPtrOutput)
 }
 
 // A list of IP Addresses of DNS Servers which should be assigned to the Network Interface.
@@ -24024,7 +24084,9 @@ func (o WindowsVirtualMachineOsDiskPtrOutput) WriteAcceleratorEnabled() pulumi.B
 type WindowsVirtualMachineOsDiskDiffDiskSettings struct {
 	// Specifies the Ephemeral Disk Settings for the OS Disk. At this time the only possible value is `Local`. Changing this forces a new resource to be created.
 	Option string `pulumi:"option"`
-	// Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk` and `ResourceDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
+	// Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk`, `ResourceDisk` and `NvmeDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** `NvmeDisk` can only be used for v6 VMs in combination with a supported `sourceImageReference`. More information can be found [here](https://learn.microsoft.com/en-us/azure/virtual-machines/ephemeral-os-disks)
 	Placement *string `pulumi:"placement"`
 }
 
@@ -24042,7 +24104,9 @@ type WindowsVirtualMachineOsDiskDiffDiskSettingsInput interface {
 type WindowsVirtualMachineOsDiskDiffDiskSettingsArgs struct {
 	// Specifies the Ephemeral Disk Settings for the OS Disk. At this time the only possible value is `Local`. Changing this forces a new resource to be created.
 	Option pulumi.StringInput `pulumi:"option"`
-	// Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk` and `ResourceDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
+	// Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk`, `ResourceDisk` and `NvmeDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** `NvmeDisk` can only be used for v6 VMs in combination with a supported `sourceImageReference`. More information can be found [here](https://learn.microsoft.com/en-us/azure/virtual-machines/ephemeral-os-disks)
 	Placement pulumi.StringPtrInput `pulumi:"placement"`
 }
 
@@ -24128,7 +24192,9 @@ func (o WindowsVirtualMachineOsDiskDiffDiskSettingsOutput) Option() pulumi.Strin
 	return o.ApplyT(func(v WindowsVirtualMachineOsDiskDiffDiskSettings) string { return v.Option }).(pulumi.StringOutput)
 }
 
-// Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk` and `ResourceDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
+// Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk`, `ResourceDisk` and `NvmeDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
+//
+// > **Note:** `NvmeDisk` can only be used for v6 VMs in combination with a supported `sourceImageReference`. More information can be found [here](https://learn.microsoft.com/en-us/azure/virtual-machines/ephemeral-os-disks)
 func (o WindowsVirtualMachineOsDiskDiffDiskSettingsOutput) Placement() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineOsDiskDiffDiskSettings) *string { return v.Placement }).(pulumi.StringPtrOutput)
 }
@@ -24167,7 +24233,9 @@ func (o WindowsVirtualMachineOsDiskDiffDiskSettingsPtrOutput) Option() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk` and `ResourceDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
+// Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk`, `ResourceDisk` and `NvmeDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
+//
+// > **Note:** `NvmeDisk` can only be used for v6 VMs in combination with a supported `sourceImageReference`. More information can be found [here](https://learn.microsoft.com/en-us/azure/virtual-machines/ephemeral-os-disks)
 func (o WindowsVirtualMachineOsDiskDiffDiskSettingsPtrOutput) Placement() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachineOsDiskDiffDiskSettings) *string {
 		if v == nil {
@@ -26134,6 +26202,14 @@ func (o WindowsVirtualMachineScaleSetIdentityPtrOutput) Type() pulumi.StringPtrO
 }
 
 type WindowsVirtualMachineScaleSetNetworkInterface struct {
+	// Specifies the auxiliary mode used to enable network high-performance feature on Network Virtual Appliances (NVAs). This feature offers competitive performance in Connections Per Second (CPS) optimization, along with improvements to handling large amounts of simultaneous connections. Possible values are `AcceleratedConnections` and `Floating`.
+	//
+	// > **Note:** `auxiliaryMode` is in **Preview** and requires that the prerequisites are enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
+	AuxiliaryMode *string `pulumi:"auxiliaryMode"`
+	// Specifies the SKU used for the network high-performance feature on Network Virtual Appliances (NVAs). Possible values are `A1`, `A2`, `A4` and `A8`.
+	//
+	// > **Note:** `auxiliarySku` is in **Preview** and requires that the prerequisites are enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
+	AuxiliarySku *string `pulumi:"auxiliarySku"`
 	// A list of IP Addresses of DNS Servers which should be assigned to the Network Interface.
 	DnsServers []string `pulumi:"dnsServers"`
 	// Does this Network Interface support Accelerated Networking? Defaults to `false`.
@@ -26164,6 +26240,14 @@ type WindowsVirtualMachineScaleSetNetworkInterfaceInput interface {
 }
 
 type WindowsVirtualMachineScaleSetNetworkInterfaceArgs struct {
+	// Specifies the auxiliary mode used to enable network high-performance feature on Network Virtual Appliances (NVAs). This feature offers competitive performance in Connections Per Second (CPS) optimization, along with improvements to handling large amounts of simultaneous connections. Possible values are `AcceleratedConnections` and `Floating`.
+	//
+	// > **Note:** `auxiliaryMode` is in **Preview** and requires that the prerequisites are enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
+	AuxiliaryMode pulumi.StringPtrInput `pulumi:"auxiliaryMode"`
+	// Specifies the SKU used for the network high-performance feature on Network Virtual Appliances (NVAs). Possible values are `A1`, `A2`, `A4` and `A8`.
+	//
+	// > **Note:** `auxiliarySku` is in **Preview** and requires that the prerequisites are enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
+	AuxiliarySku pulumi.StringPtrInput `pulumi:"auxiliarySku"`
 	// A list of IP Addresses of DNS Servers which should be assigned to the Network Interface.
 	DnsServers pulumi.StringArrayInput `pulumi:"dnsServers"`
 	// Does this Network Interface support Accelerated Networking? Defaults to `false`.
@@ -26231,6 +26315,20 @@ func (o WindowsVirtualMachineScaleSetNetworkInterfaceOutput) ToWindowsVirtualMac
 
 func (o WindowsVirtualMachineScaleSetNetworkInterfaceOutput) ToWindowsVirtualMachineScaleSetNetworkInterfaceOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetNetworkInterfaceOutput {
 	return o
+}
+
+// Specifies the auxiliary mode used to enable network high-performance feature on Network Virtual Appliances (NVAs). This feature offers competitive performance in Connections Per Second (CPS) optimization, along with improvements to handling large amounts of simultaneous connections. Possible values are `AcceleratedConnections` and `Floating`.
+//
+// > **Note:** `auxiliaryMode` is in **Preview** and requires that the prerequisites are enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
+func (o WindowsVirtualMachineScaleSetNetworkInterfaceOutput) AuxiliaryMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetNetworkInterface) *string { return v.AuxiliaryMode }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the SKU used for the network high-performance feature on Network Virtual Appliances (NVAs). Possible values are `A1`, `A2`, `A4` and `A8`.
+//
+// > **Note:** `auxiliarySku` is in **Preview** and requires that the prerequisites are enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
+func (o WindowsVirtualMachineScaleSetNetworkInterfaceOutput) AuxiliarySku() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetNetworkInterface) *string { return v.AuxiliarySku }).(pulumi.StringPtrOutput)
 }
 
 // A list of IP Addresses of DNS Servers which should be assigned to the Network Interface.
@@ -32784,7 +32882,7 @@ type GetVirtualMachineScaleSetInstance struct {
 	PrivateIpAddress string `pulumi:"privateIpAddress"`
 	// A list of Private IP Addresses assigned to this Virtual Machine.
 	PrivateIpAddresses []string `pulumi:"privateIpAddresses"`
-	// The virtual machines scale set IP Configuration's PublicIPAddress configuration. The `publicIpAddress` is documented below.
+	// A `publicIpAddress` block as defined below.
 	PublicIpAddress string `pulumi:"publicIpAddress"`
 	// A list of the Public IP Addresses assigned to this Virtual Machine.
 	PublicIpAddresses []string `pulumi:"publicIpAddresses"`
@@ -32820,7 +32918,7 @@ type GetVirtualMachineScaleSetInstanceArgs struct {
 	PrivateIpAddress pulumi.StringInput `pulumi:"privateIpAddress"`
 	// A list of Private IP Addresses assigned to this Virtual Machine.
 	PrivateIpAddresses pulumi.StringArrayInput `pulumi:"privateIpAddresses"`
-	// The virtual machines scale set IP Configuration's PublicIPAddress configuration. The `publicIpAddress` is documented below.
+	// A `publicIpAddress` block as defined below.
 	PublicIpAddress pulumi.StringInput `pulumi:"publicIpAddress"`
 	// A list of the Public IP Addresses assigned to this Virtual Machine.
 	PublicIpAddresses pulumi.StringArrayInput `pulumi:"publicIpAddresses"`
@@ -32916,7 +33014,7 @@ func (o GetVirtualMachineScaleSetInstanceOutput) PrivateIpAddresses() pulumi.Str
 	return o.ApplyT(func(v GetVirtualMachineScaleSetInstance) []string { return v.PrivateIpAddresses }).(pulumi.StringArrayOutput)
 }
 
-// The virtual machines scale set IP Configuration's PublicIPAddress configuration. The `publicIpAddress` is documented below.
+// A `publicIpAddress` block as defined below.
 func (o GetVirtualMachineScaleSetInstanceOutput) PublicIpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVirtualMachineScaleSetInstance) string { return v.PublicIpAddress }).(pulumi.StringOutput)
 }
@@ -32957,13 +33055,17 @@ func (o GetVirtualMachineScaleSetInstanceArrayOutput) Index(i pulumi.IntInput) G
 }
 
 type GetVirtualMachineScaleSetNetworkInterface struct {
+	// The auxiliary mode for the network interface.
+	AuxiliaryMode string `pulumi:"auxiliaryMode"`
+	// The auxiliary SKU for the network interface.
+	AuxiliarySku string `pulumi:"auxiliarySku"`
 	// An array of the DNS servers in use.
 	DnsServers []string `pulumi:"dnsServers"`
-	// Whether to enable accelerated networking or not.
+	// Whether accelerated networking is enabled.
 	EnableAcceleratedNetworking bool `pulumi:"enableAcceleratedNetworking"`
 	// Whether IP forwarding is enabled on this NIC.
 	EnableIpForwarding bool `pulumi:"enableIpForwarding"`
-	// An `ipConfiguration` block as documented below.
+	// An `ipConfiguration` block as defined below.
 	IpConfigurations []GetVirtualMachineScaleSetNetworkInterfaceIpConfiguration `pulumi:"ipConfigurations"`
 	// The name of this Virtual Machine Scale Set.
 	Name string `pulumi:"name"`
@@ -32985,13 +33087,17 @@ type GetVirtualMachineScaleSetNetworkInterfaceInput interface {
 }
 
 type GetVirtualMachineScaleSetNetworkInterfaceArgs struct {
+	// The auxiliary mode for the network interface.
+	AuxiliaryMode pulumi.StringInput `pulumi:"auxiliaryMode"`
+	// The auxiliary SKU for the network interface.
+	AuxiliarySku pulumi.StringInput `pulumi:"auxiliarySku"`
 	// An array of the DNS servers in use.
 	DnsServers pulumi.StringArrayInput `pulumi:"dnsServers"`
-	// Whether to enable accelerated networking or not.
+	// Whether accelerated networking is enabled.
 	EnableAcceleratedNetworking pulumi.BoolInput `pulumi:"enableAcceleratedNetworking"`
 	// Whether IP forwarding is enabled on this NIC.
 	EnableIpForwarding pulumi.BoolInput `pulumi:"enableIpForwarding"`
-	// An `ipConfiguration` block as documented below.
+	// An `ipConfiguration` block as defined below.
 	IpConfigurations GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayInput `pulumi:"ipConfigurations"`
 	// The name of this Virtual Machine Scale Set.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -33052,12 +33158,22 @@ func (o GetVirtualMachineScaleSetNetworkInterfaceOutput) ToGetVirtualMachineScal
 	return o
 }
 
+// The auxiliary mode for the network interface.
+func (o GetVirtualMachineScaleSetNetworkInterfaceOutput) AuxiliaryMode() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVirtualMachineScaleSetNetworkInterface) string { return v.AuxiliaryMode }).(pulumi.StringOutput)
+}
+
+// The auxiliary SKU for the network interface.
+func (o GetVirtualMachineScaleSetNetworkInterfaceOutput) AuxiliarySku() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVirtualMachineScaleSetNetworkInterface) string { return v.AuxiliarySku }).(pulumi.StringOutput)
+}
+
 // An array of the DNS servers in use.
 func (o GetVirtualMachineScaleSetNetworkInterfaceOutput) DnsServers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetVirtualMachineScaleSetNetworkInterface) []string { return v.DnsServers }).(pulumi.StringArrayOutput)
 }
 
-// Whether to enable accelerated networking or not.
+// Whether accelerated networking is enabled.
 func (o GetVirtualMachineScaleSetNetworkInterfaceOutput) EnableAcceleratedNetworking() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetVirtualMachineScaleSetNetworkInterface) bool { return v.EnableAcceleratedNetworking }).(pulumi.BoolOutput)
 }
@@ -33067,7 +33183,7 @@ func (o GetVirtualMachineScaleSetNetworkInterfaceOutput) EnableIpForwarding() pu
 	return o.ApplyT(func(v GetVirtualMachineScaleSetNetworkInterface) bool { return v.EnableIpForwarding }).(pulumi.BoolOutput)
 }
 
-// An `ipConfiguration` block as documented below.
+// An `ipConfiguration` block as defined below.
 func (o GetVirtualMachineScaleSetNetworkInterfaceOutput) IpConfigurations() GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput {
 	return o.ApplyT(func(v GetVirtualMachineScaleSetNetworkInterface) []GetVirtualMachineScaleSetNetworkInterfaceIpConfiguration {
 		return v.IpConfigurations
@@ -33122,7 +33238,7 @@ type GetVirtualMachineScaleSetNetworkInterfaceIpConfiguration struct {
 	Name string `pulumi:"name"`
 	// If this ipConfiguration is the primary one.
 	Primary bool `pulumi:"primary"`
-	// The virtual machines scale set IP Configuration's PublicIPAddress configuration. The `publicIpAddress` is documented below.
+	// A `publicIpAddress` block as defined below.
 	PublicIpAddresses []GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress `pulumi:"publicIpAddresses"`
 	// The identifier of the subnet.
 	SubnetId string `pulumi:"subnetId"`
@@ -33154,7 +33270,7 @@ type GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// If this ipConfiguration is the primary one.
 	Primary pulumi.BoolInput `pulumi:"primary"`
-	// The virtual machines scale set IP Configuration's PublicIPAddress configuration. The `publicIpAddress` is documented below.
+	// A `publicIpAddress` block as defined below.
 	PublicIpAddresses GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayInput `pulumi:"publicIpAddresses"`
 	// The identifier of the subnet.
 	SubnetId pulumi.StringInput `pulumi:"subnetId"`
@@ -33251,7 +33367,7 @@ func (o GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput) Primary(
 	return o.ApplyT(func(v GetVirtualMachineScaleSetNetworkInterfaceIpConfiguration) bool { return v.Primary }).(pulumi.BoolOutput)
 }
 
-// The virtual machines scale set IP Configuration's PublicIPAddress configuration. The `publicIpAddress` is documented below.
+// A `publicIpAddress` block as defined below.
 func (o GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput) PublicIpAddresses() GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput {
 	return o.ApplyT(func(v GetVirtualMachineScaleSetNetworkInterfaceIpConfiguration) []GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress {
 		return v.PublicIpAddresses

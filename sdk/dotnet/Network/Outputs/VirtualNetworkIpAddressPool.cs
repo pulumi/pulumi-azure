@@ -23,6 +23,8 @@ namespace Pulumi.Azure.Network.Outputs
         public readonly string Id;
         /// <summary>
         /// The number of IP addresses to allocated to the Virtual Network. The value must be a string that represents a positive number, e.g., `"100"`.
+        /// 
+        /// &gt; **Note:** `number_of_ip_addresses` cannot be decreased.
         /// </summary>
         public readonly string NumberOfIpAddresses;
 

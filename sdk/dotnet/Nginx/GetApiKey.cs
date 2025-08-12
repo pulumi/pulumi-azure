@@ -42,7 +42,7 @@ namespace Pulumi.Azure.Nginx
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Nginx.NginxPlus`: 2024-11-01-preview
+        /// * `Nginx.NginxPlus` - 2024-11-01-preview
         /// </summary>
         public static Task<GetApiKeyResult> InvokeAsync(GetApiKeyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApiKeyResult>("azure:nginx/getApiKey:getApiKey", args ?? new GetApiKeyArgs(), options.WithDefaults());
@@ -78,7 +78,7 @@ namespace Pulumi.Azure.Nginx
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Nginx.NginxPlus`: 2024-11-01-preview
+        /// * `Nginx.NginxPlus` - 2024-11-01-preview
         /// </summary>
         public static Output<GetApiKeyResult> Invoke(GetApiKeyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApiKeyResult>("azure:nginx/getApiKey:getApiKey", args ?? new GetApiKeyInvokeArgs(), options.WithDefaults());
@@ -114,7 +114,7 @@ namespace Pulumi.Azure.Nginx
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Nginx.NginxPlus`: 2024-11-01-preview
+        /// * `Nginx.NginxPlus` - 2024-11-01-preview
         /// </summary>
         public static Output<GetApiKeyResult> Invoke(GetApiKeyInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetApiKeyResult>("azure:nginx/getApiKey:getApiKey", args ?? new GetApiKeyInvokeArgs(), options.WithDefaults());

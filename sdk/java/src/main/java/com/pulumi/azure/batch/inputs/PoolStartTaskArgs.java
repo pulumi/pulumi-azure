@@ -84,14 +84,14 @@ public final class PoolStartTaskArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The number of retry count.
+     * The number of retry count. If this is set to `0`, the Batch service does not retry Tasks. If this is set to `-1`, the Batch service retries Batch Tasks without limit.
      * 
      */
     @Import(name="taskRetryMaximum")
     private @Nullable Output<Integer> taskRetryMaximum;
 
     /**
-     * @return The number of retry count.
+     * @return The number of retry count. If this is set to `0`, the Batch service does not retry Tasks. If this is set to `-1`, the Batch service retries Batch Tasks without limit.
      * 
      */
     public Optional<Output<Integer>> taskRetryMaximum() {
@@ -263,7 +263,7 @@ public final class PoolStartTaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param taskRetryMaximum The number of retry count.
+         * @param taskRetryMaximum The number of retry count. If this is set to `0`, the Batch service does not retry Tasks. If this is set to `-1`, the Batch service retries Batch Tasks without limit.
          * 
          * @return builder
          * 
@@ -274,7 +274,7 @@ public final class PoolStartTaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param taskRetryMaximum The number of retry count.
+         * @param taskRetryMaximum The number of retry count. If this is set to `0`, the Batch service does not retry Tasks. If this is set to `-1`, the Batch service retries Batch Tasks without limit.
          * 
          * @return builder
          * 

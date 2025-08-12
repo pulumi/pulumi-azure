@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Manages a policy set definition.
+ * Manages a Policy Set Definition.
  *
  * > **Note:** Policy set definitions (also known as policy initiatives) do not take effect until they are assigned to a scope using a Policy Set Assignment.
  *
@@ -18,9 +18,9 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = new azure.policy.PolicySetDefinition("example", {
- *     name: "testPolicySet",
+ *     name: "example",
  *     policyType: "Custom",
- *     displayName: "Test Policy Set",
+ *     displayName: "Example",
  *     parameters: `    {
  *         "allowedLocations": {
  *             "type": "Array",
@@ -33,6 +33,7 @@ import * as utilities from "../utilities";
  *     }
  * `,
  *     policyDefinitionReferences: [{
+ *         version: "1.0.*",
  *         policyDefinitionId: "/providers/Microsoft.Authorization/policyDefinitions/e765b5de-1225-4ba3-bd56-1ac6695af988",
  *         parameterValues: `    {
  *       "listOfAllowedLocations": {"value": "[parameters('allowedLocations')]"}
@@ -42,18 +43,21 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.Authorization` - 2025-01-01
+ *
+ * * `Microsoft.Management` - 2025-01-01
+ *
  * ## Import
  *
  * Policy Set Definitions can be imported using the `resource id`, e.g.
  *
  * ```sh
- * $ pulumi import azure:policy/policySetDefinition:PolicySetDefinition example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/policySetDefinitions/testPolicySet
- * ```
- *
- * or
- *
- * ```sh
- * $ pulumi import azure:policy/policySetDefinition:PolicySetDefinition example /providers/Microsoft.Management/managementGroups/my-mgmt-group-id/providers/Microsoft.Authorization/policySetDefinitions/testPolicySet
+ * $ pulumi import azure:policy/policySetDefinition:PolicySetDefinition example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/policySetDefinitions/policySetDefinitionName
  * ```
  */
 export class PolicySetDefinition extends pulumi.CustomResource {
@@ -85,27 +89,27 @@ export class PolicySetDefinition extends pulumi.CustomResource {
     }
 
     /**
-     * The description of the policy set definition.
+     * The description of this Policy Set Definition.
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * The display name of the policy set definition.
+     * The display name of this Policy Set Definition.
      */
     public readonly displayName!: pulumi.Output<string>;
     /**
-     * The id of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created.
+     * @deprecated `managementGroupId` has been deprecated in favour of the `azure.management.GroupPolicySetDefinition` resource and will be removed in v5.0 of the AzureRM Provider.
      */
     public readonly managementGroupId!: pulumi.Output<string | undefined>;
     /**
-     * The metadata for the policy set definition. This is a JSON object representing additional metadata that should be stored with the policy definition.
+     * The metadata for the Policy Set Definition in JSON format.
      */
     public readonly metadata!: pulumi.Output<string>;
     /**
-     * The name of the policy set definition. Changing this forces a new resource to be created.
+     * The name which should be used for this Policy Set Definition. Changing this forces a new Policy Set Definition to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Parameters for the policy set definition. This field is a JSON object that allows you to parameterize your policy definition.
+     * The parameters for the Policy Set Definition in JSON format. Reducing the number of parameters forces a new resource to be created.
      */
     public readonly parameters!: pulumi.Output<string | undefined>;
     /**
@@ -117,7 +121,7 @@ export class PolicySetDefinition extends pulumi.CustomResource {
      */
     public readonly policyDefinitionReferences!: pulumi.Output<outputs.policy.PolicySetDefinitionPolicyDefinitionReference[]>;
     /**
-     * The policy set type. Possible values are `BuiltIn`, `Custom`, `NotSpecified` and `Static`. Changing this forces a new resource to be created.
+     * The Policy Set Definition type. Possible values are `BuiltIn`, `Custom`, `NotSpecified`, and `Static`. Changing this forces a new Policy Set Definition to be created.
      */
     public readonly policyType!: pulumi.Output<string>;
 
@@ -174,27 +178,27 @@ export class PolicySetDefinition extends pulumi.CustomResource {
  */
 export interface PolicySetDefinitionState {
     /**
-     * The description of the policy set definition.
+     * The description of this Policy Set Definition.
      */
     description?: pulumi.Input<string>;
     /**
-     * The display name of the policy set definition.
+     * The display name of this Policy Set Definition.
      */
     displayName?: pulumi.Input<string>;
     /**
-     * The id of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created.
+     * @deprecated `managementGroupId` has been deprecated in favour of the `azure.management.GroupPolicySetDefinition` resource and will be removed in v5.0 of the AzureRM Provider.
      */
     managementGroupId?: pulumi.Input<string>;
     /**
-     * The metadata for the policy set definition. This is a JSON object representing additional metadata that should be stored with the policy definition.
+     * The metadata for the Policy Set Definition in JSON format.
      */
     metadata?: pulumi.Input<string>;
     /**
-     * The name of the policy set definition. Changing this forces a new resource to be created.
+     * The name which should be used for this Policy Set Definition. Changing this forces a new Policy Set Definition to be created.
      */
     name?: pulumi.Input<string>;
     /**
-     * Parameters for the policy set definition. This field is a JSON object that allows you to parameterize your policy definition.
+     * The parameters for the Policy Set Definition in JSON format. Reducing the number of parameters forces a new resource to be created.
      */
     parameters?: pulumi.Input<string>;
     /**
@@ -206,7 +210,7 @@ export interface PolicySetDefinitionState {
      */
     policyDefinitionReferences?: pulumi.Input<pulumi.Input<inputs.policy.PolicySetDefinitionPolicyDefinitionReference>[]>;
     /**
-     * The policy set type. Possible values are `BuiltIn`, `Custom`, `NotSpecified` and `Static`. Changing this forces a new resource to be created.
+     * The Policy Set Definition type. Possible values are `BuiltIn`, `Custom`, `NotSpecified`, and `Static`. Changing this forces a new Policy Set Definition to be created.
      */
     policyType?: pulumi.Input<string>;
 }
@@ -216,27 +220,27 @@ export interface PolicySetDefinitionState {
  */
 export interface PolicySetDefinitionArgs {
     /**
-     * The description of the policy set definition.
+     * The description of this Policy Set Definition.
      */
     description?: pulumi.Input<string>;
     /**
-     * The display name of the policy set definition.
+     * The display name of this Policy Set Definition.
      */
     displayName: pulumi.Input<string>;
     /**
-     * The id of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created.
+     * @deprecated `managementGroupId` has been deprecated in favour of the `azure.management.GroupPolicySetDefinition` resource and will be removed in v5.0 of the AzureRM Provider.
      */
     managementGroupId?: pulumi.Input<string>;
     /**
-     * The metadata for the policy set definition. This is a JSON object representing additional metadata that should be stored with the policy definition.
+     * The metadata for the Policy Set Definition in JSON format.
      */
     metadata?: pulumi.Input<string>;
     /**
-     * The name of the policy set definition. Changing this forces a new resource to be created.
+     * The name which should be used for this Policy Set Definition. Changing this forces a new Policy Set Definition to be created.
      */
     name?: pulumi.Input<string>;
     /**
-     * Parameters for the policy set definition. This field is a JSON object that allows you to parameterize your policy definition.
+     * The parameters for the Policy Set Definition in JSON format. Reducing the number of parameters forces a new resource to be created.
      */
     parameters?: pulumi.Input<string>;
     /**
@@ -248,7 +252,7 @@ export interface PolicySetDefinitionArgs {
      */
     policyDefinitionReferences: pulumi.Input<pulumi.Input<inputs.policy.PolicySetDefinitionPolicyDefinitionReference>[]>;
     /**
-     * The policy set type. Possible values are `BuiltIn`, `Custom`, `NotSpecified` and `Static`. Changing this forces a new resource to be created.
+     * The Policy Set Definition type. Possible values are `BuiltIn`, `Custom`, `NotSpecified`, and `Static`. Changing this forces a new Policy Set Definition to be created.
      */
     policyType: pulumi.Input<string>;
 }

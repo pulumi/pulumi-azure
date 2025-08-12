@@ -15,8 +15,8 @@ namespace Pulumi.Azure.MSSql.Inputs
         /// <summary>
         /// The ID of the Elastic Job Credential to use when connecting to the output destination.
         /// </summary>
-        [Input("jobCredentialId", required: true)]
-        public Input<string> JobCredentialId { get; set; } = null!;
+        [Input("jobCredentialId")]
+        public Input<string>? JobCredentialId { get; set; }
 
         /// <summary>
         /// The ID of the output database.

@@ -162,7 +162,7 @@ def get_project_environment_type(dev_center_project_id: Optional[_builtins.str] 
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.DevCenter`: 2025-02-01
+    * `Microsoft.DevCenter` - 2025-02-01
 
 
     :param _builtins.str dev_center_project_id: The ID of the associated Dev Center Project.
@@ -206,7 +206,7 @@ def get_project_environment_type_output(dev_center_project_id: Optional[pulumi.I
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.DevCenter`: 2025-02-01
+    * `Microsoft.DevCenter` - 2025-02-01
 
 
     :param _builtins.str dev_center_project_id: The ID of the associated Dev Center Project.

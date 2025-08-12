@@ -144,7 +144,7 @@ import javax.annotation.Nullable;
  * &lt;!-- This section is generated, changes will be overwritten --&gt;
  * This resource uses the following Azure API Providers:
  * 
- * * `Microsoft.Kusto`: 2024-04-13
+ * * `Microsoft.Kusto` - 2024-04-13
  * 
  * ## Import
  * 
@@ -176,28 +176,28 @@ public class ClusterCustomerManagedKey extends com.pulumi.resources.CustomResour
      * 
      */
     @Export(name="keyName", refs={String.class}, tree="[0]")
-    private Output<String> keyName;
+    private Output</* @Nullable */ String> keyName;
 
     /**
      * @return The name of Key Vault Key.
      * 
      */
-    public Output<String> keyName() {
-        return this.keyName;
+    public Output<Optional<String>> keyName() {
+        return Codegen.optional(this.keyName);
     }
     /**
-     * The ID of the Key Vault.
+     * The ID of the Key Vault for CMK encryption.
      * 
      */
     @Export(name="keyVaultId", refs={String.class}, tree="[0]")
-    private Output<String> keyVaultId;
+    private Output</* @Nullable */ String> keyVaultId;
 
     /**
-     * @return The ID of the Key Vault.
+     * @return The ID of the Key Vault for CMK encryption.
      * 
      */
-    public Output<String> keyVaultId() {
-        return this.keyVaultId;
+    public Output<Optional<String>> keyVaultId() {
+        return Codegen.optional(this.keyVaultId);
     }
     /**
      * The version of Key Vault Key.
@@ -212,6 +212,24 @@ public class ClusterCustomerManagedKey extends com.pulumi.resources.CustomResour
      */
     public Output<Optional<String>> keyVersion() {
         return Codegen.optional(this.keyVersion);
+    }
+    /**
+     * The Managed HSM Key ID for CMK encryption.
+     * 
+     * &gt; **Note:** Exactly one of `managed_hsm_key_id` or `key_vault_id` must be specified.
+     * 
+     */
+    @Export(name="managedHsmKeyId", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> managedHsmKeyId;
+
+    /**
+     * @return The Managed HSM Key ID for CMK encryption.
+     * 
+     * &gt; **Note:** Exactly one of `managed_hsm_key_id` or `key_vault_id` must be specified.
+     * 
+     */
+    public Output<Optional<String>> managedHsmKeyId() {
+        return Codegen.optional(this.managedHsmKeyId);
     }
     /**
      * The user assigned identity that has access to the Key Vault Key. If not specified, system assigned identity will be used.

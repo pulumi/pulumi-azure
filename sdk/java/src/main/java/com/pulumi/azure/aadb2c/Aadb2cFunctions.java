@@ -60,7 +60,7 @@ public final class Aadb2cFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.AzureActiveDirectory`: 2021-04-01-preview
+     * * `Microsoft.AzureActiveDirectory` - 2021-04-01-preview
      * 
      */
     public static Output<GetDirectoryResult> getDirectory(GetDirectoryArgs args) {
@@ -111,7 +111,7 @@ public final class Aadb2cFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.AzureActiveDirectory`: 2021-04-01-preview
+     * * `Microsoft.AzureActiveDirectory` - 2021-04-01-preview
      * 
      */
     public static CompletableFuture<GetDirectoryResult> getDirectoryPlain(GetDirectoryPlainArgs args) {
@@ -162,7 +162,7 @@ public final class Aadb2cFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.AzureActiveDirectory`: 2021-04-01-preview
+     * * `Microsoft.AzureActiveDirectory` - 2021-04-01-preview
      * 
      */
     public static Output<GetDirectoryResult> getDirectory(GetDirectoryArgs args, InvokeOptions options) {
@@ -213,7 +213,7 @@ public final class Aadb2cFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.AzureActiveDirectory`: 2021-04-01-preview
+     * * `Microsoft.AzureActiveDirectory` - 2021-04-01-preview
      * 
      */
     public static Output<GetDirectoryResult> getDirectory(GetDirectoryArgs args, InvokeOutputOptions options) {
@@ -264,7 +264,7 @@ public final class Aadb2cFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.AzureActiveDirectory`: 2021-04-01-preview
+     * * `Microsoft.AzureActiveDirectory` - 2021-04-01-preview
      * 
      */
     public static CompletableFuture<GetDirectoryResult> getDirectoryPlain(GetDirectoryPlainArgs args, InvokeOptions options) {

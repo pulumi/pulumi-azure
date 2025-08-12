@@ -16,7 +16,7 @@ namespace Pulumi.Azure.MSSql.Outputs
         /// <summary>
         /// The ID of the Elastic Job Credential to use when connecting to the output destination.
         /// </summary>
-        public readonly string JobCredentialId;
+        public readonly string? JobCredentialId;
         /// <summary>
         /// The ID of the output database.
         /// </summary>
@@ -32,7 +32,7 @@ namespace Pulumi.Azure.MSSql.Outputs
 
         [OutputConstructor]
         private JobStepOutputTarget(
-            string jobCredentialId,
+            string? jobCredentialId,
 
             string mssqlDatabaseId,
 

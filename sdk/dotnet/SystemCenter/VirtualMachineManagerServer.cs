@@ -51,7 +51,7 @@ namespace Pulumi.Azure.SystemCenter
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.ScVmm`: 2023-10-07
+    /// * `Microsoft.ScVmm` - 2023-10-07
     /// 
     /// ## Import
     /// 

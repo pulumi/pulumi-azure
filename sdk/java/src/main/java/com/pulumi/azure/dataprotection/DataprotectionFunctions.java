@@ -61,7 +61,7 @@ public final class DataprotectionFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DataProtection`: 2024-04-01
+     * * `Microsoft.DataProtection` - 2024-04-01
      * 
      */
     public static Output<GetBackupVaultResult> getBackupVault(GetBackupVaultArgs args) {
@@ -113,7 +113,7 @@ public final class DataprotectionFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DataProtection`: 2024-04-01
+     * * `Microsoft.DataProtection` - 2024-04-01
      * 
      */
     public static CompletableFuture<GetBackupVaultResult> getBackupVaultPlain(GetBackupVaultPlainArgs args) {
@@ -165,7 +165,7 @@ public final class DataprotectionFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DataProtection`: 2024-04-01
+     * * `Microsoft.DataProtection` - 2024-04-01
      * 
      */
     public static Output<GetBackupVaultResult> getBackupVault(GetBackupVaultArgs args, InvokeOptions options) {
@@ -217,7 +217,7 @@ public final class DataprotectionFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DataProtection`: 2024-04-01
+     * * `Microsoft.DataProtection` - 2024-04-01
      * 
      */
     public static Output<GetBackupVaultResult> getBackupVault(GetBackupVaultArgs args, InvokeOutputOptions options) {
@@ -269,7 +269,7 @@ public final class DataprotectionFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DataProtection`: 2024-04-01
+     * * `Microsoft.DataProtection` - 2024-04-01
      * 
      */
     public static CompletableFuture<GetBackupVaultResult> getBackupVaultPlain(GetBackupVaultPlainArgs args, InvokeOptions options) {

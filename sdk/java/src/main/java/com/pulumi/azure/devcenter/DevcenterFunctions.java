@@ -11,6 +11,8 @@ import com.pulumi.azure.devcenter.inputs.GetCatalogArgs;
 import com.pulumi.azure.devcenter.inputs.GetCatalogPlainArgs;
 import com.pulumi.azure.devcenter.inputs.GetDevBoxDefinitionArgs;
 import com.pulumi.azure.devcenter.inputs.GetDevBoxDefinitionPlainArgs;
+import com.pulumi.azure.devcenter.inputs.GetEnvironmentTypeArgs;
+import com.pulumi.azure.devcenter.inputs.GetEnvironmentTypePlainArgs;
 import com.pulumi.azure.devcenter.inputs.GetGalleryArgs;
 import com.pulumi.azure.devcenter.inputs.GetGalleryPlainArgs;
 import com.pulumi.azure.devcenter.inputs.GetNetworkConnectionArgs;
@@ -20,12 +22,16 @@ import com.pulumi.azure.devcenter.inputs.GetProjectArgs;
 import com.pulumi.azure.devcenter.inputs.GetProjectEnvironmentTypeArgs;
 import com.pulumi.azure.devcenter.inputs.GetProjectEnvironmentTypePlainArgs;
 import com.pulumi.azure.devcenter.inputs.GetProjectPlainArgs;
+import com.pulumi.azure.devcenter.inputs.GetProjectPoolArgs;
+import com.pulumi.azure.devcenter.inputs.GetProjectPoolPlainArgs;
 import com.pulumi.azure.devcenter.outputs.GetAttachedNetworkResult;
 import com.pulumi.azure.devcenter.outputs.GetCatalogResult;
 import com.pulumi.azure.devcenter.outputs.GetDevBoxDefinitionResult;
+import com.pulumi.azure.devcenter.outputs.GetEnvironmentTypeResult;
 import com.pulumi.azure.devcenter.outputs.GetGalleryResult;
 import com.pulumi.azure.devcenter.outputs.GetNetworkConnectionResult;
 import com.pulumi.azure.devcenter.outputs.GetProjectEnvironmentTypeResult;
+import com.pulumi.azure.devcenter.outputs.GetProjectPoolResult;
 import com.pulumi.azure.devcenter.outputs.GetProjectResult;
 import com.pulumi.azure.devcenter.outputs.GetResult;
 import com.pulumi.core.Output;
@@ -81,7 +87,7 @@ public final class DevcenterFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DevCenter`: 2025-02-01
+     * * `Microsoft.DevCenter` - 2025-02-01
      * 
      */
     public static Output<GetResult> get(GetArgs args) {
@@ -132,7 +138,7 @@ public final class DevcenterFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DevCenter`: 2025-02-01
+     * * `Microsoft.DevCenter` - 2025-02-01
      * 
      */
     public static CompletableFuture<GetResult> getPlain(GetPlainArgs args) {
@@ -183,7 +189,7 @@ public final class DevcenterFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DevCenter`: 2025-02-01
+     * * `Microsoft.DevCenter` - 2025-02-01
      * 
      */
     public static Output<GetResult> get(GetArgs args, InvokeOptions options) {
@@ -234,7 +240,7 @@ public final class DevcenterFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DevCenter`: 2025-02-01
+     * * `Microsoft.DevCenter` - 2025-02-01
      * 
      */
     public static Output<GetResult> get(GetArgs args, InvokeOutputOptions options) {
@@ -285,7 +291,7 @@ public final class DevcenterFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DevCenter`: 2025-02-01
+     * * `Microsoft.DevCenter` - 2025-02-01
      * 
      */
     public static CompletableFuture<GetResult> getPlain(GetPlainArgs args, InvokeOptions options) {
@@ -336,7 +342,7 @@ public final class DevcenterFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DevCenter`: 2025-02-01
+     * * `Microsoft.DevCenter` - 2025-02-01
      * 
      */
     public static Output<GetAttachedNetworkResult> getAttachedNetwork(GetAttachedNetworkArgs args) {
@@ -387,7 +393,7 @@ public final class DevcenterFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DevCenter`: 2025-02-01
+     * * `Microsoft.DevCenter` - 2025-02-01
      * 
      */
     public static CompletableFuture<GetAttachedNetworkResult> getAttachedNetworkPlain(GetAttachedNetworkPlainArgs args) {
@@ -438,7 +444,7 @@ public final class DevcenterFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DevCenter`: 2025-02-01
+     * * `Microsoft.DevCenter` - 2025-02-01
      * 
      */
     public static Output<GetAttachedNetworkResult> getAttachedNetwork(GetAttachedNetworkArgs args, InvokeOptions options) {
@@ -489,7 +495,7 @@ public final class DevcenterFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DevCenter`: 2025-02-01
+     * * `Microsoft.DevCenter` - 2025-02-01
      * 
      */
     public static Output<GetAttachedNetworkResult> getAttachedNetwork(GetAttachedNetworkArgs args, InvokeOutputOptions options) {
@@ -540,7 +546,7 @@ public final class DevcenterFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DevCenter`: 2025-02-01
+     * * `Microsoft.DevCenter` - 2025-02-01
      * 
      */
     public static CompletableFuture<GetAttachedNetworkResult> getAttachedNetworkPlain(GetAttachedNetworkPlainArgs args, InvokeOptions options) {
@@ -591,7 +597,7 @@ public final class DevcenterFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DevCenter`: 2025-02-01
+     * * `Microsoft.DevCenter` - 2025-02-01
      * 
      */
     public static Output<GetCatalogResult> getCatalog(GetCatalogArgs args) {
@@ -642,7 +648,7 @@ public final class DevcenterFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DevCenter`: 2025-02-01
+     * * `Microsoft.DevCenter` - 2025-02-01
      * 
      */
     public static CompletableFuture<GetCatalogResult> getCatalogPlain(GetCatalogPlainArgs args) {
@@ -693,7 +699,7 @@ public final class DevcenterFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DevCenter`: 2025-02-01
+     * * `Microsoft.DevCenter` - 2025-02-01
      * 
      */
     public static Output<GetCatalogResult> getCatalog(GetCatalogArgs args, InvokeOptions options) {
@@ -744,7 +750,7 @@ public final class DevcenterFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DevCenter`: 2025-02-01
+     * * `Microsoft.DevCenter` - 2025-02-01
      * 
      */
     public static Output<GetCatalogResult> getCatalog(GetCatalogArgs args, InvokeOutputOptions options) {
@@ -795,7 +801,7 @@ public final class DevcenterFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DevCenter`: 2025-02-01
+     * * `Microsoft.DevCenter` - 2025-02-01
      * 
      */
     public static CompletableFuture<GetCatalogResult> getCatalogPlain(GetCatalogPlainArgs args, InvokeOptions options) {
@@ -846,7 +852,7 @@ public final class DevcenterFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DevCenter`: 2025-02-01
+     * * `Microsoft.DevCenter` - 2025-02-01
      * 
      */
     public static Output<GetDevBoxDefinitionResult> getDevBoxDefinition(GetDevBoxDefinitionArgs args) {
@@ -897,7 +903,7 @@ public final class DevcenterFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DevCenter`: 2025-02-01
+     * * `Microsoft.DevCenter` - 2025-02-01
      * 
      */
     public static CompletableFuture<GetDevBoxDefinitionResult> getDevBoxDefinitionPlain(GetDevBoxDefinitionPlainArgs args) {
@@ -948,7 +954,7 @@ public final class DevcenterFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DevCenter`: 2025-02-01
+     * * `Microsoft.DevCenter` - 2025-02-01
      * 
      */
     public static Output<GetDevBoxDefinitionResult> getDevBoxDefinition(GetDevBoxDefinitionArgs args, InvokeOptions options) {
@@ -999,7 +1005,7 @@ public final class DevcenterFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DevCenter`: 2025-02-01
+     * * `Microsoft.DevCenter` - 2025-02-01
      * 
      */
     public static Output<GetDevBoxDefinitionResult> getDevBoxDefinition(GetDevBoxDefinitionArgs args, InvokeOutputOptions options) {
@@ -1050,11 +1056,266 @@ public final class DevcenterFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DevCenter`: 2025-02-01
+     * * `Microsoft.DevCenter` - 2025-02-01
      * 
      */
     public static CompletableFuture<GetDevBoxDefinitionResult> getDevBoxDefinitionPlain(GetDevBoxDefinitionPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:devcenter/getDevBoxDefinition:getDevBoxDefinition", TypeShape.of(GetDevBoxDefinitionResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Dev Center Environment Type.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.devcenter.DevcenterFunctions;
+     * import com.pulumi.azure.devcenter.inputs.GetEnvironmentTypeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = DevcenterFunctions.getEnvironmentType(GetEnvironmentTypeArgs.builder()
+     *             .name(exampleAzurermDevCenterEnvironmentType.name())
+     *             .devCenterId(exampleAzurermDevCenterEnvironmentType.devCenterId())
+     *             .build());
+     * 
+     *         ctx.export("id", example.id());
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DevCenter` - 2025-02-01
+     * 
+     */
+    public static Output<GetEnvironmentTypeResult> getEnvironmentType(GetEnvironmentTypeArgs args) {
+        return getEnvironmentType(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing Dev Center Environment Type.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.devcenter.DevcenterFunctions;
+     * import com.pulumi.azure.devcenter.inputs.GetEnvironmentTypeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = DevcenterFunctions.getEnvironmentType(GetEnvironmentTypeArgs.builder()
+     *             .name(exampleAzurermDevCenterEnvironmentType.name())
+     *             .devCenterId(exampleAzurermDevCenterEnvironmentType.devCenterId())
+     *             .build());
+     * 
+     *         ctx.export("id", example.id());
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DevCenter` - 2025-02-01
+     * 
+     */
+    public static CompletableFuture<GetEnvironmentTypeResult> getEnvironmentTypePlain(GetEnvironmentTypePlainArgs args) {
+        return getEnvironmentTypePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing Dev Center Environment Type.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.devcenter.DevcenterFunctions;
+     * import com.pulumi.azure.devcenter.inputs.GetEnvironmentTypeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = DevcenterFunctions.getEnvironmentType(GetEnvironmentTypeArgs.builder()
+     *             .name(exampleAzurermDevCenterEnvironmentType.name())
+     *             .devCenterId(exampleAzurermDevCenterEnvironmentType.devCenterId())
+     *             .build());
+     * 
+     *         ctx.export("id", example.id());
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DevCenter` - 2025-02-01
+     * 
+     */
+    public static Output<GetEnvironmentTypeResult> getEnvironmentType(GetEnvironmentTypeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:devcenter/getEnvironmentType:getEnvironmentType", TypeShape.of(GetEnvironmentTypeResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Dev Center Environment Type.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.devcenter.DevcenterFunctions;
+     * import com.pulumi.azure.devcenter.inputs.GetEnvironmentTypeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = DevcenterFunctions.getEnvironmentType(GetEnvironmentTypeArgs.builder()
+     *             .name(exampleAzurermDevCenterEnvironmentType.name())
+     *             .devCenterId(exampleAzurermDevCenterEnvironmentType.devCenterId())
+     *             .build());
+     * 
+     *         ctx.export("id", example.id());
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DevCenter` - 2025-02-01
+     * 
+     */
+    public static Output<GetEnvironmentTypeResult> getEnvironmentType(GetEnvironmentTypeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("azure:devcenter/getEnvironmentType:getEnvironmentType", TypeShape.of(GetEnvironmentTypeResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Dev Center Environment Type.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.devcenter.DevcenterFunctions;
+     * import com.pulumi.azure.devcenter.inputs.GetEnvironmentTypeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = DevcenterFunctions.getEnvironmentType(GetEnvironmentTypeArgs.builder()
+     *             .name(exampleAzurermDevCenterEnvironmentType.name())
+     *             .devCenterId(exampleAzurermDevCenterEnvironmentType.devCenterId())
+     *             .build());
+     * 
+     *         ctx.export("id", example.id());
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DevCenter` - 2025-02-01
+     * 
+     */
+    public static CompletableFuture<GetEnvironmentTypeResult> getEnvironmentTypePlain(GetEnvironmentTypePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azure:devcenter/getEnvironmentType:getEnvironmentType", TypeShape.of(GetEnvironmentTypeResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Dev Center Gallery.
@@ -1101,7 +1362,7 @@ public final class DevcenterFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DevCenter`: 2025-02-01
+     * * `Microsoft.DevCenter` - 2025-02-01
      * 
      */
     public static Output<GetGalleryResult> getGallery(GetGalleryArgs args) {
@@ -1152,7 +1413,7 @@ public final class DevcenterFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DevCenter`: 2025-02-01
+     * * `Microsoft.DevCenter` - 2025-02-01
      * 
      */
     public static CompletableFuture<GetGalleryResult> getGalleryPlain(GetGalleryPlainArgs args) {
@@ -1203,7 +1464,7 @@ public final class DevcenterFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DevCenter`: 2025-02-01
+     * * `Microsoft.DevCenter` - 2025-02-01
      * 
      */
     public static Output<GetGalleryResult> getGallery(GetGalleryArgs args, InvokeOptions options) {
@@ -1254,7 +1515,7 @@ public final class DevcenterFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DevCenter`: 2025-02-01
+     * * `Microsoft.DevCenter` - 2025-02-01
      * 
      */
     public static Output<GetGalleryResult> getGallery(GetGalleryArgs args, InvokeOutputOptions options) {
@@ -1305,7 +1566,7 @@ public final class DevcenterFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DevCenter`: 2025-02-01
+     * * `Microsoft.DevCenter` - 2025-02-01
      * 
      */
     public static CompletableFuture<GetGalleryResult> getGalleryPlain(GetGalleryPlainArgs args, InvokeOptions options) {
@@ -1356,7 +1617,7 @@ public final class DevcenterFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DevCenter`: 2025-02-01
+     * * `Microsoft.DevCenter` - 2025-02-01
      * 
      */
     public static Output<GetNetworkConnectionResult> getNetworkConnection(GetNetworkConnectionArgs args) {
@@ -1407,7 +1668,7 @@ public final class DevcenterFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DevCenter`: 2025-02-01
+     * * `Microsoft.DevCenter` - 2025-02-01
      * 
      */
     public static CompletableFuture<GetNetworkConnectionResult> getNetworkConnectionPlain(GetNetworkConnectionPlainArgs args) {
@@ -1458,7 +1719,7 @@ public final class DevcenterFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DevCenter`: 2025-02-01
+     * * `Microsoft.DevCenter` - 2025-02-01
      * 
      */
     public static Output<GetNetworkConnectionResult> getNetworkConnection(GetNetworkConnectionArgs args, InvokeOptions options) {
@@ -1509,7 +1770,7 @@ public final class DevcenterFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DevCenter`: 2025-02-01
+     * * `Microsoft.DevCenter` - 2025-02-01
      * 
      */
     public static Output<GetNetworkConnectionResult> getNetworkConnection(GetNetworkConnectionArgs args, InvokeOutputOptions options) {
@@ -1560,7 +1821,7 @@ public final class DevcenterFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DevCenter`: 2025-02-01
+     * * `Microsoft.DevCenter` - 2025-02-01
      * 
      */
     public static CompletableFuture<GetNetworkConnectionResult> getNetworkConnectionPlain(GetNetworkConnectionPlainArgs args, InvokeOptions options) {
@@ -1611,7 +1872,7 @@ public final class DevcenterFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DevCenter`: 2025-02-01
+     * * `Microsoft.DevCenter` - 2025-02-01
      * 
      */
     public static Output<GetProjectResult> getProject(GetProjectArgs args) {
@@ -1662,7 +1923,7 @@ public final class DevcenterFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DevCenter`: 2025-02-01
+     * * `Microsoft.DevCenter` - 2025-02-01
      * 
      */
     public static CompletableFuture<GetProjectResult> getProjectPlain(GetProjectPlainArgs args) {
@@ -1713,7 +1974,7 @@ public final class DevcenterFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DevCenter`: 2025-02-01
+     * * `Microsoft.DevCenter` - 2025-02-01
      * 
      */
     public static Output<GetProjectResult> getProject(GetProjectArgs args, InvokeOptions options) {
@@ -1764,7 +2025,7 @@ public final class DevcenterFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DevCenter`: 2025-02-01
+     * * `Microsoft.DevCenter` - 2025-02-01
      * 
      */
     public static Output<GetProjectResult> getProject(GetProjectArgs args, InvokeOutputOptions options) {
@@ -1815,7 +2076,7 @@ public final class DevcenterFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DevCenter`: 2025-02-01
+     * * `Microsoft.DevCenter` - 2025-02-01
      * 
      */
     public static CompletableFuture<GetProjectResult> getProjectPlain(GetProjectPlainArgs args, InvokeOptions options) {
@@ -1866,7 +2127,7 @@ public final class DevcenterFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DevCenter`: 2025-02-01
+     * * `Microsoft.DevCenter` - 2025-02-01
      * 
      */
     public static Output<GetProjectEnvironmentTypeResult> getProjectEnvironmentType(GetProjectEnvironmentTypeArgs args) {
@@ -1917,7 +2178,7 @@ public final class DevcenterFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DevCenter`: 2025-02-01
+     * * `Microsoft.DevCenter` - 2025-02-01
      * 
      */
     public static CompletableFuture<GetProjectEnvironmentTypeResult> getProjectEnvironmentTypePlain(GetProjectEnvironmentTypePlainArgs args) {
@@ -1968,7 +2229,7 @@ public final class DevcenterFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DevCenter`: 2025-02-01
+     * * `Microsoft.DevCenter` - 2025-02-01
      * 
      */
     public static Output<GetProjectEnvironmentTypeResult> getProjectEnvironmentType(GetProjectEnvironmentTypeArgs args, InvokeOptions options) {
@@ -2019,7 +2280,7 @@ public final class DevcenterFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DevCenter`: 2025-02-01
+     * * `Microsoft.DevCenter` - 2025-02-01
      * 
      */
     public static Output<GetProjectEnvironmentTypeResult> getProjectEnvironmentType(GetProjectEnvironmentTypeArgs args, InvokeOutputOptions options) {
@@ -2070,10 +2331,265 @@ public final class DevcenterFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DevCenter`: 2025-02-01
+     * * `Microsoft.DevCenter` - 2025-02-01
      * 
      */
     public static CompletableFuture<GetProjectEnvironmentTypeResult> getProjectEnvironmentTypePlain(GetProjectEnvironmentTypePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:devcenter/getProjectEnvironmentType:getProjectEnvironmentType", TypeShape.of(GetProjectEnvironmentTypeResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Dev Center Project Pool.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.devcenter.DevcenterFunctions;
+     * import com.pulumi.azure.devcenter.inputs.GetProjectPoolArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = DevcenterFunctions.getProjectPool(GetProjectPoolArgs.builder()
+     *             .name(exampleAzurermDevCenterProjectPool.name())
+     *             .devCenterProjectId(exampleAzurermDevCenterProjectPool.devCenterProjectId())
+     *             .build());
+     * 
+     *         ctx.export("id", example.id());
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DevCenter` - 2025-02-01
+     * 
+     */
+    public static Output<GetProjectPoolResult> getProjectPool(GetProjectPoolArgs args) {
+        return getProjectPool(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing Dev Center Project Pool.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.devcenter.DevcenterFunctions;
+     * import com.pulumi.azure.devcenter.inputs.GetProjectPoolArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = DevcenterFunctions.getProjectPool(GetProjectPoolArgs.builder()
+     *             .name(exampleAzurermDevCenterProjectPool.name())
+     *             .devCenterProjectId(exampleAzurermDevCenterProjectPool.devCenterProjectId())
+     *             .build());
+     * 
+     *         ctx.export("id", example.id());
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DevCenter` - 2025-02-01
+     * 
+     */
+    public static CompletableFuture<GetProjectPoolResult> getProjectPoolPlain(GetProjectPoolPlainArgs args) {
+        return getProjectPoolPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing Dev Center Project Pool.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.devcenter.DevcenterFunctions;
+     * import com.pulumi.azure.devcenter.inputs.GetProjectPoolArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = DevcenterFunctions.getProjectPool(GetProjectPoolArgs.builder()
+     *             .name(exampleAzurermDevCenterProjectPool.name())
+     *             .devCenterProjectId(exampleAzurermDevCenterProjectPool.devCenterProjectId())
+     *             .build());
+     * 
+     *         ctx.export("id", example.id());
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DevCenter` - 2025-02-01
+     * 
+     */
+    public static Output<GetProjectPoolResult> getProjectPool(GetProjectPoolArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:devcenter/getProjectPool:getProjectPool", TypeShape.of(GetProjectPoolResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Dev Center Project Pool.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.devcenter.DevcenterFunctions;
+     * import com.pulumi.azure.devcenter.inputs.GetProjectPoolArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = DevcenterFunctions.getProjectPool(GetProjectPoolArgs.builder()
+     *             .name(exampleAzurermDevCenterProjectPool.name())
+     *             .devCenterProjectId(exampleAzurermDevCenterProjectPool.devCenterProjectId())
+     *             .build());
+     * 
+     *         ctx.export("id", example.id());
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DevCenter` - 2025-02-01
+     * 
+     */
+    public static Output<GetProjectPoolResult> getProjectPool(GetProjectPoolArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("azure:devcenter/getProjectPool:getProjectPool", TypeShape.of(GetProjectPoolResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Dev Center Project Pool.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.devcenter.DevcenterFunctions;
+     * import com.pulumi.azure.devcenter.inputs.GetProjectPoolArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = DevcenterFunctions.getProjectPool(GetProjectPoolArgs.builder()
+     *             .name(exampleAzurermDevCenterProjectPool.name())
+     *             .devCenterProjectId(exampleAzurermDevCenterProjectPool.devCenterProjectId())
+     *             .build());
+     * 
+     *         ctx.export("id", example.id());
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DevCenter` - 2025-02-01
+     * 
+     */
+    public static CompletableFuture<GetProjectPoolResult> getProjectPoolPlain(GetProjectPoolPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azure:devcenter/getProjectPool:getProjectPool", TypeShape.of(GetProjectPoolResult.class), args, Utilities.withVersion(options));
     }
 }

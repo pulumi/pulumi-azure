@@ -187,7 +187,7 @@ class ManagementPolicy(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.Storage`: 2023-05-01
+        * `Microsoft.Storage` - 2023-05-01
 
         ## Import
 
@@ -289,7 +289,7 @@ class ManagementPolicy(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.Storage`: 2023-05-01
+        * `Microsoft.Storage` - 2023-05-01
 
         ## Import
 

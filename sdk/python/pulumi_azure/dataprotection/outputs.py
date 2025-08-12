@@ -456,7 +456,7 @@ class BackupPolicyDiskRetentionRuleCriteria(dict):
     def __init__(__self__, *,
                  absolute_criteria: Optional[_builtins.str] = None):
         """
-        :param _builtins.str absolute_criteria: Possible values are `FirstOfDay` and `FirstOfWeek`. Changing this forces a new Backup Policy Disk to be created.
+        :param _builtins.str absolute_criteria: Possible values are `AllBackup`, `FirstOfDay`, `FirstOfWeek`, `FirstOfMonth` and `FirstOfYear`. These values mean the first successful backup of the day/week/month/year. Changing this forces a new Backup Policy Disk to be created.
         """
         if absolute_criteria is not None:
             pulumi.set(__self__, "absolute_criteria", absolute_criteria)
@@ -465,7 +465,7 @@ class BackupPolicyDiskRetentionRuleCriteria(dict):
     @pulumi.getter(name="absoluteCriteria")
     def absolute_criteria(self) -> Optional[_builtins.str]:
         """
-        Possible values are `FirstOfDay` and `FirstOfWeek`. Changing this forces a new Backup Policy Disk to be created.
+        Possible values are `AllBackup`, `FirstOfDay`, `FirstOfWeek`, `FirstOfMonth` and `FirstOfYear`. These values mean the first successful backup of the day/week/month/year. Changing this forces a new Backup Policy Disk to be created.
         """
         return pulumi.get(self, "absolute_criteria")
 

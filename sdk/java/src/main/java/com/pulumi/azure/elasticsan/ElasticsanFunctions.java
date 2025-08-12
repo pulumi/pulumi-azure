@@ -66,7 +66,7 @@ public final class ElasticsanFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ElasticSan`: 2023-01-01
+     * * `Microsoft.ElasticSan` - 2023-01-01
      * 
      */
     public static Output<GetResult> get(GetArgs args) {
@@ -117,7 +117,7 @@ public final class ElasticsanFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ElasticSan`: 2023-01-01
+     * * `Microsoft.ElasticSan` - 2023-01-01
      * 
      */
     public static CompletableFuture<GetResult> getPlain(GetPlainArgs args) {
@@ -168,7 +168,7 @@ public final class ElasticsanFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ElasticSan`: 2023-01-01
+     * * `Microsoft.ElasticSan` - 2023-01-01
      * 
      */
     public static Output<GetResult> get(GetArgs args, InvokeOptions options) {
@@ -219,7 +219,7 @@ public final class ElasticsanFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ElasticSan`: 2023-01-01
+     * * `Microsoft.ElasticSan` - 2023-01-01
      * 
      */
     public static Output<GetResult> get(GetArgs args, InvokeOutputOptions options) {
@@ -270,7 +270,7 @@ public final class ElasticsanFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ElasticSan`: 2023-01-01
+     * * `Microsoft.ElasticSan` - 2023-01-01
      * 
      */
     public static CompletableFuture<GetResult> getPlain(GetPlainArgs args, InvokeOptions options) {
@@ -327,7 +327,7 @@ public final class ElasticsanFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ElasticSan`: 2023-01-01
+     * * `Microsoft.ElasticSan` - 2023-01-01
      * 
      */
     public static Output<GetVolumeGroupResult> getVolumeGroup(GetVolumeGroupArgs args) {
@@ -384,7 +384,7 @@ public final class ElasticsanFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ElasticSan`: 2023-01-01
+     * * `Microsoft.ElasticSan` - 2023-01-01
      * 
      */
     public static CompletableFuture<GetVolumeGroupResult> getVolumeGroupPlain(GetVolumeGroupPlainArgs args) {
@@ -441,7 +441,7 @@ public final class ElasticsanFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ElasticSan`: 2023-01-01
+     * * `Microsoft.ElasticSan` - 2023-01-01
      * 
      */
     public static Output<GetVolumeGroupResult> getVolumeGroup(GetVolumeGroupArgs args, InvokeOptions options) {
@@ -498,7 +498,7 @@ public final class ElasticsanFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ElasticSan`: 2023-01-01
+     * * `Microsoft.ElasticSan` - 2023-01-01
      * 
      */
     public static Output<GetVolumeGroupResult> getVolumeGroup(GetVolumeGroupArgs args, InvokeOutputOptions options) {
@@ -555,7 +555,7 @@ public final class ElasticsanFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ElasticSan`: 2023-01-01
+     * * `Microsoft.ElasticSan` - 2023-01-01
      * 
      */
     public static CompletableFuture<GetVolumeGroupResult> getVolumeGroupPlain(GetVolumeGroupPlainArgs args, InvokeOptions options) {
@@ -618,7 +618,7 @@ public final class ElasticsanFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ElasticSan`: 2023-01-01
+     * * `Microsoft.ElasticSan` - 2023-01-01
      * 
      */
     public static Output<GetVolumeSnapshotResult> getVolumeSnapshot(GetVolumeSnapshotArgs args) {
@@ -681,7 +681,7 @@ public final class ElasticsanFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ElasticSan`: 2023-01-01
+     * * `Microsoft.ElasticSan` - 2023-01-01
      * 
      */
     public static CompletableFuture<GetVolumeSnapshotResult> getVolumeSnapshotPlain(GetVolumeSnapshotPlainArgs args) {
@@ -744,7 +744,7 @@ public final class ElasticsanFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ElasticSan`: 2023-01-01
+     * * `Microsoft.ElasticSan` - 2023-01-01
      * 
      */
     public static Output<GetVolumeSnapshotResult> getVolumeSnapshot(GetVolumeSnapshotArgs args, InvokeOptions options) {
@@ -807,7 +807,7 @@ public final class ElasticsanFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ElasticSan`: 2023-01-01
+     * * `Microsoft.ElasticSan` - 2023-01-01
      * 
      */
     public static Output<GetVolumeSnapshotResult> getVolumeSnapshot(GetVolumeSnapshotArgs args, InvokeOutputOptions options) {
@@ -870,7 +870,7 @@ public final class ElasticsanFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ElasticSan`: 2023-01-01
+     * * `Microsoft.ElasticSan` - 2023-01-01
      * 
      */
     public static CompletableFuture<GetVolumeSnapshotResult> getVolumeSnapshotPlain(GetVolumeSnapshotPlainArgs args, InvokeOptions options) {

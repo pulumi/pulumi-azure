@@ -162,7 +162,7 @@ def get_resource_bridge_appliance(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.ResourceConnector`: 2022-10-27
+    * `Microsoft.ResourceConnector` - 2022-10-27
 
 
     :param _builtins.str name: The name of this Arc Resource Bridge Appliance.
@@ -206,7 +206,7 @@ def get_resource_bridge_appliance_output(name: Optional[pulumi.Input[_builtins.s
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.ResourceConnector`: 2022-10-27
+    * `Microsoft.ResourceConnector` - 2022-10-27
 
 
     :param _builtins.str name: The name of this Arc Resource Bridge Appliance.

@@ -39,7 +39,7 @@ namespace Pulumi.Azure.SiteRecovery
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.RecoveryServices`: 2024-04-01
+        /// * `Microsoft.RecoveryServices` - 2024-04-01
         /// </summary>
         public static Task<GetFabricResult> InvokeAsync(GetFabricArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFabricResult>("azure:siterecovery/getFabric:getFabric", args ?? new GetFabricArgs(), options.WithDefaults());
@@ -72,7 +72,7 @@ namespace Pulumi.Azure.SiteRecovery
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.RecoveryServices`: 2024-04-01
+        /// * `Microsoft.RecoveryServices` - 2024-04-01
         /// </summary>
         public static Output<GetFabricResult> Invoke(GetFabricInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFabricResult>("azure:siterecovery/getFabric:getFabric", args ?? new GetFabricInvokeArgs(), options.WithDefaults());
@@ -105,7 +105,7 @@ namespace Pulumi.Azure.SiteRecovery
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.RecoveryServices`: 2024-04-01
+        /// * `Microsoft.RecoveryServices` - 2024-04-01
         /// </summary>
         public static Output<GetFabricResult> Invoke(GetFabricInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetFabricResult>("azure:siterecovery/getFabric:getFabric", args ?? new GetFabricInvokeArgs(), options.WithDefaults());

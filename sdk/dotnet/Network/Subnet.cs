@@ -78,7 +78,7 @@ namespace Pulumi.Azure.Network
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.Network`: 2024-05-01
+    /// * `Microsoft.Network` - 2024-05-01
     /// 
     /// ## Import
     /// 
@@ -95,6 +95,8 @@ namespace Pulumi.Azure.Network
         /// The address prefixes to use for the subnet.
         /// 
         /// &gt; **NOTE:** Currently only a single address prefix can be set as the [Multiple Subnet Address Prefixes Feature](https://github.com/Azure/azure-cli/issues/18194#issuecomment-880484269) is not yet in public preview or general availability.
+        /// 
+        /// &gt; **Note:** Exactly one of `address_prefixes` or `ip_address_pool` must be specified.
         /// </summary>
         [Output("addressPrefixes")]
         public Output<ImmutableArray<string>> AddressPrefixes { get; private set; } = null!;
@@ -110,6 +112,14 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Output("delegations")]
         public Output<ImmutableArray<Outputs.SubnetDelegation>> Delegations { get; private set; } = null!;
+
+        /// <summary>
+        /// An `ip_address_pool` block as defined below.
+        /// 
+        /// &gt; **Note:** Exactly one of `address_prefixes` or `ip_address_pool` must be specified.
+        /// </summary>
+        [Output("ipAddressPool")]
+        public Output<Outputs.SubnetIpAddressPool?> IpAddressPool { get; private set; } = null!;
 
         /// <summary>
         /// The name of the subnet. Changing this forces a new resource to be created.
@@ -209,13 +219,15 @@ namespace Pulumi.Azure.Network
 
     public sealed class SubnetArgs : global::Pulumi.ResourceArgs
     {
-        [Input("addressPrefixes", required: true)]
+        [Input("addressPrefixes")]
         private InputList<string>? _addressPrefixes;
 
         /// <summary>
         /// The address prefixes to use for the subnet.
         /// 
         /// &gt; **NOTE:** Currently only a single address prefix can be set as the [Multiple Subnet Address Prefixes Feature](https://github.com/Azure/azure-cli/issues/18194#issuecomment-880484269) is not yet in public preview or general availability.
+        /// 
+        /// &gt; **Note:** Exactly one of `address_prefixes` or `ip_address_pool` must be specified.
         /// </summary>
         public InputList<string> AddressPrefixes
         {
@@ -240,6 +252,14 @@ namespace Pulumi.Azure.Network
             get => _delegations ?? (_delegations = new InputList<Inputs.SubnetDelegationArgs>());
             set => _delegations = value;
         }
+
+        /// <summary>
+        /// An `ip_address_pool` block as defined below.
+        /// 
+        /// &gt; **Note:** Exactly one of `address_prefixes` or `ip_address_pool` must be specified.
+        /// </summary>
+        [Input("ipAddressPool")]
+        public Input<Inputs.SubnetIpAddressPoolArgs>? IpAddressPool { get; set; }
 
         /// <summary>
         /// The name of the subnet. Changing this forces a new resource to be created.
@@ -320,6 +340,8 @@ namespace Pulumi.Azure.Network
         /// The address prefixes to use for the subnet.
         /// 
         /// &gt; **NOTE:** Currently only a single address prefix can be set as the [Multiple Subnet Address Prefixes Feature](https://github.com/Azure/azure-cli/issues/18194#issuecomment-880484269) is not yet in public preview or general availability.
+        /// 
+        /// &gt; **Note:** Exactly one of `address_prefixes` or `ip_address_pool` must be specified.
         /// </summary>
         public InputList<string> AddressPrefixes
         {
@@ -344,6 +366,14 @@ namespace Pulumi.Azure.Network
             get => _delegations ?? (_delegations = new InputList<Inputs.SubnetDelegationGetArgs>());
             set => _delegations = value;
         }
+
+        /// <summary>
+        /// An `ip_address_pool` block as defined below.
+        /// 
+        /// &gt; **Note:** Exactly one of `address_prefixes` or `ip_address_pool` must be specified.
+        /// </summary>
+        [Input("ipAddressPool")]
+        public Input<Inputs.SubnetIpAddressPoolGetArgs>? IpAddressPool { get; set; }
 
         /// <summary>
         /// The name of the subnet. Changing this forces a new resource to be created.

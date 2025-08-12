@@ -111,7 +111,7 @@ def get_fabric(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.RecoveryServices`: 2024-04-01
+    * `Microsoft.RecoveryServices` - 2024-04-01
 
 
     :param _builtins.str name: Specifies the name of the Site Recovery Replication Fabric.
@@ -154,7 +154,7 @@ def get_fabric_output(name: Optional[pulumi.Input[_builtins.str]] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.RecoveryServices`: 2024-04-01
+    * `Microsoft.RecoveryServices` - 2024-04-01
 
 
     :param _builtins.str name: Specifies the name of the Site Recovery Replication Fabric.

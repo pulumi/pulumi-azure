@@ -53,7 +53,7 @@ namespace Pulumi.Azure.SiteRecovery
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.RecoveryServices`: 2024-04-01
+    /// * `Microsoft.RecoveryServices` - 2024-04-01
     /// 
     /// ## Import
     /// 

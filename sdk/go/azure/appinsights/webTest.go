@@ -12,8 +12,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an Application Insights WebTest.
-//
 // ## Example Usage
 //
 // ```go
@@ -83,7 +81,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This resource uses the following Azure API Providers:
 //
-// * `Microsoft.Insights`: 2022-06-15
+// * `Microsoft.Insights` - 2022-06-15
 //
 // ## Import
 //

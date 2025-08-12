@@ -30,6 +30,12 @@ namespace Pulumi.Azure.Oracle
         public Output<string> AdminPassword { get; private set; } = null!;
 
         /// <summary>
+        /// (Optional) Defines the network access type for the Autonomous Database. If the property is explicitly set to an empty list, it allows secure public access to the database from any IP address. If specific ACL (Access Control List) values are provided, access will be restricted to only the specified IP addresses.
+        /// </summary>
+        [Output("allowedIps")]
+        public Output<ImmutableArray<string>> AllowedIps { get; private set; } = null!;
+
+        /// <summary>
         /// Indicates if auto scaling is enabled for the Autonomous Database CPU core count. The default value is `true`.
         /// </summary>
         [Output("autoScalingEnabled")]
@@ -42,7 +48,7 @@ namespace Pulumi.Azure.Oracle
         public Output<bool> AutoScalingForStorageEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// (Updatable) Retention period, in days, for backups. Changing this forces a new Autonomous Database to be created.
+        /// Retention period, in days, for backups.
         /// </summary>
         [Output("backupRetentionPeriodInDays")]
         public Output<int> BackupRetentionPeriodInDays { get; private set; } = null!;
@@ -65,9 +71,6 @@ namespace Pulumi.Azure.Oracle
         [Output("computeModel")]
         public Output<string> ComputeModel { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies a list of customer contacts as email addresses. Changing this forces a new Autonomous Database to be created.
-        /// </summary>
         [Output("customerContacts")]
         public Output<ImmutableArray<string>> CustomerContacts { get; private set; } = null!;
 
@@ -111,8 +114,13 @@ namespace Pulumi.Azure.Oracle
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
 
+        [Output("longTermBackupSchedule")]
+        public Output<Outputs.AutonomousDatabaseLongTermBackupSchedule?> LongTermBackupSchedule { get; private set; } = null!;
+
         /// <summary>
-        /// Specifies if the Autonomous Database requires mTLS connections. Changing this forces a new Autonomous Database to be created.
+        /// Specifies if the Autonomous Database requires mTLS connections. Changing this forces a new Autonomous Database to be created. Default value `false`.
+        /// 
+        /// &gt; **Note:** `mtls_connection_required`  must be set to `true` for all workload types except 'APEX' when creating a database with public access.
         /// </summary>
         [Output("mtlsConnectionRequired")]
         public Output<bool> MtlsConnectionRequired { get; private set; } = null!;
@@ -139,11 +147,8 @@ namespace Pulumi.Azure.Oracle
         /// The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the subnet the resource is associated with. Changing this forces a new Autonomous Database to be created.
         /// </summary>
         [Output("subnetId")]
-        public Output<string> SubnetId { get; private set; } = null!;
+        public Output<string?> SubnetId { get; private set; } = null!;
 
-        /// <summary>
-        /// A mapping of tags which should be assigned to the Autonomous Database.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
@@ -151,7 +156,7 @@ namespace Pulumi.Azure.Oracle
         /// The ID of the vnet associated with the cloud VM cluster. Changing this forces a new Autonomous Database to be created.
         /// </summary>
         [Output("virtualNetworkId")]
-        public Output<string> VirtualNetworkId { get; private set; } = null!;
+        public Output<string?> VirtualNetworkId { get; private set; } = null!;
 
 
         /// <summary>
@@ -219,6 +224,18 @@ namespace Pulumi.Azure.Oracle
             }
         }
 
+        [Input("allowedIps")]
+        private InputList<string>? _allowedIps;
+
+        /// <summary>
+        /// (Optional) Defines the network access type for the Autonomous Database. If the property is explicitly set to an empty list, it allows secure public access to the database from any IP address. If specific ACL (Access Control List) values are provided, access will be restricted to only the specified IP addresses.
+        /// </summary>
+        public InputList<string> AllowedIps
+        {
+            get => _allowedIps ?? (_allowedIps = new InputList<string>());
+            set => _allowedIps = value;
+        }
+
         /// <summary>
         /// Indicates if auto scaling is enabled for the Autonomous Database CPU core count. The default value is `true`.
         /// </summary>
@@ -232,7 +249,7 @@ namespace Pulumi.Azure.Oracle
         public Input<bool> AutoScalingForStorageEnabled { get; set; } = null!;
 
         /// <summary>
-        /// (Updatable) Retention period, in days, for backups. Changing this forces a new Autonomous Database to be created.
+        /// Retention period, in days, for backups.
         /// </summary>
         [Input("backupRetentionPeriodInDays", required: true)]
         public Input<int> BackupRetentionPeriodInDays { get; set; } = null!;
@@ -257,10 +274,6 @@ namespace Pulumi.Azure.Oracle
 
         [Input("customerContacts")]
         private InputList<string>? _customerContacts;
-
-        /// <summary>
-        /// Specifies a list of customer contacts as email addresses. Changing this forces a new Autonomous Database to be created.
-        /// </summary>
         public InputList<string> CustomerContacts
         {
             get => _customerContacts ?? (_customerContacts = new InputList<string>());
@@ -307,8 +320,13 @@ namespace Pulumi.Azure.Oracle
         [Input("location")]
         public Input<string>? Location { get; set; }
 
+        [Input("longTermBackupSchedule")]
+        public Input<Inputs.AutonomousDatabaseLongTermBackupScheduleArgs>? LongTermBackupSchedule { get; set; }
+
         /// <summary>
-        /// Specifies if the Autonomous Database requires mTLS connections. Changing this forces a new Autonomous Database to be created.
+        /// Specifies if the Autonomous Database requires mTLS connections. Changing this forces a new Autonomous Database to be created. Default value `false`.
+        /// 
+        /// &gt; **Note:** `mtls_connection_required`  must be set to `true` for all workload types except 'APEX' when creating a database with public access.
         /// </summary>
         [Input("mtlsConnectionRequired", required: true)]
         public Input<bool> MtlsConnectionRequired { get; set; } = null!;
@@ -334,15 +352,11 @@ namespace Pulumi.Azure.Oracle
         /// <summary>
         /// The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the subnet the resource is associated with. Changing this forces a new Autonomous Database to be created.
         /// </summary>
-        [Input("subnetId", required: true)]
-        public Input<string> SubnetId { get; set; } = null!;
+        [Input("subnetId")]
+        public Input<string>? SubnetId { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A mapping of tags which should be assigned to the Autonomous Database.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -352,8 +366,8 @@ namespace Pulumi.Azure.Oracle
         /// <summary>
         /// The ID of the vnet associated with the cloud VM cluster. Changing this forces a new Autonomous Database to be created.
         /// </summary>
-        [Input("virtualNetworkId", required: true)]
-        public Input<string> VirtualNetworkId { get; set; } = null!;
+        [Input("virtualNetworkId")]
+        public Input<string>? VirtualNetworkId { get; set; }
 
         public AutonomousDatabaseArgs()
         {
@@ -379,6 +393,18 @@ namespace Pulumi.Azure.Oracle
             }
         }
 
+        [Input("allowedIps")]
+        private InputList<string>? _allowedIps;
+
+        /// <summary>
+        /// (Optional) Defines the network access type for the Autonomous Database. If the property is explicitly set to an empty list, it allows secure public access to the database from any IP address. If specific ACL (Access Control List) values are provided, access will be restricted to only the specified IP addresses.
+        /// </summary>
+        public InputList<string> AllowedIps
+        {
+            get => _allowedIps ?? (_allowedIps = new InputList<string>());
+            set => _allowedIps = value;
+        }
+
         /// <summary>
         /// Indicates if auto scaling is enabled for the Autonomous Database CPU core count. The default value is `true`.
         /// </summary>
@@ -392,7 +418,7 @@ namespace Pulumi.Azure.Oracle
         public Input<bool>? AutoScalingForStorageEnabled { get; set; }
 
         /// <summary>
-        /// (Updatable) Retention period, in days, for backups. Changing this forces a new Autonomous Database to be created.
+        /// Retention period, in days, for backups.
         /// </summary>
         [Input("backupRetentionPeriodInDays")]
         public Input<int>? BackupRetentionPeriodInDays { get; set; }
@@ -417,10 +443,6 @@ namespace Pulumi.Azure.Oracle
 
         [Input("customerContacts")]
         private InputList<string>? _customerContacts;
-
-        /// <summary>
-        /// Specifies a list of customer contacts as email addresses. Changing this forces a new Autonomous Database to be created.
-        /// </summary>
         public InputList<string> CustomerContacts
         {
             get => _customerContacts ?? (_customerContacts = new InputList<string>());
@@ -467,8 +489,13 @@ namespace Pulumi.Azure.Oracle
         [Input("location")]
         public Input<string>? Location { get; set; }
 
+        [Input("longTermBackupSchedule")]
+        public Input<Inputs.AutonomousDatabaseLongTermBackupScheduleGetArgs>? LongTermBackupSchedule { get; set; }
+
         /// <summary>
-        /// Specifies if the Autonomous Database requires mTLS connections. Changing this forces a new Autonomous Database to be created.
+        /// Specifies if the Autonomous Database requires mTLS connections. Changing this forces a new Autonomous Database to be created. Default value `false`.
+        /// 
+        /// &gt; **Note:** `mtls_connection_required`  must be set to `true` for all workload types except 'APEX' when creating a database with public access.
         /// </summary>
         [Input("mtlsConnectionRequired")]
         public Input<bool>? MtlsConnectionRequired { get; set; }
@@ -499,10 +526,6 @@ namespace Pulumi.Azure.Oracle
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A mapping of tags which should be assigned to the Autonomous Database.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());

@@ -202,7 +202,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This resource uses the following Azure API Providers:
 //
-// * `Microsoft.ContainerRegistry`: 2023-11-01-preview
+// * `Microsoft.ContainerRegistry` - 2023-11-01-preview
 //
 // ## Import
 //
@@ -224,6 +224,8 @@ type Registry struct {
 	AnonymousPullEnabled pulumi.BoolPtrOutput `pulumi:"anonymousPullEnabled"`
 	// Whether to enable dedicated data endpoints for this Container Registry? This is only supported on resources with the `Premium` SKU.
 	DataEndpointEnabled pulumi.BoolPtrOutput `pulumi:"dataEndpointEnabled"`
+	// A set of data endpoint hostnames associated with the container registry if data endpoints are enabled.
+	DataEndpointHostNames pulumi.StringArrayOutput `pulumi:"dataEndpointHostNames"`
 	// An `encryption` block as documented below.
 	Encryption RegistryEncryptionOutput `pulumi:"encryption"`
 	// Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `publicNetworkAccessEnabled` is also set to `false`.
@@ -318,6 +320,8 @@ type registryState struct {
 	AnonymousPullEnabled *bool `pulumi:"anonymousPullEnabled"`
 	// Whether to enable dedicated data endpoints for this Container Registry? This is only supported on resources with the `Premium` SKU.
 	DataEndpointEnabled *bool `pulumi:"dataEndpointEnabled"`
+	// A set of data endpoint hostnames associated with the container registry if data endpoints are enabled.
+	DataEndpointHostNames []string `pulumi:"dataEndpointHostNames"`
 	// An `encryption` block as documented below.
 	Encryption *RegistryEncryption `pulumi:"encryption"`
 	// Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `publicNetworkAccessEnabled` is also set to `false`.
@@ -373,6 +377,8 @@ type RegistryState struct {
 	AnonymousPullEnabled pulumi.BoolPtrInput
 	// Whether to enable dedicated data endpoints for this Container Registry? This is only supported on resources with the `Premium` SKU.
 	DataEndpointEnabled pulumi.BoolPtrInput
+	// A set of data endpoint hostnames associated with the container registry if data endpoints are enabled.
+	DataEndpointHostNames pulumi.StringArrayInput
 	// An `encryption` block as documented below.
 	Encryption RegistryEncryptionPtrInput
 	// Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `publicNetworkAccessEnabled` is also set to `false`.
@@ -630,6 +636,11 @@ func (o RegistryOutput) AnonymousPullEnabled() pulumi.BoolPtrOutput {
 // Whether to enable dedicated data endpoints for this Container Registry? This is only supported on resources with the `Premium` SKU.
 func (o RegistryOutput) DataEndpointEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Registry) pulumi.BoolPtrOutput { return v.DataEndpointEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// A set of data endpoint hostnames associated with the container registry if data endpoints are enabled.
+func (o RegistryOutput) DataEndpointHostNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Registry) pulumi.StringArrayOutput { return v.DataEndpointHostNames }).(pulumi.StringArrayOutput)
 }
 
 // An `encryption` block as documented below.

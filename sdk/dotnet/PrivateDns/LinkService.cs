@@ -38,6 +38,12 @@ namespace Pulumi.Azure.PrivateDns
         public Output<ImmutableArray<string>> AutoApprovalSubscriptionIds { get; private set; } = null!;
 
         /// <summary>
+        /// The destination IP address of the Private Link Service.
+        /// </summary>
+        [Output("destinationIpAddress")]
+        public Output<string?> DestinationIpAddress { get; private set; } = null!;
+
+        /// <summary>
         /// Should the Private Link Service support the Proxy Protocol?
         /// </summary>
         [Output("enableProxyProtocol")]
@@ -152,6 +158,12 @@ namespace Pulumi.Azure.PrivateDns
         }
 
         /// <summary>
+        /// The destination IP address of the Private Link Service.
+        /// </summary>
+        [Input("destinationIpAddress")]
+        public Input<string>? DestinationIpAddress { get; set; }
+
+        /// <summary>
         /// Should the Private Link Service support the Proxy Protocol?
         /// </summary>
         [Input("enableProxyProtocol")]
@@ -169,7 +181,7 @@ namespace Pulumi.Azure.PrivateDns
             set => _fqdns = value;
         }
 
-        [Input("loadBalancerFrontendIpConfigurationIds", required: true)]
+        [Input("loadBalancerFrontendIpConfigurationIds")]
         private InputList<string>? _loadBalancerFrontendIpConfigurationIds;
 
         /// <summary>
@@ -262,6 +274,12 @@ namespace Pulumi.Azure.PrivateDns
             get => _autoApprovalSubscriptionIds ?? (_autoApprovalSubscriptionIds = new InputList<string>());
             set => _autoApprovalSubscriptionIds = value;
         }
+
+        /// <summary>
+        /// The destination IP address of the Private Link Service.
+        /// </summary>
+        [Input("destinationIpAddress")]
+        public Input<string>? DestinationIpAddress { get; set; }
 
         /// <summary>
         /// Should the Private Link Service support the Proxy Protocol?

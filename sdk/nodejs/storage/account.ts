@@ -79,7 +79,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This resource uses the following Azure API Providers:
  *
- * * `Microsoft.Storage`: 2023-05-01
+ * * `Microsoft.Storage` - 2023-05-01
  *
  * ## Import
  *
@@ -388,6 +388,10 @@ export class Account extends pulumi.CustomResource {
      */
     public /*out*/ readonly primaryWebMicrosoftHost!: pulumi.Output<string>;
     /**
+     * Specifies the version of the **provisioned** billing model (e.g. when `accountKind = "FileStorage"` for Storage File). Possible value is `V2`. Changing this forces a new resource to be created.
+     */
+    public readonly provisionedBillingModelVersion!: pulumi.Output<string | undefined>;
+    /**
      * Whether the public network access is enabled? Defaults to `true`.
      */
     public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
@@ -668,6 +672,7 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["primaryWebInternetHost"] = state ? state.primaryWebInternetHost : undefined;
             resourceInputs["primaryWebMicrosoftEndpoint"] = state ? state.primaryWebMicrosoftEndpoint : undefined;
             resourceInputs["primaryWebMicrosoftHost"] = state ? state.primaryWebMicrosoftHost : undefined;
+            resourceInputs["provisionedBillingModelVersion"] = state ? state.provisionedBillingModelVersion : undefined;
             resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
             resourceInputs["queueEncryptionKeyType"] = state ? state.queueEncryptionKeyType : undefined;
             resourceInputs["queueProperties"] = state ? state.queueProperties : undefined;
@@ -753,6 +758,7 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["networkRules"] = args ? args.networkRules : undefined;
             resourceInputs["nfsv3Enabled"] = args ? args.nfsv3Enabled : undefined;
+            resourceInputs["provisionedBillingModelVersion"] = args ? args.provisionedBillingModelVersion : undefined;
             resourceInputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
             resourceInputs["queueEncryptionKeyType"] = args ? args.queueEncryptionKeyType : undefined;
             resourceInputs["queueProperties"] = args ? args.queueProperties : undefined;
@@ -1120,6 +1126,10 @@ export interface AccountState {
      */
     primaryWebMicrosoftHost?: pulumi.Input<string>;
     /**
+     * Specifies the version of the **provisioned** billing model (e.g. when `accountKind = "FileStorage"` for Storage File). Possible value is `V2`. Changing this forces a new resource to be created.
+     */
+    provisionedBillingModelVersion?: pulumi.Input<string>;
+    /**
      * Whether the public network access is enabled? Defaults to `true`.
      */
     publicNetworkAccessEnabled?: pulumi.Input<boolean>;
@@ -1456,6 +1466,10 @@ export interface AccountArgs {
      * > **Note:** This can only be `true` when `accountTier` is `Standard` and `accountKind` is `StorageV2`, or `accountTier` is `Premium` and `accountKind` is `BlockBlobStorage`. Additionally, the `isHnsEnabled` is `true` and `accountReplicationType` must be `LRS` or `RAGRS`.
      */
     nfsv3Enabled?: pulumi.Input<boolean>;
+    /**
+     * Specifies the version of the **provisioned** billing model (e.g. when `accountKind = "FileStorage"` for Storage File). Possible value is `V2`. Changing this forces a new resource to be created.
+     */
+    provisionedBillingModelVersion?: pulumi.Input<string>;
     /**
      * Whether the public network access is enabled? Defaults to `true`.
      */

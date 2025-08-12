@@ -6,6 +6,7 @@ package com.pulumi.azure.network.inputs;
 import com.pulumi.azure.network.inputs.VirtualHubRouteArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -32,6 +33,21 @@ public final class VirtualHubState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> addressPrefix() {
         return Optional.ofNullable(this.addressPrefix);
+    }
+
+    /**
+     * Boolean flag to specify whether branch to branch traffic is allowed. Defaults to `false`.
+     * 
+     */
+    @Import(name="branchToBranchTrafficEnabled")
+    private @Nullable Output<Boolean> branchToBranchTrafficEnabled;
+
+    /**
+     * @return Boolean flag to specify whether branch to branch traffic is allowed. Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> branchToBranchTrafficEnabled() {
+        return Optional.ofNullable(this.branchToBranchTrafficEnabled);
     }
 
     /**
@@ -218,6 +234,7 @@ public final class VirtualHubState extends com.pulumi.resources.ResourceArgs {
 
     private VirtualHubState(VirtualHubState $) {
         this.addressPrefix = $.addressPrefix;
+        this.branchToBranchTrafficEnabled = $.branchToBranchTrafficEnabled;
         this.defaultRouteTableId = $.defaultRouteTableId;
         this.hubRoutingPreference = $.hubRoutingPreference;
         this.location = $.location;
@@ -269,6 +286,27 @@ public final class VirtualHubState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder addressPrefix(String addressPrefix) {
             return addressPrefix(Output.of(addressPrefix));
+        }
+
+        /**
+         * @param branchToBranchTrafficEnabled Boolean flag to specify whether branch to branch traffic is allowed. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder branchToBranchTrafficEnabled(@Nullable Output<Boolean> branchToBranchTrafficEnabled) {
+            $.branchToBranchTrafficEnabled = branchToBranchTrafficEnabled;
+            return this;
+        }
+
+        /**
+         * @param branchToBranchTrafficEnabled Boolean flag to specify whether branch to branch traffic is allowed. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder branchToBranchTrafficEnabled(Boolean branchToBranchTrafficEnabled) {
+            return branchToBranchTrafficEnabled(Output.of(branchToBranchTrafficEnabled));
         }
 
         /**

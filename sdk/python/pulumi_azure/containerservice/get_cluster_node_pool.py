@@ -377,7 +377,7 @@ def get_cluster_node_pool(kubernetes_cluster_name: Optional[_builtins.str] = Non
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.ContainerService`: 2024-09-01
+    * `Microsoft.ContainerService` - 2025-02-01
 
 
     :param _builtins.str kubernetes_cluster_name: The Name of the Kubernetes Cluster where this Node Pool is located.
@@ -443,7 +443,7 @@ def get_cluster_node_pool_output(kubernetes_cluster_name: Optional[pulumi.Input[
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.ContainerService`: 2024-09-01
+    * `Microsoft.ContainerService` - 2025-02-01
 
 
     :param _builtins.str kubernetes_cluster_name: The Name of the Kubernetes Cluster where this Node Pool is located.

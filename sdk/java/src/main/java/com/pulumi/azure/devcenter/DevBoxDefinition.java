@@ -10,6 +10,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
 import java.util.Optional;
@@ -81,7 +82,7 @@ import javax.annotation.Nullable;
  * &lt;!-- This section is generated, changes will be overwritten --&gt;
  * This resource uses the following Azure API Providers:
  * 
- * * `Microsoft.DevCenter`: 2025-02-01
+ * * `Microsoft.DevCenter` - 2025-02-01
  * 
  * ## Import
  * 
@@ -107,6 +108,24 @@ public class DevBoxDefinition extends com.pulumi.resources.CustomResource {
      */
     public Output<String> devCenterId() {
         return this.devCenterId;
+    }
+    /**
+     * Whether the Dev Boxes created with this definition are capable of hibernation. Defaults to `false`.
+     * 
+     * &gt; **Note:** Not all images are capable of supporting hibernation, for more information see https://aka.ms/devbox/hibernate.
+     * 
+     */
+    @Export(name="hibernateSupportEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> hibernateSupportEnabled;
+
+    /**
+     * @return Whether the Dev Boxes created with this definition are capable of hibernation. Defaults to `false`.
+     * 
+     * &gt; **Note:** Not all images are capable of supporting hibernation, for more information see https://aka.ms/devbox/hibernate.
+     * 
+     */
+    public Output<Optional<Boolean>> hibernateSupportEnabled() {
+        return Codegen.optional(this.hibernateSupportEnabled);
     }
     /**
      * The ID of the image for the Dev Center Dev Box Definition.

@@ -80,7 +80,7 @@ import javax.annotation.Nullable;
  * &lt;!-- This section is generated, changes will be overwritten --&gt;
  * This resource uses the following Azure API Providers:
  * 
- * * `Microsoft.Kusto`: 2024-04-13
+ * * `Microsoft.Kusto` - 2024-04-13
  * 
  * ## Import
  * 
@@ -396,20 +396,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.uri;
     }
     /**
-     * A `virtual_network_configuration` block as defined below.
-     * 
-     * &gt; **Note:** Currently removing `virtual_network_configuration` sets the `virtual_network_configuration` to `Disabled` state. But any changes to `virtual_network_configuration` in `Disabled` state forces a new resource to be created.
+     * @deprecated
+     * The `virtual_network_configuration` block has been deprecated as it is no longer supported by Azure and will be removed in v5.0 of the AzureRM Provider - for more information see https://techcommunity.microsoft.com/blog/azuredataexplorer/deprecation-of-virtual-network-injection-for-azure-data-explorer/4198192
      * 
      */
+    @Deprecated /* The `virtual_network_configuration` block has been deprecated as it is no longer supported by Azure and will be removed in v5.0 of the AzureRM Provider - for more information see https://techcommunity.microsoft.com/blog/azuredataexplorer/deprecation-of-virtual-network-injection-for-azure-data-explorer/4198192 */
     @Export(name="virtualNetworkConfiguration", refs={ClusterVirtualNetworkConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ ClusterVirtualNetworkConfiguration> virtualNetworkConfiguration;
 
-    /**
-     * @return A `virtual_network_configuration` block as defined below.
-     * 
-     * &gt; **Note:** Currently removing `virtual_network_configuration` sets the `virtual_network_configuration` to `Disabled` state. But any changes to `virtual_network_configuration` in `Disabled` state forces a new resource to be created.
-     * 
-     */
     public Output<Optional<ClusterVirtualNetworkConfiguration>> virtualNetworkConfiguration() {
         return Codegen.optional(this.virtualNetworkConfiguration);
     }

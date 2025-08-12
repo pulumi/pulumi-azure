@@ -11,6 +11,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
+import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -80,7 +81,7 @@ import javax.annotation.Nullable;
  * &lt;!-- This section is generated, changes will be overwritten --&gt;
  * This resource uses the following Azure API Providers:
  * 
- * * `Microsoft.Network`: 2024-05-01
+ * * `Microsoft.Network` - 2024-05-01
  * 
  * ## Import
  * 
@@ -106,6 +107,20 @@ public class VirtualHub extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> addressPrefix() {
         return Codegen.optional(this.addressPrefix);
+    }
+    /**
+     * Boolean flag to specify whether branch to branch traffic is allowed. Defaults to `false`.
+     * 
+     */
+    @Export(name="branchToBranchTrafficEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> branchToBranchTrafficEnabled;
+
+    /**
+     * @return Boolean flag to specify whether branch to branch traffic is allowed. Defaults to `false`.
+     * 
+     */
+    public Output<Optional<Boolean>> branchToBranchTrafficEnabled() {
+        return Codegen.optional(this.branchToBranchTrafficEnabled);
     }
     /**
      * The ID of the default Route Table in the Virtual Hub.

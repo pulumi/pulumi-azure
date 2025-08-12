@@ -42,7 +42,7 @@ namespace Pulumi.Azure.DevCenter
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.DevCenter`: 2025-02-01
+        /// * `Microsoft.DevCenter` - 2025-02-01
         /// </summary>
         public static Task<GetGalleryResult> InvokeAsync(GetGalleryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGalleryResult>("azure:devcenter/getGallery:getGallery", args ?? new GetGalleryArgs(), options.WithDefaults());
@@ -78,7 +78,7 @@ namespace Pulumi.Azure.DevCenter
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.DevCenter`: 2025-02-01
+        /// * `Microsoft.DevCenter` - 2025-02-01
         /// </summary>
         public static Output<GetGalleryResult> Invoke(GetGalleryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGalleryResult>("azure:devcenter/getGallery:getGallery", args ?? new GetGalleryInvokeArgs(), options.WithDefaults());
@@ -114,7 +114,7 @@ namespace Pulumi.Azure.DevCenter
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.DevCenter`: 2025-02-01
+        /// * `Microsoft.DevCenter` - 2025-02-01
         /// </summary>
         public static Output<GetGalleryResult> Invoke(GetGalleryInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetGalleryResult>("azure:devcenter/getGallery:getGallery", args ?? new GetGalleryInvokeArgs(), options.WithDefaults());

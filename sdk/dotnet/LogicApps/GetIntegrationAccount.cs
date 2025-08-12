@@ -42,7 +42,7 @@ namespace Pulumi.Azure.LogicApps
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Logic`: 2019-05-01
+        /// * `Microsoft.Logic` - 2019-05-01
         /// </summary>
         public static Task<GetIntegrationAccountResult> InvokeAsync(GetIntegrationAccountArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIntegrationAccountResult>("azure:logicapps/getIntegrationAccount:getIntegrationAccount", args ?? new GetIntegrationAccountArgs(), options.WithDefaults());
@@ -78,7 +78,7 @@ namespace Pulumi.Azure.LogicApps
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Logic`: 2019-05-01
+        /// * `Microsoft.Logic` - 2019-05-01
         /// </summary>
         public static Output<GetIntegrationAccountResult> Invoke(GetIntegrationAccountInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIntegrationAccountResult>("azure:logicapps/getIntegrationAccount:getIntegrationAccount", args ?? new GetIntegrationAccountInvokeArgs(), options.WithDefaults());
@@ -114,7 +114,7 @@ namespace Pulumi.Azure.LogicApps
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Logic`: 2019-05-01
+        /// * `Microsoft.Logic` - 2019-05-01
         /// </summary>
         public static Output<GetIntegrationAccountResult> Invoke(GetIntegrationAccountInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetIntegrationAccountResult>("azure:logicapps/getIntegrationAccount:getIntegrationAccount", args ?? new GetIntegrationAccountInvokeArgs(), options.WithDefaults());

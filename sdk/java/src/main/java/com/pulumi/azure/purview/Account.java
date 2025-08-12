@@ -75,7 +75,7 @@ import javax.annotation.Nullable;
  * &lt;!-- This section is generated, changes will be overwritten --&gt;
  * This resource uses the following Azure API Providers:
  * 
- * * `Microsoft.Purview`: 2021-07-01
+ * * `Microsoft.Purview` - 2021-12-01
  * 
  * ## Import
  * 
@@ -115,6 +115,20 @@ public class Account extends com.pulumi.resources.CustomResource {
      */
     public Output<String> atlasKafkaEndpointSecondaryConnectionString() {
         return this.atlasKafkaEndpointSecondaryConnectionString;
+    }
+    /**
+     * Configured in AWS to allow use of the role arn used for scanning
+     * 
+     */
+    @Export(name="awsExternalId", refs={String.class}, tree="[0]")
+    private Output<String> awsExternalId;
+
+    /**
+     * @return Configured in AWS to allow use of the role arn used for scanning
+     * 
+     */
+    public Output<String> awsExternalId() {
+        return this.awsExternalId;
     }
     /**
      * Catalog endpoint.
@@ -171,6 +185,24 @@ public class Account extends com.pulumi.resources.CustomResource {
      */
     public Output<String> location() {
         return this.location;
+    }
+    /**
+     * Whether the Purview Account should create a managed Event Hub Namespace. Defaults to `true`.
+     * 
+     * &gt; **Note:** `managed_event_hub_enabled` must be `false` in order to use a Kafka Configuration with the Purview Account.
+     * 
+     */
+    @Export(name="managedEventHubEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> managedEventHubEnabled;
+
+    /**
+     * @return Whether the Purview Account should create a managed Event Hub Namespace. Defaults to `true`.
+     * 
+     * &gt; **Note:** `managed_event_hub_enabled` must be `false` in order to use a Kafka Configuration with the Purview Account.
+     * 
+     */
+    public Output<Optional<Boolean>> managedEventHubEnabled() {
+        return Codegen.optional(this.managedEventHubEnabled);
     }
     /**
      * The name which should be used for the new Resource Group where Purview Account creates the managed resources. Changing this forces a new Purview Account to be created.

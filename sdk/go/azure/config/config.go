@@ -106,6 +106,12 @@ func GetMetadataHost(ctx *pulumi.Context) string {
 	return value
 }
 
+// The API version to use for Managed Service Identity (IMDS) - for cases where the default API version is not supported by
+// the endpoint. e.g. for Azure Container Apps.
+func GetMsiApiVersion(ctx *pulumi.Context) string {
+	return config.Get(ctx, "azure:msiApiVersion")
+}
+
 // The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected
 // automatically.
 func GetMsiEndpoint(ctx *pulumi.Context) string {

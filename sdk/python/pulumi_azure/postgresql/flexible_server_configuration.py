@@ -202,7 +202,7 @@ class FlexibleServerConfiguration(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.DBforPostgreSQL`: 2024-08-01
+        * `Microsoft.DBforPostgreSQL` - 2024-08-01
 
         ## Import
 
@@ -284,7 +284,7 @@ class FlexibleServerConfiguration(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.DBforPostgreSQL`: 2024-08-01
+        * `Microsoft.DBforPostgreSQL` - 2024-08-01
 
         ## Import
 

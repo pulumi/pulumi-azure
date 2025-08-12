@@ -200,7 +200,7 @@ def get_hci_cluster(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.AzureStackHCI`: 2024-01-01, 2022-05-04
+    * `Microsoft.AzureStackHCI` - 2024-01-01, 2022-05-04
 
 
     :param _builtins.str name: The name of the Azure Stack HCI Cluster.
@@ -249,7 +249,7 @@ def get_hci_cluster_output(name: Optional[pulumi.Input[_builtins.str]] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.AzureStackHCI`: 2024-01-01, 2022-05-04
+    * `Microsoft.AzureStackHCI` - 2024-01-01, 2022-05-04
 
 
     :param _builtins.str name: The name of the Azure Stack HCI Cluster.

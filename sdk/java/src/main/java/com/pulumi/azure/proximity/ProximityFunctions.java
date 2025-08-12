@@ -60,7 +60,7 @@ public final class ProximityFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Compute`: 2022-03-01
+     * * `Microsoft.Compute` - 2022-03-01
      * 
      */
     public static Output<GetPlacementGroupResult> getPlacementGroup(GetPlacementGroupArgs args) {
@@ -111,7 +111,7 @@ public final class ProximityFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Compute`: 2022-03-01
+     * * `Microsoft.Compute` - 2022-03-01
      * 
      */
     public static CompletableFuture<GetPlacementGroupResult> getPlacementGroupPlain(GetPlacementGroupPlainArgs args) {
@@ -162,7 +162,7 @@ public final class ProximityFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Compute`: 2022-03-01
+     * * `Microsoft.Compute` - 2022-03-01
      * 
      */
     public static Output<GetPlacementGroupResult> getPlacementGroup(GetPlacementGroupArgs args, InvokeOptions options) {
@@ -213,7 +213,7 @@ public final class ProximityFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Compute`: 2022-03-01
+     * * `Microsoft.Compute` - 2022-03-01
      * 
      */
     public static Output<GetPlacementGroupResult> getPlacementGroup(GetPlacementGroupArgs args, InvokeOutputOptions options) {
@@ -264,7 +264,7 @@ public final class ProximityFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Compute`: 2022-03-01
+     * * `Microsoft.Compute` - 2022-03-01
      * 
      */
     public static CompletableFuture<GetPlacementGroupResult> getPlacementGroupPlain(GetPlacementGroupPlainArgs args, InvokeOptions options) {

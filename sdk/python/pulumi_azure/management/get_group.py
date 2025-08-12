@@ -155,6 +155,13 @@ def get_group(display_name: Optional[_builtins.str] = None,
     pulumi.export("displayName", example.display_name)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Management` - 2020-05-01
+
 
     :param _builtins.str display_name: Specifies the display name of this Management Group.
            
@@ -192,6 +199,13 @@ def get_group_output(display_name: Optional[pulumi.Input[Optional[_builtins.str]
     example = azure.management.get_group(name="00000000-0000-0000-0000-000000000000")
     pulumi.export("displayName", example.display_name)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Management` - 2020-05-01
 
 
     :param _builtins.str display_name: Specifies the display name of this Management Group.

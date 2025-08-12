@@ -147,7 +147,7 @@ def get_account(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Maps`: 2023-06-01
+    * `Microsoft.Maps` - 2023-06-01
 
 
     :param _builtins.str name: Specifies the name of the Maps Account.
@@ -192,7 +192,7 @@ def get_account_output(name: Optional[pulumi.Input[_builtins.str]] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Maps`: 2023-06-01
+    * `Microsoft.Maps` - 2023-06-01
 
 
     :param _builtins.str name: Specifies the name of the Maps Account.

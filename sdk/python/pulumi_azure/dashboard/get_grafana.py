@@ -257,7 +257,7 @@ def get_grafana(identity: Optional[Union['GetGrafanaIdentityArgs', 'GetGrafanaId
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Dashboard`: 2023-09-01
+    * `Microsoft.Dashboard` - 2023-09-01
 
 
     :param Union['GetGrafanaIdentityArgs', 'GetGrafanaIdentityArgsDict'] identity: The managed identity of the grafana resource.
@@ -312,7 +312,7 @@ def get_grafana_output(identity: Optional[pulumi.Input[Optional[Union['GetGrafan
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Dashboard`: 2023-09-01
+    * `Microsoft.Dashboard` - 2023-09-01
 
 
     :param Union['GetGrafanaIdentityArgs', 'GetGrafanaIdentityArgsDict'] identity: The managed identity of the grafana resource.

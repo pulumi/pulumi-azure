@@ -50,6 +50,7 @@ public final class MarketplaceFunctions {
      *             .build());
      * 
      *         ctx.export("azurermMarketplaceAgreementId", id);
+     *         ctx.export("azurermMarketplaceAgreementAccepted", accepted);
      *     }
      * }
      * }
@@ -61,7 +62,7 @@ public final class MarketplaceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.MarketplaceOrdering`: 2015-06-01
+     * * `Microsoft.MarketplaceOrdering` - 2015-06-01
      * 
      */
     public static Output<GetAgreementResult> getAgreement(GetAgreementArgs args) {
@@ -102,6 +103,7 @@ public final class MarketplaceFunctions {
      *             .build());
      * 
      *         ctx.export("azurermMarketplaceAgreementId", id);
+     *         ctx.export("azurermMarketplaceAgreementAccepted", accepted);
      *     }
      * }
      * }
@@ -113,7 +115,7 @@ public final class MarketplaceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.MarketplaceOrdering`: 2015-06-01
+     * * `Microsoft.MarketplaceOrdering` - 2015-06-01
      * 
      */
     public static CompletableFuture<GetAgreementResult> getAgreementPlain(GetAgreementPlainArgs args) {
@@ -154,6 +156,7 @@ public final class MarketplaceFunctions {
      *             .build());
      * 
      *         ctx.export("azurermMarketplaceAgreementId", id);
+     *         ctx.export("azurermMarketplaceAgreementAccepted", accepted);
      *     }
      * }
      * }
@@ -165,7 +168,7 @@ public final class MarketplaceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.MarketplaceOrdering`: 2015-06-01
+     * * `Microsoft.MarketplaceOrdering` - 2015-06-01
      * 
      */
     public static Output<GetAgreementResult> getAgreement(GetAgreementArgs args, InvokeOptions options) {
@@ -206,6 +209,7 @@ public final class MarketplaceFunctions {
      *             .build());
      * 
      *         ctx.export("azurermMarketplaceAgreementId", id);
+     *         ctx.export("azurermMarketplaceAgreementAccepted", accepted);
      *     }
      * }
      * }
@@ -217,7 +221,7 @@ public final class MarketplaceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.MarketplaceOrdering`: 2015-06-01
+     * * `Microsoft.MarketplaceOrdering` - 2015-06-01
      * 
      */
     public static Output<GetAgreementResult> getAgreement(GetAgreementArgs args, InvokeOutputOptions options) {
@@ -258,6 +262,7 @@ public final class MarketplaceFunctions {
      *             .build());
      * 
      *         ctx.export("azurermMarketplaceAgreementId", id);
+     *         ctx.export("azurermMarketplaceAgreementAccepted", accepted);
      *     }
      * }
      * }
@@ -269,7 +274,7 @@ public final class MarketplaceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.MarketplaceOrdering`: 2015-06-01
+     * * `Microsoft.MarketplaceOrdering` - 2015-06-01
      * 
      */
     public static CompletableFuture<GetAgreementResult> getAgreementPlain(GetAgreementPlainArgs args, InvokeOptions options) {

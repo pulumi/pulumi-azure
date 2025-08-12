@@ -42,7 +42,7 @@ namespace Pulumi.Azure.DevCenter
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.DevCenter`: 2025-02-01
+        /// * `Microsoft.DevCenter` - 2025-02-01
         /// </summary>
         public static Task<GetDevBoxDefinitionResult> InvokeAsync(GetDevBoxDefinitionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDevBoxDefinitionResult>("azure:devcenter/getDevBoxDefinition:getDevBoxDefinition", args ?? new GetDevBoxDefinitionArgs(), options.WithDefaults());
@@ -78,7 +78,7 @@ namespace Pulumi.Azure.DevCenter
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.DevCenter`: 2025-02-01
+        /// * `Microsoft.DevCenter` - 2025-02-01
         /// </summary>
         public static Output<GetDevBoxDefinitionResult> Invoke(GetDevBoxDefinitionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDevBoxDefinitionResult>("azure:devcenter/getDevBoxDefinition:getDevBoxDefinition", args ?? new GetDevBoxDefinitionInvokeArgs(), options.WithDefaults());
@@ -114,7 +114,7 @@ namespace Pulumi.Azure.DevCenter
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.DevCenter`: 2025-02-01
+        /// * `Microsoft.DevCenter` - 2025-02-01
         /// </summary>
         public static Output<GetDevBoxDefinitionResult> Invoke(GetDevBoxDefinitionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDevBoxDefinitionResult>("azure:devcenter/getDevBoxDefinition:getDevBoxDefinition", args ?? new GetDevBoxDefinitionInvokeArgs(), options.WithDefaults());
@@ -167,6 +167,10 @@ namespace Pulumi.Azure.DevCenter
     {
         public readonly string DevCenterId;
         /// <summary>
+        /// Whether Dev Boxes created with this definition are capable of hibernation.
+        /// </summary>
+        public readonly bool HibernateSupportEnabled;
+        /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
@@ -192,6 +196,8 @@ namespace Pulumi.Azure.DevCenter
         private GetDevBoxDefinitionResult(
             string devCenterId,
 
+            bool hibernateSupportEnabled,
+
             string id,
 
             string imageReferenceId,
@@ -205,6 +211,7 @@ namespace Pulumi.Azure.DevCenter
             ImmutableDictionary<string, string> tags)
         {
             DevCenterId = devCenterId;
+            HibernateSupportEnabled = hibernateSupportEnabled;
             Id = id;
             ImageReferenceId = imageReferenceId;
             Location = location;

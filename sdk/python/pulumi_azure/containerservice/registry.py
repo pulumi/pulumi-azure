@@ -352,6 +352,7 @@ class _RegistryState:
                  admin_username: Optional[pulumi.Input[_builtins.str]] = None,
                  anonymous_pull_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  data_endpoint_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 data_endpoint_host_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  encryption: Optional[pulumi.Input['RegistryEncryptionArgs']] = None,
                  export_policy_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  georeplications: Optional[pulumi.Input[Sequence[pulumi.Input['RegistryGeoreplicationArgs']]]] = None,
@@ -376,6 +377,7 @@ class _RegistryState:
         :param pulumi.Input[_builtins.str] admin_username: The Username associated with the Container Registry Admin account - if the admin account is enabled.
         :param pulumi.Input[_builtins.bool] anonymous_pull_enabled: Whether to allow anonymous (unauthenticated) pull access to this Container Registry. This is only supported on resources with the `Standard` or `Premium` SKU.
         :param pulumi.Input[_builtins.bool] data_endpoint_enabled: Whether to enable dedicated data endpoints for this Container Registry? This is only supported on resources with the `Premium` SKU.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] data_endpoint_host_names: A set of data endpoint hostnames associated with the container registry if data endpoints are enabled.
         :param pulumi.Input['RegistryEncryptionArgs'] encryption: An `encryption` block as documented below.
         :param pulumi.Input[_builtins.bool] export_policy_enabled: Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `public_network_access_enabled` is also set to `false`.
                
@@ -412,6 +414,8 @@ class _RegistryState:
             pulumi.set(__self__, "anonymous_pull_enabled", anonymous_pull_enabled)
         if data_endpoint_enabled is not None:
             pulumi.set(__self__, "data_endpoint_enabled", data_endpoint_enabled)
+        if data_endpoint_host_names is not None:
+            pulumi.set(__self__, "data_endpoint_host_names", data_endpoint_host_names)
         if encryption is not None:
             pulumi.set(__self__, "encryption", encryption)
         if export_policy_enabled is not None:
@@ -506,6 +510,18 @@ class _RegistryState:
     @data_endpoint_enabled.setter
     def data_endpoint_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "data_endpoint_enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dataEndpointHostNames")
+    def data_endpoint_host_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        A set of data endpoint hostnames associated with the container registry if data endpoints are enabled.
+        """
+        return pulumi.get(self, "data_endpoint_host_names")
+
+    @data_endpoint_host_names.setter
+    def data_endpoint_host_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "data_endpoint_host_names", value)
 
     @_builtins.property
     @pulumi.getter
@@ -850,7 +866,7 @@ class Registry(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.ContainerRegistry`: 2023-11-01-preview
+        * `Microsoft.ContainerRegistry` - 2023-11-01-preview
 
         ## Import
 
@@ -1000,7 +1016,7 @@ class Registry(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.ContainerRegistry`: 2023-11-01-preview
+        * `Microsoft.ContainerRegistry` - 2023-11-01-preview
 
         ## Import
 
@@ -1078,6 +1094,7 @@ class Registry(pulumi.CustomResource):
             __props__.__dict__["zone_redundancy_enabled"] = zone_redundancy_enabled
             __props__.__dict__["admin_password"] = None
             __props__.__dict__["admin_username"] = None
+            __props__.__dict__["data_endpoint_host_names"] = None
             __props__.__dict__["login_server"] = None
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["adminPassword"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
@@ -1096,6 +1113,7 @@ class Registry(pulumi.CustomResource):
             admin_username: Optional[pulumi.Input[_builtins.str]] = None,
             anonymous_pull_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
             data_endpoint_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+            data_endpoint_host_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
             encryption: Optional[pulumi.Input[Union['RegistryEncryptionArgs', 'RegistryEncryptionArgsDict']]] = None,
             export_policy_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
             georeplications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RegistryGeoreplicationArgs', 'RegistryGeoreplicationArgsDict']]]]] = None,
@@ -1125,6 +1143,7 @@ class Registry(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] admin_username: The Username associated with the Container Registry Admin account - if the admin account is enabled.
         :param pulumi.Input[_builtins.bool] anonymous_pull_enabled: Whether to allow anonymous (unauthenticated) pull access to this Container Registry. This is only supported on resources with the `Standard` or `Premium` SKU.
         :param pulumi.Input[_builtins.bool] data_endpoint_enabled: Whether to enable dedicated data endpoints for this Container Registry? This is only supported on resources with the `Premium` SKU.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] data_endpoint_host_names: A set of data endpoint hostnames associated with the container registry if data endpoints are enabled.
         :param pulumi.Input[Union['RegistryEncryptionArgs', 'RegistryEncryptionArgsDict']] encryption: An `encryption` block as documented below.
         :param pulumi.Input[_builtins.bool] export_policy_enabled: Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `public_network_access_enabled` is also set to `false`.
                
@@ -1160,6 +1179,7 @@ class Registry(pulumi.CustomResource):
         __props__.__dict__["admin_username"] = admin_username
         __props__.__dict__["anonymous_pull_enabled"] = anonymous_pull_enabled
         __props__.__dict__["data_endpoint_enabled"] = data_endpoint_enabled
+        __props__.__dict__["data_endpoint_host_names"] = data_endpoint_host_names
         __props__.__dict__["encryption"] = encryption
         __props__.__dict__["export_policy_enabled"] = export_policy_enabled
         __props__.__dict__["georeplications"] = georeplications
@@ -1218,6 +1238,14 @@ class Registry(pulumi.CustomResource):
         Whether to enable dedicated data endpoints for this Container Registry? This is only supported on resources with the `Premium` SKU.
         """
         return pulumi.get(self, "data_endpoint_enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="dataEndpointHostNames")
+    def data_endpoint_host_names(self) -> pulumi.Output[Sequence[_builtins.str]]:
+        """
+        A set of data endpoint hostnames associated with the container registry if data endpoints are enabled.
+        """
+        return pulumi.get(self, "data_endpoint_host_names")
 
     @_builtins.property
     @pulumi.getter

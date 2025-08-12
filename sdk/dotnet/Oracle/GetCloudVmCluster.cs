@@ -42,7 +42,7 @@ namespace Pulumi.Azure.Oracle
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Oracle.Database`: 2024-06-01
+        /// * `Oracle.Database` - 2025-03-01
         /// </summary>
         public static Task<GetCloudVmClusterResult> InvokeAsync(GetCloudVmClusterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCloudVmClusterResult>("azure:oracle/getCloudVmCluster:getCloudVmCluster", args ?? new GetCloudVmClusterArgs(), options.WithDefaults());
@@ -78,7 +78,7 @@ namespace Pulumi.Azure.Oracle
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Oracle.Database`: 2024-06-01
+        /// * `Oracle.Database` - 2025-03-01
         /// </summary>
         public static Output<GetCloudVmClusterResult> Invoke(GetCloudVmClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCloudVmClusterResult>("azure:oracle/getCloudVmCluster:getCloudVmCluster", args ?? new GetCloudVmClusterInvokeArgs(), options.WithDefaults());
@@ -114,7 +114,7 @@ namespace Pulumi.Azure.Oracle
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Oracle.Database`: 2024-06-01
+        /// * `Oracle.Database` - 2025-03-01
         /// </summary>
         public static Output<GetCloudVmClusterResult> Invoke(GetCloudVmClusterInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetCloudVmClusterResult>("azure:oracle/getCloudVmCluster:getCloudVmCluster", args ?? new GetCloudVmClusterInvokeArgs(), options.WithDefaults());
@@ -182,6 +182,10 @@ namespace Pulumi.Azure.Oracle
         /// </summary>
         public readonly string CompartmentId;
         /// <summary>
+        /// The compute model of the Exadata Infrastructure.
+        /// </summary>
+        public readonly string ComputeModel;
+        /// <summary>
         /// A `compute_nodes` block as defined below.
         /// </summary>
         public readonly ImmutableArray<string> ComputeNodes;
@@ -221,6 +225,10 @@ namespace Pulumi.Azure.Oracle
         /// The domain name for the Cloud VM Cluster.
         /// </summary>
         public readonly string Domain;
+        /// <summary>
+        /// A `file_system_configuration` block as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetCloudVmClusterFileSystemConfigurationResult> FileSystemConfigurations;
         /// <summary>
         /// A valid Oracle Grid Infrastructure (GI) software version.
         /// </summary>
@@ -379,6 +387,8 @@ namespace Pulumi.Azure.Oracle
 
             string compartmentId,
 
+            string computeModel,
+
             ImmutableArray<string> computeNodes,
 
             int cpuCoreCount,
@@ -398,6 +408,8 @@ namespace Pulumi.Azure.Oracle
             string displayName,
 
             string domain,
+
+            ImmutableArray<Outputs.GetCloudVmClusterFileSystemConfigurationResult> fileSystemConfigurations,
 
             string giVersion,
 
@@ -479,6 +491,7 @@ namespace Pulumi.Azure.Oracle
             CloudExadataInfrastructureId = cloudExadataInfrastructureId;
             ClusterName = clusterName;
             CompartmentId = compartmentId;
+            ComputeModel = computeModel;
             ComputeNodes = computeNodes;
             CpuCoreCount = cpuCoreCount;
             DataCollectionOptions = dataCollectionOptions;
@@ -489,6 +502,7 @@ namespace Pulumi.Azure.Oracle
             DiskRedundancy = diskRedundancy;
             DisplayName = displayName;
             Domain = domain;
+            FileSystemConfigurations = fileSystemConfigurations;
             GiVersion = giVersion;
             Hostname = hostname;
             HostnameActual = hostnameActual;

@@ -45,7 +45,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This data source uses the following Azure API Providers:
 //
-// * `Microsoft.Network`: 2024-06-01
+// * `Microsoft.Network` - 2024-06-01
 func GetPtrRecord(ctx *pulumi.Context, args *GetPtrRecordArgs, opts ...pulumi.InvokeOption) (*GetPtrRecordResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetPtrRecordResult

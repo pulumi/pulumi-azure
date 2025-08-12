@@ -16,6 +16,20 @@ import javax.annotation.Nullable;
 @CustomType
 public final class OrchestratedVirtualMachineScaleSetNetworkInterface {
     /**
+     * @return Specifies the auxiliary mode used to enable network high-performance feature on Network Virtual Appliances (NVAs). This feature offers competitive performance in Connections Per Second (CPS) optimization, along with improvements to handling large amounts of simultaneous connections. Possible values are `AcceleratedConnections` and `Floating`.
+     * 
+     * &gt; **Note:** `auxiliary_mode` is in **Preview** and requires that the prerequisites are enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
+     * 
+     */
+    private @Nullable String auxiliaryMode;
+    /**
+     * @return Specifies the SKU used for the network high-performance feature on Network Virtual Appliances (NVAs). Possible values are `A1`, `A2`, `A4` and `A8`.
+     * 
+     * &gt; **Note:** `auxiliary_sku` is in **Preview** and requires that the prerequisites are enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
+     * 
+     */
+    private @Nullable String auxiliarySku;
+    /**
      * @return A list of IP Addresses of DNS Servers which should be assigned to the Network Interface.
      * 
      */
@@ -54,6 +68,24 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterface {
     private @Nullable Boolean primary;
 
     private OrchestratedVirtualMachineScaleSetNetworkInterface() {}
+    /**
+     * @return Specifies the auxiliary mode used to enable network high-performance feature on Network Virtual Appliances (NVAs). This feature offers competitive performance in Connections Per Second (CPS) optimization, along with improvements to handling large amounts of simultaneous connections. Possible values are `AcceleratedConnections` and `Floating`.
+     * 
+     * &gt; **Note:** `auxiliary_mode` is in **Preview** and requires that the prerequisites are enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
+     * 
+     */
+    public Optional<String> auxiliaryMode() {
+        return Optional.ofNullable(this.auxiliaryMode);
+    }
+    /**
+     * @return Specifies the SKU used for the network high-performance feature on Network Virtual Appliances (NVAs). Possible values are `A1`, `A2`, `A4` and `A8`.
+     * 
+     * &gt; **Note:** `auxiliary_sku` is in **Preview** and requires that the prerequisites are enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
+     * 
+     */
+    public Optional<String> auxiliarySku() {
+        return Optional.ofNullable(this.auxiliarySku);
+    }
     /**
      * @return A list of IP Addresses of DNS Servers which should be assigned to the Network Interface.
      * 
@@ -115,6 +147,8 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterface {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable String auxiliaryMode;
+        private @Nullable String auxiliarySku;
         private @Nullable List<String> dnsServers;
         private @Nullable Boolean enableAcceleratedNetworking;
         private @Nullable Boolean enableIpForwarding;
@@ -125,6 +159,8 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterface {
         public Builder() {}
         public Builder(OrchestratedVirtualMachineScaleSetNetworkInterface defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.auxiliaryMode = defaults.auxiliaryMode;
+    	      this.auxiliarySku = defaults.auxiliarySku;
     	      this.dnsServers = defaults.dnsServers;
     	      this.enableAcceleratedNetworking = defaults.enableAcceleratedNetworking;
     	      this.enableIpForwarding = defaults.enableIpForwarding;
@@ -134,6 +170,18 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterface {
     	      this.primary = defaults.primary;
         }
 
+        @CustomType.Setter
+        public Builder auxiliaryMode(@Nullable String auxiliaryMode) {
+
+            this.auxiliaryMode = auxiliaryMode;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder auxiliarySku(@Nullable String auxiliarySku) {
+
+            this.auxiliarySku = auxiliarySku;
+            return this;
+        }
         @CustomType.Setter
         public Builder dnsServers(@Nullable List<String> dnsServers) {
 
@@ -188,6 +236,8 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterface {
         }
         public OrchestratedVirtualMachineScaleSetNetworkInterface build() {
             final var _resultValue = new OrchestratedVirtualMachineScaleSetNetworkInterface();
+            _resultValue.auxiliaryMode = auxiliaryMode;
+            _resultValue.auxiliarySku = auxiliarySku;
             _resultValue.dnsServers = dnsServers;
             _resultValue.enableAcceleratedNetworking = enableAcceleratedNetworking;
             _resultValue.enableIpForwarding = enableIpForwarding;

@@ -748,7 +748,7 @@ class Service(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.Search`: 2024-06-01-preview
+        * `Microsoft.Search` - 2024-06-01-preview
 
         ## Import
 
@@ -858,7 +858,7 @@ class Service(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.Search`: 2024-06-01-preview
+        * `Microsoft.Search` - 2024-06-01-preview
 
         ## Import
 

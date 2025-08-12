@@ -120,7 +120,7 @@ export class Definition extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Parameters for the policy definition. This field is a JSON string that allows you to parameterize your policy definition.
+     * Parameters for the policy definition. This field is a JSON string that allows you to parameterize your policy definition. Reducing the number of parameters forces a new resource to be created.
      */
     public readonly parameters!: pulumi.Output<string | undefined>;
     /**
@@ -217,7 +217,7 @@ export interface DefinitionState {
      */
     name?: pulumi.Input<string>;
     /**
-     * Parameters for the policy definition. This field is a JSON string that allows you to parameterize your policy definition.
+     * Parameters for the policy definition. This field is a JSON string that allows you to parameterize your policy definition. Reducing the number of parameters forces a new resource to be created.
      */
     parameters?: pulumi.Input<string>;
     /**
@@ -265,7 +265,7 @@ export interface DefinitionArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Parameters for the policy definition. This field is a JSON string that allows you to parameterize your policy definition.
+     * Parameters for the policy definition. This field is a JSON string that allows you to parameterize your policy definition. Reducing the number of parameters forces a new resource to be created.
      */
     parameters?: pulumi.Input<string>;
     /**

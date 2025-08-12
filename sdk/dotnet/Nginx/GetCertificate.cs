@@ -42,7 +42,7 @@ namespace Pulumi.Azure.Nginx
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Nginx.NginxPlus`: 2024-11-01-preview
+        /// * `Nginx.NginxPlus` - 2024-11-01-preview
         /// </summary>
         public static Task<GetCertificateResult> InvokeAsync(GetCertificateArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCertificateResult>("azure:nginx/getCertificate:getCertificate", args ?? new GetCertificateArgs(), options.WithDefaults());
@@ -78,7 +78,7 @@ namespace Pulumi.Azure.Nginx
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Nginx.NginxPlus`: 2024-11-01-preview
+        /// * `Nginx.NginxPlus` - 2024-11-01-preview
         /// </summary>
         public static Output<GetCertificateResult> Invoke(GetCertificateInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCertificateResult>("azure:nginx/getCertificate:getCertificate", args ?? new GetCertificateInvokeArgs(), options.WithDefaults());
@@ -114,7 +114,7 @@ namespace Pulumi.Azure.Nginx
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Nginx.NginxPlus`: 2024-11-01-preview
+        /// * `Nginx.NginxPlus` - 2024-11-01-preview
         /// </summary>
         public static Output<GetCertificateResult> Invoke(GetCertificateInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetCertificateResult>("azure:nginx/getCertificate:getCertificate", args ?? new GetCertificateInvokeArgs(), options.WithDefaults());

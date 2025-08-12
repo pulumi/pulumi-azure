@@ -18,14 +18,14 @@ public final class PolicySetDefinitionPolicyDefinitionReferenceArgs extends com.
     public static final PolicySetDefinitionPolicyDefinitionReferenceArgs Empty = new PolicySetDefinitionPolicyDefinitionReferenceArgs();
 
     /**
-     * Parameter values for the referenced policy rule. This field is a JSON string that allows you to assign parameters to this policy rule.
+     * Parameter values for the references Policy Definition in JSON format.
      * 
      */
     @Import(name="parameterValues")
     private @Nullable Output<String> parameterValues;
 
     /**
-     * @return Parameter values for the referenced policy rule. This field is a JSON string that allows you to assign parameters to this policy rule.
+     * @return Parameter values for the references Policy Definition in JSON format.
      * 
      */
     public Optional<Output<String>> parameterValues() {
@@ -33,14 +33,14 @@ public final class PolicySetDefinitionPolicyDefinitionReferenceArgs extends com.
     }
 
     /**
-     * The ID of the policy definition that will be included in this policy set definition.
+     * The ID of the Policy Definition to include in this Policy Set Definition.
      * 
      */
     @Import(name="policyDefinitionId", required=true)
     private Output<String> policyDefinitionId;
 
     /**
-     * @return The ID of the policy definition that will be included in this policy set definition.
+     * @return The ID of the Policy Definition to include in this Policy Set Definition.
      * 
      */
     public Output<String> policyDefinitionId() {
@@ -48,14 +48,14 @@ public final class PolicySetDefinitionPolicyDefinitionReferenceArgs extends com.
     }
 
     /**
-     * A list of names of the policy definition groups that this policy definition reference belongs to.
+     * Specifies a list of Policy Definition Groups names that this Policy Definition Reference belongs to.
      * 
      */
     @Import(name="policyGroupNames")
     private @Nullable Output<List<String>> policyGroupNames;
 
     /**
-     * @return A list of names of the policy definition groups that this policy definition reference belongs to.
+     * @return Specifies a list of Policy Definition Groups names that this Policy Definition Reference belongs to.
      * 
      */
     public Optional<Output<List<String>>> policyGroupNames() {
@@ -63,18 +63,33 @@ public final class PolicySetDefinitionPolicyDefinitionReferenceArgs extends com.
     }
 
     /**
-     * A unique ID within this policy set definition for this policy definition reference.
+     * A unique ID within this Policy Set Definition for this Policy Definition Reference.
      * 
      */
     @Import(name="referenceId")
     private @Nullable Output<String> referenceId;
 
     /**
-     * @return A unique ID within this policy set definition for this policy definition reference.
+     * @return A unique ID within this Policy Set Definition for this Policy Definition Reference.
      * 
      */
     public Optional<Output<String>> referenceId() {
         return Optional.ofNullable(this.referenceId);
+    }
+
+    /**
+     * The version of the Policy Definition to use.
+     * 
+     */
+    @Import(name="version")
+    private @Nullable Output<String> version;
+
+    /**
+     * @return The version of the Policy Definition to use.
+     * 
+     */
+    public Optional<Output<String>> version() {
+        return Optional.ofNullable(this.version);
     }
 
     private PolicySetDefinitionPolicyDefinitionReferenceArgs() {}
@@ -84,6 +99,7 @@ public final class PolicySetDefinitionPolicyDefinitionReferenceArgs extends com.
         this.policyDefinitionId = $.policyDefinitionId;
         this.policyGroupNames = $.policyGroupNames;
         this.referenceId = $.referenceId;
+        this.version = $.version;
     }
 
     public static Builder builder() {
@@ -105,7 +121,7 @@ public final class PolicySetDefinitionPolicyDefinitionReferenceArgs extends com.
         }
 
         /**
-         * @param parameterValues Parameter values for the referenced policy rule. This field is a JSON string that allows you to assign parameters to this policy rule.
+         * @param parameterValues Parameter values for the references Policy Definition in JSON format.
          * 
          * @return builder
          * 
@@ -116,7 +132,7 @@ public final class PolicySetDefinitionPolicyDefinitionReferenceArgs extends com.
         }
 
         /**
-         * @param parameterValues Parameter values for the referenced policy rule. This field is a JSON string that allows you to assign parameters to this policy rule.
+         * @param parameterValues Parameter values for the references Policy Definition in JSON format.
          * 
          * @return builder
          * 
@@ -126,7 +142,7 @@ public final class PolicySetDefinitionPolicyDefinitionReferenceArgs extends com.
         }
 
         /**
-         * @param policyDefinitionId The ID of the policy definition that will be included in this policy set definition.
+         * @param policyDefinitionId The ID of the Policy Definition to include in this Policy Set Definition.
          * 
          * @return builder
          * 
@@ -137,7 +153,7 @@ public final class PolicySetDefinitionPolicyDefinitionReferenceArgs extends com.
         }
 
         /**
-         * @param policyDefinitionId The ID of the policy definition that will be included in this policy set definition.
+         * @param policyDefinitionId The ID of the Policy Definition to include in this Policy Set Definition.
          * 
          * @return builder
          * 
@@ -147,7 +163,7 @@ public final class PolicySetDefinitionPolicyDefinitionReferenceArgs extends com.
         }
 
         /**
-         * @param policyGroupNames A list of names of the policy definition groups that this policy definition reference belongs to.
+         * @param policyGroupNames Specifies a list of Policy Definition Groups names that this Policy Definition Reference belongs to.
          * 
          * @return builder
          * 
@@ -158,7 +174,7 @@ public final class PolicySetDefinitionPolicyDefinitionReferenceArgs extends com.
         }
 
         /**
-         * @param policyGroupNames A list of names of the policy definition groups that this policy definition reference belongs to.
+         * @param policyGroupNames Specifies a list of Policy Definition Groups names that this Policy Definition Reference belongs to.
          * 
          * @return builder
          * 
@@ -168,7 +184,7 @@ public final class PolicySetDefinitionPolicyDefinitionReferenceArgs extends com.
         }
 
         /**
-         * @param policyGroupNames A list of names of the policy definition groups that this policy definition reference belongs to.
+         * @param policyGroupNames Specifies a list of Policy Definition Groups names that this Policy Definition Reference belongs to.
          * 
          * @return builder
          * 
@@ -178,7 +194,7 @@ public final class PolicySetDefinitionPolicyDefinitionReferenceArgs extends com.
         }
 
         /**
-         * @param referenceId A unique ID within this policy set definition for this policy definition reference.
+         * @param referenceId A unique ID within this Policy Set Definition for this Policy Definition Reference.
          * 
          * @return builder
          * 
@@ -189,13 +205,34 @@ public final class PolicySetDefinitionPolicyDefinitionReferenceArgs extends com.
         }
 
         /**
-         * @param referenceId A unique ID within this policy set definition for this policy definition reference.
+         * @param referenceId A unique ID within this Policy Set Definition for this Policy Definition Reference.
          * 
          * @return builder
          * 
          */
         public Builder referenceId(String referenceId) {
             return referenceId(Output.of(referenceId));
+        }
+
+        /**
+         * @param version The version of the Policy Definition to use.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder version(@Nullable Output<String> version) {
+            $.version = version;
+            return this;
+        }
+
+        /**
+         * @param version The version of the Policy Definition to use.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder version(String version) {
+            return version(Output.of(version));
         }
 
         public PolicySetDefinitionPolicyDefinitionReferenceArgs build() {

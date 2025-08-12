@@ -221,7 +221,7 @@ def get_flexible_server(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.DBforPostgreSQL`: 2024-08-01
+    * `Microsoft.DBforPostgreSQL` - 2024-08-01
 
 
     :param _builtins.str name: The name of this PostgreSQL Flexible Server.
@@ -270,7 +270,7 @@ def get_flexible_server_output(name: Optional[pulumi.Input[_builtins.str]] = Non
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.DBforPostgreSQL`: 2024-08-01
+    * `Microsoft.DBforPostgreSQL` - 2024-08-01
 
 
     :param _builtins.str name: The name of this PostgreSQL Flexible Server.

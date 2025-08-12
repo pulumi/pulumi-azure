@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.OperationalInsights`: 2020-08-01
+ * * `Microsoft.OperationalInsights` - 2020-08-01
  */
 export function getAnalyticsWorkspace(args: GetAnalyticsWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetAnalyticsWorkspaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -110,7 +110,7 @@ export interface GetAnalyticsWorkspaceResult {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.OperationalInsights`: 2020-08-01
+ * * `Microsoft.OperationalInsights` - 2020-08-01
  */
 export function getAnalyticsWorkspaceOutput(args: GetAnalyticsWorkspaceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAnalyticsWorkspaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

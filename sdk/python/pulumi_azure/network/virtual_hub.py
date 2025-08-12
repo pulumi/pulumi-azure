@@ -23,6 +23,7 @@ class VirtualHubArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  address_prefix: Optional[pulumi.Input[_builtins.str]] = None,
+                 branch_to_branch_traffic_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  hub_routing_preference: Optional[pulumi.Input[_builtins.str]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -35,6 +36,7 @@ class VirtualHubArgs:
         The set of arguments for constructing a VirtualHub resource.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the name of the Resource Group where the Virtual Hub should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] address_prefix: The Address Prefix which should be used for this Virtual Hub. Changing this forces a new resource to be created. [The address prefix subnet cannot be smaller than a `/24`. Azure recommends using a `/23`](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-faq#what-is-the-recommended-hub-address-space-during-hub-creation).
+        :param pulumi.Input[_builtins.bool] branch_to_branch_traffic_enabled: Boolean flag to specify whether branch to branch traffic is allowed. Defaults to `false`.
         :param pulumi.Input[_builtins.str] hub_routing_preference: The hub routing preference. Possible values are `ExpressRoute`, `ASPath` and `VpnGateway`. Defaults to `ExpressRoute`.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the Virtual Hub should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name of the Virtual Hub. Changing this forces a new resource to be created.
@@ -47,6 +49,8 @@ class VirtualHubArgs:
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if address_prefix is not None:
             pulumi.set(__self__, "address_prefix", address_prefix)
+        if branch_to_branch_traffic_enabled is not None:
+            pulumi.set(__self__, "branch_to_branch_traffic_enabled", branch_to_branch_traffic_enabled)
         if hub_routing_preference is not None:
             pulumi.set(__self__, "hub_routing_preference", hub_routing_preference)
         if location is not None:
@@ -87,6 +91,18 @@ class VirtualHubArgs:
     @address_prefix.setter
     def address_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "address_prefix", value)
+
+    @_builtins.property
+    @pulumi.getter(name="branchToBranchTrafficEnabled")
+    def branch_to_branch_traffic_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Boolean flag to specify whether branch to branch traffic is allowed. Defaults to `false`.
+        """
+        return pulumi.get(self, "branch_to_branch_traffic_enabled")
+
+    @branch_to_branch_traffic_enabled.setter
+    def branch_to_branch_traffic_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "branch_to_branch_traffic_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="hubRoutingPreference")
@@ -189,6 +205,7 @@ class VirtualHubArgs:
 class _VirtualHubState:
     def __init__(__self__, *,
                  address_prefix: Optional[pulumi.Input[_builtins.str]] = None,
+                 branch_to_branch_traffic_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  default_route_table_id: Optional[pulumi.Input[_builtins.str]] = None,
                  hub_routing_preference: Optional[pulumi.Input[_builtins.str]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
@@ -204,6 +221,7 @@ class _VirtualHubState:
         """
         Input properties used for looking up and filtering VirtualHub resources.
         :param pulumi.Input[_builtins.str] address_prefix: The Address Prefix which should be used for this Virtual Hub. Changing this forces a new resource to be created. [The address prefix subnet cannot be smaller than a `/24`. Azure recommends using a `/23`](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-faq#what-is-the-recommended-hub-address-space-during-hub-creation).
+        :param pulumi.Input[_builtins.bool] branch_to_branch_traffic_enabled: Boolean flag to specify whether branch to branch traffic is allowed. Defaults to `false`.
         :param pulumi.Input[_builtins.str] default_route_table_id: The ID of the default Route Table in the Virtual Hub.
         :param pulumi.Input[_builtins.str] hub_routing_preference: The hub routing preference. Possible values are `ExpressRoute`, `ASPath` and `VpnGateway`. Defaults to `ExpressRoute`.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the Virtual Hub should exist. Changing this forces a new resource to be created.
@@ -219,6 +237,8 @@ class _VirtualHubState:
         """
         if address_prefix is not None:
             pulumi.set(__self__, "address_prefix", address_prefix)
+        if branch_to_branch_traffic_enabled is not None:
+            pulumi.set(__self__, "branch_to_branch_traffic_enabled", branch_to_branch_traffic_enabled)
         if default_route_table_id is not None:
             pulumi.set(__self__, "default_route_table_id", default_route_table_id)
         if hub_routing_preference is not None:
@@ -255,6 +275,18 @@ class _VirtualHubState:
     @address_prefix.setter
     def address_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "address_prefix", value)
+
+    @_builtins.property
+    @pulumi.getter(name="branchToBranchTrafficEnabled")
+    def branch_to_branch_traffic_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Boolean flag to specify whether branch to branch traffic is allowed. Defaults to `false`.
+        """
+        return pulumi.get(self, "branch_to_branch_traffic_enabled")
+
+    @branch_to_branch_traffic_enabled.setter
+    def branch_to_branch_traffic_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "branch_to_branch_traffic_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultRouteTableId")
@@ -408,6 +440,7 @@ class VirtualHub(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  address_prefix: Optional[pulumi.Input[_builtins.str]] = None,
+                 branch_to_branch_traffic_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  hub_routing_preference: Optional[pulumi.Input[_builtins.str]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -447,7 +480,7 @@ class VirtualHub(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.Network`: 2024-05-01
+        * `Microsoft.Network` - 2024-05-01
 
         ## Import
 
@@ -460,6 +493,7 @@ class VirtualHub(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] address_prefix: The Address Prefix which should be used for this Virtual Hub. Changing this forces a new resource to be created. [The address prefix subnet cannot be smaller than a `/24`. Azure recommends using a `/23`](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-faq#what-is-the-recommended-hub-address-space-during-hub-creation).
+        :param pulumi.Input[_builtins.bool] branch_to_branch_traffic_enabled: Boolean flag to specify whether branch to branch traffic is allowed. Defaults to `false`.
         :param pulumi.Input[_builtins.str] hub_routing_preference: The hub routing preference. Possible values are `ExpressRoute`, `ASPath` and `VpnGateway`. Defaults to `ExpressRoute`.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the Virtual Hub should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name of the Virtual Hub. Changing this forces a new resource to be created.
@@ -505,7 +539,7 @@ class VirtualHub(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.Network`: 2024-05-01
+        * `Microsoft.Network` - 2024-05-01
 
         ## Import
 
@@ -531,6 +565,7 @@ class VirtualHub(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  address_prefix: Optional[pulumi.Input[_builtins.str]] = None,
+                 branch_to_branch_traffic_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  hub_routing_preference: Optional[pulumi.Input[_builtins.str]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -550,6 +585,7 @@ class VirtualHub(pulumi.CustomResource):
             __props__ = VirtualHubArgs.__new__(VirtualHubArgs)
 
             __props__.__dict__["address_prefix"] = address_prefix
+            __props__.__dict__["branch_to_branch_traffic_enabled"] = branch_to_branch_traffic_enabled
             __props__.__dict__["hub_routing_preference"] = hub_routing_preference
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
@@ -575,6 +611,7 @@ class VirtualHub(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             address_prefix: Optional[pulumi.Input[_builtins.str]] = None,
+            branch_to_branch_traffic_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
             default_route_table_id: Optional[pulumi.Input[_builtins.str]] = None,
             hub_routing_preference: Optional[pulumi.Input[_builtins.str]] = None,
             location: Optional[pulumi.Input[_builtins.str]] = None,
@@ -595,6 +632,7 @@ class VirtualHub(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] address_prefix: The Address Prefix which should be used for this Virtual Hub. Changing this forces a new resource to be created. [The address prefix subnet cannot be smaller than a `/24`. Azure recommends using a `/23`](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-faq#what-is-the-recommended-hub-address-space-during-hub-creation).
+        :param pulumi.Input[_builtins.bool] branch_to_branch_traffic_enabled: Boolean flag to specify whether branch to branch traffic is allowed. Defaults to `false`.
         :param pulumi.Input[_builtins.str] default_route_table_id: The ID of the default Route Table in the Virtual Hub.
         :param pulumi.Input[_builtins.str] hub_routing_preference: The hub routing preference. Possible values are `ExpressRoute`, `ASPath` and `VpnGateway`. Defaults to `ExpressRoute`.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the Virtual Hub should exist. Changing this forces a new resource to be created.
@@ -613,6 +651,7 @@ class VirtualHub(pulumi.CustomResource):
         __props__ = _VirtualHubState.__new__(_VirtualHubState)
 
         __props__.__dict__["address_prefix"] = address_prefix
+        __props__.__dict__["branch_to_branch_traffic_enabled"] = branch_to_branch_traffic_enabled
         __props__.__dict__["default_route_table_id"] = default_route_table_id
         __props__.__dict__["hub_routing_preference"] = hub_routing_preference
         __props__.__dict__["location"] = location
@@ -634,6 +673,14 @@ class VirtualHub(pulumi.CustomResource):
         The Address Prefix which should be used for this Virtual Hub. Changing this forces a new resource to be created. [The address prefix subnet cannot be smaller than a `/24`. Azure recommends using a `/23`](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-faq#what-is-the-recommended-hub-address-space-during-hub-creation).
         """
         return pulumi.get(self, "address_prefix")
+
+    @_builtins.property
+    @pulumi.getter(name="branchToBranchTrafficEnabled")
+    def branch_to_branch_traffic_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Boolean flag to specify whether branch to branch traffic is allowed. Defaults to `false`.
+        """
+        return pulumi.get(self, "branch_to_branch_traffic_enabled")
 
     @_builtins.property
     @pulumi.getter(name="defaultRouteTableId")

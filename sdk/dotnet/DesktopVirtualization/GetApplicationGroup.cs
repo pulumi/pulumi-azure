@@ -42,7 +42,7 @@ namespace Pulumi.Azure.DesktopVirtualization
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.DesktopVirtualization`: 2024-04-03
+        /// * `Microsoft.DesktopVirtualization` - 2024-04-03
         /// </summary>
         public static Task<GetApplicationGroupResult> InvokeAsync(GetApplicationGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApplicationGroupResult>("azure:desktopvirtualization/getApplicationGroup:getApplicationGroup", args ?? new GetApplicationGroupArgs(), options.WithDefaults());
@@ -78,7 +78,7 @@ namespace Pulumi.Azure.DesktopVirtualization
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.DesktopVirtualization`: 2024-04-03
+        /// * `Microsoft.DesktopVirtualization` - 2024-04-03
         /// </summary>
         public static Output<GetApplicationGroupResult> Invoke(GetApplicationGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApplicationGroupResult>("azure:desktopvirtualization/getApplicationGroup:getApplicationGroup", args ?? new GetApplicationGroupInvokeArgs(), options.WithDefaults());
@@ -114,7 +114,7 @@ namespace Pulumi.Azure.DesktopVirtualization
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.DesktopVirtualization`: 2024-04-03
+        /// * `Microsoft.DesktopVirtualization` - 2024-04-03
         /// </summary>
         public static Output<GetApplicationGroupResult> Invoke(GetApplicationGroupInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetApplicationGroupResult>("azure:desktopvirtualization/getApplicationGroup:getApplicationGroup", args ?? new GetApplicationGroupInvokeArgs(), options.WithDefaults());

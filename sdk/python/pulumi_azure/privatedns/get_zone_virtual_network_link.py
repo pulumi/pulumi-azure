@@ -26,7 +26,7 @@ class GetZoneVirtualNetworkLinkResult:
     """
     A collection of values returned by getZoneVirtualNetworkLink.
     """
-    def __init__(__self__, id=None, name=None, private_dns_zone_name=None, registration_enabled=None, resource_group_name=None, tags=None, virtual_network_id=None):
+    def __init__(__self__, id=None, name=None, private_dns_zone_name=None, registration_enabled=None, resolution_policy=None, resource_group_name=None, tags=None, virtual_network_id=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -39,6 +39,9 @@ class GetZoneVirtualNetworkLinkResult:
         if registration_enabled and not isinstance(registration_enabled, bool):
             raise TypeError("Expected argument 'registration_enabled' to be a bool")
         pulumi.set(__self__, "registration_enabled", registration_enabled)
+        if resolution_policy and not isinstance(resolution_policy, str):
+            raise TypeError("Expected argument 'resolution_policy' to be a str")
+        pulumi.set(__self__, "resolution_policy", resolution_policy)
         if resource_group_name and not isinstance(resource_group_name, str):
             raise TypeError("Expected argument 'resource_group_name' to be a str")
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -76,6 +79,14 @@ class GetZoneVirtualNetworkLinkResult:
         return pulumi.get(self, "registration_enabled")
 
     @_builtins.property
+    @pulumi.getter(name="resolutionPolicy")
+    def resolution_policy(self) -> _builtins.str:
+        """
+        The resolution policy of the Private DNS Zone Virtual Network Link.
+        """
+        return pulumi.get(self, "resolution_policy")
+
+    @_builtins.property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> _builtins.str:
         return pulumi.get(self, "resource_group_name")
@@ -107,6 +118,7 @@ class AwaitableGetZoneVirtualNetworkLinkResult(GetZoneVirtualNetworkLinkResult):
             name=self.name,
             private_dns_zone_name=self.private_dns_zone_name,
             registration_enabled=self.registration_enabled,
+            resolution_policy=self.resolution_policy,
             resource_group_name=self.resource_group_name,
             tags=self.tags,
             virtual_network_id=self.virtual_network_id)
@@ -136,7 +148,7 @@ def get_zone_virtual_network_link(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Network`: 2024-06-01
+    * `Microsoft.Network` - 2024-06-01
 
 
     :param _builtins.str name: The name of the Private DNS Zone Virtual Network Link.
@@ -155,6 +167,7 @@ def get_zone_virtual_network_link(name: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         private_dns_zone_name=pulumi.get(__ret__, 'private_dns_zone_name'),
         registration_enabled=pulumi.get(__ret__, 'registration_enabled'),
+        resolution_policy=pulumi.get(__ret__, 'resolution_policy'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         tags=pulumi.get(__ret__, 'tags'),
         virtual_network_id=pulumi.get(__ret__, 'virtual_network_id'))
@@ -182,7 +195,7 @@ def get_zone_virtual_network_link_output(name: Optional[pulumi.Input[_builtins.s
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Network`: 2024-06-01
+    * `Microsoft.Network` - 2024-06-01
 
 
     :param _builtins.str name: The name of the Private DNS Zone Virtual Network Link.
@@ -200,6 +213,7 @@ def get_zone_virtual_network_link_output(name: Optional[pulumi.Input[_builtins.s
         name=pulumi.get(__response__, 'name'),
         private_dns_zone_name=pulumi.get(__response__, 'private_dns_zone_name'),
         registration_enabled=pulumi.get(__response__, 'registration_enabled'),
+        resolution_policy=pulumi.get(__response__, 'resolution_policy'),
         resource_group_name=pulumi.get(__response__, 'resource_group_name'),
         tags=pulumi.get(__response__, 'tags'),
         virtual_network_id=pulumi.get(__response__, 'virtual_network_id')))

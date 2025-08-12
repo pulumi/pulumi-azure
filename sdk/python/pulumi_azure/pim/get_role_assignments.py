@@ -127,7 +127,7 @@ def get_role_assignments(limit_at_scope: Optional[_builtins.bool] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Authorization`: 2022-04-01
+    * `Microsoft.Authorization` - 2022-04-01
 
 
     :param _builtins.bool limit_at_scope: Whether to limit the result exactly at the specified scope and not above or below it. Defaults to `false`.
@@ -176,7 +176,7 @@ def get_role_assignments_output(limit_at_scope: Optional[pulumi.Input[Optional[_
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Authorization`: 2022-04-01
+    * `Microsoft.Authorization` - 2022-04-01
 
 
     :param _builtins.bool limit_at_scope: Whether to limit the result exactly at the specified scope and not above or below it. Defaults to `false`.

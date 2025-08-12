@@ -13,7 +13,9 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AutomationAction {
     /**
-     * @return (Optional, but required when `type` is `eventhub`) A connection string to send data to the target Event Hub namespace, this should include a key with send permissions.
+     * @return A connection string to send data to the target Event Hub namespace, this should include a key with send permissions.
+     * 
+     * &gt; **Note:** `connection_string` is required when `type` is `EventHub`.
      * 
      */
     private @Nullable String connectionString;
@@ -23,19 +25,23 @@ public final class AutomationAction {
      */
     private String resourceId;
     /**
-     * @return (Optional, but required when `type` is `logicapp`) The callback URL to trigger the Logic App that will receive and process data sent by this automation. This can be found in the Azure Portal under &#34;See trigger history&#34;
+     * @return The callback URL to trigger the Logic App that will receive and process data sent by this automation. This can be found in the Azure Portal under &#34;See trigger history&#34;
+     * 
+     * &gt; **Note:** `trigger_url` is required when `type` is `LogicApp`.
      * 
      */
     private @Nullable String triggerUrl;
     /**
-     * @return Type of Azure resource to send data to. Must be set to one of: `logicapp`, `eventhub` or `loganalytics`.
+     * @return Type of Azure resource to send data to. Possible values are `EventHub`, `LogicApp` and `Workspace`.
      * 
      */
-    private String type;
+    private @Nullable String type;
 
     private AutomationAction() {}
     /**
-     * @return (Optional, but required when `type` is `eventhub`) A connection string to send data to the target Event Hub namespace, this should include a key with send permissions.
+     * @return A connection string to send data to the target Event Hub namespace, this should include a key with send permissions.
+     * 
+     * &gt; **Note:** `connection_string` is required when `type` is `EventHub`.
      * 
      */
     public Optional<String> connectionString() {
@@ -49,18 +55,20 @@ public final class AutomationAction {
         return this.resourceId;
     }
     /**
-     * @return (Optional, but required when `type` is `logicapp`) The callback URL to trigger the Logic App that will receive and process data sent by this automation. This can be found in the Azure Portal under &#34;See trigger history&#34;
+     * @return The callback URL to trigger the Logic App that will receive and process data sent by this automation. This can be found in the Azure Portal under &#34;See trigger history&#34;
+     * 
+     * &gt; **Note:** `trigger_url` is required when `type` is `LogicApp`.
      * 
      */
     public Optional<String> triggerUrl() {
         return Optional.ofNullable(this.triggerUrl);
     }
     /**
-     * @return Type of Azure resource to send data to. Must be set to one of: `logicapp`, `eventhub` or `loganalytics`.
+     * @return Type of Azure resource to send data to. Possible values are `EventHub`, `LogicApp` and `Workspace`.
      * 
      */
-    public String type() {
-        return this.type;
+    public Optional<String> type() {
+        return Optional.ofNullable(this.type);
     }
 
     public static Builder builder() {
@@ -75,7 +83,7 @@ public final class AutomationAction {
         private @Nullable String connectionString;
         private String resourceId;
         private @Nullable String triggerUrl;
-        private String type;
+        private @Nullable String type;
         public Builder() {}
         public Builder(AutomationAction defaults) {
     	      Objects.requireNonNull(defaults);
@@ -106,10 +114,8 @@ public final class AutomationAction {
             return this;
         }
         @CustomType.Setter
-        public Builder type(String type) {
-            if (type == null) {
-              throw new MissingRequiredPropertyException("AutomationAction", "type");
-            }
+        public Builder type(@Nullable String type) {
+
             this.type = type;
             return this;
         }

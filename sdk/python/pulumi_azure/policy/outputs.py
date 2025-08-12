@@ -54,11 +54,11 @@ class PolicySetDefinitionPolicyDefinitionGroup(dict):
                  description: Optional[_builtins.str] = None,
                  display_name: Optional[_builtins.str] = None):
         """
-        :param _builtins.str name: The name of this policy definition group.
-        :param _builtins.str additional_metadata_resource_id: The ID of a resource that contains additional metadata about this policy definition group.
-        :param _builtins.str category: The category of this policy definition group.
-        :param _builtins.str description: The description of this policy definition group.
-        :param _builtins.str display_name: The display name of this policy definition group.
+        :param _builtins.str name: The name which should be used for this Policy Definition Group.
+        :param _builtins.str additional_metadata_resource_id: The ID of a resource that contains additional metadata for this Policy Definition Group.
+        :param _builtins.str category: The category of this Policy Definition Group.
+        :param _builtins.str description: The description of this Policy Definition Group.
+        :param _builtins.str display_name: The display name of this Policy Definition Group.
         """
         pulumi.set(__self__, "name", name)
         if additional_metadata_resource_id is not None:
@@ -74,7 +74,7 @@ class PolicySetDefinitionPolicyDefinitionGroup(dict):
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The name of this policy definition group.
+        The name which should be used for this Policy Definition Group.
         """
         return pulumi.get(self, "name")
 
@@ -82,7 +82,7 @@ class PolicySetDefinitionPolicyDefinitionGroup(dict):
     @pulumi.getter(name="additionalMetadataResourceId")
     def additional_metadata_resource_id(self) -> Optional[_builtins.str]:
         """
-        The ID of a resource that contains additional metadata about this policy definition group.
+        The ID of a resource that contains additional metadata for this Policy Definition Group.
         """
         return pulumi.get(self, "additional_metadata_resource_id")
 
@@ -90,7 +90,7 @@ class PolicySetDefinitionPolicyDefinitionGroup(dict):
     @pulumi.getter
     def category(self) -> Optional[_builtins.str]:
         """
-        The category of this policy definition group.
+        The category of this Policy Definition Group.
         """
         return pulumi.get(self, "category")
 
@@ -98,7 +98,7 @@ class PolicySetDefinitionPolicyDefinitionGroup(dict):
     @pulumi.getter
     def description(self) -> Optional[_builtins.str]:
         """
-        The description of this policy definition group.
+        The description of this Policy Definition Group.
         """
         return pulumi.get(self, "description")
 
@@ -106,7 +106,7 @@ class PolicySetDefinitionPolicyDefinitionGroup(dict):
     @pulumi.getter(name="displayName")
     def display_name(self) -> Optional[_builtins.str]:
         """
-        The display name of this policy definition group.
+        The display name of this Policy Definition Group.
         """
         return pulumi.get(self, "display_name")
 
@@ -140,12 +140,14 @@ class PolicySetDefinitionPolicyDefinitionReference(dict):
                  policy_definition_id: _builtins.str,
                  parameter_values: Optional[_builtins.str] = None,
                  policy_group_names: Optional[Sequence[_builtins.str]] = None,
-                 reference_id: Optional[_builtins.str] = None):
+                 reference_id: Optional[_builtins.str] = None,
+                 version: Optional[_builtins.str] = None):
         """
-        :param _builtins.str policy_definition_id: The ID of the policy definition that will be included in this policy set definition.
-        :param _builtins.str parameter_values: Parameter values for the referenced policy rule. This field is a JSON string that allows you to assign parameters to this policy rule.
-        :param Sequence[_builtins.str] policy_group_names: A list of names of the policy definition groups that this policy definition reference belongs to.
-        :param _builtins.str reference_id: A unique ID within this policy set definition for this policy definition reference.
+        :param _builtins.str policy_definition_id: The ID of the Policy Definition to include in this Policy Set Definition.
+        :param _builtins.str parameter_values: Parameter values for the references Policy Definition in JSON format.
+        :param Sequence[_builtins.str] policy_group_names: Specifies a list of Policy Definition Groups names that this Policy Definition Reference belongs to.
+        :param _builtins.str reference_id: A unique ID within this Policy Set Definition for this Policy Definition Reference.
+        :param _builtins.str version: The version of the Policy Definition to use.
         """
         pulumi.set(__self__, "policy_definition_id", policy_definition_id)
         if parameter_values is not None:
@@ -154,12 +156,14 @@ class PolicySetDefinitionPolicyDefinitionReference(dict):
             pulumi.set(__self__, "policy_group_names", policy_group_names)
         if reference_id is not None:
             pulumi.set(__self__, "reference_id", reference_id)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @_builtins.property
     @pulumi.getter(name="policyDefinitionId")
     def policy_definition_id(self) -> _builtins.str:
         """
-        The ID of the policy definition that will be included in this policy set definition.
+        The ID of the Policy Definition to include in this Policy Set Definition.
         """
         return pulumi.get(self, "policy_definition_id")
 
@@ -167,7 +171,7 @@ class PolicySetDefinitionPolicyDefinitionReference(dict):
     @pulumi.getter(name="parameterValues")
     def parameter_values(self) -> Optional[_builtins.str]:
         """
-        Parameter values for the referenced policy rule. This field is a JSON string that allows you to assign parameters to this policy rule.
+        Parameter values for the references Policy Definition in JSON format.
         """
         return pulumi.get(self, "parameter_values")
 
@@ -175,7 +179,7 @@ class PolicySetDefinitionPolicyDefinitionReference(dict):
     @pulumi.getter(name="policyGroupNames")
     def policy_group_names(self) -> Optional[Sequence[_builtins.str]]:
         """
-        A list of names of the policy definition groups that this policy definition reference belongs to.
+        Specifies a list of Policy Definition Groups names that this Policy Definition Reference belongs to.
         """
         return pulumi.get(self, "policy_group_names")
 
@@ -183,9 +187,17 @@ class PolicySetDefinitionPolicyDefinitionReference(dict):
     @pulumi.getter(name="referenceId")
     def reference_id(self) -> Optional[_builtins.str]:
         """
-        A unique ID within this policy set definition for this policy definition reference.
+        A unique ID within this Policy Set Definition for this Policy Definition Reference.
         """
         return pulumi.get(self, "reference_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def version(self) -> Optional[_builtins.str]:
+        """
+        The version of the Policy Definition to use.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type

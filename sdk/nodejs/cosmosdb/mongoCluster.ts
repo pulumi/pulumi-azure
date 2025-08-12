@@ -69,7 +69,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This resource uses the following Azure API Providers:
  *
- * * `Microsoft.DocumentDB`: 2024-07-01
+ * * `Microsoft.DocumentDB` - 2024-07-01
  *
  * ## Import
  *
@@ -172,7 +172,7 @@ export class MongoCluster extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The version for the MongoDB Cluster. Possibles values are `5.0`, `6.0` and `7.0`.
+     * The version for the MongoDB Cluster. Possibles values are `5.0`, `6.0`, `7.0` and `8.0`.
      */
     public readonly version!: pulumi.Output<string | undefined>;
 
@@ -305,7 +305,7 @@ export interface MongoClusterState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The version for the MongoDB Cluster. Possibles values are `5.0`, `6.0` and `7.0`.
+     * The version for the MongoDB Cluster. Possibles values are `5.0`, `6.0`, `7.0` and `8.0`.
      */
     version?: pulumi.Input<string>;
 }
@@ -375,7 +375,7 @@ export interface MongoClusterArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The version for the MongoDB Cluster. Possibles values are `5.0`, `6.0` and `7.0`.
+     * The version for the MongoDB Cluster. Possibles values are `5.0`, `6.0`, `7.0` and `8.0`.
      */
     version?: pulumi.Input<string>;
 }

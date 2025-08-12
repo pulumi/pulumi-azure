@@ -41,7 +41,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Authorization`: 2022-05-01-preview
+ * * `Microsoft.Authorization` - 2022-05-01-preview
  */
 export function getRoleDefinition(args?: GetRoleDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetRoleDefinitionResult> {
     args = args || {};
@@ -138,7 +138,7 @@ export interface GetRoleDefinitionResult {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Authorization`: 2022-05-01-preview
+ * * `Microsoft.Authorization` - 2022-05-01-preview
  */
 export function getRoleDefinitionOutput(args?: GetRoleDefinitionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRoleDefinitionResult> {
     args = args || {};

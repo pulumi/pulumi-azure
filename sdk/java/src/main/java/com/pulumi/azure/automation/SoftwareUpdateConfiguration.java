@@ -112,7 +112,7 @@ import javax.annotation.Nullable;
  * &lt;!-- This section is generated, changes will be overwritten --&gt;
  * This resource uses the following Azure API Providers:
  * 
- * * `Microsoft.Automation`: 2019-06-01
+ * * `Microsoft.Automation` - 2019-06-01
  * 
  * ## Import
  * 

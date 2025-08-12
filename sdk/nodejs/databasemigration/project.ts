@@ -53,7 +53,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This resource uses the following Azure API Providers:
  *
- * * `Microsoft.DataMigration`: 2021-06-30
+ * * `Microsoft.DataMigration` - 2021-06-30
  *
  * ## Import
  *

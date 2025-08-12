@@ -158,6 +158,8 @@ def get_server(name: Optional[_builtins.str] = None,
     """
     Use this data source to access information about an existing PostgreSQL Azure Database Server.
 
+    > **Note:** The `postgresql.Server` data source is deprecated and will be removed in v5.0 of the AzureRM Provider. Azure Database for PostgreSQL Single Server and its sub resources have been retired as of 2025-03-28, please use the `postgresql.FlexibleServer` data source instead. For more information, see https://techcommunity.microsoft.com/blog/adforpostgresql/retiring-azure-database-for-postgresql-single-server-in-2025/3783783.
+
     ## Example Usage
 
     ```python
@@ -174,7 +176,7 @@ def get_server(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.DBforPostgreSQL`: 2017-12-01
+    * `Microsoft.DBforPostgreSQL` - 2017-12-01
 
 
     :param _builtins.str name: The name of the PostgreSQL Server.
@@ -203,6 +205,8 @@ def get_server_output(name: Optional[pulumi.Input[_builtins.str]] = None,
     """
     Use this data source to access information about an existing PostgreSQL Azure Database Server.
 
+    > **Note:** The `postgresql.Server` data source is deprecated and will be removed in v5.0 of the AzureRM Provider. Azure Database for PostgreSQL Single Server and its sub resources have been retired as of 2025-03-28, please use the `postgresql.FlexibleServer` data source instead. For more information, see https://techcommunity.microsoft.com/blog/adforpostgresql/retiring-azure-database-for-postgresql-single-server-in-2025/3783783.
+
     ## Example Usage
 
     ```python
@@ -219,7 +223,7 @@ def get_server_output(name: Optional[pulumi.Input[_builtins.str]] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.DBforPostgreSQL`: 2017-12-01
+    * `Microsoft.DBforPostgreSQL` - 2017-12-01
 
 
     :param _builtins.str name: The name of the PostgreSQL Server.

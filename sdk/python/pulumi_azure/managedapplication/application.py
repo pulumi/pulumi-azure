@@ -406,7 +406,7 @@ class Application(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.Solutions`: 2021-07-01
+        * `Microsoft.Solutions` - 2021-07-01
 
         ## Import
 
@@ -489,7 +489,7 @@ class Application(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.Solutions`: 2021-07-01
+        * `Microsoft.Solutions` - 2021-07-01
 
         ## Import
 

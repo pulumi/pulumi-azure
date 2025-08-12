@@ -165,7 +165,7 @@ def get_lb_outbound_rule(loadbalancer_id: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Network`: 2023-09-01
+    * `Microsoft.Network` - 2023-09-01
 
 
     :param _builtins.str loadbalancer_id: The ID of the Load Balancer in which the Outbound Rule exists.
@@ -209,7 +209,7 @@ def get_lb_outbound_rule_output(loadbalancer_id: Optional[pulumi.Input[_builtins
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Network`: 2023-09-01
+    * `Microsoft.Network` - 2023-09-01
 
 
     :param _builtins.str loadbalancer_id: The ID of the Load Balancer in which the Outbound Rule exists.

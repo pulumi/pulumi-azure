@@ -50,7 +50,7 @@ import (
 //				ServerId:    exampleServer.ID(),
 //				Collation:   pulumi.String("SQL_Latin1_General_CP1_CI_AS"),
 //				LicenseType: pulumi.String("LicenseIncluded"),
-//				MaxSizeGb:   pulumi.Int(2),
+//				MaxSizeGb:   pulumi.Float64(2),
 //				SkuName:     pulumi.String("S0"),
 //				EnclaveType: pulumi.String("VBS"),
 //				Tags: pulumi.StringMap{
@@ -178,7 +178,7 @@ import (
 //				ServerId:      exampleServer.ID(),
 //				Collation:     pulumi.String("SQL_Latin1_General_CP1_CI_AS"),
 //				LicenseType:   pulumi.String("LicenseIncluded"),
-//				MaxSizeGb:     pulumi.Int(4),
+//				MaxSizeGb:     pulumi.Float64(4),
 //				ReadScale:     pulumi.Bool(true),
 //				SkuName:       pulumi.String("S0"),
 //				ZoneRedundant: pulumi.Bool(true),
@@ -208,7 +208,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This resource uses the following Azure API Providers:
 //
-// * `Microsoft.Sql`: 2023-08-01-preview
+// * `Microsoft.Sql` - 2023-08-01-preview
 //
 // ## Import
 //
@@ -260,8 +260,8 @@ type Database struct {
 	MaintenanceConfigurationName pulumi.StringOutput `pulumi:"maintenanceConfigurationName"`
 	// The max size of the database in gigabytes.
 	//
-	// > **Note:** This value should not be configured when the `createMode` is `Secondary` or `OnlineSecondary`, as the sizing of the primary is then used as per [Azure documentation](https://docs.microsoft.com/azure/azure-sql/database/single-database-scale#geo-replicated-database).
-	MaxSizeGb pulumi.IntOutput `pulumi:"maxSizeGb"`
+	// > **Note:** This value should not be configured when the `createMode` is `Secondary` or `OnlineSecondary`, as the sizing of the primary is then used as per [Azure documentation](https://docs.microsoft.com/azure/azure-sql/database/single-database-scale#geo-replicated-database). The value of `maxSizeGb` accepts `0.1`, `0.5` and positive integers greater than or equal to 1. `0.1` means `100MB`, and `0.5` means `500MB`.
+	MaxSizeGb pulumi.Float64Output `pulumi:"maxSizeGb"`
 	// Minimal capacity that database will always have allocated, if not paused. This property is only settable for Serverless databases.
 	MinCapacity pulumi.Float64Output `pulumi:"minCapacity"`
 	// The name of the MS SQL Database. Changing this forces a new resource to be created.
@@ -282,7 +282,7 @@ type Database struct {
 	RestorePointInTime pulumi.StringOutput `pulumi:"restorePointInTime"`
 	// Specifies the name of the sample schema to apply when creating this database. Possible value is `AdventureWorksLT`.
 	SampleName pulumi.StringOutput `pulumi:"sampleName"`
-	// How do you want your replica to be made? Valid values include `Geo` and `Named`. Defaults to `Geo`. Changing this forces a new resource to be created.
+	// How do you want your replica to be made? Valid values include `Geo`, `Named` and `Standby`. Defaults to `Geo`. Changing this forces a new resource to be created.
 	SecondaryType pulumi.StringOutput `pulumi:"secondaryType"`
 	// The id of the MS SQL Server on which to create the database. Changing this forces a new resource to be created.
 	//
@@ -397,8 +397,8 @@ type databaseState struct {
 	MaintenanceConfigurationName *string `pulumi:"maintenanceConfigurationName"`
 	// The max size of the database in gigabytes.
 	//
-	// > **Note:** This value should not be configured when the `createMode` is `Secondary` or `OnlineSecondary`, as the sizing of the primary is then used as per [Azure documentation](https://docs.microsoft.com/azure/azure-sql/database/single-database-scale#geo-replicated-database).
-	MaxSizeGb *int `pulumi:"maxSizeGb"`
+	// > **Note:** This value should not be configured when the `createMode` is `Secondary` or `OnlineSecondary`, as the sizing of the primary is then used as per [Azure documentation](https://docs.microsoft.com/azure/azure-sql/database/single-database-scale#geo-replicated-database). The value of `maxSizeGb` accepts `0.1`, `0.5` and positive integers greater than or equal to 1. `0.1` means `100MB`, and `0.5` means `500MB`.
+	MaxSizeGb *float64 `pulumi:"maxSizeGb"`
 	// Minimal capacity that database will always have allocated, if not paused. This property is only settable for Serverless databases.
 	MinCapacity *float64 `pulumi:"minCapacity"`
 	// The name of the MS SQL Database. Changing this forces a new resource to be created.
@@ -419,7 +419,7 @@ type databaseState struct {
 	RestorePointInTime *string `pulumi:"restorePointInTime"`
 	// Specifies the name of the sample schema to apply when creating this database. Possible value is `AdventureWorksLT`.
 	SampleName *string `pulumi:"sampleName"`
-	// How do you want your replica to be made? Valid values include `Geo` and `Named`. Defaults to `Geo`. Changing this forces a new resource to be created.
+	// How do you want your replica to be made? Valid values include `Geo`, `Named` and `Standby`. Defaults to `Geo`. Changing this forces a new resource to be created.
 	SecondaryType *string `pulumi:"secondaryType"`
 	// The id of the MS SQL Server on which to create the database. Changing this forces a new resource to be created.
 	//
@@ -496,8 +496,8 @@ type DatabaseState struct {
 	MaintenanceConfigurationName pulumi.StringPtrInput
 	// The max size of the database in gigabytes.
 	//
-	// > **Note:** This value should not be configured when the `createMode` is `Secondary` or `OnlineSecondary`, as the sizing of the primary is then used as per [Azure documentation](https://docs.microsoft.com/azure/azure-sql/database/single-database-scale#geo-replicated-database).
-	MaxSizeGb pulumi.IntPtrInput
+	// > **Note:** This value should not be configured when the `createMode` is `Secondary` or `OnlineSecondary`, as the sizing of the primary is then used as per [Azure documentation](https://docs.microsoft.com/azure/azure-sql/database/single-database-scale#geo-replicated-database). The value of `maxSizeGb` accepts `0.1`, `0.5` and positive integers greater than or equal to 1. `0.1` means `100MB`, and `0.5` means `500MB`.
+	MaxSizeGb pulumi.Float64PtrInput
 	// Minimal capacity that database will always have allocated, if not paused. This property is only settable for Serverless databases.
 	MinCapacity pulumi.Float64PtrInput
 	// The name of the MS SQL Database. Changing this forces a new resource to be created.
@@ -518,7 +518,7 @@ type DatabaseState struct {
 	RestorePointInTime pulumi.StringPtrInput
 	// Specifies the name of the sample schema to apply when creating this database. Possible value is `AdventureWorksLT`.
 	SampleName pulumi.StringPtrInput
-	// How do you want your replica to be made? Valid values include `Geo` and `Named`. Defaults to `Geo`. Changing this forces a new resource to be created.
+	// How do you want your replica to be made? Valid values include `Geo`, `Named` and `Standby`. Defaults to `Geo`. Changing this forces a new resource to be created.
 	SecondaryType pulumi.StringPtrInput
 	// The id of the MS SQL Server on which to create the database. Changing this forces a new resource to be created.
 	//
@@ -599,8 +599,8 @@ type databaseArgs struct {
 	MaintenanceConfigurationName *string `pulumi:"maintenanceConfigurationName"`
 	// The max size of the database in gigabytes.
 	//
-	// > **Note:** This value should not be configured when the `createMode` is `Secondary` or `OnlineSecondary`, as the sizing of the primary is then used as per [Azure documentation](https://docs.microsoft.com/azure/azure-sql/database/single-database-scale#geo-replicated-database).
-	MaxSizeGb *int `pulumi:"maxSizeGb"`
+	// > **Note:** This value should not be configured when the `createMode` is `Secondary` or `OnlineSecondary`, as the sizing of the primary is then used as per [Azure documentation](https://docs.microsoft.com/azure/azure-sql/database/single-database-scale#geo-replicated-database). The value of `maxSizeGb` accepts `0.1`, `0.5` and positive integers greater than or equal to 1. `0.1` means `100MB`, and `0.5` means `500MB`.
+	MaxSizeGb *float64 `pulumi:"maxSizeGb"`
 	// Minimal capacity that database will always have allocated, if not paused. This property is only settable for Serverless databases.
 	MinCapacity *float64 `pulumi:"minCapacity"`
 	// The name of the MS SQL Database. Changing this forces a new resource to be created.
@@ -621,7 +621,7 @@ type databaseArgs struct {
 	RestorePointInTime *string `pulumi:"restorePointInTime"`
 	// Specifies the name of the sample schema to apply when creating this database. Possible value is `AdventureWorksLT`.
 	SampleName *string `pulumi:"sampleName"`
-	// How do you want your replica to be made? Valid values include `Geo` and `Named`. Defaults to `Geo`. Changing this forces a new resource to be created.
+	// How do you want your replica to be made? Valid values include `Geo`, `Named` and `Standby`. Defaults to `Geo`. Changing this forces a new resource to be created.
 	SecondaryType *string `pulumi:"secondaryType"`
 	// The id of the MS SQL Server on which to create the database. Changing this forces a new resource to be created.
 	//
@@ -699,8 +699,8 @@ type DatabaseArgs struct {
 	MaintenanceConfigurationName pulumi.StringPtrInput
 	// The max size of the database in gigabytes.
 	//
-	// > **Note:** This value should not be configured when the `createMode` is `Secondary` or `OnlineSecondary`, as the sizing of the primary is then used as per [Azure documentation](https://docs.microsoft.com/azure/azure-sql/database/single-database-scale#geo-replicated-database).
-	MaxSizeGb pulumi.IntPtrInput
+	// > **Note:** This value should not be configured when the `createMode` is `Secondary` or `OnlineSecondary`, as the sizing of the primary is then used as per [Azure documentation](https://docs.microsoft.com/azure/azure-sql/database/single-database-scale#geo-replicated-database). The value of `maxSizeGb` accepts `0.1`, `0.5` and positive integers greater than or equal to 1. `0.1` means `100MB`, and `0.5` means `500MB`.
+	MaxSizeGb pulumi.Float64PtrInput
 	// Minimal capacity that database will always have allocated, if not paused. This property is only settable for Serverless databases.
 	MinCapacity pulumi.Float64PtrInput
 	// The name of the MS SQL Database. Changing this forces a new resource to be created.
@@ -721,7 +721,7 @@ type DatabaseArgs struct {
 	RestorePointInTime pulumi.StringPtrInput
 	// Specifies the name of the sample schema to apply when creating this database. Possible value is `AdventureWorksLT`.
 	SampleName pulumi.StringPtrInput
-	// How do you want your replica to be made? Valid values include `Geo` and `Named`. Defaults to `Geo`. Changing this forces a new resource to be created.
+	// How do you want your replica to be made? Valid values include `Geo`, `Named` and `Standby`. Defaults to `Geo`. Changing this forces a new resource to be created.
 	SecondaryType pulumi.StringPtrInput
 	// The id of the MS SQL Server on which to create the database. Changing this forces a new resource to be created.
 	//
@@ -923,9 +923,9 @@ func (o DatabaseOutput) MaintenanceConfigurationName() pulumi.StringOutput {
 
 // The max size of the database in gigabytes.
 //
-// > **Note:** This value should not be configured when the `createMode` is `Secondary` or `OnlineSecondary`, as the sizing of the primary is then used as per [Azure documentation](https://docs.microsoft.com/azure/azure-sql/database/single-database-scale#geo-replicated-database).
-func (o DatabaseOutput) MaxSizeGb() pulumi.IntOutput {
-	return o.ApplyT(func(v *Database) pulumi.IntOutput { return v.MaxSizeGb }).(pulumi.IntOutput)
+// > **Note:** This value should not be configured when the `createMode` is `Secondary` or `OnlineSecondary`, as the sizing of the primary is then used as per [Azure documentation](https://docs.microsoft.com/azure/azure-sql/database/single-database-scale#geo-replicated-database). The value of `maxSizeGb` accepts `0.1`, `0.5` and positive integers greater than or equal to 1. `0.1` means `100MB`, and `0.5` means `500MB`.
+func (o DatabaseOutput) MaxSizeGb() pulumi.Float64Output {
+	return o.ApplyT(func(v *Database) pulumi.Float64Output { return v.MaxSizeGb }).(pulumi.Float64Output)
 }
 
 // Minimal capacity that database will always have allocated, if not paused. This property is only settable for Serverless databases.
@@ -978,7 +978,7 @@ func (o DatabaseOutput) SampleName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Database) pulumi.StringOutput { return v.SampleName }).(pulumi.StringOutput)
 }
 
-// How do you want your replica to be made? Valid values include `Geo` and `Named`. Defaults to `Geo`. Changing this forces a new resource to be created.
+// How do you want your replica to be made? Valid values include `Geo`, `Named` and `Standby`. Defaults to `Geo`. Changing this forces a new resource to be created.
 func (o DatabaseOutput) SecondaryType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Database) pulumi.StringOutput { return v.SecondaryType }).(pulumi.StringOutput)
 }

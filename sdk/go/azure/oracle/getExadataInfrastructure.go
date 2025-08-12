@@ -46,7 +46,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This data source uses the following Azure API Providers:
 //
-// * `Oracle.Database`: 2024-06-01
+// * `Oracle.Database` - 2025-03-01
 func LookupExadataInfrastructure(ctx *pulumi.Context, args *LookupExadataInfrastructureArgs, opts ...pulumi.InvokeOption) (*LookupExadataInfrastructureResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupExadataInfrastructureResult
@@ -75,16 +75,22 @@ type LookupExadataInfrastructureResult struct {
 	AvailableStorageSizeInGbs int `pulumi:"availableStorageSizeInGbs"`
 	// The number of compute servers for the Cloud Exadata Infrastructure.
 	ComputeCount int `pulumi:"computeCount"`
+	// The compute model of the Exadata Infrastructure.
+	ComputeModel string `pulumi:"computeModel"`
 	// The total number of CPU cores allocated.
 	CpuCount int `pulumi:"cpuCount"`
 	// A `customerContacts` block as defined below.
 	CustomerContacts []string `pulumi:"customerContacts"`
 	// The data storage size in terabytes of the DATA disk group.
 	DataStorageSizeInTbs float64 `pulumi:"dataStorageSizeInTbs"`
+	// The database server model type of the cloud Exadata infrastructure resource.
+	DatabaseServerType string `pulumi:"databaseServerType"`
 	// The local node storage allocated in GBs.
 	DbNodeStorageSizeInGbs int `pulumi:"dbNodeStorageSizeInGbs"`
 	// The software version of the database servers (dom0) in the Cloud Exadata Infrastructure.
 	DbServerVersion string `pulumi:"dbServerVersion"`
+	// A `definedFileSystemConfiguration` block as defined below.
+	DefinedFileSystemConfigurations []GetExadataInfrastructureDefinedFileSystemConfiguration `pulumi:"definedFileSystemConfigurations"`
 	// The user-friendly name for the Cloud Exadata Infrastructure resource. The name does not need to be unique.
 	DisplayName string `pulumi:"displayName"`
 	// A `estimatedPatchingTime` block as defined below.
@@ -127,6 +133,8 @@ type LookupExadataInfrastructureResult struct {
 	Shape string `pulumi:"shape"`
 	// The number of storage servers for the Cloud Exadata Infrastructure.
 	StorageCount int `pulumi:"storageCount"`
+	// The storage server model type of the cloud Exadata infrastructure resource.
+	StorageServerType string `pulumi:"storageServerType"`
 	// The software version of the storage servers (cells) in the Cloud Exadata Infrastructure.
 	StorageServerVersion string `pulumi:"storageServerVersion"`
 	// A mapping of tags assigned to the Cloud Exadata Infrastructure.
@@ -195,6 +203,11 @@ func (o LookupExadataInfrastructureResultOutput) ComputeCount() pulumi.IntOutput
 	return o.ApplyT(func(v LookupExadataInfrastructureResult) int { return v.ComputeCount }).(pulumi.IntOutput)
 }
 
+// The compute model of the Exadata Infrastructure.
+func (o LookupExadataInfrastructureResultOutput) ComputeModel() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupExadataInfrastructureResult) string { return v.ComputeModel }).(pulumi.StringOutput)
+}
+
 // The total number of CPU cores allocated.
 func (o LookupExadataInfrastructureResultOutput) CpuCount() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupExadataInfrastructureResult) int { return v.CpuCount }).(pulumi.IntOutput)
@@ -210,6 +223,11 @@ func (o LookupExadataInfrastructureResultOutput) DataStorageSizeInTbs() pulumi.F
 	return o.ApplyT(func(v LookupExadataInfrastructureResult) float64 { return v.DataStorageSizeInTbs }).(pulumi.Float64Output)
 }
 
+// The database server model type of the cloud Exadata infrastructure resource.
+func (o LookupExadataInfrastructureResultOutput) DatabaseServerType() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupExadataInfrastructureResult) string { return v.DatabaseServerType }).(pulumi.StringOutput)
+}
+
 // The local node storage allocated in GBs.
 func (o LookupExadataInfrastructureResultOutput) DbNodeStorageSizeInGbs() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupExadataInfrastructureResult) int { return v.DbNodeStorageSizeInGbs }).(pulumi.IntOutput)
@@ -218,6 +236,13 @@ func (o LookupExadataInfrastructureResultOutput) DbNodeStorageSizeInGbs() pulumi
 // The software version of the database servers (dom0) in the Cloud Exadata Infrastructure.
 func (o LookupExadataInfrastructureResultOutput) DbServerVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupExadataInfrastructureResult) string { return v.DbServerVersion }).(pulumi.StringOutput)
+}
+
+// A `definedFileSystemConfiguration` block as defined below.
+func (o LookupExadataInfrastructureResultOutput) DefinedFileSystemConfigurations() GetExadataInfrastructureDefinedFileSystemConfigurationArrayOutput {
+	return o.ApplyT(func(v LookupExadataInfrastructureResult) []GetExadataInfrastructureDefinedFileSystemConfiguration {
+		return v.DefinedFileSystemConfigurations
+	}).(GetExadataInfrastructureDefinedFileSystemConfigurationArrayOutput)
 }
 
 // The user-friendly name for the Cloud Exadata Infrastructure resource. The name does not need to be unique.
@@ -330,6 +355,11 @@ func (o LookupExadataInfrastructureResultOutput) Shape() pulumi.StringOutput {
 // The number of storage servers for the Cloud Exadata Infrastructure.
 func (o LookupExadataInfrastructureResultOutput) StorageCount() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupExadataInfrastructureResult) int { return v.StorageCount }).(pulumi.IntOutput)
+}
+
+// The storage server model type of the cloud Exadata infrastructure resource.
+func (o LookupExadataInfrastructureResultOutput) StorageServerType() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupExadataInfrastructureResult) string { return v.StorageServerType }).(pulumi.StringOutput)
 }
 
 // The software version of the storage servers (cells) in the Cloud Exadata Infrastructure.

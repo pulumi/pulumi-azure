@@ -59,7 +59,7 @@ public final class SignalrFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.SignalRService`: 2024-03-01
+     * * `Microsoft.SignalRService` - 2024-03-01
      * 
      */
     public static Output<GetServiceResult> getService(GetServiceArgs args) {
@@ -109,7 +109,7 @@ public final class SignalrFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.SignalRService`: 2024-03-01
+     * * `Microsoft.SignalRService` - 2024-03-01
      * 
      */
     public static CompletableFuture<GetServiceResult> getServicePlain(GetServicePlainArgs args) {
@@ -159,7 +159,7 @@ public final class SignalrFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.SignalRService`: 2024-03-01
+     * * `Microsoft.SignalRService` - 2024-03-01
      * 
      */
     public static Output<GetServiceResult> getService(GetServiceArgs args, InvokeOptions options) {
@@ -209,7 +209,7 @@ public final class SignalrFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.SignalRService`: 2024-03-01
+     * * `Microsoft.SignalRService` - 2024-03-01
      * 
      */
     public static Output<GetServiceResult> getService(GetServiceArgs args, InvokeOutputOptions options) {
@@ -259,7 +259,7 @@ public final class SignalrFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.SignalRService`: 2024-03-01
+     * * `Microsoft.SignalRService` - 2024-03-01
      * 
      */
     public static CompletableFuture<GetServiceResult> getServicePlain(GetServicePlainArgs args, InvokeOptions options) {

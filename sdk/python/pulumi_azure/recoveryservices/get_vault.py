@@ -137,7 +137,7 @@ def get_vault(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.RecoveryServices`: 2024-01-01
+    * `Microsoft.RecoveryServices` - 2024-01-01
 
 
     :param _builtins.str name: Specifies the name of the Recovery Services Vault.
@@ -178,7 +178,7 @@ def get_vault_output(name: Optional[pulumi.Input[_builtins.str]] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.RecoveryServices`: 2024-01-01
+    * `Microsoft.RecoveryServices` - 2024-01-01
 
 
     :param _builtins.str name: Specifies the name of the Recovery Services Vault.

@@ -9,10 +9,16 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
 public final class KubernetesClusterWebAppRouting {
+    /**
+     * @return Specifies the ingress type for the default `NginxIngressController` custom resource. The allowed values are `None`, `Internal`, `External` and `AnnotationControlled`. It defaults to `AnnotationControlled`.
+     * 
+     */
+    private @Nullable String defaultNginxController;
     /**
      * @return Specifies the list of the DNS Zone IDs in which DNS entries are created for applications deployed to the cluster when Web App Routing is enabled. If not using Bring-Your-Own DNS zones this property should be set to an empty list.
      * 
@@ -25,6 +31,13 @@ public final class KubernetesClusterWebAppRouting {
     private @Nullable List<KubernetesClusterWebAppRoutingWebAppRoutingIdentity> webAppRoutingIdentities;
 
     private KubernetesClusterWebAppRouting() {}
+    /**
+     * @return Specifies the ingress type for the default `NginxIngressController` custom resource. The allowed values are `None`, `Internal`, `External` and `AnnotationControlled`. It defaults to `AnnotationControlled`.
+     * 
+     */
+    public Optional<String> defaultNginxController() {
+        return Optional.ofNullable(this.defaultNginxController);
+    }
     /**
      * @return Specifies the list of the DNS Zone IDs in which DNS entries are created for applications deployed to the cluster when Web App Routing is enabled. If not using Bring-Your-Own DNS zones this property should be set to an empty list.
      * 
@@ -49,15 +62,23 @@ public final class KubernetesClusterWebAppRouting {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable String defaultNginxController;
         private List<String> dnsZoneIds;
         private @Nullable List<KubernetesClusterWebAppRoutingWebAppRoutingIdentity> webAppRoutingIdentities;
         public Builder() {}
         public Builder(KubernetesClusterWebAppRouting defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.defaultNginxController = defaults.defaultNginxController;
     	      this.dnsZoneIds = defaults.dnsZoneIds;
     	      this.webAppRoutingIdentities = defaults.webAppRoutingIdentities;
         }
 
+        @CustomType.Setter
+        public Builder defaultNginxController(@Nullable String defaultNginxController) {
+
+            this.defaultNginxController = defaultNginxController;
+            return this;
+        }
         @CustomType.Setter
         public Builder dnsZoneIds(List<String> dnsZoneIds) {
             if (dnsZoneIds == null) {
@@ -80,6 +101,7 @@ public final class KubernetesClusterWebAppRouting {
         }
         public KubernetesClusterWebAppRouting build() {
             final var _resultValue = new KubernetesClusterWebAppRouting();
+            _resultValue.defaultNginxController = defaultNginxController;
             _resultValue.dnsZoneIds = dnsZoneIds;
             _resultValue.webAppRoutingIdentities = webAppRoutingIdentities;
             return _resultValue;

@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Nginx.NginxPlus`: 2024-11-01-preview
+ * * `Nginx.NginxPlus` - 2024-11-01-preview
  */
 export function getApiKey(args: GetApiKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetApiKeyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -89,7 +89,7 @@ export interface GetApiKeyResult {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Nginx.NginxPlus`: 2024-11-01-preview
+ * * `Nginx.NginxPlus` - 2024-11-01-preview
  */
 export function getApiKeyOutput(args: GetApiKeyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetApiKeyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

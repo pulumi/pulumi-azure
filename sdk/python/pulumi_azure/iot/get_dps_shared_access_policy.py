@@ -147,7 +147,7 @@ def get_dps_shared_access_policy(iothub_dps_name: Optional[_builtins.str] = None
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Devices`: 2022-02-05
+    * `Microsoft.Devices` - 2022-02-05
 
 
     :param _builtins.str iothub_dps_name: Specifies the name of the IoT Hub Device Provisioning service to which the Shared Access Policy belongs.
@@ -193,7 +193,7 @@ def get_dps_shared_access_policy_output(iothub_dps_name: Optional[pulumi.Input[_
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Devices`: 2022-02-05
+    * `Microsoft.Devices` - 2022-02-05
 
 
     :param _builtins.str iothub_dps_name: Specifies the name of the IoT Hub Device Provisioning service to which the Shared Access Policy belongs.

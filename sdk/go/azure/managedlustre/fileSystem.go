@@ -42,6 +42,8 @@ type FileSystem struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the Resource Group where the Azure Managed Lustre File System should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+	// A `rootSquash` block as defined below.
+	RootSquash FileSystemRootSquashPtrOutput `pulumi:"rootSquash"`
 	// The SKU name for the Azure Managed Lustre File System. Possible values are `AMLFS-Durable-Premium-40`, `AMLFS-Durable-Premium-125`, `AMLFS-Durable-Premium-250` and `AMLFS-Durable-Premium-500`. Changing this forces a new resource to be created.
 	SkuName pulumi.StringOutput `pulumi:"skuName"`
 	// The size of the Azure Managed Lustre File System in TiB. The valid values for this field are dependant on which `skuName` has been defined in the configuration file. For more information on the valid values for this field please see the [product documentation](https://learn.microsoft.com/azure/azure-managed-lustre/create-file-system-resource-manager#file-system-type-and-size-options). Changing this forces a new resource to be created.
@@ -120,6 +122,8 @@ type fileSystemState struct {
 	Name *string `pulumi:"name"`
 	// The name of the Resource Group where the Azure Managed Lustre File System should exist. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
+	// A `rootSquash` block as defined below.
+	RootSquash *FileSystemRootSquash `pulumi:"rootSquash"`
 	// The SKU name for the Azure Managed Lustre File System. Possible values are `AMLFS-Durable-Premium-40`, `AMLFS-Durable-Premium-125`, `AMLFS-Durable-Premium-250` and `AMLFS-Durable-Premium-500`. Changing this forces a new resource to be created.
 	SkuName *string `pulumi:"skuName"`
 	// The size of the Azure Managed Lustre File System in TiB. The valid values for this field are dependant on which `skuName` has been defined in the configuration file. For more information on the valid values for this field please see the [product documentation](https://learn.microsoft.com/azure/azure-managed-lustre/create-file-system-resource-manager#file-system-type-and-size-options). Changing this forces a new resource to be created.
@@ -151,6 +155,8 @@ type FileSystemState struct {
 	Name pulumi.StringPtrInput
 	// The name of the Resource Group where the Azure Managed Lustre File System should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
+	// A `rootSquash` block as defined below.
+	RootSquash FileSystemRootSquashPtrInput
 	// The SKU name for the Azure Managed Lustre File System. Possible values are `AMLFS-Durable-Premium-40`, `AMLFS-Durable-Premium-125`, `AMLFS-Durable-Premium-250` and `AMLFS-Durable-Premium-500`. Changing this forces a new resource to be created.
 	SkuName pulumi.StringPtrInput
 	// The size of the Azure Managed Lustre File System in TiB. The valid values for this field are dependant on which `skuName` has been defined in the configuration file. For more information on the valid values for this field please see the [product documentation](https://learn.microsoft.com/azure/azure-managed-lustre/create-file-system-resource-manager#file-system-type-and-size-options). Changing this forces a new resource to be created.
@@ -184,6 +190,8 @@ type fileSystemArgs struct {
 	Name *string `pulumi:"name"`
 	// The name of the Resource Group where the Azure Managed Lustre File System should exist. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// A `rootSquash` block as defined below.
+	RootSquash *FileSystemRootSquash `pulumi:"rootSquash"`
 	// The SKU name for the Azure Managed Lustre File System. Possible values are `AMLFS-Durable-Premium-40`, `AMLFS-Durable-Premium-125`, `AMLFS-Durable-Premium-250` and `AMLFS-Durable-Premium-500`. Changing this forces a new resource to be created.
 	SkuName string `pulumi:"skuName"`
 	// The size of the Azure Managed Lustre File System in TiB. The valid values for this field are dependant on which `skuName` has been defined in the configuration file. For more information on the valid values for this field please see the [product documentation](https://learn.microsoft.com/azure/azure-managed-lustre/create-file-system-resource-manager#file-system-type-and-size-options). Changing this forces a new resource to be created.
@@ -214,6 +222,8 @@ type FileSystemArgs struct {
 	Name pulumi.StringPtrInput
 	// The name of the Resource Group where the Azure Managed Lustre File System should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
+	// A `rootSquash` block as defined below.
+	RootSquash FileSystemRootSquashPtrInput
 	// The SKU name for the Azure Managed Lustre File System. Possible values are `AMLFS-Durable-Premium-40`, `AMLFS-Durable-Premium-125`, `AMLFS-Durable-Premium-250` and `AMLFS-Durable-Premium-500`. Changing this forces a new resource to be created.
 	SkuName pulumi.StringInput
 	// The size of the Azure Managed Lustre File System in TiB. The valid values for this field are dependant on which `skuName` has been defined in the configuration file. For more information on the valid values for this field please see the [product documentation](https://learn.microsoft.com/azure/azure-managed-lustre/create-file-system-resource-manager#file-system-type-and-size-options). Changing this forces a new resource to be created.
@@ -353,6 +363,11 @@ func (o FileSystemOutput) Name() pulumi.StringOutput {
 // The name of the Resource Group where the Azure Managed Lustre File System should exist. Changing this forces a new resource to be created.
 func (o FileSystemOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *FileSystem) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+// A `rootSquash` block as defined below.
+func (o FileSystemOutput) RootSquash() FileSystemRootSquashPtrOutput {
+	return o.ApplyT(func(v *FileSystem) FileSystemRootSquashPtrOutput { return v.RootSquash }).(FileSystemRootSquashPtrOutput)
 }
 
 // The SKU name for the Azure Managed Lustre File System. Possible values are `AMLFS-Durable-Premium-40`, `AMLFS-Durable-Premium-125`, `AMLFS-Durable-Premium-250` and `AMLFS-Durable-Premium-500`. Changing this forces a new resource to be created.

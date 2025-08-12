@@ -62,7 +62,7 @@ public final class KustoFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Kusto`: 2024-04-13
+     * * `Microsoft.Kusto` - 2024-04-13
      * 
      */
     public static Output<GetClusterResult> getCluster(GetClusterArgs args) {
@@ -112,7 +112,7 @@ public final class KustoFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Kusto`: 2024-04-13
+     * * `Microsoft.Kusto` - 2024-04-13
      * 
      */
     public static CompletableFuture<GetClusterResult> getClusterPlain(GetClusterPlainArgs args) {
@@ -162,7 +162,7 @@ public final class KustoFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Kusto`: 2024-04-13
+     * * `Microsoft.Kusto` - 2024-04-13
      * 
      */
     public static Output<GetClusterResult> getCluster(GetClusterArgs args, InvokeOptions options) {
@@ -212,7 +212,7 @@ public final class KustoFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Kusto`: 2024-04-13
+     * * `Microsoft.Kusto` - 2024-04-13
      * 
      */
     public static Output<GetClusterResult> getCluster(GetClusterArgs args, InvokeOutputOptions options) {
@@ -262,7 +262,7 @@ public final class KustoFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Kusto`: 2024-04-13
+     * * `Microsoft.Kusto` - 2024-04-13
      * 
      */
     public static CompletableFuture<GetClusterResult> getClusterPlain(GetClusterPlainArgs args, InvokeOptions options) {
@@ -313,7 +313,7 @@ public final class KustoFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Kusto`: 2024-04-13
+     * * `Microsoft.Kusto` - 2024-04-13
      * 
      */
     public static Output<GetDatabaseResult> getDatabase(GetDatabaseArgs args) {
@@ -364,7 +364,7 @@ public final class KustoFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Kusto`: 2024-04-13
+     * * `Microsoft.Kusto` - 2024-04-13
      * 
      */
     public static CompletableFuture<GetDatabaseResult> getDatabasePlain(GetDatabasePlainArgs args) {
@@ -415,7 +415,7 @@ public final class KustoFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Kusto`: 2024-04-13
+     * * `Microsoft.Kusto` - 2024-04-13
      * 
      */
     public static Output<GetDatabaseResult> getDatabase(GetDatabaseArgs args, InvokeOptions options) {
@@ -466,7 +466,7 @@ public final class KustoFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Kusto`: 2024-04-13
+     * * `Microsoft.Kusto` - 2024-04-13
      * 
      */
     public static Output<GetDatabaseResult> getDatabase(GetDatabaseArgs args, InvokeOutputOptions options) {
@@ -517,7 +517,7 @@ public final class KustoFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Kusto`: 2024-04-13
+     * * `Microsoft.Kusto` - 2024-04-13
      * 
      */
     public static CompletableFuture<GetDatabaseResult> getDatabasePlain(GetDatabasePlainArgs args, InvokeOptions options) {

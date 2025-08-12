@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Elastic`: 2023-06-01
+ * * `Microsoft.Elastic` - 2023-06-01
  */
 export function getElasticsearch(args: GetElasticsearchArgs, opts?: pulumi.InvokeOptions): Promise<GetElasticsearchResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -141,7 +141,7 @@ export interface GetElasticsearchResult {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Elastic`: 2023-06-01
+ * * `Microsoft.Elastic` - 2023-06-01
  */
 export function getElasticsearchOutput(args: GetElasticsearchOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetElasticsearchResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -259,7 +259,7 @@ class WorkspaceTable(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.OperationalInsights`: 2022-10-01
+        * `Microsoft.OperationalInsights` - 2022-10-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -313,7 +313,7 @@ class WorkspaceTable(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.OperationalInsights`: 2022-10-01
+        * `Microsoft.OperationalInsights` - 2022-10-01
 
         :param str resource_name: The name of the resource.
         :param WorkspaceTableArgs args: The arguments to use to populate this resource's properties.

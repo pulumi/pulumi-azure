@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.DataShare`: 2019-11-01
+ * * `Microsoft.DataShare` - 2019-11-01
  */
 export function getDatasetKustoCluster(args: GetDatasetKustoClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetDatasetKustoClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -93,7 +93,7 @@ export interface GetDatasetKustoClusterResult {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.DataShare`: 2019-11-01
+ * * `Microsoft.DataShare` - 2019-11-01
  */
 export function getDatasetKustoClusterOutput(args: GetDatasetKustoClusterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDatasetKustoClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

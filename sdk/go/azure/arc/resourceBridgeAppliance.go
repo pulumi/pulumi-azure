@@ -63,7 +63,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This resource uses the following Azure API Providers:
 //
-// * `Microsoft.ResourceConnector`: 2022-10-27
+// * `Microsoft.ResourceConnector` - 2022-10-27
 //
 // ## Import
 //

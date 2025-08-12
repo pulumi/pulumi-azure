@@ -42,7 +42,7 @@ namespace Pulumi.Azure.AppService
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Web`: 2023-12-01
+        /// * `Microsoft.Web` - 2023-12-01
         /// </summary>
         public static Task<GetWindowsWebAppResult> InvokeAsync(GetWindowsWebAppArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWindowsWebAppResult>("azure:appservice/getWindowsWebApp:getWindowsWebApp", args ?? new GetWindowsWebAppArgs(), options.WithDefaults());
@@ -78,7 +78,7 @@ namespace Pulumi.Azure.AppService
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Web`: 2023-12-01
+        /// * `Microsoft.Web` - 2023-12-01
         /// </summary>
         public static Output<GetWindowsWebAppResult> Invoke(GetWindowsWebAppInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWindowsWebAppResult>("azure:appservice/getWindowsWebApp:getWindowsWebApp", args ?? new GetWindowsWebAppInvokeArgs(), options.WithDefaults());
@@ -114,7 +114,7 @@ namespace Pulumi.Azure.AppService
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Web`: 2023-12-01
+        /// * `Microsoft.Web` - 2023-12-01
         /// </summary>
         public static Output<GetWindowsWebAppResult> Invoke(GetWindowsWebAppInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetWindowsWebAppResult>("azure:appservice/getWindowsWebApp:getWindowsWebApp", args ?? new GetWindowsWebAppInvokeArgs(), options.WithDefaults());

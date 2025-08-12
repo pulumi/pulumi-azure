@@ -65,13 +65,20 @@ public final class LinkedStorageAccountState extends com.pulumi.resources.Resour
      * The resource ID of the Log Analytics Workspace. Changing this forces a new Log Analytics Linked Storage Account to be created.
      * 
      */
-    @Import(name="workspaceResourceId")
-    private @Nullable Output<String> workspaceResourceId;
+    @Import(name="workspaceId")
+    private @Nullable Output<String> workspaceId;
 
     /**
      * @return The resource ID of the Log Analytics Workspace. Changing this forces a new Log Analytics Linked Storage Account to be created.
      * 
      */
+    public Optional<Output<String>> workspaceId() {
+        return Optional.ofNullable(this.workspaceId);
+    }
+
+    @Import(name="workspaceResourceId")
+    private @Nullable Output<String> workspaceResourceId;
+
     public Optional<Output<String>> workspaceResourceId() {
         return Optional.ofNullable(this.workspaceResourceId);
     }
@@ -82,6 +89,7 @@ public final class LinkedStorageAccountState extends com.pulumi.resources.Resour
         this.dataSourceType = $.dataSourceType;
         this.resourceGroupName = $.resourceGroupName;
         this.storageAccountIds = $.storageAccountIds;
+        this.workspaceId = $.workspaceId;
         this.workspaceResourceId = $.workspaceResourceId;
     }
 
@@ -177,22 +185,31 @@ public final class LinkedStorageAccountState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param workspaceResourceId The resource ID of the Log Analytics Workspace. Changing this forces a new Log Analytics Linked Storage Account to be created.
+         * @param workspaceId The resource ID of the Log Analytics Workspace. Changing this forces a new Log Analytics Linked Storage Account to be created.
          * 
          * @return builder
          * 
          */
+        public Builder workspaceId(@Nullable Output<String> workspaceId) {
+            $.workspaceId = workspaceId;
+            return this;
+        }
+
+        /**
+         * @param workspaceId The resource ID of the Log Analytics Workspace. Changing this forces a new Log Analytics Linked Storage Account to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder workspaceId(String workspaceId) {
+            return workspaceId(Output.of(workspaceId));
+        }
+
         public Builder workspaceResourceId(@Nullable Output<String> workspaceResourceId) {
             $.workspaceResourceId = workspaceResourceId;
             return this;
         }
 
-        /**
-         * @param workspaceResourceId The resource ID of the Log Analytics Workspace. Changing this forces a new Log Analytics Linked Storage Account to be created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder workspaceResourceId(String workspaceResourceId) {
             return workspaceResourceId(Output.of(workspaceResourceId));
         }

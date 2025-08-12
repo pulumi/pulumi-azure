@@ -573,7 +573,7 @@ def get_linux_function_app(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Web`: 2023-12-01
+    * `Microsoft.Web` - 2023-12-01
 
 
     :param _builtins.str name: The name which should be used for this Linux Function App.
@@ -651,7 +651,7 @@ def get_linux_function_app_output(name: Optional[pulumi.Input[_builtins.str]] = 
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Web`: 2023-12-01
+    * `Microsoft.Web` - 2023-12-01
 
 
     :param _builtins.str name: The name which should be used for this Linux Function App.

@@ -48,7 +48,7 @@ public final class GetVirtualMachineScaleSetInstance {
      */
     private List<String> privateIpAddresses;
     /**
-     * @return The virtual machines scale set IP Configuration&#39;s PublicIPAddress configuration. The `public_ip_address` is documented below.
+     * @return A `public_ip_address` block as defined below.
      * 
      */
     private String publicIpAddress;
@@ -119,7 +119,7 @@ public final class GetVirtualMachineScaleSetInstance {
         return this.privateIpAddresses;
     }
     /**
-     * @return The virtual machines scale set IP Configuration&#39;s PublicIPAddress configuration. The `public_ip_address` is documented below.
+     * @return A `public_ip_address` block as defined below.
      * 
      */
     public String publicIpAddress() {

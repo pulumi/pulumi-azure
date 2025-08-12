@@ -94,7 +94,7 @@ import javax.annotation.Nullable;
  * &lt;!-- This section is generated, changes will be overwritten --&gt;
  * This resource uses the following Azure API Providers:
  * 
- * * `Microsoft.Compute`: 2024-11-01
+ * * `Microsoft.Compute` - 2024-11-01
  * 
  * ## Import
  * 
@@ -346,6 +346,20 @@ public class OrchestratedVirtualMachineScaleSet extends com.pulumi.resources.Cus
      */
     public Output<String> name() {
         return this.name;
+    }
+    /**
+     * Specifies the Microsoft.Network API version used when creating networking resources in the Network Interface Configurations for Virtual Machine Scale Set. Possible values are `2020-11-01` and `2022-11-01`. Defaults to `2020-11-01`.
+     * 
+     */
+    @Export(name="networkApiVersion", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> networkApiVersion;
+
+    /**
+     * @return Specifies the Microsoft.Network API version used when creating networking resources in the Network Interface Configurations for Virtual Machine Scale Set. Possible values are `2020-11-01` and `2022-11-01`. Defaults to `2020-11-01`.
+     * 
+     */
+    public Output<Optional<String>> networkApiVersion() {
+        return Codegen.optional(this.networkApiVersion);
     }
     /**
      * One or more `network_interface` blocks as defined below.

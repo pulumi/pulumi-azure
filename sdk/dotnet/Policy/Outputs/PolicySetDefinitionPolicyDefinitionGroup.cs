@@ -14,23 +14,23 @@ namespace Pulumi.Azure.Policy.Outputs
     public sealed class PolicySetDefinitionPolicyDefinitionGroup
     {
         /// <summary>
-        /// The ID of a resource that contains additional metadata about this policy definition group.
+        /// The ID of a resource that contains additional metadata for this Policy Definition Group.
         /// </summary>
         public readonly string? AdditionalMetadataResourceId;
         /// <summary>
-        /// The category of this policy definition group.
+        /// The category of this Policy Definition Group.
         /// </summary>
         public readonly string? Category;
         /// <summary>
-        /// The description of this policy definition group.
+        /// The description of this Policy Definition Group.
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// The display name of this policy definition group.
+        /// The display name of this Policy Definition Group.
         /// </summary>
         public readonly string? DisplayName;
         /// <summary>
-        /// The name of this policy definition group.
+        /// The name which should be used for this Policy Definition Group.
         /// </summary>
         public readonly string Name;
 

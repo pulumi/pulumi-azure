@@ -65,14 +65,14 @@ public final class KubernetesClusterMaintenanceWindowAutoUpgradeArgs extends com
     }
 
     /**
-     * Frequency of maintenance. Possible options are `Weekly`, `AbsoluteMonthly` and `RelativeMonthly`.
+     * Frequency of maintenance. Possible options are `Daily`, `Weekly`, `AbsoluteMonthly` and `RelativeMonthly`.
      * 
      */
     @Import(name="frequency", required=true)
     private Output<String> frequency;
 
     /**
-     * @return Frequency of maintenance. Possible options are `Weekly`, `AbsoluteMonthly` and `RelativeMonthly`.
+     * @return Frequency of maintenance. Possible options are `Daily`, `Weekly`, `AbsoluteMonthly` and `RelativeMonthly`.
      * 
      */
     public Output<String> frequency() {
@@ -268,7 +268,7 @@ public final class KubernetesClusterMaintenanceWindowAutoUpgradeArgs extends com
         }
 
         /**
-         * @param frequency Frequency of maintenance. Possible options are `Weekly`, `AbsoluteMonthly` and `RelativeMonthly`.
+         * @param frequency Frequency of maintenance. Possible options are `Daily`, `Weekly`, `AbsoluteMonthly` and `RelativeMonthly`.
          * 
          * @return builder
          * 
@@ -279,7 +279,7 @@ public final class KubernetesClusterMaintenanceWindowAutoUpgradeArgs extends com
         }
 
         /**
-         * @param frequency Frequency of maintenance. Possible options are `Weekly`, `AbsoluteMonthly` and `RelativeMonthly`.
+         * @param frequency Frequency of maintenance. Possible options are `Daily`, `Weekly`, `AbsoluteMonthly` and `RelativeMonthly`.
          * 
          * @return builder
          * 

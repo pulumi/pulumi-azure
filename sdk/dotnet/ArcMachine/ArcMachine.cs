@@ -52,7 +52,7 @@ namespace Pulumi.Azure.ArcMachine
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.HybridCompute`: 2024-07-10
+    /// * `Microsoft.HybridCompute` - 2024-07-10
     /// 
     /// ## Import
     /// 

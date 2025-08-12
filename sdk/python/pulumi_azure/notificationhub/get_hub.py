@@ -149,7 +149,7 @@ def get_hub(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.NotificationHubs`: 2023-09-01
+    * `Microsoft.NotificationHubs` - 2023-09-01
 
 
     :param _builtins.str name: Specifies the Name of the Notification Hub.
@@ -196,7 +196,7 @@ def get_hub_output(name: Optional[pulumi.Input[_builtins.str]] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.NotificationHubs`: 2023-09-01
+    * `Microsoft.NotificationHubs` - 2023-09-01
 
 
     :param _builtins.str name: Specifies the Name of the Notification Hub.

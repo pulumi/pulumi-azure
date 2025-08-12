@@ -65,7 +65,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This resource uses the following Azure API Providers:
 //
-// * `Microsoft.Network`: 2024-05-01
+// * `Microsoft.Network` - 2024-05-01
 //
 // ## Import
 //
@@ -79,6 +79,8 @@ type VirtualHub struct {
 
 	// The Address Prefix which should be used for this Virtual Hub. Changing this forces a new resource to be created. [The address prefix subnet cannot be smaller than a `/24`. Azure recommends using a `/23`](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-faq#what-is-the-recommended-hub-address-space-during-hub-creation).
 	AddressPrefix pulumi.StringPtrOutput `pulumi:"addressPrefix"`
+	// Boolean flag to specify whether branch to branch traffic is allowed. Defaults to `false`.
+	BranchToBranchTrafficEnabled pulumi.BoolPtrOutput `pulumi:"branchToBranchTrafficEnabled"`
 	// The ID of the default Route Table in the Virtual Hub.
 	DefaultRouteTableId pulumi.StringOutput `pulumi:"defaultRouteTableId"`
 	// The hub routing preference. Possible values are `ExpressRoute`, `ASPath` and `VpnGateway`. Defaults to `ExpressRoute`.
@@ -140,6 +142,8 @@ func GetVirtualHub(ctx *pulumi.Context,
 type virtualHubState struct {
 	// The Address Prefix which should be used for this Virtual Hub. Changing this forces a new resource to be created. [The address prefix subnet cannot be smaller than a `/24`. Azure recommends using a `/23`](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-faq#what-is-the-recommended-hub-address-space-during-hub-creation).
 	AddressPrefix *string `pulumi:"addressPrefix"`
+	// Boolean flag to specify whether branch to branch traffic is allowed. Defaults to `false`.
+	BranchToBranchTrafficEnabled *bool `pulumi:"branchToBranchTrafficEnabled"`
 	// The ID of the default Route Table in the Virtual Hub.
 	DefaultRouteTableId *string `pulumi:"defaultRouteTableId"`
 	// The hub routing preference. Possible values are `ExpressRoute`, `ASPath` and `VpnGateway`. Defaults to `ExpressRoute`.
@@ -169,6 +173,8 @@ type virtualHubState struct {
 type VirtualHubState struct {
 	// The Address Prefix which should be used for this Virtual Hub. Changing this forces a new resource to be created. [The address prefix subnet cannot be smaller than a `/24`. Azure recommends using a `/23`](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-faq#what-is-the-recommended-hub-address-space-during-hub-creation).
 	AddressPrefix pulumi.StringPtrInput
+	// Boolean flag to specify whether branch to branch traffic is allowed. Defaults to `false`.
+	BranchToBranchTrafficEnabled pulumi.BoolPtrInput
 	// The ID of the default Route Table in the Virtual Hub.
 	DefaultRouteTableId pulumi.StringPtrInput
 	// The hub routing preference. Possible values are `ExpressRoute`, `ASPath` and `VpnGateway`. Defaults to `ExpressRoute`.
@@ -202,6 +208,8 @@ func (VirtualHubState) ElementType() reflect.Type {
 type virtualHubArgs struct {
 	// The Address Prefix which should be used for this Virtual Hub. Changing this forces a new resource to be created. [The address prefix subnet cannot be smaller than a `/24`. Azure recommends using a `/23`](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-faq#what-is-the-recommended-hub-address-space-during-hub-creation).
 	AddressPrefix *string `pulumi:"addressPrefix"`
+	// Boolean flag to specify whether branch to branch traffic is allowed. Defaults to `false`.
+	BranchToBranchTrafficEnabled *bool `pulumi:"branchToBranchTrafficEnabled"`
 	// The hub routing preference. Possible values are `ExpressRoute`, `ASPath` and `VpnGateway`. Defaults to `ExpressRoute`.
 	HubRoutingPreference *string `pulumi:"hubRoutingPreference"`
 	// Specifies the supported Azure location where the Virtual Hub should exist. Changing this forces a new resource to be created.
@@ -226,6 +234,8 @@ type virtualHubArgs struct {
 type VirtualHubArgs struct {
 	// The Address Prefix which should be used for this Virtual Hub. Changing this forces a new resource to be created. [The address prefix subnet cannot be smaller than a `/24`. Azure recommends using a `/23`](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-faq#what-is-the-recommended-hub-address-space-during-hub-creation).
 	AddressPrefix pulumi.StringPtrInput
+	// Boolean flag to specify whether branch to branch traffic is allowed. Defaults to `false`.
+	BranchToBranchTrafficEnabled pulumi.BoolPtrInput
 	// The hub routing preference. Possible values are `ExpressRoute`, `ASPath` and `VpnGateway`. Defaults to `ExpressRoute`.
 	HubRoutingPreference pulumi.StringPtrInput
 	// Specifies the supported Azure location where the Virtual Hub should exist. Changing this forces a new resource to be created.
@@ -336,6 +346,11 @@ func (o VirtualHubOutput) ToVirtualHubOutputWithContext(ctx context.Context) Vir
 // The Address Prefix which should be used for this Virtual Hub. Changing this forces a new resource to be created. [The address prefix subnet cannot be smaller than a `/24`. Azure recommends using a `/23`](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-faq#what-is-the-recommended-hub-address-space-during-hub-creation).
 func (o VirtualHubOutput) AddressPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualHub) pulumi.StringPtrOutput { return v.AddressPrefix }).(pulumi.StringPtrOutput)
+}
+
+// Boolean flag to specify whether branch to branch traffic is allowed. Defaults to `false`.
+func (o VirtualHubOutput) BranchToBranchTrafficEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VirtualHub) pulumi.BoolPtrOutput { return v.BranchToBranchTrafficEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // The ID of the default Route Table in the Virtual Hub.

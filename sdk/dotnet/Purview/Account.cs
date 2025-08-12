@@ -47,7 +47,7 @@ namespace Pulumi.Azure.Purview
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.Purview`: 2021-07-01
+    /// * `Microsoft.Purview` - 2021-12-01
     /// 
     /// ## Import
     /// 
@@ -73,6 +73,12 @@ namespace Pulumi.Azure.Purview
         public Output<string> AtlasKafkaEndpointSecondaryConnectionString { get; private set; } = null!;
 
         /// <summary>
+        /// Configured in AWS to allow use of the role arn used for scanning
+        /// </summary>
+        [Output("awsExternalId")]
+        public Output<string> AwsExternalId { get; private set; } = null!;
+
+        /// <summary>
         /// Catalog endpoint.
         /// </summary>
         [Output("catalogEndpoint")]
@@ -95,6 +101,14 @@ namespace Pulumi.Azure.Purview
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether the Purview Account should create a managed Event Hub Namespace. Defaults to `true`.
+        /// 
+        /// &gt; **Note:** `managed_event_hub_enabled` must be `false` in order to use a Kafka Configuration with the Purview Account.
+        /// </summary>
+        [Output("managedEventHubEnabled")]
+        public Output<bool?> ManagedEventHubEnabled { get; private set; } = null!;
 
         /// <summary>
         /// The name which should be used for the new Resource Group where Purview Account creates the managed resources. Changing this forces a new Purview Account to be created.
@@ -204,6 +218,14 @@ namespace Pulumi.Azure.Purview
         public Input<string>? Location { get; set; }
 
         /// <summary>
+        /// Whether the Purview Account should create a managed Event Hub Namespace. Defaults to `true`.
+        /// 
+        /// &gt; **Note:** `managed_event_hub_enabled` must be `false` in order to use a Kafka Configuration with the Purview Account.
+        /// </summary>
+        [Input("managedEventHubEnabled")]
+        public Input<bool>? ManagedEventHubEnabled { get; set; }
+
+        /// <summary>
         /// The name which should be used for the new Resource Group where Purview Account creates the managed resources. Changing this forces a new Purview Account to be created.
         /// 
         /// &gt; **Note:** `managed_resource_group_name` must be a new Resource Group.
@@ -282,6 +304,12 @@ namespace Pulumi.Azure.Purview
         }
 
         /// <summary>
+        /// Configured in AWS to allow use of the role arn used for scanning
+        /// </summary>
+        [Input("awsExternalId")]
+        public Input<string>? AwsExternalId { get; set; }
+
+        /// <summary>
         /// Catalog endpoint.
         /// </summary>
         [Input("catalogEndpoint")]
@@ -304,6 +332,14 @@ namespace Pulumi.Azure.Purview
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// Whether the Purview Account should create a managed Event Hub Namespace. Defaults to `true`.
+        /// 
+        /// &gt; **Note:** `managed_event_hub_enabled` must be `false` in order to use a Kafka Configuration with the Purview Account.
+        /// </summary>
+        [Input("managedEventHubEnabled")]
+        public Input<bool>? ManagedEventHubEnabled { get; set; }
 
         /// <summary>
         /// The name which should be used for the new Resource Group where Purview Account creates the managed resources. Changing this forces a new Purview Account to be created.

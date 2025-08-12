@@ -157,7 +157,7 @@ def get_role_definition(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Authorization`: 2022-05-01-preview
+    * `Microsoft.Authorization` - 2022-05-01-preview
 
 
     :param _builtins.str name: Specifies the Name of either a built-in or custom Role Definition.
@@ -216,7 +216,7 @@ def get_role_definition_output(name: Optional[pulumi.Input[Optional[_builtins.st
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Authorization`: 2022-05-01-preview
+    * `Microsoft.Authorization` - 2022-05-01-preview
 
 
     :param _builtins.str name: Specifies the Name of either a built-in or custom Role Definition.

@@ -55,7 +55,7 @@ namespace Pulumi.Azure.Batch.Inputs
         }
 
         /// <summary>
-        /// The number of retry count.
+        /// The number of retry count. If this is set to `0`, the Batch service does not retry Tasks. If this is set to `-1`, the Batch service retries Batch Tasks without limit.
         /// </summary>
         [Input("taskRetryMaximum")]
         public Input<int>? TaskRetryMaximum { get; set; }

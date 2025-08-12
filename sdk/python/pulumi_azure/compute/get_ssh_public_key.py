@@ -111,7 +111,7 @@ def get_ssh_public_key(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Compute`: 2024-03-01
+    * `Microsoft.Compute` - 2024-03-01
 
 
     :param _builtins.str name: The name of this SSH Public Key.
@@ -154,7 +154,7 @@ def get_ssh_public_key_output(name: Optional[pulumi.Input[_builtins.str]] = None
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Compute`: 2024-03-01
+    * `Microsoft.Compute` - 2024-03-01
 
 
     :param _builtins.str name: The name of this SSH Public Key.

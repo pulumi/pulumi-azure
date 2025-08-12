@@ -125,7 +125,7 @@ def get_resolver_inbound_endpoint(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Network`: 2022-07-01
+    * `Microsoft.Network` - 2022-07-01
 
 
     :param _builtins.str name: Name of the Private DNS Resolver Inbound Endpoint.
@@ -165,7 +165,7 @@ def get_resolver_inbound_endpoint_output(name: Optional[pulumi.Input[_builtins.s
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Network`: 2022-07-01
+    * `Microsoft.Network` - 2022-07-01
 
 
     :param _builtins.str name: Name of the Private DNS Resolver Inbound Endpoint.

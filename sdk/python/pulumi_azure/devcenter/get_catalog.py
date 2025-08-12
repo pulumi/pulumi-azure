@@ -114,7 +114,7 @@ def get_catalog(dev_center_id: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.DevCenter`: 2025-02-01
+    * `Microsoft.DevCenter` - 2025-02-01
 
 
     :param _builtins.str dev_center_id: Specifies the Dev Center Id within which this Dev Center Catalog should exist.
@@ -154,7 +154,7 @@ def get_catalog_output(dev_center_id: Optional[pulumi.Input[_builtins.str]] = No
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.DevCenter`: 2025-02-01
+    * `Microsoft.DevCenter` - 2025-02-01
 
 
     :param _builtins.str dev_center_id: Specifies the Dev Center Id within which this Dev Center Catalog should exist.

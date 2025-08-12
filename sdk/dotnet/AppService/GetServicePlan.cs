@@ -42,7 +42,7 @@ namespace Pulumi.Azure.AppService
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Web`: 2023-12-01
+        /// * `Microsoft.Web` - 2023-12-01
         /// </summary>
         public static Task<GetServicePlanResult> InvokeAsync(GetServicePlanArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServicePlanResult>("azure:appservice/getServicePlan:getServicePlan", args ?? new GetServicePlanArgs(), options.WithDefaults());
@@ -78,7 +78,7 @@ namespace Pulumi.Azure.AppService
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Web`: 2023-12-01
+        /// * `Microsoft.Web` - 2023-12-01
         /// </summary>
         public static Output<GetServicePlanResult> Invoke(GetServicePlanInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServicePlanResult>("azure:appservice/getServicePlan:getServicePlan", args ?? new GetServicePlanInvokeArgs(), options.WithDefaults());
@@ -114,7 +114,7 @@ namespace Pulumi.Azure.AppService
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Web`: 2023-12-01
+        /// * `Microsoft.Web` - 2023-12-01
         /// </summary>
         public static Output<GetServicePlanResult> Invoke(GetServicePlanInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetServicePlanResult>("azure:appservice/getServicePlan:getServicePlan", args ?? new GetServicePlanInvokeArgs(), options.WithDefaults());

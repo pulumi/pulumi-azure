@@ -63,7 +63,7 @@ public final class ConsumptionFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Consumption`: 2019-10-01
+     * * `Microsoft.Consumption` - 2019-10-01
      * 
      */
     public static Output<GetBudgetResourceGroupResult> getBudgetResourceGroup(GetBudgetResourceGroupArgs args) {
@@ -114,7 +114,7 @@ public final class ConsumptionFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Consumption`: 2019-10-01
+     * * `Microsoft.Consumption` - 2019-10-01
      * 
      */
     public static CompletableFuture<GetBudgetResourceGroupResult> getBudgetResourceGroupPlain(GetBudgetResourceGroupPlainArgs args) {
@@ -165,7 +165,7 @@ public final class ConsumptionFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Consumption`: 2019-10-01
+     * * `Microsoft.Consumption` - 2019-10-01
      * 
      */
     public static Output<GetBudgetResourceGroupResult> getBudgetResourceGroup(GetBudgetResourceGroupArgs args, InvokeOptions options) {
@@ -216,7 +216,7 @@ public final class ConsumptionFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Consumption`: 2019-10-01
+     * * `Microsoft.Consumption` - 2019-10-01
      * 
      */
     public static Output<GetBudgetResourceGroupResult> getBudgetResourceGroup(GetBudgetResourceGroupArgs args, InvokeOutputOptions options) {
@@ -267,7 +267,7 @@ public final class ConsumptionFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Consumption`: 2019-10-01
+     * * `Microsoft.Consumption` - 2019-10-01
      * 
      */
     public static CompletableFuture<GetBudgetResourceGroupResult> getBudgetResourceGroupPlain(GetBudgetResourceGroupPlainArgs args, InvokeOptions options) {
@@ -318,7 +318,7 @@ public final class ConsumptionFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Consumption`: 2019-10-01
+     * * `Microsoft.Consumption` - 2019-10-01
      * 
      */
     public static Output<GetBudgetSubscriptionResult> getBudgetSubscription(GetBudgetSubscriptionArgs args) {
@@ -369,7 +369,7 @@ public final class ConsumptionFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Consumption`: 2019-10-01
+     * * `Microsoft.Consumption` - 2019-10-01
      * 
      */
     public static CompletableFuture<GetBudgetSubscriptionResult> getBudgetSubscriptionPlain(GetBudgetSubscriptionPlainArgs args) {
@@ -420,7 +420,7 @@ public final class ConsumptionFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Consumption`: 2019-10-01
+     * * `Microsoft.Consumption` - 2019-10-01
      * 
      */
     public static Output<GetBudgetSubscriptionResult> getBudgetSubscription(GetBudgetSubscriptionArgs args, InvokeOptions options) {
@@ -471,7 +471,7 @@ public final class ConsumptionFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Consumption`: 2019-10-01
+     * * `Microsoft.Consumption` - 2019-10-01
      * 
      */
     public static Output<GetBudgetSubscriptionResult> getBudgetSubscription(GetBudgetSubscriptionArgs args, InvokeOutputOptions options) {
@@ -522,7 +522,7 @@ public final class ConsumptionFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Consumption`: 2019-10-01
+     * * `Microsoft.Consumption` - 2019-10-01
      * 
      */
     public static CompletableFuture<GetBudgetSubscriptionResult> getBudgetSubscriptionPlain(GetBudgetSubscriptionPlainArgs args, InvokeOptions options) {

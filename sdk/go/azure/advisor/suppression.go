@@ -59,7 +59,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This resource uses the following Azure API Providers:
 //
-// * `Microsoft.Advisor`: 2023-01-01
+// * `Microsoft.Advisor` - 2023-01-01
 //
 // ## Import
 //

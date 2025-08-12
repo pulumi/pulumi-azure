@@ -25,6 +25,7 @@ class DevCenterArgs:
                  identity: Optional[pulumi.Input['DevCenterIdentityArgs']] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 project_catalog_item_sync_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a DevCenter resource.
@@ -32,6 +33,7 @@ class DevCenterArgs:
         :param pulumi.Input['DevCenterIdentityArgs'] identity: An `identity` block as defined below. Specifies the Managed Identity which should be assigned to this Dev Center.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Dev Center should exist. Changing this forces a new Dev Center to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of this Dev Center. Changing this forces a new Dev Center to be created.
+        :param pulumi.Input[_builtins.bool] project_catalog_item_sync_enabled: Whether the project catalogs associated with projects in this Dev Center are allowed to sync catalog items. Defaults to `false`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Dev Center.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -41,6 +43,8 @@ class DevCenterArgs:
             pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if project_catalog_item_sync_enabled is not None:
+            pulumi.set(__self__, "project_catalog_item_sync_enabled", project_catalog_item_sync_enabled)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -93,6 +97,18 @@ class DevCenterArgs:
         pulumi.set(self, "name", value)
 
     @_builtins.property
+    @pulumi.getter(name="projectCatalogItemSyncEnabled")
+    def project_catalog_item_sync_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether the project catalogs associated with projects in this Dev Center are allowed to sync catalog items. Defaults to `false`.
+        """
+        return pulumi.get(self, "project_catalog_item_sync_enabled")
+
+    @project_catalog_item_sync_enabled.setter
+    def project_catalog_item_sync_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "project_catalog_item_sync_enabled", value)
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
@@ -112,6 +128,7 @@ class _DevCenterState:
                  identity: Optional[pulumi.Input['DevCenterIdentityArgs']] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 project_catalog_item_sync_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
@@ -120,6 +137,7 @@ class _DevCenterState:
         :param pulumi.Input['DevCenterIdentityArgs'] identity: An `identity` block as defined below. Specifies the Managed Identity which should be assigned to this Dev Center.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Dev Center should exist. Changing this forces a new Dev Center to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of this Dev Center. Changing this forces a new Dev Center to be created.
+        :param pulumi.Input[_builtins.bool] project_catalog_item_sync_enabled: Whether the project catalogs associated with projects in this Dev Center are allowed to sync catalog items. Defaults to `false`.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the name of the Resource Group within which this Dev Center should exist. Changing this forces a new Dev Center to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Dev Center.
         """
@@ -131,6 +149,8 @@ class _DevCenterState:
             pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if project_catalog_item_sync_enabled is not None:
+            pulumi.set(__self__, "project_catalog_item_sync_enabled", project_catalog_item_sync_enabled)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if tags is not None:
@@ -185,6 +205,18 @@ class _DevCenterState:
         pulumi.set(self, "name", value)
 
     @_builtins.property
+    @pulumi.getter(name="projectCatalogItemSyncEnabled")
+    def project_catalog_item_sync_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether the project catalogs associated with projects in this Dev Center are allowed to sync catalog items. Defaults to `false`.
+        """
+        return pulumi.get(self, "project_catalog_item_sync_enabled")
+
+    @project_catalog_item_sync_enabled.setter
+    def project_catalog_item_sync_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "project_catalog_item_sync_enabled", value)
+
+    @_builtins.property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -218,6 +250,7 @@ class DevCenter(pulumi.CustomResource):
                  identity: Optional[pulumi.Input[Union['DevCenterIdentityArgs', 'DevCenterIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 project_catalog_item_sync_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -262,7 +295,7 @@ class DevCenter(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.DevCenter`: 2025-02-01
+        * `Microsoft.DevCenter` - 2025-02-01
 
         ## Import
 
@@ -283,6 +316,7 @@ class DevCenter(pulumi.CustomResource):
         :param pulumi.Input[Union['DevCenterIdentityArgs', 'DevCenterIdentityArgsDict']] identity: An `identity` block as defined below. Specifies the Managed Identity which should be assigned to this Dev Center.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Dev Center should exist. Changing this forces a new Dev Center to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of this Dev Center. Changing this forces a new Dev Center to be created.
+        :param pulumi.Input[_builtins.bool] project_catalog_item_sync_enabled: Whether the project catalogs associated with projects in this Dev Center are allowed to sync catalog items. Defaults to `false`.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the name of the Resource Group within which this Dev Center should exist. Changing this forces a new Dev Center to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Dev Center.
         """
@@ -333,7 +367,7 @@ class DevCenter(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.DevCenter`: 2025-02-01
+        * `Microsoft.DevCenter` - 2025-02-01
 
         ## Import
 
@@ -367,6 +401,7 @@ class DevCenter(pulumi.CustomResource):
                  identity: Optional[pulumi.Input[Union['DevCenterIdentityArgs', 'DevCenterIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 project_catalog_item_sync_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -381,6 +416,7 @@ class DevCenter(pulumi.CustomResource):
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
+            __props__.__dict__["project_catalog_item_sync_enabled"] = project_catalog_item_sync_enabled
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -400,6 +436,7 @@ class DevCenter(pulumi.CustomResource):
             identity: Optional[pulumi.Input[Union['DevCenterIdentityArgs', 'DevCenterIdentityArgsDict']]] = None,
             location: Optional[pulumi.Input[_builtins.str]] = None,
             name: Optional[pulumi.Input[_builtins.str]] = None,
+            project_catalog_item_sync_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
             resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'DevCenter':
         """
@@ -413,6 +450,7 @@ class DevCenter(pulumi.CustomResource):
         :param pulumi.Input[Union['DevCenterIdentityArgs', 'DevCenterIdentityArgsDict']] identity: An `identity` block as defined below. Specifies the Managed Identity which should be assigned to this Dev Center.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Dev Center should exist. Changing this forces a new Dev Center to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of this Dev Center. Changing this forces a new Dev Center to be created.
+        :param pulumi.Input[_builtins.bool] project_catalog_item_sync_enabled: Whether the project catalogs associated with projects in this Dev Center are allowed to sync catalog items. Defaults to `false`.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the name of the Resource Group within which this Dev Center should exist. Changing this forces a new Dev Center to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Dev Center.
         """
@@ -424,6 +462,7 @@ class DevCenter(pulumi.CustomResource):
         __props__.__dict__["identity"] = identity
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
+        __props__.__dict__["project_catalog_item_sync_enabled"] = project_catalog_item_sync_enabled
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["tags"] = tags
         return DevCenter(resource_name, opts=opts, __props__=__props__)
@@ -459,6 +498,14 @@ class DevCenter(pulumi.CustomResource):
         Specifies the name of this Dev Center. Changing this forces a new Dev Center to be created.
         """
         return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="projectCatalogItemSyncEnabled")
+    def project_catalog_item_sync_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Whether the project catalogs associated with projects in this Dev Center are allowed to sync catalog items. Defaults to `false`.
+        """
+        return pulumi.get(self, "project_catalog_item_sync_enabled")
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")

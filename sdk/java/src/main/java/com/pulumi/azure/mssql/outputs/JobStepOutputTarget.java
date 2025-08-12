@@ -16,7 +16,7 @@ public final class JobStepOutputTarget {
      * @return The ID of the Elastic Job Credential to use when connecting to the output destination.
      * 
      */
-    private String jobCredentialId;
+    private @Nullable String jobCredentialId;
     /**
      * @return The ID of the output database.
      * 
@@ -38,8 +38,8 @@ public final class JobStepOutputTarget {
      * @return The ID of the Elastic Job Credential to use when connecting to the output destination.
      * 
      */
-    public String jobCredentialId() {
-        return this.jobCredentialId;
+    public Optional<String> jobCredentialId() {
+        return Optional.ofNullable(this.jobCredentialId);
     }
     /**
      * @return The ID of the output database.
@@ -72,7 +72,7 @@ public final class JobStepOutputTarget {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String jobCredentialId;
+        private @Nullable String jobCredentialId;
         private String mssqlDatabaseId;
         private @Nullable String schemaName;
         private String tableName;
@@ -86,10 +86,8 @@ public final class JobStepOutputTarget {
         }
 
         @CustomType.Setter
-        public Builder jobCredentialId(String jobCredentialId) {
-            if (jobCredentialId == null) {
-              throw new MissingRequiredPropertyException("JobStepOutputTarget", "jobCredentialId");
-            }
+        public Builder jobCredentialId(@Nullable String jobCredentialId) {
+
             this.jobCredentialId = jobCredentialId;
             return this;
         }

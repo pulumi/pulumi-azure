@@ -55,6 +55,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ManagedInstanceFailoverGroup{}
 	case "azure:mssql/managedInstanceSecurityAlertPolicy:ManagedInstanceSecurityAlertPolicy":
 		r = &ManagedInstanceSecurityAlertPolicy{}
+	case "azure:mssql/managedInstanceStartStopSchedule:ManagedInstanceStartStopSchedule":
+		r = &ManagedInstanceStartStopSchedule{}
 	case "azure:mssql/managedInstanceTransparentDataEncryption:ManagedInstanceTransparentDataEncryption":
 		r = &ManagedInstanceTransparentDataEncryption{}
 	case "azure:mssql/managedInstanceVulnerabilityAssessment:ManagedInstanceVulnerabilityAssessment":
@@ -179,6 +181,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"mssql/managedInstanceSecurityAlertPolicy",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"mssql/managedInstanceStartStopSchedule",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

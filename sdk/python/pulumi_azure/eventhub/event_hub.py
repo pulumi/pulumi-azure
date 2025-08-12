@@ -21,33 +21,36 @@ __all__ = ['EventHubArgs', 'EventHub']
 @pulumi.input_type
 class EventHubArgs:
     def __init__(__self__, *,
-                 message_retention: pulumi.Input[_builtins.int],
                  partition_count: pulumi.Input[_builtins.int],
                  capture_description: Optional[pulumi.Input['EventHubCaptureDescriptionArgs']] = None,
+                 message_retention: Optional[pulumi.Input[_builtins.int]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  namespace_id: Optional[pulumi.Input[_builtins.str]] = None,
                  namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 retention_description: Optional[pulumi.Input['EventHubRetentionDescriptionArgs']] = None,
                  status: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a EventHub resource.
-        :param pulumi.Input[_builtins.int] message_retention: Specifies the number of days to retain the events for this Event Hub.
-               
-               > **Note:** When using a dedicated Event Hubs cluster, maximum value of `message_retention` is 90 days. When using a shared parent EventHub Namespace, maximum value is 7 days; or 1 day when using a Basic SKU for the shared parent EventHub Namespace.
         :param pulumi.Input[_builtins.int] partition_count: Specifies the current number of shards on the Event Hub.
                
                > **Note:** `partition_count` cannot be changed unless Eventhub Namespace SKU is `Premium` and cannot be decreased.
                
                > **Note:** When using a dedicated Event Hubs cluster, maximum value of `partition_count` is 1024. When using a shared parent EventHub Namespace, maximum value is 32.
         :param pulumi.Input['EventHubCaptureDescriptionArgs'] capture_description: A `capture_description` block as defined below.
+        :param pulumi.Input[_builtins.int] message_retention: Specifies the number of days to retain the events for this Event Hub.
+               
+               > **Note:** When using a dedicated Event Hubs cluster, maximum value of `message_retention` is 90 days. When using a shared parent EventHub Namespace, maximum value is 7 days; or 1 day when using a Basic SKU for the shared parent EventHub Namespace.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the EventHub resource. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] namespace_id: Specifies the ID of the EventHub Namespace. Changing this forces a new resource to be created.
+        :param pulumi.Input['EventHubRetentionDescriptionArgs'] retention_description: A `retention_description` block as defined below.
         :param pulumi.Input[_builtins.str] status: Specifies the status of the Event Hub resource. Possible values are `Active`, `Disabled` and `SendDisabled`. Defaults to `Active`.
         """
-        pulumi.set(__self__, "message_retention", message_retention)
         pulumi.set(__self__, "partition_count", partition_count)
         if capture_description is not None:
             pulumi.set(__self__, "capture_description", capture_description)
+        if message_retention is not None:
+            pulumi.set(__self__, "message_retention", message_retention)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if namespace_id is not None:
@@ -62,22 +65,10 @@ class EventHubArgs:
             pulumi.log.warn("""resource_group_name is deprecated: `resource_group_name` has been deprecated in favour of `namespace_id` and will be removed in v5.0 of the AzureRM Provider""")
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if retention_description is not None:
+            pulumi.set(__self__, "retention_description", retention_description)
         if status is not None:
             pulumi.set(__self__, "status", status)
-
-    @_builtins.property
-    @pulumi.getter(name="messageRetention")
-    def message_retention(self) -> pulumi.Input[_builtins.int]:
-        """
-        Specifies the number of days to retain the events for this Event Hub.
-
-        > **Note:** When using a dedicated Event Hubs cluster, maximum value of `message_retention` is 90 days. When using a shared parent EventHub Namespace, maximum value is 7 days; or 1 day when using a Basic SKU for the shared parent EventHub Namespace.
-        """
-        return pulumi.get(self, "message_retention")
-
-    @message_retention.setter
-    def message_retention(self, value: pulumi.Input[_builtins.int]):
-        pulumi.set(self, "message_retention", value)
 
     @_builtins.property
     @pulumi.getter(name="partitionCount")
@@ -106,6 +97,20 @@ class EventHubArgs:
     @capture_description.setter
     def capture_description(self, value: Optional[pulumi.Input['EventHubCaptureDescriptionArgs']]):
         pulumi.set(self, "capture_description", value)
+
+    @_builtins.property
+    @pulumi.getter(name="messageRetention")
+    def message_retention(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Specifies the number of days to retain the events for this Event Hub.
+
+        > **Note:** When using a dedicated Event Hubs cluster, maximum value of `message_retention` is 90 days. When using a shared parent EventHub Namespace, maximum value is 7 days; or 1 day when using a Basic SKU for the shared parent EventHub Namespace.
+        """
+        return pulumi.get(self, "message_retention")
+
+    @message_retention.setter
+    def message_retention(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "message_retention", value)
 
     @_builtins.property
     @pulumi.getter
@@ -152,6 +157,18 @@ class EventHubArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="retentionDescription")
+    def retention_description(self) -> Optional[pulumi.Input['EventHubRetentionDescriptionArgs']]:
+        """
+        A `retention_description` block as defined below.
+        """
+        return pulumi.get(self, "retention_description")
+
+    @retention_description.setter
+    def retention_description(self, value: Optional[pulumi.Input['EventHubRetentionDescriptionArgs']]):
+        pulumi.set(self, "retention_description", value)
+
+    @_builtins.property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -175,6 +192,7 @@ class _EventHubState:
                  partition_count: Optional[pulumi.Input[_builtins.int]] = None,
                  partition_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 retention_description: Optional[pulumi.Input['EventHubRetentionDescriptionArgs']] = None,
                  status: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering EventHub resources.
@@ -190,6 +208,7 @@ class _EventHubState:
                
                > **Note:** When using a dedicated Event Hubs cluster, maximum value of `partition_count` is 1024. When using a shared parent EventHub Namespace, maximum value is 32.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] partition_ids: The identifiers for partitions created for Event Hubs.
+        :param pulumi.Input['EventHubRetentionDescriptionArgs'] retention_description: A `retention_description` block as defined below.
         :param pulumi.Input[_builtins.str] status: Specifies the status of the Event Hub resource. Possible values are `Active`, `Disabled` and `SendDisabled`. Defaults to `Active`.
         """
         if capture_description is not None:
@@ -214,6 +233,8 @@ class _EventHubState:
             pulumi.log.warn("""resource_group_name is deprecated: `resource_group_name` has been deprecated in favour of `namespace_id` and will be removed in v5.0 of the AzureRM Provider""")
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if retention_description is not None:
+            pulumi.set(__self__, "retention_description", retention_description)
         if status is not None:
             pulumi.set(__self__, "status", status)
 
@@ -316,6 +337,18 @@ class _EventHubState:
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="retentionDescription")
+    def retention_description(self) -> Optional[pulumi.Input['EventHubRetentionDescriptionArgs']]:
+        """
+        A `retention_description` block as defined below.
+        """
+        return pulumi.get(self, "retention_description")
+
+    @retention_description.setter
+    def retention_description(self, value: Optional[pulumi.Input['EventHubRetentionDescriptionArgs']]):
+        pulumi.set(self, "retention_description", value)
+
+    @_builtins.property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -341,6 +374,7 @@ class EventHub(pulumi.CustomResource):
                  namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
                  partition_count: Optional[pulumi.Input[_builtins.int]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 retention_description: Optional[pulumi.Input[Union['EventHubRetentionDescriptionArgs', 'EventHubRetentionDescriptionArgsDict']]] = None,
                  status: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
@@ -376,7 +410,7 @@ class EventHub(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.EventHub`: 2024-01-01
+        * `Microsoft.EventHub` - 2024-01-01
 
         ## Import
 
@@ -399,6 +433,7 @@ class EventHub(pulumi.CustomResource):
                > **Note:** `partition_count` cannot be changed unless Eventhub Namespace SKU is `Premium` and cannot be decreased.
                
                > **Note:** When using a dedicated Event Hubs cluster, maximum value of `partition_count` is 1024. When using a shared parent EventHub Namespace, maximum value is 32.
+        :param pulumi.Input[Union['EventHubRetentionDescriptionArgs', 'EventHubRetentionDescriptionArgsDict']] retention_description: A `retention_description` block as defined below.
         :param pulumi.Input[_builtins.str] status: Specifies the status of the Event Hub resource. Possible values are `Active`, `Disabled` and `SendDisabled`. Defaults to `Active`.
         """
         ...
@@ -440,7 +475,7 @@ class EventHub(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.EventHub`: 2024-01-01
+        * `Microsoft.EventHub` - 2024-01-01
 
         ## Import
 
@@ -472,6 +507,7 @@ class EventHub(pulumi.CustomResource):
                  namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
                  partition_count: Optional[pulumi.Input[_builtins.int]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 retention_description: Optional[pulumi.Input[Union['EventHubRetentionDescriptionArgs', 'EventHubRetentionDescriptionArgsDict']]] = None,
                  status: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -483,8 +519,6 @@ class EventHub(pulumi.CustomResource):
             __props__ = EventHubArgs.__new__(EventHubArgs)
 
             __props__.__dict__["capture_description"] = capture_description
-            if message_retention is None and not opts.urn:
-                raise TypeError("Missing required property 'message_retention'")
             __props__.__dict__["message_retention"] = message_retention
             __props__.__dict__["name"] = name
             __props__.__dict__["namespace_id"] = namespace_id
@@ -493,6 +527,7 @@ class EventHub(pulumi.CustomResource):
                 raise TypeError("Missing required property 'partition_count'")
             __props__.__dict__["partition_count"] = partition_count
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["retention_description"] = retention_description
             __props__.__dict__["status"] = status
             __props__.__dict__["partition_ids"] = None
         super(EventHub, __self__).__init__(
@@ -513,6 +548,7 @@ class EventHub(pulumi.CustomResource):
             partition_count: Optional[pulumi.Input[_builtins.int]] = None,
             partition_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
             resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+            retention_description: Optional[pulumi.Input[Union['EventHubRetentionDescriptionArgs', 'EventHubRetentionDescriptionArgsDict']]] = None,
             status: Optional[pulumi.Input[_builtins.str]] = None) -> 'EventHub':
         """
         Get an existing EventHub resource's state with the given name, id, and optional extra
@@ -533,6 +569,7 @@ class EventHub(pulumi.CustomResource):
                
                > **Note:** When using a dedicated Event Hubs cluster, maximum value of `partition_count` is 1024. When using a shared parent EventHub Namespace, maximum value is 32.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] partition_ids: The identifiers for partitions created for Event Hubs.
+        :param pulumi.Input[Union['EventHubRetentionDescriptionArgs', 'EventHubRetentionDescriptionArgsDict']] retention_description: A `retention_description` block as defined below.
         :param pulumi.Input[_builtins.str] status: Specifies the status of the Event Hub resource. Possible values are `Active`, `Disabled` and `SendDisabled`. Defaults to `Active`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -547,6 +584,7 @@ class EventHub(pulumi.CustomResource):
         __props__.__dict__["partition_count"] = partition_count
         __props__.__dict__["partition_ids"] = partition_ids
         __props__.__dict__["resource_group_name"] = resource_group_name
+        __props__.__dict__["retention_description"] = retention_description
         __props__.__dict__["status"] = status
         return EventHub(resource_name, opts=opts, __props__=__props__)
 
@@ -615,6 +653,14 @@ class EventHub(pulumi.CustomResource):
     @_utilities.deprecated("""`resource_group_name` has been deprecated in favour of `namespace_id` and will be removed in v5.0 of the AzureRM Provider""")
     def resource_group_name(self) -> pulumi.Output[_builtins.str]:
         return pulumi.get(self, "resource_group_name")
+
+    @_builtins.property
+    @pulumi.getter(name="retentionDescription")
+    def retention_description(self) -> pulumi.Output['outputs.EventHubRetentionDescription']:
+        """
+        A `retention_description` block as defined below.
+        """
+        return pulumi.get(self, "retention_description")
 
     @_builtins.property
     @pulumi.getter

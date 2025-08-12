@@ -54,7 +54,7 @@ namespace Pulumi.Azure.Compute
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.Compute`: 2024-11-01
+    /// * `Microsoft.Compute` - 2024-11-01
     /// 
     /// ## Import
     /// 
@@ -170,6 +170,12 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the Microsoft.Network API version used when creating networking resources in the Network Interface Configurations for Virtual Machine Scale Set. Possible values are `2020-11-01` and `2022-11-01`. Defaults to `2020-11-01`.
+        /// </summary>
+        [Output("networkApiVersion")]
+        public Output<string?> NetworkApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// One or more `network_interface` blocks as defined below.
@@ -481,6 +487,12 @@ namespace Pulumi.Azure.Compute
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Specifies the Microsoft.Network API version used when creating networking resources in the Network Interface Configurations for Virtual Machine Scale Set. Possible values are `2020-11-01` and `2022-11-01`. Defaults to `2020-11-01`.
+        /// </summary>
+        [Input("networkApiVersion")]
+        public Input<string>? NetworkApiVersion { get; set; }
+
         [Input("networkInterfaces")]
         private InputList<Inputs.OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs>? _networkInterfaces;
 
@@ -770,6 +782,12 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Specifies the Microsoft.Network API version used when creating networking resources in the Network Interface Configurations for Virtual Machine Scale Set. Possible values are `2020-11-01` and `2022-11-01`. Defaults to `2020-11-01`.
+        /// </summary>
+        [Input("networkApiVersion")]
+        public Input<string>? NetworkApiVersion { get; set; }
 
         [Input("networkInterfaces")]
         private InputList<Inputs.OrchestratedVirtualMachineScaleSetNetworkInterfaceGetArgs>? _networkInterfaces;

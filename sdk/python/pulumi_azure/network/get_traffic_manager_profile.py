@@ -179,7 +179,7 @@ def get_traffic_manager_profile(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Network`: 2022-04-01
+    * `Microsoft.Network` - 2022-04-01
 
 
     :param _builtins.str name: Specifies the name of the Traffic Manager Profile.
@@ -230,7 +230,7 @@ def get_traffic_manager_profile_output(name: Optional[pulumi.Input[_builtins.str
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Network`: 2022-04-01
+    * `Microsoft.Network` - 2022-04-01
 
 
     :param _builtins.str name: Specifies the name of the Traffic Manager Profile.

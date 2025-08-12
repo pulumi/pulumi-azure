@@ -1004,6 +1004,21 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Specifies the version of the **provisioned** billing model (e.g. when `account_kind = &#34;FileStorage&#34;` for Storage File). Possible value is `V2`. Changing this forces a new resource to be created.
+     * 
+     */
+    @Import(name="provisionedBillingModelVersion")
+    private @Nullable Output<String> provisionedBillingModelVersion;
+
+    /**
+     * @return Specifies the version of the **provisioned** billing model (e.g. when `account_kind = &#34;FileStorage&#34;` for Storage File). Possible value is `V2`. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<Output<String>> provisionedBillingModelVersion() {
+        return Optional.ofNullable(this.provisionedBillingModelVersion);
+    }
+
+    /**
      * Whether the public network access is enabled? Defaults to `true`.
      * 
      */
@@ -1820,6 +1835,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         this.primaryWebInternetHost = $.primaryWebInternetHost;
         this.primaryWebMicrosoftEndpoint = $.primaryWebMicrosoftEndpoint;
         this.primaryWebMicrosoftHost = $.primaryWebMicrosoftHost;
+        this.provisionedBillingModelVersion = $.provisionedBillingModelVersion;
         this.publicNetworkAccessEnabled = $.publicNetworkAccessEnabled;
         this.queueEncryptionKeyType = $.queueEncryptionKeyType;
         this.queueProperties = $.queueProperties;
@@ -3232,6 +3248,27 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder primaryWebMicrosoftHost(String primaryWebMicrosoftHost) {
             return primaryWebMicrosoftHost(Output.of(primaryWebMicrosoftHost));
+        }
+
+        /**
+         * @param provisionedBillingModelVersion Specifies the version of the **provisioned** billing model (e.g. when `account_kind = &#34;FileStorage&#34;` for Storage File). Possible value is `V2`. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder provisionedBillingModelVersion(@Nullable Output<String> provisionedBillingModelVersion) {
+            $.provisionedBillingModelVersion = provisionedBillingModelVersion;
+            return this;
+        }
+
+        /**
+         * @param provisionedBillingModelVersion Specifies the version of the **provisioned** billing model (e.g. when `account_kind = &#34;FileStorage&#34;` for Storage File). Possible value is `V2`. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder provisionedBillingModelVersion(String provisionedBillingModelVersion) {
+            return provisionedBillingModelVersion(Output.of(provisionedBillingModelVersion));
         }
 
         /**

@@ -29,7 +29,7 @@ import javax.annotation.Nullable;
  * &lt;!-- This section is generated, changes will be overwritten --&gt;
  * This resource uses the following Azure API Providers:
  * 
- * * `Qumulo.Storage`: 2024-06-19
+ * * `Qumulo.Storage` - 2024-06-19
  * 
  * ## Import
  * 

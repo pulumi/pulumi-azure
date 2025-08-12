@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.containerapp.inputs;
 
+import com.pulumi.azure.containerapp.inputs.AppIngressCorsArgs;
 import com.pulumi.azure.containerapp.inputs.AppIngressCustomDomainArgs;
 import com.pulumi.azure.containerapp.inputs.AppIngressIpSecurityRestrictionArgs;
 import com.pulumi.azure.containerapp.inputs.AppIngressTrafficWeightArgs;
@@ -50,6 +51,21 @@ public final class AppIngressArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> clientCertificateMode() {
         return Optional.ofNullable(this.clientCertificateMode);
+    }
+
+    /**
+     * A `cors` block as defined below.
+     * 
+     */
+    @Import(name="cors")
+    private @Nullable Output<AppIngressCorsArgs> cors;
+
+    /**
+     * @return A `cors` block as defined below.
+     * 
+     */
+    public Optional<Output<AppIngressCorsArgs>> cors() {
+        return Optional.ofNullable(this.cors);
     }
 
     /**
@@ -185,6 +201,7 @@ public final class AppIngressArgs extends com.pulumi.resources.ResourceArgs {
     private AppIngressArgs(AppIngressArgs $) {
         this.allowInsecureConnections = $.allowInsecureConnections;
         this.clientCertificateMode = $.clientCertificateMode;
+        this.cors = $.cors;
         this.customDomains = $.customDomains;
         this.exposedPort = $.exposedPort;
         this.externalEnabled = $.externalEnabled;
@@ -253,6 +270,27 @@ public final class AppIngressArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder clientCertificateMode(String clientCertificateMode) {
             return clientCertificateMode(Output.of(clientCertificateMode));
+        }
+
+        /**
+         * @param cors A `cors` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cors(@Nullable Output<AppIngressCorsArgs> cors) {
+            $.cors = cors;
+            return this;
+        }
+
+        /**
+         * @param cors A `cors` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cors(AppIngressCorsArgs cors) {
+            return cors(Output.of(cors));
         }
 
         /**

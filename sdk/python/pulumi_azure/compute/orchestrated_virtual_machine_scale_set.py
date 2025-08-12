@@ -39,6 +39,7 @@ class OrchestratedVirtualMachineScaleSetArgs:
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  max_bid_price: Optional[pulumi.Input[_builtins.float]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 network_api_version: Optional[pulumi.Input[_builtins.str]] = None,
                  network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs']]]] = None,
                  os_disk: Optional[pulumi.Input['OrchestratedVirtualMachineScaleSetOsDiskArgs']] = None,
                  os_profile: Optional[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileArgs']] = None,
@@ -88,6 +89,7 @@ class OrchestratedVirtualMachineScaleSetArgs:
         :param pulumi.Input[_builtins.str] location: The Azure location where the Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.float] max_bid_price: The maximum price you're willing to pay for each Virtual Machine in this Scale Set, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machines in the Scale Set will be evicted using the eviction_policy. Defaults to `-1`, which means that each Virtual Machine in the Scale Set should not be evicted for price reasons.
         :param pulumi.Input[_builtins.str] name: The name of the Virtual Machine Scale Set. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] network_api_version: Specifies the Microsoft.Network API version used when creating networking resources in the Network Interface Configurations for Virtual Machine Scale Set. Possible values are `2020-11-01` and `2022-11-01`. Defaults to `2020-11-01`.
         :param pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs']]] network_interfaces: One or more `network_interface` blocks as defined below.
         :param pulumi.Input['OrchestratedVirtualMachineScaleSetOsDiskArgs'] os_disk: An `os_disk` block as defined below.
         :param pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileArgs'] os_profile: An `os_profile` block as defined below.
@@ -152,6 +154,8 @@ class OrchestratedVirtualMachineScaleSetArgs:
             pulumi.set(__self__, "max_bid_price", max_bid_price)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if network_api_version is not None:
+            pulumi.set(__self__, "network_api_version", network_api_version)
         if network_interfaces is not None:
             pulumi.set(__self__, "network_interfaces", network_interfaces)
         if os_disk is not None:
@@ -418,6 +422,18 @@ class OrchestratedVirtualMachineScaleSetArgs:
         pulumi.set(self, "name", value)
 
     @_builtins.property
+    @pulumi.getter(name="networkApiVersion")
+    def network_api_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies the Microsoft.Network API version used when creating networking resources in the Network Interface Configurations for Virtual Machine Scale Set. Possible values are `2020-11-01` and `2022-11-01`. Defaults to `2020-11-01`.
+        """
+        return pulumi.get(self, "network_api_version")
+
+    @network_api_version.setter
+    def network_api_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "network_api_version", value)
+
+    @_builtins.property
     @pulumi.getter(name="networkInterfaces")
     def network_interfaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs']]]]:
         """
@@ -675,6 +691,7 @@ class _OrchestratedVirtualMachineScaleSetState:
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  max_bid_price: Optional[pulumi.Input[_builtins.float]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 network_api_version: Optional[pulumi.Input[_builtins.str]] = None,
                  network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs']]]] = None,
                  os_disk: Optional[pulumi.Input['OrchestratedVirtualMachineScaleSetOsDiskArgs']] = None,
                  os_profile: Optional[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileArgs']] = None,
@@ -723,6 +740,7 @@ class _OrchestratedVirtualMachineScaleSetState:
         :param pulumi.Input[_builtins.str] location: The Azure location where the Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.float] max_bid_price: The maximum price you're willing to pay for each Virtual Machine in this Scale Set, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machines in the Scale Set will be evicted using the eviction_policy. Defaults to `-1`, which means that each Virtual Machine in the Scale Set should not be evicted for price reasons.
         :param pulumi.Input[_builtins.str] name: The name of the Virtual Machine Scale Set. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] network_api_version: Specifies the Microsoft.Network API version used when creating networking resources in the Network Interface Configurations for Virtual Machine Scale Set. Possible values are `2020-11-01` and `2022-11-01`. Defaults to `2020-11-01`.
         :param pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs']]] network_interfaces: One or more `network_interface` blocks as defined below.
         :param pulumi.Input['OrchestratedVirtualMachineScaleSetOsDiskArgs'] os_disk: An `os_disk` block as defined below.
         :param pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileArgs'] os_profile: An `os_profile` block as defined below.
@@ -790,6 +808,8 @@ class _OrchestratedVirtualMachineScaleSetState:
             pulumi.set(__self__, "max_bid_price", max_bid_price)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if network_api_version is not None:
+            pulumi.set(__self__, "network_api_version", network_api_version)
         if network_interfaces is not None:
             pulumi.set(__self__, "network_interfaces", network_interfaces)
         if os_disk is not None:
@@ -1034,6 +1054,18 @@ class _OrchestratedVirtualMachineScaleSetState:
     @name.setter
     def name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="networkApiVersion")
+    def network_api_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies the Microsoft.Network API version used when creating networking resources in the Network Interface Configurations for Virtual Machine Scale Set. Possible values are `2020-11-01` and `2022-11-01`. Defaults to `2020-11-01`.
+        """
+        return pulumi.get(self, "network_api_version")
+
+    @network_api_version.setter
+    def network_api_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "network_api_version", value)
 
     @_builtins.property
     @pulumi.getter(name="networkInterfaces")
@@ -1334,6 +1366,7 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  max_bid_price: Optional[pulumi.Input[_builtins.float]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 network_api_version: Optional[pulumi.Input[_builtins.str]] = None,
                  network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs', 'OrchestratedVirtualMachineScaleSetNetworkInterfaceArgsDict']]]]] = None,
                  os_disk: Optional[pulumi.Input[Union['OrchestratedVirtualMachineScaleSetOsDiskArgs', 'OrchestratedVirtualMachineScaleSetOsDiskArgsDict']]] = None,
                  os_profile: Optional[pulumi.Input[Union['OrchestratedVirtualMachineScaleSetOsProfileArgs', 'OrchestratedVirtualMachineScaleSetOsProfileArgsDict']]] = None,
@@ -1387,7 +1420,7 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.Compute`: 2024-11-01
+        * `Microsoft.Compute` - 2024-11-01
 
         ## Import
 
@@ -1423,6 +1456,7 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] location: The Azure location where the Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.float] max_bid_price: The maximum price you're willing to pay for each Virtual Machine in this Scale Set, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machines in the Scale Set will be evicted using the eviction_policy. Defaults to `-1`, which means that each Virtual Machine in the Scale Set should not be evicted for price reasons.
         :param pulumi.Input[_builtins.str] name: The name of the Virtual Machine Scale Set. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] network_api_version: Specifies the Microsoft.Network API version used when creating networking resources in the Network Interface Configurations for Virtual Machine Scale Set. Possible values are `2020-11-01` and `2022-11-01`. Defaults to `2020-11-01`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs', 'OrchestratedVirtualMachineScaleSetNetworkInterfaceArgsDict']]]] network_interfaces: One or more `network_interface` blocks as defined below.
         :param pulumi.Input[Union['OrchestratedVirtualMachineScaleSetOsDiskArgs', 'OrchestratedVirtualMachineScaleSetOsDiskArgsDict']] os_disk: An `os_disk` block as defined below.
         :param pulumi.Input[Union['OrchestratedVirtualMachineScaleSetOsProfileArgs', 'OrchestratedVirtualMachineScaleSetOsProfileArgsDict']] os_profile: An `os_profile` block as defined below.
@@ -1494,7 +1528,7 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.Compute`: 2024-11-01
+        * `Microsoft.Compute` - 2024-11-01
 
         ## Import
 
@@ -1535,6 +1569,7 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  max_bid_price: Optional[pulumi.Input[_builtins.float]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 network_api_version: Optional[pulumi.Input[_builtins.str]] = None,
                  network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs', 'OrchestratedVirtualMachineScaleSetNetworkInterfaceArgsDict']]]]] = None,
                  os_disk: Optional[pulumi.Input[Union['OrchestratedVirtualMachineScaleSetOsDiskArgs', 'OrchestratedVirtualMachineScaleSetOsDiskArgsDict']]] = None,
                  os_profile: Optional[pulumi.Input[Union['OrchestratedVirtualMachineScaleSetOsProfileArgs', 'OrchestratedVirtualMachineScaleSetOsProfileArgsDict']]] = None,
@@ -1581,6 +1616,7 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
             __props__.__dict__["location"] = location
             __props__.__dict__["max_bid_price"] = max_bid_price
             __props__.__dict__["name"] = name
+            __props__.__dict__["network_api_version"] = network_api_version
             __props__.__dict__["network_interfaces"] = network_interfaces
             __props__.__dict__["os_disk"] = os_disk
             __props__.__dict__["os_profile"] = os_profile
@@ -1635,6 +1671,7 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
             location: Optional[pulumi.Input[_builtins.str]] = None,
             max_bid_price: Optional[pulumi.Input[_builtins.float]] = None,
             name: Optional[pulumi.Input[_builtins.str]] = None,
+            network_api_version: Optional[pulumi.Input[_builtins.str]] = None,
             network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs', 'OrchestratedVirtualMachineScaleSetNetworkInterfaceArgsDict']]]]] = None,
             os_disk: Optional[pulumi.Input[Union['OrchestratedVirtualMachineScaleSetOsDiskArgs', 'OrchestratedVirtualMachineScaleSetOsDiskArgsDict']]] = None,
             os_profile: Optional[pulumi.Input[Union['OrchestratedVirtualMachineScaleSetOsProfileArgs', 'OrchestratedVirtualMachineScaleSetOsProfileArgsDict']]] = None,
@@ -1688,6 +1725,7 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] location: The Azure location where the Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.float] max_bid_price: The maximum price you're willing to pay for each Virtual Machine in this Scale Set, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machines in the Scale Set will be evicted using the eviction_policy. Defaults to `-1`, which means that each Virtual Machine in the Scale Set should not be evicted for price reasons.
         :param pulumi.Input[_builtins.str] name: The name of the Virtual Machine Scale Set. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] network_api_version: Specifies the Microsoft.Network API version used when creating networking resources in the Network Interface Configurations for Virtual Machine Scale Set. Possible values are `2020-11-01` and `2022-11-01`. Defaults to `2020-11-01`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs', 'OrchestratedVirtualMachineScaleSetNetworkInterfaceArgsDict']]]] network_interfaces: One or more `network_interface` blocks as defined below.
         :param pulumi.Input[Union['OrchestratedVirtualMachineScaleSetOsDiskArgs', 'OrchestratedVirtualMachineScaleSetOsDiskArgsDict']] os_disk: An `os_disk` block as defined below.
         :param pulumi.Input[Union['OrchestratedVirtualMachineScaleSetOsProfileArgs', 'OrchestratedVirtualMachineScaleSetOsProfileArgsDict']] os_profile: An `os_profile` block as defined below.
@@ -1743,6 +1781,7 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
         __props__.__dict__["location"] = location
         __props__.__dict__["max_bid_price"] = max_bid_price
         __props__.__dict__["name"] = name
+        __props__.__dict__["network_api_version"] = network_api_version
         __props__.__dict__["network_interfaces"] = network_interfaces
         __props__.__dict__["os_disk"] = os_disk
         __props__.__dict__["os_profile"] = os_profile
@@ -1902,6 +1941,14 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
         The name of the Virtual Machine Scale Set. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="networkApiVersion")
+    def network_api_version(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Specifies the Microsoft.Network API version used when creating networking resources in the Network Interface Configurations for Virtual Machine Scale Set. Possible values are `2020-11-01` and `2022-11-01`. Defaults to `2020-11-01`.
+        """
+        return pulumi.get(self, "network_api_version")
 
     @_builtins.property
     @pulumi.getter(name="networkInterfaces")

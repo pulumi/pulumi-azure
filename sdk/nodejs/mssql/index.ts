@@ -45,6 +45,11 @@ export const getElasticPool: typeof import("./getElasticPool").getElasticPool = 
 export const getElasticPoolOutput: typeof import("./getElasticPool").getElasticPoolOutput = null as any;
 utilities.lazyLoad(exports, ["getElasticPool","getElasticPoolOutput"], () => require("./getElasticPool"));
 
+export { GetFailoverGroupArgs, GetFailoverGroupResult, GetFailoverGroupOutputArgs } from "./getFailoverGroup";
+export const getFailoverGroup: typeof import("./getFailoverGroup").getFailoverGroup = null as any;
+export const getFailoverGroupOutput: typeof import("./getFailoverGroup").getFailoverGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getFailoverGroup","getFailoverGroupOutput"], () => require("./getFailoverGroup"));
+
 export { GetManagedDatabaseArgs, GetManagedDatabaseResult, GetManagedDatabaseOutputArgs } from "./getManagedDatabase";
 export const getManagedDatabase: typeof import("./getManagedDatabase").getManagedDatabase = null as any;
 export const getManagedDatabaseOutput: typeof import("./getManagedDatabase").getManagedDatabaseOutput = null as any;
@@ -114,6 +119,11 @@ export { ManagedInstanceSecurityAlertPolicyArgs, ManagedInstanceSecurityAlertPol
 export type ManagedInstanceSecurityAlertPolicy = import("./managedInstanceSecurityAlertPolicy").ManagedInstanceSecurityAlertPolicy;
 export const ManagedInstanceSecurityAlertPolicy: typeof import("./managedInstanceSecurityAlertPolicy").ManagedInstanceSecurityAlertPolicy = null as any;
 utilities.lazyLoad(exports, ["ManagedInstanceSecurityAlertPolicy"], () => require("./managedInstanceSecurityAlertPolicy"));
+
+export { ManagedInstanceStartStopScheduleArgs, ManagedInstanceStartStopScheduleState } from "./managedInstanceStartStopSchedule";
+export type ManagedInstanceStartStopSchedule = import("./managedInstanceStartStopSchedule").ManagedInstanceStartStopSchedule;
+export const ManagedInstanceStartStopSchedule: typeof import("./managedInstanceStartStopSchedule").ManagedInstanceStartStopSchedule = null as any;
+utilities.lazyLoad(exports, ["ManagedInstanceStartStopSchedule"], () => require("./managedInstanceStartStopSchedule"));
 
 export { ManagedInstanceTransparentDataEncryptionArgs, ManagedInstanceTransparentDataEncryptionState } from "./managedInstanceTransparentDataEncryption";
 export type ManagedInstanceTransparentDataEncryption = import("./managedInstanceTransparentDataEncryption").ManagedInstanceTransparentDataEncryption;
@@ -224,6 +234,8 @@ const _module = {
                 return new ManagedInstanceFailoverGroup(name, <any>undefined, { urn })
             case "azure:mssql/managedInstanceSecurityAlertPolicy:ManagedInstanceSecurityAlertPolicy":
                 return new ManagedInstanceSecurityAlertPolicy(name, <any>undefined, { urn })
+            case "azure:mssql/managedInstanceStartStopSchedule:ManagedInstanceStartStopSchedule":
+                return new ManagedInstanceStartStopSchedule(name, <any>undefined, { urn })
             case "azure:mssql/managedInstanceTransparentDataEncryption:ManagedInstanceTransparentDataEncryption":
                 return new ManagedInstanceTransparentDataEncryption(name, <any>undefined, { urn })
             case "azure:mssql/managedInstanceVulnerabilityAssessment:ManagedInstanceVulnerabilityAssessment":
@@ -274,6 +286,7 @@ pulumi.runtime.registerResourceModule("azure", "mssql/managedInstance", _module)
 pulumi.runtime.registerResourceModule("azure", "mssql/managedInstanceActiveDirectoryAdministrator", _module)
 pulumi.runtime.registerResourceModule("azure", "mssql/managedInstanceFailoverGroup", _module)
 pulumi.runtime.registerResourceModule("azure", "mssql/managedInstanceSecurityAlertPolicy", _module)
+pulumi.runtime.registerResourceModule("azure", "mssql/managedInstanceStartStopSchedule", _module)
 pulumi.runtime.registerResourceModule("azure", "mssql/managedInstanceTransparentDataEncryption", _module)
 pulumi.runtime.registerResourceModule("azure", "mssql/managedInstanceVulnerabilityAssessment", _module)
 pulumi.runtime.registerResourceModule("azure", "mssql/outboundFirewallRule", _module)

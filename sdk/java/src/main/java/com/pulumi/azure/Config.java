@@ -108,6 +108,14 @@ public final class Config {
         return Codegen.stringProp("metadataHost").config(config).env("ARM_METADATA_HOSTNAME").get();
     }
 /**
+ * The API version to use for Managed Service Identity (IMDS) - for cases where the default API version is not supported by
+ * the endpoint. e.g. for Azure Container Apps.
+ * 
+ */
+    public Optional<String> msiApiVersion() {
+        return Codegen.stringProp("msiApiVersion").config(config).get();
+    }
+/**
  * The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected
  * automatically.
  * 

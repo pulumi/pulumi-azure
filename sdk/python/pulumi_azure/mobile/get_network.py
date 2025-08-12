@@ -148,7 +148,7 @@ def get_network(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.MobileNetwork`: 2022-11-01
+    * `Microsoft.MobileNetwork` - 2022-11-01
 
 
     :param _builtins.str name: Specifies the name which should be used for this Mobile Network.
@@ -190,7 +190,7 @@ def get_network_output(name: Optional[pulumi.Input[_builtins.str]] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.MobileNetwork`: 2022-11-01
+    * `Microsoft.MobileNetwork` - 2022-11-01
 
 
     :param _builtins.str name: Specifies the name which should be used for this Mobile Network.

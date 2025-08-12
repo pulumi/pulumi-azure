@@ -40,9 +40,9 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This resource uses the following Azure API Providers:
  *
- * * `Microsoft.App`: 2025-01-01
+ * * `Microsoft.App` - 2025-01-01
  *
- * * `Microsoft.OperationalInsights`: 2020-08-01
+ * * `Microsoft.OperationalInsights` - 2020-08-01
  *
  * ## Import
  *
@@ -96,6 +96,10 @@ export class Environment extends pulumi.CustomResource {
      * The network addressing in which the Container Apps in this Container App Environment will reside in CIDR notation.
      */
     public /*out*/ readonly dockerBridgeCidr!: pulumi.Output<string>;
+    /**
+     * An `identity` block as defined below.
+     */
+    public readonly identity!: pulumi.Output<outputs.containerapp.EnvironmentIdentity | undefined>;
     /**
      * Name of the platform-managed resource group created for the Managed Environment to host infrastructure resources. Changing this forces a new resource to be created.
      *
@@ -186,6 +190,7 @@ export class Environment extends pulumi.CustomResource {
             resourceInputs["daprApplicationInsightsConnectionString"] = state ? state.daprApplicationInsightsConnectionString : undefined;
             resourceInputs["defaultDomain"] = state ? state.defaultDomain : undefined;
             resourceInputs["dockerBridgeCidr"] = state ? state.dockerBridgeCidr : undefined;
+            resourceInputs["identity"] = state ? state.identity : undefined;
             resourceInputs["infrastructureResourceGroupName"] = state ? state.infrastructureResourceGroupName : undefined;
             resourceInputs["infrastructureSubnetId"] = state ? state.infrastructureSubnetId : undefined;
             resourceInputs["internalLoadBalancerEnabled"] = state ? state.internalLoadBalancerEnabled : undefined;
@@ -207,6 +212,7 @@ export class Environment extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["daprApplicationInsightsConnectionString"] = args?.daprApplicationInsightsConnectionString ? pulumi.secret(args.daprApplicationInsightsConnectionString) : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["infrastructureResourceGroupName"] = args ? args.infrastructureResourceGroupName : undefined;
             resourceInputs["infrastructureSubnetId"] = args ? args.infrastructureSubnetId : undefined;
             resourceInputs["internalLoadBalancerEnabled"] = args ? args.internalLoadBalancerEnabled : undefined;
@@ -253,6 +259,10 @@ export interface EnvironmentState {
      * The network addressing in which the Container Apps in this Container App Environment will reside in CIDR notation.
      */
     dockerBridgeCidr?: pulumi.Input<string>;
+    /**
+     * An `identity` block as defined below.
+     */
+    identity?: pulumi.Input<inputs.containerapp.EnvironmentIdentity>;
     /**
      * Name of the platform-managed resource group created for the Managed Environment to host infrastructure resources. Changing this forces a new resource to be created.
      *
@@ -335,6 +345,10 @@ export interface EnvironmentArgs {
      * Application Insights connection string used by Dapr to export Service to Service communication telemetry. Changing this forces a new resource to be created.
      */
     daprApplicationInsightsConnectionString?: pulumi.Input<string>;
+    /**
+     * An `identity` block as defined below.
+     */
+    identity?: pulumi.Input<inputs.containerapp.EnvironmentIdentity>;
     /**
      * Name of the platform-managed resource group created for the Managed Environment to host infrastructure resources. Changing this forces a new resource to be created.
      *

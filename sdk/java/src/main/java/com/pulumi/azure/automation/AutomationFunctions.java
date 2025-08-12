@@ -81,7 +81,7 @@ public final class AutomationFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Automation`: 2023-11-01, 2019-06-01
+     * * `Microsoft.Automation` - 2023-11-01, 2019-06-01
      * 
      */
     public static Output<GetAccountResult> getAccount(GetAccountArgs args) {
@@ -132,7 +132,7 @@ public final class AutomationFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Automation`: 2023-11-01, 2019-06-01
+     * * `Microsoft.Automation` - 2023-11-01, 2019-06-01
      * 
      */
     public static CompletableFuture<GetAccountResult> getAccountPlain(GetAccountPlainArgs args) {
@@ -183,7 +183,7 @@ public final class AutomationFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Automation`: 2023-11-01, 2019-06-01
+     * * `Microsoft.Automation` - 2023-11-01, 2019-06-01
      * 
      */
     public static Output<GetAccountResult> getAccount(GetAccountArgs args, InvokeOptions options) {
@@ -234,7 +234,7 @@ public final class AutomationFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Automation`: 2023-11-01, 2019-06-01
+     * * `Microsoft.Automation` - 2023-11-01, 2019-06-01
      * 
      */
     public static Output<GetAccountResult> getAccount(GetAccountArgs args, InvokeOutputOptions options) {
@@ -285,7 +285,7 @@ public final class AutomationFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Automation`: 2023-11-01, 2019-06-01
+     * * `Microsoft.Automation` - 2023-11-01, 2019-06-01
      * 
      */
     public static CompletableFuture<GetAccountResult> getAccountPlain(GetAccountPlainArgs args, InvokeOptions options) {
@@ -1012,7 +1012,7 @@ public final class AutomationFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Automation`: 2023-11-01
+     * * `Microsoft.Automation` - 2023-11-01
      * 
      */
     public static Output<GetRunbookResult> getRunbook(GetRunbookArgs args) {
@@ -1064,7 +1064,7 @@ public final class AutomationFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Automation`: 2023-11-01
+     * * `Microsoft.Automation` - 2023-11-01
      * 
      */
     public static CompletableFuture<GetRunbookResult> getRunbookPlain(GetRunbookPlainArgs args) {
@@ -1116,7 +1116,7 @@ public final class AutomationFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Automation`: 2023-11-01
+     * * `Microsoft.Automation` - 2023-11-01
      * 
      */
     public static Output<GetRunbookResult> getRunbook(GetRunbookArgs args, InvokeOptions options) {
@@ -1168,7 +1168,7 @@ public final class AutomationFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Automation`: 2023-11-01
+     * * `Microsoft.Automation` - 2023-11-01
      * 
      */
     public static Output<GetRunbookResult> getRunbook(GetRunbookArgs args, InvokeOutputOptions options) {
@@ -1220,7 +1220,7 @@ public final class AutomationFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Automation`: 2023-11-01
+     * * `Microsoft.Automation` - 2023-11-01
      * 
      */
     public static CompletableFuture<GetRunbookResult> getRunbookPlain(GetRunbookPlainArgs args, InvokeOptions options) {
@@ -1536,7 +1536,7 @@ public final class AutomationFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Automation`: 2023-11-01
+     * * `Microsoft.Automation` - 2023-11-01
      * 
      */
     public static Output<GetVariablesResult> getVariables(GetVariablesArgs args) {
@@ -1592,7 +1592,7 @@ public final class AutomationFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Automation`: 2023-11-01
+     * * `Microsoft.Automation` - 2023-11-01
      * 
      */
     public static CompletableFuture<GetVariablesResult> getVariablesPlain(GetVariablesPlainArgs args) {
@@ -1648,7 +1648,7 @@ public final class AutomationFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Automation`: 2023-11-01
+     * * `Microsoft.Automation` - 2023-11-01
      * 
      */
     public static Output<GetVariablesResult> getVariables(GetVariablesArgs args, InvokeOptions options) {
@@ -1704,7 +1704,7 @@ public final class AutomationFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Automation`: 2023-11-01
+     * * `Microsoft.Automation` - 2023-11-01
      * 
      */
     public static Output<GetVariablesResult> getVariables(GetVariablesArgs args, InvokeOutputOptions options) {
@@ -1760,7 +1760,7 @@ public final class AutomationFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Automation`: 2023-11-01
+     * * `Microsoft.Automation` - 2023-11-01
      * 
      */
     public static CompletableFuture<GetVariablesResult> getVariablesPlain(GetVariablesPlainArgs args, InvokeOptions options) {

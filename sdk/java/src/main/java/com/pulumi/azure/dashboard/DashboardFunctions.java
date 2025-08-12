@@ -63,7 +63,7 @@ public final class DashboardFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Portal`: 2019-01-01-preview
+     * * `Microsoft.Portal` - 2019-01-01-preview
      * 
      * @deprecated
      * azure.dashboard/azurerm_portal_dashboard.azurerm_portal_dashboard has been deprecated in favor of azure.portal/azurerm_portal_dashboard.azurerm_portal_dashboard
@@ -118,7 +118,7 @@ public final class DashboardFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Portal`: 2019-01-01-preview
+     * * `Microsoft.Portal` - 2019-01-01-preview
      * 
      * @deprecated
      * azure.dashboard/azurerm_portal_dashboard.azurerm_portal_dashboard has been deprecated in favor of azure.portal/azurerm_portal_dashboard.azurerm_portal_dashboard
@@ -173,7 +173,7 @@ public final class DashboardFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Portal`: 2019-01-01-preview
+     * * `Microsoft.Portal` - 2019-01-01-preview
      * 
      * @deprecated
      * azure.dashboard/azurerm_portal_dashboard.azurerm_portal_dashboard has been deprecated in favor of azure.portal/azurerm_portal_dashboard.azurerm_portal_dashboard
@@ -228,7 +228,7 @@ public final class DashboardFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Portal`: 2019-01-01-preview
+     * * `Microsoft.Portal` - 2019-01-01-preview
      * 
      * @deprecated
      * azure.dashboard/azurerm_portal_dashboard.azurerm_portal_dashboard has been deprecated in favor of azure.portal/azurerm_portal_dashboard.azurerm_portal_dashboard
@@ -283,7 +283,7 @@ public final class DashboardFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Portal`: 2019-01-01-preview
+     * * `Microsoft.Portal` - 2019-01-01-preview
      * 
      * @deprecated
      * azure.dashboard/azurerm_portal_dashboard.azurerm_portal_dashboard has been deprecated in favor of azure.portal/azurerm_portal_dashboard.azurerm_portal_dashboard
@@ -338,7 +338,7 @@ public final class DashboardFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Dashboard`: 2023-09-01
+     * * `Microsoft.Dashboard` - 2023-09-01
      * 
      */
     public static Output<GetGrafanaResult> getGrafana(GetGrafanaArgs args) {
@@ -389,7 +389,7 @@ public final class DashboardFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Dashboard`: 2023-09-01
+     * * `Microsoft.Dashboard` - 2023-09-01
      * 
      */
     public static CompletableFuture<GetGrafanaResult> getGrafanaPlain(GetGrafanaPlainArgs args) {
@@ -440,7 +440,7 @@ public final class DashboardFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Dashboard`: 2023-09-01
+     * * `Microsoft.Dashboard` - 2023-09-01
      * 
      */
     public static Output<GetGrafanaResult> getGrafana(GetGrafanaArgs args, InvokeOptions options) {
@@ -491,7 +491,7 @@ public final class DashboardFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Dashboard`: 2023-09-01
+     * * `Microsoft.Dashboard` - 2023-09-01
      * 
      */
     public static Output<GetGrafanaResult> getGrafana(GetGrafanaArgs args, InvokeOutputOptions options) {
@@ -542,7 +542,7 @@ public final class DashboardFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Dashboard`: 2023-09-01
+     * * `Microsoft.Dashboard` - 2023-09-01
      * 
      */
     public static CompletableFuture<GetGrafanaResult> getGrafanaPlain(GetGrafanaPlainArgs args, InvokeOptions options) {

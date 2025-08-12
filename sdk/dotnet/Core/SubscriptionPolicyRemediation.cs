@@ -63,7 +63,7 @@ namespace Pulumi.Azure.Core
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.PolicyInsights`: 2021-10-01
+    /// * `Microsoft.PolicyInsights` - 2021-10-01
     /// 
     /// ## Import
     /// 

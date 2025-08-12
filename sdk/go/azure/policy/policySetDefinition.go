@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a policy set definition.
+// Manages a Policy Set Definition.
 //
 // > **Note:** Policy set definitions (also known as policy initiatives) do not take effect until they are assigned to a scope using a Policy Set Assignment.
 //
@@ -31,9 +31,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := policy.NewPolicySetDefinition(ctx, "example", &policy.PolicySetDefinitionArgs{
-//				Name:        pulumi.String("testPolicySet"),
+//				Name:        pulumi.String("example"),
 //				PolicyType:  pulumi.String("Custom"),
-//				DisplayName: pulumi.String("Test Policy Set"),
+//				DisplayName: pulumi.String("Example"),
 //				Parameters: pulumi.String(`    {
 //	        "allowedLocations": {
 //	            "type": "Array",
@@ -49,6 +49,7 @@ import (
 //
 //				PolicyDefinitionReferences: policy.PolicySetDefinitionPolicyDefinitionReferenceArray{
 //					&policy.PolicySetDefinitionPolicyDefinitionReferenceArgs{
+//						Version:            pulumi.String("1.0.*"),
 //						PolicyDefinitionId: pulumi.String("/providers/Microsoft.Authorization/policyDefinitions/e765b5de-1225-4ba3-bd56-1ac6695af988"),
 //						ParameterValues:    pulumi.String("    {\n      \"listOfAllowedLocations\": {\"value\": \"[parameters('allowedLocations')]\"}\n    }\n"),
 //					},
@@ -63,39 +64,42 @@ import (
 //
 // ```
 //
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.Authorization` - 2025-01-01
+//
+// * `Microsoft.Management` - 2025-01-01
+//
 // ## Import
 //
 // Policy Set Definitions can be imported using the `resource id`, e.g.
 //
 // ```sh
-// $ pulumi import azure:policy/policySetDefinition:PolicySetDefinition example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/policySetDefinitions/testPolicySet
-// ```
-//
-// or
-//
-// ```sh
-// $ pulumi import azure:policy/policySetDefinition:PolicySetDefinition example /providers/Microsoft.Management/managementGroups/my-mgmt-group-id/providers/Microsoft.Authorization/policySetDefinitions/testPolicySet
+// $ pulumi import azure:policy/policySetDefinition:PolicySetDefinition example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/policySetDefinitions/policySetDefinitionName
 // ```
 type PolicySetDefinition struct {
 	pulumi.CustomResourceState
 
-	// The description of the policy set definition.
+	// The description of this Policy Set Definition.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The display name of the policy set definition.
+	// The display name of this Policy Set Definition.
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
-	// The id of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created.
+	// Deprecated: `managementGroupId` has been deprecated in favour of the `management.GroupPolicySetDefinition` resource and will be removed in v5.0 of the AzureRM Provider.
 	ManagementGroupId pulumi.StringPtrOutput `pulumi:"managementGroupId"`
-	// The metadata for the policy set definition. This is a JSON object representing additional metadata that should be stored with the policy definition.
+	// The metadata for the Policy Set Definition in JSON format.
 	Metadata pulumi.StringOutput `pulumi:"metadata"`
-	// The name of the policy set definition. Changing this forces a new resource to be created.
+	// The name which should be used for this Policy Set Definition. Changing this forces a new Policy Set Definition to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Parameters for the policy set definition. This field is a JSON object that allows you to parameterize your policy definition.
+	// The parameters for the Policy Set Definition in JSON format. Reducing the number of parameters forces a new resource to be created.
 	Parameters pulumi.StringPtrOutput `pulumi:"parameters"`
 	// One or more `policyDefinitionGroup` blocks as defined below.
 	PolicyDefinitionGroups PolicySetDefinitionPolicyDefinitionGroupArrayOutput `pulumi:"policyDefinitionGroups"`
 	// One or more `policyDefinitionReference` blocks as defined below.
 	PolicyDefinitionReferences PolicySetDefinitionPolicyDefinitionReferenceArrayOutput `pulumi:"policyDefinitionReferences"`
-	// The policy set type. Possible values are `BuiltIn`, `Custom`, `NotSpecified` and `Static`. Changing this forces a new resource to be created.
+	// The Policy Set Definition type. Possible values are `BuiltIn`, `Custom`, `NotSpecified`, and `Static`. Changing this forces a new Policy Set Definition to be created.
 	PolicyType pulumi.StringOutput `pulumi:"policyType"`
 }
 
@@ -138,44 +142,44 @@ func GetPolicySetDefinition(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PolicySetDefinition resources.
 type policySetDefinitionState struct {
-	// The description of the policy set definition.
+	// The description of this Policy Set Definition.
 	Description *string `pulumi:"description"`
-	// The display name of the policy set definition.
+	// The display name of this Policy Set Definition.
 	DisplayName *string `pulumi:"displayName"`
-	// The id of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created.
+	// Deprecated: `managementGroupId` has been deprecated in favour of the `management.GroupPolicySetDefinition` resource and will be removed in v5.0 of the AzureRM Provider.
 	ManagementGroupId *string `pulumi:"managementGroupId"`
-	// The metadata for the policy set definition. This is a JSON object representing additional metadata that should be stored with the policy definition.
+	// The metadata for the Policy Set Definition in JSON format.
 	Metadata *string `pulumi:"metadata"`
-	// The name of the policy set definition. Changing this forces a new resource to be created.
+	// The name which should be used for this Policy Set Definition. Changing this forces a new Policy Set Definition to be created.
 	Name *string `pulumi:"name"`
-	// Parameters for the policy set definition. This field is a JSON object that allows you to parameterize your policy definition.
+	// The parameters for the Policy Set Definition in JSON format. Reducing the number of parameters forces a new resource to be created.
 	Parameters *string `pulumi:"parameters"`
 	// One or more `policyDefinitionGroup` blocks as defined below.
 	PolicyDefinitionGroups []PolicySetDefinitionPolicyDefinitionGroup `pulumi:"policyDefinitionGroups"`
 	// One or more `policyDefinitionReference` blocks as defined below.
 	PolicyDefinitionReferences []PolicySetDefinitionPolicyDefinitionReference `pulumi:"policyDefinitionReferences"`
-	// The policy set type. Possible values are `BuiltIn`, `Custom`, `NotSpecified` and `Static`. Changing this forces a new resource to be created.
+	// The Policy Set Definition type. Possible values are `BuiltIn`, `Custom`, `NotSpecified`, and `Static`. Changing this forces a new Policy Set Definition to be created.
 	PolicyType *string `pulumi:"policyType"`
 }
 
 type PolicySetDefinitionState struct {
-	// The description of the policy set definition.
+	// The description of this Policy Set Definition.
 	Description pulumi.StringPtrInput
-	// The display name of the policy set definition.
+	// The display name of this Policy Set Definition.
 	DisplayName pulumi.StringPtrInput
-	// The id of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created.
+	// Deprecated: `managementGroupId` has been deprecated in favour of the `management.GroupPolicySetDefinition` resource and will be removed in v5.0 of the AzureRM Provider.
 	ManagementGroupId pulumi.StringPtrInput
-	// The metadata for the policy set definition. This is a JSON object representing additional metadata that should be stored with the policy definition.
+	// The metadata for the Policy Set Definition in JSON format.
 	Metadata pulumi.StringPtrInput
-	// The name of the policy set definition. Changing this forces a new resource to be created.
+	// The name which should be used for this Policy Set Definition. Changing this forces a new Policy Set Definition to be created.
 	Name pulumi.StringPtrInput
-	// Parameters for the policy set definition. This field is a JSON object that allows you to parameterize your policy definition.
+	// The parameters for the Policy Set Definition in JSON format. Reducing the number of parameters forces a new resource to be created.
 	Parameters pulumi.StringPtrInput
 	// One or more `policyDefinitionGroup` blocks as defined below.
 	PolicyDefinitionGroups PolicySetDefinitionPolicyDefinitionGroupArrayInput
 	// One or more `policyDefinitionReference` blocks as defined below.
 	PolicyDefinitionReferences PolicySetDefinitionPolicyDefinitionReferenceArrayInput
-	// The policy set type. Possible values are `BuiltIn`, `Custom`, `NotSpecified` and `Static`. Changing this forces a new resource to be created.
+	// The Policy Set Definition type. Possible values are `BuiltIn`, `Custom`, `NotSpecified`, and `Static`. Changing this forces a new Policy Set Definition to be created.
 	PolicyType pulumi.StringPtrInput
 }
 
@@ -184,45 +188,45 @@ func (PolicySetDefinitionState) ElementType() reflect.Type {
 }
 
 type policySetDefinitionArgs struct {
-	// The description of the policy set definition.
+	// The description of this Policy Set Definition.
 	Description *string `pulumi:"description"`
-	// The display name of the policy set definition.
+	// The display name of this Policy Set Definition.
 	DisplayName string `pulumi:"displayName"`
-	// The id of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created.
+	// Deprecated: `managementGroupId` has been deprecated in favour of the `management.GroupPolicySetDefinition` resource and will be removed in v5.0 of the AzureRM Provider.
 	ManagementGroupId *string `pulumi:"managementGroupId"`
-	// The metadata for the policy set definition. This is a JSON object representing additional metadata that should be stored with the policy definition.
+	// The metadata for the Policy Set Definition in JSON format.
 	Metadata *string `pulumi:"metadata"`
-	// The name of the policy set definition. Changing this forces a new resource to be created.
+	// The name which should be used for this Policy Set Definition. Changing this forces a new Policy Set Definition to be created.
 	Name *string `pulumi:"name"`
-	// Parameters for the policy set definition. This field is a JSON object that allows you to parameterize your policy definition.
+	// The parameters for the Policy Set Definition in JSON format. Reducing the number of parameters forces a new resource to be created.
 	Parameters *string `pulumi:"parameters"`
 	// One or more `policyDefinitionGroup` blocks as defined below.
 	PolicyDefinitionGroups []PolicySetDefinitionPolicyDefinitionGroup `pulumi:"policyDefinitionGroups"`
 	// One or more `policyDefinitionReference` blocks as defined below.
 	PolicyDefinitionReferences []PolicySetDefinitionPolicyDefinitionReference `pulumi:"policyDefinitionReferences"`
-	// The policy set type. Possible values are `BuiltIn`, `Custom`, `NotSpecified` and `Static`. Changing this forces a new resource to be created.
+	// The Policy Set Definition type. Possible values are `BuiltIn`, `Custom`, `NotSpecified`, and `Static`. Changing this forces a new Policy Set Definition to be created.
 	PolicyType string `pulumi:"policyType"`
 }
 
 // The set of arguments for constructing a PolicySetDefinition resource.
 type PolicySetDefinitionArgs struct {
-	// The description of the policy set definition.
+	// The description of this Policy Set Definition.
 	Description pulumi.StringPtrInput
-	// The display name of the policy set definition.
+	// The display name of this Policy Set Definition.
 	DisplayName pulumi.StringInput
-	// The id of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created.
+	// Deprecated: `managementGroupId` has been deprecated in favour of the `management.GroupPolicySetDefinition` resource and will be removed in v5.0 of the AzureRM Provider.
 	ManagementGroupId pulumi.StringPtrInput
-	// The metadata for the policy set definition. This is a JSON object representing additional metadata that should be stored with the policy definition.
+	// The metadata for the Policy Set Definition in JSON format.
 	Metadata pulumi.StringPtrInput
-	// The name of the policy set definition. Changing this forces a new resource to be created.
+	// The name which should be used for this Policy Set Definition. Changing this forces a new Policy Set Definition to be created.
 	Name pulumi.StringPtrInput
-	// Parameters for the policy set definition. This field is a JSON object that allows you to parameterize your policy definition.
+	// The parameters for the Policy Set Definition in JSON format. Reducing the number of parameters forces a new resource to be created.
 	Parameters pulumi.StringPtrInput
 	// One or more `policyDefinitionGroup` blocks as defined below.
 	PolicyDefinitionGroups PolicySetDefinitionPolicyDefinitionGroupArrayInput
 	// One or more `policyDefinitionReference` blocks as defined below.
 	PolicyDefinitionReferences PolicySetDefinitionPolicyDefinitionReferenceArrayInput
-	// The policy set type. Possible values are `BuiltIn`, `Custom`, `NotSpecified` and `Static`. Changing this forces a new resource to be created.
+	// The Policy Set Definition type. Possible values are `BuiltIn`, `Custom`, `NotSpecified`, and `Static`. Changing this forces a new Policy Set Definition to be created.
 	PolicyType pulumi.StringInput
 }
 
@@ -313,32 +317,32 @@ func (o PolicySetDefinitionOutput) ToPolicySetDefinitionOutputWithContext(ctx co
 	return o
 }
 
-// The description of the policy set definition.
+// The description of this Policy Set Definition.
 func (o PolicySetDefinitionOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicySetDefinition) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The display name of the policy set definition.
+// The display name of this Policy Set Definition.
 func (o PolicySetDefinitionOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v *PolicySetDefinition) pulumi.StringOutput { return v.DisplayName }).(pulumi.StringOutput)
 }
 
-// The id of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created.
+// Deprecated: `managementGroupId` has been deprecated in favour of the `management.GroupPolicySetDefinition` resource and will be removed in v5.0 of the AzureRM Provider.
 func (o PolicySetDefinitionOutput) ManagementGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicySetDefinition) pulumi.StringPtrOutput { return v.ManagementGroupId }).(pulumi.StringPtrOutput)
 }
 
-// The metadata for the policy set definition. This is a JSON object representing additional metadata that should be stored with the policy definition.
+// The metadata for the Policy Set Definition in JSON format.
 func (o PolicySetDefinitionOutput) Metadata() pulumi.StringOutput {
 	return o.ApplyT(func(v *PolicySetDefinition) pulumi.StringOutput { return v.Metadata }).(pulumi.StringOutput)
 }
 
-// The name of the policy set definition. Changing this forces a new resource to be created.
+// The name which should be used for this Policy Set Definition. Changing this forces a new Policy Set Definition to be created.
 func (o PolicySetDefinitionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *PolicySetDefinition) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Parameters for the policy set definition. This field is a JSON object that allows you to parameterize your policy definition.
+// The parameters for the Policy Set Definition in JSON format. Reducing the number of parameters forces a new resource to be created.
 func (o PolicySetDefinitionOutput) Parameters() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicySetDefinition) pulumi.StringPtrOutput { return v.Parameters }).(pulumi.StringPtrOutput)
 }
@@ -357,7 +361,7 @@ func (o PolicySetDefinitionOutput) PolicyDefinitionReferences() PolicySetDefinit
 	}).(PolicySetDefinitionPolicyDefinitionReferenceArrayOutput)
 }
 
-// The policy set type. Possible values are `BuiltIn`, `Custom`, `NotSpecified` and `Static`. Changing this forces a new resource to be created.
+// The Policy Set Definition type. Possible values are `BuiltIn`, `Custom`, `NotSpecified`, and `Static`. Changing this forces a new Policy Set Definition to be created.
 func (o PolicySetDefinitionOutput) PolicyType() pulumi.StringOutput {
 	return o.ApplyT(func(v *PolicySetDefinition) pulumi.StringOutput { return v.PolicyType }).(pulumi.StringOutput)
 }

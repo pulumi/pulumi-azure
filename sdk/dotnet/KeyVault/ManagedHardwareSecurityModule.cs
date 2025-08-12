@@ -59,7 +59,7 @@ namespace Pulumi.Azure.KeyVault
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.KeyVault`: 2023-07-01
+    /// * `Microsoft.KeyVault` - 2023-07-01
     /// 
     /// ## Import
     /// 
@@ -103,7 +103,7 @@ namespace Pulumi.Azure.KeyVault
         public Output<Outputs.ManagedHardwareSecurityModuleNetworkAcls> NetworkAcls { get; private set; } = null!;
 
         /// <summary>
-        /// Whether traffic from public networks is permitted. Defaults to `true`. Changing this forces a new resource to be created.
+        /// Whether traffic from public networks is permitted. Defaults to `true`.
         /// </summary>
         [Output("publicNetworkAccessEnabled")]
         public Output<bool?> PublicNetworkAccessEnabled { get; private set; } = null!;
@@ -243,7 +243,7 @@ namespace Pulumi.Azure.KeyVault
         public Input<Inputs.ManagedHardwareSecurityModuleNetworkAclsArgs>? NetworkAcls { get; set; }
 
         /// <summary>
-        /// Whether traffic from public networks is permitted. Defaults to `true`. Changing this forces a new resource to be created.
+        /// Whether traffic from public networks is permitted. Defaults to `true`.
         /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
@@ -353,7 +353,7 @@ namespace Pulumi.Azure.KeyVault
         public Input<Inputs.ManagedHardwareSecurityModuleNetworkAclsGetArgs>? NetworkAcls { get; set; }
 
         /// <summary>
-        /// Whether traffic from public networks is permitted. Defaults to `true`. Changing this forces a new resource to be created.
+        /// Whether traffic from public networks is permitted. Defaults to `true`.
         /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }

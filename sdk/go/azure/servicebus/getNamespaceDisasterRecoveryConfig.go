@@ -46,7 +46,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This data source uses the following Azure API Providers:
 //
-// * `Microsoft.ServiceBus`: 2021-06-01-preview
+// * `Microsoft.ServiceBus` - 2024-01-01
 func LookupNamespaceDisasterRecoveryConfig(ctx *pulumi.Context, args *LookupNamespaceDisasterRecoveryConfigArgs, opts ...pulumi.InvokeOption) (*LookupNamespaceDisasterRecoveryConfigResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupNamespaceDisasterRecoveryConfigResult

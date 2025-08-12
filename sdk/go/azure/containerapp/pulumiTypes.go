@@ -379,6 +379,8 @@ type AppIngress struct {
 	AllowInsecureConnections *bool `pulumi:"allowInsecureConnections"`
 	// The client certificate mode for the Ingress. Possible values are `require`, `accept`, and `ignore`.
 	ClientCertificateMode *string `pulumi:"clientCertificateMode"`
+	// A `cors` block as defined below.
+	Cors *AppIngressCors `pulumi:"cors"`
 	// One or more `customDomain` block as detailed below.
 	CustomDomains []AppIngressCustomDomain `pulumi:"customDomains"`
 	// The exposed port on the container for the Ingress traffic.
@@ -417,6 +419,8 @@ type AppIngressArgs struct {
 	AllowInsecureConnections pulumi.BoolPtrInput `pulumi:"allowInsecureConnections"`
 	// The client certificate mode for the Ingress. Possible values are `require`, `accept`, and `ignore`.
 	ClientCertificateMode pulumi.StringPtrInput `pulumi:"clientCertificateMode"`
+	// A `cors` block as defined below.
+	Cors AppIngressCorsPtrInput `pulumi:"cors"`
 	// One or more `customDomain` block as detailed below.
 	CustomDomains AppIngressCustomDomainArrayInput `pulumi:"customDomains"`
 	// The exposed port on the container for the Ingress traffic.
@@ -526,6 +530,11 @@ func (o AppIngressOutput) ClientCertificateMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppIngress) *string { return v.ClientCertificateMode }).(pulumi.StringPtrOutput)
 }
 
+// A `cors` block as defined below.
+func (o AppIngressOutput) Cors() AppIngressCorsPtrOutput {
+	return o.ApplyT(func(v AppIngress) *AppIngressCors { return v.Cors }).(AppIngressCorsPtrOutput)
+}
+
 // One or more `customDomain` block as detailed below.
 func (o AppIngressOutput) CustomDomains() AppIngressCustomDomainArrayOutput {
 	return o.ApplyT(func(v AppIngress) []AppIngressCustomDomain { return v.CustomDomains }).(AppIngressCustomDomainArrayOutput)
@@ -614,6 +623,16 @@ func (o AppIngressPtrOutput) ClientCertificateMode() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// A `cors` block as defined below.
+func (o AppIngressPtrOutput) Cors() AppIngressCorsPtrOutput {
+	return o.ApplyT(func(v *AppIngress) *AppIngressCors {
+		if v == nil {
+			return nil
+		}
+		return v.Cors
+	}).(AppIngressCorsPtrOutput)
+}
+
 // One or more `customDomain` block as detailed below.
 func (o AppIngressPtrOutput) CustomDomains() AppIngressCustomDomainArrayOutput {
 	return o.ApplyT(func(v *AppIngress) []AppIngressCustomDomain {
@@ -696,6 +715,238 @@ func (o AppIngressPtrOutput) Transport() pulumi.StringPtrOutput {
 		}
 		return v.Transport
 	}).(pulumi.StringPtrOutput)
+}
+
+type AppIngressCors struct {
+	// Whether user credentials are allowed in the cross-origin request is enabled. Defaults to `false`.
+	AllowCredentialsEnabled *bool `pulumi:"allowCredentialsEnabled"`
+	// Specifies the list of request headers that are permitted in the actual request.
+	AllowedHeaders []string `pulumi:"allowedHeaders"`
+	// Specifies the list of HTTP methods are allowed when accessing the resource in a cross-origin request.
+	AllowedMethods []string `pulumi:"allowedMethods"`
+	// Specifies the list of origins that are allowed to make cross-origin calls.
+	AllowedOrigins []string `pulumi:"allowedOrigins"`
+	// Specifies the list of headers exposed to the browser in the response to a cross-origin request.
+	ExposedHeaders []string `pulumi:"exposedHeaders"`
+	// Specifies the number of seconds that the browser can cache the results of a preflight request.
+	MaxAgeInSeconds *int `pulumi:"maxAgeInSeconds"`
+}
+
+// AppIngressCorsInput is an input type that accepts AppIngressCorsArgs and AppIngressCorsOutput values.
+// You can construct a concrete instance of `AppIngressCorsInput` via:
+//
+//	AppIngressCorsArgs{...}
+type AppIngressCorsInput interface {
+	pulumi.Input
+
+	ToAppIngressCorsOutput() AppIngressCorsOutput
+	ToAppIngressCorsOutputWithContext(context.Context) AppIngressCorsOutput
+}
+
+type AppIngressCorsArgs struct {
+	// Whether user credentials are allowed in the cross-origin request is enabled. Defaults to `false`.
+	AllowCredentialsEnabled pulumi.BoolPtrInput `pulumi:"allowCredentialsEnabled"`
+	// Specifies the list of request headers that are permitted in the actual request.
+	AllowedHeaders pulumi.StringArrayInput `pulumi:"allowedHeaders"`
+	// Specifies the list of HTTP methods are allowed when accessing the resource in a cross-origin request.
+	AllowedMethods pulumi.StringArrayInput `pulumi:"allowedMethods"`
+	// Specifies the list of origins that are allowed to make cross-origin calls.
+	AllowedOrigins pulumi.StringArrayInput `pulumi:"allowedOrigins"`
+	// Specifies the list of headers exposed to the browser in the response to a cross-origin request.
+	ExposedHeaders pulumi.StringArrayInput `pulumi:"exposedHeaders"`
+	// Specifies the number of seconds that the browser can cache the results of a preflight request.
+	MaxAgeInSeconds pulumi.IntPtrInput `pulumi:"maxAgeInSeconds"`
+}
+
+func (AppIngressCorsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppIngressCors)(nil)).Elem()
+}
+
+func (i AppIngressCorsArgs) ToAppIngressCorsOutput() AppIngressCorsOutput {
+	return i.ToAppIngressCorsOutputWithContext(context.Background())
+}
+
+func (i AppIngressCorsArgs) ToAppIngressCorsOutputWithContext(ctx context.Context) AppIngressCorsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppIngressCorsOutput)
+}
+
+func (i AppIngressCorsArgs) ToAppIngressCorsPtrOutput() AppIngressCorsPtrOutput {
+	return i.ToAppIngressCorsPtrOutputWithContext(context.Background())
+}
+
+func (i AppIngressCorsArgs) ToAppIngressCorsPtrOutputWithContext(ctx context.Context) AppIngressCorsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppIngressCorsOutput).ToAppIngressCorsPtrOutputWithContext(ctx)
+}
+
+// AppIngressCorsPtrInput is an input type that accepts AppIngressCorsArgs, AppIngressCorsPtr and AppIngressCorsPtrOutput values.
+// You can construct a concrete instance of `AppIngressCorsPtrInput` via:
+//
+//	        AppIngressCorsArgs{...}
+//
+//	or:
+//
+//	        nil
+type AppIngressCorsPtrInput interface {
+	pulumi.Input
+
+	ToAppIngressCorsPtrOutput() AppIngressCorsPtrOutput
+	ToAppIngressCorsPtrOutputWithContext(context.Context) AppIngressCorsPtrOutput
+}
+
+type appIngressCorsPtrType AppIngressCorsArgs
+
+func AppIngressCorsPtr(v *AppIngressCorsArgs) AppIngressCorsPtrInput {
+	return (*appIngressCorsPtrType)(v)
+}
+
+func (*appIngressCorsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AppIngressCors)(nil)).Elem()
+}
+
+func (i *appIngressCorsPtrType) ToAppIngressCorsPtrOutput() AppIngressCorsPtrOutput {
+	return i.ToAppIngressCorsPtrOutputWithContext(context.Background())
+}
+
+func (i *appIngressCorsPtrType) ToAppIngressCorsPtrOutputWithContext(ctx context.Context) AppIngressCorsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppIngressCorsPtrOutput)
+}
+
+type AppIngressCorsOutput struct{ *pulumi.OutputState }
+
+func (AppIngressCorsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppIngressCors)(nil)).Elem()
+}
+
+func (o AppIngressCorsOutput) ToAppIngressCorsOutput() AppIngressCorsOutput {
+	return o
+}
+
+func (o AppIngressCorsOutput) ToAppIngressCorsOutputWithContext(ctx context.Context) AppIngressCorsOutput {
+	return o
+}
+
+func (o AppIngressCorsOutput) ToAppIngressCorsPtrOutput() AppIngressCorsPtrOutput {
+	return o.ToAppIngressCorsPtrOutputWithContext(context.Background())
+}
+
+func (o AppIngressCorsOutput) ToAppIngressCorsPtrOutputWithContext(ctx context.Context) AppIngressCorsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppIngressCors) *AppIngressCors {
+		return &v
+	}).(AppIngressCorsPtrOutput)
+}
+
+// Whether user credentials are allowed in the cross-origin request is enabled. Defaults to `false`.
+func (o AppIngressCorsOutput) AllowCredentialsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AppIngressCors) *bool { return v.AllowCredentialsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the list of request headers that are permitted in the actual request.
+func (o AppIngressCorsOutput) AllowedHeaders() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AppIngressCors) []string { return v.AllowedHeaders }).(pulumi.StringArrayOutput)
+}
+
+// Specifies the list of HTTP methods are allowed when accessing the resource in a cross-origin request.
+func (o AppIngressCorsOutput) AllowedMethods() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AppIngressCors) []string { return v.AllowedMethods }).(pulumi.StringArrayOutput)
+}
+
+// Specifies the list of origins that are allowed to make cross-origin calls.
+func (o AppIngressCorsOutput) AllowedOrigins() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AppIngressCors) []string { return v.AllowedOrigins }).(pulumi.StringArrayOutput)
+}
+
+// Specifies the list of headers exposed to the browser in the response to a cross-origin request.
+func (o AppIngressCorsOutput) ExposedHeaders() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AppIngressCors) []string { return v.ExposedHeaders }).(pulumi.StringArrayOutput)
+}
+
+// Specifies the number of seconds that the browser can cache the results of a preflight request.
+func (o AppIngressCorsOutput) MaxAgeInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AppIngressCors) *int { return v.MaxAgeInSeconds }).(pulumi.IntPtrOutput)
+}
+
+type AppIngressCorsPtrOutput struct{ *pulumi.OutputState }
+
+func (AppIngressCorsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AppIngressCors)(nil)).Elem()
+}
+
+func (o AppIngressCorsPtrOutput) ToAppIngressCorsPtrOutput() AppIngressCorsPtrOutput {
+	return o
+}
+
+func (o AppIngressCorsPtrOutput) ToAppIngressCorsPtrOutputWithContext(ctx context.Context) AppIngressCorsPtrOutput {
+	return o
+}
+
+func (o AppIngressCorsPtrOutput) Elem() AppIngressCorsOutput {
+	return o.ApplyT(func(v *AppIngressCors) AppIngressCors {
+		if v != nil {
+			return *v
+		}
+		var ret AppIngressCors
+		return ret
+	}).(AppIngressCorsOutput)
+}
+
+// Whether user credentials are allowed in the cross-origin request is enabled. Defaults to `false`.
+func (o AppIngressCorsPtrOutput) AllowCredentialsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AppIngressCors) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AllowCredentialsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the list of request headers that are permitted in the actual request.
+func (o AppIngressCorsPtrOutput) AllowedHeaders() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AppIngressCors) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AllowedHeaders
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specifies the list of HTTP methods are allowed when accessing the resource in a cross-origin request.
+func (o AppIngressCorsPtrOutput) AllowedMethods() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AppIngressCors) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AllowedMethods
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specifies the list of origins that are allowed to make cross-origin calls.
+func (o AppIngressCorsPtrOutput) AllowedOrigins() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AppIngressCors) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AllowedOrigins
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specifies the list of headers exposed to the browser in the response to a cross-origin request.
+func (o AppIngressCorsPtrOutput) ExposedHeaders() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AppIngressCors) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ExposedHeaders
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specifies the number of seconds that the browser can cache the results of a preflight request.
+func (o AppIngressCorsPtrOutput) MaxAgeInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AppIngressCors) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxAgeInSeconds
+	}).(pulumi.IntPtrOutput)
 }
 
 type AppIngressCustomDomain struct {
@@ -4680,6 +4931,192 @@ func (o EnvironmentDaprComponentSecretArrayOutput) Index(i pulumi.IntInput) Envi
 	}).(EnvironmentDaprComponentSecretOutput)
 }
 
+type EnvironmentIdentity struct {
+	// A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+	IdentityIds []string `pulumi:"identityIds"`
+	PrincipalId *string  `pulumi:"principalId"`
+	TenantId    *string  `pulumi:"tenantId"`
+	// The type of managed identity to assign. Possible values are `SystemAssigned`, `UserAssigned`, and `SystemAssigned, UserAssigned` (to enable both).
+	Type string `pulumi:"type"`
+}
+
+// EnvironmentIdentityInput is an input type that accepts EnvironmentIdentityArgs and EnvironmentIdentityOutput values.
+// You can construct a concrete instance of `EnvironmentIdentityInput` via:
+//
+//	EnvironmentIdentityArgs{...}
+type EnvironmentIdentityInput interface {
+	pulumi.Input
+
+	ToEnvironmentIdentityOutput() EnvironmentIdentityOutput
+	ToEnvironmentIdentityOutputWithContext(context.Context) EnvironmentIdentityOutput
+}
+
+type EnvironmentIdentityArgs struct {
+	// A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
+	PrincipalId pulumi.StringPtrInput   `pulumi:"principalId"`
+	TenantId    pulumi.StringPtrInput   `pulumi:"tenantId"`
+	// The type of managed identity to assign. Possible values are `SystemAssigned`, `UserAssigned`, and `SystemAssigned, UserAssigned` (to enable both).
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (EnvironmentIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnvironmentIdentity)(nil)).Elem()
+}
+
+func (i EnvironmentIdentityArgs) ToEnvironmentIdentityOutput() EnvironmentIdentityOutput {
+	return i.ToEnvironmentIdentityOutputWithContext(context.Background())
+}
+
+func (i EnvironmentIdentityArgs) ToEnvironmentIdentityOutputWithContext(ctx context.Context) EnvironmentIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentIdentityOutput)
+}
+
+func (i EnvironmentIdentityArgs) ToEnvironmentIdentityPtrOutput() EnvironmentIdentityPtrOutput {
+	return i.ToEnvironmentIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i EnvironmentIdentityArgs) ToEnvironmentIdentityPtrOutputWithContext(ctx context.Context) EnvironmentIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentIdentityOutput).ToEnvironmentIdentityPtrOutputWithContext(ctx)
+}
+
+// EnvironmentIdentityPtrInput is an input type that accepts EnvironmentIdentityArgs, EnvironmentIdentityPtr and EnvironmentIdentityPtrOutput values.
+// You can construct a concrete instance of `EnvironmentIdentityPtrInput` via:
+//
+//	        EnvironmentIdentityArgs{...}
+//
+//	or:
+//
+//	        nil
+type EnvironmentIdentityPtrInput interface {
+	pulumi.Input
+
+	ToEnvironmentIdentityPtrOutput() EnvironmentIdentityPtrOutput
+	ToEnvironmentIdentityPtrOutputWithContext(context.Context) EnvironmentIdentityPtrOutput
+}
+
+type environmentIdentityPtrType EnvironmentIdentityArgs
+
+func EnvironmentIdentityPtr(v *EnvironmentIdentityArgs) EnvironmentIdentityPtrInput {
+	return (*environmentIdentityPtrType)(v)
+}
+
+func (*environmentIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EnvironmentIdentity)(nil)).Elem()
+}
+
+func (i *environmentIdentityPtrType) ToEnvironmentIdentityPtrOutput() EnvironmentIdentityPtrOutput {
+	return i.ToEnvironmentIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *environmentIdentityPtrType) ToEnvironmentIdentityPtrOutputWithContext(ctx context.Context) EnvironmentIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentIdentityPtrOutput)
+}
+
+type EnvironmentIdentityOutput struct{ *pulumi.OutputState }
+
+func (EnvironmentIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnvironmentIdentity)(nil)).Elem()
+}
+
+func (o EnvironmentIdentityOutput) ToEnvironmentIdentityOutput() EnvironmentIdentityOutput {
+	return o
+}
+
+func (o EnvironmentIdentityOutput) ToEnvironmentIdentityOutputWithContext(ctx context.Context) EnvironmentIdentityOutput {
+	return o
+}
+
+func (o EnvironmentIdentityOutput) ToEnvironmentIdentityPtrOutput() EnvironmentIdentityPtrOutput {
+	return o.ToEnvironmentIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o EnvironmentIdentityOutput) ToEnvironmentIdentityPtrOutputWithContext(ctx context.Context) EnvironmentIdentityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EnvironmentIdentity) *EnvironmentIdentity {
+		return &v
+	}).(EnvironmentIdentityPtrOutput)
+}
+
+// A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+func (o EnvironmentIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v EnvironmentIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
+func (o EnvironmentIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EnvironmentIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+}
+
+func (o EnvironmentIdentityOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EnvironmentIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+// The type of managed identity to assign. Possible values are `SystemAssigned`, `UserAssigned`, and `SystemAssigned, UserAssigned` (to enable both).
+func (o EnvironmentIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v EnvironmentIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type EnvironmentIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (EnvironmentIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EnvironmentIdentity)(nil)).Elem()
+}
+
+func (o EnvironmentIdentityPtrOutput) ToEnvironmentIdentityPtrOutput() EnvironmentIdentityPtrOutput {
+	return o
+}
+
+func (o EnvironmentIdentityPtrOutput) ToEnvironmentIdentityPtrOutputWithContext(ctx context.Context) EnvironmentIdentityPtrOutput {
+	return o
+}
+
+func (o EnvironmentIdentityPtrOutput) Elem() EnvironmentIdentityOutput {
+	return o.ApplyT(func(v *EnvironmentIdentity) EnvironmentIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret EnvironmentIdentity
+		return ret
+	}).(EnvironmentIdentityOutput)
+}
+
+// A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+func (o EnvironmentIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *EnvironmentIdentity) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityIds
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o EnvironmentIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EnvironmentIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrincipalId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o EnvironmentIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EnvironmentIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of managed identity to assign. Possible values are `SystemAssigned`, `UserAssigned`, and `SystemAssigned, UserAssigned` (to enable both).
+func (o EnvironmentIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EnvironmentIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
 type EnvironmentWorkloadProfile struct {
 	// The maximum number of instances of workload profile that can be deployed in the Container App Environment.
 	MaximumCount *int `pulumi:"maximumCount"`
@@ -8390,6 +8827,8 @@ type GetAppIngress struct {
 	AllowInsecureConnections bool `pulumi:"allowInsecureConnections"`
 	// The client certificate mode for the Ingress.
 	ClientCertificateMode string `pulumi:"clientCertificateMode"`
+	// A `cors` block as detailed below.
+	Cors []GetAppIngressCor `pulumi:"cors"`
 	// One or more `customDomain` block as detailed below.
 	CustomDomains []GetAppIngressCustomDomain `pulumi:"customDomains"`
 	// The exposed port on the container for the Ingress traffic.
@@ -8424,6 +8863,8 @@ type GetAppIngressArgs struct {
 	AllowInsecureConnections pulumi.BoolInput `pulumi:"allowInsecureConnections"`
 	// The client certificate mode for the Ingress.
 	ClientCertificateMode pulumi.StringInput `pulumi:"clientCertificateMode"`
+	// A `cors` block as detailed below.
+	Cors GetAppIngressCorArrayInput `pulumi:"cors"`
 	// One or more `customDomain` block as detailed below.
 	CustomDomains GetAppIngressCustomDomainArrayInput `pulumi:"customDomains"`
 	// The exposed port on the container for the Ingress traffic.
@@ -8503,6 +8944,11 @@ func (o GetAppIngressOutput) ClientCertificateMode() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAppIngress) string { return v.ClientCertificateMode }).(pulumi.StringOutput)
 }
 
+// A `cors` block as detailed below.
+func (o GetAppIngressOutput) Cors() GetAppIngressCorArrayOutput {
+	return o.ApplyT(func(v GetAppIngress) []GetAppIngressCor { return v.Cors }).(GetAppIngressCorArrayOutput)
+}
+
 // One or more `customDomain` block as detailed below.
 func (o GetAppIngressOutput) CustomDomains() GetAppIngressCustomDomainArrayOutput {
 	return o.ApplyT(func(v GetAppIngress) []GetAppIngressCustomDomain { return v.CustomDomains }).(GetAppIngressCustomDomainArrayOutput)
@@ -8561,6 +9007,148 @@ func (o GetAppIngressArrayOutput) Index(i pulumi.IntInput) GetAppIngressOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAppIngress {
 		return vs[0].([]GetAppIngress)[vs[1].(int)]
 	}).(GetAppIngressOutput)
+}
+
+type GetAppIngressCor struct {
+	// Whether user credentials are allowed in the cross-origin request.
+	AllowCredentialsEnabled bool `pulumi:"allowCredentialsEnabled"`
+	// The list of request headers that are permitted in the actual request.
+	AllowedHeaders []string `pulumi:"allowedHeaders"`
+	// The list of HTTP methods are allowed when accessing the resource in a cross-origin request.
+	AllowedMethods []string `pulumi:"allowedMethods"`
+	// The list of origins that are allowed to make cross-origin calls.
+	AllowedOrigins []string `pulumi:"allowedOrigins"`
+	// The list of headers exposed to the browser in the response to a cross-origin request.
+	ExposedHeaders []string `pulumi:"exposedHeaders"`
+	// The number of seconds that the browser can cache the results of a preflight request.
+	MaxAgeInSeconds int `pulumi:"maxAgeInSeconds"`
+}
+
+// GetAppIngressCorInput is an input type that accepts GetAppIngressCorArgs and GetAppIngressCorOutput values.
+// You can construct a concrete instance of `GetAppIngressCorInput` via:
+//
+//	GetAppIngressCorArgs{...}
+type GetAppIngressCorInput interface {
+	pulumi.Input
+
+	ToGetAppIngressCorOutput() GetAppIngressCorOutput
+	ToGetAppIngressCorOutputWithContext(context.Context) GetAppIngressCorOutput
+}
+
+type GetAppIngressCorArgs struct {
+	// Whether user credentials are allowed in the cross-origin request.
+	AllowCredentialsEnabled pulumi.BoolInput `pulumi:"allowCredentialsEnabled"`
+	// The list of request headers that are permitted in the actual request.
+	AllowedHeaders pulumi.StringArrayInput `pulumi:"allowedHeaders"`
+	// The list of HTTP methods are allowed when accessing the resource in a cross-origin request.
+	AllowedMethods pulumi.StringArrayInput `pulumi:"allowedMethods"`
+	// The list of origins that are allowed to make cross-origin calls.
+	AllowedOrigins pulumi.StringArrayInput `pulumi:"allowedOrigins"`
+	// The list of headers exposed to the browser in the response to a cross-origin request.
+	ExposedHeaders pulumi.StringArrayInput `pulumi:"exposedHeaders"`
+	// The number of seconds that the browser can cache the results of a preflight request.
+	MaxAgeInSeconds pulumi.IntInput `pulumi:"maxAgeInSeconds"`
+}
+
+func (GetAppIngressCorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAppIngressCor)(nil)).Elem()
+}
+
+func (i GetAppIngressCorArgs) ToGetAppIngressCorOutput() GetAppIngressCorOutput {
+	return i.ToGetAppIngressCorOutputWithContext(context.Background())
+}
+
+func (i GetAppIngressCorArgs) ToGetAppIngressCorOutputWithContext(ctx context.Context) GetAppIngressCorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAppIngressCorOutput)
+}
+
+// GetAppIngressCorArrayInput is an input type that accepts GetAppIngressCorArray and GetAppIngressCorArrayOutput values.
+// You can construct a concrete instance of `GetAppIngressCorArrayInput` via:
+//
+//	GetAppIngressCorArray{ GetAppIngressCorArgs{...} }
+type GetAppIngressCorArrayInput interface {
+	pulumi.Input
+
+	ToGetAppIngressCorArrayOutput() GetAppIngressCorArrayOutput
+	ToGetAppIngressCorArrayOutputWithContext(context.Context) GetAppIngressCorArrayOutput
+}
+
+type GetAppIngressCorArray []GetAppIngressCorInput
+
+func (GetAppIngressCorArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAppIngressCor)(nil)).Elem()
+}
+
+func (i GetAppIngressCorArray) ToGetAppIngressCorArrayOutput() GetAppIngressCorArrayOutput {
+	return i.ToGetAppIngressCorArrayOutputWithContext(context.Background())
+}
+
+func (i GetAppIngressCorArray) ToGetAppIngressCorArrayOutputWithContext(ctx context.Context) GetAppIngressCorArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAppIngressCorArrayOutput)
+}
+
+type GetAppIngressCorOutput struct{ *pulumi.OutputState }
+
+func (GetAppIngressCorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAppIngressCor)(nil)).Elem()
+}
+
+func (o GetAppIngressCorOutput) ToGetAppIngressCorOutput() GetAppIngressCorOutput {
+	return o
+}
+
+func (o GetAppIngressCorOutput) ToGetAppIngressCorOutputWithContext(ctx context.Context) GetAppIngressCorOutput {
+	return o
+}
+
+// Whether user credentials are allowed in the cross-origin request.
+func (o GetAppIngressCorOutput) AllowCredentialsEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetAppIngressCor) bool { return v.AllowCredentialsEnabled }).(pulumi.BoolOutput)
+}
+
+// The list of request headers that are permitted in the actual request.
+func (o GetAppIngressCorOutput) AllowedHeaders() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetAppIngressCor) []string { return v.AllowedHeaders }).(pulumi.StringArrayOutput)
+}
+
+// The list of HTTP methods are allowed when accessing the resource in a cross-origin request.
+func (o GetAppIngressCorOutput) AllowedMethods() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetAppIngressCor) []string { return v.AllowedMethods }).(pulumi.StringArrayOutput)
+}
+
+// The list of origins that are allowed to make cross-origin calls.
+func (o GetAppIngressCorOutput) AllowedOrigins() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetAppIngressCor) []string { return v.AllowedOrigins }).(pulumi.StringArrayOutput)
+}
+
+// The list of headers exposed to the browser in the response to a cross-origin request.
+func (o GetAppIngressCorOutput) ExposedHeaders() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetAppIngressCor) []string { return v.ExposedHeaders }).(pulumi.StringArrayOutput)
+}
+
+// The number of seconds that the browser can cache the results of a preflight request.
+func (o GetAppIngressCorOutput) MaxAgeInSeconds() pulumi.IntOutput {
+	return o.ApplyT(func(v GetAppIngressCor) int { return v.MaxAgeInSeconds }).(pulumi.IntOutput)
+}
+
+type GetAppIngressCorArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAppIngressCorArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAppIngressCor)(nil)).Elem()
+}
+
+func (o GetAppIngressCorArrayOutput) ToGetAppIngressCorArrayOutput() GetAppIngressCorArrayOutput {
+	return o
+}
+
+func (o GetAppIngressCorArrayOutput) ToGetAppIngressCorArrayOutputWithContext(ctx context.Context) GetAppIngressCorArrayOutput {
+	return o
+}
+
+func (o GetAppIngressCorArrayOutput) Index(i pulumi.IntInput) GetAppIngressCorOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAppIngressCor {
+		return vs[0].([]GetAppIngressCor)[vs[1].(int)]
+	}).(GetAppIngressCorOutput)
 }
 
 type GetAppIngressCustomDomain struct {
@@ -10744,7 +11332,6 @@ type GetAppTemplateContainerVolumeMount struct {
 	// The path in the container at which to mount this volume.
 	Path string `pulumi:"path"`
 	// The sub path of the volume to be mounted in the container.
-	// ---
 	SubPath string `pulumi:"subPath"`
 }
 
@@ -10765,7 +11352,6 @@ type GetAppTemplateContainerVolumeMountArgs struct {
 	// The path in the container at which to mount this volume.
 	Path pulumi.StringInput `pulumi:"path"`
 	// The sub path of the volume to be mounted in the container.
-	// ---
 	SubPath pulumi.StringInput `pulumi:"subPath"`
 }
 
@@ -10831,7 +11417,6 @@ func (o GetAppTemplateContainerVolumeMountOutput) Path() pulumi.StringOutput {
 }
 
 // The sub path of the volume to be mounted in the container.
-// ---
 func (o GetAppTemplateContainerVolumeMountOutput) SubPath() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAppTemplateContainerVolumeMount) string { return v.SubPath }).(pulumi.StringOutput)
 }
@@ -11580,7 +12165,6 @@ type GetAppTemplateInitContainerVolumeMount struct {
 	// The path in the container at which to mount this volume.
 	Path string `pulumi:"path"`
 	// The sub path of the volume to be mounted in the container.
-	// ---
 	SubPath string `pulumi:"subPath"`
 }
 
@@ -11601,7 +12185,6 @@ type GetAppTemplateInitContainerVolumeMountArgs struct {
 	// The path in the container at which to mount this volume.
 	Path pulumi.StringInput `pulumi:"path"`
 	// The sub path of the volume to be mounted in the container.
-	// ---
 	SubPath pulumi.StringInput `pulumi:"subPath"`
 }
 
@@ -11667,7 +12250,6 @@ func (o GetAppTemplateInitContainerVolumeMountOutput) Path() pulumi.StringOutput
 }
 
 // The sub path of the volume to be mounted in the container.
-// ---
 func (o GetAppTemplateInitContainerVolumeMountOutput) SubPath() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAppTemplateInitContainerVolumeMount) string { return v.SubPath }).(pulumi.StringOutput)
 }
@@ -12037,6 +12619,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AppIdentityPtrInput)(nil)).Elem(), AppIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppIngressInput)(nil)).Elem(), AppIngressArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppIngressPtrInput)(nil)).Elem(), AppIngressArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AppIngressCorsInput)(nil)).Elem(), AppIngressCorsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AppIngressCorsPtrInput)(nil)).Elem(), AppIngressCorsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppIngressCustomDomainInput)(nil)).Elem(), AppIngressCustomDomainArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppIngressCustomDomainArrayInput)(nil)).Elem(), AppIngressCustomDomainArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppIngressIpSecurityRestrictionInput)(nil)).Elem(), AppIngressIpSecurityRestrictionArgs{})
@@ -12095,6 +12679,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentDaprComponentMetadataArrayInput)(nil)).Elem(), EnvironmentDaprComponentMetadataArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentDaprComponentSecretInput)(nil)).Elem(), EnvironmentDaprComponentSecretArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentDaprComponentSecretArrayInput)(nil)).Elem(), EnvironmentDaprComponentSecretArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentIdentityInput)(nil)).Elem(), EnvironmentIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentIdentityPtrInput)(nil)).Elem(), EnvironmentIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentWorkloadProfileInput)(nil)).Elem(), EnvironmentWorkloadProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentWorkloadProfileArrayInput)(nil)).Elem(), EnvironmentWorkloadProfileArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobEventTriggerConfigInput)(nil)).Elem(), JobEventTriggerConfigArgs{})
@@ -12149,6 +12735,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAppIdentityArrayInput)(nil)).Elem(), GetAppIdentityArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAppIngressInput)(nil)).Elem(), GetAppIngressArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAppIngressArrayInput)(nil)).Elem(), GetAppIngressArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAppIngressCorInput)(nil)).Elem(), GetAppIngressCorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAppIngressCorArrayInput)(nil)).Elem(), GetAppIngressCorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAppIngressCustomDomainInput)(nil)).Elem(), GetAppIngressCustomDomainArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAppIngressCustomDomainArrayInput)(nil)).Elem(), GetAppIngressCustomDomainArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAppIngressIpSecurityRestrictionInput)(nil)).Elem(), GetAppIngressIpSecurityRestrictionArgs{})
@@ -12209,6 +12797,8 @@ func init() {
 	pulumi.RegisterOutputType(AppIdentityPtrOutput{})
 	pulumi.RegisterOutputType(AppIngressOutput{})
 	pulumi.RegisterOutputType(AppIngressPtrOutput{})
+	pulumi.RegisterOutputType(AppIngressCorsOutput{})
+	pulumi.RegisterOutputType(AppIngressCorsPtrOutput{})
 	pulumi.RegisterOutputType(AppIngressCustomDomainOutput{})
 	pulumi.RegisterOutputType(AppIngressCustomDomainArrayOutput{})
 	pulumi.RegisterOutputType(AppIngressIpSecurityRestrictionOutput{})
@@ -12267,6 +12857,8 @@ func init() {
 	pulumi.RegisterOutputType(EnvironmentDaprComponentMetadataArrayOutput{})
 	pulumi.RegisterOutputType(EnvironmentDaprComponentSecretOutput{})
 	pulumi.RegisterOutputType(EnvironmentDaprComponentSecretArrayOutput{})
+	pulumi.RegisterOutputType(EnvironmentIdentityOutput{})
+	pulumi.RegisterOutputType(EnvironmentIdentityPtrOutput{})
 	pulumi.RegisterOutputType(EnvironmentWorkloadProfileOutput{})
 	pulumi.RegisterOutputType(EnvironmentWorkloadProfileArrayOutput{})
 	pulumi.RegisterOutputType(JobEventTriggerConfigOutput{})
@@ -12321,6 +12913,8 @@ func init() {
 	pulumi.RegisterOutputType(GetAppIdentityArrayOutput{})
 	pulumi.RegisterOutputType(GetAppIngressOutput{})
 	pulumi.RegisterOutputType(GetAppIngressArrayOutput{})
+	pulumi.RegisterOutputType(GetAppIngressCorOutput{})
+	pulumi.RegisterOutputType(GetAppIngressCorArrayOutput{})
 	pulumi.RegisterOutputType(GetAppIngressCustomDomainOutput{})
 	pulumi.RegisterOutputType(GetAppIngressCustomDomainArrayOutput{})
 	pulumi.RegisterOutputType(GetAppIngressIpSecurityRestrictionOutput{})

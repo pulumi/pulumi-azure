@@ -95,6 +95,25 @@ public final class ProjectPoolArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * A list of the regions of the managed Virtual Network. When specified, the Dev Center Project Pool will use a Microsoft managed network.
+     * 
+     * &gt; **Note:** Currently only one region can be specified for `managed_virtual_network_regions`.
+     * 
+     */
+    @Import(name="managedVirtualNetworkRegions")
+    private @Nullable Output<String> managedVirtualNetworkRegions;
+
+    /**
+     * @return A list of the regions of the managed Virtual Network. When specified, the Dev Center Project Pool will use a Microsoft managed network.
+     * 
+     * &gt; **Note:** Currently only one region can be specified for `managed_virtual_network_regions`.
+     * 
+     */
+    public Optional<Output<String>> managedVirtualNetworkRegions() {
+        return Optional.ofNullable(this.managedVirtualNetworkRegions);
+    }
+
+    /**
      * Specifies the name of this Dev Center Project Pool. Changing this forces a new resource to be created.
      * 
      */
@@ -147,6 +166,7 @@ public final class ProjectPoolArgs extends com.pulumi.resources.ResourceArgs {
         this.devCenterProjectId = $.devCenterProjectId;
         this.localAdministratorEnabled = $.localAdministratorEnabled;
         this.location = $.location;
+        this.managedVirtualNetworkRegions = $.managedVirtualNetworkRegions;
         this.name = $.name;
         this.stopOnDisconnectGracePeriodMinutes = $.stopOnDisconnectGracePeriodMinutes;
         this.tags = $.tags;
@@ -273,6 +293,31 @@ public final class ProjectPoolArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder location(String location) {
             return location(Output.of(location));
+        }
+
+        /**
+         * @param managedVirtualNetworkRegions A list of the regions of the managed Virtual Network. When specified, the Dev Center Project Pool will use a Microsoft managed network.
+         * 
+         * &gt; **Note:** Currently only one region can be specified for `managed_virtual_network_regions`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder managedVirtualNetworkRegions(@Nullable Output<String> managedVirtualNetworkRegions) {
+            $.managedVirtualNetworkRegions = managedVirtualNetworkRegions;
+            return this;
+        }
+
+        /**
+         * @param managedVirtualNetworkRegions A list of the regions of the managed Virtual Network. When specified, the Dev Center Project Pool will use a Microsoft managed network.
+         * 
+         * &gt; **Note:** Currently only one region can be specified for `managed_virtual_network_regions`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder managedVirtualNetworkRegions(String managedVirtualNetworkRegions) {
+            return managedVirtualNetworkRegions(Output.of(managedVirtualNetworkRegions));
         }
 
         /**

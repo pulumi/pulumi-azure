@@ -74,7 +74,7 @@ import javax.annotation.Nullable;
  * &lt;!-- This section is generated, changes will be overwritten --&gt;
  * This resource uses the following Azure API Providers:
  * 
- * * `Microsoft.OperationalInsights`: 2022-10-01, 2020-08-01
+ * * `Microsoft.OperationalInsights` - 2022-10-01, 2020-08-01
  * 
  * ## Import
  * 
@@ -88,14 +88,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:operationalinsights/analyticsWorkspace:AnalyticsWorkspace")
 public class AnalyticsWorkspace extends com.pulumi.resources.CustomResource {
     /**
-     * Specifies if the log Analytics Workspace allow users accessing to data associated with resources they have permission to view, without permission to workspace. Defaults to `true`.
+     * Specifies if the log Analytics Workspace allows users accessing to data associated with the resources they have permission to view, without permission to workspace. Defaults to `true`.
      * 
      */
     @Export(name="allowResourceOnlyPermissions", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> allowResourceOnlyPermissions;
 
     /**
-     * @return Specifies if the log Analytics Workspace allow users accessing to data associated with resources they have permission to view, without permission to workspace. Defaults to `true`.
+     * @return Specifies if the log Analytics Workspace allows users accessing to data associated with the resources they have permission to view, without permission to workspace. Defaults to `true`.
      * 
      */
     public Output<Optional<Boolean>> allowResourceOnlyPermissions() {
@@ -200,18 +200,30 @@ public class AnalyticsWorkspace extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.internetQueryEnabled);
     }
     /**
-     * Specifies if the log Analytics workspace should enforce authentication using Azure AD. Defaults to `false`.
+     * @deprecated
+     * `local_authentication_disabled` has been deprecated in favour of `local_authentication_enabled` and will be removed in v5.0 of the AzureRM Provider
      * 
      */
+    @Deprecated /* `local_authentication_disabled` has been deprecated in favour of `local_authentication_enabled` and will be removed in v5.0 of the AzureRM Provider */
     @Export(name="localAuthenticationDisabled", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> localAuthenticationDisabled;
+    private Output<Boolean> localAuthenticationDisabled;
+
+    public Output<Boolean> localAuthenticationDisabled() {
+        return this.localAuthenticationDisabled;
+    }
+    /**
+     * Specifies if the log Analytics workspace should allow local authentication methods in addition to Microsoft Entra (Azure AD). Defaults to `true`.
+     * 
+     */
+    @Export(name="localAuthenticationEnabled", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> localAuthenticationEnabled;
 
     /**
-     * @return Specifies if the log Analytics workspace should enforce authentication using Azure AD. Defaults to `false`.
+     * @return Specifies if the log Analytics workspace should allow local authentication methods in addition to Microsoft Entra (Azure AD). Defaults to `true`.
      * 
      */
-    public Output<Optional<Boolean>> localAuthenticationDisabled() {
-        return Codegen.optional(this.localAuthenticationDisabled);
+    public Output<Boolean> localAuthenticationEnabled() {
+        return this.localAuthenticationEnabled;
     }
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -316,7 +328,7 @@ public class AnalyticsWorkspace extends com.pulumi.resources.CustomResource {
         return this.secondarySharedKey;
     }
     /**
-     * Specifies the SKU of the Log Analytics Workspace. Possible values are `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, `CapacityReservation`, `PerGB2018`, and `LACluster`. Defaults to `PerGB2018`.
+     * Specifies the SKU of the Log Analytics Workspace. Possible values are `PerNode`, `Standalone`, `Unlimited`, `CapacityReservation`, `PerGB2018`, and `LACluster`. Defaults to `PerGB2018`.
      * 
      * &gt; **Note:** `sku` should only be set to `LACluster` when the Log Analytics Workspace is linked to a Log Analytics Cluster. Additionally, `sku` cannot be modified while linked.
      * 
@@ -329,7 +341,7 @@ public class AnalyticsWorkspace extends com.pulumi.resources.CustomResource {
     private Output<String> sku;
 
     /**
-     * @return Specifies the SKU of the Log Analytics Workspace. Possible values are `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, `CapacityReservation`, `PerGB2018`, and `LACluster`. Defaults to `PerGB2018`.
+     * @return Specifies the SKU of the Log Analytics Workspace. Possible values are `PerNode`, `Standalone`, `Unlimited`, `CapacityReservation`, `PerGB2018`, and `LACluster`. Defaults to `PerGB2018`.
      * 
      * &gt; **Note:** `sku` should only be set to `LACluster` when the Log Analytics Workspace is linked to a Log Analytics Cluster. Additionally, `sku` cannot be modified while linked.
      * 

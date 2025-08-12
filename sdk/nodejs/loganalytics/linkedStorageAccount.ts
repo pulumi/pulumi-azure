@@ -33,7 +33,7 @@ import * as utilities from "../utilities";
  * const exampleLinkedStorageAccount = new azure.loganalytics.LinkedStorageAccount("example", {
  *     dataSourceType: "CustomLogs",
  *     resourceGroupName: example.name,
- *     workspaceResourceId: exampleAnalyticsWorkspace.id,
+ *     workspaceId: exampleAnalyticsWorkspace.id,
  *     storageAccountIds: [exampleAccount.id],
  * });
  * ```
@@ -43,7 +43,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This resource uses the following Azure API Providers:
  *
- * * `Microsoft.OperationalInsights`: 2020-08-01
+ * * `Microsoft.OperationalInsights` - 2020-08-01
  *
  * ## Import
  *
@@ -96,6 +96,7 @@ export class LinkedStorageAccount extends pulumi.CustomResource {
     /**
      * The resource ID of the Log Analytics Workspace. Changing this forces a new Log Analytics Linked Storage Account to be created.
      */
+    public readonly workspaceId!: pulumi.Output<string>;
     public readonly workspaceResourceId!: pulumi.Output<string>;
 
     /**
@@ -114,6 +115,7 @@ export class LinkedStorageAccount extends pulumi.CustomResource {
             resourceInputs["dataSourceType"] = state ? state.dataSourceType : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["storageAccountIds"] = state ? state.storageAccountIds : undefined;
+            resourceInputs["workspaceId"] = state ? state.workspaceId : undefined;
             resourceInputs["workspaceResourceId"] = state ? state.workspaceResourceId : undefined;
         } else {
             const args = argsOrState as LinkedStorageAccountArgs | undefined;
@@ -126,12 +128,10 @@ export class LinkedStorageAccount extends pulumi.CustomResource {
             if ((!args || args.storageAccountIds === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'storageAccountIds'");
             }
-            if ((!args || args.workspaceResourceId === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'workspaceResourceId'");
-            }
             resourceInputs["dataSourceType"] = args ? args.dataSourceType : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["storageAccountIds"] = args ? args.storageAccountIds : undefined;
+            resourceInputs["workspaceId"] = args ? args.workspaceId : undefined;
             resourceInputs["workspaceResourceId"] = args ? args.workspaceResourceId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -158,6 +158,7 @@ export interface LinkedStorageAccountState {
     /**
      * The resource ID of the Log Analytics Workspace. Changing this forces a new Log Analytics Linked Storage Account to be created.
      */
+    workspaceId?: pulumi.Input<string>;
     workspaceResourceId?: pulumi.Input<string>;
 }
 
@@ -180,5 +181,6 @@ export interface LinkedStorageAccountArgs {
     /**
      * The resource ID of the Log Analytics Workspace. Changing this forces a new Log Analytics Linked Storage Account to be created.
      */
-    workspaceResourceId: pulumi.Input<string>;
+    workspaceId?: pulumi.Input<string>;
+    workspaceResourceId?: pulumi.Input<string>;
 }

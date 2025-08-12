@@ -164,7 +164,7 @@ def get_definition(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Blueprint`: 2018-11-01-preview
+    * `Microsoft.Blueprint` - 2018-11-01-preview
 
 
     :param _builtins.str name: The name of the Blueprint.
@@ -211,7 +211,7 @@ def get_definition_output(name: Optional[pulumi.Input[_builtins.str]] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Blueprint`: 2018-11-01-preview
+    * `Microsoft.Blueprint` - 2018-11-01-preview
 
 
     :param _builtins.str name: The name of the Blueprint.
